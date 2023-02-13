@@ -108,4 +108,3 @@ You can run code analysis: `melos run analyze`. It will analyze all dart code, i
 ## Version
 
 At this time melos updates version for nekoton_bridge automatically, links it to flutter_nekoton_bridge (changes 'ref'), but don't update flutter_nekoton_bridge version itself. I don't know what to do with it, so we should fix it manually.
-
