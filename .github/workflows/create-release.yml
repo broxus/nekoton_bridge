@@ -30,7 +30,7 @@ jobs:
       - uses: bluefireteam/melos-action@v2
 
       - name: Create the new version(s)
-        run: melos version --yes ${{ inputs.version_parameters }}
+        run: melos version -a --yes ${{ inputs.version_parameters }}
 
       - name: Push created version commit
         run: git push
