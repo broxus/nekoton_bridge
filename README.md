@@ -12,7 +12,6 @@ Then your adventure continues by installing dependencies:
 
 ```
 cargo install flutter_rust_bridge_codegen
-flutter pub add --dev ffigen && flutter pub add ffi
 cargo install cargo-xcode
 rustup target add \
     aarch64-linux-android \
@@ -48,6 +47,9 @@ The library consists of dart files and platform-specific binaries. pub.dev has a
 ```
 melos run build:apple
 melos run build:android
+
+# or just
+melos build
 ```
 
 You can find `platform-build/NekotonBridge.xcframework.zip` and `platform-build/android.tar.gz` in case of success. Rust build cache will be in `target/` directory.
@@ -68,12 +70,6 @@ You can open the project in Android studio or Visual studio code, or even build 
 
 ### iOS build 
 
-Please don't forget to install pods if you don't use flutter run.
-
-```
-pod install
-```
-
 During build scripts copies platform-specific binaries to `packages/flutter_nekoton_bridge/ios/Frameworks/netokon_bridge*.zip` and unpack it to `packages/flutter_nekoton_bridge/ios/Frameworks/NekotonBridge.xcframework/`. It's a good idea to check this things if something went wrong.
 
 ### Android build 🤖
@@ -83,6 +79,8 @@ During build scripts copies platform-specific binaries to `packages/flutter_neko
 ## Tests ✔️
 
 You can run dart, flutter and integration tests: `melos run test:dart`, `melos run test:flutter` or `melos run test:integration`. You can also run all tests at one by running `melos run test`.
+
+You need to run emulator/simulator to complete `melos run test:integration`
 
 ## Code analysis
 
@@ -100,6 +98,7 @@ You can run code analysis: `melos run analyze`. It will analyze all dart code, i
 
 `melos run check-all` will ckeck, analyze and run all tests. In future this thing will be in git pre-comit hook.
 
+You need to run emulator/simulator to complete this command
 
 ## Conventional Commits ❤️
 
