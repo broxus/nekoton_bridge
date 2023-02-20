@@ -27,5 +27,5 @@ nekoton-utils = { git = "https://github.com/broxus/nekoton.git" }
 oslog = "0.2.0"
 
 [target.'cfg(target_os = "android")'.dependencies]
-android_logger = "0.12.0"
+android_logger = "0.13.0"
 
