@@ -1,28 +1,78 @@
+use std::env;
+use convert_case::{Case, Casing};
+use glob::glob;
 use lib_flutter_rust_bridge_codegen::{
     config_parse, frb_codegen, get_symbols_if_no_duplicates, RawOpts,
 };
 
-const RUST_INPUT: &str = "src/api.rs";
-const DART_OUTPUT: &str = "../lib/src/bridge_generated.dart";
-
-const IOS_C_OUTPUT: &str = "../../flutter_nekoton_bridge/ios/Classes/frb.h";
-// const MACOS_C_OUTPUT: &str = "../../flutter_nekoton_bridge/macos/Classes/frb.h";
-
 fn main() {
-    // Tell Cargo that if the input Rust code changes, rerun this build script
-    println!("cargo:rerun-if-changed={RUST_INPUT}");
+    // ----------------------------------------------
+    // !!! This generates multiple libs for frb. WORKS
+    let mut inputs: Vec<String> = vec![];
+    let mut inputs_names: Vec<String> = vec![];
+
+    for entry in glob("./src/**/*api.rs").expect("Failed read api files") {
+        match entry {
+            Ok(path) => {
+                inputs.push(path.display().to_string());
+                match path.file_name() {
+                    None => {}
+                    Some(name) => {
+                        inputs_names.push(name.to_string_lossy().to_string());
+                    }
+                }
+            }
+            Err(_) => {}
+        }
+    }
+
+    let dart_outputs: Vec<String> = inputs
+        .clone()
+        .into_iter()
+        .map(|path| path.replace("src", "../lib/src").replace(".rs", ".dart"))
+        .collect();
+
+    let rust_outputs: Vec<String> = inputs_names
+        .clone()
+        .into_iter()
+        .map(|name| format!("src/{}", name.replace("api.rs", "generated.rs")))
+        .collect();
+    let class_names: Vec<String> = inputs_names
+        .clone()
+        .into_iter()
+        .map(|name| {
+            name.replace(".rs", "")
+                .to_case(Case::Title)
+                .replace(" ", "")
+        })
+        .collect();
 
     // Options for frb_codegen
     let raw_opts = RawOpts {
-        rust_input: vec![RUST_INPUT.to_string()],
-        dart_output: vec![DART_OUTPUT.to_string()],
-        c_output: Some(vec![IOS_C_OUTPUT.to_string()]),
-        // TODO: add output for macOS
-        // c_output: Some(vec![IOS_C_OUTPUT.to_string(), MACOS_C_OUTPUT.to_string()]),
+        rust_input: inputs,
+        dart_output: dart_outputs,
+        rust_output: Option::from(rust_outputs),
+        class_name: Option::from(class_names),
         inline_rust: true,
-        wasm: true,
+        verbose: true,
+        wasm: false,
         ..Default::default()
     };
+    // ----------------------------------------------
+
+
+    // This is an attempt to build frb from single-file
+    // To generate single file run
+    // cargo install cargo-merge
+    // cargo merge             [from native folder]
+    // let raw_opts = RawOpts {
+    //     rust_input: vec!["target/merge/merged.rs".to_string()],
+    //     dart_output: vec!["../lib/src/bridge_generated.dart".to_string()],
+    //     inline_rust: true,
+    //     verbose: true,
+    //     wasm: false,
+    //     ..Default::default()
+    // };
 
     // Generate Rust & Dart ffi bridges
     let configs = config_parse(raw_opts);
@@ -31,9 +81,14 @@ fn main() {
         frb_codegen(config, &all_symbols).unwrap();
     }
 
+    // Run custom generation for all imports
+    _ = std::process::Command::new("dart")
+        .arg("run ../bin/build.dart")
+        .spawn();
+
     // Format the generated Dart code
     _ = std::process::Command::new("flutter")
-        .arg("format")
+        .arg("format -l 100")
         .arg("..")
         .spawn();
 }
