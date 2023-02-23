@@ -49,16 +49,6 @@ fn wire_create_log_stream_impl(port_: MessagePort) {
         move || move |task_callback| Ok(create_log_stream(task_callback.stream_sink())),
     )
 }
-fn wire_stub_dv_impl(port_: MessagePort) {
-    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
-        WrapInfo {
-            debug_name: "stub_dv",
-            port: Some(port_),
-            mode: FfiCallMode::Normal,
-        },
-        move || move |task_callback| Ok(stub_dv()),
-    )
-}
 fn wire_init_caller_impl(port_: MessagePort) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
@@ -127,6 +117,16 @@ fn wire_simple_adder_impl(
         },
     )
 }
+fn wire_stub_dv_impl(port_: MessagePort) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "stub_dv",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || move |task_callback| Ok(stub_dv()),
+    )
+}
 fn wire_stub_dcs_impl(port_: MessagePort) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
@@ -158,6 +158,16 @@ fn wire_stub_call_dart_impl(port_: MessagePort, stub: impl Wire2Api<DartCallStub
             let api_stub = stub.wire2api();
             move |task_callback| Ok(stub_call_dart(api_stub))
         },
+    )
+}
+fn wire_simple_call_func0_impl(port_: MessagePort) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "simple_call_func0",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || move |task_callback| Ok(simple_call_func0()),
     )
 }
 fn wire_new__static_method__MyClass_impl(port_: MessagePort, a: impl Wire2Api<i32> + UnwindSafe) {
@@ -218,8 +228,23 @@ impl Wire2Api<bool> for bool {
     }
 }
 
+impl Wire2Api<f32> for f32 {
+    fn wire2api(self) -> f32 {
+        self
+    }
+}
+impl Wire2Api<f64> for f64 {
+    fn wire2api(self) -> f64 {
+        self
+    }
+}
 impl Wire2Api<i32> for i32 {
     fn wire2api(self) -> i32 {
+        self
+    }
+}
+impl Wire2Api<i64> for i64 {
+    fn wire2api(self) -> i64 {
         self
     }
 }
@@ -242,6 +267,11 @@ impl Wire2Api<u32> for u32 {
         self
     }
 }
+impl Wire2Api<u64> for u64 {
+    fn wire2api(self) -> u64 {
+        self
+    }
+}
 impl Wire2Api<u8> for u8 {
     fn wire2api(self) -> u8 {
         self
@@ -261,7 +291,12 @@ impl support::IntoDart for DynamicValue {
     fn into_dart(self) -> support::DartAbi {
         match self {
             Self::U32(field0) => vec![0.into_dart(), field0.into_dart()],
-            Self::String(field0) => vec![1.into_dart(), field0.into_dart()],
+            Self::I32(field0) => vec![1.into_dart(), field0.into_dart()],
+            Self::U64(field0) => vec![2.into_dart(), field0.into_dart()],
+            Self::I64(field0) => vec![3.into_dart(), field0.into_dart()],
+            Self::F32(field0) => vec![4.into_dart(), field0.into_dart()],
+            Self::F64(field0) => vec![5.into_dart(), field0.into_dart()],
+            Self::String(field0) => vec![6.into_dart(), field0.into_dart()],
         }
         .into_dart()
     }
@@ -323,11 +358,6 @@ mod web {
     }
 
     #[wasm_bindgen]
-    pub fn wire_stub_dv(port_: MessagePort) {
-        wire_stub_dv_impl(port_)
-    }
-
-    #[wasm_bindgen]
     pub fn wire_init_caller(port_: MessagePort) {
         wire_init_caller_impl(port_)
     }
@@ -353,6 +383,11 @@ mod web {
     }
 
     #[wasm_bindgen]
+    pub fn wire_stub_dv(port_: MessagePort) {
+        wire_stub_dv_impl(port_)
+    }
+
+    #[wasm_bindgen]
     pub fn wire_stub_dcs(port_: MessagePort) {
         wire_stub_dcs_impl(port_)
     }
@@ -365,6 +400,11 @@ mod web {
     #[wasm_bindgen]
     pub fn wire_stub_call_dart(port_: MessagePort, stub: JsValue) {
         wire_stub_call_dart_impl(port_, stub)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_simple_call_func0(port_: MessagePort) {
+        wire_simple_call_func0_impl(port_)
     }
 
     #[wasm_bindgen]
@@ -409,7 +449,12 @@ mod web {
             let self_ = self.unchecked_into::<JsArray>();
             match self_.get(0).unchecked_into_f64() as _ {
                 0 => DynamicValue::U32(self_.get(1).wire2api()),
-                1 => DynamicValue::String(self_.get(1).wire2api()),
+                1 => DynamicValue::I32(self_.get(1).wire2api()),
+                2 => DynamicValue::U64(self_.get(1).wire2api()),
+                3 => DynamicValue::I64(self_.get(1).wire2api()),
+                4 => DynamicValue::F32(self_.get(1).wire2api()),
+                5 => DynamicValue::F64(self_.get(1).wire2api()),
+                6 => DynamicValue::String(self_.get(1).wire2api()),
                 _ => unreachable!(),
             }
         }
@@ -457,9 +502,24 @@ mod web {
             self.is_truthy()
         }
     }
+    impl Wire2Api<f32> for JsValue {
+        fn wire2api(self) -> f32 {
+            self.unchecked_into_f64() as _
+        }
+    }
+    impl Wire2Api<f64> for JsValue {
+        fn wire2api(self) -> f64 {
+            self.unchecked_into_f64() as _
+        }
+    }
     impl Wire2Api<i32> for JsValue {
         fn wire2api(self) -> i32 {
             self.unchecked_into_f64() as _
+        }
+    }
+    impl Wire2Api<i64> for JsValue {
+        fn wire2api(self) -> i64 {
+            ::std::convert::TryInto::try_into(self.dyn_into::<js_sys::BigInt>().unwrap()).unwrap()
         }
     }
     impl Wire2Api<LogLevel> for JsValue {
@@ -470,6 +530,11 @@ mod web {
     impl Wire2Api<u32> for JsValue {
         fn wire2api(self) -> u32 {
             self.unchecked_into_f64() as _
+        }
+    }
+    impl Wire2Api<u64> for JsValue {
+        fn wire2api(self) -> u64 {
+            ::std::convert::TryInto::try_into(self.dyn_into::<js_sys::BigInt>().unwrap()).unwrap()
         }
     }
     impl Wire2Api<u8> for JsValue {
@@ -502,11 +567,6 @@ mod io {
     }
 
     #[no_mangle]
-    pub extern "C" fn wire_stub_dv(port_: i64) {
-        wire_stub_dv_impl(port_)
-    }
-
-    #[no_mangle]
     pub extern "C" fn wire_init_caller(port_: i64) {
         wire_init_caller_impl(port_)
     }
@@ -532,6 +592,11 @@ mod io {
     }
 
     #[no_mangle]
+    pub extern "C" fn wire_stub_dv(port_: i64) {
+        wire_stub_dv_impl(port_)
+    }
+
+    #[no_mangle]
     pub extern "C" fn wire_stub_dcs(port_: i64) {
         wire_stub_dcs_impl(port_)
     }
@@ -544,6 +609,11 @@ mod io {
     #[no_mangle]
     pub extern "C" fn wire_stub_call_dart(port_: i64, stub: *mut wire_DartCallStub) {
         wire_stub_call_dart_impl(port_, stub)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_simple_call_func0(port_: i64) {
+        wire_simple_call_func0_impl(port_)
     }
 
     #[no_mangle]
@@ -627,6 +697,31 @@ mod io {
                 },
                 1 => unsafe {
                     let ans = support::box_from_leak_ptr(self.kind);
+                    let ans = support::box_from_leak_ptr(ans.I32);
+                    DynamicValue::I32(ans.field0.wire2api())
+                },
+                2 => unsafe {
+                    let ans = support::box_from_leak_ptr(self.kind);
+                    let ans = support::box_from_leak_ptr(ans.U64);
+                    DynamicValue::U64(ans.field0.wire2api())
+                },
+                3 => unsafe {
+                    let ans = support::box_from_leak_ptr(self.kind);
+                    let ans = support::box_from_leak_ptr(ans.I64);
+                    DynamicValue::I64(ans.field0.wire2api())
+                },
+                4 => unsafe {
+                    let ans = support::box_from_leak_ptr(self.kind);
+                    let ans = support::box_from_leak_ptr(ans.F32);
+                    DynamicValue::F32(ans.field0.wire2api())
+                },
+                5 => unsafe {
+                    let ans = support::box_from_leak_ptr(self.kind);
+                    let ans = support::box_from_leak_ptr(ans.F64);
+                    DynamicValue::F64(ans.field0.wire2api())
+                },
+                6 => unsafe {
+                    let ans = support::box_from_leak_ptr(self.kind);
                     let ans = support::box_from_leak_ptr(ans.String);
                     DynamicValue::String(ans.field0.wire2api())
                 },
@@ -700,6 +795,11 @@ mod io {
     #[repr(C)]
     pub union DynamicValueKind {
         U32: *mut wire_DynamicValue_U32,
+        I32: *mut wire_DynamicValue_I32,
+        U64: *mut wire_DynamicValue_U64,
+        I64: *mut wire_DynamicValue_I64,
+        F32: *mut wire_DynamicValue_F32,
+        F64: *mut wire_DynamicValue_F64,
         String: *mut wire_DynamicValue_String,
     }
 
@@ -707,6 +807,36 @@ mod io {
     #[derive(Clone)]
     pub struct wire_DynamicValue_U32 {
         field0: u32,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_DynamicValue_I32 {
+        field0: i32,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_DynamicValue_U64 {
+        field0: u64,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_DynamicValue_I64 {
+        field0: i64,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_DynamicValue_F32 {
+        field0: f32,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_DynamicValue_F64 {
+        field0: f64,
     }
 
     #[repr(C)]
@@ -749,6 +879,51 @@ mod io {
     pub extern "C" fn inflate_DynamicValue_U32() -> *mut DynamicValueKind {
         support::new_leak_box_ptr(DynamicValueKind {
             U32: support::new_leak_box_ptr(wire_DynamicValue_U32 {
+                field0: Default::default(),
+            }),
+        })
+    }
+
+    #[no_mangle]
+    pub extern "C" fn inflate_DynamicValue_I32() -> *mut DynamicValueKind {
+        support::new_leak_box_ptr(DynamicValueKind {
+            I32: support::new_leak_box_ptr(wire_DynamicValue_I32 {
+                field0: Default::default(),
+            }),
+        })
+    }
+
+    #[no_mangle]
+    pub extern "C" fn inflate_DynamicValue_U64() -> *mut DynamicValueKind {
+        support::new_leak_box_ptr(DynamicValueKind {
+            U64: support::new_leak_box_ptr(wire_DynamicValue_U64 {
+                field0: Default::default(),
+            }),
+        })
+    }
+
+    #[no_mangle]
+    pub extern "C" fn inflate_DynamicValue_I64() -> *mut DynamicValueKind {
+        support::new_leak_box_ptr(DynamicValueKind {
+            I64: support::new_leak_box_ptr(wire_DynamicValue_I64 {
+                field0: Default::default(),
+            }),
+        })
+    }
+
+    #[no_mangle]
+    pub extern "C" fn inflate_DynamicValue_F32() -> *mut DynamicValueKind {
+        support::new_leak_box_ptr(DynamicValueKind {
+            F32: support::new_leak_box_ptr(wire_DynamicValue_F32 {
+                field0: Default::default(),
+            }),
+        })
+    }
+
+    #[no_mangle]
+    pub extern "C" fn inflate_DynamicValue_F64() -> *mut DynamicValueKind {
+        support::new_leak_box_ptr(DynamicValueKind {
+            F64: support::new_leak_box_ptr(wire_DynamicValue_F64 {
                 field0: Default::default(),
             }),
         })

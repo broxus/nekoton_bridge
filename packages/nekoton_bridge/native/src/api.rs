@@ -36,6 +36,14 @@ pub fn create_log_stream(s: StreamSink<LogEntry>) {
 #[derive(Clone)]
 pub enum DynamicValue {
     U32(u32),
+    I32(i32),
+
+    U64(u64),
+    I64(i64),
+
+    F32(f32),
+    F64(f64),
+
     String(String),
 }
 
@@ -44,10 +52,6 @@ pub struct DartCallStub {
     pub args: Vec<DynamicValue>,
     // TODO: we can't use HashMap, so there are many possibilities to make it not very pretty :)
     // pub named_args: HashMap<String, DynamicValue>,
-}
-
-pub fn stub_dv() -> DynamicValue {
-    DynamicValue::U32(0)
 }
 
 /// Init caller
@@ -98,6 +102,9 @@ impl MyClass {
         self.val.my_format()
     }
 }
+pub fn stub_dv() -> DynamicValue {
+    DynamicValue::U32(0)
+}
 
 pub fn stub_dcs() -> DartCallStub {
     DartCallStub {
@@ -114,5 +121,17 @@ pub fn simple_call_dart() {
 }
 
 pub fn stub_call_dart(stub: DartCallStub) {
+    caller::call(stub);
+}
+
+pub fn simple_call_func0() {
+    let stub = DartCallStub {
+        fn_name: String::from("func0"),
+        args: vec![
+            DynamicValue::String(String::from("Hello from rust, this is simple_call_func0")),
+            DynamicValue::I64(42),
+            DynamicValue::F64(42.42),
+        ],
+    };
     caller::call(stub);
 }

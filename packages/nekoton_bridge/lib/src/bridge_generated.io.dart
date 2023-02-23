@@ -37,6 +37,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
   }
 
   @protected
+  int api2wire_i64(int raw) {
+    return raw;
+  }
+
+  @protected
   ffi.Pointer<wire_list_dynamic_value> api2wire_list_dynamic_value(
       List<DynamicValue> raw) {
     final ans = inner.new_list_dynamic_value_0(raw.length);
@@ -44,6 +49,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
       _api_fill_to_wire_dynamic_value(raw[i], ans.ref.ptr[i]);
     }
     return ans;
+  }
+
+  @protected
+  int api2wire_u64(int raw) {
+    return raw;
   }
 
   @protected
@@ -81,9 +91,44 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
       wireObj.kind.ref.U32.ref.field0 = pre_field0;
       return;
     }
+    if (apiObj is DynamicValue_I32) {
+      var pre_field0 = api2wire_i32(apiObj.field0);
+      wireObj.tag = 1;
+      wireObj.kind = inner.inflate_DynamicValue_I32();
+      wireObj.kind.ref.I32.ref.field0 = pre_field0;
+      return;
+    }
+    if (apiObj is DynamicValue_U64) {
+      var pre_field0 = api2wire_u64(apiObj.field0);
+      wireObj.tag = 2;
+      wireObj.kind = inner.inflate_DynamicValue_U64();
+      wireObj.kind.ref.U64.ref.field0 = pre_field0;
+      return;
+    }
+    if (apiObj is DynamicValue_I64) {
+      var pre_field0 = api2wire_i64(apiObj.field0);
+      wireObj.tag = 3;
+      wireObj.kind = inner.inflate_DynamicValue_I64();
+      wireObj.kind.ref.I64.ref.field0 = pre_field0;
+      return;
+    }
+    if (apiObj is DynamicValue_F32) {
+      var pre_field0 = api2wire_f32(apiObj.field0);
+      wireObj.tag = 4;
+      wireObj.kind = inner.inflate_DynamicValue_F32();
+      wireObj.kind.ref.F32.ref.field0 = pre_field0;
+      return;
+    }
+    if (apiObj is DynamicValue_F64) {
+      var pre_field0 = api2wire_f64(apiObj.field0);
+      wireObj.tag = 5;
+      wireObj.kind = inner.inflate_DynamicValue_F64();
+      wireObj.kind.ref.F64.ref.field0 = pre_field0;
+      return;
+    }
     if (apiObj is DynamicValue_String) {
       var pre_field0 = api2wire_String(apiObj.field0);
-      wireObj.tag = 1;
+      wireObj.tag = 6;
       wireObj.kind = inner.inflate_DynamicValue_String();
       wireObj.kind.ref.String.ref.field0 = pre_field0;
       return;
@@ -223,18 +268,6 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_create_log_stream =
       _wire_create_log_streamPtr.asFunction<void Function(int)>();
 
-  void wire_stub_dv(
-    int port_,
-  ) {
-    return _wire_stub_dv(
-      port_,
-    );
-  }
-
-  late final _wire_stub_dvPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>('wire_stub_dv');
-  late final _wire_stub_dv = _wire_stub_dvPtr.asFunction<void Function(int)>();
-
   void wire_init_caller(
     int port_,
   ) {
@@ -315,6 +348,18 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_simple_adder =
       _wire_simple_adderPtr.asFunction<void Function(int, int, int)>();
 
+  void wire_stub_dv(
+    int port_,
+  ) {
+    return _wire_stub_dv(
+      port_,
+    );
+  }
+
+  late final _wire_stub_dvPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>('wire_stub_dv');
+  late final _wire_stub_dv = _wire_stub_dvPtr.asFunction<void Function(int)>();
+
   void wire_stub_dcs(
     int port_,
   ) {
@@ -359,6 +404,20 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Pointer<wire_DartCallStub>)>>('wire_stub_call_dart');
   late final _wire_stub_call_dart = _wire_stub_call_dartPtr
       .asFunction<void Function(int, ffi.Pointer<wire_DartCallStub>)>();
+
+  void wire_simple_call_func0(
+    int port_,
+  ) {
+    return _wire_simple_call_func0(
+      port_,
+    );
+  }
+
+  late final _wire_simple_call_func0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_simple_call_func0');
+  late final _wire_simple_call_func0 =
+      _wire_simple_call_func0Ptr.asFunction<void Function(int)>();
 
   void wire_new__static_method__MyClass(
     int port_,
@@ -456,6 +515,56 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _inflate_DynamicValue_U32 = _inflate_DynamicValue_U32Ptr
       .asFunction<ffi.Pointer<DynamicValueKind> Function()>();
 
+  ffi.Pointer<DynamicValueKind> inflate_DynamicValue_I32() {
+    return _inflate_DynamicValue_I32();
+  }
+
+  late final _inflate_DynamicValue_I32Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<DynamicValueKind> Function()>>(
+          'inflate_DynamicValue_I32');
+  late final _inflate_DynamicValue_I32 = _inflate_DynamicValue_I32Ptr
+      .asFunction<ffi.Pointer<DynamicValueKind> Function()>();
+
+  ffi.Pointer<DynamicValueKind> inflate_DynamicValue_U64() {
+    return _inflate_DynamicValue_U64();
+  }
+
+  late final _inflate_DynamicValue_U64Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<DynamicValueKind> Function()>>(
+          'inflate_DynamicValue_U64');
+  late final _inflate_DynamicValue_U64 = _inflate_DynamicValue_U64Ptr
+      .asFunction<ffi.Pointer<DynamicValueKind> Function()>();
+
+  ffi.Pointer<DynamicValueKind> inflate_DynamicValue_I64() {
+    return _inflate_DynamicValue_I64();
+  }
+
+  late final _inflate_DynamicValue_I64Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<DynamicValueKind> Function()>>(
+          'inflate_DynamicValue_I64');
+  late final _inflate_DynamicValue_I64 = _inflate_DynamicValue_I64Ptr
+      .asFunction<ffi.Pointer<DynamicValueKind> Function()>();
+
+  ffi.Pointer<DynamicValueKind> inflate_DynamicValue_F32() {
+    return _inflate_DynamicValue_F32();
+  }
+
+  late final _inflate_DynamicValue_F32Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<DynamicValueKind> Function()>>(
+          'inflate_DynamicValue_F32');
+  late final _inflate_DynamicValue_F32 = _inflate_DynamicValue_F32Ptr
+      .asFunction<ffi.Pointer<DynamicValueKind> Function()>();
+
+  ffi.Pointer<DynamicValueKind> inflate_DynamicValue_F64() {
+    return _inflate_DynamicValue_F64();
+  }
+
+  late final _inflate_DynamicValue_F64Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<DynamicValueKind> Function()>>(
+          'inflate_DynamicValue_F64');
+  late final _inflate_DynamicValue_F64 = _inflate_DynamicValue_F64Ptr
+      .asFunction<ffi.Pointer<DynamicValueKind> Function()>();
+
   ffi.Pointer<DynamicValueKind> inflate_DynamicValue_String() {
     return _inflate_DynamicValue_String();
   }
@@ -495,12 +604,47 @@ class wire_DynamicValue_U32 extends ffi.Struct {
   external int field0;
 }
 
+class wire_DynamicValue_I32 extends ffi.Struct {
+  @ffi.Int32()
+  external int field0;
+}
+
+class wire_DynamicValue_U64 extends ffi.Struct {
+  @ffi.Uint64()
+  external int field0;
+}
+
+class wire_DynamicValue_I64 extends ffi.Struct {
+  @ffi.Int64()
+  external int field0;
+}
+
+class wire_DynamicValue_F32 extends ffi.Struct {
+  @ffi.Float()
+  external double field0;
+}
+
+class wire_DynamicValue_F64 extends ffi.Struct {
+  @ffi.Double()
+  external double field0;
+}
+
 class wire_DynamicValue_String extends ffi.Struct {
   external ffi.Pointer<wire_uint_8_list> field0;
 }
 
 class DynamicValueKind extends ffi.Union {
   external ffi.Pointer<wire_DynamicValue_U32> U32;
+
+  external ffi.Pointer<wire_DynamicValue_I32> I32;
+
+  external ffi.Pointer<wire_DynamicValue_U64> U64;
+
+  external ffi.Pointer<wire_DynamicValue_I64> I64;
+
+  external ffi.Pointer<wire_DynamicValue_F32> F32;
+
+  external ffi.Pointer<wire_DynamicValue_F64> F64;
 
   external ffi.Pointer<wire_DynamicValue_String> String;
 }

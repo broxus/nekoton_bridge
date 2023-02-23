@@ -29,10 +29,6 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kCreateLogStreamConstMeta;
 
-  Future<DynamicValue> stubDv({dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kStubDvConstMeta;
-
   /// Init caller
   Stream<DartCallStub> initCaller({dynamic hint});
 
@@ -54,6 +50,10 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kSimpleAdderConstMeta;
 
+  Future<DynamicValue> stubDv({dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kStubDvConstMeta;
+
   Future<DartCallStub> stubDcs({dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kStubDcsConstMeta;
@@ -65,6 +65,10 @@ abstract class NekotonBridge {
   Future<void> stubCallDart({required DartCallStub stub, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kStubCallDartConstMeta;
+
+  Future<void> simpleCallFunc0({dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kSimpleCallFunc0ConstMeta;
 
   Future<MyClass> newStaticMethodMyClass({required int a, dynamic hint});
 
@@ -90,6 +94,21 @@ class DynamicValue with _$DynamicValue {
   const factory DynamicValue.u32(
     int field0,
   ) = DynamicValue_U32;
+  const factory DynamicValue.i32(
+    int field0,
+  ) = DynamicValue_I32;
+  const factory DynamicValue.u64(
+    int field0,
+  ) = DynamicValue_U64;
+  const factory DynamicValue.i64(
+    int field0,
+  ) = DynamicValue_I64;
+  const factory DynamicValue.f32(
+    double field0,
+  ) = DynamicValue_F32;
+  const factory DynamicValue.f64(
+    double field0,
+  ) = DynamicValue_F64;
   const factory DynamicValue.string(
     String field0,
   ) = DynamicValue_String;
@@ -180,22 +199,6 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: [],
       );
 
-  Future<DynamicValue> stubDv({dynamic hint}) {
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_stub_dv(port_),
-      parseSuccessData: _wire2api_dynamic_value,
-      constMeta: kStubDvConstMeta,
-      argValues: [],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kStubDvConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "stub_dv",
-        argNames: [],
-      );
-
   Stream<DartCallStub> initCaller({dynamic hint}) {
     return _platform.executeStream(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner.wire_init_caller(port_),
@@ -281,6 +284,22 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: ["a", "b"],
       );
 
+  Future<DynamicValue> stubDv({dynamic hint}) {
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_stub_dv(port_),
+      parseSuccessData: _wire2api_dynamic_value,
+      constMeta: kStubDvConstMeta,
+      argValues: [],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kStubDvConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "stub_dv",
+        argNames: [],
+      );
+
   Future<DartCallStub> stubDcs({dynamic hint}) {
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner.wire_stub_dcs(port_),
@@ -328,6 +347,22 @@ class NekotonBridgeImpl implements NekotonBridge {
       const FlutterRustBridgeTaskConstMeta(
         debugName: "stub_call_dart",
         argNames: ["stub"],
+      );
+
+  Future<void> simpleCallFunc0({dynamic hint}) {
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_simple_call_func0(port_),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kSimpleCallFunc0ConstMeta,
+      argValues: [],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kSimpleCallFunc0ConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "simple_call_func0",
+        argNames: [],
       );
 
   Future<MyClass> newStaticMethodMyClass({required int a, dynamic hint}) {
@@ -392,12 +427,40 @@ class NekotonBridgeImpl implements NekotonBridge {
           _wire2api_u32(raw[1]),
         );
       case 1:
+        return DynamicValue_I32(
+          _wire2api_i32(raw[1]),
+        );
+      case 2:
+        return DynamicValue_U64(
+          _wire2api_u64(raw[1]),
+        );
+      case 3:
+        return DynamicValue_I64(
+          _wire2api_i64(raw[1]),
+        );
+      case 4:
+        return DynamicValue_F32(
+          _wire2api_f32(raw[1]),
+        );
+      case 5:
+        return DynamicValue_F64(
+          _wire2api_f64(raw[1]),
+        );
+      case 6:
         return DynamicValue_String(
           _wire2api_String(raw[1]),
         );
       default:
         throw Exception("unreachable");
     }
+  }
+
+  double _wire2api_f32(dynamic raw) {
+    return raw as double;
+  }
+
+  double _wire2api_f64(dynamic raw) {
+    return raw as double;
   }
 
   int _wire2api_i32(dynamic raw) {
@@ -442,6 +505,10 @@ class NekotonBridgeImpl implements NekotonBridge {
     return raw as int;
   }
 
+  int _wire2api_u64(dynamic raw) {
+    return castInt(raw);
+  }
+
   int _wire2api_u8(dynamic raw) {
     return raw as int;
   }
@@ -459,6 +526,16 @@ class NekotonBridgeImpl implements NekotonBridge {
 
 @protected
 bool api2wire_bool(bool raw) {
+  return raw;
+}
+
+@protected
+double api2wire_f32(double raw) {
+  return raw;
+}
+
+@protected
+double api2wire_f64(double raw) {
   return raw;
 }
 

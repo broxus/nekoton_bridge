@@ -4,6 +4,8 @@ import 'dart:async';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart'
     as flutter_nekoton_bridge;
 
+import 'storage.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -50,24 +52,30 @@ class _MyAppState extends State<MyApp> {
     flutter_nekoton_bridge.simplePanic();
   }
 
+  Storage? _storage;
   void _onPressedInitDartCaller() async {
-    flutter_nekoton_bridge.initDartCaller();
+    final storage = _storage ??= Storage();
+    flutter_nekoton_bridge.initAbstractStorage(storage);
   }
 
-  void _onPressedSimpleCallDart() async {
-    flutter_nekoton_bridge.simpleCallDart();
+  void _onPressedDartCallFunc0() async {
+    flutter_nekoton_bridge.simpleCallFunc0();
   }
 
-  void _onPressedStubCallDart() async {
-    final stub = flutter_nekoton_bridge.DartCallStub(
-      fnName: "dartMegaFunction",
-      args: [
-        const flutter_nekoton_bridge.DynamicValue_U32(420),
-        const flutter_nekoton_bridge.DynamicValue_String("Hello nekoton"),
-      ],
-    );
-    flutter_nekoton_bridge.stubCallDart(stub);
-  }
+  // void _onPressedSimpleCallDart() async {
+  //   flutter_nekoton_bridge.simpleCallDart();
+  // }
+
+  // void _onPressedStubCallDart() async {
+  //   final stub = flutter_nekoton_bridge.DartCallStub(
+  //     fnName: "dartMegaFunction",
+  //     args: [
+  //       const flutter_nekoton_bridge.DynamicValue_U32(420),
+  //       const flutter_nekoton_bridge.DynamicValue_String("Hello nekoton"),
+  //     ],
+  //   );
+  //   flutter_nekoton_bridge.stubCallDart(stub);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -125,13 +133,13 @@ class _MyAppState extends State<MyApp> {
                   child: const Text('initDartCaller'),
                 ),
                 TextButton(
-                  onPressed: _onPressedSimpleCallDart,
-                  child: const Text('simpleCallDart'),
+                  onPressed: _onPressedDartCallFunc0,
+                  child: const Text('CallFunc0'),
                 ),
-                TextButton(
-                  onPressed: _onPressedStubCallDart,
-                  child: const Text('stubCallDart'),
-                ),
+                // TextButton(
+                //   onPressed: _onPressedStubCallDart,
+                //   child: const Text('stubCallDart'),
+                // ),
               ],
             ),
           ),
