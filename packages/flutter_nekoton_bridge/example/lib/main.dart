@@ -50,6 +50,25 @@ class _MyAppState extends State<MyApp> {
     flutter_nekoton_bridge.simplePanic();
   }
 
+  void _onPressedInitDartCaller() async {
+    flutter_nekoton_bridge.initDartCaller();
+  }
+
+  void _onPressedSimpleCallDart() async {
+    flutter_nekoton_bridge.simpleCallDart();
+  }
+
+  void _onPressedStubCallDart() async {
+    final stub = flutter_nekoton_bridge.DartCallStub(
+      fnName: "dartMegaFunction",
+      args: [
+        const flutter_nekoton_bridge.DynamicValue_U32(420),
+        const flutter_nekoton_bridge.DynamicValue_String("Hello nekoton"),
+      ],
+    );
+    flutter_nekoton_bridge.stubCallDart(stub);
+  }
+
   @override
   Widget build(BuildContext context) {
     const textStyle = TextStyle(fontSize: 25);
@@ -100,6 +119,18 @@ class _MyAppState extends State<MyApp> {
                 TextButton(
                   onPressed: _onPressedPanic,
                   child: const Text('Panic'),
+                ),
+                TextButton(
+                  onPressed: _onPressedInitDartCaller,
+                  child: const Text('initDartCaller'),
+                ),
+                TextButton(
+                  onPressed: _onPressedSimpleCallDart,
+                  child: const Text('simpleCallDart'),
+                ),
+                TextButton(
+                  onPressed: _onPressedStubCallDart,
+                  child: const Text('stubCallDart'),
                 ),
               ],
             ),

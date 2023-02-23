@@ -25,8 +25,35 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
   }
 
   @protected
+  List<dynamic> api2wire_box_autoadd_dart_call_stub(DartCallStub raw) {
+    return api2wire_dart_call_stub(raw);
+  }
+
+  @protected
   List<dynamic> api2wire_box_autoadd_my_class(MyClass raw) {
     return api2wire_my_class(raw);
+  }
+
+  @protected
+  List<dynamic> api2wire_dart_call_stub(DartCallStub raw) {
+    return [api2wire_String(raw.fnName), api2wire_list_dynamic_value(raw.args)];
+  }
+
+  @protected
+  List<dynamic> api2wire_dynamic_value(DynamicValue raw) {
+    if (raw is DynamicValue_U32) {
+      return [0, api2wire_u32(raw.field0)];
+    }
+    if (raw is DynamicValue_String) {
+      return [1, api2wire_String(raw.field0)];
+    }
+
+    throw Exception('unreachable');
+  }
+
+  @protected
+  List<dynamic> api2wire_list_dynamic_value(List<DynamicValue> raw) {
+    return raw.map(api2wire_dynamic_value).toList();
   }
 
   @protected
@@ -56,6 +83,10 @@ class NekotonBridgeWasmModule implements WasmModule {
 
   external dynamic /* void */ wire_create_log_stream(NativePortType port_);
 
+  external dynamic /* void */ wire_stub_dv(NativePortType port_);
+
+  external dynamic /* void */ wire_init_caller(NativePortType port_);
+
   external dynamic /* void */ wire_simple_log(
       NativePortType port_, String string);
 
@@ -65,6 +96,13 @@ class NekotonBridgeWasmModule implements WasmModule {
 
   external dynamic /* void */ wire_simple_adder(
       NativePortType port_, int a, int b);
+
+  external dynamic /* void */ wire_stub_dcs(NativePortType port_);
+
+  external dynamic /* void */ wire_simple_call_dart(NativePortType port_);
+
+  external dynamic /* void */ wire_stub_call_dart(
+      NativePortType port_, List<dynamic> stub);
 
   external dynamic /* void */ wire_new__static_method__MyClass(
       NativePortType port_, int a);
@@ -86,6 +124,11 @@ class NekotonBridgeWire
   void wire_create_log_stream(NativePortType port_) =>
       wasmModule.wire_create_log_stream(port_);
 
+  void wire_stub_dv(NativePortType port_) => wasmModule.wire_stub_dv(port_);
+
+  void wire_init_caller(NativePortType port_) =>
+      wasmModule.wire_init_caller(port_);
+
   void wire_simple_log(NativePortType port_, String string) =>
       wasmModule.wire_simple_log(port_, string);
 
@@ -97,6 +140,14 @@ class NekotonBridgeWire
 
   void wire_simple_adder(NativePortType port_, int a, int b) =>
       wasmModule.wire_simple_adder(port_, a, b);
+
+  void wire_stub_dcs(NativePortType port_) => wasmModule.wire_stub_dcs(port_);
+
+  void wire_simple_call_dart(NativePortType port_) =>
+      wasmModule.wire_simple_call_dart(port_);
+
+  void wire_stub_call_dart(NativePortType port_, List<dynamic> stub) =>
+      wasmModule.wire_stub_call_dart(port_, stub);
 
   void wire_new__static_method__MyClass(NativePortType port_, int a) =>
       wasmModule.wire_new__static_method__MyClass(port_, a);

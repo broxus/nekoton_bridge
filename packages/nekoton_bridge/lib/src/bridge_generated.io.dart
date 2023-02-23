@@ -22,10 +22,28 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
   }
 
   @protected
+  ffi.Pointer<wire_DartCallStub> api2wire_box_autoadd_dart_call_stub(
+      DartCallStub raw) {
+    final ptr = inner.new_box_autoadd_dart_call_stub_0();
+    _api_fill_to_wire_dart_call_stub(raw, ptr.ref);
+    return ptr;
+  }
+
+  @protected
   ffi.Pointer<wire_MyClass> api2wire_box_autoadd_my_class(MyClass raw) {
     final ptr = inner.new_box_autoadd_my_class_0();
     _api_fill_to_wire_my_class(raw, ptr.ref);
     return ptr;
+  }
+
+  @protected
+  ffi.Pointer<wire_list_dynamic_value> api2wire_list_dynamic_value(
+      List<DynamicValue> raw) {
+    final ans = inner.new_list_dynamic_value_0(raw.length);
+    for (var i = 0; i < raw.length; ++i) {
+      _api_fill_to_wire_dynamic_value(raw[i], ans.ref.ptr[i]);
+    }
+    return ans;
   }
 
   @protected
@@ -38,9 +56,38 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
 
 // Section: api_fill_to_wire
 
+  void _api_fill_to_wire_box_autoadd_dart_call_stub(
+      DartCallStub apiObj, ffi.Pointer<wire_DartCallStub> wireObj) {
+    _api_fill_to_wire_dart_call_stub(apiObj, wireObj.ref);
+  }
+
   void _api_fill_to_wire_box_autoadd_my_class(
       MyClass apiObj, ffi.Pointer<wire_MyClass> wireObj) {
     _api_fill_to_wire_my_class(apiObj, wireObj.ref);
+  }
+
+  void _api_fill_to_wire_dart_call_stub(
+      DartCallStub apiObj, wire_DartCallStub wireObj) {
+    wireObj.fn_name = api2wire_String(apiObj.fnName);
+    wireObj.args = api2wire_list_dynamic_value(apiObj.args);
+  }
+
+  void _api_fill_to_wire_dynamic_value(
+      DynamicValue apiObj, wire_DynamicValue wireObj) {
+    if (apiObj is DynamicValue_U32) {
+      var pre_field0 = api2wire_u32(apiObj.field0);
+      wireObj.tag = 0;
+      wireObj.kind = inner.inflate_DynamicValue_U32();
+      wireObj.kind.ref.U32.ref.field0 = pre_field0;
+      return;
+    }
+    if (apiObj is DynamicValue_String) {
+      var pre_field0 = api2wire_String(apiObj.field0);
+      wireObj.tag = 1;
+      wireObj.kind = inner.inflate_DynamicValue_String();
+      wireObj.kind.ref.String.ref.field0 = pre_field0;
+      return;
+    }
   }
 
   void _api_fill_to_wire_my_class(MyClass apiObj, wire_MyClass wireObj) {
@@ -176,6 +223,32 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_create_log_stream =
       _wire_create_log_streamPtr.asFunction<void Function(int)>();
 
+  void wire_stub_dv(
+    int port_,
+  ) {
+    return _wire_stub_dv(
+      port_,
+    );
+  }
+
+  late final _wire_stub_dvPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>('wire_stub_dv');
+  late final _wire_stub_dv = _wire_stub_dvPtr.asFunction<void Function(int)>();
+
+  void wire_init_caller(
+    int port_,
+  ) {
+    return _wire_init_caller(
+      port_,
+    );
+  }
+
+  late final _wire_init_callerPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_init_caller');
+  late final _wire_init_caller =
+      _wire_init_callerPtr.asFunction<void Function(int)>();
+
   void wire_simple_log(
     int port_,
     ffi.Pointer<wire_uint_8_list> string,
@@ -242,6 +315,51 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_simple_adder =
       _wire_simple_adderPtr.asFunction<void Function(int, int, int)>();
 
+  void wire_stub_dcs(
+    int port_,
+  ) {
+    return _wire_stub_dcs(
+      port_,
+    );
+  }
+
+  late final _wire_stub_dcsPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_stub_dcs');
+  late final _wire_stub_dcs =
+      _wire_stub_dcsPtr.asFunction<void Function(int)>();
+
+  void wire_simple_call_dart(
+    int port_,
+  ) {
+    return _wire_simple_call_dart(
+      port_,
+    );
+  }
+
+  late final _wire_simple_call_dartPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_simple_call_dart');
+  late final _wire_simple_call_dart =
+      _wire_simple_call_dartPtr.asFunction<void Function(int)>();
+
+  void wire_stub_call_dart(
+    int port_,
+    ffi.Pointer<wire_DartCallStub> stub,
+  ) {
+    return _wire_stub_call_dart(
+      port_,
+      stub,
+    );
+  }
+
+  late final _wire_stub_call_dartPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_DartCallStub>)>>('wire_stub_call_dart');
+  late final _wire_stub_call_dart = _wire_stub_call_dartPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_DartCallStub>)>();
+
   void wire_new__static_method__MyClass(
     int port_,
     int a,
@@ -277,6 +395,17 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       _wire_my_format__method__MyClassPtr
           .asFunction<void Function(int, ffi.Pointer<wire_MyClass>)>();
 
+  ffi.Pointer<wire_DartCallStub> new_box_autoadd_dart_call_stub_0() {
+    return _new_box_autoadd_dart_call_stub_0();
+  }
+
+  late final _new_box_autoadd_dart_call_stub_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_DartCallStub> Function()>>(
+          'new_box_autoadd_dart_call_stub_0');
+  late final _new_box_autoadd_dart_call_stub_0 =
+      _new_box_autoadd_dart_call_stub_0Ptr
+          .asFunction<ffi.Pointer<wire_DartCallStub> Function()>();
+
   ffi.Pointer<wire_MyClass> new_box_autoadd_my_class_0() {
     return _new_box_autoadd_my_class_0();
   }
@@ -286,6 +415,21 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           'new_box_autoadd_my_class_0');
   late final _new_box_autoadd_my_class_0 = _new_box_autoadd_my_class_0Ptr
       .asFunction<ffi.Pointer<wire_MyClass> Function()>();
+
+  ffi.Pointer<wire_list_dynamic_value> new_list_dynamic_value_0(
+    int len,
+  ) {
+    return _new_list_dynamic_value_0(
+      len,
+    );
+  }
+
+  late final _new_list_dynamic_value_0Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wire_list_dynamic_value> Function(
+              ffi.Int32)>>('new_list_dynamic_value_0');
+  late final _new_list_dynamic_value_0 = _new_list_dynamic_value_0Ptr
+      .asFunction<ffi.Pointer<wire_list_dynamic_value> Function(int)>();
 
   ffi.Pointer<wire_uint_8_list> new_uint_8_list_0(
     int len,
@@ -301,6 +445,26 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Int32)>>('new_uint_8_list_0');
   late final _new_uint_8_list_0 = _new_uint_8_list_0Ptr
       .asFunction<ffi.Pointer<wire_uint_8_list> Function(int)>();
+
+  ffi.Pointer<DynamicValueKind> inflate_DynamicValue_U32() {
+    return _inflate_DynamicValue_U32();
+  }
+
+  late final _inflate_DynamicValue_U32Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<DynamicValueKind> Function()>>(
+          'inflate_DynamicValue_U32');
+  late final _inflate_DynamicValue_U32 = _inflate_DynamicValue_U32Ptr
+      .asFunction<ffi.Pointer<DynamicValueKind> Function()>();
+
+  ffi.Pointer<DynamicValueKind> inflate_DynamicValue_String() {
+    return _inflate_DynamicValue_String();
+  }
+
+  late final _inflate_DynamicValue_StringPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<DynamicValueKind> Function()>>(
+          'inflate_DynamicValue_String');
+  late final _inflate_DynamicValue_String = _inflate_DynamicValue_StringPtr
+      .asFunction<ffi.Pointer<DynamicValueKind> Function()>();
 
   void free_WireSyncReturn(
     WireSyncReturn ptr,
@@ -324,6 +488,41 @@ class wire_uint_8_list extends ffi.Struct {
 
   @ffi.Int32()
   external int len;
+}
+
+class wire_DynamicValue_U32 extends ffi.Struct {
+  @ffi.Uint32()
+  external int field0;
+}
+
+class wire_DynamicValue_String extends ffi.Struct {
+  external ffi.Pointer<wire_uint_8_list> field0;
+}
+
+class DynamicValueKind extends ffi.Union {
+  external ffi.Pointer<wire_DynamicValue_U32> U32;
+
+  external ffi.Pointer<wire_DynamicValue_String> String;
+}
+
+class wire_DynamicValue extends ffi.Struct {
+  @ffi.Int32()
+  external int tag;
+
+  external ffi.Pointer<DynamicValueKind> kind;
+}
+
+class wire_list_dynamic_value extends ffi.Struct {
+  external ffi.Pointer<wire_DynamicValue> ptr;
+
+  @ffi.Int32()
+  external int len;
+}
+
+class wire_DartCallStub extends ffi.Struct {
+  external ffi.Pointer<wire_uint_8_list> fn_name;
+
+  external ffi.Pointer<wire_list_dynamic_value> args;
 }
 
 class wire_MyClass extends ffi.Struct {

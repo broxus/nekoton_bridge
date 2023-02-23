@@ -6,6 +6,7 @@ import 'dart:convert';
 import 'dart:async';
 import 'package:meta/meta.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge.dart';
+import 'package:freezed_annotation/freezed_annotation.dart' hide protected;
 
 import 'dart:convert';
 import 'dart:async';
@@ -13,6 +14,8 @@ import 'package:meta/meta.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge.dart';
 import 'bridge_generated.io.dart'
     if (dart.library.html) 'bridge_generated.web.dart';
+
+part 'bridge_generated.freezed.dart';
 
 abstract class NekotonBridge {
   /// Init logger
@@ -25,6 +28,15 @@ abstract class NekotonBridge {
   Stream<LogEntry> createLogStream({dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kCreateLogStreamConstMeta;
+
+  Future<DynamicValue> stubDv({dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kStubDvConstMeta;
+
+  /// Init caller
+  Stream<DartCallStub> initCaller({dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kInitCallerConstMeta;
 
   Future<void> simpleLog({required String string, dynamic hint});
 
@@ -42,6 +54,18 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kSimpleAdderConstMeta;
 
+  Future<DartCallStub> stubDcs({dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kStubDcsConstMeta;
+
+  Future<void> simpleCallDart({dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kSimpleCallDartConstMeta;
+
+  Future<void> stubCallDart({required DartCallStub stub, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kStubCallDartConstMeta;
+
   Future<MyClass> newStaticMethodMyClass({required int a, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kNewStaticMethodMyClassConstMeta;
@@ -49,6 +73,26 @@ abstract class NekotonBridge {
   Future<String> myFormatMethodMyClass({required MyClass that, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kMyFormatMethodMyClassConstMeta;
+}
+
+class DartCallStub {
+  final String fnName;
+  final List<DynamicValue> args;
+
+  DartCallStub({
+    required this.fnName,
+    required this.args,
+  });
+}
+
+@freezed
+class DynamicValue with _$DynamicValue {
+  const factory DynamicValue.u32(
+    int field0,
+  ) = DynamicValue_U32;
+  const factory DynamicValue.string(
+    String field0,
+  ) = DynamicValue_String;
 }
 
 /// Log entry
@@ -136,6 +180,38 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: [],
       );
 
+  Future<DynamicValue> stubDv({dynamic hint}) {
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_stub_dv(port_),
+      parseSuccessData: _wire2api_dynamic_value,
+      constMeta: kStubDvConstMeta,
+      argValues: [],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kStubDvConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "stub_dv",
+        argNames: [],
+      );
+
+  Stream<DartCallStub> initCaller({dynamic hint}) {
+    return _platform.executeStream(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_init_caller(port_),
+      parseSuccessData: _wire2api_dart_call_stub,
+      constMeta: kInitCallerConstMeta,
+      argValues: [],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kInitCallerConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "init_caller",
+        argNames: [],
+      );
+
   Future<void> simpleLog({required String string, dynamic hint}) {
     var arg0 = _platform.api2wire_String(string);
     return _platform.executeNormal(FlutterRustBridgeTask(
@@ -205,6 +281,55 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: ["a", "b"],
       );
 
+  Future<DartCallStub> stubDcs({dynamic hint}) {
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_stub_dcs(port_),
+      parseSuccessData: _wire2api_dart_call_stub,
+      constMeta: kStubDcsConstMeta,
+      argValues: [],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kStubDcsConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "stub_dcs",
+        argNames: [],
+      );
+
+  Future<void> simpleCallDart({dynamic hint}) {
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_simple_call_dart(port_),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kSimpleCallDartConstMeta,
+      argValues: [],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kSimpleCallDartConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "simple_call_dart",
+        argNames: [],
+      );
+
+  Future<void> stubCallDart({required DartCallStub stub, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_dart_call_stub(stub);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_stub_call_dart(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kStubCallDartConstMeta,
+      argValues: [stub],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kStubCallDartConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "stub_call_dart",
+        argNames: ["stub"],
+      );
+
   Future<MyClass> newStaticMethodMyClass({required int a, dynamic hint}) {
     var arg0 = api2wire_i32(a);
     return _platform.executeNormal(FlutterRustBridgeTask(
@@ -250,12 +375,41 @@ class NekotonBridgeImpl implements NekotonBridge {
     return raw as String;
   }
 
+  DartCallStub _wire2api_dart_call_stub(dynamic raw) {
+    final arr = raw as List<dynamic>;
+    if (arr.length != 2)
+      throw Exception('unexpected arr length: expect 2 but see ${arr.length}');
+    return DartCallStub(
+      fnName: _wire2api_String(arr[0]),
+      args: _wire2api_list_dynamic_value(arr[1]),
+    );
+  }
+
+  DynamicValue _wire2api_dynamic_value(dynamic raw) {
+    switch (raw[0]) {
+      case 0:
+        return DynamicValue_U32(
+          _wire2api_u32(raw[1]),
+        );
+      case 1:
+        return DynamicValue_String(
+          _wire2api_String(raw[1]),
+        );
+      default:
+        throw Exception("unreachable");
+    }
+  }
+
   int _wire2api_i32(dynamic raw) {
     return raw as int;
   }
 
   int _wire2api_i64(dynamic raw) {
     return castInt(raw);
+  }
+
+  List<DynamicValue> _wire2api_list_dynamic_value(dynamic raw) {
+    return (raw as List<dynamic>).map(_wire2api_dynamic_value).toList();
   }
 
   LogEntry _wire2api_log_entry(dynamic raw) {
@@ -282,6 +436,10 @@ class NekotonBridgeImpl implements NekotonBridge {
       bridge: this,
       val: _wire2api_i32(arr[0]),
     );
+  }
+
+  int _wire2api_u32(dynamic raw) {
+    return raw as int;
   }
 
   int _wire2api_u8(dynamic raw) {
@@ -312,6 +470,11 @@ int api2wire_i32(int raw) {
 @protected
 int api2wire_log_level(LogLevel raw) {
   return api2wire_i32(raw.index);
+}
+
+@protected
+int api2wire_u32(int raw) {
+  return raw;
 }
 
 @protected

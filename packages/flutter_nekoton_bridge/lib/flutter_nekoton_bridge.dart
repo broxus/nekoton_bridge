@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:nekoton_bridge/nekoton_bridge.dart';
 
 export 'package:nekoton_bridge/nekoton_bridge.dart';
@@ -46,4 +47,19 @@ Future<MyClass> createMyClass() async {
 Future<String> queryMyClass() async {
   final result = (await createMyClass()).myFormat();
   return result;
+}
+
+Future<void> initDartCaller() async {
+  final caller = createLib().initCaller();
+  caller.listen((event) {
+    debugPrint("Received event: fnName: ${event.fnName}, ${event.args}");
+  });
+}
+
+Future<void> simpleCallDart() async {
+  createLib().simpleCallDart();
+}
+
+Future<void> stubCallDart(DartCallStub stub) async {
+  createLib().stubCallDart(stub: stub);
 }

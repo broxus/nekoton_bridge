@@ -2,6 +2,8 @@
 
 use flutter_rust_bridge::*;
 use log::*;
+
+mod caller;
 mod logger;
 
 pub enum LogLevel {
@@ -28,6 +30,29 @@ pub fn init_logger(level: LogLevel, mobile_logger: bool) {
 /// Create log stream
 pub fn create_log_stream(s: StreamSink<LogEntry>) {
     logger::SendToDartLogger::set_stream_sink(s);
+}
+
+// / Dynamic value for transmitting between Dart and Rust. We can't use Box<dyn Any> because frb doesn't support it.
+#[derive(Clone)]
+pub enum DynamicValue {
+    U32(u32),
+    String(String),
+}
+
+pub struct DartCallStub {
+    pub fn_name: String,
+    pub args: Vec<DynamicValue>,
+    // TODO: we can't use HashMap, so there are many possibilities to make it not very pretty :)
+    // pub named_args: HashMap<String, DynamicValue>,
+}
+
+pub fn stub_dv() -> DynamicValue {
+    DynamicValue::U32(0)
+}
+
+/// Init caller
+pub fn init_caller(stream_sink: StreamSink<DartCallStub>) {
+    caller::set_stream_sink(stream_sink);
 }
 
 // TODO: all code below is only sandbox-related things
@@ -72,4 +97,22 @@ impl MyClass {
     pub fn my_format(&self) -> String {
         self.val.my_format()
     }
+}
+
+pub fn stub_dcs() -> DartCallStub {
+    DartCallStub {
+        fn_name: String::from("functionName"),
+        args: vec![
+            DynamicValue::U32(42),
+            DynamicValue::String(String::from("Hello")),
+        ],
+    }
+}
+
+pub fn simple_call_dart() {
+    caller::call(stub_dcs());
+}
+
+pub fn stub_call_dart(stub: DartCallStub) {
+    caller::call(stub);
 }
