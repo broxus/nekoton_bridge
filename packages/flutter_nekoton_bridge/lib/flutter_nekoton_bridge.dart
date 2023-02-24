@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter_nekoton_bridge/storage.dart';
 import 'package:nekoton_bridge/nekoton_bridge.dart';
 export 'package:nekoton_bridge/nekoton_bridge.dart';
 import 'package:reflectable/reflectable.dart';
@@ -35,7 +36,7 @@ Future<void> initDartCaller(InstanceMirror mirror) async {
 
 /// Init Dart caller based on AbstractStorage class
 Future<void> initAbstractStorage(AbstractStorage storage) async {
-  final mirror = storage.init();
+  final mirror = Storage(storage).init();
   await initDartCaller(mirror);
 }
 

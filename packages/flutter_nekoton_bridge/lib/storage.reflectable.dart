@@ -32,7 +32,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
             -1,
             {},
             {},
-            {r'': (bool b) => () => b ? prefix0.Storage() : null},
+            {r'': (bool b) => (storage) => b ? prefix0.Storage(storage) : null},
             -1,
             -1,
             const <int>[-1],
@@ -44,7 +44,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'hashCode': 0,
               r'runtimeType': 0,
               r'init': 0,
-              r'func0': 1
+              r'func0': 1,
+              r'storage': 0
             })
       ],
       null,
@@ -58,7 +59,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'hashCode': (dynamic instance) => instance.hashCode,
         r'runtimeType': (dynamic instance) => instance.runtimeType,
         r'init': (dynamic instance) => instance.init,
-        r'func0': (dynamic instance) => instance.func0
+        r'func0': (dynamic instance) => instance.func0,
+        r'storage': (dynamic instance) => instance.storage
       },
       {},
       null,
