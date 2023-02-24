@@ -64,9 +64,20 @@ typedef struct wire_list_dynamic_value {
   int32_t len;
 } wire_list_dynamic_value;
 
+typedef struct wire_DynamicNamedValue {
+  struct wire_uint_8_list *name;
+  struct wire_DynamicValue *value;
+} wire_DynamicNamedValue;
+
+typedef struct wire_list_dynamic_named_value {
+  struct wire_DynamicNamedValue *ptr;
+  int32_t len;
+} wire_list_dynamic_named_value;
+
 typedef struct wire_DartCallStub {
   struct wire_uint_8_list *fn_name;
   struct wire_list_dynamic_value *args;
+  struct wire_list_dynamic_named_value *named_args;
 } wire_DartCallStub;
 
 typedef struct wire_MyClass {
@@ -113,7 +124,11 @@ void wire_my_format__method__MyClass(int64_t port_, struct wire_MyClass *that);
 
 struct wire_DartCallStub *new_box_autoadd_dart_call_stub_0(void);
 
+struct wire_DynamicValue *new_box_autoadd_dynamic_value_0(void);
+
 struct wire_MyClass *new_box_autoadd_my_class_0(void);
+
+struct wire_list_dynamic_named_value *new_list_dynamic_named_value_0(int32_t len);
 
 struct wire_list_dynamic_value *new_list_dynamic_value_0(int32_t len);
 
@@ -152,7 +167,9 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__MyClass);
     dummy_var ^= ((int64_t) (void*) wire_my_format__method__MyClass);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_dart_call_stub_0);
+    dummy_var ^= ((int64_t) (void*) new_box_autoadd_dynamic_value_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_my_class_0);
+    dummy_var ^= ((int64_t) (void*) new_list_dynamic_named_value_0);
     dummy_var ^= ((int64_t) (void*) new_list_dynamic_value_0);
     dummy_var ^= ((int64_t) (void*) new_uint_8_list_0);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_U32);

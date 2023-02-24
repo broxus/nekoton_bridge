@@ -4,7 +4,13 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart'
 
 class Storage extends flutter_nekoton_bridge.AbstractStorage {
   @override
-  void func0(String string, int i, double d) {
-    debugPrint('Call: func0: $i $d');
+  void func0(
+    String string,
+    int i,
+    double d, {
+    required int arg0,
+    required double arg1,
+  }) {
+    debugPrint('Call: func0: $string $i $d $arg0 $arg1');
   }
 }

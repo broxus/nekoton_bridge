@@ -66,7 +66,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
       null,
       [
         const [0, 0, null],
-        const [3, 0, null],
+        const [
+          3,
+          0,
+          const [#arg0, #arg1]
+        ],
         const [1, 0, null]
       ])
 };

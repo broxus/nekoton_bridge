@@ -33,7 +33,7 @@ pub fn create_log_stream(s: StreamSink<LogEntry>) {
 }
 
 // / Dynamic value for transmitting between Dart and Rust. We can't use Box<dyn Any> because frb doesn't support it.
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub enum DynamicValue {
     U32(u32),
     I32(i32),
@@ -47,11 +47,23 @@ pub enum DynamicValue {
     String(String),
 }
 
+impl Default for DynamicValue {
+    fn default() -> Self {
+        DynamicValue::U64(0)
+    }
+}
+
+#[derive(Default, Debug, Clone)]
+pub struct DynamicNamedValue {
+    pub name: String,
+    pub value: Option<DynamicValue>,
+}
+
+#[derive(Default, Debug, Clone)]
 pub struct DartCallStub {
     pub fn_name: String,
     pub args: Vec<DynamicValue>,
-    // TODO: we can't use HashMap, so there are many possibilities to make it not very pretty :)
-    // pub named_args: HashMap<String, DynamicValue>,
+    pub named_args: Vec<DynamicNamedValue>,
 }
 
 /// Init caller
@@ -108,10 +120,21 @@ pub fn stub_dv() -> DynamicValue {
 
 pub fn stub_dcs() -> DartCallStub {
     DartCallStub {
-        fn_name: String::from("functionName"),
+        fn_name: String::from("func0"),
         args: vec![
-            DynamicValue::U32(42),
-            DynamicValue::String(String::from("Hello")),
+            DynamicValue::String(String::from("Hello from rust, this is simple_call_func0")),
+            DynamicValue::I64(42),
+            DynamicValue::F64(42.42),
+        ],
+        named_args: vec![
+            DynamicNamedValue {
+                name: String::from("arg0"),
+                value: Some(DynamicValue::I64(420)),
+            },
+            DynamicNamedValue {
+                name: String::from("arg1"),
+                value: Some(DynamicValue::F64(420.42)),
+            },
         ],
     }
 }
@@ -132,6 +155,32 @@ pub fn simple_call_func0() {
             DynamicValue::I64(42),
             DynamicValue::F64(42.42),
         ],
+        named_args: vec![
+            DynamicNamedValue {
+                name: String::from("arg0"),
+                value: Some(DynamicValue::I64(420)),
+            },
+            DynamicNamedValue {
+                name: String::from("arg1"),
+                value: Some(DynamicValue::F64(420.42)),
+            },
+        ],
     };
+
     caller::call(stub);
 }
+
+// impl Default for DynamicValue {
+//     fn default() -> Self {
+//         DynamicValue::U64(0)
+//     }
+// }
+
+// impl Default for DynamicNamedValue {
+//     fn default() -> Self {
+//         Self {
+//             name: Default::default(),
+//             value: Default::default(),
+//         }
+//     }
+// }

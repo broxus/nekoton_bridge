@@ -28,9 +28,20 @@ Future<void> initDartCaller(InstanceMirror mirror) async {
   final caller = _caller ??= createLib().initCaller();
 
   caller.listen((event) {
-    debugPrint("Received event: fnName: ${event.fnName}, ${event.args}");
+    debugPrint(
+        "Received event: fnName: ${event.fnName}, ${event.args} ${event.namedArgs}");
     final positionalArguments = event.args.map((e) => e.toDynamic()).toList();
-    mirror.invoke(event.fnName, positionalArguments);
+    final namedArguments = event.namedArgs.fold(
+        <Symbol, dynamic>{},
+        (previousValue, element) => {
+              ...previousValue,
+              ...{
+                Symbol(element.name): element.value?.toDynamic(),
+              }
+            });
+    debugPrint("============ namedArguments: $namedArguments");
+    mirror.invoke(event.fnName, positionalArguments,
+        namedArguments.isNotEmpty ? namedArguments : null);
   });
 }
 
