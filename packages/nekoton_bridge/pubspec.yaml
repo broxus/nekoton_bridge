@@ -18,6 +18,6 @@ dev_dependencies:
 
 dependencies:
   ffi: ^2.0.1
-  flutter_rust_bridge: ^1.64.0
+  flutter_rust_bridge: 1.65.1
   freezed_annotation: 2.2.0
   basic_utils: 5.5.1

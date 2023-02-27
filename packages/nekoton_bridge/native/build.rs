@@ -1,12 +1,9 @@
 use std::env;
 use convert_case::{Case, Casing};
 use glob::glob;
-use lib_flutter_rust_bridge_codegen::{
-    config_parse, frb_codegen, get_symbols_if_no_duplicates, RawOpts,
-};
+use lib_flutter_rust_bridge_codegen::{config_parse, frb_codegen_multi, get_symbols_if_no_duplicates, RawOpts};
 
 fn main() {
-    // ----------------------------------------------
     // !!! This generates multiple libs for frb. WORKS
     let mut inputs: Vec<String> = vec![];
     let mut inputs_names: Vec<String> = vec![];
@@ -58,27 +55,13 @@ fn main() {
         wasm: false,
         ..Default::default()
     };
-    // ----------------------------------------------
 
-
-    // This is an attempt to build frb from single-file
-    // To generate single file run
-    // cargo install cargo-merge
-    // cargo merge             [from native folder]
-    // let raw_opts = RawOpts {
-    //     rust_input: vec!["target/merge/merged.rs".to_string()],
-    //     dart_output: vec!["../lib/src/bridge_generated.dart".to_string()],
-    //     inline_rust: true,
-    //     verbose: true,
-    //     wasm: false,
-    //     ..Default::default()
-    // };
 
     // Generate Rust & Dart ffi bridges
     let configs = config_parse(raw_opts);
     let all_symbols = get_symbols_if_no_duplicates(&configs).unwrap();
-    for config in configs.iter() {
-        frb_codegen(config, &all_symbols).unwrap();
+    for config_index in 0..configs.len() {
+        frb_codegen_multi(&configs, config_index, &all_symbols).unwrap();
     }
 
     // Run custom generation for all imports
