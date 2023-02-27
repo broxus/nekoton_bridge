@@ -13,7 +13,7 @@ void main() {
   final pathsInSrc = <String>[];
 
   for (final entry in dartSrcDir.listSync(recursive: true)) {
-    if (entry.path.endsWith('api.dart')) {
+    if (entry.path.endsWith('logger.dart')) {
       final name = entry.uri.pathSegments.last;
       final fileName = name.replaceAll('.dart', '');
       classNames.add(StringUtils.toPascalCase(fileName));

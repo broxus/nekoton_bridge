@@ -2,7 +2,7 @@
 
 use flutter_rust_bridge::*;
 use log::*;
-mod logger;
+mod logger_api;
 
 pub enum LogLevel {
     Trace,
@@ -22,12 +22,12 @@ pub struct LogEntry {
 
 /// Init logger
 pub fn init_logger(level: LogLevel, mobile_logger: bool) {
-    logger::init_logger(level, mobile_logger);
+    logger_api::init_logger(level, mobile_logger);
 }
 
 /// Create log stream
 pub fn create_log_stream(s: StreamSink<LogEntry>) {
-    logger::SendToDartLogger::set_stream_sink(s);
+    logger_api::SendToDartLogger::set_stream_sink(s);
 }
 
 // TODO: all code below is only sandbox-related things

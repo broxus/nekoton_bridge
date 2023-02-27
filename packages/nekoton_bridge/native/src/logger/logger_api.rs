@@ -7,7 +7,7 @@ use log::{error, info, warn, Log, Metadata, Record};
 use parking_lot::RwLock;
 use simplelog::*;
 
-use crate::api::{LogEntry, LogLevel};
+use crate::logger::{LogEntry, LogLevel};
 
 static INIT_LOGGER_ONCE: Once = Once::new();
 

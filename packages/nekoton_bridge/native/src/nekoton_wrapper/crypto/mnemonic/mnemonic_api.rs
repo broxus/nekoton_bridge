@@ -1,7 +1,7 @@
 use nekoton::crypto::{derive_from_phrase, dict, generate_key};
 use flutter_rust_bridge::SyncReturn;
 use crate::nekoton::{
-    crypto::mnemonic::models::KeypairHelper, str_list_to_string_vec,
+    r#mod::mnemonic::models::KeypairHelper, str_list_to_string_vec,
     str_vec_to_string_vec, HandleError, MatchResult,
 };
 use crate::nekoton::models_mapper::*;
