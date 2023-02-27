@@ -12,8 +12,8 @@ export 'abstract_storage.dart';
 
 /// Init logger
 Future<void> setupLogger({
-  level = LogLevel.Warn,
-  mobileLogger = true,
+  LogLevel level = LogLevel.Warn,
+  bool mobileLogger = true,
   required void Function(LogEntry logEntry) logHandler,
 }) async {
   var lib = createLib();
@@ -29,7 +29,7 @@ Future<void> initDartCaller(InstanceMirror mirror) async {
 
   caller.listen((event) {
     debugPrint(
-        "Received event: fnName: ${event.fnName}, ${event.args} ${event.namedArgs}");
+        'Received event: fnName: ${event.fnName}, ${event.args} ${event.namedArgs}');
     final positionalArguments = event.args.map((e) => e.toDynamic()).toList();
     final namedArguments = event.namedArgs.fold(
         <Symbol, dynamic>{},
@@ -39,7 +39,7 @@ Future<void> initDartCaller(InstanceMirror mirror) async {
                 Symbol(element.name): element.value?.toDynamic(),
               }
             });
-    debugPrint("============ namedArguments: $namedArguments");
+    debugPrint('============ namedArguments: $namedArguments');
     mirror.invoke(event.fnName, positionalArguments,
         namedArguments.isNotEmpty ? namedArguments : null);
   });
@@ -55,7 +55,7 @@ Future<void> initAbstractStorage(AbstractStorage storage) async {
 
 Future<void> simpleLog() async {
   var lib = createLib();
-  lib.simpleLog(string: "From dart: ${DateTime.now().toIso8601String()}");
+  lib.simpleLog(string: 'From dart: ${DateTime.now().toIso8601String()}');
 }
 
 Future<void> simplePanic() async {
