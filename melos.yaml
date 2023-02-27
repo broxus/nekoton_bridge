@@ -32,6 +32,11 @@ scripts:
     run: melos run build:apple && melos run build:android
     description: Build all native libraries for the project.
 
+# TODO: Move this to bootstrap/hooks after Melos 3.0 release
+  codegen:
+    run: bash scripts/codegen.sh
+    description: Generate code.
+
   build:apple:
     run: bash scripts/build-apple.sh
     description: Build the XCFramework for iOS and macOS.
@@ -77,6 +82,9 @@ scripts:
     run: bash scripts/clean.sh
     description: Clean all
 
-command:
-  version:
-    updateGitTagRefs: true
+# command:
+#   version:
+#     updateGitTagRefs: true
+#   bootstrap:
+#     hooks:
+#       post: flutter pub run build_runner build --delete-conflicting-outputs

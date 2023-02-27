@@ -40,6 +40,14 @@ Melos takes care about dependencies of all packages, including managing of local
 melos bs
 ```
 
+## Codegen 🦾
+
+This thing will run all code generators for all packages:
+
+```
+$ melos run codegen
+```
+
 ### Build 🪛
 
 The library consists of dart files and platform-specific binaries. pub.dev has a hard 100 MB upload limit, so we can't distribute platform-specific (they can be really huge!) this way. So, we should use something like Github releases for distribute it. Commands below will build everything for two platforms:
