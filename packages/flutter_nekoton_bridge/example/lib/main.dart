@@ -4,6 +4,8 @@ import 'dart:async';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart'
     as flutter_nekoton_bridge;
 
+import 'storage.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -49,6 +51,31 @@ class _MyAppState extends State<MyApp> {
     debugPrint('Panic!');
     flutter_nekoton_bridge.simplePanic();
   }
+
+  Storage? _storage;
+  void _onPressedInitDartCaller() async {
+    final storage = _storage ??= Storage();
+    flutter_nekoton_bridge.initAbstractStorage(storage);
+  }
+
+  void _onPressedDartCallFunc0() async {
+    flutter_nekoton_bridge.simpleCallFunc0();
+  }
+
+  // void _onPressedSimpleCallDart() async {
+  //   flutter_nekoton_bridge.simpleCallDart();
+  // }
+
+  // void _onPressedStubCallDart() async {
+  //   final stub = flutter_nekoton_bridge.DartCallStub(
+  //     fnName: "dartMegaFunction",
+  //     args: [
+  //       const flutter_nekoton_bridge.DynamicValue_U32(420),
+  //       const flutter_nekoton_bridge.DynamicValue_String("Hello nekoton"),
+  //     ],
+  //   );
+  //   flutter_nekoton_bridge.stubCallDart(stub);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -101,6 +128,18 @@ class _MyAppState extends State<MyApp> {
                   onPressed: _onPressedPanic,
                   child: const Text('Panic'),
                 ),
+                TextButton(
+                  onPressed: _onPressedInitDartCaller,
+                  child: const Text('initDartCaller'),
+                ),
+                TextButton(
+                  onPressed: _onPressedDartCallFunc0,
+                  child: const Text('CallFunc0'),
+                ),
+                // TextButton(
+                //   onPressed: _onPressedStubCallDart,
+                //   child: const Text('stubCallDart'),
+                // ),
               ],
             ),
           ),

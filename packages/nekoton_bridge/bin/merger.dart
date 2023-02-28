@@ -13,7 +13,7 @@ void main() async {
   final contentBuffer = StringBuffer();
 
   /// Collection of imported local crates in all *api.rs files.
-  /// Key - name of global crate like crate or nekoton_wrapper or logger or nekoton
+  /// Key - name of global crate like crate or nekoton_wrapper or utils or nekoton
   /// Value - hierarchy of sub-modules
   final crates = <String, ModuleHierarchy>{};
 

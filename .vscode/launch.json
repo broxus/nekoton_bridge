@@ -5,32 +5,6 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "flutter_nekoton_bridge",
-      "cwd": "packages/flutter_nekoton_bridge",
-      "request": "launch",
-      "type": "dart"
-    },
-    {
-      "name": "flutter_nekoton_bridge (profile mode)",
-      "cwd": "packages/flutter_nekoton_bridge",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "profile"
-    },
-    {
-      "name": "flutter_nekoton_bridge (release mode)",
-      "cwd": "packages/flutter_nekoton_bridge",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "release"
-    },
-    {
-      "name": "nekoton_bridge",
-      "cwd": "packages/nekoton_bridge",
-      "request": "launch",
-      "type": "dart"
-    },
-    {
       "name": "example",
       "cwd": "packages/flutter_nekoton_bridge/example",
       "request": "launch",

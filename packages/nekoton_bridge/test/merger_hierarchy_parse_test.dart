@@ -38,7 +38,7 @@ void main() {
     test('Test simple hierarchy parsing', () {
       final crates = <String, ModuleHierarchy>{};
       const crateImport = '''
-    crate::logger::{LogEntry, LogLevel};
+    crate::utils::{LogEntry, LogLevel};
     ''';
 
       parseImports(crateImport, crates);
@@ -48,8 +48,8 @@ void main() {
       expect(rootCrate.directImports.length, 0);
       expect(rootCrate.moduleName, 'crate');
 
-      final nekotonCrate = rootCrate.subModules['logger']!;
-      expect(nekotonCrate.moduleName, 'logger');
+      final nekotonCrate = rootCrate.subModules['utils']!;
+      expect(nekotonCrate.moduleName, 'utils');
       expect(nekotonCrate.subModules.isEmpty, true);
     });
 
@@ -185,12 +185,12 @@ SomeModule,
       final crate = ModuleHierarchy(moduleName: 'crate', isRoot: true);
       crate.subModules['nekoton_wrapper'] = nekoton;
 
-      final externalLib = ModuleHierarchy(moduleName: 'logger', isRoot: true);
+      final externalLib = ModuleHierarchy(moduleName: 'utils', isRoot: true);
       externalLib.directImports.add('*');
 
       final hierarchy = <String, ModuleHierarchy>{
         'crate': crate,
-        'logger': externalLib,
+        'utils': externalLib,
       };
 
       final buffer = StringBuffer();
@@ -209,7 +209,7 @@ ModelType,
 },
 },
 };
-use logger::{*};
+use utils::{*};
 ''',
         buffer.toString(),
       );

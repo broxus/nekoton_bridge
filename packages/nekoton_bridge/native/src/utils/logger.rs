@@ -1,5 +1,3 @@
-pub mod api;
-
 use std::sync::Once;
 use std::time::{Duration, SystemTime, UNIX_EPOCH};
 

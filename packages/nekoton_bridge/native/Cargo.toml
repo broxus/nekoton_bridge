@@ -8,11 +8,9 @@ crate-type = ["staticlib", "cdylib"]
 
 [build-dependencies]
 flutter_rust_bridge_codegen = "1.65.*"
-glob = "0.3.1"
-convert_case = "0.6.0"
 
 [dependencies]
-flutter_rust_bridge = "1.64.*"
+flutter_rust_bridge = "1.66.*"
 lazy_static = "1.4.0"
 anyhow = "1.0.54"
 hex = "0.4.3"
@@ -42,5 +40,5 @@ cargo-merge = "0.2.2"
 oslog = "0.2.0"
 
 [target.'cfg(target_os = "android")'.dependencies]
-android_logger = "0.12.0"
+android_logger = "0.13.0"
 
