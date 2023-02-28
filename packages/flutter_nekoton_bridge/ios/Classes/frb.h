@@ -14,8 +14,6 @@ typedef struct wire_uint_8_list {
   int32_t len;
 } wire_uint_8_list;
 
-typedef struct DartCObject *WireSyncReturn;
-
 typedef struct wire_DynamicValue_U32 {
   uint32_t field0;
 } wire_DynamicValue_U32;
@@ -59,6 +57,8 @@ typedef struct wire_DynamicValue {
   union DynamicValueKind *kind;
 } wire_DynamicValue;
 
+typedef struct DartCObject *WireSyncReturn;
+
 typedef struct wire_list_dynamic_value {
   struct wire_DynamicValue *ptr;
   int32_t len;
@@ -99,6 +99,8 @@ void wire_init_logger(int64_t port_, int32_t level, bool mobile_logger);
 void wire_create_log_stream(int64_t port_);
 
 void wire_init_caller(int64_t port_);
+
+void wire_call_result(int64_t port_, struct wire_uint_8_list *id, struct wire_DynamicValue *value);
 
 void wire_simple_log(int64_t port_, struct wire_uint_8_list *string);
 
@@ -155,6 +157,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_init_logger);
     dummy_var ^= ((int64_t) (void*) wire_create_log_stream);
     dummy_var ^= ((int64_t) (void*) wire_init_caller);
+    dummy_var ^= ((int64_t) (void*) wire_call_result);
     dummy_var ^= ((int64_t) (void*) wire_simple_log);
     dummy_var ^= ((int64_t) (void*) wire_simple_panic);
     dummy_var ^= ((int64_t) (void*) wire_simple_adder_sync);

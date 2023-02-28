@@ -5,4 +5,4 @@
 #       path: ../packages/nekoton_bridge
 dependency_overrides:
   nekoton_bridge:
-    path: ../nekoton_bridge
+    path: ../packages/nekoton_bridge

@@ -45,6 +45,8 @@ pub enum DynamicValue {
     F64(f64),
 
     String(String),
+
+    // None,
 }
 
 impl Default for DynamicValue {
@@ -66,9 +68,20 @@ pub struct DartCallStub {
     pub named_args: Vec<DynamicNamedValue>,
 }
 
+#[derive(Default, Debug, Clone)]
+pub struct DartCallStubRegistred {
+    pub id: String,
+    pub stub: DartCallStub,
+}
+
 /// Init caller
-pub fn init_caller(stream_sink: StreamSink<DartCallStub>) {
+pub fn init_caller(stream_sink: StreamSink<DartCallStubRegistred>) {
     caller::set_stream_sink(stream_sink);
+}
+
+/// Callback functions for returning Dart method result
+pub fn call_result(id: String, value: DynamicValue) {
+    caller::call_result(id, value);
 }
 
 // TODO: all code below is only sandbox-related things
@@ -140,7 +153,8 @@ pub fn stub_dcs() -> DartCallStub {
 }
 
 pub fn simple_call_dart() {
-    caller::call(stub_dcs());
+    let ret = caller::call(stub_dcs());
+    debug!("simple_call_dart returns: {:?}", ret);
 }
 
 pub fn stub_call_dart(stub: DartCallStub) {
@@ -167,7 +181,7 @@ pub fn simple_call_func0() {
         ],
     };
 
-    caller::call(stub);
+    debug!("Something returned from simple_call_func0: {:?}", caller::call(stub));
 }
 
 // impl Default for DynamicValue {

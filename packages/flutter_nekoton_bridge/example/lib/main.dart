@@ -30,9 +30,9 @@ class _MyAppState extends State<MyApp> {
 
     flutter_nekoton_bridge.setupLogger(
       level: flutter_nekoton_bridge.LogLevel.Trace,
-      mobileLogger: true,
+      mobileLogger: false,
       logHandler: (logEntry) => debugPrint(
-        'FromRust: ${logEntry.level} ${logEntry.tag} ${logEntry.msg} (rust_time=${logEntry.timeMillis})',
+        'FromLib: ${logEntry.level} ${logEntry.tag} ${logEntry.msg} (lib_time=${logEntry.timeMillis})',
       ),
     );
   }

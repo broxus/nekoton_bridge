@@ -23,14 +23,14 @@ class Storage extends AbstractStorage {
   }
 
   @override
-  void func0(
+  String func0(
     String string,
     int i,
     double d, {
     required int arg0,
     required double arg1,
   }) {
-    storage.func0(string, i, d, arg0: arg0, arg1: arg1);
+    return storage.func0(string, i, d, arg0: arg0, arg1: arg1);
   }
 }
 
