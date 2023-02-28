@@ -75,7 +75,7 @@ void main() async {
 }
 
 /// Parse single use of rust code into hierarchy.
-/// [importFull] contains whole lines of one import, ex:
+/// [importFull] contains all lines of one import(even multiline), ex:
 /// `pub use crate::nekoton_wrapper::{MnemonicType, dict};
 void parseSingleImport(String importFull, Map<String, ModuleHierarchy> crates) {
   final importStr = importFull.replaceAll(RegExp('.*use '), '');
