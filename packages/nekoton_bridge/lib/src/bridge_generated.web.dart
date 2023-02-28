@@ -79,6 +79,9 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
     if (raw is DynamicValue_String) {
       return [6, api2wire_String(raw.field0)];
     }
+    if (raw is DynamicValue_None) {
+      return [7];
+    }
 
     throw Exception('unreachable');
   }

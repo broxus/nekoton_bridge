@@ -141,6 +141,7 @@ class DynamicValue with _$DynamicValue {
   const factory DynamicValue.string(
     String field0,
   ) = DynamicValue_String;
+  const factory DynamicValue.none() = DynamicValue_None;
 }
 
 /// Log entry
@@ -540,6 +541,8 @@ class NekotonBridgeImpl implements NekotonBridge {
         return DynamicValue_String(
           _wire2api_String(raw[1]),
         );
+      case 7:
+        return DynamicValue_None();
       default:
         throw Exception("unreachable");
     }

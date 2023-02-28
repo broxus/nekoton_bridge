@@ -58,7 +58,7 @@ pub fn call(stub: DartCallStub, need_result: bool) -> DynamicValue {
         };
         sink.add(stub_registred);
         if rx.is_none() {
-            return DynamicValue::I32(666);
+            return DynamicValue::None;
         }
         return rx.unwrap().recv().unwrap();
     }

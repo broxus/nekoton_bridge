@@ -46,7 +46,7 @@ pub enum DynamicValue {
 
     String(String),
 
-    // None,
+    None,
 }
 
 impl Default for DynamicValue {

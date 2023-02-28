@@ -169,6 +169,10 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
       wireObj.kind.ref.String.ref.field0 = pre_field0;
       return;
     }
+    if (apiObj is DynamicValue_None) {
+      wireObj.tag = 7;
+      return;
+    }
   }
 
   void _api_fill_to_wire_my_class(MyClass apiObj, wire_MyClass wireObj) {
@@ -740,6 +744,8 @@ class wire_DynamicValue_String extends ffi.Struct {
   external ffi.Pointer<wire_uint_8_list> field0;
 }
 
+class wire_DynamicValue_None extends ffi.Opaque {}
+
 class DynamicValueKind extends ffi.Union {
   external ffi.Pointer<wire_DynamicValue_U32> U32;
 
@@ -754,6 +760,8 @@ class DynamicValueKind extends ffi.Union {
   external ffi.Pointer<wire_DynamicValue_F64> F64;
 
   external ffi.Pointer<wire_DynamicValue_String> String;
+
+  external ffi.Pointer<wire_DynamicValue_None> None;
 }
 
 class wire_DynamicValue extends ffi.Struct {

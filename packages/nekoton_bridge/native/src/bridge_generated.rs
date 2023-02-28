@@ -350,6 +350,7 @@ impl support::IntoDart for DynamicValue {
             Self::F32(field0) => vec![4.into_dart(), field0.into_dart()],
             Self::F64(field0) => vec![5.into_dart(), field0.into_dart()],
             Self::String(field0) => vec![6.into_dart(), field0.into_dart()],
+            Self::None => vec![7.into_dart()],
         }
         .into_dart()
     }
@@ -534,6 +535,7 @@ mod web {
                 4 => DynamicValue::F32(self_.get(1).wire2api()),
                 5 => DynamicValue::F64(self_.get(1).wire2api()),
                 6 => DynamicValue::String(self_.get(1).wire2api()),
+                7 => DynamicValue::None,
                 _ => unreachable!(),
             }
         }
@@ -863,6 +865,7 @@ mod io {
                     let ans = support::box_from_leak_ptr(ans.String);
                     DynamicValue::String(ans.field0.wire2api())
                 },
+                7 => DynamicValue::None,
                 _ => unreachable!(),
             }
         }
@@ -963,6 +966,7 @@ mod io {
         F32: *mut wire_DynamicValue_F32,
         F64: *mut wire_DynamicValue_F64,
         String: *mut wire_DynamicValue_String,
+        None: *mut wire_DynamicValue_None,
     }
 
     #[repr(C)]
@@ -1006,6 +1010,10 @@ mod io {
     pub struct wire_DynamicValue_String {
         field0: *mut wire_uint_8_list,
     }
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_DynamicValue_None {}
 
     // Section: impl NewWithNullPtr
 

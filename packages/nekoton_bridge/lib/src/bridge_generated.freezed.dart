@@ -16,7 +16,6 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DynamicValue {
-  Object get field0 => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int field0) u32,
@@ -26,6 +25,7 @@ mixin _$DynamicValue {
     required TResult Function(double field0) f32,
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
+    required TResult Function() none,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,6 +37,7 @@ mixin _$DynamicValue {
     TResult? Function(double field0)? f32,
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
+    TResult? Function()? none,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +49,7 @@ mixin _$DynamicValue {
     TResult Function(double field0)? f32,
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
+    TResult Function()? none,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -60,6 +62,7 @@ mixin _$DynamicValue {
     required TResult Function(DynamicValue_F32 value) f32,
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
+    required TResult Function(DynamicValue_None value) none,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +74,7 @@ mixin _$DynamicValue {
     TResult? Function(DynamicValue_F32 value)? f32,
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
+    TResult? Function(DynamicValue_None value)? none,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +86,7 @@ mixin _$DynamicValue {
     TResult Function(DynamicValue_F32 value)? f32,
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
+    TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -176,6 +181,7 @@ class _$DynamicValue_U32 implements DynamicValue_U32 {
     required TResult Function(double field0) f32,
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
+    required TResult Function() none,
   }) {
     return u32(field0);
   }
@@ -190,6 +196,7 @@ class _$DynamicValue_U32 implements DynamicValue_U32 {
     TResult? Function(double field0)? f32,
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
+    TResult? Function()? none,
   }) {
     return u32?.call(field0);
   }
@@ -204,6 +211,7 @@ class _$DynamicValue_U32 implements DynamicValue_U32 {
     TResult Function(double field0)? f32,
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
+    TResult Function()? none,
     required TResult orElse(),
   }) {
     if (u32 != null) {
@@ -222,6 +230,7 @@ class _$DynamicValue_U32 implements DynamicValue_U32 {
     required TResult Function(DynamicValue_F32 value) f32,
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
+    required TResult Function(DynamicValue_None value) none,
   }) {
     return u32(this);
   }
@@ -236,6 +245,7 @@ class _$DynamicValue_U32 implements DynamicValue_U32 {
     TResult? Function(DynamicValue_F32 value)? f32,
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
+    TResult? Function(DynamicValue_None value)? none,
   }) {
     return u32?.call(this);
   }
@@ -250,6 +260,7 @@ class _$DynamicValue_U32 implements DynamicValue_U32 {
     TResult Function(DynamicValue_F32 value)? f32,
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
+    TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) {
     if (u32 != null) {
@@ -262,7 +273,6 @@ class _$DynamicValue_U32 implements DynamicValue_U32 {
 abstract class DynamicValue_U32 implements DynamicValue {
   const factory DynamicValue_U32(final int field0) = _$DynamicValue_U32;
 
-  @override
   int get field0;
   @JsonKey(ignore: true)
   _$$DynamicValue_U32CopyWith<_$DynamicValue_U32> get copyWith =>
@@ -340,6 +350,7 @@ class _$DynamicValue_I32 implements DynamicValue_I32 {
     required TResult Function(double field0) f32,
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
+    required TResult Function() none,
   }) {
     return i32(field0);
   }
@@ -354,6 +365,7 @@ class _$DynamicValue_I32 implements DynamicValue_I32 {
     TResult? Function(double field0)? f32,
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
+    TResult? Function()? none,
   }) {
     return i32?.call(field0);
   }
@@ -368,6 +380,7 @@ class _$DynamicValue_I32 implements DynamicValue_I32 {
     TResult Function(double field0)? f32,
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
+    TResult Function()? none,
     required TResult orElse(),
   }) {
     if (i32 != null) {
@@ -386,6 +399,7 @@ class _$DynamicValue_I32 implements DynamicValue_I32 {
     required TResult Function(DynamicValue_F32 value) f32,
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
+    required TResult Function(DynamicValue_None value) none,
   }) {
     return i32(this);
   }
@@ -400,6 +414,7 @@ class _$DynamicValue_I32 implements DynamicValue_I32 {
     TResult? Function(DynamicValue_F32 value)? f32,
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
+    TResult? Function(DynamicValue_None value)? none,
   }) {
     return i32?.call(this);
   }
@@ -414,6 +429,7 @@ class _$DynamicValue_I32 implements DynamicValue_I32 {
     TResult Function(DynamicValue_F32 value)? f32,
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
+    TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) {
     if (i32 != null) {
@@ -426,7 +442,6 @@ class _$DynamicValue_I32 implements DynamicValue_I32 {
 abstract class DynamicValue_I32 implements DynamicValue {
   const factory DynamicValue_I32(final int field0) = _$DynamicValue_I32;
 
-  @override
   int get field0;
   @JsonKey(ignore: true)
   _$$DynamicValue_I32CopyWith<_$DynamicValue_I32> get copyWith =>
@@ -504,6 +519,7 @@ class _$DynamicValue_U64 implements DynamicValue_U64 {
     required TResult Function(double field0) f32,
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
+    required TResult Function() none,
   }) {
     return u64(field0);
   }
@@ -518,6 +534,7 @@ class _$DynamicValue_U64 implements DynamicValue_U64 {
     TResult? Function(double field0)? f32,
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
+    TResult? Function()? none,
   }) {
     return u64?.call(field0);
   }
@@ -532,6 +549,7 @@ class _$DynamicValue_U64 implements DynamicValue_U64 {
     TResult Function(double field0)? f32,
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
+    TResult Function()? none,
     required TResult orElse(),
   }) {
     if (u64 != null) {
@@ -550,6 +568,7 @@ class _$DynamicValue_U64 implements DynamicValue_U64 {
     required TResult Function(DynamicValue_F32 value) f32,
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
+    required TResult Function(DynamicValue_None value) none,
   }) {
     return u64(this);
   }
@@ -564,6 +583,7 @@ class _$DynamicValue_U64 implements DynamicValue_U64 {
     TResult? Function(DynamicValue_F32 value)? f32,
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
+    TResult? Function(DynamicValue_None value)? none,
   }) {
     return u64?.call(this);
   }
@@ -578,6 +598,7 @@ class _$DynamicValue_U64 implements DynamicValue_U64 {
     TResult Function(DynamicValue_F32 value)? f32,
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
+    TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) {
     if (u64 != null) {
@@ -590,7 +611,6 @@ class _$DynamicValue_U64 implements DynamicValue_U64 {
 abstract class DynamicValue_U64 implements DynamicValue {
   const factory DynamicValue_U64(final int field0) = _$DynamicValue_U64;
 
-  @override
   int get field0;
   @JsonKey(ignore: true)
   _$$DynamicValue_U64CopyWith<_$DynamicValue_U64> get copyWith =>
@@ -668,6 +688,7 @@ class _$DynamicValue_I64 implements DynamicValue_I64 {
     required TResult Function(double field0) f32,
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
+    required TResult Function() none,
   }) {
     return i64(field0);
   }
@@ -682,6 +703,7 @@ class _$DynamicValue_I64 implements DynamicValue_I64 {
     TResult? Function(double field0)? f32,
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
+    TResult? Function()? none,
   }) {
     return i64?.call(field0);
   }
@@ -696,6 +718,7 @@ class _$DynamicValue_I64 implements DynamicValue_I64 {
     TResult Function(double field0)? f32,
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
+    TResult Function()? none,
     required TResult orElse(),
   }) {
     if (i64 != null) {
@@ -714,6 +737,7 @@ class _$DynamicValue_I64 implements DynamicValue_I64 {
     required TResult Function(DynamicValue_F32 value) f32,
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
+    required TResult Function(DynamicValue_None value) none,
   }) {
     return i64(this);
   }
@@ -728,6 +752,7 @@ class _$DynamicValue_I64 implements DynamicValue_I64 {
     TResult? Function(DynamicValue_F32 value)? f32,
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
+    TResult? Function(DynamicValue_None value)? none,
   }) {
     return i64?.call(this);
   }
@@ -742,6 +767,7 @@ class _$DynamicValue_I64 implements DynamicValue_I64 {
     TResult Function(DynamicValue_F32 value)? f32,
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
+    TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) {
     if (i64 != null) {
@@ -754,7 +780,6 @@ class _$DynamicValue_I64 implements DynamicValue_I64 {
 abstract class DynamicValue_I64 implements DynamicValue {
   const factory DynamicValue_I64(final int field0) = _$DynamicValue_I64;
 
-  @override
   int get field0;
   @JsonKey(ignore: true)
   _$$DynamicValue_I64CopyWith<_$DynamicValue_I64> get copyWith =>
@@ -832,6 +857,7 @@ class _$DynamicValue_F32 implements DynamicValue_F32 {
     required TResult Function(double field0) f32,
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
+    required TResult Function() none,
   }) {
     return f32(field0);
   }
@@ -846,6 +872,7 @@ class _$DynamicValue_F32 implements DynamicValue_F32 {
     TResult? Function(double field0)? f32,
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
+    TResult? Function()? none,
   }) {
     return f32?.call(field0);
   }
@@ -860,6 +887,7 @@ class _$DynamicValue_F32 implements DynamicValue_F32 {
     TResult Function(double field0)? f32,
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
+    TResult Function()? none,
     required TResult orElse(),
   }) {
     if (f32 != null) {
@@ -878,6 +906,7 @@ class _$DynamicValue_F32 implements DynamicValue_F32 {
     required TResult Function(DynamicValue_F32 value) f32,
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
+    required TResult Function(DynamicValue_None value) none,
   }) {
     return f32(this);
   }
@@ -892,6 +921,7 @@ class _$DynamicValue_F32 implements DynamicValue_F32 {
     TResult? Function(DynamicValue_F32 value)? f32,
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
+    TResult? Function(DynamicValue_None value)? none,
   }) {
     return f32?.call(this);
   }
@@ -906,6 +936,7 @@ class _$DynamicValue_F32 implements DynamicValue_F32 {
     TResult Function(DynamicValue_F32 value)? f32,
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
+    TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) {
     if (f32 != null) {
@@ -918,7 +949,6 @@ class _$DynamicValue_F32 implements DynamicValue_F32 {
 abstract class DynamicValue_F32 implements DynamicValue {
   const factory DynamicValue_F32(final double field0) = _$DynamicValue_F32;
 
-  @override
   double get field0;
   @JsonKey(ignore: true)
   _$$DynamicValue_F32CopyWith<_$DynamicValue_F32> get copyWith =>
@@ -996,6 +1026,7 @@ class _$DynamicValue_F64 implements DynamicValue_F64 {
     required TResult Function(double field0) f32,
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
+    required TResult Function() none,
   }) {
     return f64(field0);
   }
@@ -1010,6 +1041,7 @@ class _$DynamicValue_F64 implements DynamicValue_F64 {
     TResult? Function(double field0)? f32,
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
+    TResult? Function()? none,
   }) {
     return f64?.call(field0);
   }
@@ -1024,6 +1056,7 @@ class _$DynamicValue_F64 implements DynamicValue_F64 {
     TResult Function(double field0)? f32,
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
+    TResult Function()? none,
     required TResult orElse(),
   }) {
     if (f64 != null) {
@@ -1042,6 +1075,7 @@ class _$DynamicValue_F64 implements DynamicValue_F64 {
     required TResult Function(DynamicValue_F32 value) f32,
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
+    required TResult Function(DynamicValue_None value) none,
   }) {
     return f64(this);
   }
@@ -1056,6 +1090,7 @@ class _$DynamicValue_F64 implements DynamicValue_F64 {
     TResult? Function(DynamicValue_F32 value)? f32,
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
+    TResult? Function(DynamicValue_None value)? none,
   }) {
     return f64?.call(this);
   }
@@ -1070,6 +1105,7 @@ class _$DynamicValue_F64 implements DynamicValue_F64 {
     TResult Function(DynamicValue_F32 value)? f32,
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
+    TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) {
     if (f64 != null) {
@@ -1082,7 +1118,6 @@ class _$DynamicValue_F64 implements DynamicValue_F64 {
 abstract class DynamicValue_F64 implements DynamicValue {
   const factory DynamicValue_F64(final double field0) = _$DynamicValue_F64;
 
-  @override
   double get field0;
   @JsonKey(ignore: true)
   _$$DynamicValue_F64CopyWith<_$DynamicValue_F64> get copyWith =>
@@ -1161,6 +1196,7 @@ class _$DynamicValue_String implements DynamicValue_String {
     required TResult Function(double field0) f32,
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
+    required TResult Function() none,
   }) {
     return string(field0);
   }
@@ -1175,6 +1211,7 @@ class _$DynamicValue_String implements DynamicValue_String {
     TResult? Function(double field0)? f32,
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
+    TResult? Function()? none,
   }) {
     return string?.call(field0);
   }
@@ -1189,6 +1226,7 @@ class _$DynamicValue_String implements DynamicValue_String {
     TResult Function(double field0)? f32,
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
+    TResult Function()? none,
     required TResult orElse(),
   }) {
     if (string != null) {
@@ -1207,6 +1245,7 @@ class _$DynamicValue_String implements DynamicValue_String {
     required TResult Function(DynamicValue_F32 value) f32,
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
+    required TResult Function(DynamicValue_None value) none,
   }) {
     return string(this);
   }
@@ -1221,6 +1260,7 @@ class _$DynamicValue_String implements DynamicValue_String {
     TResult? Function(DynamicValue_F32 value)? f32,
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
+    TResult? Function(DynamicValue_None value)? none,
   }) {
     return string?.call(this);
   }
@@ -1235,6 +1275,7 @@ class _$DynamicValue_String implements DynamicValue_String {
     TResult Function(DynamicValue_F32 value)? f32,
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
+    TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) {
     if (string != null) {
@@ -1248,9 +1289,146 @@ abstract class DynamicValue_String implements DynamicValue {
   const factory DynamicValue_String(final String field0) =
       _$DynamicValue_String;
 
-  @override
   String get field0;
   @JsonKey(ignore: true)
   _$$DynamicValue_StringCopyWith<_$DynamicValue_String> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DynamicValue_NoneCopyWith<$Res> {
+  factory _$$DynamicValue_NoneCopyWith(
+          _$DynamicValue_None value, $Res Function(_$DynamicValue_None) then) =
+      __$$DynamicValue_NoneCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DynamicValue_NoneCopyWithImpl<$Res>
+    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_None>
+    implements _$$DynamicValue_NoneCopyWith<$Res> {
+  __$$DynamicValue_NoneCopyWithImpl(
+      _$DynamicValue_None _value, $Res Function(_$DynamicValue_None) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$DynamicValue_None implements DynamicValue_None {
+  const _$DynamicValue_None();
+
+  @override
+  String toString() {
+    return 'DynamicValue.none()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DynamicValue_None);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int field0) u32,
+    required TResult Function(int field0) i32,
+    required TResult Function(int field0) u64,
+    required TResult Function(int field0) i64,
+    required TResult Function(double field0) f32,
+    required TResult Function(double field0) f64,
+    required TResult Function(String field0) string,
+    required TResult Function() none,
+  }) {
+    return none();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int field0)? u32,
+    TResult? Function(int field0)? i32,
+    TResult? Function(int field0)? u64,
+    TResult? Function(int field0)? i64,
+    TResult? Function(double field0)? f32,
+    TResult? Function(double field0)? f64,
+    TResult? Function(String field0)? string,
+    TResult? Function()? none,
+  }) {
+    return none?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int field0)? u32,
+    TResult Function(int field0)? i32,
+    TResult Function(int field0)? u64,
+    TResult Function(int field0)? i64,
+    TResult Function(double field0)? f32,
+    TResult Function(double field0)? f64,
+    TResult Function(String field0)? string,
+    TResult Function()? none,
+    required TResult orElse(),
+  }) {
+    if (none != null) {
+      return none();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DynamicValue_U32 value) u32,
+    required TResult Function(DynamicValue_I32 value) i32,
+    required TResult Function(DynamicValue_U64 value) u64,
+    required TResult Function(DynamicValue_I64 value) i64,
+    required TResult Function(DynamicValue_F32 value) f32,
+    required TResult Function(DynamicValue_F64 value) f64,
+    required TResult Function(DynamicValue_String value) string,
+    required TResult Function(DynamicValue_None value) none,
+  }) {
+    return none(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(DynamicValue_U32 value)? u32,
+    TResult? Function(DynamicValue_I32 value)? i32,
+    TResult? Function(DynamicValue_U64 value)? u64,
+    TResult? Function(DynamicValue_I64 value)? i64,
+    TResult? Function(DynamicValue_F32 value)? f32,
+    TResult? Function(DynamicValue_F64 value)? f64,
+    TResult? Function(DynamicValue_String value)? string,
+    TResult? Function(DynamicValue_None value)? none,
+  }) {
+    return none?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DynamicValue_U32 value)? u32,
+    TResult Function(DynamicValue_I32 value)? i32,
+    TResult Function(DynamicValue_U64 value)? u64,
+    TResult Function(DynamicValue_I64 value)? i64,
+    TResult Function(DynamicValue_F32 value)? f32,
+    TResult Function(DynamicValue_F64 value)? f64,
+    TResult Function(DynamicValue_String value)? string,
+    TResult Function(DynamicValue_None value)? none,
+    required TResult orElse(),
+  }) {
+    if (none != null) {
+      return none(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DynamicValue_None implements DynamicValue {
+  const factory DynamicValue_None() = _$DynamicValue_None;
 }

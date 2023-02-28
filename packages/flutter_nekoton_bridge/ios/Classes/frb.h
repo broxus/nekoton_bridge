@@ -42,6 +42,10 @@ typedef struct wire_DynamicValue_String {
   struct wire_uint_8_list *field0;
 } wire_DynamicValue_String;
 
+typedef struct wire_DynamicValue_None {
+
+} wire_DynamicValue_None;
+
 typedef union DynamicValueKind {
   struct wire_DynamicValue_U32 *U32;
   struct wire_DynamicValue_I32 *I32;
@@ -50,6 +54,7 @@ typedef union DynamicValueKind {
   struct wire_DynamicValue_F32 *F32;
   struct wire_DynamicValue_F64 *F64;
   struct wire_DynamicValue_String *String;
+  struct wire_DynamicValue_None *None;
 } DynamicValueKind;
 
 typedef struct wire_DynamicValue {
