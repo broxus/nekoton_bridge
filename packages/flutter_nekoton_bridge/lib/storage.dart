@@ -1,3 +1,4 @@
+import 'package:flutter_nekoton_bridge/mega_struct.dart';
 import 'package:reflectable/reflectable.dart';
 import 'abstract_storage.dart';
 import 'storage.reflectable.dart';
@@ -42,6 +43,11 @@ class Storage extends AbstractStorage {
     required double arg1,
   }) async {
     return storage.func1(string, i, d, arg0: arg0, arg1: arg1);
+  }
+
+  @override
+  String func2(MegaStruct megaStruct) {
+    return storage.func2(megaStruct);
   }
 }
 

@@ -80,6 +80,10 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kSimpleCallFunc1ConstMeta;
 
+  Future<void> simpleCallFunc2({required bool needResult, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kSimpleCallFunc2ConstMeta;
+
   Future<MyClass> newStaticMethodMyClass({required int a, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kNewStaticMethodMyClassConstMeta;
@@ -141,6 +145,9 @@ class DynamicValue with _$DynamicValue {
   const factory DynamicValue.string(
     String field0,
   ) = DynamicValue_String;
+  const factory DynamicValue.megaStruct(
+    String field0,
+  ) = DynamicValue_MegaStruct;
   const factory DynamicValue.none() = DynamicValue_None;
 }
 
@@ -431,6 +438,23 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: ["needResult"],
       );
 
+  Future<void> simpleCallFunc2({required bool needResult, dynamic hint}) {
+    var arg0 = needResult;
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_simple_call_func2(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kSimpleCallFunc2ConstMeta,
+      argValues: [needResult],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kSimpleCallFunc2ConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "simple_call_func2",
+        argNames: ["needResult"],
+      );
+
   Future<MyClass> newStaticMethodMyClass({required int a, dynamic hint}) {
     var arg0 = api2wire_i32(a);
     return _platform.executeNormal(FlutterRustBridgeTask(
@@ -542,6 +566,10 @@ class NekotonBridgeImpl implements NekotonBridge {
           _wire2api_String(raw[1]),
         );
       case 7:
+        return DynamicValue_MegaStruct(
+          _wire2api_String(raw[1]),
+        );
+      case 8:
         return DynamicValue_None();
       default:
         throw Exception("unreachable");

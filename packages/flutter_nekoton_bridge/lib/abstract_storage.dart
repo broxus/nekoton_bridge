@@ -1,3 +1,5 @@
+import 'package:flutter_nekoton_bridge/mega_struct.dart';
+
 abstract class AbstractStorage {
   String func0(
     String string,
@@ -14,4 +16,8 @@ abstract class AbstractStorage {
     required int arg0,
     required double arg1,
   });
+
+  String func2(
+    MegaStruct megaStruct,
+  );
 }

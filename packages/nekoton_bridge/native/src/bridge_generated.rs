@@ -204,6 +204,19 @@ fn wire_simple_call_func1_impl(port_: MessagePort, need_result: impl Wire2Api<bo
         },
     )
 }
+fn wire_simple_call_func2_impl(port_: MessagePort, need_result: impl Wire2Api<bool> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "simple_call_func2",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_need_result = need_result.wire2api();
+            move |task_callback| Ok(simple_call_func2(api_need_result))
+        },
+    )
+}
 fn wire_new__static_method__MyClass_impl(port_: MessagePort, a: impl Wire2Api<i32> + UnwindSafe) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
@@ -350,7 +363,8 @@ impl support::IntoDart for DynamicValue {
             Self::F32(field0) => vec![4.into_dart(), field0.into_dart()],
             Self::F64(field0) => vec![5.into_dart(), field0.into_dart()],
             Self::String(field0) => vec![6.into_dart(), field0.into_dart()],
-            Self::None => vec![7.into_dart()],
+            Self::MegaStruct(field0) => vec![7.into_dart(), field0.into_dart()],
+            Self::None => vec![8.into_dart()],
         }
         .into_dart()
     }
@@ -472,6 +486,11 @@ mod web {
     }
 
     #[wasm_bindgen]
+    pub fn wire_simple_call_func2(port_: MessagePort, need_result: bool) {
+        wire_simple_call_func2_impl(port_, need_result)
+    }
+
+    #[wasm_bindgen]
     pub fn wire_new__static_method__MyClass(port_: MessagePort, a: i32) {
         wire_new__static_method__MyClass_impl(port_, a)
     }
@@ -535,7 +554,8 @@ mod web {
                 4 => DynamicValue::F32(self_.get(1).wire2api()),
                 5 => DynamicValue::F64(self_.get(1).wire2api()),
                 6 => DynamicValue::String(self_.get(1).wire2api()),
-                7 => DynamicValue::None,
+                7 => DynamicValue::MegaStruct(self_.get(1).wire2api()),
+                8 => DynamicValue::None,
                 _ => unreachable!(),
             }
         }
@@ -726,6 +746,11 @@ mod io {
     }
 
     #[no_mangle]
+    pub extern "C" fn wire_simple_call_func2(port_: i64, need_result: bool) {
+        wire_simple_call_func2_impl(port_, need_result)
+    }
+
+    #[no_mangle]
     pub extern "C" fn wire_new__static_method__MyClass(port_: i64, a: i32) {
         wire_new__static_method__MyClass_impl(port_, a)
     }
@@ -865,7 +890,12 @@ mod io {
                     let ans = support::box_from_leak_ptr(ans.String);
                     DynamicValue::String(ans.field0.wire2api())
                 },
-                7 => DynamicValue::None,
+                7 => unsafe {
+                    let ans = support::box_from_leak_ptr(self.kind);
+                    let ans = support::box_from_leak_ptr(ans.MegaStruct);
+                    DynamicValue::MegaStruct(ans.field0.wire2api())
+                },
+                8 => DynamicValue::None,
                 _ => unreachable!(),
             }
         }
@@ -966,6 +996,7 @@ mod io {
         F32: *mut wire_DynamicValue_F32,
         F64: *mut wire_DynamicValue_F64,
         String: *mut wire_DynamicValue_String,
+        MegaStruct: *mut wire_DynamicValue_MegaStruct,
         None: *mut wire_DynamicValue_None,
     }
 
@@ -1008,6 +1039,12 @@ mod io {
     #[repr(C)]
     #[derive(Clone)]
     pub struct wire_DynamicValue_String {
+        field0: *mut wire_uint_8_list,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_DynamicValue_MegaStruct {
         field0: *mut wire_uint_8_list,
     }
 
@@ -1125,6 +1162,15 @@ mod io {
     pub extern "C" fn inflate_DynamicValue_String() -> *mut DynamicValueKind {
         support::new_leak_box_ptr(DynamicValueKind {
             String: support::new_leak_box_ptr(wire_DynamicValue_String {
+                field0: core::ptr::null_mut(),
+            }),
+        })
+    }
+
+    #[no_mangle]
+    pub extern "C" fn inflate_DynamicValue_MegaStruct() -> *mut DynamicValueKind {
+        support::new_leak_box_ptr(DynamicValueKind {
+            MegaStruct: support::new_leak_box_ptr(wire_DynamicValue_MegaStruct {
                 field0: core::ptr::null_mut(),
             }),
         })

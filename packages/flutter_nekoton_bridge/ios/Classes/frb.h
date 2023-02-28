@@ -42,6 +42,10 @@ typedef struct wire_DynamicValue_String {
   struct wire_uint_8_list *field0;
 } wire_DynamicValue_String;
 
+typedef struct wire_DynamicValue_MegaStruct {
+  struct wire_uint_8_list *field0;
+} wire_DynamicValue_MegaStruct;
+
 typedef struct wire_DynamicValue_None {
 
 } wire_DynamicValue_None;
@@ -54,6 +58,7 @@ typedef union DynamicValueKind {
   struct wire_DynamicValue_F32 *F32;
   struct wire_DynamicValue_F64 *F64;
   struct wire_DynamicValue_String *String;
+  struct wire_DynamicValue_MegaStruct *MegaStruct;
   struct wire_DynamicValue_None *None;
 } DynamicValueKind;
 
@@ -129,6 +134,8 @@ void wire_simple_call_func0(int64_t port_, bool need_result);
 
 void wire_simple_call_func1(int64_t port_, bool need_result);
 
+void wire_simple_call_func2(int64_t port_, bool need_result);
+
 void wire_new__static_method__MyClass(int64_t port_, int32_t a);
 
 void wire_my_format__method__MyClass(int64_t port_, struct wire_MyClass *that);
@@ -159,6 +166,8 @@ union DynamicValueKind *inflate_DynamicValue_F64(void);
 
 union DynamicValueKind *inflate_DynamicValue_String(void);
 
+union DynamicValueKind *inflate_DynamicValue_MegaStruct(void);
+
 void free_WireSyncReturn(WireSyncReturn ptr);
 
 static int64_t dummy_method_to_enforce_bundling(void) {
@@ -177,6 +186,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_stub_call_dart);
     dummy_var ^= ((int64_t) (void*) wire_simple_call_func0);
     dummy_var ^= ((int64_t) (void*) wire_simple_call_func1);
+    dummy_var ^= ((int64_t) (void*) wire_simple_call_func2);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__MyClass);
     dummy_var ^= ((int64_t) (void*) wire_my_format__method__MyClass);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_dart_call_stub_0);
@@ -192,6 +202,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_F32);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_F64);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_String);
+    dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_MegaStruct);
     dummy_var ^= ((int64_t) (void*) free_WireSyncReturn);
     dummy_var ^= ((int64_t) (void*) store_dart_post_cobject);
     dummy_var ^= ((int64_t) (void*) get_dart_object);

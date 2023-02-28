@@ -169,8 +169,15 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
       wireObj.kind.ref.String.ref.field0 = pre_field0;
       return;
     }
-    if (apiObj is DynamicValue_None) {
+    if (apiObj is DynamicValue_MegaStruct) {
+      var pre_field0 = api2wire_String(apiObj.field0);
       wireObj.tag = 7;
+      wireObj.kind = inner.inflate_DynamicValue_MegaStruct();
+      wireObj.kind.ref.MegaStruct.ref.field0 = pre_field0;
+      return;
+    }
+    if (apiObj is DynamicValue_None) {
+      wireObj.tag = 8;
       return;
     }
   }
@@ -503,6 +510,22 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_simple_call_func1 =
       _wire_simple_call_func1Ptr.asFunction<void Function(int, bool)>();
 
+  void wire_simple_call_func2(
+    int port_,
+    bool need_result,
+  ) {
+    return _wire_simple_call_func2(
+      port_,
+      need_result,
+    );
+  }
+
+  late final _wire_simple_call_func2Ptr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Bool)>>(
+          'wire_simple_call_func2');
+  late final _wire_simple_call_func2 =
+      _wire_simple_call_func2Ptr.asFunction<void Function(int, bool)>();
+
   void wire_new__static_method__MyClass(
     int port_,
     int a,
@@ -686,6 +709,17 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _inflate_DynamicValue_String = _inflate_DynamicValue_StringPtr
       .asFunction<ffi.Pointer<DynamicValueKind> Function()>();
 
+  ffi.Pointer<DynamicValueKind> inflate_DynamicValue_MegaStruct() {
+    return _inflate_DynamicValue_MegaStruct();
+  }
+
+  late final _inflate_DynamicValue_MegaStructPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<DynamicValueKind> Function()>>(
+          'inflate_DynamicValue_MegaStruct');
+  late final _inflate_DynamicValue_MegaStruct =
+      _inflate_DynamicValue_MegaStructPtr
+          .asFunction<ffi.Pointer<DynamicValueKind> Function()>();
+
   void free_WireSyncReturn(
     WireSyncReturn ptr,
   ) {
@@ -744,6 +778,10 @@ class wire_DynamicValue_String extends ffi.Struct {
   external ffi.Pointer<wire_uint_8_list> field0;
 }
 
+class wire_DynamicValue_MegaStruct extends ffi.Struct {
+  external ffi.Pointer<wire_uint_8_list> field0;
+}
+
 class wire_DynamicValue_None extends ffi.Opaque {}
 
 class DynamicValueKind extends ffi.Union {
@@ -760,6 +798,8 @@ class DynamicValueKind extends ffi.Union {
   external ffi.Pointer<wire_DynamicValue_F64> F64;
 
   external ffi.Pointer<wire_DynamicValue_String> String;
+
+  external ffi.Pointer<wire_DynamicValue_MegaStruct> MegaStruct;
 
   external ffi.Pointer<wire_DynamicValue_None> None;
 }

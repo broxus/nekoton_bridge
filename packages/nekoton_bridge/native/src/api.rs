@@ -1,10 +1,13 @@
 #![allow(unused_variables)]
 
+use std::collections::HashMap;
+
 use flutter_rust_bridge::*;
 use log::*;
 
 mod caller;
 mod logger;
+mod mega_struct;
 
 pub enum LogLevel {
     Trace,
@@ -46,12 +49,14 @@ pub enum DynamicValue {
 
     String(String),
 
+    MegaStruct(String),
+
     None,
 }
 
 impl Default for DynamicValue {
     fn default() -> Self {
-        DynamicValue::U64(0)
+        DynamicValue::None
     }
 }
 
@@ -181,7 +186,10 @@ pub fn simple_call_func0(need_result: bool) {
         ],
     };
 
-    debug!("Something returned from simple_call_func0: {:?}", caller::call(stub, need_result));
+    debug!(
+        "Something returned from simple_call_func0: {:?}",
+        caller::call(stub, need_result)
+    );
 }
 
 pub fn simple_call_func1(need_result: bool) {
@@ -204,7 +212,39 @@ pub fn simple_call_func1(need_result: bool) {
         ],
     };
 
-    debug!("Something returned from simple_call_func1: {:?}", caller::call(stub, need_result));
+    debug!(
+        "Something returned from simple_call_func1: {:?}",
+        caller::call(stub, need_result)
+    );
+}
+
+pub fn simple_call_func2(need_result: bool) {
+    let mut props = HashMap::new();
+    props.insert(String::from("Key0"), String::from("Value0"));
+    props.insert(String::from("Key1"), String::from("Value1"));
+
+    let to_send_mega_struct = mega_struct::MegaStruct {
+        name: String::from("megastruct from rust"),
+        coords: mega_struct::Coords {
+            x: 1.1,
+            y: 2.2,
+            z: 3.3,
+        },
+        props: props,
+    };
+
+    let to_send_dynamic_value = DynamicValue::MegaStruct(to_send_mega_struct.to_json());
+
+    let stub = DartCallStub {
+        fn_name: String::from("func2"),
+        args: vec![to_send_dynamic_value],
+        named_args: vec![],
+    };
+
+    debug!(
+        "Something returned from simple_call_func2: {:?}",
+        caller::call(stub, need_result)
+    );
 }
 
 // impl Default for DynamicValue {

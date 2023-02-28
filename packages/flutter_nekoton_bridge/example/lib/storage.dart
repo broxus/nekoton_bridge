@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart'
     as flutter_nekoton_bridge;
+import 'package:flutter_nekoton_bridge/mega_struct.dart';
 
 class Storage extends flutter_nekoton_bridge.AbstractStorage {
   @override
@@ -24,5 +25,11 @@ class Storage extends flutter_nekoton_bridge.AbstractStorage {
     debugPrint('+++++++++Call: func1: $string $i $d $arg0 $arg1');
 
     return 'Return: Call: func1: $string $i $d $arg0 $arg1';
+  }
+
+  @override
+  String func2(MegaStruct megaStruct) {
+    debugPrint('---------Call: func2: $megaStruct');
+    return 'Okay';
   }
 }

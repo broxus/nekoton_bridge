@@ -79,8 +79,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
     if (raw is DynamicValue_String) {
       return [6, api2wire_String(raw.field0)];
     }
+    if (raw is DynamicValue_MegaStruct) {
+      return [7, api2wire_String(raw.field0)];
+    }
     if (raw is DynamicValue_None) {
-      return [7];
+      return [8];
     }
 
     throw Exception('unreachable');
@@ -168,6 +171,9 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_simple_call_func1(
       NativePortType port_, bool need_result);
 
+  external dynamic /* void */ wire_simple_call_func2(
+      NativePortType port_, bool need_result);
+
   external dynamic /* void */ wire_new__static_method__MyClass(
       NativePortType port_, int a);
 
@@ -222,6 +228,9 @@ class NekotonBridgeWire
 
   void wire_simple_call_func1(NativePortType port_, bool need_result) =>
       wasmModule.wire_simple_call_func1(port_, need_result);
+
+  void wire_simple_call_func2(NativePortType port_, bool need_result) =>
+      wasmModule.wire_simple_call_func2(port_, need_result);
 
   void wire_new__static_method__MyClass(NativePortType port_, int a) =>
       wasmModule.wire_new__static_method__MyClass(port_, a);
