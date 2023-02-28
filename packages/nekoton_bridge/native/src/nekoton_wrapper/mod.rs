@@ -1,6 +1,5 @@
 pub mod crypto;
 pub mod models_api;
-pub mod models_mapper;
 
 use anyhow::{Context, Result};
 use serde::Serialize;

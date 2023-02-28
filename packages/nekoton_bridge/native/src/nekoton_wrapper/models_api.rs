@@ -1,11 +1,13 @@
 use flutter_rust_bridge::frb;
+pub use nekoton::crypto::MnemonicType;
 
 /// -------------------------
 /// Types to generate in dart
 /// -------------------------
 
-/// Wrapper struct above MnemonicType with ability with correct generating
-pub enum MnemonicTypeG {
+/// Mirror struct of MnemonicType
+#[frb(mirror(MnemonicType))]
+pub enum _MnemonicType {
     Legacy,
     Labs(u16),
 }
@@ -13,5 +15,5 @@ pub enum MnemonicTypeG {
 /// Wrapper struct above GeneratedKey with suitable type for generation
 pub struct GeneratedKeyG {
     pub words: Vec<String>,
-    pub account_type: MnemonicTypeG,
+    pub account_type: MnemonicType,
 }
