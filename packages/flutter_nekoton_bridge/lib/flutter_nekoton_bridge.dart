@@ -33,7 +33,7 @@ Future<void> initDartCaller(InstanceMirror mirror) async {
   final lib = createLib();
   final caller = _caller ??= lib.initCaller();
 
-  caller.listen((stubRegistred) {
+  caller.listen((stubRegistred) async {
     var id = stubRegistred.id;
     var stub = stubRegistred.stub;
     final positionalArguments = stub.args.map((e) => e.toDynamic()).toList();
@@ -48,14 +48,21 @@ Future<void> initDartCaller(InstanceMirror mirror) async {
     final result = mirror.invoke(stub.fnName, positionalArguments,
         namedArguments.isNotEmpty ? namedArguments : null);
     debugPrint('Result: $result');
+    if (id == null) {
+      // Don't use return value
+      return;
+    }
     if (result is String) {
-      lib.callResult(id: id, value: DynamicValue.string(result));
+      lib.callSendResult(id: id, value: DynamicValue.string(result));
+      return;
+    } else if (result is Future<String>) {
+      lib.callSendResult(id: id, value: DynamicValue.string(await result));
       return;
     } else if (result is int) {
-      lib.callResult(id: id, value: DynamicValue.i64(result));
+      lib.callSendResult(id: id, value: DynamicValue.i64(result));
       return;
     } else if (result is double) {
-      lib.callResult(id: id, value: DynamicValue.f64(result));
+      lib.callSendResult(id: id, value: DynamicValue.f64(result));
       return;
     }
     //  else if (result == null) {
@@ -112,8 +119,12 @@ Future<String> queryMyClass() async {
   return result;
 }
 
-Future<void> simpleCallFunc0() async {
-  createLib().simpleCallFunc0();
+Future<void> simpleCallFunc0({required bool needResult}) async {
+  createLib().simpleCallFunc0(needResult: needResult);
+}
+
+Future<void> simpleCallFunc1({required bool needResult}) async {
+  createLib().simpleCallFunc1(needResult: needResult);
 }
 
 // Future<void> stubCallDart(DartCallStub stub) async {

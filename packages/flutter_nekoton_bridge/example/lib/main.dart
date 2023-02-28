@@ -58,8 +58,12 @@ class _MyAppState extends State<MyApp> {
     flutter_nekoton_bridge.initAbstractStorage(storage);
   }
 
-  void _onPressedDartCallFunc0() async {
-    flutter_nekoton_bridge.simpleCallFunc0();
+  void _onPressedDartCallFunc0(bool needResult) async {
+    flutter_nekoton_bridge.simpleCallFunc0(needResult: needResult);
+  }
+
+  void _onPressedDartCallFunc1(bool needResult) async {
+    flutter_nekoton_bridge.simpleCallFunc1(needResult: needResult);
   }
 
   // void _onPressedSimpleCallDart() async {
@@ -133,8 +137,20 @@ class _MyAppState extends State<MyApp> {
                   child: const Text('initDartCaller'),
                 ),
                 TextButton(
-                  onPressed: _onPressedDartCallFunc0,
-                  child: const Text('CallFunc0'),
+                  onPressed: () => _onPressedDartCallFunc0(true),
+                  child: const Text('CallFunc0 WITH result'),
+                ),
+                TextButton(
+                  onPressed: () => _onPressedDartCallFunc1(true),
+                  child: const Text('CallFunc1 WITH result'),
+                ),
+                TextButton(
+                  onPressed: () => _onPressedDartCallFunc0(false),
+                  child: const Text('CallFunc0 WITHOUT result'),
+                ),
+                TextButton(
+                  onPressed: () => _onPressedDartCallFunc1(false),
+                  child: const Text('CallFunc1 WITHOUT result'),
                 ),
                 // TextButton(
                 //   onPressed: _onPressedStubCallDart,

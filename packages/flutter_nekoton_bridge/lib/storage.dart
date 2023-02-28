@@ -32,6 +32,17 @@ class Storage extends AbstractStorage {
   }) {
     return storage.func0(string, i, d, arg0: arg0, arg1: arg1);
   }
+
+  @override
+  Future<String> func1(
+    String string,
+    int i,
+    double d, {
+    required int arg0,
+    required double arg1,
+  }) async {
+    return storage.func1(string, i, d, arg0: arg0, arg1: arg1);
+  }
 }
 
 // TODO: Fucking reflectable doesn't want to generate code without main()

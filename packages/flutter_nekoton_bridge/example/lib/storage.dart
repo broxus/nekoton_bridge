@@ -4,15 +4,25 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart'
 
 class Storage extends flutter_nekoton_bridge.AbstractStorage {
   @override
-  String func0(
+  String func0(String string, int i, double d,
+      {required int arg0, required double arg1}) {
+    debugPrint('Call: func0: $string $i $d $arg0 $arg1');
+
+    return 'Return: Call: func0: $string $i $d $arg0 $arg1';
+  }
+
+  @override
+  Future<String> func1(
     String string,
     int i,
     double d, {
     required int arg0,
     required double arg1,
-  }) {
-    debugPrint('Call: func0: $string $i $d $arg0 $arg1');
+  }) async {
+    debugPrint('---------Call: func1: $string $i $d $arg0 $arg1');
+    await Future.delayed(const Duration(seconds: 1), () {});
+    debugPrint('+++++++++Call: func1: $string $i $d $arg0 $arg1');
 
-    return 'Return: Call: func0: $string $i $d $arg0 $arg1';
+    return 'Return: Call: func1: $string $i $d $arg0 $arg1';
   }
 }

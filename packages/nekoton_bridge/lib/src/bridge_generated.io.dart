@@ -324,23 +324,23 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_init_caller =
       _wire_init_callerPtr.asFunction<void Function(int)>();
 
-  void wire_call_result(
+  void wire_call_send_result(
     int port_,
     ffi.Pointer<wire_uint_8_list> id,
     ffi.Pointer<wire_DynamicValue> value,
   ) {
-    return _wire_call_result(
+    return _wire_call_send_result(
       port_,
       id,
       value,
     );
   }
 
-  late final _wire_call_resultPtr = _lookup<
+  late final _wire_call_send_resultPtr = _lookup<
       ffi.NativeFunction<
           ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<wire_DynamicValue>)>>('wire_call_result');
-  late final _wire_call_result = _wire_call_resultPtr.asFunction<
+              ffi.Pointer<wire_DynamicValue>)>>('wire_call_send_result');
+  late final _wire_call_send_result = _wire_call_send_resultPtr.asFunction<
       void Function(int, ffi.Pointer<wire_uint_8_list>,
           ffi.Pointer<wire_DynamicValue>)>();
 
@@ -469,17 +469,35 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
 
   void wire_simple_call_func0(
     int port_,
+    bool need_result,
   ) {
     return _wire_simple_call_func0(
       port_,
+      need_result,
     );
   }
 
   late final _wire_simple_call_func0Ptr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Bool)>>(
           'wire_simple_call_func0');
   late final _wire_simple_call_func0 =
-      _wire_simple_call_func0Ptr.asFunction<void Function(int)>();
+      _wire_simple_call_func0Ptr.asFunction<void Function(int, bool)>();
+
+  void wire_simple_call_func1(
+    int port_,
+    bool need_result,
+  ) {
+    return _wire_simple_call_func1(
+      port_,
+      need_result,
+    );
+  }
+
+  late final _wire_simple_call_func1Ptr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Bool)>>(
+          'wire_simple_call_func1');
+  late final _wire_simple_call_func1 =
+      _wire_simple_call_func1Ptr.asFunction<void Function(int, bool)>();
 
   void wire_new__static_method__MyClass(
     int port_,

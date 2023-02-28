@@ -59,21 +59,21 @@ fn wire_init_caller_impl(port_: MessagePort) {
         move || move |task_callback| Ok(init_caller(task_callback.stream_sink())),
     )
 }
-fn wire_call_result_impl(
+fn wire_call_send_result_impl(
     port_: MessagePort,
     id: impl Wire2Api<String> + UnwindSafe,
     value: impl Wire2Api<DynamicValue> + UnwindSafe,
 ) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
-            debug_name: "call_result",
+            debug_name: "call_send_result",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
         move || {
             let api_id = id.wire2api();
             let api_value = value.wire2api();
-            move |task_callback| Ok(call_result(api_id, api_value))
+            move |task_callback| Ok(call_send_result(api_id, api_value))
         },
     )
 }
@@ -178,14 +178,30 @@ fn wire_stub_call_dart_impl(port_: MessagePort, stub: impl Wire2Api<DartCallStub
         },
     )
 }
-fn wire_simple_call_func0_impl(port_: MessagePort) {
+fn wire_simple_call_func0_impl(port_: MessagePort, need_result: impl Wire2Api<bool> + UnwindSafe) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
             debug_name: "simple_call_func0",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
-        move || move |task_callback| Ok(simple_call_func0()),
+        move || {
+            let api_need_result = need_result.wire2api();
+            move |task_callback| Ok(simple_call_func0(api_need_result))
+        },
+    )
+}
+fn wire_simple_call_func1_impl(port_: MessagePort, need_result: impl Wire2Api<bool> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "simple_call_func1",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_need_result = need_result.wire2api();
+            move |task_callback| Ok(simple_call_func1(api_need_result))
+        },
     )
 }
 fn wire_new__static_method__MyClass_impl(port_: MessagePort, a: impl Wire2Api<i32> + UnwindSafe) {
@@ -400,8 +416,8 @@ mod web {
     }
 
     #[wasm_bindgen]
-    pub fn wire_call_result(port_: MessagePort, id: String, value: JsValue) {
-        wire_call_result_impl(port_, id, value)
+    pub fn wire_call_send_result(port_: MessagePort, id: String, value: JsValue) {
+        wire_call_send_result_impl(port_, id, value)
     }
 
     #[wasm_bindgen]
@@ -445,8 +461,13 @@ mod web {
     }
 
     #[wasm_bindgen]
-    pub fn wire_simple_call_func0(port_: MessagePort) {
-        wire_simple_call_func0_impl(port_)
+    pub fn wire_simple_call_func0(port_: MessagePort, need_result: bool) {
+        wire_simple_call_func0_impl(port_, need_result)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_simple_call_func1(port_: MessagePort, need_result: bool) {
+        wire_simple_call_func1_impl(port_, need_result)
     }
 
     #[wasm_bindgen]
@@ -644,12 +665,12 @@ mod io {
     }
 
     #[no_mangle]
-    pub extern "C" fn wire_call_result(
+    pub extern "C" fn wire_call_send_result(
         port_: i64,
         id: *mut wire_uint_8_list,
         value: *mut wire_DynamicValue,
     ) {
-        wire_call_result_impl(port_, id, value)
+        wire_call_send_result_impl(port_, id, value)
     }
 
     #[no_mangle]
@@ -693,8 +714,13 @@ mod io {
     }
 
     #[no_mangle]
-    pub extern "C" fn wire_simple_call_func0(port_: i64) {
-        wire_simple_call_func0_impl(port_)
+    pub extern "C" fn wire_simple_call_func0(port_: i64, need_result: bool) {
+        wire_simple_call_func0_impl(port_, need_result)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_simple_call_func1(port_: i64, need_result: bool) {
+        wire_simple_call_func1_impl(port_, need_result)
     }
 
     #[no_mangle]

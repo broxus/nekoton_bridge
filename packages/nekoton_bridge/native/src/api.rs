@@ -70,7 +70,7 @@ pub struct DartCallStub {
 
 #[derive(Default, Debug, Clone)]
 pub struct DartCallStubRegistred {
-    pub id: String,
+    pub id: Option<String>,
     pub stub: DartCallStub,
 }
 
@@ -80,8 +80,8 @@ pub fn init_caller(stream_sink: StreamSink<DartCallStubRegistred>) {
 }
 
 /// Callback functions for returning Dart method result
-pub fn call_result(id: String, value: DynamicValue) {
-    caller::call_result(id, value);
+pub fn call_send_result(id: String, value: DynamicValue) {
+    caller::call_send_result(id, value);
 }
 
 // TODO: all code below is only sandbox-related things
@@ -153,15 +153,15 @@ pub fn stub_dcs() -> DartCallStub {
 }
 
 pub fn simple_call_dart() {
-    let ret = caller::call(stub_dcs());
+    let ret = caller::call(stub_dcs(), true);
     debug!("simple_call_dart returns: {:?}", ret);
 }
 
 pub fn stub_call_dart(stub: DartCallStub) {
-    caller::call(stub);
+    caller::call(stub, true);
 }
 
-pub fn simple_call_func0() {
+pub fn simple_call_func0(need_result: bool) {
     let stub = DartCallStub {
         fn_name: String::from("func0"),
         args: vec![
@@ -181,7 +181,30 @@ pub fn simple_call_func0() {
         ],
     };
 
-    debug!("Something returned from simple_call_func0: {:?}", caller::call(stub));
+    debug!("Something returned from simple_call_func0: {:?}", caller::call(stub, need_result));
+}
+
+pub fn simple_call_func1(need_result: bool) {
+    let stub = DartCallStub {
+        fn_name: String::from("func1"),
+        args: vec![
+            DynamicValue::String(String::from("Hello from rust, this is simple_call_func1")),
+            DynamicValue::I64(42),
+            DynamicValue::F64(42.42),
+        ],
+        named_args: vec![
+            DynamicNamedValue {
+                name: String::from("arg0"),
+                value: Some(DynamicValue::I64(420)),
+            },
+            DynamicNamedValue {
+                name: String::from("arg1"),
+                value: Some(DynamicValue::F64(420.42)),
+            },
+        ],
+    };
+
+    debug!("Something returned from simple_call_func1: {:?}", caller::call(stub, need_result));
 }
 
 // impl Default for DynamicValue {
