@@ -60,6 +60,22 @@ impl Default for DynamicValue {
     }
 }
 
+impl DynamicValue {
+    fn as_string(&self) -> String {
+        match self {
+            DynamicValue::String(string) => string.clone(),
+            _ => panic!("Can't convert DynamicValue to String {:?}", &self),
+        }
+    }
+
+    fn as_mega_struct(&self) -> mega_struct::MegaStruct {
+        match self {
+            DynamicValue::MegaStruct(string) => mega_struct::MegaStruct::from_json(string),
+            _ => panic!("Can't convert DynamicValue to MegaStruct {:?}", &self),
+        }
+    }
+}
+
 #[derive(Default, Debug, Clone)]
 pub struct DynamicNamedValue {
     pub name: String,
@@ -186,9 +202,16 @@ pub fn simple_call_func0(need_result: bool) {
         ],
     };
 
+    let result = caller::call(stub, need_result);
+    let dgbstr = if need_result {
+        result.as_string()
+    } else {
+        String::from("no return value")
+    };
+
     debug!(
         "Something returned from simple_call_func0: {:?}",
-        caller::call(stub, need_result)
+        dgbstr
     );
 }
 
@@ -218,7 +241,7 @@ pub fn simple_call_func1(need_result: bool) {
     );
 }
 
-pub fn simple_call_func2(need_result: bool) {
+pub fn simple_call_func2() {
     let mut props = HashMap::new();
     props.insert(String::from("Key0"), String::from("Value0"));
     props.insert(String::from("Key1"), String::from("Value1"));
@@ -241,9 +264,10 @@ pub fn simple_call_func2(need_result: bool) {
         named_args: vec![],
     };
 
+    let mega_struct = caller::call(stub, true).as_mega_struct();
+
     debug!(
-        "Something returned from simple_call_func2: {:?}",
-        caller::call(stub, need_result)
+        "Something returned from simple_call_func2: name: {} debug: {:?}", mega_struct.name, mega_struct,
     );
 }
 

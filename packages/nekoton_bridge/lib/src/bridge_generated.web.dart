@@ -171,8 +171,7 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_simple_call_func1(
       NativePortType port_, bool need_result);
 
-  external dynamic /* void */ wire_simple_call_func2(
-      NativePortType port_, bool need_result);
+  external dynamic /* void */ wire_simple_call_func2(NativePortType port_);
 
   external dynamic /* void */ wire_new__static_method__MyClass(
       NativePortType port_, int a);
@@ -229,8 +228,8 @@ class NekotonBridgeWire
   void wire_simple_call_func1(NativePortType port_, bool need_result) =>
       wasmModule.wire_simple_call_func1(port_, need_result);
 
-  void wire_simple_call_func2(NativePortType port_, bool need_result) =>
-      wasmModule.wire_simple_call_func2(port_, need_result);
+  void wire_simple_call_func2(NativePortType port_) =>
+      wasmModule.wire_simple_call_func2(port_);
 
   void wire_new__static_method__MyClass(NativePortType port_, int a) =>
       wasmModule.wire_new__static_method__MyClass(port_, a);

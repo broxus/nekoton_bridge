@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _onPressedDartCallFunc2() async {
-    flutter_nekoton_bridge.simpleCallFunc2(needResult: true);
+    flutter_nekoton_bridge.simpleCallFunc2();
   }
 
   // void _onPressedSimpleCallDart() async {

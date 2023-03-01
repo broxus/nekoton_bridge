@@ -204,17 +204,14 @@ fn wire_simple_call_func1_impl(port_: MessagePort, need_result: impl Wire2Api<bo
         },
     )
 }
-fn wire_simple_call_func2_impl(port_: MessagePort, need_result: impl Wire2Api<bool> + UnwindSafe) {
+fn wire_simple_call_func2_impl(port_: MessagePort) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
             debug_name: "simple_call_func2",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
-        move || {
-            let api_need_result = need_result.wire2api();
-            move |task_callback| Ok(simple_call_func2(api_need_result))
-        },
+        move || move |task_callback| Ok(simple_call_func2()),
     )
 }
 fn wire_new__static_method__MyClass_impl(port_: MessagePort, a: impl Wire2Api<i32> + UnwindSafe) {
@@ -486,8 +483,8 @@ mod web {
     }
 
     #[wasm_bindgen]
-    pub fn wire_simple_call_func2(port_: MessagePort, need_result: bool) {
-        wire_simple_call_func2_impl(port_, need_result)
+    pub fn wire_simple_call_func2(port_: MessagePort) {
+        wire_simple_call_func2_impl(port_)
     }
 
     #[wasm_bindgen]
@@ -746,8 +743,8 @@ mod io {
     }
 
     #[no_mangle]
-    pub extern "C" fn wire_simple_call_func2(port_: i64, need_result: bool) {
-        wire_simple_call_func2_impl(port_, need_result)
+    pub extern "C" fn wire_simple_call_func2(port_: i64) {
+        wire_simple_call_func2_impl(port_)
     }
 
     #[no_mangle]

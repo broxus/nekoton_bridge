@@ -134,7 +134,7 @@ void wire_simple_call_func0(int64_t port_, bool need_result);
 
 void wire_simple_call_func1(int64_t port_, bool need_result);
 
-void wire_simple_call_func2(int64_t port_, bool need_result);
+void wire_simple_call_func2(int64_t port_);
 
 void wire_new__static_method__MyClass(int64_t port_, int32_t a);
 

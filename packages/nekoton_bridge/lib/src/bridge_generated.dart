@@ -80,7 +80,7 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kSimpleCallFunc1ConstMeta;
 
-  Future<void> simpleCallFunc2({required bool needResult, dynamic hint});
+  Future<void> simpleCallFunc2({dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kSimpleCallFunc2ConstMeta;
 
@@ -438,13 +438,12 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: ["needResult"],
       );
 
-  Future<void> simpleCallFunc2({required bool needResult, dynamic hint}) {
-    var arg0 = needResult;
+  Future<void> simpleCallFunc2({dynamic hint}) {
     return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_simple_call_func2(port_, arg0),
+      callFfi: (port_) => _platform.inner.wire_simple_call_func2(port_),
       parseSuccessData: _wire2api_unit,
       constMeta: kSimpleCallFunc2ConstMeta,
-      argValues: [needResult],
+      argValues: [],
       hint: hint,
     ));
   }
@@ -452,7 +451,7 @@ class NekotonBridgeImpl implements NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kSimpleCallFunc2ConstMeta =>
       const FlutterRustBridgeTaskConstMeta(
         debugName: "simple_call_func2",
-        argNames: ["needResult"],
+        argNames: [],
       );
 
   Future<MyClass> newStaticMethodMyClass({required int a, dynamic hint}) {

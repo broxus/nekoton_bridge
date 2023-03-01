@@ -131,8 +131,8 @@ Future<void> simpleCallFunc1({required bool needResult}) async {
   createLib().simpleCallFunc1(needResult: needResult);
 }
 
-Future<void> simpleCallFunc2({required bool needResult}) async {
-  createLib().simpleCallFunc2(needResult: needResult);
+Future<void> simpleCallFunc2() async {
+  createLib().simpleCallFunc2();
 }
 
 // Future<void> stubCallDart(DartCallStub stub) async {
