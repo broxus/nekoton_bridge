@@ -1,7 +1,16 @@
 import 'dart:io';
 
 const mergedFileName = 'merged';
+
+/// RegExp to parse all imports blocks
 final importsReg = RegExp('.*use (?:.*?|\n)*?;');
+
+/// RegExp to parse sub modules from single-line like:
+/// crypto::mnemonic::models::KeypairHelper, models_api::GeneratedKeyG,
+final cratesInSingleLineSpaceReg = RegExp(r', \w+::');
+
+/// RegExp to parse all sub modules and direct imports from brackets { .. }
+final subCratesParserReg = RegExp(r'((.+::)+({.+}|\w+,))|(\w+)');
 
 /// This runs automatically in the beginning of build.rs script
 /// [Directory.current] must be /nekoton_bridge/native
@@ -154,11 +163,28 @@ void parseImports(
     croppedCrate = croppedCrate.substring(1, croppedCrate.length - 1).trim();
 
     // iterate over sub-blocks and direct imports, group 1 is blocks, group 3 is direct imports
-    RegExp(r'((.+::)+.*)|(\w+)').allMatches(croppedCrate).forEach((match) {
-      if (match.group(3) != null) {
-        hierarchy[moduleName]!.directImports.add(match.group(3)!.trim());
+    subCratesParserReg.allMatches(croppedCrate).forEach((match) {
+      if (match.group(4) != null) {
+        hierarchy[moduleName]!.directImports.add(match.group(4)!.trim());
       } else if (match.group(1) != null) {
-        parseImports(match.group(1)!, hierarchy[moduleName]!.subModules);
+        final cratesGroup = match.group(1)!;
+        // If there are some glued crates in one line, we should split it
+        if (cratesGroup.contains(cratesInSingleLineSpaceReg)) {
+          var startOfCrate = 0;
+
+          /// Iterate over all 'crate spaces' and run parser for each of them
+          cratesInSingleLineSpaceReg.allMatches(cratesGroup).forEach((crate) {
+            final crateStr = cratesGroup.substring(startOfCrate, crate.start + 1);
+            startOfCrate = crate.start + 2;
+            parseImports(crateStr, hierarchy[moduleName]!.subModules);
+          });
+
+          /// Parse last crate after all 'crate spaces'
+          final crateStr = cratesGroup.substring(startOfCrate);
+          parseImports(crateStr, hierarchy[moduleName]!.subModules);
+        } else {
+          parseImports(cratesGroup, hierarchy[moduleName]!.subModules);
+        }
       }
     });
   } else {

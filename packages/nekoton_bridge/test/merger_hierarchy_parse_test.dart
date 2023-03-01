@@ -4,7 +4,37 @@ import '../bin/merger.dart';
 
 void main() {
   group('Test hierarchy parsing', () {
-    test('Test difficult hierarchy parsing', () {
+    test('Test difficult hierarchy with single-line crates parsing', () {
+      final crates = <String, ModuleHierarchy>{};
+      const crateImport = '''
+    crate::nekoton_wrapper::{
+      models_api::GeneratedKeyG, crypto::mnemonic::models::KeypairHelper, str_list_to_string_vec,
+      str_vec_to_string_vec, HandleError, MatchResult,
+    };
+    ''';
+
+      parseImports(crateImport, crates);
+      final rootCrate = crates['crate']!;
+      expect(rootCrate.subModules.length, 1);
+      expect(rootCrate.directImports.length, 0);
+      expect(rootCrate.moduleName, 'crate');
+      final nekotonCrate = rootCrate.subModules['nekoton_wrapper']!;
+      expect(nekotonCrate.moduleName, 'nekoton_wrapper');
+      expect(nekotonCrate.subModules.keys.toSet(), {'crypto'});
+      expect(
+        nekotonCrate.directImports,
+        {'str_list_to_string_vec', 'str_vec_to_string_vec', 'HandleError', 'MatchResult'},
+      );
+
+      final cryptoModule = nekotonCrate.subModules['crypto']!;
+      expect(cryptoModule.directImports.isEmpty, true);
+      expect(
+        cryptoModule.subModules['mnemonic']!.subModules['models']!.directImports,
+        {'KeypairHelper'},
+      );
+    });
+
+    test('Test difficult hierarchy with multi-line crates parsing', () {
       final crates = <String, ModuleHierarchy>{};
       const crateImport = '''
     crate::nekoton_wrapper::{

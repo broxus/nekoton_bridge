@@ -27,12 +27,12 @@ typedef struct wire_MnemonicType {
   union MnemonicTypeKind *kind;
 } wire_MnemonicType;
 
-typedef struct DartCObject *WireSyncReturn;
-
 typedef struct wire_uint_8_list {
   uint8_t *ptr;
   int32_t len;
 } wire_uint_8_list;
+
+typedef struct DartCObject *WireSyncReturn;
 
 typedef struct wire_DynamicValue_U32 {
   uint32_t field0;
@@ -114,12 +114,13 @@ intptr_t init_frb_dart_api_dl(void *obj);
 
 void wire_resend_mnemonic(int64_t port_, struct wire_MnemonicType *mnemonic);
 
-WireSyncReturn wire_nt_generate_key(struct wire_MnemonicType *account_type);
+void wire_nt_generate_key(int64_t port_, struct wire_MnemonicType *account_type);
 
-WireSyncReturn wire_nt_get_hints(struct wire_uint_8_list *input);
+void wire_nt_get_hints(int64_t port_, struct wire_uint_8_list *input);
 
-WireSyncReturn wire_nt_derive_from_phrase(struct wire_uint_8_list *phrase,
-                                          struct wire_MnemonicType *mnemonic_type);
+void wire_nt_derive_from_phrase(int64_t port_,
+                                struct wire_uint_8_list *phrase,
+                                struct wire_MnemonicType *mnemonic_type);
 
 void wire_init_logger(int64_t port_, int32_t level, bool mobile_logger);
 

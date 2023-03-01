@@ -1,4 +1,9 @@
-use lib_flutter_rust_bridge_codegen::{config_parse, frb_codegen, get_symbols_if_no_duplicates, RawOpts};
+use lib_flutter_rust_bridge_codegen::{
+    config_parse, frb_codegen, get_symbols_if_no_duplicates, RawOpts,
+};
+use std::fs;
+use std::io::Error;
+use std::path::Path;
 
 const RUST_INPUT: &str = "src/merged.rs";
 const DART_OUTPUT: &str = "../lib/src/bridge_generated.dart";
@@ -6,11 +11,15 @@ const IOS_C_OUTPUT: &str = "../../flutter_nekoton_bridge/ios/Classes/frb.h";
 // const MACOS_C_OUTPUT: &str = "../../flutter_nekoton_bridge/macos/Classes/frb.h";
 
 fn main() {
+    // Tell Cargo that if the input Rust code changes, rerun this build script
+    println!("cargo:rerun_except={RUST_INPUT}");
+
     // Create merged file for generation
     let mut codegen = std::process::Command::new("dart")
         .arg("run")
         .arg("../bin/merger.dart")
-        .spawn().unwrap();
+        .spawn()
+        .unwrap();
     _ = codegen.wait();
 
     let raw_opts = RawOpts {
@@ -33,7 +42,7 @@ fn main() {
 
     // Format the generated Dart code
     _ = std::process::Command::new("flutter")
-        .arg("format -l 100")
-        .arg("..")
+        .arg("format")
+        .arg("../lib")
         .spawn();
 }
