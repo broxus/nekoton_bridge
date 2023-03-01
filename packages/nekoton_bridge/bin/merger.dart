@@ -60,6 +60,8 @@ void main() async {
     }
   }
 
+  mergedFileSink.write('#![allow(unused)]\n');
+
   /// Write new hierarchy of imports
   final imports = StringBuffer();
   convertCrateToString(crates, imports);

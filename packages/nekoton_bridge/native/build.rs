@@ -1,9 +1,6 @@
 use lib_flutter_rust_bridge_codegen::{
     config_parse, frb_codegen, get_symbols_if_no_duplicates, RawOpts,
 };
-use std::fs;
-use std::io::Error;
-use std::path::Path;
 
 const RUST_INPUT: &str = "src/merged.rs";
 const DART_OUTPUT: &str = "../lib/src/bridge_generated.dart";

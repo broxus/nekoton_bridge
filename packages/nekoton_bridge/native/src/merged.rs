@@ -1,3 +1,4 @@
+#![allow(unused)]
 use crate::{
     nekoton_wrapper::{
         crypto::mnemonic::models::KeypairHelper, str_list_to_string_vec, str_vec_to_string_vec,
