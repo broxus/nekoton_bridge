@@ -1,3 +1,4 @@
+import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_nekoton_bridge/mega_struct.dart';
 
 abstract class AbstractStorage {
@@ -17,7 +18,7 @@ abstract class AbstractStorage {
     required double arg1,
   });
 
-  String func2(
+  DynamicValue func2(
     MegaStruct megaStruct,
   );
 }

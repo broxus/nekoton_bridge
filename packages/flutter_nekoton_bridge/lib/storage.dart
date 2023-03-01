@@ -1,6 +1,6 @@
 import 'package:flutter_nekoton_bridge/mega_struct.dart';
 import 'package:reflectable/reflectable.dart';
-import 'abstract_storage.dart';
+import 'flutter_nekoton_bridge.dart';
 import 'storage.reflectable.dart';
 
 // Annotate with this class to enable reflection.
@@ -46,7 +46,7 @@ class Storage extends AbstractStorage {
   }
 
   @override
-  String func2(MegaStruct megaStruct) {
+  DynamicValue func2(MegaStruct megaStruct) {
     return storage.func2(megaStruct);
   }
 }

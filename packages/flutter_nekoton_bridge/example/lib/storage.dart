@@ -28,8 +28,16 @@ class Storage extends flutter_nekoton_bridge.AbstractStorage {
   }
 
   @override
-  String func2(MegaStruct megaStruct) {
+  flutter_nekoton_bridge.DynamicValue func2(MegaStruct megaStruct) {
     debugPrint('---------Call: func2: $megaStruct');
-    return 'Okay';
+    final toSendDynamicValue = MegaStruct(
+        name: 'Seen in Dart ${megaStruct.name}',
+        coords: const Coords(x: 33.33, y: 44.44, z: 55.55),
+        props: {
+          ...megaStruct.props,
+          ...{'KeyFromDart': 'ValFromDart'},
+        });
+    return flutter_nekoton_bridge.DynamicValueConvert.megaStruct(
+        toSendDynamicValue);
   }
 }

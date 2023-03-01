@@ -21,9 +21,9 @@ impl MegaStruct {
         serde_json::to_string(self).unwrap()
     }
 
-    pub fn from_json(json: String) -> MegaStruct {
-      serde_json::from_str(&json).unwrap()
-    }
+    // pub fn from_json(json: String) -> MegaStruct {
+    //   serde_json::from_str(&json).unwrap()
+    // }
 }
 
 

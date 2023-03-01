@@ -7,6 +7,7 @@ import 'package:nekoton_bridge/nekoton_bridge.dart';
 export 'package:nekoton_bridge/nekoton_bridge.dart';
 import 'package:reflectable/reflectable.dart';
 import 'dynamic_value.dart';
+export 'dynamic_value.dart';
 import 'log_entry.dart';
 import 'abstract_storage.dart';
 export 'abstract_storage.dart';
@@ -63,6 +64,9 @@ Future<void> initDartCaller(InstanceMirror mirror) async {
       return;
     } else if (result is double) {
       lib.callSendResult(id: id, value: DynamicValue.f64(result));
+      return;
+    } else if (result is DynamicValue) {
+      lib.callSendResult(id: id, value: result);
       return;
     }
     //  else if (result == null) {
