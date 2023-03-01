@@ -52,10 +52,7 @@ pub fn call(stub: DartCallStub, need_result: bool) -> DynamicValue {
             (None, None)
         };
 
-        let stub_registred = DartCallStubRegistred {
-            id,
-            stub,
-        };
+        let stub_registred = DartCallStubRegistred { id, stub };
         sink.add(stub_registred);
         if rx.is_none() {
             return DynamicValue::None;

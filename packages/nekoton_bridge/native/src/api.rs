@@ -209,10 +209,7 @@ pub fn simple_call_func0(need_result: bool) {
         String::from("no return value")
     };
 
-    debug!(
-        "Something returned from simple_call_func0: {:?}",
-        dgbstr
-    );
+    debug!("Something returned from simple_call_func0: {:?}", dgbstr);
 }
 
 pub fn simple_call_func1(need_result: bool) {
@@ -253,7 +250,7 @@ pub fn simple_call_func2() {
             y: 2.2,
             z: 3.3,
         },
-        props: props,
+        props,
     };
 
     let to_send_dynamic_value = DynamicValue::MegaStruct(to_send_mega_struct.to_json());
@@ -267,7 +264,8 @@ pub fn simple_call_func2() {
     let mega_struct = caller::call(stub, true).as_mega_struct();
 
     debug!(
-        "Something returned from simple_call_func2: name: {} debug: {:?}", mega_struct.name, mega_struct,
+        "Something returned from simple_call_func2: name: {} debug: {:?}",
+        mega_struct.name, mega_struct,
     );
 }
 
