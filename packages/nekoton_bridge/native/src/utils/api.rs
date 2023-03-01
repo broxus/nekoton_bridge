@@ -3,8 +3,8 @@
 use flutter_rust_bridge::*;
 use log::*;
 
+use crate::utils::caller::{call, set_stream_sink, DartCallStub, DynamicNamedValue, DynamicValue};
 use crate::utils::logger::{LogEntry, LogLevel};
-use crate::utils::caller::{set_stream_sink, DynamicValue, call, DartCallStub, DynamicNamedValue};
 
 /// Init utils
 pub fn init_logger(level: LogLevel, mobile_logger: bool) {
@@ -120,4 +120,3 @@ pub fn simple_call_func0() {
 
     call(stub);
 }
-

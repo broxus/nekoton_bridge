@@ -189,17 +189,17 @@ impl Log for MyMobileLogger {
     #[allow(unused_variables)]
     fn log(&self, record: &Record) {
         #[cfg(any(target_os = "android", target_os = "ios"))]
-            let modified_record = {
+        let modified_record = {
             let override_level = Level::Info;
 
             record.to_builder().level(override_level).build()
         };
 
         #[cfg(target_os = "android")]
-            android_logger::log(&modified_record);
+        android_logger::log(&modified_record);
 
         #[cfg(target_os = "ios")]
-            self.ios_logger.log(&modified_record);
+        self.ios_logger.log(&modified_record);
     }
 
     fn flush(&self) {

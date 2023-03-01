@@ -1,15 +1,12 @@
-use nekoton::crypto::{derive_from_phrase, dict, generate_key};
 use flutter_rust_bridge::SyncReturn;
+use nekoton::crypto::{derive_from_phrase, dict, generate_key};
 
 use crate::nekoton_wrapper::{
-    models_api::{GeneratedKeyG},
-    crypto::mnemonic::models::KeypairHelper,
-    str_list_to_string_vec, str_vec_to_string_vec, HandleError, MatchResult,
+    crypto::mnemonic::models::KeypairHelper, models_api::GeneratedKeyG, str_list_to_string_vec,
+    str_vec_to_string_vec, HandleError, MatchResult,
 };
 
-
 pub use nekoton::crypto::MnemonicType;
-
 
 /// Generate seed phrase by specified mnemonic type
 pub fn nt_generate_key(account_type: MnemonicType) -> SyncReturn<GeneratedKeyG> {
@@ -31,10 +28,7 @@ pub fn nt_get_hints(input: String) -> SyncReturn<Vec<String>> {
 /// Returns json {'public': '...', 'secret': '...'}
 pub fn nt_derive_from_phrase(phrase: String, mnemonic_type: MnemonicType) -> SyncReturn<String> {
     // Result<Keypair, Error> {
-    let keypair = derive_from_phrase(
-        phrase.as_str(),
-        mnemonic_type,
-    ).handle_error();
+    let keypair = derive_from_phrase(phrase.as_str(), mnemonic_type).handle_error();
     SyncReturn(
         serde_json::to_value(KeypairHelper(keypair.unwrap()))
             .handle_error()

@@ -3,7 +3,6 @@ use lazy_static::lazy_static;
 use log::warn;
 use parking_lot::RwLock;
 
-
 // / Dynamic value for transmitting between Dart and Rust. We can't use Box<dyn Any> because frb doesn't support it.
 #[derive(Clone, Debug)]
 pub enum DynamicValue {

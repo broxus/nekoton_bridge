@@ -17,8 +17,8 @@ macro_rules! clock {
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase", tag = "type", content = "data")]
 pub enum ExecutionResult<T>
-    where
-        T: Serialize,
+where
+    T: Serialize,
 {
     Ok(T),
     Err(String),
@@ -29,8 +29,8 @@ pub trait MatchResult {
 }
 
 impl<T> MatchResult for Result<T, String>
-    where
-        T: Serialize,
+where
+    T: Serialize,
 {
     fn match_result(self) -> String {
         let result = match self {
@@ -50,8 +50,8 @@ pub trait HandleError {
 
 /// Returns T or String as error
 impl<T, E> HandleError for Result<T, E>
-    where
-        E: ToString,
+where
+    E: ToString,
 {
     type Output = T;
 
