@@ -132,11 +132,3 @@ But here's some nuances you should understand:
 4) DO NOT PUT any structures inside `*api.rs` files because it will be copied to `merged.rs` file
 and you will see duplicate. Better to put it inside other files of module and import it inside `*api.rs` file.
 5) USE local imports starting with `crate`: `crate::nekoton_wrapper::...`
-6) In difficult group, write every sub-module on a new line, ex:
-```rust
-use crate::nekoton_wrapper::{
-    crypto::mnemonic::models::KeypairHelper, // NEW LINE
-    models_api::GeneratedKeyG, // NEW LINE
-    str_list_to_string_vec, str_vec_to_string_vec, HandleError, MatchResult, // NEW LINE
-};
-```
