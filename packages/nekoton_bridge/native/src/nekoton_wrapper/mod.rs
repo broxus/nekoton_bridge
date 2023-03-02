@@ -72,7 +72,7 @@ where
 // }
 
 pub(crate) fn str_list_to_string_vec(slice: &[&str]) -> Vec<String> {
-    slice.into_iter().map(|x| x.to_string()).collect()
+    slice.iter().map(|x| x.to_string()).collect()
 }
 
 pub(crate) fn str_vec_to_string_vec(slice: Vec<&'static str>) -> Vec<String> {
