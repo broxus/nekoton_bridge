@@ -90,22 +90,26 @@ void main() async {
 /// `pub use crate::nekoton_wrapper::{MnemonicType, dict};
 void parseSingleImport(String importFull, Map<String, ModuleHierarchy> crates) {
   final importStr = importFull.replaceAll(RegExp('.*use '), '');
-  parseImports(importStr, crates, isRoot: true, isRootPublic: importFull.startsWith('pub'));
+  parseImports(importStr, crates,
+      isRoot: true, isRootPublic: importFull.startsWith('pub'));
 }
 
 /// Convert resulted [hierarchy] to single string with all nested sub-modules.
-void convertCrateToString(Map<String, ModuleHierarchy> hierarchy, StringBuffer buffer) {
+void convertCrateToString(
+    Map<String, ModuleHierarchy> hierarchy, StringBuffer buffer) {
   hierarchy.forEach((moduleName, hierarchy) {
     buffer.write(
       '${hierarchy.isRootPublic ? 'pub ' : ''}${hierarchy.isRoot ? 'use ' : ''}$moduleName::{',
     );
-    if (hierarchy.directImports.isNotEmpty && hierarchy.directImports.contains('*')) {
+    if (hierarchy.directImports.isNotEmpty &&
+        hierarchy.directImports.contains('*')) {
       buffer.write('*');
     } else {
       buffer.write('\n');
     }
 
-    if (hierarchy.directImports.isNotEmpty && !hierarchy.directImports.contains('*')) {
+    if (hierarchy.directImports.isNotEmpty &&
+        !hierarchy.directImports.contains('*')) {
       buffer.write('${hierarchy.directImports.join(',')},\n');
     }
 
@@ -136,13 +140,15 @@ void parseImports(
   }
 
   // pure name line nekoton_wrapper or models_api
-  final moduleName = croppedCrate.substring(0, croppedCrate.indexOf('::')).trim();
+  final moduleName =
+      croppedCrate.substring(0, croppedCrate.indexOf('::')).trim();
 
   // skip *api files because they will be merged
   if (moduleName.endsWith('api')) return;
 
   if (!hierarchy.containsKey(moduleName)) {
-    hierarchy[moduleName] = ModuleHierarchy(moduleName: moduleName, isRoot: isRoot);
+    hierarchy[moduleName] =
+        ModuleHierarchy(moduleName: moduleName, isRoot: isRoot);
   }
 
   /// Works only for root
@@ -155,7 +161,8 @@ void parseImports(
 
   final doubleDotIndex = croppedCrate.indexOf('::');
   final bracketIndex = croppedCrate.indexOf('{');
-  if (doubleDotIndex != -1 && (bracketIndex == -1 || doubleDotIndex < bracketIndex)) {
+  if (doubleDotIndex != -1 &&
+      (bracketIndex == -1 || doubleDotIndex < bracketIndex)) {
     // more module names here, add in loop sub modules
     parseImports(croppedCrate, hierarchy[moduleName]!.subModules);
   } else if (bracketIndex == 0) {
@@ -176,7 +183,8 @@ void parseImports(
 
           /// Iterate over all 'crate spaces' and run parser for each of them
           cratesInSingleLineSpaceReg.allMatches(cratesGroup).forEach((crate) {
-            final crateStr = cratesGroup.substring(startOfCrate, crate.start + 1);
+            final crateStr =
+                cratesGroup.substring(startOfCrate, crate.start + 1);
             startOfCrate = crate.start + 2;
             parseImports(crateStr, hierarchy[moduleName]!.subModules);
           });

@@ -8,6 +8,7 @@ crate-type = ["staticlib", "cdylib"]
 
 [build-dependencies]
 flutter_rust_bridge_codegen = "1.66.*"
+rerun_except = "1.0.0"
 
 [dependencies]
 flutter_rust_bridge = "1.66.*"

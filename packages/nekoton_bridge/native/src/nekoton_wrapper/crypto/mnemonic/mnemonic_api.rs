@@ -1,3 +1,5 @@
+#![allow(unused_variables, dead_code)]
+
 use nekoton::crypto::{derive_from_phrase, dict, generate_key};
 
 use crate::nekoton_wrapper::{

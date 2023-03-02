@@ -23,13 +23,19 @@ void main() {
       expect(nekotonCrate.subModules.keys.toSet(), {'crypto'});
       expect(
         nekotonCrate.directImports,
-        {'str_list_to_string_vec', 'str_vec_to_string_vec', 'HandleError', 'MatchResult'},
+        {
+          'str_list_to_string_vec',
+          'str_vec_to_string_vec',
+          'HandleError',
+          'MatchResult'
+        },
       );
 
       final cryptoModule = nekotonCrate.subModules['crypto']!;
       expect(cryptoModule.directImports.isEmpty, true);
       expect(
-        cryptoModule.subModules['mnemonic']!.subModules['models']!.directImports,
+        cryptoModule
+            .subModules['mnemonic']!.subModules['models']!.directImports,
         {'KeypairHelper'},
       );
     });
@@ -54,13 +60,19 @@ void main() {
       expect(nekotonCrate.subModules.keys.toSet(), {'crypto'});
       expect(
         nekotonCrate.directImports,
-        {'str_list_to_string_vec', 'str_vec_to_string_vec', 'HandleError', 'MatchResult'},
+        {
+          'str_list_to_string_vec',
+          'str_vec_to_string_vec',
+          'HandleError',
+          'MatchResult'
+        },
       );
 
       final cryptoModule = nekotonCrate.subModules['crypto']!;
       expect(cryptoModule.directImports.isEmpty, true);
       expect(
-        cryptoModule.subModules['mnemonic']!.subModules['models']!.directImports,
+        cryptoModule
+            .subModules['mnemonic']!.subModules['models']!.directImports,
         {'KeypairHelper'},
       );
     });
@@ -147,14 +159,16 @@ void main() {
       expect(nekotonCrate.directImports.length, 0);
       final cryptoCrate = nekotonCrate.subModules['crypto']!;
       expect(cryptoCrate.subModules.length, 0);
-      expect(cryptoCrate.directImports, {'dict', 'derive_from_phrase', 'generate_key'});
+      expect(cryptoCrate.directImports,
+          {'dict', 'derive_from_phrase', 'generate_key'});
       expect(cryptoCrate.moduleName, 'crypto');
     });
   });
 
   group('Test hierarchy converting to string', () {
     test('Convert plain hierarchy not public', () {
-      final nekoton = ModuleHierarchy(moduleName: 'nekoton_wrapper', isRoot: false);
+      final nekoton =
+          ModuleHierarchy(moduleName: 'nekoton_wrapper', isRoot: false);
       nekoton.directImports.add('SomeModule');
       final crate = ModuleHierarchy(moduleName: 'crate', isRoot: true);
       crate.subModules['nekoton_wrapper'] = nekoton;
@@ -175,7 +189,8 @@ SomeModule,
     });
 
     test('Convert plain hierarchy public', () {
-      final nekoton = ModuleHierarchy(moduleName: 'nekoton_wrapper', isRoot: false);
+      final nekoton =
+          ModuleHierarchy(moduleName: 'nekoton_wrapper', isRoot: false);
       nekoton.directImports.add('SomeModule');
       final crate = ModuleHierarchy(moduleName: 'crate', isRoot: true);
       crate.subModules['nekoton_wrapper'] = nekoton;
@@ -207,7 +222,8 @@ SomeModule,
       final models = ModuleHierarchy(moduleName: 'models', isRoot: false);
       models.directImports.add('ModelType');
 
-      final nekoton = ModuleHierarchy(moduleName: 'nekoton_wrapper', isRoot: false);
+      final nekoton =
+          ModuleHierarchy(moduleName: 'nekoton_wrapper', isRoot: false);
       nekoton.directImports.add('SomeType');
       nekoton.subModules['crypto'] = crypto;
       nekoton.subModules['models'] = models;

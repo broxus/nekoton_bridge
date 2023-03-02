@@ -1,11 +1,8 @@
 pub mod crypto;
 pub mod models_api;
 
-use anyhow::{Context, Result};
+use anyhow::Result;
 use serde::Serialize;
-use ton_block::MsgAddressInt;
-
-use std::str::FromStr;
 
 #[macro_export]
 macro_rules! clock {
@@ -38,7 +35,7 @@ where
             Err(err) => ExecutionResult::Err(err),
         };
 
-        serde_json::to_string(&result).unwrap().to_string()
+        serde_json::to_string(&result).unwrap()
     }
 }
 
@@ -60,19 +57,19 @@ where
     }
 }
 
-fn parse_hash(hash: String) -> Result<ton_types::UInt256, String> {
-    ton_types::UInt256::from_str(hash.as_str()).handle_error()
-}
+// fn parse_hash(hash: String) -> Result<ton_types::UInt256, String> {
+//     ton_types::UInt256::from_str(hash.as_str()).handle_error()
+// }
 
-fn parse_public_key(public_key: String) -> Result<ed25519_dalek::PublicKey, anyhow::Error> {
-    Ok(ed25519_dalek::PublicKey::from_bytes(
-        &hex::decode(public_key.as_str()).context("Bad hex data")?,
-    )?)
-}
+// fn parse_public_key(public_key: String) -> Result<ed25519_dalek::PublicKey, anyhow::Error> {
+//     Ok(ed25519_dalek::PublicKey::from_bytes(
+//         &hex::decode(public_key.as_str()).context("Bad hex data")?,
+//     )?)
+// }
 
-fn parse_address(address: String) -> Result<MsgAddressInt, String> {
-    MsgAddressInt::from_str(address.as_str()).handle_error()
-}
+// fn parse_address(address: String) -> Result<MsgAddressInt, String> {
+//     MsgAddressInt::from_str(address.as_str()).handle_error()
+// }
 
 pub(crate) fn str_list_to_string_vec(slice: &[&str]) -> Vec<String> {
     slice.into_iter().map(|x| x.to_string()).collect()
