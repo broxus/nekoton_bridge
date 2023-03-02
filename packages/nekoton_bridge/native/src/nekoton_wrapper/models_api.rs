@@ -1,3 +1,5 @@
+#![allow(unused_variables, dead_code)]
+
 use flutter_rust_bridge::frb;
 pub use nekoton::crypto::MnemonicType;
 
