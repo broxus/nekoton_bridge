@@ -115,3 +115,20 @@ You need to run emulator/simulator to complete this command
 ## Version
 
 At this time melos updates version for nekoton_bridge automatically, links it to flutter_nekoton_bridge (changes 'ref'), but don't update flutter_nekoton_bridge version itself. I don't know what to do with it, so we should fix it manually.
+
+
+# HOW to write rust code for nekoton_bridge
+The first thing you need understand is because of `frb` ability to generate Dart code correctly only
+from single rust file, we must merge all necessary source code into single file.
+
+Thanks to `bin/merger.dart` we can write code in separated modules as a usual code written in rust.
+But here's some nuances you should understand:
+1) All code that should be generated to Dart side must be located inside file with name pattern
+   `*api.rs`, for example, `logger_api.rs` or `models_api.rs`. Code in this files will be merged
+   into `merged.rs` file that is target for `flutter_rust_bridge`.
+2) You don't need to import local crates as `pub`. `frb` can look through local imports itself.
+3) Use `pub` for external structures as described in official doc of `frb`, but in `bin/merger.dart`
+   whole hierarchy of crate will be converted to public if there is at least one pub import in any file.
+4) DO NOT PUT any structures inside `*api.rs` files because it will be copied to `merged.rs` file
+and you will see duplicate. Better to put it inside other files of module and import it inside `*api.rs` file.
+5) USE local imports starting with `crate`: `crate::nekoton_wrapper::...`

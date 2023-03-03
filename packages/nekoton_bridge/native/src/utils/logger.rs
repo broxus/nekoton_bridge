@@ -7,7 +7,21 @@ use log::{error, info, warn, Log, Metadata, Record};
 use parking_lot::RwLock;
 use simplelog::*;
 
-use crate::api::{LogEntry, LogLevel};
+pub enum LogLevel {
+    Trace,
+    Debug,
+    Info,
+    Warn,
+    Error,
+}
+
+/// Log entry
+pub struct LogEntry {
+    pub time_millis: i64,
+    pub level: LogLevel,
+    pub tag: String,
+    pub msg: String,
+}
 
 static INIT_LOGGER_ONCE: Once = Once::new();
 

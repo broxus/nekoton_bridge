@@ -1,74 +1,24 @@
-#![allow(unused_variables)]
+#![allow(unused_variables, dead_code)]
 
 use flutter_rust_bridge::*;
 use log::*;
 
-mod caller;
-mod logger;
+use crate::utils::caller::{call, set_stream_sink, DartCallStub, DynamicNamedValue, DynamicValue};
+use crate::utils::logger::{LogEntry, LogLevel};
 
-pub enum LogLevel {
-    Trace,
-    Debug,
-    Info,
-    Warn,
-    Error,
-}
-
-/// Log entry
-pub struct LogEntry {
-    pub time_millis: i64,
-    pub level: LogLevel,
-    pub tag: String,
-    pub msg: String,
-}
-
-/// Init logger
+/// Init utils
 pub fn init_logger(level: LogLevel, mobile_logger: bool) {
-    logger::init_logger(level, mobile_logger);
+    crate::utils::logger::init_logger(level, mobile_logger);
 }
 
 /// Create log stream
 pub fn create_log_stream(s: StreamSink<LogEntry>) {
-    logger::SendToDartLogger::set_stream_sink(s);
-}
-
-// / Dynamic value for transmitting between Dart and Rust. We can't use Box<dyn Any> because frb doesn't support it.
-#[derive(Clone, Debug)]
-pub enum DynamicValue {
-    U32(u32),
-    I32(i32),
-
-    U64(u64),
-    I64(i64),
-
-    F32(f32),
-    F64(f64),
-
-    String(String),
-}
-
-impl Default for DynamicValue {
-    fn default() -> Self {
-        DynamicValue::U64(0)
-    }
-}
-
-#[derive(Default, Debug, Clone)]
-pub struct DynamicNamedValue {
-    pub name: String,
-    pub value: Option<DynamicValue>,
-}
-
-#[derive(Default, Debug, Clone)]
-pub struct DartCallStub {
-    pub fn_name: String,
-    pub args: Vec<DynamicValue>,
-    pub named_args: Vec<DynamicNamedValue>,
+    crate::utils::logger::SendToDartLogger::set_stream_sink(s);
 }
 
 /// Init caller
 pub fn init_caller(stream_sink: StreamSink<DartCallStub>) {
-    caller::set_stream_sink(stream_sink);
+    set_stream_sink(stream_sink);
 }
 
 // TODO: all code below is only sandbox-related things
@@ -114,6 +64,7 @@ impl MyClass {
         self.val.my_format()
     }
 }
+
 pub fn stub_dv() -> DynamicValue {
     DynamicValue::U32(0)
 }
@@ -140,11 +91,11 @@ pub fn stub_dcs() -> DartCallStub {
 }
 
 pub fn simple_call_dart() {
-    caller::call(stub_dcs());
+    call(stub_dcs());
 }
 
 pub fn stub_call_dart(stub: DartCallStub) {
-    caller::call(stub);
+    call(stub);
 }
 
 pub fn simple_call_func0() {
@@ -167,20 +118,5 @@ pub fn simple_call_func0() {
         ],
     };
 
-    caller::call(stub);
+    call(stub);
 }
-
-// impl Default for DynamicValue {
-//     fn default() -> Self {
-//         DynamicValue::U64(0)
-//     }
-// }
-
-// impl Default for DynamicNamedValue {
-//     fn default() -> Self {
-//         Self {
-//             name: Default::default(),
-//             value: Default::default(),
-//         }
-//     }
-// }

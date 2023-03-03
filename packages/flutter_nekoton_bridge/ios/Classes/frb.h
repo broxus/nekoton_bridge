@@ -9,6 +9,24 @@ typedef int64_t DartPort;
 
 typedef bool (*DartPostCObjectFnType)(DartPort port_id, void *message);
 
+typedef struct wire_MnemonicType_Legacy {
+
+} wire_MnemonicType_Legacy;
+
+typedef struct wire_MnemonicType_Labs {
+  uint16_t field0;
+} wire_MnemonicType_Labs;
+
+typedef union MnemonicTypeKind {
+  struct wire_MnemonicType_Legacy *Legacy;
+  struct wire_MnemonicType_Labs *Labs;
+} MnemonicTypeKind;
+
+typedef struct wire_MnemonicType {
+  int32_t tag;
+  union MnemonicTypeKind *kind;
+} wire_MnemonicType;
+
 typedef struct wire_uint_8_list {
   uint8_t *ptr;
   int32_t len;
@@ -94,6 +112,16 @@ uintptr_t new_dart_opaque(Dart_Handle handle);
 
 intptr_t init_frb_dart_api_dl(void *obj);
 
+void wire_resend_mnemonic(int64_t port_, struct wire_MnemonicType *mnemonic);
+
+void wire_nt_generate_key(int64_t port_, struct wire_MnemonicType *account_type);
+
+void wire_nt_get_hints(int64_t port_, struct wire_uint_8_list *input);
+
+void wire_nt_derive_from_phrase(int64_t port_,
+                                struct wire_uint_8_list *phrase,
+                                struct wire_MnemonicType *mnemonic_type);
+
 void wire_init_logger(int64_t port_, int32_t level, bool mobile_logger);
 
 void wire_create_log_stream(int64_t port_);
@@ -126,6 +154,8 @@ struct wire_DartCallStub *new_box_autoadd_dart_call_stub_0(void);
 
 struct wire_DynamicValue *new_box_autoadd_dynamic_value_0(void);
 
+struct wire_MnemonicType *new_box_autoadd_mnemonic_type_0(void);
+
 struct wire_MyClass *new_box_autoadd_my_class_0(void);
 
 struct wire_list_dynamic_named_value *new_list_dynamic_named_value_0(int32_t len);
@@ -148,10 +178,16 @@ union DynamicValueKind *inflate_DynamicValue_F64(void);
 
 union DynamicValueKind *inflate_DynamicValue_String(void);
 
+union MnemonicTypeKind *inflate_MnemonicType_Labs(void);
+
 void free_WireSyncReturn(WireSyncReturn ptr);
 
 static int64_t dummy_method_to_enforce_bundling(void) {
     int64_t dummy_var = 0;
+    dummy_var ^= ((int64_t) (void*) wire_resend_mnemonic);
+    dummy_var ^= ((int64_t) (void*) wire_nt_generate_key);
+    dummy_var ^= ((int64_t) (void*) wire_nt_get_hints);
+    dummy_var ^= ((int64_t) (void*) wire_nt_derive_from_phrase);
     dummy_var ^= ((int64_t) (void*) wire_init_logger);
     dummy_var ^= ((int64_t) (void*) wire_create_log_stream);
     dummy_var ^= ((int64_t) (void*) wire_init_caller);
@@ -168,6 +204,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_my_format__method__MyClass);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_dart_call_stub_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_dynamic_value_0);
+    dummy_var ^= ((int64_t) (void*) new_box_autoadd_mnemonic_type_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_my_class_0);
     dummy_var ^= ((int64_t) (void*) new_list_dynamic_named_value_0);
     dummy_var ^= ((int64_t) (void*) new_list_dynamic_value_0);
@@ -179,6 +216,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_F32);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_F64);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_String);
+    dummy_var ^= ((int64_t) (void*) inflate_MnemonicType_Labs);
     dummy_var ^= ((int64_t) (void*) free_WireSyncReturn);
     dummy_var ^= ((int64_t) (void*) store_dart_post_cobject);
     dummy_var ^= ((int64_t) (void*) get_dart_object);
