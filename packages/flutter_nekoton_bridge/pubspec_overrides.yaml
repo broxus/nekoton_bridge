@@ -1,8 +1,6 @@
-# dependency_overrides:
-#   nekoton_bridge:
-#     git:
-#       url: https://github.com/broxus/nekoton_bridge.git
-#       path: ../packages/nekoton_bridge
 dependency_overrides:
   nekoton_bridge:
     path: ../nekoton_bridge
+# dependency_overrides:
+#   nekoton_bridge:
+#     path: ../packages/nekoton_bridge

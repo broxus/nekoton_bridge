@@ -20,6 +20,7 @@ use std::sync::Arc;
 // Section: imports
 
 use crate::utils::caller::DartCallStub;
+use crate::utils::caller::DartCallStubRegistred;
 use crate::utils::caller::DynamicNamedValue;
 use crate::utils::caller::DynamicValue;
 use crate::utils::logger::LogEntry;
@@ -128,6 +129,24 @@ fn wire_init_caller_impl(port_: MessagePort) {
         move || move |task_callback| Ok(init_caller(task_callback.stream_sink())),
     )
 }
+fn wire_call_send_result_impl(
+    port_: MessagePort,
+    id: impl Wire2Api<String> + UnwindSafe,
+    value: impl Wire2Api<DynamicValue> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "call_send_result",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_id = id.wire2api();
+            let api_value = value.wire2api();
+            move |task_callback| Ok(call_send_result(api_id, api_value))
+        },
+    )
+}
 fn wire_simple_log_impl(port_: MessagePort, string: impl Wire2Api<String> + UnwindSafe) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
@@ -229,14 +248,40 @@ fn wire_stub_call_dart_impl(port_: MessagePort, stub: impl Wire2Api<DartCallStub
         },
     )
 }
-fn wire_simple_call_func0_impl(port_: MessagePort) {
+fn wire_simple_call_func0_impl(port_: MessagePort, need_result: impl Wire2Api<bool> + UnwindSafe) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
             debug_name: "simple_call_func0",
             port: Some(port_),
             mode: FfiCallMode::Normal,
         },
-        move || move |task_callback| Ok(simple_call_func0()),
+        move || {
+            let api_need_result = need_result.wire2api();
+            move |task_callback| Ok(simple_call_func0(api_need_result))
+        },
+    )
+}
+fn wire_simple_call_func1_impl(port_: MessagePort, need_result: impl Wire2Api<bool> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "simple_call_func1",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_need_result = need_result.wire2api();
+            move |task_callback| Ok(simple_call_func1(api_need_result))
+        },
+    )
+}
+fn wire_simple_call_func2_impl(port_: MessagePort) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "simple_call_func2",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || move |task_callback| Ok(simple_call_func2()),
     )
 }
 fn wire_new__static_method__MyClass_impl(port_: MessagePort, a: impl Wire2Api<i32> + UnwindSafe) {
@@ -375,6 +420,13 @@ impl support::IntoDart for DartCallStub {
 }
 impl support::IntoDartExceptPrimitive for DartCallStub {}
 
+impl support::IntoDart for DartCallStubRegistred {
+    fn into_dart(self) -> support::DartAbi {
+        vec![self.id.into_dart(), self.stub.into_dart()].into_dart()
+    }
+}
+impl support::IntoDartExceptPrimitive for DartCallStubRegistred {}
+
 impl support::IntoDart for DynamicNamedValue {
     fn into_dart(self) -> support::DartAbi {
         vec![self.name.into_dart(), self.value.into_dart()].into_dart()
@@ -392,6 +444,8 @@ impl support::IntoDart for DynamicValue {
             Self::F32(field0) => vec![4.into_dart(), field0.into_dart()],
             Self::F64(field0) => vec![5.into_dart(), field0.into_dart()],
             Self::String(field0) => vec![6.into_dart(), field0.into_dart()],
+            Self::MegaStruct(field0) => vec![7.into_dart(), field0.into_dart()],
+            Self::None => vec![8.into_dart()],
         }
         .into_dart()
     }
@@ -499,6 +553,11 @@ mod web {
     }
 
     #[wasm_bindgen]
+    pub fn wire_call_send_result(port_: MessagePort, id: String, value: JsValue) {
+        wire_call_send_result_impl(port_, id, value)
+    }
+
+    #[wasm_bindgen]
     pub fn wire_simple_log(port_: MessagePort, string: String) {
         wire_simple_log_impl(port_, string)
     }
@@ -539,8 +598,18 @@ mod web {
     }
 
     #[wasm_bindgen]
-    pub fn wire_simple_call_func0(port_: MessagePort) {
-        wire_simple_call_func0_impl(port_)
+    pub fn wire_simple_call_func0(port_: MessagePort, need_result: bool) {
+        wire_simple_call_func0_impl(port_, need_result)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_simple_call_func1(port_: MessagePort, need_result: bool) {
+        wire_simple_call_func1_impl(port_, need_result)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_simple_call_func2(port_: MessagePort) {
+        wire_simple_call_func2_impl(port_)
     }
 
     #[wasm_bindgen]
@@ -607,6 +676,8 @@ mod web {
                 4 => DynamicValue::F32(self_.get(1).wire2api()),
                 5 => DynamicValue::F64(self_.get(1).wire2api()),
                 6 => DynamicValue::String(self_.get(1).wire2api()),
+                7 => DynamicValue::MegaStruct(self_.get(1).wire2api()),
+                8 => DynamicValue::None,
                 _ => unreachable!(),
             }
         }
@@ -777,6 +848,15 @@ mod io {
     }
 
     #[no_mangle]
+    pub extern "C" fn wire_call_send_result(
+        port_: i64,
+        id: *mut wire_uint_8_list,
+        value: *mut wire_DynamicValue,
+    ) {
+        wire_call_send_result_impl(port_, id, value)
+    }
+
+    #[no_mangle]
     pub extern "C" fn wire_simple_log(port_: i64, string: *mut wire_uint_8_list) {
         wire_simple_log_impl(port_, string)
     }
@@ -817,8 +897,18 @@ mod io {
     }
 
     #[no_mangle]
-    pub extern "C" fn wire_simple_call_func0(port_: i64) {
-        wire_simple_call_func0_impl(port_)
+    pub extern "C" fn wire_simple_call_func0(port_: i64, need_result: bool) {
+        wire_simple_call_func0_impl(port_, need_result)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_simple_call_func1(port_: i64, need_result: bool) {
+        wire_simple_call_func1_impl(port_, need_result)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_simple_call_func2(port_: i64) {
+        wire_simple_call_func2_impl(port_)
     }
 
     #[no_mangle]
@@ -972,6 +1062,12 @@ mod io {
                     let ans = support::box_from_leak_ptr(ans.String);
                     DynamicValue::String(ans.field0.wire2api())
                 },
+                7 => unsafe {
+                    let ans = support::box_from_leak_ptr(self.kind);
+                    let ans = support::box_from_leak_ptr(ans.MegaStruct);
+                    DynamicValue::MegaStruct(ans.field0.wire2api())
+                },
+                8 => DynamicValue::None,
                 _ => unreachable!(),
             }
         }
@@ -1085,6 +1181,8 @@ mod io {
         F32: *mut wire_DynamicValue_F32,
         F64: *mut wire_DynamicValue_F64,
         String: *mut wire_DynamicValue_String,
+        MegaStruct: *mut wire_DynamicValue_MegaStruct,
+        None: *mut wire_DynamicValue_None,
     }
 
     #[repr(C)]
@@ -1128,6 +1226,16 @@ mod io {
     pub struct wire_DynamicValue_String {
         field0: *mut wire_uint_8_list,
     }
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_DynamicValue_MegaStruct {
+        field0: *mut wire_uint_8_list,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_DynamicValue_None {}
 
     #[repr(C)]
     #[derive(Clone)]
@@ -1262,6 +1370,15 @@ mod io {
     pub extern "C" fn inflate_DynamicValue_String() -> *mut DynamicValueKind {
         support::new_leak_box_ptr(DynamicValueKind {
             String: support::new_leak_box_ptr(wire_DynamicValue_String {
+                field0: core::ptr::null_mut(),
+            }),
+        })
+    }
+
+    #[no_mangle]
+    pub extern "C" fn inflate_DynamicValue_MegaStruct() -> *mut DynamicValueKind {
+        support::new_leak_box_ptr(DynamicValueKind {
+            MegaStruct: support::new_leak_box_ptr(wire_DynamicValue_MegaStruct {
                 field0: core::ptr::null_mut(),
             }),
         })

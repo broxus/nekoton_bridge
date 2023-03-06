@@ -182,6 +182,17 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
       wireObj.kind.ref.String.ref.field0 = pre_field0;
       return;
     }
+    if (apiObj is DynamicValue_MegaStruct) {
+      var pre_field0 = api2wire_String(apiObj.field0);
+      wireObj.tag = 7;
+      wireObj.kind = inner.inflate_DynamicValue_MegaStruct();
+      wireObj.kind.ref.MegaStruct.ref.field0 = pre_field0;
+      return;
+    }
+    if (apiObj is DynamicValue_None) {
+      wireObj.tag = 8;
+      return;
+    }
   }
 
   void _api_fill_to_wire_mnemonic_type(
@@ -424,6 +435,26 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_init_caller =
       _wire_init_callerPtr.asFunction<void Function(int)>();
 
+  void wire_call_send_result(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> id,
+    ffi.Pointer<wire_DynamicValue> value,
+  ) {
+    return _wire_call_send_result(
+      port_,
+      id,
+      value,
+    );
+  }
+
+  late final _wire_call_send_resultPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_DynamicValue>)>>('wire_call_send_result');
+  late final _wire_call_send_result = _wire_call_send_resultPtr.asFunction<
+      void Function(int, ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_DynamicValue>)>();
+
   void wire_simple_log(
     int port_,
     ffi.Pointer<wire_uint_8_list> string,
@@ -549,17 +580,49 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
 
   void wire_simple_call_func0(
     int port_,
+    bool need_result,
   ) {
     return _wire_simple_call_func0(
       port_,
+      need_result,
     );
   }
 
   late final _wire_simple_call_func0Ptr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Bool)>>(
           'wire_simple_call_func0');
   late final _wire_simple_call_func0 =
-      _wire_simple_call_func0Ptr.asFunction<void Function(int)>();
+      _wire_simple_call_func0Ptr.asFunction<void Function(int, bool)>();
+
+  void wire_simple_call_func1(
+    int port_,
+    bool need_result,
+  ) {
+    return _wire_simple_call_func1(
+      port_,
+      need_result,
+    );
+  }
+
+  late final _wire_simple_call_func1Ptr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Bool)>>(
+          'wire_simple_call_func1');
+  late final _wire_simple_call_func1 =
+      _wire_simple_call_func1Ptr.asFunction<void Function(int, bool)>();
+
+  void wire_simple_call_func2(
+    int port_,
+  ) {
+    return _wire_simple_call_func2(
+      port_,
+    );
+  }
+
+  late final _wire_simple_call_func2Ptr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_simple_call_func2');
+  late final _wire_simple_call_func2 =
+      _wire_simple_call_func2Ptr.asFunction<void Function(int)>();
 
   void wire_new__static_method__MyClass(
     int port_,
@@ -755,6 +818,17 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _inflate_DynamicValue_String = _inflate_DynamicValue_StringPtr
       .asFunction<ffi.Pointer<DynamicValueKind> Function()>();
 
+  ffi.Pointer<DynamicValueKind> inflate_DynamicValue_MegaStruct() {
+    return _inflate_DynamicValue_MegaStruct();
+  }
+
+  late final _inflate_DynamicValue_MegaStructPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<DynamicValueKind> Function()>>(
+          'inflate_DynamicValue_MegaStruct');
+  late final _inflate_DynamicValue_MegaStruct =
+      _inflate_DynamicValue_MegaStructPtr
+          .asFunction<ffi.Pointer<DynamicValueKind> Function()>();
+
   ffi.Pointer<MnemonicTypeKind> inflate_MnemonicType_Labs() {
     return _inflate_MnemonicType_Labs();
   }
@@ -843,6 +917,12 @@ class wire_DynamicValue_String extends ffi.Struct {
   external ffi.Pointer<wire_uint_8_list> field0;
 }
 
+class wire_DynamicValue_MegaStruct extends ffi.Struct {
+  external ffi.Pointer<wire_uint_8_list> field0;
+}
+
+class wire_DynamicValue_None extends ffi.Opaque {}
+
 class DynamicValueKind extends ffi.Union {
   external ffi.Pointer<wire_DynamicValue_U32> U32;
 
@@ -857,6 +937,10 @@ class DynamicValueKind extends ffi.Union {
   external ffi.Pointer<wire_DynamicValue_F64> F64;
 
   external ffi.Pointer<wire_DynamicValue_String> String;
+
+  external ffi.Pointer<wire_DynamicValue_MegaStruct> MegaStruct;
+
+  external ffi.Pointer<wire_DynamicValue_None> None;
 }
 
 class wire_DynamicValue extends ffi.Struct {

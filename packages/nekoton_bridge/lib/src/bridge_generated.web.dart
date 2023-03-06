@@ -84,6 +84,12 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
     if (raw is DynamicValue_String) {
       return [6, api2wire_String(raw.field0)];
     }
+    if (raw is DynamicValue_MegaStruct) {
+      return [7, api2wire_String(raw.field0)];
+    }
+    if (raw is DynamicValue_None) {
+      return [8];
+    }
 
     throw Exception('unreachable');
   }
@@ -166,6 +172,9 @@ class NekotonBridgeWasmModule implements WasmModule {
 
   external dynamic /* void */ wire_init_caller(NativePortType port_);
 
+  external dynamic /* void */ wire_call_send_result(
+      NativePortType port_, String id, List<dynamic> value);
+
   external dynamic /* void */ wire_simple_log(
       NativePortType port_, String string);
 
@@ -185,7 +194,13 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_stub_call_dart(
       NativePortType port_, List<dynamic> stub);
 
-  external dynamic /* void */ wire_simple_call_func0(NativePortType port_);
+  external dynamic /* void */ wire_simple_call_func0(
+      NativePortType port_, bool need_result);
+
+  external dynamic /* void */ wire_simple_call_func1(
+      NativePortType port_, bool need_result);
+
+  external dynamic /* void */ wire_simple_call_func2(NativePortType port_);
 
   external dynamic /* void */ wire_new__static_method__MyClass(
       NativePortType port_, int a);
@@ -223,6 +238,10 @@ class NekotonBridgeWire
   void wire_init_caller(NativePortType port_) =>
       wasmModule.wire_init_caller(port_);
 
+  void wire_call_send_result(
+          NativePortType port_, String id, List<dynamic> value) =>
+      wasmModule.wire_call_send_result(port_, id, value);
+
   void wire_simple_log(NativePortType port_, String string) =>
       wasmModule.wire_simple_log(port_, string);
 
@@ -245,8 +264,14 @@ class NekotonBridgeWire
   void wire_stub_call_dart(NativePortType port_, List<dynamic> stub) =>
       wasmModule.wire_stub_call_dart(port_, stub);
 
-  void wire_simple_call_func0(NativePortType port_) =>
-      wasmModule.wire_simple_call_func0(port_);
+  void wire_simple_call_func0(NativePortType port_, bool need_result) =>
+      wasmModule.wire_simple_call_func0(port_, need_result);
+
+  void wire_simple_call_func1(NativePortType port_, bool need_result) =>
+      wasmModule.wire_simple_call_func1(port_, need_result);
+
+  void wire_simple_call_func2(NativePortType port_) =>
+      wasmModule.wire_simple_call_func2(port_);
 
   void wire_new__static_method__MyClass(NativePortType port_, int a) =>
       wasmModule.wire_new__static_method__MyClass(port_, a);
