@@ -45,6 +45,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'runtimeType': 0,
               r'init': 0,
               r'func0': 1,
+              r'func1': 1,
+              r'func2': 2,
               r'storage': 0
             })
       ],
@@ -60,6 +62,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'runtimeType': (dynamic instance) => instance.runtimeType,
         r'init': (dynamic instance) => instance.init,
         r'func0': (dynamic instance) => instance.func0,
+        r'func1': (dynamic instance) => instance.func1,
+        r'func2': (dynamic instance) => instance.func2,
         r'storage': (dynamic instance) => instance.storage
       },
       {},

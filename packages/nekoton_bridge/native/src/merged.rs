@@ -4,14 +4,12 @@ use crate::{
         crypto::mnemonic::models::KeypairHelper, str_list_to_string_vec, str_vec_to_string_vec,
         HandleError, MatchResult,
     },
-    utils::{
-        caller::{call, set_stream_sink, DartCallStub, DynamicNamedValue, DynamicValue},
-        logger::{LogEntry, LogLevel},
-    },
+    utils::{caller, logger, mega_struct},
 };
 use flutter_rust_bridge::*;
 use log::*;
 pub use nekoton::crypto::{derive_from_phrase, dict, generate_key, MnemonicType};
+use std::collections::HashMap;
 
 ///----------------------------
 /// CONTENT OF src/nekoton_wrapper/crypto/ledger_key/ledger_api.rs
@@ -86,16 +84,20 @@ pub struct GeneratedKeyG {
 ///----------------------------
 
 /// Init utils
-pub fn init_logger(level: LogLevel, mobile_logger: bool) {
-    crate::utils::logger::init_logger(level, mobile_logger);
+pub fn init_logger(level: logger::LogLevel, mobile_logger: bool) {
+    logger::init_logger(level, mobile_logger);
 }
 /// Create log stream
-pub fn create_log_stream(s: StreamSink<LogEntry>) {
-    crate::utils::logger::SendToDartLogger::set_stream_sink(s);
+pub fn create_log_stream(s: StreamSink<logger::LogEntry>) {
+    logger::SendToDartLogger::set_stream_sink(s);
 }
 /// Init caller
-pub fn init_caller(stream_sink: StreamSink<DartCallStub>) {
-    set_stream_sink(stream_sink);
+pub fn init_caller(stream_sink: StreamSink<caller::DartCallStubRegistred>) {
+    caller::set_stream_sink(stream_sink);
+}
+/// Callback functions for returning Dart method result
+pub fn call_send_result(id: String, value: caller::DynamicValue) {
+    caller::call_send_result(id, value);
 }
 // TODO: all code below is only sandbox-related things
 pub fn simple_log(string: String) {
@@ -132,53 +134,115 @@ impl MyClass {
         self.val.my_format()
     }
 }
-pub fn stub_dv() -> DynamicValue {
-    DynamicValue::U32(0)
+pub fn stub_dv() -> caller::DynamicValue {
+    caller::DynamicValue::U32(0)
 }
-pub fn stub_dcs() -> DartCallStub {
-    DartCallStub {
+pub fn stub_dcs() -> caller::DartCallStub {
+    caller::DartCallStub {
         fn_name: String::from("func0"),
         args: vec![
-            DynamicValue::String(String::from("Hello from rust, this is simple_call_func0")),
-            DynamicValue::I64(42),
-            DynamicValue::F64(42.42),
+            caller::DynamicValue::String(String::from(
+                "Hello from rust, this is simple_call_func0",
+            )),
+            caller::DynamicValue::I64(42),
+            caller::DynamicValue::F64(42.42),
         ],
         named_args: vec![
-            DynamicNamedValue {
+            caller::DynamicNamedValue {
                 name: String::from("arg0"),
-                value: Some(DynamicValue::I64(420)),
+                value: Some(caller::DynamicValue::I64(420)),
             },
-            DynamicNamedValue {
+            caller::DynamicNamedValue {
                 name: String::from("arg1"),
-                value: Some(DynamicValue::F64(420.42)),
+                value: Some(caller::DynamicValue::F64(420.42)),
             },
         ],
     }
 }
 pub fn simple_call_dart() {
-    call(stub_dcs());
+    let ret = caller::call(stub_dcs(), true);
+    debug!("simple_call_dart returns: {:?}", ret);
 }
-pub fn stub_call_dart(stub: DartCallStub) {
-    call(stub);
+pub fn stub_call_dart(stub: caller::DartCallStub) {
+    caller::call(stub, true);
 }
-pub fn simple_call_func0() {
-    let stub = DartCallStub {
+pub fn simple_call_func0(need_result: bool) {
+    let stub = caller::DartCallStub {
         fn_name: String::from("func0"),
         args: vec![
-            DynamicValue::String(String::from("Hello from rust, this is simple_call_func0")),
-            DynamicValue::I64(42),
-            DynamicValue::F64(42.42),
+            caller::DynamicValue::String(String::from(
+                "Hello from rust, this is simple_call_func0",
+            )),
+            caller::DynamicValue::I64(42),
+            caller::DynamicValue::F64(42.42),
         ],
         named_args: vec![
-            DynamicNamedValue {
+            caller::DynamicNamedValue {
                 name: String::from("arg0"),
-                value: Some(DynamicValue::I64(420)),
+                value: Some(caller::DynamicValue::I64(420)),
             },
-            DynamicNamedValue {
+            caller::DynamicNamedValue {
                 name: String::from("arg1"),
-                value: Some(DynamicValue::F64(420.42)),
+                value: Some(caller::DynamicValue::F64(420.42)),
             },
         ],
     };
-    call(stub);
+    let result = caller::call(stub, need_result);
+    let dgbstr = if need_result {
+        result.as_string()
+    } else {
+        String::from("no return value")
+    };
+    debug!("Something returned from simple_call_func0: {:?}", dgbstr);
+}
+pub fn simple_call_func1(need_result: bool) {
+    let stub = caller::DartCallStub {
+        fn_name: String::from("func1"),
+        args: vec![
+            caller::DynamicValue::String(String::from(
+                "Hello from rust, this is simple_call_func1",
+            )),
+            caller::DynamicValue::I64(42),
+            caller::DynamicValue::F64(42.42),
+        ],
+        named_args: vec![
+            caller::DynamicNamedValue {
+                name: String::from("arg0"),
+                value: Some(caller::DynamicValue::I64(420)),
+            },
+            caller::DynamicNamedValue {
+                name: String::from("arg1"),
+                value: Some(caller::DynamicValue::F64(420.42)),
+            },
+        ],
+    };
+    debug!(
+        "Something returned from simple_call_func1: {:?}",
+        caller::call(stub, need_result)
+    );
+}
+pub fn simple_call_func2() {
+    let mut props = HashMap::new();
+    props.insert(String::from("Key0"), String::from("Value0"));
+    props.insert(String::from("Key1"), String::from("Value1"));
+    let to_send_mega_struct = mega_struct::MegaStruct {
+        name: String::from("megastruct from rust"),
+        coords: mega_struct::Coords {
+            x: 1.1,
+            y: 2.2,
+            z: 3.3,
+        },
+        props,
+    };
+    let to_send_dynamic_value = caller::DynamicValue::MegaStruct(to_send_mega_struct.to_json());
+    let stub = caller::DartCallStub {
+        fn_name: String::from("func2"),
+        args: vec![to_send_dynamic_value],
+        named_args: vec![],
+    };
+    let mega_struct = caller::call(stub, true).as_mega_struct();
+    debug!(
+        "Something returned from simple_call_func2: name: {} debug: {:?}",
+        mega_struct.name, mega_struct,
+    );
 }
