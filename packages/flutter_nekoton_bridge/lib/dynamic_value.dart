@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_nekoton_bridge/mega_struct.dart';
+import 'package:flutter_nekoton_bridge/example_related/mega_struct.dart';
 import 'package:nekoton_bridge/nekoton_bridge.dart';
 
 extension DynamicValueConvert on DynamicValue {

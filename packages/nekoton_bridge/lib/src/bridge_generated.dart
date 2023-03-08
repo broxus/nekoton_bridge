@@ -125,22 +125,72 @@ abstract class NekotonBridge {
   Future<String> myFormatMethodMyClass({required MyClass that, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kMyFormatMethodMyClassConstMeta;
+
+  Future<CallerTestClass> newStaticMethodCallerTestClass(
+      {required String instanceHash, required int value, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kNewStaticMethodCallerTestClassConstMeta;
+
+  Future<void> callSomeFuncMethodCallerTestClass(
+      {required CallerTestClass that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kCallSomeFuncMethodCallerTestClassConstMeta;
 }
 
+class CallerTestClass {
+  final NekotonBridge bridge;
+  final String instanceHash;
+  final int value;
+
+  const CallerTestClass({
+    required this.bridge,
+    required this.instanceHash,
+    required this.value,
+  });
+
+  static Future<CallerTestClass> newCallerTestClass(
+          {required NekotonBridge bridge,
+          required String instanceHash,
+          required int value,
+          dynamic hint}) =>
+      bridge.newStaticMethodCallerTestClass(
+          instanceHash: instanceHash, value: value, hint: hint);
+
+  Future<void> callSomeFunc({dynamic hint}) =>
+      bridge.callSomeFuncMethodCallerTestClass(
+        that: this,
+      );
+}
+
+/// Instruction for dart side that should call some method of some class instance.
 class DartCallStub {
+  /// Hash is unique id for any instance of any class, used to identify where to call method
+  final String instanceHash;
+
+  /// name of function that should be called
   final String fnName;
+
+  /// List of positional arguments in function
   final List<DynamicValue> args;
+
+  /// List of named arguments of function, empty if no such arguments
   final List<DynamicNamedValue> namedArgs;
 
   const DartCallStub({
+    required this.instanceHash,
     required this.fnName,
     required this.args,
     required this.namedArgs,
   });
 }
 
+/// Registered call of dart function that is tracked in rust side
 class DartCallStubRegistred {
+  /// Unique identifier of call of some method
   final String? id;
+
+  /// Call itself
   final DartCallStub stub;
 
   const DartCallStubRegistred({
@@ -149,6 +199,8 @@ class DartCallStubRegistred {
   });
 }
 
+/// Value of function call that should be placed in dart as named parameter.
+/// EX: void funcCall({int? valueName}) -> DynamicNamedValue(name: "valueName", value: DynamicValue::U32(10))
 class DynamicNamedValue {
   final String name;
   final DynamicValue? value;
@@ -623,6 +675,46 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: ["that"],
       );
 
+  Future<CallerTestClass> newStaticMethodCallerTestClass(
+      {required String instanceHash, required int value, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(instanceHash);
+    var arg1 = api2wire_i32(value);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_new__static_method__CallerTestClass(port_, arg0, arg1),
+      parseSuccessData: (d) => _wire2api_caller_test_class(d),
+      constMeta: kNewStaticMethodCallerTestClassConstMeta,
+      argValues: [instanceHash, value],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kNewStaticMethodCallerTestClassConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "new__static_method__CallerTestClass",
+        argNames: ["instanceHash", "value"],
+      );
+
+  Future<void> callSomeFuncMethodCallerTestClass(
+      {required CallerTestClass that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_caller_test_class(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_call_some_func__method__CallerTestClass(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kCallSomeFuncMethodCallerTestClassConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kCallSomeFuncMethodCallerTestClassConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "call_some_func__method__CallerTestClass",
+            argNames: ["that"],
+          );
+
   void dispose() {
     _platform.dispose();
   }
@@ -640,14 +732,26 @@ class NekotonBridgeImpl implements NekotonBridge {
     return _wire2api_dynamic_value(raw);
   }
 
+  CallerTestClass _wire2api_caller_test_class(dynamic raw) {
+    final arr = raw as List<dynamic>;
+    if (arr.length != 2)
+      throw Exception('unexpected arr length: expect 2 but see ${arr.length}');
+    return CallerTestClass(
+      bridge: this,
+      instanceHash: _wire2api_String(arr[0]),
+      value: _wire2api_i32(arr[1]),
+    );
+  }
+
   DartCallStub _wire2api_dart_call_stub(dynamic raw) {
     final arr = raw as List<dynamic>;
-    if (arr.length != 3)
-      throw Exception('unexpected arr length: expect 3 but see ${arr.length}');
+    if (arr.length != 4)
+      throw Exception('unexpected arr length: expect 4 but see ${arr.length}');
     return DartCallStub(
-      fnName: _wire2api_String(arr[0]),
-      args: _wire2api_list_dynamic_value(arr[1]),
-      namedArgs: _wire2api_list_dynamic_named_value(arr[2]),
+      instanceHash: _wire2api_String(arr[0]),
+      fnName: _wire2api_String(arr[1]),
+      args: _wire2api_list_dynamic_value(arr[2]),
+      namedArgs: _wire2api_list_dynamic_named_value(arr[3]),
     );
   }
 

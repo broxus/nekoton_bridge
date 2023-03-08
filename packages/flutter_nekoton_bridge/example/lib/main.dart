@@ -1,10 +1,13 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_nekoton_bridge/example_related/caller_test_class_wrapper.dart';
 import 'dart:async';
 
-import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart'
-    as flutter_nekoton_bridge;
+import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart' as flutter_nekoton_bridge;
 
-import 'storage.dart';
+import 'package:flutter_nekoton_bridge/example_related/caller_wrapper.dart' as caller;
+import 'caller_impl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -52,10 +55,27 @@ class _MyAppState extends State<MyApp> {
     flutter_nekoton_bridge.simplePanic();
   }
 
-  Storage? _storage;
+  /// Cached instance
+  /// ignore: unused_field
+  caller.CallerWrapper? _caller;
+
   void _onPressedInitDartCaller() async {
-    final storage = _storage ??= Storage();
-    flutter_nekoton_bridge.initAbstractStorage(storage);
+    flutter_nekoton_bridge.initRustToDartCaller();
+    _caller = flutter_nekoton_bridge.initCallerWrapper(CallerImpl());
+  }
+
+  List<CallerTestClassWrapper> testCallers = [];
+
+  void _onPressedAddTestCaller() async {
+    testCallers
+        .add(await flutter_nekoton_bridge.initCallerTestClassWrapper(Random().nextInt(1000)));
+    setState(() {});
+  }
+
+  void _onPressedTriggerTestCallers() {
+    for (var c in testCallers) {
+      c.caller.callSomeFunc();
+    }
   }
 
   void _onPressedDartCallFunc0(bool needResult) async {
@@ -115,8 +135,7 @@ class _MyAppState extends State<MyApp> {
                 FutureBuilder<int>(
                   future: sumAsyncResult,
                   builder: (BuildContext context, AsyncSnapshot<int> value) {
-                    final displayValue =
-                        (value.hasData) ? value.data : 'loading';
+                    final displayValue = (value.hasData) ? value.data : 'loading';
                     return Text(
                       'await sumAsync(3, 4) = $displayValue',
                       style: textStyle,
@@ -159,6 +178,14 @@ class _MyAppState extends State<MyApp> {
                 TextButton(
                   onPressed: () => _onPressedDartCallFunc2(),
                   child: const Text('CallFunc2'),
+                ),
+                TextButton(
+                  onPressed: () => _onPressedAddTestCaller(),
+                  child: const Text('Add test caller'),
+                ),
+                TextButton(
+                  onPressed: () => _onPressedTriggerTestCallers(),
+                  child: const Text('Trigger test callers'),
                 ),
                 // TextButton(
                 //   onPressed: _onPressedStubCallDart,

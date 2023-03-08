@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart'
-    as flutter_nekoton_bridge;
-import 'package:flutter_nekoton_bridge/mega_struct.dart';
+import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart' as flutter_nekoton_bridge;
+import 'package:flutter_nekoton_bridge/example_related/mega_struct.dart';
 
-class Storage extends flutter_nekoton_bridge.AbstractStorage {
+class CallerImpl extends flutter_nekoton_bridge.AbstractCaller {
   @override
-  String func0(String string, int i, double d,
-      {required int arg0, required double arg1}) {
+  String func0(String string, int i, double d, {required int arg0, required double arg1}) {
     debugPrint('Call: func0: $string $i $d $arg0 $arg1');
 
     return 'Return: Call: func0: $string $i $d $arg0 $arg1';
@@ -37,7 +35,6 @@ class Storage extends flutter_nekoton_bridge.AbstractStorage {
           ...megaStruct.props,
           ...{'KeyFromDart': 'ValFromDart'},
         });
-    return flutter_nekoton_bridge.DynamicValueConvert.megaStruct(
-        toSendDynamicValue);
+    return flutter_nekoton_bridge.DynamicValueConvert.megaStruct(toSendDynamicValue);
   }
 }

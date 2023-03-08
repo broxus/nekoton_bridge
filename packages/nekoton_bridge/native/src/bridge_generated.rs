@@ -313,6 +313,40 @@ fn wire_my_format__method__MyClass_impl(
         },
     )
 }
+fn wire_new__static_method__CallerTestClass_impl(
+    port_: MessagePort,
+    instance_hash: impl Wire2Api<String> + UnwindSafe,
+    value: impl Wire2Api<i32> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "new__static_method__CallerTestClass",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_instance_hash = instance_hash.wire2api();
+            let api_value = value.wire2api();
+            move |task_callback| Ok(CallerTestClass::new(api_instance_hash, api_value))
+        },
+    )
+}
+fn wire_call_some_func__method__CallerTestClass_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<CallerTestClass> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "call_some_func__method__CallerTestClass",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            move |task_callback| Ok(CallerTestClass::call_some_func(&api_that))
+        },
+    )
+}
 // Section: wrapper structs
 
 #[derive(Clone)]
@@ -408,9 +442,17 @@ impl Wire2Api<u8> for u8 {
 
 // Section: impl IntoDart
 
+impl support::IntoDart for CallerTestClass {
+    fn into_dart(self) -> support::DartAbi {
+        vec![self.instance_hash.into_dart(), self.value.into_dart()].into_dart()
+    }
+}
+impl support::IntoDartExceptPrimitive for CallerTestClass {}
+
 impl support::IntoDart for DartCallStub {
     fn into_dart(self) -> support::DartAbi {
         vec![
+            self.instance_hash.into_dart(),
             self.fn_name.into_dart(),
             self.args.into_dart(),
             self.named_args.into_dart(),
@@ -622,6 +664,20 @@ mod web {
         wire_my_format__method__MyClass_impl(port_, that)
     }
 
+    #[wasm_bindgen]
+    pub fn wire_new__static_method__CallerTestClass(
+        port_: MessagePort,
+        instance_hash: String,
+        value: i32,
+    ) {
+        wire_new__static_method__CallerTestClass_impl(port_, instance_hash, value)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_call_some_func__method__CallerTestClass(port_: MessagePort, that: JsValue) {
+        wire_call_some_func__method__CallerTestClass_impl(port_, that)
+    }
+
     // Section: allocate functions
 
     // Section: related functions
@@ -634,19 +690,35 @@ mod web {
         }
     }
 
+    impl Wire2Api<CallerTestClass> for JsValue {
+        fn wire2api(self) -> CallerTestClass {
+            let self_ = self.dyn_into::<JsArray>().unwrap();
+            assert_eq!(
+                self_.length(),
+                2,
+                "Expected 2 elements, got {}",
+                self_.length()
+            );
+            CallerTestClass {
+                instance_hash: self_.get(0).wire2api(),
+                value: self_.get(1).wire2api(),
+            }
+        }
+    }
     impl Wire2Api<DartCallStub> for JsValue {
         fn wire2api(self) -> DartCallStub {
             let self_ = self.dyn_into::<JsArray>().unwrap();
             assert_eq!(
                 self_.length(),
-                3,
-                "Expected 3 elements, got {}",
+                4,
+                "Expected 4 elements, got {}",
                 self_.length()
             );
             DartCallStub {
-                fn_name: self_.get(0).wire2api(),
-                args: self_.get(1).wire2api(),
-                named_args: self_.get(2).wire2api(),
+                instance_hash: self_.get(0).wire2api(),
+                fn_name: self_.get(1).wire2api(),
+                args: self_.get(2).wire2api(),
+                named_args: self_.get(3).wire2api(),
             }
         }
     }
@@ -921,7 +993,29 @@ mod io {
         wire_my_format__method__MyClass_impl(port_, that)
     }
 
+    #[no_mangle]
+    pub extern "C" fn wire_new__static_method__CallerTestClass(
+        port_: i64,
+        instance_hash: *mut wire_uint_8_list,
+        value: i32,
+    ) {
+        wire_new__static_method__CallerTestClass_impl(port_, instance_hash, value)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_call_some_func__method__CallerTestClass(
+        port_: i64,
+        that: *mut wire_CallerTestClass,
+    ) {
+        wire_call_some_func__method__CallerTestClass_impl(port_, that)
+    }
+
     // Section: allocate functions
+
+    #[no_mangle]
+    pub extern "C" fn new_box_autoadd_caller_test_class_0() -> *mut wire_CallerTestClass {
+        support::new_leak_box_ptr(wire_CallerTestClass::new_with_null_ptr())
+    }
 
     #[no_mangle]
     pub extern "C" fn new_box_autoadd_dart_call_stub_0() -> *mut wire_DartCallStub {
@@ -983,6 +1077,12 @@ mod io {
         }
     }
 
+    impl Wire2Api<CallerTestClass> for *mut wire_CallerTestClass {
+        fn wire2api(self) -> CallerTestClass {
+            let wrap = unsafe { support::box_from_leak_ptr(self) };
+            Wire2Api::<CallerTestClass>::wire2api(*wrap).into()
+        }
+    }
     impl Wire2Api<DartCallStub> for *mut wire_DartCallStub {
         fn wire2api(self) -> DartCallStub {
             let wrap = unsafe { support::box_from_leak_ptr(self) };
@@ -1007,9 +1107,18 @@ mod io {
             Wire2Api::<MyClass>::wire2api(*wrap).into()
         }
     }
+    impl Wire2Api<CallerTestClass> for wire_CallerTestClass {
+        fn wire2api(self) -> CallerTestClass {
+            CallerTestClass {
+                instance_hash: self.instance_hash.wire2api(),
+                value: self.value.wire2api(),
+            }
+        }
+    }
     impl Wire2Api<DartCallStub> for wire_DartCallStub {
         fn wire2api(self) -> DartCallStub {
             DartCallStub {
+                instance_hash: self.instance_hash.wire2api(),
                 fn_name: self.fn_name.wire2api(),
                 args: self.args.wire2api(),
                 named_args: self.named_args.wire2api(),
@@ -1125,7 +1234,15 @@ mod io {
 
     #[repr(C)]
     #[derive(Clone)]
+    pub struct wire_CallerTestClass {
+        instance_hash: *mut wire_uint_8_list,
+        value: i32,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
     pub struct wire_DartCallStub {
+        instance_hash: *mut wire_uint_8_list,
         fn_name: *mut wire_uint_8_list,
         args: *mut wire_list_dynamic_value,
         named_args: *mut wire_list_dynamic_named_value,
@@ -1272,9 +1389,25 @@ mod io {
         }
     }
 
+    impl NewWithNullPtr for wire_CallerTestClass {
+        fn new_with_null_ptr() -> Self {
+            Self {
+                instance_hash: core::ptr::null_mut(),
+                value: Default::default(),
+            }
+        }
+    }
+
+    impl Default for wire_CallerTestClass {
+        fn default() -> Self {
+            Self::new_with_null_ptr()
+        }
+    }
+
     impl NewWithNullPtr for wire_DartCallStub {
         fn new_with_null_ptr() -> Self {
             Self {
+                instance_hash: core::ptr::null_mut(),
                 fn_name: core::ptr::null_mut(),
                 args: core::ptr::null_mut(),
                 named_args: core::ptr::null_mut(),

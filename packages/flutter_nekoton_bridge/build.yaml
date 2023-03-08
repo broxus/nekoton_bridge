@@ -8,6 +8,7 @@ targets:
     builders:
       reflectable:
         generate_for:
-          - lib/storage.dart
+          - lib/example_related/caller_wrapper.dart
+          - lib/example_related/caller_test_class_wrapper.dart
         options:
           formatted: true

@@ -39,6 +39,7 @@ impl Default for DynamicValue {
     }
 }
 
+/// Hand-written converters for structures
 impl DynamicValue {
     pub fn as_string(&self) -> String {
         match self {
@@ -55,22 +56,33 @@ impl DynamicValue {
     }
 }
 
+/// Value of function call that should be placed in dart as named parameter.
+/// EX: void funcCall({int? valueName}) -> DynamicNamedValue(name: "valueName", value: DynamicValue::U32(10))
 #[derive(Default, Debug, Clone)]
 pub struct DynamicNamedValue {
     pub name: String,
     pub value: Option<DynamicValue>,
 }
 
+/// Instruction for dart side that should call some method of some class instance.
 #[derive(Default, Debug, Clone)]
 pub struct DartCallStub {
+    /// Hash is unique id for any instance of any class, used to identify where to call method
+    pub instance_hash: String,
+    /// name of function that should be called
     pub fn_name: String,
+    /// List of positional arguments in function
     pub args: Vec<DynamicValue>,
+    /// List of named arguments of function, empty if no such arguments
     pub named_args: Vec<DynamicNamedValue>,
 }
 
+/// Registered call of dart function that is tracked in rust side
 #[derive(Default, Debug, Clone)]
 pub struct DartCallStubRegistred {
+    /// Unique identifier of call of some method
     pub id: Option<String>,
+    /// Call itself
     pub stub: DartCallStub,
 }
 
@@ -120,6 +132,7 @@ pub fn call(stub: DartCallStub, need_result: bool) -> DynamicValue {
     panic!("Can't call Dart function {:?}", stub);
 }
 
+/// Get result from dart side and return it to rust function that had initiated call
 pub fn call_send_result(id: String, value: DynamicValue) {
     let mut map = CALLBACK_MAP.lock().unwrap();
     let sender = map.remove(&id).expect("Can't find caller Sender");

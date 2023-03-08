@@ -25,6 +25,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
   }
 
   @protected
+  List<dynamic> api2wire_box_autoadd_caller_test_class(CallerTestClass raw) {
+    return api2wire_caller_test_class(raw);
+  }
+
+  @protected
   List<dynamic> api2wire_box_autoadd_dart_call_stub(DartCallStub raw) {
     return api2wire_dart_call_stub(raw);
   }
@@ -45,8 +50,14 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
   }
 
   @protected
+  List<dynamic> api2wire_caller_test_class(CallerTestClass raw) {
+    return [api2wire_String(raw.instanceHash), api2wire_i32(raw.value)];
+  }
+
+  @protected
   List<dynamic> api2wire_dart_call_stub(DartCallStub raw) {
     return [
+      api2wire_String(raw.instanceHash),
       api2wire_String(raw.fnName),
       api2wire_list_dynamic_value(raw.args),
       api2wire_list_dynamic_named_value(raw.namedArgs)
@@ -207,6 +218,12 @@ class NekotonBridgeWasmModule implements WasmModule {
 
   external dynamic /* void */ wire_my_format__method__MyClass(
       NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */ wire_new__static_method__CallerTestClass(
+      NativePortType port_, String instance_hash, int value);
+
+  external dynamic /* void */ wire_call_some_func__method__CallerTestClass(
+      NativePortType port_, List<dynamic> that);
 }
 
 // Section: WASM wire connector
@@ -279,4 +296,13 @@ class NekotonBridgeWire
   void wire_my_format__method__MyClass(
           NativePortType port_, List<dynamic> that) =>
       wasmModule.wire_my_format__method__MyClass(port_, that);
+
+  void wire_new__static_method__CallerTestClass(
+          NativePortType port_, String instance_hash, int value) =>
+      wasmModule.wire_new__static_method__CallerTestClass(
+          port_, instance_hash, value);
+
+  void wire_call_some_func__method__CallerTestClass(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_call_some_func__method__CallerTestClass(port_, that);
 }
