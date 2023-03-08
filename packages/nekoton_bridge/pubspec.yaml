@@ -19,5 +19,5 @@ dependencies:
   freezed_annotation: 2.2.0
   basic_utils: 5.5.1
   flutter_lints: 2.0.1
-  money2_improver: ^1.0.0
+  money2_improver: ^1.1.0
   money2: ^3.3.0
