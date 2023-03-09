@@ -27,7 +27,7 @@ void main() {
 
   test('test custom currency formatting 2', () {
     final everWithDefaultFormatting =
-        Currency.create('EVER', 9, symbol: 'EVER', pattern: '0.######### S');
+        Currency.create('EVER', 9, symbol: 'EVER', pattern: '0.000000000 S');
     expect(
         MoneyImprover.parseWithCurrencyImproved(
                 '2.01', everWithDefaultFormatting)
@@ -36,13 +36,13 @@ void main() {
         reason: 'Failed custom formatting');
   });
 
-  test('test custom currency formatting 3 (trimZerosRigh)', () {
+  test('test custom currency formatting 3 (trim zeros)', () {
     final everWithDefaultFormatting =
         Currency.create('EVER', 9, symbol: 'EVER', pattern: '0.######### S');
     expect(
         MoneyImprover.parseWithCurrencyImproved(
                 '2.01', everWithDefaultFormatting)
-            .formatImproved(trimZerosRigh: true),
+            .formatImproved(),
         '2.01 EVER',
         reason: 'Failed custom formatting');
   });
@@ -53,7 +53,7 @@ void main() {
     expect(
         MoneyImprover.parseWithCurrencyImproved(
                 '2.01', everWithDefaultFormatting)
-            .formatImproved(pattern: 'S 0.#########', trimZerosRigh: true),
+            .formatImproved(pattern: 'S 0.#########'),
         'EVER 2.01',
         reason: 'Failed custom formatting');
   });
