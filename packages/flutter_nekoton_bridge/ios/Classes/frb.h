@@ -32,6 +32,10 @@ typedef struct wire_uint_8_list {
   int32_t len;
 } wire_uint_8_list;
 
+typedef struct wire_DynamicValue_U16 {
+  uint16_t field0;
+} wire_DynamicValue_U16;
+
 typedef struct wire_DynamicValue_U32 {
   uint32_t field0;
 } wire_DynamicValue_U32;
@@ -73,6 +77,7 @@ typedef struct wire_DynamicValue_None {
 } wire_DynamicValue_None;
 
 typedef union DynamicValueKind {
+  struct wire_DynamicValue_U16 *U16;
   struct wire_DynamicValue_U32 *U32;
   struct wire_DynamicValue_I32 *I32;
   struct wire_DynamicValue_U64 *U64;
@@ -133,8 +138,6 @@ uintptr_t new_dart_opaque(Dart_Handle handle);
 
 intptr_t init_frb_dart_api_dl(void *obj);
 
-void wire_resend_mnemonic(int64_t port_, struct wire_MnemonicType *mnemonic);
-
 void wire_nt_generate_key(int64_t port_, struct wire_MnemonicType *account_type);
 
 void wire_nt_get_hints(int64_t port_, struct wire_uint_8_list *input);
@@ -175,6 +178,18 @@ void wire_simple_call_func1(int64_t port_, bool need_result);
 
 void wire_simple_call_func2(int64_t port_);
 
+void wire_new__static_method__JrpcConnectionImpl(int64_t port_,
+                                                 struct wire_uint_8_list *instance_hash);
+
+void wire_new__static_method__GqlConnectionImpl(int64_t port_,
+                                                bool is_local,
+                                                struct wire_uint_8_list *instance_hash);
+
+void wire_new__static_method__LedgerConnectionImpl(int64_t port_,
+                                                   struct wire_uint_8_list *instance_hash);
+
+void wire_new__static_method__StorageImpl(int64_t port_, struct wire_uint_8_list *instance_hash);
+
 void wire_new__static_method__MyClass(int64_t port_, int32_t a);
 
 void wire_my_format__method__MyClass(int64_t port_, struct wire_MyClass *that);
@@ -201,6 +216,8 @@ struct wire_list_dynamic_value *new_list_dynamic_value_0(int32_t len);
 
 struct wire_uint_8_list *new_uint_8_list_0(int32_t len);
 
+union DynamicValueKind *inflate_DynamicValue_U16(void);
+
 union DynamicValueKind *inflate_DynamicValue_U32(void);
 
 union DynamicValueKind *inflate_DynamicValue_I32(void);
@@ -225,7 +242,6 @@ void free_WireSyncReturn(WireSyncReturn ptr);
 
 static int64_t dummy_method_to_enforce_bundling(void) {
     int64_t dummy_var = 0;
-    dummy_var ^= ((int64_t) (void*) wire_resend_mnemonic);
     dummy_var ^= ((int64_t) (void*) wire_nt_generate_key);
     dummy_var ^= ((int64_t) (void*) wire_nt_get_hints);
     dummy_var ^= ((int64_t) (void*) wire_nt_derive_from_phrase);
@@ -244,6 +260,10 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_simple_call_func0);
     dummy_var ^= ((int64_t) (void*) wire_simple_call_func1);
     dummy_var ^= ((int64_t) (void*) wire_simple_call_func2);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__JrpcConnectionImpl);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__GqlConnectionImpl);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__LedgerConnectionImpl);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__StorageImpl);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__MyClass);
     dummy_var ^= ((int64_t) (void*) wire_my_format__method__MyClass);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__CallerTestClass);
@@ -256,6 +276,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) new_list_dynamic_named_value_0);
     dummy_var ^= ((int64_t) (void*) new_list_dynamic_value_0);
     dummy_var ^= ((int64_t) (void*) new_uint_8_list_0);
+    dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_U16);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_U32);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_I32);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_U64);

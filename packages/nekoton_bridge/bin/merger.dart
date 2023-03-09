@@ -82,7 +82,7 @@ void main() async {
   }
 
   /// Format result file
-  await Process.start('rustfmt', [mergedFile.path]);
+  await (await Process.start('rustfmt', [mergedFile.path])).exitCode;
 }
 
 /// Parse single use of rust code into hierarchy.

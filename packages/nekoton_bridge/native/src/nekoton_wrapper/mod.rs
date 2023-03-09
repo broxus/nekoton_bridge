@@ -1,5 +1,6 @@
 pub mod crypto;
 pub mod models_api;
+pub mod external;
 
 use anyhow::Result;
 use serde::Serialize;

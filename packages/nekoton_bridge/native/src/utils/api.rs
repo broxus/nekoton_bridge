@@ -137,7 +137,7 @@ pub fn simple_call_func0(need_result: bool) {
     let dgbstr = if need_result {
         result.as_string()
     } else {
-        String::from("no return value")
+        Result::Ok(String::from("no return value"))
     };
 
     debug!("Something returned from simple_call_func0: {:?}", dgbstr);
@@ -227,6 +227,6 @@ impl CallerTestClass {
             named_args: vec![],
         };
         let result = caller::call(stub, true).as_string();
-        debug!("Returned request from CallerTestClass: {}", result);
+        debug!("Returned request from CallerTestClass: {}", result.unwrap());
     }
 }

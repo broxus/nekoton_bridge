@@ -29,22 +29,6 @@ use crate::utils::logger::LogLevel;
 
 // Section: wire functions
 
-fn wire_resend_mnemonic_impl(
-    port_: MessagePort,
-    mnemonic: impl Wire2Api<MnemonicType> + UnwindSafe,
-) {
-    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
-        WrapInfo {
-            debug_name: "resend_mnemonic",
-            port: Some(port_),
-            mode: FfiCallMode::Normal,
-        },
-        move || {
-            let api_mnemonic = mnemonic.wire2api();
-            move |task_callback| Ok(mirror_MnemonicType(resend_mnemonic(api_mnemonic)))
-        },
-    )
-}
 fn wire_nt_generate_key_impl(
     port_: MessagePort,
     account_type: impl Wire2Api<MnemonicType> + UnwindSafe,
@@ -285,6 +269,72 @@ fn wire_simple_call_func2_impl(port_: MessagePort) {
         move || move |task_callback| Ok(simple_call_func2()),
     )
 }
+fn wire_new__static_method__JrpcConnectionImpl_impl(
+    port_: MessagePort,
+    instance_hash: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "new__static_method__JrpcConnectionImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_instance_hash = instance_hash.wire2api();
+            move |task_callback| Ok(JrpcConnectionImpl::new(api_instance_hash))
+        },
+    )
+}
+fn wire_new__static_method__GqlConnectionImpl_impl(
+    port_: MessagePort,
+    is_local: impl Wire2Api<bool> + UnwindSafe,
+    instance_hash: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "new__static_method__GqlConnectionImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_is_local = is_local.wire2api();
+            let api_instance_hash = instance_hash.wire2api();
+            move |task_callback| Ok(GqlConnectionImpl::new(api_is_local, api_instance_hash))
+        },
+    )
+}
+fn wire_new__static_method__LedgerConnectionImpl_impl(
+    port_: MessagePort,
+    instance_hash: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "new__static_method__LedgerConnectionImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_instance_hash = instance_hash.wire2api();
+            move |task_callback| Ok(LedgerConnectionImpl::new(api_instance_hash))
+        },
+    )
+}
+fn wire_new__static_method__StorageImpl_impl(
+    port_: MessagePort,
+    instance_hash: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "new__static_method__StorageImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_instance_hash = instance_hash.wire2api();
+            move |task_callback| Ok(StorageImpl::new(api_instance_hash))
+        },
+    )
+}
 fn wire_new__static_method__MyClass_impl(port_: MessagePort, a: impl Wire2Api<i32> + UnwindSafe) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
@@ -490,16 +540,17 @@ impl support::IntoDartExceptPrimitive for DynamicNamedValue {}
 impl support::IntoDart for DynamicValue {
     fn into_dart(self) -> support::DartAbi {
         match self {
-            Self::U32(field0) => vec![0.into_dart(), field0.into_dart()],
-            Self::I32(field0) => vec![1.into_dart(), field0.into_dart()],
-            Self::U64(field0) => vec![2.into_dart(), field0.into_dart()],
-            Self::I64(field0) => vec![3.into_dart(), field0.into_dart()],
-            Self::F32(field0) => vec![4.into_dart(), field0.into_dart()],
-            Self::F64(field0) => vec![5.into_dart(), field0.into_dart()],
-            Self::String(field0) => vec![6.into_dart(), field0.into_dart()],
-            Self::MegaStruct(field0) => vec![7.into_dart(), field0.into_dart()],
-            Self::Error(field0) => vec![8.into_dart(), field0.into_dart()],
-            Self::None => vec![9.into_dart()],
+            Self::U16(field0) => vec![0.into_dart(), field0.into_dart()],
+            Self::U32(field0) => vec![1.into_dart(), field0.into_dart()],
+            Self::I32(field0) => vec![2.into_dart(), field0.into_dart()],
+            Self::U64(field0) => vec![3.into_dart(), field0.into_dart()],
+            Self::I64(field0) => vec![4.into_dart(), field0.into_dart()],
+            Self::F32(field0) => vec![5.into_dart(), field0.into_dart()],
+            Self::F64(field0) => vec![6.into_dart(), field0.into_dart()],
+            Self::String(field0) => vec![7.into_dart(), field0.into_dart()],
+            Self::MegaStruct(field0) => vec![8.into_dart(), field0.into_dart()],
+            Self::Error(field0) => vec![9.into_dart(), field0.into_dart()],
+            Self::None => vec![10.into_dart()],
         }
         .into_dart()
     }
@@ -526,6 +577,27 @@ impl support::IntoDart for GeneratedKeyG {
     }
 }
 impl support::IntoDartExceptPrimitive for GeneratedKeyG {}
+
+impl support::IntoDart for GqlConnectionImpl {
+    fn into_dart(self) -> support::DartAbi {
+        vec![self.is_local.into_dart(), self.instance_hash.into_dart()].into_dart()
+    }
+}
+impl support::IntoDartExceptPrimitive for GqlConnectionImpl {}
+
+impl support::IntoDart for JrpcConnectionImpl {
+    fn into_dart(self) -> support::DartAbi {
+        vec![self.instance_hash.into_dart()].into_dart()
+    }
+}
+impl support::IntoDartExceptPrimitive for JrpcConnectionImpl {}
+
+impl support::IntoDart for LedgerConnectionImpl {
+    fn into_dart(self) -> support::DartAbi {
+        vec![self.instance_hash.into_dart()].into_dart()
+    }
+}
+impl support::IntoDartExceptPrimitive for LedgerConnectionImpl {}
 
 impl support::IntoDart for LogEntry {
     fn into_dart(self) -> support::DartAbi {
@@ -569,6 +641,13 @@ impl support::IntoDart for MyClass {
 }
 impl support::IntoDartExceptPrimitive for MyClass {}
 
+impl support::IntoDart for StorageImpl {
+    fn into_dart(self) -> support::DartAbi {
+        vec![self.instance_hash.into_dart()].into_dart()
+    }
+}
+impl support::IntoDartExceptPrimitive for StorageImpl {}
+
 // Section: executor
 
 support::lazy_static! {
@@ -580,11 +659,6 @@ support::lazy_static! {
 mod web {
     use super::*;
     // Section: wire functions
-
-    #[wasm_bindgen]
-    pub fn wire_resend_mnemonic(port_: MessagePort, mnemonic: JsValue) {
-        wire_resend_mnemonic_impl(port_, mnemonic)
-    }
 
     #[wasm_bindgen]
     pub fn wire_nt_generate_key(port_: MessagePort, account_type: JsValue) {
@@ -677,6 +751,33 @@ mod web {
     }
 
     #[wasm_bindgen]
+    pub fn wire_new__static_method__JrpcConnectionImpl(port_: MessagePort, instance_hash: String) {
+        wire_new__static_method__JrpcConnectionImpl_impl(port_, instance_hash)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_new__static_method__GqlConnectionImpl(
+        port_: MessagePort,
+        is_local: bool,
+        instance_hash: String,
+    ) {
+        wire_new__static_method__GqlConnectionImpl_impl(port_, is_local, instance_hash)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_new__static_method__LedgerConnectionImpl(
+        port_: MessagePort,
+        instance_hash: String,
+    ) {
+        wire_new__static_method__LedgerConnectionImpl_impl(port_, instance_hash)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_new__static_method__StorageImpl(port_: MessagePort, instance_hash: String) {
+        wire_new__static_method__StorageImpl_impl(port_, instance_hash)
+    }
+
+    #[wasm_bindgen]
     pub fn wire_new__static_method__MyClass(port_: MessagePort, a: i32) {
         wire_new__static_method__MyClass_impl(port_, a)
     }
@@ -763,16 +864,17 @@ mod web {
         fn wire2api(self) -> DynamicValue {
             let self_ = self.unchecked_into::<JsArray>();
             match self_.get(0).unchecked_into_f64() as _ {
-                0 => DynamicValue::U32(self_.get(1).wire2api()),
-                1 => DynamicValue::I32(self_.get(1).wire2api()),
-                2 => DynamicValue::U64(self_.get(1).wire2api()),
-                3 => DynamicValue::I64(self_.get(1).wire2api()),
-                4 => DynamicValue::F32(self_.get(1).wire2api()),
-                5 => DynamicValue::F64(self_.get(1).wire2api()),
-                6 => DynamicValue::String(self_.get(1).wire2api()),
-                7 => DynamicValue::MegaStruct(self_.get(1).wire2api()),
-                8 => DynamicValue::Error(self_.get(1).wire2api()),
-                9 => DynamicValue::None,
+                0 => DynamicValue::U16(self_.get(1).wire2api()),
+                1 => DynamicValue::U32(self_.get(1).wire2api()),
+                2 => DynamicValue::I32(self_.get(1).wire2api()),
+                3 => DynamicValue::U64(self_.get(1).wire2api()),
+                4 => DynamicValue::I64(self_.get(1).wire2api()),
+                5 => DynamicValue::F32(self_.get(1).wire2api()),
+                6 => DynamicValue::F64(self_.get(1).wire2api()),
+                7 => DynamicValue::String(self_.get(1).wire2api()),
+                8 => DynamicValue::MegaStruct(self_.get(1).wire2api()),
+                9 => DynamicValue::Error(self_.get(1).wire2api()),
+                10 => DynamicValue::None,
                 _ => unreachable!(),
             }
         }
@@ -909,11 +1011,6 @@ mod io {
     // Section: wire functions
 
     #[no_mangle]
-    pub extern "C" fn wire_resend_mnemonic(port_: i64, mnemonic: *mut wire_MnemonicType) {
-        wire_resend_mnemonic_impl(port_, mnemonic)
-    }
-
-    #[no_mangle]
     pub extern "C" fn wire_nt_generate_key(port_: i64, account_type: *mut wire_MnemonicType) {
         wire_nt_generate_key_impl(port_, account_type)
     }
@@ -1009,6 +1106,39 @@ mod io {
     #[no_mangle]
     pub extern "C" fn wire_simple_call_func2(port_: i64) {
         wire_simple_call_func2_impl(port_)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_new__static_method__JrpcConnectionImpl(
+        port_: i64,
+        instance_hash: *mut wire_uint_8_list,
+    ) {
+        wire_new__static_method__JrpcConnectionImpl_impl(port_, instance_hash)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_new__static_method__GqlConnectionImpl(
+        port_: i64,
+        is_local: bool,
+        instance_hash: *mut wire_uint_8_list,
+    ) {
+        wire_new__static_method__GqlConnectionImpl_impl(port_, is_local, instance_hash)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_new__static_method__LedgerConnectionImpl(
+        port_: i64,
+        instance_hash: *mut wire_uint_8_list,
+    ) {
+        wire_new__static_method__LedgerConnectionImpl_impl(port_, instance_hash)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_new__static_method__StorageImpl(
+        port_: i64,
+        instance_hash: *mut wire_uint_8_list,
+    ) {
+        wire_new__static_method__StorageImpl_impl(port_, instance_hash)
     }
 
     #[no_mangle]
@@ -1166,50 +1296,55 @@ mod io {
             match self.tag {
                 0 => unsafe {
                     let ans = support::box_from_leak_ptr(self.kind);
+                    let ans = support::box_from_leak_ptr(ans.U16);
+                    DynamicValue::U16(ans.field0.wire2api())
+                },
+                1 => unsafe {
+                    let ans = support::box_from_leak_ptr(self.kind);
                     let ans = support::box_from_leak_ptr(ans.U32);
                     DynamicValue::U32(ans.field0.wire2api())
                 },
-                1 => unsafe {
+                2 => unsafe {
                     let ans = support::box_from_leak_ptr(self.kind);
                     let ans = support::box_from_leak_ptr(ans.I32);
                     DynamicValue::I32(ans.field0.wire2api())
                 },
-                2 => unsafe {
+                3 => unsafe {
                     let ans = support::box_from_leak_ptr(self.kind);
                     let ans = support::box_from_leak_ptr(ans.U64);
                     DynamicValue::U64(ans.field0.wire2api())
                 },
-                3 => unsafe {
+                4 => unsafe {
                     let ans = support::box_from_leak_ptr(self.kind);
                     let ans = support::box_from_leak_ptr(ans.I64);
                     DynamicValue::I64(ans.field0.wire2api())
                 },
-                4 => unsafe {
+                5 => unsafe {
                     let ans = support::box_from_leak_ptr(self.kind);
                     let ans = support::box_from_leak_ptr(ans.F32);
                     DynamicValue::F32(ans.field0.wire2api())
                 },
-                5 => unsafe {
+                6 => unsafe {
                     let ans = support::box_from_leak_ptr(self.kind);
                     let ans = support::box_from_leak_ptr(ans.F64);
                     DynamicValue::F64(ans.field0.wire2api())
                 },
-                6 => unsafe {
+                7 => unsafe {
                     let ans = support::box_from_leak_ptr(self.kind);
                     let ans = support::box_from_leak_ptr(ans.String);
                     DynamicValue::String(ans.field0.wire2api())
                 },
-                7 => unsafe {
+                8 => unsafe {
                     let ans = support::box_from_leak_ptr(self.kind);
                     let ans = support::box_from_leak_ptr(ans.MegaStruct);
                     DynamicValue::MegaStruct(ans.field0.wire2api())
                 },
-                8 => unsafe {
+                9 => unsafe {
                     let ans = support::box_from_leak_ptr(self.kind);
                     let ans = support::box_from_leak_ptr(ans.Error);
                     DynamicValue::Error(ans.field0.wire2api())
                 },
-                9 => DynamicValue::None,
+                10 => DynamicValue::None,
                 _ => unreachable!(),
             }
         }
@@ -1324,6 +1459,7 @@ mod io {
 
     #[repr(C)]
     pub union DynamicValueKind {
+        U16: *mut wire_DynamicValue_U16,
         U32: *mut wire_DynamicValue_U32,
         I32: *mut wire_DynamicValue_I32,
         U64: *mut wire_DynamicValue_U64,
@@ -1334,6 +1470,12 @@ mod io {
         MegaStruct: *mut wire_DynamicValue_MegaStruct,
         Error: *mut wire_DynamicValue_Error,
         None: *mut wire_DynamicValue_None,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_DynamicValue_U16 {
+        field0: u16,
     }
 
     #[repr(C)]
@@ -1483,6 +1625,15 @@ mod io {
                 kind: core::ptr::null_mut(),
             }
         }
+    }
+
+    #[no_mangle]
+    pub extern "C" fn inflate_DynamicValue_U16() -> *mut DynamicValueKind {
+        support::new_leak_box_ptr(DynamicValueKind {
+            U16: support::new_leak_box_ptr(wire_DynamicValue_U16 {
+                field0: Default::default(),
+            }),
+        })
     }
 
     #[no_mangle]

@@ -1,5 +1,4 @@
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
-import 'package:flutter_nekoton_bridge/example_related/mega_struct.dart';
 
 abstract class AbstractCaller {
   String func0(

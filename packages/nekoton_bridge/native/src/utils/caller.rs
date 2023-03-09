@@ -7,6 +7,7 @@ use std::{
         Mutex,
     },
 };
+use thiserror::Error;
 
 use flutter_rust_bridge::StreamSink;
 use lazy_static::lazy_static;
@@ -16,16 +17,21 @@ use uuid::Uuid;
 
 use crate::utils::mega_struct;
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Error)]
 pub enum ErrorCode {
+    #[error("No error, ok")]
     Ok,
+    #[error("Network error")]
     Network,
+    #[error("Some error in logic")]
     Generic,
 }
 
 // / Dynamic value for transmitting between Dart and Rust. We can't use Box<dyn Any> because frb doesn't support it.
 #[derive(Clone, Debug)]
 pub enum DynamicValue {
+    U16(u16),
+
     U32(u32),
     I32(i32),
 
@@ -52,10 +58,28 @@ impl Default for DynamicValue {
 
 /// Hand-written converters for structures
 impl DynamicValue {
-    pub fn as_string(&self) -> String {
+    pub fn as_string(&self) -> anyhow::Result<String> {
         match self {
-            DynamicValue::String(string) => string.clone(),
+            DynamicValue::String(string) => anyhow::Result::Ok(string.clone()),
+            DynamicValue::Error(e) => anyhow::Result::Err(anyhow::Error::new(e.clone())),
             _ => panic!("Can't convert DynamicValue to String {:?}", &self),
+        }
+    }
+
+    pub fn as_string_option(&self) -> anyhow::Result<Option<String>> {
+        match self {
+            DynamicValue::String(string) => anyhow::Result::Ok(Option::Some(string.clone())),
+            DynamicValue::None => anyhow::Result::Ok(Option::None),
+            DynamicValue::Error(e) => anyhow::Result::Err(anyhow::Error::new(e.clone())),
+            _ => panic!("Can't convert DynamicValue to String? {:?}", &self),
+        }
+    }
+
+    pub fn as_void(&self) -> anyhow::Result<()> {
+        match self {
+            DynamicValue::None => anyhow::Result::Ok(()),
+            DynamicValue::Error(e) => anyhow::Result::Err(anyhow::Error::new(e.clone())),
+            _ => panic!("Can't convert DynamicValue to void {:?}", &self),
         }
     }
 

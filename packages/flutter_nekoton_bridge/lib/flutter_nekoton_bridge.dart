@@ -2,16 +2,19 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter_nekoton_bridge/example_related/caller_test_class_wrapper.dart';
-import 'package:flutter_nekoton_bridge/rust_to_dart/rust_to_dart_caller.dart';
-import 'package:flutter_nekoton_bridge/example_related/caller_wrapper.dart';
 import 'package:nekoton_bridge/nekoton_bridge.dart';
 export 'package:nekoton_bridge/nekoton_bridge.dart';
 import 'dynamic_value.dart';
 export 'dynamic_value.dart';
 import 'log_entry.dart';
-import 'example_related/abstract_caller.dart';
-export 'example_related/abstract_caller.dart';
+
+import 'rust_to_dart/rust_to_dart_caller.dart';
+export 'rust_to_dart/rust_to_dart_caller.dart';
+
+import 'example_related/example_related_lib.dart';
+export 'example_related/example_related_lib.dart';
+
+export 'nekoton/nekoton_lib.dart';
 
 void Function(LogEntry logEntry)? _logHandler;
 const String _tag = 'flutter_nekoton_bridge';
@@ -95,7 +98,8 @@ Future<void> registerRustToDartCaller(RustToDartCaller rustToDartCaller) async {
         if (e is ErrorCode) {
           lib.callSendResult(id: id, value: DynamicValue.error(e));
         } else {
-          lib.callSendResult(id: id, value: const DynamicValue.error(ErrorCode.Generic));
+          lib.callSendResult(
+              id: id, value: const DynamicValue.error(ErrorCode.Generic));
         }
       }
       final logEntry = LogEntryCreate.create(
