@@ -26,6 +26,7 @@ mixin _$DynamicValue {
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
     required TResult Function(String field0) megaStruct,
+    required TResult Function(ErrorCode field0) error,
     required TResult Function() none,
   }) =>
       throw _privateConstructorUsedError;
@@ -39,6 +40,7 @@ mixin _$DynamicValue {
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
     TResult? Function(String field0)? megaStruct,
+    TResult? Function(ErrorCode field0)? error,
     TResult? Function()? none,
   }) =>
       throw _privateConstructorUsedError;
@@ -52,6 +54,7 @@ mixin _$DynamicValue {
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
     TResult Function(String field0)? megaStruct,
+    TResult Function(ErrorCode field0)? error,
     TResult Function()? none,
     required TResult orElse(),
   }) =>
@@ -66,6 +69,7 @@ mixin _$DynamicValue {
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
     required TResult Function(DynamicValue_MegaStruct value) megaStruct,
+    required TResult Function(DynamicValue_Error value) error,
     required TResult Function(DynamicValue_None value) none,
   }) =>
       throw _privateConstructorUsedError;
@@ -79,6 +83,7 @@ mixin _$DynamicValue {
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
     TResult? Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult? Function(DynamicValue_Error value)? error,
     TResult? Function(DynamicValue_None value)? none,
   }) =>
       throw _privateConstructorUsedError;
@@ -92,6 +97,7 @@ mixin _$DynamicValue {
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
     TResult Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult Function(DynamicValue_Error value)? error,
     TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) =>
@@ -188,6 +194,7 @@ class _$DynamicValue_U32 implements DynamicValue_U32 {
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
     required TResult Function(String field0) megaStruct,
+    required TResult Function(ErrorCode field0) error,
     required TResult Function() none,
   }) {
     return u32(field0);
@@ -204,6 +211,7 @@ class _$DynamicValue_U32 implements DynamicValue_U32 {
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
     TResult? Function(String field0)? megaStruct,
+    TResult? Function(ErrorCode field0)? error,
     TResult? Function()? none,
   }) {
     return u32?.call(field0);
@@ -220,6 +228,7 @@ class _$DynamicValue_U32 implements DynamicValue_U32 {
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
     TResult Function(String field0)? megaStruct,
+    TResult Function(ErrorCode field0)? error,
     TResult Function()? none,
     required TResult orElse(),
   }) {
@@ -240,6 +249,7 @@ class _$DynamicValue_U32 implements DynamicValue_U32 {
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
     required TResult Function(DynamicValue_MegaStruct value) megaStruct,
+    required TResult Function(DynamicValue_Error value) error,
     required TResult Function(DynamicValue_None value) none,
   }) {
     return u32(this);
@@ -256,6 +266,7 @@ class _$DynamicValue_U32 implements DynamicValue_U32 {
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
     TResult? Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult? Function(DynamicValue_Error value)? error,
     TResult? Function(DynamicValue_None value)? none,
   }) {
     return u32?.call(this);
@@ -272,6 +283,7 @@ class _$DynamicValue_U32 implements DynamicValue_U32 {
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
     TResult Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult Function(DynamicValue_Error value)? error,
     TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) {
@@ -363,6 +375,7 @@ class _$DynamicValue_I32 implements DynamicValue_I32 {
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
     required TResult Function(String field0) megaStruct,
+    required TResult Function(ErrorCode field0) error,
     required TResult Function() none,
   }) {
     return i32(field0);
@@ -379,6 +392,7 @@ class _$DynamicValue_I32 implements DynamicValue_I32 {
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
     TResult? Function(String field0)? megaStruct,
+    TResult? Function(ErrorCode field0)? error,
     TResult? Function()? none,
   }) {
     return i32?.call(field0);
@@ -395,6 +409,7 @@ class _$DynamicValue_I32 implements DynamicValue_I32 {
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
     TResult Function(String field0)? megaStruct,
+    TResult Function(ErrorCode field0)? error,
     TResult Function()? none,
     required TResult orElse(),
   }) {
@@ -415,6 +430,7 @@ class _$DynamicValue_I32 implements DynamicValue_I32 {
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
     required TResult Function(DynamicValue_MegaStruct value) megaStruct,
+    required TResult Function(DynamicValue_Error value) error,
     required TResult Function(DynamicValue_None value) none,
   }) {
     return i32(this);
@@ -431,6 +447,7 @@ class _$DynamicValue_I32 implements DynamicValue_I32 {
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
     TResult? Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult? Function(DynamicValue_Error value)? error,
     TResult? Function(DynamicValue_None value)? none,
   }) {
     return i32?.call(this);
@@ -447,6 +464,7 @@ class _$DynamicValue_I32 implements DynamicValue_I32 {
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
     TResult Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult Function(DynamicValue_Error value)? error,
     TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) {
@@ -538,6 +556,7 @@ class _$DynamicValue_U64 implements DynamicValue_U64 {
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
     required TResult Function(String field0) megaStruct,
+    required TResult Function(ErrorCode field0) error,
     required TResult Function() none,
   }) {
     return u64(field0);
@@ -554,6 +573,7 @@ class _$DynamicValue_U64 implements DynamicValue_U64 {
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
     TResult? Function(String field0)? megaStruct,
+    TResult? Function(ErrorCode field0)? error,
     TResult? Function()? none,
   }) {
     return u64?.call(field0);
@@ -570,6 +590,7 @@ class _$DynamicValue_U64 implements DynamicValue_U64 {
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
     TResult Function(String field0)? megaStruct,
+    TResult Function(ErrorCode field0)? error,
     TResult Function()? none,
     required TResult orElse(),
   }) {
@@ -590,6 +611,7 @@ class _$DynamicValue_U64 implements DynamicValue_U64 {
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
     required TResult Function(DynamicValue_MegaStruct value) megaStruct,
+    required TResult Function(DynamicValue_Error value) error,
     required TResult Function(DynamicValue_None value) none,
   }) {
     return u64(this);
@@ -606,6 +628,7 @@ class _$DynamicValue_U64 implements DynamicValue_U64 {
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
     TResult? Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult? Function(DynamicValue_Error value)? error,
     TResult? Function(DynamicValue_None value)? none,
   }) {
     return u64?.call(this);
@@ -622,6 +645,7 @@ class _$DynamicValue_U64 implements DynamicValue_U64 {
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
     TResult Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult Function(DynamicValue_Error value)? error,
     TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) {
@@ -713,6 +737,7 @@ class _$DynamicValue_I64 implements DynamicValue_I64 {
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
     required TResult Function(String field0) megaStruct,
+    required TResult Function(ErrorCode field0) error,
     required TResult Function() none,
   }) {
     return i64(field0);
@@ -729,6 +754,7 @@ class _$DynamicValue_I64 implements DynamicValue_I64 {
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
     TResult? Function(String field0)? megaStruct,
+    TResult? Function(ErrorCode field0)? error,
     TResult? Function()? none,
   }) {
     return i64?.call(field0);
@@ -745,6 +771,7 @@ class _$DynamicValue_I64 implements DynamicValue_I64 {
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
     TResult Function(String field0)? megaStruct,
+    TResult Function(ErrorCode field0)? error,
     TResult Function()? none,
     required TResult orElse(),
   }) {
@@ -765,6 +792,7 @@ class _$DynamicValue_I64 implements DynamicValue_I64 {
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
     required TResult Function(DynamicValue_MegaStruct value) megaStruct,
+    required TResult Function(DynamicValue_Error value) error,
     required TResult Function(DynamicValue_None value) none,
   }) {
     return i64(this);
@@ -781,6 +809,7 @@ class _$DynamicValue_I64 implements DynamicValue_I64 {
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
     TResult? Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult? Function(DynamicValue_Error value)? error,
     TResult? Function(DynamicValue_None value)? none,
   }) {
     return i64?.call(this);
@@ -797,6 +826,7 @@ class _$DynamicValue_I64 implements DynamicValue_I64 {
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
     TResult Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult Function(DynamicValue_Error value)? error,
     TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) {
@@ -888,6 +918,7 @@ class _$DynamicValue_F32 implements DynamicValue_F32 {
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
     required TResult Function(String field0) megaStruct,
+    required TResult Function(ErrorCode field0) error,
     required TResult Function() none,
   }) {
     return f32(field0);
@@ -904,6 +935,7 @@ class _$DynamicValue_F32 implements DynamicValue_F32 {
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
     TResult? Function(String field0)? megaStruct,
+    TResult? Function(ErrorCode field0)? error,
     TResult? Function()? none,
   }) {
     return f32?.call(field0);
@@ -920,6 +952,7 @@ class _$DynamicValue_F32 implements DynamicValue_F32 {
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
     TResult Function(String field0)? megaStruct,
+    TResult Function(ErrorCode field0)? error,
     TResult Function()? none,
     required TResult orElse(),
   }) {
@@ -940,6 +973,7 @@ class _$DynamicValue_F32 implements DynamicValue_F32 {
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
     required TResult Function(DynamicValue_MegaStruct value) megaStruct,
+    required TResult Function(DynamicValue_Error value) error,
     required TResult Function(DynamicValue_None value) none,
   }) {
     return f32(this);
@@ -956,6 +990,7 @@ class _$DynamicValue_F32 implements DynamicValue_F32 {
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
     TResult? Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult? Function(DynamicValue_Error value)? error,
     TResult? Function(DynamicValue_None value)? none,
   }) {
     return f32?.call(this);
@@ -972,6 +1007,7 @@ class _$DynamicValue_F32 implements DynamicValue_F32 {
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
     TResult Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult Function(DynamicValue_Error value)? error,
     TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) {
@@ -1063,6 +1099,7 @@ class _$DynamicValue_F64 implements DynamicValue_F64 {
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
     required TResult Function(String field0) megaStruct,
+    required TResult Function(ErrorCode field0) error,
     required TResult Function() none,
   }) {
     return f64(field0);
@@ -1079,6 +1116,7 @@ class _$DynamicValue_F64 implements DynamicValue_F64 {
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
     TResult? Function(String field0)? megaStruct,
+    TResult? Function(ErrorCode field0)? error,
     TResult? Function()? none,
   }) {
     return f64?.call(field0);
@@ -1095,6 +1133,7 @@ class _$DynamicValue_F64 implements DynamicValue_F64 {
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
     TResult Function(String field0)? megaStruct,
+    TResult Function(ErrorCode field0)? error,
     TResult Function()? none,
     required TResult orElse(),
   }) {
@@ -1115,6 +1154,7 @@ class _$DynamicValue_F64 implements DynamicValue_F64 {
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
     required TResult Function(DynamicValue_MegaStruct value) megaStruct,
+    required TResult Function(DynamicValue_Error value) error,
     required TResult Function(DynamicValue_None value) none,
   }) {
     return f64(this);
@@ -1131,6 +1171,7 @@ class _$DynamicValue_F64 implements DynamicValue_F64 {
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
     TResult? Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult? Function(DynamicValue_Error value)? error,
     TResult? Function(DynamicValue_None value)? none,
   }) {
     return f64?.call(this);
@@ -1147,6 +1188,7 @@ class _$DynamicValue_F64 implements DynamicValue_F64 {
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
     TResult Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult Function(DynamicValue_Error value)? error,
     TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) {
@@ -1239,6 +1281,7 @@ class _$DynamicValue_String implements DynamicValue_String {
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
     required TResult Function(String field0) megaStruct,
+    required TResult Function(ErrorCode field0) error,
     required TResult Function() none,
   }) {
     return string(field0);
@@ -1255,6 +1298,7 @@ class _$DynamicValue_String implements DynamicValue_String {
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
     TResult? Function(String field0)? megaStruct,
+    TResult? Function(ErrorCode field0)? error,
     TResult? Function()? none,
   }) {
     return string?.call(field0);
@@ -1271,6 +1315,7 @@ class _$DynamicValue_String implements DynamicValue_String {
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
     TResult Function(String field0)? megaStruct,
+    TResult Function(ErrorCode field0)? error,
     TResult Function()? none,
     required TResult orElse(),
   }) {
@@ -1291,6 +1336,7 @@ class _$DynamicValue_String implements DynamicValue_String {
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
     required TResult Function(DynamicValue_MegaStruct value) megaStruct,
+    required TResult Function(DynamicValue_Error value) error,
     required TResult Function(DynamicValue_None value) none,
   }) {
     return string(this);
@@ -1307,6 +1353,7 @@ class _$DynamicValue_String implements DynamicValue_String {
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
     TResult? Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult? Function(DynamicValue_Error value)? error,
     TResult? Function(DynamicValue_None value)? none,
   }) {
     return string?.call(this);
@@ -1323,6 +1370,7 @@ class _$DynamicValue_String implements DynamicValue_String {
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
     TResult Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult Function(DynamicValue_Error value)? error,
     TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) {
@@ -1416,6 +1464,7 @@ class _$DynamicValue_MegaStruct implements DynamicValue_MegaStruct {
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
     required TResult Function(String field0) megaStruct,
+    required TResult Function(ErrorCode field0) error,
     required TResult Function() none,
   }) {
     return megaStruct(field0);
@@ -1432,6 +1481,7 @@ class _$DynamicValue_MegaStruct implements DynamicValue_MegaStruct {
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
     TResult? Function(String field0)? megaStruct,
+    TResult? Function(ErrorCode field0)? error,
     TResult? Function()? none,
   }) {
     return megaStruct?.call(field0);
@@ -1448,6 +1498,7 @@ class _$DynamicValue_MegaStruct implements DynamicValue_MegaStruct {
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
     TResult Function(String field0)? megaStruct,
+    TResult Function(ErrorCode field0)? error,
     TResult Function()? none,
     required TResult orElse(),
   }) {
@@ -1468,6 +1519,7 @@ class _$DynamicValue_MegaStruct implements DynamicValue_MegaStruct {
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
     required TResult Function(DynamicValue_MegaStruct value) megaStruct,
+    required TResult Function(DynamicValue_Error value) error,
     required TResult Function(DynamicValue_None value) none,
   }) {
     return megaStruct(this);
@@ -1484,6 +1536,7 @@ class _$DynamicValue_MegaStruct implements DynamicValue_MegaStruct {
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
     TResult? Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult? Function(DynamicValue_Error value)? error,
     TResult? Function(DynamicValue_None value)? none,
   }) {
     return megaStruct?.call(this);
@@ -1500,6 +1553,7 @@ class _$DynamicValue_MegaStruct implements DynamicValue_MegaStruct {
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
     TResult Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult Function(DynamicValue_Error value)? error,
     TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) {
@@ -1517,6 +1571,189 @@ abstract class DynamicValue_MegaStruct implements DynamicValue {
   String get field0;
   @JsonKey(ignore: true)
   _$$DynamicValue_MegaStructCopyWith<_$DynamicValue_MegaStruct> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DynamicValue_ErrorCopyWith<$Res> {
+  factory _$$DynamicValue_ErrorCopyWith(_$DynamicValue_Error value,
+          $Res Function(_$DynamicValue_Error) then) =
+      __$$DynamicValue_ErrorCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ErrorCode field0});
+}
+
+/// @nodoc
+class __$$DynamicValue_ErrorCopyWithImpl<$Res>
+    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_Error>
+    implements _$$DynamicValue_ErrorCopyWith<$Res> {
+  __$$DynamicValue_ErrorCopyWithImpl(
+      _$DynamicValue_Error _value, $Res Function(_$DynamicValue_Error) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? field0 = null,
+  }) {
+    return _then(_$DynamicValue_Error(
+      null == field0
+          ? _value.field0
+          : field0 // ignore: cast_nullable_to_non_nullable
+              as ErrorCode,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DynamicValue_Error implements DynamicValue_Error {
+  const _$DynamicValue_Error(this.field0);
+
+  @override
+  final ErrorCode field0;
+
+  @override
+  String toString() {
+    return 'DynamicValue.error(field0: $field0)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DynamicValue_Error &&
+            (identical(other.field0, field0) || other.field0 == field0));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, field0);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DynamicValue_ErrorCopyWith<_$DynamicValue_Error> get copyWith =>
+      __$$DynamicValue_ErrorCopyWithImpl<_$DynamicValue_Error>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int field0) u32,
+    required TResult Function(int field0) i32,
+    required TResult Function(int field0) u64,
+    required TResult Function(int field0) i64,
+    required TResult Function(double field0) f32,
+    required TResult Function(double field0) f64,
+    required TResult Function(String field0) string,
+    required TResult Function(String field0) megaStruct,
+    required TResult Function(ErrorCode field0) error,
+    required TResult Function() none,
+  }) {
+    return error(field0);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int field0)? u32,
+    TResult? Function(int field0)? i32,
+    TResult? Function(int field0)? u64,
+    TResult? Function(int field0)? i64,
+    TResult? Function(double field0)? f32,
+    TResult? Function(double field0)? f64,
+    TResult? Function(String field0)? string,
+    TResult? Function(String field0)? megaStruct,
+    TResult? Function(ErrorCode field0)? error,
+    TResult? Function()? none,
+  }) {
+    return error?.call(field0);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int field0)? u32,
+    TResult Function(int field0)? i32,
+    TResult Function(int field0)? u64,
+    TResult Function(int field0)? i64,
+    TResult Function(double field0)? f32,
+    TResult Function(double field0)? f64,
+    TResult Function(String field0)? string,
+    TResult Function(String field0)? megaStruct,
+    TResult Function(ErrorCode field0)? error,
+    TResult Function()? none,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(field0);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DynamicValue_U32 value) u32,
+    required TResult Function(DynamicValue_I32 value) i32,
+    required TResult Function(DynamicValue_U64 value) u64,
+    required TResult Function(DynamicValue_I64 value) i64,
+    required TResult Function(DynamicValue_F32 value) f32,
+    required TResult Function(DynamicValue_F64 value) f64,
+    required TResult Function(DynamicValue_String value) string,
+    required TResult Function(DynamicValue_MegaStruct value) megaStruct,
+    required TResult Function(DynamicValue_Error value) error,
+    required TResult Function(DynamicValue_None value) none,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(DynamicValue_U32 value)? u32,
+    TResult? Function(DynamicValue_I32 value)? i32,
+    TResult? Function(DynamicValue_U64 value)? u64,
+    TResult? Function(DynamicValue_I64 value)? i64,
+    TResult? Function(DynamicValue_F32 value)? f32,
+    TResult? Function(DynamicValue_F64 value)? f64,
+    TResult? Function(DynamicValue_String value)? string,
+    TResult? Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult? Function(DynamicValue_Error value)? error,
+    TResult? Function(DynamicValue_None value)? none,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DynamicValue_U32 value)? u32,
+    TResult Function(DynamicValue_I32 value)? i32,
+    TResult Function(DynamicValue_U64 value)? u64,
+    TResult Function(DynamicValue_I64 value)? i64,
+    TResult Function(DynamicValue_F32 value)? f32,
+    TResult Function(DynamicValue_F64 value)? f64,
+    TResult Function(DynamicValue_String value)? string,
+    TResult Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult Function(DynamicValue_Error value)? error,
+    TResult Function(DynamicValue_None value)? none,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DynamicValue_Error implements DynamicValue {
+  const factory DynamicValue_Error(final ErrorCode field0) =
+      _$DynamicValue_Error;
+
+  ErrorCode get field0;
+  @JsonKey(ignore: true)
+  _$$DynamicValue_ErrorCopyWith<_$DynamicValue_Error> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1566,6 +1803,7 @@ class _$DynamicValue_None implements DynamicValue_None {
     required TResult Function(double field0) f64,
     required TResult Function(String field0) string,
     required TResult Function(String field0) megaStruct,
+    required TResult Function(ErrorCode field0) error,
     required TResult Function() none,
   }) {
     return none();
@@ -1582,6 +1820,7 @@ class _$DynamicValue_None implements DynamicValue_None {
     TResult? Function(double field0)? f64,
     TResult? Function(String field0)? string,
     TResult? Function(String field0)? megaStruct,
+    TResult? Function(ErrorCode field0)? error,
     TResult? Function()? none,
   }) {
     return none?.call();
@@ -1598,6 +1837,7 @@ class _$DynamicValue_None implements DynamicValue_None {
     TResult Function(double field0)? f64,
     TResult Function(String field0)? string,
     TResult Function(String field0)? megaStruct,
+    TResult Function(ErrorCode field0)? error,
     TResult Function()? none,
     required TResult orElse(),
   }) {
@@ -1618,6 +1858,7 @@ class _$DynamicValue_None implements DynamicValue_None {
     required TResult Function(DynamicValue_F64 value) f64,
     required TResult Function(DynamicValue_String value) string,
     required TResult Function(DynamicValue_MegaStruct value) megaStruct,
+    required TResult Function(DynamicValue_Error value) error,
     required TResult Function(DynamicValue_None value) none,
   }) {
     return none(this);
@@ -1634,6 +1875,7 @@ class _$DynamicValue_None implements DynamicValue_None {
     TResult? Function(DynamicValue_F64 value)? f64,
     TResult? Function(DynamicValue_String value)? string,
     TResult? Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult? Function(DynamicValue_Error value)? error,
     TResult? Function(DynamicValue_None value)? none,
   }) {
     return none?.call(this);
@@ -1650,6 +1892,7 @@ class _$DynamicValue_None implements DynamicValue_None {
     TResult Function(DynamicValue_F64 value)? f64,
     TResult Function(DynamicValue_String value)? string,
     TResult Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult Function(DynamicValue_Error value)? error,
     TResult Function(DynamicValue_None value)? none,
     required TResult orElse(),
   }) {

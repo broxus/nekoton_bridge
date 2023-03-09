@@ -209,8 +209,15 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
       wireObj.kind.ref.MegaStruct.ref.field0 = pre_field0;
       return;
     }
-    if (apiObj is DynamicValue_None) {
+    if (apiObj is DynamicValue_Error) {
+      var pre_field0 = api2wire_error_code(apiObj.field0);
       wireObj.tag = 8;
+      wireObj.kind = inner.inflate_DynamicValue_Error();
+      wireObj.kind.ref.Error.ref.field0 = pre_field0;
+      return;
+    }
+    if (apiObj is DynamicValue_None) {
+      wireObj.tag = 9;
       return;
     }
   }
@@ -898,6 +905,16 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       _inflate_DynamicValue_MegaStructPtr
           .asFunction<ffi.Pointer<DynamicValueKind> Function()>();
 
+  ffi.Pointer<DynamicValueKind> inflate_DynamicValue_Error() {
+    return _inflate_DynamicValue_Error();
+  }
+
+  late final _inflate_DynamicValue_ErrorPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<DynamicValueKind> Function()>>(
+          'inflate_DynamicValue_Error');
+  late final _inflate_DynamicValue_Error = _inflate_DynamicValue_ErrorPtr
+      .asFunction<ffi.Pointer<DynamicValueKind> Function()>();
+
   ffi.Pointer<MnemonicTypeKind> inflate_MnemonicType_Labs() {
     return _inflate_MnemonicType_Labs();
   }
@@ -990,6 +1007,11 @@ class wire_DynamicValue_MegaStruct extends ffi.Struct {
   external ffi.Pointer<wire_uint_8_list> field0;
 }
 
+class wire_DynamicValue_Error extends ffi.Struct {
+  @ffi.Int32()
+  external int field0;
+}
+
 class wire_DynamicValue_None extends ffi.Opaque {}
 
 class DynamicValueKind extends ffi.Union {
@@ -1008,6 +1030,8 @@ class DynamicValueKind extends ffi.Union {
   external ffi.Pointer<wire_DynamicValue_String> String;
 
   external ffi.Pointer<wire_DynamicValue_MegaStruct> MegaStruct;
+
+  external ffi.Pointer<wire_DynamicValue_Error> Error;
 
   external ffi.Pointer<wire_DynamicValue_None> None;
 }

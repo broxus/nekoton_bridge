@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use std::{
     collections::HashMap,
     sync::{
@@ -14,6 +16,13 @@ use uuid::Uuid;
 
 use crate::utils::mega_struct;
 
+#[derive(Clone, Debug)]
+pub enum ErrorCode {
+    Ok,
+    Network,
+    Generic,
+}
+
 // / Dynamic value for transmitting between Dart and Rust. We can't use Box<dyn Any> because frb doesn't support it.
 #[derive(Clone, Debug)]
 pub enum DynamicValue {
@@ -29,6 +38,8 @@ pub enum DynamicValue {
     String(String),
 
     MegaStruct(String),
+
+    Error(ErrorCode),
 
     None,
 }
@@ -52,6 +63,13 @@ impl DynamicValue {
         match self {
             DynamicValue::MegaStruct(string) => mega_struct::MegaStruct::from_json(string),
             _ => panic!("Can't convert DynamicValue to MegaStruct {:?}", &self),
+        }
+    }
+
+    pub fn as_error(&self) -> ErrorCode {
+        match self {
+            DynamicValue::Error(error_code) => error_code.clone(),
+            _ => panic!("Can't convert DynamicValue to ErrorCode {:?}", &self),
         }
     }
 }

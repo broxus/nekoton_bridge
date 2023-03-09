@@ -23,6 +23,7 @@ use crate::utils::caller::DartCallStub;
 use crate::utils::caller::DartCallStubRegistred;
 use crate::utils::caller::DynamicNamedValue;
 use crate::utils::caller::DynamicValue;
+use crate::utils::caller::ErrorCode;
 use crate::utils::logger::LogEntry;
 use crate::utils::logger::LogLevel;
 
@@ -385,6 +386,16 @@ impl Wire2Api<bool> for bool {
     }
 }
 
+impl Wire2Api<ErrorCode> for i32 {
+    fn wire2api(self) -> ErrorCode {
+        match self {
+            0 => ErrorCode::Ok,
+            1 => ErrorCode::Network,
+            2 => ErrorCode::Generic,
+            _ => unreachable!("Invalid variant for ErrorCode: {}", self),
+        }
+    }
+}
 impl Wire2Api<f32> for f32 {
     fn wire2api(self) -> f32 {
         self
@@ -487,12 +498,23 @@ impl support::IntoDart for DynamicValue {
             Self::F64(field0) => vec![5.into_dart(), field0.into_dart()],
             Self::String(field0) => vec![6.into_dart(), field0.into_dart()],
             Self::MegaStruct(field0) => vec![7.into_dart(), field0.into_dart()],
-            Self::None => vec![8.into_dart()],
+            Self::Error(field0) => vec![8.into_dart(), field0.into_dart()],
+            Self::None => vec![9.into_dart()],
         }
         .into_dart()
     }
 }
 impl support::IntoDartExceptPrimitive for DynamicValue {}
+impl support::IntoDart for ErrorCode {
+    fn into_dart(self) -> support::DartAbi {
+        match self {
+            Self::Ok => 0,
+            Self::Network => 1,
+            Self::Generic => 2,
+        }
+        .into_dart()
+    }
+}
 
 impl support::IntoDart for GeneratedKeyG {
     fn into_dart(self) -> support::DartAbi {
@@ -749,7 +771,8 @@ mod web {
                 5 => DynamicValue::F64(self_.get(1).wire2api()),
                 6 => DynamicValue::String(self_.get(1).wire2api()),
                 7 => DynamicValue::MegaStruct(self_.get(1).wire2api()),
-                8 => DynamicValue::None,
+                8 => DynamicValue::Error(self_.get(1).wire2api()),
+                9 => DynamicValue::None,
                 _ => unreachable!(),
             }
         }
@@ -819,6 +842,11 @@ mod web {
     impl Wire2Api<bool> for JsValue {
         fn wire2api(self) -> bool {
             self.is_truthy()
+        }
+    }
+    impl Wire2Api<ErrorCode> for JsValue {
+        fn wire2api(self) -> ErrorCode {
+            (self.unchecked_into_f64() as i32).wire2api()
         }
     }
     impl Wire2Api<f32> for JsValue {
@@ -1176,7 +1204,12 @@ mod io {
                     let ans = support::box_from_leak_ptr(ans.MegaStruct);
                     DynamicValue::MegaStruct(ans.field0.wire2api())
                 },
-                8 => DynamicValue::None,
+                8 => unsafe {
+                    let ans = support::box_from_leak_ptr(self.kind);
+                    let ans = support::box_from_leak_ptr(ans.Error);
+                    DynamicValue::Error(ans.field0.wire2api())
+                },
+                9 => DynamicValue::None,
                 _ => unreachable!(),
             }
         }
@@ -1299,6 +1332,7 @@ mod io {
         F64: *mut wire_DynamicValue_F64,
         String: *mut wire_DynamicValue_String,
         MegaStruct: *mut wire_DynamicValue_MegaStruct,
+        Error: *mut wire_DynamicValue_Error,
         None: *mut wire_DynamicValue_None,
     }
 
@@ -1348,6 +1382,12 @@ mod io {
     #[derive(Clone)]
     pub struct wire_DynamicValue_MegaStruct {
         field0: *mut wire_uint_8_list,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_DynamicValue_Error {
+        field0: i32,
     }
 
     #[repr(C)]
@@ -1513,6 +1553,15 @@ mod io {
         support::new_leak_box_ptr(DynamicValueKind {
             MegaStruct: support::new_leak_box_ptr(wire_DynamicValue_MegaStruct {
                 field0: core::ptr::null_mut(),
+            }),
+        })
+    }
+
+    #[no_mangle]
+    pub extern "C" fn inflate_DynamicValue_Error() -> *mut DynamicValueKind {
+        support::new_leak_box_ptr(DynamicValueKind {
+            Error: support::new_leak_box_ptr(wire_DynamicValue_Error {
+                field0: Default::default(),
             }),
         })
     }

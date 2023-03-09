@@ -237,7 +237,16 @@ class DynamicValue with _$DynamicValue {
   const factory DynamicValue.megaStruct(
     String field0,
   ) = DynamicValue_MegaStruct;
+  const factory DynamicValue.error(
+    ErrorCode field0,
+  ) = DynamicValue_Error;
   const factory DynamicValue.none() = DynamicValue_None;
+}
+
+enum ErrorCode {
+  Ok,
+  Network,
+  Generic,
 }
 
 /// Wrapper struct above GeneratedKey with suitable type for generation
@@ -810,10 +819,18 @@ class NekotonBridgeImpl implements NekotonBridge {
           _wire2api_String(raw[1]),
         );
       case 8:
+        return DynamicValue_Error(
+          _wire2api_error_code(raw[1]),
+        );
+      case 9:
         return DynamicValue_None();
       default:
         throw Exception("unreachable");
     }
+  }
+
+  ErrorCode _wire2api_error_code(dynamic raw) {
+    return ErrorCode.values[raw];
   }
 
   double _wire2api_f32(dynamic raw) {
@@ -927,6 +944,11 @@ class NekotonBridgeImpl implements NekotonBridge {
 @protected
 bool api2wire_bool(bool raw) {
   return raw;
+}
+
+@protected
+int api2wire_error_code(ErrorCode raw) {
+  return api2wire_i32(raw.index);
 }
 
 @protected

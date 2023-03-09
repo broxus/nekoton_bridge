@@ -64,6 +64,10 @@ typedef struct wire_DynamicValue_MegaStruct {
   struct wire_uint_8_list *field0;
 } wire_DynamicValue_MegaStruct;
 
+typedef struct wire_DynamicValue_Error {
+  int32_t field0;
+} wire_DynamicValue_Error;
+
 typedef struct wire_DynamicValue_None {
 
 } wire_DynamicValue_None;
@@ -77,6 +81,7 @@ typedef union DynamicValueKind {
   struct wire_DynamicValue_F64 *F64;
   struct wire_DynamicValue_String *String;
   struct wire_DynamicValue_MegaStruct *MegaStruct;
+  struct wire_DynamicValue_Error *Error;
   struct wire_DynamicValue_None *None;
 } DynamicValueKind;
 
@@ -212,6 +217,8 @@ union DynamicValueKind *inflate_DynamicValue_String(void);
 
 union DynamicValueKind *inflate_DynamicValue_MegaStruct(void);
 
+union DynamicValueKind *inflate_DynamicValue_Error(void);
+
 union MnemonicTypeKind *inflate_MnemonicType_Labs(void);
 
 void free_WireSyncReturn(WireSyncReturn ptr);
@@ -257,6 +264,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_F64);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_String);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_MegaStruct);
+    dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_Error);
     dummy_var ^= ((int64_t) (void*) inflate_MnemonicType_Labs);
     dummy_var ^= ((int64_t) (void*) free_WireSyncReturn);
     dummy_var ^= ((int64_t) (void*) store_dart_post_cobject);
