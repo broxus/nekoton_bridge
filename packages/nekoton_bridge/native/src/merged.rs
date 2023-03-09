@@ -1,52 +1,29 @@
 #![allow(unused)]
-pub use nekoton::{
-external,
-crypto::{
-derive_from_phrase,dict,generate_key,MnemonicType,
-},
-external::{
-JrpcConnection,JrpcRequest,GqlConnection,GqlRequest,Storage,
-},
-};
 use crate::{
-nekoton_wrapper::{
-str_list_to_string_vec,str_vec_to_string_vec,HandleError,MatchResult,
-crypto::{
-mnemonic::{
-models::{
-KeypairHelper,
-},
-},
-},
-},
-utils::{
-caller,logger,mega_struct,
-caller::{
-DynamicNamedValue,DynamicValue,
-},
-},
+    nekoton_wrapper::{
+        crypto::mnemonic::models::KeypairHelper, str_list_to_string_vec, str_vec_to_string_vec,
+        HandleError, MatchResult,
+    },
+    utils::{
+        caller,
+        caller::{DynamicNamedValue, DynamicValue},
+        logger, mega_struct,
+    },
 };
-use flutter_rust_bridge::{*};
-use async_trait::{
-async_trait,
+use async_trait::async_trait;
+pub use ed25519_dalek::{PUBLIC_KEY_LENGTH, SIGNATURE_LENGTH};
+use flutter_rust_bridge::*;
+use log::*;
+pub use nekoton::{
+    crypto::{derive_from_phrase, dict, generate_key, MnemonicType},
+    external,
+    external::{GqlConnection, GqlRequest, JrpcConnection, JrpcRequest, Storage},
 };
-pub use ed25519_dalek::{
-PUBLIC_KEY_LENGTH,SIGNATURE_LENGTH,
-};
-use std::{
-convert::{
-TryInto,
-},
-collections::{
-HashMap,
-},
-};
-use log::{*};
+use std::{collections::HashMap, convert::TryInto};
 
 ///----------------------------
 /// CONTENT OF src/nekoton_wrapper/crypto/ledger_key/ledger_api.rs
 ///----------------------------
-
 
 pub const LEDGER_KEY_SIGNER_NAME: &str = "LedgerKeySigner";
 
@@ -54,16 +31,11 @@ pub const LEDGER_KEY_SIGNER_NAME: &str = "LedgerKeySigner";
 /// CONTENT OF src/nekoton_wrapper/crypto/encrypted_key/encrypted_key_api.rs
 ///----------------------------
 
-
 pub const ENCRYPTED_KEY_SIGNER_NAME: &str = "EncryptedKeySigner";
 
 ///----------------------------
 /// CONTENT OF src/nekoton_wrapper/crypto/mnemonic/mnemonic_api.rs
 ///----------------------------
-
-
-
-
 
 /// Generate seed phrase by specified mnemonic type
 pub fn nt_generate_key(account_type: MnemonicType) -> GeneratedKeyG {
@@ -92,15 +64,11 @@ pub fn nt_derive_from_phrase(phrase: String, mnemonic_type: MnemonicType) -> Str
 /// CONTENT OF src/nekoton_wrapper/crypto/derived_key/derived_key_api.rs
 ///----------------------------
 
-
 pub const DERIVED_KEY_SIGNER_NAME: &str = "DerivedKeySigner";
 
 ///----------------------------
 /// CONTENT OF src/nekoton_wrapper/models_api.rs
 ///----------------------------
-
-
-
 
 /// -------------------------
 /// Types to generate in dart
@@ -120,9 +88,6 @@ pub struct GeneratedKeyG {
 ///----------------------------
 /// CONTENT OF src/nekoton_wrapper/external/jrpc_connection_api.rs
 ///----------------------------
-
-
-
 
 /// Implementation of nekoton's JrpcConnection
 pub struct JrpcConnectionImpl {
@@ -149,9 +114,6 @@ impl JrpcConnection for JrpcConnectionImpl {
 ///----------------------------
 /// CONTENT OF src/nekoton_wrapper/external/gql_connection_api.rs
 ///----------------------------
-
-
-
 
 /// Implementation of nekoton's GqlConnection
 pub struct GqlConnectionImpl {
@@ -186,10 +148,6 @@ impl GqlConnection for GqlConnectionImpl {
 ///----------------------------
 /// CONTENT OF src/nekoton_wrapper/external/ledger_connection_api.rs
 ///----------------------------
-
-
-
-
 
 /// Implementation of nekoton's LedgerConnection
 pub struct LedgerConnectionImpl {
@@ -238,10 +196,6 @@ impl external::LedgerConnection for LedgerConnectionImpl {
 ///----------------------------
 /// CONTENT OF src/nekoton_wrapper/external/storage_api.rs
 ///----------------------------
-
-
-
-
 
 /// Implementation of nekoton's Storage
 pub struct StorageImpl {
@@ -328,12 +282,6 @@ impl Storage for StorageImpl {
 ///----------------------------
 /// CONTENT OF src/utils/api.rs
 ///----------------------------
-
-
-
-
-
-
 
 /// Init utils
 pub fn init_logger(level: logger::LogLevel, mobile_logger: bool) {
@@ -526,4 +474,3 @@ impl CallerTestClass {
         debug!("Returned request from CallerTestClass: {}", result.unwrap());
     }
 }
-
