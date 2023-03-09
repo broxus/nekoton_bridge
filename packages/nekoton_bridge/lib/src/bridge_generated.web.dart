@@ -98,8 +98,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
     if (raw is DynamicValue_MegaStruct) {
       return [7, api2wire_String(raw.field0)];
     }
+    if (raw is DynamicValue_Error) {
+      return [8, api2wire_error_code(raw.field0)];
+    }
     if (raw is DynamicValue_None) {
-      return [8];
+      return [9];
     }
 
     throw Exception('unreachable');

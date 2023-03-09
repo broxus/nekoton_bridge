@@ -76,10 +76,12 @@ Future<void> registerRustToDartCaller(RustToDartCaller rustToDartCaller) async {
       } else if (result is DynamicValue) {
         lib.callSendResult(id: id, value: result);
         return;
+      } else if (result is ErrorCode) {
+        lib.callSendResult(id: id, value: DynamicValue.error(result));
+        return;
+      } else if (result == null) {
+        lib.callSendResult(id: id, value: const DynamicValue.none());
       }
-      //  else if (result == null) {
-      //   lib.callResult(id: id, value: const DynamicValue.none());
-      // }
 
       final logEntry = LogEntryCreate.create(
         level: LogLevel.Error,
@@ -87,11 +89,14 @@ Future<void> registerRustToDartCaller(RustToDartCaller rustToDartCaller) async {
         msg: 'Unsupported return type: ${result.runtimeType}',
       );
       _logHandler?.call(logEntry);
-    } on Exception catch (e) {
-      /// TODO: notify somehow rust side that it can't send messages for specified objectHash
-      ///   and how can we handle in rust side
+    } on Object catch (e) {
       if (id != null) {
-        lib.callSendResult(id: id, value: const DynamicValue.none());
+        /// To get here, just `throw ErrorCode.Network` for example
+        if (e is ErrorCode) {
+          lib.callSendResult(id: id, value: DynamicValue.error(e));
+        } else {
+          lib.callSendResult(id: id, value: const DynamicValue.error(ErrorCode.Generic));
+        }
       }
       final logEntry = LogEntryCreate.create(
         level: LogLevel.Error,
