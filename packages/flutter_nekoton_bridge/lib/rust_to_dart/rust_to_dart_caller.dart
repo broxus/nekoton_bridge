@@ -22,7 +22,9 @@ class RustToDartCaller {
         "Can't call $memberName function because no any object is registered for $instanceHash",
       );
     }
-    return instances[instanceHash]!.init().invoke(memberName, positionalArguments, namedArguments);
+    return instances[instanceHash]!
+        .init()
+        .invoke(memberName, positionalArguments, namedArguments);
   }
 
   /// Register some class to be able to listen calls from rust

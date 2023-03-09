@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_nekoton_bridge/example_related/caller_test_class_wrapper.dart';
 import 'dart:async';
 
-import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart' as flutter_nekoton_bridge;
+import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart'
+    as flutter_nekoton_bridge;
 
-import 'package:flutter_nekoton_bridge/example_related/caller_wrapper.dart' as caller;
+import 'package:flutter_nekoton_bridge/example_related/caller_wrapper.dart'
+    as caller;
 import 'caller_impl.dart';
 
 void main() {
@@ -67,8 +69,8 @@ class _MyAppState extends State<MyApp> {
   List<CallerTestClassWrapper> testCallers = [];
 
   void _onPressedAddTestCaller() async {
-    testCallers
-        .add(await flutter_nekoton_bridge.initCallerTestClassWrapper(Random().nextInt(1000)));
+    testCallers.add(await flutter_nekoton_bridge
+        .initCallerTestClassWrapper(Random().nextInt(1000)));
     setState(() {});
   }
 
@@ -135,7 +137,8 @@ class _MyAppState extends State<MyApp> {
                 FutureBuilder<int>(
                   future: sumAsyncResult,
                   builder: (BuildContext context, AsyncSnapshot<int> value) {
-                    final displayValue = (value.hasData) ? value.data : 'loading';
+                    final displayValue =
+                        (value.hasData) ? value.data : 'loading';
                     return Text(
                       'await sumAsync(3, 4) = $displayValue',
                       style: textStyle,

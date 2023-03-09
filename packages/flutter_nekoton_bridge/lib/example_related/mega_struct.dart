@@ -24,5 +24,6 @@ class MegaStruct with _$MegaStruct {
     required Map<String, String> props,
   }) = _MegaStruct;
 
-  factory MegaStruct.fromJson(Map<String, Object?> json) => _$MegaStructFromJson(json);
+  factory MegaStruct.fromJson(Map<String, Object?> json) =>
+      _$MegaStructFromJson(json);
 }
