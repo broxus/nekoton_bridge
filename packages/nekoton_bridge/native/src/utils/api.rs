@@ -79,6 +79,7 @@ pub fn stub_dv() -> caller::DynamicValue {
 
 pub fn stub_dcs() -> caller::DartCallStub {
     caller::DartCallStub {
+        instance_hash: String::from("0"),
         fn_name: String::from("func0"),
         args: vec![
             caller::DynamicValue::String(String::from(
@@ -111,6 +112,7 @@ pub fn stub_call_dart(stub: caller::DartCallStub) {
 
 pub fn simple_call_func0(need_result: bool) {
     let stub = caller::DartCallStub {
+        instance_hash: String::from("0"),
         fn_name: String::from("func0"),
         args: vec![
             caller::DynamicValue::String(String::from(
@@ -143,6 +145,7 @@ pub fn simple_call_func0(need_result: bool) {
 
 pub fn simple_call_func1(need_result: bool) {
     let stub = caller::DartCallStub {
+        instance_hash: String::from("0"),
         fn_name: String::from("func1"),
         args: vec![
             caller::DynamicValue::String(String::from(
@@ -187,6 +190,7 @@ pub fn simple_call_func2() {
     let to_send_dynamic_value = caller::DynamicValue::MegaStruct(to_send_mega_struct.to_json());
 
     let stub = caller::DartCallStub {
+        instance_hash: String::from("0"),
         fn_name: String::from("func2"),
         args: vec![to_send_dynamic_value],
         named_args: vec![],
@@ -198,4 +202,31 @@ pub fn simple_call_func2() {
         "Something returned from simple_call_func2: name: {} debug: {:?}",
         mega_struct.name, mega_struct,
     );
+}
+
+pub struct CallerTestClass {
+    pub instance_hash: String,
+    pub value: i32,
+}
+
+impl CallerTestClass {
+    pub fn new(instance_hash: String, value: i32) -> CallerTestClass {
+        Self {
+            instance_hash,
+            value,
+        }
+    }
+
+    pub fn call_some_func(&self) {
+        let stub = caller::DartCallStub {
+            instance_hash: self.instance_hash.clone(),
+            fn_name: String::from("request"),
+            args: vec![caller::DynamicValue::String(String::from(
+                "RequestOptionData",
+            ))],
+            named_args: vec![],
+        };
+        let result = caller::call(stub, true).as_string();
+        debug!("Returned request from CallerTestClass: {}", result);
+    }
 }

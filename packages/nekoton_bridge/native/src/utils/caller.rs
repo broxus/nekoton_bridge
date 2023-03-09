@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use std::{
     collections::HashMap,
     sync::{
@@ -13,6 +15,13 @@ use parking_lot::RwLock;
 use uuid::Uuid;
 
 use crate::utils::mega_struct;
+
+#[derive(Clone, Debug)]
+pub enum ErrorCode {
+    Ok,
+    Network,
+    Generic,
+}
 
 // / Dynamic value for transmitting between Dart and Rust. We can't use Box<dyn Any> because frb doesn't support it.
 #[derive(Clone, Debug)]
@@ -30,6 +39,8 @@ pub enum DynamicValue {
 
     MegaStruct(String),
 
+    Error(ErrorCode),
+
     None,
 }
 
@@ -39,6 +50,7 @@ impl Default for DynamicValue {
     }
 }
 
+/// Hand-written converters for structures
 impl DynamicValue {
     pub fn as_string(&self) -> String {
         match self {
@@ -53,24 +65,42 @@ impl DynamicValue {
             _ => panic!("Can't convert DynamicValue to MegaStruct {:?}", &self),
         }
     }
+
+    pub fn as_error(&self) -> ErrorCode {
+        match self {
+            DynamicValue::Error(error_code) => error_code.clone(),
+            _ => panic!("Can't convert DynamicValue to ErrorCode {:?}", &self),
+        }
+    }
 }
 
+/// Value of function call that should be placed in dart as named parameter.
+/// EX: void funcCall({int? valueName}) -> DynamicNamedValue(name: "valueName", value: DynamicValue::U32(10))
 #[derive(Default, Debug, Clone)]
 pub struct DynamicNamedValue {
     pub name: String,
     pub value: Option<DynamicValue>,
 }
 
+/// Instruction for dart side that should call some method of some class instance.
 #[derive(Default, Debug, Clone)]
 pub struct DartCallStub {
+    /// Hash is unique id for any instance of any class, used to identify where to call method
+    pub instance_hash: String,
+    /// name of function that should be called
     pub fn_name: String,
+    /// List of positional arguments in function
     pub args: Vec<DynamicValue>,
+    /// List of named arguments of function, empty if no such arguments
     pub named_args: Vec<DynamicNamedValue>,
 }
 
+/// Registered call of dart function that is tracked in rust side
 #[derive(Default, Debug, Clone)]
 pub struct DartCallStubRegistred {
+    /// Unique identifier of call of some method
     pub id: Option<String>,
+    /// Call itself
     pub stub: DartCallStub,
 }
 
@@ -120,6 +150,7 @@ pub fn call(stub: DartCallStub, need_result: bool) -> DynamicValue {
     panic!("Can't call Dart function {:?}", stub);
 }
 
+/// Get result from dart side and return it to rust function that had initiated call
 pub fn call_send_result(id: String, value: DynamicValue) {
     let mut map = CALLBACK_MAP.lock().unwrap();
     let sender = map.remove(&id).expect("Can't find caller Sender");

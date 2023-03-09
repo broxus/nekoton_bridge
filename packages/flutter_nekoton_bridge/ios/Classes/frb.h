@@ -64,6 +64,10 @@ typedef struct wire_DynamicValue_MegaStruct {
   struct wire_uint_8_list *field0;
 } wire_DynamicValue_MegaStruct;
 
+typedef struct wire_DynamicValue_Error {
+  int32_t field0;
+} wire_DynamicValue_Error;
+
 typedef struct wire_DynamicValue_None {
 
 } wire_DynamicValue_None;
@@ -77,6 +81,7 @@ typedef union DynamicValueKind {
   struct wire_DynamicValue_F64 *F64;
   struct wire_DynamicValue_String *String;
   struct wire_DynamicValue_MegaStruct *MegaStruct;
+  struct wire_DynamicValue_Error *Error;
   struct wire_DynamicValue_None *None;
 } DynamicValueKind;
 
@@ -103,6 +108,7 @@ typedef struct wire_list_dynamic_named_value {
 } wire_list_dynamic_named_value;
 
 typedef struct wire_DartCallStub {
+  struct wire_uint_8_list *instance_hash;
   struct wire_uint_8_list *fn_name;
   struct wire_list_dynamic_value *args;
   struct wire_list_dynamic_named_value *named_args;
@@ -111,6 +117,11 @@ typedef struct wire_DartCallStub {
 typedef struct wire_MyClass {
   int32_t val;
 } wire_MyClass;
+
+typedef struct wire_CallerTestClass {
+  struct wire_uint_8_list *instance_hash;
+  int32_t value;
+} wire_CallerTestClass;
 
 void store_dart_post_cobject(DartPostCObjectFnType ptr);
 
@@ -168,6 +179,14 @@ void wire_new__static_method__MyClass(int64_t port_, int32_t a);
 
 void wire_my_format__method__MyClass(int64_t port_, struct wire_MyClass *that);
 
+void wire_new__static_method__CallerTestClass(int64_t port_,
+                                              struct wire_uint_8_list *instance_hash,
+                                              int32_t value);
+
+void wire_call_some_func__method__CallerTestClass(int64_t port_, struct wire_CallerTestClass *that);
+
+struct wire_CallerTestClass *new_box_autoadd_caller_test_class_0(void);
+
 struct wire_DartCallStub *new_box_autoadd_dart_call_stub_0(void);
 
 struct wire_DynamicValue *new_box_autoadd_dynamic_value_0(void);
@@ -198,6 +217,8 @@ union DynamicValueKind *inflate_DynamicValue_String(void);
 
 union DynamicValueKind *inflate_DynamicValue_MegaStruct(void);
 
+union DynamicValueKind *inflate_DynamicValue_Error(void);
+
 union MnemonicTypeKind *inflate_MnemonicType_Labs(void);
 
 void free_WireSyncReturn(WireSyncReturn ptr);
@@ -225,6 +246,9 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_simple_call_func2);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__MyClass);
     dummy_var ^= ((int64_t) (void*) wire_my_format__method__MyClass);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__CallerTestClass);
+    dummy_var ^= ((int64_t) (void*) wire_call_some_func__method__CallerTestClass);
+    dummy_var ^= ((int64_t) (void*) new_box_autoadd_caller_test_class_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_dart_call_stub_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_dynamic_value_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_mnemonic_type_0);
@@ -240,6 +264,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_F64);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_String);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_MegaStruct);
+    dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_Error);
     dummy_var ^= ((int64_t) (void*) inflate_MnemonicType_Labs);
     dummy_var ^= ((int64_t) (void*) free_WireSyncReturn);
     dummy_var ^= ((int64_t) (void*) store_dart_post_cobject);

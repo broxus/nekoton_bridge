@@ -2,7 +2,8 @@
 // https://github.com/dart-lang/reflectable.
 
 import 'dart:core';
-import 'storage.dart' as prefix0;
+import 'caller_test_class_wrapper.dart' as prefix1;
+import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart' as prefix0;
 
 // ignore_for_file: camel_case_types
 // ignore_for_file: implementation_imports
@@ -21,8 +22,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
   const prefix0.Reflector(): r.ReflectorData(
       <m.TypeMirror>[
         r.NonGenericClassMirrorImpl(
-            r'Storage',
-            r'.Storage',
+            r'CallerTestClassWrapper',
+            r'.CallerTestClassWrapper',
             134217735,
             0,
             const prefix0.Reflector(),
@@ -30,29 +31,32 @@ final _data = <r.Reflectable, r.ReflectorData>{
             null,
             null,
             -1,
+            {r'create': () => prefix1.CallerTestClassWrapper.create},
             {},
             {},
-            {r'': (bool b) => (storage) => b ? prefix0.Storage(storage) : null},
             -1,
             -1,
             const <int>[-1],
             null,
             {
-              r'==': 2,
-              r'toString': 0,
-              r'noSuchMethod': 2,
-              r'hashCode': 0,
-              r'runtimeType': 0,
-              r'init': 0,
-              r'func0': 1,
-              r'func1': 1,
-              r'func2': 2,
-              r'storage': 0
+              r'==': 0,
+              r'toString': 1,
+              r'noSuchMethod': 0,
+              r'hashCode': 1,
+              r'runtimeType': 1,
+              r'init': 1,
+              r'dispose': 1,
+              r'instanceHash': 1,
+              r'request': 0,
+              r'initializeMirror': 1,
+              r'caller': 1,
+              r'caller=': 0,
+              r'create': 0
             })
       ],
       null,
       null,
-      <Type>[prefix0.Storage],
+      <Type>[prefix1.CallerTestClassWrapper],
       1,
       {
         r'==': (dynamic instance) => (x) => instance == x,
@@ -61,21 +65,17 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'hashCode': (dynamic instance) => instance.hashCode,
         r'runtimeType': (dynamic instance) => instance.runtimeType,
         r'init': (dynamic instance) => instance.init,
-        r'func0': (dynamic instance) => instance.func0,
-        r'func1': (dynamic instance) => instance.func1,
-        r'func2': (dynamic instance) => instance.func2,
-        r'storage': (dynamic instance) => instance.storage
+        r'dispose': (dynamic instance) => instance.dispose,
+        r'instanceHash': (dynamic instance) => instance.instanceHash,
+        r'request': (dynamic instance) => instance.request,
+        r'initializeMirror': (dynamic instance) => instance.initializeMirror,
+        r'caller': (dynamic instance) => instance.caller
       },
-      {},
+      {r'caller=': (dynamic instance, value) => instance.caller = value},
       null,
       [
-        const [0, 0, null],
-        const [
-          3,
-          0,
-          const [#arg0, #arg1]
-        ],
-        const [1, 0, null]
+        const [1, 0, null],
+        const [0, 0, null]
       ])
 };
 

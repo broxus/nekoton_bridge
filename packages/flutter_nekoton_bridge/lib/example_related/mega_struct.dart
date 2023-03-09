@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
 part 'mega_struct.freezed.dart';
+
 part 'mega_struct.g.dart';
 
 @freezed

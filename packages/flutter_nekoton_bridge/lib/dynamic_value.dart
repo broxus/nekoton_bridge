@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_nekoton_bridge/mega_struct.dart';
+import 'package:flutter_nekoton_bridge/example_related/mega_struct.dart';
 import 'package:nekoton_bridge/nekoton_bridge.dart';
 
 extension DynamicValueConvert on DynamicValue {
@@ -23,6 +23,8 @@ extension DynamicValueConvert on DynamicValue {
 
     if (this is DynamicValue_None) return null;
 
+    if (this is DynamicValue_Error) return (this as DynamicValue_Error).field0;
+
     return null;
   }
 
@@ -32,5 +34,9 @@ extension DynamicValueConvert on DynamicValue {
         megaStruct.toJson(),
       ),
     );
+  }
+
+  static DynamicValue error(ErrorCode errorCode) {
+    return DynamicValue.error(errorCode);
   }
 }

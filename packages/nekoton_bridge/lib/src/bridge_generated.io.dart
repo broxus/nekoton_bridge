@@ -22,6 +22,14 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
   }
 
   @protected
+  ffi.Pointer<wire_CallerTestClass> api2wire_box_autoadd_caller_test_class(
+      CallerTestClass raw) {
+    final ptr = inner.new_box_autoadd_caller_test_class_0();
+    _api_fill_to_wire_caller_test_class(raw, ptr.ref);
+    return ptr;
+  }
+
+  @protected
   ffi.Pointer<wire_DartCallStub> api2wire_box_autoadd_dart_call_stub(
       DartCallStub raw) {
     final ptr = inner.new_box_autoadd_dart_call_stub_0();
@@ -98,6 +106,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
 
 // Section: api_fill_to_wire
 
+  void _api_fill_to_wire_box_autoadd_caller_test_class(
+      CallerTestClass apiObj, ffi.Pointer<wire_CallerTestClass> wireObj) {
+    _api_fill_to_wire_caller_test_class(apiObj, wireObj.ref);
+  }
+
   void _api_fill_to_wire_box_autoadd_dart_call_stub(
       DartCallStub apiObj, ffi.Pointer<wire_DartCallStub> wireObj) {
     _api_fill_to_wire_dart_call_stub(apiObj, wireObj.ref);
@@ -118,8 +131,15 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
     _api_fill_to_wire_my_class(apiObj, wireObj.ref);
   }
 
+  void _api_fill_to_wire_caller_test_class(
+      CallerTestClass apiObj, wire_CallerTestClass wireObj) {
+    wireObj.instance_hash = api2wire_String(apiObj.instanceHash);
+    wireObj.value = api2wire_i32(apiObj.value);
+  }
+
   void _api_fill_to_wire_dart_call_stub(
       DartCallStub apiObj, wire_DartCallStub wireObj) {
+    wireObj.instance_hash = api2wire_String(apiObj.instanceHash);
     wireObj.fn_name = api2wire_String(apiObj.fnName);
     wireObj.args = api2wire_list_dynamic_value(apiObj.args);
     wireObj.named_args = api2wire_list_dynamic_named_value(apiObj.namedArgs);
@@ -189,8 +209,15 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
       wireObj.kind.ref.MegaStruct.ref.field0 = pre_field0;
       return;
     }
-    if (apiObj is DynamicValue_None) {
+    if (apiObj is DynamicValue_Error) {
+      var pre_field0 = api2wire_error_code(apiObj.field0);
       wireObj.tag = 8;
+      wireObj.kind = inner.inflate_DynamicValue_Error();
+      wireObj.kind.ref.Error.ref.field0 = pre_field0;
+      return;
+    }
+    if (apiObj is DynamicValue_None) {
+      wireObj.tag = 9;
       return;
     }
   }
@@ -659,6 +686,55 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       _wire_my_format__method__MyClassPtr
           .asFunction<void Function(int, ffi.Pointer<wire_MyClass>)>();
 
+  void wire_new__static_method__CallerTestClass(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> instance_hash,
+    int value,
+  ) {
+    return _wire_new__static_method__CallerTestClass(
+      port_,
+      instance_hash,
+      value,
+    );
+  }
+
+  late final _wire_new__static_method__CallerTestClassPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
+              ffi.Int32)>>('wire_new__static_method__CallerTestClass');
+  late final _wire_new__static_method__CallerTestClass =
+      _wire_new__static_method__CallerTestClassPtr
+          .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>, int)>();
+
+  void wire_call_some_func__method__CallerTestClass(
+    int port_,
+    ffi.Pointer<wire_CallerTestClass> that,
+  ) {
+    return _wire_call_some_func__method__CallerTestClass(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_call_some_func__method__CallerTestClassPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_CallerTestClass>)>>(
+      'wire_call_some_func__method__CallerTestClass');
+  late final _wire_call_some_func__method__CallerTestClass =
+      _wire_call_some_func__method__CallerTestClassPtr
+          .asFunction<void Function(int, ffi.Pointer<wire_CallerTestClass>)>();
+
+  ffi.Pointer<wire_CallerTestClass> new_box_autoadd_caller_test_class_0() {
+    return _new_box_autoadd_caller_test_class_0();
+  }
+
+  late final _new_box_autoadd_caller_test_class_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<wire_CallerTestClass> Function()>>(
+          'new_box_autoadd_caller_test_class_0');
+  late final _new_box_autoadd_caller_test_class_0 =
+      _new_box_autoadd_caller_test_class_0Ptr
+          .asFunction<ffi.Pointer<wire_CallerTestClass> Function()>();
+
   ffi.Pointer<wire_DartCallStub> new_box_autoadd_dart_call_stub_0() {
     return _new_box_autoadd_dart_call_stub_0();
   }
@@ -829,6 +905,16 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       _inflate_DynamicValue_MegaStructPtr
           .asFunction<ffi.Pointer<DynamicValueKind> Function()>();
 
+  ffi.Pointer<DynamicValueKind> inflate_DynamicValue_Error() {
+    return _inflate_DynamicValue_Error();
+  }
+
+  late final _inflate_DynamicValue_ErrorPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<DynamicValueKind> Function()>>(
+          'inflate_DynamicValue_Error');
+  late final _inflate_DynamicValue_Error = _inflate_DynamicValue_ErrorPtr
+      .asFunction<ffi.Pointer<DynamicValueKind> Function()>();
+
   ffi.Pointer<MnemonicTypeKind> inflate_MnemonicType_Labs() {
     return _inflate_MnemonicType_Labs();
   }
@@ -921,6 +1007,11 @@ class wire_DynamicValue_MegaStruct extends ffi.Struct {
   external ffi.Pointer<wire_uint_8_list> field0;
 }
 
+class wire_DynamicValue_Error extends ffi.Struct {
+  @ffi.Int32()
+  external int field0;
+}
+
 class wire_DynamicValue_None extends ffi.Opaque {}
 
 class DynamicValueKind extends ffi.Union {
@@ -939,6 +1030,8 @@ class DynamicValueKind extends ffi.Union {
   external ffi.Pointer<wire_DynamicValue_String> String;
 
   external ffi.Pointer<wire_DynamicValue_MegaStruct> MegaStruct;
+
+  external ffi.Pointer<wire_DynamicValue_Error> Error;
 
   external ffi.Pointer<wire_DynamicValue_None> None;
 }
@@ -971,6 +1064,8 @@ class wire_list_dynamic_named_value extends ffi.Struct {
 }
 
 class wire_DartCallStub extends ffi.Struct {
+  external ffi.Pointer<wire_uint_8_list> instance_hash;
+
   external ffi.Pointer<wire_uint_8_list> fn_name;
 
   external ffi.Pointer<wire_list_dynamic_value> args;
@@ -981,6 +1076,13 @@ class wire_DartCallStub extends ffi.Struct {
 class wire_MyClass extends ffi.Struct {
   @ffi.Int32()
   external int val;
+}
+
+class wire_CallerTestClass extends ffi.Struct {
+  external ffi.Pointer<wire_uint_8_list> instance_hash;
+
+  @ffi.Int32()
+  external int value;
 }
 
 typedef DartPostCObjectFnType = ffi.Pointer<

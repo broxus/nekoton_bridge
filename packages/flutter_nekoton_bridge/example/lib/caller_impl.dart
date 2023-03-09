@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart'
     as flutter_nekoton_bridge;
-import 'package:flutter_nekoton_bridge/mega_struct.dart';
+import 'package:flutter_nekoton_bridge/example_related/mega_struct.dart';
 
-class Storage extends flutter_nekoton_bridge.AbstractStorage {
+class CallerImpl extends flutter_nekoton_bridge.AbstractCaller {
   @override
   String func0(String string, int i, double d,
       {required int arg0, required double arg1}) {
