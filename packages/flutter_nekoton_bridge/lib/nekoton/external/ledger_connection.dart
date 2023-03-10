@@ -18,6 +18,8 @@ class LedgerConnection extends RustToDartMirrorInterface {
   late LedgerConnectionImpl connection;
 
   final LedgerConnectionGetPublicKey _getPublicKey;
+
+  // ignore: unused_field
   final LedgerConnectionSign _connectionSign;
 
   LedgerConnection._(

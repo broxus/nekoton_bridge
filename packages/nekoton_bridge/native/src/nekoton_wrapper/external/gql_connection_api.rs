@@ -32,7 +32,6 @@ impl GqlConnection for GqlConnectionImpl {
             args: vec![caller::DynamicValue::String(req.data)],
             named_args: vec![],
         };
-        let res = caller::call(stub, true).as_string();
-        res
+        caller::call(stub, true).as_string()
     }
 }
