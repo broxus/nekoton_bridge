@@ -24,7 +24,7 @@ pub enum ErrorCode {
 }
 
 // / Dynamic value for transmitting between Dart and Rust. We can't use Box<dyn Any> because frb doesn't support it.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Default)]
 pub enum DynamicValue {
     U32(u32),
     I32(i32),
@@ -41,13 +41,8 @@ pub enum DynamicValue {
 
     Error(ErrorCode),
 
+    #[default]
     None,
-}
-
-impl Default for DynamicValue {
-    fn default() -> Self {
-        DynamicValue::None
-    }
 }
 
 /// Hand-written converters for structures
