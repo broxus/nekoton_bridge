@@ -24,10 +24,6 @@ scripts:
     exec: dart format .
     description: Format a specific package in this project.
 
-  version:
-    description: Updates version numbers in all build files
-    run: bash scripts/version.sh
-
   build:
     run: melos run build:apple && melos run build:android
     description: Build all native libraries for the project.
@@ -84,3 +80,6 @@ command:
   bootstrap:
     hooks:
       post: melos codegen
+  version:
+    hooks:
+      preCommit: bash scripts/version.sh
