@@ -17,22 +17,17 @@ scripts:
   check-rust:
     exec: rustfmt --check --edition 2018 native/src/lib.rs && cargo clippy -- -D warnings
     description: Check the format of a rust code.
-    select-package:
-      dir-exists: native
+    packageFilters:
+      dirExists: native
 
   format:
     exec: dart format .
     description: Format a specific package in this project.
 
-  version:
-    description: Updates version numbers in all build files
-    run: bash scripts/version.sh
-
   build:
     run: melos run build:apple && melos run build:android
     description: Build all native libraries for the project.
 
-# TODO: Move this to bootstrap/hooks after Melos 3.0 release
   codegen:
     run: bash scripts/codegen.sh
     description: Generate code.
@@ -56,35 +51,35 @@ scripts:
   test:dart:
     run: melos exec -c 1 --fail-fast -- "dart test test"
     description: Run Dart tests for a specific package in this project.
-    select-package:
+    packageFilters:
       flutter: false
-      dir-exists: test
+      dirExists: test
 
   test:flutter:
     run: melos exec -c 1 --fail-fast -- "flutter test test"
     description: Run Flutter tests for a specific package in this project.
-    select-package:
+    packageFilters:
       flutter: true
-      dir-exists: test
+      dirExists: test
 
   test:integration:
     run: melos exec -c 1 --fail-fast -- "flutter test integration_test"
     description: Run Flutter teintegration teststs for a specific package in this project.
-    select-package:
+    packageFilters:
       flutter: true
-      dir-exists: integration_test
+      dirExists: integration_test
 
   check-all:
     description: Prepare to commit by checking all things
     run: melos analyze && melos check-format && melos check-rust && melos test && melos test:integration
 
+command:
   clean:
-    run: bash scripts/clean.sh
-    description: Clean all
-
-# command:
-#   version:
-#     updateGitTagRefs: true
-#   bootstrap:
-#     hooks:
-#       post: flutter pub run build_runner build --delete-conflicting-outputs
+    hooks:
+      post: bash scripts/clean.sh
+  bootstrap:
+    hooks:
+      post: melos codegen
+  version:
+    hooks:
+      preCommit: bash scripts/version.sh
