@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# TODO: Move this to bootstrap/hooks after Melos 3.0 release
-bash scripts/codegen.sh
-
 # Setup
 BUILD_DIR=platform-build
 mkdir $BUILD_DIR
