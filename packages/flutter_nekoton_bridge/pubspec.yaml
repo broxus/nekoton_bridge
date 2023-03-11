@@ -1,6 +1,6 @@
 name: flutter_nekoton_bridge
 description: A new Flutter FFI plugin project.
-version: 1.6.0
+version: 1.7.0-dev.0
 homepage: https://github.com/broxus/nekoton_bridge.git
 publish_to: none
 
