@@ -4,20 +4,16 @@ updates:
   - package-ecosystem: pub
     directory: "/packages/nekoton_bridge"
     schedule:
-      interval: weekly
-  - package-ecosystem: pub
-    directory: "/packages/nekoton_bridge/example"
-    schedule:
-      interval: weekly
+      interval: daily
   - package-ecosystem: pub
     directory: "/packages/flutter_nekoton_bridge"
     schedule:
-      interval: weekly
+      interval: daily
   - package-ecosystem: pub
     directory: "/packages/flutter_nekoton_bridge/example"
     schedule:
-      interval: weekly
+      interval: daily
   - package-ecosystem: cargo
     directory: "/packages/nekoton_bridge/native"
     schedule:
-      interval: weekly
+      interval: daily
