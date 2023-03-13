@@ -279,6 +279,26 @@ impl Storage for StorageImpl {
 }
 
 ///----------------------------
+/// CONTENT OF src/utils/tests_api.rs
+///----------------------------
+
+pub fn test_logger_info(string: String) {
+    info!("Info: {string}");
+}
+pub fn test_logger_debug(string: String) {
+    debug!("Debug: {string}");
+}
+pub fn test_logger_warn(string: String) {
+    warn!("Warn: {string}");
+}
+pub fn test_logger_error(string: String) {
+    error!("Error: {string}");
+}
+pub fn test_logger_panic(string: String) {
+    panic!("Panic: {}", string);
+}
+
+///----------------------------
 /// CONTENT OF src/utils/api.rs
 ///----------------------------
 
