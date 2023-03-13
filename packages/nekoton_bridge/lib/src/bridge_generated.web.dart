@@ -20,6 +20,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
 // Section: api2wire
 
   @protected
+  Object api2wire_BoxUnsignedMessageBoxTrait(BoxUnsignedMessageBoxTrait raw) {
+    return raw.shareOrMove();
+  }
+
+  @protected
   String api2wire_String(String raw) {
     return raw;
   }
@@ -47,6 +52,12 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
   @protected
   List<dynamic> api2wire_box_autoadd_my_class(MyClass raw) {
     return api2wire_my_class(raw);
+  }
+
+  @protected
+  List<dynamic> api2wire_box_autoadd_unsigned_message_impl(
+      UnsignedMessageImpl raw) {
+    return api2wire_unsigned_message_impl(raw);
   }
 
   @protected
@@ -157,6 +168,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
   Uint8List api2wire_uint_8_list(Uint8List raw) {
     return raw;
   }
+
+  @protected
+  List<dynamic> api2wire_unsigned_message_impl(UnsignedMessageImpl raw) {
+    return [api2wire_BoxUnsignedMessageBoxTrait(raw.innerMessage)];
+  }
 // Section: finalizer
 }
 
@@ -170,6 +186,9 @@ external NekotonBridgeWasmModule get wasmModule;
 class NekotonBridgeWasmModule implements WasmModule {
   external Object /* Promise */ call([String? moduleName]);
   external NekotonBridgeWasmModule bind(dynamic thisArg, String moduleName);
+  external dynamic /* void */ wire_verify_signature(NativePortType port_,
+      String public_key, String data_hash, String signature);
+
   external dynamic /* void */ wire_nt_generate_key(
       NativePortType port_, List<dynamic> account_type);
 
@@ -216,6 +235,18 @@ class NekotonBridgeWasmModule implements WasmModule {
 
   external dynamic /* void */ wire_simple_call_func2(NativePortType port_);
 
+  external dynamic /* void */ wire_refresh_timeout__method__UnsignedMessageImpl(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */ wire_expire_at__method__UnsignedMessageImpl(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */ wire_hash__method__UnsignedMessageImpl(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */ wire_sign__method__UnsignedMessageImpl(
+      NativePortType port_, List<dynamic> that, String signature);
+
   external dynamic /* void */ wire_new__static_method__JrpcConnectionImpl(
       NativePortType port_, String instance_hash);
 
@@ -247,6 +278,10 @@ class NekotonBridgeWire
     extends FlutterRustBridgeWasmWireBase<NekotonBridgeWasmModule> {
   NekotonBridgeWire(FutureOr<WasmModule> module)
       : super(WasmModule.cast<NekotonBridgeWasmModule>(module));
+
+  void wire_verify_signature(NativePortType port_, String public_key,
+          String data_hash, String signature) =>
+      wasmModule.wire_verify_signature(port_, public_key, data_hash, signature);
 
   void wire_nt_generate_key(NativePortType port_, List<dynamic> account_type) =>
       wasmModule.wire_nt_generate_key(port_, account_type);
@@ -301,6 +336,22 @@ class NekotonBridgeWire
 
   void wire_simple_call_func2(NativePortType port_) =>
       wasmModule.wire_simple_call_func2(port_);
+
+  void wire_refresh_timeout__method__UnsignedMessageImpl(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_refresh_timeout__method__UnsignedMessageImpl(port_, that);
+
+  void wire_expire_at__method__UnsignedMessageImpl(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_expire_at__method__UnsignedMessageImpl(port_, that);
+
+  void wire_hash__method__UnsignedMessageImpl(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_hash__method__UnsignedMessageImpl(port_, that);
+
+  void wire_sign__method__UnsignedMessageImpl(
+          NativePortType port_, List<dynamic> that, String signature) =>
+      wasmModule.wire_sign__method__UnsignedMessageImpl(port_, that, signature);
 
   void wire_new__static_method__JrpcConnectionImpl(
           NativePortType port_, String instance_hash) =>

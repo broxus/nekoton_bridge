@@ -19,6 +19,18 @@ part 'bridge_generated.freezed.dart';
 
 abstract class NekotonBridge {
   ///----------------------------
+  /// CONTENT OF src/nekoton_wrapper/crypto/crypto_api.rs
+  ///----------------------------
+  /// Check signature by publicKey and data hash
+  Future<bool> verifySignature(
+      {required String publicKey,
+      required String dataHash,
+      required String signature,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta;
+
+  ///----------------------------
   /// CONTENT OF src/nekoton_wrapper/crypto/mnemonic/mnemonic_api.rs
   ///----------------------------
   /// Generate seed phrase by specified mnemonic type
@@ -36,6 +48,7 @@ abstract class NekotonBridge {
 
   /// Generate public and secret keys from seed phrase and mnemonic type
   /// Returns json {'public': '...', 'secret': '...'}
+  /// or throws Exception
   Future<String> ntDeriveFromPhrase(
       {required String phrase,
       required MnemonicType mnemonicType,
@@ -112,6 +125,32 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kSimpleCallFunc2ConstMeta;
 
+  Future<void> refreshTimeoutMethodUnsignedMessageImpl(
+      {required UnsignedMessageImpl that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kRefreshTimeoutMethodUnsignedMessageImplConstMeta;
+
+  /// Return current expiration timestamp of UnsignedMessage
+  Future<int> expireAtMethodUnsignedMessageImpl(
+      {required UnsignedMessageImpl that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kExpireAtMethodUnsignedMessageImplConstMeta;
+
+  /// Returns base64 encoded hash string of UnsignedMessage
+  Future<String> hashMethodUnsignedMessageImpl(
+      {required UnsignedMessageImpl that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kHashMethodUnsignedMessageImplConstMeta;
+
+  Future<String> signMethodUnsignedMessageImpl(
+      {required UnsignedMessageImpl that,
+      required String signature,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kSignMethodUnsignedMessageImplConstMeta;
+
   Future<JrpcConnectionImpl> newStaticMethodJrpcConnectionImpl(
       {required String instanceHash, dynamic hint});
 
@@ -152,6 +191,22 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta
       get kCallSomeFuncMethodCallerTestClassConstMeta;
+}
+
+@sealed
+class BoxUnsignedMessageBoxTrait extends FrbOpaque {
+  final NekotonBridge bridge;
+  BoxUnsignedMessageBoxTrait.fromRaw(int ptr, int size, this.bridge)
+      : super.unsafe(ptr, size);
+  @override
+  DropFnType get dropFn => bridge.dropOpaqueBoxUnsignedMessageBoxTrait;
+
+  @override
+  ShareFnType get shareFn => bridge.shareOpaqueBoxUnsignedMessageBoxTrait;
+
+  @override
+  OpaqueTypeFinalizer get staticFinalizer =>
+      bridge.BoxUnsignedMessageBoxTraitFinalizer;
 }
 
 class CallerTestClass {
@@ -415,6 +470,39 @@ class StorageImpl {
       bridge.newStaticMethodStorageImpl(instanceHash: instanceHash, hint: hint);
 }
 
+/// This struct creates only in rust side and describes UnsignedMessage
+class UnsignedMessageImpl {
+  final NekotonBridge bridge;
+  final BoxUnsignedMessageBoxTrait innerMessage;
+
+  const UnsignedMessageImpl({
+    required this.bridge,
+    required this.innerMessage,
+  });
+
+  Future<void> refreshTimeout({dynamic hint}) =>
+      bridge.refreshTimeoutMethodUnsignedMessageImpl(
+        that: this,
+      );
+
+  /// Return current expiration timestamp of UnsignedMessage
+  Future<int> expireAt({dynamic hint}) =>
+      bridge.expireAtMethodUnsignedMessageImpl(
+        that: this,
+      );
+
+  /// Returns base64 encoded hash string of UnsignedMessage
+  Future<String> hash({dynamic hint}) => bridge.hashMethodUnsignedMessageImpl(
+        that: this,
+      );
+
+  Future<String> sign({required String signature, dynamic hint}) =>
+      bridge.signMethodUnsignedMessageImpl(
+        that: this,
+        signature: signature,
+      );
+}
+
 class NekotonBridgeImpl implements NekotonBridge {
   final NekotonBridgePlatform _platform;
   factory NekotonBridgeImpl(ExternalLibrary dylib) =>
@@ -424,6 +512,30 @@ class NekotonBridgeImpl implements NekotonBridge {
   factory NekotonBridgeImpl.wasm(FutureOr<WasmModule> module) =>
       NekotonBridgeImpl(module as ExternalLibrary);
   NekotonBridgeImpl.raw(this._platform);
+  Future<bool> verifySignature(
+      {required String publicKey,
+      required String dataHash,
+      required String signature,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(publicKey);
+    var arg1 = _platform.api2wire_String(dataHash);
+    var arg2 = _platform.api2wire_String(signature);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_verify_signature(port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_bool,
+      constMeta: kVerifySignatureConstMeta,
+      argValues: [publicKey, dataHash, signature],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "verify_signature",
+        argNames: ["publicKey", "dataHash", "signature"],
+      );
+
   Future<GeneratedKeyG> ntGenerateKey(
       {required MnemonicType accountType, dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_mnemonic_type(accountType);
@@ -734,6 +846,87 @@ class NekotonBridgeImpl implements NekotonBridge {
       const FlutterRustBridgeTaskConstMeta(
         debugName: "simple_call_func2",
         argNames: [],
+      );
+
+  Future<void> refreshTimeoutMethodUnsignedMessageImpl(
+      {required UnsignedMessageImpl that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_unsigned_message_impl(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_refresh_timeout__method__UnsignedMessageImpl(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kRefreshTimeoutMethodUnsignedMessageImplConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kRefreshTimeoutMethodUnsignedMessageImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "refresh_timeout__method__UnsignedMessageImpl",
+            argNames: ["that"],
+          );
+
+  Future<int> expireAtMethodUnsignedMessageImpl(
+      {required UnsignedMessageImpl that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_unsigned_message_impl(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_expire_at__method__UnsignedMessageImpl(port_, arg0),
+      parseSuccessData: _wire2api_u32,
+      constMeta: kExpireAtMethodUnsignedMessageImplConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kExpireAtMethodUnsignedMessageImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "expire_at__method__UnsignedMessageImpl",
+            argNames: ["that"],
+          );
+
+  Future<String> hashMethodUnsignedMessageImpl(
+      {required UnsignedMessageImpl that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_unsigned_message_impl(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_hash__method__UnsignedMessageImpl(port_, arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kHashMethodUnsignedMessageImplConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kHashMethodUnsignedMessageImplConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "hash__method__UnsignedMessageImpl",
+        argNames: ["that"],
+      );
+
+  Future<String> signMethodUnsignedMessageImpl(
+      {required UnsignedMessageImpl that,
+      required String signature,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_unsigned_message_impl(that);
+    var arg1 = _platform.api2wire_String(signature);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_sign__method__UnsignedMessageImpl(port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kSignMethodUnsignedMessageImplConstMeta,
+      argValues: [that, signature],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kSignMethodUnsignedMessageImplConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "sign__method__UnsignedMessageImpl",
+        argNames: ["that", "signature"],
       );
 
   Future<JrpcConnectionImpl> newStaticMethodJrpcConnectionImpl(

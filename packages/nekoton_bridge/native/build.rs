@@ -1,3 +1,4 @@
+use std::env;
 use lib_flutter_rust_bridge_codegen::{
     config_parse, frb_codegen, get_symbols_if_no_duplicates, RawOpts,
 };
@@ -9,6 +10,8 @@ const IOS_C_OUTPUT: &str = "../../flutter_nekoton_bridge/ios/Classes/frb.h";
 // const MACOS_C_OUTPUT: &str = "../../flutter_nekoton_bridge/macos/Classes/frb.h";
 
 fn main() {
+    env::set_var("RUST_BACKTRACE", "1");
+
     // Tell Cargo that if the input Rust code changes, rerun this build script
     rerun_except(&["**/*_api.rs"]).unwrap();
 

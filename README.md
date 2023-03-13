@@ -132,3 +132,7 @@ But here's some nuances you should understand:
 4) DO NOT PUT any structures inside `*api.rs` files because it will be copied to `merged.rs` file
 and you will see duplicate. Better to put it inside other files of module and import it inside `*api.rs` file.
 5) USE local imports starting with `crate`: `crate::nekoton_wrapper::...`
+6) If method can throw Error, then it should return `anyhow::Result<T, anyhow::Error>` where T is return type
+   and error can be got by calling `handle_error` function.
+7) If you have problems with implementing `dyn AnyTrait` of nekoton, then you need to make a hack with
+   self-wrapped trait with implemented `UnwindSafe + RefUnwindSafe`, see `UnsignedMessageBoxTrait`

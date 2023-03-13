@@ -29,6 +29,26 @@ use crate::utils::logger::LogLevel;
 
 // Section: wire functions
 
+fn wire_verify_signature_impl(
+    port_: MessagePort,
+    public_key: impl Wire2Api<String> + UnwindSafe,
+    data_hash: impl Wire2Api<String> + UnwindSafe,
+    signature: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "verify_signature",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_public_key = public_key.wire2api();
+            let api_data_hash = data_hash.wire2api();
+            let api_signature = signature.wire2api();
+            move |task_callback| verify_signature(api_public_key, api_data_hash, api_signature)
+        },
+    )
+}
 fn wire_nt_generate_key_impl(
     port_: MessagePort,
     account_type: impl Wire2Api<MnemonicType> + UnwindSafe,
@@ -72,7 +92,7 @@ fn wire_nt_derive_from_phrase_impl(
         move || {
             let api_phrase = phrase.wire2api();
             let api_mnemonic_type = mnemonic_type.wire2api();
-            move |task_callback| Ok(nt_derive_from_phrase(api_phrase, api_mnemonic_type))
+            move |task_callback| nt_derive_from_phrase(api_phrase, api_mnemonic_type)
         },
     )
 }
@@ -267,6 +287,72 @@ fn wire_simple_call_func2_impl(port_: MessagePort) {
             mode: FfiCallMode::Normal,
         },
         move || move |task_callback| Ok(simple_call_func2()),
+    )
+}
+fn wire_refresh_timeout__method__UnsignedMessageImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<UnsignedMessageImpl> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "refresh_timeout__method__UnsignedMessageImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            move |task_callback| Ok(UnsignedMessageImpl::refresh_timeout(&api_that))
+        },
+    )
+}
+fn wire_expire_at__method__UnsignedMessageImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<UnsignedMessageImpl> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "expire_at__method__UnsignedMessageImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            move |task_callback| Ok(UnsignedMessageImpl::expire_at(&api_that))
+        },
+    )
+}
+fn wire_hash__method__UnsignedMessageImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<UnsignedMessageImpl> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "hash__method__UnsignedMessageImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            move |task_callback| Ok(UnsignedMessageImpl::hash(&api_that))
+        },
+    )
+}
+fn wire_sign__method__UnsignedMessageImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<UnsignedMessageImpl> + UnwindSafe,
+    signature: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "sign__method__UnsignedMessageImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_signature = signature.wire2api();
+            move |task_callback| UnsignedMessageImpl::sign(&api_that, api_signature)
+        },
     )
 }
 fn wire_new__static_method__JrpcConnectionImpl_impl(
@@ -663,6 +749,16 @@ mod web {
     // Section: wire functions
 
     #[wasm_bindgen]
+    pub fn wire_verify_signature(
+        port_: MessagePort,
+        public_key: String,
+        data_hash: String,
+        signature: String,
+    ) {
+        wire_verify_signature_impl(port_, public_key, data_hash, signature)
+    }
+
+    #[wasm_bindgen]
     pub fn wire_nt_generate_key(port_: MessagePort, account_type: JsValue) {
         wire_nt_generate_key_impl(port_, account_type)
     }
@@ -750,6 +846,30 @@ mod web {
     #[wasm_bindgen]
     pub fn wire_simple_call_func2(port_: MessagePort) {
         wire_simple_call_func2_impl(port_)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_refresh_timeout__method__UnsignedMessageImpl(port_: MessagePort, that: JsValue) {
+        wire_refresh_timeout__method__UnsignedMessageImpl_impl(port_, that)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_expire_at__method__UnsignedMessageImpl(port_: MessagePort, that: JsValue) {
+        wire_expire_at__method__UnsignedMessageImpl_impl(port_, that)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_hash__method__UnsignedMessageImpl(port_: MessagePort, that: JsValue) {
+        wire_hash__method__UnsignedMessageImpl_impl(port_, that)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_sign__method__UnsignedMessageImpl(
+        port_: MessagePort,
+        that: JsValue,
+        signature: String,
+    ) {
+        wire_sign__method__UnsignedMessageImpl_impl(port_, that, signature)
     }
 
     #[wasm_bindgen]
@@ -936,8 +1056,32 @@ mod web {
             self.into_vec()
         }
     }
+    impl Wire2Api<UnsignedMessageImpl> for JsValue {
+        fn wire2api(self) -> UnsignedMessageImpl {
+            let self_ = self.dyn_into::<JsArray>().unwrap();
+            assert_eq!(
+                self_.length(),
+                1,
+                "Expected 1 elements, got {}",
+                self_.length()
+            );
+            UnsignedMessageImpl {
+                inner_message: self_.get(0).wire2api(),
+            }
+        }
+    }
     // Section: impl Wire2Api for JsValue
 
+    impl Wire2Api<RustOpaque<Box<dyn UnsignedMessageBoxTrait>>> for JsValue {
+        fn wire2api(self) -> RustOpaque<Box<dyn UnsignedMessageBoxTrait>> {
+            #[cfg(target_pointer_width = "64")]
+            {
+                compile_error!("64-bit pointers are not supported.");
+            }
+
+            unsafe { support::opaque_from_dart((self.as_f64().unwrap() as usize) as _) }
+        }
+    }
     impl Wire2Api<String> for JsValue {
         fn wire2api(self) -> String {
             self.as_string().expect("non-UTF-8 string, or not a string")
@@ -1011,6 +1155,16 @@ pub use web::*;
 mod io {
     use super::*;
     // Section: wire functions
+
+    #[no_mangle]
+    pub extern "C" fn wire_verify_signature(
+        port_: i64,
+        public_key: *mut wire_uint_8_list,
+        data_hash: *mut wire_uint_8_list,
+        signature: *mut wire_uint_8_list,
+    ) {
+        wire_verify_signature_impl(port_, public_key, data_hash, signature)
+    }
 
     #[no_mangle]
     pub extern "C" fn wire_nt_generate_key(port_: i64, account_type: *mut wire_MnemonicType) {
@@ -1111,6 +1265,39 @@ mod io {
     }
 
     #[no_mangle]
+    pub extern "C" fn wire_refresh_timeout__method__UnsignedMessageImpl(
+        port_: i64,
+        that: *mut wire_UnsignedMessageImpl,
+    ) {
+        wire_refresh_timeout__method__UnsignedMessageImpl_impl(port_, that)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_expire_at__method__UnsignedMessageImpl(
+        port_: i64,
+        that: *mut wire_UnsignedMessageImpl,
+    ) {
+        wire_expire_at__method__UnsignedMessageImpl_impl(port_, that)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_hash__method__UnsignedMessageImpl(
+        port_: i64,
+        that: *mut wire_UnsignedMessageImpl,
+    ) {
+        wire_hash__method__UnsignedMessageImpl_impl(port_, that)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_sign__method__UnsignedMessageImpl(
+        port_: i64,
+        that: *mut wire_UnsignedMessageImpl,
+        signature: *mut wire_uint_8_list,
+    ) {
+        wire_sign__method__UnsignedMessageImpl_impl(port_, that, signature)
+    }
+
+    #[no_mangle]
     pub extern "C" fn wire_new__static_method__JrpcConnectionImpl(
         port_: i64,
         instance_hash: *mut wire_uint_8_list,
@@ -1173,6 +1360,11 @@ mod io {
     // Section: allocate functions
 
     #[no_mangle]
+    pub extern "C" fn new_BoxUnsignedMessageBoxTrait() -> wire_BoxUnsignedMessageBoxTrait {
+        wire_BoxUnsignedMessageBoxTrait::new_with_null_ptr()
+    }
+
+    #[no_mangle]
     pub extern "C" fn new_box_autoadd_caller_test_class_0() -> *mut wire_CallerTestClass {
         support::new_leak_box_ptr(wire_CallerTestClass::new_with_null_ptr())
     }
@@ -1195,6 +1387,11 @@ mod io {
     #[no_mangle]
     pub extern "C" fn new_box_autoadd_my_class_0() -> *mut wire_MyClass {
         support::new_leak_box_ptr(wire_MyClass::new_with_null_ptr())
+    }
+
+    #[no_mangle]
+    pub extern "C" fn new_box_autoadd_unsigned_message_impl_0() -> *mut wire_UnsignedMessageImpl {
+        support::new_leak_box_ptr(wire_UnsignedMessageImpl::new_with_null_ptr())
     }
 
     #[no_mangle]
@@ -1230,6 +1427,11 @@ mod io {
 
     // Section: impl Wire2Api
 
+    impl Wire2Api<RustOpaque<Box<dyn UnsignedMessageBoxTrait>>> for wire_BoxUnsignedMessageBoxTrait {
+        fn wire2api(self) -> RustOpaque<Box<dyn UnsignedMessageBoxTrait>> {
+            unsafe { support::opaque_from_dart(self.ptr as _) }
+        }
+    }
     impl Wire2Api<String> for *mut wire_uint_8_list {
         fn wire2api(self) -> String {
             let vec: Vec<u8> = self.wire2api();
@@ -1265,6 +1467,12 @@ mod io {
         fn wire2api(self) -> MyClass {
             let wrap = unsafe { support::box_from_leak_ptr(self) };
             Wire2Api::<MyClass>::wire2api(*wrap).into()
+        }
+    }
+    impl Wire2Api<UnsignedMessageImpl> for *mut wire_UnsignedMessageImpl {
+        fn wire2api(self) -> UnsignedMessageImpl {
+            let wrap = unsafe { support::box_from_leak_ptr(self) };
+            Wire2Api::<UnsignedMessageImpl>::wire2api(*wrap).into()
         }
     }
     impl Wire2Api<CallerTestClass> for wire_CallerTestClass {
@@ -1400,7 +1608,20 @@ mod io {
             }
         }
     }
+    impl Wire2Api<UnsignedMessageImpl> for wire_UnsignedMessageImpl {
+        fn wire2api(self) -> UnsignedMessageImpl {
+            UnsignedMessageImpl {
+                inner_message: self.inner_message.wire2api(),
+            }
+        }
+    }
     // Section: wire structs
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_BoxUnsignedMessageBoxTrait {
+        ptr: *const core::ffi::c_void,
+    }
 
     #[repr(C)]
     #[derive(Clone)]
@@ -1450,6 +1671,12 @@ mod io {
     pub struct wire_uint_8_list {
         ptr: *mut u8,
         len: i32,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_UnsignedMessageImpl {
+        inner_message: wire_BoxUnsignedMessageBoxTrait,
     }
 
     #[repr(C)]
@@ -1570,6 +1797,14 @@ mod io {
     impl<T> NewWithNullPtr for *mut T {
         fn new_with_null_ptr() -> Self {
             std::ptr::null_mut()
+        }
+    }
+
+    impl NewWithNullPtr for wire_BoxUnsignedMessageBoxTrait {
+        fn new_with_null_ptr() -> Self {
+            Self {
+                ptr: core::ptr::null(),
+            }
         }
     }
 
@@ -1746,6 +1981,20 @@ mod io {
     }
 
     impl Default for wire_MyClass {
+        fn default() -> Self {
+            Self::new_with_null_ptr()
+        }
+    }
+
+    impl NewWithNullPtr for wire_UnsignedMessageImpl {
+        fn new_with_null_ptr() -> Self {
+            Self {
+                inner_message: wire_BoxUnsignedMessageBoxTrait::new_with_null_ptr(),
+            }
+        }
+    }
+
+    impl Default for wire_UnsignedMessageImpl {
         fn default() -> Self {
             Self::new_with_null_ptr()
         }

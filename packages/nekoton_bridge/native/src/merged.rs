@@ -1,8 +1,8 @@
 #![allow(unused)]
-use crate::{
+pub use crate::{
     nekoton_wrapper::{
-        crypto::mnemonic::models::KeypairHelper, str_list_to_string_vec, str_vec_to_string_vec,
-        HandleError, MatchResult,
+        crypto::{mnemonic::models::KeypairHelper, models::UnsignedMessageBoxTrait},
+        parse_public_key, str_list_to_string_vec, str_vec_to_string_vec, HandleError, JsonOrError,
     },
     utils::{
         caller,
@@ -11,21 +11,79 @@ use crate::{
     },
 };
 use async_trait::async_trait;
-pub use ed25519_dalek::{PUBLIC_KEY_LENGTH, SIGNATURE_LENGTH};
-use flutter_rust_bridge::*;
+pub use ed25519_dalek::{Verifier, PUBLIC_KEY_LENGTH, SIGNATURE_LENGTH};
+pub use flutter_rust_bridge::*;
 use log::*;
 pub use nekoton::{
-    crypto::{derive_from_phrase, dict, generate_key, MnemonicType},
+    crypto::{derive_from_phrase, dict, generate_key, MnemonicType, UnsignedMessage},
     external,
     external::{GqlConnection, GqlRequest, JrpcConnection, JrpcRequest, Storage},
 };
-use std::{collections::HashMap, convert::TryInto};
+use std::{
+    collections::HashMap,
+    convert::{TryFrom, TryInto},
+};
 
 ///----------------------------
 /// CONTENT OF src/nekoton_wrapper/crypto/ledger_key/ledger_api.rs
 ///----------------------------
 
 pub const LEDGER_KEY_SIGNER_NAME: &str = "LedgerKeySigner";
+
+///----------------------------
+/// CONTENT OF src/nekoton_wrapper/crypto/crypto_api.rs
+///----------------------------
+
+/// Check signature by publicKey and data hash
+pub fn verify_signature(
+    public_key: String,
+    data_hash: String,
+    signature: String,
+) -> Result<bool, anyhow::Error> {
+    let public_key = parse_public_key(public_key).handle_error()?;
+    let data_hash = match hex::decode(&data_hash) {
+        Ok(data_hash) => data_hash,
+        Err(e) => match base64::decode(&data_hash) {
+            Ok(data_hash) => data_hash,
+            Err(e) => return Err(anyhow::Error::msg(e)),
+        },
+    };
+    if data_hash.len() != 32 {
+        return Err(anyhow::Error::msg("Invalid data hash. Expected 32 bytes"));
+    }
+    let signature = match base64::decode(&signature) {
+        Ok(signature) => signature,
+        Err(e) => match hex::decode(&signature) {
+            Ok(signature) => signature,
+            Err(_) => return Err(anyhow::Error::msg(e)),
+        },
+    };
+    let signature = match ed25519_dalek::Signature::try_from(signature.as_slice()) {
+        Ok(signature) => signature,
+        Err(_) => return Err(anyhow::Error::msg("Invalid signature. Expected 64 bytes")),
+    };
+    anyhow::Result::Ok(public_key.verify(&data_hash, &signature).is_ok())
+}
+/// This struct creates only in rust side and describes UnsignedMessage
+pub struct UnsignedMessageImpl {
+    pub inner_message: RustOpaque<Box<dyn UnsignedMessageBoxTrait>>,
+}
+impl UnsignedMessageImpl {
+    pub fn refresh_timeout(&self) -> () {
+        self.inner_message.refresh_timeout();
+    }
+    /// Return current expiration timestamp of UnsignedMessage
+    pub fn expire_at(&self) -> u32 {
+        self.inner_message.expire_at()
+    }
+    /// Returns base64 encoded hash string of UnsignedMessage
+    pub fn hash(&self) -> String {
+        self.inner_message.hash()
+    }
+    pub fn sign(&self, signature: String) -> Result<String, anyhow::Error> {
+        self.inner_message.sign(signature)
+    }
+}
 
 ///----------------------------
 /// CONTENT OF src/nekoton_wrapper/crypto/encrypted_key/encrypted_key_api.rs
@@ -53,11 +111,13 @@ pub fn nt_get_hints(input: String) -> Vec<String> {
 }
 /// Generate public and secret keys from seed phrase and mnemonic type
 /// Returns json {'public': '...', 'secret': '...'}
-pub fn nt_derive_from_phrase(phrase: String, mnemonic_type: MnemonicType) -> String {
-    let keypair = derive_from_phrase(phrase.as_str(), mnemonic_type).handle_error();
-    serde_json::to_value(KeypairHelper(keypair.unwrap()))
-        .handle_error()
-        .match_result()
+/// or throws Exception
+pub fn nt_derive_from_phrase(
+    phrase: String,
+    mnemonic_type: MnemonicType,
+) -> Result<String, anyhow::Error> {
+    let keypair = derive_from_phrase(phrase.as_str(), mnemonic_type).handle_error()?;
+    serde_json::to_value(KeypairHelper(keypair)).json_or_error()
 }
 
 ///----------------------------
@@ -83,6 +143,34 @@ pub enum _MnemonicType {
 pub struct GeneratedKeyG {
     pub words: Vec<String>,
     pub account_type: MnemonicType,
+}
+/// Structure that is used with signing data
+pub struct SignedData {
+    /// hex encoded hash
+    pub data_hash: String,
+    /// base64 encoded data
+    pub signature: String,
+    /// hex encoded data
+    pub signature_hex: String,
+    /// Signatures
+    pub signature_parts: SignatureParts,
+}
+/// Structure that is used with signing data
+pub struct SignedDataRaw {
+    /// base64 encoded data
+    pub signature: String,
+    /// hex encoded data
+    pub signature_hex: String,
+    /// Signatures
+    pub signature_parts: SignatureParts,
+}
+/// Structure that is used with signing data
+/// high and low looks like: 0x{hex_data}
+pub struct SignatureParts {
+    /// symbols before 32-th
+    pub low: String,
+    /// symbols after 32-th
+    pub high: String,
 }
 
 ///----------------------------

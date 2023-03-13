@@ -17,6 +17,14 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
 // Section: api2wire
 
   @protected
+  wire_BoxUnsignedMessageBoxTrait api2wire_BoxUnsignedMessageBoxTrait(
+      BoxUnsignedMessageBoxTrait raw) {
+    final ptr = inner.new_BoxUnsignedMessageBoxTrait();
+    _api_fill_to_wire_BoxUnsignedMessageBoxTrait(raw, ptr);
+    return ptr;
+  }
+
+  @protected
   ffi.Pointer<wire_uint_8_list> api2wire_String(String raw) {
     return api2wire_uint_8_list(utf8.encoder.convert(raw));
   }
@@ -57,6 +65,14 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
   ffi.Pointer<wire_MyClass> api2wire_box_autoadd_my_class(MyClass raw) {
     final ptr = inner.new_box_autoadd_my_class_0();
     _api_fill_to_wire_my_class(raw, ptr.ref);
+    return ptr;
+  }
+
+  @protected
+  ffi.Pointer<wire_UnsignedMessageImpl>
+      api2wire_box_autoadd_unsigned_message_impl(UnsignedMessageImpl raw) {
+    final ptr = inner.new_box_autoadd_unsigned_message_impl_0();
+    _api_fill_to_wire_unsigned_message_impl(raw, ptr.ref);
     return ptr;
   }
 
@@ -102,9 +118,16 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
     ans.ref.ptr.asTypedList(raw.length).setAll(0, raw);
     return ans;
   }
+
 // Section: finalizer
 
 // Section: api_fill_to_wire
+
+  void _api_fill_to_wire_BoxUnsignedMessageBoxTrait(
+      BoxUnsignedMessageBoxTrait apiObj,
+      wire_BoxUnsignedMessageBoxTrait wireObj) {
+    wireObj.ptr = apiObj.shareOrMove();
+  }
 
   void _api_fill_to_wire_box_autoadd_caller_test_class(
       CallerTestClass apiObj, ffi.Pointer<wire_CallerTestClass> wireObj) {
@@ -129,6 +152,12 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
   void _api_fill_to_wire_box_autoadd_my_class(
       MyClass apiObj, ffi.Pointer<wire_MyClass> wireObj) {
     _api_fill_to_wire_my_class(apiObj, wireObj.ref);
+  }
+
+  void _api_fill_to_wire_box_autoadd_unsigned_message_impl(
+      UnsignedMessageImpl apiObj,
+      ffi.Pointer<wire_UnsignedMessageImpl> wireObj) {
+    _api_fill_to_wire_unsigned_message_impl(apiObj, wireObj.ref);
   }
 
   void _api_fill_to_wire_caller_test_class(
@@ -253,6 +282,12 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
     if (apiObj != null)
       _api_fill_to_wire_box_autoadd_dynamic_value(apiObj, wireObj);
   }
+
+  void _api_fill_to_wire_unsigned_message_impl(
+      UnsignedMessageImpl apiObj, wire_UnsignedMessageImpl wireObj) {
+    wireObj.inner_message =
+        api2wire_BoxUnsignedMessageBoxTrait(apiObj.innerMessage);
+  }
 }
 
 // ignore_for_file: camel_case_types, non_constant_identifier_names, avoid_positional_boolean_parameters, annotate_overrides, constant_identifier_names
@@ -349,6 +384,31 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           'init_frb_dart_api_dl');
   late final _init_frb_dart_api_dl = _init_frb_dart_api_dlPtr
       .asFunction<int Function(ffi.Pointer<ffi.Void>)>();
+
+  void wire_verify_signature(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> public_key,
+    ffi.Pointer<wire_uint_8_list> data_hash,
+    ffi.Pointer<wire_uint_8_list> signature,
+  ) {
+    return _wire_verify_signature(
+      port_,
+      public_key,
+      data_hash,
+      signature,
+    );
+  }
+
+  late final _wire_verify_signaturePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_verify_signature');
+  late final _wire_verify_signature = _wire_verify_signaturePtr.asFunction<
+      void Function(int, ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
 
   void wire_nt_generate_key(
     int port_,
@@ -641,6 +701,87 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_simple_call_func2 =
       _wire_simple_call_func2Ptr.asFunction<void Function(int)>();
 
+  void wire_refresh_timeout__method__UnsignedMessageImpl(
+    int port_,
+    ffi.Pointer<wire_UnsignedMessageImpl> that,
+  ) {
+    return _wire_refresh_timeout__method__UnsignedMessageImpl(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_refresh_timeout__method__UnsignedMessageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_UnsignedMessageImpl>)>>(
+      'wire_refresh_timeout__method__UnsignedMessageImpl');
+  late final _wire_refresh_timeout__method__UnsignedMessageImpl =
+      _wire_refresh_timeout__method__UnsignedMessageImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_UnsignedMessageImpl>)>();
+
+  void wire_expire_at__method__UnsignedMessageImpl(
+    int port_,
+    ffi.Pointer<wire_UnsignedMessageImpl> that,
+  ) {
+    return _wire_expire_at__method__UnsignedMessageImpl(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_expire_at__method__UnsignedMessageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_UnsignedMessageImpl>)>>(
+      'wire_expire_at__method__UnsignedMessageImpl');
+  late final _wire_expire_at__method__UnsignedMessageImpl =
+      _wire_expire_at__method__UnsignedMessageImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_UnsignedMessageImpl>)>();
+
+  void wire_hash__method__UnsignedMessageImpl(
+    int port_,
+    ffi.Pointer<wire_UnsignedMessageImpl> that,
+  ) {
+    return _wire_hash__method__UnsignedMessageImpl(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_hash__method__UnsignedMessageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_UnsignedMessageImpl>)>>(
+      'wire_hash__method__UnsignedMessageImpl');
+  late final _wire_hash__method__UnsignedMessageImpl =
+      _wire_hash__method__UnsignedMessageImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_UnsignedMessageImpl>)>();
+
+  void wire_sign__method__UnsignedMessageImpl(
+    int port_,
+    ffi.Pointer<wire_UnsignedMessageImpl> that,
+    ffi.Pointer<wire_uint_8_list> signature,
+  ) {
+    return _wire_sign__method__UnsignedMessageImpl(
+      port_,
+      that,
+      signature,
+    );
+  }
+
+  late final _wire_sign__method__UnsignedMessageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.Pointer<wire_UnsignedMessageImpl>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_sign__method__UnsignedMessageImpl');
+  late final _wire_sign__method__UnsignedMessageImpl =
+      _wire_sign__method__UnsignedMessageImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_UnsignedMessageImpl>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
   void wire_new__static_method__JrpcConnectionImpl(
     int port_,
     ffi.Pointer<wire_uint_8_list> instance_hash,
@@ -789,6 +930,17 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       _wire_call_some_func__method__CallerTestClassPtr
           .asFunction<void Function(int, ffi.Pointer<wire_CallerTestClass>)>();
 
+  wire_BoxUnsignedMessageBoxTrait new_BoxUnsignedMessageBoxTrait() {
+    return _new_BoxUnsignedMessageBoxTrait();
+  }
+
+  late final _new_BoxUnsignedMessageBoxTraitPtr =
+      _lookup<ffi.NativeFunction<wire_BoxUnsignedMessageBoxTrait Function()>>(
+          'new_BoxUnsignedMessageBoxTrait');
+  late final _new_BoxUnsignedMessageBoxTrait =
+      _new_BoxUnsignedMessageBoxTraitPtr
+          .asFunction<wire_BoxUnsignedMessageBoxTrait Function()>();
+
   ffi.Pointer<wire_CallerTestClass> new_box_autoadd_caller_test_class_0() {
     return _new_box_autoadd_caller_test_class_0();
   }
@@ -842,6 +994,18 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           'new_box_autoadd_my_class_0');
   late final _new_box_autoadd_my_class_0 = _new_box_autoadd_my_class_0Ptr
       .asFunction<ffi.Pointer<wire_MyClass> Function()>();
+
+  ffi.Pointer<wire_UnsignedMessageImpl>
+      new_box_autoadd_unsigned_message_impl_0() {
+    return _new_box_autoadd_unsigned_message_impl_0();
+  }
+
+  late final _new_box_autoadd_unsigned_message_impl_0Ptr = _lookup<
+          ffi.NativeFunction<ffi.Pointer<wire_UnsignedMessageImpl> Function()>>(
+      'new_box_autoadd_unsigned_message_impl_0');
+  late final _new_box_autoadd_unsigned_message_impl_0 =
+      _new_box_autoadd_unsigned_message_impl_0Ptr
+          .asFunction<ffi.Pointer<wire_UnsignedMessageImpl> Function()>();
 
   ffi.Pointer<wire_list_dynamic_named_value> new_list_dynamic_named_value_0(
     int len,
@@ -1017,6 +1181,13 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
 
 class _Dart_Handle extends ffi.Opaque {}
 
+class wire_uint_8_list extends ffi.Struct {
+  external ffi.Pointer<ffi.Uint8> ptr;
+
+  @ffi.Int32()
+  external int len;
+}
+
 class wire_MnemonicType_Legacy extends ffi.Opaque {}
 
 class wire_MnemonicType_Labs extends ffi.Struct {
@@ -1035,13 +1206,6 @@ class wire_MnemonicType extends ffi.Struct {
   external int tag;
 
   external ffi.Pointer<MnemonicTypeKind> kind;
-}
-
-class wire_uint_8_list extends ffi.Struct {
-  external ffi.Pointer<ffi.Uint8> ptr;
-
-  @ffi.Int32()
-  external int len;
 }
 
 class wire_DynamicValue_U16 extends ffi.Struct {
@@ -1153,6 +1317,14 @@ class wire_DartCallStub extends ffi.Struct {
   external ffi.Pointer<wire_list_dynamic_value> args;
 
   external ffi.Pointer<wire_list_dynamic_named_value> named_args;
+}
+
+class wire_BoxUnsignedMessageBoxTrait extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> ptr;
+}
+
+class wire_UnsignedMessageImpl extends ffi.Struct {
+  external wire_BoxUnsignedMessageBoxTrait inner_message;
 }
 
 class wire_MyClass extends ffi.Struct {

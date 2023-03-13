@@ -4,7 +4,7 @@ use nekoton::crypto::{derive_from_phrase, dict, generate_key};
 
 use crate::nekoton_wrapper::{
     crypto::mnemonic::models::KeypairHelper, models_api::GeneratedKeyG, str_list_to_string_vec,
-    str_vec_to_string_vec, HandleError, MatchResult,
+    str_vec_to_string_vec, HandleError, JsonOrError,
 };
 
 pub use nekoton::crypto::MnemonicType;
@@ -27,9 +27,11 @@ pub fn nt_get_hints(input: String) -> Vec<String> {
 
 /// Generate public and secret keys from seed phrase and mnemonic type
 /// Returns json {'public': '...', 'secret': '...'}
-pub fn nt_derive_from_phrase(phrase: String, mnemonic_type: MnemonicType) -> String {
-    let keypair = derive_from_phrase(phrase.as_str(), mnemonic_type).handle_error();
-    serde_json::to_value(KeypairHelper(keypair.unwrap()))
-        .handle_error()
-        .match_result()
+/// or throws Exception
+pub fn nt_derive_from_phrase(
+    phrase: String,
+    mnemonic_type: MnemonicType,
+) -> Result<String, anyhow::Error> {
+    let keypair = derive_from_phrase(phrase.as_str(), mnemonic_type).handle_error()?;
+    serde_json::to_value(KeypairHelper(keypair)).json_or_error()
 }

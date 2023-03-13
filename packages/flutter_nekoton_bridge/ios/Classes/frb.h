@@ -9,6 +9,11 @@ typedef int64_t DartPort;
 
 typedef bool (*DartPostCObjectFnType)(DartPort port_id, void *message);
 
+typedef struct wire_uint_8_list {
+  uint8_t *ptr;
+  int32_t len;
+} wire_uint_8_list;
+
 typedef struct wire_MnemonicType_Legacy {
 
 } wire_MnemonicType_Legacy;
@@ -26,11 +31,6 @@ typedef struct wire_MnemonicType {
   int32_t tag;
   union MnemonicTypeKind *kind;
 } wire_MnemonicType;
-
-typedef struct wire_uint_8_list {
-  uint8_t *ptr;
-  int32_t len;
-} wire_uint_8_list;
 
 typedef struct wire_DynamicValue_U16 {
   uint16_t field0;
@@ -119,6 +119,14 @@ typedef struct wire_DartCallStub {
   struct wire_list_dynamic_named_value *named_args;
 } wire_DartCallStub;
 
+typedef struct wire_BoxUnsignedMessageBoxTrait {
+  const void *ptr;
+} wire_BoxUnsignedMessageBoxTrait;
+
+typedef struct wire_UnsignedMessageImpl {
+  struct wire_BoxUnsignedMessageBoxTrait inner_message;
+} wire_UnsignedMessageImpl;
+
 typedef struct wire_MyClass {
   int32_t val;
 } wire_MyClass;
@@ -137,6 +145,11 @@ void drop_dart_object(uintptr_t ptr);
 uintptr_t new_dart_opaque(Dart_Handle handle);
 
 intptr_t init_frb_dart_api_dl(void *obj);
+
+void wire_verify_signature(int64_t port_,
+                           struct wire_uint_8_list *public_key,
+                           struct wire_uint_8_list *data_hash,
+                           struct wire_uint_8_list *signature);
 
 void wire_nt_generate_key(int64_t port_, struct wire_MnemonicType *account_type);
 
@@ -178,6 +191,18 @@ void wire_simple_call_func1(int64_t port_, bool need_result);
 
 void wire_simple_call_func2(int64_t port_);
 
+void wire_refresh_timeout__method__UnsignedMessageImpl(int64_t port_,
+                                                       struct wire_UnsignedMessageImpl *that);
+
+void wire_expire_at__method__UnsignedMessageImpl(int64_t port_,
+                                                 struct wire_UnsignedMessageImpl *that);
+
+void wire_hash__method__UnsignedMessageImpl(int64_t port_, struct wire_UnsignedMessageImpl *that);
+
+void wire_sign__method__UnsignedMessageImpl(int64_t port_,
+                                            struct wire_UnsignedMessageImpl *that,
+                                            struct wire_uint_8_list *signature);
+
 void wire_new__static_method__JrpcConnectionImpl(int64_t port_,
                                                  struct wire_uint_8_list *instance_hash);
 
@@ -200,6 +225,8 @@ void wire_new__static_method__CallerTestClass(int64_t port_,
 
 void wire_call_some_func__method__CallerTestClass(int64_t port_, struct wire_CallerTestClass *that);
 
+struct wire_BoxUnsignedMessageBoxTrait new_BoxUnsignedMessageBoxTrait(void);
+
 struct wire_CallerTestClass *new_box_autoadd_caller_test_class_0(void);
 
 struct wire_DartCallStub *new_box_autoadd_dart_call_stub_0(void);
@@ -209,6 +236,8 @@ struct wire_DynamicValue *new_box_autoadd_dynamic_value_0(void);
 struct wire_MnemonicType *new_box_autoadd_mnemonic_type_0(void);
 
 struct wire_MyClass *new_box_autoadd_my_class_0(void);
+
+struct wire_UnsignedMessageImpl *new_box_autoadd_unsigned_message_impl_0(void);
 
 struct wire_list_dynamic_named_value *new_list_dynamic_named_value_0(int32_t len);
 
@@ -242,6 +271,7 @@ void free_WireSyncReturn(WireSyncReturn ptr);
 
 static int64_t dummy_method_to_enforce_bundling(void) {
     int64_t dummy_var = 0;
+    dummy_var ^= ((int64_t) (void*) wire_verify_signature);
     dummy_var ^= ((int64_t) (void*) wire_nt_generate_key);
     dummy_var ^= ((int64_t) (void*) wire_nt_get_hints);
     dummy_var ^= ((int64_t) (void*) wire_nt_derive_from_phrase);
@@ -260,6 +290,10 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_simple_call_func0);
     dummy_var ^= ((int64_t) (void*) wire_simple_call_func1);
     dummy_var ^= ((int64_t) (void*) wire_simple_call_func2);
+    dummy_var ^= ((int64_t) (void*) wire_refresh_timeout__method__UnsignedMessageImpl);
+    dummy_var ^= ((int64_t) (void*) wire_expire_at__method__UnsignedMessageImpl);
+    dummy_var ^= ((int64_t) (void*) wire_hash__method__UnsignedMessageImpl);
+    dummy_var ^= ((int64_t) (void*) wire_sign__method__UnsignedMessageImpl);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__JrpcConnectionImpl);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__GqlConnectionImpl);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__LedgerConnectionImpl);
@@ -268,11 +302,13 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_my_format__method__MyClass);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__CallerTestClass);
     dummy_var ^= ((int64_t) (void*) wire_call_some_func__method__CallerTestClass);
+    dummy_var ^= ((int64_t) (void*) new_BoxUnsignedMessageBoxTrait);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_caller_test_class_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_dart_call_stub_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_dynamic_value_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_mnemonic_type_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_my_class_0);
+    dummy_var ^= ((int64_t) (void*) new_box_autoadd_unsigned_message_impl_0);
     dummy_var ^= ((int64_t) (void*) new_list_dynamic_named_value_0);
     dummy_var ^= ((int64_t) (void*) new_list_dynamic_value_0);
     dummy_var ^= ((int64_t) (void*) new_uint_8_list_0);
