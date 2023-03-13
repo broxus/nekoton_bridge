@@ -442,6 +442,7 @@ impl Wire2Api<ErrorCode> for i32 {
             0 => ErrorCode::Ok,
             1 => ErrorCode::Network,
             2 => ErrorCode::Generic,
+            3 => ErrorCode::InvokeException,
             _ => unreachable!("Invalid variant for ErrorCode: {}", self),
         }
     }
@@ -562,6 +563,7 @@ impl support::IntoDart for ErrorCode {
             Self::Ok => 0,
             Self::Network => 1,
             Self::Generic => 2,
+            Self::InvokeException => 3,
         }
         .into_dart()
     }

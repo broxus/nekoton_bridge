@@ -266,6 +266,7 @@ enum ErrorCode {
   Ok,
   Network,
   Generic,
+  InvokeException,
 }
 
 /// Wrapper struct above GeneratedKey with suitable type for generation

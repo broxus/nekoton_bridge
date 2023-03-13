@@ -99,7 +99,9 @@ Future<void> registerRustToDartCaller(RustToDartCaller rustToDartCaller) async {
           lib.callSendResult(id: id, value: DynamicValue.error(e));
         } else {
           lib.callSendResult(
-              id: id, value: const DynamicValue.error(ErrorCode.Generic));
+            id: id,
+            value: const DynamicValue.error(ErrorCode.InvokeException),
+          );
         }
       }
       final logEntry = LogEntryCreate.create(
