@@ -1,7 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_nekoton_bridge/example_related/mega_struct.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
-import 'package:flutter_nekoton_bridge/rust_to_dart/rust_to_dart_caller.dart';
 import 'package:reflectable/reflectable.dart';
 import '../flutter_nekoton_bridge.dart';
 import 'caller_wrapper.reflectable.dart';

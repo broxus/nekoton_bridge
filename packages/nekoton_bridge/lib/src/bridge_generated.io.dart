@@ -153,71 +153,78 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
 
   void _api_fill_to_wire_dynamic_value(
       DynamicValue apiObj, wire_DynamicValue wireObj) {
+    if (apiObj is DynamicValue_U16) {
+      var pre_field0 = api2wire_u16(apiObj.field0);
+      wireObj.tag = 0;
+      wireObj.kind = inner.inflate_DynamicValue_U16();
+      wireObj.kind.ref.U16.ref.field0 = pre_field0;
+      return;
+    }
     if (apiObj is DynamicValue_U32) {
       var pre_field0 = api2wire_u32(apiObj.field0);
-      wireObj.tag = 0;
+      wireObj.tag = 1;
       wireObj.kind = inner.inflate_DynamicValue_U32();
       wireObj.kind.ref.U32.ref.field0 = pre_field0;
       return;
     }
     if (apiObj is DynamicValue_I32) {
       var pre_field0 = api2wire_i32(apiObj.field0);
-      wireObj.tag = 1;
+      wireObj.tag = 2;
       wireObj.kind = inner.inflate_DynamicValue_I32();
       wireObj.kind.ref.I32.ref.field0 = pre_field0;
       return;
     }
     if (apiObj is DynamicValue_U64) {
       var pre_field0 = api2wire_u64(apiObj.field0);
-      wireObj.tag = 2;
+      wireObj.tag = 3;
       wireObj.kind = inner.inflate_DynamicValue_U64();
       wireObj.kind.ref.U64.ref.field0 = pre_field0;
       return;
     }
     if (apiObj is DynamicValue_I64) {
       var pre_field0 = api2wire_i64(apiObj.field0);
-      wireObj.tag = 3;
+      wireObj.tag = 4;
       wireObj.kind = inner.inflate_DynamicValue_I64();
       wireObj.kind.ref.I64.ref.field0 = pre_field0;
       return;
     }
     if (apiObj is DynamicValue_F32) {
       var pre_field0 = api2wire_f32(apiObj.field0);
-      wireObj.tag = 4;
+      wireObj.tag = 5;
       wireObj.kind = inner.inflate_DynamicValue_F32();
       wireObj.kind.ref.F32.ref.field0 = pre_field0;
       return;
     }
     if (apiObj is DynamicValue_F64) {
       var pre_field0 = api2wire_f64(apiObj.field0);
-      wireObj.tag = 5;
+      wireObj.tag = 6;
       wireObj.kind = inner.inflate_DynamicValue_F64();
       wireObj.kind.ref.F64.ref.field0 = pre_field0;
       return;
     }
     if (apiObj is DynamicValue_String) {
       var pre_field0 = api2wire_String(apiObj.field0);
-      wireObj.tag = 6;
+      wireObj.tag = 7;
       wireObj.kind = inner.inflate_DynamicValue_String();
       wireObj.kind.ref.String.ref.field0 = pre_field0;
       return;
     }
     if (apiObj is DynamicValue_MegaStruct) {
       var pre_field0 = api2wire_String(apiObj.field0);
-      wireObj.tag = 7;
+      wireObj.tag = 8;
       wireObj.kind = inner.inflate_DynamicValue_MegaStruct();
       wireObj.kind.ref.MegaStruct.ref.field0 = pre_field0;
       return;
     }
     if (apiObj is DynamicValue_Error) {
       var pre_field0 = api2wire_error_code(apiObj.field0);
-      wireObj.tag = 8;
+      wireObj.tag = 9;
       wireObj.kind = inner.inflate_DynamicValue_Error();
       wireObj.kind.ref.Error.ref.field0 = pre_field0;
       return;
     }
     if (apiObj is DynamicValue_None) {
-      wireObj.tag = 9;
+      wireObj.tag = 10;
       return;
     }
   }
@@ -342,23 +349,6 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           'init_frb_dart_api_dl');
   late final _init_frb_dart_api_dl = _init_frb_dart_api_dlPtr
       .asFunction<int Function(ffi.Pointer<ffi.Void>)>();
-
-  void wire_resend_mnemonic(
-    int port_,
-    ffi.Pointer<wire_MnemonicType> mnemonic,
-  ) {
-    return _wire_resend_mnemonic(
-      port_,
-      mnemonic,
-    );
-  }
-
-  late final _wire_resend_mnemonicPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Int64,
-              ffi.Pointer<wire_MnemonicType>)>>('wire_resend_mnemonic');
-  late final _wire_resend_mnemonic = _wire_resend_mnemonicPtr
-      .asFunction<void Function(int, ffi.Pointer<wire_MnemonicType>)>();
 
   void wire_nt_generate_key(
     int port_,
@@ -651,6 +641,81 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_simple_call_func2 =
       _wire_simple_call_func2Ptr.asFunction<void Function(int)>();
 
+  void wire_new__static_method__JrpcConnectionImpl(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> instance_hash,
+  ) {
+    return _wire_new__static_method__JrpcConnectionImpl(
+      port_,
+      instance_hash,
+    );
+  }
+
+  late final _wire_new__static_method__JrpcConnectionImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_new__static_method__JrpcConnectionImpl');
+  late final _wire_new__static_method__JrpcConnectionImpl =
+      _wire_new__static_method__JrpcConnectionImplPtr
+          .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_new__static_method__GqlConnectionImpl(
+    int port_,
+    bool is_local,
+    ffi.Pointer<wire_uint_8_list> instance_hash,
+  ) {
+    return _wire_new__static_method__GqlConnectionImpl(
+      port_,
+      is_local,
+      instance_hash,
+    );
+  }
+
+  late final _wire_new__static_method__GqlConnectionImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Bool, ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_new__static_method__GqlConnectionImpl');
+  late final _wire_new__static_method__GqlConnectionImpl =
+      _wire_new__static_method__GqlConnectionImplPtr.asFunction<
+          void Function(int, bool, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_new__static_method__LedgerConnectionImpl(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> instance_hash,
+  ) {
+    return _wire_new__static_method__LedgerConnectionImpl(
+      port_,
+      instance_hash,
+    );
+  }
+
+  late final _wire_new__static_method__LedgerConnectionImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_new__static_method__LedgerConnectionImpl');
+  late final _wire_new__static_method__LedgerConnectionImpl =
+      _wire_new__static_method__LedgerConnectionImplPtr
+          .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_new__static_method__StorageImpl(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> instance_hash,
+  ) {
+    return _wire_new__static_method__StorageImpl(
+      port_,
+      instance_hash,
+    );
+  }
+
+  late final _wire_new__static_method__StorageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_new__static_method__StorageImpl');
+  late final _wire_new__static_method__StorageImpl =
+      _wire_new__static_method__StorageImplPtr
+          .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
   void wire_new__static_method__MyClass(
     int port_,
     int a,
@@ -824,6 +889,16 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _new_uint_8_list_0 = _new_uint_8_list_0Ptr
       .asFunction<ffi.Pointer<wire_uint_8_list> Function(int)>();
 
+  ffi.Pointer<DynamicValueKind> inflate_DynamicValue_U16() {
+    return _inflate_DynamicValue_U16();
+  }
+
+  late final _inflate_DynamicValue_U16Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<DynamicValueKind> Function()>>(
+          'inflate_DynamicValue_U16');
+  late final _inflate_DynamicValue_U16 = _inflate_DynamicValue_U16Ptr
+      .asFunction<ffi.Pointer<DynamicValueKind> Function()>();
+
   ffi.Pointer<DynamicValueKind> inflate_DynamicValue_U32() {
     return _inflate_DynamicValue_U32();
   }
@@ -969,6 +1044,11 @@ class wire_uint_8_list extends ffi.Struct {
   external int len;
 }
 
+class wire_DynamicValue_U16 extends ffi.Struct {
+  @ffi.Uint16()
+  external int field0;
+}
+
 class wire_DynamicValue_U32 extends ffi.Struct {
   @ffi.Uint32()
   external int field0;
@@ -1015,6 +1095,8 @@ class wire_DynamicValue_Error extends ffi.Struct {
 class wire_DynamicValue_None extends ffi.Opaque {}
 
 class DynamicValueKind extends ffi.Union {
+  external ffi.Pointer<wire_DynamicValue_U16> U16;
+
   external ffi.Pointer<wire_DynamicValue_U32> U32;
 
   external ffi.Pointer<wire_DynamicValue_I32> I32;

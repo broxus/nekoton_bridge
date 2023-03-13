@@ -18,12 +18,6 @@ import 'bridge_generated.io.dart'
 part 'bridge_generated.freezed.dart';
 
 abstract class NekotonBridge {
-  /// Test func
-  Future<MnemonicType> resendMnemonic(
-      {required MnemonicType mnemonic, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kResendMnemonicConstMeta;
-
   ///----------------------------
   /// CONTENT OF src/nekoton_wrapper/crypto/mnemonic/mnemonic_api.rs
   ///----------------------------
@@ -117,6 +111,28 @@ abstract class NekotonBridge {
   Future<void> simpleCallFunc2({dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kSimpleCallFunc2ConstMeta;
+
+  Future<JrpcConnectionImpl> newStaticMethodJrpcConnectionImpl(
+      {required String instanceHash, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodJrpcConnectionImplConstMeta;
+
+  Future<GqlConnectionImpl> newStaticMethodGqlConnectionImpl(
+      {required bool isLocal, required String instanceHash, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kNewStaticMethodGqlConnectionImplConstMeta;
+
+  Future<LedgerConnectionImpl> newStaticMethodLedgerConnectionImpl(
+      {required String instanceHash, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodLedgerConnectionImplConstMeta;
+
+  Future<StorageImpl> newStaticMethodStorageImpl(
+      {required String instanceHash, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kNewStaticMethodStorageImplConstMeta;
 
   Future<MyClass> newStaticMethodMyClass({required int a, dynamic hint});
 
@@ -213,6 +229,9 @@ class DynamicNamedValue {
 
 @freezed
 class DynamicValue with _$DynamicValue {
+  const factory DynamicValue.u16(
+    int field0,
+  ) = DynamicValue_U16;
   const factory DynamicValue.u32(
     int field0,
   ) = DynamicValue_U32;
@@ -247,6 +266,7 @@ enum ErrorCode {
   Ok,
   Network,
   Generic,
+  InvokeException,
 }
 
 /// Wrapper struct above GeneratedKey with suitable type for generation
@@ -258,6 +278,72 @@ class GeneratedKeyG {
     required this.words,
     required this.accountType,
   });
+}
+
+///----------------------------
+/// CONTENT OF src/nekoton_wrapper/external/gql_connection_api.rs
+///----------------------------
+/// Implementation of nekoton's GqlConnection
+class GqlConnectionImpl {
+  final NekotonBridge bridge;
+  final bool isLocal;
+  final String instanceHash;
+
+  const GqlConnectionImpl({
+    required this.bridge,
+    required this.isLocal,
+    required this.instanceHash,
+  });
+
+  static Future<GqlConnectionImpl> newGqlConnectionImpl(
+          {required NekotonBridge bridge,
+          required bool isLocal,
+          required String instanceHash,
+          dynamic hint}) =>
+      bridge.newStaticMethodGqlConnectionImpl(
+          isLocal: isLocal, instanceHash: instanceHash, hint: hint);
+}
+
+///----------------------------
+/// CONTENT OF src/nekoton_wrapper/external/jrpc_connection_api.rs
+///----------------------------
+/// Implementation of nekoton's JrpcConnection
+class JrpcConnectionImpl {
+  final NekotonBridge bridge;
+  final String instanceHash;
+
+  const JrpcConnectionImpl({
+    required this.bridge,
+    required this.instanceHash,
+  });
+
+  static Future<JrpcConnectionImpl> newJrpcConnectionImpl(
+          {required NekotonBridge bridge,
+          required String instanceHash,
+          dynamic hint}) =>
+      bridge.newStaticMethodJrpcConnectionImpl(
+          instanceHash: instanceHash, hint: hint);
+}
+
+///----------------------------
+/// CONTENT OF src/nekoton_wrapper/external/ledger_connection_api.rs
+///----------------------------
+/// Implementation of nekoton's LedgerConnection
+class LedgerConnectionImpl {
+  final NekotonBridge bridge;
+  final String instanceHash;
+
+  const LedgerConnectionImpl({
+    required this.bridge,
+    required this.instanceHash,
+  });
+
+  static Future<LedgerConnectionImpl> newLedgerConnectionImpl(
+          {required NekotonBridge bridge,
+          required String instanceHash,
+          dynamic hint}) =>
+      bridge.newStaticMethodLedgerConnectionImpl(
+          instanceHash: instanceHash, hint: hint);
 }
 
 /// Log entry
@@ -309,6 +395,26 @@ class MyClass {
       );
 }
 
+///----------------------------
+/// CONTENT OF src/nekoton_wrapper/external/storage_api.rs
+///----------------------------
+/// Implementation of nekoton's Storage
+class StorageImpl {
+  final NekotonBridge bridge;
+  final String instanceHash;
+
+  const StorageImpl({
+    required this.bridge,
+    required this.instanceHash,
+  });
+
+  static Future<StorageImpl> newStorageImpl(
+          {required NekotonBridge bridge,
+          required String instanceHash,
+          dynamic hint}) =>
+      bridge.newStaticMethodStorageImpl(instanceHash: instanceHash, hint: hint);
+}
+
 class NekotonBridgeImpl implements NekotonBridge {
   final NekotonBridgePlatform _platform;
   factory NekotonBridgeImpl(ExternalLibrary dylib) =>
@@ -318,24 +424,6 @@ class NekotonBridgeImpl implements NekotonBridge {
   factory NekotonBridgeImpl.wasm(FutureOr<WasmModule> module) =>
       NekotonBridgeImpl(module as ExternalLibrary);
   NekotonBridgeImpl.raw(this._platform);
-  Future<MnemonicType> resendMnemonic(
-      {required MnemonicType mnemonic, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_mnemonic_type(mnemonic);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_resend_mnemonic(port_, arg0),
-      parseSuccessData: _wire2api_mnemonic_type,
-      constMeta: kResendMnemonicConstMeta,
-      argValues: [mnemonic],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kResendMnemonicConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "resend_mnemonic",
-        argNames: ["mnemonic"],
-      );
-
   Future<GeneratedKeyG> ntGenerateKey(
       {required MnemonicType accountType, dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_mnemonic_type(accountType);
@@ -648,6 +736,86 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: [],
       );
 
+  Future<JrpcConnectionImpl> newStaticMethodJrpcConnectionImpl(
+      {required String instanceHash, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(instanceHash);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_new__static_method__JrpcConnectionImpl(port_, arg0),
+      parseSuccessData: (d) => _wire2api_jrpc_connection_impl(d),
+      constMeta: kNewStaticMethodJrpcConnectionImplConstMeta,
+      argValues: [instanceHash],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodJrpcConnectionImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "new__static_method__JrpcConnectionImpl",
+            argNames: ["instanceHash"],
+          );
+
+  Future<GqlConnectionImpl> newStaticMethodGqlConnectionImpl(
+      {required bool isLocal, required String instanceHash, dynamic hint}) {
+    var arg0 = isLocal;
+    var arg1 = _platform.api2wire_String(instanceHash);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_new__static_method__GqlConnectionImpl(port_, arg0, arg1),
+      parseSuccessData: (d) => _wire2api_gql_connection_impl(d),
+      constMeta: kNewStaticMethodGqlConnectionImplConstMeta,
+      argValues: [isLocal, instanceHash],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodGqlConnectionImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "new__static_method__GqlConnectionImpl",
+            argNames: ["isLocal", "instanceHash"],
+          );
+
+  Future<LedgerConnectionImpl> newStaticMethodLedgerConnectionImpl(
+      {required String instanceHash, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(instanceHash);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_new__static_method__LedgerConnectionImpl(port_, arg0),
+      parseSuccessData: (d) => _wire2api_ledger_connection_impl(d),
+      constMeta: kNewStaticMethodLedgerConnectionImplConstMeta,
+      argValues: [instanceHash],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodLedgerConnectionImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "new__static_method__LedgerConnectionImpl",
+            argNames: ["instanceHash"],
+          );
+
+  Future<StorageImpl> newStaticMethodStorageImpl(
+      {required String instanceHash, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(instanceHash);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_new__static_method__StorageImpl(port_, arg0),
+      parseSuccessData: (d) => _wire2api_storage_impl(d),
+      constMeta: kNewStaticMethodStorageImplConstMeta,
+      argValues: [instanceHash],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kNewStaticMethodStorageImplConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "new__static_method__StorageImpl",
+        argNames: ["instanceHash"],
+      );
+
   Future<MyClass> newStaticMethodMyClass({required int a, dynamic hint}) {
     var arg0 = api2wire_i32(a);
     return _platform.executeNormal(FlutterRustBridgeTask(
@@ -737,6 +905,10 @@ class NekotonBridgeImpl implements NekotonBridge {
     return (raw as List<dynamic>).cast<String>();
   }
 
+  bool _wire2api_bool(dynamic raw) {
+    return raw as bool;
+  }
+
   DynamicValue _wire2api_box_autoadd_dynamic_value(dynamic raw) {
     return _wire2api_dynamic_value(raw);
   }
@@ -787,42 +959,46 @@ class NekotonBridgeImpl implements NekotonBridge {
   DynamicValue _wire2api_dynamic_value(dynamic raw) {
     switch (raw[0]) {
       case 0:
+        return DynamicValue_U16(
+          _wire2api_u16(raw[1]),
+        );
+      case 1:
         return DynamicValue_U32(
           _wire2api_u32(raw[1]),
         );
-      case 1:
+      case 2:
         return DynamicValue_I32(
           _wire2api_i32(raw[1]),
         );
-      case 2:
+      case 3:
         return DynamicValue_U64(
           _wire2api_u64(raw[1]),
         );
-      case 3:
+      case 4:
         return DynamicValue_I64(
           _wire2api_i64(raw[1]),
         );
-      case 4:
+      case 5:
         return DynamicValue_F32(
           _wire2api_f32(raw[1]),
         );
-      case 5:
+      case 6:
         return DynamicValue_F64(
           _wire2api_f64(raw[1]),
         );
-      case 6:
+      case 7:
         return DynamicValue_String(
           _wire2api_String(raw[1]),
         );
-      case 7:
+      case 8:
         return DynamicValue_MegaStruct(
           _wire2api_String(raw[1]),
         );
-      case 8:
+      case 9:
         return DynamicValue_Error(
           _wire2api_error_code(raw[1]),
         );
-      case 9:
+      case 10:
         return DynamicValue_None();
       default:
         throw Exception("unreachable");
@@ -851,12 +1027,43 @@ class NekotonBridgeImpl implements NekotonBridge {
     );
   }
 
+  GqlConnectionImpl _wire2api_gql_connection_impl(dynamic raw) {
+    final arr = raw as List<dynamic>;
+    if (arr.length != 2)
+      throw Exception('unexpected arr length: expect 2 but see ${arr.length}');
+    return GqlConnectionImpl(
+      bridge: this,
+      isLocal: _wire2api_bool(arr[0]),
+      instanceHash: _wire2api_String(arr[1]),
+    );
+  }
+
   int _wire2api_i32(dynamic raw) {
     return raw as int;
   }
 
   int _wire2api_i64(dynamic raw) {
     return castInt(raw);
+  }
+
+  JrpcConnectionImpl _wire2api_jrpc_connection_impl(dynamic raw) {
+    final arr = raw as List<dynamic>;
+    if (arr.length != 1)
+      throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
+    return JrpcConnectionImpl(
+      bridge: this,
+      instanceHash: _wire2api_String(arr[0]),
+    );
+  }
+
+  LedgerConnectionImpl _wire2api_ledger_connection_impl(dynamic raw) {
+    final arr = raw as List<dynamic>;
+    if (arr.length != 1)
+      throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
+    return LedgerConnectionImpl(
+      bridge: this,
+      instanceHash: _wire2api_String(arr[0]),
+    );
   }
 
   List<DynamicNamedValue> _wire2api_list_dynamic_named_value(dynamic raw) {
@@ -912,6 +1119,16 @@ class NekotonBridgeImpl implements NekotonBridge {
 
   DynamicValue? _wire2api_opt_box_autoadd_dynamic_value(dynamic raw) {
     return raw == null ? null : _wire2api_box_autoadd_dynamic_value(raw);
+  }
+
+  StorageImpl _wire2api_storage_impl(dynamic raw) {
+    final arr = raw as List<dynamic>;
+    if (arr.length != 1)
+      throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
+    return StorageImpl(
+      bridge: this,
+      instanceHash: _wire2api_String(arr[0]),
+    );
   }
 
   int _wire2api_u16(dynamic raw) {

@@ -63,6 +63,7 @@ abstract class RustToDartMirrorInterface {
   }
 
   /// Free memory from of class in caller
+  @mustCallSuper
   void dispose() {
     RustToDartCaller.instance.unregisterInstance(this);
   }

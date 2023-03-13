@@ -2,10 +2,10 @@
 // https://github.com/dart-lang/reflectable.
 
 import 'dart:core';
-import 'caller_wrapper.dart' as prefix1;
+import 'gql_connection.dart' as prefix1;
 import 'package:flutter_nekoton_bridge/example_related/caller_test_class_wrapper.dart'
     as prefix2;
-import 'package:flutter_nekoton_bridge/nekoton/external/gql_connection.dart'
+import 'package:flutter_nekoton_bridge/example_related/caller_wrapper.dart'
     as prefix3;
 import 'package:flutter_nekoton_bridge/nekoton/external/jrpc_connection.dart'
     as prefix4;
@@ -32,8 +32,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
   const prefix0.Reflector(): r.ReflectorData(
       <m.TypeMirror>[
         r.NonGenericClassMirrorImpl(
-            r'CallerWrapper',
-            r'.CallerWrapper',
+            r'GqlConnection',
+            r'.GqlConnection',
             134217735,
             0,
             const prefix0.Reflector(),
@@ -41,30 +41,31 @@ final _data = <r.Reflectable, r.ReflectorData>{
             null,
             null,
             -1,
+            {r'create': () => prefix1.GqlConnection.create},
             {},
             {},
-            {
-              r'': (bool b) =>
-                  (storage) => b ? prefix1.CallerWrapper(storage) : null
-            },
             -1,
             -1,
             const <int>[-1],
             null,
             {
               r'==': 1,
-              r'toString': 2,
+              r'toString': 0,
               r'noSuchMethod': 1,
-              r'hashCode': 2,
-              r'runtimeType': 2,
-              r'init': 2,
-              r'dispose': 2,
-              r'instanceHash': 2,
-              r'func0': 0,
-              r'func1': 0,
-              r'func2': 1,
-              r'initializeMirror': 2,
-              r'storage': 2
+              r'hashCode': 0,
+              r'runtimeType': 0,
+              r'init': 0,
+              r'dispose': 0,
+              r'instanceHash': 0,
+              r'post': 1,
+              r'initializeMirror': 0,
+              r'connection': 0,
+              r'connection=': 1,
+              r'name': 0,
+              r'networkId': 0,
+              r'group': 0,
+              r'type': 0,
+              r'create': 0
             }),
         r.NonGenericClassMirrorImpl(
             r'CallerTestClassWrapper',
@@ -85,22 +86,22 @@ final _data = <r.Reflectable, r.ReflectorData>{
             null,
             {
               r'==': 1,
-              r'toString': 2,
+              r'toString': 0,
               r'noSuchMethod': 1,
-              r'hashCode': 2,
-              r'runtimeType': 2,
-              r'init': 2,
-              r'dispose': 2,
-              r'instanceHash': 2,
+              r'hashCode': 0,
+              r'runtimeType': 0,
+              r'init': 0,
+              r'dispose': 0,
+              r'instanceHash': 0,
               r'request': 1,
-              r'initializeMirror': 2,
-              r'caller': 2,
+              r'initializeMirror': 0,
+              r'caller': 0,
               r'caller=': 1,
               r'create': 1
             }),
         r.NonGenericClassMirrorImpl(
-            r'GqlConnection',
-            r'.GqlConnection',
+            r'CallerWrapper',
+            r'.CallerWrapper',
             134217735,
             2,
             const prefix0.Reflector(),
@@ -108,31 +109,30 @@ final _data = <r.Reflectable, r.ReflectorData>{
             null,
             null,
             -1,
-            {r'create': () => prefix3.GqlConnection.create},
             {},
             {},
+            {
+              r'': (bool b) =>
+                  (storage) => b ? prefix3.CallerWrapper(storage) : null
+            },
             -1,
             -1,
             const <int>[-1],
             null,
             {
               r'==': 1,
-              r'toString': 2,
+              r'toString': 0,
               r'noSuchMethod': 1,
-              r'hashCode': 2,
-              r'runtimeType': 2,
-              r'init': 2,
-              r'dispose': 2,
-              r'instanceHash': 2,
-              r'post': 1,
-              r'initializeMirror': 2,
-              r'connection': 2,
-              r'connection=': 1,
-              r'name': 2,
-              r'networkId': 2,
-              r'group': 2,
-              r'type': 2,
-              r'create': 3
+              r'hashCode': 0,
+              r'runtimeType': 0,
+              r'init': 0,
+              r'dispose': 0,
+              r'instanceHash': 0,
+              r'func0': 2,
+              r'func1': 2,
+              r'func2': 1,
+              r'initializeMirror': 0,
+              r'storage': 0
             }),
         r.NonGenericClassMirrorImpl(
             r'JrpcConnection',
@@ -153,22 +153,22 @@ final _data = <r.Reflectable, r.ReflectorData>{
             null,
             {
               r'==': 1,
-              r'toString': 2,
+              r'toString': 0,
               r'noSuchMethod': 1,
-              r'hashCode': 2,
-              r'runtimeType': 2,
-              r'init': 2,
-              r'dispose': 2,
-              r'instanceHash': 2,
+              r'hashCode': 0,
+              r'runtimeType': 0,
+              r'init': 0,
+              r'dispose': 0,
+              r'instanceHash': 0,
               r'post': 1,
-              r'initializeMirror': 2,
-              r'connection': 2,
+              r'initializeMirror': 0,
+              r'connection': 0,
               r'connection=': 1,
-              r'name': 2,
-              r'networkId': 2,
-              r'group': 2,
-              r'type': 2,
-              r'create': 3
+              r'name': 0,
+              r'networkId': 0,
+              r'group': 0,
+              r'type': 0,
+              r'create': 0
             }),
         r.NonGenericClassMirrorImpl(
             r'LedgerConnection',
@@ -189,18 +189,18 @@ final _data = <r.Reflectable, r.ReflectorData>{
             null,
             {
               r'==': 1,
-              r'toString': 2,
+              r'toString': 0,
               r'noSuchMethod': 1,
-              r'hashCode': 2,
-              r'runtimeType': 2,
-              r'init': 2,
-              r'dispose': 2,
-              r'instanceHash': 2,
+              r'hashCode': 0,
+              r'runtimeType': 0,
+              r'init': 0,
+              r'dispose': 0,
+              r'instanceHash': 0,
               r'getPublicKey': 1,
-              r'initializeMirror': 2,
-              r'connection': 2,
+              r'initializeMirror': 0,
+              r'connection': 0,
               r'connection=': 1,
-              r'create': 4
+              r'create': 3
             }),
         r.NonGenericClassMirrorImpl(
             r'Storage',
@@ -221,30 +221,30 @@ final _data = <r.Reflectable, r.ReflectorData>{
             null,
             {
               r'==': 1,
-              r'toString': 2,
+              r'toString': 0,
               r'noSuchMethod': 1,
-              r'hashCode': 2,
-              r'runtimeType': 2,
-              r'init': 2,
-              r'dispose': 2,
-              r'instanceHash': 2,
+              r'hashCode': 0,
+              r'runtimeType': 0,
+              r'init': 0,
+              r'dispose': 0,
+              r'instanceHash': 0,
               r'get': 1,
-              r'set': 6,
-              r'setUnchecked': 6,
-              r'remove': 6,
-              r'removeUnchecked': 6,
-              r'initializeMirror': 2,
-              r'storage': 2,
+              r'set': 5,
+              r'setUnchecked': 5,
+              r'remove': 5,
+              r'removeUnchecked': 5,
+              r'initializeMirror': 0,
+              r'storage': 0,
               r'storage=': 1,
-              r'create': 5
+              r'create': 4
             })
       ],
       null,
       null,
       <Type>[
-        prefix1.CallerWrapper,
+        prefix1.GqlConnection,
         prefix2.CallerTestClassWrapper,
-        prefix3.GqlConnection,
+        prefix3.CallerWrapper,
         prefix4.JrpcConnection,
         prefix5.LedgerConnection,
         prefix6.Storage
@@ -259,19 +259,19 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'init': (dynamic instance) => instance.init,
         r'dispose': (dynamic instance) => instance.dispose,
         r'instanceHash': (dynamic instance) => instance.instanceHash,
-        r'func0': (dynamic instance) => instance.func0,
-        r'func1': (dynamic instance) => instance.func1,
-        r'func2': (dynamic instance) => instance.func2,
-        r'initializeMirror': (dynamic instance) => instance.initializeMirror,
-        r'storage': (dynamic instance) => instance.storage,
-        r'request': (dynamic instance) => instance.request,
-        r'caller': (dynamic instance) => instance.caller,
         r'post': (dynamic instance) => instance.post,
+        r'initializeMirror': (dynamic instance) => instance.initializeMirror,
         r'connection': (dynamic instance) => instance.connection,
         r'name': (dynamic instance) => instance.name,
         r'networkId': (dynamic instance) => instance.networkId,
         r'group': (dynamic instance) => instance.group,
         r'type': (dynamic instance) => instance.type,
+        r'request': (dynamic instance) => instance.request,
+        r'caller': (dynamic instance) => instance.caller,
+        r'func0': (dynamic instance) => instance.func0,
+        r'func1': (dynamic instance) => instance.func1,
+        r'func2': (dynamic instance) => instance.func2,
+        r'storage': (dynamic instance) => instance.storage,
         r'getPublicKey': (dynamic instance) => instance.getPublicKey,
         r'get': (dynamic instance) => instance.get,
         r'set': (dynamic instance) => instance.set,
@@ -280,24 +280,23 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'removeUnchecked': (dynamic instance) => instance.removeUnchecked
       },
       {
-        r'caller=': (dynamic instance, value) => instance.caller = value,
         r'connection=': (dynamic instance, value) =>
             instance.connection = value,
+        r'caller=': (dynamic instance, value) => instance.caller = value,
         r'storage=': (dynamic instance, value) => instance.storage = value
       },
       null,
       [
         const [
-          3,
-          0,
-          const [#arg0, #arg1]
-        ],
-        const [1, 0, null],
-        const [0, 0, null],
-        const [
           0,
           0,
           const [#post, #get, #settings, #name, #group, #networkId]
+        ],
+        const [1, 0, null],
+        const [
+          3,
+          0,
+          const [#arg0, #arg1]
         ],
         const [
           0,

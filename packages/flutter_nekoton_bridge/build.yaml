@@ -10,5 +10,9 @@ targets:
         generate_for:
           - lib/example_related/caller_wrapper.dart
           - lib/example_related/caller_test_class_wrapper.dart
+          - lib/nekoton/external/gql_connection.dart
+          - lib/nekoton/external/jrpc_connection.dart
+          - lib/nekoton/external/ledger_connection.dart
+          - lib/nekoton/external/storage.dart
         options:
           formatted: true

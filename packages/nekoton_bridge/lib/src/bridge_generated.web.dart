@@ -74,35 +74,38 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
 
   @protected
   List<dynamic> api2wire_dynamic_value(DynamicValue raw) {
+    if (raw is DynamicValue_U16) {
+      return [0, api2wire_u16(raw.field0)];
+    }
     if (raw is DynamicValue_U32) {
-      return [0, api2wire_u32(raw.field0)];
+      return [1, api2wire_u32(raw.field0)];
     }
     if (raw is DynamicValue_I32) {
-      return [1, api2wire_i32(raw.field0)];
+      return [2, api2wire_i32(raw.field0)];
     }
     if (raw is DynamicValue_U64) {
-      return [2, api2wire_u64(raw.field0)];
+      return [3, api2wire_u64(raw.field0)];
     }
     if (raw is DynamicValue_I64) {
-      return [3, api2wire_i64(raw.field0)];
+      return [4, api2wire_i64(raw.field0)];
     }
     if (raw is DynamicValue_F32) {
-      return [4, api2wire_f32(raw.field0)];
+      return [5, api2wire_f32(raw.field0)];
     }
     if (raw is DynamicValue_F64) {
-      return [5, api2wire_f64(raw.field0)];
+      return [6, api2wire_f64(raw.field0)];
     }
     if (raw is DynamicValue_String) {
-      return [6, api2wire_String(raw.field0)];
-    }
-    if (raw is DynamicValue_MegaStruct) {
       return [7, api2wire_String(raw.field0)];
     }
+    if (raw is DynamicValue_MegaStruct) {
+      return [8, api2wire_String(raw.field0)];
+    }
     if (raw is DynamicValue_Error) {
-      return [8, api2wire_error_code(raw.field0)];
+      return [9, api2wire_error_code(raw.field0)];
     }
     if (raw is DynamicValue_None) {
-      return [9];
+      return [10];
     }
 
     throw Exception('unreachable');
@@ -167,9 +170,6 @@ external NekotonBridgeWasmModule get wasmModule;
 class NekotonBridgeWasmModule implements WasmModule {
   external Object /* Promise */ call([String? moduleName]);
   external NekotonBridgeWasmModule bind(dynamic thisArg, String moduleName);
-  external dynamic /* void */ wire_resend_mnemonic(
-      NativePortType port_, List<dynamic> mnemonic);
-
   external dynamic /* void */ wire_nt_generate_key(
       NativePortType port_, List<dynamic> account_type);
 
@@ -216,6 +216,18 @@ class NekotonBridgeWasmModule implements WasmModule {
 
   external dynamic /* void */ wire_simple_call_func2(NativePortType port_);
 
+  external dynamic /* void */ wire_new__static_method__JrpcConnectionImpl(
+      NativePortType port_, String instance_hash);
+
+  external dynamic /* void */ wire_new__static_method__GqlConnectionImpl(
+      NativePortType port_, bool is_local, String instance_hash);
+
+  external dynamic /* void */ wire_new__static_method__LedgerConnectionImpl(
+      NativePortType port_, String instance_hash);
+
+  external dynamic /* void */ wire_new__static_method__StorageImpl(
+      NativePortType port_, String instance_hash);
+
   external dynamic /* void */ wire_new__static_method__MyClass(
       NativePortType port_, int a);
 
@@ -235,9 +247,6 @@ class NekotonBridgeWire
     extends FlutterRustBridgeWasmWireBase<NekotonBridgeWasmModule> {
   NekotonBridgeWire(FutureOr<WasmModule> module)
       : super(WasmModule.cast<NekotonBridgeWasmModule>(module));
-
-  void wire_resend_mnemonic(NativePortType port_, List<dynamic> mnemonic) =>
-      wasmModule.wire_resend_mnemonic(port_, mnemonic);
 
   void wire_nt_generate_key(NativePortType port_, List<dynamic> account_type) =>
       wasmModule.wire_nt_generate_key(port_, account_type);
@@ -292,6 +301,25 @@ class NekotonBridgeWire
 
   void wire_simple_call_func2(NativePortType port_) =>
       wasmModule.wire_simple_call_func2(port_);
+
+  void wire_new__static_method__JrpcConnectionImpl(
+          NativePortType port_, String instance_hash) =>
+      wasmModule.wire_new__static_method__JrpcConnectionImpl(
+          port_, instance_hash);
+
+  void wire_new__static_method__GqlConnectionImpl(
+          NativePortType port_, bool is_local, String instance_hash) =>
+      wasmModule.wire_new__static_method__GqlConnectionImpl(
+          port_, is_local, instance_hash);
+
+  void wire_new__static_method__LedgerConnectionImpl(
+          NativePortType port_, String instance_hash) =>
+      wasmModule.wire_new__static_method__LedgerConnectionImpl(
+          port_, instance_hash);
+
+  void wire_new__static_method__StorageImpl(
+          NativePortType port_, String instance_hash) =>
+      wasmModule.wire_new__static_method__StorageImpl(port_, instance_hash);
 
   void wire_new__static_method__MyClass(NativePortType port_, int a) =>
       wasmModule.wire_new__static_method__MyClass(port_, a);

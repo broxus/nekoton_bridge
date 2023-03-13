@@ -27,7 +27,7 @@ jobs:
       # Rust
       - name: Check Rust format
         working-directory: ./packages/nekoton_bridge/native/src
-        run: rustfmt --check lib.rs
+        run: rustfmt --check lib.rs --edition 2018
       - name: Rust code analysis
         run: cargo clippy -- -D warnings
       - name: Run Rust tests

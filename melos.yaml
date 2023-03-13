@@ -15,7 +15,7 @@ scripts:
     description: Check the format of a specific package in this project.
 
   check-rust:
-    exec: rustfmt --check native/src/lib.rs && cargo clippy -- -D warnings
+    exec: rustfmt --check --edition 2018 native/src/lib.rs && cargo clippy -- -D warnings
     description: Check the format of a rust code.
     packageFilters:
       dirExists: native
