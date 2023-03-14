@@ -44,6 +44,29 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kNtDeriveFromPhraseConstMeta;
 
   ///----------------------------
+  /// CONTENT OF src/utils/tests_api.rs
+  ///----------------------------
+  Future<void> testLoggerInfo({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerInfoConstMeta;
+
+  Future<void> testLoggerDebug({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerDebugConstMeta;
+
+  Future<void> testLoggerWarn({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerWarnConstMeta;
+
+  Future<void> testLoggerError({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerErrorConstMeta;
+
+  Future<void> testLoggerPanic({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerPanicConstMeta;
+
+  ///----------------------------
   /// CONTENT OF src/utils/api.rs
   ///----------------------------
   /// Init utils
@@ -479,6 +502,91 @@ class NekotonBridgeImpl implements NekotonBridge {
       const FlutterRustBridgeTaskConstMeta(
         debugName: "nt_derive_from_phrase",
         argNames: ["phrase", "mnemonicType"],
+      );
+
+  Future<void> testLoggerInfo({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_info(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerInfoConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerInfoConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_info",
+        argNames: ["string"],
+      );
+
+  Future<void> testLoggerDebug({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_debug(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerDebugConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerDebugConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_debug",
+        argNames: ["string"],
+      );
+
+  Future<void> testLoggerWarn({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_warn(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerWarnConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerWarnConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_warn",
+        argNames: ["string"],
+      );
+
+  Future<void> testLoggerError({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_error(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerErrorConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerErrorConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_error",
+        argNames: ["string"],
+      );
+
+  Future<void> testLoggerPanic({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_panic(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerPanicConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerPanicConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_panic",
+        argNames: ["string"],
       );
 
   Future<void> initLogger(

@@ -405,6 +405,91 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           void Function(int, ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_MnemonicType>)>();
 
+  void wire_test_logger_info(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+  ) {
+    return _wire_test_logger_info(
+      port_,
+      string,
+    );
+  }
+
+  late final _wire_test_logger_infoPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_info');
+  late final _wire_test_logger_info = _wire_test_logger_infoPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_test_logger_debug(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+  ) {
+    return _wire_test_logger_debug(
+      port_,
+      string,
+    );
+  }
+
+  late final _wire_test_logger_debugPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_debug');
+  late final _wire_test_logger_debug = _wire_test_logger_debugPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_test_logger_warn(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+  ) {
+    return _wire_test_logger_warn(
+      port_,
+      string,
+    );
+  }
+
+  late final _wire_test_logger_warnPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_warn');
+  late final _wire_test_logger_warn = _wire_test_logger_warnPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_test_logger_error(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+  ) {
+    return _wire_test_logger_error(
+      port_,
+      string,
+    );
+  }
+
+  late final _wire_test_logger_errorPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_error');
+  late final _wire_test_logger_error = _wire_test_logger_errorPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_test_logger_panic(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+  ) {
+    return _wire_test_logger_panic(
+      port_,
+      string,
+    );
+  }
+
+  late final _wire_test_logger_panicPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_panic');
+  late final _wire_test_logger_panic = _wire_test_logger_panicPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
   void wire_init_logger(
     int port_,
     int level,

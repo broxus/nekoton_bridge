@@ -14,6 +14,8 @@ export 'rust_to_dart/rust_to_dart_caller.dart';
 import 'example_related/example_related_lib.dart';
 export 'example_related/example_related_lib.dart';
 
+export 'tests_related/tests_related_lib.dart';
+
 export 'nekoton/nekoton_lib.dart';
 
 void Function(LogEntry logEntry)? _logHandler;
