@@ -57,6 +57,144 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kNtDeriveFromPhraseConstMeta;
 
   ///----------------------------
+  /// CONTENT OF src/nekoton_wrapper/helpers/abi_api.rs
+  ///----------------------------
+  /// Check if public key is correct.
+  /// If no - throws error, if ok - return true
+  Future<bool> checkPublicKey({required String publicKey, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kCheckPublicKeyConstMeta;
+
+  /// Run contract local.
+  /// Return json-encoded ExecutionOutput or throws error.
+  ///
+  /// input - is json-encoded AbiToken
+  Future<String> runLocal(
+      {required String accountStuffBoc,
+      required String contractAbi,
+      required String method,
+      required String input,
+      required bool responsible,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kRunLocalConstMeta;
+
+  /// Get address of tvc and contract_abi.
+  /// Returns list of [address, state_init] or throws error
+  Future<List<String>> getExpectedAddress(
+      {required String tvc,
+      required String contractAbi,
+      required int workchainId,
+      String? publicKey,
+      required String initData,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kGetExpectedAddressConstMeta;
+
+  /// Returns base64-encoded body that was encoded or throws error
+  Future<String> encodeInternalInput(
+      {required String contractAbi,
+      required String method,
+      required String input,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kEncodeInternalInputConstMeta;
+
+  /// Returns json-encoded SignedMessage from nekoton or throws error
+  Future<String> createExternalMessageWithoutSignature(
+      {required String dst,
+      required String contractAbi,
+      required String method,
+      String? stateInit,
+      required String input,
+      required int timeout,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kCreateExternalMessageWithoutSignatureConstMeta;
+
+  /// Create external unsigned message that can be listened and handled or throws error
+  Future<UnsignedMessageImpl> createExternalMessage(
+      {required String dst,
+      required String contractAbi,
+      required String method,
+      String? stateInit,
+      required String input,
+      required String publicKey,
+      required int timeout,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kCreateExternalMessageConstMeta;
+
+  /// Parse payload and return json-encoded KnownPayload or throws error
+  Future<String> parseKnownPayload({required String payload, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kParseKnownPayloadConstMeta;
+
+  /// Decode input data and return json-encoded DecodedInput or throws error
+  Future<String> decodeInput(
+      {required String messageBody,
+      required String contractAbi,
+      String? method,
+      required bool internal,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kDecodeInputConstMeta;
+
+  /// Decode input data and return json-encoded DecodedEvent or throws error
+  Future<String> decodeEvent(
+      {required String messageBody,
+      required String contractAbi,
+      String? event,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kDecodeEventConstMeta;
+
+  /// Decode output data and return json-encoded DecodedOutput or throws error
+  Future<String> decodeOutput(
+      {required String messageBody,
+      required String contractAbi,
+      String? method,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kDecodeOutputConstMeta;
+
+  /// Decode transaction and return json-encoded DecodedTransaction or throws error
+  Future<String> decodeTransaction(
+      {required String transaction,
+      required String contractAbi,
+      String? method,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kDecodeTransactionConstMeta;
+
+  /// Decode events of transaction and return json-encoded DecodedEvent or throws error
+  Future<String> decodeTransactionEvents(
+      {required String transaction, required String contractAbi, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kDecodeTransactionEventsConstMeta;
+
+  /// Returns hash of decoded boc or throws error
+  Future<String> getBocHash({required String boc, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kGetBocHashConstMeta;
+
+  /// Return base64 encoded bytes of tokens or throws error
+  Future<String> packIntoCell(
+      {required String params, required String tokens, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kPackIntoCellConstMeta;
+
+  /// Parse list of params and return json-encoded Tokens or throws error
+  Future<String> unpackFromCell(
+      {required String params,
+      required String boc,
+      required bool allowPartial,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kUnpackFromCellConstMeta;
+
+  ///----------------------------
   /// CONTENT OF src/utils/api.rs
   ///----------------------------
   /// Init utils
@@ -191,6 +329,10 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta
       get kCallSomeFuncMethodCallerTestClassConstMeta;
+
+  DropFnType get dropOpaqueBoxUnsignedMessageBoxTrait;
+  ShareFnType get shareOpaqueBoxUnsignedMessageBoxTrait;
+  OpaqueTypeFinalizer get BoxUnsignedMessageBoxTraitFinalizer;
 }
 
 @sealed
@@ -591,6 +733,400 @@ class NekotonBridgeImpl implements NekotonBridge {
       const FlutterRustBridgeTaskConstMeta(
         debugName: "nt_derive_from_phrase",
         argNames: ["phrase", "mnemonicType"],
+      );
+
+  Future<bool> checkPublicKey({required String publicKey, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(publicKey);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_check_public_key(port_, arg0),
+      parseSuccessData: _wire2api_bool,
+      constMeta: kCheckPublicKeyConstMeta,
+      argValues: [publicKey],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kCheckPublicKeyConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "check_public_key",
+        argNames: ["publicKey"],
+      );
+
+  Future<String> runLocal(
+      {required String accountStuffBoc,
+      required String contractAbi,
+      required String method,
+      required String input,
+      required bool responsible,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(accountStuffBoc);
+    var arg1 = _platform.api2wire_String(contractAbi);
+    var arg2 = _platform.api2wire_String(method);
+    var arg3 = _platform.api2wire_String(input);
+    var arg4 = responsible;
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_run_local(port_, arg0, arg1, arg2, arg3, arg4),
+      parseSuccessData: _wire2api_String,
+      constMeta: kRunLocalConstMeta,
+      argValues: [accountStuffBoc, contractAbi, method, input, responsible],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kRunLocalConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "run_local",
+        argNames: [
+          "accountStuffBoc",
+          "contractAbi",
+          "method",
+          "input",
+          "responsible"
+        ],
+      );
+
+  Future<List<String>> getExpectedAddress(
+      {required String tvc,
+      required String contractAbi,
+      required int workchainId,
+      String? publicKey,
+      required String initData,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(tvc);
+    var arg1 = _platform.api2wire_String(contractAbi);
+    var arg2 = api2wire_i8(workchainId);
+    var arg3 = _platform.api2wire_opt_String(publicKey);
+    var arg4 = _platform.api2wire_String(initData);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_expected_address(port_, arg0, arg1, arg2, arg3, arg4),
+      parseSuccessData: _wire2api_StringList,
+      constMeta: kGetExpectedAddressConstMeta,
+      argValues: [tvc, contractAbi, workchainId, publicKey, initData],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kGetExpectedAddressConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "get_expected_address",
+        argNames: [
+          "tvc",
+          "contractAbi",
+          "workchainId",
+          "publicKey",
+          "initData"
+        ],
+      );
+
+  Future<String> encodeInternalInput(
+      {required String contractAbi,
+      required String method,
+      required String input,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(contractAbi);
+    var arg1 = _platform.api2wire_String(method);
+    var arg2 = _platform.api2wire_String(input);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_encode_internal_input(port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_String,
+      constMeta: kEncodeInternalInputConstMeta,
+      argValues: [contractAbi, method, input],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kEncodeInternalInputConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "encode_internal_input",
+        argNames: ["contractAbi", "method", "input"],
+      );
+
+  Future<String> createExternalMessageWithoutSignature(
+      {required String dst,
+      required String contractAbi,
+      required String method,
+      String? stateInit,
+      required String input,
+      required int timeout,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(dst);
+    var arg1 = _platform.api2wire_String(contractAbi);
+    var arg2 = _platform.api2wire_String(method);
+    var arg3 = _platform.api2wire_opt_String(stateInit);
+    var arg4 = _platform.api2wire_String(input);
+    var arg5 = api2wire_u32(timeout);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_create_external_message_without_signature(
+              port_, arg0, arg1, arg2, arg3, arg4, arg5),
+      parseSuccessData: _wire2api_String,
+      constMeta: kCreateExternalMessageWithoutSignatureConstMeta,
+      argValues: [dst, contractAbi, method, stateInit, input, timeout],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kCreateExternalMessageWithoutSignatureConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "create_external_message_without_signature",
+            argNames: [
+              "dst",
+              "contractAbi",
+              "method",
+              "stateInit",
+              "input",
+              "timeout"
+            ],
+          );
+
+  Future<UnsignedMessageImpl> createExternalMessage(
+      {required String dst,
+      required String contractAbi,
+      required String method,
+      String? stateInit,
+      required String input,
+      required String publicKey,
+      required int timeout,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(dst);
+    var arg1 = _platform.api2wire_String(contractAbi);
+    var arg2 = _platform.api2wire_String(method);
+    var arg3 = _platform.api2wire_opt_String(stateInit);
+    var arg4 = _platform.api2wire_String(input);
+    var arg5 = _platform.api2wire_String(publicKey);
+    var arg6 = api2wire_u32(timeout);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_create_external_message(
+          port_, arg0, arg1, arg2, arg3, arg4, arg5, arg6),
+      parseSuccessData: (d) => _wire2api_unsigned_message_impl(d),
+      constMeta: kCreateExternalMessageConstMeta,
+      argValues: [
+        dst,
+        contractAbi,
+        method,
+        stateInit,
+        input,
+        publicKey,
+        timeout
+      ],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kCreateExternalMessageConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "create_external_message",
+        argNames: [
+          "dst",
+          "contractAbi",
+          "method",
+          "stateInit",
+          "input",
+          "publicKey",
+          "timeout"
+        ],
+      );
+
+  Future<String> parseKnownPayload({required String payload, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(payload);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_parse_known_payload(port_, arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kParseKnownPayloadConstMeta,
+      argValues: [payload],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kParseKnownPayloadConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "parse_known_payload",
+        argNames: ["payload"],
+      );
+
+  Future<String> decodeInput(
+      {required String messageBody,
+      required String contractAbi,
+      String? method,
+      required bool internal,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(messageBody);
+    var arg1 = _platform.api2wire_String(contractAbi);
+    var arg2 = _platform.api2wire_opt_String(method);
+    var arg3 = internal;
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_decode_input(port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kDecodeInputConstMeta,
+      argValues: [messageBody, contractAbi, method, internal],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kDecodeInputConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "decode_input",
+        argNames: ["messageBody", "contractAbi", "method", "internal"],
+      );
+
+  Future<String> decodeEvent(
+      {required String messageBody,
+      required String contractAbi,
+      String? event,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(messageBody);
+    var arg1 = _platform.api2wire_String(contractAbi);
+    var arg2 = _platform.api2wire_opt_String(event);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_decode_event(port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_String,
+      constMeta: kDecodeEventConstMeta,
+      argValues: [messageBody, contractAbi, event],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kDecodeEventConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "decode_event",
+        argNames: ["messageBody", "contractAbi", "event"],
+      );
+
+  Future<String> decodeOutput(
+      {required String messageBody,
+      required String contractAbi,
+      String? method,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(messageBody);
+    var arg1 = _platform.api2wire_String(contractAbi);
+    var arg2 = _platform.api2wire_opt_String(method);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_decode_output(port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_String,
+      constMeta: kDecodeOutputConstMeta,
+      argValues: [messageBody, contractAbi, method],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kDecodeOutputConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "decode_output",
+        argNames: ["messageBody", "contractAbi", "method"],
+      );
+
+  Future<String> decodeTransaction(
+      {required String transaction,
+      required String contractAbi,
+      String? method,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(transaction);
+    var arg1 = _platform.api2wire_String(contractAbi);
+    var arg2 = _platform.api2wire_opt_String(method);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_decode_transaction(port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_String,
+      constMeta: kDecodeTransactionConstMeta,
+      argValues: [transaction, contractAbi, method],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kDecodeTransactionConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "decode_transaction",
+        argNames: ["transaction", "contractAbi", "method"],
+      );
+
+  Future<String> decodeTransactionEvents(
+      {required String transaction,
+      required String contractAbi,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(transaction);
+    var arg1 = _platform.api2wire_String(contractAbi);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_decode_transaction_events(port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kDecodeTransactionEventsConstMeta,
+      argValues: [transaction, contractAbi],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kDecodeTransactionEventsConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "decode_transaction_events",
+        argNames: ["transaction", "contractAbi"],
+      );
+
+  Future<String> getBocHash({required String boc, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(boc);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_get_boc_hash(port_, arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetBocHashConstMeta,
+      argValues: [boc],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kGetBocHashConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "get_boc_hash",
+        argNames: ["boc"],
+      );
+
+  Future<String> packIntoCell(
+      {required String params, required String tokens, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(params);
+    var arg1 = _platform.api2wire_String(tokens);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_pack_into_cell(port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kPackIntoCellConstMeta,
+      argValues: [params, tokens],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kPackIntoCellConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "pack_into_cell",
+        argNames: ["params", "tokens"],
+      );
+
+  Future<String> unpackFromCell(
+      {required String params,
+      required String boc,
+      required bool allowPartial,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(params);
+    var arg1 = _platform.api2wire_String(boc);
+    var arg2 = allowPartial;
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_unpack_from_cell(port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_String,
+      constMeta: kUnpackFromCellConstMeta,
+      argValues: [params, boc, allowPartial],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kUnpackFromCellConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "unpack_from_cell",
+        argNames: ["params", "boc", "allowPartial"],
       );
 
   Future<void> initLogger(
@@ -1085,10 +1621,21 @@ class NekotonBridgeImpl implements NekotonBridge {
             argNames: ["that"],
           );
 
+  DropFnType get dropOpaqueBoxUnsignedMessageBoxTrait =>
+      _platform.inner.drop_opaque_BoxUnsignedMessageBoxTrait;
+  ShareFnType get shareOpaqueBoxUnsignedMessageBoxTrait =>
+      _platform.inner.share_opaque_BoxUnsignedMessageBoxTrait;
+  OpaqueTypeFinalizer get BoxUnsignedMessageBoxTraitFinalizer =>
+      _platform.BoxUnsignedMessageBoxTraitFinalizer;
+
   void dispose() {
     _platform.dispose();
   }
 // Section: wire2api
+
+  BoxUnsignedMessageBoxTrait _wire2api_BoxUnsignedMessageBoxTrait(dynamic raw) {
+    return BoxUnsignedMessageBoxTrait.fromRaw(raw[0], raw[1], this);
+  }
 
   String _wire2api_String(dynamic raw) {
     return raw as String;
@@ -1347,6 +1894,16 @@ class NekotonBridgeImpl implements NekotonBridge {
   void _wire2api_unit(dynamic raw) {
     return;
   }
+
+  UnsignedMessageImpl _wire2api_unsigned_message_impl(dynamic raw) {
+    final arr = raw as List<dynamic>;
+    if (arr.length != 1)
+      throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
+    return UnsignedMessageImpl(
+      bridge: this,
+      innerMessage: _wire2api_BoxUnsignedMessageBoxTrait(arr[0]),
+    );
+  }
 }
 
 // Section: api2wire
@@ -1373,6 +1930,11 @@ double api2wire_f64(double raw) {
 
 @protected
 int api2wire_i32(int raw) {
+  return raw;
+}
+
+@protected
+int api2wire_i8(int raw) {
   return raw;
 }
 

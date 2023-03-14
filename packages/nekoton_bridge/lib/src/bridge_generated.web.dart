@@ -155,6 +155,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
   }
 
   @protected
+  String? api2wire_opt_String(String? raw) {
+    return raw == null ? null : api2wire_String(raw);
+  }
+
+  @protected
   List<dynamic>? api2wire_opt_box_autoadd_dynamic_value(DynamicValue? raw) {
     return raw == null ? null : api2wire_box_autoadd_dynamic_value(raw);
   }
@@ -174,6 +179,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
     return [api2wire_BoxUnsignedMessageBoxTrait(raw.innerMessage)];
   }
 // Section: finalizer
+
+  late final Finalizer<PlatformPointer> _BoxUnsignedMessageBoxTraitFinalizer =
+      Finalizer<PlatformPointer>(inner.drop_opaque_BoxUnsignedMessageBoxTrait);
+  Finalizer<PlatformPointer> get BoxUnsignedMessageBoxTraitFinalizer =>
+      _BoxUnsignedMessageBoxTraitFinalizer;
 }
 
 // Section: WASM wire module
@@ -197,6 +207,74 @@ class NekotonBridgeWasmModule implements WasmModule {
 
   external dynamic /* void */ wire_nt_derive_from_phrase(
       NativePortType port_, String phrase, List<dynamic> mnemonic_type);
+
+  external dynamic /* void */ wire_check_public_key(
+      NativePortType port_, String public_key);
+
+  external dynamic /* void */ wire_run_local(
+      NativePortType port_,
+      String account_stuff_boc,
+      String contract_abi,
+      String method,
+      String input,
+      bool responsible);
+
+  external dynamic /* void */ wire_get_expected_address(
+      NativePortType port_,
+      String tvc,
+      String contract_abi,
+      int workchain_id,
+      String? public_key,
+      String init_data);
+
+  external dynamic /* void */ wire_encode_internal_input(
+      NativePortType port_, String contract_abi, String method, String input);
+
+  external dynamic /* void */ wire_create_external_message_without_signature(
+      NativePortType port_,
+      String dst,
+      String contract_abi,
+      String method,
+      String? state_init,
+      String input,
+      int timeout);
+
+  external dynamic /* void */ wire_create_external_message(
+      NativePortType port_,
+      String dst,
+      String contract_abi,
+      String method,
+      String? state_init,
+      String input,
+      String public_key,
+      int timeout);
+
+  external dynamic /* void */ wire_parse_known_payload(
+      NativePortType port_, String payload);
+
+  external dynamic /* void */ wire_decode_input(NativePortType port_,
+      String message_body, String contract_abi, String? method, bool internal);
+
+  external dynamic /* void */ wire_decode_event(NativePortType port_,
+      String message_body, String contract_abi, String? event);
+
+  external dynamic /* void */ wire_decode_output(NativePortType port_,
+      String message_body, String contract_abi, String? method);
+
+  external dynamic /* void */ wire_decode_transaction(NativePortType port_,
+      String transaction, String contract_abi, String? method);
+
+  external dynamic /* void */ wire_decode_transaction_events(
+      NativePortType port_, String transaction, String contract_abi);
+
+  external dynamic /* void */ wire_get_boc_hash(
+      NativePortType port_, String boc);
+
+  external dynamic /* void */ wire_pack_into_cell(
+      NativePortType port_, String params, String tokens);
+
+  external dynamic /* void */ wire_unpack_from_cell(
+      NativePortType port_, String params, String boc, bool allow_partial);
 
   external dynamic /* void */ wire_init_logger(
       NativePortType port_, int level, bool mobile_logger);
@@ -270,6 +348,10 @@ class NekotonBridgeWasmModule implements WasmModule {
 
   external dynamic /* void */ wire_call_some_func__method__CallerTestClass(
       NativePortType port_, List<dynamic> that);
+
+  external dynamic /*  */ drop_opaque_BoxUnsignedMessageBoxTrait(ptr);
+
+  external int /* *const c_void */ share_opaque_BoxUnsignedMessageBoxTrait(ptr);
 }
 
 // Section: WASM wire connector
@@ -292,6 +374,88 @@ class NekotonBridgeWire
   void wire_nt_derive_from_phrase(
           NativePortType port_, String phrase, List<dynamic> mnemonic_type) =>
       wasmModule.wire_nt_derive_from_phrase(port_, phrase, mnemonic_type);
+
+  void wire_check_public_key(NativePortType port_, String public_key) =>
+      wasmModule.wire_check_public_key(port_, public_key);
+
+  void wire_run_local(NativePortType port_, String account_stuff_boc,
+          String contract_abi, String method, String input, bool responsible) =>
+      wasmModule.wire_run_local(
+          port_, account_stuff_boc, contract_abi, method, input, responsible);
+
+  void wire_get_expected_address(
+          NativePortType port_,
+          String tvc,
+          String contract_abi,
+          int workchain_id,
+          String? public_key,
+          String init_data) =>
+      wasmModule.wire_get_expected_address(
+          port_, tvc, contract_abi, workchain_id, public_key, init_data);
+
+  void wire_encode_internal_input(NativePortType port_, String contract_abi,
+          String method, String input) =>
+      wasmModule.wire_encode_internal_input(port_, contract_abi, method, input);
+
+  void wire_create_external_message_without_signature(
+          NativePortType port_,
+          String dst,
+          String contract_abi,
+          String method,
+          String? state_init,
+          String input,
+          int timeout) =>
+      wasmModule.wire_create_external_message_without_signature(
+          port_, dst, contract_abi, method, state_init, input, timeout);
+
+  void wire_create_external_message(
+          NativePortType port_,
+          String dst,
+          String contract_abi,
+          String method,
+          String? state_init,
+          String input,
+          String public_key,
+          int timeout) =>
+      wasmModule.wire_create_external_message(port_, dst, contract_abi, method,
+          state_init, input, public_key, timeout);
+
+  void wire_parse_known_payload(NativePortType port_, String payload) =>
+      wasmModule.wire_parse_known_payload(port_, payload);
+
+  void wire_decode_input(NativePortType port_, String message_body,
+          String contract_abi, String? method, bool internal) =>
+      wasmModule.wire_decode_input(
+          port_, message_body, contract_abi, method, internal);
+
+  void wire_decode_event(NativePortType port_, String message_body,
+          String contract_abi, String? event) =>
+      wasmModule.wire_decode_event(port_, message_body, contract_abi, event);
+
+  void wire_decode_output(NativePortType port_, String message_body,
+          String contract_abi, String? method) =>
+      wasmModule.wire_decode_output(port_, message_body, contract_abi, method);
+
+  void wire_decode_transaction(NativePortType port_, String transaction,
+          String contract_abi, String? method) =>
+      wasmModule.wire_decode_transaction(
+          port_, transaction, contract_abi, method);
+
+  void wire_decode_transaction_events(
+          NativePortType port_, String transaction, String contract_abi) =>
+      wasmModule.wire_decode_transaction_events(
+          port_, transaction, contract_abi);
+
+  void wire_get_boc_hash(NativePortType port_, String boc) =>
+      wasmModule.wire_get_boc_hash(port_, boc);
+
+  void wire_pack_into_cell(
+          NativePortType port_, String params, String tokens) =>
+      wasmModule.wire_pack_into_cell(port_, params, tokens);
+
+  void wire_unpack_from_cell(NativePortType port_, String params, String boc,
+          bool allow_partial) =>
+      wasmModule.wire_unpack_from_cell(port_, params, boc, allow_partial);
 
   void wire_init_logger(NativePortType port_, int level, bool mobile_logger) =>
       wasmModule.wire_init_logger(port_, level, mobile_logger);
@@ -387,4 +551,10 @@ class NekotonBridgeWire
   void wire_call_some_func__method__CallerTestClass(
           NativePortType port_, List<dynamic> that) =>
       wasmModule.wire_call_some_func__method__CallerTestClass(port_, that);
+
+  dynamic /*  */ drop_opaque_BoxUnsignedMessageBoxTrait(ptr) =>
+      wasmModule.drop_opaque_BoxUnsignedMessageBoxTrait(ptr);
+
+  int /* *const c_void */ share_opaque_BoxUnsignedMessageBoxTrait(ptr) =>
+      wasmModule.share_opaque_BoxUnsignedMessageBoxTrait(ptr);
 }

@@ -159,6 +159,82 @@ void wire_nt_derive_from_phrase(int64_t port_,
                                 struct wire_uint_8_list *phrase,
                                 struct wire_MnemonicType *mnemonic_type);
 
+void wire_check_public_key(int64_t port_, struct wire_uint_8_list *public_key);
+
+void wire_run_local(int64_t port_,
+                    struct wire_uint_8_list *account_stuff_boc,
+                    struct wire_uint_8_list *contract_abi,
+                    struct wire_uint_8_list *method,
+                    struct wire_uint_8_list *input,
+                    bool responsible);
+
+void wire_get_expected_address(int64_t port_,
+                               struct wire_uint_8_list *tvc,
+                               struct wire_uint_8_list *contract_abi,
+                               int8_t workchain_id,
+                               struct wire_uint_8_list *public_key,
+                               struct wire_uint_8_list *init_data);
+
+void wire_encode_internal_input(int64_t port_,
+                                struct wire_uint_8_list *contract_abi,
+                                struct wire_uint_8_list *method,
+                                struct wire_uint_8_list *input);
+
+void wire_create_external_message_without_signature(int64_t port_,
+                                                    struct wire_uint_8_list *dst,
+                                                    struct wire_uint_8_list *contract_abi,
+                                                    struct wire_uint_8_list *method,
+                                                    struct wire_uint_8_list *state_init,
+                                                    struct wire_uint_8_list *input,
+                                                    uint32_t timeout);
+
+void wire_create_external_message(int64_t port_,
+                                  struct wire_uint_8_list *dst,
+                                  struct wire_uint_8_list *contract_abi,
+                                  struct wire_uint_8_list *method,
+                                  struct wire_uint_8_list *state_init,
+                                  struct wire_uint_8_list *input,
+                                  struct wire_uint_8_list *public_key,
+                                  uint32_t timeout);
+
+void wire_parse_known_payload(int64_t port_, struct wire_uint_8_list *payload);
+
+void wire_decode_input(int64_t port_,
+                       struct wire_uint_8_list *message_body,
+                       struct wire_uint_8_list *contract_abi,
+                       struct wire_uint_8_list *method,
+                       bool internal);
+
+void wire_decode_event(int64_t port_,
+                       struct wire_uint_8_list *message_body,
+                       struct wire_uint_8_list *contract_abi,
+                       struct wire_uint_8_list *event);
+
+void wire_decode_output(int64_t port_,
+                        struct wire_uint_8_list *message_body,
+                        struct wire_uint_8_list *contract_abi,
+                        struct wire_uint_8_list *method);
+
+void wire_decode_transaction(int64_t port_,
+                             struct wire_uint_8_list *transaction,
+                             struct wire_uint_8_list *contract_abi,
+                             struct wire_uint_8_list *method);
+
+void wire_decode_transaction_events(int64_t port_,
+                                    struct wire_uint_8_list *transaction,
+                                    struct wire_uint_8_list *contract_abi);
+
+void wire_get_boc_hash(int64_t port_, struct wire_uint_8_list *boc);
+
+void wire_pack_into_cell(int64_t port_,
+                         struct wire_uint_8_list *params,
+                         struct wire_uint_8_list *tokens);
+
+void wire_unpack_from_cell(int64_t port_,
+                           struct wire_uint_8_list *params,
+                           struct wire_uint_8_list *boc,
+                           bool allow_partial);
+
 void wire_init_logger(int64_t port_, int32_t level, bool mobile_logger);
 
 void wire_create_log_stream(int64_t port_);
@@ -245,6 +321,10 @@ struct wire_list_dynamic_value *new_list_dynamic_value_0(int32_t len);
 
 struct wire_uint_8_list *new_uint_8_list_0(int32_t len);
 
+void drop_opaque_BoxUnsignedMessageBoxTrait(const void *ptr);
+
+const void *share_opaque_BoxUnsignedMessageBoxTrait(const void *ptr);
+
 union DynamicValueKind *inflate_DynamicValue_U16(void);
 
 union DynamicValueKind *inflate_DynamicValue_U32(void);
@@ -275,6 +355,21 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_nt_generate_key);
     dummy_var ^= ((int64_t) (void*) wire_nt_get_hints);
     dummy_var ^= ((int64_t) (void*) wire_nt_derive_from_phrase);
+    dummy_var ^= ((int64_t) (void*) wire_check_public_key);
+    dummy_var ^= ((int64_t) (void*) wire_run_local);
+    dummy_var ^= ((int64_t) (void*) wire_get_expected_address);
+    dummy_var ^= ((int64_t) (void*) wire_encode_internal_input);
+    dummy_var ^= ((int64_t) (void*) wire_create_external_message_without_signature);
+    dummy_var ^= ((int64_t) (void*) wire_create_external_message);
+    dummy_var ^= ((int64_t) (void*) wire_parse_known_payload);
+    dummy_var ^= ((int64_t) (void*) wire_decode_input);
+    dummy_var ^= ((int64_t) (void*) wire_decode_event);
+    dummy_var ^= ((int64_t) (void*) wire_decode_output);
+    dummy_var ^= ((int64_t) (void*) wire_decode_transaction);
+    dummy_var ^= ((int64_t) (void*) wire_decode_transaction_events);
+    dummy_var ^= ((int64_t) (void*) wire_get_boc_hash);
+    dummy_var ^= ((int64_t) (void*) wire_pack_into_cell);
+    dummy_var ^= ((int64_t) (void*) wire_unpack_from_cell);
     dummy_var ^= ((int64_t) (void*) wire_init_logger);
     dummy_var ^= ((int64_t) (void*) wire_create_log_stream);
     dummy_var ^= ((int64_t) (void*) wire_init_caller);
@@ -312,6 +407,8 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) new_list_dynamic_named_value_0);
     dummy_var ^= ((int64_t) (void*) new_list_dynamic_value_0);
     dummy_var ^= ((int64_t) (void*) new_uint_8_list_0);
+    dummy_var ^= ((int64_t) (void*) drop_opaque_BoxUnsignedMessageBoxTrait);
+    dummy_var ^= ((int64_t) (void*) share_opaque_BoxUnsignedMessageBoxTrait);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_U16);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_U32);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_I32);

@@ -107,7 +107,7 @@ impl RefUnwindSafe for UnsignedMessageBox {}
 impl UnsignedMessageBox {
     pub fn new(
         inner_message: Box<dyn crypto::UnsignedMessage>,
-    ) -> RustOpaque<Box<UnsignedMessageBox>> {
+    ) -> RustOpaque<Box<dyn UnsignedMessageBoxTrait>> {
         RustOpaque::new(Box::new(Self { inner_message }))
     }
 }

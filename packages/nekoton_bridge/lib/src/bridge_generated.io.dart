@@ -102,6 +102,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
   }
 
   @protected
+  ffi.Pointer<wire_uint_8_list> api2wire_opt_String(String? raw) {
+    return raw == null ? ffi.nullptr : api2wire_String(raw);
+  }
+
+  @protected
   ffi.Pointer<wire_DynamicValue> api2wire_opt_box_autoadd_dynamic_value(
       DynamicValue? raw) {
     return raw == null ? ffi.nullptr : api2wire_box_autoadd_dynamic_value(raw);
@@ -121,6 +126,10 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
 
 // Section: finalizer
 
+  late final OpaqueTypeFinalizer _BoxUnsignedMessageBoxTraitFinalizer =
+      OpaqueTypeFinalizer(inner._drop_opaque_BoxUnsignedMessageBoxTraitPtr);
+  OpaqueTypeFinalizer get BoxUnsignedMessageBoxTraitFinalizer =>
+      _BoxUnsignedMessageBoxTraitFinalizer;
 // Section: api_fill_to_wire
 
   void _api_fill_to_wire_BoxUnsignedMessageBoxTrait(
@@ -464,6 +473,416 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       _wire_nt_derive_from_phrasePtr.asFunction<
           void Function(int, ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_MnemonicType>)>();
+
+  void wire_check_public_key(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> public_key,
+  ) {
+    return _wire_check_public_key(
+      port_,
+      public_key,
+    );
+  }
+
+  late final _wire_check_public_keyPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_check_public_key');
+  late final _wire_check_public_key = _wire_check_public_keyPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_run_local(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> account_stuff_boc,
+    ffi.Pointer<wire_uint_8_list> contract_abi,
+    ffi.Pointer<wire_uint_8_list> method,
+    ffi.Pointer<wire_uint_8_list> input,
+    bool responsible,
+  ) {
+    return _wire_run_local(
+      port_,
+      account_stuff_boc,
+      contract_abi,
+      method,
+      input,
+      responsible,
+    );
+  }
+
+  late final _wire_run_localPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Bool)>>('wire_run_local');
+  late final _wire_run_local = _wire_run_localPtr.asFunction<
+      void Function(
+          int,
+          ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>,
+          bool)>();
+
+  void wire_get_expected_address(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> tvc,
+    ffi.Pointer<wire_uint_8_list> contract_abi,
+    int workchain_id,
+    ffi.Pointer<wire_uint_8_list> public_key,
+    ffi.Pointer<wire_uint_8_list> init_data,
+  ) {
+    return _wire_get_expected_address(
+      port_,
+      tvc,
+      contract_abi,
+      workchain_id,
+      public_key,
+      init_data,
+    );
+  }
+
+  late final _wire_get_expected_addressPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Int8,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_get_expected_address');
+  late final _wire_get_expected_address =
+      _wire_get_expected_addressPtr.asFunction<
+          void Function(
+              int,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              int,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_encode_internal_input(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> contract_abi,
+    ffi.Pointer<wire_uint_8_list> method,
+    ffi.Pointer<wire_uint_8_list> input,
+  ) {
+    return _wire_encode_internal_input(
+      port_,
+      contract_abi,
+      method,
+      input,
+    );
+  }
+
+  late final _wire_encode_internal_inputPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_encode_internal_input');
+  late final _wire_encode_internal_input =
+      _wire_encode_internal_inputPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_create_external_message_without_signature(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> dst,
+    ffi.Pointer<wire_uint_8_list> contract_abi,
+    ffi.Pointer<wire_uint_8_list> method,
+    ffi.Pointer<wire_uint_8_list> state_init,
+    ffi.Pointer<wire_uint_8_list> input,
+    int timeout,
+  ) {
+    return _wire_create_external_message_without_signature(
+      port_,
+      dst,
+      contract_abi,
+      method,
+      state_init,
+      input,
+      timeout,
+    );
+  }
+
+  late final _wire_create_external_message_without_signaturePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Uint32)>>('wire_create_external_message_without_signature');
+  late final _wire_create_external_message_without_signature =
+      _wire_create_external_message_without_signaturePtr.asFunction<
+          void Function(
+              int,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              int)>();
+
+  void wire_create_external_message(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> dst,
+    ffi.Pointer<wire_uint_8_list> contract_abi,
+    ffi.Pointer<wire_uint_8_list> method,
+    ffi.Pointer<wire_uint_8_list> state_init,
+    ffi.Pointer<wire_uint_8_list> input,
+    ffi.Pointer<wire_uint_8_list> public_key,
+    int timeout,
+  ) {
+    return _wire_create_external_message(
+      port_,
+      dst,
+      contract_abi,
+      method,
+      state_init,
+      input,
+      public_key,
+      timeout,
+    );
+  }
+
+  late final _wire_create_external_messagePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Uint32)>>('wire_create_external_message');
+  late final _wire_create_external_message =
+      _wire_create_external_messagePtr.asFunction<
+          void Function(
+              int,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              int)>();
+
+  void wire_parse_known_payload(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> payload,
+  ) {
+    return _wire_parse_known_payload(
+      port_,
+      payload,
+    );
+  }
+
+  late final _wire_parse_known_payloadPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_parse_known_payload');
+  late final _wire_parse_known_payload = _wire_parse_known_payloadPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_decode_input(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> message_body,
+    ffi.Pointer<wire_uint_8_list> contract_abi,
+    ffi.Pointer<wire_uint_8_list> method,
+    bool internal,
+  ) {
+    return _wire_decode_input(
+      port_,
+      message_body,
+      contract_abi,
+      method,
+      internal,
+    );
+  }
+
+  late final _wire_decode_inputPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Bool)>>('wire_decode_input');
+  late final _wire_decode_input = _wire_decode_inputPtr.asFunction<
+      void Function(
+          int,
+          ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>,
+          bool)>();
+
+  void wire_decode_event(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> message_body,
+    ffi.Pointer<wire_uint_8_list> contract_abi,
+    ffi.Pointer<wire_uint_8_list> event,
+  ) {
+    return _wire_decode_event(
+      port_,
+      message_body,
+      contract_abi,
+      event,
+    );
+  }
+
+  late final _wire_decode_eventPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_decode_event');
+  late final _wire_decode_event = _wire_decode_eventPtr.asFunction<
+      void Function(int, ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_decode_output(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> message_body,
+    ffi.Pointer<wire_uint_8_list> contract_abi,
+    ffi.Pointer<wire_uint_8_list> method,
+  ) {
+    return _wire_decode_output(
+      port_,
+      message_body,
+      contract_abi,
+      method,
+    );
+  }
+
+  late final _wire_decode_outputPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_decode_output');
+  late final _wire_decode_output = _wire_decode_outputPtr.asFunction<
+      void Function(int, ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_decode_transaction(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> transaction,
+    ffi.Pointer<wire_uint_8_list> contract_abi,
+    ffi.Pointer<wire_uint_8_list> method,
+  ) {
+    return _wire_decode_transaction(
+      port_,
+      transaction,
+      contract_abi,
+      method,
+    );
+  }
+
+  late final _wire_decode_transactionPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_decode_transaction');
+  late final _wire_decode_transaction = _wire_decode_transactionPtr.asFunction<
+      void Function(int, ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_decode_transaction_events(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> transaction,
+    ffi.Pointer<wire_uint_8_list> contract_abi,
+  ) {
+    return _wire_decode_transaction_events(
+      port_,
+      transaction,
+      contract_abi,
+    );
+  }
+
+  late final _wire_decode_transaction_eventsPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_decode_transaction_events');
+  late final _wire_decode_transaction_events =
+      _wire_decode_transaction_eventsPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_get_boc_hash(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> boc,
+  ) {
+    return _wire_get_boc_hash(
+      port_,
+      boc,
+    );
+  }
+
+  late final _wire_get_boc_hashPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>('wire_get_boc_hash');
+  late final _wire_get_boc_hash = _wire_get_boc_hashPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_pack_into_cell(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> params,
+    ffi.Pointer<wire_uint_8_list> tokens,
+  ) {
+    return _wire_pack_into_cell(
+      port_,
+      params,
+      tokens,
+    );
+  }
+
+  late final _wire_pack_into_cellPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_pack_into_cell');
+  late final _wire_pack_into_cell = _wire_pack_into_cellPtr.asFunction<
+      void Function(
+          int, ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_unpack_from_cell(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> params,
+    ffi.Pointer<wire_uint_8_list> boc,
+    bool allow_partial,
+  ) {
+    return _wire_unpack_from_cell(
+      port_,
+      params,
+      boc,
+      allow_partial,
+    );
+  }
+
+  late final _wire_unpack_from_cellPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Bool)>>('wire_unpack_from_cell');
+  late final _wire_unpack_from_cell = _wire_unpack_from_cellPtr.asFunction<
+      void Function(int, ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>, bool)>();
 
   void wire_init_logger(
     int port_,
@@ -1052,6 +1471,37 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Int32)>>('new_uint_8_list_0');
   late final _new_uint_8_list_0 = _new_uint_8_list_0Ptr
       .asFunction<ffi.Pointer<wire_uint_8_list> Function(int)>();
+
+  void drop_opaque_BoxUnsignedMessageBoxTrait(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _drop_opaque_BoxUnsignedMessageBoxTrait(
+      ptr,
+    );
+  }
+
+  late final _drop_opaque_BoxUnsignedMessageBoxTraitPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'drop_opaque_BoxUnsignedMessageBoxTrait');
+  late final _drop_opaque_BoxUnsignedMessageBoxTrait =
+      _drop_opaque_BoxUnsignedMessageBoxTraitPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  ffi.Pointer<ffi.Void> share_opaque_BoxUnsignedMessageBoxTrait(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _share_opaque_BoxUnsignedMessageBoxTrait(
+      ptr,
+    );
+  }
+
+  late final _share_opaque_BoxUnsignedMessageBoxTraitPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+      'share_opaque_BoxUnsignedMessageBoxTrait');
+  late final _share_opaque_BoxUnsignedMessageBoxTrait =
+      _share_opaque_BoxUnsignedMessageBoxTraitPtr
+          .asFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>();
 
   ffi.Pointer<DynamicValueKind> inflate_DynamicValue_U16() {
     return _inflate_DynamicValue_U16();

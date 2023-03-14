@@ -1,6 +1,6 @@
 pub mod crypto;
 pub mod external;
-// pub mod helpers;
+pub mod helpers;
 pub mod models_api;
 // pub mod transport;
 
@@ -8,7 +8,9 @@ use anyhow::{Context, Result};
 use lazy_static::lazy_static;
 use nekoton_utils::SimpleClock;
 use serde::Serialize;
+use std::str::FromStr;
 use std::sync::Arc;
+use ton_block::MsgAddressInt;
 
 lazy_static! {
     pub static ref CLOCK: Arc<SimpleClock> = Arc::new(SimpleClock {});
@@ -66,17 +68,17 @@ where
 //     ton_types::UInt256::from_str(hash.as_str()).handle_error()
 // }
 
-pub fn parse_public_key(
-    public_key: String,
-) -> Result<ed25519_dalek::PublicKey, anyhow::Error> {
+/// Parse public key from string and return its instance or throw error
+pub fn parse_public_key(public_key: String) -> Result<ed25519_dalek::PublicKey, anyhow::Error> {
     Ok(ed25519_dalek::PublicKey::from_bytes(
-        &hex::decode(public_key.as_str()).context("Bad hex data")?,
+        &hex::decode(public_key).context("Bad hex data")?,
     )?)
 }
 
-// fn parse_address(address: String) -> Result<MsgAddressInt, String> {
-//     MsgAddressInt::from_str(address.as_str()).handle_error()
-// }
+/// Parse address from string and return its instance or throw error
+pub fn parse_address(address: String) -> Result<MsgAddressInt, anyhow::Error> {
+    MsgAddressInt::from_str(address.as_str()).handle_error()
+}
 
 pub fn str_list_to_string_vec(slice: &[&str]) -> Vec<String> {
     slice.iter().map(|x| x.to_string()).collect()

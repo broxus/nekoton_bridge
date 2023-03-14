@@ -96,6 +96,342 @@ fn wire_nt_derive_from_phrase_impl(
         },
     )
 }
+fn wire_check_public_key_impl(port_: MessagePort, public_key: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "check_public_key",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_public_key = public_key.wire2api();
+            move |task_callback| check_public_key(api_public_key)
+        },
+    )
+}
+fn wire_run_local_impl(
+    port_: MessagePort,
+    account_stuff_boc: impl Wire2Api<String> + UnwindSafe,
+    contract_abi: impl Wire2Api<String> + UnwindSafe,
+    method: impl Wire2Api<String> + UnwindSafe,
+    input: impl Wire2Api<String> + UnwindSafe,
+    responsible: impl Wire2Api<bool> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "run_local",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_account_stuff_boc = account_stuff_boc.wire2api();
+            let api_contract_abi = contract_abi.wire2api();
+            let api_method = method.wire2api();
+            let api_input = input.wire2api();
+            let api_responsible = responsible.wire2api();
+            move |task_callback| {
+                run_local(
+                    api_account_stuff_boc,
+                    api_contract_abi,
+                    api_method,
+                    api_input,
+                    api_responsible,
+                )
+            }
+        },
+    )
+}
+fn wire_get_expected_address_impl(
+    port_: MessagePort,
+    tvc: impl Wire2Api<String> + UnwindSafe,
+    contract_abi: impl Wire2Api<String> + UnwindSafe,
+    workchain_id: impl Wire2Api<i8> + UnwindSafe,
+    public_key: impl Wire2Api<Option<String>> + UnwindSafe,
+    init_data: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_expected_address",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_tvc = tvc.wire2api();
+            let api_contract_abi = contract_abi.wire2api();
+            let api_workchain_id = workchain_id.wire2api();
+            let api_public_key = public_key.wire2api();
+            let api_init_data = init_data.wire2api();
+            move |task_callback| {
+                get_expected_address(
+                    api_tvc,
+                    api_contract_abi,
+                    api_workchain_id,
+                    api_public_key,
+                    api_init_data,
+                )
+            }
+        },
+    )
+}
+fn wire_encode_internal_input_impl(
+    port_: MessagePort,
+    contract_abi: impl Wire2Api<String> + UnwindSafe,
+    method: impl Wire2Api<String> + UnwindSafe,
+    input: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "encode_internal_input",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_contract_abi = contract_abi.wire2api();
+            let api_method = method.wire2api();
+            let api_input = input.wire2api();
+            move |task_callback| encode_internal_input(api_contract_abi, api_method, api_input)
+        },
+    )
+}
+fn wire_create_external_message_without_signature_impl(
+    port_: MessagePort,
+    dst: impl Wire2Api<String> + UnwindSafe,
+    contract_abi: impl Wire2Api<String> + UnwindSafe,
+    method: impl Wire2Api<String> + UnwindSafe,
+    state_init: impl Wire2Api<Option<String>> + UnwindSafe,
+    input: impl Wire2Api<String> + UnwindSafe,
+    timeout: impl Wire2Api<u32> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "create_external_message_without_signature",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_dst = dst.wire2api();
+            let api_contract_abi = contract_abi.wire2api();
+            let api_method = method.wire2api();
+            let api_state_init = state_init.wire2api();
+            let api_input = input.wire2api();
+            let api_timeout = timeout.wire2api();
+            move |task_callback| {
+                create_external_message_without_signature(
+                    api_dst,
+                    api_contract_abi,
+                    api_method,
+                    api_state_init,
+                    api_input,
+                    api_timeout,
+                )
+            }
+        },
+    )
+}
+fn wire_create_external_message_impl(
+    port_: MessagePort,
+    dst: impl Wire2Api<String> + UnwindSafe,
+    contract_abi: impl Wire2Api<String> + UnwindSafe,
+    method: impl Wire2Api<String> + UnwindSafe,
+    state_init: impl Wire2Api<Option<String>> + UnwindSafe,
+    input: impl Wire2Api<String> + UnwindSafe,
+    public_key: impl Wire2Api<String> + UnwindSafe,
+    timeout: impl Wire2Api<u32> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "create_external_message",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_dst = dst.wire2api();
+            let api_contract_abi = contract_abi.wire2api();
+            let api_method = method.wire2api();
+            let api_state_init = state_init.wire2api();
+            let api_input = input.wire2api();
+            let api_public_key = public_key.wire2api();
+            let api_timeout = timeout.wire2api();
+            move |task_callback| {
+                create_external_message(
+                    api_dst,
+                    api_contract_abi,
+                    api_method,
+                    api_state_init,
+                    api_input,
+                    api_public_key,
+                    api_timeout,
+                )
+            }
+        },
+    )
+}
+fn wire_parse_known_payload_impl(port_: MessagePort, payload: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "parse_known_payload",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_payload = payload.wire2api();
+            move |task_callback| parse_known_payload(api_payload)
+        },
+    )
+}
+fn wire_decode_input_impl(
+    port_: MessagePort,
+    message_body: impl Wire2Api<String> + UnwindSafe,
+    contract_abi: impl Wire2Api<String> + UnwindSafe,
+    method: impl Wire2Api<Option<String>> + UnwindSafe,
+    internal: impl Wire2Api<bool> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "decode_input",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_message_body = message_body.wire2api();
+            let api_contract_abi = contract_abi.wire2api();
+            let api_method = method.wire2api();
+            let api_internal = internal.wire2api();
+            move |task_callback| {
+                decode_input(api_message_body, api_contract_abi, api_method, api_internal)
+            }
+        },
+    )
+}
+fn wire_decode_event_impl(
+    port_: MessagePort,
+    message_body: impl Wire2Api<String> + UnwindSafe,
+    contract_abi: impl Wire2Api<String> + UnwindSafe,
+    event: impl Wire2Api<Option<String>> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "decode_event",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_message_body = message_body.wire2api();
+            let api_contract_abi = contract_abi.wire2api();
+            let api_event = event.wire2api();
+            move |task_callback| decode_event(api_message_body, api_contract_abi, api_event)
+        },
+    )
+}
+fn wire_decode_output_impl(
+    port_: MessagePort,
+    message_body: impl Wire2Api<String> + UnwindSafe,
+    contract_abi: impl Wire2Api<String> + UnwindSafe,
+    method: impl Wire2Api<Option<String>> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "decode_output",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_message_body = message_body.wire2api();
+            let api_contract_abi = contract_abi.wire2api();
+            let api_method = method.wire2api();
+            move |task_callback| decode_output(api_message_body, api_contract_abi, api_method)
+        },
+    )
+}
+fn wire_decode_transaction_impl(
+    port_: MessagePort,
+    transaction: impl Wire2Api<String> + UnwindSafe,
+    contract_abi: impl Wire2Api<String> + UnwindSafe,
+    method: impl Wire2Api<Option<String>> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "decode_transaction",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_transaction = transaction.wire2api();
+            let api_contract_abi = contract_abi.wire2api();
+            let api_method = method.wire2api();
+            move |task_callback| decode_transaction(api_transaction, api_contract_abi, api_method)
+        },
+    )
+}
+fn wire_decode_transaction_events_impl(
+    port_: MessagePort,
+    transaction: impl Wire2Api<String> + UnwindSafe,
+    contract_abi: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "decode_transaction_events",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_transaction = transaction.wire2api();
+            let api_contract_abi = contract_abi.wire2api();
+            move |task_callback| decode_transaction_events(api_transaction, api_contract_abi)
+        },
+    )
+}
+fn wire_get_boc_hash_impl(port_: MessagePort, boc: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_boc_hash",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_boc = boc.wire2api();
+            move |task_callback| get_boc_hash(api_boc)
+        },
+    )
+}
+fn wire_pack_into_cell_impl(
+    port_: MessagePort,
+    params: impl Wire2Api<String> + UnwindSafe,
+    tokens: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "pack_into_cell",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_params = params.wire2api();
+            let api_tokens = tokens.wire2api();
+            move |task_callback| pack_into_cell(api_params, api_tokens)
+        },
+    )
+}
+fn wire_unpack_from_cell_impl(
+    port_: MessagePort,
+    params: impl Wire2Api<String> + UnwindSafe,
+    boc: impl Wire2Api<String> + UnwindSafe,
+    allow_partial: impl Wire2Api<bool> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "unpack_from_cell",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_params = params.wire2api();
+            let api_boc = boc.wire2api();
+            let api_allow_partial = allow_partial.wire2api();
+            move |task_callback| unpack_from_cell(api_params, api_boc, api_allow_partial)
+        },
+    )
+}
 fn wire_init_logger_impl(
     port_: MessagePort,
     level: impl Wire2Api<LogLevel> + UnwindSafe,
@@ -553,6 +889,11 @@ impl Wire2Api<i64> for i64 {
         self
     }
 }
+impl Wire2Api<i8> for i8 {
+    fn wire2api(self) -> i8 {
+        self
+    }
+}
 
 impl Wire2Api<LogLevel> for i32 {
     fn wire2api(self) -> LogLevel {
@@ -736,6 +1077,13 @@ impl support::IntoDart for StorageImpl {
 }
 impl support::IntoDartExceptPrimitive for StorageImpl {}
 
+impl support::IntoDart for UnsignedMessageImpl {
+    fn into_dart(self) -> support::DartAbi {
+        vec![self.inner_message.into_dart()].into_dart()
+    }
+}
+impl support::IntoDartExceptPrimitive for UnsignedMessageImpl {}
+
 // Section: executor
 
 support::lazy_static! {
@@ -771,6 +1119,178 @@ mod web {
     #[wasm_bindgen]
     pub fn wire_nt_derive_from_phrase(port_: MessagePort, phrase: String, mnemonic_type: JsValue) {
         wire_nt_derive_from_phrase_impl(port_, phrase, mnemonic_type)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_check_public_key(port_: MessagePort, public_key: String) {
+        wire_check_public_key_impl(port_, public_key)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_run_local(
+        port_: MessagePort,
+        account_stuff_boc: String,
+        contract_abi: String,
+        method: String,
+        input: String,
+        responsible: bool,
+    ) {
+        wire_run_local_impl(
+            port_,
+            account_stuff_boc,
+            contract_abi,
+            method,
+            input,
+            responsible,
+        )
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_get_expected_address(
+        port_: MessagePort,
+        tvc: String,
+        contract_abi: String,
+        workchain_id: i8,
+        public_key: Option<String>,
+        init_data: String,
+    ) {
+        wire_get_expected_address_impl(
+            port_,
+            tvc,
+            contract_abi,
+            workchain_id,
+            public_key,
+            init_data,
+        )
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_encode_internal_input(
+        port_: MessagePort,
+        contract_abi: String,
+        method: String,
+        input: String,
+    ) {
+        wire_encode_internal_input_impl(port_, contract_abi, method, input)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_create_external_message_without_signature(
+        port_: MessagePort,
+        dst: String,
+        contract_abi: String,
+        method: String,
+        state_init: Option<String>,
+        input: String,
+        timeout: u32,
+    ) {
+        wire_create_external_message_without_signature_impl(
+            port_,
+            dst,
+            contract_abi,
+            method,
+            state_init,
+            input,
+            timeout,
+        )
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_create_external_message(
+        port_: MessagePort,
+        dst: String,
+        contract_abi: String,
+        method: String,
+        state_init: Option<String>,
+        input: String,
+        public_key: String,
+        timeout: u32,
+    ) {
+        wire_create_external_message_impl(
+            port_,
+            dst,
+            contract_abi,
+            method,
+            state_init,
+            input,
+            public_key,
+            timeout,
+        )
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_parse_known_payload(port_: MessagePort, payload: String) {
+        wire_parse_known_payload_impl(port_, payload)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_decode_input(
+        port_: MessagePort,
+        message_body: String,
+        contract_abi: String,
+        method: Option<String>,
+        internal: bool,
+    ) {
+        wire_decode_input_impl(port_, message_body, contract_abi, method, internal)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_decode_event(
+        port_: MessagePort,
+        message_body: String,
+        contract_abi: String,
+        event: Option<String>,
+    ) {
+        wire_decode_event_impl(port_, message_body, contract_abi, event)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_decode_output(
+        port_: MessagePort,
+        message_body: String,
+        contract_abi: String,
+        method: Option<String>,
+    ) {
+        wire_decode_output_impl(port_, message_body, contract_abi, method)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_decode_transaction(
+        port_: MessagePort,
+        transaction: String,
+        contract_abi: String,
+        method: Option<String>,
+    ) {
+        wire_decode_transaction_impl(port_, transaction, contract_abi, method)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_decode_transaction_events(
+        port_: MessagePort,
+        transaction: String,
+        contract_abi: String,
+    ) {
+        wire_decode_transaction_events_impl(port_, transaction, contract_abi)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_get_boc_hash(port_: MessagePort, boc: String) {
+        wire_get_boc_hash_impl(port_, boc)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_pack_into_cell(port_: MessagePort, params: String, tokens: String) {
+        wire_pack_into_cell_impl(port_, params, tokens)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_unpack_from_cell(
+        port_: MessagePort,
+        params: String,
+        boc: String,
+        allow_partial: bool,
+    ) {
+        wire_unpack_from_cell_impl(port_, params, boc, allow_partial)
     }
 
     #[wasm_bindgen]
@@ -927,6 +1447,21 @@ mod web {
 
     // Section: related functions
 
+    #[wasm_bindgen]
+    pub fn drop_opaque_BoxUnsignedMessageBoxTrait(ptr: *const c_void) {
+        unsafe {
+            Arc::<Box<dyn UnsignedMessageBoxTrait>>::decrement_strong_count(ptr as _);
+        }
+    }
+
+    #[wasm_bindgen]
+    pub fn share_opaque_BoxUnsignedMessageBoxTrait(ptr: *const c_void) -> *const c_void {
+        unsafe {
+            Arc::<Box<dyn UnsignedMessageBoxTrait>>::increment_strong_count(ptr as _);
+            ptr
+        }
+    }
+
     // Section: impl Wire2Api
 
     impl Wire2Api<String> for String {
@@ -1045,6 +1580,11 @@ mod web {
             }
         }
     }
+    impl Wire2Api<Option<String>> for Option<String> {
+        fn wire2api(self) -> Option<String> {
+            self.map(Wire2Api::wire2api)
+        }
+    }
     impl Wire2Api<Option<DynamicValue>> for JsValue {
         fn wire2api(self) -> Option<DynamicValue> {
             (!self.is_undefined() && !self.is_null()).then(|| self.wire2api())
@@ -1117,9 +1657,19 @@ mod web {
             ::std::convert::TryInto::try_into(self.dyn_into::<js_sys::BigInt>().unwrap()).unwrap()
         }
     }
+    impl Wire2Api<i8> for JsValue {
+        fn wire2api(self) -> i8 {
+            self.unchecked_into_f64() as _
+        }
+    }
     impl Wire2Api<LogLevel> for JsValue {
         fn wire2api(self) -> LogLevel {
             (self.unchecked_into_f64() as i32).wire2api()
+        }
+    }
+    impl Wire2Api<Option<String>> for JsValue {
+        fn wire2api(self) -> Option<String> {
+            (!self.is_undefined() && !self.is_null()).then(|| self.wire2api())
         }
     }
     impl Wire2Api<u16> for JsValue {
@@ -1183,6 +1733,182 @@ mod io {
         mnemonic_type: *mut wire_MnemonicType,
     ) {
         wire_nt_derive_from_phrase_impl(port_, phrase, mnemonic_type)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_check_public_key(port_: i64, public_key: *mut wire_uint_8_list) {
+        wire_check_public_key_impl(port_, public_key)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_run_local(
+        port_: i64,
+        account_stuff_boc: *mut wire_uint_8_list,
+        contract_abi: *mut wire_uint_8_list,
+        method: *mut wire_uint_8_list,
+        input: *mut wire_uint_8_list,
+        responsible: bool,
+    ) {
+        wire_run_local_impl(
+            port_,
+            account_stuff_boc,
+            contract_abi,
+            method,
+            input,
+            responsible,
+        )
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_get_expected_address(
+        port_: i64,
+        tvc: *mut wire_uint_8_list,
+        contract_abi: *mut wire_uint_8_list,
+        workchain_id: i8,
+        public_key: *mut wire_uint_8_list,
+        init_data: *mut wire_uint_8_list,
+    ) {
+        wire_get_expected_address_impl(
+            port_,
+            tvc,
+            contract_abi,
+            workchain_id,
+            public_key,
+            init_data,
+        )
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_encode_internal_input(
+        port_: i64,
+        contract_abi: *mut wire_uint_8_list,
+        method: *mut wire_uint_8_list,
+        input: *mut wire_uint_8_list,
+    ) {
+        wire_encode_internal_input_impl(port_, contract_abi, method, input)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_create_external_message_without_signature(
+        port_: i64,
+        dst: *mut wire_uint_8_list,
+        contract_abi: *mut wire_uint_8_list,
+        method: *mut wire_uint_8_list,
+        state_init: *mut wire_uint_8_list,
+        input: *mut wire_uint_8_list,
+        timeout: u32,
+    ) {
+        wire_create_external_message_without_signature_impl(
+            port_,
+            dst,
+            contract_abi,
+            method,
+            state_init,
+            input,
+            timeout,
+        )
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_create_external_message(
+        port_: i64,
+        dst: *mut wire_uint_8_list,
+        contract_abi: *mut wire_uint_8_list,
+        method: *mut wire_uint_8_list,
+        state_init: *mut wire_uint_8_list,
+        input: *mut wire_uint_8_list,
+        public_key: *mut wire_uint_8_list,
+        timeout: u32,
+    ) {
+        wire_create_external_message_impl(
+            port_,
+            dst,
+            contract_abi,
+            method,
+            state_init,
+            input,
+            public_key,
+            timeout,
+        )
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_parse_known_payload(port_: i64, payload: *mut wire_uint_8_list) {
+        wire_parse_known_payload_impl(port_, payload)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_decode_input(
+        port_: i64,
+        message_body: *mut wire_uint_8_list,
+        contract_abi: *mut wire_uint_8_list,
+        method: *mut wire_uint_8_list,
+        internal: bool,
+    ) {
+        wire_decode_input_impl(port_, message_body, contract_abi, method, internal)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_decode_event(
+        port_: i64,
+        message_body: *mut wire_uint_8_list,
+        contract_abi: *mut wire_uint_8_list,
+        event: *mut wire_uint_8_list,
+    ) {
+        wire_decode_event_impl(port_, message_body, contract_abi, event)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_decode_output(
+        port_: i64,
+        message_body: *mut wire_uint_8_list,
+        contract_abi: *mut wire_uint_8_list,
+        method: *mut wire_uint_8_list,
+    ) {
+        wire_decode_output_impl(port_, message_body, contract_abi, method)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_decode_transaction(
+        port_: i64,
+        transaction: *mut wire_uint_8_list,
+        contract_abi: *mut wire_uint_8_list,
+        method: *mut wire_uint_8_list,
+    ) {
+        wire_decode_transaction_impl(port_, transaction, contract_abi, method)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_decode_transaction_events(
+        port_: i64,
+        transaction: *mut wire_uint_8_list,
+        contract_abi: *mut wire_uint_8_list,
+    ) {
+        wire_decode_transaction_events_impl(port_, transaction, contract_abi)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_get_boc_hash(port_: i64, boc: *mut wire_uint_8_list) {
+        wire_get_boc_hash_impl(port_, boc)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_pack_into_cell(
+        port_: i64,
+        params: *mut wire_uint_8_list,
+        tokens: *mut wire_uint_8_list,
+    ) {
+        wire_pack_into_cell_impl(port_, params, tokens)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_unpack_from_cell(
+        port_: i64,
+        params: *mut wire_uint_8_list,
+        boc: *mut wire_uint_8_list,
+        allow_partial: bool,
+    ) {
+        wire_unpack_from_cell_impl(port_, params, boc, allow_partial)
     }
 
     #[no_mangle]
@@ -1424,6 +2150,21 @@ mod io {
     }
 
     // Section: related functions
+
+    #[no_mangle]
+    pub extern "C" fn drop_opaque_BoxUnsignedMessageBoxTrait(ptr: *const c_void) {
+        unsafe {
+            Arc::<Box<dyn UnsignedMessageBoxTrait>>::decrement_strong_count(ptr as _);
+        }
+    }
+
+    #[no_mangle]
+    pub extern "C" fn share_opaque_BoxUnsignedMessageBoxTrait(ptr: *const c_void) -> *const c_void {
+        unsafe {
+            Arc::<Box<dyn UnsignedMessageBoxTrait>>::increment_strong_count(ptr as _);
+            ptr
+        }
+    }
 
     // Section: impl Wire2Api
 
