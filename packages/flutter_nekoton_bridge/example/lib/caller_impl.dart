@@ -40,4 +40,11 @@ class CallerImpl extends flutter_nekoton_bridge.AbstractCaller {
     return flutter_nekoton_bridge.DynamicValueConvert.megaStruct(
         toSendDynamicValue);
   }
+
+  // These methods SHOULD NOT be removed
+  // or altered because it used in integration tests
+  @override
+  Future<flutter_nekoton_bridge.DynamicValue> test0(String string) async {
+    return flutter_nekoton_bridge.DynamicValue.string(string);
+  }
 }

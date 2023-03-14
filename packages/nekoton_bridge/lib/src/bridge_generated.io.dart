@@ -490,6 +490,44 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_test_logger_panic = _wire_test_logger_panicPtr
       .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
 
+  void wire_test_caller_call_test0_async(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+    bool need_result,
+  ) {
+    return _wire_test_caller_call_test0_async(
+      port_,
+      string,
+      need_result,
+    );
+  }
+
+  late final _wire_test_caller_call_test0_asyncPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
+              ffi.Bool)>>('wire_test_caller_call_test0_async');
+  late final _wire_test_caller_call_test0_async =
+      _wire_test_caller_call_test0_asyncPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_uint_8_list>, bool)>();
+
+  WireSyncReturn wire_test_caller_call_test0_sync(
+    ffi.Pointer<wire_uint_8_list> string,
+    bool need_result,
+  ) {
+    return _wire_test_caller_call_test0_sync(
+      string,
+      need_result,
+    );
+  }
+
+  late final _wire_test_caller_call_test0_syncPtr = _lookup<
+      ffi.NativeFunction<
+          WireSyncReturn Function(ffi.Pointer<wire_uint_8_list>,
+              ffi.Bool)>>('wire_test_caller_call_test0_sync');
+  late final _wire_test_caller_call_test0_sync =
+      _wire_test_caller_call_test0_syncPtr.asFunction<
+          WireSyncReturn Function(ffi.Pointer<wire_uint_8_list>, bool)>();
+
   void wire_init_logger(
     int port_,
     int level,

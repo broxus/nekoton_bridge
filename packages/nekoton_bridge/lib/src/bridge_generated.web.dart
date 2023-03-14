@@ -194,6 +194,12 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_test_logger_panic(
       NativePortType port_, String string);
 
+  external dynamic /* void */ wire_test_caller_call_test0_async(
+      NativePortType port_, String string, bool need_result);
+
+  external dynamic /* List<dynamic> */ wire_test_caller_call_test0_sync(
+      String string, bool need_result);
+
   external dynamic /* void */ wire_init_logger(
       NativePortType port_, int level, bool mobile_logger);
 
@@ -287,6 +293,14 @@ class NekotonBridgeWire
 
   void wire_test_logger_panic(NativePortType port_, String string) =>
       wasmModule.wire_test_logger_panic(port_, string);
+
+  void wire_test_caller_call_test0_async(
+          NativePortType port_, String string, bool need_result) =>
+      wasmModule.wire_test_caller_call_test0_async(port_, string, need_result);
+
+  dynamic /* List<dynamic> */ wire_test_caller_call_test0_sync(
+          String string, bool need_result) =>
+      wasmModule.wire_test_caller_call_test0_sync(string, need_result);
 
   void wire_init_logger(NativePortType port_, int level, bool mobile_logger) =>
       wasmModule.wire_init_logger(port_, level, mobile_logger);

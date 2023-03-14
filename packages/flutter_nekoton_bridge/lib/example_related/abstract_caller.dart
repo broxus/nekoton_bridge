@@ -20,4 +20,6 @@ abstract class AbstractCaller {
   DynamicValue func2(
     MegaStruct megaStruct,
   );
+
+  Future<DynamicValue> test0(String string);
 }

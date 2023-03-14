@@ -11,7 +11,7 @@ use thiserror::Error;
 
 use flutter_rust_bridge::StreamSink;
 use lazy_static::lazy_static;
-use log::{debug, warn};
+use log::warn;
 use parking_lot::RwLock;
 use uuid::Uuid;
 
@@ -176,5 +176,4 @@ pub fn call_send_result(id: String, value: DynamicValue) {
     let mut map = CALLBACK_MAP.lock().unwrap();
     let sender = map.remove(&id).expect("Can't find caller Sender");
     sender.send(value).expect("Can't send to caller");
-    debug!("Map length: {}", map.len());
 }

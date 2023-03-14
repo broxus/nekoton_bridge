@@ -113,6 +113,18 @@ class _MyAppState extends State<MyApp> {
     flutter_nekoton_bridge.testLoggerPanic('test logger: panic');
   }
 
+  void _testCallerCallTest0Async(bool needResult) async {
+    final result = await flutter_nekoton_bridge.testCallerCallTest0Async(
+        'testCallerCallTest0Async $needResult', needResult);
+    debugPrint('result ${result.toDynamic()}');
+  }
+
+  void _testCallerCallTest0Sync(bool needResult) async {
+    final result = await flutter_nekoton_bridge.testCallerCallTest0Sync(
+        'testCallerCallTest0Sync $needResult', needResult);
+    debugPrint('result ${result.toDynamic()}');
+  }
+
   @override
   Widget build(BuildContext context) {
     const textStyle = TextStyle(fontSize: 25);
@@ -125,29 +137,69 @@ class _MyAppState extends State<MyApp> {
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(10),
-            child: Wrap(
+            child: Column(
               children: [
-                // These buttons (with *Test* callbacks) SHOULD NOT be removed
-                // or altered because it used in integration tests
-                TextButton(
-                  onPressed: () => _onPressedTestInfo(),
-                  child: const Text('i'),
+                const Text(
+                  'logger-related',
+                  style: textStyle,
                 ),
-                TextButton(
-                  onPressed: () => _onPressedTestDebug(),
-                  child: const Text('d'),
+                Wrap(
+                  children: [
+                    // These buttons (with *Test* callbacks) SHOULD NOT be removed
+                    // or altered because it used in integration tests
+                    TextButton(
+                      onPressed: () => _onPressedTestInfo(),
+                      child: const Text('i'),
+                    ),
+                    TextButton(
+                      onPressed: () => _onPressedTestDebug(),
+                      child: const Text('d'),
+                    ),
+                    TextButton(
+                      onPressed: () => _onPressedTestWarn(),
+                      child: const Text('w'),
+                    ),
+                    TextButton(
+                      onPressed: () => _onPressedTestError(),
+                      child: const Text('e'),
+                    ),
+                    TextButton(
+                      onPressed: () => _onPressedTestPanic(),
+                      child: const Text('p'),
+                    ),
+                  ],
                 ),
-                TextButton(
-                  onPressed: () => _onPressedTestWarn(),
-                  child: const Text('w'),
+                const Text(
+                  'caller-related',
+                  style: textStyle,
                 ),
-                TextButton(
-                  onPressed: () => _onPressedTestError(),
-                  child: const Text('e'),
-                ),
-                TextButton(
-                  onPressed: () => _onPressedTestPanic(),
-                  child: const Text('p'),
+                Wrap(
+                  children: [
+                    // These buttons (with *Test* callbacks) SHOULD NOT be removed
+                    // or altered because it used in integration tests
+                    TextButton(
+                      onPressed: _onPressedInitDartCaller,
+                      child: const Text('initDartCaller'),
+                    ),
+                    TextButton(
+                      onPressed: () => _testCallerCallTest0Async(false),
+                      child: const Text('Test0Async'),
+                    ),
+                    TextButton(
+                      onPressed: () => _testCallerCallTest0Async(true),
+                      child: const Text('Test0AsyncResult'),
+                    ),
+                    TextButton(
+                      onPressed: () => _testCallerCallTest0Sync(false),
+                      child: const Text('Test0Sync'),
+                    ),
+                    // WARNING! You should not run a method synchronously,
+                    // waiting for its result!!!
+                    TextButton(
+                      onPressed: () => _testCallerCallTest0Sync(true),
+                      child: const Text('Test0SyncResult'),
+                    ),
+                  ],
                 ),
                 Text(
                   'sum(1, 2) = $sumResult',
@@ -178,10 +230,6 @@ class _MyAppState extends State<MyApp> {
                 TextButton(
                   onPressed: _onPressedPanic,
                   child: const Text('Panic'),
-                ),
-                TextButton(
-                  onPressed: _onPressedInitDartCaller,
-                  child: const Text('initDartCaller'),
                 ),
                 TextButton(
                   onPressed: () => _onPressedDartCallFunc0(true),

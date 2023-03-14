@@ -113,7 +113,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
             {},
             {
               r'': (bool b) =>
-                  (storage) => b ? prefix3.CallerWrapper(storage) : null
+                  (caller) => b ? prefix3.CallerWrapper(caller) : null
             },
             -1,
             -1,
@@ -131,8 +131,9 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'func0': 3,
               r'func1': 3,
               r'func2': 1,
+              r'test0': 1,
               r'initializeMirror': 0,
-              r'storage': 0
+              r'caller': 0
             }),
         r.NonGenericClassMirrorImpl(
             r'GqlConnection',
@@ -271,6 +272,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'func0': (dynamic instance) => instance.func0,
         r'func1': (dynamic instance) => instance.func1,
         r'func2': (dynamic instance) => instance.func2,
+        r'test0': (dynamic instance) => instance.test0,
         r'post': (dynamic instance) => instance.post,
         r'connection': (dynamic instance) => instance.connection,
         r'name': (dynamic instance) => instance.name,

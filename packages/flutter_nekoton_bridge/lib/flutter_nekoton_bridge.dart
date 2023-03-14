@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:flutter/foundation.dart';
 import 'package:nekoton_bridge/nekoton_bridge.dart';
 export 'package:nekoton_bridge/nekoton_bridge.dart';
 import 'dynamic_value.dart';
@@ -61,7 +60,6 @@ Future<void> registerRustToDartCaller(RustToDartCaller rustToDartCaller) async {
         positionalArguments,
         namedArguments.isNotEmpty ? namedArguments : null,
       );
-      debugPrint('Result: $result');
       if (id == null) {
         // Don't use return value
         return;
@@ -75,14 +73,26 @@ Future<void> registerRustToDartCaller(RustToDartCaller rustToDartCaller) async {
       } else if (result is int) {
         lib.callSendResult(id: id, value: DynamicValue.i64(result));
         return;
+      } else if (result is Future<int>) {
+        lib.callSendResult(id: id, value: DynamicValue.i64(await result));
+        return;
       } else if (result is double) {
         lib.callSendResult(id: id, value: DynamicValue.f64(result));
+        return;
+      } else if (result is Future<double>) {
+        lib.callSendResult(id: id, value: DynamicValue.f64(await result));
         return;
       } else if (result is DynamicValue) {
         lib.callSendResult(id: id, value: result);
         return;
+      } else if (result is Future<DynamicValue>) {
+        lib.callSendResult(id: id, value: await result);
+        return;
       } else if (result is ErrorCode) {
         lib.callSendResult(id: id, value: DynamicValue.error(result));
+        return;
+      } else if (result is Future<ErrorCode>) {
+        lib.callSendResult(id: id, value: DynamicValue.error(await result));
         return;
       } else if (result == null) {
         lib.callSendResult(id: id, value: const DynamicValue.none());

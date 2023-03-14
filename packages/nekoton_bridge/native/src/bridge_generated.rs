@@ -141,6 +141,41 @@ fn wire_test_logger_panic_impl(port_: MessagePort, string: impl Wire2Api<String>
         },
     )
 }
+fn wire_test_caller_call_test0_async_impl(
+    port_: MessagePort,
+    string: impl Wire2Api<String> + UnwindSafe,
+    need_result: impl Wire2Api<bool> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "test_caller_call_test0_async",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_string = string.wire2api();
+            let api_need_result = need_result.wire2api();
+            move |task_callback| Ok(test_caller_call_test0_async(api_string, api_need_result))
+        },
+    )
+}
+fn wire_test_caller_call_test0_sync_impl(
+    string: impl Wire2Api<String> + UnwindSafe,
+    need_result: impl Wire2Api<bool> + UnwindSafe,
+) -> support::WireSyncReturn {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_sync(
+        WrapInfo {
+            debug_name: "test_caller_call_test0_sync",
+            port: None,
+            mode: FfiCallMode::Sync,
+        },
+        move || {
+            let api_string = string.wire2api();
+            let api_need_result = need_result.wire2api();
+            Ok(test_caller_call_test0_sync(api_string, api_need_result))
+        },
+    )
+}
 fn wire_init_logger_impl(
     port_: MessagePort,
     level: impl Wire2Api<LogLevel> + UnwindSafe,
@@ -768,6 +803,23 @@ mod web {
     }
 
     #[wasm_bindgen]
+    pub fn wire_test_caller_call_test0_async(
+        port_: MessagePort,
+        string: String,
+        need_result: bool,
+    ) {
+        wire_test_caller_call_test0_async_impl(port_, string, need_result)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_test_caller_call_test0_sync(
+        string: String,
+        need_result: bool,
+    ) -> support::WireSyncReturn {
+        wire_test_caller_call_test0_sync_impl(string, need_result)
+    }
+
+    #[wasm_bindgen]
     pub fn wire_init_logger(port_: MessagePort, level: i32, mobile_logger: bool) {
         wire_init_logger_impl(port_, level, mobile_logger)
     }
@@ -1144,6 +1196,23 @@ mod io {
     #[no_mangle]
     pub extern "C" fn wire_test_logger_panic(port_: i64, string: *mut wire_uint_8_list) {
         wire_test_logger_panic_impl(port_, string)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_test_caller_call_test0_async(
+        port_: i64,
+        string: *mut wire_uint_8_list,
+        need_result: bool,
+    ) {
+        wire_test_caller_call_test0_async_impl(port_, string, need_result)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_test_caller_call_test0_sync(
+        string: *mut wire_uint_8_list,
+        need_result: bool,
+    ) -> support::WireSyncReturn {
+        wire_test_caller_call_test0_sync_impl(string, need_result)
     }
 
     #[no_mangle]
