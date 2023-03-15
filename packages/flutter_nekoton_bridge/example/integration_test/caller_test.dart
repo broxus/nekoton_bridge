@@ -30,7 +30,7 @@ void main() {
 
       expect(log, isEmpty);
       await tester.tap(find.text('Test0Async'));
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle();
       expect(log, hasLength(2));
       expect(
           log,
@@ -41,7 +41,7 @@ void main() {
 
       expect(log, isEmpty);
       await tester.tap(find.text('Test0AsyncResult'));
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle();
       expect(log, hasLength(2));
       expect(
           log,
@@ -52,7 +52,7 @@ void main() {
 
       expect(log, isEmpty);
       await tester.tap(find.text('Test0Sync'));
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle();
       expect(log, hasLength(2));
       expect(
           log,
