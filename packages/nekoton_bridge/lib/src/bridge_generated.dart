@@ -194,6 +194,66 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kUnpackFromCellConstMeta;
 
+  /// Pack address std smd or throw error
+  /// Returns new packed address as string
+  Future<String> packStdSmcAddr(
+      {required String addr,
+      required bool base64Url,
+      required bool bounceable,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kPackStdSmcAddrConstMeta;
+
+  /// Unpack address std smd or throw error.
+  /// Returns json-encoded MsgAddressInt
+  Future<String> unpackStdSmcAddr(
+      {required String packed, required bool base64Url, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kUnpackStdSmcAddrConstMeta;
+
+  /// Return true if address is valid, false otherwise
+  Future<bool> validateAddress({required String address, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kValidateAddressConstMeta;
+
+  /// Repack address and return json-encoded MsgAddressInt or throw error
+  Future<String> repackAddress({required String address, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kRepackAddressConstMeta;
+
+  /// Extract public key from boc and return it or throw error
+  Future<String> extractPublicKey({required String boc, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kExtractPublicKeyConstMeta;
+
+  /// Convert code to base64 tvc string and return it or throw error
+  Future<String> codeToTvc({required String code, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kCodeToTvcConstMeta;
+
+  /// Merge code and data to tvc base64 string and return it or throw error
+  Future<String> mergeTvc(
+      {required String code, required String data, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kMergeTvcConstMeta;
+
+  /// Split base64 tvc string into data and code.
+  /// Return vec![data, code] or throw error
+  Future<List<String?>> splitTvc({required String tvc, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kSplitTvcConstMeta;
+
+  /// Set salt to code and return base64-encoded string or throw error
+  Future<String> setCodeSalt(
+      {required String code, required String salt, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kSetCodeSaltConstMeta;
+
+  /// Get salt from code if possible and return base64-encoded salt or throw error
+  Future<String?> getCodeSalt({required String code, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kGetCodeSaltConstMeta;
+
   ///----------------------------
   /// CONTENT OF src/utils/api.rs
   ///----------------------------
@@ -1129,6 +1189,190 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: ["params", "boc", "allowPartial"],
       );
 
+  Future<String> packStdSmcAddr(
+      {required String addr,
+      required bool base64Url,
+      required bool bounceable,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(addr);
+    var arg1 = base64Url;
+    var arg2 = bounceable;
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_pack_std_smc_addr(port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_String,
+      constMeta: kPackStdSmcAddrConstMeta,
+      argValues: [addr, base64Url, bounceable],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kPackStdSmcAddrConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "pack_std_smc_addr",
+        argNames: ["addr", "base64Url", "bounceable"],
+      );
+
+  Future<String> unpackStdSmcAddr(
+      {required String packed, required bool base64Url, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(packed);
+    var arg1 = base64Url;
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_unpack_std_smc_addr(port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kUnpackStdSmcAddrConstMeta,
+      argValues: [packed, base64Url],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kUnpackStdSmcAddrConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "unpack_std_smc_addr",
+        argNames: ["packed", "base64Url"],
+      );
+
+  Future<bool> validateAddress({required String address, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(address);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_validate_address(port_, arg0),
+      parseSuccessData: _wire2api_bool,
+      constMeta: kValidateAddressConstMeta,
+      argValues: [address],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kValidateAddressConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "validate_address",
+        argNames: ["address"],
+      );
+
+  Future<String> repackAddress({required String address, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(address);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_repack_address(port_, arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kRepackAddressConstMeta,
+      argValues: [address],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kRepackAddressConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "repack_address",
+        argNames: ["address"],
+      );
+
+  Future<String> extractPublicKey({required String boc, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(boc);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_extract_public_key(port_, arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kExtractPublicKeyConstMeta,
+      argValues: [boc],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kExtractPublicKeyConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "extract_public_key",
+        argNames: ["boc"],
+      );
+
+  Future<String> codeToTvc({required String code, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(code);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_code_to_tvc(port_, arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kCodeToTvcConstMeta,
+      argValues: [code],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kCodeToTvcConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "code_to_tvc",
+        argNames: ["code"],
+      );
+
+  Future<String> mergeTvc(
+      {required String code, required String data, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(code);
+    var arg1 = _platform.api2wire_String(data);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_merge_tvc(port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kMergeTvcConstMeta,
+      argValues: [code, data],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kMergeTvcConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "merge_tvc",
+        argNames: ["code", "data"],
+      );
+
+  Future<List<String?>> splitTvc({required String tvc, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(tvc);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_split_tvc(port_, arg0),
+      parseSuccessData: _wire2api_list_opt_String,
+      constMeta: kSplitTvcConstMeta,
+      argValues: [tvc],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kSplitTvcConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "split_tvc",
+        argNames: ["tvc"],
+      );
+
+  Future<String> setCodeSalt(
+      {required String code, required String salt, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(code);
+    var arg1 = _platform.api2wire_String(salt);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_set_code_salt(port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kSetCodeSaltConstMeta,
+      argValues: [code, salt],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kSetCodeSaltConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "set_code_salt",
+        argNames: ["code", "salt"],
+      );
+
+  Future<String?> getCodeSalt({required String code, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(code);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_get_code_salt(port_, arg0),
+      parseSuccessData: _wire2api_opt_String,
+      constMeta: kGetCodeSaltConstMeta,
+      argValues: [code],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kGetCodeSaltConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "get_code_salt",
+        argNames: ["code"],
+      );
+
   Future<void> initLogger(
       {required LogLevel level, required bool mobileLogger, dynamic hint}) {
     var arg0 = api2wire_log_level(level);
@@ -1812,6 +2056,10 @@ class NekotonBridgeImpl implements NekotonBridge {
 
   List<DynamicValue> _wire2api_list_dynamic_value(dynamic raw) {
     return (raw as List<dynamic>).map(_wire2api_dynamic_value).toList();
+  }
+
+  List<String?> _wire2api_list_opt_String(dynamic raw) {
+    return (raw as List<dynamic>).map(_wire2api_opt_String).toList();
   }
 
   LogEntry _wire2api_log_entry(dynamic raw) {

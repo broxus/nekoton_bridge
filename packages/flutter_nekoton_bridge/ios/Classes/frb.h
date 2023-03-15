@@ -235,6 +235,31 @@ void wire_unpack_from_cell(int64_t port_,
                            struct wire_uint_8_list *boc,
                            bool allow_partial);
 
+void wire_pack_std_smc_addr(int64_t port_,
+                            struct wire_uint_8_list *addr,
+                            bool base64_url,
+                            bool bounceable);
+
+void wire_unpack_std_smc_addr(int64_t port_, struct wire_uint_8_list *packed, bool base64_url);
+
+void wire_validate_address(int64_t port_, struct wire_uint_8_list *address);
+
+void wire_repack_address(int64_t port_, struct wire_uint_8_list *address);
+
+void wire_extract_public_key(int64_t port_, struct wire_uint_8_list *boc);
+
+void wire_code_to_tvc(int64_t port_, struct wire_uint_8_list *code);
+
+void wire_merge_tvc(int64_t port_, struct wire_uint_8_list *code, struct wire_uint_8_list *data);
+
+void wire_split_tvc(int64_t port_, struct wire_uint_8_list *tvc);
+
+void wire_set_code_salt(int64_t port_,
+                        struct wire_uint_8_list *code,
+                        struct wire_uint_8_list *salt);
+
+void wire_get_code_salt(int64_t port_, struct wire_uint_8_list *code);
+
 void wire_init_logger(int64_t port_, int32_t level, bool mobile_logger);
 
 void wire_create_log_stream(int64_t port_);
@@ -370,6 +395,16 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_get_boc_hash);
     dummy_var ^= ((int64_t) (void*) wire_pack_into_cell);
     dummy_var ^= ((int64_t) (void*) wire_unpack_from_cell);
+    dummy_var ^= ((int64_t) (void*) wire_pack_std_smc_addr);
+    dummy_var ^= ((int64_t) (void*) wire_unpack_std_smc_addr);
+    dummy_var ^= ((int64_t) (void*) wire_validate_address);
+    dummy_var ^= ((int64_t) (void*) wire_repack_address);
+    dummy_var ^= ((int64_t) (void*) wire_extract_public_key);
+    dummy_var ^= ((int64_t) (void*) wire_code_to_tvc);
+    dummy_var ^= ((int64_t) (void*) wire_merge_tvc);
+    dummy_var ^= ((int64_t) (void*) wire_split_tvc);
+    dummy_var ^= ((int64_t) (void*) wire_set_code_salt);
+    dummy_var ^= ((int64_t) (void*) wire_get_code_salt);
     dummy_var ^= ((int64_t) (void*) wire_init_logger);
     dummy_var ^= ((int64_t) (void*) wire_create_log_stream);
     dummy_var ^= ((int64_t) (void*) wire_init_caller);

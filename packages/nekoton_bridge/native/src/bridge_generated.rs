@@ -432,6 +432,158 @@ fn wire_unpack_from_cell_impl(
         },
     )
 }
+fn wire_pack_std_smc_addr_impl(
+    port_: MessagePort,
+    addr: impl Wire2Api<String> + UnwindSafe,
+    base64_url: impl Wire2Api<bool> + UnwindSafe,
+    bounceable: impl Wire2Api<bool> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "pack_std_smc_addr",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_addr = addr.wire2api();
+            let api_base64_url = base64_url.wire2api();
+            let api_bounceable = bounceable.wire2api();
+            move |task_callback| pack_std_smc_addr(api_addr, api_base64_url, api_bounceable)
+        },
+    )
+}
+fn wire_unpack_std_smc_addr_impl(
+    port_: MessagePort,
+    packed: impl Wire2Api<String> + UnwindSafe,
+    base64_url: impl Wire2Api<bool> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "unpack_std_smc_addr",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_packed = packed.wire2api();
+            let api_base64_url = base64_url.wire2api();
+            move |task_callback| unpack_std_smc_addr(api_packed, api_base64_url)
+        },
+    )
+}
+fn wire_validate_address_impl(port_: MessagePort, address: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "validate_address",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_address = address.wire2api();
+            move |task_callback| Ok(validate_address(api_address))
+        },
+    )
+}
+fn wire_repack_address_impl(port_: MessagePort, address: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "repack_address",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_address = address.wire2api();
+            move |task_callback| repack_address(api_address)
+        },
+    )
+}
+fn wire_extract_public_key_impl(port_: MessagePort, boc: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "extract_public_key",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_boc = boc.wire2api();
+            move |task_callback| extract_public_key(api_boc)
+        },
+    )
+}
+fn wire_code_to_tvc_impl(port_: MessagePort, code: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "code_to_tvc",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_code = code.wire2api();
+            move |task_callback| code_to_tvc(api_code)
+        },
+    )
+}
+fn wire_merge_tvc_impl(
+    port_: MessagePort,
+    code: impl Wire2Api<String> + UnwindSafe,
+    data: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "merge_tvc",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_code = code.wire2api();
+            let api_data = data.wire2api();
+            move |task_callback| merge_tvc(api_code, api_data)
+        },
+    )
+}
+fn wire_split_tvc_impl(port_: MessagePort, tvc: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "split_tvc",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_tvc = tvc.wire2api();
+            move |task_callback| split_tvc(api_tvc)
+        },
+    )
+}
+fn wire_set_code_salt_impl(
+    port_: MessagePort,
+    code: impl Wire2Api<String> + UnwindSafe,
+    salt: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "set_code_salt",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_code = code.wire2api();
+            let api_salt = salt.wire2api();
+            move |task_callback| set_code_salt(api_code, api_salt)
+        },
+    )
+}
+fn wire_get_code_salt_impl(port_: MessagePort, code: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_code_salt",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_code = code.wire2api();
+            move |task_callback| get_code_salt(api_code)
+        },
+    )
+}
 fn wire_init_logger_impl(
     port_: MessagePort,
     level: impl Wire2Api<LogLevel> + UnwindSafe,
@@ -1294,6 +1446,61 @@ mod web {
     }
 
     #[wasm_bindgen]
+    pub fn wire_pack_std_smc_addr(
+        port_: MessagePort,
+        addr: String,
+        base64_url: bool,
+        bounceable: bool,
+    ) {
+        wire_pack_std_smc_addr_impl(port_, addr, base64_url, bounceable)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_unpack_std_smc_addr(port_: MessagePort, packed: String, base64_url: bool) {
+        wire_unpack_std_smc_addr_impl(port_, packed, base64_url)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_validate_address(port_: MessagePort, address: String) {
+        wire_validate_address_impl(port_, address)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_repack_address(port_: MessagePort, address: String) {
+        wire_repack_address_impl(port_, address)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_extract_public_key(port_: MessagePort, boc: String) {
+        wire_extract_public_key_impl(port_, boc)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_code_to_tvc(port_: MessagePort, code: String) {
+        wire_code_to_tvc_impl(port_, code)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_merge_tvc(port_: MessagePort, code: String, data: String) {
+        wire_merge_tvc_impl(port_, code, data)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_split_tvc(port_: MessagePort, tvc: String) {
+        wire_split_tvc_impl(port_, tvc)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_set_code_salt(port_: MessagePort, code: String, salt: String) {
+        wire_set_code_salt_impl(port_, code, salt)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_get_code_salt(port_: MessagePort, code: String) {
+        wire_get_code_salt_impl(port_, code)
+    }
+
+    #[wasm_bindgen]
     pub fn wire_init_logger(port_: MessagePort, level: i32, mobile_logger: bool) {
         wire_init_logger_impl(port_, level, mobile_logger)
     }
@@ -1909,6 +2116,73 @@ mod io {
         allow_partial: bool,
     ) {
         wire_unpack_from_cell_impl(port_, params, boc, allow_partial)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_pack_std_smc_addr(
+        port_: i64,
+        addr: *mut wire_uint_8_list,
+        base64_url: bool,
+        bounceable: bool,
+    ) {
+        wire_pack_std_smc_addr_impl(port_, addr, base64_url, bounceable)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_unpack_std_smc_addr(
+        port_: i64,
+        packed: *mut wire_uint_8_list,
+        base64_url: bool,
+    ) {
+        wire_unpack_std_smc_addr_impl(port_, packed, base64_url)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_validate_address(port_: i64, address: *mut wire_uint_8_list) {
+        wire_validate_address_impl(port_, address)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_repack_address(port_: i64, address: *mut wire_uint_8_list) {
+        wire_repack_address_impl(port_, address)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_extract_public_key(port_: i64, boc: *mut wire_uint_8_list) {
+        wire_extract_public_key_impl(port_, boc)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_code_to_tvc(port_: i64, code: *mut wire_uint_8_list) {
+        wire_code_to_tvc_impl(port_, code)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_merge_tvc(
+        port_: i64,
+        code: *mut wire_uint_8_list,
+        data: *mut wire_uint_8_list,
+    ) {
+        wire_merge_tvc_impl(port_, code, data)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_split_tvc(port_: i64, tvc: *mut wire_uint_8_list) {
+        wire_split_tvc_impl(port_, tvc)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_set_code_salt(
+        port_: i64,
+        code: *mut wire_uint_8_list,
+        salt: *mut wire_uint_8_list,
+    ) {
+        wire_set_code_salt_impl(port_, code, salt)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_get_code_salt(port_: i64, code: *mut wire_uint_8_list) {
+        wire_get_code_salt_impl(port_, code)
     }
 
     #[no_mangle]

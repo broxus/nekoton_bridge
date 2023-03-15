@@ -884,6 +884,188 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       void Function(int, ffi.Pointer<wire_uint_8_list>,
           ffi.Pointer<wire_uint_8_list>, bool)>();
 
+  void wire_pack_std_smc_addr(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> addr,
+    bool base64_url,
+    bool bounceable,
+  ) {
+    return _wire_pack_std_smc_addr(
+      port_,
+      addr,
+      base64_url,
+      bounceable,
+    );
+  }
+
+  late final _wire_pack_std_smc_addrPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>, ffi.Bool,
+              ffi.Bool)>>('wire_pack_std_smc_addr');
+  late final _wire_pack_std_smc_addr = _wire_pack_std_smc_addrPtr.asFunction<
+      void Function(int, ffi.Pointer<wire_uint_8_list>, bool, bool)>();
+
+  void wire_unpack_std_smc_addr(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> packed,
+    bool base64_url,
+  ) {
+    return _wire_unpack_std_smc_addr(
+      port_,
+      packed,
+      base64_url,
+    );
+  }
+
+  late final _wire_unpack_std_smc_addrPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
+              ffi.Bool)>>('wire_unpack_std_smc_addr');
+  late final _wire_unpack_std_smc_addr = _wire_unpack_std_smc_addrPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>, bool)>();
+
+  void wire_validate_address(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> address,
+  ) {
+    return _wire_validate_address(
+      port_,
+      address,
+    );
+  }
+
+  late final _wire_validate_addressPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_validate_address');
+  late final _wire_validate_address = _wire_validate_addressPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_repack_address(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> address,
+  ) {
+    return _wire_repack_address(
+      port_,
+      address,
+    );
+  }
+
+  late final _wire_repack_addressPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_repack_address');
+  late final _wire_repack_address = _wire_repack_addressPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_extract_public_key(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> boc,
+  ) {
+    return _wire_extract_public_key(
+      port_,
+      boc,
+    );
+  }
+
+  late final _wire_extract_public_keyPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_extract_public_key');
+  late final _wire_extract_public_key = _wire_extract_public_keyPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_code_to_tvc(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> code,
+  ) {
+    return _wire_code_to_tvc(
+      port_,
+      code,
+    );
+  }
+
+  late final _wire_code_to_tvcPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>('wire_code_to_tvc');
+  late final _wire_code_to_tvc = _wire_code_to_tvcPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_merge_tvc(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> code,
+    ffi.Pointer<wire_uint_8_list> data,
+  ) {
+    return _wire_merge_tvc(
+      port_,
+      code,
+      data,
+    );
+  }
+
+  late final _wire_merge_tvcPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_merge_tvc');
+  late final _wire_merge_tvc = _wire_merge_tvcPtr.asFunction<
+      void Function(
+          int, ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_split_tvc(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> tvc,
+  ) {
+    return _wire_split_tvc(
+      port_,
+      tvc,
+    );
+  }
+
+  late final _wire_split_tvcPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>('wire_split_tvc');
+  late final _wire_split_tvc = _wire_split_tvcPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_set_code_salt(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> code,
+    ffi.Pointer<wire_uint_8_list> salt,
+  ) {
+    return _wire_set_code_salt(
+      port_,
+      code,
+      salt,
+    );
+  }
+
+  late final _wire_set_code_saltPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_set_code_salt');
+  late final _wire_set_code_salt = _wire_set_code_saltPtr.asFunction<
+      void Function(
+          int, ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_get_code_salt(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> code,
+  ) {
+    return _wire_get_code_salt(
+      port_,
+      code,
+    );
+  }
+
+  late final _wire_get_code_saltPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>('wire_get_code_salt');
+  late final _wire_get_code_salt = _wire_get_code_saltPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
   void wire_init_logger(
     int port_,
     int level,

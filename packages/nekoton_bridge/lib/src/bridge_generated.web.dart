@@ -276,6 +276,35 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_unpack_from_cell(
       NativePortType port_, String params, String boc, bool allow_partial);
 
+  external dynamic /* void */ wire_pack_std_smc_addr(
+      NativePortType port_, String addr, bool base64_url, bool bounceable);
+
+  external dynamic /* void */ wire_unpack_std_smc_addr(
+      NativePortType port_, String packed, bool base64_url);
+
+  external dynamic /* void */ wire_validate_address(
+      NativePortType port_, String address);
+
+  external dynamic /* void */ wire_repack_address(
+      NativePortType port_, String address);
+
+  external dynamic /* void */ wire_extract_public_key(
+      NativePortType port_, String boc);
+
+  external dynamic /* void */ wire_code_to_tvc(
+      NativePortType port_, String code);
+
+  external dynamic /* void */ wire_merge_tvc(
+      NativePortType port_, String code, String data);
+
+  external dynamic /* void */ wire_split_tvc(NativePortType port_, String tvc);
+
+  external dynamic /* void */ wire_set_code_salt(
+      NativePortType port_, String code, String salt);
+
+  external dynamic /* void */ wire_get_code_salt(
+      NativePortType port_, String code);
+
   external dynamic /* void */ wire_init_logger(
       NativePortType port_, int level, bool mobile_logger);
 
@@ -456,6 +485,38 @@ class NekotonBridgeWire
   void wire_unpack_from_cell(NativePortType port_, String params, String boc,
           bool allow_partial) =>
       wasmModule.wire_unpack_from_cell(port_, params, boc, allow_partial);
+
+  void wire_pack_std_smc_addr(NativePortType port_, String addr,
+          bool base64_url, bool bounceable) =>
+      wasmModule.wire_pack_std_smc_addr(port_, addr, base64_url, bounceable);
+
+  void wire_unpack_std_smc_addr(
+          NativePortType port_, String packed, bool base64_url) =>
+      wasmModule.wire_unpack_std_smc_addr(port_, packed, base64_url);
+
+  void wire_validate_address(NativePortType port_, String address) =>
+      wasmModule.wire_validate_address(port_, address);
+
+  void wire_repack_address(NativePortType port_, String address) =>
+      wasmModule.wire_repack_address(port_, address);
+
+  void wire_extract_public_key(NativePortType port_, String boc) =>
+      wasmModule.wire_extract_public_key(port_, boc);
+
+  void wire_code_to_tvc(NativePortType port_, String code) =>
+      wasmModule.wire_code_to_tvc(port_, code);
+
+  void wire_merge_tvc(NativePortType port_, String code, String data) =>
+      wasmModule.wire_merge_tvc(port_, code, data);
+
+  void wire_split_tvc(NativePortType port_, String tvc) =>
+      wasmModule.wire_split_tvc(port_, tvc);
+
+  void wire_set_code_salt(NativePortType port_, String code, String salt) =>
+      wasmModule.wire_set_code_salt(port_, code, salt);
+
+  void wire_get_code_salt(NativePortType port_, String code) =>
+      wasmModule.wire_get_code_salt(port_, code);
 
   void wire_init_logger(NativePortType port_, int level, bool mobile_logger) =>
       wasmModule.wire_init_logger(port_, level, mobile_logger);
