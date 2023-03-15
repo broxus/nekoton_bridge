@@ -63,5 +63,47 @@ void main() {
 
       debugPrint = originalDebugPrint;
     });
+
+    testWidgets('async mulptiple parallel execution',
+        (WidgetTester tester) async {
+      final List<String> log = <String>[];
+
+      app.main();
+      await tester.pumpAndSettle();
+
+      final DebugPrintCallback originalDebugPrint = debugPrint;
+
+      // We can't move this init to setUp() because it should be after app init
+      debugPrint = (String? s, {int? wrapWidth}) {
+        // Ignore 'This may or may not be a problem. It will happen normally if hot-reload Flutter app.'
+        if (s != null && !s.contains('hot-reload')) log.add(s);
+      };
+
+      expect(log, isEmpty);
+      await tester.tap(find.text('initDartCaller'));
+      await tester.pumpAndSettle();
+      expect(log, hasLength(0));
+      log.clear();
+
+      expect(log, isEmpty);
+      await tester.tap(find.text('Test1AsyncResult'));
+      await tester.pumpAndSettle(const Duration(seconds: 2));
+      expect(log, hasLength(14));
+
+      count(String substring) => log.fold(
+          0, (count, string) => count += string.contains(substring) ? 1 : 0);
+
+      expect(
+        count('test_caller_call_test1_async testCallerCallTest1Async true'),
+        7,
+      );
+      expect(
+        count('result testCallerCallTest1Async true'),
+        7,
+      );
+      log.clear();
+
+      debugPrint = originalDebugPrint;
+    });
   });
 }

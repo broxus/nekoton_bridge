@@ -13,3 +13,9 @@ Future<DynamicValue> testCallerCallTest0Sync(
   return createLib()
       .testCallerCallTest0Sync(string: string, needResult: needResult);
 }
+
+Future<DynamicValue> testCallerCallTest1Async(
+    String string, bool needResult) async {
+  return createLib()
+      .testCallerCallTest1Async(string: string, needResult: needResult);
+}

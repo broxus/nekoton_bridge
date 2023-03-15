@@ -125,6 +125,18 @@ class _MyAppState extends State<MyApp> {
     debugPrint('result ${result.toDynamic()}');
   }
 
+  void _testCallerCallTest1Async(bool needResult) async {
+    final futures = <Future<flutter_nekoton_bridge.DynamicValue>>[];
+    for (int i = 0; i < 7; i++) {
+      futures.add(flutter_nekoton_bridge.testCallerCallTest1Async(
+          'testCallerCallTest1Async $needResult', needResult));
+    }
+    final results = await Future.wait(futures);
+    for (var result in results) {
+      debugPrint('result ${result.toDynamic()}');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     const textStyle = TextStyle(fontSize: 25);
@@ -198,6 +210,10 @@ class _MyAppState extends State<MyApp> {
                     TextButton(
                       onPressed: () => _testCallerCallTest0Sync(true),
                       child: const Text('Test0SyncResult'),
+                    ),
+                    TextButton(
+                      onPressed: () => _testCallerCallTest1Async(true),
+                      child: const Text('Test1AsyncResult'),
                     ),
                   ],
                 ),

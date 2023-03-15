@@ -528,6 +528,26 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       _wire_test_caller_call_test0_syncPtr.asFunction<
           WireSyncReturn Function(ffi.Pointer<wire_uint_8_list>, bool)>();
 
+  void wire_test_caller_call_test1_async(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+    bool need_result,
+  ) {
+    return _wire_test_caller_call_test1_async(
+      port_,
+      string,
+      need_result,
+    );
+  }
+
+  late final _wire_test_caller_call_test1_asyncPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
+              ffi.Bool)>>('wire_test_caller_call_test1_async');
+  late final _wire_test_caller_call_test1_async =
+      _wire_test_caller_call_test1_asyncPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_uint_8_list>, bool)>();
+
   void wire_init_logger(
     int port_,
     int level,

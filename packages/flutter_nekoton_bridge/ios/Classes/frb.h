@@ -162,6 +162,10 @@ void wire_test_caller_call_test0_async(int64_t port_,
 
 WireSyncReturn wire_test_caller_call_test0_sync(struct wire_uint_8_list *string, bool need_result);
 
+void wire_test_caller_call_test1_async(int64_t port_,
+                                       struct wire_uint_8_list *string,
+                                       bool need_result);
+
 void wire_init_logger(int64_t port_, int32_t level, bool mobile_logger);
 
 void wire_create_log_stream(int64_t port_);
@@ -268,6 +272,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_test_logger_panic);
     dummy_var ^= ((int64_t) (void*) wire_test_caller_call_test0_async);
     dummy_var ^= ((int64_t) (void*) wire_test_caller_call_test0_sync);
+    dummy_var ^= ((int64_t) (void*) wire_test_caller_call_test1_async);
     dummy_var ^= ((int64_t) (void*) wire_init_logger);
     dummy_var ^= ((int64_t) (void*) wire_create_log_stream);
     dummy_var ^= ((int64_t) (void*) wire_init_caller);

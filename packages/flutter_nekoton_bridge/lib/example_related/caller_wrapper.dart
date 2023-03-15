@@ -42,6 +42,10 @@ class CallerWrapper extends RustToDartMirrorInterface {
     return caller.test0(string);
   }
 
+  Future<DynamicValue> test1(String string) {
+    return caller.test1(string);
+  }
+
   @override
   InstanceMirror initializeMirror() {
     initializeReflectable();

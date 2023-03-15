@@ -76,6 +76,11 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kTestCallerCallTest0SyncConstMeta;
 
+  Future<DynamicValue> testCallerCallTest1Async(
+      {required String string, required bool needResult, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestCallerCallTest1AsyncConstMeta;
+
   ///----------------------------
   /// CONTENT OF src/utils/api.rs
   ///----------------------------
@@ -636,6 +641,26 @@ class NekotonBridgeImpl implements NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kTestCallerCallTest0SyncConstMeta =>
       const FlutterRustBridgeTaskConstMeta(
         debugName: "test_caller_call_test0_sync",
+        argNames: ["string", "needResult"],
+      );
+
+  Future<DynamicValue> testCallerCallTest1Async(
+      {required String string, required bool needResult, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    var arg1 = needResult;
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_test_caller_call_test1_async(port_, arg0, arg1),
+      parseSuccessData: _wire2api_dynamic_value,
+      constMeta: kTestCallerCallTest1AsyncConstMeta,
+      argValues: [string, needResult],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestCallerCallTest1AsyncConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_caller_call_test1_async",
         argNames: ["string", "needResult"],
       );
 

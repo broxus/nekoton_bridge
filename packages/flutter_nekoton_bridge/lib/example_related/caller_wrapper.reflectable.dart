@@ -64,6 +64,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'func1': 0,
               r'func2': 1,
               r'test0': 1,
+              r'test1': 1,
               r'initializeMirror': 2,
               r'caller': 2
             }),
@@ -264,6 +265,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'func1': (dynamic instance) => instance.func1,
         r'func2': (dynamic instance) => instance.func2,
         r'test0': (dynamic instance) => instance.test0,
+        r'test1': (dynamic instance) => instance.test1,
         r'initializeMirror': (dynamic instance) => instance.initializeMirror,
         r'caller': (dynamic instance) => instance.caller,
         r'request': (dynamic instance) => instance.request,

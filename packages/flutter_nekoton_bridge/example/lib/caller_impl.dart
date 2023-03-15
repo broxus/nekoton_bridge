@@ -47,4 +47,10 @@ class CallerImpl extends flutter_nekoton_bridge.AbstractCaller {
   Future<flutter_nekoton_bridge.DynamicValue> test0(String string) async {
     return flutter_nekoton_bridge.DynamicValue.string(string);
   }
+
+  @override
+  Future<flutter_nekoton_bridge.DynamicValue> test1(String string) async {
+    await Future.delayed(const Duration(milliseconds: 1000), () {});
+    return flutter_nekoton_bridge.DynamicValue.string(string);
+  }
 }

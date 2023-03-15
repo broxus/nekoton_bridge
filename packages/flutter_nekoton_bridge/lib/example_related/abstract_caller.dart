@@ -22,4 +22,6 @@ abstract class AbstractCaller {
   );
 
   Future<DynamicValue> test0(String string);
+
+  Future<DynamicValue> test1(String string);
 }

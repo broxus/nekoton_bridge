@@ -57,3 +57,15 @@ pub fn test_caller_call_test0_sync(string: String, need_result: bool) -> SyncRet
 
     SyncReturn(caller::call(stub, need_result))
 }
+
+pub fn test_caller_call_test1_async(string: String, need_result: bool) -> DynamicValue {
+  info!("test_caller_call_test1_async {string}");
+  let stub = caller::DartCallStub {
+      instance_hash: String::from("0"),
+      fn_name: String::from("test1"),
+      args: vec![caller::DynamicValue::String(string)],
+      named_args: vec![],
+  };
+
+  caller::call(stub, need_result)
+}
