@@ -88,7 +88,8 @@ void main() {
       expect(log, isEmpty);
       await tester.tap(find.text('Test1AsyncResult'));
       await tester.pumpAndSettle(const Duration(seconds: 2));
-      expect(log, hasLength(14));
+      expect(log, hasLength(14),
+          reason: 'failed log entry count, found ${log.length}, should be 14');
 
       count(String substring) => log.fold(
           0, (count, string) => count += string.contains(substring) ? 1 : 0);
@@ -96,10 +97,12 @@ void main() {
       expect(
         count('test_caller_call_test1_async testCallerCallTest1Async true'),
         7,
+        reason: 'failed log rust entry count, found ${log.length}, should be 7',
       );
       expect(
         count('result testCallerCallTest1Async true'),
         7,
+        reason: 'failed log dart entry count, found ${log.length}, should be 7',
       );
       log.clear();
 
