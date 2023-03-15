@@ -1,6 +1,8 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
+// TODO: remove this class as it is a non-integration test related thing
+
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Coords {
     pub x: f64,

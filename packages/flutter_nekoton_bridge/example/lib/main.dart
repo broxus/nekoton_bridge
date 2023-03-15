@@ -43,6 +43,8 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
+  // TODO: remove all non-integration test related things FROM here
+
   void _onPressed() async {
     fromMyClass = await flutter_nekoton_bridge.queryMyClass();
     setState(() {});
@@ -93,6 +95,10 @@ class _MyAppState extends State<MyApp> {
     flutter_nekoton_bridge.simpleCallFunc2();
   }
 
+  // TODO: remove all non-integration test related things TO here
+
+  // These buttons (with *Test* callbacks) SHOULD NOT be removed
+  // or altered because it used in integration tests
   void _onPressedTestInfo() async {
     flutter_nekoton_bridge.testLoggerInfo('test logger: info');
   }
@@ -217,6 +223,7 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ],
                 ),
+                // TODO: remove all non-integration test related things FROM here
                 Text(
                   'sum(1, 2) = $sumResult',
                   style: textStyle,
@@ -275,10 +282,7 @@ class _MyAppState extends State<MyApp> {
                   onPressed: () => _onPressedTriggerTestCallers(),
                   child: const Text('Trigger test callers'),
                 ),
-                // TextButton(
-                //   onPressed: _onPressedStubCallDart,
-                //   child: const Text('stubCallDart'),
-                // ),
+                // TODO: remove all non-integration test related things TO here
               ],
             ),
           ),

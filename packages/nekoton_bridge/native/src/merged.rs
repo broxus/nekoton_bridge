@@ -350,7 +350,7 @@ pub fn init_caller(stream_sink: StreamSink<caller::DartCallStubRegistred>) {
 pub fn call_send_result(id: String, value: caller::DynamicValue) {
     caller::call_send_result(id, value);
 }
-// TODO: all code below is only sandbox-related things
+// TODO: remove all non-integration test related things FROM here
 pub fn simple_log(string: String) {
     info!("Info: {string}");
     debug!("Debug: {string}");
@@ -525,3 +525,4 @@ impl CallerTestClass {
         debug!("Returned request from CallerTestClass: {}", result.unwrap());
     }
 }
+// TODO: remove all non-integration test related things TO here

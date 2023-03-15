@@ -158,7 +158,7 @@ Future<CallerTestClassWrapper> initCallerTestClassWrapper(int value) async {
   return CallerTestClassWrapper.create(value);
 }
 
-// TODO: all code below is only sandbox-related things
+// TODO: remove all non-integration test related things FROM here
 
 Future<void> simpleLog() async {
   var lib = createLib();
@@ -205,6 +205,5 @@ Future<void> simpleCallFunc2() async {
   createLib().simpleCallFunc2();
 }
 
-// Future<void> stubCallDart(DartCallStub stub) async {
-//   createLib().stubCallDart(stub: stub);
-// }
+// TODO: remove all non-integration test related things TO here
+

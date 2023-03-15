@@ -11,6 +11,7 @@ class CallerWrapper extends RustToDartMirrorInterface {
   /// Override
   CallerWrapper(this.caller) : super('0');
 
+  // TODO: remove all non-integration test related things FROM here
   String func0(
     String string,
     int i,
@@ -37,6 +38,10 @@ class CallerWrapper extends RustToDartMirrorInterface {
     debugPrint('CallerWrapper: func2($instanceHash)');
     return caller.func2(megaStruct);
   }
+  // TODO: remove all non-integration test related things TO here
+
+  // These methods SHOULD NOT be removed
+  // or altered because it used in integration tests
 
   Future<DynamicValue> test0(String string) {
     return caller.test0(string);
