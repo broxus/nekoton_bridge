@@ -17,6 +17,8 @@ use uuid::Uuid;
 
 use crate::utils::mega_struct;
 
+const MAX_WORKERS: usize = 7;
+
 #[derive(Clone, Debug, Error)]
 pub enum ErrorCode {
     #[error("No error, ok")]
@@ -154,7 +156,12 @@ pub fn call(stub: DartCallStub, need_result: bool) -> DynamicValue {
         let (id, rx) = if need_result {
             let (tx, rx) = mpsc::channel::<DynamicValue>();
             let id = Uuid::new_v4().to_string();
-            CALLBACK_MAP.lock().unwrap().insert(id.clone(), tx);
+            let mut map = CALLBACK_MAP.lock().unwrap();
+            map.insert(id.clone(), tx);
+            // TODO: maybe we should take some actions to prevent deadlock?
+            if map.len() > MAX_WORKERS {
+                warn!("caller: more than {MAX_WORKERS} workers: {}", map.len());
+            };
 
             (Some(id), Some(rx))
         } else {
