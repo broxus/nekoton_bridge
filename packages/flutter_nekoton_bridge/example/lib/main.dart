@@ -33,6 +33,7 @@ class _MyAppState extends State<MyApp> {
     sumResult = flutter_nekoton_bridge.simpleAdderSync(1, 2);
     sumAsyncResult = flutter_nekoton_bridge.simpleAdder(3, 4);
 
+    // This setup thing SHOULD NOT be removed or altered because it used in integration tests
     flutter_nekoton_bridge.setupLogger(
       level: flutter_nekoton_bridge.LogLevel.Trace,
       mobileLogger: false,
@@ -92,20 +93,25 @@ class _MyAppState extends State<MyApp> {
     flutter_nekoton_bridge.simpleCallFunc2();
   }
 
-  // void _onPressedSimpleCallDart() async {
-  //   flutter_nekoton_bridge.simpleCallDart();
-  // }
+  void _onPressedTestInfo() async {
+    flutter_nekoton_bridge.testLoggerInfo('test logger: info');
+  }
 
-  // void _onPressedStubCallDart() async {
-  //   final stub = flutter_nekoton_bridge.DartCallStub(
-  //     fnName: "dartMegaFunction",
-  //     args: [
-  //       const flutter_nekoton_bridge.DynamicValue_U32(420),
-  //       const flutter_nekoton_bridge.DynamicValue_String("Hello nekoton"),
-  //     ],
-  //   );
-  //   flutter_nekoton_bridge.stubCallDart(stub);
-  // }
+  void _onPressedTestDebug() async {
+    flutter_nekoton_bridge.testLoggerDebug('test logger: debug');
+  }
+
+  void _onPressedTestWarn() async {
+    flutter_nekoton_bridge.testLoggerWarn('test logger: warn');
+  }
+
+  void _onPressedTestError() async {
+    flutter_nekoton_bridge.testLoggerError('test logger: error');
+  }
+
+  void _onPressedTestPanic() async {
+    flutter_nekoton_bridge.testLoggerPanic('test logger: panic');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -119,15 +125,30 @@ class _MyAppState extends State<MyApp> {
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(10),
-            child: Column(
+            child: Wrap(
               children: [
-                const Text(
-                  'This calls a native function through FFI that is shipped as source in the package. '
-                  'The native code is built as part of the Flutter Runner build.',
-                  style: textStyle,
-                  textAlign: TextAlign.center,
+                // These buttons (with *Test* callbacks) SHOULD NOT be removed
+                // or altered because it used in integration tests
+                TextButton(
+                  onPressed: () => _onPressedTestInfo(),
+                  child: const Text('i'),
                 ),
-                spacerSmall,
+                TextButton(
+                  onPressed: () => _onPressedTestDebug(),
+                  child: const Text('d'),
+                ),
+                TextButton(
+                  onPressed: () => _onPressedTestWarn(),
+                  child: const Text('w'),
+                ),
+                TextButton(
+                  onPressed: () => _onPressedTestError(),
+                  child: const Text('e'),
+                ),
+                TextButton(
+                  onPressed: () => _onPressedTestPanic(),
+                  child: const Text('p'),
+                ),
                 Text(
                   'sum(1, 2) = $sumResult',
                   style: textStyle,

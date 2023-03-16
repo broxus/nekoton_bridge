@@ -260,6 +260,16 @@ void wire_set_code_salt(int64_t port_,
 
 void wire_get_code_salt(int64_t port_, struct wire_uint_8_list *code);
 
+void wire_test_logger_info(int64_t port_, struct wire_uint_8_list *string);
+
+void wire_test_logger_debug(int64_t port_, struct wire_uint_8_list *string);
+
+void wire_test_logger_warn(int64_t port_, struct wire_uint_8_list *string);
+
+void wire_test_logger_error(int64_t port_, struct wire_uint_8_list *string);
+
+void wire_test_logger_panic(int64_t port_, struct wire_uint_8_list *string);
+
 void wire_init_logger(int64_t port_, int32_t level, bool mobile_logger);
 
 void wire_create_log_stream(int64_t port_);
@@ -405,6 +415,11 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_split_tvc);
     dummy_var ^= ((int64_t) (void*) wire_set_code_salt);
     dummy_var ^= ((int64_t) (void*) wire_get_code_salt);
+    dummy_var ^= ((int64_t) (void*) wire_test_logger_info);
+    dummy_var ^= ((int64_t) (void*) wire_test_logger_debug);
+    dummy_var ^= ((int64_t) (void*) wire_test_logger_warn);
+    dummy_var ^= ((int64_t) (void*) wire_test_logger_error);
+    dummy_var ^= ((int64_t) (void*) wire_test_logger_panic);
     dummy_var ^= ((int64_t) (void*) wire_init_logger);
     dummy_var ^= ((int64_t) (void*) wire_create_log_stream);
     dummy_var ^= ((int64_t) (void*) wire_init_caller);
