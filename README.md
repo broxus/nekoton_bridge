@@ -1,5 +1,7 @@
 # Nekoton bridge for flutter
 
+[![Build & Test](https://github.com/broxus/nekoton_bridge/actions/workflows/build.yml/badge.svg)](https://github.com/broxus/nekoton_bridge/actions/workflows/build.yml)
+
 This package based on [flutter_rust_bridge](https://cjycode.com/flutter_rust_bridge) generator.
 
 ## Getting Started 🚀
