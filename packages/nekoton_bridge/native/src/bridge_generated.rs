@@ -76,6 +76,71 @@ fn wire_nt_derive_from_phrase_impl(
         },
     )
 }
+fn wire_test_logger_info_impl(port_: MessagePort, string: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "test_logger_info",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_string = string.wire2api();
+            move |task_callback| Ok(test_logger_info(api_string))
+        },
+    )
+}
+fn wire_test_logger_debug_impl(port_: MessagePort, string: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "test_logger_debug",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_string = string.wire2api();
+            move |task_callback| Ok(test_logger_debug(api_string))
+        },
+    )
+}
+fn wire_test_logger_warn_impl(port_: MessagePort, string: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "test_logger_warn",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_string = string.wire2api();
+            move |task_callback| Ok(test_logger_warn(api_string))
+        },
+    )
+}
+fn wire_test_logger_error_impl(port_: MessagePort, string: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "test_logger_error",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_string = string.wire2api();
+            move |task_callback| Ok(test_logger_error(api_string))
+        },
+    )
+}
+fn wire_test_logger_panic_impl(port_: MessagePort, string: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "test_logger_panic",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_string = string.wire2api();
+            move |task_callback| Ok(test_logger_panic(api_string))
+        },
+    )
+}
 fn wire_init_logger_impl(
     port_: MessagePort,
     level: impl Wire2Api<LogLevel> + UnwindSafe,
@@ -678,6 +743,31 @@ mod web {
     }
 
     #[wasm_bindgen]
+    pub fn wire_test_logger_info(port_: MessagePort, string: String) {
+        wire_test_logger_info_impl(port_, string)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_test_logger_debug(port_: MessagePort, string: String) {
+        wire_test_logger_debug_impl(port_, string)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_test_logger_warn(port_: MessagePort, string: String) {
+        wire_test_logger_warn_impl(port_, string)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_test_logger_error(port_: MessagePort, string: String) {
+        wire_test_logger_error_impl(port_, string)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_test_logger_panic(port_: MessagePort, string: String) {
+        wire_test_logger_panic_impl(port_, string)
+    }
+
+    #[wasm_bindgen]
     pub fn wire_init_logger(port_: MessagePort, level: i32, mobile_logger: bool) {
         wire_init_logger_impl(port_, level, mobile_logger)
     }
@@ -1029,6 +1119,31 @@ mod io {
         mnemonic_type: *mut wire_MnemonicType,
     ) {
         wire_nt_derive_from_phrase_impl(port_, phrase, mnemonic_type)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_test_logger_info(port_: i64, string: *mut wire_uint_8_list) {
+        wire_test_logger_info_impl(port_, string)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_test_logger_debug(port_: i64, string: *mut wire_uint_8_list) {
+        wire_test_logger_debug_impl(port_, string)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_test_logger_warn(port_: i64, string: *mut wire_uint_8_list) {
+        wire_test_logger_warn_impl(port_, string)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_test_logger_error(port_: i64, string: *mut wire_uint_8_list) {
+        wire_test_logger_error_impl(port_, string)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_test_logger_panic(port_: i64, string: *mut wire_uint_8_list) {
+        wire_test_logger_panic_impl(port_, string)
     }
 
     #[no_mangle]

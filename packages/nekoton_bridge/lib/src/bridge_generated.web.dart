@@ -179,6 +179,21 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_nt_derive_from_phrase(
       NativePortType port_, String phrase, List<dynamic> mnemonic_type);
 
+  external dynamic /* void */ wire_test_logger_info(
+      NativePortType port_, String string);
+
+  external dynamic /* void */ wire_test_logger_debug(
+      NativePortType port_, String string);
+
+  external dynamic /* void */ wire_test_logger_warn(
+      NativePortType port_, String string);
+
+  external dynamic /* void */ wire_test_logger_error(
+      NativePortType port_, String string);
+
+  external dynamic /* void */ wire_test_logger_panic(
+      NativePortType port_, String string);
+
   external dynamic /* void */ wire_init_logger(
       NativePortType port_, int level, bool mobile_logger);
 
@@ -257,6 +272,21 @@ class NekotonBridgeWire
   void wire_nt_derive_from_phrase(
           NativePortType port_, String phrase, List<dynamic> mnemonic_type) =>
       wasmModule.wire_nt_derive_from_phrase(port_, phrase, mnemonic_type);
+
+  void wire_test_logger_info(NativePortType port_, String string) =>
+      wasmModule.wire_test_logger_info(port_, string);
+
+  void wire_test_logger_debug(NativePortType port_, String string) =>
+      wasmModule.wire_test_logger_debug(port_, string);
+
+  void wire_test_logger_warn(NativePortType port_, String string) =>
+      wasmModule.wire_test_logger_warn(port_, string);
+
+  void wire_test_logger_error(NativePortType port_, String string) =>
+      wasmModule.wire_test_logger_error(port_, string);
+
+  void wire_test_logger_panic(NativePortType port_, String string) =>
+      wasmModule.wire_test_logger_panic(port_, string);
 
   void wire_init_logger(NativePortType port_, int level, bool mobile_logger) =>
       wasmModule.wire_init_logger(port_, level, mobile_logger);
