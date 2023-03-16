@@ -20,5 +20,5 @@ Map<String, dynamic> _$$_DerivedKeySignParamsByPublicKeyByPublicKeyToJson(
     <String, dynamic>{
       'master_key': instance.masterKey,
       'public_key': instance.publicKey,
-      'password': instance.password.toJson(),
+      'password': instance.password,
     };

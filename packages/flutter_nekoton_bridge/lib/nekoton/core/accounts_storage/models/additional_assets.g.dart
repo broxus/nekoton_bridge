@@ -18,6 +18,6 @@ _$_AdditionalAssets _$$_AdditionalAssetsFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_AdditionalAssetsToJson(_$_AdditionalAssets instance) =>
     <String, dynamic>{
-      'token_wallets': instance.tokenWallets.map((e) => e.toJson()).toList(),
-      'depools': instance.depools.map((e) => e.toJson()).toList(),
+      'token_wallets': instance.tokenWallets,
+      'depools': instance.depools,
     };

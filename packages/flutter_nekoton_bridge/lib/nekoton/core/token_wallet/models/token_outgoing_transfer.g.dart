@@ -16,6 +16,6 @@ _$_TokenOutgoingTransfer _$$_TokenOutgoingTransferFromJson(
 Map<String, dynamic> _$$_TokenOutgoingTransferToJson(
         _$_TokenOutgoingTransfer instance) =>
     <String, dynamic>{
-      'to': instance.to.toJson(),
+      'to': instance.to,
       'tokens': instance.tokens,
     };

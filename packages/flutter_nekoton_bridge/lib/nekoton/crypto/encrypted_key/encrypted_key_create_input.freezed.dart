@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'encrypted_key_create_input.dart';
 
@@ -23,6 +23,7 @@ EncryptedKeyCreateInput _$EncryptedKeyCreateInputFromJson(
 mixin _$EncryptedKeyCreateInput {
   String? get name => throw _privateConstructorUsedError;
   String get phrase => throw _privateConstructorUsedError;
+  @mnemonicJsonConverter
   MnemonicType get mnemonicType => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
 
@@ -36,11 +37,12 @@ mixin _$EncryptedKeyCreateInput {
 abstract class $EncryptedKeyCreateInputCopyWith<$Res> {
   factory $EncryptedKeyCreateInputCopyWith(EncryptedKeyCreateInput value,
           $Res Function(EncryptedKeyCreateInput) then) =
-      _$EncryptedKeyCreateInputCopyWithImpl<$Res>;
+      _$EncryptedKeyCreateInputCopyWithImpl<$Res, EncryptedKeyCreateInput>;
+  @useResult
   $Res call(
       {String? name,
       String phrase,
-      MnemonicType mnemonicType,
+      @mnemonicJsonConverter MnemonicType mnemonicType,
       Password password});
 
   $MnemonicTypeCopyWith<$Res> get mnemonicType;
@@ -48,52 +50,57 @@ abstract class $EncryptedKeyCreateInputCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EncryptedKeyCreateInputCopyWithImpl<$Res>
+class _$EncryptedKeyCreateInputCopyWithImpl<$Res,
+        $Val extends EncryptedKeyCreateInput>
     implements $EncryptedKeyCreateInputCopyWith<$Res> {
   _$EncryptedKeyCreateInputCopyWithImpl(this._value, this._then);
 
-  final EncryptedKeyCreateInput _value;
   // ignore: unused_field
-  final $Res Function(EncryptedKeyCreateInput) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
-    Object? phrase = freezed,
-    Object? mnemonicType = freezed,
-    Object? password = freezed,
+    Object? phrase = null,
+    Object? mnemonicType = null,
+    Object? password = null,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      phrase: phrase == freezed
+      phrase: null == phrase
           ? _value.phrase
           : phrase // ignore: cast_nullable_to_non_nullable
               as String,
-      mnemonicType: mnemonicType == freezed
+      mnemonicType: null == mnemonicType
           ? _value.mnemonicType
           : mnemonicType // ignore: cast_nullable_to_non_nullable
               as MnemonicType,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $MnemonicTypeCopyWith<$Res> get mnemonicType {
     return $MnemonicTypeCopyWith<$Res>(_value.mnemonicType, (value) {
-      return _then(_value.copyWith(mnemonicType: value));
+      return _then(_value.copyWith(mnemonicType: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
     return $PasswordCopyWith<$Res>(_value.password, (value) {
-      return _then(_value.copyWith(password: value));
+      return _then(_value.copyWith(password: value) as $Val);
     });
   }
 }
@@ -105,10 +112,11 @@ abstract class _$$_EncryptedKeyCreateInputCopyWith<$Res>
           $Res Function(_$_EncryptedKeyCreateInput) then) =
       __$$_EncryptedKeyCreateInputCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? name,
       String phrase,
-      MnemonicType mnemonicType,
+      @mnemonicJsonConverter MnemonicType mnemonicType,
       Password password});
 
   @override
@@ -119,37 +127,35 @@ abstract class _$$_EncryptedKeyCreateInputCopyWith<$Res>
 
 /// @nodoc
 class __$$_EncryptedKeyCreateInputCopyWithImpl<$Res>
-    extends _$EncryptedKeyCreateInputCopyWithImpl<$Res>
+    extends _$EncryptedKeyCreateInputCopyWithImpl<$Res,
+        _$_EncryptedKeyCreateInput>
     implements _$$_EncryptedKeyCreateInputCopyWith<$Res> {
   __$$_EncryptedKeyCreateInputCopyWithImpl(_$_EncryptedKeyCreateInput _value,
       $Res Function(_$_EncryptedKeyCreateInput) _then)
-      : super(_value, (v) => _then(v as _$_EncryptedKeyCreateInput));
+      : super(_value, _then);
 
-  @override
-  _$_EncryptedKeyCreateInput get _value =>
-      super._value as _$_EncryptedKeyCreateInput;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
-    Object? phrase = freezed,
-    Object? mnemonicType = freezed,
-    Object? password = freezed,
+    Object? phrase = null,
+    Object? mnemonicType = null,
+    Object? password = null,
   }) {
     return _then(_$_EncryptedKeyCreateInput(
-      name: name == freezed
+      freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      phrase: phrase == freezed
+      null == phrase
           ? _value.phrase
           : phrase // ignore: cast_nullable_to_non_nullable
               as String,
-      mnemonicType: mnemonicType == freezed
+      null == mnemonicType
           ? _value.mnemonicType
           : mnemonicType // ignore: cast_nullable_to_non_nullable
               as MnemonicType,
-      password: password == freezed
+      null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
@@ -160,11 +166,8 @@ class __$$_EncryptedKeyCreateInputCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_EncryptedKeyCreateInput implements _EncryptedKeyCreateInput {
-  const _$_EncryptedKeyCreateInput(
-      {this.name,
-      required this.phrase,
-      required this.mnemonicType,
-      required this.password});
+  const _$_EncryptedKeyCreateInput(this.name, this.phrase,
+      @mnemonicJsonConverter this.mnemonicType, this.password);
 
   factory _$_EncryptedKeyCreateInput.fromJson(Map<String, dynamic> json) =>
       _$$_EncryptedKeyCreateInputFromJson(json);
@@ -174,6 +177,7 @@ class _$_EncryptedKeyCreateInput implements _EncryptedKeyCreateInput {
   @override
   final String phrase;
   @override
+  @mnemonicJsonConverter
   final MnemonicType mnemonicType;
   @override
   final Password password;
@@ -188,24 +192,22 @@ class _$_EncryptedKeyCreateInput implements _EncryptedKeyCreateInput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EncryptedKeyCreateInput &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.phrase, phrase) &&
-            const DeepCollectionEquality()
-                .equals(other.mnemonicType, mnemonicType) &&
-            const DeepCollectionEquality().equals(other.password, password));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.phrase, phrase) || other.phrase == phrase) &&
+            (identical(other.mnemonicType, mnemonicType) ||
+                other.mnemonicType == mnemonicType) &&
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(phrase),
-      const DeepCollectionEquality().hash(mnemonicType),
-      const DeepCollectionEquality().hash(password));
+  int get hashCode =>
+      Object.hash(runtimeType, name, phrase, mnemonicType, password);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EncryptedKeyCreateInputCopyWith<_$_EncryptedKeyCreateInput>
       get copyWith =>
           __$$_EncryptedKeyCreateInputCopyWithImpl<_$_EncryptedKeyCreateInput>(
@@ -221,10 +223,10 @@ class _$_EncryptedKeyCreateInput implements _EncryptedKeyCreateInput {
 
 abstract class _EncryptedKeyCreateInput implements EncryptedKeyCreateInput {
   const factory _EncryptedKeyCreateInput(
-      {final String? name,
-      required final String phrase,
-      required final MnemonicType mnemonicType,
-      required final Password password}) = _$_EncryptedKeyCreateInput;
+      final String? name,
+      final String phrase,
+      @mnemonicJsonConverter final MnemonicType mnemonicType,
+      final Password password) = _$_EncryptedKeyCreateInput;
 
   factory _EncryptedKeyCreateInput.fromJson(Map<String, dynamic> json) =
       _$_EncryptedKeyCreateInput.fromJson;
@@ -234,6 +236,7 @@ abstract class _EncryptedKeyCreateInput implements EncryptedKeyCreateInput {
   @override
   String get phrase;
   @override
+  @mnemonicJsonConverter
   MnemonicType get mnemonicType;
   @override
   Password get password;

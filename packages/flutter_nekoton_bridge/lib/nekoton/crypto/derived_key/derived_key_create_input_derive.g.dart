@@ -21,5 +21,5 @@ Map<String, dynamic> _$$_DerivedKeyCreateInputDeriveDeriveToJson(
       'key_name': instance.keyName,
       'master_key': instance.masterKey,
       'account_id': instance.accountId,
-      'password': instance.password.toJson(),
+      'password': instance.password,
     };

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'derived_key_create_input_derive.dart';
 
@@ -37,7 +37,9 @@ abstract class $DerivedKeyCreateInputDeriveCopyWith<$Res> {
   factory $DerivedKeyCreateInputDeriveCopyWith(
           DerivedKeyCreateInputDerive value,
           $Res Function(DerivedKeyCreateInputDerive) then) =
-      _$DerivedKeyCreateInputDeriveCopyWithImpl<$Res>;
+      _$DerivedKeyCreateInputDeriveCopyWithImpl<$Res,
+          DerivedKeyCreateInputDerive>;
+  @useResult
   $Res call(
       {String? keyName, String masterKey, int accountId, Password password});
 
@@ -45,45 +47,49 @@ abstract class $DerivedKeyCreateInputDeriveCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DerivedKeyCreateInputDeriveCopyWithImpl<$Res>
+class _$DerivedKeyCreateInputDeriveCopyWithImpl<$Res,
+        $Val extends DerivedKeyCreateInputDerive>
     implements $DerivedKeyCreateInputDeriveCopyWith<$Res> {
   _$DerivedKeyCreateInputDeriveCopyWithImpl(this._value, this._then);
 
-  final DerivedKeyCreateInputDerive _value;
   // ignore: unused_field
-  final $Res Function(DerivedKeyCreateInputDerive) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? keyName = freezed,
-    Object? masterKey = freezed,
-    Object? accountId = freezed,
-    Object? password = freezed,
+    Object? masterKey = null,
+    Object? accountId = null,
+    Object? password = null,
   }) {
     return _then(_value.copyWith(
-      keyName: keyName == freezed
+      keyName: freezed == keyName
           ? _value.keyName
           : keyName // ignore: cast_nullable_to_non_nullable
               as String?,
-      masterKey: masterKey == freezed
+      masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
               as String,
-      accountId: accountId == freezed
+      accountId: null == accountId
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as int,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
     return $PasswordCopyWith<$Res>(_value.password, (value) {
-      return _then(_value.copyWith(password: value));
+      return _then(_value.copyWith(password: value) as $Val);
     });
   }
 }
@@ -96,6 +102,7 @@ abstract class _$$_DerivedKeyCreateInputDeriveDeriveCopyWith<$Res>
           $Res Function(_$_DerivedKeyCreateInputDeriveDerive) then) =
       __$$_DerivedKeyCreateInputDeriveDeriveCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? keyName, String masterKey, int accountId, Password password});
 
@@ -105,38 +112,36 @@ abstract class _$$_DerivedKeyCreateInputDeriveDeriveCopyWith<$Res>
 
 /// @nodoc
 class __$$_DerivedKeyCreateInputDeriveDeriveCopyWithImpl<$Res>
-    extends _$DerivedKeyCreateInputDeriveCopyWithImpl<$Res>
+    extends _$DerivedKeyCreateInputDeriveCopyWithImpl<$Res,
+        _$_DerivedKeyCreateInputDeriveDerive>
     implements _$$_DerivedKeyCreateInputDeriveDeriveCopyWith<$Res> {
   __$$_DerivedKeyCreateInputDeriveDeriveCopyWithImpl(
       _$_DerivedKeyCreateInputDeriveDerive _value,
       $Res Function(_$_DerivedKeyCreateInputDeriveDerive) _then)
-      : super(_value, (v) => _then(v as _$_DerivedKeyCreateInputDeriveDerive));
+      : super(_value, _then);
 
-  @override
-  _$_DerivedKeyCreateInputDeriveDerive get _value =>
-      super._value as _$_DerivedKeyCreateInputDeriveDerive;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? keyName = freezed,
-    Object? masterKey = freezed,
-    Object? accountId = freezed,
-    Object? password = freezed,
+    Object? masterKey = null,
+    Object? accountId = null,
+    Object? password = null,
   }) {
     return _then(_$_DerivedKeyCreateInputDeriveDerive(
-      keyName: keyName == freezed
+      keyName: freezed == keyName
           ? _value.keyName
           : keyName // ignore: cast_nullable_to_non_nullable
               as String?,
-      masterKey: masterKey == freezed
+      masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
               as String,
-      accountId: accountId == freezed
+      accountId: null == accountId
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as int,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
@@ -178,23 +183,23 @@ class _$_DerivedKeyCreateInputDeriveDerive
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DerivedKeyCreateInputDeriveDerive &&
-            const DeepCollectionEquality().equals(other.keyName, keyName) &&
-            const DeepCollectionEquality().equals(other.masterKey, masterKey) &&
-            const DeepCollectionEquality().equals(other.accountId, accountId) &&
-            const DeepCollectionEquality().equals(other.password, password));
+            (identical(other.keyName, keyName) || other.keyName == keyName) &&
+            (identical(other.masterKey, masterKey) ||
+                other.masterKey == masterKey) &&
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId) &&
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(keyName),
-      const DeepCollectionEquality().hash(masterKey),
-      const DeepCollectionEquality().hash(accountId),
-      const DeepCollectionEquality().hash(password));
+  int get hashCode =>
+      Object.hash(runtimeType, keyName, masterKey, accountId, password);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DerivedKeyCreateInputDeriveDeriveCopyWith<
           _$_DerivedKeyCreateInputDeriveDerive>
       get copyWith => __$$_DerivedKeyCreateInputDeriveDeriveCopyWithImpl<

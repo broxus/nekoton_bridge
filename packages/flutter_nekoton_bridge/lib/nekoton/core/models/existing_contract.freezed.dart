@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'existing_contract.dart';
 
@@ -34,7 +34,8 @@ mixin _$ExistingContract {
 abstract class $ExistingContractCopyWith<$Res> {
   factory $ExistingContractCopyWith(
           ExistingContract value, $Res Function(ExistingContract) then) =
-      _$ExistingContractCopyWithImpl<$Res>;
+      _$ExistingContractCopyWithImpl<$Res, ExistingContract>;
+  @useResult
   $Res call(
       {String account,
       GenTimings timings,
@@ -45,47 +46,51 @@ abstract class $ExistingContractCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ExistingContractCopyWithImpl<$Res>
+class _$ExistingContractCopyWithImpl<$Res, $Val extends ExistingContract>
     implements $ExistingContractCopyWith<$Res> {
   _$ExistingContractCopyWithImpl(this._value, this._then);
 
-  final ExistingContract _value;
   // ignore: unused_field
-  final $Res Function(ExistingContract) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? account = freezed,
-    Object? timings = freezed,
-    Object? lastTransactionId = freezed,
+    Object? account = null,
+    Object? timings = null,
+    Object? lastTransactionId = null,
   }) {
     return _then(_value.copyWith(
-      account: account == freezed
+      account: null == account
           ? _value.account
           : account // ignore: cast_nullable_to_non_nullable
               as String,
-      timings: timings == freezed
+      timings: null == timings
           ? _value.timings
           : timings // ignore: cast_nullable_to_non_nullable
               as GenTimings,
-      lastTransactionId: lastTransactionId == freezed
+      lastTransactionId: null == lastTransactionId
           ? _value.lastTransactionId
           : lastTransactionId // ignore: cast_nullable_to_non_nullable
               as LastTransactionId,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $GenTimingsCopyWith<$Res> get timings {
     return $GenTimingsCopyWith<$Res>(_value.timings, (value) {
-      return _then(_value.copyWith(timings: value));
+      return _then(_value.copyWith(timings: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $LastTransactionIdCopyWith<$Res> get lastTransactionId {
     return $LastTransactionIdCopyWith<$Res>(_value.lastTransactionId, (value) {
-      return _then(_value.copyWith(lastTransactionId: value));
+      return _then(_value.copyWith(lastTransactionId: value) as $Val);
     });
   }
 }
@@ -97,6 +102,7 @@ abstract class _$$_ExistingContractCopyWith<$Res>
           _$_ExistingContract value, $Res Function(_$_ExistingContract) then) =
       __$$_ExistingContractCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String account,
       GenTimings timings,
@@ -110,31 +116,29 @@ abstract class _$$_ExistingContractCopyWith<$Res>
 
 /// @nodoc
 class __$$_ExistingContractCopyWithImpl<$Res>
-    extends _$ExistingContractCopyWithImpl<$Res>
+    extends _$ExistingContractCopyWithImpl<$Res, _$_ExistingContract>
     implements _$$_ExistingContractCopyWith<$Res> {
   __$$_ExistingContractCopyWithImpl(
       _$_ExistingContract _value, $Res Function(_$_ExistingContract) _then)
-      : super(_value, (v) => _then(v as _$_ExistingContract));
+      : super(_value, _then);
 
-  @override
-  _$_ExistingContract get _value => super._value as _$_ExistingContract;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? account = freezed,
-    Object? timings = freezed,
-    Object? lastTransactionId = freezed,
+    Object? account = null,
+    Object? timings = null,
+    Object? lastTransactionId = null,
   }) {
     return _then(_$_ExistingContract(
-      account: account == freezed
+      account: null == account
           ? _value.account
           : account // ignore: cast_nullable_to_non_nullable
               as String,
-      timings: timings == freezed
+      timings: null == timings
           ? _value.timings
           : timings // ignore: cast_nullable_to_non_nullable
               as GenTimings,
-      lastTransactionId: lastTransactionId == freezed
+      lastTransactionId: null == lastTransactionId
           ? _value.lastTransactionId
           : lastTransactionId // ignore: cast_nullable_to_non_nullable
               as LastTransactionId,
@@ -170,22 +174,20 @@ class _$_ExistingContract implements _ExistingContract {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ExistingContract &&
-            const DeepCollectionEquality().equals(other.account, account) &&
-            const DeepCollectionEquality().equals(other.timings, timings) &&
-            const DeepCollectionEquality()
-                .equals(other.lastTransactionId, lastTransactionId));
+            (identical(other.account, account) || other.account == account) &&
+            (identical(other.timings, timings) || other.timings == timings) &&
+            (identical(other.lastTransactionId, lastTransactionId) ||
+                other.lastTransactionId == lastTransactionId));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(account),
-      const DeepCollectionEquality().hash(timings),
-      const DeepCollectionEquality().hash(lastTransactionId));
+  int get hashCode =>
+      Object.hash(runtimeType, account, timings, lastTransactionId);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ExistingContractCopyWith<_$_ExistingContract> get copyWith =>
       __$$_ExistingContractCopyWithImpl<_$_ExistingContract>(this, _$identity);
 

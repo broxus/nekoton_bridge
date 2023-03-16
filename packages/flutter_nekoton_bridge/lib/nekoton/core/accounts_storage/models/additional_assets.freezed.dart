@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'additional_assets.dart';
 
@@ -33,34 +33,37 @@ mixin _$AdditionalAssets {
 abstract class $AdditionalAssetsCopyWith<$Res> {
   factory $AdditionalAssetsCopyWith(
           AdditionalAssets value, $Res Function(AdditionalAssets) then) =
-      _$AdditionalAssetsCopyWithImpl<$Res>;
+      _$AdditionalAssetsCopyWithImpl<$Res, AdditionalAssets>;
+  @useResult
   $Res call({List<TokenWalletAsset> tokenWallets, List<DePoolAsset> depools});
 }
 
 /// @nodoc
-class _$AdditionalAssetsCopyWithImpl<$Res>
+class _$AdditionalAssetsCopyWithImpl<$Res, $Val extends AdditionalAssets>
     implements $AdditionalAssetsCopyWith<$Res> {
   _$AdditionalAssetsCopyWithImpl(this._value, this._then);
 
-  final AdditionalAssets _value;
   // ignore: unused_field
-  final $Res Function(AdditionalAssets) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tokenWallets = freezed,
-    Object? depools = freezed,
+    Object? tokenWallets = null,
+    Object? depools = null,
   }) {
     return _then(_value.copyWith(
-      tokenWallets: tokenWallets == freezed
+      tokenWallets: null == tokenWallets
           ? _value.tokenWallets
           : tokenWallets // ignore: cast_nullable_to_non_nullable
               as List<TokenWalletAsset>,
-      depools: depools == freezed
+      depools: null == depools
           ? _value.depools
           : depools // ignore: cast_nullable_to_non_nullable
               as List<DePoolAsset>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,31 +74,30 @@ abstract class _$$_AdditionalAssetsCopyWith<$Res>
           _$_AdditionalAssets value, $Res Function(_$_AdditionalAssets) then) =
       __$$_AdditionalAssetsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<TokenWalletAsset> tokenWallets, List<DePoolAsset> depools});
 }
 
 /// @nodoc
 class __$$_AdditionalAssetsCopyWithImpl<$Res>
-    extends _$AdditionalAssetsCopyWithImpl<$Res>
+    extends _$AdditionalAssetsCopyWithImpl<$Res, _$_AdditionalAssets>
     implements _$$_AdditionalAssetsCopyWith<$Res> {
   __$$_AdditionalAssetsCopyWithImpl(
       _$_AdditionalAssets _value, $Res Function(_$_AdditionalAssets) _then)
-      : super(_value, (v) => _then(v as _$_AdditionalAssets));
+      : super(_value, _then);
 
-  @override
-  _$_AdditionalAssets get _value => super._value as _$_AdditionalAssets;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tokenWallets = freezed,
-    Object? depools = freezed,
+    Object? tokenWallets = null,
+    Object? depools = null,
   }) {
     return _then(_$_AdditionalAssets(
-      tokenWallets: tokenWallets == freezed
+      tokenWallets: null == tokenWallets
           ? _value._tokenWallets
           : tokenWallets // ignore: cast_nullable_to_non_nullable
               as List<TokenWalletAsset>,
-      depools: depools == freezed
+      depools: null == depools
           ? _value._depools
           : depools // ignore: cast_nullable_to_non_nullable
               as List<DePoolAsset>,
@@ -119,6 +121,7 @@ class _$_AdditionalAssets implements _AdditionalAssets {
   final List<TokenWalletAsset> _tokenWallets;
   @override
   List<TokenWalletAsset> get tokenWallets {
+    if (_tokenWallets is EqualUnmodifiableListView) return _tokenWallets;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_tokenWallets);
   }
@@ -126,6 +129,7 @@ class _$_AdditionalAssets implements _AdditionalAssets {
   final List<DePoolAsset> _depools;
   @override
   List<DePoolAsset> get depools {
+    if (_depools is EqualUnmodifiableListView) return _depools;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_depools);
   }
@@ -154,6 +158,7 @@ class _$_AdditionalAssets implements _AdditionalAssets {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AdditionalAssetsCopyWith<_$_AdditionalAssets> get copyWith =>
       __$$_AdditionalAssetsCopyWithImpl<_$_AdditionalAssets>(this, _$identity);
 

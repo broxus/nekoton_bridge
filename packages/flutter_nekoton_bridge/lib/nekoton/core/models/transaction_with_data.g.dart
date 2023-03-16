@@ -21,7 +21,7 @@ Map<String, dynamic> _$TransactionWithDataToJson<T>(
   Object? Function(T value) toJsonT,
 ) =>
     <String, dynamic>{
-      'transaction': instance.transaction.toJson(),
+      'transaction': instance.transaction,
       'data': _$nullableGenericToJson(instance.data, toJsonT),
     };
 

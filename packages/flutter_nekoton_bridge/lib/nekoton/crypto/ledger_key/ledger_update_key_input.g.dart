@@ -28,6 +28,6 @@ _$_LedgerUpdateKeyInputRename _$$_LedgerUpdateKeyInputRenameFromJson(
 Map<String, dynamic> _$$_LedgerUpdateKeyInputRenameToJson(
         _$_LedgerUpdateKeyInputRename instance) =>
     <String, dynamic>{
-      'data': instance.data.toJson(),
+      'data': instance.data,
       'type': instance.$type,
     };

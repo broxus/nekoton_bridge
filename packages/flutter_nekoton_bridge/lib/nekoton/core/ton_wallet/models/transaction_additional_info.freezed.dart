@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'transaction_additional_info.dart';
 
@@ -36,6 +36,7 @@ TransactionAdditionalInfo _$TransactionAdditionalInfoFromJson(
 
 /// @nodoc
 mixin _$TransactionAdditionalInfo {
+  Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String data) comment,
@@ -50,12 +51,14 @@ mixin _$TransactionAdditionalInfo {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(DePoolOnRoundCompleteNotification data)?
+    TResult? Function(String data)? comment,
+    TResult? Function(DePoolOnRoundCompleteNotification data)?
         dePoolOnRoundComplete,
-    TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
-    TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
-    TResult Function(WalletInteractionInfo data)? walletInteraction,
+    TResult? Function(DePoolReceiveAnswerNotification data)?
+        dePoolReceiveAnswer,
+    TResult? Function(TokenWalletDeployedNotification data)?
+        tokenWalletDeployed,
+    TResult? Function(WalletInteractionInfo data)? walletInteraction,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,11 +84,11 @@ mixin _$TransactionAdditionalInfo {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult Function(_WalletInteraction value)? walletInteraction,
+    TResult? Function(_Comment value)? comment,
+    TResult? Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
+    TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
+    TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
+    TResult? Function(_WalletInteraction value)? walletInteraction,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -105,17 +108,19 @@ mixin _$TransactionAdditionalInfo {
 abstract class $TransactionAdditionalInfoCopyWith<$Res> {
   factory $TransactionAdditionalInfoCopyWith(TransactionAdditionalInfo value,
           $Res Function(TransactionAdditionalInfo) then) =
-      _$TransactionAdditionalInfoCopyWithImpl<$Res>;
+      _$TransactionAdditionalInfoCopyWithImpl<$Res, TransactionAdditionalInfo>;
 }
 
 /// @nodoc
-class _$TransactionAdditionalInfoCopyWithImpl<$Res>
+class _$TransactionAdditionalInfoCopyWithImpl<$Res,
+        $Val extends TransactionAdditionalInfo>
     implements $TransactionAdditionalInfoCopyWith<$Res> {
   _$TransactionAdditionalInfoCopyWithImpl(this._value, this._then);
 
-  final TransactionAdditionalInfo _value;
   // ignore: unused_field
-  final $Res Function(TransactionAdditionalInfo) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -123,25 +128,24 @@ abstract class _$$_CommentCopyWith<$Res> {
   factory _$$_CommentCopyWith(
           _$_Comment value, $Res Function(_$_Comment) then) =
       __$$_CommentCopyWithImpl<$Res>;
+  @useResult
   $Res call({String data});
 }
 
 /// @nodoc
 class __$$_CommentCopyWithImpl<$Res>
-    extends _$TransactionAdditionalInfoCopyWithImpl<$Res>
+    extends _$TransactionAdditionalInfoCopyWithImpl<$Res, _$_Comment>
     implements _$$_CommentCopyWith<$Res> {
   __$$_CommentCopyWithImpl(_$_Comment _value, $Res Function(_$_Comment) _then)
-      : super(_value, (v) => _then(v as _$_Comment));
+      : super(_value, _then);
 
-  @override
-  _$_Comment get _value => super._value as _$_Comment;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_Comment(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
@@ -174,16 +178,16 @@ class _$_Comment implements _Comment {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Comment &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CommentCopyWith<_$_Comment> get copyWith =>
       __$$_CommentCopyWithImpl<_$_Comment>(this, _$identity);
 
@@ -205,12 +209,14 @@ class _$_Comment implements _Comment {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(DePoolOnRoundCompleteNotification data)?
+    TResult? Function(String data)? comment,
+    TResult? Function(DePoolOnRoundCompleteNotification data)?
         dePoolOnRoundComplete,
-    TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
-    TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
-    TResult Function(WalletInteractionInfo data)? walletInteraction,
+    TResult? Function(DePoolReceiveAnswerNotification data)?
+        dePoolReceiveAnswer,
+    TResult? Function(TokenWalletDeployedNotification data)?
+        tokenWalletDeployed,
+    TResult? Function(WalletInteractionInfo data)? walletInteraction,
   }) {
     return comment?.call(data);
   }
@@ -248,11 +254,11 @@ class _$_Comment implements _Comment {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult Function(_WalletInteraction value)? walletInteraction,
+    TResult? Function(_Comment value)? comment,
+    TResult? Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
+    TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
+    TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
+    TResult? Function(_WalletInteraction value)? walletInteraction,
   }) {
     return comment?.call(this);
   }
@@ -286,6 +292,7 @@ abstract class _Comment implements TransactionAdditionalInfo {
 
   factory _Comment.fromJson(Map<String, dynamic> json) = _$_Comment.fromJson;
 
+  @override
   String get data;
   @JsonKey(ignore: true)
   _$$_CommentCopyWith<_$_Comment> get copyWith =>
@@ -297,6 +304,7 @@ abstract class _$$_DePoolOnRoundCompleteCopyWith<$Res> {
   factory _$$_DePoolOnRoundCompleteCopyWith(_$_DePoolOnRoundComplete value,
           $Res Function(_$_DePoolOnRoundComplete) then) =
       __$$_DePoolOnRoundCompleteCopyWithImpl<$Res>;
+  @useResult
   $Res call({DePoolOnRoundCompleteNotification data});
 
   $DePoolOnRoundCompleteNotificationCopyWith<$Res> get data;
@@ -304,22 +312,20 @@ abstract class _$$_DePoolOnRoundCompleteCopyWith<$Res> {
 
 /// @nodoc
 class __$$_DePoolOnRoundCompleteCopyWithImpl<$Res>
-    extends _$TransactionAdditionalInfoCopyWithImpl<$Res>
+    extends _$TransactionAdditionalInfoCopyWithImpl<$Res,
+        _$_DePoolOnRoundComplete>
     implements _$$_DePoolOnRoundCompleteCopyWith<$Res> {
   __$$_DePoolOnRoundCompleteCopyWithImpl(_$_DePoolOnRoundComplete _value,
       $Res Function(_$_DePoolOnRoundComplete) _then)
-      : super(_value, (v) => _then(v as _$_DePoolOnRoundComplete));
+      : super(_value, _then);
 
-  @override
-  _$_DePoolOnRoundComplete get _value =>
-      super._value as _$_DePoolOnRoundComplete;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_DePoolOnRoundComplete(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as DePoolOnRoundCompleteNotification,
@@ -327,6 +333,7 @@ class __$$_DePoolOnRoundCompleteCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $DePoolOnRoundCompleteNotificationCopyWith<$Res> get data {
     return $DePoolOnRoundCompleteNotificationCopyWith<$Res>(_value.data,
         (value) {
@@ -360,16 +367,16 @@ class _$_DePoolOnRoundComplete implements _DePoolOnRoundComplete {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DePoolOnRoundComplete &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DePoolOnRoundCompleteCopyWith<_$_DePoolOnRoundComplete> get copyWith =>
       __$$_DePoolOnRoundCompleteCopyWithImpl<_$_DePoolOnRoundComplete>(
           this, _$identity);
@@ -392,12 +399,14 @@ class _$_DePoolOnRoundComplete implements _DePoolOnRoundComplete {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(DePoolOnRoundCompleteNotification data)?
+    TResult? Function(String data)? comment,
+    TResult? Function(DePoolOnRoundCompleteNotification data)?
         dePoolOnRoundComplete,
-    TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
-    TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
-    TResult Function(WalletInteractionInfo data)? walletInteraction,
+    TResult? Function(DePoolReceiveAnswerNotification data)?
+        dePoolReceiveAnswer,
+    TResult? Function(TokenWalletDeployedNotification data)?
+        tokenWalletDeployed,
+    TResult? Function(WalletInteractionInfo data)? walletInteraction,
   }) {
     return dePoolOnRoundComplete?.call(data);
   }
@@ -435,11 +444,11 @@ class _$_DePoolOnRoundComplete implements _DePoolOnRoundComplete {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult Function(_WalletInteraction value)? walletInteraction,
+    TResult? Function(_Comment value)? comment,
+    TResult? Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
+    TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
+    TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
+    TResult? Function(_WalletInteraction value)? walletInteraction,
   }) {
     return dePoolOnRoundComplete?.call(this);
   }
@@ -475,6 +484,7 @@ abstract class _DePoolOnRoundComplete implements TransactionAdditionalInfo {
   factory _DePoolOnRoundComplete.fromJson(Map<String, dynamic> json) =
       _$_DePoolOnRoundComplete.fromJson;
 
+  @override
   DePoolOnRoundCompleteNotification get data;
   @JsonKey(ignore: true)
   _$$_DePoolOnRoundCompleteCopyWith<_$_DePoolOnRoundComplete> get copyWith =>
@@ -486,6 +496,7 @@ abstract class _$$_DePoolReceiveAnswerCopyWith<$Res> {
   factory _$$_DePoolReceiveAnswerCopyWith(_$_DePoolReceiveAnswer value,
           $Res Function(_$_DePoolReceiveAnswer) then) =
       __$$_DePoolReceiveAnswerCopyWithImpl<$Res>;
+  @useResult
   $Res call({DePoolReceiveAnswerNotification data});
 
   $DePoolReceiveAnswerNotificationCopyWith<$Res> get data;
@@ -493,21 +504,20 @@ abstract class _$$_DePoolReceiveAnswerCopyWith<$Res> {
 
 /// @nodoc
 class __$$_DePoolReceiveAnswerCopyWithImpl<$Res>
-    extends _$TransactionAdditionalInfoCopyWithImpl<$Res>
+    extends _$TransactionAdditionalInfoCopyWithImpl<$Res,
+        _$_DePoolReceiveAnswer>
     implements _$$_DePoolReceiveAnswerCopyWith<$Res> {
   __$$_DePoolReceiveAnswerCopyWithImpl(_$_DePoolReceiveAnswer _value,
       $Res Function(_$_DePoolReceiveAnswer) _then)
-      : super(_value, (v) => _then(v as _$_DePoolReceiveAnswer));
+      : super(_value, _then);
 
-  @override
-  _$_DePoolReceiveAnswer get _value => super._value as _$_DePoolReceiveAnswer;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_DePoolReceiveAnswer(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as DePoolReceiveAnswerNotification,
@@ -515,6 +525,7 @@ class __$$_DePoolReceiveAnswerCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $DePoolReceiveAnswerNotificationCopyWith<$Res> get data {
     return $DePoolReceiveAnswerNotificationCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -547,16 +558,16 @@ class _$_DePoolReceiveAnswer implements _DePoolReceiveAnswer {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DePoolReceiveAnswer &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DePoolReceiveAnswerCopyWith<_$_DePoolReceiveAnswer> get copyWith =>
       __$$_DePoolReceiveAnswerCopyWithImpl<_$_DePoolReceiveAnswer>(
           this, _$identity);
@@ -579,12 +590,14 @@ class _$_DePoolReceiveAnswer implements _DePoolReceiveAnswer {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(DePoolOnRoundCompleteNotification data)?
+    TResult? Function(String data)? comment,
+    TResult? Function(DePoolOnRoundCompleteNotification data)?
         dePoolOnRoundComplete,
-    TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
-    TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
-    TResult Function(WalletInteractionInfo data)? walletInteraction,
+    TResult? Function(DePoolReceiveAnswerNotification data)?
+        dePoolReceiveAnswer,
+    TResult? Function(TokenWalletDeployedNotification data)?
+        tokenWalletDeployed,
+    TResult? Function(WalletInteractionInfo data)? walletInteraction,
   }) {
     return dePoolReceiveAnswer?.call(data);
   }
@@ -622,11 +635,11 @@ class _$_DePoolReceiveAnswer implements _DePoolReceiveAnswer {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult Function(_WalletInteraction value)? walletInteraction,
+    TResult? Function(_Comment value)? comment,
+    TResult? Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
+    TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
+    TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
+    TResult? Function(_WalletInteraction value)? walletInteraction,
   }) {
     return dePoolReceiveAnswer?.call(this);
   }
@@ -662,6 +675,7 @@ abstract class _DePoolReceiveAnswer implements TransactionAdditionalInfo {
   factory _DePoolReceiveAnswer.fromJson(Map<String, dynamic> json) =
       _$_DePoolReceiveAnswer.fromJson;
 
+  @override
   DePoolReceiveAnswerNotification get data;
   @JsonKey(ignore: true)
   _$$_DePoolReceiveAnswerCopyWith<_$_DePoolReceiveAnswer> get copyWith =>
@@ -673,6 +687,7 @@ abstract class _$$_TokenWalletDeployedCopyWith<$Res> {
   factory _$$_TokenWalletDeployedCopyWith(_$_TokenWalletDeployed value,
           $Res Function(_$_TokenWalletDeployed) then) =
       __$$_TokenWalletDeployedCopyWithImpl<$Res>;
+  @useResult
   $Res call({TokenWalletDeployedNotification data});
 
   $TokenWalletDeployedNotificationCopyWith<$Res> get data;
@@ -680,21 +695,20 @@ abstract class _$$_TokenWalletDeployedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_TokenWalletDeployedCopyWithImpl<$Res>
-    extends _$TransactionAdditionalInfoCopyWithImpl<$Res>
+    extends _$TransactionAdditionalInfoCopyWithImpl<$Res,
+        _$_TokenWalletDeployed>
     implements _$$_TokenWalletDeployedCopyWith<$Res> {
   __$$_TokenWalletDeployedCopyWithImpl(_$_TokenWalletDeployed _value,
       $Res Function(_$_TokenWalletDeployed) _then)
-      : super(_value, (v) => _then(v as _$_TokenWalletDeployed));
+      : super(_value, _then);
 
-  @override
-  _$_TokenWalletDeployed get _value => super._value as _$_TokenWalletDeployed;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_TokenWalletDeployed(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as TokenWalletDeployedNotification,
@@ -702,6 +716,7 @@ class __$$_TokenWalletDeployedCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TokenWalletDeployedNotificationCopyWith<$Res> get data {
     return $TokenWalletDeployedNotificationCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -734,16 +749,16 @@ class _$_TokenWalletDeployed implements _TokenWalletDeployed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TokenWalletDeployed &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TokenWalletDeployedCopyWith<_$_TokenWalletDeployed> get copyWith =>
       __$$_TokenWalletDeployedCopyWithImpl<_$_TokenWalletDeployed>(
           this, _$identity);
@@ -766,12 +781,14 @@ class _$_TokenWalletDeployed implements _TokenWalletDeployed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(DePoolOnRoundCompleteNotification data)?
+    TResult? Function(String data)? comment,
+    TResult? Function(DePoolOnRoundCompleteNotification data)?
         dePoolOnRoundComplete,
-    TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
-    TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
-    TResult Function(WalletInteractionInfo data)? walletInteraction,
+    TResult? Function(DePoolReceiveAnswerNotification data)?
+        dePoolReceiveAnswer,
+    TResult? Function(TokenWalletDeployedNotification data)?
+        tokenWalletDeployed,
+    TResult? Function(WalletInteractionInfo data)? walletInteraction,
   }) {
     return tokenWalletDeployed?.call(data);
   }
@@ -809,11 +826,11 @@ class _$_TokenWalletDeployed implements _TokenWalletDeployed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult Function(_WalletInteraction value)? walletInteraction,
+    TResult? Function(_Comment value)? comment,
+    TResult? Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
+    TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
+    TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
+    TResult? Function(_WalletInteraction value)? walletInteraction,
   }) {
     return tokenWalletDeployed?.call(this);
   }
@@ -849,6 +866,7 @@ abstract class _TokenWalletDeployed implements TransactionAdditionalInfo {
   factory _TokenWalletDeployed.fromJson(Map<String, dynamic> json) =
       _$_TokenWalletDeployed.fromJson;
 
+  @override
   TokenWalletDeployedNotification get data;
   @JsonKey(ignore: true)
   _$$_TokenWalletDeployedCopyWith<_$_TokenWalletDeployed> get copyWith =>
@@ -860,6 +878,7 @@ abstract class _$$_WalletInteractionCopyWith<$Res> {
   factory _$$_WalletInteractionCopyWith(_$_WalletInteraction value,
           $Res Function(_$_WalletInteraction) then) =
       __$$_WalletInteractionCopyWithImpl<$Res>;
+  @useResult
   $Res call({WalletInteractionInfo data});
 
   $WalletInteractionInfoCopyWith<$Res> get data;
@@ -867,21 +886,19 @@ abstract class _$$_WalletInteractionCopyWith<$Res> {
 
 /// @nodoc
 class __$$_WalletInteractionCopyWithImpl<$Res>
-    extends _$TransactionAdditionalInfoCopyWithImpl<$Res>
+    extends _$TransactionAdditionalInfoCopyWithImpl<$Res, _$_WalletInteraction>
     implements _$$_WalletInteractionCopyWith<$Res> {
   __$$_WalletInteractionCopyWithImpl(
       _$_WalletInteraction _value, $Res Function(_$_WalletInteraction) _then)
-      : super(_value, (v) => _then(v as _$_WalletInteraction));
+      : super(_value, _then);
 
-  @override
-  _$_WalletInteraction get _value => super._value as _$_WalletInteraction;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_WalletInteraction(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as WalletInteractionInfo,
@@ -889,6 +906,7 @@ class __$$_WalletInteractionCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $WalletInteractionInfoCopyWith<$Res> get data {
     return $WalletInteractionInfoCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -921,16 +939,16 @@ class _$_WalletInteraction implements _WalletInteraction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WalletInteraction &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WalletInteractionCopyWith<_$_WalletInteraction> get copyWith =>
       __$$_WalletInteractionCopyWithImpl<_$_WalletInteraction>(
           this, _$identity);
@@ -953,12 +971,14 @@ class _$_WalletInteraction implements _WalletInteraction {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(DePoolOnRoundCompleteNotification data)?
+    TResult? Function(String data)? comment,
+    TResult? Function(DePoolOnRoundCompleteNotification data)?
         dePoolOnRoundComplete,
-    TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
-    TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
-    TResult Function(WalletInteractionInfo data)? walletInteraction,
+    TResult? Function(DePoolReceiveAnswerNotification data)?
+        dePoolReceiveAnswer,
+    TResult? Function(TokenWalletDeployedNotification data)?
+        tokenWalletDeployed,
+    TResult? Function(WalletInteractionInfo data)? walletInteraction,
   }) {
     return walletInteraction?.call(data);
   }
@@ -996,11 +1016,11 @@ class _$_WalletInteraction implements _WalletInteraction {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult Function(_WalletInteraction value)? walletInteraction,
+    TResult? Function(_Comment value)? comment,
+    TResult? Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
+    TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
+    TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
+    TResult? Function(_WalletInteraction value)? walletInteraction,
   }) {
     return walletInteraction?.call(this);
   }
@@ -1036,6 +1056,7 @@ abstract class _WalletInteraction implements TransactionAdditionalInfo {
   factory _WalletInteraction.fromJson(Map<String, dynamic> json) =
       _$_WalletInteraction.fromJson;
 
+  @override
   WalletInteractionInfo get data;
   @JsonKey(ignore: true)
   _$$_WalletInteractionCopyWith<_$_WalletInteraction> get copyWith =>

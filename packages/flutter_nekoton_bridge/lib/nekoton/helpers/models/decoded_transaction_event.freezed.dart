@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'decoded_transaction_event.dart';
 
@@ -34,34 +34,38 @@ mixin _$DecodedTransactionEvent {
 abstract class $DecodedTransactionEventCopyWith<$Res> {
   factory $DecodedTransactionEventCopyWith(DecodedTransactionEvent value,
           $Res Function(DecodedTransactionEvent) then) =
-      _$DecodedTransactionEventCopyWithImpl<$Res>;
+      _$DecodedTransactionEventCopyWithImpl<$Res, DecodedTransactionEvent>;
+  @useResult
   $Res call({String event, Map<String, dynamic> data});
 }
 
 /// @nodoc
-class _$DecodedTransactionEventCopyWithImpl<$Res>
+class _$DecodedTransactionEventCopyWithImpl<$Res,
+        $Val extends DecodedTransactionEvent>
     implements $DecodedTransactionEventCopyWith<$Res> {
   _$DecodedTransactionEventCopyWithImpl(this._value, this._then);
 
-  final DecodedTransactionEvent _value;
   // ignore: unused_field
-  final $Res Function(DecodedTransactionEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
-    Object? data = freezed,
+    Object? event = null,
+    Object? data = null,
   }) {
     return _then(_value.copyWith(
-      event: event == freezed
+      event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as String,
-      data: data == freezed
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -72,32 +76,31 @@ abstract class _$$_DecodedTransactionEventCopyWith<$Res>
           $Res Function(_$_DecodedTransactionEvent) then) =
       __$$_DecodedTransactionEventCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String event, Map<String, dynamic> data});
 }
 
 /// @nodoc
 class __$$_DecodedTransactionEventCopyWithImpl<$Res>
-    extends _$DecodedTransactionEventCopyWithImpl<$Res>
+    extends _$DecodedTransactionEventCopyWithImpl<$Res,
+        _$_DecodedTransactionEvent>
     implements _$$_DecodedTransactionEventCopyWith<$Res> {
   __$$_DecodedTransactionEventCopyWithImpl(_$_DecodedTransactionEvent _value,
       $Res Function(_$_DecodedTransactionEvent) _then)
-      : super(_value, (v) => _then(v as _$_DecodedTransactionEvent));
+      : super(_value, _then);
 
-  @override
-  _$_DecodedTransactionEvent get _value =>
-      super._value as _$_DecodedTransactionEvent;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
-    Object? data = freezed,
+    Object? event = null,
+    Object? data = null,
   }) {
     return _then(_$_DecodedTransactionEvent(
-      event: event == freezed
+      event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as String,
-      data: data == freezed
+      data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
@@ -120,6 +123,7 @@ class _$_DecodedTransactionEvent implements _DecodedTransactionEvent {
   final Map<String, dynamic> _data;
   @override
   Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_data);
   }
@@ -134,19 +138,18 @@ class _$_DecodedTransactionEvent implements _DecodedTransactionEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DecodedTransactionEvent &&
-            const DeepCollectionEquality().equals(other.event, event) &&
+            (identical(other.event, event) || other.event == event) &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(event),
-      const DeepCollectionEquality().hash(_data));
+      runtimeType, event, const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DecodedTransactionEventCopyWith<_$_DecodedTransactionEvent>
       get copyWith =>
           __$$_DecodedTransactionEventCopyWithImpl<_$_DecodedTransactionEvent>(

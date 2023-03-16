@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'de_pool_receive_answer_notification.dart';
 
@@ -35,34 +35,39 @@ abstract class $DePoolReceiveAnswerNotificationCopyWith<$Res> {
   factory $DePoolReceiveAnswerNotificationCopyWith(
           DePoolReceiveAnswerNotification value,
           $Res Function(DePoolReceiveAnswerNotification) then) =
-      _$DePoolReceiveAnswerNotificationCopyWithImpl<$Res>;
+      _$DePoolReceiveAnswerNotificationCopyWithImpl<$Res,
+          DePoolReceiveAnswerNotification>;
+  @useResult
   $Res call({int errorCode, String comment});
 }
 
 /// @nodoc
-class _$DePoolReceiveAnswerNotificationCopyWithImpl<$Res>
+class _$DePoolReceiveAnswerNotificationCopyWithImpl<$Res,
+        $Val extends DePoolReceiveAnswerNotification>
     implements $DePoolReceiveAnswerNotificationCopyWith<$Res> {
   _$DePoolReceiveAnswerNotificationCopyWithImpl(this._value, this._then);
 
-  final DePoolReceiveAnswerNotification _value;
   // ignore: unused_field
-  final $Res Function(DePoolReceiveAnswerNotification) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errorCode = freezed,
-    Object? comment = freezed,
+    Object? errorCode = null,
+    Object? comment = null,
   }) {
     return _then(_value.copyWith(
-      errorCode: errorCode == freezed
+      errorCode: null == errorCode
           ? _value.errorCode
           : errorCode // ignore: cast_nullable_to_non_nullable
               as int,
-      comment: comment == freezed
+      comment: null == comment
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -74,33 +79,32 @@ abstract class _$$_DePoolReceiveAnswerNotificationCopyWith<$Res>
           $Res Function(_$_DePoolReceiveAnswerNotification) then) =
       __$$_DePoolReceiveAnswerNotificationCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int errorCode, String comment});
 }
 
 /// @nodoc
 class __$$_DePoolReceiveAnswerNotificationCopyWithImpl<$Res>
-    extends _$DePoolReceiveAnswerNotificationCopyWithImpl<$Res>
+    extends _$DePoolReceiveAnswerNotificationCopyWithImpl<$Res,
+        _$_DePoolReceiveAnswerNotification>
     implements _$$_DePoolReceiveAnswerNotificationCopyWith<$Res> {
   __$$_DePoolReceiveAnswerNotificationCopyWithImpl(
       _$_DePoolReceiveAnswerNotification _value,
       $Res Function(_$_DePoolReceiveAnswerNotification) _then)
-      : super(_value, (v) => _then(v as _$_DePoolReceiveAnswerNotification));
+      : super(_value, _then);
 
-  @override
-  _$_DePoolReceiveAnswerNotification get _value =>
-      super._value as _$_DePoolReceiveAnswerNotification;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errorCode = freezed,
-    Object? comment = freezed,
+    Object? errorCode = null,
+    Object? comment = null,
   }) {
     return _then(_$_DePoolReceiveAnswerNotification(
-      errorCode: errorCode == freezed
+      errorCode: null == errorCode
           ? _value.errorCode
           : errorCode // ignore: cast_nullable_to_non_nullable
               as int,
-      comment: comment == freezed
+      comment: null == comment
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String,
@@ -134,19 +138,18 @@ class _$_DePoolReceiveAnswerNotification
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DePoolReceiveAnswerNotification &&
-            const DeepCollectionEquality().equals(other.errorCode, errorCode) &&
-            const DeepCollectionEquality().equals(other.comment, comment));
+            (identical(other.errorCode, errorCode) ||
+                other.errorCode == errorCode) &&
+            (identical(other.comment, comment) || other.comment == comment));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(errorCode),
-      const DeepCollectionEquality().hash(comment));
+  int get hashCode => Object.hash(runtimeType, errorCode, comment);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DePoolReceiveAnswerNotificationCopyWith<
           _$_DePoolReceiveAnswerNotification>
       get copyWith => __$$_DePoolReceiveAnswerNotificationCopyWithImpl<

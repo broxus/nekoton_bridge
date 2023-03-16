@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'multisig_transaction.dart';
 
@@ -31,6 +31,7 @@ MultisigTransaction _$MultisigTransactionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MultisigTransaction {
+  Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(MultisigSendTransaction data) send,
@@ -40,9 +41,9 @@ mixin _$MultisigTransaction {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(MultisigSendTransaction data)? send,
-    TResult Function(MultisigSubmitTransaction data)? submit,
-    TResult Function(MultisigConfirmTransaction data)? confirm,
+    TResult? Function(MultisigSendTransaction data)? send,
+    TResult? Function(MultisigSubmitTransaction data)? submit,
+    TResult? Function(MultisigConfirmTransaction data)? confirm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,9 +63,9 @@ mixin _$MultisigTransaction {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Send value)? send,
-    TResult Function(_Submit value)? submit,
-    TResult Function(_Confirm value)? confirm,
+    TResult? Function(_Send value)? send,
+    TResult? Function(_Submit value)? submit,
+    TResult? Function(_Confirm value)? confirm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,23 +83,25 @@ mixin _$MultisigTransaction {
 abstract class $MultisigTransactionCopyWith<$Res> {
   factory $MultisigTransactionCopyWith(
           MultisigTransaction value, $Res Function(MultisigTransaction) then) =
-      _$MultisigTransactionCopyWithImpl<$Res>;
+      _$MultisigTransactionCopyWithImpl<$Res, MultisigTransaction>;
 }
 
 /// @nodoc
-class _$MultisigTransactionCopyWithImpl<$Res>
+class _$MultisigTransactionCopyWithImpl<$Res, $Val extends MultisigTransaction>
     implements $MultisigTransactionCopyWith<$Res> {
   _$MultisigTransactionCopyWithImpl(this._value, this._then);
 
-  final MultisigTransaction _value;
   // ignore: unused_field
-  final $Res Function(MultisigTransaction) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
 abstract class _$$_SendCopyWith<$Res> {
   factory _$$_SendCopyWith(_$_Send value, $Res Function(_$_Send) then) =
       __$$_SendCopyWithImpl<$Res>;
+  @useResult
   $Res call({MultisigSendTransaction data});
 
   $MultisigSendTransactionCopyWith<$Res> get data;
@@ -106,20 +109,18 @@ abstract class _$$_SendCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SendCopyWithImpl<$Res>
-    extends _$MultisigTransactionCopyWithImpl<$Res>
+    extends _$MultisigTransactionCopyWithImpl<$Res, _$_Send>
     implements _$$_SendCopyWith<$Res> {
   __$$_SendCopyWithImpl(_$_Send _value, $Res Function(_$_Send) _then)
-      : super(_value, (v) => _then(v as _$_Send));
+      : super(_value, _then);
 
-  @override
-  _$_Send get _value => super._value as _$_Send;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_Send(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as MultisigSendTransaction,
@@ -127,6 +128,7 @@ class __$$_SendCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $MultisigSendTransactionCopyWith<$Res> get data {
     return $MultisigSendTransactionCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -157,16 +159,16 @@ class _$_Send implements _Send {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Send &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SendCopyWith<_$_Send> get copyWith =>
       __$$_SendCopyWithImpl<_$_Send>(this, _$identity);
 
@@ -183,9 +185,9 @@ class _$_Send implements _Send {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(MultisigSendTransaction data)? send,
-    TResult Function(MultisigSubmitTransaction data)? submit,
-    TResult Function(MultisigConfirmTransaction data)? confirm,
+    TResult? Function(MultisigSendTransaction data)? send,
+    TResult? Function(MultisigSubmitTransaction data)? submit,
+    TResult? Function(MultisigConfirmTransaction data)? confirm,
   }) {
     return send?.call(data);
   }
@@ -217,9 +219,9 @@ class _$_Send implements _Send {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Send value)? send,
-    TResult Function(_Submit value)? submit,
-    TResult Function(_Confirm value)? confirm,
+    TResult? Function(_Send value)? send,
+    TResult? Function(_Submit value)? submit,
+    TResult? Function(_Confirm value)? confirm,
   }) {
     return send?.call(this);
   }
@@ -251,6 +253,7 @@ abstract class _Send implements MultisigTransaction {
 
   factory _Send.fromJson(Map<String, dynamic> json) = _$_Send.fromJson;
 
+  @override
   MultisigSendTransaction get data;
   @JsonKey(ignore: true)
   _$$_SendCopyWith<_$_Send> get copyWith => throw _privateConstructorUsedError;
@@ -260,6 +263,7 @@ abstract class _Send implements MultisigTransaction {
 abstract class _$$_SubmitCopyWith<$Res> {
   factory _$$_SubmitCopyWith(_$_Submit value, $Res Function(_$_Submit) then) =
       __$$_SubmitCopyWithImpl<$Res>;
+  @useResult
   $Res call({MultisigSubmitTransaction data});
 
   $MultisigSubmitTransactionCopyWith<$Res> get data;
@@ -267,20 +271,18 @@ abstract class _$$_SubmitCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SubmitCopyWithImpl<$Res>
-    extends _$MultisigTransactionCopyWithImpl<$Res>
+    extends _$MultisigTransactionCopyWithImpl<$Res, _$_Submit>
     implements _$$_SubmitCopyWith<$Res> {
   __$$_SubmitCopyWithImpl(_$_Submit _value, $Res Function(_$_Submit) _then)
-      : super(_value, (v) => _then(v as _$_Submit));
+      : super(_value, _then);
 
-  @override
-  _$_Submit get _value => super._value as _$_Submit;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_Submit(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as MultisigSubmitTransaction,
@@ -288,6 +290,7 @@ class __$$_SubmitCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $MultisigSubmitTransactionCopyWith<$Res> get data {
     return $MultisigSubmitTransactionCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -319,16 +322,16 @@ class _$_Submit implements _Submit {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Submit &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SubmitCopyWith<_$_Submit> get copyWith =>
       __$$_SubmitCopyWithImpl<_$_Submit>(this, _$identity);
 
@@ -345,9 +348,9 @@ class _$_Submit implements _Submit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(MultisigSendTransaction data)? send,
-    TResult Function(MultisigSubmitTransaction data)? submit,
-    TResult Function(MultisigConfirmTransaction data)? confirm,
+    TResult? Function(MultisigSendTransaction data)? send,
+    TResult? Function(MultisigSubmitTransaction data)? submit,
+    TResult? Function(MultisigConfirmTransaction data)? confirm,
   }) {
     return submit?.call(data);
   }
@@ -379,9 +382,9 @@ class _$_Submit implements _Submit {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Send value)? send,
-    TResult Function(_Submit value)? submit,
-    TResult Function(_Confirm value)? confirm,
+    TResult? Function(_Send value)? send,
+    TResult? Function(_Submit value)? submit,
+    TResult? Function(_Confirm value)? confirm,
   }) {
     return submit?.call(this);
   }
@@ -413,6 +416,7 @@ abstract class _Submit implements MultisigTransaction {
 
   factory _Submit.fromJson(Map<String, dynamic> json) = _$_Submit.fromJson;
 
+  @override
   MultisigSubmitTransaction get data;
   @JsonKey(ignore: true)
   _$$_SubmitCopyWith<_$_Submit> get copyWith =>
@@ -424,6 +428,7 @@ abstract class _$$_ConfirmCopyWith<$Res> {
   factory _$$_ConfirmCopyWith(
           _$_Confirm value, $Res Function(_$_Confirm) then) =
       __$$_ConfirmCopyWithImpl<$Res>;
+  @useResult
   $Res call({MultisigConfirmTransaction data});
 
   $MultisigConfirmTransactionCopyWith<$Res> get data;
@@ -431,20 +436,18 @@ abstract class _$$_ConfirmCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ConfirmCopyWithImpl<$Res>
-    extends _$MultisigTransactionCopyWithImpl<$Res>
+    extends _$MultisigTransactionCopyWithImpl<$Res, _$_Confirm>
     implements _$$_ConfirmCopyWith<$Res> {
   __$$_ConfirmCopyWithImpl(_$_Confirm _value, $Res Function(_$_Confirm) _then)
-      : super(_value, (v) => _then(v as _$_Confirm));
+      : super(_value, _then);
 
-  @override
-  _$_Confirm get _value => super._value as _$_Confirm;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_Confirm(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as MultisigConfirmTransaction,
@@ -452,6 +455,7 @@ class __$$_ConfirmCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $MultisigConfirmTransactionCopyWith<$Res> get data {
     return $MultisigConfirmTransactionCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -484,16 +488,16 @@ class _$_Confirm implements _Confirm {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Confirm &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ConfirmCopyWith<_$_Confirm> get copyWith =>
       __$$_ConfirmCopyWithImpl<_$_Confirm>(this, _$identity);
 
@@ -510,9 +514,9 @@ class _$_Confirm implements _Confirm {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(MultisigSendTransaction data)? send,
-    TResult Function(MultisigSubmitTransaction data)? submit,
-    TResult Function(MultisigConfirmTransaction data)? confirm,
+    TResult? Function(MultisigSendTransaction data)? send,
+    TResult? Function(MultisigSubmitTransaction data)? submit,
+    TResult? Function(MultisigConfirmTransaction data)? confirm,
   }) {
     return confirm?.call(data);
   }
@@ -544,9 +548,9 @@ class _$_Confirm implements _Confirm {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Send value)? send,
-    TResult Function(_Submit value)? submit,
-    TResult Function(_Confirm value)? confirm,
+    TResult? Function(_Send value)? send,
+    TResult? Function(_Submit value)? submit,
+    TResult? Function(_Confirm value)? confirm,
   }) {
     return confirm?.call(this);
   }
@@ -578,6 +582,7 @@ abstract class _Confirm implements MultisigTransaction {
 
   factory _Confirm.fromJson(Map<String, dynamic> json) = _$_Confirm.fromJson;
 
+  @override
   MultisigConfirmTransaction get data;
   @JsonKey(ignore: true)
   _$$_ConfirmCopyWith<_$_Confirm> get copyWith =>

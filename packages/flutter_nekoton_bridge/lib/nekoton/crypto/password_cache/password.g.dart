@@ -13,7 +13,7 @@ _$_Explicit _$$_ExplicitFromJson(Map<String, dynamic> json) => _$_Explicit(
 
 Map<String, dynamic> _$$_ExplicitToJson(_$_Explicit instance) =>
     <String, dynamic>{
-      'data': instance.data.toJson(),
+      'data': instance.data,
       'type': instance.$type,
     };
 

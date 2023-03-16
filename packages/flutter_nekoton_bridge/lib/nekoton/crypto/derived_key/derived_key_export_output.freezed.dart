@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'derived_key_export_output.dart';
 
@@ -33,29 +33,33 @@ mixin _$DerivedKeyExportOutput {
 abstract class $DerivedKeyExportOutputCopyWith<$Res> {
   factory $DerivedKeyExportOutputCopyWith(DerivedKeyExportOutput value,
           $Res Function(DerivedKeyExportOutput) then) =
-      _$DerivedKeyExportOutputCopyWithImpl<$Res>;
+      _$DerivedKeyExportOutputCopyWithImpl<$Res, DerivedKeyExportOutput>;
+  @useResult
   $Res call({String phrase});
 }
 
 /// @nodoc
-class _$DerivedKeyExportOutputCopyWithImpl<$Res>
+class _$DerivedKeyExportOutputCopyWithImpl<$Res,
+        $Val extends DerivedKeyExportOutput>
     implements $DerivedKeyExportOutputCopyWith<$Res> {
   _$DerivedKeyExportOutputCopyWithImpl(this._value, this._then);
 
-  final DerivedKeyExportOutput _value;
   // ignore: unused_field
-  final $Res Function(DerivedKeyExportOutput) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? phrase = freezed,
+    Object? phrase = null,
   }) {
     return _then(_value.copyWith(
-      phrase: phrase == freezed
+      phrase: null == phrase
           ? _value.phrase
           : phrase // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -66,27 +70,26 @@ abstract class _$$_DerivedKeyExportOutputCopyWith<$Res>
           $Res Function(_$_DerivedKeyExportOutput) then) =
       __$$_DerivedKeyExportOutputCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String phrase});
 }
 
 /// @nodoc
 class __$$_DerivedKeyExportOutputCopyWithImpl<$Res>
-    extends _$DerivedKeyExportOutputCopyWithImpl<$Res>
+    extends _$DerivedKeyExportOutputCopyWithImpl<$Res,
+        _$_DerivedKeyExportOutput>
     implements _$$_DerivedKeyExportOutputCopyWith<$Res> {
   __$$_DerivedKeyExportOutputCopyWithImpl(_$_DerivedKeyExportOutput _value,
       $Res Function(_$_DerivedKeyExportOutput) _then)
-      : super(_value, (v) => _then(v as _$_DerivedKeyExportOutput));
+      : super(_value, _then);
 
-  @override
-  _$_DerivedKeyExportOutput get _value =>
-      super._value as _$_DerivedKeyExportOutput;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? phrase = freezed,
+    Object? phrase = null,
   }) {
     return _then(_$_DerivedKeyExportOutput(
-      phrase: phrase == freezed
+      phrase: null == phrase
           ? _value.phrase
           : phrase // ignore: cast_nullable_to_non_nullable
               as String,
@@ -115,16 +118,16 @@ class _$_DerivedKeyExportOutput implements _DerivedKeyExportOutput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DerivedKeyExportOutput &&
-            const DeepCollectionEquality().equals(other.phrase, phrase));
+            (identical(other.phrase, phrase) || other.phrase == phrase));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(phrase));
+  int get hashCode => Object.hash(runtimeType, phrase);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DerivedKeyExportOutputCopyWith<_$_DerivedKeyExportOutput> get copyWith =>
       __$$_DerivedKeyExportOutputCopyWithImpl<_$_DerivedKeyExportOutput>(
           this, _$identity);

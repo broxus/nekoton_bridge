@@ -28,8 +28,8 @@ _$_Transaction _$$_TransactionFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) {
   final val = <String, dynamic>{
-    'id': instance.id.toJson(),
-    'prevTransactionId': instance.prevTransactionId?.toJson(),
+    'id': instance.id,
+    'prevTransactionId': instance.prevTransactionId,
     'createdAt': instance.createdAt,
     'aborted': instance.aborted,
   };
@@ -45,8 +45,8 @@ Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) {
   val['origStatus'] = _$AccountStatusEnumMap[instance.origStatus]!;
   val['endStatus'] = _$AccountStatusEnumMap[instance.endStatus]!;
   val['totalFees'] = instance.totalFees;
-  val['inMessage'] = instance.inMessage.toJson();
-  val['outMessages'] = instance.outMessages.map((e) => e.toJson()).toList();
+  val['inMessage'] = instance.inMessage;
+  val['outMessages'] = instance.outMessages;
   return val;
 }
 

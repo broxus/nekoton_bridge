@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'derived_key_sign_params.dart';
 
@@ -29,6 +29,7 @@ DerivedKeySignParams _$DerivedKeySignParamsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DerivedKeySignParams {
+  Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DerivedKeySignParamsByAccountId data) byAccountId,
@@ -37,8 +38,8 @@ mixin _$DerivedKeySignParams {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DerivedKeySignParamsByAccountId data)? byAccountId,
-    TResult Function(DerivedKeySignParamsByPublicKey data)? byPublicKey,
+    TResult? Function(DerivedKeySignParamsByAccountId data)? byAccountId,
+    TResult? Function(DerivedKeySignParamsByPublicKey data)? byPublicKey,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,8 +57,8 @@ mixin _$DerivedKeySignParams {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ByAccountId value)? byAccountId,
-    TResult Function(_ByPublicKey value)? byPublicKey,
+    TResult? Function(_ByAccountId value)? byAccountId,
+    TResult? Function(_ByPublicKey value)? byPublicKey,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,17 +75,19 @@ mixin _$DerivedKeySignParams {
 abstract class $DerivedKeySignParamsCopyWith<$Res> {
   factory $DerivedKeySignParamsCopyWith(DerivedKeySignParams value,
           $Res Function(DerivedKeySignParams) then) =
-      _$DerivedKeySignParamsCopyWithImpl<$Res>;
+      _$DerivedKeySignParamsCopyWithImpl<$Res, DerivedKeySignParams>;
 }
 
 /// @nodoc
-class _$DerivedKeySignParamsCopyWithImpl<$Res>
+class _$DerivedKeySignParamsCopyWithImpl<$Res,
+        $Val extends DerivedKeySignParams>
     implements $DerivedKeySignParamsCopyWith<$Res> {
   _$DerivedKeySignParamsCopyWithImpl(this._value, this._then);
 
-  final DerivedKeySignParams _value;
   // ignore: unused_field
-  final $Res Function(DerivedKeySignParams) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -92,6 +95,7 @@ abstract class _$$_ByAccountIdCopyWith<$Res> {
   factory _$$_ByAccountIdCopyWith(
           _$_ByAccountId value, $Res Function(_$_ByAccountId) then) =
       __$$_ByAccountIdCopyWithImpl<$Res>;
+  @useResult
   $Res call({DerivedKeySignParamsByAccountId data});
 
   $DerivedKeySignParamsByAccountIdCopyWith<$Res> get data;
@@ -99,21 +103,19 @@ abstract class _$$_ByAccountIdCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ByAccountIdCopyWithImpl<$Res>
-    extends _$DerivedKeySignParamsCopyWithImpl<$Res>
+    extends _$DerivedKeySignParamsCopyWithImpl<$Res, _$_ByAccountId>
     implements _$$_ByAccountIdCopyWith<$Res> {
   __$$_ByAccountIdCopyWithImpl(
       _$_ByAccountId _value, $Res Function(_$_ByAccountId) _then)
-      : super(_value, (v) => _then(v as _$_ByAccountId));
+      : super(_value, _then);
 
-  @override
-  _$_ByAccountId get _value => super._value as _$_ByAccountId;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_ByAccountId(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as DerivedKeySignParamsByAccountId,
@@ -121,6 +123,7 @@ class __$$_ByAccountIdCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $DerivedKeySignParamsByAccountIdCopyWith<$Res> get data {
     return $DerivedKeySignParamsByAccountIdCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -153,16 +156,16 @@ class _$_ByAccountId implements _ByAccountId {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ByAccountId &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ByAccountIdCopyWith<_$_ByAccountId> get copyWith =>
       __$$_ByAccountIdCopyWithImpl<_$_ByAccountId>(this, _$identity);
 
@@ -178,8 +181,8 @@ class _$_ByAccountId implements _ByAccountId {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DerivedKeySignParamsByAccountId data)? byAccountId,
-    TResult Function(DerivedKeySignParamsByPublicKey data)? byPublicKey,
+    TResult? Function(DerivedKeySignParamsByAccountId data)? byAccountId,
+    TResult? Function(DerivedKeySignParamsByPublicKey data)? byPublicKey,
   }) {
     return byAccountId?.call(data);
   }
@@ -209,8 +212,8 @@ class _$_ByAccountId implements _ByAccountId {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ByAccountId value)? byAccountId,
-    TResult Function(_ByPublicKey value)? byPublicKey,
+    TResult? Function(_ByAccountId value)? byAccountId,
+    TResult? Function(_ByPublicKey value)? byPublicKey,
   }) {
     return byAccountId?.call(this);
   }
@@ -243,6 +246,7 @@ abstract class _ByAccountId implements DerivedKeySignParams {
   factory _ByAccountId.fromJson(Map<String, dynamic> json) =
       _$_ByAccountId.fromJson;
 
+  @override
   DerivedKeySignParamsByAccountId get data;
   @JsonKey(ignore: true)
   _$$_ByAccountIdCopyWith<_$_ByAccountId> get copyWith =>
@@ -254,6 +258,7 @@ abstract class _$$_ByPublicKeyCopyWith<$Res> {
   factory _$$_ByPublicKeyCopyWith(
           _$_ByPublicKey value, $Res Function(_$_ByPublicKey) then) =
       __$$_ByPublicKeyCopyWithImpl<$Res>;
+  @useResult
   $Res call({DerivedKeySignParamsByPublicKey data});
 
   $DerivedKeySignParamsByPublicKeyCopyWith<$Res> get data;
@@ -261,21 +266,19 @@ abstract class _$$_ByPublicKeyCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ByPublicKeyCopyWithImpl<$Res>
-    extends _$DerivedKeySignParamsCopyWithImpl<$Res>
+    extends _$DerivedKeySignParamsCopyWithImpl<$Res, _$_ByPublicKey>
     implements _$$_ByPublicKeyCopyWith<$Res> {
   __$$_ByPublicKeyCopyWithImpl(
       _$_ByPublicKey _value, $Res Function(_$_ByPublicKey) _then)
-      : super(_value, (v) => _then(v as _$_ByPublicKey));
+      : super(_value, _then);
 
-  @override
-  _$_ByPublicKey get _value => super._value as _$_ByPublicKey;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_ByPublicKey(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as DerivedKeySignParamsByPublicKey,
@@ -283,6 +286,7 @@ class __$$_ByPublicKeyCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $DerivedKeySignParamsByPublicKeyCopyWith<$Res> get data {
     return $DerivedKeySignParamsByPublicKeyCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -315,16 +319,16 @@ class _$_ByPublicKey implements _ByPublicKey {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ByPublicKey &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ByPublicKeyCopyWith<_$_ByPublicKey> get copyWith =>
       __$$_ByPublicKeyCopyWithImpl<_$_ByPublicKey>(this, _$identity);
 
@@ -340,8 +344,8 @@ class _$_ByPublicKey implements _ByPublicKey {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DerivedKeySignParamsByAccountId data)? byAccountId,
-    TResult Function(DerivedKeySignParamsByPublicKey data)? byPublicKey,
+    TResult? Function(DerivedKeySignParamsByAccountId data)? byAccountId,
+    TResult? Function(DerivedKeySignParamsByPublicKey data)? byPublicKey,
   }) {
     return byPublicKey?.call(data);
   }
@@ -371,8 +375,8 @@ class _$_ByPublicKey implements _ByPublicKey {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ByAccountId value)? byAccountId,
-    TResult Function(_ByPublicKey value)? byPublicKey,
+    TResult? Function(_ByAccountId value)? byAccountId,
+    TResult? Function(_ByPublicKey value)? byPublicKey,
   }) {
     return byPublicKey?.call(this);
   }
@@ -405,6 +409,7 @@ abstract class _ByPublicKey implements DerivedKeySignParams {
   factory _ByPublicKey.fromJson(Map<String, dynamic> json) =
       _$_ByPublicKey.fromJson;
 
+  @override
   DerivedKeySignParamsByPublicKey get data;
   @JsonKey(ignore: true)
   _$$_ByPublicKeyCopyWith<_$_ByPublicKey> get copyWith =>

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'token_wallet_transaction.dart';
 
@@ -38,6 +38,7 @@ TokenWalletTransaction _$TokenWalletTransactionFromJson(
 
 /// @nodoc
 mixin _$TokenWalletTransaction {
+  Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(TokenIncomingTransfer data) incomingTransfer,
@@ -50,12 +51,12 @@ mixin _$TokenWalletTransaction {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(String data)? accept,
-    TResult Function(String data)? transferBounced,
-    TResult Function(String data)? swapBackBounced,
+    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
+    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
+    TResult? Function(TokenSwapBack data)? swapBack,
+    TResult? Function(String data)? accept,
+    TResult? Function(String data)? transferBounced,
+    TResult? Function(String data)? swapBackBounced,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,12 +82,12 @@ mixin _$TokenWalletTransaction {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_IncomingTransfer value)? incomingTransfer,
-    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult Function(_SwapBack value)? swapBack,
-    TResult Function(_Accept value)? accept,
-    TResult Function(_TransferBounced value)? transferBounced,
-    TResult Function(_SwapBackBounced value)? swapBackBounced,
+    TResult? Function(_IncomingTransfer value)? incomingTransfer,
+    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
+    TResult? Function(_SwapBack value)? swapBack,
+    TResult? Function(_Accept value)? accept,
+    TResult? Function(_TransferBounced value)? transferBounced,
+    TResult? Function(_SwapBackBounced value)? swapBackBounced,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -107,17 +108,19 @@ mixin _$TokenWalletTransaction {
 abstract class $TokenWalletTransactionCopyWith<$Res> {
   factory $TokenWalletTransactionCopyWith(TokenWalletTransaction value,
           $Res Function(TokenWalletTransaction) then) =
-      _$TokenWalletTransactionCopyWithImpl<$Res>;
+      _$TokenWalletTransactionCopyWithImpl<$Res, TokenWalletTransaction>;
 }
 
 /// @nodoc
-class _$TokenWalletTransactionCopyWithImpl<$Res>
+class _$TokenWalletTransactionCopyWithImpl<$Res,
+        $Val extends TokenWalletTransaction>
     implements $TokenWalletTransactionCopyWith<$Res> {
   _$TokenWalletTransactionCopyWithImpl(this._value, this._then);
 
-  final TokenWalletTransaction _value;
   // ignore: unused_field
-  final $Res Function(TokenWalletTransaction) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -125,6 +128,7 @@ abstract class _$$_IncomingTransferCopyWith<$Res> {
   factory _$$_IncomingTransferCopyWith(
           _$_IncomingTransfer value, $Res Function(_$_IncomingTransfer) then) =
       __$$_IncomingTransferCopyWithImpl<$Res>;
+  @useResult
   $Res call({TokenIncomingTransfer data});
 
   $TokenIncomingTransferCopyWith<$Res> get data;
@@ -132,21 +136,19 @@ abstract class _$$_IncomingTransferCopyWith<$Res> {
 
 /// @nodoc
 class __$$_IncomingTransferCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res>
+    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$_IncomingTransfer>
     implements _$$_IncomingTransferCopyWith<$Res> {
   __$$_IncomingTransferCopyWithImpl(
       _$_IncomingTransfer _value, $Res Function(_$_IncomingTransfer) _then)
-      : super(_value, (v) => _then(v as _$_IncomingTransfer));
+      : super(_value, _then);
 
-  @override
-  _$_IncomingTransfer get _value => super._value as _$_IncomingTransfer;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_IncomingTransfer(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as TokenIncomingTransfer,
@@ -154,6 +156,7 @@ class __$$_IncomingTransferCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TokenIncomingTransferCopyWith<$Res> get data {
     return $TokenIncomingTransferCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -186,16 +189,16 @@ class _$_IncomingTransfer implements _IncomingTransfer {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_IncomingTransfer &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_IncomingTransferCopyWith<_$_IncomingTransfer> get copyWith =>
       __$$_IncomingTransferCopyWithImpl<_$_IncomingTransfer>(this, _$identity);
 
@@ -215,12 +218,12 @@ class _$_IncomingTransfer implements _IncomingTransfer {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(String data)? accept,
-    TResult Function(String data)? transferBounced,
-    TResult Function(String data)? swapBackBounced,
+    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
+    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
+    TResult? Function(TokenSwapBack data)? swapBack,
+    TResult? Function(String data)? accept,
+    TResult? Function(String data)? transferBounced,
+    TResult? Function(String data)? swapBackBounced,
   }) {
     return incomingTransfer?.call(data);
   }
@@ -258,12 +261,12 @@ class _$_IncomingTransfer implements _IncomingTransfer {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_IncomingTransfer value)? incomingTransfer,
-    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult Function(_SwapBack value)? swapBack,
-    TResult Function(_Accept value)? accept,
-    TResult Function(_TransferBounced value)? transferBounced,
-    TResult Function(_SwapBackBounced value)? swapBackBounced,
+    TResult? Function(_IncomingTransfer value)? incomingTransfer,
+    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
+    TResult? Function(_SwapBack value)? swapBack,
+    TResult? Function(_Accept value)? accept,
+    TResult? Function(_TransferBounced value)? transferBounced,
+    TResult? Function(_SwapBackBounced value)? swapBackBounced,
   }) {
     return incomingTransfer?.call(this);
   }
@@ -300,6 +303,7 @@ abstract class _IncomingTransfer implements TokenWalletTransaction {
   factory _IncomingTransfer.fromJson(Map<String, dynamic> json) =
       _$_IncomingTransfer.fromJson;
 
+  @override
   TokenIncomingTransfer get data;
   @JsonKey(ignore: true)
   _$$_IncomingTransferCopyWith<_$_IncomingTransfer> get copyWith =>
@@ -311,6 +315,7 @@ abstract class _$$_OutgoingTransferCopyWith<$Res> {
   factory _$$_OutgoingTransferCopyWith(
           _$_OutgoingTransfer value, $Res Function(_$_OutgoingTransfer) then) =
       __$$_OutgoingTransferCopyWithImpl<$Res>;
+  @useResult
   $Res call({TokenOutgoingTransfer data});
 
   $TokenOutgoingTransferCopyWith<$Res> get data;
@@ -318,21 +323,19 @@ abstract class _$$_OutgoingTransferCopyWith<$Res> {
 
 /// @nodoc
 class __$$_OutgoingTransferCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res>
+    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$_OutgoingTransfer>
     implements _$$_OutgoingTransferCopyWith<$Res> {
   __$$_OutgoingTransferCopyWithImpl(
       _$_OutgoingTransfer _value, $Res Function(_$_OutgoingTransfer) _then)
-      : super(_value, (v) => _then(v as _$_OutgoingTransfer));
+      : super(_value, _then);
 
-  @override
-  _$_OutgoingTransfer get _value => super._value as _$_OutgoingTransfer;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_OutgoingTransfer(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as TokenOutgoingTransfer,
@@ -340,6 +343,7 @@ class __$$_OutgoingTransferCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TokenOutgoingTransferCopyWith<$Res> get data {
     return $TokenOutgoingTransferCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -372,16 +376,16 @@ class _$_OutgoingTransfer implements _OutgoingTransfer {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OutgoingTransfer &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_OutgoingTransferCopyWith<_$_OutgoingTransfer> get copyWith =>
       __$$_OutgoingTransferCopyWithImpl<_$_OutgoingTransfer>(this, _$identity);
 
@@ -401,12 +405,12 @@ class _$_OutgoingTransfer implements _OutgoingTransfer {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(String data)? accept,
-    TResult Function(String data)? transferBounced,
-    TResult Function(String data)? swapBackBounced,
+    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
+    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
+    TResult? Function(TokenSwapBack data)? swapBack,
+    TResult? Function(String data)? accept,
+    TResult? Function(String data)? transferBounced,
+    TResult? Function(String data)? swapBackBounced,
   }) {
     return outgoingTransfer?.call(data);
   }
@@ -444,12 +448,12 @@ class _$_OutgoingTransfer implements _OutgoingTransfer {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_IncomingTransfer value)? incomingTransfer,
-    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult Function(_SwapBack value)? swapBack,
-    TResult Function(_Accept value)? accept,
-    TResult Function(_TransferBounced value)? transferBounced,
-    TResult Function(_SwapBackBounced value)? swapBackBounced,
+    TResult? Function(_IncomingTransfer value)? incomingTransfer,
+    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
+    TResult? Function(_SwapBack value)? swapBack,
+    TResult? Function(_Accept value)? accept,
+    TResult? Function(_TransferBounced value)? transferBounced,
+    TResult? Function(_SwapBackBounced value)? swapBackBounced,
   }) {
     return outgoingTransfer?.call(this);
   }
@@ -486,6 +490,7 @@ abstract class _OutgoingTransfer implements TokenWalletTransaction {
   factory _OutgoingTransfer.fromJson(Map<String, dynamic> json) =
       _$_OutgoingTransfer.fromJson;
 
+  @override
   TokenOutgoingTransfer get data;
   @JsonKey(ignore: true)
   _$$_OutgoingTransferCopyWith<_$_OutgoingTransfer> get copyWith =>
@@ -497,6 +502,7 @@ abstract class _$$_SwapBackCopyWith<$Res> {
   factory _$$_SwapBackCopyWith(
           _$_SwapBack value, $Res Function(_$_SwapBack) then) =
       __$$_SwapBackCopyWithImpl<$Res>;
+  @useResult
   $Res call({TokenSwapBack data});
 
   $TokenSwapBackCopyWith<$Res> get data;
@@ -504,21 +510,19 @@ abstract class _$$_SwapBackCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SwapBackCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res>
+    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$_SwapBack>
     implements _$$_SwapBackCopyWith<$Res> {
   __$$_SwapBackCopyWithImpl(
       _$_SwapBack _value, $Res Function(_$_SwapBack) _then)
-      : super(_value, (v) => _then(v as _$_SwapBack));
+      : super(_value, _then);
 
-  @override
-  _$_SwapBack get _value => super._value as _$_SwapBack;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_SwapBack(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as TokenSwapBack,
@@ -526,6 +530,7 @@ class __$$_SwapBackCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TokenSwapBackCopyWith<$Res> get data {
     return $TokenSwapBackCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -558,16 +563,16 @@ class _$_SwapBack implements _SwapBack {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SwapBack &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SwapBackCopyWith<_$_SwapBack> get copyWith =>
       __$$_SwapBackCopyWithImpl<_$_SwapBack>(this, _$identity);
 
@@ -587,12 +592,12 @@ class _$_SwapBack implements _SwapBack {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(String data)? accept,
-    TResult Function(String data)? transferBounced,
-    TResult Function(String data)? swapBackBounced,
+    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
+    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
+    TResult? Function(TokenSwapBack data)? swapBack,
+    TResult? Function(String data)? accept,
+    TResult? Function(String data)? transferBounced,
+    TResult? Function(String data)? swapBackBounced,
   }) {
     return swapBack?.call(data);
   }
@@ -630,12 +635,12 @@ class _$_SwapBack implements _SwapBack {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_IncomingTransfer value)? incomingTransfer,
-    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult Function(_SwapBack value)? swapBack,
-    TResult Function(_Accept value)? accept,
-    TResult Function(_TransferBounced value)? transferBounced,
-    TResult Function(_SwapBackBounced value)? swapBackBounced,
+    TResult? Function(_IncomingTransfer value)? incomingTransfer,
+    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
+    TResult? Function(_SwapBack value)? swapBack,
+    TResult? Function(_Accept value)? accept,
+    TResult? Function(_TransferBounced value)? transferBounced,
+    TResult? Function(_SwapBackBounced value)? swapBackBounced,
   }) {
     return swapBack?.call(this);
   }
@@ -670,6 +675,7 @@ abstract class _SwapBack implements TokenWalletTransaction {
 
   factory _SwapBack.fromJson(Map<String, dynamic> json) = _$_SwapBack.fromJson;
 
+  @override
   TokenSwapBack get data;
   @JsonKey(ignore: true)
   _$$_SwapBackCopyWith<_$_SwapBack> get copyWith =>
@@ -680,25 +686,24 @@ abstract class _SwapBack implements TokenWalletTransaction {
 abstract class _$$_AcceptCopyWith<$Res> {
   factory _$$_AcceptCopyWith(_$_Accept value, $Res Function(_$_Accept) then) =
       __$$_AcceptCopyWithImpl<$Res>;
+  @useResult
   $Res call({String data});
 }
 
 /// @nodoc
 class __$$_AcceptCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res>
+    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$_Accept>
     implements _$$_AcceptCopyWith<$Res> {
   __$$_AcceptCopyWithImpl(_$_Accept _value, $Res Function(_$_Accept) _then)
-      : super(_value, (v) => _then(v as _$_Accept));
+      : super(_value, _then);
 
-  @override
-  _$_Accept get _value => super._value as _$_Accept;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_Accept(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
@@ -730,16 +735,16 @@ class _$_Accept implements _Accept {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Accept &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AcceptCopyWith<_$_Accept> get copyWith =>
       __$$_AcceptCopyWithImpl<_$_Accept>(this, _$identity);
 
@@ -759,12 +764,12 @@ class _$_Accept implements _Accept {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(String data)? accept,
-    TResult Function(String data)? transferBounced,
-    TResult Function(String data)? swapBackBounced,
+    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
+    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
+    TResult? Function(TokenSwapBack data)? swapBack,
+    TResult? Function(String data)? accept,
+    TResult? Function(String data)? transferBounced,
+    TResult? Function(String data)? swapBackBounced,
   }) {
     return accept?.call(data);
   }
@@ -802,12 +807,12 @@ class _$_Accept implements _Accept {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_IncomingTransfer value)? incomingTransfer,
-    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult Function(_SwapBack value)? swapBack,
-    TResult Function(_Accept value)? accept,
-    TResult Function(_TransferBounced value)? transferBounced,
-    TResult Function(_SwapBackBounced value)? swapBackBounced,
+    TResult? Function(_IncomingTransfer value)? incomingTransfer,
+    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
+    TResult? Function(_SwapBack value)? swapBack,
+    TResult? Function(_Accept value)? accept,
+    TResult? Function(_TransferBounced value)? transferBounced,
+    TResult? Function(_SwapBackBounced value)? swapBackBounced,
   }) {
     return accept?.call(this);
   }
@@ -842,6 +847,7 @@ abstract class _Accept implements TokenWalletTransaction {
 
   factory _Accept.fromJson(Map<String, dynamic> json) = _$_Accept.fromJson;
 
+  @override
   String get data;
   @JsonKey(ignore: true)
   _$$_AcceptCopyWith<_$_Accept> get copyWith =>
@@ -853,26 +859,25 @@ abstract class _$$_TransferBouncedCopyWith<$Res> {
   factory _$$_TransferBouncedCopyWith(
           _$_TransferBounced value, $Res Function(_$_TransferBounced) then) =
       __$$_TransferBouncedCopyWithImpl<$Res>;
+  @useResult
   $Res call({String data});
 }
 
 /// @nodoc
 class __$$_TransferBouncedCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res>
+    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$_TransferBounced>
     implements _$$_TransferBouncedCopyWith<$Res> {
   __$$_TransferBouncedCopyWithImpl(
       _$_TransferBounced _value, $Res Function(_$_TransferBounced) _then)
-      : super(_value, (v) => _then(v as _$_TransferBounced));
+      : super(_value, _then);
 
-  @override
-  _$_TransferBounced get _value => super._value as _$_TransferBounced;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_TransferBounced(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
@@ -905,16 +910,16 @@ class _$_TransferBounced implements _TransferBounced {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TransferBounced &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TransferBouncedCopyWith<_$_TransferBounced> get copyWith =>
       __$$_TransferBouncedCopyWithImpl<_$_TransferBounced>(this, _$identity);
 
@@ -934,12 +939,12 @@ class _$_TransferBounced implements _TransferBounced {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(String data)? accept,
-    TResult Function(String data)? transferBounced,
-    TResult Function(String data)? swapBackBounced,
+    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
+    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
+    TResult? Function(TokenSwapBack data)? swapBack,
+    TResult? Function(String data)? accept,
+    TResult? Function(String data)? transferBounced,
+    TResult? Function(String data)? swapBackBounced,
   }) {
     return transferBounced?.call(data);
   }
@@ -977,12 +982,12 @@ class _$_TransferBounced implements _TransferBounced {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_IncomingTransfer value)? incomingTransfer,
-    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult Function(_SwapBack value)? swapBack,
-    TResult Function(_Accept value)? accept,
-    TResult Function(_TransferBounced value)? transferBounced,
-    TResult Function(_SwapBackBounced value)? swapBackBounced,
+    TResult? Function(_IncomingTransfer value)? incomingTransfer,
+    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
+    TResult? Function(_SwapBack value)? swapBack,
+    TResult? Function(_Accept value)? accept,
+    TResult? Function(_TransferBounced value)? transferBounced,
+    TResult? Function(_SwapBackBounced value)? swapBackBounced,
   }) {
     return transferBounced?.call(this);
   }
@@ -1018,6 +1023,7 @@ abstract class _TransferBounced implements TokenWalletTransaction {
   factory _TransferBounced.fromJson(Map<String, dynamic> json) =
       _$_TransferBounced.fromJson;
 
+  @override
   String get data;
   @JsonKey(ignore: true)
   _$$_TransferBouncedCopyWith<_$_TransferBounced> get copyWith =>
@@ -1029,26 +1035,25 @@ abstract class _$$_SwapBackBouncedCopyWith<$Res> {
   factory _$$_SwapBackBouncedCopyWith(
           _$_SwapBackBounced value, $Res Function(_$_SwapBackBounced) then) =
       __$$_SwapBackBouncedCopyWithImpl<$Res>;
+  @useResult
   $Res call({String data});
 }
 
 /// @nodoc
 class __$$_SwapBackBouncedCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res>
+    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$_SwapBackBounced>
     implements _$$_SwapBackBouncedCopyWith<$Res> {
   __$$_SwapBackBouncedCopyWithImpl(
       _$_SwapBackBounced _value, $Res Function(_$_SwapBackBounced) _then)
-      : super(_value, (v) => _then(v as _$_SwapBackBounced));
+      : super(_value, _then);
 
-  @override
-  _$_SwapBackBounced get _value => super._value as _$_SwapBackBounced;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_SwapBackBounced(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1081,16 +1086,16 @@ class _$_SwapBackBounced implements _SwapBackBounced {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SwapBackBounced &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SwapBackBouncedCopyWith<_$_SwapBackBounced> get copyWith =>
       __$$_SwapBackBouncedCopyWithImpl<_$_SwapBackBounced>(this, _$identity);
 
@@ -1110,12 +1115,12 @@ class _$_SwapBackBounced implements _SwapBackBounced {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(String data)? accept,
-    TResult Function(String data)? transferBounced,
-    TResult Function(String data)? swapBackBounced,
+    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
+    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
+    TResult? Function(TokenSwapBack data)? swapBack,
+    TResult? Function(String data)? accept,
+    TResult? Function(String data)? transferBounced,
+    TResult? Function(String data)? swapBackBounced,
   }) {
     return swapBackBounced?.call(data);
   }
@@ -1153,12 +1158,12 @@ class _$_SwapBackBounced implements _SwapBackBounced {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_IncomingTransfer value)? incomingTransfer,
-    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult Function(_SwapBack value)? swapBack,
-    TResult Function(_Accept value)? accept,
-    TResult Function(_TransferBounced value)? transferBounced,
-    TResult Function(_SwapBackBounced value)? swapBackBounced,
+    TResult? Function(_IncomingTransfer value)? incomingTransfer,
+    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
+    TResult? Function(_SwapBack value)? swapBack,
+    TResult? Function(_Accept value)? accept,
+    TResult? Function(_TransferBounced value)? transferBounced,
+    TResult? Function(_SwapBackBounced value)? swapBackBounced,
   }) {
     return swapBackBounced?.call(this);
   }
@@ -1194,6 +1199,7 @@ abstract class _SwapBackBounced implements TokenWalletTransaction {
   factory _SwapBackBounced.fromJson(Map<String, dynamic> json) =
       _$_SwapBackBounced.fromJson;
 
+  @override
   String get data;
   @JsonKey(ignore: true)
   _$$_SwapBackBouncedCopyWith<_$_SwapBackBounced> get copyWith =>

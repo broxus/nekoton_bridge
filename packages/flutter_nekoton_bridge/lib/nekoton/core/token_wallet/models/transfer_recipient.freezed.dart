@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'transfer_recipient.dart';
 
@@ -38,8 +38,8 @@ mixin _$TransferRecipient {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String data)? ownerWallet,
-    TResult Function(String data)? tokenWallet,
+    TResult? Function(String data)? ownerWallet,
+    TResult? Function(String data)? tokenWallet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,8 +57,8 @@ mixin _$TransferRecipient {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_OwnerWallet value)? ownerWallet,
-    TResult Function(_TokenWallet value)? tokenWallet,
+    TResult? Function(_OwnerWallet value)? ownerWallet,
+    TResult? Function(_TokenWallet value)? tokenWallet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,29 +78,32 @@ mixin _$TransferRecipient {
 abstract class $TransferRecipientCopyWith<$Res> {
   factory $TransferRecipientCopyWith(
           TransferRecipient value, $Res Function(TransferRecipient) then) =
-      _$TransferRecipientCopyWithImpl<$Res>;
+      _$TransferRecipientCopyWithImpl<$Res, TransferRecipient>;
+  @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class _$TransferRecipientCopyWithImpl<$Res>
+class _$TransferRecipientCopyWithImpl<$Res, $Val extends TransferRecipient>
     implements $TransferRecipientCopyWith<$Res> {
   _$TransferRecipientCopyWithImpl(this._value, this._then);
 
-  final TransferRecipient _value;
   // ignore: unused_field
-  final $Res Function(TransferRecipient) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_value.copyWith(
-      data: data == freezed
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -111,26 +114,25 @@ abstract class _$$_OwnerWalletCopyWith<$Res>
           _$_OwnerWallet value, $Res Function(_$_OwnerWallet) then) =
       __$$_OwnerWalletCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String data});
 }
 
 /// @nodoc
 class __$$_OwnerWalletCopyWithImpl<$Res>
-    extends _$TransferRecipientCopyWithImpl<$Res>
+    extends _$TransferRecipientCopyWithImpl<$Res, _$_OwnerWallet>
     implements _$$_OwnerWalletCopyWith<$Res> {
   __$$_OwnerWalletCopyWithImpl(
       _$_OwnerWallet _value, $Res Function(_$_OwnerWallet) _then)
-      : super(_value, (v) => _then(v as _$_OwnerWallet));
+      : super(_value, _then);
 
-  @override
-  _$_OwnerWallet get _value => super._value as _$_OwnerWallet;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_OwnerWallet(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
@@ -163,16 +165,16 @@ class _$_OwnerWallet implements _OwnerWallet {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OwnerWallet &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_OwnerWalletCopyWith<_$_OwnerWallet> get copyWith =>
       __$$_OwnerWalletCopyWithImpl<_$_OwnerWallet>(this, _$identity);
 
@@ -188,8 +190,8 @@ class _$_OwnerWallet implements _OwnerWallet {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String data)? ownerWallet,
-    TResult Function(String data)? tokenWallet,
+    TResult? Function(String data)? ownerWallet,
+    TResult? Function(String data)? tokenWallet,
   }) {
     return ownerWallet?.call(data);
   }
@@ -219,8 +221,8 @@ class _$_OwnerWallet implements _OwnerWallet {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_OwnerWallet value)? ownerWallet,
-    TResult Function(_TokenWallet value)? tokenWallet,
+    TResult? Function(_OwnerWallet value)? ownerWallet,
+    TResult? Function(_TokenWallet value)? tokenWallet,
   }) {
     return ownerWallet?.call(this);
   }
@@ -267,26 +269,25 @@ abstract class _$$_TokenWalletCopyWith<$Res>
           _$_TokenWallet value, $Res Function(_$_TokenWallet) then) =
       __$$_TokenWalletCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String data});
 }
 
 /// @nodoc
 class __$$_TokenWalletCopyWithImpl<$Res>
-    extends _$TransferRecipientCopyWithImpl<$Res>
+    extends _$TransferRecipientCopyWithImpl<$Res, _$_TokenWallet>
     implements _$$_TokenWalletCopyWith<$Res> {
   __$$_TokenWalletCopyWithImpl(
       _$_TokenWallet _value, $Res Function(_$_TokenWallet) _then)
-      : super(_value, (v) => _then(v as _$_TokenWallet));
+      : super(_value, _then);
 
-  @override
-  _$_TokenWallet get _value => super._value as _$_TokenWallet;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_TokenWallet(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
@@ -319,16 +320,16 @@ class _$_TokenWallet implements _TokenWallet {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TokenWallet &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TokenWalletCopyWith<_$_TokenWallet> get copyWith =>
       __$$_TokenWalletCopyWithImpl<_$_TokenWallet>(this, _$identity);
 
@@ -344,8 +345,8 @@ class _$_TokenWallet implements _TokenWallet {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String data)? ownerWallet,
-    TResult Function(String data)? tokenWallet,
+    TResult? Function(String data)? ownerWallet,
+    TResult? Function(String data)? tokenWallet,
   }) {
     return tokenWallet?.call(data);
   }
@@ -375,8 +376,8 @@ class _$_TokenWallet implements _TokenWallet {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_OwnerWallet value)? ownerWallet,
-    TResult Function(_TokenWallet value)? tokenWallet,
+    TResult? Function(_OwnerWallet value)? ownerWallet,
+    TResult? Function(_TokenWallet value)? tokenWallet,
   }) {
     return tokenWallet?.call(this);
   }

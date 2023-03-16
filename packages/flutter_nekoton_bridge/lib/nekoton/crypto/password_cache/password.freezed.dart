@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'password.dart';
 
@@ -37,8 +37,8 @@ mixin _$Password {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(PasswordExplicit data)? explicit,
-    TResult Function()? fromCache,
+    TResult? Function(PasswordExplicit data)? explicit,
+    TResult? Function()? fromCache,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,8 +56,8 @@ mixin _$Password {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Explicit value)? explicit,
-    TResult Function(_FromCache value)? fromCache,
+    TResult? Function(_Explicit value)? explicit,
+    TResult? Function(_FromCache value)? fromCache,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,16 +73,18 @@ mixin _$Password {
 /// @nodoc
 abstract class $PasswordCopyWith<$Res> {
   factory $PasswordCopyWith(Password value, $Res Function(Password) then) =
-      _$PasswordCopyWithImpl<$Res>;
+      _$PasswordCopyWithImpl<$Res, Password>;
 }
 
 /// @nodoc
-class _$PasswordCopyWithImpl<$Res> implements $PasswordCopyWith<$Res> {
+class _$PasswordCopyWithImpl<$Res, $Val extends Password>
+    implements $PasswordCopyWith<$Res> {
   _$PasswordCopyWithImpl(this._value, this._then);
 
-  final Password _value;
   // ignore: unused_field
-  final $Res Function(Password) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -90,27 +92,27 @@ abstract class _$$_ExplicitCopyWith<$Res> {
   factory _$$_ExplicitCopyWith(
           _$_Explicit value, $Res Function(_$_Explicit) then) =
       __$$_ExplicitCopyWithImpl<$Res>;
+  @useResult
   $Res call({PasswordExplicit data});
 
   $PasswordExplicitCopyWith<$Res> get data;
 }
 
 /// @nodoc
-class __$$_ExplicitCopyWithImpl<$Res> extends _$PasswordCopyWithImpl<$Res>
+class __$$_ExplicitCopyWithImpl<$Res>
+    extends _$PasswordCopyWithImpl<$Res, _$_Explicit>
     implements _$$_ExplicitCopyWith<$Res> {
   __$$_ExplicitCopyWithImpl(
       _$_Explicit _value, $Res Function(_$_Explicit) _then)
-      : super(_value, (v) => _then(v as _$_Explicit));
+      : super(_value, _then);
 
-  @override
-  _$_Explicit get _value => super._value as _$_Explicit;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_Explicit(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as PasswordExplicit,
@@ -118,6 +120,7 @@ class __$$_ExplicitCopyWithImpl<$Res> extends _$PasswordCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PasswordExplicitCopyWith<$Res> get data {
     return $PasswordExplicitCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -150,16 +153,16 @@ class _$_Explicit implements _Explicit {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Explicit &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ExplicitCopyWith<_$_Explicit> get copyWith =>
       __$$_ExplicitCopyWithImpl<_$_Explicit>(this, _$identity);
 
@@ -175,8 +178,8 @@ class _$_Explicit implements _Explicit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(PasswordExplicit data)? explicit,
-    TResult Function()? fromCache,
+    TResult? Function(PasswordExplicit data)? explicit,
+    TResult? Function()? fromCache,
   }) {
     return explicit?.call(data);
   }
@@ -206,8 +209,8 @@ class _$_Explicit implements _Explicit {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Explicit value)? explicit,
-    TResult Function(_FromCache value)? fromCache,
+    TResult? Function(_Explicit value)? explicit,
+    TResult? Function(_FromCache value)? fromCache,
   }) {
     return explicit?.call(this);
   }
@@ -252,14 +255,12 @@ abstract class _$$_FromCacheCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FromCacheCopyWithImpl<$Res> extends _$PasswordCopyWithImpl<$Res>
+class __$$_FromCacheCopyWithImpl<$Res>
+    extends _$PasswordCopyWithImpl<$Res, _$_FromCache>
     implements _$$_FromCacheCopyWith<$Res> {
   __$$_FromCacheCopyWithImpl(
       _$_FromCache _value, $Res Function(_$_FromCache) _then)
-      : super(_value, (v) => _then(v as _$_FromCache));
-
-  @override
-  _$_FromCache get _value => super._value as _$_FromCache;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -300,8 +301,8 @@ class _$_FromCache implements _FromCache {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(PasswordExplicit data)? explicit,
-    TResult Function()? fromCache,
+    TResult? Function(PasswordExplicit data)? explicit,
+    TResult? Function()? fromCache,
   }) {
     return fromCache?.call();
   }
@@ -331,8 +332,8 @@ class _$_FromCache implements _FromCache {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Explicit value)? explicit,
-    TResult Function(_FromCache value)? fromCache,
+    TResult? Function(_Explicit value)? explicit,
+    TResult? Function(_FromCache value)? fromCache,
   }) {
     return fromCache?.call(this);
   }

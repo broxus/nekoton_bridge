@@ -17,6 +17,6 @@ _$_ExistingContract _$$_ExistingContractFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_ExistingContractToJson(_$_ExistingContract instance) =>
     <String, dynamic>{
       'account': instance.account,
-      'timings': instance.timings.toJson(),
-      'lastTransactionId': instance.lastTransactionId.toJson(),
+      'timings': instance.timings,
+      'lastTransactionId': instance.lastTransactionId,
     };

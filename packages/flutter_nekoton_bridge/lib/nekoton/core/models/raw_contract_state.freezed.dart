@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'raw_contract_state.dart';
 
@@ -37,8 +37,8 @@ mixin _$RawContractState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? notExists,
-    TResult Function(ExistingContract data)? exists,
+    TResult? Function()? notExists,
+    TResult? Function(ExistingContract data)? exists,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,8 +56,8 @@ mixin _$RawContractState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NotExists value)? notExists,
-    TResult Function(_Exists value)? exists,
+    TResult? Function(_NotExists value)? notExists,
+    TResult? Function(_Exists value)? exists,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,17 +74,18 @@ mixin _$RawContractState {
 abstract class $RawContractStateCopyWith<$Res> {
   factory $RawContractStateCopyWith(
           RawContractState value, $Res Function(RawContractState) then) =
-      _$RawContractStateCopyWithImpl<$Res>;
+      _$RawContractStateCopyWithImpl<$Res, RawContractState>;
 }
 
 /// @nodoc
-class _$RawContractStateCopyWithImpl<$Res>
+class _$RawContractStateCopyWithImpl<$Res, $Val extends RawContractState>
     implements $RawContractStateCopyWith<$Res> {
   _$RawContractStateCopyWithImpl(this._value, this._then);
 
-  final RawContractState _value;
   // ignore: unused_field
-  final $Res Function(RawContractState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -96,14 +97,11 @@ abstract class _$$_NotExistsCopyWith<$Res> {
 
 /// @nodoc
 class __$$_NotExistsCopyWithImpl<$Res>
-    extends _$RawContractStateCopyWithImpl<$Res>
+    extends _$RawContractStateCopyWithImpl<$Res, _$_NotExists>
     implements _$$_NotExistsCopyWith<$Res> {
   __$$_NotExistsCopyWithImpl(
       _$_NotExists _value, $Res Function(_$_NotExists) _then)
-      : super(_value, (v) => _then(v as _$_NotExists));
-
-  @override
-  _$_NotExists get _value => super._value as _$_NotExists;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -144,8 +142,8 @@ class _$_NotExists implements _NotExists {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? notExists,
-    TResult Function(ExistingContract data)? exists,
+    TResult? Function()? notExists,
+    TResult? Function(ExistingContract data)? exists,
   }) {
     return notExists?.call();
   }
@@ -175,8 +173,8 @@ class _$_NotExists implements _NotExists {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NotExists value)? notExists,
-    TResult Function(_Exists value)? exists,
+    TResult? Function(_NotExists value)? notExists,
+    TResult? Function(_Exists value)? exists,
   }) {
     return notExists?.call(this);
   }
@@ -213,26 +211,26 @@ abstract class _NotExists implements RawContractState {
 abstract class _$$_ExistsCopyWith<$Res> {
   factory _$$_ExistsCopyWith(_$_Exists value, $Res Function(_$_Exists) then) =
       __$$_ExistsCopyWithImpl<$Res>;
+  @useResult
   $Res call({ExistingContract data});
 
   $ExistingContractCopyWith<$Res> get data;
 }
 
 /// @nodoc
-class __$$_ExistsCopyWithImpl<$Res> extends _$RawContractStateCopyWithImpl<$Res>
+class __$$_ExistsCopyWithImpl<$Res>
+    extends _$RawContractStateCopyWithImpl<$Res, _$_Exists>
     implements _$$_ExistsCopyWith<$Res> {
   __$$_ExistsCopyWithImpl(_$_Exists _value, $Res Function(_$_Exists) _then)
-      : super(_value, (v) => _then(v as _$_Exists));
+      : super(_value, _then);
 
-  @override
-  _$_Exists get _value => super._value as _$_Exists;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_Exists(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as ExistingContract,
@@ -240,6 +238,7 @@ class __$$_ExistsCopyWithImpl<$Res> extends _$RawContractStateCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ExistingContractCopyWith<$Res> get data {
     return $ExistingContractCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -271,16 +270,16 @@ class _$_Exists implements _Exists {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Exists &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ExistsCopyWith<_$_Exists> get copyWith =>
       __$$_ExistsCopyWithImpl<_$_Exists>(this, _$identity);
 
@@ -296,8 +295,8 @@ class _$_Exists implements _Exists {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? notExists,
-    TResult Function(ExistingContract data)? exists,
+    TResult? Function()? notExists,
+    TResult? Function(ExistingContract data)? exists,
   }) {
     return exists?.call(data);
   }
@@ -327,8 +326,8 @@ class _$_Exists implements _Exists {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NotExists value)? notExists,
-    TResult Function(_Exists value)? exists,
+    TResult? Function(_NotExists value)? notExists,
+    TResult? Function(_Exists value)? exists,
   }) {
     return exists?.call(this);
   }

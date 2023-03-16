@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'encrypted_key_export_output.dart';
 
@@ -22,6 +22,7 @@ EncryptedKeyExportOutput _$EncryptedKeyExportOutputFromJson(
 /// @nodoc
 mixin _$EncryptedKeyExportOutput {
   String get phrase => throw _privateConstructorUsedError;
+  @MnemonicTypeJsonConverter()
   MnemonicType get mnemonicType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,42 +35,48 @@ mixin _$EncryptedKeyExportOutput {
 abstract class $EncryptedKeyExportOutputCopyWith<$Res> {
   factory $EncryptedKeyExportOutputCopyWith(EncryptedKeyExportOutput value,
           $Res Function(EncryptedKeyExportOutput) then) =
-      _$EncryptedKeyExportOutputCopyWithImpl<$Res>;
-  $Res call({String phrase, MnemonicType mnemonicType});
+      _$EncryptedKeyExportOutputCopyWithImpl<$Res, EncryptedKeyExportOutput>;
+  @useResult
+  $Res call(
+      {String phrase, @MnemonicTypeJsonConverter() MnemonicType mnemonicType});
 
   $MnemonicTypeCopyWith<$Res> get mnemonicType;
 }
 
 /// @nodoc
-class _$EncryptedKeyExportOutputCopyWithImpl<$Res>
+class _$EncryptedKeyExportOutputCopyWithImpl<$Res,
+        $Val extends EncryptedKeyExportOutput>
     implements $EncryptedKeyExportOutputCopyWith<$Res> {
   _$EncryptedKeyExportOutputCopyWithImpl(this._value, this._then);
 
-  final EncryptedKeyExportOutput _value;
   // ignore: unused_field
-  final $Res Function(EncryptedKeyExportOutput) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? phrase = freezed,
-    Object? mnemonicType = freezed,
+    Object? phrase = null,
+    Object? mnemonicType = null,
   }) {
     return _then(_value.copyWith(
-      phrase: phrase == freezed
+      phrase: null == phrase
           ? _value.phrase
           : phrase // ignore: cast_nullable_to_non_nullable
               as String,
-      mnemonicType: mnemonicType == freezed
+      mnemonicType: null == mnemonicType
           ? _value.mnemonicType
           : mnemonicType // ignore: cast_nullable_to_non_nullable
               as MnemonicType,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $MnemonicTypeCopyWith<$Res> get mnemonicType {
     return $MnemonicTypeCopyWith<$Res>(_value.mnemonicType, (value) {
-      return _then(_value.copyWith(mnemonicType: value));
+      return _then(_value.copyWith(mnemonicType: value) as $Val);
     });
   }
 }
@@ -82,7 +89,9 @@ abstract class _$$_EncryptedKeyExportOutputCopyWith<$Res>
           $Res Function(_$_EncryptedKeyExportOutput) then) =
       __$$_EncryptedKeyExportOutputCopyWithImpl<$Res>;
   @override
-  $Res call({String phrase, MnemonicType mnemonicType});
+  @useResult
+  $Res call(
+      {String phrase, @MnemonicTypeJsonConverter() MnemonicType mnemonicType});
 
   @override
   $MnemonicTypeCopyWith<$Res> get mnemonicType;
@@ -90,27 +99,25 @@ abstract class _$$_EncryptedKeyExportOutputCopyWith<$Res>
 
 /// @nodoc
 class __$$_EncryptedKeyExportOutputCopyWithImpl<$Res>
-    extends _$EncryptedKeyExportOutputCopyWithImpl<$Res>
+    extends _$EncryptedKeyExportOutputCopyWithImpl<$Res,
+        _$_EncryptedKeyExportOutput>
     implements _$$_EncryptedKeyExportOutputCopyWith<$Res> {
   __$$_EncryptedKeyExportOutputCopyWithImpl(_$_EncryptedKeyExportOutput _value,
       $Res Function(_$_EncryptedKeyExportOutput) _then)
-      : super(_value, (v) => _then(v as _$_EncryptedKeyExportOutput));
+      : super(_value, _then);
 
-  @override
-  _$_EncryptedKeyExportOutput get _value =>
-      super._value as _$_EncryptedKeyExportOutput;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? phrase = freezed,
-    Object? mnemonicType = freezed,
+    Object? phrase = null,
+    Object? mnemonicType = null,
   }) {
     return _then(_$_EncryptedKeyExportOutput(
-      phrase: phrase == freezed
+      null == phrase
           ? _value.phrase
           : phrase // ignore: cast_nullable_to_non_nullable
               as String,
-      mnemonicType: mnemonicType == freezed
+      null == mnemonicType
           ? _value.mnemonicType
           : mnemonicType // ignore: cast_nullable_to_non_nullable
               as MnemonicType,
@@ -122,7 +129,7 @@ class __$$_EncryptedKeyExportOutputCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EncryptedKeyExportOutput implements _EncryptedKeyExportOutput {
   const _$_EncryptedKeyExportOutput(
-      {required this.phrase, required this.mnemonicType});
+      this.phrase, @MnemonicTypeJsonConverter() this.mnemonicType);
 
   factory _$_EncryptedKeyExportOutput.fromJson(Map<String, dynamic> json) =>
       _$$_EncryptedKeyExportOutputFromJson(json);
@@ -130,6 +137,7 @@ class _$_EncryptedKeyExportOutput implements _EncryptedKeyExportOutput {
   @override
   final String phrase;
   @override
+  @MnemonicTypeJsonConverter()
   final MnemonicType mnemonicType;
 
   @override
@@ -142,20 +150,18 @@ class _$_EncryptedKeyExportOutput implements _EncryptedKeyExportOutput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EncryptedKeyExportOutput &&
-            const DeepCollectionEquality().equals(other.phrase, phrase) &&
-            const DeepCollectionEquality()
-                .equals(other.mnemonicType, mnemonicType));
+            (identical(other.phrase, phrase) || other.phrase == phrase) &&
+            (identical(other.mnemonicType, mnemonicType) ||
+                other.mnemonicType == mnemonicType));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(phrase),
-      const DeepCollectionEquality().hash(mnemonicType));
+  int get hashCode => Object.hash(runtimeType, phrase, mnemonicType);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EncryptedKeyExportOutputCopyWith<_$_EncryptedKeyExportOutput>
       get copyWith => __$$_EncryptedKeyExportOutputCopyWithImpl<
           _$_EncryptedKeyExportOutput>(this, _$identity);
@@ -169,9 +175,9 @@ class _$_EncryptedKeyExportOutput implements _EncryptedKeyExportOutput {
 }
 
 abstract class _EncryptedKeyExportOutput implements EncryptedKeyExportOutput {
-  const factory _EncryptedKeyExportOutput(
-      {required final String phrase,
-      required final MnemonicType mnemonicType}) = _$_EncryptedKeyExportOutput;
+  const factory _EncryptedKeyExportOutput(final String phrase,
+          @MnemonicTypeJsonConverter() final MnemonicType mnemonicType) =
+      _$_EncryptedKeyExportOutput;
 
   factory _EncryptedKeyExportOutput.fromJson(Map<String, dynamic> json) =
       _$_EncryptedKeyExportOutput.fromJson;
@@ -179,6 +185,7 @@ abstract class _EncryptedKeyExportOutput implements EncryptedKeyExportOutput {
   @override
   String get phrase;
   @override
+  @MnemonicTypeJsonConverter()
   MnemonicType get mnemonicType;
   @override
   @JsonKey(ignore: true)

@@ -22,8 +22,8 @@ _$_ContractState _$$_ContractStateFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_ContractStateToJson(_$_ContractState instance) =>
     <String, dynamic>{
       'balance': instance.balance,
-      'genTimings': instance.genTimings.toJson(),
-      'lastTransactionId': instance.lastTransactionId?.toJson(),
+      'genTimings': instance.genTimings,
+      'lastTransactionId': instance.lastTransactionId,
       'isDeployed': instance.isDeployed,
       'codeHash': instance.codeHash,
     };

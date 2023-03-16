@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'encrypted_data.dart';
 
@@ -36,7 +36,8 @@ mixin _$EncryptedData {
 abstract class $EncryptedDataCopyWith<$Res> {
   factory $EncryptedDataCopyWith(
           EncryptedData value, $Res Function(EncryptedData) then) =
-      _$EncryptedDataCopyWithImpl<$Res>;
+      _$EncryptedDataCopyWithImpl<$Res, EncryptedData>;
+  @useResult
   $Res call(
       {EncryptionAlgorithm algorithm,
       String sourcePublicKey,
@@ -46,44 +47,46 @@ abstract class $EncryptedDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EncryptedDataCopyWithImpl<$Res>
+class _$EncryptedDataCopyWithImpl<$Res, $Val extends EncryptedData>
     implements $EncryptedDataCopyWith<$Res> {
   _$EncryptedDataCopyWithImpl(this._value, this._then);
 
-  final EncryptedData _value;
   // ignore: unused_field
-  final $Res Function(EncryptedData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? algorithm = freezed,
-    Object? sourcePublicKey = freezed,
-    Object? recipientPublicKey = freezed,
-    Object? data = freezed,
-    Object? nonce = freezed,
+    Object? algorithm = null,
+    Object? sourcePublicKey = null,
+    Object? recipientPublicKey = null,
+    Object? data = null,
+    Object? nonce = null,
   }) {
     return _then(_value.copyWith(
-      algorithm: algorithm == freezed
+      algorithm: null == algorithm
           ? _value.algorithm
           : algorithm // ignore: cast_nullable_to_non_nullable
               as EncryptionAlgorithm,
-      sourcePublicKey: sourcePublicKey == freezed
+      sourcePublicKey: null == sourcePublicKey
           ? _value.sourcePublicKey
           : sourcePublicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      recipientPublicKey: recipientPublicKey == freezed
+      recipientPublicKey: null == recipientPublicKey
           ? _value.recipientPublicKey
           : recipientPublicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      data: data == freezed
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
-      nonce: nonce == freezed
+      nonce: null == nonce
           ? _value.nonce
           : nonce // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -94,6 +97,7 @@ abstract class _$$_EncryptedDataCopyWith<$Res>
           _$_EncryptedData value, $Res Function(_$_EncryptedData) then) =
       __$$_EncryptedDataCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {EncryptionAlgorithm algorithm,
       String sourcePublicKey,
@@ -104,41 +108,39 @@ abstract class _$$_EncryptedDataCopyWith<$Res>
 
 /// @nodoc
 class __$$_EncryptedDataCopyWithImpl<$Res>
-    extends _$EncryptedDataCopyWithImpl<$Res>
+    extends _$EncryptedDataCopyWithImpl<$Res, _$_EncryptedData>
     implements _$$_EncryptedDataCopyWith<$Res> {
   __$$_EncryptedDataCopyWithImpl(
       _$_EncryptedData _value, $Res Function(_$_EncryptedData) _then)
-      : super(_value, (v) => _then(v as _$_EncryptedData));
+      : super(_value, _then);
 
-  @override
-  _$_EncryptedData get _value => super._value as _$_EncryptedData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? algorithm = freezed,
-    Object? sourcePublicKey = freezed,
-    Object? recipientPublicKey = freezed,
-    Object? data = freezed,
-    Object? nonce = freezed,
+    Object? algorithm = null,
+    Object? sourcePublicKey = null,
+    Object? recipientPublicKey = null,
+    Object? data = null,
+    Object? nonce = null,
   }) {
     return _then(_$_EncryptedData(
-      algorithm: algorithm == freezed
+      algorithm: null == algorithm
           ? _value.algorithm
           : algorithm // ignore: cast_nullable_to_non_nullable
               as EncryptionAlgorithm,
-      sourcePublicKey: sourcePublicKey == freezed
+      sourcePublicKey: null == sourcePublicKey
           ? _value.sourcePublicKey
           : sourcePublicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      recipientPublicKey: recipientPublicKey == freezed
+      recipientPublicKey: null == recipientPublicKey
           ? _value.recipientPublicKey
           : recipientPublicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      data: data == freezed
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
-      nonce: nonce == freezed
+      nonce: null == nonce
           ? _value.nonce
           : nonce // ignore: cast_nullable_to_non_nullable
               as String,
@@ -180,27 +182,24 @@ class _$_EncryptedData implements _EncryptedData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EncryptedData &&
-            const DeepCollectionEquality().equals(other.algorithm, algorithm) &&
-            const DeepCollectionEquality()
-                .equals(other.sourcePublicKey, sourcePublicKey) &&
-            const DeepCollectionEquality()
-                .equals(other.recipientPublicKey, recipientPublicKey) &&
-            const DeepCollectionEquality().equals(other.data, data) &&
-            const DeepCollectionEquality().equals(other.nonce, nonce));
+            (identical(other.algorithm, algorithm) ||
+                other.algorithm == algorithm) &&
+            (identical(other.sourcePublicKey, sourcePublicKey) ||
+                other.sourcePublicKey == sourcePublicKey) &&
+            (identical(other.recipientPublicKey, recipientPublicKey) ||
+                other.recipientPublicKey == recipientPublicKey) &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.nonce, nonce) || other.nonce == nonce));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(algorithm),
-      const DeepCollectionEquality().hash(sourcePublicKey),
-      const DeepCollectionEquality().hash(recipientPublicKey),
-      const DeepCollectionEquality().hash(data),
-      const DeepCollectionEquality().hash(nonce));
+      runtimeType, algorithm, sourcePublicKey, recipientPublicKey, data, nonce);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EncryptedDataCopyWith<_$_EncryptedData> get copyWith =>
       __$$_EncryptedDataCopyWithImpl<_$_EncryptedData>(this, _$identity);
 

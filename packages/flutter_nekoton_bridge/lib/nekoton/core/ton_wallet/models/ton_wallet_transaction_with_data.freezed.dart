@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ton_wallet_transaction_with_data.dart';
 
@@ -35,7 +35,9 @@ abstract class $TonWalletTransactionWithDataCopyWith<$Res> {
   factory $TonWalletTransactionWithDataCopyWith(
           TonWalletTransactionWithData value,
           $Res Function(TonWalletTransactionWithData) then) =
-      _$TonWalletTransactionWithDataCopyWithImpl<$Res>;
+      _$TonWalletTransactionWithDataCopyWithImpl<$Res,
+          TonWalletTransactionWithData>;
+  @useResult
   $Res call({Transaction transaction, TransactionAdditionalInfo? data});
 
   $TransactionCopyWith<$Res> get transaction;
@@ -43,46 +45,51 @@ abstract class $TonWalletTransactionWithDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TonWalletTransactionWithDataCopyWithImpl<$Res>
+class _$TonWalletTransactionWithDataCopyWithImpl<$Res,
+        $Val extends TonWalletTransactionWithData>
     implements $TonWalletTransactionWithDataCopyWith<$Res> {
   _$TonWalletTransactionWithDataCopyWithImpl(this._value, this._then);
 
-  final TonWalletTransactionWithData _value;
   // ignore: unused_field
-  final $Res Function(TonWalletTransactionWithData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transaction = freezed,
+    Object? transaction = null,
     Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      transaction: transaction == freezed
+      transaction: null == transaction
           ? _value.transaction
           : transaction // ignore: cast_nullable_to_non_nullable
               as Transaction,
-      data: data == freezed
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as TransactionAdditionalInfo?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TransactionCopyWith<$Res> get transaction {
     return $TransactionCopyWith<$Res>(_value.transaction, (value) {
-      return _then(_value.copyWith(transaction: value));
+      return _then(_value.copyWith(transaction: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TransactionAdditionalInfoCopyWith<$Res>? get data {
     if (_value.data == null) {
       return null;
     }
 
     return $TransactionAdditionalInfoCopyWith<$Res>(_value.data!, (value) {
-      return _then(_value.copyWith(data: value));
+      return _then(_value.copyWith(data: value) as $Val);
     });
   }
 }
@@ -95,6 +102,7 @@ abstract class _$$_TonWalletTransactionWithDataCopyWith<$Res>
           $Res Function(_$_TonWalletTransactionWithData) then) =
       __$$_TonWalletTransactionWithDataCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Transaction transaction, TransactionAdditionalInfo? data});
 
   @override
@@ -105,28 +113,26 @@ abstract class _$$_TonWalletTransactionWithDataCopyWith<$Res>
 
 /// @nodoc
 class __$$_TonWalletTransactionWithDataCopyWithImpl<$Res>
-    extends _$TonWalletTransactionWithDataCopyWithImpl<$Res>
+    extends _$TonWalletTransactionWithDataCopyWithImpl<$Res,
+        _$_TonWalletTransactionWithData>
     implements _$$_TonWalletTransactionWithDataCopyWith<$Res> {
   __$$_TonWalletTransactionWithDataCopyWithImpl(
       _$_TonWalletTransactionWithData _value,
       $Res Function(_$_TonWalletTransactionWithData) _then)
-      : super(_value, (v) => _then(v as _$_TonWalletTransactionWithData));
+      : super(_value, _then);
 
-  @override
-  _$_TonWalletTransactionWithData get _value =>
-      super._value as _$_TonWalletTransactionWithData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transaction = freezed,
+    Object? transaction = null,
     Object? data = freezed,
   }) {
     return _then(_$_TonWalletTransactionWithData(
-      transaction: transaction == freezed
+      transaction: null == transaction
           ? _value.transaction
           : transaction // ignore: cast_nullable_to_non_nullable
               as Transaction,
-      data: data == freezed
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as TransactionAdditionalInfo?,
@@ -158,20 +164,18 @@ class _$_TonWalletTransactionWithData extends _TonWalletTransactionWithData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TonWalletTransactionWithData &&
-            const DeepCollectionEquality()
-                .equals(other.transaction, transaction) &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.transaction, transaction) ||
+                other.transaction == transaction) &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(transaction),
-      const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, transaction, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TonWalletTransactionWithDataCopyWith<_$_TonWalletTransactionWithData>
       get copyWith => __$$_TonWalletTransactionWithDataCopyWithImpl<
           _$_TonWalletTransactionWithData>(this, _$identity);

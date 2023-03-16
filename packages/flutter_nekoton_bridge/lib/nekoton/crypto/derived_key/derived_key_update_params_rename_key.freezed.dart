@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'derived_key_update_params_rename_key.dart';
 
@@ -36,39 +36,44 @@ abstract class $DerivedKeyUpdateParamsRenameKeyCopyWith<$Res> {
   factory $DerivedKeyUpdateParamsRenameKeyCopyWith(
           DerivedKeyUpdateParamsRenameKey value,
           $Res Function(DerivedKeyUpdateParamsRenameKey) then) =
-      _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res>;
+      _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res,
+          DerivedKeyUpdateParamsRenameKey>;
+  @useResult
   $Res call({String masterKey, String publicKey, String name});
 }
 
 /// @nodoc
-class _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res>
+class _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res,
+        $Val extends DerivedKeyUpdateParamsRenameKey>
     implements $DerivedKeyUpdateParamsRenameKeyCopyWith<$Res> {
   _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl(this._value, this._then);
 
-  final DerivedKeyUpdateParamsRenameKey _value;
   // ignore: unused_field
-  final $Res Function(DerivedKeyUpdateParamsRenameKey) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? masterKey = freezed,
-    Object? publicKey = freezed,
-    Object? name = freezed,
+    Object? masterKey = null,
+    Object? publicKey = null,
+    Object? name = null,
   }) {
     return _then(_value.copyWith(
-      masterKey: masterKey == freezed
+      masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
               as String,
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -80,39 +85,37 @@ abstract class _$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWith<$Res>
           $Res Function(_$_DerivedKeyUpdateParamsRenameKeyRenameKey) then) =
       __$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String masterKey, String publicKey, String name});
 }
 
 /// @nodoc
 class __$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWithImpl<$Res>
-    extends _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res>
+    extends _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res,
+        _$_DerivedKeyUpdateParamsRenameKeyRenameKey>
     implements _$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWith<$Res> {
   __$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWithImpl(
       _$_DerivedKeyUpdateParamsRenameKeyRenameKey _value,
       $Res Function(_$_DerivedKeyUpdateParamsRenameKeyRenameKey) _then)
-      : super(_value,
-            (v) => _then(v as _$_DerivedKeyUpdateParamsRenameKeyRenameKey));
+      : super(_value, _then);
 
-  @override
-  _$_DerivedKeyUpdateParamsRenameKeyRenameKey get _value =>
-      super._value as _$_DerivedKeyUpdateParamsRenameKeyRenameKey;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? masterKey = freezed,
-    Object? publicKey = freezed,
-    Object? name = freezed,
+    Object? masterKey = null,
+    Object? publicKey = null,
+    Object? name = null,
   }) {
     return _then(_$_DerivedKeyUpdateParamsRenameKeyRenameKey(
-      masterKey: masterKey == freezed
+      masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
               as String,
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -149,21 +152,20 @@ class _$_DerivedKeyUpdateParamsRenameKeyRenameKey
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DerivedKeyUpdateParamsRenameKeyRenameKey &&
-            const DeepCollectionEquality().equals(other.masterKey, masterKey) &&
-            const DeepCollectionEquality().equals(other.publicKey, publicKey) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            (identical(other.masterKey, masterKey) ||
+                other.masterKey == masterKey) &&
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(masterKey),
-      const DeepCollectionEquality().hash(publicKey),
-      const DeepCollectionEquality().hash(name));
+  int get hashCode => Object.hash(runtimeType, masterKey, publicKey, name);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWith<
           _$_DerivedKeyUpdateParamsRenameKeyRenameKey>
       get copyWith => __$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWithImpl<

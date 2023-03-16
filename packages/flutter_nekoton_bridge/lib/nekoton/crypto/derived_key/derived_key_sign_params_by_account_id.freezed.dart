@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'derived_key_sign_params_by_account_id.dart';
 
@@ -36,47 +36,53 @@ abstract class $DerivedKeySignParamsByAccountIdCopyWith<$Res> {
   factory $DerivedKeySignParamsByAccountIdCopyWith(
           DerivedKeySignParamsByAccountId value,
           $Res Function(DerivedKeySignParamsByAccountId) then) =
-      _$DerivedKeySignParamsByAccountIdCopyWithImpl<$Res>;
+      _$DerivedKeySignParamsByAccountIdCopyWithImpl<$Res,
+          DerivedKeySignParamsByAccountId>;
+  @useResult
   $Res call({String masterKey, int accountId, Password password});
 
   $PasswordCopyWith<$Res> get password;
 }
 
 /// @nodoc
-class _$DerivedKeySignParamsByAccountIdCopyWithImpl<$Res>
+class _$DerivedKeySignParamsByAccountIdCopyWithImpl<$Res,
+        $Val extends DerivedKeySignParamsByAccountId>
     implements $DerivedKeySignParamsByAccountIdCopyWith<$Res> {
   _$DerivedKeySignParamsByAccountIdCopyWithImpl(this._value, this._then);
 
-  final DerivedKeySignParamsByAccountId _value;
   // ignore: unused_field
-  final $Res Function(DerivedKeySignParamsByAccountId) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? masterKey = freezed,
-    Object? accountId = freezed,
-    Object? password = freezed,
+    Object? masterKey = null,
+    Object? accountId = null,
+    Object? password = null,
   }) {
     return _then(_value.copyWith(
-      masterKey: masterKey == freezed
+      masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
               as String,
-      accountId: accountId == freezed
+      accountId: null == accountId
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as int,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
     return $PasswordCopyWith<$Res>(_value.password, (value) {
-      return _then(_value.copyWith(password: value));
+      return _then(_value.copyWith(password: value) as $Val);
     });
   }
 }
@@ -89,6 +95,7 @@ abstract class _$$_DerivedKeySignParamsByAccountIdByAccountIdCopyWith<$Res>
           $Res Function(_$_DerivedKeySignParamsByAccountIdByAccountId) then) =
       __$$_DerivedKeySignParamsByAccountIdByAccountIdCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String masterKey, int accountId, Password password});
 
   @override
@@ -97,34 +104,31 @@ abstract class _$$_DerivedKeySignParamsByAccountIdByAccountIdCopyWith<$Res>
 
 /// @nodoc
 class __$$_DerivedKeySignParamsByAccountIdByAccountIdCopyWithImpl<$Res>
-    extends _$DerivedKeySignParamsByAccountIdCopyWithImpl<$Res>
+    extends _$DerivedKeySignParamsByAccountIdCopyWithImpl<$Res,
+        _$_DerivedKeySignParamsByAccountIdByAccountId>
     implements _$$_DerivedKeySignParamsByAccountIdByAccountIdCopyWith<$Res> {
   __$$_DerivedKeySignParamsByAccountIdByAccountIdCopyWithImpl(
       _$_DerivedKeySignParamsByAccountIdByAccountId _value,
       $Res Function(_$_DerivedKeySignParamsByAccountIdByAccountId) _then)
-      : super(_value,
-            (v) => _then(v as _$_DerivedKeySignParamsByAccountIdByAccountId));
+      : super(_value, _then);
 
-  @override
-  _$_DerivedKeySignParamsByAccountIdByAccountId get _value =>
-      super._value as _$_DerivedKeySignParamsByAccountIdByAccountId;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? masterKey = freezed,
-    Object? accountId = freezed,
-    Object? password = freezed,
+    Object? masterKey = null,
+    Object? accountId = null,
+    Object? password = null,
   }) {
     return _then(_$_DerivedKeySignParamsByAccountIdByAccountId(
-      masterKey: masterKey == freezed
+      masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
               as String,
-      accountId: accountId == freezed
+      accountId: null == accountId
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as int,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
@@ -163,21 +167,21 @@ class _$_DerivedKeySignParamsByAccountIdByAccountId
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DerivedKeySignParamsByAccountIdByAccountId &&
-            const DeepCollectionEquality().equals(other.masterKey, masterKey) &&
-            const DeepCollectionEquality().equals(other.accountId, accountId) &&
-            const DeepCollectionEquality().equals(other.password, password));
+            (identical(other.masterKey, masterKey) ||
+                other.masterKey == masterKey) &&
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId) &&
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(masterKey),
-      const DeepCollectionEquality().hash(accountId),
-      const DeepCollectionEquality().hash(password));
+  int get hashCode => Object.hash(runtimeType, masterKey, accountId, password);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DerivedKeySignParamsByAccountIdByAccountIdCopyWith<
           _$_DerivedKeySignParamsByAccountIdByAccountId>
       get copyWith =>

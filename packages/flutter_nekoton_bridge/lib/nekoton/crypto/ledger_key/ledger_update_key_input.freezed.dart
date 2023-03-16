@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ledger_update_key_input.dart';
 
@@ -37,8 +37,8 @@ mixin _$LedgerUpdateKeyInput {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(LedgerUpdateKeyInputRename data)? rename,
+    TResult? Function()? $default, {
+    TResult? Function(LedgerUpdateKeyInputRename data)? rename,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,8 +56,8 @@ mixin _$LedgerUpdateKeyInput {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_LedgerUpdateKeyInput value)? $default, {
-    TResult Function(_LedgerUpdateKeyInputRename value)? rename,
+    TResult? Function(_LedgerUpdateKeyInput value)? $default, {
+    TResult? Function(_LedgerUpdateKeyInputRename value)? rename,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,17 +74,19 @@ mixin _$LedgerUpdateKeyInput {
 abstract class $LedgerUpdateKeyInputCopyWith<$Res> {
   factory $LedgerUpdateKeyInputCopyWith(LedgerUpdateKeyInput value,
           $Res Function(LedgerUpdateKeyInput) then) =
-      _$LedgerUpdateKeyInputCopyWithImpl<$Res>;
+      _$LedgerUpdateKeyInputCopyWithImpl<$Res, LedgerUpdateKeyInput>;
 }
 
 /// @nodoc
-class _$LedgerUpdateKeyInputCopyWithImpl<$Res>
+class _$LedgerUpdateKeyInputCopyWithImpl<$Res,
+        $Val extends LedgerUpdateKeyInput>
     implements $LedgerUpdateKeyInputCopyWith<$Res> {
   _$LedgerUpdateKeyInputCopyWithImpl(this._value, this._then);
 
-  final LedgerUpdateKeyInput _value;
   // ignore: unused_field
-  final $Res Function(LedgerUpdateKeyInput) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -96,14 +98,11 @@ abstract class _$$_LedgerUpdateKeyInputCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LedgerUpdateKeyInputCopyWithImpl<$Res>
-    extends _$LedgerUpdateKeyInputCopyWithImpl<$Res>
+    extends _$LedgerUpdateKeyInputCopyWithImpl<$Res, _$_LedgerUpdateKeyInput>
     implements _$$_LedgerUpdateKeyInputCopyWith<$Res> {
   __$$_LedgerUpdateKeyInputCopyWithImpl(_$_LedgerUpdateKeyInput _value,
       $Res Function(_$_LedgerUpdateKeyInput) _then)
-      : super(_value, (v) => _then(v as _$_LedgerUpdateKeyInput));
-
-  @override
-  _$_LedgerUpdateKeyInput get _value => super._value as _$_LedgerUpdateKeyInput;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -145,8 +144,8 @@ class _$_LedgerUpdateKeyInput implements _LedgerUpdateKeyInput {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(LedgerUpdateKeyInputRename data)? rename,
+    TResult? Function()? $default, {
+    TResult? Function(LedgerUpdateKeyInputRename data)? rename,
   }) {
     return $default?.call();
   }
@@ -176,8 +175,8 @@ class _$_LedgerUpdateKeyInput implements _LedgerUpdateKeyInput {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_LedgerUpdateKeyInput value)? $default, {
-    TResult Function(_LedgerUpdateKeyInputRename value)? rename,
+    TResult? Function(_LedgerUpdateKeyInput value)? $default, {
+    TResult? Function(_LedgerUpdateKeyInputRename value)? rename,
   }) {
     return $default?.call(this);
   }
@@ -216,6 +215,7 @@ abstract class _$$_LedgerUpdateKeyInputRenameCopyWith<$Res> {
           _$_LedgerUpdateKeyInputRename value,
           $Res Function(_$_LedgerUpdateKeyInputRename) then) =
       __$$_LedgerUpdateKeyInputRenameCopyWithImpl<$Res>;
+  @useResult
   $Res call({LedgerUpdateKeyInputRename data});
 
   $LedgerUpdateKeyInputRenameCopyWith<$Res> get data;
@@ -223,23 +223,21 @@ abstract class _$$_LedgerUpdateKeyInputRenameCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LedgerUpdateKeyInputRenameCopyWithImpl<$Res>
-    extends _$LedgerUpdateKeyInputCopyWithImpl<$Res>
+    extends _$LedgerUpdateKeyInputCopyWithImpl<$Res,
+        _$_LedgerUpdateKeyInputRename>
     implements _$$_LedgerUpdateKeyInputRenameCopyWith<$Res> {
   __$$_LedgerUpdateKeyInputRenameCopyWithImpl(
       _$_LedgerUpdateKeyInputRename _value,
       $Res Function(_$_LedgerUpdateKeyInputRename) _then)
-      : super(_value, (v) => _then(v as _$_LedgerUpdateKeyInputRename));
+      : super(_value, _then);
 
-  @override
-  _$_LedgerUpdateKeyInputRename get _value =>
-      super._value as _$_LedgerUpdateKeyInputRename;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_LedgerUpdateKeyInputRename(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as LedgerUpdateKeyInputRename,
@@ -247,6 +245,7 @@ class __$$_LedgerUpdateKeyInputRenameCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $LedgerUpdateKeyInputRenameCopyWith<$Res> get data {
     return $LedgerUpdateKeyInputRenameCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -279,16 +278,16 @@ class _$_LedgerUpdateKeyInputRename implements _LedgerUpdateKeyInputRename {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LedgerUpdateKeyInputRename &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LedgerUpdateKeyInputRenameCopyWith<_$_LedgerUpdateKeyInputRename>
       get copyWith => __$$_LedgerUpdateKeyInputRenameCopyWithImpl<
           _$_LedgerUpdateKeyInputRename>(this, _$identity);
@@ -305,8 +304,8 @@ class _$_LedgerUpdateKeyInputRename implements _LedgerUpdateKeyInputRename {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(LedgerUpdateKeyInputRename data)? rename,
+    TResult? Function()? $default, {
+    TResult? Function(LedgerUpdateKeyInputRename data)? rename,
   }) {
     return rename?.call(data);
   }
@@ -336,8 +335,8 @@ class _$_LedgerUpdateKeyInputRename implements _LedgerUpdateKeyInputRename {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_LedgerUpdateKeyInput value)? $default, {
-    TResult Function(_LedgerUpdateKeyInputRename value)? rename,
+    TResult? Function(_LedgerUpdateKeyInput value)? $default, {
+    TResult? Function(_LedgerUpdateKeyInputRename value)? rename,
   }) {
     return rename?.call(this);
   }

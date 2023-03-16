@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'subscription_handler_message.dart';
 
@@ -34,34 +34,39 @@ mixin _$SubscriptionHandlerMessage {
 abstract class $SubscriptionHandlerMessageCopyWith<$Res> {
   factory $SubscriptionHandlerMessageCopyWith(SubscriptionHandlerMessage value,
           $Res Function(SubscriptionHandlerMessage) then) =
-      _$SubscriptionHandlerMessageCopyWithImpl<$Res>;
+      _$SubscriptionHandlerMessageCopyWithImpl<$Res,
+          SubscriptionHandlerMessage>;
+  @useResult
   $Res call({String event, String payload});
 }
 
 /// @nodoc
-class _$SubscriptionHandlerMessageCopyWithImpl<$Res>
+class _$SubscriptionHandlerMessageCopyWithImpl<$Res,
+        $Val extends SubscriptionHandlerMessage>
     implements $SubscriptionHandlerMessageCopyWith<$Res> {
   _$SubscriptionHandlerMessageCopyWithImpl(this._value, this._then);
 
-  final SubscriptionHandlerMessage _value;
   // ignore: unused_field
-  final $Res Function(SubscriptionHandlerMessage) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
-    Object? payload = freezed,
+    Object? event = null,
+    Object? payload = null,
   }) {
     return _then(_value.copyWith(
-      event: event == freezed
+      event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as String,
-      payload: payload == freezed
+      payload: null == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -73,33 +78,32 @@ abstract class _$$_SubscriptionHandlerMessageCopyWith<$Res>
           $Res Function(_$_SubscriptionHandlerMessage) then) =
       __$$_SubscriptionHandlerMessageCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String event, String payload});
 }
 
 /// @nodoc
 class __$$_SubscriptionHandlerMessageCopyWithImpl<$Res>
-    extends _$SubscriptionHandlerMessageCopyWithImpl<$Res>
+    extends _$SubscriptionHandlerMessageCopyWithImpl<$Res,
+        _$_SubscriptionHandlerMessage>
     implements _$$_SubscriptionHandlerMessageCopyWith<$Res> {
   __$$_SubscriptionHandlerMessageCopyWithImpl(
       _$_SubscriptionHandlerMessage _value,
       $Res Function(_$_SubscriptionHandlerMessage) _then)
-      : super(_value, (v) => _then(v as _$_SubscriptionHandlerMessage));
+      : super(_value, _then);
 
-  @override
-  _$_SubscriptionHandlerMessage get _value =>
-      super._value as _$_SubscriptionHandlerMessage;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
-    Object? payload = freezed,
+    Object? event = null,
+    Object? payload = null,
   }) {
     return _then(_$_SubscriptionHandlerMessage(
-      event: event == freezed
+      event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as String,
-      payload: payload == freezed
+      payload: null == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as String,
@@ -131,19 +135,17 @@ class _$_SubscriptionHandlerMessage implements _SubscriptionHandlerMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SubscriptionHandlerMessage &&
-            const DeepCollectionEquality().equals(other.event, event) &&
-            const DeepCollectionEquality().equals(other.payload, payload));
+            (identical(other.event, event) || other.event == event) &&
+            (identical(other.payload, payload) || other.payload == payload));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(event),
-      const DeepCollectionEquality().hash(payload));
+  int get hashCode => Object.hash(runtimeType, event, payload);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SubscriptionHandlerMessageCopyWith<_$_SubscriptionHandlerMessage>
       get copyWith => __$$_SubscriptionHandlerMessageCopyWithImpl<
           _$_SubscriptionHandlerMessage>(this, _$identity);

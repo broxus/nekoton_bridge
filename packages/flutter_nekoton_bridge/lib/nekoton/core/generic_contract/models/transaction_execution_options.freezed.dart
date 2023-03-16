@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'transaction_execution_options.dart';
 
@@ -35,34 +35,39 @@ abstract class $TransactionExecutionOptionsCopyWith<$Res> {
   factory $TransactionExecutionOptionsCopyWith(
           TransactionExecutionOptions value,
           $Res Function(TransactionExecutionOptions) then) =
-      _$TransactionExecutionOptionsCopyWithImpl<$Res>;
+      _$TransactionExecutionOptionsCopyWithImpl<$Res,
+          TransactionExecutionOptions>;
+  @useResult
   $Res call({bool disableSignatureCheck, int? overrideBalance});
 }
 
 /// @nodoc
-class _$TransactionExecutionOptionsCopyWithImpl<$Res>
+class _$TransactionExecutionOptionsCopyWithImpl<$Res,
+        $Val extends TransactionExecutionOptions>
     implements $TransactionExecutionOptionsCopyWith<$Res> {
   _$TransactionExecutionOptionsCopyWithImpl(this._value, this._then);
 
-  final TransactionExecutionOptions _value;
   // ignore: unused_field
-  final $Res Function(TransactionExecutionOptions) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? disableSignatureCheck = freezed,
+    Object? disableSignatureCheck = null,
     Object? overrideBalance = freezed,
   }) {
     return _then(_value.copyWith(
-      disableSignatureCheck: disableSignatureCheck == freezed
+      disableSignatureCheck: null == disableSignatureCheck
           ? _value.disableSignatureCheck
           : disableSignatureCheck // ignore: cast_nullable_to_non_nullable
               as bool,
-      overrideBalance: overrideBalance == freezed
+      overrideBalance: freezed == overrideBalance
           ? _value.overrideBalance
           : overrideBalance // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -74,33 +79,32 @@ abstract class _$$_TransactionExecutionOptionsCopyWith<$Res>
           $Res Function(_$_TransactionExecutionOptions) then) =
       __$$_TransactionExecutionOptionsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({bool disableSignatureCheck, int? overrideBalance});
 }
 
 /// @nodoc
 class __$$_TransactionExecutionOptionsCopyWithImpl<$Res>
-    extends _$TransactionExecutionOptionsCopyWithImpl<$Res>
+    extends _$TransactionExecutionOptionsCopyWithImpl<$Res,
+        _$_TransactionExecutionOptions>
     implements _$$_TransactionExecutionOptionsCopyWith<$Res> {
   __$$_TransactionExecutionOptionsCopyWithImpl(
       _$_TransactionExecutionOptions _value,
       $Res Function(_$_TransactionExecutionOptions) _then)
-      : super(_value, (v) => _then(v as _$_TransactionExecutionOptions));
+      : super(_value, _then);
 
-  @override
-  _$_TransactionExecutionOptions get _value =>
-      super._value as _$_TransactionExecutionOptions;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? disableSignatureCheck = freezed,
+    Object? disableSignatureCheck = null,
     Object? overrideBalance = freezed,
   }) {
     return _then(_$_TransactionExecutionOptions(
-      disableSignatureCheck: disableSignatureCheck == freezed
+      disableSignatureCheck: null == disableSignatureCheck
           ? _value.disableSignatureCheck
           : disableSignatureCheck // ignore: cast_nullable_to_non_nullable
               as bool,
-      overrideBalance: overrideBalance == freezed
+      overrideBalance: freezed == overrideBalance
           ? _value.overrideBalance
           : overrideBalance // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -132,21 +136,20 @@ class _$_TransactionExecutionOptions implements _TransactionExecutionOptions {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TransactionExecutionOptions &&
-            const DeepCollectionEquality()
-                .equals(other.disableSignatureCheck, disableSignatureCheck) &&
-            const DeepCollectionEquality()
-                .equals(other.overrideBalance, overrideBalance));
+            (identical(other.disableSignatureCheck, disableSignatureCheck) ||
+                other.disableSignatureCheck == disableSignatureCheck) &&
+            (identical(other.overrideBalance, overrideBalance) ||
+                other.overrideBalance == overrideBalance));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(disableSignatureCheck),
-      const DeepCollectionEquality().hash(overrideBalance));
+  int get hashCode =>
+      Object.hash(runtimeType, disableSignatureCheck, overrideBalance);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TransactionExecutionOptionsCopyWith<_$_TransactionExecutionOptions>
       get copyWith => __$$_TransactionExecutionOptionsCopyWithImpl<
           _$_TransactionExecutionOptions>(this, _$identity);

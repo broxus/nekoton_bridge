@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'encrypted_key_get_public_keys.dart';
 
@@ -33,29 +33,33 @@ mixin _$EncryptedKeyGetPublicKeys {
 abstract class $EncryptedKeyGetPublicKeysCopyWith<$Res> {
   factory $EncryptedKeyGetPublicKeysCopyWith(EncryptedKeyGetPublicKeys value,
           $Res Function(EncryptedKeyGetPublicKeys) then) =
-      _$EncryptedKeyGetPublicKeysCopyWithImpl<$Res>;
+      _$EncryptedKeyGetPublicKeysCopyWithImpl<$Res, EncryptedKeyGetPublicKeys>;
+  @useResult
   $Res call({String publicKey});
 }
 
 /// @nodoc
-class _$EncryptedKeyGetPublicKeysCopyWithImpl<$Res>
+class _$EncryptedKeyGetPublicKeysCopyWithImpl<$Res,
+        $Val extends EncryptedKeyGetPublicKeys>
     implements $EncryptedKeyGetPublicKeysCopyWith<$Res> {
   _$EncryptedKeyGetPublicKeysCopyWithImpl(this._value, this._then);
 
-  final EncryptedKeyGetPublicKeys _value;
   // ignore: unused_field
-  final $Res Function(EncryptedKeyGetPublicKeys) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? publicKey = freezed,
+    Object? publicKey = null,
   }) {
     return _then(_value.copyWith(
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -67,28 +71,27 @@ abstract class _$$_EncryptedKeyGetPublicKeysRenameCopyWith<$Res>
           $Res Function(_$_EncryptedKeyGetPublicKeysRename) then) =
       __$$_EncryptedKeyGetPublicKeysRenameCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String publicKey});
 }
 
 /// @nodoc
 class __$$_EncryptedKeyGetPublicKeysRenameCopyWithImpl<$Res>
-    extends _$EncryptedKeyGetPublicKeysCopyWithImpl<$Res>
+    extends _$EncryptedKeyGetPublicKeysCopyWithImpl<$Res,
+        _$_EncryptedKeyGetPublicKeysRename>
     implements _$$_EncryptedKeyGetPublicKeysRenameCopyWith<$Res> {
   __$$_EncryptedKeyGetPublicKeysRenameCopyWithImpl(
       _$_EncryptedKeyGetPublicKeysRename _value,
       $Res Function(_$_EncryptedKeyGetPublicKeysRename) _then)
-      : super(_value, (v) => _then(v as _$_EncryptedKeyGetPublicKeysRename));
+      : super(_value, _then);
 
-  @override
-  _$_EncryptedKeyGetPublicKeysRename get _value =>
-      super._value as _$_EncryptedKeyGetPublicKeysRename;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? publicKey = freezed,
+    Object? publicKey = null,
   }) {
     return _then(_$_EncryptedKeyGetPublicKeysRename(
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
@@ -120,16 +123,17 @@ class _$_EncryptedKeyGetPublicKeysRename
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EncryptedKeyGetPublicKeysRename &&
-            const DeepCollectionEquality().equals(other.publicKey, publicKey));
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(publicKey));
+  int get hashCode => Object.hash(runtimeType, publicKey);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EncryptedKeyGetPublicKeysRenameCopyWith<
           _$_EncryptedKeyGetPublicKeysRename>
       get copyWith => __$$_EncryptedKeyGetPublicKeysRenameCopyWithImpl<

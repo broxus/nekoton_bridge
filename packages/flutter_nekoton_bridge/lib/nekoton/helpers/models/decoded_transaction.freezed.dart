@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'decoded_transaction.dart';
 
@@ -34,40 +34,43 @@ mixin _$DecodedTransaction {
 abstract class $DecodedTransactionCopyWith<$Res> {
   factory $DecodedTransactionCopyWith(
           DecodedTransaction value, $Res Function(DecodedTransaction) then) =
-      _$DecodedTransactionCopyWithImpl<$Res>;
+      _$DecodedTransactionCopyWithImpl<$Res, DecodedTransaction>;
+  @useResult
   $Res call(
       {String method, Map<String, dynamic> input, Map<String, dynamic> output});
 }
 
 /// @nodoc
-class _$DecodedTransactionCopyWithImpl<$Res>
+class _$DecodedTransactionCopyWithImpl<$Res, $Val extends DecodedTransaction>
     implements $DecodedTransactionCopyWith<$Res> {
   _$DecodedTransactionCopyWithImpl(this._value, this._then);
 
-  final DecodedTransaction _value;
   // ignore: unused_field
-  final $Res Function(DecodedTransaction) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? method = freezed,
-    Object? input = freezed,
-    Object? output = freezed,
+    Object? method = null,
+    Object? input = null,
+    Object? output = null,
   }) {
     return _then(_value.copyWith(
-      method: method == freezed
+      method: null == method
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
               as String,
-      input: input == freezed
+      input: null == input
           ? _value.input
           : input // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      output: output == freezed
+      output: null == output
           ? _value.output
           : output // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -78,37 +81,36 @@ abstract class _$$_DecodedTransactionCopyWith<$Res>
           $Res Function(_$_DecodedTransaction) then) =
       __$$_DecodedTransactionCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String method, Map<String, dynamic> input, Map<String, dynamic> output});
 }
 
 /// @nodoc
 class __$$_DecodedTransactionCopyWithImpl<$Res>
-    extends _$DecodedTransactionCopyWithImpl<$Res>
+    extends _$DecodedTransactionCopyWithImpl<$Res, _$_DecodedTransaction>
     implements _$$_DecodedTransactionCopyWith<$Res> {
   __$$_DecodedTransactionCopyWithImpl(
       _$_DecodedTransaction _value, $Res Function(_$_DecodedTransaction) _then)
-      : super(_value, (v) => _then(v as _$_DecodedTransaction));
+      : super(_value, _then);
 
-  @override
-  _$_DecodedTransaction get _value => super._value as _$_DecodedTransaction;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? method = freezed,
-    Object? input = freezed,
-    Object? output = freezed,
+    Object? method = null,
+    Object? input = null,
+    Object? output = null,
   }) {
     return _then(_$_DecodedTransaction(
-      method: method == freezed
+      method: null == method
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
               as String,
-      input: input == freezed
+      input: null == input
           ? _value._input
           : input // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      output: output == freezed
+      output: null == output
           ? _value._output
           : output // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
@@ -134,6 +136,7 @@ class _$_DecodedTransaction implements _DecodedTransaction {
   final Map<String, dynamic> _input;
   @override
   Map<String, dynamic> get input {
+    if (_input is EqualUnmodifiableMapView) return _input;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_input);
   }
@@ -141,6 +144,7 @@ class _$_DecodedTransaction implements _DecodedTransaction {
   final Map<String, dynamic> _output;
   @override
   Map<String, dynamic> get output {
+    if (_output is EqualUnmodifiableMapView) return _output;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_output);
   }
@@ -155,7 +159,7 @@ class _$_DecodedTransaction implements _DecodedTransaction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DecodedTransaction &&
-            const DeepCollectionEquality().equals(other.method, method) &&
+            (identical(other.method, method) || other.method == method) &&
             const DeepCollectionEquality().equals(other._input, _input) &&
             const DeepCollectionEquality().equals(other._output, _output));
   }
@@ -164,12 +168,13 @@ class _$_DecodedTransaction implements _DecodedTransaction {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(method),
+      method,
       const DeepCollectionEquality().hash(_input),
       const DeepCollectionEquality().hash(_output));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DecodedTransactionCopyWith<_$_DecodedTransaction> get copyWith =>
       __$$_DecodedTransactionCopyWithImpl<_$_DecodedTransaction>(
           this, _$identity);

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'function_call.dart';
 
@@ -34,38 +34,42 @@ mixin _$FunctionCall {
 abstract class $FunctionCallCopyWith<$Res> {
   factory $FunctionCallCopyWith(
           FunctionCall value, $Res Function(FunctionCall) then) =
-      _$FunctionCallCopyWithImpl<$Res>;
+      _$FunctionCallCopyWithImpl<$Res, FunctionCall>;
+  @useResult
   $Res call({String abi, String method, Map<String, dynamic> params});
 }
 
 /// @nodoc
-class _$FunctionCallCopyWithImpl<$Res> implements $FunctionCallCopyWith<$Res> {
+class _$FunctionCallCopyWithImpl<$Res, $Val extends FunctionCall>
+    implements $FunctionCallCopyWith<$Res> {
   _$FunctionCallCopyWithImpl(this._value, this._then);
 
-  final FunctionCall _value;
   // ignore: unused_field
-  final $Res Function(FunctionCall) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? abi = freezed,
-    Object? method = freezed,
-    Object? params = freezed,
+    Object? abi = null,
+    Object? method = null,
+    Object? params = null,
   }) {
     return _then(_value.copyWith(
-      abi: abi == freezed
+      abi: null == abi
           ? _value.abi
           : abi // ignore: cast_nullable_to_non_nullable
               as String,
-      method: method == freezed
+      method: null == method
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
               as String,
-      params: params == freezed
+      params: null == params
           ? _value.params
           : params // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -76,36 +80,35 @@ abstract class _$$_FunctionCallCopyWith<$Res>
           _$_FunctionCall value, $Res Function(_$_FunctionCall) then) =
       __$$_FunctionCallCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String abi, String method, Map<String, dynamic> params});
 }
 
 /// @nodoc
 class __$$_FunctionCallCopyWithImpl<$Res>
-    extends _$FunctionCallCopyWithImpl<$Res>
+    extends _$FunctionCallCopyWithImpl<$Res, _$_FunctionCall>
     implements _$$_FunctionCallCopyWith<$Res> {
   __$$_FunctionCallCopyWithImpl(
       _$_FunctionCall _value, $Res Function(_$_FunctionCall) _then)
-      : super(_value, (v) => _then(v as _$_FunctionCall));
+      : super(_value, _then);
 
-  @override
-  _$_FunctionCall get _value => super._value as _$_FunctionCall;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? abi = freezed,
-    Object? method = freezed,
-    Object? params = freezed,
+    Object? abi = null,
+    Object? method = null,
+    Object? params = null,
   }) {
     return _then(_$_FunctionCall(
-      abi: abi == freezed
+      abi: null == abi
           ? _value.abi
           : abi // ignore: cast_nullable_to_non_nullable
               as String,
-      method: method == freezed
+      method: null == method
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
               as String,
-      params: params == freezed
+      params: null == params
           ? _value._params
           : params // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
@@ -132,6 +135,7 @@ class _$_FunctionCall implements _FunctionCall {
   final Map<String, dynamic> _params;
   @override
   Map<String, dynamic> get params {
+    if (_params is EqualUnmodifiableMapView) return _params;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_params);
   }
@@ -146,21 +150,19 @@ class _$_FunctionCall implements _FunctionCall {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FunctionCall &&
-            const DeepCollectionEquality().equals(other.abi, abi) &&
-            const DeepCollectionEquality().equals(other.method, method) &&
+            (identical(other.abi, abi) || other.abi == abi) &&
+            (identical(other.method, method) || other.method == method) &&
             const DeepCollectionEquality().equals(other._params, _params));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(abi),
-      const DeepCollectionEquality().hash(method),
-      const DeepCollectionEquality().hash(_params));
+      runtimeType, abi, method, const DeepCollectionEquality().hash(_params));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FunctionCallCopyWith<_$_FunctionCall> get copyWith =>
       __$$_FunctionCallCopyWithImpl<_$_FunctionCall>(this, _$identity);
 

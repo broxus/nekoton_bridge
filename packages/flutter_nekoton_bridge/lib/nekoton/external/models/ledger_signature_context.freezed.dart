@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ledger_signature_context.dart';
 
@@ -36,44 +36,48 @@ mixin _$LedgerSignatureContext {
 abstract class $LedgerSignatureContextCopyWith<$Res> {
   factory $LedgerSignatureContextCopyWith(LedgerSignatureContext value,
           $Res Function(LedgerSignatureContext) then) =
-      _$LedgerSignatureContextCopyWithImpl<$Res>;
+      _$LedgerSignatureContextCopyWithImpl<$Res, LedgerSignatureContext>;
+  @useResult
   $Res call({int decimals, String asset, String amount, String address});
 }
 
 /// @nodoc
-class _$LedgerSignatureContextCopyWithImpl<$Res>
+class _$LedgerSignatureContextCopyWithImpl<$Res,
+        $Val extends LedgerSignatureContext>
     implements $LedgerSignatureContextCopyWith<$Res> {
   _$LedgerSignatureContextCopyWithImpl(this._value, this._then);
 
-  final LedgerSignatureContext _value;
   // ignore: unused_field
-  final $Res Function(LedgerSignatureContext) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? decimals = freezed,
-    Object? asset = freezed,
-    Object? amount = freezed,
-    Object? address = freezed,
+    Object? decimals = null,
+    Object? asset = null,
+    Object? amount = null,
+    Object? address = null,
   }) {
     return _then(_value.copyWith(
-      decimals: decimals == freezed
+      decimals: null == decimals
           ? _value.decimals
           : decimals // ignore: cast_nullable_to_non_nullable
               as int,
-      asset: asset == freezed
+      asset: null == asset
           ? _value.asset
           : asset // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -84,42 +88,41 @@ abstract class _$$_LedgerSignatureContextCopyWith<$Res>
           $Res Function(_$_LedgerSignatureContext) then) =
       __$$_LedgerSignatureContextCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int decimals, String asset, String amount, String address});
 }
 
 /// @nodoc
 class __$$_LedgerSignatureContextCopyWithImpl<$Res>
-    extends _$LedgerSignatureContextCopyWithImpl<$Res>
+    extends _$LedgerSignatureContextCopyWithImpl<$Res,
+        _$_LedgerSignatureContext>
     implements _$$_LedgerSignatureContextCopyWith<$Res> {
   __$$_LedgerSignatureContextCopyWithImpl(_$_LedgerSignatureContext _value,
       $Res Function(_$_LedgerSignatureContext) _then)
-      : super(_value, (v) => _then(v as _$_LedgerSignatureContext));
+      : super(_value, _then);
 
-  @override
-  _$_LedgerSignatureContext get _value =>
-      super._value as _$_LedgerSignatureContext;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? decimals = freezed,
-    Object? asset = freezed,
-    Object? amount = freezed,
-    Object? address = freezed,
+    Object? decimals = null,
+    Object? asset = null,
+    Object? amount = null,
+    Object? address = null,
   }) {
     return _then(_$_LedgerSignatureContext(
-      decimals: decimals == freezed
+      decimals: null == decimals
           ? _value.decimals
           : decimals // ignore: cast_nullable_to_non_nullable
               as int,
-      asset: asset == freezed
+      asset: null == asset
           ? _value.asset
           : asset // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
@@ -158,23 +161,21 @@ class _$_LedgerSignatureContext implements _LedgerSignatureContext {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LedgerSignatureContext &&
-            const DeepCollectionEquality().equals(other.decimals, decimals) &&
-            const DeepCollectionEquality().equals(other.asset, asset) &&
-            const DeepCollectionEquality().equals(other.amount, amount) &&
-            const DeepCollectionEquality().equals(other.address, address));
+            (identical(other.decimals, decimals) ||
+                other.decimals == decimals) &&
+            (identical(other.asset, asset) || other.asset == asset) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.address, address) || other.address == address));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(decimals),
-      const DeepCollectionEquality().hash(asset),
-      const DeepCollectionEquality().hash(amount),
-      const DeepCollectionEquality().hash(address));
+  int get hashCode =>
+      Object.hash(runtimeType, decimals, asset, amount, address);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LedgerSignatureContextCopyWith<_$_LedgerSignatureContext> get copyWith =>
       __$$_LedgerSignatureContextCopyWithImpl<_$_LedgerSignatureContext>(
           this, _$identity);

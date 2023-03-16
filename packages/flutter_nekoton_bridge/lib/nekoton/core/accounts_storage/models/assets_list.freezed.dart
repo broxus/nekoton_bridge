@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'assets_list.dart';
 
@@ -35,7 +35,8 @@ mixin _$AssetsList {
 abstract class $AssetsListCopyWith<$Res> {
   factory $AssetsListCopyWith(
           AssetsList value, $Res Function(AssetsList) then) =
-      _$AssetsListCopyWithImpl<$Res>;
+      _$AssetsListCopyWithImpl<$Res, AssetsList>;
+  @useResult
   $Res call(
       {String name,
       TonWalletAsset tonWallet,
@@ -45,39 +46,43 @@ abstract class $AssetsListCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AssetsListCopyWithImpl<$Res> implements $AssetsListCopyWith<$Res> {
+class _$AssetsListCopyWithImpl<$Res, $Val extends AssetsList>
+    implements $AssetsListCopyWith<$Res> {
   _$AssetsListCopyWithImpl(this._value, this._then);
 
-  final AssetsList _value;
   // ignore: unused_field
-  final $Res Function(AssetsList) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? tonWallet = freezed,
-    Object? additionalAssets = freezed,
+    Object? name = null,
+    Object? tonWallet = null,
+    Object? additionalAssets = null,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      tonWallet: tonWallet == freezed
+      tonWallet: null == tonWallet
           ? _value.tonWallet
           : tonWallet // ignore: cast_nullable_to_non_nullable
               as TonWalletAsset,
-      additionalAssets: additionalAssets == freezed
+      additionalAssets: null == additionalAssets
           ? _value.additionalAssets
           : additionalAssets // ignore: cast_nullable_to_non_nullable
               as Map<String, AdditionalAssets>,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TonWalletAssetCopyWith<$Res> get tonWallet {
     return $TonWalletAssetCopyWith<$Res>(_value.tonWallet, (value) {
-      return _then(_value.copyWith(tonWallet: value));
+      return _then(_value.copyWith(tonWallet: value) as $Val);
     });
   }
 }
@@ -89,6 +94,7 @@ abstract class _$$_AssetsListCopyWith<$Res>
           _$_AssetsList value, $Res Function(_$_AssetsList) then) =
       __$$_AssetsListCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String name,
       TonWalletAsset tonWallet,
@@ -99,31 +105,30 @@ abstract class _$$_AssetsListCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AssetsListCopyWithImpl<$Res> extends _$AssetsListCopyWithImpl<$Res>
+class __$$_AssetsListCopyWithImpl<$Res>
+    extends _$AssetsListCopyWithImpl<$Res, _$_AssetsList>
     implements _$$_AssetsListCopyWith<$Res> {
   __$$_AssetsListCopyWithImpl(
       _$_AssetsList _value, $Res Function(_$_AssetsList) _then)
-      : super(_value, (v) => _then(v as _$_AssetsList));
+      : super(_value, _then);
 
-  @override
-  _$_AssetsList get _value => super._value as _$_AssetsList;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? tonWallet = freezed,
-    Object? additionalAssets = freezed,
+    Object? name = null,
+    Object? tonWallet = null,
+    Object? additionalAssets = null,
   }) {
     return _then(_$_AssetsList(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      tonWallet: tonWallet == freezed
+      tonWallet: null == tonWallet
           ? _value.tonWallet
           : tonWallet // ignore: cast_nullable_to_non_nullable
               as TonWalletAsset,
-      additionalAssets: additionalAssets == freezed
+      additionalAssets: null == additionalAssets
           ? _value._additionalAssets
           : additionalAssets // ignore: cast_nullable_to_non_nullable
               as Map<String, AdditionalAssets>,
@@ -151,6 +156,7 @@ class _$_AssetsList extends _AssetsList {
   final Map<String, AdditionalAssets> _additionalAssets;
   @override
   Map<String, AdditionalAssets> get additionalAssets {
+    if (_additionalAssets is EqualUnmodifiableMapView) return _additionalAssets;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_additionalAssets);
   }
@@ -165,22 +171,21 @@ class _$_AssetsList extends _AssetsList {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AssetsList &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.tonWallet, tonWallet) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.tonWallet, tonWallet) ||
+                other.tonWallet == tonWallet) &&
             const DeepCollectionEquality()
                 .equals(other._additionalAssets, _additionalAssets));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(tonWallet),
+  int get hashCode => Object.hash(runtimeType, name, tonWallet,
       const DeepCollectionEquality().hash(_additionalAssets));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AssetsListCopyWith<_$_AssetsList> get copyWith =>
       __$$_AssetsListCopyWithImpl<_$_AssetsList>(this, _$identity);
 

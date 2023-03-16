@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'derived_key_export_params.dart';
 
@@ -34,42 +34,47 @@ mixin _$DerivedKeyExportParams {
 abstract class $DerivedKeyExportParamsCopyWith<$Res> {
   factory $DerivedKeyExportParamsCopyWith(DerivedKeyExportParams value,
           $Res Function(DerivedKeyExportParams) then) =
-      _$DerivedKeyExportParamsCopyWithImpl<$Res>;
+      _$DerivedKeyExportParamsCopyWithImpl<$Res, DerivedKeyExportParams>;
+  @useResult
   $Res call({String masterKey, Password password});
 
   $PasswordCopyWith<$Res> get password;
 }
 
 /// @nodoc
-class _$DerivedKeyExportParamsCopyWithImpl<$Res>
+class _$DerivedKeyExportParamsCopyWithImpl<$Res,
+        $Val extends DerivedKeyExportParams>
     implements $DerivedKeyExportParamsCopyWith<$Res> {
   _$DerivedKeyExportParamsCopyWithImpl(this._value, this._then);
 
-  final DerivedKeyExportParams _value;
   // ignore: unused_field
-  final $Res Function(DerivedKeyExportParams) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? masterKey = freezed,
-    Object? password = freezed,
+    Object? masterKey = null,
+    Object? password = null,
   }) {
     return _then(_value.copyWith(
-      masterKey: masterKey == freezed
+      masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
     return $PasswordCopyWith<$Res>(_value.password, (value) {
-      return _then(_value.copyWith(password: value));
+      return _then(_value.copyWith(password: value) as $Val);
     });
   }
 }
@@ -81,6 +86,7 @@ abstract class _$$_DerivedKeyExportParamsCopyWith<$Res>
           $Res Function(_$_DerivedKeyExportParams) then) =
       __$$_DerivedKeyExportParamsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String masterKey, Password password});
 
   @override
@@ -89,27 +95,25 @@ abstract class _$$_DerivedKeyExportParamsCopyWith<$Res>
 
 /// @nodoc
 class __$$_DerivedKeyExportParamsCopyWithImpl<$Res>
-    extends _$DerivedKeyExportParamsCopyWithImpl<$Res>
+    extends _$DerivedKeyExportParamsCopyWithImpl<$Res,
+        _$_DerivedKeyExportParams>
     implements _$$_DerivedKeyExportParamsCopyWith<$Res> {
   __$$_DerivedKeyExportParamsCopyWithImpl(_$_DerivedKeyExportParams _value,
       $Res Function(_$_DerivedKeyExportParams) _then)
-      : super(_value, (v) => _then(v as _$_DerivedKeyExportParams));
+      : super(_value, _then);
 
-  @override
-  _$_DerivedKeyExportParams get _value =>
-      super._value as _$_DerivedKeyExportParams;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? masterKey = freezed,
-    Object? password = freezed,
+    Object? masterKey = null,
+    Object? password = null,
   }) {
     return _then(_$_DerivedKeyExportParams(
-      masterKey: masterKey == freezed
+      masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
@@ -142,19 +146,19 @@ class _$_DerivedKeyExportParams implements _DerivedKeyExportParams {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DerivedKeyExportParams &&
-            const DeepCollectionEquality().equals(other.masterKey, masterKey) &&
-            const DeepCollectionEquality().equals(other.password, password));
+            (identical(other.masterKey, masterKey) ||
+                other.masterKey == masterKey) &&
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(masterKey),
-      const DeepCollectionEquality().hash(password));
+  int get hashCode => Object.hash(runtimeType, masterKey, password);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DerivedKeyExportParamsCopyWith<_$_DerivedKeyExportParams> get copyWith =>
       __$$_DerivedKeyExportParamsCopyWithImpl<_$_DerivedKeyExportParams>(
           this, _$identity);

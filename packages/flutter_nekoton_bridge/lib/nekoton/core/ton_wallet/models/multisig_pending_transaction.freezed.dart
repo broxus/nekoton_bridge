@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'multisig_pending_transaction.dart';
 
@@ -43,7 +43,9 @@ mixin _$MultisigPendingTransaction {
 abstract class $MultisigPendingTransactionCopyWith<$Res> {
   factory $MultisigPendingTransactionCopyWith(MultisigPendingTransaction value,
           $Res Function(MultisigPendingTransaction) then) =
-      _$MultisigPendingTransactionCopyWithImpl<$Res>;
+      _$MultisigPendingTransactionCopyWithImpl<$Res,
+          MultisigPendingTransaction>;
+  @useResult
   $Res call(
       {String id,
       List<String> confirmations,
@@ -59,74 +61,77 @@ abstract class $MultisigPendingTransactionCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MultisigPendingTransactionCopyWithImpl<$Res>
+class _$MultisigPendingTransactionCopyWithImpl<$Res,
+        $Val extends MultisigPendingTransaction>
     implements $MultisigPendingTransactionCopyWith<$Res> {
   _$MultisigPendingTransactionCopyWithImpl(this._value, this._then);
 
-  final MultisigPendingTransaction _value;
   // ignore: unused_field
-  final $Res Function(MultisigPendingTransaction) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? confirmations = freezed,
-    Object? signsRequired = freezed,
-    Object? signsReceived = freezed,
-    Object? creator = freezed,
-    Object? index = freezed,
-    Object? dest = freezed,
-    Object? value = freezed,
-    Object? sendFlags = freezed,
-    Object? payload = freezed,
-    Object? bounce = freezed,
+    Object? id = null,
+    Object? confirmations = null,
+    Object? signsRequired = null,
+    Object? signsReceived = null,
+    Object? creator = null,
+    Object? index = null,
+    Object? dest = null,
+    Object? value = null,
+    Object? sendFlags = null,
+    Object? payload = null,
+    Object? bounce = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      confirmations: confirmations == freezed
+      confirmations: null == confirmations
           ? _value.confirmations
           : confirmations // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      signsRequired: signsRequired == freezed
+      signsRequired: null == signsRequired
           ? _value.signsRequired
           : signsRequired // ignore: cast_nullable_to_non_nullable
               as int,
-      signsReceived: signsReceived == freezed
+      signsReceived: null == signsReceived
           ? _value.signsReceived
           : signsReceived // ignore: cast_nullable_to_non_nullable
               as int,
-      creator: creator == freezed
+      creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
               as String,
-      index: index == freezed
+      index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      dest: dest == freezed
+      dest: null == dest
           ? _value.dest
           : dest // ignore: cast_nullable_to_non_nullable
               as String,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      sendFlags: sendFlags == freezed
+      sendFlags: null == sendFlags
           ? _value.sendFlags
           : sendFlags // ignore: cast_nullable_to_non_nullable
               as int,
-      payload: payload == freezed
+      payload: null == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as String,
-      bounce: bounce == freezed
+      bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -138,6 +143,7 @@ abstract class _$$_MultisigPendingTransactionCopyWith<$Res>
           $Res Function(_$_MultisigPendingTransaction) then) =
       __$$_MultisigPendingTransactionCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String id,
       List<String> confirmations,
@@ -154,73 +160,71 @@ abstract class _$$_MultisigPendingTransactionCopyWith<$Res>
 
 /// @nodoc
 class __$$_MultisigPendingTransactionCopyWithImpl<$Res>
-    extends _$MultisigPendingTransactionCopyWithImpl<$Res>
+    extends _$MultisigPendingTransactionCopyWithImpl<$Res,
+        _$_MultisigPendingTransaction>
     implements _$$_MultisigPendingTransactionCopyWith<$Res> {
   __$$_MultisigPendingTransactionCopyWithImpl(
       _$_MultisigPendingTransaction _value,
       $Res Function(_$_MultisigPendingTransaction) _then)
-      : super(_value, (v) => _then(v as _$_MultisigPendingTransaction));
+      : super(_value, _then);
 
-  @override
-  _$_MultisigPendingTransaction get _value =>
-      super._value as _$_MultisigPendingTransaction;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? confirmations = freezed,
-    Object? signsRequired = freezed,
-    Object? signsReceived = freezed,
-    Object? creator = freezed,
-    Object? index = freezed,
-    Object? dest = freezed,
-    Object? value = freezed,
-    Object? sendFlags = freezed,
-    Object? payload = freezed,
-    Object? bounce = freezed,
+    Object? id = null,
+    Object? confirmations = null,
+    Object? signsRequired = null,
+    Object? signsReceived = null,
+    Object? creator = null,
+    Object? index = null,
+    Object? dest = null,
+    Object? value = null,
+    Object? sendFlags = null,
+    Object? payload = null,
+    Object? bounce = null,
   }) {
     return _then(_$_MultisigPendingTransaction(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      confirmations: confirmations == freezed
+      confirmations: null == confirmations
           ? _value._confirmations
           : confirmations // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      signsRequired: signsRequired == freezed
+      signsRequired: null == signsRequired
           ? _value.signsRequired
           : signsRequired // ignore: cast_nullable_to_non_nullable
               as int,
-      signsReceived: signsReceived == freezed
+      signsReceived: null == signsReceived
           ? _value.signsReceived
           : signsReceived // ignore: cast_nullable_to_non_nullable
               as int,
-      creator: creator == freezed
+      creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
               as String,
-      index: index == freezed
+      index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      dest: dest == freezed
+      dest: null == dest
           ? _value.dest
           : dest // ignore: cast_nullable_to_non_nullable
               as String,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      sendFlags: sendFlags == freezed
+      sendFlags: null == sendFlags
           ? _value.sendFlags
           : sendFlags // ignore: cast_nullable_to_non_nullable
               as int,
-      payload: payload == freezed
+      payload: null == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as String,
-      bounce: bounce == freezed
+      bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -254,6 +258,7 @@ class _$_MultisigPendingTransaction implements _MultisigPendingTransaction {
   final List<String> _confirmations;
   @override
   List<String> get confirmations {
+    if (_confirmations is EqualUnmodifiableListView) return _confirmations;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_confirmations);
   }
@@ -287,40 +292,42 @@ class _$_MultisigPendingTransaction implements _MultisigPendingTransaction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MultisigPendingTransaction &&
-            const DeepCollectionEquality().equals(other.id, id) &&
+            (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality()
                 .equals(other._confirmations, _confirmations) &&
-            const DeepCollectionEquality()
-                .equals(other.signsRequired, signsRequired) &&
-            const DeepCollectionEquality()
-                .equals(other.signsReceived, signsReceived) &&
-            const DeepCollectionEquality().equals(other.creator, creator) &&
-            const DeepCollectionEquality().equals(other.index, index) &&
-            const DeepCollectionEquality().equals(other.dest, dest) &&
-            const DeepCollectionEquality().equals(other.value, value) &&
-            const DeepCollectionEquality().equals(other.sendFlags, sendFlags) &&
-            const DeepCollectionEquality().equals(other.payload, payload) &&
-            const DeepCollectionEquality().equals(other.bounce, bounce));
+            (identical(other.signsRequired, signsRequired) ||
+                other.signsRequired == signsRequired) &&
+            (identical(other.signsReceived, signsReceived) ||
+                other.signsReceived == signsReceived) &&
+            (identical(other.creator, creator) || other.creator == creator) &&
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.dest, dest) || other.dest == dest) &&
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.sendFlags, sendFlags) ||
+                other.sendFlags == sendFlags) &&
+            (identical(other.payload, payload) || other.payload == payload) &&
+            (identical(other.bounce, bounce) || other.bounce == bounce));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
+      id,
       const DeepCollectionEquality().hash(_confirmations),
-      const DeepCollectionEquality().hash(signsRequired),
-      const DeepCollectionEquality().hash(signsReceived),
-      const DeepCollectionEquality().hash(creator),
-      const DeepCollectionEquality().hash(index),
-      const DeepCollectionEquality().hash(dest),
-      const DeepCollectionEquality().hash(value),
-      const DeepCollectionEquality().hash(sendFlags),
-      const DeepCollectionEquality().hash(payload),
-      const DeepCollectionEquality().hash(bounce));
+      signsRequired,
+      signsReceived,
+      creator,
+      index,
+      dest,
+      value,
+      sendFlags,
+      payload,
+      bounce);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MultisigPendingTransactionCopyWith<_$_MultisigPendingTransaction>
       get copyWith => __$$_MultisigPendingTransactionCopyWithImpl<
           _$_MultisigPendingTransaction>(this, _$identity);

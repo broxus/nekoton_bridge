@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'contract_state.dart';
 
@@ -37,7 +37,8 @@ mixin _$ContractState {
 abstract class $ContractStateCopyWith<$Res> {
   factory $ContractStateCopyWith(
           ContractState value, $Res Function(ContractState) then) =
-      _$ContractStateCopyWithImpl<$Res>;
+      _$ContractStateCopyWithImpl<$Res, ContractState>;
+  @useResult
   $Res call(
       {String balance,
       GenTimings genTimings,
@@ -50,61 +51,65 @@ abstract class $ContractStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ContractStateCopyWithImpl<$Res>
+class _$ContractStateCopyWithImpl<$Res, $Val extends ContractState>
     implements $ContractStateCopyWith<$Res> {
   _$ContractStateCopyWithImpl(this._value, this._then);
 
-  final ContractState _value;
   // ignore: unused_field
-  final $Res Function(ContractState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? balance = freezed,
-    Object? genTimings = freezed,
+    Object? balance = null,
+    Object? genTimings = null,
     Object? lastTransactionId = freezed,
-    Object? isDeployed = freezed,
+    Object? isDeployed = null,
     Object? codeHash = freezed,
   }) {
     return _then(_value.copyWith(
-      balance: balance == freezed
+      balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
               as String,
-      genTimings: genTimings == freezed
+      genTimings: null == genTimings
           ? _value.genTimings
           : genTimings // ignore: cast_nullable_to_non_nullable
               as GenTimings,
-      lastTransactionId: lastTransactionId == freezed
+      lastTransactionId: freezed == lastTransactionId
           ? _value.lastTransactionId
           : lastTransactionId // ignore: cast_nullable_to_non_nullable
               as LastTransactionId?,
-      isDeployed: isDeployed == freezed
+      isDeployed: null == isDeployed
           ? _value.isDeployed
           : isDeployed // ignore: cast_nullable_to_non_nullable
               as bool,
-      codeHash: codeHash == freezed
+      codeHash: freezed == codeHash
           ? _value.codeHash
           : codeHash // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $GenTimingsCopyWith<$Res> get genTimings {
     return $GenTimingsCopyWith<$Res>(_value.genTimings, (value) {
-      return _then(_value.copyWith(genTimings: value));
+      return _then(_value.copyWith(genTimings: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $LastTransactionIdCopyWith<$Res>? get lastTransactionId {
     if (_value.lastTransactionId == null) {
       return null;
     }
 
     return $LastTransactionIdCopyWith<$Res>(_value.lastTransactionId!, (value) {
-      return _then(_value.copyWith(lastTransactionId: value));
+      return _then(_value.copyWith(lastTransactionId: value) as $Val);
     });
   }
 }
@@ -116,6 +121,7 @@ abstract class _$$_ContractStateCopyWith<$Res>
           _$_ContractState value, $Res Function(_$_ContractState) then) =
       __$$_ContractStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String balance,
       GenTimings genTimings,
@@ -131,41 +137,39 @@ abstract class _$$_ContractStateCopyWith<$Res>
 
 /// @nodoc
 class __$$_ContractStateCopyWithImpl<$Res>
-    extends _$ContractStateCopyWithImpl<$Res>
+    extends _$ContractStateCopyWithImpl<$Res, _$_ContractState>
     implements _$$_ContractStateCopyWith<$Res> {
   __$$_ContractStateCopyWithImpl(
       _$_ContractState _value, $Res Function(_$_ContractState) _then)
-      : super(_value, (v) => _then(v as _$_ContractState));
+      : super(_value, _then);
 
-  @override
-  _$_ContractState get _value => super._value as _$_ContractState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? balance = freezed,
-    Object? genTimings = freezed,
+    Object? balance = null,
+    Object? genTimings = null,
     Object? lastTransactionId = freezed,
-    Object? isDeployed = freezed,
+    Object? isDeployed = null,
     Object? codeHash = freezed,
   }) {
     return _then(_$_ContractState(
-      balance: balance == freezed
+      balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
               as String,
-      genTimings: genTimings == freezed
+      genTimings: null == genTimings
           ? _value.genTimings
           : genTimings // ignore: cast_nullable_to_non_nullable
               as GenTimings,
-      lastTransactionId: lastTransactionId == freezed
+      lastTransactionId: freezed == lastTransactionId
           ? _value.lastTransactionId
           : lastTransactionId // ignore: cast_nullable_to_non_nullable
               as LastTransactionId?,
-      isDeployed: isDeployed == freezed
+      isDeployed: null == isDeployed
           ? _value.isDeployed
           : isDeployed // ignore: cast_nullable_to_non_nullable
               as bool,
-      codeHash: codeHash == freezed
+      codeHash: freezed == codeHash
           ? _value.codeHash
           : codeHash // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -207,28 +211,25 @@ class _$_ContractState implements _ContractState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ContractState &&
-            const DeepCollectionEquality().equals(other.balance, balance) &&
-            const DeepCollectionEquality()
-                .equals(other.genTimings, genTimings) &&
-            const DeepCollectionEquality()
-                .equals(other.lastTransactionId, lastTransactionId) &&
-            const DeepCollectionEquality()
-                .equals(other.isDeployed, isDeployed) &&
-            const DeepCollectionEquality().equals(other.codeHash, codeHash));
+            (identical(other.balance, balance) || other.balance == balance) &&
+            (identical(other.genTimings, genTimings) ||
+                other.genTimings == genTimings) &&
+            (identical(other.lastTransactionId, lastTransactionId) ||
+                other.lastTransactionId == lastTransactionId) &&
+            (identical(other.isDeployed, isDeployed) ||
+                other.isDeployed == isDeployed) &&
+            (identical(other.codeHash, codeHash) ||
+                other.codeHash == codeHash));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(balance),
-      const DeepCollectionEquality().hash(genTimings),
-      const DeepCollectionEquality().hash(lastTransactionId),
-      const DeepCollectionEquality().hash(isDeployed),
-      const DeepCollectionEquality().hash(codeHash));
+  int get hashCode => Object.hash(runtimeType, balance, genTimings,
+      lastTransactionId, isDeployed, codeHash);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ContractStateCopyWith<_$_ContractState> get copyWith =>
       __$$_ContractStateCopyWithImpl<_$_ContractState>(this, _$identity);
 

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ledger_key_create_input.dart';
 
@@ -33,34 +33,38 @@ mixin _$LedgerKeyCreateInput {
 abstract class $LedgerKeyCreateInputCopyWith<$Res> {
   factory $LedgerKeyCreateInputCopyWith(LedgerKeyCreateInput value,
           $Res Function(LedgerKeyCreateInput) then) =
-      _$LedgerKeyCreateInputCopyWithImpl<$Res>;
+      _$LedgerKeyCreateInputCopyWithImpl<$Res, LedgerKeyCreateInput>;
+  @useResult
   $Res call({String? name, int accountId});
 }
 
 /// @nodoc
-class _$LedgerKeyCreateInputCopyWithImpl<$Res>
+class _$LedgerKeyCreateInputCopyWithImpl<$Res,
+        $Val extends LedgerKeyCreateInput>
     implements $LedgerKeyCreateInputCopyWith<$Res> {
   _$LedgerKeyCreateInputCopyWithImpl(this._value, this._then);
 
-  final LedgerKeyCreateInput _value;
   // ignore: unused_field
-  final $Res Function(LedgerKeyCreateInput) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
-    Object? accountId = freezed,
+    Object? accountId = null,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      accountId: accountId == freezed
+      accountId: null == accountId
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,31 +75,30 @@ abstract class _$$_LedgerKeyCreateInputCopyWith<$Res>
           $Res Function(_$_LedgerKeyCreateInput) then) =
       __$$_LedgerKeyCreateInputCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? name, int accountId});
 }
 
 /// @nodoc
 class __$$_LedgerKeyCreateInputCopyWithImpl<$Res>
-    extends _$LedgerKeyCreateInputCopyWithImpl<$Res>
+    extends _$LedgerKeyCreateInputCopyWithImpl<$Res, _$_LedgerKeyCreateInput>
     implements _$$_LedgerKeyCreateInputCopyWith<$Res> {
   __$$_LedgerKeyCreateInputCopyWithImpl(_$_LedgerKeyCreateInput _value,
       $Res Function(_$_LedgerKeyCreateInput) _then)
-      : super(_value, (v) => _then(v as _$_LedgerKeyCreateInput));
+      : super(_value, _then);
 
-  @override
-  _$_LedgerKeyCreateInput get _value => super._value as _$_LedgerKeyCreateInput;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
-    Object? accountId = freezed,
+    Object? accountId = null,
   }) {
     return _then(_$_LedgerKeyCreateInput(
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      accountId: accountId == freezed
+      accountId: null == accountId
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as int,
@@ -126,19 +129,18 @@ class _$_LedgerKeyCreateInput implements _LedgerKeyCreateInput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LedgerKeyCreateInput &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.accountId, accountId));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(accountId));
+  int get hashCode => Object.hash(runtimeType, name, accountId);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LedgerKeyCreateInputCopyWith<_$_LedgerKeyCreateInput> get copyWith =>
       __$$_LedgerKeyCreateInputCopyWithImpl<_$_LedgerKeyCreateInput>(
           this, _$identity);

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'token_wallet_transaction_with_data.dart';
 
@@ -35,7 +35,9 @@ abstract class $TokenWalletTransactionWithDataCopyWith<$Res> {
   factory $TokenWalletTransactionWithDataCopyWith(
           TokenWalletTransactionWithData value,
           $Res Function(TokenWalletTransactionWithData) then) =
-      _$TokenWalletTransactionWithDataCopyWithImpl<$Res>;
+      _$TokenWalletTransactionWithDataCopyWithImpl<$Res,
+          TokenWalletTransactionWithData>;
+  @useResult
   $Res call({Transaction transaction, TokenWalletTransaction? data});
 
   $TransactionCopyWith<$Res> get transaction;
@@ -43,46 +45,51 @@ abstract class $TokenWalletTransactionWithDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TokenWalletTransactionWithDataCopyWithImpl<$Res>
+class _$TokenWalletTransactionWithDataCopyWithImpl<$Res,
+        $Val extends TokenWalletTransactionWithData>
     implements $TokenWalletTransactionWithDataCopyWith<$Res> {
   _$TokenWalletTransactionWithDataCopyWithImpl(this._value, this._then);
 
-  final TokenWalletTransactionWithData _value;
   // ignore: unused_field
-  final $Res Function(TokenWalletTransactionWithData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transaction = freezed,
+    Object? transaction = null,
     Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      transaction: transaction == freezed
+      transaction: null == transaction
           ? _value.transaction
           : transaction // ignore: cast_nullable_to_non_nullable
               as Transaction,
-      data: data == freezed
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as TokenWalletTransaction?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TransactionCopyWith<$Res> get transaction {
     return $TransactionCopyWith<$Res>(_value.transaction, (value) {
-      return _then(_value.copyWith(transaction: value));
+      return _then(_value.copyWith(transaction: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TokenWalletTransactionCopyWith<$Res>? get data {
     if (_value.data == null) {
       return null;
     }
 
     return $TokenWalletTransactionCopyWith<$Res>(_value.data!, (value) {
-      return _then(_value.copyWith(data: value));
+      return _then(_value.copyWith(data: value) as $Val);
     });
   }
 }
@@ -95,6 +102,7 @@ abstract class _$$_TokenWalletTransactionWithDataCopyWith<$Res>
           $Res Function(_$_TokenWalletTransactionWithData) then) =
       __$$_TokenWalletTransactionWithDataCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Transaction transaction, TokenWalletTransaction? data});
 
   @override
@@ -105,28 +113,26 @@ abstract class _$$_TokenWalletTransactionWithDataCopyWith<$Res>
 
 /// @nodoc
 class __$$_TokenWalletTransactionWithDataCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionWithDataCopyWithImpl<$Res>
+    extends _$TokenWalletTransactionWithDataCopyWithImpl<$Res,
+        _$_TokenWalletTransactionWithData>
     implements _$$_TokenWalletTransactionWithDataCopyWith<$Res> {
   __$$_TokenWalletTransactionWithDataCopyWithImpl(
       _$_TokenWalletTransactionWithData _value,
       $Res Function(_$_TokenWalletTransactionWithData) _then)
-      : super(_value, (v) => _then(v as _$_TokenWalletTransactionWithData));
+      : super(_value, _then);
 
-  @override
-  _$_TokenWalletTransactionWithData get _value =>
-      super._value as _$_TokenWalletTransactionWithData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transaction = freezed,
+    Object? transaction = null,
     Object? data = freezed,
   }) {
     return _then(_$_TokenWalletTransactionWithData(
-      transaction: transaction == freezed
+      transaction: null == transaction
           ? _value.transaction
           : transaction // ignore: cast_nullable_to_non_nullable
               as Transaction,
-      data: data == freezed
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as TokenWalletTransaction?,
@@ -161,20 +167,18 @@ class _$_TokenWalletTransactionWithData
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TokenWalletTransactionWithData &&
-            const DeepCollectionEquality()
-                .equals(other.transaction, transaction) &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.transaction, transaction) ||
+                other.transaction == transaction) &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(transaction),
-      const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, transaction, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TokenWalletTransactionWithDataCopyWith<_$_TokenWalletTransactionWithData>
       get copyWith => __$$_TokenWalletTransactionWithDataCopyWithImpl<
           _$_TokenWalletTransactionWithData>(this, _$identity);

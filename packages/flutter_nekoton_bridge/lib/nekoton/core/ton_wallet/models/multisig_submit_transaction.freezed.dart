@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'multisig_submit_transaction.dart';
 
@@ -39,7 +39,8 @@ mixin _$MultisigSubmitTransaction {
 abstract class $MultisigSubmitTransactionCopyWith<$Res> {
   factory $MultisigSubmitTransactionCopyWith(MultisigSubmitTransaction value,
           $Res Function(MultisigSubmitTransaction) then) =
-      _$MultisigSubmitTransactionCopyWithImpl<$Res>;
+      _$MultisigSubmitTransactionCopyWithImpl<$Res, MultisigSubmitTransaction>;
+  @useResult
   $Res call(
       {String custodian,
       String dest,
@@ -51,54 +52,57 @@ abstract class $MultisigSubmitTransactionCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MultisigSubmitTransactionCopyWithImpl<$Res>
+class _$MultisigSubmitTransactionCopyWithImpl<$Res,
+        $Val extends MultisigSubmitTransaction>
     implements $MultisigSubmitTransactionCopyWith<$Res> {
   _$MultisigSubmitTransactionCopyWithImpl(this._value, this._then);
 
-  final MultisigSubmitTransaction _value;
   // ignore: unused_field
-  final $Res Function(MultisigSubmitTransaction) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? custodian = freezed,
-    Object? dest = freezed,
-    Object? value = freezed,
-    Object? bounce = freezed,
-    Object? allBalance = freezed,
-    Object? payload = freezed,
-    Object? transId = freezed,
+    Object? custodian = null,
+    Object? dest = null,
+    Object? value = null,
+    Object? bounce = null,
+    Object? allBalance = null,
+    Object? payload = null,
+    Object? transId = null,
   }) {
     return _then(_value.copyWith(
-      custodian: custodian == freezed
+      custodian: null == custodian
           ? _value.custodian
           : custodian // ignore: cast_nullable_to_non_nullable
               as String,
-      dest: dest == freezed
+      dest: null == dest
           ? _value.dest
           : dest // ignore: cast_nullable_to_non_nullable
               as String,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      bounce: bounce == freezed
+      bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
               as bool,
-      allBalance: allBalance == freezed
+      allBalance: null == allBalance
           ? _value.allBalance
           : allBalance // ignore: cast_nullable_to_non_nullable
               as bool,
-      payload: payload == freezed
+      payload: null == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as String,
-      transId: transId == freezed
+      transId: null == transId
           ? _value.transId
           : transId // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -110,6 +114,7 @@ abstract class _$$_MultisigSubmitTransactionCopyWith<$Res>
           $Res Function(_$_MultisigSubmitTransaction) then) =
       __$$_MultisigSubmitTransactionCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String custodian,
       String dest,
@@ -122,53 +127,51 @@ abstract class _$$_MultisigSubmitTransactionCopyWith<$Res>
 
 /// @nodoc
 class __$$_MultisigSubmitTransactionCopyWithImpl<$Res>
-    extends _$MultisigSubmitTransactionCopyWithImpl<$Res>
+    extends _$MultisigSubmitTransactionCopyWithImpl<$Res,
+        _$_MultisigSubmitTransaction>
     implements _$$_MultisigSubmitTransactionCopyWith<$Res> {
   __$$_MultisigSubmitTransactionCopyWithImpl(
       _$_MultisigSubmitTransaction _value,
       $Res Function(_$_MultisigSubmitTransaction) _then)
-      : super(_value, (v) => _then(v as _$_MultisigSubmitTransaction));
+      : super(_value, _then);
 
-  @override
-  _$_MultisigSubmitTransaction get _value =>
-      super._value as _$_MultisigSubmitTransaction;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? custodian = freezed,
-    Object? dest = freezed,
-    Object? value = freezed,
-    Object? bounce = freezed,
-    Object? allBalance = freezed,
-    Object? payload = freezed,
-    Object? transId = freezed,
+    Object? custodian = null,
+    Object? dest = null,
+    Object? value = null,
+    Object? bounce = null,
+    Object? allBalance = null,
+    Object? payload = null,
+    Object? transId = null,
   }) {
     return _then(_$_MultisigSubmitTransaction(
-      custodian: custodian == freezed
+      custodian: null == custodian
           ? _value.custodian
           : custodian // ignore: cast_nullable_to_non_nullable
               as String,
-      dest: dest == freezed
+      dest: null == dest
           ? _value.dest
           : dest // ignore: cast_nullable_to_non_nullable
               as String,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      bounce: bounce == freezed
+      bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
               as bool,
-      allBalance: allBalance == freezed
+      allBalance: null == allBalance
           ? _value.allBalance
           : allBalance // ignore: cast_nullable_to_non_nullable
               as bool,
-      payload: payload == freezed
+      payload: null == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as String,
-      transId: transId == freezed
+      transId: null == transId
           ? _value.transId
           : transId // ignore: cast_nullable_to_non_nullable
               as String,
@@ -216,30 +219,25 @@ class _$_MultisigSubmitTransaction implements _MultisigSubmitTransaction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MultisigSubmitTransaction &&
-            const DeepCollectionEquality().equals(other.custodian, custodian) &&
-            const DeepCollectionEquality().equals(other.dest, dest) &&
-            const DeepCollectionEquality().equals(other.value, value) &&
-            const DeepCollectionEquality().equals(other.bounce, bounce) &&
-            const DeepCollectionEquality()
-                .equals(other.allBalance, allBalance) &&
-            const DeepCollectionEquality().equals(other.payload, payload) &&
-            const DeepCollectionEquality().equals(other.transId, transId));
+            (identical(other.custodian, custodian) ||
+                other.custodian == custodian) &&
+            (identical(other.dest, dest) || other.dest == dest) &&
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.bounce, bounce) || other.bounce == bounce) &&
+            (identical(other.allBalance, allBalance) ||
+                other.allBalance == allBalance) &&
+            (identical(other.payload, payload) || other.payload == payload) &&
+            (identical(other.transId, transId) || other.transId == transId));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(custodian),
-      const DeepCollectionEquality().hash(dest),
-      const DeepCollectionEquality().hash(value),
-      const DeepCollectionEquality().hash(bounce),
-      const DeepCollectionEquality().hash(allBalance),
-      const DeepCollectionEquality().hash(payload),
-      const DeepCollectionEquality().hash(transId));
+  int get hashCode => Object.hash(runtimeType, custodian, dest, value, bounce,
+      allBalance, payload, transId);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MultisigSubmitTransactionCopyWith<_$_MultisigSubmitTransaction>
       get copyWith => __$$_MultisigSubmitTransactionCopyWithImpl<
           _$_MultisigSubmitTransaction>(this, _$identity);

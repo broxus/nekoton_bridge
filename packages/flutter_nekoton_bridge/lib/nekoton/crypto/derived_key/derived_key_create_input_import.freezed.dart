@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'derived_key_create_input_import.dart';
 
@@ -36,47 +36,53 @@ abstract class $DerivedKeyCreateInputImportCopyWith<$Res> {
   factory $DerivedKeyCreateInputImportCopyWith(
           DerivedKeyCreateInputImport value,
           $Res Function(DerivedKeyCreateInputImport) then) =
-      _$DerivedKeyCreateInputImportCopyWithImpl<$Res>;
+      _$DerivedKeyCreateInputImportCopyWithImpl<$Res,
+          DerivedKeyCreateInputImport>;
+  @useResult
   $Res call({String? keyName, String phrase, Password password});
 
   $PasswordCopyWith<$Res> get password;
 }
 
 /// @nodoc
-class _$DerivedKeyCreateInputImportCopyWithImpl<$Res>
+class _$DerivedKeyCreateInputImportCopyWithImpl<$Res,
+        $Val extends DerivedKeyCreateInputImport>
     implements $DerivedKeyCreateInputImportCopyWith<$Res> {
   _$DerivedKeyCreateInputImportCopyWithImpl(this._value, this._then);
 
-  final DerivedKeyCreateInputImport _value;
   // ignore: unused_field
-  final $Res Function(DerivedKeyCreateInputImport) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? keyName = freezed,
-    Object? phrase = freezed,
-    Object? password = freezed,
+    Object? phrase = null,
+    Object? password = null,
   }) {
     return _then(_value.copyWith(
-      keyName: keyName == freezed
+      keyName: freezed == keyName
           ? _value.keyName
           : keyName // ignore: cast_nullable_to_non_nullable
               as String?,
-      phrase: phrase == freezed
+      phrase: null == phrase
           ? _value.phrase
           : phrase // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
     return $PasswordCopyWith<$Res>(_value.password, (value) {
-      return _then(_value.copyWith(password: value));
+      return _then(_value.copyWith(password: value) as $Val);
     });
   }
 }
@@ -89,6 +95,7 @@ abstract class _$$_DerivedKeyCreateInputImportImportCopyWith<$Res>
           $Res Function(_$_DerivedKeyCreateInputImportImport) then) =
       __$$_DerivedKeyCreateInputImportImportCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? keyName, String phrase, Password password});
 
   @override
@@ -97,33 +104,31 @@ abstract class _$$_DerivedKeyCreateInputImportImportCopyWith<$Res>
 
 /// @nodoc
 class __$$_DerivedKeyCreateInputImportImportCopyWithImpl<$Res>
-    extends _$DerivedKeyCreateInputImportCopyWithImpl<$Res>
+    extends _$DerivedKeyCreateInputImportCopyWithImpl<$Res,
+        _$_DerivedKeyCreateInputImportImport>
     implements _$$_DerivedKeyCreateInputImportImportCopyWith<$Res> {
   __$$_DerivedKeyCreateInputImportImportCopyWithImpl(
       _$_DerivedKeyCreateInputImportImport _value,
       $Res Function(_$_DerivedKeyCreateInputImportImport) _then)
-      : super(_value, (v) => _then(v as _$_DerivedKeyCreateInputImportImport));
+      : super(_value, _then);
 
-  @override
-  _$_DerivedKeyCreateInputImportImport get _value =>
-      super._value as _$_DerivedKeyCreateInputImportImport;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? keyName = freezed,
-    Object? phrase = freezed,
-    Object? password = freezed,
+    Object? phrase = null,
+    Object? password = null,
   }) {
     return _then(_$_DerivedKeyCreateInputImportImport(
-      keyName: keyName == freezed
+      keyName: freezed == keyName
           ? _value.keyName
           : keyName // ignore: cast_nullable_to_non_nullable
               as String?,
-      phrase: phrase == freezed
+      phrase: null == phrase
           ? _value.phrase
           : phrase // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
@@ -160,21 +165,19 @@ class _$_DerivedKeyCreateInputImportImport
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DerivedKeyCreateInputImportImport &&
-            const DeepCollectionEquality().equals(other.keyName, keyName) &&
-            const DeepCollectionEquality().equals(other.phrase, phrase) &&
-            const DeepCollectionEquality().equals(other.password, password));
+            (identical(other.keyName, keyName) || other.keyName == keyName) &&
+            (identical(other.phrase, phrase) || other.phrase == phrase) &&
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(keyName),
-      const DeepCollectionEquality().hash(phrase),
-      const DeepCollectionEquality().hash(password));
+  int get hashCode => Object.hash(runtimeType, keyName, phrase, password);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DerivedKeyCreateInputImportImportCopyWith<
           _$_DerivedKeyCreateInputImportImport>
       get copyWith => __$$_DerivedKeyCreateInputImportImportCopyWithImpl<

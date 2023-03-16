@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'root_token_contract_details.dart';
 
@@ -38,7 +38,8 @@ mixin _$RootTokenContractDetails {
 abstract class $RootTokenContractDetailsCopyWith<$Res> {
   factory $RootTokenContractDetailsCopyWith(RootTokenContractDetails value,
           $Res Function(RootTokenContractDetails) then) =
-      _$RootTokenContractDetailsCopyWithImpl<$Res>;
+      _$RootTokenContractDetailsCopyWithImpl<$Res, RootTokenContractDetails>;
+  @useResult
   $Res call(
       {TokenWalletVersion version,
       String name,
@@ -49,49 +50,52 @@ abstract class $RootTokenContractDetailsCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RootTokenContractDetailsCopyWithImpl<$Res>
+class _$RootTokenContractDetailsCopyWithImpl<$Res,
+        $Val extends RootTokenContractDetails>
     implements $RootTokenContractDetailsCopyWith<$Res> {
   _$RootTokenContractDetailsCopyWithImpl(this._value, this._then);
 
-  final RootTokenContractDetails _value;
   // ignore: unused_field
-  final $Res Function(RootTokenContractDetails) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? version = freezed,
-    Object? name = freezed,
-    Object? symbol = freezed,
-    Object? decimals = freezed,
-    Object? ownerAddress = freezed,
-    Object? totalSupply = freezed,
+    Object? version = null,
+    Object? name = null,
+    Object? symbol = null,
+    Object? decimals = null,
+    Object? ownerAddress = null,
+    Object? totalSupply = null,
   }) {
     return _then(_value.copyWith(
-      version: version == freezed
+      version: null == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
               as TokenWalletVersion,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      symbol: symbol == freezed
+      symbol: null == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String,
-      decimals: decimals == freezed
+      decimals: null == decimals
           ? _value.decimals
           : decimals // ignore: cast_nullable_to_non_nullable
               as int,
-      ownerAddress: ownerAddress == freezed
+      ownerAddress: null == ownerAddress
           ? _value.ownerAddress
           : ownerAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      totalSupply: totalSupply == freezed
+      totalSupply: null == totalSupply
           ? _value.totalSupply
           : totalSupply // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -103,6 +107,7 @@ abstract class _$$_RootTokenContractDetailsCopyWith<$Res>
           $Res Function(_$_RootTokenContractDetails) then) =
       __$$_RootTokenContractDetailsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {TokenWalletVersion version,
       String name,
@@ -114,47 +119,45 @@ abstract class _$$_RootTokenContractDetailsCopyWith<$Res>
 
 /// @nodoc
 class __$$_RootTokenContractDetailsCopyWithImpl<$Res>
-    extends _$RootTokenContractDetailsCopyWithImpl<$Res>
+    extends _$RootTokenContractDetailsCopyWithImpl<$Res,
+        _$_RootTokenContractDetails>
     implements _$$_RootTokenContractDetailsCopyWith<$Res> {
   __$$_RootTokenContractDetailsCopyWithImpl(_$_RootTokenContractDetails _value,
       $Res Function(_$_RootTokenContractDetails) _then)
-      : super(_value, (v) => _then(v as _$_RootTokenContractDetails));
+      : super(_value, _then);
 
-  @override
-  _$_RootTokenContractDetails get _value =>
-      super._value as _$_RootTokenContractDetails;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? version = freezed,
-    Object? name = freezed,
-    Object? symbol = freezed,
-    Object? decimals = freezed,
-    Object? ownerAddress = freezed,
-    Object? totalSupply = freezed,
+    Object? version = null,
+    Object? name = null,
+    Object? symbol = null,
+    Object? decimals = null,
+    Object? ownerAddress = null,
+    Object? totalSupply = null,
   }) {
     return _then(_$_RootTokenContractDetails(
-      version: version == freezed
+      version: null == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
               as TokenWalletVersion,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      symbol: symbol == freezed
+      symbol: null == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String,
-      decimals: decimals == freezed
+      decimals: null == decimals
           ? _value.decimals
           : decimals // ignore: cast_nullable_to_non_nullable
               as int,
-      ownerAddress: ownerAddress == freezed
+      ownerAddress: null == ownerAddress
           ? _value.ownerAddress
           : ownerAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      totalSupply: totalSupply == freezed
+      totalSupply: null == totalSupply
           ? _value.totalSupply
           : totalSupply // ignore: cast_nullable_to_non_nullable
               as String,
@@ -200,29 +203,25 @@ class _$_RootTokenContractDetails implements _RootTokenContractDetails {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RootTokenContractDetails &&
-            const DeepCollectionEquality().equals(other.version, version) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.symbol, symbol) &&
-            const DeepCollectionEquality().equals(other.decimals, decimals) &&
-            const DeepCollectionEquality()
-                .equals(other.ownerAddress, ownerAddress) &&
-            const DeepCollectionEquality()
-                .equals(other.totalSupply, totalSupply));
+            (identical(other.version, version) || other.version == version) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.symbol, symbol) || other.symbol == symbol) &&
+            (identical(other.decimals, decimals) ||
+                other.decimals == decimals) &&
+            (identical(other.ownerAddress, ownerAddress) ||
+                other.ownerAddress == ownerAddress) &&
+            (identical(other.totalSupply, totalSupply) ||
+                other.totalSupply == totalSupply));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(version),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(symbol),
-      const DeepCollectionEquality().hash(decimals),
-      const DeepCollectionEquality().hash(ownerAddress),
-      const DeepCollectionEquality().hash(totalSupply));
+      runtimeType, version, name, symbol, decimals, ownerAddress, totalSupply);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RootTokenContractDetailsCopyWith<_$_RootTokenContractDetails>
       get copyWith => __$$_RootTokenContractDetailsCopyWithImpl<
           _$_RootTokenContractDetails>(this, _$identity);

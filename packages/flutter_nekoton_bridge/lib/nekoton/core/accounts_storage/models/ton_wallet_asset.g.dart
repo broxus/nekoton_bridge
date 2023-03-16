@@ -17,5 +17,5 @@ Map<String, dynamic> _$$_TonWalletAssetToJson(_$_TonWalletAsset instance) =>
     <String, dynamic>{
       'address': instance.address,
       'publicKey': instance.publicKey,
-      'contract': instance.contract.toJson(),
+      'contract': instance.contract,
     };

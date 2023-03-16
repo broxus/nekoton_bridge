@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'de_pool_on_round_complete_notification.dart';
 
@@ -40,7 +40,9 @@ abstract class $DePoolOnRoundCompleteNotificationCopyWith<$Res> {
   factory $DePoolOnRoundCompleteNotificationCopyWith(
           DePoolOnRoundCompleteNotification value,
           $Res Function(DePoolOnRoundCompleteNotification) then) =
-      _$DePoolOnRoundCompleteNotificationCopyWithImpl<$Res>;
+      _$DePoolOnRoundCompleteNotificationCopyWithImpl<$Res,
+          DePoolOnRoundCompleteNotification>;
+  @useResult
   $Res call(
       {String roundId,
       String reward,
@@ -52,54 +54,57 @@ abstract class $DePoolOnRoundCompleteNotificationCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DePoolOnRoundCompleteNotificationCopyWithImpl<$Res>
+class _$DePoolOnRoundCompleteNotificationCopyWithImpl<$Res,
+        $Val extends DePoolOnRoundCompleteNotification>
     implements $DePoolOnRoundCompleteNotificationCopyWith<$Res> {
   _$DePoolOnRoundCompleteNotificationCopyWithImpl(this._value, this._then);
 
-  final DePoolOnRoundCompleteNotification _value;
   // ignore: unused_field
-  final $Res Function(DePoolOnRoundCompleteNotification) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? roundId = freezed,
-    Object? reward = freezed,
-    Object? ordinaryStake = freezed,
-    Object? vestingStake = freezed,
-    Object? lockStake = freezed,
-    Object? reinvest = freezed,
-    Object? reason = freezed,
+    Object? roundId = null,
+    Object? reward = null,
+    Object? ordinaryStake = null,
+    Object? vestingStake = null,
+    Object? lockStake = null,
+    Object? reinvest = null,
+    Object? reason = null,
   }) {
     return _then(_value.copyWith(
-      roundId: roundId == freezed
+      roundId: null == roundId
           ? _value.roundId
           : roundId // ignore: cast_nullable_to_non_nullable
               as String,
-      reward: reward == freezed
+      reward: null == reward
           ? _value.reward
           : reward // ignore: cast_nullable_to_non_nullable
               as String,
-      ordinaryStake: ordinaryStake == freezed
+      ordinaryStake: null == ordinaryStake
           ? _value.ordinaryStake
           : ordinaryStake // ignore: cast_nullable_to_non_nullable
               as String,
-      vestingStake: vestingStake == freezed
+      vestingStake: null == vestingStake
           ? _value.vestingStake
           : vestingStake // ignore: cast_nullable_to_non_nullable
               as String,
-      lockStake: lockStake == freezed
+      lockStake: null == lockStake
           ? _value.lockStake
           : lockStake // ignore: cast_nullable_to_non_nullable
               as String,
-      reinvest: reinvest == freezed
+      reinvest: null == reinvest
           ? _value.reinvest
           : reinvest // ignore: cast_nullable_to_non_nullable
               as bool,
-      reason: reason == freezed
+      reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -111,6 +116,7 @@ abstract class _$$_DePoolOnRoundCompleteNotificationCopyWith<$Res>
           $Res Function(_$_DePoolOnRoundCompleteNotification) then) =
       __$$_DePoolOnRoundCompleteNotificationCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String roundId,
       String reward,
@@ -123,53 +129,51 @@ abstract class _$$_DePoolOnRoundCompleteNotificationCopyWith<$Res>
 
 /// @nodoc
 class __$$_DePoolOnRoundCompleteNotificationCopyWithImpl<$Res>
-    extends _$DePoolOnRoundCompleteNotificationCopyWithImpl<$Res>
+    extends _$DePoolOnRoundCompleteNotificationCopyWithImpl<$Res,
+        _$_DePoolOnRoundCompleteNotification>
     implements _$$_DePoolOnRoundCompleteNotificationCopyWith<$Res> {
   __$$_DePoolOnRoundCompleteNotificationCopyWithImpl(
       _$_DePoolOnRoundCompleteNotification _value,
       $Res Function(_$_DePoolOnRoundCompleteNotification) _then)
-      : super(_value, (v) => _then(v as _$_DePoolOnRoundCompleteNotification));
+      : super(_value, _then);
 
-  @override
-  _$_DePoolOnRoundCompleteNotification get _value =>
-      super._value as _$_DePoolOnRoundCompleteNotification;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? roundId = freezed,
-    Object? reward = freezed,
-    Object? ordinaryStake = freezed,
-    Object? vestingStake = freezed,
-    Object? lockStake = freezed,
-    Object? reinvest = freezed,
-    Object? reason = freezed,
+    Object? roundId = null,
+    Object? reward = null,
+    Object? ordinaryStake = null,
+    Object? vestingStake = null,
+    Object? lockStake = null,
+    Object? reinvest = null,
+    Object? reason = null,
   }) {
     return _then(_$_DePoolOnRoundCompleteNotification(
-      roundId: roundId == freezed
+      roundId: null == roundId
           ? _value.roundId
           : roundId // ignore: cast_nullable_to_non_nullable
               as String,
-      reward: reward == freezed
+      reward: null == reward
           ? _value.reward
           : reward // ignore: cast_nullable_to_non_nullable
               as String,
-      ordinaryStake: ordinaryStake == freezed
+      ordinaryStake: null == ordinaryStake
           ? _value.ordinaryStake
           : ordinaryStake // ignore: cast_nullable_to_non_nullable
               as String,
-      vestingStake: vestingStake == freezed
+      vestingStake: null == vestingStake
           ? _value.vestingStake
           : vestingStake // ignore: cast_nullable_to_non_nullable
               as String,
-      lockStake: lockStake == freezed
+      lockStake: null == lockStake
           ? _value.lockStake
           : lockStake // ignore: cast_nullable_to_non_nullable
               as String,
-      reinvest: reinvest == freezed
+      reinvest: null == reinvest
           ? _value.reinvest
           : reinvest // ignore: cast_nullable_to_non_nullable
               as bool,
-      reason: reason == freezed
+      reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as int,
@@ -219,31 +223,27 @@ class _$_DePoolOnRoundCompleteNotification
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DePoolOnRoundCompleteNotification &&
-            const DeepCollectionEquality().equals(other.roundId, roundId) &&
-            const DeepCollectionEquality().equals(other.reward, reward) &&
-            const DeepCollectionEquality()
-                .equals(other.ordinaryStake, ordinaryStake) &&
-            const DeepCollectionEquality()
-                .equals(other.vestingStake, vestingStake) &&
-            const DeepCollectionEquality().equals(other.lockStake, lockStake) &&
-            const DeepCollectionEquality().equals(other.reinvest, reinvest) &&
-            const DeepCollectionEquality().equals(other.reason, reason));
+            (identical(other.roundId, roundId) || other.roundId == roundId) &&
+            (identical(other.reward, reward) || other.reward == reward) &&
+            (identical(other.ordinaryStake, ordinaryStake) ||
+                other.ordinaryStake == ordinaryStake) &&
+            (identical(other.vestingStake, vestingStake) ||
+                other.vestingStake == vestingStake) &&
+            (identical(other.lockStake, lockStake) ||
+                other.lockStake == lockStake) &&
+            (identical(other.reinvest, reinvest) ||
+                other.reinvest == reinvest) &&
+            (identical(other.reason, reason) || other.reason == reason));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(roundId),
-      const DeepCollectionEquality().hash(reward),
-      const DeepCollectionEquality().hash(ordinaryStake),
-      const DeepCollectionEquality().hash(vestingStake),
-      const DeepCollectionEquality().hash(lockStake),
-      const DeepCollectionEquality().hash(reinvest),
-      const DeepCollectionEquality().hash(reason));
+  int get hashCode => Object.hash(runtimeType, roundId, reward, ordinaryStake,
+      vestingStake, lockStake, reinvest, reason);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DePoolOnRoundCompleteNotificationCopyWith<
           _$_DePoolOnRoundCompleteNotification>
       get copyWith => __$$_DePoolOnRoundCompleteNotificationCopyWithImpl<

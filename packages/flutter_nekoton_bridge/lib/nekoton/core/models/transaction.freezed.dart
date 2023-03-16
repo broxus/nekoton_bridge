@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'transaction.dart';
 
@@ -44,7 +44,8 @@ mixin _$Transaction {
 abstract class $TransactionCopyWith<$Res> {
   factory $TransactionCopyWith(
           Transaction value, $Res Function(Transaction) then) =
-      _$TransactionCopyWithImpl<$Res>;
+      _$TransactionCopyWithImpl<$Res, Transaction>;
+  @useResult
   $Res call(
       {TransactionId id,
       TransactionId? prevTransactionId,
@@ -64,97 +65,103 @@ abstract class $TransactionCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TransactionCopyWithImpl<$Res> implements $TransactionCopyWith<$Res> {
+class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
+    implements $TransactionCopyWith<$Res> {
   _$TransactionCopyWithImpl(this._value, this._then);
 
-  final Transaction _value;
   // ignore: unused_field
-  final $Res Function(Transaction) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? prevTransactionId = freezed,
-    Object? createdAt = freezed,
-    Object? aborted = freezed,
+    Object? createdAt = null,
+    Object? aborted = null,
     Object? exitCode = freezed,
     Object? resultCode = freezed,
-    Object? origStatus = freezed,
-    Object? endStatus = freezed,
-    Object? totalFees = freezed,
-    Object? inMessage = freezed,
-    Object? outMessages = freezed,
+    Object? origStatus = null,
+    Object? endStatus = null,
+    Object? totalFees = null,
+    Object? inMessage = null,
+    Object? outMessages = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as TransactionId,
-      prevTransactionId: prevTransactionId == freezed
+      prevTransactionId: freezed == prevTransactionId
           ? _value.prevTransactionId
           : prevTransactionId // ignore: cast_nullable_to_non_nullable
               as TransactionId?,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as int,
-      aborted: aborted == freezed
+      aborted: null == aborted
           ? _value.aborted
           : aborted // ignore: cast_nullable_to_non_nullable
               as bool,
-      exitCode: exitCode == freezed
+      exitCode: freezed == exitCode
           ? _value.exitCode
           : exitCode // ignore: cast_nullable_to_non_nullable
               as int?,
-      resultCode: resultCode == freezed
+      resultCode: freezed == resultCode
           ? _value.resultCode
           : resultCode // ignore: cast_nullable_to_non_nullable
               as int?,
-      origStatus: origStatus == freezed
+      origStatus: null == origStatus
           ? _value.origStatus
           : origStatus // ignore: cast_nullable_to_non_nullable
               as AccountStatus,
-      endStatus: endStatus == freezed
+      endStatus: null == endStatus
           ? _value.endStatus
           : endStatus // ignore: cast_nullable_to_non_nullable
               as AccountStatus,
-      totalFees: totalFees == freezed
+      totalFees: null == totalFees
           ? _value.totalFees
           : totalFees // ignore: cast_nullable_to_non_nullable
               as String,
-      inMessage: inMessage == freezed
+      inMessage: null == inMessage
           ? _value.inMessage
           : inMessage // ignore: cast_nullable_to_non_nullable
               as Message,
-      outMessages: outMessages == freezed
+      outMessages: null == outMessages
           ? _value.outMessages
           : outMessages // ignore: cast_nullable_to_non_nullable
               as List<Message>,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TransactionIdCopyWith<$Res> get id {
     return $TransactionIdCopyWith<$Res>(_value.id, (value) {
-      return _then(_value.copyWith(id: value));
+      return _then(_value.copyWith(id: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TransactionIdCopyWith<$Res>? get prevTransactionId {
     if (_value.prevTransactionId == null) {
       return null;
     }
 
     return $TransactionIdCopyWith<$Res>(_value.prevTransactionId!, (value) {
-      return _then(_value.copyWith(prevTransactionId: value));
+      return _then(_value.copyWith(prevTransactionId: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $MessageCopyWith<$Res> get inMessage {
     return $MessageCopyWith<$Res>(_value.inMessage, (value) {
-      return _then(_value.copyWith(inMessage: value));
+      return _then(_value.copyWith(inMessage: value) as $Val);
     });
   }
 }
@@ -166,6 +173,7 @@ abstract class _$$_TransactionCopyWith<$Res>
           _$_Transaction value, $Res Function(_$_Transaction) then) =
       __$$_TransactionCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {TransactionId id,
       TransactionId? prevTransactionId,
@@ -188,71 +196,70 @@ abstract class _$$_TransactionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TransactionCopyWithImpl<$Res> extends _$TransactionCopyWithImpl<$Res>
+class __$$_TransactionCopyWithImpl<$Res>
+    extends _$TransactionCopyWithImpl<$Res, _$_Transaction>
     implements _$$_TransactionCopyWith<$Res> {
   __$$_TransactionCopyWithImpl(
       _$_Transaction _value, $Res Function(_$_Transaction) _then)
-      : super(_value, (v) => _then(v as _$_Transaction));
+      : super(_value, _then);
 
-  @override
-  _$_Transaction get _value => super._value as _$_Transaction;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? prevTransactionId = freezed,
-    Object? createdAt = freezed,
-    Object? aborted = freezed,
+    Object? createdAt = null,
+    Object? aborted = null,
     Object? exitCode = freezed,
     Object? resultCode = freezed,
-    Object? origStatus = freezed,
-    Object? endStatus = freezed,
-    Object? totalFees = freezed,
-    Object? inMessage = freezed,
-    Object? outMessages = freezed,
+    Object? origStatus = null,
+    Object? endStatus = null,
+    Object? totalFees = null,
+    Object? inMessage = null,
+    Object? outMessages = null,
   }) {
     return _then(_$_Transaction(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as TransactionId,
-      prevTransactionId: prevTransactionId == freezed
+      prevTransactionId: freezed == prevTransactionId
           ? _value.prevTransactionId
           : prevTransactionId // ignore: cast_nullable_to_non_nullable
               as TransactionId?,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as int,
-      aborted: aborted == freezed
+      aborted: null == aborted
           ? _value.aborted
           : aborted // ignore: cast_nullable_to_non_nullable
               as bool,
-      exitCode: exitCode == freezed
+      exitCode: freezed == exitCode
           ? _value.exitCode
           : exitCode // ignore: cast_nullable_to_non_nullable
               as int?,
-      resultCode: resultCode == freezed
+      resultCode: freezed == resultCode
           ? _value.resultCode
           : resultCode // ignore: cast_nullable_to_non_nullable
               as int?,
-      origStatus: origStatus == freezed
+      origStatus: null == origStatus
           ? _value.origStatus
           : origStatus // ignore: cast_nullable_to_non_nullable
               as AccountStatus,
-      endStatus: endStatus == freezed
+      endStatus: null == endStatus
           ? _value.endStatus
           : endStatus // ignore: cast_nullable_to_non_nullable
               as AccountStatus,
-      totalFees: totalFees == freezed
+      totalFees: null == totalFees
           ? _value.totalFees
           : totalFees // ignore: cast_nullable_to_non_nullable
               as String,
-      inMessage: inMessage == freezed
+      inMessage: null == inMessage
           ? _value.inMessage
           : inMessage // ignore: cast_nullable_to_non_nullable
               as Message,
-      outMessages: outMessages == freezed
+      outMessages: null == outMessages
           ? _value._outMessages
           : outMessages // ignore: cast_nullable_to_non_nullable
               as List<Message>,
@@ -306,6 +313,7 @@ class _$_Transaction extends _Transaction {
   final List<Message> _outMessages;
   @override
   List<Message> get outMessages {
+    if (_outMessages is EqualUnmodifiableListView) return _outMessages;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_outMessages);
   }
@@ -320,19 +328,24 @@ class _$_Transaction extends _Transaction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Transaction &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality()
-                .equals(other.prevTransactionId, prevTransactionId) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.aborted, aborted) &&
-            const DeepCollectionEquality().equals(other.exitCode, exitCode) &&
-            const DeepCollectionEquality()
-                .equals(other.resultCode, resultCode) &&
-            const DeepCollectionEquality()
-                .equals(other.origStatus, origStatus) &&
-            const DeepCollectionEquality().equals(other.endStatus, endStatus) &&
-            const DeepCollectionEquality().equals(other.totalFees, totalFees) &&
-            const DeepCollectionEquality().equals(other.inMessage, inMessage) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.prevTransactionId, prevTransactionId) ||
+                other.prevTransactionId == prevTransactionId) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.aborted, aborted) || other.aborted == aborted) &&
+            (identical(other.exitCode, exitCode) ||
+                other.exitCode == exitCode) &&
+            (identical(other.resultCode, resultCode) ||
+                other.resultCode == resultCode) &&
+            (identical(other.origStatus, origStatus) ||
+                other.origStatus == origStatus) &&
+            (identical(other.endStatus, endStatus) ||
+                other.endStatus == endStatus) &&
+            (identical(other.totalFees, totalFees) ||
+                other.totalFees == totalFees) &&
+            (identical(other.inMessage, inMessage) ||
+                other.inMessage == inMessage) &&
             const DeepCollectionEquality()
                 .equals(other._outMessages, _outMessages));
   }
@@ -341,20 +354,21 @@ class _$_Transaction extends _Transaction {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(prevTransactionId),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(aborted),
-      const DeepCollectionEquality().hash(exitCode),
-      const DeepCollectionEquality().hash(resultCode),
-      const DeepCollectionEquality().hash(origStatus),
-      const DeepCollectionEquality().hash(endStatus),
-      const DeepCollectionEquality().hash(totalFees),
-      const DeepCollectionEquality().hash(inMessage),
+      id,
+      prevTransactionId,
+      createdAt,
+      aborted,
+      exitCode,
+      resultCode,
+      origStatus,
+      endStatus,
+      totalFees,
+      inMessage,
       const DeepCollectionEquality().hash(_outMessages));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TransactionCopyWith<_$_Transaction> get copyWith =>
       __$$_TransactionCopyWithImpl<_$_Transaction>(this, _$identity);
 

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'derived_key_update_params.dart';
 
@@ -30,6 +30,7 @@ DerivedKeyUpdateParams _$DerivedKeyUpdateParamsFromJson(
 
 /// @nodoc
 mixin _$DerivedKeyUpdateParams {
+  Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DerivedKeyUpdateParamsRenameKey data) renameKey,
@@ -39,8 +40,9 @@ mixin _$DerivedKeyUpdateParams {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DerivedKeyUpdateParamsRenameKey data)? renameKey,
-    TResult Function(DerivedKeyUpdateParamsChangePassword data)? changePassword,
+    TResult? Function(DerivedKeyUpdateParamsRenameKey data)? renameKey,
+    TResult? Function(DerivedKeyUpdateParamsChangePassword data)?
+        changePassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,8 +60,8 @@ mixin _$DerivedKeyUpdateParams {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_RenameKey value)? renameKey,
-    TResult Function(_ChangePassword value)? changePassword,
+    TResult? Function(_RenameKey value)? renameKey,
+    TResult? Function(_ChangePassword value)? changePassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,17 +78,19 @@ mixin _$DerivedKeyUpdateParams {
 abstract class $DerivedKeyUpdateParamsCopyWith<$Res> {
   factory $DerivedKeyUpdateParamsCopyWith(DerivedKeyUpdateParams value,
           $Res Function(DerivedKeyUpdateParams) then) =
-      _$DerivedKeyUpdateParamsCopyWithImpl<$Res>;
+      _$DerivedKeyUpdateParamsCopyWithImpl<$Res, DerivedKeyUpdateParams>;
 }
 
 /// @nodoc
-class _$DerivedKeyUpdateParamsCopyWithImpl<$Res>
+class _$DerivedKeyUpdateParamsCopyWithImpl<$Res,
+        $Val extends DerivedKeyUpdateParams>
     implements $DerivedKeyUpdateParamsCopyWith<$Res> {
   _$DerivedKeyUpdateParamsCopyWithImpl(this._value, this._then);
 
-  final DerivedKeyUpdateParams _value;
   // ignore: unused_field
-  final $Res Function(DerivedKeyUpdateParams) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -94,6 +98,7 @@ abstract class _$$_RenameKeyCopyWith<$Res> {
   factory _$$_RenameKeyCopyWith(
           _$_RenameKey value, $Res Function(_$_RenameKey) then) =
       __$$_RenameKeyCopyWithImpl<$Res>;
+  @useResult
   $Res call({DerivedKeyUpdateParamsRenameKey data});
 
   $DerivedKeyUpdateParamsRenameKeyCopyWith<$Res> get data;
@@ -101,21 +106,19 @@ abstract class _$$_RenameKeyCopyWith<$Res> {
 
 /// @nodoc
 class __$$_RenameKeyCopyWithImpl<$Res>
-    extends _$DerivedKeyUpdateParamsCopyWithImpl<$Res>
+    extends _$DerivedKeyUpdateParamsCopyWithImpl<$Res, _$_RenameKey>
     implements _$$_RenameKeyCopyWith<$Res> {
   __$$_RenameKeyCopyWithImpl(
       _$_RenameKey _value, $Res Function(_$_RenameKey) _then)
-      : super(_value, (v) => _then(v as _$_RenameKey));
+      : super(_value, _then);
 
-  @override
-  _$_RenameKey get _value => super._value as _$_RenameKey;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_RenameKey(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as DerivedKeyUpdateParamsRenameKey,
@@ -123,6 +126,7 @@ class __$$_RenameKeyCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $DerivedKeyUpdateParamsRenameKeyCopyWith<$Res> get data {
     return $DerivedKeyUpdateParamsRenameKeyCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -155,16 +159,16 @@ class _$_RenameKey implements _RenameKey {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RenameKey &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RenameKeyCopyWith<_$_RenameKey> get copyWith =>
       __$$_RenameKeyCopyWithImpl<_$_RenameKey>(this, _$identity);
 
@@ -181,8 +185,9 @@ class _$_RenameKey implements _RenameKey {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DerivedKeyUpdateParamsRenameKey data)? renameKey,
-    TResult Function(DerivedKeyUpdateParamsChangePassword data)? changePassword,
+    TResult? Function(DerivedKeyUpdateParamsRenameKey data)? renameKey,
+    TResult? Function(DerivedKeyUpdateParamsChangePassword data)?
+        changePassword,
   }) {
     return renameKey?.call(data);
   }
@@ -212,8 +217,8 @@ class _$_RenameKey implements _RenameKey {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_RenameKey value)? renameKey,
-    TResult Function(_ChangePassword value)? changePassword,
+    TResult? Function(_RenameKey value)? renameKey,
+    TResult? Function(_ChangePassword value)? changePassword,
   }) {
     return renameKey?.call(this);
   }
@@ -246,6 +251,7 @@ abstract class _RenameKey implements DerivedKeyUpdateParams {
   factory _RenameKey.fromJson(Map<String, dynamic> json) =
       _$_RenameKey.fromJson;
 
+  @override
   DerivedKeyUpdateParamsRenameKey get data;
   @JsonKey(ignore: true)
   _$$_RenameKeyCopyWith<_$_RenameKey> get copyWith =>
@@ -257,6 +263,7 @@ abstract class _$$_ChangePasswordCopyWith<$Res> {
   factory _$$_ChangePasswordCopyWith(
           _$_ChangePassword value, $Res Function(_$_ChangePassword) then) =
       __$$_ChangePasswordCopyWithImpl<$Res>;
+  @useResult
   $Res call({DerivedKeyUpdateParamsChangePassword data});
 
   $DerivedKeyUpdateParamsChangePasswordCopyWith<$Res> get data;
@@ -264,21 +271,19 @@ abstract class _$$_ChangePasswordCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ChangePasswordCopyWithImpl<$Res>
-    extends _$DerivedKeyUpdateParamsCopyWithImpl<$Res>
+    extends _$DerivedKeyUpdateParamsCopyWithImpl<$Res, _$_ChangePassword>
     implements _$$_ChangePasswordCopyWith<$Res> {
   __$$_ChangePasswordCopyWithImpl(
       _$_ChangePassword _value, $Res Function(_$_ChangePassword) _then)
-      : super(_value, (v) => _then(v as _$_ChangePassword));
+      : super(_value, _then);
 
-  @override
-  _$_ChangePassword get _value => super._value as _$_ChangePassword;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_ChangePassword(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as DerivedKeyUpdateParamsChangePassword,
@@ -286,6 +291,7 @@ class __$$_ChangePasswordCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $DerivedKeyUpdateParamsChangePasswordCopyWith<$Res> get data {
     return $DerivedKeyUpdateParamsChangePasswordCopyWith<$Res>(_value.data,
         (value) {
@@ -319,16 +325,16 @@ class _$_ChangePassword implements _ChangePassword {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ChangePassword &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ChangePasswordCopyWith<_$_ChangePassword> get copyWith =>
       __$$_ChangePasswordCopyWithImpl<_$_ChangePassword>(this, _$identity);
 
@@ -345,8 +351,9 @@ class _$_ChangePassword implements _ChangePassword {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DerivedKeyUpdateParamsRenameKey data)? renameKey,
-    TResult Function(DerivedKeyUpdateParamsChangePassword data)? changePassword,
+    TResult? Function(DerivedKeyUpdateParamsRenameKey data)? renameKey,
+    TResult? Function(DerivedKeyUpdateParamsChangePassword data)?
+        changePassword,
   }) {
     return changePassword?.call(data);
   }
@@ -376,8 +383,8 @@ class _$_ChangePassword implements _ChangePassword {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_RenameKey value)? renameKey,
-    TResult Function(_ChangePassword value)? changePassword,
+    TResult? Function(_RenameKey value)? renameKey,
+    TResult? Function(_ChangePassword value)? changePassword,
   }) {
     return changePassword?.call(this);
   }
@@ -410,6 +417,7 @@ abstract class _ChangePassword implements DerivedKeyUpdateParams {
   factory _ChangePassword.fromJson(Map<String, dynamic> json) =
       _$_ChangePassword.fromJson;
 
+  @override
   DerivedKeyUpdateParamsChangePassword get data;
   @JsonKey(ignore: true)
   _$$_ChangePasswordCopyWith<_$_ChangePassword> get copyWith =>

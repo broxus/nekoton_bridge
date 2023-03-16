@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'derived_key_sign_params_by_public_key.dart';
 
@@ -36,47 +36,53 @@ abstract class $DerivedKeySignParamsByPublicKeyCopyWith<$Res> {
   factory $DerivedKeySignParamsByPublicKeyCopyWith(
           DerivedKeySignParamsByPublicKey value,
           $Res Function(DerivedKeySignParamsByPublicKey) then) =
-      _$DerivedKeySignParamsByPublicKeyCopyWithImpl<$Res>;
+      _$DerivedKeySignParamsByPublicKeyCopyWithImpl<$Res,
+          DerivedKeySignParamsByPublicKey>;
+  @useResult
   $Res call({String masterKey, String publicKey, Password password});
 
   $PasswordCopyWith<$Res> get password;
 }
 
 /// @nodoc
-class _$DerivedKeySignParamsByPublicKeyCopyWithImpl<$Res>
+class _$DerivedKeySignParamsByPublicKeyCopyWithImpl<$Res,
+        $Val extends DerivedKeySignParamsByPublicKey>
     implements $DerivedKeySignParamsByPublicKeyCopyWith<$Res> {
   _$DerivedKeySignParamsByPublicKeyCopyWithImpl(this._value, this._then);
 
-  final DerivedKeySignParamsByPublicKey _value;
   // ignore: unused_field
-  final $Res Function(DerivedKeySignParamsByPublicKey) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? masterKey = freezed,
-    Object? publicKey = freezed,
-    Object? password = freezed,
+    Object? masterKey = null,
+    Object? publicKey = null,
+    Object? password = null,
   }) {
     return _then(_value.copyWith(
-      masterKey: masterKey == freezed
+      masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
               as String,
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
     return $PasswordCopyWith<$Res>(_value.password, (value) {
-      return _then(_value.copyWith(password: value));
+      return _then(_value.copyWith(password: value) as $Val);
     });
   }
 }
@@ -89,6 +95,7 @@ abstract class _$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWith<$Res>
           $Res Function(_$_DerivedKeySignParamsByPublicKeyByPublicKey) then) =
       __$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String masterKey, String publicKey, Password password});
 
   @override
@@ -97,34 +104,31 @@ abstract class _$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWith<$Res>
 
 /// @nodoc
 class __$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWithImpl<$Res>
-    extends _$DerivedKeySignParamsByPublicKeyCopyWithImpl<$Res>
+    extends _$DerivedKeySignParamsByPublicKeyCopyWithImpl<$Res,
+        _$_DerivedKeySignParamsByPublicKeyByPublicKey>
     implements _$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWith<$Res> {
   __$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWithImpl(
       _$_DerivedKeySignParamsByPublicKeyByPublicKey _value,
       $Res Function(_$_DerivedKeySignParamsByPublicKeyByPublicKey) _then)
-      : super(_value,
-            (v) => _then(v as _$_DerivedKeySignParamsByPublicKeyByPublicKey));
+      : super(_value, _then);
 
-  @override
-  _$_DerivedKeySignParamsByPublicKeyByPublicKey get _value =>
-      super._value as _$_DerivedKeySignParamsByPublicKeyByPublicKey;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? masterKey = freezed,
-    Object? publicKey = freezed,
-    Object? password = freezed,
+    Object? masterKey = null,
+    Object? publicKey = null,
+    Object? password = null,
   }) {
     return _then(_$_DerivedKeySignParamsByPublicKeyByPublicKey(
-      masterKey: masterKey == freezed
+      masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
               as String,
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
@@ -163,21 +167,21 @@ class _$_DerivedKeySignParamsByPublicKeyByPublicKey
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DerivedKeySignParamsByPublicKeyByPublicKey &&
-            const DeepCollectionEquality().equals(other.masterKey, masterKey) &&
-            const DeepCollectionEquality().equals(other.publicKey, publicKey) &&
-            const DeepCollectionEquality().equals(other.password, password));
+            (identical(other.masterKey, masterKey) ||
+                other.masterKey == masterKey) &&
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey) &&
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(masterKey),
-      const DeepCollectionEquality().hash(publicKey),
-      const DeepCollectionEquality().hash(password));
+  int get hashCode => Object.hash(runtimeType, masterKey, publicKey, password);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWith<
           _$_DerivedKeySignParamsByPublicKeyByPublicKey>
       get copyWith =>

@@ -13,7 +13,7 @@ _$_Rename _$$_RenameFromJson(Map<String, dynamic> json) => _$_Rename(
     );
 
 Map<String, dynamic> _$$_RenameToJson(_$_Rename instance) => <String, dynamic>{
-      'data': instance.data.toJson(),
+      'data': instance.data,
       'type': instance.$type,
     };
 
@@ -26,6 +26,6 @@ _$_ChangePassword _$$_ChangePasswordFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_ChangePasswordToJson(_$_ChangePassword instance) =>
     <String, dynamic>{
-      'data': instance.data.toJson(),
+      'data': instance.data,
       'type': instance.$type,
     };

@@ -20,5 +20,5 @@ Map<String, dynamic> _$$_SignedDataToJson(_$_SignedData instance) =>
       'dataHash': instance.dataHash,
       'signature': instance.signature,
       'signatureHex': instance.signatureHex,
-      'signatureParts': instance.signatureParts.toJson(),
+      'signatureParts': instance.signatureParts,
     };

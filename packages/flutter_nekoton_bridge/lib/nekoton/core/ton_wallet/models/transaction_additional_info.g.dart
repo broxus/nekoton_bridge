@@ -28,7 +28,7 @@ _$_DePoolOnRoundComplete _$$_DePoolOnRoundCompleteFromJson(
 Map<String, dynamic> _$$_DePoolOnRoundCompleteToJson(
         _$_DePoolOnRoundComplete instance) =>
     <String, dynamic>{
-      'data': instance.data.toJson(),
+      'data': instance.data,
       'type': instance.$type,
     };
 
@@ -43,7 +43,7 @@ _$_DePoolReceiveAnswer _$$_DePoolReceiveAnswerFromJson(
 Map<String, dynamic> _$$_DePoolReceiveAnswerToJson(
         _$_DePoolReceiveAnswer instance) =>
     <String, dynamic>{
-      'data': instance.data.toJson(),
+      'data': instance.data,
       'type': instance.$type,
     };
 
@@ -58,7 +58,7 @@ _$_TokenWalletDeployed _$$_TokenWalletDeployedFromJson(
 Map<String, dynamic> _$$_TokenWalletDeployedToJson(
         _$_TokenWalletDeployed instance) =>
     <String, dynamic>{
-      'data': instance.data.toJson(),
+      'data': instance.data,
       'type': instance.$type,
     };
 
@@ -71,6 +71,6 @@ _$_WalletInteraction _$$_WalletInteractionFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_WalletInteractionToJson(
         _$_WalletInteraction instance) =>
     <String, dynamic>{
-      'data': instance.data.toJson(),
+      'data': instance.data,
       'type': instance.$type,
     };

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'symbol.dart';
 
@@ -33,44 +33,48 @@ mixin _$Symbol {
 /// @nodoc
 abstract class $SymbolCopyWith<$Res> {
   factory $SymbolCopyWith(Symbol value, $Res Function(Symbol) then) =
-      _$SymbolCopyWithImpl<$Res>;
+      _$SymbolCopyWithImpl<$Res, Symbol>;
+  @useResult
   $Res call(
       {String name, String fullName, int decimals, String rootTokenContract});
 }
 
 /// @nodoc
-class _$SymbolCopyWithImpl<$Res> implements $SymbolCopyWith<$Res> {
+class _$SymbolCopyWithImpl<$Res, $Val extends Symbol>
+    implements $SymbolCopyWith<$Res> {
   _$SymbolCopyWithImpl(this._value, this._then);
 
-  final Symbol _value;
   // ignore: unused_field
-  final $Res Function(Symbol) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? fullName = freezed,
-    Object? decimals = freezed,
-    Object? rootTokenContract = freezed,
+    Object? name = null,
+    Object? fullName = null,
+    Object? decimals = null,
+    Object? rootTokenContract = null,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      fullName: fullName == freezed
+      fullName: null == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
               as String,
-      decimals: decimals == freezed
+      decimals: null == decimals
           ? _value.decimals
           : decimals // ignore: cast_nullable_to_non_nullable
               as int,
-      rootTokenContract: rootTokenContract == freezed
+      rootTokenContract: null == rootTokenContract
           ? _value.rootTokenContract
           : rootTokenContract // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -79,40 +83,40 @@ abstract class _$$_SymbolCopyWith<$Res> implements $SymbolCopyWith<$Res> {
   factory _$$_SymbolCopyWith(_$_Symbol value, $Res Function(_$_Symbol) then) =
       __$$_SymbolCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String name, String fullName, int decimals, String rootTokenContract});
 }
 
 /// @nodoc
-class __$$_SymbolCopyWithImpl<$Res> extends _$SymbolCopyWithImpl<$Res>
+class __$$_SymbolCopyWithImpl<$Res>
+    extends _$SymbolCopyWithImpl<$Res, _$_Symbol>
     implements _$$_SymbolCopyWith<$Res> {
   __$$_SymbolCopyWithImpl(_$_Symbol _value, $Res Function(_$_Symbol) _then)
-      : super(_value, (v) => _then(v as _$_Symbol));
+      : super(_value, _then);
 
-  @override
-  _$_Symbol get _value => super._value as _$_Symbol;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? fullName = freezed,
-    Object? decimals = freezed,
-    Object? rootTokenContract = freezed,
+    Object? name = null,
+    Object? fullName = null,
+    Object? decimals = null,
+    Object? rootTokenContract = null,
   }) {
     return _then(_$_Symbol(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      fullName: fullName == freezed
+      fullName: null == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
               as String,
-      decimals: decimals == freezed
+      decimals: null == decimals
           ? _value.decimals
           : decimals // ignore: cast_nullable_to_non_nullable
               as int,
-      rootTokenContract: rootTokenContract == freezed
+      rootTokenContract: null == rootTokenContract
           ? _value.rootTokenContract
           : rootTokenContract // ignore: cast_nullable_to_non_nullable
               as String,
@@ -151,24 +155,23 @@ class _$_Symbol implements _Symbol {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Symbol &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.fullName, fullName) &&
-            const DeepCollectionEquality().equals(other.decimals, decimals) &&
-            const DeepCollectionEquality()
-                .equals(other.rootTokenContract, rootTokenContract));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.fullName, fullName) ||
+                other.fullName == fullName) &&
+            (identical(other.decimals, decimals) ||
+                other.decimals == decimals) &&
+            (identical(other.rootTokenContract, rootTokenContract) ||
+                other.rootTokenContract == rootTokenContract));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(fullName),
-      const DeepCollectionEquality().hash(decimals),
-      const DeepCollectionEquality().hash(rootTokenContract));
+  int get hashCode =>
+      Object.hash(runtimeType, name, fullName, decimals, rootTokenContract);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SymbolCopyWith<_$_Symbol> get copyWith =>
       __$$_SymbolCopyWithImpl<_$_Symbol>(this, _$identity);
 

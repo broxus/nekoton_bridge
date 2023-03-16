@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'transaction_with_data.dart';
 
@@ -28,42 +28,47 @@ mixin _$TransactionWithData<T> {
 abstract class $TransactionWithDataCopyWith<T, $Res> {
   factory $TransactionWithDataCopyWith(TransactionWithData<T> value,
           $Res Function(TransactionWithData<T>) then) =
-      _$TransactionWithDataCopyWithImpl<T, $Res>;
+      _$TransactionWithDataCopyWithImpl<T, $Res, TransactionWithData<T>>;
+  @useResult
   $Res call({Transaction transaction, T? data});
 
   $TransactionCopyWith<$Res> get transaction;
 }
 
 /// @nodoc
-class _$TransactionWithDataCopyWithImpl<T, $Res>
+class _$TransactionWithDataCopyWithImpl<T, $Res,
+        $Val extends TransactionWithData<T>>
     implements $TransactionWithDataCopyWith<T, $Res> {
   _$TransactionWithDataCopyWithImpl(this._value, this._then);
 
-  final TransactionWithData<T> _value;
   // ignore: unused_field
-  final $Res Function(TransactionWithData<T>) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transaction = freezed,
+    Object? transaction = null,
     Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      transaction: transaction == freezed
+      transaction: null == transaction
           ? _value.transaction
           : transaction // ignore: cast_nullable_to_non_nullable
               as Transaction,
-      data: data == freezed
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as T?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TransactionCopyWith<$Res> get transaction {
     return $TransactionCopyWith<$Res>(_value.transaction, (value) {
-      return _then(_value.copyWith(transaction: value));
+      return _then(_value.copyWith(transaction: value) as $Val);
     });
   }
 }
@@ -75,6 +80,7 @@ abstract class _$$_TransactionWithDataCopyWith<T, $Res>
           $Res Function(_$_TransactionWithData<T>) then) =
       __$$_TransactionWithDataCopyWithImpl<T, $Res>;
   @override
+  @useResult
   $Res call({Transaction transaction, T? data});
 
   @override
@@ -83,27 +89,25 @@ abstract class _$$_TransactionWithDataCopyWith<T, $Res>
 
 /// @nodoc
 class __$$_TransactionWithDataCopyWithImpl<T, $Res>
-    extends _$TransactionWithDataCopyWithImpl<T, $Res>
+    extends _$TransactionWithDataCopyWithImpl<T, $Res,
+        _$_TransactionWithData<T>>
     implements _$$_TransactionWithDataCopyWith<T, $Res> {
   __$$_TransactionWithDataCopyWithImpl(_$_TransactionWithData<T> _value,
       $Res Function(_$_TransactionWithData<T>) _then)
-      : super(_value, (v) => _then(v as _$_TransactionWithData<T>));
+      : super(_value, _then);
 
-  @override
-  _$_TransactionWithData<T> get _value =>
-      super._value as _$_TransactionWithData<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transaction = freezed,
+    Object? transaction = null,
     Object? data = freezed,
   }) {
     return _then(_$_TransactionWithData<T>(
-      transaction: transaction == freezed
+      transaction: null == transaction
           ? _value.transaction
           : transaction // ignore: cast_nullable_to_non_nullable
               as Transaction,
-      data: data == freezed
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as T?,
@@ -132,19 +136,18 @@ class _$_TransactionWithData<T> extends _TransactionWithData<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TransactionWithData<T> &&
-            const DeepCollectionEquality()
-                .equals(other.transaction, transaction) &&
+            (identical(other.transaction, transaction) ||
+                other.transaction == transaction) &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(transaction),
-      const DeepCollectionEquality().hash(data));
+      runtimeType, transaction, const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TransactionWithDataCopyWith<T, _$_TransactionWithData<T>> get copyWith =>
       __$$_TransactionWithDataCopyWithImpl<T, _$_TransactionWithData<T>>(
           this, _$identity);

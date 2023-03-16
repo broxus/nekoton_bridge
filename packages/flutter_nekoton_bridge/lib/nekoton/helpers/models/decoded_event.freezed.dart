@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'decoded_event.dart';
 
@@ -33,33 +33,37 @@ mixin _$DecodedEvent {
 abstract class $DecodedEventCopyWith<$Res> {
   factory $DecodedEventCopyWith(
           DecodedEvent value, $Res Function(DecodedEvent) then) =
-      _$DecodedEventCopyWithImpl<$Res>;
+      _$DecodedEventCopyWithImpl<$Res, DecodedEvent>;
+  @useResult
   $Res call({String event, Map<String, dynamic> data});
 }
 
 /// @nodoc
-class _$DecodedEventCopyWithImpl<$Res> implements $DecodedEventCopyWith<$Res> {
+class _$DecodedEventCopyWithImpl<$Res, $Val extends DecodedEvent>
+    implements $DecodedEventCopyWith<$Res> {
   _$DecodedEventCopyWithImpl(this._value, this._then);
 
-  final DecodedEvent _value;
   // ignore: unused_field
-  final $Res Function(DecodedEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
-    Object? data = freezed,
+    Object? event = null,
+    Object? data = null,
   }) {
     return _then(_value.copyWith(
-      event: event == freezed
+      event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as String,
-      data: data == freezed
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -70,31 +74,30 @@ abstract class _$$_DecodedEventCopyWith<$Res>
           _$_DecodedEvent value, $Res Function(_$_DecodedEvent) then) =
       __$$_DecodedEventCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String event, Map<String, dynamic> data});
 }
 
 /// @nodoc
 class __$$_DecodedEventCopyWithImpl<$Res>
-    extends _$DecodedEventCopyWithImpl<$Res>
+    extends _$DecodedEventCopyWithImpl<$Res, _$_DecodedEvent>
     implements _$$_DecodedEventCopyWith<$Res> {
   __$$_DecodedEventCopyWithImpl(
       _$_DecodedEvent _value, $Res Function(_$_DecodedEvent) _then)
-      : super(_value, (v) => _then(v as _$_DecodedEvent));
+      : super(_value, _then);
 
-  @override
-  _$_DecodedEvent get _value => super._value as _$_DecodedEvent;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = freezed,
-    Object? data = freezed,
+    Object? event = null,
+    Object? data = null,
   }) {
     return _then(_$_DecodedEvent(
-      event: event == freezed
+      event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
               as String,
-      data: data == freezed
+      data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
@@ -117,6 +120,7 @@ class _$_DecodedEvent implements _DecodedEvent {
   final Map<String, dynamic> _data;
   @override
   Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_data);
   }
@@ -131,19 +135,18 @@ class _$_DecodedEvent implements _DecodedEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DecodedEvent &&
-            const DeepCollectionEquality().equals(other.event, event) &&
+            (identical(other.event, event) || other.event == event) &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(event),
-      const DeepCollectionEquality().hash(_data));
+      runtimeType, event, const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DecodedEventCopyWith<_$_DecodedEvent> get copyWith =>
       __$$_DecodedEventCopyWithImpl<_$_DecodedEvent>(this, _$identity);
 

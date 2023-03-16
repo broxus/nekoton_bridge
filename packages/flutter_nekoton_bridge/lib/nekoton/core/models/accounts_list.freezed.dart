@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'accounts_list.dart';
 
@@ -34,35 +34,39 @@ mixin _$AccountsList {
 abstract class $AccountsListCopyWith<$Res> {
   factory $AccountsListCopyWith(
           AccountsList value, $Res Function(AccountsList) then) =
-      _$AccountsListCopyWithImpl<$Res>;
+      _$AccountsListCopyWithImpl<$Res, AccountsList>;
+  @useResult
   $Res call(
       {List<String> accounts,
       @JsonKey(includeIfNull: false) String? continuation});
 }
 
 /// @nodoc
-class _$AccountsListCopyWithImpl<$Res> implements $AccountsListCopyWith<$Res> {
+class _$AccountsListCopyWithImpl<$Res, $Val extends AccountsList>
+    implements $AccountsListCopyWith<$Res> {
   _$AccountsListCopyWithImpl(this._value, this._then);
 
-  final AccountsList _value;
   // ignore: unused_field
-  final $Res Function(AccountsList) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? accounts = freezed,
+    Object? accounts = null,
     Object? continuation = freezed,
   }) {
     return _then(_value.copyWith(
-      accounts: accounts == freezed
+      accounts: null == accounts
           ? _value.accounts
           : accounts // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      continuation: continuation == freezed
+      continuation: freezed == continuation
           ? _value.continuation
           : continuation // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -73,6 +77,7 @@ abstract class _$$_AccountsListCopyWith<$Res>
           _$_AccountsList value, $Res Function(_$_AccountsList) then) =
       __$$_AccountsListCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {List<String> accounts,
       @JsonKey(includeIfNull: false) String? continuation});
@@ -80,26 +85,24 @@ abstract class _$$_AccountsListCopyWith<$Res>
 
 /// @nodoc
 class __$$_AccountsListCopyWithImpl<$Res>
-    extends _$AccountsListCopyWithImpl<$Res>
+    extends _$AccountsListCopyWithImpl<$Res, _$_AccountsList>
     implements _$$_AccountsListCopyWith<$Res> {
   __$$_AccountsListCopyWithImpl(
       _$_AccountsList _value, $Res Function(_$_AccountsList) _then)
-      : super(_value, (v) => _then(v as _$_AccountsList));
+      : super(_value, _then);
 
-  @override
-  _$_AccountsList get _value => super._value as _$_AccountsList;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? accounts = freezed,
+    Object? accounts = null,
     Object? continuation = freezed,
   }) {
     return _then(_$_AccountsList(
-      accounts: accounts == freezed
+      accounts: null == accounts
           ? _value._accounts
           : accounts // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      continuation: continuation == freezed
+      continuation: freezed == continuation
           ? _value.continuation
           : continuation // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -121,6 +124,7 @@ class _$_AccountsList implements _AccountsList {
   final List<String> _accounts;
   @override
   List<String> get accounts {
+    if (_accounts is EqualUnmodifiableListView) return _accounts;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_accounts);
   }
@@ -140,19 +144,18 @@ class _$_AccountsList implements _AccountsList {
         (other.runtimeType == runtimeType &&
             other is _$_AccountsList &&
             const DeepCollectionEquality().equals(other._accounts, _accounts) &&
-            const DeepCollectionEquality()
-                .equals(other.continuation, continuation));
+            (identical(other.continuation, continuation) ||
+                other.continuation == continuation));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_accounts),
-      const DeepCollectionEquality().hash(continuation));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_accounts), continuation);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AccountsListCopyWith<_$_AccountsList> get copyWith =>
       __$$_AccountsListCopyWithImpl<_$_AccountsList>(this, _$identity);
 

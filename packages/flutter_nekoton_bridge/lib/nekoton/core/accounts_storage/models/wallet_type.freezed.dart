@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'wallet_type.dart';
 
@@ -43,10 +43,10 @@ mixin _$WalletType {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(MultisigType data)? multisig,
-    TResult Function()? walletV3,
-    TResult Function()? highloadWalletV2,
-    TResult Function()? everWallet,
+    TResult? Function(MultisigType data)? multisig,
+    TResult? Function()? walletV3,
+    TResult? Function()? highloadWalletV2,
+    TResult? Function()? everWallet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,10 +68,10 @@ mixin _$WalletType {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Multisig value)? multisig,
-    TResult Function(_WalletV3 value)? walletV3,
-    TResult Function(_HighloadWalletV2 value)? highloadWalletV2,
-    TResult Function(_WalletTypeEverWallet value)? everWallet,
+    TResult? Function(_Multisig value)? multisig,
+    TResult? Function(_WalletV3 value)? walletV3,
+    TResult? Function(_HighloadWalletV2 value)? highloadWalletV2,
+    TResult? Function(_WalletTypeEverWallet value)? everWallet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,16 +90,18 @@ mixin _$WalletType {
 abstract class $WalletTypeCopyWith<$Res> {
   factory $WalletTypeCopyWith(
           WalletType value, $Res Function(WalletType) then) =
-      _$WalletTypeCopyWithImpl<$Res>;
+      _$WalletTypeCopyWithImpl<$Res, WalletType>;
 }
 
 /// @nodoc
-class _$WalletTypeCopyWithImpl<$Res> implements $WalletTypeCopyWith<$Res> {
+class _$WalletTypeCopyWithImpl<$Res, $Val extends WalletType>
+    implements $WalletTypeCopyWith<$Res> {
   _$WalletTypeCopyWithImpl(this._value, this._then);
 
-  final WalletType _value;
   // ignore: unused_field
-  final $Res Function(WalletType) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -107,25 +109,25 @@ abstract class _$$_MultisigCopyWith<$Res> {
   factory _$$_MultisigCopyWith(
           _$_Multisig value, $Res Function(_$_Multisig) then) =
       __$$_MultisigCopyWithImpl<$Res>;
+  @useResult
   $Res call({MultisigType data});
 }
 
 /// @nodoc
-class __$$_MultisigCopyWithImpl<$Res> extends _$WalletTypeCopyWithImpl<$Res>
+class __$$_MultisigCopyWithImpl<$Res>
+    extends _$WalletTypeCopyWithImpl<$Res, _$_Multisig>
     implements _$$_MultisigCopyWith<$Res> {
   __$$_MultisigCopyWithImpl(
       _$_Multisig _value, $Res Function(_$_Multisig) _then)
-      : super(_value, (v) => _then(v as _$_Multisig));
+      : super(_value, _then);
 
-  @override
-  _$_Multisig get _value => super._value as _$_Multisig;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_Multisig(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as MultisigType,
@@ -158,16 +160,16 @@ class _$_Multisig implements _Multisig {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Multisig &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MultisigCopyWith<_$_Multisig> get copyWith =>
       __$$_MultisigCopyWithImpl<_$_Multisig>(this, _$identity);
 
@@ -185,10 +187,10 @@ class _$_Multisig implements _Multisig {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(MultisigType data)? multisig,
-    TResult Function()? walletV3,
-    TResult Function()? highloadWalletV2,
-    TResult Function()? everWallet,
+    TResult? Function(MultisigType data)? multisig,
+    TResult? Function()? walletV3,
+    TResult? Function()? highloadWalletV2,
+    TResult? Function()? everWallet,
   }) {
     return multisig?.call(data);
   }
@@ -222,10 +224,10 @@ class _$_Multisig implements _Multisig {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Multisig value)? multisig,
-    TResult Function(_WalletV3 value)? walletV3,
-    TResult Function(_HighloadWalletV2 value)? highloadWalletV2,
-    TResult Function(_WalletTypeEverWallet value)? everWallet,
+    TResult? Function(_Multisig value)? multisig,
+    TResult? Function(_WalletV3 value)? walletV3,
+    TResult? Function(_HighloadWalletV2 value)? highloadWalletV2,
+    TResult? Function(_WalletTypeEverWallet value)? everWallet,
   }) {
     return multisig?.call(this);
   }
@@ -272,14 +274,12 @@ abstract class _$$_WalletV3CopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_WalletV3CopyWithImpl<$Res> extends _$WalletTypeCopyWithImpl<$Res>
+class __$$_WalletV3CopyWithImpl<$Res>
+    extends _$WalletTypeCopyWithImpl<$Res, _$_WalletV3>
     implements _$$_WalletV3CopyWith<$Res> {
   __$$_WalletV3CopyWithImpl(
       _$_WalletV3 _value, $Res Function(_$_WalletV3) _then)
-      : super(_value, (v) => _then(v as _$_WalletV3));
-
-  @override
-  _$_WalletV3 get _value => super._value as _$_WalletV3;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -322,10 +322,10 @@ class _$_WalletV3 implements _WalletV3 {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(MultisigType data)? multisig,
-    TResult Function()? walletV3,
-    TResult Function()? highloadWalletV2,
-    TResult Function()? everWallet,
+    TResult? Function(MultisigType data)? multisig,
+    TResult? Function()? walletV3,
+    TResult? Function()? highloadWalletV2,
+    TResult? Function()? everWallet,
   }) {
     return walletV3?.call();
   }
@@ -359,10 +359,10 @@ class _$_WalletV3 implements _WalletV3 {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Multisig value)? multisig,
-    TResult Function(_WalletV3 value)? walletV3,
-    TResult Function(_HighloadWalletV2 value)? highloadWalletV2,
-    TResult Function(_WalletTypeEverWallet value)? everWallet,
+    TResult? Function(_Multisig value)? multisig,
+    TResult? Function(_WalletV3 value)? walletV3,
+    TResult? Function(_HighloadWalletV2 value)? highloadWalletV2,
+    TResult? Function(_WalletTypeEverWallet value)? everWallet,
   }) {
     return walletV3?.call(this);
   }
@@ -405,14 +405,11 @@ abstract class _$$_HighloadWalletV2CopyWith<$Res> {
 
 /// @nodoc
 class __$$_HighloadWalletV2CopyWithImpl<$Res>
-    extends _$WalletTypeCopyWithImpl<$Res>
+    extends _$WalletTypeCopyWithImpl<$Res, _$_HighloadWalletV2>
     implements _$$_HighloadWalletV2CopyWith<$Res> {
   __$$_HighloadWalletV2CopyWithImpl(
       _$_HighloadWalletV2 _value, $Res Function(_$_HighloadWalletV2) _then)
-      : super(_value, (v) => _then(v as _$_HighloadWalletV2));
-
-  @override
-  _$_HighloadWalletV2 get _value => super._value as _$_HighloadWalletV2;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -456,10 +453,10 @@ class _$_HighloadWalletV2 implements _HighloadWalletV2 {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(MultisigType data)? multisig,
-    TResult Function()? walletV3,
-    TResult Function()? highloadWalletV2,
-    TResult Function()? everWallet,
+    TResult? Function(MultisigType data)? multisig,
+    TResult? Function()? walletV3,
+    TResult? Function()? highloadWalletV2,
+    TResult? Function()? everWallet,
   }) {
     return highloadWalletV2?.call();
   }
@@ -493,10 +490,10 @@ class _$_HighloadWalletV2 implements _HighloadWalletV2 {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Multisig value)? multisig,
-    TResult Function(_WalletV3 value)? walletV3,
-    TResult Function(_HighloadWalletV2 value)? highloadWalletV2,
-    TResult Function(_WalletTypeEverWallet value)? everWallet,
+    TResult? Function(_Multisig value)? multisig,
+    TResult? Function(_WalletV3 value)? walletV3,
+    TResult? Function(_HighloadWalletV2 value)? highloadWalletV2,
+    TResult? Function(_WalletTypeEverWallet value)? everWallet,
   }) {
     return highloadWalletV2?.call(this);
   }
@@ -540,14 +537,11 @@ abstract class _$$_WalletTypeEverWalletCopyWith<$Res> {
 
 /// @nodoc
 class __$$_WalletTypeEverWalletCopyWithImpl<$Res>
-    extends _$WalletTypeCopyWithImpl<$Res>
+    extends _$WalletTypeCopyWithImpl<$Res, _$_WalletTypeEverWallet>
     implements _$$_WalletTypeEverWalletCopyWith<$Res> {
   __$$_WalletTypeEverWalletCopyWithImpl(_$_WalletTypeEverWallet _value,
       $Res Function(_$_WalletTypeEverWallet) _then)
-      : super(_value, (v) => _then(v as _$_WalletTypeEverWallet));
-
-  @override
-  _$_WalletTypeEverWallet get _value => super._value as _$_WalletTypeEverWallet;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -591,10 +585,10 @@ class _$_WalletTypeEverWallet implements _WalletTypeEverWallet {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(MultisigType data)? multisig,
-    TResult Function()? walletV3,
-    TResult Function()? highloadWalletV2,
-    TResult Function()? everWallet,
+    TResult? Function(MultisigType data)? multisig,
+    TResult? Function()? walletV3,
+    TResult? Function()? highloadWalletV2,
+    TResult? Function()? everWallet,
   }) {
     return everWallet?.call();
   }
@@ -628,10 +622,10 @@ class _$_WalletTypeEverWallet implements _WalletTypeEverWallet {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Multisig value)? multisig,
-    TResult Function(_WalletV3 value)? walletV3,
-    TResult Function(_HighloadWalletV2 value)? highloadWalletV2,
-    TResult Function(_WalletTypeEverWallet value)? everWallet,
+    TResult? Function(_Multisig value)? multisig,
+    TResult? Function(_WalletV3 value)? walletV3,
+    TResult? Function(_HighloadWalletV2 value)? highloadWalletV2,
+    TResult? Function(_WalletTypeEverWallet value)? everWallet,
   }) {
     return everWallet?.call(this);
   }

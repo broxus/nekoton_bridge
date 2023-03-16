@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ton_wallet_details.dart';
 
@@ -37,7 +37,8 @@ mixin _$TonWalletDetails {
 abstract class $TonWalletDetailsCopyWith<$Res> {
   factory $TonWalletDetailsCopyWith(
           TonWalletDetails value, $Res Function(TonWalletDetails) then) =
-      _$TonWalletDetailsCopyWithImpl<$Res>;
+      _$TonWalletDetailsCopyWithImpl<$Res, TonWalletDetails>;
+  @useResult
   $Res call(
       {bool requiresSeparateDeploy,
       String minAmount,
@@ -48,49 +49,51 @@ abstract class $TonWalletDetailsCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TonWalletDetailsCopyWithImpl<$Res>
+class _$TonWalletDetailsCopyWithImpl<$Res, $Val extends TonWalletDetails>
     implements $TonWalletDetailsCopyWith<$Res> {
   _$TonWalletDetailsCopyWithImpl(this._value, this._then);
 
-  final TonWalletDetails _value;
   // ignore: unused_field
-  final $Res Function(TonWalletDetails) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? requiresSeparateDeploy = freezed,
-    Object? minAmount = freezed,
-    Object? supportsPayload = freezed,
-    Object? supportsMultipleOwners = freezed,
-    Object? expirationTime = freezed,
+    Object? requiresSeparateDeploy = null,
+    Object? minAmount = null,
+    Object? supportsPayload = null,
+    Object? supportsMultipleOwners = null,
+    Object? expirationTime = null,
     Object? requiredConfirmations = freezed,
   }) {
     return _then(_value.copyWith(
-      requiresSeparateDeploy: requiresSeparateDeploy == freezed
+      requiresSeparateDeploy: null == requiresSeparateDeploy
           ? _value.requiresSeparateDeploy
           : requiresSeparateDeploy // ignore: cast_nullable_to_non_nullable
               as bool,
-      minAmount: minAmount == freezed
+      minAmount: null == minAmount
           ? _value.minAmount
           : minAmount // ignore: cast_nullable_to_non_nullable
               as String,
-      supportsPayload: supportsPayload == freezed
+      supportsPayload: null == supportsPayload
           ? _value.supportsPayload
           : supportsPayload // ignore: cast_nullable_to_non_nullable
               as bool,
-      supportsMultipleOwners: supportsMultipleOwners == freezed
+      supportsMultipleOwners: null == supportsMultipleOwners
           ? _value.supportsMultipleOwners
           : supportsMultipleOwners // ignore: cast_nullable_to_non_nullable
               as bool,
-      expirationTime: expirationTime == freezed
+      expirationTime: null == expirationTime
           ? _value.expirationTime
           : expirationTime // ignore: cast_nullable_to_non_nullable
               as int,
-      requiredConfirmations: requiredConfirmations == freezed
+      requiredConfirmations: freezed == requiredConfirmations
           ? _value.requiredConfirmations
           : requiredConfirmations // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -101,6 +104,7 @@ abstract class _$$_TonWalletDetailsCopyWith<$Res>
           _$_TonWalletDetails value, $Res Function(_$_TonWalletDetails) then) =
       __$$_TonWalletDetailsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool requiresSeparateDeploy,
       String minAmount,
@@ -112,46 +116,44 @@ abstract class _$$_TonWalletDetailsCopyWith<$Res>
 
 /// @nodoc
 class __$$_TonWalletDetailsCopyWithImpl<$Res>
-    extends _$TonWalletDetailsCopyWithImpl<$Res>
+    extends _$TonWalletDetailsCopyWithImpl<$Res, _$_TonWalletDetails>
     implements _$$_TonWalletDetailsCopyWith<$Res> {
   __$$_TonWalletDetailsCopyWithImpl(
       _$_TonWalletDetails _value, $Res Function(_$_TonWalletDetails) _then)
-      : super(_value, (v) => _then(v as _$_TonWalletDetails));
+      : super(_value, _then);
 
-  @override
-  _$_TonWalletDetails get _value => super._value as _$_TonWalletDetails;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? requiresSeparateDeploy = freezed,
-    Object? minAmount = freezed,
-    Object? supportsPayload = freezed,
-    Object? supportsMultipleOwners = freezed,
-    Object? expirationTime = freezed,
+    Object? requiresSeparateDeploy = null,
+    Object? minAmount = null,
+    Object? supportsPayload = null,
+    Object? supportsMultipleOwners = null,
+    Object? expirationTime = null,
     Object? requiredConfirmations = freezed,
   }) {
     return _then(_$_TonWalletDetails(
-      requiresSeparateDeploy: requiresSeparateDeploy == freezed
+      requiresSeparateDeploy: null == requiresSeparateDeploy
           ? _value.requiresSeparateDeploy
           : requiresSeparateDeploy // ignore: cast_nullable_to_non_nullable
               as bool,
-      minAmount: minAmount == freezed
+      minAmount: null == minAmount
           ? _value.minAmount
           : minAmount // ignore: cast_nullable_to_non_nullable
               as String,
-      supportsPayload: supportsPayload == freezed
+      supportsPayload: null == supportsPayload
           ? _value.supportsPayload
           : supportsPayload // ignore: cast_nullable_to_non_nullable
               as bool,
-      supportsMultipleOwners: supportsMultipleOwners == freezed
+      supportsMultipleOwners: null == supportsMultipleOwners
           ? _value.supportsMultipleOwners
           : supportsMultipleOwners // ignore: cast_nullable_to_non_nullable
               as bool,
-      expirationTime: expirationTime == freezed
+      expirationTime: null == expirationTime
           ? _value.expirationTime
           : expirationTime // ignore: cast_nullable_to_non_nullable
               as int,
-      requiredConfirmations: requiredConfirmations == freezed
+      requiredConfirmations: freezed == requiredConfirmations
           ? _value.requiredConfirmations
           : requiredConfirmations // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -197,32 +199,34 @@ class _$_TonWalletDetails implements _TonWalletDetails {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TonWalletDetails &&
-            const DeepCollectionEquality()
-                .equals(other.requiresSeparateDeploy, requiresSeparateDeploy) &&
-            const DeepCollectionEquality().equals(other.minAmount, minAmount) &&
-            const DeepCollectionEquality()
-                .equals(other.supportsPayload, supportsPayload) &&
-            const DeepCollectionEquality()
-                .equals(other.supportsMultipleOwners, supportsMultipleOwners) &&
-            const DeepCollectionEquality()
-                .equals(other.expirationTime, expirationTime) &&
-            const DeepCollectionEquality()
-                .equals(other.requiredConfirmations, requiredConfirmations));
+            (identical(other.requiresSeparateDeploy, requiresSeparateDeploy) ||
+                other.requiresSeparateDeploy == requiresSeparateDeploy) &&
+            (identical(other.minAmount, minAmount) ||
+                other.minAmount == minAmount) &&
+            (identical(other.supportsPayload, supportsPayload) ||
+                other.supportsPayload == supportsPayload) &&
+            (identical(other.supportsMultipleOwners, supportsMultipleOwners) ||
+                other.supportsMultipleOwners == supportsMultipleOwners) &&
+            (identical(other.expirationTime, expirationTime) ||
+                other.expirationTime == expirationTime) &&
+            (identical(other.requiredConfirmations, requiredConfirmations) ||
+                other.requiredConfirmations == requiredConfirmations));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(requiresSeparateDeploy),
-      const DeepCollectionEquality().hash(minAmount),
-      const DeepCollectionEquality().hash(supportsPayload),
-      const DeepCollectionEquality().hash(supportsMultipleOwners),
-      const DeepCollectionEquality().hash(expirationTime),
-      const DeepCollectionEquality().hash(requiredConfirmations));
+      requiresSeparateDeploy,
+      minAmount,
+      supportsPayload,
+      supportsMultipleOwners,
+      expirationTime,
+      requiredConfirmations);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TonWalletDetailsCopyWith<_$_TonWalletDetails> get copyWith =>
       __$$_TonWalletDetailsCopyWithImpl<_$_TonWalletDetails>(this, _$identity);
 

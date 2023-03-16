@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'depool_asset.dart';
 
@@ -32,28 +32,32 @@ mixin _$DePoolAsset {
 abstract class $DePoolAssetCopyWith<$Res> {
   factory $DePoolAssetCopyWith(
           DePoolAsset value, $Res Function(DePoolAsset) then) =
-      _$DePoolAssetCopyWithImpl<$Res>;
+      _$DePoolAssetCopyWithImpl<$Res, DePoolAsset>;
+  @useResult
   $Res call({String address});
 }
 
 /// @nodoc
-class _$DePoolAssetCopyWithImpl<$Res> implements $DePoolAssetCopyWith<$Res> {
+class _$DePoolAssetCopyWithImpl<$Res, $Val extends DePoolAsset>
+    implements $DePoolAssetCopyWith<$Res> {
   _$DePoolAssetCopyWithImpl(this._value, this._then);
 
-  final DePoolAsset _value;
   // ignore: unused_field
-  final $Res Function(DePoolAsset) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = freezed,
+    Object? address = null,
   }) {
     return _then(_value.copyWith(
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -64,25 +68,25 @@ abstract class _$$_DePoolAssetCopyWith<$Res>
           _$_DePoolAsset value, $Res Function(_$_DePoolAsset) then) =
       __$$_DePoolAssetCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String address});
 }
 
 /// @nodoc
-class __$$_DePoolAssetCopyWithImpl<$Res> extends _$DePoolAssetCopyWithImpl<$Res>
+class __$$_DePoolAssetCopyWithImpl<$Res>
+    extends _$DePoolAssetCopyWithImpl<$Res, _$_DePoolAsset>
     implements _$$_DePoolAssetCopyWith<$Res> {
   __$$_DePoolAssetCopyWithImpl(
       _$_DePoolAsset _value, $Res Function(_$_DePoolAsset) _then)
-      : super(_value, (v) => _then(v as _$_DePoolAsset));
+      : super(_value, _then);
 
-  @override
-  _$_DePoolAsset get _value => super._value as _$_DePoolAsset;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = freezed,
+    Object? address = null,
   }) {
     return _then(_$_DePoolAsset(
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
@@ -111,16 +115,16 @@ class _$_DePoolAsset implements _DePoolAsset {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DePoolAsset &&
-            const DeepCollectionEquality().equals(other.address, address));
+            (identical(other.address, address) || other.address == address));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(address));
+  int get hashCode => Object.hash(runtimeType, address);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DePoolAssetCopyWith<_$_DePoolAsset> get copyWith =>
       __$$_DePoolAssetCopyWithImpl<_$_DePoolAsset>(this, _$identity);
 

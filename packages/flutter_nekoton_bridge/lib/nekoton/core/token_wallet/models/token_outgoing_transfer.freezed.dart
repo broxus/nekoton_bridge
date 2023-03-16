@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'token_outgoing_transfer.dart';
 
@@ -34,42 +34,47 @@ mixin _$TokenOutgoingTransfer {
 abstract class $TokenOutgoingTransferCopyWith<$Res> {
   factory $TokenOutgoingTransferCopyWith(TokenOutgoingTransfer value,
           $Res Function(TokenOutgoingTransfer) then) =
-      _$TokenOutgoingTransferCopyWithImpl<$Res>;
+      _$TokenOutgoingTransferCopyWithImpl<$Res, TokenOutgoingTransfer>;
+  @useResult
   $Res call({TransferRecipient to, String tokens});
 
   $TransferRecipientCopyWith<$Res> get to;
 }
 
 /// @nodoc
-class _$TokenOutgoingTransferCopyWithImpl<$Res>
+class _$TokenOutgoingTransferCopyWithImpl<$Res,
+        $Val extends TokenOutgoingTransfer>
     implements $TokenOutgoingTransferCopyWith<$Res> {
   _$TokenOutgoingTransferCopyWithImpl(this._value, this._then);
 
-  final TokenOutgoingTransfer _value;
   // ignore: unused_field
-  final $Res Function(TokenOutgoingTransfer) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? to = freezed,
-    Object? tokens = freezed,
+    Object? to = null,
+    Object? tokens = null,
   }) {
     return _then(_value.copyWith(
-      to: to == freezed
+      to: null == to
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
               as TransferRecipient,
-      tokens: tokens == freezed
+      tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TransferRecipientCopyWith<$Res> get to {
     return $TransferRecipientCopyWith<$Res>(_value.to, (value) {
-      return _then(_value.copyWith(to: value));
+      return _then(_value.copyWith(to: value) as $Val);
     });
   }
 }
@@ -81,6 +86,7 @@ abstract class _$$_TokenOutgoingTransferCopyWith<$Res>
           $Res Function(_$_TokenOutgoingTransfer) then) =
       __$$_TokenOutgoingTransferCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({TransferRecipient to, String tokens});
 
   @override
@@ -89,27 +95,24 @@ abstract class _$$_TokenOutgoingTransferCopyWith<$Res>
 
 /// @nodoc
 class __$$_TokenOutgoingTransferCopyWithImpl<$Res>
-    extends _$TokenOutgoingTransferCopyWithImpl<$Res>
+    extends _$TokenOutgoingTransferCopyWithImpl<$Res, _$_TokenOutgoingTransfer>
     implements _$$_TokenOutgoingTransferCopyWith<$Res> {
   __$$_TokenOutgoingTransferCopyWithImpl(_$_TokenOutgoingTransfer _value,
       $Res Function(_$_TokenOutgoingTransfer) _then)
-      : super(_value, (v) => _then(v as _$_TokenOutgoingTransfer));
+      : super(_value, _then);
 
-  @override
-  _$_TokenOutgoingTransfer get _value =>
-      super._value as _$_TokenOutgoingTransfer;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? to = freezed,
-    Object? tokens = freezed,
+    Object? to = null,
+    Object? tokens = null,
   }) {
     return _then(_$_TokenOutgoingTransfer(
-      to: to == freezed
+      to: null == to
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
               as TransferRecipient,
-      tokens: tokens == freezed
+      tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
               as String,
@@ -140,19 +143,17 @@ class _$_TokenOutgoingTransfer implements _TokenOutgoingTransfer {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TokenOutgoingTransfer &&
-            const DeepCollectionEquality().equals(other.to, to) &&
-            const DeepCollectionEquality().equals(other.tokens, tokens));
+            (identical(other.to, to) || other.to == to) &&
+            (identical(other.tokens, tokens) || other.tokens == tokens));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(to),
-      const DeepCollectionEquality().hash(tokens));
+  int get hashCode => Object.hash(runtimeType, to, tokens);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TokenOutgoingTransferCopyWith<_$_TokenOutgoingTransfer> get copyWith =>
       __$$_TokenOutgoingTransferCopyWithImpl<_$_TokenOutgoingTransfer>(
           this, _$identity);

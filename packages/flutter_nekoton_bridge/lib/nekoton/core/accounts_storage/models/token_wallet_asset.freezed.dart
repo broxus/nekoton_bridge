@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'token_wallet_asset.dart';
 
@@ -32,29 +32,32 @@ mixin _$TokenWalletAsset {
 abstract class $TokenWalletAssetCopyWith<$Res> {
   factory $TokenWalletAssetCopyWith(
           TokenWalletAsset value, $Res Function(TokenWalletAsset) then) =
-      _$TokenWalletAssetCopyWithImpl<$Res>;
+      _$TokenWalletAssetCopyWithImpl<$Res, TokenWalletAsset>;
+  @useResult
   $Res call({String rootTokenContract});
 }
 
 /// @nodoc
-class _$TokenWalletAssetCopyWithImpl<$Res>
+class _$TokenWalletAssetCopyWithImpl<$Res, $Val extends TokenWalletAsset>
     implements $TokenWalletAssetCopyWith<$Res> {
   _$TokenWalletAssetCopyWithImpl(this._value, this._then);
 
-  final TokenWalletAsset _value;
   // ignore: unused_field
-  final $Res Function(TokenWalletAsset) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rootTokenContract = freezed,
+    Object? rootTokenContract = null,
   }) {
     return _then(_value.copyWith(
-      rootTokenContract: rootTokenContract == freezed
+      rootTokenContract: null == rootTokenContract
           ? _value.rootTokenContract
           : rootTokenContract // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -65,26 +68,25 @@ abstract class _$$_TokenWalletAssetCopyWith<$Res>
           _$_TokenWalletAsset value, $Res Function(_$_TokenWalletAsset) then) =
       __$$_TokenWalletAssetCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String rootTokenContract});
 }
 
 /// @nodoc
 class __$$_TokenWalletAssetCopyWithImpl<$Res>
-    extends _$TokenWalletAssetCopyWithImpl<$Res>
+    extends _$TokenWalletAssetCopyWithImpl<$Res, _$_TokenWalletAsset>
     implements _$$_TokenWalletAssetCopyWith<$Res> {
   __$$_TokenWalletAssetCopyWithImpl(
       _$_TokenWalletAsset _value, $Res Function(_$_TokenWalletAsset) _then)
-      : super(_value, (v) => _then(v as _$_TokenWalletAsset));
+      : super(_value, _then);
 
-  @override
-  _$_TokenWalletAsset get _value => super._value as _$_TokenWalletAsset;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rootTokenContract = freezed,
+    Object? rootTokenContract = null,
   }) {
     return _then(_$_TokenWalletAsset(
-      rootTokenContract: rootTokenContract == freezed
+      rootTokenContract: null == rootTokenContract
           ? _value.rootTokenContract
           : rootTokenContract // ignore: cast_nullable_to_non_nullable
               as String,
@@ -114,17 +116,17 @@ class _$_TokenWalletAsset implements _TokenWalletAsset {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TokenWalletAsset &&
-            const DeepCollectionEquality()
-                .equals(other.rootTokenContract, rootTokenContract));
+            (identical(other.rootTokenContract, rootTokenContract) ||
+                other.rootTokenContract == rootTokenContract));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(rootTokenContract));
+  int get hashCode => Object.hash(runtimeType, rootTokenContract);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TokenWalletAssetCopyWith<_$_TokenWalletAsset> get copyWith =>
       __$$_TokenWalletAssetCopyWithImpl<_$_TokenWalletAsset>(this, _$identity);
 

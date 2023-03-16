@@ -9,10 +9,10 @@ part 'encrypted_key_export_output.g.dart';
 class EncryptedKeyExportOutput
     with _$EncryptedKeyExportOutput
     implements ExportKeyOutput {
-  const factory EncryptedKeyExportOutput({
-    required String phrase,
-    required MnemonicType mnemonicType,
-  }) = _EncryptedKeyExportOutput;
+  const factory EncryptedKeyExportOutput(
+    String phrase,
+    @MnemonicTypeJsonConverter() MnemonicType mnemonicType,
+  ) = _EncryptedKeyExportOutput;
 
   factory EncryptedKeyExportOutput.fromJson(Map<String, dynamic> json) =>
       _$EncryptedKeyExportOutputFromJson(json);

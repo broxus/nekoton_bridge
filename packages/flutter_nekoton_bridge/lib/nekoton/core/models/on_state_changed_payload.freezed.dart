@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'on_state_changed_payload.dart';
 
@@ -33,37 +33,42 @@ mixin _$OnStateChangedPayload {
 abstract class $OnStateChangedPayloadCopyWith<$Res> {
   factory $OnStateChangedPayloadCopyWith(OnStateChangedPayload value,
           $Res Function(OnStateChangedPayload) then) =
-      _$OnStateChangedPayloadCopyWithImpl<$Res>;
+      _$OnStateChangedPayloadCopyWithImpl<$Res, OnStateChangedPayload>;
+  @useResult
   $Res call({ContractState newState});
 
   $ContractStateCopyWith<$Res> get newState;
 }
 
 /// @nodoc
-class _$OnStateChangedPayloadCopyWithImpl<$Res>
+class _$OnStateChangedPayloadCopyWithImpl<$Res,
+        $Val extends OnStateChangedPayload>
     implements $OnStateChangedPayloadCopyWith<$Res> {
   _$OnStateChangedPayloadCopyWithImpl(this._value, this._then);
 
-  final OnStateChangedPayload _value;
   // ignore: unused_field
-  final $Res Function(OnStateChangedPayload) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? newState = freezed,
+    Object? newState = null,
   }) {
     return _then(_value.copyWith(
-      newState: newState == freezed
+      newState: null == newState
           ? _value.newState
           : newState // ignore: cast_nullable_to_non_nullable
               as ContractState,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ContractStateCopyWith<$Res> get newState {
     return $ContractStateCopyWith<$Res>(_value.newState, (value) {
-      return _then(_value.copyWith(newState: value));
+      return _then(_value.copyWith(newState: value) as $Val);
     });
   }
 }
@@ -75,6 +80,7 @@ abstract class _$$_OnStateChangedPayloadCopyWith<$Res>
           $Res Function(_$_OnStateChangedPayload) then) =
       __$$_OnStateChangedPayloadCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({ContractState newState});
 
   @override
@@ -83,22 +89,19 @@ abstract class _$$_OnStateChangedPayloadCopyWith<$Res>
 
 /// @nodoc
 class __$$_OnStateChangedPayloadCopyWithImpl<$Res>
-    extends _$OnStateChangedPayloadCopyWithImpl<$Res>
+    extends _$OnStateChangedPayloadCopyWithImpl<$Res, _$_OnStateChangedPayload>
     implements _$$_OnStateChangedPayloadCopyWith<$Res> {
   __$$_OnStateChangedPayloadCopyWithImpl(_$_OnStateChangedPayload _value,
       $Res Function(_$_OnStateChangedPayload) _then)
-      : super(_value, (v) => _then(v as _$_OnStateChangedPayload));
+      : super(_value, _then);
 
-  @override
-  _$_OnStateChangedPayload get _value =>
-      super._value as _$_OnStateChangedPayload;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? newState = freezed,
+    Object? newState = null,
   }) {
     return _then(_$_OnStateChangedPayload(
-      newState: newState == freezed
+      newState: null == newState
           ? _value.newState
           : newState // ignore: cast_nullable_to_non_nullable
               as ContractState,
@@ -128,16 +131,17 @@ class _$_OnStateChangedPayload implements _OnStateChangedPayload {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OnStateChangedPayload &&
-            const DeepCollectionEquality().equals(other.newState, newState));
+            (identical(other.newState, newState) ||
+                other.newState == newState));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(newState));
+  int get hashCode => Object.hash(runtimeType, newState);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_OnStateChangedPayloadCopyWith<_$_OnStateChangedPayload> get copyWith =>
       __$$_OnStateChangedPayloadCopyWithImpl<_$_OnStateChangedPayload>(
           this, _$identity);

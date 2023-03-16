@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'signed_data.dart';
 
@@ -35,7 +35,8 @@ mixin _$SignedData {
 abstract class $SignedDataCopyWith<$Res> {
   factory $SignedDataCopyWith(
           SignedData value, $Res Function(SignedData) then) =
-      _$SignedDataCopyWithImpl<$Res>;
+      _$SignedDataCopyWithImpl<$Res, SignedData>;
+  @useResult
   $Res call(
       {String dataHash,
       String signature,
@@ -46,44 +47,48 @@ abstract class $SignedDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SignedDataCopyWithImpl<$Res> implements $SignedDataCopyWith<$Res> {
+class _$SignedDataCopyWithImpl<$Res, $Val extends SignedData>
+    implements $SignedDataCopyWith<$Res> {
   _$SignedDataCopyWithImpl(this._value, this._then);
 
-  final SignedData _value;
   // ignore: unused_field
-  final $Res Function(SignedData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dataHash = freezed,
-    Object? signature = freezed,
-    Object? signatureHex = freezed,
-    Object? signatureParts = freezed,
+    Object? dataHash = null,
+    Object? signature = null,
+    Object? signatureHex = null,
+    Object? signatureParts = null,
   }) {
     return _then(_value.copyWith(
-      dataHash: dataHash == freezed
+      dataHash: null == dataHash
           ? _value.dataHash
           : dataHash // ignore: cast_nullable_to_non_nullable
               as String,
-      signature: signature == freezed
+      signature: null == signature
           ? _value.signature
           : signature // ignore: cast_nullable_to_non_nullable
               as String,
-      signatureHex: signatureHex == freezed
+      signatureHex: null == signatureHex
           ? _value.signatureHex
           : signatureHex // ignore: cast_nullable_to_non_nullable
               as String,
-      signatureParts: signatureParts == freezed
+      signatureParts: null == signatureParts
           ? _value.signatureParts
           : signatureParts // ignore: cast_nullable_to_non_nullable
               as SignatureParts,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $SignaturePartsCopyWith<$Res> get signatureParts {
     return $SignaturePartsCopyWith<$Res>(_value.signatureParts, (value) {
-      return _then(_value.copyWith(signatureParts: value));
+      return _then(_value.copyWith(signatureParts: value) as $Val);
     });
   }
 }
@@ -95,6 +100,7 @@ abstract class _$$_SignedDataCopyWith<$Res>
           _$_SignedData value, $Res Function(_$_SignedData) then) =
       __$$_SignedDataCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String dataHash,
       String signature,
@@ -106,36 +112,35 @@ abstract class _$$_SignedDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SignedDataCopyWithImpl<$Res> extends _$SignedDataCopyWithImpl<$Res>
+class __$$_SignedDataCopyWithImpl<$Res>
+    extends _$SignedDataCopyWithImpl<$Res, _$_SignedData>
     implements _$$_SignedDataCopyWith<$Res> {
   __$$_SignedDataCopyWithImpl(
       _$_SignedData _value, $Res Function(_$_SignedData) _then)
-      : super(_value, (v) => _then(v as _$_SignedData));
+      : super(_value, _then);
 
-  @override
-  _$_SignedData get _value => super._value as _$_SignedData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dataHash = freezed,
-    Object? signature = freezed,
-    Object? signatureHex = freezed,
-    Object? signatureParts = freezed,
+    Object? dataHash = null,
+    Object? signature = null,
+    Object? signatureHex = null,
+    Object? signatureParts = null,
   }) {
     return _then(_$_SignedData(
-      dataHash: dataHash == freezed
+      dataHash: null == dataHash
           ? _value.dataHash
           : dataHash // ignore: cast_nullable_to_non_nullable
               as String,
-      signature: signature == freezed
+      signature: null == signature
           ? _value.signature
           : signature // ignore: cast_nullable_to_non_nullable
               as String,
-      signatureHex: signatureHex == freezed
+      signatureHex: null == signatureHex
           ? _value.signatureHex
           : signatureHex // ignore: cast_nullable_to_non_nullable
               as String,
-      signatureParts: signatureParts == freezed
+      signatureParts: null == signatureParts
           ? _value.signatureParts
           : signatureParts // ignore: cast_nullable_to_non_nullable
               as SignatureParts,
@@ -174,25 +179,24 @@ class _$_SignedData implements _SignedData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SignedData &&
-            const DeepCollectionEquality().equals(other.dataHash, dataHash) &&
-            const DeepCollectionEquality().equals(other.signature, signature) &&
-            const DeepCollectionEquality()
-                .equals(other.signatureHex, signatureHex) &&
-            const DeepCollectionEquality()
-                .equals(other.signatureParts, signatureParts));
+            (identical(other.dataHash, dataHash) ||
+                other.dataHash == dataHash) &&
+            (identical(other.signature, signature) ||
+                other.signature == signature) &&
+            (identical(other.signatureHex, signatureHex) ||
+                other.signatureHex == signatureHex) &&
+            (identical(other.signatureParts, signatureParts) ||
+                other.signatureParts == signatureParts));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(dataHash),
-      const DeepCollectionEquality().hash(signature),
-      const DeepCollectionEquality().hash(signatureHex),
-      const DeepCollectionEquality().hash(signatureParts));
+      runtimeType, dataHash, signature, signatureHex, signatureParts);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SignedDataCopyWith<_$_SignedData> get copyWith =>
       __$$_SignedDataCopyWithImpl<_$_SignedData>(this, _$identity);
 

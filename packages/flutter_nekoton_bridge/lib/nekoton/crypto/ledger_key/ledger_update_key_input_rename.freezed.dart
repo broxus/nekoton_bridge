@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ledger_update_key_input_rename.dart';
 
@@ -34,34 +34,39 @@ mixin _$LedgerUpdateKeyInputRename {
 abstract class $LedgerUpdateKeyInputRenameCopyWith<$Res> {
   factory $LedgerUpdateKeyInputRenameCopyWith(LedgerUpdateKeyInputRename value,
           $Res Function(LedgerUpdateKeyInputRename) then) =
-      _$LedgerUpdateKeyInputRenameCopyWithImpl<$Res>;
+      _$LedgerUpdateKeyInputRenameCopyWithImpl<$Res,
+          LedgerUpdateKeyInputRename>;
+  @useResult
   $Res call({String publicKey, String name});
 }
 
 /// @nodoc
-class _$LedgerUpdateKeyInputRenameCopyWithImpl<$Res>
+class _$LedgerUpdateKeyInputRenameCopyWithImpl<$Res,
+        $Val extends LedgerUpdateKeyInputRename>
     implements $LedgerUpdateKeyInputRenameCopyWith<$Res> {
   _$LedgerUpdateKeyInputRenameCopyWithImpl(this._value, this._then);
 
-  final LedgerUpdateKeyInputRename _value;
   // ignore: unused_field
-  final $Res Function(LedgerUpdateKeyInputRename) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? publicKey = freezed,
-    Object? name = freezed,
+    Object? publicKey = null,
+    Object? name = null,
   }) {
     return _then(_value.copyWith(
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -73,33 +78,32 @@ abstract class _$$_LedgerUpdateKeyInputRenameRenameCopyWith<$Res>
           $Res Function(_$_LedgerUpdateKeyInputRenameRename) then) =
       __$$_LedgerUpdateKeyInputRenameRenameCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String publicKey, String name});
 }
 
 /// @nodoc
 class __$$_LedgerUpdateKeyInputRenameRenameCopyWithImpl<$Res>
-    extends _$LedgerUpdateKeyInputRenameCopyWithImpl<$Res>
+    extends _$LedgerUpdateKeyInputRenameCopyWithImpl<$Res,
+        _$_LedgerUpdateKeyInputRenameRename>
     implements _$$_LedgerUpdateKeyInputRenameRenameCopyWith<$Res> {
   __$$_LedgerUpdateKeyInputRenameRenameCopyWithImpl(
       _$_LedgerUpdateKeyInputRenameRename _value,
       $Res Function(_$_LedgerUpdateKeyInputRenameRename) _then)
-      : super(_value, (v) => _then(v as _$_LedgerUpdateKeyInputRenameRename));
+      : super(_value, _then);
 
-  @override
-  _$_LedgerUpdateKeyInputRenameRename get _value =>
-      super._value as _$_LedgerUpdateKeyInputRenameRename;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? publicKey = freezed,
-    Object? name = freezed,
+    Object? publicKey = null,
+    Object? name = null,
   }) {
     return _then(_$_LedgerUpdateKeyInputRenameRename(
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -134,19 +138,18 @@ class _$_LedgerUpdateKeyInputRenameRename
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LedgerUpdateKeyInputRenameRename &&
-            const DeepCollectionEquality().equals(other.publicKey, publicKey) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(publicKey),
-      const DeepCollectionEquality().hash(name));
+  int get hashCode => Object.hash(runtimeType, publicKey, name);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LedgerUpdateKeyInputRenameRenameCopyWith<
           _$_LedgerUpdateKeyInputRenameRename>
       get copyWith => __$$_LedgerUpdateKeyInputRenameRenameCopyWithImpl<

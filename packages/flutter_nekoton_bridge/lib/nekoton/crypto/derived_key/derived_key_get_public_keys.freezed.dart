@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'derived_key_get_public_keys.dart';
 
@@ -36,52 +36,57 @@ mixin _$DerivedKeyGetPublicKeys {
 abstract class $DerivedKeyGetPublicKeysCopyWith<$Res> {
   factory $DerivedKeyGetPublicKeysCopyWith(DerivedKeyGetPublicKeys value,
           $Res Function(DerivedKeyGetPublicKeys) then) =
-      _$DerivedKeyGetPublicKeysCopyWithImpl<$Res>;
+      _$DerivedKeyGetPublicKeysCopyWithImpl<$Res, DerivedKeyGetPublicKeys>;
+  @useResult
   $Res call({String masterKey, Password password, int limit, int offset});
 
   $PasswordCopyWith<$Res> get password;
 }
 
 /// @nodoc
-class _$DerivedKeyGetPublicKeysCopyWithImpl<$Res>
+class _$DerivedKeyGetPublicKeysCopyWithImpl<$Res,
+        $Val extends DerivedKeyGetPublicKeys>
     implements $DerivedKeyGetPublicKeysCopyWith<$Res> {
   _$DerivedKeyGetPublicKeysCopyWithImpl(this._value, this._then);
 
-  final DerivedKeyGetPublicKeys _value;
   // ignore: unused_field
-  final $Res Function(DerivedKeyGetPublicKeys) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? masterKey = freezed,
-    Object? password = freezed,
-    Object? limit = freezed,
-    Object? offset = freezed,
+    Object? masterKey = null,
+    Object? password = null,
+    Object? limit = null,
+    Object? offset = null,
   }) {
     return _then(_value.copyWith(
-      masterKey: masterKey == freezed
+      masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      limit: limit == freezed
+      limit: null == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
               as int,
-      offset: offset == freezed
+      offset: null == offset
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
     return $PasswordCopyWith<$Res>(_value.password, (value) {
-      return _then(_value.copyWith(password: value));
+      return _then(_value.copyWith(password: value) as $Val);
     });
   }
 }
@@ -94,6 +99,7 @@ abstract class _$$_DerivedKeyGetPublicKeysRenameCopyWith<$Res>
           $Res Function(_$_DerivedKeyGetPublicKeysRename) then) =
       __$$_DerivedKeyGetPublicKeysRenameCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String masterKey, Password password, int limit, int offset});
 
   @override
@@ -102,38 +108,36 @@ abstract class _$$_DerivedKeyGetPublicKeysRenameCopyWith<$Res>
 
 /// @nodoc
 class __$$_DerivedKeyGetPublicKeysRenameCopyWithImpl<$Res>
-    extends _$DerivedKeyGetPublicKeysCopyWithImpl<$Res>
+    extends _$DerivedKeyGetPublicKeysCopyWithImpl<$Res,
+        _$_DerivedKeyGetPublicKeysRename>
     implements _$$_DerivedKeyGetPublicKeysRenameCopyWith<$Res> {
   __$$_DerivedKeyGetPublicKeysRenameCopyWithImpl(
       _$_DerivedKeyGetPublicKeysRename _value,
       $Res Function(_$_DerivedKeyGetPublicKeysRename) _then)
-      : super(_value, (v) => _then(v as _$_DerivedKeyGetPublicKeysRename));
+      : super(_value, _then);
 
-  @override
-  _$_DerivedKeyGetPublicKeysRename get _value =>
-      super._value as _$_DerivedKeyGetPublicKeysRename;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? masterKey = freezed,
-    Object? password = freezed,
-    Object? limit = freezed,
-    Object? offset = freezed,
+    Object? masterKey = null,
+    Object? password = null,
+    Object? limit = null,
+    Object? offset = null,
   }) {
     return _then(_$_DerivedKeyGetPublicKeysRename(
-      masterKey: masterKey == freezed
+      masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      limit: limit == freezed
+      limit: null == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
               as int,
-      offset: offset == freezed
+      offset: null == offset
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
               as int,
@@ -175,23 +179,22 @@ class _$_DerivedKeyGetPublicKeysRename
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DerivedKeyGetPublicKeysRename &&
-            const DeepCollectionEquality().equals(other.masterKey, masterKey) &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality().equals(other.limit, limit) &&
-            const DeepCollectionEquality().equals(other.offset, offset));
+            (identical(other.masterKey, masterKey) ||
+                other.masterKey == masterKey) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.limit, limit) || other.limit == limit) &&
+            (identical(other.offset, offset) || other.offset == offset));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(masterKey),
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(limit),
-      const DeepCollectionEquality().hash(offset));
+  int get hashCode =>
+      Object.hash(runtimeType, masterKey, password, limit, offset);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DerivedKeyGetPublicKeysRenameCopyWith<_$_DerivedKeyGetPublicKeysRename>
       get copyWith => __$$_DerivedKeyGetPublicKeysRenameCopyWithImpl<
           _$_DerivedKeyGetPublicKeysRename>(this, _$identity);

@@ -14,7 +14,7 @@ _$_IncomingTransfer _$$_IncomingTransferFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_IncomingTransferToJson(_$_IncomingTransfer instance) =>
     <String, dynamic>{
-      'data': instance.data.toJson(),
+      'data': instance.data,
       'type': instance.$type,
     };
 
@@ -26,7 +26,7 @@ _$_OutgoingTransfer _$$_OutgoingTransferFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_OutgoingTransferToJson(_$_OutgoingTransfer instance) =>
     <String, dynamic>{
-      'data': instance.data.toJson(),
+      'data': instance.data,
       'type': instance.$type,
     };
 
@@ -37,7 +37,7 @@ _$_SwapBack _$$_SwapBackFromJson(Map<String, dynamic> json) => _$_SwapBack(
 
 Map<String, dynamic> _$$_SwapBackToJson(_$_SwapBack instance) =>
     <String, dynamic>{
-      'data': instance.data.toJson(),
+      'data': instance.data,
       'type': instance.$type,
     };
 

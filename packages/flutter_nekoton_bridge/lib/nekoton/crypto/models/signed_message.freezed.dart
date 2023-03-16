@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'signed_message.dart';
 
@@ -34,39 +34,42 @@ mixin _$SignedMessage {
 abstract class $SignedMessageCopyWith<$Res> {
   factory $SignedMessageCopyWith(
           SignedMessage value, $Res Function(SignedMessage) then) =
-      _$SignedMessageCopyWithImpl<$Res>;
+      _$SignedMessageCopyWithImpl<$Res, SignedMessage>;
+  @useResult
   $Res call({String hash, int expireAt, String boc});
 }
 
 /// @nodoc
-class _$SignedMessageCopyWithImpl<$Res>
+class _$SignedMessageCopyWithImpl<$Res, $Val extends SignedMessage>
     implements $SignedMessageCopyWith<$Res> {
   _$SignedMessageCopyWithImpl(this._value, this._then);
 
-  final SignedMessage _value;
   // ignore: unused_field
-  final $Res Function(SignedMessage) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? hash = freezed,
-    Object? expireAt = freezed,
-    Object? boc = freezed,
+    Object? hash = null,
+    Object? expireAt = null,
+    Object? boc = null,
   }) {
     return _then(_value.copyWith(
-      hash: hash == freezed
+      hash: null == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as String,
-      expireAt: expireAt == freezed
+      expireAt: null == expireAt
           ? _value.expireAt
           : expireAt // ignore: cast_nullable_to_non_nullable
               as int,
-      boc: boc == freezed
+      boc: null == boc
           ? _value.boc
           : boc // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -77,36 +80,35 @@ abstract class _$$_SignedMessageCopyWith<$Res>
           _$_SignedMessage value, $Res Function(_$_SignedMessage) then) =
       __$$_SignedMessageCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String hash, int expireAt, String boc});
 }
 
 /// @nodoc
 class __$$_SignedMessageCopyWithImpl<$Res>
-    extends _$SignedMessageCopyWithImpl<$Res>
+    extends _$SignedMessageCopyWithImpl<$Res, _$_SignedMessage>
     implements _$$_SignedMessageCopyWith<$Res> {
   __$$_SignedMessageCopyWithImpl(
       _$_SignedMessage _value, $Res Function(_$_SignedMessage) _then)
-      : super(_value, (v) => _then(v as _$_SignedMessage));
+      : super(_value, _then);
 
-  @override
-  _$_SignedMessage get _value => super._value as _$_SignedMessage;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? hash = freezed,
-    Object? expireAt = freezed,
-    Object? boc = freezed,
+    Object? hash = null,
+    Object? expireAt = null,
+    Object? boc = null,
   }) {
     return _then(_$_SignedMessage(
-      hash: hash == freezed
+      hash: null == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as String,
-      expireAt: expireAt == freezed
+      expireAt: null == expireAt
           ? _value.expireAt
           : expireAt // ignore: cast_nullable_to_non_nullable
               as int,
-      boc: boc == freezed
+      boc: null == boc
           ? _value.boc
           : boc // ignore: cast_nullable_to_non_nullable
               as String,
@@ -140,21 +142,19 @@ class _$_SignedMessage implements _SignedMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SignedMessage &&
-            const DeepCollectionEquality().equals(other.hash, hash) &&
-            const DeepCollectionEquality().equals(other.expireAt, expireAt) &&
-            const DeepCollectionEquality().equals(other.boc, boc));
+            (identical(other.hash, hash) || other.hash == hash) &&
+            (identical(other.expireAt, expireAt) ||
+                other.expireAt == expireAt) &&
+            (identical(other.boc, boc) || other.boc == boc));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(hash),
-      const DeepCollectionEquality().hash(expireAt),
-      const DeepCollectionEquality().hash(boc));
+  int get hashCode => Object.hash(runtimeType, hash, expireAt, boc);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SignedMessageCopyWith<_$_SignedMessage> get copyWith =>
       __$$_SignedMessageCopyWithImpl<_$_SignedMessage>(this, _$identity);
 

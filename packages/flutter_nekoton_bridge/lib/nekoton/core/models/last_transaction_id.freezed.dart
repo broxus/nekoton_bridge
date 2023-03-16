@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'last_transaction_id.dart';
 
@@ -35,40 +35,43 @@ mixin _$LastTransactionId {
 abstract class $LastTransactionIdCopyWith<$Res> {
   factory $LastTransactionIdCopyWith(
           LastTransactionId value, $Res Function(LastTransactionId) then) =
-      _$LastTransactionIdCopyWithImpl<$Res>;
+      _$LastTransactionIdCopyWithImpl<$Res, LastTransactionId>;
+  @useResult
   $Res call(
       {bool isExact, String lt, @JsonKey(includeIfNull: false) String? hash});
 }
 
 /// @nodoc
-class _$LastTransactionIdCopyWithImpl<$Res>
+class _$LastTransactionIdCopyWithImpl<$Res, $Val extends LastTransactionId>
     implements $LastTransactionIdCopyWith<$Res> {
   _$LastTransactionIdCopyWithImpl(this._value, this._then);
 
-  final LastTransactionId _value;
   // ignore: unused_field
-  final $Res Function(LastTransactionId) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isExact = freezed,
-    Object? lt = freezed,
+    Object? isExact = null,
+    Object? lt = null,
     Object? hash = freezed,
   }) {
     return _then(_value.copyWith(
-      isExact: isExact == freezed
+      isExact: null == isExact
           ? _value.isExact
           : isExact // ignore: cast_nullable_to_non_nullable
               as bool,
-      lt: lt == freezed
+      lt: null == lt
           ? _value.lt
           : lt // ignore: cast_nullable_to_non_nullable
               as String,
-      hash: hash == freezed
+      hash: freezed == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -79,37 +82,36 @@ abstract class _$$_LastTransactionIdCopyWith<$Res>
           $Res Function(_$_LastTransactionId) then) =
       __$$_LastTransactionIdCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool isExact, String lt, @JsonKey(includeIfNull: false) String? hash});
 }
 
 /// @nodoc
 class __$$_LastTransactionIdCopyWithImpl<$Res>
-    extends _$LastTransactionIdCopyWithImpl<$Res>
+    extends _$LastTransactionIdCopyWithImpl<$Res, _$_LastTransactionId>
     implements _$$_LastTransactionIdCopyWith<$Res> {
   __$$_LastTransactionIdCopyWithImpl(
       _$_LastTransactionId _value, $Res Function(_$_LastTransactionId) _then)
-      : super(_value, (v) => _then(v as _$_LastTransactionId));
+      : super(_value, _then);
 
-  @override
-  _$_LastTransactionId get _value => super._value as _$_LastTransactionId;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isExact = freezed,
-    Object? lt = freezed,
+    Object? isExact = null,
+    Object? lt = null,
     Object? hash = freezed,
   }) {
     return _then(_$_LastTransactionId(
-      isExact: isExact == freezed
+      isExact: null == isExact
           ? _value.isExact
           : isExact // ignore: cast_nullable_to_non_nullable
               as bool,
-      lt: lt == freezed
+      lt: null == lt
           ? _value.lt
           : lt // ignore: cast_nullable_to_non_nullable
               as String,
-      hash: hash == freezed
+      hash: freezed == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -146,21 +148,18 @@ class _$_LastTransactionId implements _LastTransactionId {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LastTransactionId &&
-            const DeepCollectionEquality().equals(other.isExact, isExact) &&
-            const DeepCollectionEquality().equals(other.lt, lt) &&
-            const DeepCollectionEquality().equals(other.hash, hash));
+            (identical(other.isExact, isExact) || other.isExact == isExact) &&
+            (identical(other.lt, lt) || other.lt == lt) &&
+            (identical(other.hash, hash) || other.hash == hash));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(isExact),
-      const DeepCollectionEquality().hash(lt),
-      const DeepCollectionEquality().hash(hash));
+  int get hashCode => Object.hash(runtimeType, isExact, lt, hash);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LastTransactionIdCopyWith<_$_LastTransactionId> get copyWith =>
       __$$_LastTransactionIdCopyWithImpl<_$_LastTransactionId>(
           this, _$identity);

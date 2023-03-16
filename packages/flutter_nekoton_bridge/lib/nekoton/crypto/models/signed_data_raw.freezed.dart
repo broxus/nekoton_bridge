@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'signed_data_raw.dart';
 
@@ -34,7 +34,8 @@ mixin _$SignedDataRaw {
 abstract class $SignedDataRawCopyWith<$Res> {
   factory $SignedDataRawCopyWith(
           SignedDataRaw value, $Res Function(SignedDataRaw) then) =
-      _$SignedDataRawCopyWithImpl<$Res>;
+      _$SignedDataRawCopyWithImpl<$Res, SignedDataRaw>;
+  @useResult
   $Res call(
       {String signature, String signatureHex, SignatureParts signatureParts});
 
@@ -42,40 +43,43 @@ abstract class $SignedDataRawCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SignedDataRawCopyWithImpl<$Res>
+class _$SignedDataRawCopyWithImpl<$Res, $Val extends SignedDataRaw>
     implements $SignedDataRawCopyWith<$Res> {
   _$SignedDataRawCopyWithImpl(this._value, this._then);
 
-  final SignedDataRaw _value;
   // ignore: unused_field
-  final $Res Function(SignedDataRaw) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? signature = freezed,
-    Object? signatureHex = freezed,
-    Object? signatureParts = freezed,
+    Object? signature = null,
+    Object? signatureHex = null,
+    Object? signatureParts = null,
   }) {
     return _then(_value.copyWith(
-      signature: signature == freezed
+      signature: null == signature
           ? _value.signature
           : signature // ignore: cast_nullable_to_non_nullable
               as String,
-      signatureHex: signatureHex == freezed
+      signatureHex: null == signatureHex
           ? _value.signatureHex
           : signatureHex // ignore: cast_nullable_to_non_nullable
               as String,
-      signatureParts: signatureParts == freezed
+      signatureParts: null == signatureParts
           ? _value.signatureParts
           : signatureParts // ignore: cast_nullable_to_non_nullable
               as SignatureParts,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $SignaturePartsCopyWith<$Res> get signatureParts {
     return $SignaturePartsCopyWith<$Res>(_value.signatureParts, (value) {
-      return _then(_value.copyWith(signatureParts: value));
+      return _then(_value.copyWith(signatureParts: value) as $Val);
     });
   }
 }
@@ -87,6 +91,7 @@ abstract class _$$_SignedDataRawCopyWith<$Res>
           _$_SignedDataRaw value, $Res Function(_$_SignedDataRaw) then) =
       __$$_SignedDataRawCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String signature, String signatureHex, SignatureParts signatureParts});
 
@@ -96,31 +101,29 @@ abstract class _$$_SignedDataRawCopyWith<$Res>
 
 /// @nodoc
 class __$$_SignedDataRawCopyWithImpl<$Res>
-    extends _$SignedDataRawCopyWithImpl<$Res>
+    extends _$SignedDataRawCopyWithImpl<$Res, _$_SignedDataRaw>
     implements _$$_SignedDataRawCopyWith<$Res> {
   __$$_SignedDataRawCopyWithImpl(
       _$_SignedDataRaw _value, $Res Function(_$_SignedDataRaw) _then)
-      : super(_value, (v) => _then(v as _$_SignedDataRaw));
+      : super(_value, _then);
 
-  @override
-  _$_SignedDataRaw get _value => super._value as _$_SignedDataRaw;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? signature = freezed,
-    Object? signatureHex = freezed,
-    Object? signatureParts = freezed,
+    Object? signature = null,
+    Object? signatureHex = null,
+    Object? signatureParts = null,
   }) {
     return _then(_$_SignedDataRaw(
-      signature: signature == freezed
+      signature: null == signature
           ? _value.signature
           : signature // ignore: cast_nullable_to_non_nullable
               as String,
-      signatureHex: signatureHex == freezed
+      signatureHex: null == signatureHex
           ? _value.signatureHex
           : signatureHex // ignore: cast_nullable_to_non_nullable
               as String,
-      signatureParts: signatureParts == freezed
+      signatureParts: null == signatureParts
           ? _value.signatureParts
           : signatureParts // ignore: cast_nullable_to_non_nullable
               as SignatureParts,
@@ -156,23 +159,22 @@ class _$_SignedDataRaw implements _SignedDataRaw {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SignedDataRaw &&
-            const DeepCollectionEquality().equals(other.signature, signature) &&
-            const DeepCollectionEquality()
-                .equals(other.signatureHex, signatureHex) &&
-            const DeepCollectionEquality()
-                .equals(other.signatureParts, signatureParts));
+            (identical(other.signature, signature) ||
+                other.signature == signature) &&
+            (identical(other.signatureHex, signatureHex) ||
+                other.signatureHex == signatureHex) &&
+            (identical(other.signatureParts, signatureParts) ||
+                other.signatureParts == signatureParts));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(signature),
-      const DeepCollectionEquality().hash(signatureHex),
-      const DeepCollectionEquality().hash(signatureParts));
+  int get hashCode =>
+      Object.hash(runtimeType, signature, signatureHex, signatureParts);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SignedDataRawCopyWith<_$_SignedDataRaw> get copyWith =>
       __$$_SignedDataRawCopyWithImpl<_$_SignedDataRaw>(this, _$identity);
 

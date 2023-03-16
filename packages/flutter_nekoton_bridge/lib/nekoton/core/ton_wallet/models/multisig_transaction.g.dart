@@ -12,7 +12,7 @@ _$_Send _$$_SendFromJson(Map<String, dynamic> json) => _$_Send(
     );
 
 Map<String, dynamic> _$$_SendToJson(_$_Send instance) => <String, dynamic>{
-      'data': instance.data.toJson(),
+      'data': instance.data,
       'type': instance.$type,
     };
 
@@ -22,7 +22,7 @@ _$_Submit _$$_SubmitFromJson(Map<String, dynamic> json) => _$_Submit(
     );
 
 Map<String, dynamic> _$$_SubmitToJson(_$_Submit instance) => <String, dynamic>{
-      'data': instance.data.toJson(),
+      'data': instance.data,
       'type': instance.$type,
     };
 
@@ -33,6 +33,6 @@ _$_Confirm _$$_ConfirmFromJson(Map<String, dynamic> json) => _$_Confirm(
 
 Map<String, dynamic> _$$_ConfirmToJson(_$_Confirm instance) =>
     <String, dynamic>{
-      'data': instance.data.toJson(),
+      'data': instance.data,
       'type': instance.$type,
     };

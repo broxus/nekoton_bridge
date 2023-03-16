@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'account_to_add.dart';
 
@@ -36,7 +36,8 @@ mixin _$AccountToAdd {
 abstract class $AccountToAddCopyWith<$Res> {
   factory $AccountToAddCopyWith(
           AccountToAdd value, $Res Function(AccountToAdd) then) =
-      _$AccountToAddCopyWithImpl<$Res>;
+      _$AccountToAddCopyWithImpl<$Res, AccountToAdd>;
+  @useResult
   $Res call(
       {String name,
       String publicKey,
@@ -48,49 +49,53 @@ abstract class $AccountToAddCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AccountToAddCopyWithImpl<$Res> implements $AccountToAddCopyWith<$Res> {
+class _$AccountToAddCopyWithImpl<$Res, $Val extends AccountToAdd>
+    implements $AccountToAddCopyWith<$Res> {
   _$AccountToAddCopyWithImpl(this._value, this._then);
 
-  final AccountToAdd _value;
   // ignore: unused_field
-  final $Res Function(AccountToAdd) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? publicKey = freezed,
-    Object? contract = freezed,
-    Object? workchain = freezed,
+    Object? name = null,
+    Object? publicKey = null,
+    Object? contract = null,
+    Object? workchain = null,
     Object? explicitAddress = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      contract: contract == freezed
+      contract: null == contract
           ? _value.contract
           : contract // ignore: cast_nullable_to_non_nullable
               as WalletType,
-      workchain: workchain == freezed
+      workchain: null == workchain
           ? _value.workchain
           : workchain // ignore: cast_nullable_to_non_nullable
               as int,
-      explicitAddress: explicitAddress == freezed
+      explicitAddress: freezed == explicitAddress
           ? _value.explicitAddress
           : explicitAddress // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $WalletTypeCopyWith<$Res> get contract {
     return $WalletTypeCopyWith<$Res>(_value.contract, (value) {
-      return _then(_value.copyWith(contract: value));
+      return _then(_value.copyWith(contract: value) as $Val);
     });
   }
 }
@@ -102,6 +107,7 @@ abstract class _$$_AccountToAddCopyWith<$Res>
           _$_AccountToAdd value, $Res Function(_$_AccountToAdd) then) =
       __$$_AccountToAddCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String name,
       String publicKey,
@@ -115,41 +121,39 @@ abstract class _$$_AccountToAddCopyWith<$Res>
 
 /// @nodoc
 class __$$_AccountToAddCopyWithImpl<$Res>
-    extends _$AccountToAddCopyWithImpl<$Res>
+    extends _$AccountToAddCopyWithImpl<$Res, _$_AccountToAdd>
     implements _$$_AccountToAddCopyWith<$Res> {
   __$$_AccountToAddCopyWithImpl(
       _$_AccountToAdd _value, $Res Function(_$_AccountToAdd) _then)
-      : super(_value, (v) => _then(v as _$_AccountToAdd));
+      : super(_value, _then);
 
-  @override
-  _$_AccountToAdd get _value => super._value as _$_AccountToAdd;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? publicKey = freezed,
-    Object? contract = freezed,
-    Object? workchain = freezed,
+    Object? name = null,
+    Object? publicKey = null,
+    Object? contract = null,
+    Object? workchain = null,
     Object? explicitAddress = freezed,
   }) {
     return _then(_$_AccountToAdd(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      contract: contract == freezed
+      contract: null == contract
           ? _value.contract
           : contract // ignore: cast_nullable_to_non_nullable
               as WalletType,
-      workchain: workchain == freezed
+      workchain: null == workchain
           ? _value.workchain
           : workchain // ignore: cast_nullable_to_non_nullable
               as int,
-      explicitAddress: explicitAddress == freezed
+      explicitAddress: freezed == explicitAddress
           ? _value.explicitAddress
           : explicitAddress // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -191,26 +195,25 @@ class _$_AccountToAdd implements _AccountToAdd {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AccountToAdd &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.publicKey, publicKey) &&
-            const DeepCollectionEquality().equals(other.contract, contract) &&
-            const DeepCollectionEquality().equals(other.workchain, workchain) &&
-            const DeepCollectionEquality()
-                .equals(other.explicitAddress, explicitAddress));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey) &&
+            (identical(other.contract, contract) ||
+                other.contract == contract) &&
+            (identical(other.workchain, workchain) ||
+                other.workchain == workchain) &&
+            (identical(other.explicitAddress, explicitAddress) ||
+                other.explicitAddress == explicitAddress));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(publicKey),
-      const DeepCollectionEquality().hash(contract),
-      const DeepCollectionEquality().hash(workchain),
-      const DeepCollectionEquality().hash(explicitAddress));
+      runtimeType, name, publicKey, contract, workchain, explicitAddress);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AccountToAddCopyWith<_$_AccountToAdd> get copyWith =>
       __$$_AccountToAddCopyWithImpl<_$_AccountToAdd>(this, _$identity);
 

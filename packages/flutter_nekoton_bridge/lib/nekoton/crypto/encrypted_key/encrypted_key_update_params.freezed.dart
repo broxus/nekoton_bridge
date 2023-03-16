@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'encrypted_key_update_params.dart';
 
@@ -30,6 +30,7 @@ EncryptedKeyUpdateParams _$EncryptedKeyUpdateParamsFromJson(
 
 /// @nodoc
 mixin _$EncryptedKeyUpdateParams {
+  Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(EncryptedKeyUpdateParamsRename data) rename,
@@ -39,8 +40,8 @@ mixin _$EncryptedKeyUpdateParams {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(EncryptedKeyUpdateParamsRename data)? rename,
-    TResult Function(EncryptedKeyUpdateParamsChangePassword data)?
+    TResult? Function(EncryptedKeyUpdateParamsRename data)? rename,
+    TResult? Function(EncryptedKeyUpdateParamsChangePassword data)?
         changePassword,
   }) =>
       throw _privateConstructorUsedError;
@@ -60,8 +61,8 @@ mixin _$EncryptedKeyUpdateParams {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Rename value)? rename,
-    TResult Function(_ChangePassword value)? changePassword,
+    TResult? Function(_Rename value)? rename,
+    TResult? Function(_ChangePassword value)? changePassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,23 +79,26 @@ mixin _$EncryptedKeyUpdateParams {
 abstract class $EncryptedKeyUpdateParamsCopyWith<$Res> {
   factory $EncryptedKeyUpdateParamsCopyWith(EncryptedKeyUpdateParams value,
           $Res Function(EncryptedKeyUpdateParams) then) =
-      _$EncryptedKeyUpdateParamsCopyWithImpl<$Res>;
+      _$EncryptedKeyUpdateParamsCopyWithImpl<$Res, EncryptedKeyUpdateParams>;
 }
 
 /// @nodoc
-class _$EncryptedKeyUpdateParamsCopyWithImpl<$Res>
+class _$EncryptedKeyUpdateParamsCopyWithImpl<$Res,
+        $Val extends EncryptedKeyUpdateParams>
     implements $EncryptedKeyUpdateParamsCopyWith<$Res> {
   _$EncryptedKeyUpdateParamsCopyWithImpl(this._value, this._then);
 
-  final EncryptedKeyUpdateParams _value;
   // ignore: unused_field
-  final $Res Function(EncryptedKeyUpdateParams) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
 abstract class _$$_RenameCopyWith<$Res> {
   factory _$$_RenameCopyWith(_$_Rename value, $Res Function(_$_Rename) then) =
       __$$_RenameCopyWithImpl<$Res>;
+  @useResult
   $Res call({EncryptedKeyUpdateParamsRename data});
 
   $EncryptedKeyUpdateParamsRenameCopyWith<$Res> get data;
@@ -102,20 +106,18 @@ abstract class _$$_RenameCopyWith<$Res> {
 
 /// @nodoc
 class __$$_RenameCopyWithImpl<$Res>
-    extends _$EncryptedKeyUpdateParamsCopyWithImpl<$Res>
+    extends _$EncryptedKeyUpdateParamsCopyWithImpl<$Res, _$_Rename>
     implements _$$_RenameCopyWith<$Res> {
   __$$_RenameCopyWithImpl(_$_Rename _value, $Res Function(_$_Rename) _then)
-      : super(_value, (v) => _then(v as _$_Rename));
+      : super(_value, _then);
 
-  @override
-  _$_Rename get _value => super._value as _$_Rename;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_Rename(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as EncryptedKeyUpdateParamsRename,
@@ -123,6 +125,7 @@ class __$$_RenameCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $EncryptedKeyUpdateParamsRenameCopyWith<$Res> get data {
     return $EncryptedKeyUpdateParamsRenameCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -154,16 +157,16 @@ class _$_Rename implements _Rename {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Rename &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RenameCopyWith<_$_Rename> get copyWith =>
       __$$_RenameCopyWithImpl<_$_Rename>(this, _$identity);
 
@@ -180,8 +183,8 @@ class _$_Rename implements _Rename {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(EncryptedKeyUpdateParamsRename data)? rename,
-    TResult Function(EncryptedKeyUpdateParamsChangePassword data)?
+    TResult? Function(EncryptedKeyUpdateParamsRename data)? rename,
+    TResult? Function(EncryptedKeyUpdateParamsChangePassword data)?
         changePassword,
   }) {
     return rename?.call(data);
@@ -213,8 +216,8 @@ class _$_Rename implements _Rename {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Rename value)? rename,
-    TResult Function(_ChangePassword value)? changePassword,
+    TResult? Function(_Rename value)? rename,
+    TResult? Function(_ChangePassword value)? changePassword,
   }) {
     return rename?.call(this);
   }
@@ -245,6 +248,7 @@ abstract class _Rename implements EncryptedKeyUpdateParams {
 
   factory _Rename.fromJson(Map<String, dynamic> json) = _$_Rename.fromJson;
 
+  @override
   EncryptedKeyUpdateParamsRename get data;
   @JsonKey(ignore: true)
   _$$_RenameCopyWith<_$_Rename> get copyWith =>
@@ -256,6 +260,7 @@ abstract class _$$_ChangePasswordCopyWith<$Res> {
   factory _$$_ChangePasswordCopyWith(
           _$_ChangePassword value, $Res Function(_$_ChangePassword) then) =
       __$$_ChangePasswordCopyWithImpl<$Res>;
+  @useResult
   $Res call({EncryptedKeyUpdateParamsChangePassword data});
 
   $EncryptedKeyUpdateParamsChangePasswordCopyWith<$Res> get data;
@@ -263,21 +268,19 @@ abstract class _$$_ChangePasswordCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ChangePasswordCopyWithImpl<$Res>
-    extends _$EncryptedKeyUpdateParamsCopyWithImpl<$Res>
+    extends _$EncryptedKeyUpdateParamsCopyWithImpl<$Res, _$_ChangePassword>
     implements _$$_ChangePasswordCopyWith<$Res> {
   __$$_ChangePasswordCopyWithImpl(
       _$_ChangePassword _value, $Res Function(_$_ChangePassword) _then)
-      : super(_value, (v) => _then(v as _$_ChangePassword));
+      : super(_value, _then);
 
-  @override
-  _$_ChangePassword get _value => super._value as _$_ChangePassword;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_ChangePassword(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as EncryptedKeyUpdateParamsChangePassword,
@@ -285,6 +288,7 @@ class __$$_ChangePasswordCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $EncryptedKeyUpdateParamsChangePasswordCopyWith<$Res> get data {
     return $EncryptedKeyUpdateParamsChangePasswordCopyWith<$Res>(_value.data,
         (value) {
@@ -318,16 +322,16 @@ class _$_ChangePassword implements _ChangePassword {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ChangePassword &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ChangePasswordCopyWith<_$_ChangePassword> get copyWith =>
       __$$_ChangePasswordCopyWithImpl<_$_ChangePassword>(this, _$identity);
 
@@ -344,8 +348,8 @@ class _$_ChangePassword implements _ChangePassword {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(EncryptedKeyUpdateParamsRename data)? rename,
-    TResult Function(EncryptedKeyUpdateParamsChangePassword data)?
+    TResult? Function(EncryptedKeyUpdateParamsRename data)? rename,
+    TResult? Function(EncryptedKeyUpdateParamsChangePassword data)?
         changePassword,
   }) {
     return changePassword?.call(data);
@@ -377,8 +381,8 @@ class _$_ChangePassword implements _ChangePassword {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Rename value)? rename,
-    TResult Function(_ChangePassword value)? changePassword,
+    TResult? Function(_Rename value)? rename,
+    TResult? Function(_ChangePassword value)? changePassword,
   }) {
     return changePassword?.call(this);
   }
@@ -411,6 +415,7 @@ abstract class _ChangePassword implements EncryptedKeyUpdateParams {
   factory _ChangePassword.fromJson(Map<String, dynamic> json) =
       _$_ChangePassword.fromJson;
 
+  @override
   EncryptedKeyUpdateParamsChangePassword get data;
   @JsonKey(ignore: true)
   _$$_ChangePasswordCopyWith<_$_ChangePassword> get copyWith =>

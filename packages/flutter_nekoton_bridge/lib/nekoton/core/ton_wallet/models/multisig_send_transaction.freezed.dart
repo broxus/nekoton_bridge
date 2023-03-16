@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'multisig_send_transaction.dart';
 
@@ -37,50 +37,54 @@ mixin _$MultisigSendTransaction {
 abstract class $MultisigSendTransactionCopyWith<$Res> {
   factory $MultisigSendTransactionCopyWith(MultisigSendTransaction value,
           $Res Function(MultisigSendTransaction) then) =
-      _$MultisigSendTransactionCopyWithImpl<$Res>;
+      _$MultisigSendTransactionCopyWithImpl<$Res, MultisigSendTransaction>;
+  @useResult
   $Res call(
       {String dest, String value, bool bounce, int flags, String payload});
 }
 
 /// @nodoc
-class _$MultisigSendTransactionCopyWithImpl<$Res>
+class _$MultisigSendTransactionCopyWithImpl<$Res,
+        $Val extends MultisigSendTransaction>
     implements $MultisigSendTransactionCopyWith<$Res> {
   _$MultisigSendTransactionCopyWithImpl(this._value, this._then);
 
-  final MultisigSendTransaction _value;
   // ignore: unused_field
-  final $Res Function(MultisigSendTransaction) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dest = freezed,
-    Object? value = freezed,
-    Object? bounce = freezed,
-    Object? flags = freezed,
-    Object? payload = freezed,
+    Object? dest = null,
+    Object? value = null,
+    Object? bounce = null,
+    Object? flags = null,
+    Object? payload = null,
   }) {
     return _then(_value.copyWith(
-      dest: dest == freezed
+      dest: null == dest
           ? _value.dest
           : dest // ignore: cast_nullable_to_non_nullable
               as String,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      bounce: bounce == freezed
+      bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
               as bool,
-      flags: flags == freezed
+      flags: null == flags
           ? _value.flags
           : flags // ignore: cast_nullable_to_non_nullable
               as int,
-      payload: payload == freezed
+      payload: null == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -91,48 +95,47 @@ abstract class _$$_MultisigSendTransactionCopyWith<$Res>
           $Res Function(_$_MultisigSendTransaction) then) =
       __$$_MultisigSendTransactionCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String dest, String value, bool bounce, int flags, String payload});
 }
 
 /// @nodoc
 class __$$_MultisigSendTransactionCopyWithImpl<$Res>
-    extends _$MultisigSendTransactionCopyWithImpl<$Res>
+    extends _$MultisigSendTransactionCopyWithImpl<$Res,
+        _$_MultisigSendTransaction>
     implements _$$_MultisigSendTransactionCopyWith<$Res> {
   __$$_MultisigSendTransactionCopyWithImpl(_$_MultisigSendTransaction _value,
       $Res Function(_$_MultisigSendTransaction) _then)
-      : super(_value, (v) => _then(v as _$_MultisigSendTransaction));
+      : super(_value, _then);
 
-  @override
-  _$_MultisigSendTransaction get _value =>
-      super._value as _$_MultisigSendTransaction;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dest = freezed,
-    Object? value = freezed,
-    Object? bounce = freezed,
-    Object? flags = freezed,
-    Object? payload = freezed,
+    Object? dest = null,
+    Object? value = null,
+    Object? bounce = null,
+    Object? flags = null,
+    Object? payload = null,
   }) {
     return _then(_$_MultisigSendTransaction(
-      dest: dest == freezed
+      dest: null == dest
           ? _value.dest
           : dest // ignore: cast_nullable_to_non_nullable
               as String,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      bounce: bounce == freezed
+      bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
               as bool,
-      flags: flags == freezed
+      flags: null == flags
           ? _value.flags
           : flags // ignore: cast_nullable_to_non_nullable
               as int,
-      payload: payload == freezed
+      payload: null == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as String,
@@ -174,25 +177,21 @@ class _$_MultisigSendTransaction implements _MultisigSendTransaction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MultisigSendTransaction &&
-            const DeepCollectionEquality().equals(other.dest, dest) &&
-            const DeepCollectionEquality().equals(other.value, value) &&
-            const DeepCollectionEquality().equals(other.bounce, bounce) &&
-            const DeepCollectionEquality().equals(other.flags, flags) &&
-            const DeepCollectionEquality().equals(other.payload, payload));
+            (identical(other.dest, dest) || other.dest == dest) &&
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.bounce, bounce) || other.bounce == bounce) &&
+            (identical(other.flags, flags) || other.flags == flags) &&
+            (identical(other.payload, payload) || other.payload == payload));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(dest),
-      const DeepCollectionEquality().hash(value),
-      const DeepCollectionEquality().hash(bounce),
-      const DeepCollectionEquality().hash(flags),
-      const DeepCollectionEquality().hash(payload));
+  int get hashCode =>
+      Object.hash(runtimeType, dest, value, bounce, flags, payload);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MultisigSendTransactionCopyWith<_$_MultisigSendTransaction>
       get copyWith =>
           __$$_MultisigSendTransactionCopyWithImpl<_$_MultisigSendTransaction>(

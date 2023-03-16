@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'pending_transaction.dart';
 
@@ -34,39 +34,42 @@ mixin _$PendingTransaction {
 abstract class $PendingTransactionCopyWith<$Res> {
   factory $PendingTransactionCopyWith(
           PendingTransaction value, $Res Function(PendingTransaction) then) =
-      _$PendingTransactionCopyWithImpl<$Res>;
+      _$PendingTransactionCopyWithImpl<$Res, PendingTransaction>;
+  @useResult
   $Res call({String messageHash, String? src, int expireAt});
 }
 
 /// @nodoc
-class _$PendingTransactionCopyWithImpl<$Res>
+class _$PendingTransactionCopyWithImpl<$Res, $Val extends PendingTransaction>
     implements $PendingTransactionCopyWith<$Res> {
   _$PendingTransactionCopyWithImpl(this._value, this._then);
 
-  final PendingTransaction _value;
   // ignore: unused_field
-  final $Res Function(PendingTransaction) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? messageHash = freezed,
+    Object? messageHash = null,
     Object? src = freezed,
-    Object? expireAt = freezed,
+    Object? expireAt = null,
   }) {
     return _then(_value.copyWith(
-      messageHash: messageHash == freezed
+      messageHash: null == messageHash
           ? _value.messageHash
           : messageHash // ignore: cast_nullable_to_non_nullable
               as String,
-      src: src == freezed
+      src: freezed == src
           ? _value.src
           : src // ignore: cast_nullable_to_non_nullable
               as String?,
-      expireAt: expireAt == freezed
+      expireAt: null == expireAt
           ? _value.expireAt
           : expireAt // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -77,36 +80,35 @@ abstract class _$$_PendingTransactionCopyWith<$Res>
           $Res Function(_$_PendingTransaction) then) =
       __$$_PendingTransactionCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String messageHash, String? src, int expireAt});
 }
 
 /// @nodoc
 class __$$_PendingTransactionCopyWithImpl<$Res>
-    extends _$PendingTransactionCopyWithImpl<$Res>
+    extends _$PendingTransactionCopyWithImpl<$Res, _$_PendingTransaction>
     implements _$$_PendingTransactionCopyWith<$Res> {
   __$$_PendingTransactionCopyWithImpl(
       _$_PendingTransaction _value, $Res Function(_$_PendingTransaction) _then)
-      : super(_value, (v) => _then(v as _$_PendingTransaction));
+      : super(_value, _then);
 
-  @override
-  _$_PendingTransaction get _value => super._value as _$_PendingTransaction;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? messageHash = freezed,
+    Object? messageHash = null,
     Object? src = freezed,
-    Object? expireAt = freezed,
+    Object? expireAt = null,
   }) {
     return _then(_$_PendingTransaction(
-      messageHash: messageHash == freezed
+      messageHash: null == messageHash
           ? _value.messageHash
           : messageHash // ignore: cast_nullable_to_non_nullable
               as String,
-      src: src == freezed
+      src: freezed == src
           ? _value.src
           : src // ignore: cast_nullable_to_non_nullable
               as String?,
-      expireAt: expireAt == freezed
+      expireAt: null == expireAt
           ? _value.expireAt
           : expireAt // ignore: cast_nullable_to_non_nullable
               as int,
@@ -141,22 +143,20 @@ class _$_PendingTransaction extends _PendingTransaction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PendingTransaction &&
-            const DeepCollectionEquality()
-                .equals(other.messageHash, messageHash) &&
-            const DeepCollectionEquality().equals(other.src, src) &&
-            const DeepCollectionEquality().equals(other.expireAt, expireAt));
+            (identical(other.messageHash, messageHash) ||
+                other.messageHash == messageHash) &&
+            (identical(other.src, src) || other.src == src) &&
+            (identical(other.expireAt, expireAt) ||
+                other.expireAt == expireAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(messageHash),
-      const DeepCollectionEquality().hash(src),
-      const DeepCollectionEquality().hash(expireAt));
+  int get hashCode => Object.hash(runtimeType, messageHash, src, expireAt);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PendingTransactionCopyWith<_$_PendingTransaction> get copyWith =>
       __$$_PendingTransactionCopyWithImpl<_$_PendingTransaction>(
           this, _$identity);

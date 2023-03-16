@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ton_wallet_asset.dart';
 
@@ -34,47 +34,51 @@ mixin _$TonWalletAsset {
 abstract class $TonWalletAssetCopyWith<$Res> {
   factory $TonWalletAssetCopyWith(
           TonWalletAsset value, $Res Function(TonWalletAsset) then) =
-      _$TonWalletAssetCopyWithImpl<$Res>;
+      _$TonWalletAssetCopyWithImpl<$Res, TonWalletAsset>;
+  @useResult
   $Res call({String address, String publicKey, WalletType contract});
 
   $WalletTypeCopyWith<$Res> get contract;
 }
 
 /// @nodoc
-class _$TonWalletAssetCopyWithImpl<$Res>
+class _$TonWalletAssetCopyWithImpl<$Res, $Val extends TonWalletAsset>
     implements $TonWalletAssetCopyWith<$Res> {
   _$TonWalletAssetCopyWithImpl(this._value, this._then);
 
-  final TonWalletAsset _value;
   // ignore: unused_field
-  final $Res Function(TonWalletAsset) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = freezed,
-    Object? publicKey = freezed,
-    Object? contract = freezed,
+    Object? address = null,
+    Object? publicKey = null,
+    Object? contract = null,
   }) {
     return _then(_value.copyWith(
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      contract: contract == freezed
+      contract: null == contract
           ? _value.contract
           : contract // ignore: cast_nullable_to_non_nullable
               as WalletType,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $WalletTypeCopyWith<$Res> get contract {
     return $WalletTypeCopyWith<$Res>(_value.contract, (value) {
-      return _then(_value.copyWith(contract: value));
+      return _then(_value.copyWith(contract: value) as $Val);
     });
   }
 }
@@ -86,6 +90,7 @@ abstract class _$$_TonWalletAssetCopyWith<$Res>
           _$_TonWalletAsset value, $Res Function(_$_TonWalletAsset) then) =
       __$$_TonWalletAssetCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String address, String publicKey, WalletType contract});
 
   @override
@@ -94,31 +99,29 @@ abstract class _$$_TonWalletAssetCopyWith<$Res>
 
 /// @nodoc
 class __$$_TonWalletAssetCopyWithImpl<$Res>
-    extends _$TonWalletAssetCopyWithImpl<$Res>
+    extends _$TonWalletAssetCopyWithImpl<$Res, _$_TonWalletAsset>
     implements _$$_TonWalletAssetCopyWith<$Res> {
   __$$_TonWalletAssetCopyWithImpl(
       _$_TonWalletAsset _value, $Res Function(_$_TonWalletAsset) _then)
-      : super(_value, (v) => _then(v as _$_TonWalletAsset));
+      : super(_value, _then);
 
-  @override
-  _$_TonWalletAsset get _value => super._value as _$_TonWalletAsset;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = freezed,
-    Object? publicKey = freezed,
-    Object? contract = freezed,
+    Object? address = null,
+    Object? publicKey = null,
+    Object? contract = null,
   }) {
     return _then(_$_TonWalletAsset(
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      contract: contract == freezed
+      contract: null == contract
           ? _value.contract
           : contract // ignore: cast_nullable_to_non_nullable
               as WalletType,
@@ -153,21 +156,20 @@ class _$_TonWalletAsset extends _TonWalletAsset {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TonWalletAsset &&
-            const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality().equals(other.publicKey, publicKey) &&
-            const DeepCollectionEquality().equals(other.contract, contract));
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey) &&
+            (identical(other.contract, contract) ||
+                other.contract == contract));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(publicKey),
-      const DeepCollectionEquality().hash(contract));
+  int get hashCode => Object.hash(runtimeType, address, publicKey, contract);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TonWalletAssetCopyWith<_$_TonWalletAsset> get copyWith =>
       __$$_TonWalletAssetCopyWithImpl<_$_TonWalletAsset>(this, _$identity);
 

@@ -22,6 +22,6 @@ Map<String, dynamic>
             _$_EncryptedKeyUpdateParamsChangePasswordChangePassword instance) =>
         <String, dynamic>{
           'public_key': instance.publicKey,
-          'old_password': instance.oldPassword.toJson(),
-          'new_password': instance.newPassword.toJson(),
+          'old_password': instance.oldPassword,
+          'new_password': instance.newPassword,
         };

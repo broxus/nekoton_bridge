@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'on_balance_changed_payload.dart';
 
@@ -33,29 +33,33 @@ mixin _$OnBalanceChangedPayload {
 abstract class $OnBalanceChangedPayloadCopyWith<$Res> {
   factory $OnBalanceChangedPayloadCopyWith(OnBalanceChangedPayload value,
           $Res Function(OnBalanceChangedPayload) then) =
-      _$OnBalanceChangedPayloadCopyWithImpl<$Res>;
+      _$OnBalanceChangedPayloadCopyWithImpl<$Res, OnBalanceChangedPayload>;
+  @useResult
   $Res call({String balance});
 }
 
 /// @nodoc
-class _$OnBalanceChangedPayloadCopyWithImpl<$Res>
+class _$OnBalanceChangedPayloadCopyWithImpl<$Res,
+        $Val extends OnBalanceChangedPayload>
     implements $OnBalanceChangedPayloadCopyWith<$Res> {
   _$OnBalanceChangedPayloadCopyWithImpl(this._value, this._then);
 
-  final OnBalanceChangedPayload _value;
   // ignore: unused_field
-  final $Res Function(OnBalanceChangedPayload) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? balance = freezed,
+    Object? balance = null,
   }) {
     return _then(_value.copyWith(
-      balance: balance == freezed
+      balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -66,27 +70,26 @@ abstract class _$$_OnBalanceChangedPayloadCopyWith<$Res>
           $Res Function(_$_OnBalanceChangedPayload) then) =
       __$$_OnBalanceChangedPayloadCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String balance});
 }
 
 /// @nodoc
 class __$$_OnBalanceChangedPayloadCopyWithImpl<$Res>
-    extends _$OnBalanceChangedPayloadCopyWithImpl<$Res>
+    extends _$OnBalanceChangedPayloadCopyWithImpl<$Res,
+        _$_OnBalanceChangedPayload>
     implements _$$_OnBalanceChangedPayloadCopyWith<$Res> {
   __$$_OnBalanceChangedPayloadCopyWithImpl(_$_OnBalanceChangedPayload _value,
       $Res Function(_$_OnBalanceChangedPayload) _then)
-      : super(_value, (v) => _then(v as _$_OnBalanceChangedPayload));
+      : super(_value, _then);
 
-  @override
-  _$_OnBalanceChangedPayload get _value =>
-      super._value as _$_OnBalanceChangedPayload;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? balance = freezed,
+    Object? balance = null,
   }) {
     return _then(_$_OnBalanceChangedPayload(
-      balance: balance == freezed
+      balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
               as String,
@@ -115,16 +118,16 @@ class _$_OnBalanceChangedPayload implements _OnBalanceChangedPayload {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OnBalanceChangedPayload &&
-            const DeepCollectionEquality().equals(other.balance, balance));
+            (identical(other.balance, balance) || other.balance == balance));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(balance));
+  int get hashCode => Object.hash(runtimeType, balance);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_OnBalanceChangedPayloadCopyWith<_$_OnBalanceChangedPayload>
       get copyWith =>
           __$$_OnBalanceChangedPayloadCopyWithImpl<_$_OnBalanceChangedPayload>(

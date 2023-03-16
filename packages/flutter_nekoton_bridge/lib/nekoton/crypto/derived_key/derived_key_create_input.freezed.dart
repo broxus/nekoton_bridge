@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'derived_key_create_input.dart';
 
@@ -30,6 +30,7 @@ DerivedKeyCreateInput _$DerivedKeyCreateInputFromJson(
 
 /// @nodoc
 mixin _$DerivedKeyCreateInput {
+  Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DerivedKeyCreateInputImport data) import,
@@ -38,8 +39,8 @@ mixin _$DerivedKeyCreateInput {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DerivedKeyCreateInputImport data)? import,
-    TResult Function(DerivedKeyCreateInputDerive data)? derive,
+    TResult? Function(DerivedKeyCreateInputImport data)? import,
+    TResult? Function(DerivedKeyCreateInputDerive data)? derive,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,8 +58,8 @@ mixin _$DerivedKeyCreateInput {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Import value)? import,
-    TResult Function(_Derive value)? derive,
+    TResult? Function(_Import value)? import,
+    TResult? Function(_Derive value)? derive,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,23 +76,26 @@ mixin _$DerivedKeyCreateInput {
 abstract class $DerivedKeyCreateInputCopyWith<$Res> {
   factory $DerivedKeyCreateInputCopyWith(DerivedKeyCreateInput value,
           $Res Function(DerivedKeyCreateInput) then) =
-      _$DerivedKeyCreateInputCopyWithImpl<$Res>;
+      _$DerivedKeyCreateInputCopyWithImpl<$Res, DerivedKeyCreateInput>;
 }
 
 /// @nodoc
-class _$DerivedKeyCreateInputCopyWithImpl<$Res>
+class _$DerivedKeyCreateInputCopyWithImpl<$Res,
+        $Val extends DerivedKeyCreateInput>
     implements $DerivedKeyCreateInputCopyWith<$Res> {
   _$DerivedKeyCreateInputCopyWithImpl(this._value, this._then);
 
-  final DerivedKeyCreateInput _value;
   // ignore: unused_field
-  final $Res Function(DerivedKeyCreateInput) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
 abstract class _$$_ImportCopyWith<$Res> {
   factory _$$_ImportCopyWith(_$_Import value, $Res Function(_$_Import) then) =
       __$$_ImportCopyWithImpl<$Res>;
+  @useResult
   $Res call({DerivedKeyCreateInputImport data});
 
   $DerivedKeyCreateInputImportCopyWith<$Res> get data;
@@ -99,20 +103,18 @@ abstract class _$$_ImportCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ImportCopyWithImpl<$Res>
-    extends _$DerivedKeyCreateInputCopyWithImpl<$Res>
+    extends _$DerivedKeyCreateInputCopyWithImpl<$Res, _$_Import>
     implements _$$_ImportCopyWith<$Res> {
   __$$_ImportCopyWithImpl(_$_Import _value, $Res Function(_$_Import) _then)
-      : super(_value, (v) => _then(v as _$_Import));
+      : super(_value, _then);
 
-  @override
-  _$_Import get _value => super._value as _$_Import;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_Import(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as DerivedKeyCreateInputImport,
@@ -120,6 +122,7 @@ class __$$_ImportCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $DerivedKeyCreateInputImportCopyWith<$Res> get data {
     return $DerivedKeyCreateInputImportCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -151,16 +154,16 @@ class _$_Import implements _Import {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Import &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ImportCopyWith<_$_Import> get copyWith =>
       __$$_ImportCopyWithImpl<_$_Import>(this, _$identity);
 
@@ -176,8 +179,8 @@ class _$_Import implements _Import {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DerivedKeyCreateInputImport data)? import,
-    TResult Function(DerivedKeyCreateInputDerive data)? derive,
+    TResult? Function(DerivedKeyCreateInputImport data)? import,
+    TResult? Function(DerivedKeyCreateInputDerive data)? derive,
   }) {
     return import?.call(data);
   }
@@ -207,8 +210,8 @@ class _$_Import implements _Import {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Import value)? import,
-    TResult Function(_Derive value)? derive,
+    TResult? Function(_Import value)? import,
+    TResult? Function(_Derive value)? derive,
   }) {
     return import?.call(this);
   }
@@ -239,6 +242,7 @@ abstract class _Import implements DerivedKeyCreateInput {
 
   factory _Import.fromJson(Map<String, dynamic> json) = _$_Import.fromJson;
 
+  @override
   DerivedKeyCreateInputImport get data;
   @JsonKey(ignore: true)
   _$$_ImportCopyWith<_$_Import> get copyWith =>
@@ -249,6 +253,7 @@ abstract class _Import implements DerivedKeyCreateInput {
 abstract class _$$_DeriveCopyWith<$Res> {
   factory _$$_DeriveCopyWith(_$_Derive value, $Res Function(_$_Derive) then) =
       __$$_DeriveCopyWithImpl<$Res>;
+  @useResult
   $Res call({DerivedKeyCreateInputDerive data});
 
   $DerivedKeyCreateInputDeriveCopyWith<$Res> get data;
@@ -256,20 +261,18 @@ abstract class _$$_DeriveCopyWith<$Res> {
 
 /// @nodoc
 class __$$_DeriveCopyWithImpl<$Res>
-    extends _$DerivedKeyCreateInputCopyWithImpl<$Res>
+    extends _$DerivedKeyCreateInputCopyWithImpl<$Res, _$_Derive>
     implements _$$_DeriveCopyWith<$Res> {
   __$$_DeriveCopyWithImpl(_$_Derive _value, $Res Function(_$_Derive) _then)
-      : super(_value, (v) => _then(v as _$_Derive));
+      : super(_value, _then);
 
-  @override
-  _$_Derive get _value => super._value as _$_Derive;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_Derive(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as DerivedKeyCreateInputDerive,
@@ -277,6 +280,7 @@ class __$$_DeriveCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $DerivedKeyCreateInputDeriveCopyWith<$Res> get data {
     return $DerivedKeyCreateInputDeriveCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -308,16 +312,16 @@ class _$_Derive implements _Derive {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Derive &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DeriveCopyWith<_$_Derive> get copyWith =>
       __$$_DeriveCopyWithImpl<_$_Derive>(this, _$identity);
 
@@ -333,8 +337,8 @@ class _$_Derive implements _Derive {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(DerivedKeyCreateInputImport data)? import,
-    TResult Function(DerivedKeyCreateInputDerive data)? derive,
+    TResult? Function(DerivedKeyCreateInputImport data)? import,
+    TResult? Function(DerivedKeyCreateInputDerive data)? derive,
   }) {
     return derive?.call(data);
   }
@@ -364,8 +368,8 @@ class _$_Derive implements _Derive {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Import value)? import,
-    TResult Function(_Derive value)? derive,
+    TResult? Function(_Import value)? import,
+    TResult? Function(_Derive value)? derive,
   }) {
     return derive?.call(this);
   }
@@ -396,6 +400,7 @@ abstract class _Derive implements DerivedKeyCreateInput {
 
   factory _Derive.fromJson(Map<String, dynamic> json) = _$_Derive.fromJson;
 
+  @override
   DerivedKeyCreateInputDerive get data;
   @JsonKey(ignore: true)
   _$$_DeriveCopyWith<_$_Derive> get copyWith =>

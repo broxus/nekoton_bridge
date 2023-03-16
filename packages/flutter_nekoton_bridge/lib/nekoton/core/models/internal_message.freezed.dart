@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'internal_message.dart';
 
@@ -36,7 +36,8 @@ mixin _$InternalMessage {
 abstract class $InternalMessageCopyWith<$Res> {
   factory $InternalMessageCopyWith(
           InternalMessage value, $Res Function(InternalMessage) then) =
-      _$InternalMessageCopyWithImpl<$Res>;
+      _$InternalMessageCopyWithImpl<$Res, InternalMessage>;
+  @useResult
   $Res call(
       {String? source,
       String destination,
@@ -46,44 +47,46 @@ abstract class $InternalMessageCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$InternalMessageCopyWithImpl<$Res>
+class _$InternalMessageCopyWithImpl<$Res, $Val extends InternalMessage>
     implements $InternalMessageCopyWith<$Res> {
   _$InternalMessageCopyWithImpl(this._value, this._then);
 
-  final InternalMessage _value;
   // ignore: unused_field
-  final $Res Function(InternalMessage) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? source = freezed,
-    Object? destination = freezed,
-    Object? amount = freezed,
-    Object? bounce = freezed,
-    Object? body = freezed,
+    Object? destination = null,
+    Object? amount = null,
+    Object? bounce = null,
+    Object? body = null,
   }) {
     return _then(_value.copyWith(
-      source: source == freezed
+      source: freezed == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as String?,
-      destination: destination == freezed
+      destination: null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
-      bounce: bounce == freezed
+      bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
               as bool,
-      body: body == freezed
+      body: null == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -94,6 +97,7 @@ abstract class _$$_InternalMessageCopyWith<$Res>
           _$_InternalMessage value, $Res Function(_$_InternalMessage) then) =
       __$$_InternalMessageCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? source,
       String destination,
@@ -104,41 +108,39 @@ abstract class _$$_InternalMessageCopyWith<$Res>
 
 /// @nodoc
 class __$$_InternalMessageCopyWithImpl<$Res>
-    extends _$InternalMessageCopyWithImpl<$Res>
+    extends _$InternalMessageCopyWithImpl<$Res, _$_InternalMessage>
     implements _$$_InternalMessageCopyWith<$Res> {
   __$$_InternalMessageCopyWithImpl(
       _$_InternalMessage _value, $Res Function(_$_InternalMessage) _then)
-      : super(_value, (v) => _then(v as _$_InternalMessage));
+      : super(_value, _then);
 
-  @override
-  _$_InternalMessage get _value => super._value as _$_InternalMessage;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? source = freezed,
-    Object? destination = freezed,
-    Object? amount = freezed,
-    Object? bounce = freezed,
-    Object? body = freezed,
+    Object? destination = null,
+    Object? amount = null,
+    Object? bounce = null,
+    Object? body = null,
   }) {
     return _then(_$_InternalMessage(
-      source: source == freezed
+      source: freezed == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as String?,
-      destination: destination == freezed
+      destination: null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
-      bounce: bounce == freezed
+      bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
               as bool,
-      body: body == freezed
+      body: null == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String,
@@ -180,26 +182,22 @@ class _$_InternalMessage implements _InternalMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_InternalMessage &&
-            const DeepCollectionEquality().equals(other.source, source) &&
-            const DeepCollectionEquality()
-                .equals(other.destination, destination) &&
-            const DeepCollectionEquality().equals(other.amount, amount) &&
-            const DeepCollectionEquality().equals(other.bounce, bounce) &&
-            const DeepCollectionEquality().equals(other.body, body));
+            (identical(other.source, source) || other.source == source) &&
+            (identical(other.destination, destination) ||
+                other.destination == destination) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.bounce, bounce) || other.bounce == bounce) &&
+            (identical(other.body, body) || other.body == body));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(source),
-      const DeepCollectionEquality().hash(destination),
-      const DeepCollectionEquality().hash(amount),
-      const DeepCollectionEquality().hash(bounce),
-      const DeepCollectionEquality().hash(body));
+  int get hashCode =>
+      Object.hash(runtimeType, source, destination, amount, bounce, body);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_InternalMessageCopyWith<_$_InternalMessage> get copyWith =>
       __$$_InternalMessageCopyWithImpl<_$_InternalMessage>(this, _$identity);
 

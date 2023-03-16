@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'transactions_list.dart';
 
@@ -35,7 +35,8 @@ mixin _$TransactionsList {
 abstract class $TransactionsListCopyWith<$Res> {
   factory $TransactionsListCopyWith(
           TransactionsList value, $Res Function(TransactionsList) then) =
-      _$TransactionsListCopyWithImpl<$Res>;
+      _$TransactionsListCopyWithImpl<$Res, TransactionsList>;
+  @useResult
   $Res call(
       {List<Transaction> transactions,
       @JsonKey(includeIfNull: false) TransactionId? continuation,
@@ -46,55 +47,59 @@ abstract class $TransactionsListCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TransactionsListCopyWithImpl<$Res>
+class _$TransactionsListCopyWithImpl<$Res, $Val extends TransactionsList>
     implements $TransactionsListCopyWith<$Res> {
   _$TransactionsListCopyWithImpl(this._value, this._then);
 
-  final TransactionsList _value;
   // ignore: unused_field
-  final $Res Function(TransactionsList) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transactions = freezed,
+    Object? transactions = null,
     Object? continuation = freezed,
     Object? info = freezed,
   }) {
     return _then(_value.copyWith(
-      transactions: transactions == freezed
+      transactions: null == transactions
           ? _value.transactions
           : transactions // ignore: cast_nullable_to_non_nullable
               as List<Transaction>,
-      continuation: continuation == freezed
+      continuation: freezed == continuation
           ? _value.continuation
           : continuation // ignore: cast_nullable_to_non_nullable
               as TransactionId?,
-      info: info == freezed
+      info: freezed == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as TransactionsBatchInfo?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TransactionIdCopyWith<$Res>? get continuation {
     if (_value.continuation == null) {
       return null;
     }
 
     return $TransactionIdCopyWith<$Res>(_value.continuation!, (value) {
-      return _then(_value.copyWith(continuation: value));
+      return _then(_value.copyWith(continuation: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TransactionsBatchInfoCopyWith<$Res>? get info {
     if (_value.info == null) {
       return null;
     }
 
     return $TransactionsBatchInfoCopyWith<$Res>(_value.info!, (value) {
-      return _then(_value.copyWith(info: value));
+      return _then(_value.copyWith(info: value) as $Val);
     });
   }
 }
@@ -106,6 +111,7 @@ abstract class _$$_TransactionsListCopyWith<$Res>
           _$_TransactionsList value, $Res Function(_$_TransactionsList) then) =
       __$$_TransactionsListCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {List<Transaction> transactions,
       @JsonKey(includeIfNull: false) TransactionId? continuation,
@@ -119,31 +125,29 @@ abstract class _$$_TransactionsListCopyWith<$Res>
 
 /// @nodoc
 class __$$_TransactionsListCopyWithImpl<$Res>
-    extends _$TransactionsListCopyWithImpl<$Res>
+    extends _$TransactionsListCopyWithImpl<$Res, _$_TransactionsList>
     implements _$$_TransactionsListCopyWith<$Res> {
   __$$_TransactionsListCopyWithImpl(
       _$_TransactionsList _value, $Res Function(_$_TransactionsList) _then)
-      : super(_value, (v) => _then(v as _$_TransactionsList));
+      : super(_value, _then);
 
-  @override
-  _$_TransactionsList get _value => super._value as _$_TransactionsList;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transactions = freezed,
+    Object? transactions = null,
     Object? continuation = freezed,
     Object? info = freezed,
   }) {
     return _then(_$_TransactionsList(
-      transactions: transactions == freezed
+      transactions: null == transactions
           ? _value._transactions
           : transactions // ignore: cast_nullable_to_non_nullable
               as List<Transaction>,
-      continuation: continuation == freezed
+      continuation: freezed == continuation
           ? _value.continuation
           : continuation // ignore: cast_nullable_to_non_nullable
               as TransactionId?,
-      info: info == freezed
+      info: freezed == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as TransactionsBatchInfo?,
@@ -166,6 +170,7 @@ class _$_TransactionsList implements _TransactionsList {
   final List<Transaction> _transactions;
   @override
   List<Transaction> get transactions {
+    if (_transactions is EqualUnmodifiableListView) return _transactions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_transactions);
   }
@@ -188,21 +193,19 @@ class _$_TransactionsList implements _TransactionsList {
             other is _$_TransactionsList &&
             const DeepCollectionEquality()
                 .equals(other._transactions, _transactions) &&
-            const DeepCollectionEquality()
-                .equals(other.continuation, continuation) &&
-            const DeepCollectionEquality().equals(other.info, info));
+            (identical(other.continuation, continuation) ||
+                other.continuation == continuation) &&
+            (identical(other.info, info) || other.info == info));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_transactions),
-      const DeepCollectionEquality().hash(continuation),
-      const DeepCollectionEquality().hash(info));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_transactions), continuation, info);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TransactionsListCopyWith<_$_TransactionsList> get copyWith =>
       __$$_TransactionsListCopyWithImpl<_$_TransactionsList>(this, _$identity);
 

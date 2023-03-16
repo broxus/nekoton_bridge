@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'wallet_interaction_info.dart';
 
@@ -37,7 +37,8 @@ mixin _$WalletInteractionInfo {
 abstract class $WalletInteractionInfoCopyWith<$Res> {
   factory $WalletInteractionInfoCopyWith(WalletInteractionInfo value,
           $Res Function(WalletInteractionInfo) then) =
-      _$WalletInteractionInfoCopyWithImpl<$Res>;
+      _$WalletInteractionInfoCopyWithImpl<$Res, WalletInteractionInfo>;
+  @useResult
   $Res call(
       {@JsonKey(includeIfNull: false) String? recipient,
       @JsonKey(includeIfNull: false) KnownPayload? knownPayload,
@@ -48,51 +49,56 @@ abstract class $WalletInteractionInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$WalletInteractionInfoCopyWithImpl<$Res>
+class _$WalletInteractionInfoCopyWithImpl<$Res,
+        $Val extends WalletInteractionInfo>
     implements $WalletInteractionInfoCopyWith<$Res> {
   _$WalletInteractionInfoCopyWithImpl(this._value, this._then);
 
-  final WalletInteractionInfo _value;
   // ignore: unused_field
-  final $Res Function(WalletInteractionInfo) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? recipient = freezed,
     Object? knownPayload = freezed,
-    Object? method = freezed,
+    Object? method = null,
   }) {
     return _then(_value.copyWith(
-      recipient: recipient == freezed
+      recipient: freezed == recipient
           ? _value.recipient
           : recipient // ignore: cast_nullable_to_non_nullable
               as String?,
-      knownPayload: knownPayload == freezed
+      knownPayload: freezed == knownPayload
           ? _value.knownPayload
           : knownPayload // ignore: cast_nullable_to_non_nullable
               as KnownPayload?,
-      method: method == freezed
+      method: null == method
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
               as WalletInteractionMethod,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $KnownPayloadCopyWith<$Res>? get knownPayload {
     if (_value.knownPayload == null) {
       return null;
     }
 
     return $KnownPayloadCopyWith<$Res>(_value.knownPayload!, (value) {
-      return _then(_value.copyWith(knownPayload: value));
+      return _then(_value.copyWith(knownPayload: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $WalletInteractionMethodCopyWith<$Res> get method {
     return $WalletInteractionMethodCopyWith<$Res>(_value.method, (value) {
-      return _then(_value.copyWith(method: value));
+      return _then(_value.copyWith(method: value) as $Val);
     });
   }
 }
@@ -104,6 +110,7 @@ abstract class _$$_WalletInteractionInfoCopyWith<$Res>
           $Res Function(_$_WalletInteractionInfo) then) =
       __$$_WalletInteractionInfoCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(includeIfNull: false) String? recipient,
       @JsonKey(includeIfNull: false) KnownPayload? knownPayload,
@@ -117,32 +124,29 @@ abstract class _$$_WalletInteractionInfoCopyWith<$Res>
 
 /// @nodoc
 class __$$_WalletInteractionInfoCopyWithImpl<$Res>
-    extends _$WalletInteractionInfoCopyWithImpl<$Res>
+    extends _$WalletInteractionInfoCopyWithImpl<$Res, _$_WalletInteractionInfo>
     implements _$$_WalletInteractionInfoCopyWith<$Res> {
   __$$_WalletInteractionInfoCopyWithImpl(_$_WalletInteractionInfo _value,
       $Res Function(_$_WalletInteractionInfo) _then)
-      : super(_value, (v) => _then(v as _$_WalletInteractionInfo));
+      : super(_value, _then);
 
-  @override
-  _$_WalletInteractionInfo get _value =>
-      super._value as _$_WalletInteractionInfo;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? recipient = freezed,
     Object? knownPayload = freezed,
-    Object? method = freezed,
+    Object? method = null,
   }) {
     return _then(_$_WalletInteractionInfo(
-      recipient: recipient == freezed
+      recipient: freezed == recipient
           ? _value.recipient
           : recipient // ignore: cast_nullable_to_non_nullable
               as String?,
-      knownPayload: knownPayload == freezed
+      knownPayload: freezed == knownPayload
           ? _value.knownPayload
           : knownPayload // ignore: cast_nullable_to_non_nullable
               as KnownPayload?,
-      method: method == freezed
+      method: null == method
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
               as WalletInteractionMethod,
@@ -180,22 +184,20 @@ class _$_WalletInteractionInfo implements _WalletInteractionInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WalletInteractionInfo &&
-            const DeepCollectionEquality().equals(other.recipient, recipient) &&
-            const DeepCollectionEquality()
-                .equals(other.knownPayload, knownPayload) &&
-            const DeepCollectionEquality().equals(other.method, method));
+            (identical(other.recipient, recipient) ||
+                other.recipient == recipient) &&
+            (identical(other.knownPayload, knownPayload) ||
+                other.knownPayload == knownPayload) &&
+            (identical(other.method, method) || other.method == method));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(recipient),
-      const DeepCollectionEquality().hash(knownPayload),
-      const DeepCollectionEquality().hash(method));
+  int get hashCode => Object.hash(runtimeType, recipient, knownPayload, method);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WalletInteractionInfoCopyWith<_$_WalletInteractionInfo> get copyWith =>
       __$$_WalletInteractionInfoCopyWithImpl<_$_WalletInteractionInfo>(
           this, _$identity);

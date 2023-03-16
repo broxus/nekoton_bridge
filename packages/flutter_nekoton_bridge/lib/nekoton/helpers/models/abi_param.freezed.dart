@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'abi_param.dart';
 
@@ -33,38 +33,42 @@ mixin _$AbiParam {
 /// @nodoc
 abstract class $AbiParamCopyWith<$Res> {
   factory $AbiParamCopyWith(AbiParam value, $Res Function(AbiParam) then) =
-      _$AbiParamCopyWithImpl<$Res>;
+      _$AbiParamCopyWithImpl<$Res, AbiParam>;
+  @useResult
   $Res call({String name, String type, List<AbiParam>? components});
 }
 
 /// @nodoc
-class _$AbiParamCopyWithImpl<$Res> implements $AbiParamCopyWith<$Res> {
+class _$AbiParamCopyWithImpl<$Res, $Val extends AbiParam>
+    implements $AbiParamCopyWith<$Res> {
   _$AbiParamCopyWithImpl(this._value, this._then);
 
-  final AbiParam _value;
   // ignore: unused_field
-  final $Res Function(AbiParam) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? type = freezed,
+    Object? name = null,
+    Object? type = null,
     Object? components = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      type: type == freezed
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      components: components == freezed
+      components: freezed == components
           ? _value.components
           : components // ignore: cast_nullable_to_non_nullable
               as List<AbiParam>?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -74,35 +78,35 @@ abstract class _$$_AbiParamCopyWith<$Res> implements $AbiParamCopyWith<$Res> {
           _$_AbiParam value, $Res Function(_$_AbiParam) then) =
       __$$_AbiParamCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String name, String type, List<AbiParam>? components});
 }
 
 /// @nodoc
-class __$$_AbiParamCopyWithImpl<$Res> extends _$AbiParamCopyWithImpl<$Res>
+class __$$_AbiParamCopyWithImpl<$Res>
+    extends _$AbiParamCopyWithImpl<$Res, _$_AbiParam>
     implements _$$_AbiParamCopyWith<$Res> {
   __$$_AbiParamCopyWithImpl(
       _$_AbiParam _value, $Res Function(_$_AbiParam) _then)
-      : super(_value, (v) => _then(v as _$_AbiParam));
+      : super(_value, _then);
 
-  @override
-  _$_AbiParam get _value => super._value as _$_AbiParam;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? type = freezed,
+    Object? name = null,
+    Object? type = null,
     Object? components = freezed,
   }) {
     return _then(_$_AbiParam(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      type: type == freezed
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      components: components == freezed
+      components: freezed == components
           ? _value._components
           : components // ignore: cast_nullable_to_non_nullable
               as List<AbiParam>?,
@@ -131,6 +135,7 @@ class _$_AbiParam implements _AbiParam {
   List<AbiParam>? get components {
     final value = _components;
     if (value == null) return null;
+    if (_components is EqualUnmodifiableListView) return _components;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -145,22 +150,20 @@ class _$_AbiParam implements _AbiParam {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AbiParam &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.type, type) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality()
                 .equals(other._components, _components));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(type),
+  int get hashCode => Object.hash(runtimeType, name, type,
       const DeepCollectionEquality().hash(_components));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AbiParamCopyWith<_$_AbiParam> get copyWith =>
       __$$_AbiParamCopyWithImpl<_$_AbiParam>(this, _$identity);
 

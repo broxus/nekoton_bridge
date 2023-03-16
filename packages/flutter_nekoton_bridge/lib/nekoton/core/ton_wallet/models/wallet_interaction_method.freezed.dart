@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'wallet_interaction_method.dart';
 
@@ -38,8 +38,8 @@ mixin _$WalletInteractionMethod {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? walletV3Transfer,
-    TResult Function(MultisigTransaction data)? multisig,
+    TResult? Function()? walletV3Transfer,
+    TResult? Function(MultisigTransaction data)? multisig,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,8 +57,8 @@ mixin _$WalletInteractionMethod {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WalletV3Transfer value)? walletV3Transfer,
-    TResult Function(_Multisig value)? multisig,
+    TResult? Function(_WalletV3Transfer value)? walletV3Transfer,
+    TResult? Function(_Multisig value)? multisig,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,17 +75,19 @@ mixin _$WalletInteractionMethod {
 abstract class $WalletInteractionMethodCopyWith<$Res> {
   factory $WalletInteractionMethodCopyWith(WalletInteractionMethod value,
           $Res Function(WalletInteractionMethod) then) =
-      _$WalletInteractionMethodCopyWithImpl<$Res>;
+      _$WalletInteractionMethodCopyWithImpl<$Res, WalletInteractionMethod>;
 }
 
 /// @nodoc
-class _$WalletInteractionMethodCopyWithImpl<$Res>
+class _$WalletInteractionMethodCopyWithImpl<$Res,
+        $Val extends WalletInteractionMethod>
     implements $WalletInteractionMethodCopyWith<$Res> {
   _$WalletInteractionMethodCopyWithImpl(this._value, this._then);
 
-  final WalletInteractionMethod _value;
   // ignore: unused_field
-  final $Res Function(WalletInteractionMethod) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -97,14 +99,11 @@ abstract class _$$_WalletV3TransferCopyWith<$Res> {
 
 /// @nodoc
 class __$$_WalletV3TransferCopyWithImpl<$Res>
-    extends _$WalletInteractionMethodCopyWithImpl<$Res>
+    extends _$WalletInteractionMethodCopyWithImpl<$Res, _$_WalletV3Transfer>
     implements _$$_WalletV3TransferCopyWith<$Res> {
   __$$_WalletV3TransferCopyWithImpl(
       _$_WalletV3Transfer _value, $Res Function(_$_WalletV3Transfer) _then)
-      : super(_value, (v) => _then(v as _$_WalletV3Transfer));
-
-  @override
-  _$_WalletV3Transfer get _value => super._value as _$_WalletV3Transfer;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -146,8 +145,8 @@ class _$_WalletV3Transfer implements _WalletV3Transfer {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? walletV3Transfer,
-    TResult Function(MultisigTransaction data)? multisig,
+    TResult? Function()? walletV3Transfer,
+    TResult? Function(MultisigTransaction data)? multisig,
   }) {
     return walletV3Transfer?.call();
   }
@@ -177,8 +176,8 @@ class _$_WalletV3Transfer implements _WalletV3Transfer {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WalletV3Transfer value)? walletV3Transfer,
-    TResult Function(_Multisig value)? multisig,
+    TResult? Function(_WalletV3Transfer value)? walletV3Transfer,
+    TResult? Function(_Multisig value)? multisig,
   }) {
     return walletV3Transfer?.call(this);
   }
@@ -216,6 +215,7 @@ abstract class _$$_MultisigCopyWith<$Res> {
   factory _$$_MultisigCopyWith(
           _$_Multisig value, $Res Function(_$_Multisig) then) =
       __$$_MultisigCopyWithImpl<$Res>;
+  @useResult
   $Res call({MultisigTransaction data});
 
   $MultisigTransactionCopyWith<$Res> get data;
@@ -223,21 +223,19 @@ abstract class _$$_MultisigCopyWith<$Res> {
 
 /// @nodoc
 class __$$_MultisigCopyWithImpl<$Res>
-    extends _$WalletInteractionMethodCopyWithImpl<$Res>
+    extends _$WalletInteractionMethodCopyWithImpl<$Res, _$_Multisig>
     implements _$$_MultisigCopyWith<$Res> {
   __$$_MultisigCopyWithImpl(
       _$_Multisig _value, $Res Function(_$_Multisig) _then)
-      : super(_value, (v) => _then(v as _$_Multisig));
+      : super(_value, _then);
 
-  @override
-  _$_Multisig get _value => super._value as _$_Multisig;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_Multisig(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as MultisigTransaction,
@@ -245,6 +243,7 @@ class __$$_MultisigCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $MultisigTransactionCopyWith<$Res> get data {
     return $MultisigTransactionCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
@@ -277,16 +276,16 @@ class _$_Multisig implements _Multisig {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Multisig &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MultisigCopyWith<_$_Multisig> get copyWith =>
       __$$_MultisigCopyWithImpl<_$_Multisig>(this, _$identity);
 
@@ -302,8 +301,8 @@ class _$_Multisig implements _Multisig {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? walletV3Transfer,
-    TResult Function(MultisigTransaction data)? multisig,
+    TResult? Function()? walletV3Transfer,
+    TResult? Function(MultisigTransaction data)? multisig,
   }) {
     return multisig?.call(data);
   }
@@ -333,8 +332,8 @@ class _$_Multisig implements _Multisig {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_WalletV3Transfer value)? walletV3Transfer,
-    TResult Function(_Multisig value)? multisig,
+    TResult? Function(_WalletV3Transfer value)? walletV3Transfer,
+    TResult? Function(_Multisig value)? multisig,
   }) {
     return multisig?.call(this);
   }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'transactions_batch_info.dart';
 
@@ -35,39 +35,43 @@ mixin _$TransactionsBatchInfo {
 abstract class $TransactionsBatchInfoCopyWith<$Res> {
   factory $TransactionsBatchInfoCopyWith(TransactionsBatchInfo value,
           $Res Function(TransactionsBatchInfo) then) =
-      _$TransactionsBatchInfoCopyWithImpl<$Res>;
+      _$TransactionsBatchInfoCopyWithImpl<$Res, TransactionsBatchInfo>;
+  @useResult
   $Res call({String minLt, String maxLt, TransactionsBatchType batchType});
 }
 
 /// @nodoc
-class _$TransactionsBatchInfoCopyWithImpl<$Res>
+class _$TransactionsBatchInfoCopyWithImpl<$Res,
+        $Val extends TransactionsBatchInfo>
     implements $TransactionsBatchInfoCopyWith<$Res> {
   _$TransactionsBatchInfoCopyWithImpl(this._value, this._then);
 
-  final TransactionsBatchInfo _value;
   // ignore: unused_field
-  final $Res Function(TransactionsBatchInfo) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? minLt = freezed,
-    Object? maxLt = freezed,
-    Object? batchType = freezed,
+    Object? minLt = null,
+    Object? maxLt = null,
+    Object? batchType = null,
   }) {
     return _then(_value.copyWith(
-      minLt: minLt == freezed
+      minLt: null == minLt
           ? _value.minLt
           : minLt // ignore: cast_nullable_to_non_nullable
               as String,
-      maxLt: maxLt == freezed
+      maxLt: null == maxLt
           ? _value.maxLt
           : maxLt // ignore: cast_nullable_to_non_nullable
               as String,
-      batchType: batchType == freezed
+      batchType: null == batchType
           ? _value.batchType
           : batchType // ignore: cast_nullable_to_non_nullable
               as TransactionsBatchType,
-    ));
+    ) as $Val);
   }
 }
 
@@ -78,37 +82,35 @@ abstract class _$$_TransactionsBatchInfoCopyWith<$Res>
           $Res Function(_$_TransactionsBatchInfo) then) =
       __$$_TransactionsBatchInfoCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String minLt, String maxLt, TransactionsBatchType batchType});
 }
 
 /// @nodoc
 class __$$_TransactionsBatchInfoCopyWithImpl<$Res>
-    extends _$TransactionsBatchInfoCopyWithImpl<$Res>
+    extends _$TransactionsBatchInfoCopyWithImpl<$Res, _$_TransactionsBatchInfo>
     implements _$$_TransactionsBatchInfoCopyWith<$Res> {
   __$$_TransactionsBatchInfoCopyWithImpl(_$_TransactionsBatchInfo _value,
       $Res Function(_$_TransactionsBatchInfo) _then)
-      : super(_value, (v) => _then(v as _$_TransactionsBatchInfo));
+      : super(_value, _then);
 
-  @override
-  _$_TransactionsBatchInfo get _value =>
-      super._value as _$_TransactionsBatchInfo;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? minLt = freezed,
-    Object? maxLt = freezed,
-    Object? batchType = freezed,
+    Object? minLt = null,
+    Object? maxLt = null,
+    Object? batchType = null,
   }) {
     return _then(_$_TransactionsBatchInfo(
-      minLt: minLt == freezed
+      minLt: null == minLt
           ? _value.minLt
           : minLt // ignore: cast_nullable_to_non_nullable
               as String,
-      maxLt: maxLt == freezed
+      maxLt: null == maxLt
           ? _value.maxLt
           : maxLt // ignore: cast_nullable_to_non_nullable
               as String,
-      batchType: batchType == freezed
+      batchType: null == batchType
           ? _value.batchType
           : batchType // ignore: cast_nullable_to_non_nullable
               as TransactionsBatchType,
@@ -142,21 +144,19 @@ class _$_TransactionsBatchInfo implements _TransactionsBatchInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TransactionsBatchInfo &&
-            const DeepCollectionEquality().equals(other.minLt, minLt) &&
-            const DeepCollectionEquality().equals(other.maxLt, maxLt) &&
-            const DeepCollectionEquality().equals(other.batchType, batchType));
+            (identical(other.minLt, minLt) || other.minLt == minLt) &&
+            (identical(other.maxLt, maxLt) || other.maxLt == maxLt) &&
+            (identical(other.batchType, batchType) ||
+                other.batchType == batchType));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(minLt),
-      const DeepCollectionEquality().hash(maxLt),
-      const DeepCollectionEquality().hash(batchType));
+  int get hashCode => Object.hash(runtimeType, minLt, maxLt, batchType);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TransactionsBatchInfoCopyWith<_$_TransactionsBatchInfo> get copyWith =>
       __$$_TransactionsBatchInfoCopyWithImpl<_$_TransactionsBatchInfo>(
           this, _$identity);

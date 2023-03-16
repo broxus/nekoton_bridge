@@ -22,6 +22,6 @@ Map<String, dynamic>
             _$_DerivedKeyUpdateParamsChangePasswordChangePassword instance) =>
         <String, dynamic>{
           'master_key': instance.masterKey,
-          'old_password': instance.oldPassword.toJson(),
-          'new_password': instance.newPassword.toJson(),
+          'old_password': instance.oldPassword,
+          'new_password': instance.newPassword,
         };

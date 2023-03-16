@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'password_explicit.dart';
 
@@ -33,42 +33,46 @@ mixin _$PasswordExplicit {
 abstract class $PasswordExplicitCopyWith<$Res> {
   factory $PasswordExplicitCopyWith(
           PasswordExplicit value, $Res Function(PasswordExplicit) then) =
-      _$PasswordExplicitCopyWithImpl<$Res>;
+      _$PasswordExplicitCopyWithImpl<$Res, PasswordExplicit>;
+  @useResult
   $Res call({String password, PasswordCacheBehavior cacheBehavior});
 
   $PasswordCacheBehaviorCopyWith<$Res> get cacheBehavior;
 }
 
 /// @nodoc
-class _$PasswordExplicitCopyWithImpl<$Res>
+class _$PasswordExplicitCopyWithImpl<$Res, $Val extends PasswordExplicit>
     implements $PasswordExplicitCopyWith<$Res> {
   _$PasswordExplicitCopyWithImpl(this._value, this._then);
 
-  final PasswordExplicit _value;
   // ignore: unused_field
-  final $Res Function(PasswordExplicit) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = freezed,
-    Object? cacheBehavior = freezed,
+    Object? password = null,
+    Object? cacheBehavior = null,
   }) {
     return _then(_value.copyWith(
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      cacheBehavior: cacheBehavior == freezed
+      cacheBehavior: null == cacheBehavior
           ? _value.cacheBehavior
           : cacheBehavior // ignore: cast_nullable_to_non_nullable
               as PasswordCacheBehavior,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PasswordCacheBehaviorCopyWith<$Res> get cacheBehavior {
     return $PasswordCacheBehaviorCopyWith<$Res>(_value.cacheBehavior, (value) {
-      return _then(_value.copyWith(cacheBehavior: value));
+      return _then(_value.copyWith(cacheBehavior: value) as $Val);
     });
   }
 }
@@ -81,6 +85,7 @@ abstract class _$$_PasswordExplicitExplicitCopyWith<$Res>
           $Res Function(_$_PasswordExplicitExplicit) then) =
       __$$_PasswordExplicitExplicitCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String password, PasswordCacheBehavior cacheBehavior});
 
   @override
@@ -89,27 +94,24 @@ abstract class _$$_PasswordExplicitExplicitCopyWith<$Res>
 
 /// @nodoc
 class __$$_PasswordExplicitExplicitCopyWithImpl<$Res>
-    extends _$PasswordExplicitCopyWithImpl<$Res>
+    extends _$PasswordExplicitCopyWithImpl<$Res, _$_PasswordExplicitExplicit>
     implements _$$_PasswordExplicitExplicitCopyWith<$Res> {
   __$$_PasswordExplicitExplicitCopyWithImpl(_$_PasswordExplicitExplicit _value,
       $Res Function(_$_PasswordExplicitExplicit) _then)
-      : super(_value, (v) => _then(v as _$_PasswordExplicitExplicit));
+      : super(_value, _then);
 
-  @override
-  _$_PasswordExplicitExplicit get _value =>
-      super._value as _$_PasswordExplicitExplicit;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = freezed,
-    Object? cacheBehavior = freezed,
+    Object? password = null,
+    Object? cacheBehavior = null,
   }) {
     return _then(_$_PasswordExplicitExplicit(
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      cacheBehavior: cacheBehavior == freezed
+      cacheBehavior: null == cacheBehavior
           ? _value.cacheBehavior
           : cacheBehavior // ignore: cast_nullable_to_non_nullable
               as PasswordCacheBehavior,
@@ -142,20 +144,19 @@ class _$_PasswordExplicitExplicit implements _PasswordExplicitExplicit {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PasswordExplicitExplicit &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality()
-                .equals(other.cacheBehavior, cacheBehavior));
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.cacheBehavior, cacheBehavior) ||
+                other.cacheBehavior == cacheBehavior));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(cacheBehavior));
+  int get hashCode => Object.hash(runtimeType, password, cacheBehavior);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PasswordExplicitExplicitCopyWith<_$_PasswordExplicitExplicit>
       get copyWith => __$$_PasswordExplicitExplicitCopyWithImpl<
           _$_PasswordExplicitExplicit>(this, _$identity);

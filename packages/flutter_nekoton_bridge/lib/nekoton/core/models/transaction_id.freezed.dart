@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'transaction_id.dart';
 
@@ -33,34 +33,37 @@ mixin _$TransactionId {
 abstract class $TransactionIdCopyWith<$Res> {
   factory $TransactionIdCopyWith(
           TransactionId value, $Res Function(TransactionId) then) =
-      _$TransactionIdCopyWithImpl<$Res>;
+      _$TransactionIdCopyWithImpl<$Res, TransactionId>;
+  @useResult
   $Res call({String lt, String hash});
 }
 
 /// @nodoc
-class _$TransactionIdCopyWithImpl<$Res>
+class _$TransactionIdCopyWithImpl<$Res, $Val extends TransactionId>
     implements $TransactionIdCopyWith<$Res> {
   _$TransactionIdCopyWithImpl(this._value, this._then);
 
-  final TransactionId _value;
   // ignore: unused_field
-  final $Res Function(TransactionId) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? lt = freezed,
-    Object? hash = freezed,
+    Object? lt = null,
+    Object? hash = null,
   }) {
     return _then(_value.copyWith(
-      lt: lt == freezed
+      lt: null == lt
           ? _value.lt
           : lt // ignore: cast_nullable_to_non_nullable
               as String,
-      hash: hash == freezed
+      hash: null == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,31 +74,30 @@ abstract class _$$_TransactionIdCopyWith<$Res>
           _$_TransactionId value, $Res Function(_$_TransactionId) then) =
       __$$_TransactionIdCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String lt, String hash});
 }
 
 /// @nodoc
 class __$$_TransactionIdCopyWithImpl<$Res>
-    extends _$TransactionIdCopyWithImpl<$Res>
+    extends _$TransactionIdCopyWithImpl<$Res, _$_TransactionId>
     implements _$$_TransactionIdCopyWith<$Res> {
   __$$_TransactionIdCopyWithImpl(
       _$_TransactionId _value, $Res Function(_$_TransactionId) _then)
-      : super(_value, (v) => _then(v as _$_TransactionId));
+      : super(_value, _then);
 
-  @override
-  _$_TransactionId get _value => super._value as _$_TransactionId;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? lt = freezed,
-    Object? hash = freezed,
+    Object? lt = null,
+    Object? hash = null,
   }) {
     return _then(_$_TransactionId(
-      lt: lt == freezed
+      lt: null == lt
           ? _value.lt
           : lt // ignore: cast_nullable_to_non_nullable
               as String,
-      hash: hash == freezed
+      hash: null == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as String,
@@ -126,19 +128,17 @@ class _$_TransactionId implements _TransactionId {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TransactionId &&
-            const DeepCollectionEquality().equals(other.lt, lt) &&
-            const DeepCollectionEquality().equals(other.hash, hash));
+            (identical(other.lt, lt) || other.lt == lt) &&
+            (identical(other.hash, hash) || other.hash == hash));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(lt),
-      const DeepCollectionEquality().hash(hash));
+  int get hashCode => Object.hash(runtimeType, lt, hash);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TransactionIdCopyWith<_$_TransactionId> get copyWith =>
       __$$_TransactionIdCopyWithImpl<_$_TransactionId>(this, _$identity);
 

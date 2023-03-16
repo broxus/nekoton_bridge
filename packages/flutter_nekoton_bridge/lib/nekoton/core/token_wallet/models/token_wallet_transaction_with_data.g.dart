@@ -20,6 +20,6 @@ _$_TokenWalletTransactionWithData _$$_TokenWalletTransactionWithDataFromJson(
 Map<String, dynamic> _$$_TokenWalletTransactionWithDataToJson(
         _$_TokenWalletTransactionWithData instance) =>
     <String, dynamic>{
-      'transaction': instance.transaction.toJson(),
-      'data': instance.data?.toJson(),
+      'transaction': instance.transaction,
+      'data': instance.data,
     };

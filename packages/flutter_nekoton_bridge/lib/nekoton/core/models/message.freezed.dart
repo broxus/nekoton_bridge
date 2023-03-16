@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'message.dart';
 
@@ -37,7 +37,8 @@ mixin _$Message {
 /// @nodoc
 abstract class $MessageCopyWith<$Res> {
   factory $MessageCopyWith(Message value, $Res Function(Message) then) =
-      _$MessageCopyWithImpl<$Res>;
+      _$MessageCopyWithImpl<$Res, Message>;
+  @useResult
   $Res call(
       {String hash,
       String? src,
@@ -50,58 +51,61 @@ abstract class $MessageCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MessageCopyWithImpl<$Res> implements $MessageCopyWith<$Res> {
+class _$MessageCopyWithImpl<$Res, $Val extends Message>
+    implements $MessageCopyWith<$Res> {
   _$MessageCopyWithImpl(this._value, this._then);
 
-  final Message _value;
   // ignore: unused_field
-  final $Res Function(Message) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? hash = freezed,
+    Object? hash = null,
     Object? src = freezed,
     Object? dst = freezed,
-    Object? value = freezed,
-    Object? bounce = freezed,
-    Object? bounced = freezed,
+    Object? value = null,
+    Object? bounce = null,
+    Object? bounced = null,
     Object? body = freezed,
     Object? bodyHash = freezed,
   }) {
     return _then(_value.copyWith(
-      hash: hash == freezed
+      hash: null == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as String,
-      src: src == freezed
+      src: freezed == src
           ? _value.src
           : src // ignore: cast_nullable_to_non_nullable
               as String?,
-      dst: dst == freezed
+      dst: freezed == dst
           ? _value.dst
           : dst // ignore: cast_nullable_to_non_nullable
               as String?,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      bounce: bounce == freezed
+      bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
               as bool,
-      bounced: bounced == freezed
+      bounced: null == bounced
           ? _value.bounced
           : bounced // ignore: cast_nullable_to_non_nullable
               as bool,
-      body: body == freezed
+      body: freezed == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
-      bodyHash: bodyHash == freezed
+      bodyHash: freezed == bodyHash
           ? _value.bodyHash
           : bodyHash // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -111,6 +115,7 @@ abstract class _$$_MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
           _$_Message value, $Res Function(_$_Message) then) =
       __$$_MessageCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String hash,
       String? src,
@@ -123,55 +128,54 @@ abstract class _$$_MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_MessageCopyWithImpl<$Res> extends _$MessageCopyWithImpl<$Res>
+class __$$_MessageCopyWithImpl<$Res>
+    extends _$MessageCopyWithImpl<$Res, _$_Message>
     implements _$$_MessageCopyWith<$Res> {
   __$$_MessageCopyWithImpl(_$_Message _value, $Res Function(_$_Message) _then)
-      : super(_value, (v) => _then(v as _$_Message));
+      : super(_value, _then);
 
-  @override
-  _$_Message get _value => super._value as _$_Message;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? hash = freezed,
+    Object? hash = null,
     Object? src = freezed,
     Object? dst = freezed,
-    Object? value = freezed,
-    Object? bounce = freezed,
-    Object? bounced = freezed,
+    Object? value = null,
+    Object? bounce = null,
+    Object? bounced = null,
     Object? body = freezed,
     Object? bodyHash = freezed,
   }) {
     return _then(_$_Message(
-      hash: hash == freezed
+      hash: null == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as String,
-      src: src == freezed
+      src: freezed == src
           ? _value.src
           : src // ignore: cast_nullable_to_non_nullable
               as String?,
-      dst: dst == freezed
+      dst: freezed == dst
           ? _value.dst
           : dst // ignore: cast_nullable_to_non_nullable
               as String?,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      bounce: bounce == freezed
+      bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
               as bool,
-      bounced: bounced == freezed
+      bounced: null == bounced
           ? _value.bounced
           : bounced // ignore: cast_nullable_to_non_nullable
               as bool,
-      body: body == freezed
+      body: freezed == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
-      bodyHash: bodyHash == freezed
+      bodyHash: freezed == bodyHash
           ? _value.bodyHash
           : bodyHash // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -222,31 +226,25 @@ class _$_Message implements _Message {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Message &&
-            const DeepCollectionEquality().equals(other.hash, hash) &&
-            const DeepCollectionEquality().equals(other.src, src) &&
-            const DeepCollectionEquality().equals(other.dst, dst) &&
-            const DeepCollectionEquality().equals(other.value, value) &&
-            const DeepCollectionEquality().equals(other.bounce, bounce) &&
-            const DeepCollectionEquality().equals(other.bounced, bounced) &&
-            const DeepCollectionEquality().equals(other.body, body) &&
-            const DeepCollectionEquality().equals(other.bodyHash, bodyHash));
+            (identical(other.hash, hash) || other.hash == hash) &&
+            (identical(other.src, src) || other.src == src) &&
+            (identical(other.dst, dst) || other.dst == dst) &&
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.bounce, bounce) || other.bounce == bounce) &&
+            (identical(other.bounced, bounced) || other.bounced == bounced) &&
+            (identical(other.body, body) || other.body == body) &&
+            (identical(other.bodyHash, bodyHash) ||
+                other.bodyHash == bodyHash));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(hash),
-      const DeepCollectionEquality().hash(src),
-      const DeepCollectionEquality().hash(dst),
-      const DeepCollectionEquality().hash(value),
-      const DeepCollectionEquality().hash(bounce),
-      const DeepCollectionEquality().hash(bounced),
-      const DeepCollectionEquality().hash(body),
-      const DeepCollectionEquality().hash(bodyHash));
+      runtimeType, hash, src, dst, value, bounce, bounced, body, bodyHash);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MessageCopyWith<_$_Message> get copyWith =>
       __$$_MessageCopyWithImpl<_$_Message>(this, _$identity);
 

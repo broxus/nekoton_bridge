@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'execution_output.dart';
 
@@ -34,35 +34,38 @@ mixin _$ExecutionOutput {
 abstract class $ExecutionOutputCopyWith<$Res> {
   factory $ExecutionOutputCopyWith(
           ExecutionOutput value, $Res Function(ExecutionOutput) then) =
-      _$ExecutionOutputCopyWithImpl<$Res>;
+      _$ExecutionOutputCopyWithImpl<$Res, ExecutionOutput>;
+  @useResult
   $Res call(
       {@JsonKey(includeIfNull: false) Map<String, dynamic>? output, int code});
 }
 
 /// @nodoc
-class _$ExecutionOutputCopyWithImpl<$Res>
+class _$ExecutionOutputCopyWithImpl<$Res, $Val extends ExecutionOutput>
     implements $ExecutionOutputCopyWith<$Res> {
   _$ExecutionOutputCopyWithImpl(this._value, this._then);
 
-  final ExecutionOutput _value;
   // ignore: unused_field
-  final $Res Function(ExecutionOutput) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? output = freezed,
-    Object? code = freezed,
+    Object? code = null,
   }) {
     return _then(_value.copyWith(
-      output: output == freezed
+      output: freezed == output
           ? _value.output
           : output // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -73,32 +76,31 @@ abstract class _$$_ExecutionOutputCopyWith<$Res>
           _$_ExecutionOutput value, $Res Function(_$_ExecutionOutput) then) =
       __$$_ExecutionOutputCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(includeIfNull: false) Map<String, dynamic>? output, int code});
 }
 
 /// @nodoc
 class __$$_ExecutionOutputCopyWithImpl<$Res>
-    extends _$ExecutionOutputCopyWithImpl<$Res>
+    extends _$ExecutionOutputCopyWithImpl<$Res, _$_ExecutionOutput>
     implements _$$_ExecutionOutputCopyWith<$Res> {
   __$$_ExecutionOutputCopyWithImpl(
       _$_ExecutionOutput _value, $Res Function(_$_ExecutionOutput) _then)
-      : super(_value, (v) => _then(v as _$_ExecutionOutput));
+      : super(_value, _then);
 
-  @override
-  _$_ExecutionOutput get _value => super._value as _$_ExecutionOutput;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? output = freezed,
-    Object? code = freezed,
+    Object? code = null,
   }) {
     return _then(_$_ExecutionOutput(
-      output: output == freezed
+      output: freezed == output
           ? _value._output
           : output // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as int,
@@ -123,6 +125,7 @@ class _$_ExecutionOutput implements _ExecutionOutput {
   Map<String, dynamic>? get output {
     final value = _output;
     if (value == null) return null;
+    if (_output is EqualUnmodifiableMapView) return _output;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
   }
@@ -141,18 +144,17 @@ class _$_ExecutionOutput implements _ExecutionOutput {
         (other.runtimeType == runtimeType &&
             other is _$_ExecutionOutput &&
             const DeepCollectionEquality().equals(other._output, _output) &&
-            const DeepCollectionEquality().equals(other.code, code));
+            (identical(other.code, code) || other.code == code));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_output),
-      const DeepCollectionEquality().hash(code));
+      runtimeType, const DeepCollectionEquality().hash(_output), code);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ExecutionOutputCopyWith<_$_ExecutionOutput> get copyWith =>
       __$$_ExecutionOutputCopyWithImpl<_$_ExecutionOutput>(this, _$identity);
 

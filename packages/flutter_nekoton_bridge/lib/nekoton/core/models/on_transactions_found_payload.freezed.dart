@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'on_transactions_found_payload.dart';
 
@@ -34,42 +34,48 @@ mixin _$OnTransactionsFoundPayload {
 abstract class $OnTransactionsFoundPayloadCopyWith<$Res> {
   factory $OnTransactionsFoundPayloadCopyWith(OnTransactionsFoundPayload value,
           $Res Function(OnTransactionsFoundPayload) then) =
-      _$OnTransactionsFoundPayloadCopyWithImpl<$Res>;
+      _$OnTransactionsFoundPayloadCopyWithImpl<$Res,
+          OnTransactionsFoundPayload>;
+  @useResult
   $Res call({List<Transaction> transactions, TransactionsBatchInfo batchInfo});
 
   $TransactionsBatchInfoCopyWith<$Res> get batchInfo;
 }
 
 /// @nodoc
-class _$OnTransactionsFoundPayloadCopyWithImpl<$Res>
+class _$OnTransactionsFoundPayloadCopyWithImpl<$Res,
+        $Val extends OnTransactionsFoundPayload>
     implements $OnTransactionsFoundPayloadCopyWith<$Res> {
   _$OnTransactionsFoundPayloadCopyWithImpl(this._value, this._then);
 
-  final OnTransactionsFoundPayload _value;
   // ignore: unused_field
-  final $Res Function(OnTransactionsFoundPayload) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transactions = freezed,
-    Object? batchInfo = freezed,
+    Object? transactions = null,
+    Object? batchInfo = null,
   }) {
     return _then(_value.copyWith(
-      transactions: transactions == freezed
+      transactions: null == transactions
           ? _value.transactions
           : transactions // ignore: cast_nullable_to_non_nullable
               as List<Transaction>,
-      batchInfo: batchInfo == freezed
+      batchInfo: null == batchInfo
           ? _value.batchInfo
           : batchInfo // ignore: cast_nullable_to_non_nullable
               as TransactionsBatchInfo,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TransactionsBatchInfoCopyWith<$Res> get batchInfo {
     return $TransactionsBatchInfoCopyWith<$Res>(_value.batchInfo, (value) {
-      return _then(_value.copyWith(batchInfo: value));
+      return _then(_value.copyWith(batchInfo: value) as $Val);
     });
   }
 }
@@ -82,6 +88,7 @@ abstract class _$$_OnTransactionsFoundPayloadCopyWith<$Res>
           $Res Function(_$_OnTransactionsFoundPayload) then) =
       __$$_OnTransactionsFoundPayloadCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<Transaction> transactions, TransactionsBatchInfo batchInfo});
 
   @override
@@ -90,28 +97,26 @@ abstract class _$$_OnTransactionsFoundPayloadCopyWith<$Res>
 
 /// @nodoc
 class __$$_OnTransactionsFoundPayloadCopyWithImpl<$Res>
-    extends _$OnTransactionsFoundPayloadCopyWithImpl<$Res>
+    extends _$OnTransactionsFoundPayloadCopyWithImpl<$Res,
+        _$_OnTransactionsFoundPayload>
     implements _$$_OnTransactionsFoundPayloadCopyWith<$Res> {
   __$$_OnTransactionsFoundPayloadCopyWithImpl(
       _$_OnTransactionsFoundPayload _value,
       $Res Function(_$_OnTransactionsFoundPayload) _then)
-      : super(_value, (v) => _then(v as _$_OnTransactionsFoundPayload));
+      : super(_value, _then);
 
-  @override
-  _$_OnTransactionsFoundPayload get _value =>
-      super._value as _$_OnTransactionsFoundPayload;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transactions = freezed,
-    Object? batchInfo = freezed,
+    Object? transactions = null,
+    Object? batchInfo = null,
   }) {
     return _then(_$_OnTransactionsFoundPayload(
-      transactions: transactions == freezed
+      transactions: null == transactions
           ? _value._transactions
           : transactions // ignore: cast_nullable_to_non_nullable
               as List<Transaction>,
-      batchInfo: batchInfo == freezed
+      batchInfo: null == batchInfo
           ? _value.batchInfo
           : batchInfo // ignore: cast_nullable_to_non_nullable
               as TransactionsBatchInfo,
@@ -133,6 +138,7 @@ class _$_OnTransactionsFoundPayload implements _OnTransactionsFoundPayload {
   final List<Transaction> _transactions;
   @override
   List<Transaction> get transactions {
+    if (_transactions is EqualUnmodifiableListView) return _transactions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_transactions);
   }
@@ -152,18 +158,18 @@ class _$_OnTransactionsFoundPayload implements _OnTransactionsFoundPayload {
             other is _$_OnTransactionsFoundPayload &&
             const DeepCollectionEquality()
                 .equals(other._transactions, _transactions) &&
-            const DeepCollectionEquality().equals(other.batchInfo, batchInfo));
+            (identical(other.batchInfo, batchInfo) ||
+                other.batchInfo == batchInfo));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_transactions),
-      const DeepCollectionEquality().hash(batchInfo));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_transactions), batchInfo);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_OnTransactionsFoundPayloadCopyWith<_$_OnTransactionsFoundPayload>
       get copyWith => __$$_OnTransactionsFoundPayloadCopyWithImpl<
           _$_OnTransactionsFoundPayload>(this, _$identity);

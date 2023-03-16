@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'key_store_entry.dart';
 
@@ -36,7 +36,8 @@ mixin _$KeyStoreEntry {
 abstract class $KeyStoreEntryCopyWith<$Res> {
   factory $KeyStoreEntryCopyWith(
           KeyStoreEntry value, $Res Function(KeyStoreEntry) then) =
-      _$KeyStoreEntryCopyWithImpl<$Res>;
+      _$KeyStoreEntryCopyWithImpl<$Res, KeyStoreEntry>;
+  @useResult
   $Res call(
       {String signerName,
       String name,
@@ -46,44 +47,46 @@ abstract class $KeyStoreEntryCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$KeyStoreEntryCopyWithImpl<$Res>
+class _$KeyStoreEntryCopyWithImpl<$Res, $Val extends KeyStoreEntry>
     implements $KeyStoreEntryCopyWith<$Res> {
   _$KeyStoreEntryCopyWithImpl(this._value, this._then);
 
-  final KeyStoreEntry _value;
   // ignore: unused_field
-  final $Res Function(KeyStoreEntry) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? signerName = freezed,
-    Object? name = freezed,
-    Object? publicKey = freezed,
-    Object? masterKey = freezed,
-    Object? accountId = freezed,
+    Object? signerName = null,
+    Object? name = null,
+    Object? publicKey = null,
+    Object? masterKey = null,
+    Object? accountId = null,
   }) {
     return _then(_value.copyWith(
-      signerName: signerName == freezed
+      signerName: null == signerName
           ? _value.signerName
           : signerName // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      masterKey: masterKey == freezed
+      masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
               as String,
-      accountId: accountId == freezed
+      accountId: null == accountId
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -94,6 +97,7 @@ abstract class _$$_KeyStoreEntryCopyWith<$Res>
           _$_KeyStoreEntry value, $Res Function(_$_KeyStoreEntry) then) =
       __$$_KeyStoreEntryCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String signerName,
       String name,
@@ -104,41 +108,39 @@ abstract class _$$_KeyStoreEntryCopyWith<$Res>
 
 /// @nodoc
 class __$$_KeyStoreEntryCopyWithImpl<$Res>
-    extends _$KeyStoreEntryCopyWithImpl<$Res>
+    extends _$KeyStoreEntryCopyWithImpl<$Res, _$_KeyStoreEntry>
     implements _$$_KeyStoreEntryCopyWith<$Res> {
   __$$_KeyStoreEntryCopyWithImpl(
       _$_KeyStoreEntry _value, $Res Function(_$_KeyStoreEntry) _then)
-      : super(_value, (v) => _then(v as _$_KeyStoreEntry));
+      : super(_value, _then);
 
-  @override
-  _$_KeyStoreEntry get _value => super._value as _$_KeyStoreEntry;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? signerName = freezed,
-    Object? name = freezed,
-    Object? publicKey = freezed,
-    Object? masterKey = freezed,
-    Object? accountId = freezed,
+    Object? signerName = null,
+    Object? name = null,
+    Object? publicKey = null,
+    Object? masterKey = null,
+    Object? accountId = null,
   }) {
     return _then(_$_KeyStoreEntry(
-      signerName: signerName == freezed
+      signerName: null == signerName
           ? _value.signerName
           : signerName // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      masterKey: masterKey == freezed
+      masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
               as String,
-      accountId: accountId == freezed
+      accountId: null == accountId
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as int,
@@ -182,26 +184,25 @@ class _$_KeyStoreEntry extends _KeyStoreEntry {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_KeyStoreEntry &&
-            const DeepCollectionEquality()
-                .equals(other.signerName, signerName) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.publicKey, publicKey) &&
-            const DeepCollectionEquality().equals(other.masterKey, masterKey) &&
-            const DeepCollectionEquality().equals(other.accountId, accountId));
+            (identical(other.signerName, signerName) ||
+                other.signerName == signerName) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey) &&
+            (identical(other.masterKey, masterKey) ||
+                other.masterKey == masterKey) &&
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(signerName),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(publicKey),
-      const DeepCollectionEquality().hash(masterKey),
-      const DeepCollectionEquality().hash(accountId));
+      runtimeType, signerName, name, publicKey, masterKey, accountId);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_KeyStoreEntryCopyWith<_$_KeyStoreEntry> get copyWith =>
       __$$_KeyStoreEntryCopyWithImpl<_$_KeyStoreEntry>(this, _$identity);
 

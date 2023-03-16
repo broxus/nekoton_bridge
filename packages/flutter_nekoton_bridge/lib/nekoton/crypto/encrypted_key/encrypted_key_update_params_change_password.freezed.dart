@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'encrypted_key_update_params_change_password.dart';
 
@@ -38,7 +38,9 @@ abstract class $EncryptedKeyUpdateParamsChangePasswordCopyWith<$Res> {
   factory $EncryptedKeyUpdateParamsChangePasswordCopyWith(
           EncryptedKeyUpdateParamsChangePassword value,
           $Res Function(EncryptedKeyUpdateParamsChangePassword) then) =
-      _$EncryptedKeyUpdateParamsChangePasswordCopyWithImpl<$Res>;
+      _$EncryptedKeyUpdateParamsChangePasswordCopyWithImpl<$Res,
+          EncryptedKeyUpdateParamsChangePassword>;
+  @useResult
   $Res call({String publicKey, Password oldPassword, Password newPassword});
 
   $PasswordCopyWith<$Res> get oldPassword;
@@ -46,47 +48,52 @@ abstract class $EncryptedKeyUpdateParamsChangePasswordCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EncryptedKeyUpdateParamsChangePasswordCopyWithImpl<$Res>
+class _$EncryptedKeyUpdateParamsChangePasswordCopyWithImpl<$Res,
+        $Val extends EncryptedKeyUpdateParamsChangePassword>
     implements $EncryptedKeyUpdateParamsChangePasswordCopyWith<$Res> {
   _$EncryptedKeyUpdateParamsChangePasswordCopyWithImpl(this._value, this._then);
 
-  final EncryptedKeyUpdateParamsChangePassword _value;
   // ignore: unused_field
-  final $Res Function(EncryptedKeyUpdateParamsChangePassword) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? publicKey = freezed,
-    Object? oldPassword = freezed,
-    Object? newPassword = freezed,
+    Object? publicKey = null,
+    Object? oldPassword = null,
+    Object? newPassword = null,
   }) {
     return _then(_value.copyWith(
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      oldPassword: oldPassword == freezed
+      oldPassword: null == oldPassword
           ? _value.oldPassword
           : oldPassword // ignore: cast_nullable_to_non_nullable
               as Password,
-      newPassword: newPassword == freezed
+      newPassword: null == newPassword
           ? _value.newPassword
           : newPassword // ignore: cast_nullable_to_non_nullable
               as Password,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get oldPassword {
     return $PasswordCopyWith<$Res>(_value.oldPassword, (value) {
-      return _then(_value.copyWith(oldPassword: value));
+      return _then(_value.copyWith(oldPassword: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get newPassword {
     return $PasswordCopyWith<$Res>(_value.newPassword, (value) {
-      return _then(_value.copyWith(newPassword: value));
+      return _then(_value.copyWith(newPassword: value) as $Val);
     });
   }
 }
@@ -101,6 +108,7 @@ abstract class _$$_EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWith<
       __$$_EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWithImpl<
           $Res>;
   @override
+  @useResult
   $Res call({String publicKey, Password oldPassword, Password newPassword});
 
   @override
@@ -111,38 +119,34 @@ abstract class _$$_EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWith<
 
 /// @nodoc
 class __$$_EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWithImpl<
-        $Res> extends _$EncryptedKeyUpdateParamsChangePasswordCopyWithImpl<$Res>
+        $Res>
+    extends _$EncryptedKeyUpdateParamsChangePasswordCopyWithImpl<$Res,
+        _$_EncryptedKeyUpdateParamsChangePasswordChangePassword>
     implements
         _$$_EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWith<$Res> {
   __$$_EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWithImpl(
       _$_EncryptedKeyUpdateParamsChangePasswordChangePassword _value,
       $Res Function(_$_EncryptedKeyUpdateParamsChangePasswordChangePassword)
           _then)
-      : super(
-            _value,
-            (v) => _then(
-                v as _$_EncryptedKeyUpdateParamsChangePasswordChangePassword));
+      : super(_value, _then);
 
-  @override
-  _$_EncryptedKeyUpdateParamsChangePasswordChangePassword get _value =>
-      super._value as _$_EncryptedKeyUpdateParamsChangePasswordChangePassword;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? publicKey = freezed,
-    Object? oldPassword = freezed,
-    Object? newPassword = freezed,
+    Object? publicKey = null,
+    Object? oldPassword = null,
+    Object? newPassword = null,
   }) {
     return _then(_$_EncryptedKeyUpdateParamsChangePasswordChangePassword(
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      oldPassword: oldPassword == freezed
+      oldPassword: null == oldPassword
           ? _value.oldPassword
           : oldPassword // ignore: cast_nullable_to_non_nullable
               as Password,
-      newPassword: newPassword == freezed
+      newPassword: null == newPassword
           ? _value.newPassword
           : newPassword // ignore: cast_nullable_to_non_nullable
               as Password,
@@ -181,23 +185,22 @@ class _$_EncryptedKeyUpdateParamsChangePasswordChangePassword
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EncryptedKeyUpdateParamsChangePasswordChangePassword &&
-            const DeepCollectionEquality().equals(other.publicKey, publicKey) &&
-            const DeepCollectionEquality()
-                .equals(other.oldPassword, oldPassword) &&
-            const DeepCollectionEquality()
-                .equals(other.newPassword, newPassword));
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey) &&
+            (identical(other.oldPassword, oldPassword) ||
+                other.oldPassword == oldPassword) &&
+            (identical(other.newPassword, newPassword) ||
+                other.newPassword == newPassword));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(publicKey),
-      const DeepCollectionEquality().hash(oldPassword),
-      const DeepCollectionEquality().hash(newPassword));
+  int get hashCode =>
+      Object.hash(runtimeType, publicKey, oldPassword, newPassword);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWith<
           _$_EncryptedKeyUpdateParamsChangePasswordChangePassword>
       get copyWith =>

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'expiration.dart';
 
@@ -40,9 +40,9 @@ mixin _$Expiration {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? never,
-    TResult Function(int data)? timeout,
-    TResult Function(int data)? timestamp,
+    TResult? Function()? never,
+    TResult? Function(int data)? timeout,
+    TResult? Function(int data)? timestamp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,9 +62,9 @@ mixin _$Expiration {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Never value)? never,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Timestamp value)? timestamp,
+    TResult? Function(_Never value)? never,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Timestamp value)? timestamp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,16 +82,18 @@ mixin _$Expiration {
 abstract class $ExpirationCopyWith<$Res> {
   factory $ExpirationCopyWith(
           Expiration value, $Res Function(Expiration) then) =
-      _$ExpirationCopyWithImpl<$Res>;
+      _$ExpirationCopyWithImpl<$Res, Expiration>;
 }
 
 /// @nodoc
-class _$ExpirationCopyWithImpl<$Res> implements $ExpirationCopyWith<$Res> {
+class _$ExpirationCopyWithImpl<$Res, $Val extends Expiration>
+    implements $ExpirationCopyWith<$Res> {
   _$ExpirationCopyWithImpl(this._value, this._then);
 
-  final Expiration _value;
   // ignore: unused_field
-  final $Res Function(Expiration) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -101,13 +103,11 @@ abstract class _$$_NeverCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_NeverCopyWithImpl<$Res> extends _$ExpirationCopyWithImpl<$Res>
+class __$$_NeverCopyWithImpl<$Res>
+    extends _$ExpirationCopyWithImpl<$Res, _$_Never>
     implements _$$_NeverCopyWith<$Res> {
   __$$_NeverCopyWithImpl(_$_Never _value, $Res Function(_$_Never) _then)
-      : super(_value, (v) => _then(v as _$_Never));
-
-  @override
-  _$_Never get _value => super._value as _$_Never;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -149,9 +149,9 @@ class _$_Never implements _Never {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? never,
-    TResult Function(int data)? timeout,
-    TResult Function(int data)? timestamp,
+    TResult? Function()? never,
+    TResult? Function(int data)? timeout,
+    TResult? Function(int data)? timestamp,
   }) {
     return never?.call();
   }
@@ -183,9 +183,9 @@ class _$_Never implements _Never {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Never value)? never,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Timestamp value)? timestamp,
+    TResult? Function(_Never value)? never,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Timestamp value)? timestamp,
   }) {
     return never?.call(this);
   }
@@ -223,24 +223,24 @@ abstract class _$$_TimeoutCopyWith<$Res> {
   factory _$$_TimeoutCopyWith(
           _$_Timeout value, $Res Function(_$_Timeout) then) =
       __$$_TimeoutCopyWithImpl<$Res>;
+  @useResult
   $Res call({int data});
 }
 
 /// @nodoc
-class __$$_TimeoutCopyWithImpl<$Res> extends _$ExpirationCopyWithImpl<$Res>
+class __$$_TimeoutCopyWithImpl<$Res>
+    extends _$ExpirationCopyWithImpl<$Res, _$_Timeout>
     implements _$$_TimeoutCopyWith<$Res> {
   __$$_TimeoutCopyWithImpl(_$_Timeout _value, $Res Function(_$_Timeout) _then)
-      : super(_value, (v) => _then(v as _$_Timeout));
+      : super(_value, _then);
 
-  @override
-  _$_Timeout get _value => super._value as _$_Timeout;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_Timeout(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as int,
@@ -273,16 +273,16 @@ class _$_Timeout implements _Timeout {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Timeout &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TimeoutCopyWith<_$_Timeout> get copyWith =>
       __$$_TimeoutCopyWithImpl<_$_Timeout>(this, _$identity);
 
@@ -299,9 +299,9 @@ class _$_Timeout implements _Timeout {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? never,
-    TResult Function(int data)? timeout,
-    TResult Function(int data)? timestamp,
+    TResult? Function()? never,
+    TResult? Function(int data)? timeout,
+    TResult? Function(int data)? timestamp,
   }) {
     return timeout?.call(data);
   }
@@ -333,9 +333,9 @@ class _$_Timeout implements _Timeout {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Never value)? never,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Timestamp value)? timestamp,
+    TResult? Function(_Never value)? never,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Timestamp value)? timestamp,
   }) {
     return timeout?.call(this);
   }
@@ -378,25 +378,25 @@ abstract class _$$_TimestampCopyWith<$Res> {
   factory _$$_TimestampCopyWith(
           _$_Timestamp value, $Res Function(_$_Timestamp) then) =
       __$$_TimestampCopyWithImpl<$Res>;
+  @useResult
   $Res call({int data});
 }
 
 /// @nodoc
-class __$$_TimestampCopyWithImpl<$Res> extends _$ExpirationCopyWithImpl<$Res>
+class __$$_TimestampCopyWithImpl<$Res>
+    extends _$ExpirationCopyWithImpl<$Res, _$_Timestamp>
     implements _$$_TimestampCopyWith<$Res> {
   __$$_TimestampCopyWithImpl(
       _$_Timestamp _value, $Res Function(_$_Timestamp) _then)
-      : super(_value, (v) => _then(v as _$_Timestamp));
+      : super(_value, _then);
 
-  @override
-  _$_Timestamp get _value => super._value as _$_Timestamp;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_Timestamp(
-      data == freezed
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as int,
@@ -429,16 +429,16 @@ class _$_Timestamp implements _Timestamp {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Timestamp &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TimestampCopyWith<_$_Timestamp> get copyWith =>
       __$$_TimestampCopyWithImpl<_$_Timestamp>(this, _$identity);
 
@@ -455,9 +455,9 @@ class _$_Timestamp implements _Timestamp {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? never,
-    TResult Function(int data)? timeout,
-    TResult Function(int data)? timestamp,
+    TResult? Function()? never,
+    TResult? Function(int data)? timeout,
+    TResult? Function(int data)? timestamp,
   }) {
     return timestamp?.call(data);
   }
@@ -489,9 +489,9 @@ class _$_Timestamp implements _Timestamp {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Never value)? never,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Timestamp value)? timestamp,
+    TResult? Function(_Never value)? never,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Timestamp value)? timestamp,
   }) {
     return timestamp?.call(this);
   }

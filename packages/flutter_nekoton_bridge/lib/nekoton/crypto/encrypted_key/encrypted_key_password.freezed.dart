@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'encrypted_key_password.dart';
 
@@ -33,42 +33,47 @@ mixin _$EncryptedKeyPassword {
 abstract class $EncryptedKeyPasswordCopyWith<$Res> {
   factory $EncryptedKeyPasswordCopyWith(EncryptedKeyPassword value,
           $Res Function(EncryptedKeyPassword) then) =
-      _$EncryptedKeyPasswordCopyWithImpl<$Res>;
+      _$EncryptedKeyPasswordCopyWithImpl<$Res, EncryptedKeyPassword>;
+  @useResult
   $Res call({String publicKey, Password password});
 
   $PasswordCopyWith<$Res> get password;
 }
 
 /// @nodoc
-class _$EncryptedKeyPasswordCopyWithImpl<$Res>
+class _$EncryptedKeyPasswordCopyWithImpl<$Res,
+        $Val extends EncryptedKeyPassword>
     implements $EncryptedKeyPasswordCopyWith<$Res> {
   _$EncryptedKeyPasswordCopyWithImpl(this._value, this._then);
 
-  final EncryptedKeyPassword _value;
   // ignore: unused_field
-  final $Res Function(EncryptedKeyPassword) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? publicKey = freezed,
-    Object? password = freezed,
+    Object? publicKey = null,
+    Object? password = null,
   }) {
     return _then(_value.copyWith(
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
     return $PasswordCopyWith<$Res>(_value.password, (value) {
-      return _then(_value.copyWith(password: value));
+      return _then(_value.copyWith(password: value) as $Val);
     });
   }
 }
@@ -80,6 +85,7 @@ abstract class _$$_EncryptedKeyPasswordCopyWith<$Res>
           $Res Function(_$_EncryptedKeyPassword) then) =
       __$$_EncryptedKeyPasswordCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String publicKey, Password password});
 
   @override
@@ -88,26 +94,24 @@ abstract class _$$_EncryptedKeyPasswordCopyWith<$Res>
 
 /// @nodoc
 class __$$_EncryptedKeyPasswordCopyWithImpl<$Res>
-    extends _$EncryptedKeyPasswordCopyWithImpl<$Res>
+    extends _$EncryptedKeyPasswordCopyWithImpl<$Res, _$_EncryptedKeyPassword>
     implements _$$_EncryptedKeyPasswordCopyWith<$Res> {
   __$$_EncryptedKeyPasswordCopyWithImpl(_$_EncryptedKeyPassword _value,
       $Res Function(_$_EncryptedKeyPassword) _then)
-      : super(_value, (v) => _then(v as _$_EncryptedKeyPassword));
+      : super(_value, _then);
 
-  @override
-  _$_EncryptedKeyPassword get _value => super._value as _$_EncryptedKeyPassword;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? publicKey = freezed,
-    Object? password = freezed,
+    Object? publicKey = null,
+    Object? password = null,
   }) {
     return _then(_$_EncryptedKeyPassword(
-      publicKey: publicKey == freezed
+      publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
@@ -140,19 +144,19 @@ class _$_EncryptedKeyPassword implements _EncryptedKeyPassword {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EncryptedKeyPassword &&
-            const DeepCollectionEquality().equals(other.publicKey, publicKey) &&
-            const DeepCollectionEquality().equals(other.password, password));
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey) &&
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(publicKey),
-      const DeepCollectionEquality().hash(password));
+  int get hashCode => Object.hash(runtimeType, publicKey, password);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EncryptedKeyPasswordCopyWith<_$_EncryptedKeyPassword> get copyWith =>
       __$$_EncryptedKeyPasswordCopyWithImpl<_$_EncryptedKeyPassword>(
           this, _$identity);

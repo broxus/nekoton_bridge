@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'token_incoming_transfer.dart';
 
@@ -34,34 +34,38 @@ mixin _$TokenIncomingTransfer {
 abstract class $TokenIncomingTransferCopyWith<$Res> {
   factory $TokenIncomingTransferCopyWith(TokenIncomingTransfer value,
           $Res Function(TokenIncomingTransfer) then) =
-      _$TokenIncomingTransferCopyWithImpl<$Res>;
+      _$TokenIncomingTransferCopyWithImpl<$Res, TokenIncomingTransfer>;
+  @useResult
   $Res call({String tokens, String senderAddress});
 }
 
 /// @nodoc
-class _$TokenIncomingTransferCopyWithImpl<$Res>
+class _$TokenIncomingTransferCopyWithImpl<$Res,
+        $Val extends TokenIncomingTransfer>
     implements $TokenIncomingTransferCopyWith<$Res> {
   _$TokenIncomingTransferCopyWithImpl(this._value, this._then);
 
-  final TokenIncomingTransfer _value;
   // ignore: unused_field
-  final $Res Function(TokenIncomingTransfer) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tokens = freezed,
-    Object? senderAddress = freezed,
+    Object? tokens = null,
+    Object? senderAddress = null,
   }) {
     return _then(_value.copyWith(
-      tokens: tokens == freezed
+      tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
               as String,
-      senderAddress: senderAddress == freezed
+      senderAddress: null == senderAddress
           ? _value.senderAddress
           : senderAddress // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -72,32 +76,30 @@ abstract class _$$_TokenIncomingTransferCopyWith<$Res>
           $Res Function(_$_TokenIncomingTransfer) then) =
       __$$_TokenIncomingTransferCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String tokens, String senderAddress});
 }
 
 /// @nodoc
 class __$$_TokenIncomingTransferCopyWithImpl<$Res>
-    extends _$TokenIncomingTransferCopyWithImpl<$Res>
+    extends _$TokenIncomingTransferCopyWithImpl<$Res, _$_TokenIncomingTransfer>
     implements _$$_TokenIncomingTransferCopyWith<$Res> {
   __$$_TokenIncomingTransferCopyWithImpl(_$_TokenIncomingTransfer _value,
       $Res Function(_$_TokenIncomingTransfer) _then)
-      : super(_value, (v) => _then(v as _$_TokenIncomingTransfer));
+      : super(_value, _then);
 
-  @override
-  _$_TokenIncomingTransfer get _value =>
-      super._value as _$_TokenIncomingTransfer;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tokens = freezed,
-    Object? senderAddress = freezed,
+    Object? tokens = null,
+    Object? senderAddress = null,
   }) {
     return _then(_$_TokenIncomingTransfer(
-      tokens: tokens == freezed
+      tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
               as String,
-      senderAddress: senderAddress == freezed
+      senderAddress: null == senderAddress
           ? _value.senderAddress
           : senderAddress // ignore: cast_nullable_to_non_nullable
               as String,
@@ -129,20 +131,18 @@ class _$_TokenIncomingTransfer implements _TokenIncomingTransfer {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TokenIncomingTransfer &&
-            const DeepCollectionEquality().equals(other.tokens, tokens) &&
-            const DeepCollectionEquality()
-                .equals(other.senderAddress, senderAddress));
+            (identical(other.tokens, tokens) || other.tokens == tokens) &&
+            (identical(other.senderAddress, senderAddress) ||
+                other.senderAddress == senderAddress));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(tokens),
-      const DeepCollectionEquality().hash(senderAddress));
+  int get hashCode => Object.hash(runtimeType, tokens, senderAddress);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TokenIncomingTransferCopyWith<_$_TokenIncomingTransfer> get copyWith =>
       __$$_TokenIncomingTransferCopyWithImpl<_$_TokenIncomingTransfer>(
           this, _$identity);

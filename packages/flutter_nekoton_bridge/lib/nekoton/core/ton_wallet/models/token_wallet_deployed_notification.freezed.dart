@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'token_wallet_deployed_notification.dart';
 
@@ -34,29 +34,34 @@ abstract class $TokenWalletDeployedNotificationCopyWith<$Res> {
   factory $TokenWalletDeployedNotificationCopyWith(
           TokenWalletDeployedNotification value,
           $Res Function(TokenWalletDeployedNotification) then) =
-      _$TokenWalletDeployedNotificationCopyWithImpl<$Res>;
+      _$TokenWalletDeployedNotificationCopyWithImpl<$Res,
+          TokenWalletDeployedNotification>;
+  @useResult
   $Res call({String rootTokenContract});
 }
 
 /// @nodoc
-class _$TokenWalletDeployedNotificationCopyWithImpl<$Res>
+class _$TokenWalletDeployedNotificationCopyWithImpl<$Res,
+        $Val extends TokenWalletDeployedNotification>
     implements $TokenWalletDeployedNotificationCopyWith<$Res> {
   _$TokenWalletDeployedNotificationCopyWithImpl(this._value, this._then);
 
-  final TokenWalletDeployedNotification _value;
   // ignore: unused_field
-  final $Res Function(TokenWalletDeployedNotification) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rootTokenContract = freezed,
+    Object? rootTokenContract = null,
   }) {
     return _then(_value.copyWith(
-      rootTokenContract: rootTokenContract == freezed
+      rootTokenContract: null == rootTokenContract
           ? _value.rootTokenContract
           : rootTokenContract // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -68,28 +73,27 @@ abstract class _$$_TokenWalletDeployedNotificationCopyWith<$Res>
           $Res Function(_$_TokenWalletDeployedNotification) then) =
       __$$_TokenWalletDeployedNotificationCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String rootTokenContract});
 }
 
 /// @nodoc
 class __$$_TokenWalletDeployedNotificationCopyWithImpl<$Res>
-    extends _$TokenWalletDeployedNotificationCopyWithImpl<$Res>
+    extends _$TokenWalletDeployedNotificationCopyWithImpl<$Res,
+        _$_TokenWalletDeployedNotification>
     implements _$$_TokenWalletDeployedNotificationCopyWith<$Res> {
   __$$_TokenWalletDeployedNotificationCopyWithImpl(
       _$_TokenWalletDeployedNotification _value,
       $Res Function(_$_TokenWalletDeployedNotification) _then)
-      : super(_value, (v) => _then(v as _$_TokenWalletDeployedNotification));
+      : super(_value, _then);
 
-  @override
-  _$_TokenWalletDeployedNotification get _value =>
-      super._value as _$_TokenWalletDeployedNotification;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rootTokenContract = freezed,
+    Object? rootTokenContract = null,
   }) {
     return _then(_$_TokenWalletDeployedNotification(
-      rootTokenContract: rootTokenContract == freezed
+      rootTokenContract: null == rootTokenContract
           ? _value.rootTokenContract
           : rootTokenContract // ignore: cast_nullable_to_non_nullable
               as String,
@@ -120,17 +124,17 @@ class _$_TokenWalletDeployedNotification
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TokenWalletDeployedNotification &&
-            const DeepCollectionEquality()
-                .equals(other.rootTokenContract, rootTokenContract));
+            (identical(other.rootTokenContract, rootTokenContract) ||
+                other.rootTokenContract == rootTokenContract));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(rootTokenContract));
+  int get hashCode => Object.hash(runtimeType, rootTokenContract);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TokenWalletDeployedNotificationCopyWith<
           _$_TokenWalletDeployedNotification>
       get copyWith => __$$_TokenWalletDeployedNotificationCopyWithImpl<

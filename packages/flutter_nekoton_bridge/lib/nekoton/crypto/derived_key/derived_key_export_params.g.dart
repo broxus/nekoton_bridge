@@ -17,5 +17,5 @@ Map<String, dynamic> _$$_DerivedKeyExportParamsToJson(
         _$_DerivedKeyExportParams instance) =>
     <String, dynamic>{
       'master_key': instance.masterKey,
-      'password': instance.password.toJson(),
+      'password': instance.password,
     };

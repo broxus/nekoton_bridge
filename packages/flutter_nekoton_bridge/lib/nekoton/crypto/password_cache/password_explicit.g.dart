@@ -18,5 +18,5 @@ Map<String, dynamic> _$$_PasswordExplicitExplicitToJson(
         _$_PasswordExplicitExplicit instance) =>
     <String, dynamic>{
       'password': instance.password,
-      'cache_behavior': instance.cacheBehavior.toJson(),
+      'cache_behavior': instance.cacheBehavior,
     };
