@@ -11,7 +11,7 @@ flutter_rust_bridge_codegen = "1.69.*"
 rerun_except = "1.0.0"
 
 [dependencies]
-flutter_rust_bridge = { version = "1.69.*", features = ["worker-max"] }
+flutter_rust_bridge = { version = "1.70.*", features = ["worker-max"] }
 lazy_static = "1.4.0"
 anyhow = "1.0.54"
 thiserror="1.0.39"
