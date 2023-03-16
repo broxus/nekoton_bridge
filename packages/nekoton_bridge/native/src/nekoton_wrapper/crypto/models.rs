@@ -105,7 +105,7 @@ impl RefUnwindSafe for UnsignedMessageBox {}
 
 /// Create suitable object for frb
 impl UnsignedMessageBox {
-    pub fn new(
+    pub fn create(
         inner_message: Box<dyn crypto::UnsignedMessage>,
     ) -> RustOpaque<Box<dyn UnsignedMessageBoxTrait>> {
         RustOpaque::new(Box::new(Self { inner_message }))
@@ -114,7 +114,7 @@ impl UnsignedMessageBox {
 
 /// Real implementation of methods that allows us handle nekoton methods with some logic
 impl UnsignedMessageBoxTrait for UnsignedMessageBox {
-    fn refresh_timeout(&self) -> () {
+    fn refresh_timeout(&self) {
         self.inner_message
             .clone()
             .refresh_timeout(clock!().as_ref());
@@ -139,9 +139,9 @@ impl UnsignedMessageBoxTrait for UnsignedMessageBox {
 
         let signed_message = self.inner_message.sign(&signature);
 
-        return match signed_message {
+        match signed_message {
             Ok(message) => serde_json::to_value(message).json_or_error(),
-            Err(e) => Err(anyhow::Error::from(e)),
-        };
+            Err(e) => Err(e),
+        }
     }
 }

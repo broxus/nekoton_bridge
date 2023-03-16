@@ -10,5 +10,6 @@ class Keypair with _$Keypair {
     required String secret,
   }) = _Keypair;
 
-  factory Keypair.fromJson(Map<String, dynamic> json) => _$KeypairFromJson(json);
+  factory Keypair.fromJson(Map<String, dynamic> json) =>
+      _$KeypairFromJson(json);
 }

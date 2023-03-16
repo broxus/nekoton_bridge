@@ -245,11 +245,11 @@ pub fn create_external_message(
     .handle_error()?;
 
     Ok(UnsignedMessageImpl {
-        inner_message: UnsignedMessageBox::new(unsigned_message),
+        inner_message: UnsignedMessageBox::create(unsigned_message),
     })
 }
 
-/// Parse payload and return json-encoded KnownPayload or throws error
+/// Parse payload and return optional json-encoded KnownPayload or throws error
 pub fn parse_known_payload(payload: String) -> Result<String, anyhow::Error> {
     let payload = parse_slice(payload)?;
 
@@ -395,7 +395,7 @@ pub fn decode_transaction(
     serde_json::to_string(&decoded_transaction).handle_error()
 }
 
-/// Decode events of transaction and return json-encoded DecodedEvent or throws error
+/// Decode events of transaction and return json-encoded list of DecodedEvent or throws error
 pub fn decode_transaction_events(
     transaction: String,
     contract_abi: String,
@@ -587,12 +587,10 @@ pub fn split_tvc(tvc: String) -> Result<Vec<Option<String>>, anyhow::Error> {
 
 /// Set salt to code and return base64-encoded string or throw error
 pub fn set_code_salt(code: String, salt: String) -> Result<String, anyhow::Error> {
-    let code = nekoton_abi::set_code_salt(parse_cell(code)?, parse_cell(salt)?)
+    nekoton_abi::set_code_salt(parse_cell(code)?, parse_cell(salt)?)
         .and_then(|cell| ton_types::serialize_toc(&cell))
         .map(base64::encode)
-        .handle_error();
-
-    code
+        .handle_error()
 }
 
 /// Get salt from code if possible and return base64-encoded salt or throw error

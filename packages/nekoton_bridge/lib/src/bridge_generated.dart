@@ -126,7 +126,7 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kCreateExternalMessageConstMeta;
 
-  /// Parse payload and return json-encoded KnownPayload or throws error
+  /// Parse payload and return optional json-encoded KnownPayload or throws error
   Future<String> parseKnownPayload({required String payload, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kParseKnownPayloadConstMeta;
@@ -168,7 +168,7 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kDecodeTransactionConstMeta;
 
-  /// Decode events of transaction and return json-encoded DecodedEvent or throws error
+  /// Decode events of transaction and return json-encoded list of DecodedEvent or throws error
   Future<String> decodeTransactionEvents(
       {required String transaction, required String contractAbi, dynamic hint});
 

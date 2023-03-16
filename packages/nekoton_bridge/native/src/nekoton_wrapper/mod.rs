@@ -19,7 +19,7 @@ lazy_static! {
 #[macro_export]
 macro_rules! clock {
     () => {
-        crate::nekoton_wrapper::CLOCK.clone()
+        $crate::nekoton_wrapper::CLOCK.clone()
     };
 }
 

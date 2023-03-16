@@ -49,7 +49,7 @@ pub struct UnsignedMessageImpl {
 }
 
 impl UnsignedMessageImpl {
-    pub fn refresh_timeout(&self) -> () {
+    pub fn refresh_timeout(&self) {
         self.inner_message.refresh_timeout();
     }
 
