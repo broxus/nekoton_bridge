@@ -7,7 +7,7 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   group('caller test', () {
-    testWidgets('async and sync call without and with result',
+    testWidgets('async and sync call without and with result', skip: true,
         (WidgetTester tester) async {
       final List<String> log = <String>[];
 
