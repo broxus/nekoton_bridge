@@ -45,7 +45,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
             {},
             {
               r'': (bool b) =>
-                  (storage) => b ? prefix1.CallerWrapper(storage) : null
+                  (caller) => b ? prefix1.CallerWrapper(caller) : null
             },
             -1,
             -1,
@@ -63,8 +63,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'func0': 0,
               r'func1': 0,
               r'func2': 1,
+              r'test0': 1,
+              r'test1': 1,
               r'initializeMirror': 2,
-              r'storage': 2
+              r'caller': 2
             }),
         r.NonGenericClassMirrorImpl(
             r'CallerTestClassWrapper',
@@ -262,10 +264,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'func0': (dynamic instance) => instance.func0,
         r'func1': (dynamic instance) => instance.func1,
         r'func2': (dynamic instance) => instance.func2,
+        r'test0': (dynamic instance) => instance.test0,
+        r'test1': (dynamic instance) => instance.test1,
         r'initializeMirror': (dynamic instance) => instance.initializeMirror,
-        r'storage': (dynamic instance) => instance.storage,
-        r'request': (dynamic instance) => instance.request,
         r'caller': (dynamic instance) => instance.caller,
+        r'request': (dynamic instance) => instance.request,
         r'post': (dynamic instance) => instance.post,
         r'connection': (dynamic instance) => instance.connection,
         r'name': (dynamic instance) => instance.name,
@@ -277,7 +280,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'set': (dynamic instance) => instance.set,
         r'setUnchecked': (dynamic instance) => instance.setUnchecked,
         r'remove': (dynamic instance) => instance.remove,
-        r'removeUnchecked': (dynamic instance) => instance.removeUnchecked
+        r'removeUnchecked': (dynamic instance) => instance.removeUnchecked,
+        r'storage': (dynamic instance) => instance.storage
       },
       {
         r'caller=': (dynamic instance, value) => instance.caller = value,

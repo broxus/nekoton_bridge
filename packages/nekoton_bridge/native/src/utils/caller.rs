@@ -11,11 +11,13 @@ use thiserror::Error;
 
 use flutter_rust_bridge::StreamSink;
 use lazy_static::lazy_static;
-use log::{debug, warn};
+use log::warn;
 use parking_lot::RwLock;
 use uuid::Uuid;
 
 use crate::utils::mega_struct;
+
+const MAX_WORKERS: usize = 7;
 
 #[derive(Clone, Debug, Error)]
 pub enum ErrorCode {
@@ -154,7 +156,12 @@ pub fn call(stub: DartCallStub, need_result: bool) -> DynamicValue {
         let (id, rx) = if need_result {
             let (tx, rx) = mpsc::channel::<DynamicValue>();
             let id = Uuid::new_v4().to_string();
-            CALLBACK_MAP.lock().unwrap().insert(id.clone(), tx);
+            let mut map = CALLBACK_MAP.lock().unwrap();
+            map.insert(id.clone(), tx);
+            // TODO: maybe we should take some actions to prevent deadlock?
+            if map.len() > MAX_WORKERS {
+                warn!("caller: more than {MAX_WORKERS} workers: {}", map.len());
+            };
 
             (Some(id), Some(rx))
         } else {
@@ -176,5 +183,4 @@ pub fn call_send_result(id: String, value: DynamicValue) {
     let mut map = CALLBACK_MAP.lock().unwrap();
     let sender = map.remove(&id).expect("Can't find caller Sender");
     sender.send(value).expect("Can't send to caller");
-    debug!("Map length: {}", map.len());
 }
