@@ -127,6 +127,22 @@ typedef struct wire_UnsignedMessageImpl {
   struct wire_BoxUnsignedMessageBoxTrait inner_message;
 } wire_UnsignedMessageImpl;
 
+typedef struct wire_BoxGqlConnectionBoxTrait {
+  const void *ptr;
+} wire_BoxGqlConnectionBoxTrait;
+
+typedef struct wire_GqlConnectionDartWrapper {
+  struct wire_BoxGqlConnectionBoxTrait inner_connection;
+} wire_GqlConnectionDartWrapper;
+
+typedef struct wire_BoxJrpcConnectionBoxTrait {
+  const void *ptr;
+} wire_BoxJrpcConnectionBoxTrait;
+
+typedef struct wire_JrpcConnectionDartWrapper {
+  struct wire_BoxJrpcConnectionBoxTrait inner_connection;
+} wire_JrpcConnectionDartWrapper;
+
 typedef struct wire_MyClass {
   int32_t val;
 } wire_MyClass;
@@ -314,12 +330,19 @@ void wire_sign__method__UnsignedMessageImpl(int64_t port_,
                                             struct wire_UnsignedMessageImpl *that,
                                             struct wire_uint_8_list *signature);
 
-void wire_new__static_method__JrpcConnectionImpl(int64_t port_,
-                                                 struct wire_uint_8_list *instance_hash);
+void wire_new__static_method__GqlTransportImpl(int64_t port_,
+                                               struct wire_GqlConnectionDartWrapper *gql_connection);
 
-void wire_new__static_method__GqlConnectionImpl(int64_t port_,
-                                                bool is_local,
-                                                struct wire_uint_8_list *instance_hash);
+void wire_new__static_method__JrpcTransportImpl(int64_t port_,
+                                                struct wire_JrpcConnectionDartWrapper *jrpc_connection);
+
+void wire_new__static_method__JrpcConnectionDartWrapper(int64_t port_,
+                                                        bool is_local,
+                                                        struct wire_uint_8_list *instance_hash);
+
+void wire_new__static_method__GqlConnectionDartWrapper(int64_t port_,
+                                                       bool is_local,
+                                                       struct wire_uint_8_list *instance_hash);
 
 void wire_new__static_method__LedgerConnectionImpl(int64_t port_,
                                                    struct wire_uint_8_list *instance_hash);
@@ -336,6 +359,10 @@ void wire_new__static_method__CallerTestClass(int64_t port_,
 
 void wire_call_some_func__method__CallerTestClass(int64_t port_, struct wire_CallerTestClass *that);
 
+struct wire_BoxGqlConnectionBoxTrait new_BoxGqlConnectionBoxTrait(void);
+
+struct wire_BoxJrpcConnectionBoxTrait new_BoxJrpcConnectionBoxTrait(void);
+
 struct wire_BoxUnsignedMessageBoxTrait new_BoxUnsignedMessageBoxTrait(void);
 
 struct wire_CallerTestClass *new_box_autoadd_caller_test_class_0(void);
@@ -343,6 +370,10 @@ struct wire_CallerTestClass *new_box_autoadd_caller_test_class_0(void);
 struct wire_DartCallStub *new_box_autoadd_dart_call_stub_0(void);
 
 struct wire_DynamicValue *new_box_autoadd_dynamic_value_0(void);
+
+struct wire_GqlConnectionDartWrapper *new_box_autoadd_gql_connection_dart_wrapper_0(void);
+
+struct wire_JrpcConnectionDartWrapper *new_box_autoadd_jrpc_connection_dart_wrapper_0(void);
 
 struct wire_MnemonicType *new_box_autoadd_mnemonic_type_0(void);
 
@@ -355,6 +386,22 @@ struct wire_list_dynamic_named_value *new_list_dynamic_named_value_0(int32_t len
 struct wire_list_dynamic_value *new_list_dynamic_value_0(int32_t len);
 
 struct wire_uint_8_list *new_uint_8_list_0(int32_t len);
+
+void drop_opaque_BoxGqlConnectionBoxTrait(const void *ptr);
+
+const void *share_opaque_BoxGqlConnectionBoxTrait(const void *ptr);
+
+void drop_opaque_BoxGqlTransportBoxTrait(const void *ptr);
+
+const void *share_opaque_BoxGqlTransportBoxTrait(const void *ptr);
+
+void drop_opaque_BoxJrpcConnectionBoxTrait(const void *ptr);
+
+const void *share_opaque_BoxJrpcConnectionBoxTrait(const void *ptr);
+
+void drop_opaque_BoxJrpcTransportBoxTrait(const void *ptr);
+
+const void *share_opaque_BoxJrpcTransportBoxTrait(const void *ptr);
 
 void drop_opaque_BoxUnsignedMessageBoxTrait(const void *ptr);
 
@@ -439,24 +486,38 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_expire_at__method__UnsignedMessageImpl);
     dummy_var ^= ((int64_t) (void*) wire_hash__method__UnsignedMessageImpl);
     dummy_var ^= ((int64_t) (void*) wire_sign__method__UnsignedMessageImpl);
-    dummy_var ^= ((int64_t) (void*) wire_new__static_method__JrpcConnectionImpl);
-    dummy_var ^= ((int64_t) (void*) wire_new__static_method__GqlConnectionImpl);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__GqlTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__JrpcConnectionDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__GqlConnectionDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__LedgerConnectionImpl);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__StorageImpl);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__MyClass);
     dummy_var ^= ((int64_t) (void*) wire_my_format__method__MyClass);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__CallerTestClass);
     dummy_var ^= ((int64_t) (void*) wire_call_some_func__method__CallerTestClass);
+    dummy_var ^= ((int64_t) (void*) new_BoxGqlConnectionBoxTrait);
+    dummy_var ^= ((int64_t) (void*) new_BoxJrpcConnectionBoxTrait);
     dummy_var ^= ((int64_t) (void*) new_BoxUnsignedMessageBoxTrait);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_caller_test_class_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_dart_call_stub_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_dynamic_value_0);
+    dummy_var ^= ((int64_t) (void*) new_box_autoadd_gql_connection_dart_wrapper_0);
+    dummy_var ^= ((int64_t) (void*) new_box_autoadd_jrpc_connection_dart_wrapper_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_mnemonic_type_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_my_class_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_unsigned_message_impl_0);
     dummy_var ^= ((int64_t) (void*) new_list_dynamic_named_value_0);
     dummy_var ^= ((int64_t) (void*) new_list_dynamic_value_0);
     dummy_var ^= ((int64_t) (void*) new_uint_8_list_0);
+    dummy_var ^= ((int64_t) (void*) drop_opaque_BoxGqlConnectionBoxTrait);
+    dummy_var ^= ((int64_t) (void*) share_opaque_BoxGqlConnectionBoxTrait);
+    dummy_var ^= ((int64_t) (void*) drop_opaque_BoxGqlTransportBoxTrait);
+    dummy_var ^= ((int64_t) (void*) share_opaque_BoxGqlTransportBoxTrait);
+    dummy_var ^= ((int64_t) (void*) drop_opaque_BoxJrpcConnectionBoxTrait);
+    dummy_var ^= ((int64_t) (void*) share_opaque_BoxJrpcConnectionBoxTrait);
+    dummy_var ^= ((int64_t) (void*) drop_opaque_BoxJrpcTransportBoxTrait);
+    dummy_var ^= ((int64_t) (void*) share_opaque_BoxJrpcTransportBoxTrait);
     dummy_var ^= ((int64_t) (void*) drop_opaque_BoxUnsignedMessageBoxTrait);
     dummy_var ^= ((int64_t) (void*) share_opaque_BoxUnsignedMessageBoxTrait);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_U16);

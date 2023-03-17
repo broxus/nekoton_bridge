@@ -2,7 +2,7 @@ pub mod crypto;
 pub mod external;
 pub mod helpers;
 pub mod models_api;
-// pub mod transport;
+pub mod transport;
 
 use anyhow::{Context, Result};
 use lazy_static::lazy_static;
@@ -11,6 +11,7 @@ use serde::Serialize;
 use std::str::FromStr;
 use std::sync::Arc;
 use ton_block::MsgAddressInt;
+use ton_types::UInt256;
 
 lazy_static! {
     pub static ref CLOCK: Arc<SimpleClock> = Arc::new(SimpleClock {});
@@ -64,9 +65,10 @@ where
     }
 }
 
-// fn parse_hash(hash: String) -> Result<ton_types::UInt256, String> {
-//     ton_types::UInt256::from_str(hash.as_str()).handle_error()
-// }
+/// Parse hash string to UInt256
+pub fn parse_hash(hash: String) -> Result<UInt256, anyhow::Error> {
+    ton_types::UInt256::from_str(hash.as_str()).handle_error()
+}
 
 /// Parse public key from string and return its instance or throw error
 pub fn parse_public_key(public_key: String) -> Result<ed25519_dalek::PublicKey, anyhow::Error> {

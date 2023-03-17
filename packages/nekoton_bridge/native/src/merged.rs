@@ -6,6 +6,9 @@ pub use crate::{
             mnemonic::models::KeypairHelper,
             models::{UnsignedMessageBox, UnsignedMessageBoxTrait},
         },
+        external::connections::{
+            GqlConnectionBox, GqlConnectionBoxTrait, JrpcConnectionBox, JrpcConnectionBoxTrait,
+        },
         helpers::{
             models::{
                 DecodedEvent, DecodedInput, DecodedOutput, DecodedTransaction, ExecutionOutput,
@@ -14,6 +17,9 @@ pub use crate::{
             parse_params_list, parse_slice,
         },
         parse_address, parse_public_key, str_list_to_string_vec, str_vec_to_string_vec,
+        transport::{
+            GqlTransportBox, GqlTransportBoxTrait, JrpcTransportBox, JrpcTransportBoxTrait,
+        },
         HandleError, JsonOrError,
     },
     utils::{
@@ -37,12 +43,14 @@ pub use nekoton::{
     },
     external,
     external::{GqlConnection, GqlRequest, JrpcConnection, JrpcRequest, Storage},
+    transport::gql::LatestBlock,
 };
 use nekoton_abi::{guess_method_by_input, insert_state_init_data, FunctionExt};
 use std::{
     borrow::Cow,
     collections::HashMap,
     convert::{TryFrom, TryInto},
+    sync::Arc,
     time::{SystemTime, UNIX_EPOCH},
 };
 use ton_block::{Deserializable, Serializable};
@@ -150,6 +158,144 @@ pub fn nt_derive_from_phrase(
 pub const DERIVED_KEY_SIGNER_NAME: &str = "DerivedKeySigner";
 
 ///----------------------------
+/// CONTENT OF src/nekoton_wrapper/transport/gql_transport_api.rs
+///----------------------------
+
+#[frb(mirror(LatestBlock))]
+pub struct _LatestBlock {
+    pub id: String,
+    pub end_lt: u64,
+    pub gen_utime: u32,
+}
+/// Wrapper structure above GqlTransport that provides interface to communicate with it
+/// via GqlTransportBoxTrait.
+pub struct GqlTransportImpl {
+    pub inner_transport: RustOpaque<Box<dyn GqlTransportBoxTrait>>,
+}
+impl GqlTransportImpl {
+    pub fn new(gql_connection: GqlConnectionDartWrapper) -> GqlTransportImpl {
+        Self {
+            inner_transport: GqlTransportBox::create(
+                gql_connection.get_connection().get_connection(),
+            ),
+        }
+    }
+    /// Get contract state of address and return json-encoded RawContractState or throw error
+    fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
+        self.inner_transport.get_contract_state(address)
+    }
+    /// Get full contract state of address and return json-encoded FullContractState or throw error
+    fn get_full_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
+        self.inner_transport.get_full_contract_state(address)
+    }
+    /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
+    fn get_accounts_by_code_hash(
+        &self,
+        code_hash: String,
+        limit: u8,
+        continuation: Option<String>,
+    ) -> anyhow::Result<String, anyhow::Error> {
+        self.inner_transport
+            .get_accounts_by_code_hash(code_hash, limit, continuation)
+    }
+    /// Get list of transactions by address.
+    /// Return json-encoded TransactionsList or throw error
+    fn get_transactions(
+        &self,
+        address: String,
+        from_lt: u64,
+        count: u8,
+    ) -> anyhow::Result<String, anyhow::Error> {
+        self.inner_transport
+            .get_transactions(address, from_lt, count)
+    }
+    /// Get single transaction by its hash.
+    /// Return json-encoded Transaction or throw error
+    fn get_transaction(&self, hash: String) -> anyhow::Result<Option<String>, anyhow::Error> {
+        self.inner_transport.get_transaction(hash)
+    }
+    /// Get transport signature id and return it or throw error
+    fn get_signature_id(&self) -> anyhow::Result<Option<i32>, anyhow::Error> {
+        self.inner_transport.get_signature_id()
+    }
+    /// Get latest block by address and return it or throw error
+    fn get_latest_block(&self, address: String) -> Result<LatestBlock, anyhow::Error> {
+        self.inner_transport.get_latest_block(address)
+    }
+    /// Get transport block by id and return base64 encoded block or throw error
+    fn get_block(&self, id: String) -> Result<String, anyhow::Error> {
+        self.inner_transport.get_block(id)
+    }
+    /// Wait until next block will come to blockchain and return its id or throw error
+    fn wait_for_next_block(
+        &self,
+        current_block_id: String,
+        address: String,
+        timeout: u64,
+    ) -> Result<String, anyhow::Error> {
+        self.inner_transport
+            .wait_for_next_block(current_block_id, address, timeout)
+    }
+}
+
+///----------------------------
+/// CONTENT OF src/nekoton_wrapper/transport/jrpc_transport_api.rs
+///----------------------------
+
+/// Wrapper structure above JrpcTransport that provides interface to communicate with it
+/// via JrpcTransportBoxTrait.
+pub struct JrpcTransportImpl {
+    pub inner_transport: RustOpaque<Box<dyn JrpcTransportBoxTrait>>,
+}
+impl JrpcTransportImpl {
+    pub fn new(jrpc_connection: JrpcConnectionDartWrapper) -> JrpcTransportImpl {
+        Self {
+            inner_transport: JrpcTransportBox::create(
+                jrpc_connection.get_connection().get_connection(),
+            ),
+        }
+    }
+    /// Get contract state of address and return json-encoded RawContractState or throw error
+    fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
+        self.inner_transport.get_contract_state(address)
+    }
+    /// Get full contract state of address and return json-encoded FullContractState or throw error
+    fn get_full_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
+        self.inner_transport.get_full_contract_state(address)
+    }
+    /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
+    fn get_accounts_by_code_hash(
+        &self,
+        code_hash: String,
+        limit: u8,
+        continuation: Option<String>,
+    ) -> anyhow::Result<String, anyhow::Error> {
+        self.inner_transport
+            .get_accounts_by_code_hash(code_hash, limit, continuation)
+    }
+    /// Get list of transactions by address.
+    /// Return json-encoded TransactionsList or throw error
+    fn get_transactions(
+        &self,
+        address: String,
+        from_lt: u64,
+        count: u8,
+    ) -> anyhow::Result<String, anyhow::Error> {
+        self.inner_transport
+            .get_transactions(address, from_lt, count)
+    }
+    /// Get single transaction by its hash.
+    /// Return json-encoded Transaction or throw error
+    fn get_transaction(&self, hash: String) -> anyhow::Result<Option<String>, anyhow::Error> {
+        self.inner_transport.get_transaction(hash)
+    }
+    /// Get transport signature id and return it or throw error
+    fn get_signature_id(&self) -> anyhow::Result<Option<i32>, anyhow::Error> {
+        self.inner_transport.get_signature_id()
+    }
+}
+
+///----------------------------
 /// CONTENT OF src/nekoton_wrapper/models_api.rs
 ///----------------------------
 
@@ -200,14 +346,26 @@ pub struct SignatureParts {
 /// CONTENT OF src/nekoton_wrapper/external/jrpc_connection_api.rs
 ///----------------------------
 
+/// This is a wrapper structure above JrpcConnectionBoxTrait to provide instance in dart side.
+pub struct JrpcConnectionDartWrapper {
+    pub inner_connection: RustOpaque<Box<dyn JrpcConnectionBoxTrait>>,
+}
+impl JrpcConnectionDartWrapper {
+    pub fn new(is_local: bool, instance_hash: String) -> JrpcConnectionDartWrapper {
+        Self {
+            inner_connection: RustOpaque::new(JrpcConnectionBox::create(Arc::new(
+                JrpcConnectionImpl { instance_hash },
+            ))),
+        }
+    }
+    /// Method to provide real GqlConnection to transport level, used only in rust
+    pub(crate) fn get_connection(self) -> Box<dyn JrpcConnectionBoxTrait> {
+        self.inner_connection.try_unwrap().unwrap()
+    }
+}
 /// Implementation of nekoton's JrpcConnection
 pub struct JrpcConnectionImpl {
     pub instance_hash: String,
-}
-impl JrpcConnectionImpl {
-    pub fn new(instance_hash: String) -> JrpcConnectionImpl {
-        Self { instance_hash }
-    }
 }
 #[async_trait]
 impl JrpcConnection for JrpcConnectionImpl {
@@ -226,18 +384,30 @@ impl JrpcConnection for JrpcConnectionImpl {
 /// CONTENT OF src/nekoton_wrapper/external/gql_connection_api.rs
 ///----------------------------
 
-/// Implementation of nekoton's GqlConnection
-pub struct GqlConnectionImpl {
-    pub is_local: bool,
-    pub instance_hash: String,
+/// This is a wrapper structure above GqlConnectionBoxTrait to provide instance in dart side.
+pub struct GqlConnectionDartWrapper {
+    pub inner_connection: RustOpaque<Box<dyn GqlConnectionBoxTrait>>,
 }
-impl GqlConnectionImpl {
-    pub fn new(is_local: bool, instance_hash: String) -> GqlConnectionImpl {
+impl GqlConnectionDartWrapper {
+    pub fn new(is_local: bool, instance_hash: String) -> GqlConnectionDartWrapper {
         Self {
-            is_local,
-            instance_hash,
+            inner_connection: RustOpaque::new(GqlConnectionBox::create(Arc::new(
+                GqlConnectionImpl {
+                    is_local,
+                    instance_hash,
+                },
+            ))),
         }
     }
+    /// Method to provide real GqlConnection to transport level, used only in rust
+    pub(crate) fn get_connection(self) -> Box<dyn GqlConnectionBoxTrait> {
+        self.inner_connection.try_unwrap().unwrap()
+    }
+}
+/// Implementation of nekoton's GqlConnection
+struct GqlConnectionImpl {
+    pub is_local: bool,
+    pub instance_hash: String,
 }
 #[async_trait]
 impl GqlConnection for GqlConnectionImpl {

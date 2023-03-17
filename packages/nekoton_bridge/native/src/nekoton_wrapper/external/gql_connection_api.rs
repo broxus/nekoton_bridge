@@ -1,22 +1,39 @@
 #![allow(unused_variables, dead_code)]
 
+use crate::nekoton_wrapper::external::connections::{GqlConnectionBox, GqlConnectionBoxTrait};
 use crate::utils::caller;
 use async_trait::async_trait;
+use flutter_rust_bridge::RustOpaque;
 use nekoton::external::{GqlConnection, GqlRequest};
+use std::sync::Arc;
 
-/// Implementation of nekoton's GqlConnection
-pub struct GqlConnectionImpl {
-    pub is_local: bool,
-    pub instance_hash: String,
+/// This is a wrapper structure above GqlConnectionBoxTrait to provide instance in dart side.
+pub struct GqlConnectionDartWrapper {
+    pub inner_connection: RustOpaque<Box<dyn GqlConnectionBoxTrait>>,
 }
 
-impl GqlConnectionImpl {
-    pub fn new(is_local: bool, instance_hash: String) -> GqlConnectionImpl {
+impl GqlConnectionDartWrapper {
+    pub fn new(is_local: bool, instance_hash: String) -> GqlConnectionDartWrapper {
         Self {
-            is_local,
-            instance_hash,
+            inner_connection: RustOpaque::new(GqlConnectionBox::create(Arc::new(
+                GqlConnectionImpl {
+                    is_local,
+                    instance_hash,
+                },
+            ))),
         }
     }
+
+    /// Method to provide real GqlConnection to transport level, used only in rust
+    pub(crate) fn get_connection(self) -> Box<dyn GqlConnectionBoxTrait> {
+        self.inner_connection.try_unwrap().unwrap()
+    }
+}
+
+/// Implementation of nekoton's GqlConnection
+struct GqlConnectionImpl {
+    pub is_local: bool,
+    pub instance_hash: String,
 }
 
 #[async_trait]
