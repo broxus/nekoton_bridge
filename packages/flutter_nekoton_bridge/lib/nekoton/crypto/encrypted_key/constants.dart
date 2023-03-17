@@ -1,1 +1,1 @@
-const kEncryptedKeySignerName = 'EncryptedKeySigner';
+const encryptedKeySignerName = 'EncryptedKeySigner';

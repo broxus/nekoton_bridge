@@ -11,9 +11,9 @@ abstract class SignInput {
 
 extension SignInputToSigner on SignInput {
   String toSigner() {
-    if (this is EncryptedKeyPassword) return kEncryptedKeySignerName;
-    if (this is DerivedKeySignParams) return kDerivedKeySignerName;
-    if (this is LedgerSignInput) return kLedgerKeySignerName;
+    if (this is EncryptedKeyPassword) return encryptedKeySignerName;
+    if (this is DerivedKeySignParams) return derivedKeySignerName;
+    if (this is LedgerSignInput) return ledgerKeySignerName;
     throw UnsupportedError('Invalid signer');
   }
 }

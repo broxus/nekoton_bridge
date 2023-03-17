@@ -11,9 +11,9 @@ abstract class UpdateKeyInput {
 
 extension UpdateKeyInputToSigner on UpdateKeyInput {
   String toSigner() {
-    if (this is EncryptedKeyUpdateParams) return kEncryptedKeySignerName;
-    if (this is DerivedKeyUpdateParams) return kDerivedKeySignerName;
-    if (this is LedgerUpdateKeyInput) return kLedgerKeySignerName;
+    if (this is EncryptedKeyUpdateParams) return encryptedKeySignerName;
+    if (this is DerivedKeyUpdateParams) return derivedKeySignerName;
+    if (this is LedgerUpdateKeyInput) return ledgerKeySignerName;
     throw UnsupportedError('Invalid signer');
   }
 }

@@ -1,1 +1,1 @@
-const kLedgerKeySignerName = 'LedgerKeySigner';
+const ledgerKeySignerName = 'LedgerKeySigner';

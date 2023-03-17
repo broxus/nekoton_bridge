@@ -9,8 +9,8 @@ abstract class ExportKeyInput {
 
 extension ExportKeyInputToSigner on ExportKeyInput {
   String toSigner() {
-    if (this is EncryptedKeyPassword) return kEncryptedKeySignerName;
-    if (this is DerivedKeyExportParams) return kDerivedKeySignerName;
+    if (this is EncryptedKeyPassword) return encryptedKeySignerName;
+    if (this is DerivedKeyExportParams) return derivedKeySignerName;
     throw UnsupportedError('Invalid signer');
   }
 }

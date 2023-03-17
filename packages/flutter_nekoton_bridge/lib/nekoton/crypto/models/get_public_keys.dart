@@ -11,9 +11,9 @@ abstract class GetPublicKeys {
 
 extension GetPublicKeysToSigner on GetPublicKeys {
   String toSigner() {
-    if (this is EncryptedKeyGetPublicKeys) return kEncryptedKeySignerName;
-    if (this is DerivedKeyGetPublicKeys) return kDerivedKeySignerName;
-    if (this is LedgerKeyGetPublicKeys) return kLedgerKeySignerName;
+    if (this is EncryptedKeyGetPublicKeys) return encryptedKeySignerName;
+    if (this is DerivedKeyGetPublicKeys) return derivedKeySignerName;
+    if (this is LedgerKeyGetPublicKeys) return ledgerKeySignerName;
     throw UnsupportedError('Invalid signer');
   }
 }

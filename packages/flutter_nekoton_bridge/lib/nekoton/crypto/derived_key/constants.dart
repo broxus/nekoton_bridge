@@ -1,1 +1,1 @@
-const kDerivedKeySignerName = 'DerivedKeySigner';
+const derivedKeySignerName = 'DerivedKeySigner';
