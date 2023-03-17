@@ -1,15 +1,16 @@
 #![allow(unused_variables, dead_code)]
 
-use std::sync::Arc;
 use crate::nekoton_wrapper::external::connections::{JrpcConnectionBox, JrpcConnectionBoxTrait};
 use crate::utils::caller;
+use anyhow::anyhow;
 use async_trait::async_trait;
 use flutter_rust_bridge::RustOpaque;
 use nekoton::external::{JrpcConnection, JrpcRequest};
+use std::sync::Arc;
 
 /// This is a wrapper structure above JrpcConnectionBoxTrait to provide instance in dart side.
 pub struct JrpcConnectionDartWrapper {
-    pub inner_connection: RustOpaque<Box<dyn JrpcConnectionBoxTrait>>,
+    pub inner_connection: RustOpaque<Arc<dyn JrpcConnectionBoxTrait>>,
 }
 
 impl JrpcConnectionDartWrapper {
@@ -22,8 +23,12 @@ impl JrpcConnectionDartWrapper {
     }
 
     /// Method to provide real GqlConnection to transport level, used only in rust
-    pub(crate) fn get_connection(self) -> Box<dyn JrpcConnectionBoxTrait> {
-        self.inner_connection.try_unwrap().unwrap()
+    pub(crate) fn get_connection(&self) -> Arc<dyn JrpcConnectionBoxTrait> {
+        self.inner_connection
+            .clone()
+            .try_unwrap()
+            .map_err(|e| anyhow!("get connection error"))
+            .unwrap()
     }
 }
 

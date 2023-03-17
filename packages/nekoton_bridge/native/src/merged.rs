@@ -28,6 +28,7 @@ pub use crate::{
         logger, mega_struct,
     },
 };
+use anyhow::anyhow;
 use async_trait::async_trait;
 pub use ed25519_dalek::{Verifier, PUBLIC_KEY_LENGTH, SIGNATURE_LENGTH};
 pub use flutter_rust_bridge::*;
@@ -56,10 +57,51 @@ use std::{
 use ton_block::{Deserializable, Serializable};
 
 ///----------------------------
+/// CONTENT OF src/nekoton_wrapper/crypto/derived_key/derived_key_api.rs
+///----------------------------
+
+pub const DERIVED_KEY_SIGNER_NAME: &str = "DerivedKeySigner";
+
+///----------------------------
+/// CONTENT OF src/nekoton_wrapper/crypto/encrypted_key/encrypted_key_api.rs
+///----------------------------
+
+pub const ENCRYPTED_KEY_SIGNER_NAME: &str = "EncryptedKeySigner";
+
+///----------------------------
 /// CONTENT OF src/nekoton_wrapper/crypto/ledger_key/ledger_api.rs
 ///----------------------------
 
 pub const LEDGER_KEY_SIGNER_NAME: &str = "LedgerKeySigner";
+
+///----------------------------
+/// CONTENT OF src/nekoton_wrapper/crypto/mnemonic/mnemonic_api.rs
+///----------------------------
+
+/// Generate seed phrase by specified mnemonic type
+pub fn nt_generate_key(account_type: MnemonicType) -> GeneratedKeyG {
+    let key = generate_key(account_type);
+    GeneratedKeyG {
+        words: str_vec_to_string_vec(key.words),
+        account_type: key.account_type,
+    }
+}
+/// Get hints for input part of word of seed phrase to get possible words
+/// input: acco
+/// returns [account, accommodate, ...]
+pub fn nt_get_hints(input: String) -> Vec<String> {
+    str_list_to_string_vec(dict::get_hints(input.as_str()))
+}
+/// Generate public and secret keys from seed phrase and mnemonic type
+/// Returns json {'public': '...', 'secret': '...'}
+/// or throws Exception
+pub fn nt_derive_from_phrase(
+    phrase: String,
+    mnemonic_type: MnemonicType,
+) -> Result<String, anyhow::Error> {
+    let keypair = derive_from_phrase(phrase.as_str(), mnemonic_type).handle_error()?;
+    serde_json::to_value(KeypairHelper(keypair)).json_or_error()
+}
 
 ///----------------------------
 /// CONTENT OF src/nekoton_wrapper/crypto/crypto_api.rs
@@ -113,315 +155,6 @@ impl UnsignedMessageImpl {
     }
     pub fn sign(&self, signature: String) -> Result<String, anyhow::Error> {
         self.inner_message.sign(signature)
-    }
-}
-
-///----------------------------
-/// CONTENT OF src/nekoton_wrapper/crypto/encrypted_key/encrypted_key_api.rs
-///----------------------------
-
-pub const ENCRYPTED_KEY_SIGNER_NAME: &str = "EncryptedKeySigner";
-
-///----------------------------
-/// CONTENT OF src/nekoton_wrapper/crypto/mnemonic/mnemonic_api.rs
-///----------------------------
-
-/// Generate seed phrase by specified mnemonic type
-pub fn nt_generate_key(account_type: MnemonicType) -> GeneratedKeyG {
-    let key = generate_key(account_type);
-    GeneratedKeyG {
-        words: str_vec_to_string_vec(key.words),
-        account_type: key.account_type,
-    }
-}
-/// Get hints for input part of word of seed phrase to get possible words
-/// input: acco
-/// returns [account, accommodate, ...]
-pub fn nt_get_hints(input: String) -> Vec<String> {
-    str_list_to_string_vec(dict::get_hints(input.as_str()))
-}
-/// Generate public and secret keys from seed phrase and mnemonic type
-/// Returns json {'public': '...', 'secret': '...'}
-/// or throws Exception
-pub fn nt_derive_from_phrase(
-    phrase: String,
-    mnemonic_type: MnemonicType,
-) -> Result<String, anyhow::Error> {
-    let keypair = derive_from_phrase(phrase.as_str(), mnemonic_type).handle_error()?;
-    serde_json::to_value(KeypairHelper(keypair)).json_or_error()
-}
-
-///----------------------------
-/// CONTENT OF src/nekoton_wrapper/crypto/derived_key/derived_key_api.rs
-///----------------------------
-
-pub const DERIVED_KEY_SIGNER_NAME: &str = "DerivedKeySigner";
-
-///----------------------------
-/// CONTENT OF src/nekoton_wrapper/transport/gql_transport_api.rs
-///----------------------------
-
-#[frb(mirror(LatestBlock))]
-pub struct _LatestBlock {
-    pub id: String,
-    pub end_lt: u64,
-    pub gen_utime: u32,
-}
-/// Wrapper structure above GqlTransport that provides interface to communicate with it
-/// via GqlTransportBoxTrait.
-pub struct GqlTransportImpl {
-    pub inner_transport: RustOpaque<Box<dyn GqlTransportBoxTrait>>,
-}
-impl GqlTransportImpl {
-    pub fn new(gql_connection: GqlConnectionDartWrapper) -> GqlTransportImpl {
-        Self {
-            inner_transport: GqlTransportBox::create(
-                gql_connection.get_connection().get_connection(),
-            ),
-        }
-    }
-    /// Get contract state of address and return json-encoded RawContractState or throw error
-    fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
-        self.inner_transport.get_contract_state(address)
-    }
-    /// Get full contract state of address and return json-encoded FullContractState or throw error
-    fn get_full_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
-        self.inner_transport.get_full_contract_state(address)
-    }
-    /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
-    fn get_accounts_by_code_hash(
-        &self,
-        code_hash: String,
-        limit: u8,
-        continuation: Option<String>,
-    ) -> anyhow::Result<String, anyhow::Error> {
-        self.inner_transport
-            .get_accounts_by_code_hash(code_hash, limit, continuation)
-    }
-    /// Get list of transactions by address.
-    /// Return json-encoded TransactionsList or throw error
-    fn get_transactions(
-        &self,
-        address: String,
-        from_lt: u64,
-        count: u8,
-    ) -> anyhow::Result<String, anyhow::Error> {
-        self.inner_transport
-            .get_transactions(address, from_lt, count)
-    }
-    /// Get single transaction by its hash.
-    /// Return json-encoded Transaction or throw error
-    fn get_transaction(&self, hash: String) -> anyhow::Result<Option<String>, anyhow::Error> {
-        self.inner_transport.get_transaction(hash)
-    }
-    /// Get transport signature id and return it or throw error
-    fn get_signature_id(&self) -> anyhow::Result<Option<i32>, anyhow::Error> {
-        self.inner_transport.get_signature_id()
-    }
-    /// Get latest block by address and return it or throw error
-    fn get_latest_block(&self, address: String) -> Result<LatestBlock, anyhow::Error> {
-        self.inner_transport.get_latest_block(address)
-    }
-    /// Get transport block by id and return base64 encoded block or throw error
-    fn get_block(&self, id: String) -> Result<String, anyhow::Error> {
-        self.inner_transport.get_block(id)
-    }
-    /// Wait until next block will come to blockchain and return its id or throw error
-    fn wait_for_next_block(
-        &self,
-        current_block_id: String,
-        address: String,
-        timeout: u64,
-    ) -> Result<String, anyhow::Error> {
-        self.inner_transport
-            .wait_for_next_block(current_block_id, address, timeout)
-    }
-}
-
-///----------------------------
-/// CONTENT OF src/nekoton_wrapper/transport/jrpc_transport_api.rs
-///----------------------------
-
-/// Wrapper structure above JrpcTransport that provides interface to communicate with it
-/// via JrpcTransportBoxTrait.
-pub struct JrpcTransportImpl {
-    pub inner_transport: RustOpaque<Box<dyn JrpcTransportBoxTrait>>,
-}
-impl JrpcTransportImpl {
-    pub fn new(jrpc_connection: JrpcConnectionDartWrapper) -> JrpcTransportImpl {
-        Self {
-            inner_transport: JrpcTransportBox::create(
-                jrpc_connection.get_connection().get_connection(),
-            ),
-        }
-    }
-    /// Get contract state of address and return json-encoded RawContractState or throw error
-    fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
-        self.inner_transport.get_contract_state(address)
-    }
-    /// Get full contract state of address and return json-encoded FullContractState or throw error
-    fn get_full_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
-        self.inner_transport.get_full_contract_state(address)
-    }
-    /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
-    fn get_accounts_by_code_hash(
-        &self,
-        code_hash: String,
-        limit: u8,
-        continuation: Option<String>,
-    ) -> anyhow::Result<String, anyhow::Error> {
-        self.inner_transport
-            .get_accounts_by_code_hash(code_hash, limit, continuation)
-    }
-    /// Get list of transactions by address.
-    /// Return json-encoded TransactionsList or throw error
-    fn get_transactions(
-        &self,
-        address: String,
-        from_lt: u64,
-        count: u8,
-    ) -> anyhow::Result<String, anyhow::Error> {
-        self.inner_transport
-            .get_transactions(address, from_lt, count)
-    }
-    /// Get single transaction by its hash.
-    /// Return json-encoded Transaction or throw error
-    fn get_transaction(&self, hash: String) -> anyhow::Result<Option<String>, anyhow::Error> {
-        self.inner_transport.get_transaction(hash)
-    }
-    /// Get transport signature id and return it or throw error
-    fn get_signature_id(&self) -> anyhow::Result<Option<i32>, anyhow::Error> {
-        self.inner_transport.get_signature_id()
-    }
-}
-
-///----------------------------
-/// CONTENT OF src/nekoton_wrapper/models_api.rs
-///----------------------------
-
-/// -------------------------
-/// Types to generate in dart
-/// -------------------------
-/// Mirror struct of MnemonicType
-#[frb(mirror(MnemonicType))]
-pub enum _MnemonicType {
-    Legacy,
-    Labs(u16),
-}
-/// Wrapper struct above GeneratedKey with suitable type for generation
-pub struct GeneratedKeyG {
-    pub words: Vec<String>,
-    pub account_type: MnemonicType,
-}
-/// Structure that is used with signing data
-pub struct SignedData {
-    /// hex encoded hash
-    pub data_hash: String,
-    /// base64 encoded data
-    pub signature: String,
-    /// hex encoded data
-    pub signature_hex: String,
-    /// Signatures
-    pub signature_parts: SignatureParts,
-}
-/// Structure that is used with signing data
-pub struct SignedDataRaw {
-    /// base64 encoded data
-    pub signature: String,
-    /// hex encoded data
-    pub signature_hex: String,
-    /// Signatures
-    pub signature_parts: SignatureParts,
-}
-/// Structure that is used with signing data
-/// high and low looks like: 0x{hex_data}
-pub struct SignatureParts {
-    /// symbols before 32-th
-    pub low: String,
-    /// symbols after 32-th
-    pub high: String,
-}
-
-///----------------------------
-/// CONTENT OF src/nekoton_wrapper/external/jrpc_connection_api.rs
-///----------------------------
-
-/// This is a wrapper structure above JrpcConnectionBoxTrait to provide instance in dart side.
-pub struct JrpcConnectionDartWrapper {
-    pub inner_connection: RustOpaque<Box<dyn JrpcConnectionBoxTrait>>,
-}
-impl JrpcConnectionDartWrapper {
-    pub fn new(is_local: bool, instance_hash: String) -> JrpcConnectionDartWrapper {
-        Self {
-            inner_connection: RustOpaque::new(JrpcConnectionBox::create(Arc::new(
-                JrpcConnectionImpl { instance_hash },
-            ))),
-        }
-    }
-    /// Method to provide real GqlConnection to transport level, used only in rust
-    pub(crate) fn get_connection(self) -> Box<dyn JrpcConnectionBoxTrait> {
-        self.inner_connection.try_unwrap().unwrap()
-    }
-}
-/// Implementation of nekoton's JrpcConnection
-pub struct JrpcConnectionImpl {
-    pub instance_hash: String,
-}
-#[async_trait]
-impl JrpcConnection for JrpcConnectionImpl {
-    async fn post(&self, req: JrpcRequest) -> anyhow::Result<String> {
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("post"),
-            args: vec![caller::DynamicValue::String(req.data)],
-            named_args: vec![],
-        };
-        caller::call(stub, true).as_string()
-    }
-}
-
-///----------------------------
-/// CONTENT OF src/nekoton_wrapper/external/gql_connection_api.rs
-///----------------------------
-
-/// This is a wrapper structure above GqlConnectionBoxTrait to provide instance in dart side.
-pub struct GqlConnectionDartWrapper {
-    pub inner_connection: RustOpaque<Box<dyn GqlConnectionBoxTrait>>,
-}
-impl GqlConnectionDartWrapper {
-    pub fn new(is_local: bool, instance_hash: String) -> GqlConnectionDartWrapper {
-        Self {
-            inner_connection: RustOpaque::new(GqlConnectionBox::create(Arc::new(
-                GqlConnectionImpl {
-                    is_local,
-                    instance_hash,
-                },
-            ))),
-        }
-    }
-    /// Method to provide real GqlConnection to transport level, used only in rust
-    pub(crate) fn get_connection(self) -> Box<dyn GqlConnectionBoxTrait> {
-        self.inner_connection.try_unwrap().unwrap()
-    }
-}
-/// Implementation of nekoton's GqlConnection
-struct GqlConnectionImpl {
-    pub is_local: bool,
-    pub instance_hash: String,
-}
-#[async_trait]
-impl GqlConnection for GqlConnectionImpl {
-    fn is_local(&self) -> bool {
-        self.is_local
-    }
-    async fn post(&self, req: GqlRequest) -> anyhow::Result<String> {
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("post"),
-            args: vec![caller::DynamicValue::String(req.data)],
-            named_args: vec![],
-        };
-        caller::call(stub, true).as_string()
     }
 }
 
@@ -556,6 +289,97 @@ impl Storage for StorageImpl {
             }],
         };
         caller::call(stub, false);
+    }
+}
+
+///----------------------------
+/// CONTENT OF src/nekoton_wrapper/external/gql_connection_api.rs
+///----------------------------
+
+/// This is a wrapper structure above GqlConnectionBoxTrait to provide instance in dart side.
+pub struct GqlConnectionDartWrapper {
+    pub inner_connection: RustOpaque<Arc<dyn GqlConnectionBoxTrait>>,
+}
+impl GqlConnectionDartWrapper {
+    pub fn new(is_local: bool, instance_hash: String) -> GqlConnectionDartWrapper {
+        Self {
+            inner_connection: RustOpaque::new(GqlConnectionBox::create(Arc::new(
+                GqlConnectionImpl {
+                    is_local,
+                    instance_hash,
+                },
+            ))),
+        }
+    }
+    /// Method to provide real GqlConnection to transport level, used only in rust
+    pub(crate) fn get_connection(&self) -> Arc<dyn GqlConnectionBoxTrait> {
+        self.inner_connection
+            .clone()
+            .try_unwrap()
+            .map_err(|e| anyhow!("get connection error"))
+            .unwrap()
+    }
+}
+/// Implementation of nekoton's GqlConnection
+struct GqlConnectionImpl {
+    pub is_local: bool,
+    pub instance_hash: String,
+}
+#[async_trait]
+impl GqlConnection for GqlConnectionImpl {
+    fn is_local(&self) -> bool {
+        self.is_local
+    }
+    async fn post(&self, req: GqlRequest) -> anyhow::Result<String> {
+        let stub = caller::DartCallStub {
+            instance_hash: self.instance_hash.clone(),
+            fn_name: String::from("post"),
+            args: vec![caller::DynamicValue::String(req.data)],
+            named_args: vec![],
+        };
+        caller::call(stub, true).as_string()
+    }
+}
+
+///----------------------------
+/// CONTENT OF src/nekoton_wrapper/external/jrpc_connection_api.rs
+///----------------------------
+
+/// This is a wrapper structure above JrpcConnectionBoxTrait to provide instance in dart side.
+pub struct JrpcConnectionDartWrapper {
+    pub inner_connection: RustOpaque<Arc<dyn JrpcConnectionBoxTrait>>,
+}
+impl JrpcConnectionDartWrapper {
+    pub fn new(is_local: bool, instance_hash: String) -> JrpcConnectionDartWrapper {
+        Self {
+            inner_connection: RustOpaque::new(JrpcConnectionBox::create(Arc::new(
+                JrpcConnectionImpl { instance_hash },
+            ))),
+        }
+    }
+    /// Method to provide real GqlConnection to transport level, used only in rust
+    pub(crate) fn get_connection(&self) -> Arc<dyn JrpcConnectionBoxTrait> {
+        self.inner_connection
+            .clone()
+            .try_unwrap()
+            .map_err(|e| anyhow!("get connection error"))
+            .unwrap()
+    }
+}
+/// Implementation of nekoton's JrpcConnection
+pub struct JrpcConnectionImpl {
+    pub instance_hash: String,
+}
+#[async_trait]
+impl JrpcConnection for JrpcConnectionImpl {
+    async fn post(&self, req: JrpcRequest) -> anyhow::Result<String> {
+        let stub = caller::DartCallStub {
+            instance_hash: self.instance_hash.clone(),
+            fn_name: String::from("post"),
+            args: vec![caller::DynamicValue::String(req.data)],
+            named_args: vec![],
+        };
+        caller::call(stub, true).as_string()
     }
 }
 
@@ -1040,23 +864,199 @@ pub fn get_code_salt(code: String) -> Result<Option<String>, anyhow::Error> {
 }
 
 ///----------------------------
-/// CONTENT OF src/utils/tests_api.rs
+/// CONTENT OF src/nekoton_wrapper/models_api.rs
 ///----------------------------
 
-pub fn test_logger_info(string: String) {
-    info!("Info: {string}");
+/// -------------------------
+/// Types to generate in dart
+/// -------------------------
+/// Mirror struct of MnemonicType
+#[frb(mirror(MnemonicType))]
+pub enum _MnemonicType {
+    Legacy,
+    Labs(u16),
 }
-pub fn test_logger_debug(string: String) {
-    debug!("Debug: {string}");
+/// Wrapper struct above GeneratedKey with suitable type for generation
+pub struct GeneratedKeyG {
+    pub words: Vec<String>,
+    pub account_type: MnemonicType,
 }
-pub fn test_logger_warn(string: String) {
-    warn!("Warn: {string}");
+/// Structure that is used with signing data
+pub struct SignedData {
+    /// hex encoded hash
+    pub data_hash: String,
+    /// base64 encoded data
+    pub signature: String,
+    /// hex encoded data
+    pub signature_hex: String,
+    /// Signatures
+    pub signature_parts: SignatureParts,
 }
-pub fn test_logger_error(string: String) {
-    error!("Error: {string}");
+/// Structure that is used with signing data
+pub struct SignedDataRaw {
+    /// base64 encoded data
+    pub signature: String,
+    /// hex encoded data
+    pub signature_hex: String,
+    /// Signatures
+    pub signature_parts: SignatureParts,
 }
-pub fn test_logger_panic(string: String) {
-    panic!("Panic: {}", string);
+/// Structure that is used with signing data
+/// high and low looks like: 0x{hex_data}
+pub struct SignatureParts {
+    /// symbols before 32-th
+    pub low: String,
+    /// symbols after 32-th
+    pub high: String,
+}
+
+///----------------------------
+/// CONTENT OF src/nekoton_wrapper/transport/gql_transport_api.rs
+///----------------------------
+
+#[frb(mirror(LatestBlock))]
+pub struct _LatestBlock {
+    pub id: String,
+    pub end_lt: u64,
+    pub gen_utime: u32,
+}
+/// Wrapper structure above GqlTransport that provides interface to communicate with it
+/// via GqlTransportBoxTrait.
+pub struct GqlTransportImpl {
+    pub inner_transport: RustOpaque<Box<dyn GqlTransportBoxTrait>>,
+}
+impl GqlTransportImpl {
+    fn new(gql_connection: GqlConnectionDartWrapper) -> GqlTransportImpl {
+        Self {
+            inner_transport: GqlTransportBox::create(
+                gql_connection.get_connection().get_connection(),
+            ),
+        }
+    }
+    /// Get contract state of address and return json-encoded RawContractState or throw error
+    async fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
+        self.inner_transport.get_contract_state(address).await
+    }
+    /// Get full contract state of address and return json-encoded FullContractState or throw error
+    async fn get_full_contract_state(
+        &self,
+        address: String,
+    ) -> anyhow::Result<String, anyhow::Error> {
+        self.inner_transport.get_full_contract_state(address).await
+    }
+    /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
+    async fn get_accounts_by_code_hash(
+        &self,
+        code_hash: String,
+        limit: u8,
+        continuation: Option<String>,
+    ) -> anyhow::Result<String, anyhow::Error> {
+        self.inner_transport
+            .get_accounts_by_code_hash(code_hash, limit, continuation)
+            .await
+    }
+    /// Get list of transactions by address.
+    /// Return json-encoded TransactionsList or throw error
+    async fn get_transactions(
+        &self,
+        address: String,
+        from_lt: u64,
+        count: u8,
+    ) -> anyhow::Result<String, anyhow::Error> {
+        self.inner_transport
+            .get_transactions(address, from_lt, count)
+            .await
+    }
+    /// Get single transaction by its hash.
+    /// Return json-encoded Transaction or throw error
+    async fn get_transaction(&self, hash: String) -> anyhow::Result<Option<String>, anyhow::Error> {
+        self.inner_transport.get_transaction(hash).await
+    }
+    /// Get transport signature id and return it or throw error
+    async fn get_signature_id(&self) -> anyhow::Result<Option<i32>, anyhow::Error> {
+        self.inner_transport.get_signature_id().await
+    }
+    /// Get latest block by address and return it or throw error
+    async fn get_latest_block(&self, address: String) -> Result<LatestBlock, anyhow::Error> {
+        self.inner_transport.get_latest_block(address).await
+    }
+    /// Get transport block by id and return base64 encoded block or throw error
+    async fn get_block(&self, id: String) -> Result<String, anyhow::Error> {
+        self.inner_transport.get_block(id).await
+    }
+    /// Wait until next block will come to blockchain and return its id or throw error
+    async fn wait_for_next_block(
+        &self,
+        current_block_id: String,
+        address: String,
+        timeout: u64,
+    ) -> Result<String, anyhow::Error> {
+        self.inner_transport
+            .wait_for_next_block(current_block_id, address, timeout)
+            .await
+    }
+}
+
+///----------------------------
+/// CONTENT OF src/nekoton_wrapper/transport/jrpc_transport_api.rs
+///----------------------------
+
+/// Wrapper structure above JrpcTransport that provides interface to communicate with it
+/// via JrpcTransportBoxTrait.
+pub struct JrpcTransportImpl {
+    pub inner_transport: RustOpaque<Arc<dyn JrpcTransportBoxTrait>>,
+}
+impl JrpcTransportImpl {
+    pub fn new(jrpc_connection: JrpcConnectionDartWrapper) -> JrpcTransportImpl {
+        Self {
+            inner_transport: JrpcTransportBox::create(
+                jrpc_connection.get_connection().get_connection(),
+            ),
+        }
+    }
+    /// Get contract state of address and return json-encoded RawContractState or throw error
+    async fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
+        self.inner_transport.get_contract_state(address).await
+    }
+    /// Get full contract state of address and return json-encoded FullContractState or throw error
+    async fn get_full_contract_state(
+        &self,
+        address: String,
+    ) -> anyhow::Result<String, anyhow::Error> {
+        self.inner_transport.get_full_contract_state(address).await
+    }
+    /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
+    async fn get_accounts_by_code_hash(
+        &self,
+        code_hash: String,
+        limit: u8,
+        continuation: Option<String>,
+    ) -> anyhow::Result<String, anyhow::Error> {
+        self.inner_transport
+            .get_accounts_by_code_hash(code_hash, limit, continuation)
+            .await
+    }
+    /// Get list of transactions by address.
+    /// Return json-encoded TransactionsList or throw error
+    async fn get_transactions(
+        &self,
+        address: String,
+        from_lt: u64,
+        count: u8,
+    ) -> anyhow::Result<String, anyhow::Error> {
+        self.inner_transport
+            .get_transactions(address, from_lt, count)
+            .await
+    }
+    /// Get single transaction by its hash.
+    /// Return json-encoded Transaction or throw error
+    async fn get_transaction(&self, hash: String) -> anyhow::Result<Option<String>, anyhow::Error> {
+        self.inner_transport.get_transaction(hash).await
+    }
+    /// Get transport signature id and return it or throw error
+    async fn get_signature_id(&self) -> anyhow::Result<Option<i32>, anyhow::Error> {
+        self.inner_transport.get_signature_id().await
+    }
 }
 
 ///----------------------------
@@ -1253,4 +1253,24 @@ impl CallerTestClass {
         let result = caller::call(stub, true).as_string();
         debug!("Returned request from CallerTestClass: {}", result.unwrap());
     }
+}
+
+///----------------------------
+/// CONTENT OF src/utils/tests_api.rs
+///----------------------------
+
+pub fn test_logger_info(string: String) {
+    info!("Info: {string}");
+}
+pub fn test_logger_debug(string: String) {
+    debug!("Debug: {string}");
+}
+pub fn test_logger_warn(string: String) {
+    warn!("Warn: {string}");
+}
+pub fn test_logger_error(string: String) {
+    error!("Error: {string}");
+}
+pub fn test_logger_panic(string: String) {
+    panic!("Panic: {}", string);
 }

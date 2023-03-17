@@ -19,18 +19,6 @@ part 'bridge_generated.freezed.dart';
 
 abstract class NekotonBridge {
   ///----------------------------
-  /// CONTENT OF src/nekoton_wrapper/crypto/crypto_api.rs
-  ///----------------------------
-  /// Check signature by publicKey and data hash
-  Future<bool> verifySignature(
-      {required String publicKey,
-      required String dataHash,
-      required String signature,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta;
-
-  ///----------------------------
   /// CONTENT OF src/nekoton_wrapper/crypto/mnemonic/mnemonic_api.rs
   ///----------------------------
   /// Generate seed phrase by specified mnemonic type
@@ -55,6 +43,18 @@ abstract class NekotonBridge {
       dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kNtDeriveFromPhraseConstMeta;
+
+  ///----------------------------
+  /// CONTENT OF src/nekoton_wrapper/crypto/crypto_api.rs
+  ///----------------------------
+  /// Check signature by publicKey and data hash
+  Future<bool> verifySignature(
+      {required String publicKey,
+      required String dataHash,
+      required String signature,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta;
 
   ///----------------------------
   /// CONTENT OF src/nekoton_wrapper/helpers/abi_api.rs
@@ -255,29 +255,6 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kGetCodeSaltConstMeta;
 
   ///----------------------------
-  /// CONTENT OF src/utils/tests_api.rs
-  ///----------------------------
-  Future<void> testLoggerInfo({required String string, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerInfoConstMeta;
-
-  Future<void> testLoggerDebug({required String string, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerDebugConstMeta;
-
-  Future<void> testLoggerWarn({required String string, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerWarnConstMeta;
-
-  Future<void> testLoggerError({required String string, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerErrorConstMeta;
-
-  Future<void> testLoggerPanic({required String string, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerPanicConstMeta;
-
-  ///----------------------------
   /// CONTENT OF src/utils/api.rs
   ///----------------------------
   /// Init utils
@@ -346,6 +323,29 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kSimpleCallFunc2ConstMeta;
 
+  ///----------------------------
+  /// CONTENT OF src/utils/tests_api.rs
+  ///----------------------------
+  Future<void> testLoggerInfo({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerInfoConstMeta;
+
+  Future<void> testLoggerDebug({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerDebugConstMeta;
+
+  Future<void> testLoggerWarn({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerWarnConstMeta;
+
+  Future<void> testLoggerError({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerErrorConstMeta;
+
+  Future<void> testLoggerPanic({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerPanicConstMeta;
+
   Future<void> refreshTimeoutMethodUnsignedMessageImpl(
       {required UnsignedMessageImpl that, dynamic hint});
 
@@ -372,28 +372,6 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kSignMethodUnsignedMessageImplConstMeta;
 
-  Future<GqlTransportImpl> newStaticMethodGqlTransportImpl(
-      {required GqlConnectionDartWrapper gqlConnection, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kNewStaticMethodGqlTransportImplConstMeta;
-
-  Future<JrpcTransportImpl> newStaticMethodJrpcTransportImpl(
-      {required JrpcConnectionDartWrapper jrpcConnection, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kNewStaticMethodJrpcTransportImplConstMeta;
-
-  Future<JrpcConnectionDartWrapper> newStaticMethodJrpcConnectionDartWrapper(
-      {required bool isLocal, required String instanceHash, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodJrpcConnectionDartWrapperConstMeta;
-
-  Future<GqlConnectionDartWrapper> newStaticMethodGqlConnectionDartWrapper(
-      {required bool isLocal, required String instanceHash, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodGqlConnectionDartWrapperConstMeta;
-
   Future<LedgerConnectionImpl> newStaticMethodLedgerConnectionImpl(
       {required String instanceHash, dynamic hint});
 
@@ -404,6 +382,23 @@ abstract class NekotonBridge {
       {required String instanceHash, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kNewStaticMethodStorageImplConstMeta;
+
+  Future<GqlConnectionDartWrapper> newStaticMethodGqlConnectionDartWrapper(
+      {required bool isLocal, required String instanceHash, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodGqlConnectionDartWrapperConstMeta;
+
+  Future<JrpcConnectionDartWrapper> newStaticMethodJrpcConnectionDartWrapper(
+      {required bool isLocal, required String instanceHash, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodJrpcConnectionDartWrapperConstMeta;
+
+  Future<JrpcTransportImpl> newStaticMethodJrpcTransportImpl(
+      {required JrpcConnectionDartWrapper jrpcConnection, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kNewStaticMethodJrpcTransportImplConstMeta;
 
   Future<MyClass> newStaticMethodMyClass({required int a, dynamic hint});
 
@@ -424,21 +419,17 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta
       get kCallSomeFuncMethodCallerTestClassConstMeta;
 
-  DropFnType get dropOpaqueBoxGqlConnectionBoxTrait;
-  ShareFnType get shareOpaqueBoxGqlConnectionBoxTrait;
-  OpaqueTypeFinalizer get BoxGqlConnectionBoxTraitFinalizer;
+  DropFnType get dropOpaqueArcGqlConnectionBoxTrait;
+  ShareFnType get shareOpaqueArcGqlConnectionBoxTrait;
+  OpaqueTypeFinalizer get ArcGqlConnectionBoxTraitFinalizer;
 
-  DropFnType get dropOpaqueBoxGqlTransportBoxTrait;
-  ShareFnType get shareOpaqueBoxGqlTransportBoxTrait;
-  OpaqueTypeFinalizer get BoxGqlTransportBoxTraitFinalizer;
+  DropFnType get dropOpaqueArcJrpcConnectionBoxTrait;
+  ShareFnType get shareOpaqueArcJrpcConnectionBoxTrait;
+  OpaqueTypeFinalizer get ArcJrpcConnectionBoxTraitFinalizer;
 
-  DropFnType get dropOpaqueBoxJrpcConnectionBoxTrait;
-  ShareFnType get shareOpaqueBoxJrpcConnectionBoxTrait;
-  OpaqueTypeFinalizer get BoxJrpcConnectionBoxTraitFinalizer;
-
-  DropFnType get dropOpaqueBoxJrpcTransportBoxTrait;
-  ShareFnType get shareOpaqueBoxJrpcTransportBoxTrait;
-  OpaqueTypeFinalizer get BoxJrpcTransportBoxTraitFinalizer;
+  DropFnType get dropOpaqueArcJrpcTransportBoxTrait;
+  ShareFnType get shareOpaqueArcJrpcTransportBoxTrait;
+  OpaqueTypeFinalizer get ArcJrpcTransportBoxTraitFinalizer;
 
   DropFnType get dropOpaqueBoxUnsignedMessageBoxTrait;
   ShareFnType get shareOpaqueBoxUnsignedMessageBoxTrait;
@@ -446,67 +437,51 @@ abstract class NekotonBridge {
 }
 
 @sealed
-class BoxGqlConnectionBoxTrait extends FrbOpaque {
+class ArcGqlConnectionBoxTrait extends FrbOpaque {
   final NekotonBridge bridge;
-  BoxGqlConnectionBoxTrait.fromRaw(int ptr, int size, this.bridge)
+  ArcGqlConnectionBoxTrait.fromRaw(int ptr, int size, this.bridge)
       : super.unsafe(ptr, size);
   @override
-  DropFnType get dropFn => bridge.dropOpaqueBoxGqlConnectionBoxTrait;
+  DropFnType get dropFn => bridge.dropOpaqueArcGqlConnectionBoxTrait;
 
   @override
-  ShareFnType get shareFn => bridge.shareOpaqueBoxGqlConnectionBoxTrait;
+  ShareFnType get shareFn => bridge.shareOpaqueArcGqlConnectionBoxTrait;
 
   @override
   OpaqueTypeFinalizer get staticFinalizer =>
-      bridge.BoxGqlConnectionBoxTraitFinalizer;
+      bridge.ArcGqlConnectionBoxTraitFinalizer;
 }
 
 @sealed
-class BoxGqlTransportBoxTrait extends FrbOpaque {
+class ArcJrpcConnectionBoxTrait extends FrbOpaque {
   final NekotonBridge bridge;
-  BoxGqlTransportBoxTrait.fromRaw(int ptr, int size, this.bridge)
+  ArcJrpcConnectionBoxTrait.fromRaw(int ptr, int size, this.bridge)
       : super.unsafe(ptr, size);
   @override
-  DropFnType get dropFn => bridge.dropOpaqueBoxGqlTransportBoxTrait;
+  DropFnType get dropFn => bridge.dropOpaqueArcJrpcConnectionBoxTrait;
 
   @override
-  ShareFnType get shareFn => bridge.shareOpaqueBoxGqlTransportBoxTrait;
+  ShareFnType get shareFn => bridge.shareOpaqueArcJrpcConnectionBoxTrait;
 
   @override
   OpaqueTypeFinalizer get staticFinalizer =>
-      bridge.BoxGqlTransportBoxTraitFinalizer;
+      bridge.ArcJrpcConnectionBoxTraitFinalizer;
 }
 
 @sealed
-class BoxJrpcConnectionBoxTrait extends FrbOpaque {
+class ArcJrpcTransportBoxTrait extends FrbOpaque {
   final NekotonBridge bridge;
-  BoxJrpcConnectionBoxTrait.fromRaw(int ptr, int size, this.bridge)
+  ArcJrpcTransportBoxTrait.fromRaw(int ptr, int size, this.bridge)
       : super.unsafe(ptr, size);
   @override
-  DropFnType get dropFn => bridge.dropOpaqueBoxJrpcConnectionBoxTrait;
+  DropFnType get dropFn => bridge.dropOpaqueArcJrpcTransportBoxTrait;
 
   @override
-  ShareFnType get shareFn => bridge.shareOpaqueBoxJrpcConnectionBoxTrait;
+  ShareFnType get shareFn => bridge.shareOpaqueArcJrpcTransportBoxTrait;
 
   @override
   OpaqueTypeFinalizer get staticFinalizer =>
-      bridge.BoxJrpcConnectionBoxTraitFinalizer;
-}
-
-@sealed
-class BoxJrpcTransportBoxTrait extends FrbOpaque {
-  final NekotonBridge bridge;
-  BoxJrpcTransportBoxTrait.fromRaw(int ptr, int size, this.bridge)
-      : super.unsafe(ptr, size);
-  @override
-  DropFnType get dropFn => bridge.dropOpaqueBoxJrpcTransportBoxTrait;
-
-  @override
-  ShareFnType get shareFn => bridge.shareOpaqueBoxJrpcTransportBoxTrait;
-
-  @override
-  OpaqueTypeFinalizer get staticFinalizer =>
-      bridge.BoxJrpcTransportBoxTraitFinalizer;
+      bridge.ArcJrpcTransportBoxTraitFinalizer;
 }
 
 @sealed
@@ -657,7 +632,7 @@ class GeneratedKeyG {
 /// This is a wrapper structure above GqlConnectionBoxTrait to provide instance in dart side.
 class GqlConnectionDartWrapper {
   final NekotonBridge bridge;
-  final BoxGqlConnectionBoxTrait innerConnection;
+  final ArcGqlConnectionBoxTrait innerConnection;
 
   const GqlConnectionDartWrapper({
     required this.bridge,
@@ -673,32 +648,13 @@ class GqlConnectionDartWrapper {
           isLocal: isLocal, instanceHash: instanceHash, hint: hint);
 }
 
-/// Wrapper structure above GqlTransport that provides interface to communicate with it
-/// via GqlTransportBoxTrait.
-class GqlTransportImpl {
-  final NekotonBridge bridge;
-  final BoxGqlTransportBoxTrait innerTransport;
-
-  const GqlTransportImpl({
-    required this.bridge,
-    required this.innerTransport,
-  });
-
-  static Future<GqlTransportImpl> newGqlTransportImpl(
-          {required NekotonBridge bridge,
-          required GqlConnectionDartWrapper gqlConnection,
-          dynamic hint}) =>
-      bridge.newStaticMethodGqlTransportImpl(
-          gqlConnection: gqlConnection, hint: hint);
-}
-
 ///----------------------------
 /// CONTENT OF src/nekoton_wrapper/external/jrpc_connection_api.rs
 ///----------------------------
 /// This is a wrapper structure above JrpcConnectionBoxTrait to provide instance in dart side.
 class JrpcConnectionDartWrapper {
   final NekotonBridge bridge;
-  final BoxJrpcConnectionBoxTrait innerConnection;
+  final ArcJrpcConnectionBoxTrait innerConnection;
 
   const JrpcConnectionDartWrapper({
     required this.bridge,
@@ -721,7 +677,7 @@ class JrpcConnectionDartWrapper {
 /// via JrpcTransportBoxTrait.
 class JrpcTransportImpl {
   final NekotonBridge bridge;
-  final BoxJrpcTransportBoxTrait innerTransport;
+  final ArcJrpcTransportBoxTrait innerTransport;
 
   const JrpcTransportImpl({
     required this.bridge,
@@ -868,30 +824,6 @@ class NekotonBridgeImpl implements NekotonBridge {
   factory NekotonBridgeImpl.wasm(FutureOr<WasmModule> module) =>
       NekotonBridgeImpl(module as ExternalLibrary);
   NekotonBridgeImpl.raw(this._platform);
-  Future<bool> verifySignature(
-      {required String publicKey,
-      required String dataHash,
-      required String signature,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_String(publicKey);
-    var arg1 = _platform.api2wire_String(dataHash);
-    var arg2 = _platform.api2wire_String(signature);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) =>
-          _platform.inner.wire_verify_signature(port_, arg0, arg1, arg2),
-      parseSuccessData: _wire2api_bool,
-      constMeta: kVerifySignatureConstMeta,
-      argValues: [publicKey, dataHash, signature],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "verify_signature",
-        argNames: ["publicKey", "dataHash", "signature"],
-      );
-
   Future<GeneratedKeyG> ntGenerateKey(
       {required MnemonicType accountType, dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_mnemonic_type(accountType);
@@ -947,6 +879,30 @@ class NekotonBridgeImpl implements NekotonBridge {
       const FlutterRustBridgeTaskConstMeta(
         debugName: "nt_derive_from_phrase",
         argNames: ["phrase", "mnemonicType"],
+      );
+
+  Future<bool> verifySignature(
+      {required String publicKey,
+      required String dataHash,
+      required String signature,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(publicKey);
+    var arg1 = _platform.api2wire_String(dataHash);
+    var arg2 = _platform.api2wire_String(signature);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_verify_signature(port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_bool,
+      constMeta: kVerifySignatureConstMeta,
+      argValues: [publicKey, dataHash, signature],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "verify_signature",
+        argNames: ["publicKey", "dataHash", "signature"],
       );
 
   Future<bool> checkPublicKey({required String publicKey, dynamic hint}) {
@@ -1527,91 +1483,6 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: ["code"],
       );
 
-  Future<void> testLoggerInfo({required String string, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_test_logger_info(port_, arg0),
-      parseSuccessData: _wire2api_unit,
-      constMeta: kTestLoggerInfoConstMeta,
-      argValues: [string],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerInfoConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_logger_info",
-        argNames: ["string"],
-      );
-
-  Future<void> testLoggerDebug({required String string, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_test_logger_debug(port_, arg0),
-      parseSuccessData: _wire2api_unit,
-      constMeta: kTestLoggerDebugConstMeta,
-      argValues: [string],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerDebugConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_logger_debug",
-        argNames: ["string"],
-      );
-
-  Future<void> testLoggerWarn({required String string, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_test_logger_warn(port_, arg0),
-      parseSuccessData: _wire2api_unit,
-      constMeta: kTestLoggerWarnConstMeta,
-      argValues: [string],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerWarnConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_logger_warn",
-        argNames: ["string"],
-      );
-
-  Future<void> testLoggerError({required String string, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_test_logger_error(port_, arg0),
-      parseSuccessData: _wire2api_unit,
-      constMeta: kTestLoggerErrorConstMeta,
-      argValues: [string],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerErrorConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_logger_error",
-        argNames: ["string"],
-      );
-
-  Future<void> testLoggerPanic({required String string, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_test_logger_panic(port_, arg0),
-      parseSuccessData: _wire2api_unit,
-      constMeta: kTestLoggerPanicConstMeta,
-      argValues: [string],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerPanicConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_logger_panic",
-        argNames: ["string"],
-      );
-
   Future<void> initLogger(
       {required LogLevel level, required bool mobileLogger, dynamic hint}) {
     var arg0 = api2wire_log_level(level);
@@ -1867,6 +1738,91 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: [],
       );
 
+  Future<void> testLoggerInfo({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_info(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerInfoConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerInfoConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_info",
+        argNames: ["string"],
+      );
+
+  Future<void> testLoggerDebug({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_debug(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerDebugConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerDebugConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_debug",
+        argNames: ["string"],
+      );
+
+  Future<void> testLoggerWarn({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_warn(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerWarnConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerWarnConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_warn",
+        argNames: ["string"],
+      );
+
+  Future<void> testLoggerError({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_error(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerErrorConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerErrorConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_error",
+        argNames: ["string"],
+      );
+
+  Future<void> testLoggerPanic({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_panic(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerPanicConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerPanicConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_panic",
+        argNames: ["string"],
+      );
+
   Future<void> refreshTimeoutMethodUnsignedMessageImpl(
       {required UnsignedMessageImpl that, dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_unsigned_message_impl(that);
@@ -1948,91 +1904,6 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: ["that", "signature"],
       );
 
-  Future<GqlTransportImpl> newStaticMethodGqlTransportImpl(
-      {required GqlConnectionDartWrapper gqlConnection, dynamic hint}) {
-    var arg0 = _platform
-        .api2wire_box_autoadd_gql_connection_dart_wrapper(gqlConnection);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_new__static_method__GqlTransportImpl(port_, arg0),
-      parseSuccessData: (d) => _wire2api_gql_transport_impl(d),
-      constMeta: kNewStaticMethodGqlTransportImplConstMeta,
-      argValues: [gqlConnection],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodGqlTransportImplConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "new__static_method__GqlTransportImpl",
-            argNames: ["gqlConnection"],
-          );
-
-  Future<JrpcTransportImpl> newStaticMethodJrpcTransportImpl(
-      {required JrpcConnectionDartWrapper jrpcConnection, dynamic hint}) {
-    var arg0 = _platform
-        .api2wire_box_autoadd_jrpc_connection_dart_wrapper(jrpcConnection);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_new__static_method__JrpcTransportImpl(port_, arg0),
-      parseSuccessData: (d) => _wire2api_jrpc_transport_impl(d),
-      constMeta: kNewStaticMethodJrpcTransportImplConstMeta,
-      argValues: [jrpcConnection],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodJrpcTransportImplConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "new__static_method__JrpcTransportImpl",
-            argNames: ["jrpcConnection"],
-          );
-
-  Future<JrpcConnectionDartWrapper> newStaticMethodJrpcConnectionDartWrapper(
-      {required bool isLocal, required String instanceHash, dynamic hint}) {
-    var arg0 = isLocal;
-    var arg1 = _platform.api2wire_String(instanceHash);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_new__static_method__JrpcConnectionDartWrapper(
-              port_, arg0, arg1),
-      parseSuccessData: (d) => _wire2api_jrpc_connection_dart_wrapper(d),
-      constMeta: kNewStaticMethodJrpcConnectionDartWrapperConstMeta,
-      argValues: [isLocal, instanceHash],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodJrpcConnectionDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "new__static_method__JrpcConnectionDartWrapper",
-            argNames: ["isLocal", "instanceHash"],
-          );
-
-  Future<GqlConnectionDartWrapper> newStaticMethodGqlConnectionDartWrapper(
-      {required bool isLocal, required String instanceHash, dynamic hint}) {
-    var arg0 = isLocal;
-    var arg1 = _platform.api2wire_String(instanceHash);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_new__static_method__GqlConnectionDartWrapper(port_, arg0, arg1),
-      parseSuccessData: (d) => _wire2api_gql_connection_dart_wrapper(d),
-      constMeta: kNewStaticMethodGqlConnectionDartWrapperConstMeta,
-      argValues: [isLocal, instanceHash],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodGqlConnectionDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "new__static_method__GqlConnectionDartWrapper",
-            argNames: ["isLocal", "instanceHash"],
-          );
-
   Future<LedgerConnectionImpl> newStaticMethodLedgerConnectionImpl(
       {required String instanceHash, dynamic hint}) {
     var arg0 = _platform.api2wire_String(instanceHash);
@@ -2071,6 +1942,70 @@ class NekotonBridgeImpl implements NekotonBridge {
         debugName: "new__static_method__StorageImpl",
         argNames: ["instanceHash"],
       );
+
+  Future<GqlConnectionDartWrapper> newStaticMethodGqlConnectionDartWrapper(
+      {required bool isLocal, required String instanceHash, dynamic hint}) {
+    var arg0 = isLocal;
+    var arg1 = _platform.api2wire_String(instanceHash);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_new__static_method__GqlConnectionDartWrapper(port_, arg0, arg1),
+      parseSuccessData: (d) => _wire2api_gql_connection_dart_wrapper(d),
+      constMeta: kNewStaticMethodGqlConnectionDartWrapperConstMeta,
+      argValues: [isLocal, instanceHash],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodGqlConnectionDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "new__static_method__GqlConnectionDartWrapper",
+            argNames: ["isLocal", "instanceHash"],
+          );
+
+  Future<JrpcConnectionDartWrapper> newStaticMethodJrpcConnectionDartWrapper(
+      {required bool isLocal, required String instanceHash, dynamic hint}) {
+    var arg0 = isLocal;
+    var arg1 = _platform.api2wire_String(instanceHash);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_new__static_method__JrpcConnectionDartWrapper(
+              port_, arg0, arg1),
+      parseSuccessData: (d) => _wire2api_jrpc_connection_dart_wrapper(d),
+      constMeta: kNewStaticMethodJrpcConnectionDartWrapperConstMeta,
+      argValues: [isLocal, instanceHash],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodJrpcConnectionDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "new__static_method__JrpcConnectionDartWrapper",
+            argNames: ["isLocal", "instanceHash"],
+          );
+
+  Future<JrpcTransportImpl> newStaticMethodJrpcTransportImpl(
+      {required JrpcConnectionDartWrapper jrpcConnection, dynamic hint}) {
+    var arg0 = _platform
+        .api2wire_box_autoadd_jrpc_connection_dart_wrapper(jrpcConnection);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_new__static_method__JrpcTransportImpl(port_, arg0),
+      parseSuccessData: (d) => _wire2api_jrpc_transport_impl(d),
+      constMeta: kNewStaticMethodJrpcTransportImplConstMeta,
+      argValues: [jrpcConnection],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "new__static_method__JrpcTransportImpl",
+            argNames: ["jrpcConnection"],
+          );
 
   Future<MyClass> newStaticMethodMyClass({required int a, dynamic hint}) {
     var arg0 = api2wire_i32(a);
@@ -2148,33 +2083,26 @@ class NekotonBridgeImpl implements NekotonBridge {
             argNames: ["that"],
           );
 
-  DropFnType get dropOpaqueBoxGqlConnectionBoxTrait =>
-      _platform.inner.drop_opaque_BoxGqlConnectionBoxTrait;
-  ShareFnType get shareOpaqueBoxGqlConnectionBoxTrait =>
-      _platform.inner.share_opaque_BoxGqlConnectionBoxTrait;
-  OpaqueTypeFinalizer get BoxGqlConnectionBoxTraitFinalizer =>
-      _platform.BoxGqlConnectionBoxTraitFinalizer;
+  DropFnType get dropOpaqueArcGqlConnectionBoxTrait =>
+      _platform.inner.drop_opaque_ArcGqlConnectionBoxTrait;
+  ShareFnType get shareOpaqueArcGqlConnectionBoxTrait =>
+      _platform.inner.share_opaque_ArcGqlConnectionBoxTrait;
+  OpaqueTypeFinalizer get ArcGqlConnectionBoxTraitFinalizer =>
+      _platform.ArcGqlConnectionBoxTraitFinalizer;
 
-  DropFnType get dropOpaqueBoxGqlTransportBoxTrait =>
-      _platform.inner.drop_opaque_BoxGqlTransportBoxTrait;
-  ShareFnType get shareOpaqueBoxGqlTransportBoxTrait =>
-      _platform.inner.share_opaque_BoxGqlTransportBoxTrait;
-  OpaqueTypeFinalizer get BoxGqlTransportBoxTraitFinalizer =>
-      _platform.BoxGqlTransportBoxTraitFinalizer;
+  DropFnType get dropOpaqueArcJrpcConnectionBoxTrait =>
+      _platform.inner.drop_opaque_ArcJrpcConnectionBoxTrait;
+  ShareFnType get shareOpaqueArcJrpcConnectionBoxTrait =>
+      _platform.inner.share_opaque_ArcJrpcConnectionBoxTrait;
+  OpaqueTypeFinalizer get ArcJrpcConnectionBoxTraitFinalizer =>
+      _platform.ArcJrpcConnectionBoxTraitFinalizer;
 
-  DropFnType get dropOpaqueBoxJrpcConnectionBoxTrait =>
-      _platform.inner.drop_opaque_BoxJrpcConnectionBoxTrait;
-  ShareFnType get shareOpaqueBoxJrpcConnectionBoxTrait =>
-      _platform.inner.share_opaque_BoxJrpcConnectionBoxTrait;
-  OpaqueTypeFinalizer get BoxJrpcConnectionBoxTraitFinalizer =>
-      _platform.BoxJrpcConnectionBoxTraitFinalizer;
-
-  DropFnType get dropOpaqueBoxJrpcTransportBoxTrait =>
-      _platform.inner.drop_opaque_BoxJrpcTransportBoxTrait;
-  ShareFnType get shareOpaqueBoxJrpcTransportBoxTrait =>
-      _platform.inner.share_opaque_BoxJrpcTransportBoxTrait;
-  OpaqueTypeFinalizer get BoxJrpcTransportBoxTraitFinalizer =>
-      _platform.BoxJrpcTransportBoxTraitFinalizer;
+  DropFnType get dropOpaqueArcJrpcTransportBoxTrait =>
+      _platform.inner.drop_opaque_ArcJrpcTransportBoxTrait;
+  ShareFnType get shareOpaqueArcJrpcTransportBoxTrait =>
+      _platform.inner.share_opaque_ArcJrpcTransportBoxTrait;
+  OpaqueTypeFinalizer get ArcJrpcTransportBoxTraitFinalizer =>
+      _platform.ArcJrpcTransportBoxTraitFinalizer;
 
   DropFnType get dropOpaqueBoxUnsignedMessageBoxTrait =>
       _platform.inner.drop_opaque_BoxUnsignedMessageBoxTrait;
@@ -2188,20 +2116,16 @@ class NekotonBridgeImpl implements NekotonBridge {
   }
 // Section: wire2api
 
-  BoxGqlConnectionBoxTrait _wire2api_BoxGqlConnectionBoxTrait(dynamic raw) {
-    return BoxGqlConnectionBoxTrait.fromRaw(raw[0], raw[1], this);
+  ArcGqlConnectionBoxTrait _wire2api_ArcGqlConnectionBoxTrait(dynamic raw) {
+    return ArcGqlConnectionBoxTrait.fromRaw(raw[0], raw[1], this);
   }
 
-  BoxGqlTransportBoxTrait _wire2api_BoxGqlTransportBoxTrait(dynamic raw) {
-    return BoxGqlTransportBoxTrait.fromRaw(raw[0], raw[1], this);
+  ArcJrpcConnectionBoxTrait _wire2api_ArcJrpcConnectionBoxTrait(dynamic raw) {
+    return ArcJrpcConnectionBoxTrait.fromRaw(raw[0], raw[1], this);
   }
 
-  BoxJrpcConnectionBoxTrait _wire2api_BoxJrpcConnectionBoxTrait(dynamic raw) {
-    return BoxJrpcConnectionBoxTrait.fromRaw(raw[0], raw[1], this);
-  }
-
-  BoxJrpcTransportBoxTrait _wire2api_BoxJrpcTransportBoxTrait(dynamic raw) {
-    return BoxJrpcTransportBoxTrait.fromRaw(raw[0], raw[1], this);
+  ArcJrpcTransportBoxTrait _wire2api_ArcJrpcTransportBoxTrait(dynamic raw) {
+    return ArcJrpcTransportBoxTrait.fromRaw(raw[0], raw[1], this);
   }
 
   BoxUnsignedMessageBoxTrait _wire2api_BoxUnsignedMessageBoxTrait(dynamic raw) {
@@ -2344,17 +2268,7 @@ class NekotonBridgeImpl implements NekotonBridge {
       throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
     return GqlConnectionDartWrapper(
       bridge: this,
-      innerConnection: _wire2api_BoxGqlConnectionBoxTrait(arr[0]),
-    );
-  }
-
-  GqlTransportImpl _wire2api_gql_transport_impl(dynamic raw) {
-    final arr = raw as List<dynamic>;
-    if (arr.length != 1)
-      throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
-    return GqlTransportImpl(
-      bridge: this,
-      innerTransport: _wire2api_BoxGqlTransportBoxTrait(arr[0]),
+      innerConnection: _wire2api_ArcGqlConnectionBoxTrait(arr[0]),
     );
   }
 
@@ -2373,7 +2287,7 @@ class NekotonBridgeImpl implements NekotonBridge {
       throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
     return JrpcConnectionDartWrapper(
       bridge: this,
-      innerConnection: _wire2api_BoxJrpcConnectionBoxTrait(arr[0]),
+      innerConnection: _wire2api_ArcJrpcConnectionBoxTrait(arr[0]),
     );
   }
 
@@ -2383,7 +2297,7 @@ class NekotonBridgeImpl implements NekotonBridge {
       throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
     return JrpcTransportImpl(
       bridge: this,
-      innerTransport: _wire2api_BoxJrpcTransportBoxTrait(arr[0]),
+      innerTransport: _wire2api_ArcJrpcTransportBoxTrait(arr[0]),
     );
   }
 

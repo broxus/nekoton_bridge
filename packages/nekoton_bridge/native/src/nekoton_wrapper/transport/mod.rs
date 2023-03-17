@@ -69,8 +69,8 @@ impl RefUnwindSafe for JrpcTransportBox {}
 impl JrpcTransportBox {
     pub fn create(
         jrpc_connection: Arc<dyn JrpcConnection>,
-    ) -> RustOpaque<Box<dyn JrpcTransportBoxTrait>> {
-        RustOpaque::new(Box::new(Self {
+    ) -> RustOpaque<Arc<dyn JrpcTransportBoxTrait>> {
+        RustOpaque::new(Arc::new(Self {
             inner_transport: Box::new(JrpcTransport::new(jrpc_connection)),
         }))
     }

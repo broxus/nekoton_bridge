@@ -2,6 +2,7 @@
 
 use crate::nekoton_wrapper::external::connections::{GqlConnectionBox, GqlConnectionBoxTrait};
 use crate::utils::caller;
+use anyhow::anyhow;
 use async_trait::async_trait;
 use flutter_rust_bridge::RustOpaque;
 use nekoton::external::{GqlConnection, GqlRequest};
@@ -9,7 +10,7 @@ use std::sync::Arc;
 
 /// This is a wrapper structure above GqlConnectionBoxTrait to provide instance in dart side.
 pub struct GqlConnectionDartWrapper {
-    pub inner_connection: RustOpaque<Box<dyn GqlConnectionBoxTrait>>,
+    pub inner_connection: RustOpaque<Arc<dyn GqlConnectionBoxTrait>>,
 }
 
 impl GqlConnectionDartWrapper {
@@ -25,8 +26,12 @@ impl GqlConnectionDartWrapper {
     }
 
     /// Method to provide real GqlConnection to transport level, used only in rust
-    pub(crate) fn get_connection(self) -> Box<dyn GqlConnectionBoxTrait> {
-        self.inner_connection.try_unwrap().unwrap()
+    pub(crate) fn get_connection(&self) -> Arc<dyn GqlConnectionBoxTrait> {
+        self.inner_connection
+            .clone()
+            .try_unwrap()
+            .map_err(|e| anyhow!("get connection error"))
+            .unwrap()
     }
 }
 

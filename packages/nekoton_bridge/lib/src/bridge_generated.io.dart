@@ -17,18 +17,10 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
 // Section: api2wire
 
   @protected
-  wire_BoxGqlConnectionBoxTrait api2wire_BoxGqlConnectionBoxTrait(
-      BoxGqlConnectionBoxTrait raw) {
-    final ptr = inner.new_BoxGqlConnectionBoxTrait();
-    _api_fill_to_wire_BoxGqlConnectionBoxTrait(raw, ptr);
-    return ptr;
-  }
-
-  @protected
-  wire_BoxJrpcConnectionBoxTrait api2wire_BoxJrpcConnectionBoxTrait(
-      BoxJrpcConnectionBoxTrait raw) {
-    final ptr = inner.new_BoxJrpcConnectionBoxTrait();
-    _api_fill_to_wire_BoxJrpcConnectionBoxTrait(raw, ptr);
+  wire_ArcJrpcConnectionBoxTrait api2wire_ArcJrpcConnectionBoxTrait(
+      ArcJrpcConnectionBoxTrait raw) {
+    final ptr = inner.new_ArcJrpcConnectionBoxTrait();
+    _api_fill_to_wire_ArcJrpcConnectionBoxTrait(raw, ptr);
     return ptr;
   }
 
@@ -66,15 +58,6 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
       DynamicValue raw) {
     final ptr = inner.new_box_autoadd_dynamic_value_0();
     _api_fill_to_wire_dynamic_value(raw, ptr.ref);
-    return ptr;
-  }
-
-  @protected
-  ffi.Pointer<wire_GqlConnectionDartWrapper>
-      api2wire_box_autoadd_gql_connection_dart_wrapper(
-          GqlConnectionDartWrapper raw) {
-    final ptr = inner.new_box_autoadd_gql_connection_dart_wrapper_0();
-    _api_fill_to_wire_gql_connection_dart_wrapper(raw, ptr.ref);
     return ptr;
   }
 
@@ -160,36 +143,27 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
 
 // Section: finalizer
 
-  late final OpaqueTypeFinalizer _BoxGqlConnectionBoxTraitFinalizer =
-      OpaqueTypeFinalizer(inner._drop_opaque_BoxGqlConnectionBoxTraitPtr);
-  OpaqueTypeFinalizer get BoxGqlConnectionBoxTraitFinalizer =>
-      _BoxGqlConnectionBoxTraitFinalizer;
-  late final OpaqueTypeFinalizer _BoxGqlTransportBoxTraitFinalizer =
-      OpaqueTypeFinalizer(inner._drop_opaque_BoxGqlTransportBoxTraitPtr);
-  OpaqueTypeFinalizer get BoxGqlTransportBoxTraitFinalizer =>
-      _BoxGqlTransportBoxTraitFinalizer;
-  late final OpaqueTypeFinalizer _BoxJrpcConnectionBoxTraitFinalizer =
-      OpaqueTypeFinalizer(inner._drop_opaque_BoxJrpcConnectionBoxTraitPtr);
-  OpaqueTypeFinalizer get BoxJrpcConnectionBoxTraitFinalizer =>
-      _BoxJrpcConnectionBoxTraitFinalizer;
-  late final OpaqueTypeFinalizer _BoxJrpcTransportBoxTraitFinalizer =
-      OpaqueTypeFinalizer(inner._drop_opaque_BoxJrpcTransportBoxTraitPtr);
-  OpaqueTypeFinalizer get BoxJrpcTransportBoxTraitFinalizer =>
-      _BoxJrpcTransportBoxTraitFinalizer;
+  late final OpaqueTypeFinalizer _ArcGqlConnectionBoxTraitFinalizer =
+      OpaqueTypeFinalizer(inner._drop_opaque_ArcGqlConnectionBoxTraitPtr);
+  OpaqueTypeFinalizer get ArcGqlConnectionBoxTraitFinalizer =>
+      _ArcGqlConnectionBoxTraitFinalizer;
+  late final OpaqueTypeFinalizer _ArcJrpcConnectionBoxTraitFinalizer =
+      OpaqueTypeFinalizer(inner._drop_opaque_ArcJrpcConnectionBoxTraitPtr);
+  OpaqueTypeFinalizer get ArcJrpcConnectionBoxTraitFinalizer =>
+      _ArcJrpcConnectionBoxTraitFinalizer;
+  late final OpaqueTypeFinalizer _ArcJrpcTransportBoxTraitFinalizer =
+      OpaqueTypeFinalizer(inner._drop_opaque_ArcJrpcTransportBoxTraitPtr);
+  OpaqueTypeFinalizer get ArcJrpcTransportBoxTraitFinalizer =>
+      _ArcJrpcTransportBoxTraitFinalizer;
   late final OpaqueTypeFinalizer _BoxUnsignedMessageBoxTraitFinalizer =
       OpaqueTypeFinalizer(inner._drop_opaque_BoxUnsignedMessageBoxTraitPtr);
   OpaqueTypeFinalizer get BoxUnsignedMessageBoxTraitFinalizer =>
       _BoxUnsignedMessageBoxTraitFinalizer;
 // Section: api_fill_to_wire
 
-  void _api_fill_to_wire_BoxGqlConnectionBoxTrait(
-      BoxGqlConnectionBoxTrait apiObj, wire_BoxGqlConnectionBoxTrait wireObj) {
-    wireObj.ptr = apiObj.shareOrMove();
-  }
-
-  void _api_fill_to_wire_BoxJrpcConnectionBoxTrait(
-      BoxJrpcConnectionBoxTrait apiObj,
-      wire_BoxJrpcConnectionBoxTrait wireObj) {
+  void _api_fill_to_wire_ArcJrpcConnectionBoxTrait(
+      ArcJrpcConnectionBoxTrait apiObj,
+      wire_ArcJrpcConnectionBoxTrait wireObj) {
     wireObj.ptr = apiObj.shareOrMove();
   }
 
@@ -212,12 +186,6 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
   void _api_fill_to_wire_box_autoadd_dynamic_value(
       DynamicValue apiObj, ffi.Pointer<wire_DynamicValue> wireObj) {
     _api_fill_to_wire_dynamic_value(apiObj, wireObj.ref);
-  }
-
-  void _api_fill_to_wire_box_autoadd_gql_connection_dart_wrapper(
-      GqlConnectionDartWrapper apiObj,
-      ffi.Pointer<wire_GqlConnectionDartWrapper> wireObj) {
-    _api_fill_to_wire_gql_connection_dart_wrapper(apiObj, wireObj.ref);
   }
 
   void _api_fill_to_wire_box_autoadd_jrpc_connection_dart_wrapper(
@@ -340,17 +308,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
     }
   }
 
-  void _api_fill_to_wire_gql_connection_dart_wrapper(
-      GqlConnectionDartWrapper apiObj, wire_GqlConnectionDartWrapper wireObj) {
-    wireObj.inner_connection =
-        api2wire_BoxGqlConnectionBoxTrait(apiObj.innerConnection);
-  }
-
   void _api_fill_to_wire_jrpc_connection_dart_wrapper(
       JrpcConnectionDartWrapper apiObj,
       wire_JrpcConnectionDartWrapper wireObj) {
     wireObj.inner_connection =
-        api2wire_BoxJrpcConnectionBoxTrait(apiObj.innerConnection);
+        api2wire_ArcJrpcConnectionBoxTrait(apiObj.innerConnection);
   }
 
   void _api_fill_to_wire_mnemonic_type(
@@ -411,7 +373,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       : _lookup = lookup;
 
   void store_dart_post_cobject(
-    DartPostCObjectFnType ptr,
+    int ptr,
   ) {
     return _store_dart_post_cobject(
       ptr,
@@ -419,10 +381,10 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   }
 
   late final _store_dart_post_cobjectPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(DartPostCObjectFnType)>>(
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int)>>(
           'store_dart_post_cobject');
-  late final _store_dart_post_cobject = _store_dart_post_cobjectPtr
-      .asFunction<void Function(DartPostCObjectFnType)>();
+  late final _store_dart_post_cobject =
+      _store_dart_post_cobjectPtr.asFunction<void Function(int)>();
 
   Object get_dart_object(
     int ptr,
@@ -480,31 +442,6 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _init_frb_dart_api_dl = _init_frb_dart_api_dlPtr
       .asFunction<int Function(ffi.Pointer<ffi.Void>)>();
 
-  void wire_verify_signature(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> public_key,
-    ffi.Pointer<wire_uint_8_list> data_hash,
-    ffi.Pointer<wire_uint_8_list> signature,
-  ) {
-    return _wire_verify_signature(
-      port_,
-      public_key,
-      data_hash,
-      signature,
-    );
-  }
-
-  late final _wire_verify_signaturePtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(
-              ffi.Int64,
-              ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<wire_uint_8_list>)>>('wire_verify_signature');
-  late final _wire_verify_signature = _wire_verify_signaturePtr.asFunction<
-      void Function(int, ffi.Pointer<wire_uint_8_list>,
-          ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
-
   void wire_nt_generate_key(
     int port_,
     ffi.Pointer<wire_MnemonicType> account_type,
@@ -560,6 +497,31 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           void Function(int, ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_MnemonicType>)>();
 
+  void wire_verify_signature(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> public_key,
+    ffi.Pointer<wire_uint_8_list> data_hash,
+    ffi.Pointer<wire_uint_8_list> signature,
+  ) {
+    return _wire_verify_signature(
+      port_,
+      public_key,
+      data_hash,
+      signature,
+    );
+  }
+
+  late final _wire_verify_signaturePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_verify_signature');
+  late final _wire_verify_signature = _wire_verify_signaturePtr.asFunction<
+      void Function(int, ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
+
   void wire_check_public_key(
     int port_,
     ffi.Pointer<wire_uint_8_list> public_key,
@@ -583,7 +545,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     ffi.Pointer<wire_uint_8_list> contract_abi,
     ffi.Pointer<wire_uint_8_list> method,
     ffi.Pointer<wire_uint_8_list> input,
-    bool responsible,
+    ffi.Pointer<bool> responsible,
   ) {
     return _wire_run_local(
       port_,
@@ -603,7 +565,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
-              ffi.Bool)>>('wire_run_local');
+              ffi.Pointer<bool>)>>('wire_run_local');
   late final _wire_run_local = _wire_run_localPtr.asFunction<
       void Function(
           int,
@@ -611,7 +573,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           ffi.Pointer<wire_uint_8_list>,
           ffi.Pointer<wire_uint_8_list>,
           ffi.Pointer<wire_uint_8_list>,
-          bool)>();
+          ffi.Pointer<bool>)>();
 
   void wire_get_expected_address(
     int port_,
@@ -784,7 +746,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     ffi.Pointer<wire_uint_8_list> message_body,
     ffi.Pointer<wire_uint_8_list> contract_abi,
     ffi.Pointer<wire_uint_8_list> method,
-    bool internal,
+    ffi.Pointer<bool> internal,
   ) {
     return _wire_decode_input(
       port_,
@@ -802,14 +764,14 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
-              ffi.Bool)>>('wire_decode_input');
+              ffi.Pointer<bool>)>>('wire_decode_input');
   late final _wire_decode_input = _wire_decode_inputPtr.asFunction<
       void Function(
           int,
           ffi.Pointer<wire_uint_8_list>,
           ffi.Pointer<wire_uint_8_list>,
           ffi.Pointer<wire_uint_8_list>,
-          bool)>();
+          ffi.Pointer<bool>)>();
 
   void wire_decode_event(
     int port_,
@@ -949,7 +911,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     int port_,
     ffi.Pointer<wire_uint_8_list> params,
     ffi.Pointer<wire_uint_8_list> boc,
-    bool allow_partial,
+    ffi.Pointer<bool> allow_partial,
   ) {
     return _wire_unpack_from_cell(
       port_,
@@ -965,16 +927,16 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Int64,
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
-              ffi.Bool)>>('wire_unpack_from_cell');
+              ffi.Pointer<bool>)>>('wire_unpack_from_cell');
   late final _wire_unpack_from_cell = _wire_unpack_from_cellPtr.asFunction<
       void Function(int, ffi.Pointer<wire_uint_8_list>,
-          ffi.Pointer<wire_uint_8_list>, bool)>();
+          ffi.Pointer<wire_uint_8_list>, ffi.Pointer<bool>)>();
 
   void wire_pack_std_smc_addr(
     int port_,
     ffi.Pointer<wire_uint_8_list> addr,
-    bool base64_url,
-    bool bounceable,
+    ffi.Pointer<bool> base64_url,
+    ffi.Pointer<bool> bounceable,
   ) {
     return _wire_pack_std_smc_addr(
       port_,
@@ -986,15 +948,16 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
 
   late final _wire_pack_std_smc_addrPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>, ffi.Bool,
-              ffi.Bool)>>('wire_pack_std_smc_addr');
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<bool>, ffi.Pointer<bool>)>>('wire_pack_std_smc_addr');
   late final _wire_pack_std_smc_addr = _wire_pack_std_smc_addrPtr.asFunction<
-      void Function(int, ffi.Pointer<wire_uint_8_list>, bool, bool)>();
+      void Function(int, ffi.Pointer<wire_uint_8_list>, ffi.Pointer<bool>,
+          ffi.Pointer<bool>)>();
 
   void wire_unpack_std_smc_addr(
     int port_,
     ffi.Pointer<wire_uint_8_list> packed,
-    bool base64_url,
+    ffi.Pointer<bool> base64_url,
   ) {
     return _wire_unpack_std_smc_addr(
       port_,
@@ -1006,9 +969,11 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_unpack_std_smc_addrPtr = _lookup<
       ffi.NativeFunction<
           ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
-              ffi.Bool)>>('wire_unpack_std_smc_addr');
-  late final _wire_unpack_std_smc_addr = _wire_unpack_std_smc_addrPtr
-      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>, bool)>();
+              ffi.Pointer<bool>)>>('wire_unpack_std_smc_addr');
+  late final _wire_unpack_std_smc_addr =
+      _wire_unpack_std_smc_addrPtr.asFunction<
+          void Function(
+              int, ffi.Pointer<wire_uint_8_list>, ffi.Pointer<bool>)>();
 
   void wire_validate_address(
     int port_,
@@ -1152,95 +1117,10 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_get_code_salt = _wire_get_code_saltPtr
       .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
 
-  void wire_test_logger_info(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> string,
-  ) {
-    return _wire_test_logger_info(
-      port_,
-      string,
-    );
-  }
-
-  late final _wire_test_logger_infoPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Int64,
-              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_info');
-  late final _wire_test_logger_info = _wire_test_logger_infoPtr
-      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_test_logger_debug(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> string,
-  ) {
-    return _wire_test_logger_debug(
-      port_,
-      string,
-    );
-  }
-
-  late final _wire_test_logger_debugPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Int64,
-              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_debug');
-  late final _wire_test_logger_debug = _wire_test_logger_debugPtr
-      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_test_logger_warn(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> string,
-  ) {
-    return _wire_test_logger_warn(
-      port_,
-      string,
-    );
-  }
-
-  late final _wire_test_logger_warnPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Int64,
-              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_warn');
-  late final _wire_test_logger_warn = _wire_test_logger_warnPtr
-      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_test_logger_error(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> string,
-  ) {
-    return _wire_test_logger_error(
-      port_,
-      string,
-    );
-  }
-
-  late final _wire_test_logger_errorPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Int64,
-              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_error');
-  late final _wire_test_logger_error = _wire_test_logger_errorPtr
-      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_test_logger_panic(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> string,
-  ) {
-    return _wire_test_logger_panic(
-      port_,
-      string,
-    );
-  }
-
-  late final _wire_test_logger_panicPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Int64,
-              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_panic');
-  late final _wire_test_logger_panic = _wire_test_logger_panicPtr
-      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
-
   void wire_init_logger(
     int port_,
     int level,
-    bool mobile_logger,
+    ffi.Pointer<bool> mobile_logger,
   ) {
     return _wire_init_logger(
       port_,
@@ -1252,9 +1132,9 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_init_loggerPtr = _lookup<
       ffi.NativeFunction<
           ffi.Void Function(
-              ffi.Int64, ffi.Int32, ffi.Bool)>>('wire_init_logger');
-  late final _wire_init_logger =
-      _wire_init_loggerPtr.asFunction<void Function(int, int, bool)>();
+              ffi.Int64, ffi.Int32, ffi.Pointer<bool>)>>('wire_init_logger');
+  late final _wire_init_logger = _wire_init_loggerPtr
+      .asFunction<void Function(int, int, ffi.Pointer<bool>)>();
 
   void wire_create_log_stream(
     int port_,
@@ -1429,7 +1309,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
 
   void wire_simple_call_func0(
     int port_,
-    bool need_result,
+    ffi.Pointer<bool> need_result,
   ) {
     return _wire_simple_call_func0(
       port_,
@@ -1437,15 +1317,15 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _wire_simple_call_func0Ptr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Bool)>>(
-          'wire_simple_call_func0');
-  late final _wire_simple_call_func0 =
-      _wire_simple_call_func0Ptr.asFunction<void Function(int, bool)>();
+  late final _wire_simple_call_func0Ptr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Pointer<bool>)>>(
+      'wire_simple_call_func0');
+  late final _wire_simple_call_func0 = _wire_simple_call_func0Ptr
+      .asFunction<void Function(int, ffi.Pointer<bool>)>();
 
   void wire_simple_call_func1(
     int port_,
-    bool need_result,
+    ffi.Pointer<bool> need_result,
   ) {
     return _wire_simple_call_func1(
       port_,
@@ -1453,11 +1333,11 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _wire_simple_call_func1Ptr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Bool)>>(
-          'wire_simple_call_func1');
-  late final _wire_simple_call_func1 =
-      _wire_simple_call_func1Ptr.asFunction<void Function(int, bool)>();
+  late final _wire_simple_call_func1Ptr = _lookup<
+          ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Pointer<bool>)>>(
+      'wire_simple_call_func1');
+  late final _wire_simple_call_func1 = _wire_simple_call_func1Ptr
+      .asFunction<void Function(int, ffi.Pointer<bool>)>();
 
   void wire_simple_call_func2(
     int port_,
@@ -1472,6 +1352,91 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           'wire_simple_call_func2');
   late final _wire_simple_call_func2 =
       _wire_simple_call_func2Ptr.asFunction<void Function(int)>();
+
+  void wire_test_logger_info(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+  ) {
+    return _wire_test_logger_info(
+      port_,
+      string,
+    );
+  }
+
+  late final _wire_test_logger_infoPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_info');
+  late final _wire_test_logger_info = _wire_test_logger_infoPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_test_logger_debug(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+  ) {
+    return _wire_test_logger_debug(
+      port_,
+      string,
+    );
+  }
+
+  late final _wire_test_logger_debugPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_debug');
+  late final _wire_test_logger_debug = _wire_test_logger_debugPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_test_logger_warn(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+  ) {
+    return _wire_test_logger_warn(
+      port_,
+      string,
+    );
+  }
+
+  late final _wire_test_logger_warnPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_warn');
+  late final _wire_test_logger_warn = _wire_test_logger_warnPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_test_logger_error(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+  ) {
+    return _wire_test_logger_error(
+      port_,
+      string,
+    );
+  }
+
+  late final _wire_test_logger_errorPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_error');
+  late final _wire_test_logger_error = _wire_test_logger_errorPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_test_logger_panic(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+  ) {
+    return _wire_test_logger_panic(
+      port_,
+      string,
+    );
+  }
+
+  late final _wire_test_logger_panicPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_panic');
+  late final _wire_test_logger_panic = _wire_test_logger_panicPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
 
   void wire_refresh_timeout__method__UnsignedMessageImpl(
     int port_,
@@ -1554,86 +1519,6 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           void Function(int, ffi.Pointer<wire_UnsignedMessageImpl>,
               ffi.Pointer<wire_uint_8_list>)>();
 
-  void wire_new__static_method__GqlTransportImpl(
-    int port_,
-    ffi.Pointer<wire_GqlConnectionDartWrapper> gql_connection,
-  ) {
-    return _wire_new__static_method__GqlTransportImpl(
-      port_,
-      gql_connection,
-    );
-  }
-
-  late final _wire_new__static_method__GqlTransportImplPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_GqlConnectionDartWrapper>)>>(
-      'wire_new__static_method__GqlTransportImpl');
-  late final _wire_new__static_method__GqlTransportImpl =
-      _wire_new__static_method__GqlTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_GqlConnectionDartWrapper>)>();
-
-  void wire_new__static_method__JrpcTransportImpl(
-    int port_,
-    ffi.Pointer<wire_JrpcConnectionDartWrapper> jrpc_connection,
-  ) {
-    return _wire_new__static_method__JrpcTransportImpl(
-      port_,
-      jrpc_connection,
-    );
-  }
-
-  late final _wire_new__static_method__JrpcTransportImplPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_JrpcConnectionDartWrapper>)>>(
-      'wire_new__static_method__JrpcTransportImpl');
-  late final _wire_new__static_method__JrpcTransportImpl =
-      _wire_new__static_method__JrpcTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_JrpcConnectionDartWrapper>)>();
-
-  void wire_new__static_method__JrpcConnectionDartWrapper(
-    int port_,
-    bool is_local,
-    ffi.Pointer<wire_uint_8_list> instance_hash,
-  ) {
-    return _wire_new__static_method__JrpcConnectionDartWrapper(
-      port_,
-      is_local,
-      instance_hash,
-    );
-  }
-
-  late final _wire_new__static_method__JrpcConnectionDartWrapperPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Bool, ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_new__static_method__JrpcConnectionDartWrapper');
-  late final _wire_new__static_method__JrpcConnectionDartWrapper =
-      _wire_new__static_method__JrpcConnectionDartWrapperPtr.asFunction<
-          void Function(int, bool, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_new__static_method__GqlConnectionDartWrapper(
-    int port_,
-    bool is_local,
-    ffi.Pointer<wire_uint_8_list> instance_hash,
-  ) {
-    return _wire_new__static_method__GqlConnectionDartWrapper(
-      port_,
-      is_local,
-      instance_hash,
-    );
-  }
-
-  late final _wire_new__static_method__GqlConnectionDartWrapperPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Bool, ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_new__static_method__GqlConnectionDartWrapper');
-  late final _wire_new__static_method__GqlConnectionDartWrapper =
-      _wire_new__static_method__GqlConnectionDartWrapperPtr.asFunction<
-          void Function(int, bool, ffi.Pointer<wire_uint_8_list>)>();
-
   void wire_new__static_method__LedgerConnectionImpl(
     int port_,
     ffi.Pointer<wire_uint_8_list> instance_hash,
@@ -1669,6 +1554,69 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_new__static_method__StorageImpl =
       _wire_new__static_method__StorageImplPtr
           .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_new__static_method__GqlConnectionDartWrapper(
+    int port_,
+    ffi.Pointer<bool> is_local,
+    ffi.Pointer<wire_uint_8_list> instance_hash,
+  ) {
+    return _wire_new__static_method__GqlConnectionDartWrapper(
+      port_,
+      is_local,
+      instance_hash,
+    );
+  }
+
+  late final _wire_new__static_method__GqlConnectionDartWrapperPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<bool>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_new__static_method__GqlConnectionDartWrapper');
+  late final _wire_new__static_method__GqlConnectionDartWrapper =
+      _wire_new__static_method__GqlConnectionDartWrapperPtr.asFunction<
+          void Function(
+              int, ffi.Pointer<bool>, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_new__static_method__JrpcConnectionDartWrapper(
+    int port_,
+    ffi.Pointer<bool> is_local,
+    ffi.Pointer<wire_uint_8_list> instance_hash,
+  ) {
+    return _wire_new__static_method__JrpcConnectionDartWrapper(
+      port_,
+      is_local,
+      instance_hash,
+    );
+  }
+
+  late final _wire_new__static_method__JrpcConnectionDartWrapperPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<bool>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_new__static_method__JrpcConnectionDartWrapper');
+  late final _wire_new__static_method__JrpcConnectionDartWrapper =
+      _wire_new__static_method__JrpcConnectionDartWrapperPtr.asFunction<
+          void Function(
+              int, ffi.Pointer<bool>, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_new__static_method__JrpcTransportImpl(
+    int port_,
+    ffi.Pointer<wire_JrpcConnectionDartWrapper> jrpc_connection,
+  ) {
+    return _wire_new__static_method__JrpcTransportImpl(
+      port_,
+      jrpc_connection,
+    );
+  }
+
+  late final _wire_new__static_method__JrpcTransportImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_JrpcConnectionDartWrapper>)>>(
+      'wire_new__static_method__JrpcTransportImpl');
+  late final _wire_new__static_method__JrpcTransportImpl =
+      _wire_new__static_method__JrpcTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_JrpcConnectionDartWrapper>)>();
 
   void wire_new__static_method__MyClass(
     int port_,
@@ -1743,25 +1691,15 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       _wire_call_some_func__method__CallerTestClassPtr
           .asFunction<void Function(int, ffi.Pointer<wire_CallerTestClass>)>();
 
-  wire_BoxGqlConnectionBoxTrait new_BoxGqlConnectionBoxTrait() {
-    return _new_BoxGqlConnectionBoxTrait();
+  wire_ArcJrpcConnectionBoxTrait new_ArcJrpcConnectionBoxTrait() {
+    return _new_ArcJrpcConnectionBoxTrait();
   }
 
-  late final _new_BoxGqlConnectionBoxTraitPtr =
-      _lookup<ffi.NativeFunction<wire_BoxGqlConnectionBoxTrait Function()>>(
-          'new_BoxGqlConnectionBoxTrait');
-  late final _new_BoxGqlConnectionBoxTrait = _new_BoxGqlConnectionBoxTraitPtr
-      .asFunction<wire_BoxGqlConnectionBoxTrait Function()>();
-
-  wire_BoxJrpcConnectionBoxTrait new_BoxJrpcConnectionBoxTrait() {
-    return _new_BoxJrpcConnectionBoxTrait();
-  }
-
-  late final _new_BoxJrpcConnectionBoxTraitPtr =
-      _lookup<ffi.NativeFunction<wire_BoxJrpcConnectionBoxTrait Function()>>(
-          'new_BoxJrpcConnectionBoxTrait');
-  late final _new_BoxJrpcConnectionBoxTrait = _new_BoxJrpcConnectionBoxTraitPtr
-      .asFunction<wire_BoxJrpcConnectionBoxTrait Function()>();
+  late final _new_ArcJrpcConnectionBoxTraitPtr =
+      _lookup<ffi.NativeFunction<wire_ArcJrpcConnectionBoxTrait Function()>>(
+          'new_ArcJrpcConnectionBoxTrait');
+  late final _new_ArcJrpcConnectionBoxTrait = _new_ArcJrpcConnectionBoxTraitPtr
+      .asFunction<wire_ArcJrpcConnectionBoxTrait Function()>();
 
   wire_BoxUnsignedMessageBoxTrait new_BoxUnsignedMessageBoxTrait() {
     return _new_BoxUnsignedMessageBoxTrait();
@@ -1806,19 +1744,6 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _new_box_autoadd_dynamic_value_0 =
       _new_box_autoadd_dynamic_value_0Ptr
           .asFunction<ffi.Pointer<wire_DynamicValue> Function()>();
-
-  ffi.Pointer<wire_GqlConnectionDartWrapper>
-      new_box_autoadd_gql_connection_dart_wrapper_0() {
-    return _new_box_autoadd_gql_connection_dart_wrapper_0();
-  }
-
-  late final _new_box_autoadd_gql_connection_dart_wrapper_0Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<wire_GqlConnectionDartWrapper>
-              Function()>>('new_box_autoadd_gql_connection_dart_wrapper_0');
-  late final _new_box_autoadd_gql_connection_dart_wrapper_0 =
-      _new_box_autoadd_gql_connection_dart_wrapper_0Ptr
-          .asFunction<ffi.Pointer<wire_GqlConnectionDartWrapper> Function()>();
 
   ffi.Pointer<wire_JrpcConnectionDartWrapper>
       new_box_autoadd_jrpc_connection_dart_wrapper_0() {
@@ -1912,128 +1837,97 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _new_uint_8_list_0 = _new_uint_8_list_0Ptr
       .asFunction<ffi.Pointer<wire_uint_8_list> Function(int)>();
 
-  void drop_opaque_BoxGqlConnectionBoxTrait(
+  void drop_opaque_ArcGqlConnectionBoxTrait(
     ffi.Pointer<ffi.Void> ptr,
   ) {
-    return _drop_opaque_BoxGqlConnectionBoxTrait(
+    return _drop_opaque_ArcGqlConnectionBoxTrait(
       ptr,
     );
   }
 
-  late final _drop_opaque_BoxGqlConnectionBoxTraitPtr =
+  late final _drop_opaque_ArcGqlConnectionBoxTraitPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
-          'drop_opaque_BoxGqlConnectionBoxTrait');
-  late final _drop_opaque_BoxGqlConnectionBoxTrait =
-      _drop_opaque_BoxGqlConnectionBoxTraitPtr
+          'drop_opaque_ArcGqlConnectionBoxTrait');
+  late final _drop_opaque_ArcGqlConnectionBoxTrait =
+      _drop_opaque_ArcGqlConnectionBoxTraitPtr
           .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
 
-  ffi.Pointer<ffi.Void> share_opaque_BoxGqlConnectionBoxTrait(
+  ffi.Pointer<ffi.Void> share_opaque_ArcGqlConnectionBoxTrait(
     ffi.Pointer<ffi.Void> ptr,
   ) {
-    return _share_opaque_BoxGqlConnectionBoxTrait(
+    return _share_opaque_ArcGqlConnectionBoxTrait(
       ptr,
     );
   }
 
-  late final _share_opaque_BoxGqlConnectionBoxTraitPtr = _lookup<
+  late final _share_opaque_ArcGqlConnectionBoxTraitPtr = _lookup<
       ffi.NativeFunction<
           ffi.Pointer<ffi.Void> Function(
-              ffi.Pointer<ffi.Void>)>>('share_opaque_BoxGqlConnectionBoxTrait');
-  late final _share_opaque_BoxGqlConnectionBoxTrait =
-      _share_opaque_BoxGqlConnectionBoxTraitPtr
+              ffi.Pointer<ffi.Void>)>>('share_opaque_ArcGqlConnectionBoxTrait');
+  late final _share_opaque_ArcGqlConnectionBoxTrait =
+      _share_opaque_ArcGqlConnectionBoxTraitPtr
           .asFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>();
 
-  void drop_opaque_BoxGqlTransportBoxTrait(
+  void drop_opaque_ArcJrpcConnectionBoxTrait(
     ffi.Pointer<ffi.Void> ptr,
   ) {
-    return _drop_opaque_BoxGqlTransportBoxTrait(
+    return _drop_opaque_ArcJrpcConnectionBoxTrait(
       ptr,
     );
   }
 
-  late final _drop_opaque_BoxGqlTransportBoxTraitPtr =
+  late final _drop_opaque_ArcJrpcConnectionBoxTraitPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
-          'drop_opaque_BoxGqlTransportBoxTrait');
-  late final _drop_opaque_BoxGqlTransportBoxTrait =
-      _drop_opaque_BoxGqlTransportBoxTraitPtr
+          'drop_opaque_ArcJrpcConnectionBoxTrait');
+  late final _drop_opaque_ArcJrpcConnectionBoxTrait =
+      _drop_opaque_ArcJrpcConnectionBoxTraitPtr
           .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
 
-  ffi.Pointer<ffi.Void> share_opaque_BoxGqlTransportBoxTrait(
+  ffi.Pointer<ffi.Void> share_opaque_ArcJrpcConnectionBoxTrait(
     ffi.Pointer<ffi.Void> ptr,
   ) {
-    return _share_opaque_BoxGqlTransportBoxTrait(
+    return _share_opaque_ArcJrpcConnectionBoxTrait(
       ptr,
     );
   }
 
-  late final _share_opaque_BoxGqlTransportBoxTraitPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<ffi.Void> Function(
-              ffi.Pointer<ffi.Void>)>>('share_opaque_BoxGqlTransportBoxTrait');
-  late final _share_opaque_BoxGqlTransportBoxTrait =
-      _share_opaque_BoxGqlTransportBoxTraitPtr
-          .asFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>();
-
-  void drop_opaque_BoxJrpcConnectionBoxTrait(
-    ffi.Pointer<ffi.Void> ptr,
-  ) {
-    return _drop_opaque_BoxJrpcConnectionBoxTrait(
-      ptr,
-    );
-  }
-
-  late final _drop_opaque_BoxJrpcConnectionBoxTraitPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
-          'drop_opaque_BoxJrpcConnectionBoxTrait');
-  late final _drop_opaque_BoxJrpcConnectionBoxTrait =
-      _drop_opaque_BoxJrpcConnectionBoxTraitPtr
-          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
-
-  ffi.Pointer<ffi.Void> share_opaque_BoxJrpcConnectionBoxTrait(
-    ffi.Pointer<ffi.Void> ptr,
-  ) {
-    return _share_opaque_BoxJrpcConnectionBoxTrait(
-      ptr,
-    );
-  }
-
-  late final _share_opaque_BoxJrpcConnectionBoxTraitPtr = _lookup<
+  late final _share_opaque_ArcJrpcConnectionBoxTraitPtr = _lookup<
           ffi.NativeFunction<
               ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-      'share_opaque_BoxJrpcConnectionBoxTrait');
-  late final _share_opaque_BoxJrpcConnectionBoxTrait =
-      _share_opaque_BoxJrpcConnectionBoxTraitPtr
+      'share_opaque_ArcJrpcConnectionBoxTrait');
+  late final _share_opaque_ArcJrpcConnectionBoxTrait =
+      _share_opaque_ArcJrpcConnectionBoxTraitPtr
           .asFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>();
 
-  void drop_opaque_BoxJrpcTransportBoxTrait(
+  void drop_opaque_ArcJrpcTransportBoxTrait(
     ffi.Pointer<ffi.Void> ptr,
   ) {
-    return _drop_opaque_BoxJrpcTransportBoxTrait(
+    return _drop_opaque_ArcJrpcTransportBoxTrait(
       ptr,
     );
   }
 
-  late final _drop_opaque_BoxJrpcTransportBoxTraitPtr =
+  late final _drop_opaque_ArcJrpcTransportBoxTraitPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
-          'drop_opaque_BoxJrpcTransportBoxTrait');
-  late final _drop_opaque_BoxJrpcTransportBoxTrait =
-      _drop_opaque_BoxJrpcTransportBoxTraitPtr
+          'drop_opaque_ArcJrpcTransportBoxTrait');
+  late final _drop_opaque_ArcJrpcTransportBoxTrait =
+      _drop_opaque_ArcJrpcTransportBoxTraitPtr
           .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
 
-  ffi.Pointer<ffi.Void> share_opaque_BoxJrpcTransportBoxTrait(
+  ffi.Pointer<ffi.Void> share_opaque_ArcJrpcTransportBoxTrait(
     ffi.Pointer<ffi.Void> ptr,
   ) {
-    return _share_opaque_BoxJrpcTransportBoxTrait(
+    return _share_opaque_ArcJrpcTransportBoxTrait(
       ptr,
     );
   }
 
-  late final _share_opaque_BoxJrpcTransportBoxTraitPtr = _lookup<
+  late final _share_opaque_ArcJrpcTransportBoxTraitPtr = _lookup<
       ffi.NativeFunction<
           ffi.Pointer<ffi.Void> Function(
-              ffi.Pointer<ffi.Void>)>>('share_opaque_BoxJrpcTransportBoxTrait');
-  late final _share_opaque_BoxJrpcTransportBoxTrait =
-      _share_opaque_BoxJrpcTransportBoxTraitPtr
+              ffi.Pointer<ffi.Void>)>>('share_opaque_ArcJrpcTransportBoxTrait');
+  late final _share_opaque_ArcJrpcTransportBoxTrait =
+      _share_opaque_ArcJrpcTransportBoxTraitPtr
           .asFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>();
 
   void drop_opaque_BoxUnsignedMessageBoxTrait(
@@ -2195,13 +2089,6 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
 
 class _Dart_Handle extends ffi.Opaque {}
 
-class wire_uint_8_list extends ffi.Struct {
-  external ffi.Pointer<ffi.Uint8> ptr;
-
-  @ffi.Int32()
-  external int len;
-}
-
 class wire_MnemonicType_Legacy extends ffi.Opaque {}
 
 class wire_MnemonicType_Labs extends ffi.Struct {
@@ -2220,6 +2107,13 @@ class wire_MnemonicType extends ffi.Struct {
   external int tag;
 
   external ffi.Pointer<MnemonicTypeKind> kind;
+}
+
+class wire_uint_8_list extends ffi.Struct {
+  external ffi.Pointer<ffi.Uint8> ptr;
+
+  @ffi.Int32()
+  external int len;
 }
 
 class wire_DynamicValue_U16 extends ffi.Struct {
@@ -2341,20 +2235,12 @@ class wire_UnsignedMessageImpl extends ffi.Struct {
   external wire_BoxUnsignedMessageBoxTrait inner_message;
 }
 
-class wire_BoxGqlConnectionBoxTrait extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> ptr;
-}
-
-class wire_GqlConnectionDartWrapper extends ffi.Struct {
-  external wire_BoxGqlConnectionBoxTrait inner_connection;
-}
-
-class wire_BoxJrpcConnectionBoxTrait extends ffi.Struct {
+class wire_ArcJrpcConnectionBoxTrait extends ffi.Struct {
   external ffi.Pointer<ffi.Void> ptr;
 }
 
 class wire_JrpcConnectionDartWrapper extends ffi.Struct {
-  external wire_BoxJrpcConnectionBoxTrait inner_connection;
+  external wire_ArcJrpcConnectionBoxTrait inner_connection;
 }
 
 class wire_MyClass extends ffi.Struct {
@@ -2369,6 +2255,4 @@ class wire_CallerTestClass extends ffi.Struct {
   external int value;
 }
 
-typedef DartPostCObjectFnType = ffi.Pointer<
-    ffi.NativeFunction<ffi.Bool Function(DartPort, ffi.Pointer<ffi.Void>)>>;
-typedef DartPort = ffi.Int64;
+typedef bool = ffi.NativeFunction<ffi.Int Function(ffi.Pointer<ffi.Int>)>;
