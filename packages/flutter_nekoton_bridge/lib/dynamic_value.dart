@@ -29,6 +29,7 @@ extension DynamicValueConvert on DynamicValue {
     return null;
   }
 
+  // TODO: remove all non-integration test related things FROM here
   static DynamicValue megaStruct(MegaStruct megaStruct) {
     return DynamicValue.megaStruct(
       json.encode(
@@ -36,6 +37,7 @@ extension DynamicValueConvert on DynamicValue {
       ),
     );
   }
+  // TODO: remove all non-integration test related things TO here
 
   static DynamicValue error(ErrorCode errorCode) {
     return DynamicValue.error(errorCode);

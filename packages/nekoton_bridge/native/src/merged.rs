@@ -282,6 +282,7 @@ impl Storage for StorageImpl {
 /// CONTENT OF src/utils/tests_api.rs
 ///----------------------------
 
+// logger tests
 pub fn test_logger_info(string: String) {
     info!("Info: {string}");
 }
@@ -296,6 +297,37 @@ pub fn test_logger_error(string: String) {
 }
 pub fn test_logger_panic(string: String) {
     panic!("Panic: {}", string);
+}
+// caller tests
+pub fn test_caller_call_test0_async(string: String, need_result: bool) -> DynamicValue {
+    info!("test_caller_call_test0_async {string}");
+    let stub = caller::DartCallStub {
+        instance_hash: String::from("0"),
+        fn_name: String::from("test0"),
+        args: vec![caller::DynamicValue::String(string)],
+        named_args: vec![],
+    };
+    caller::call(stub, need_result)
+}
+pub fn test_caller_call_test0_sync(string: String, need_result: bool) -> SyncReturn<DynamicValue> {
+    info!("test_caller_call_test0_sync {string}");
+    let stub = caller::DartCallStub {
+        instance_hash: String::from("0"),
+        fn_name: String::from("test0"),
+        args: vec![caller::DynamicValue::String(string)],
+        named_args: vec![],
+    };
+    SyncReturn(caller::call(stub, need_result))
+}
+pub fn test_caller_call_test1_async(string: String, need_result: bool) -> DynamicValue {
+    info!("test_caller_call_test1_async {string}");
+    let stub = caller::DartCallStub {
+        instance_hash: String::from("0"),
+        fn_name: String::from("test1"),
+        args: vec![caller::DynamicValue::String(string)],
+        named_args: vec![],
+    };
+    caller::call(stub, need_result)
 }
 
 ///----------------------------
@@ -318,7 +350,7 @@ pub fn init_caller(stream_sink: StreamSink<caller::DartCallStubRegistred>) {
 pub fn call_send_result(id: String, value: caller::DynamicValue) {
     caller::call_send_result(id, value);
 }
-// TODO: all code below is only sandbox-related things
+// TODO: remove all non-integration test related things FROM here
 pub fn simple_log(string: String) {
     info!("Info: {string}");
     debug!("Debug: {string}");
@@ -493,3 +525,4 @@ impl CallerTestClass {
         debug!("Returned request from CallerTestClass: {}", result.unwrap());
     }
 }
+// TODO: remove all non-integration test related things TO here

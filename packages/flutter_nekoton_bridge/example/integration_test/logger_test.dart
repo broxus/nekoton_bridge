@@ -52,7 +52,7 @@ void main() {
       debugPrint = originalDebugPrint;
     });
 
-// TODO: This test alwais fails because I don't know how to catch exception here.
+// TODO: This test always fails because I don't know how to catch exception here.
 // Error mesage is:
 // 'package:flutter_test/src/binding.dart': Failed assertion: line 903 pos 14: '_pendingExceptionDetails != null':
 // A test overrode FlutterError.onError but either failed to return it to its original state, or had unexpected

@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:flutter/foundation.dart';
 import 'package:nekoton_bridge/nekoton_bridge.dart';
 export 'package:nekoton_bridge/nekoton_bridge.dart';
 import 'dynamic_value.dart';
@@ -37,83 +36,104 @@ Stream<DartCallStubRegistred>? _caller;
 
 Future<void> registerRustToDartCaller(RustToDartCaller rustToDartCaller) async {
   final lib = createLib();
-  final caller = _caller ??= lib.initCaller();
 
-  caller.listen((stubRegistred) async {
-    var id = stubRegistred.id;
-    var stub = stubRegistred.stub;
-    var objectHash = stub.instanceHash;
+  if (_caller != null) {
+    final logEntry = LogEntryCreate.create(
+      level: LogLevel.Warn,
+      tag: _tag,
+      msg:
+          'registerRustToDartCaller executed second time. This may or may not be a problem. It will happen normally if hot-reload Flutter app.',
+    );
+    _logHandler?.call(logEntry);
+    return;
+  }
+  _caller = lib.initCaller()
+    ..listen((stubRegistred) async {
+      var id = stubRegistred.id;
+      var stub = stubRegistred.stub;
+      var objectHash = stub.instanceHash;
 
-    final positionalArguments = stub.args.map((e) => e.toDynamic()).toList();
-    final namedArguments = stub.namedArgs.fold(
-        <Symbol, dynamic>{},
-        (previousValue, element) => {
-              ...previousValue,
-              ...{
-                Symbol(element.name): element.value?.toDynamic(),
-              }
-            });
+      final positionalArguments = stub.args.map((e) => e.toDynamic()).toList();
+      final namedArguments = stub.namedArgs.fold(
+          <Symbol, dynamic>{},
+          (previousValue, element) => {
+                ...previousValue,
+                ...{
+                  Symbol(element.name): element.value?.toDynamic(),
+                }
+              });
 
-    try {
-      final result = rustToDartCaller.invoke(
-        objectHash,
-        stub.fnName,
-        positionalArguments,
-        namedArguments.isNotEmpty ? namedArguments : null,
-      );
-      debugPrint('Result: $result');
-      if (id == null) {
-        // Don't use return value
-        return;
-      }
-      if (result is String) {
-        lib.callSendResult(id: id, value: DynamicValue.string(result));
-        return;
-      } else if (result is Future<String>) {
-        lib.callSendResult(id: id, value: DynamicValue.string(await result));
-        return;
-      } else if (result is int) {
-        lib.callSendResult(id: id, value: DynamicValue.i64(result));
-        return;
-      } else if (result is double) {
-        lib.callSendResult(id: id, value: DynamicValue.f64(result));
-        return;
-      } else if (result is DynamicValue) {
-        lib.callSendResult(id: id, value: result);
-        return;
-      } else if (result is ErrorCode) {
-        lib.callSendResult(id: id, value: DynamicValue.error(result));
-        return;
-      } else if (result == null) {
-        lib.callSendResult(id: id, value: const DynamicValue.none());
-      }
-
-      final logEntry = LogEntryCreate.create(
-        level: LogLevel.Error,
-        tag: _tag,
-        msg: 'Unsupported return type: ${result.runtimeType}',
-      );
-      _logHandler?.call(logEntry);
-    } on Object catch (e) {
-      if (id != null) {
-        /// To get here, just `throw ErrorCode.Network` for example
-        if (e is ErrorCode) {
-          lib.callSendResult(id: id, value: DynamicValue.error(e));
-        } else {
-          lib.callSendResult(
-            id: id,
-            value: const DynamicValue.error(ErrorCode.InvokeException),
-          );
+      try {
+        final result = rustToDartCaller.invoke(
+          objectHash,
+          stub.fnName,
+          positionalArguments,
+          namedArguments.isNotEmpty ? namedArguments : null,
+        );
+        if (id == null) {
+          // Don't use return value
+          return;
         }
+        if (result is String) {
+          lib.callSendResult(id: id, value: DynamicValue.string(result));
+          return;
+        } else if (result is Future<String>) {
+          lib.callSendResult(id: id, value: DynamicValue.string(await result));
+          return;
+        } else if (result is int) {
+          lib.callSendResult(id: id, value: DynamicValue.i64(result));
+          return;
+        } else if (result is Future<int>) {
+          lib.callSendResult(id: id, value: DynamicValue.i64(await result));
+          return;
+        } else if (result is double) {
+          lib.callSendResult(id: id, value: DynamicValue.f64(result));
+          return;
+        } else if (result is Future<double>) {
+          lib.callSendResult(id: id, value: DynamicValue.f64(await result));
+          return;
+        } else if (result is DynamicValue) {
+          lib.callSendResult(id: id, value: result);
+          return;
+        } else if (result is Future<DynamicValue>) {
+          lib.callSendResult(id: id, value: await result);
+          return;
+        } else if (result is ErrorCode) {
+          lib.callSendResult(id: id, value: DynamicValue.error(result));
+          return;
+        } else if (result is Future<ErrorCode>) {
+          lib.callSendResult(id: id, value: DynamicValue.error(await result));
+          return;
+        } else if (result == null) {
+          lib.callSendResult(id: id, value: const DynamicValue.none());
+        }
+
+        final logEntry = LogEntryCreate.create(
+          level: LogLevel.Error,
+          tag: _tag,
+          msg: 'Unsupported return type: ${result.runtimeType}',
+        );
+        _logHandler?.call(logEntry);
+      } on Object catch (e) {
+        if (id != null) {
+          /// To get here, just `throw ErrorCode.Network` for example
+          if (e is ErrorCode) {
+            lib.callSendResult(id: id, value: DynamicValue.error(e));
+          } else {
+            lib.callSendResult(
+              id: id,
+              value: const DynamicValue.error(ErrorCode.InvokeException),
+            );
+          }
+        }
+        final logEntry = LogEntryCreate.create(
+          level: LogLevel.Error,
+          tag: _tag,
+          msg: e.toString(),
+        );
+        _logHandler?.call(logEntry);
       }
-      final logEntry = LogEntryCreate.create(
-        level: LogLevel.Error,
-        tag: _tag,
-        msg: e.toString(),
-      );
-      _logHandler?.call(logEntry);
-    }
-  });
+    });
 }
 
 /// Init rust to dart caller that will call methods of registered instances.
@@ -138,7 +158,7 @@ Future<CallerTestClassWrapper> initCallerTestClassWrapper(int value) async {
   return CallerTestClassWrapper.create(value);
 }
 
-// TODO: all code below is only sandbox-related things
+// TODO: remove all non-integration test related things FROM here
 
 Future<void> simpleLog() async {
   var lib = createLib();
@@ -185,6 +205,4 @@ Future<void> simpleCallFunc2() async {
   createLib().simpleCallFunc2();
 }
 
-// Future<void> stubCallDart(DartCallStub stub) async {
-//   createLib().stubCallDart(stub: stub);
-// }
+// TODO: remove all non-integration test related things TO here
