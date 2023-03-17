@@ -1,3 +1,4 @@
+use crate::async_run;
 use crate::nekoton_wrapper::external::gql_connection_api::GqlConnectionDartWrapper;
 use crate::nekoton_wrapper::transport::{GqlTransportBox, GqlTransportBoxTrait};
 use flutter_rust_bridge::frb;
@@ -27,8 +28,8 @@ impl GqlTransportImpl {
     }
 
     /// Get contract state of address and return json-encoded RawContractState or throw error
-    async fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
-        self.inner_transport.get_contract_state(address).await
+    fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
+        async_run!(self.inner_transport.get_contract_state(address).await)
     }
 
     /// Get full contract state of address and return json-encoded FullContractState or throw error

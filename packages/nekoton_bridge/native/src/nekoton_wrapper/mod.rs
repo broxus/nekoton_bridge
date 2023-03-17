@@ -15,12 +15,24 @@ use ton_types::UInt256;
 
 lazy_static! {
     pub static ref CLOCK: Arc<SimpleClock> = Arc::new(SimpleClock {});
+    pub static ref RUNTIME: tokio::runtime::Runtime = tokio::runtime::Builder::new_multi_thread()
+        .enable_all()
+        .build()
+        .unwrap();
 }
 
 #[macro_export]
 macro_rules! clock {
     () => {
         $crate::nekoton_wrapper::CLOCK.clone()
+    };
+}
+
+#[macro_export]
+/// This macro help to run async code in sync way on the global runtime.
+macro_rules! async_run {
+    ($exp:expr) => {
+        $crate::nekoton_wrapper::RUNTIME.block_on(async { $exp })
     };
 }
 

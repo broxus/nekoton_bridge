@@ -1,6 +1,6 @@
 #![allow(unused)]
 pub use crate::{
-    clock,
+    async_run, clock,
     nekoton_wrapper::{
         crypto::{
             mnemonic::models::KeypairHelper,
@@ -934,8 +934,8 @@ impl GqlTransportImpl {
         }
     }
     /// Get contract state of address and return json-encoded RawContractState or throw error
-    async fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
-        self.inner_transport.get_contract_state(address).await
+    fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
+        async_run!(self.inner_transport.get_contract_state(address).await)
     }
     /// Get full contract state of address and return json-encoded FullContractState or throw error
     async fn get_full_contract_state(
