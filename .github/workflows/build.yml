@@ -25,6 +25,8 @@ jobs:
           components: rustfmt, clippy
 
       # Rust
+      - name: Build Rust code for Dart tests
+        run: cargo build -r
       - name: Check Rust format
         working-directory: ./packages/nekoton_bridge/native/src
         run: rustfmt --check lib.rs --edition 2018
@@ -32,8 +34,6 @@ jobs:
         run: cargo clippy -- -D warnings
       - name: Run Rust tests
         run: cargo test
-      - name: Build Rust code for Dart tests
-        run: cargo build -r
 
       # Dart/Flutter
       - name: Check Dart format
