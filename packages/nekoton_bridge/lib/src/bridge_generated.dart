@@ -19,6 +19,18 @@ part 'bridge_generated.freezed.dart';
 
 abstract class NekotonBridge {
   ///----------------------------
+  /// CONTENT OF src/nekoton_wrapper/crypto/crypto_api.rs
+  ///----------------------------
+  /// Check signature by publicKey and data hash
+  Future<bool> verifySignature(
+      {required String publicKey,
+      required String dataHash,
+      required String signature,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta;
+
+  ///----------------------------
   /// CONTENT OF src/nekoton_wrapper/crypto/mnemonic/mnemonic_api.rs
   ///----------------------------
   /// Generate seed phrase by specified mnemonic type
@@ -43,18 +55,6 @@ abstract class NekotonBridge {
       dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kNtDeriveFromPhraseConstMeta;
-
-  ///----------------------------
-  /// CONTENT OF src/nekoton_wrapper/crypto/crypto_api.rs
-  ///----------------------------
-  /// Check signature by publicKey and data hash
-  Future<bool> verifySignature(
-      {required String publicKey,
-      required String dataHash,
-      required String signature,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta;
 
   ///----------------------------
   /// CONTENT OF src/nekoton_wrapper/helpers/abi_api.rs
@@ -255,6 +255,29 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kGetCodeSaltConstMeta;
 
   ///----------------------------
+  /// CONTENT OF src/utils/tests_api.rs
+  ///----------------------------
+  Future<void> testLoggerInfo({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerInfoConstMeta;
+
+  Future<void> testLoggerDebug({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerDebugConstMeta;
+
+  Future<void> testLoggerWarn({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerWarnConstMeta;
+
+  Future<void> testLoggerError({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerErrorConstMeta;
+
+  Future<void> testLoggerPanic({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerPanicConstMeta;
+
+  ///----------------------------
   /// CONTENT OF src/utils/api.rs
   ///----------------------------
   /// Init utils
@@ -323,29 +346,6 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kSimpleCallFunc2ConstMeta;
 
-  ///----------------------------
-  /// CONTENT OF src/utils/tests_api.rs
-  ///----------------------------
-  Future<void> testLoggerInfo({required String string, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerInfoConstMeta;
-
-  Future<void> testLoggerDebug({required String string, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerDebugConstMeta;
-
-  Future<void> testLoggerWarn({required String string, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerWarnConstMeta;
-
-  Future<void> testLoggerError({required String string, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerErrorConstMeta;
-
-  Future<void> testLoggerPanic({required String string, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerPanicConstMeta;
-
   Future<void> refreshTimeoutMethodUnsignedMessageImpl(
       {required UnsignedMessageImpl that, dynamic hint});
 
@@ -372,6 +372,156 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kSignMethodUnsignedMessageImplConstMeta;
 
+  Future<GqlTransportImpl> newStaticMethodGqlTransportImpl(
+      {required GqlConnectionDartWrapper gqlConnection, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kNewStaticMethodGqlTransportImplConstMeta;
+
+  /// Get contract state of address and return json-encoded RawContractState or throw error
+  Future<String> getContractStateMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String address, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetContractStateMethodGqlTransportImplConstMeta;
+
+  /// Get full contract state of address and return json-encoded FullContractState or throw error
+  Future<String> getFullContractStateMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String address, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetFullContractStateMethodGqlTransportImplConstMeta;
+
+  /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
+  Future<String> getAccountsByCodeHashMethodGqlTransportImpl(
+      {required GqlTransportImpl that,
+      required String codeHash,
+      required int limit,
+      String? continuation,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetAccountsByCodeHashMethodGqlTransportImplConstMeta;
+
+  /// Get list of transactions by address.
+  /// Return json-encoded TransactionsList or throw error
+  Future<String> getTransactionsMethodGqlTransportImpl(
+      {required GqlTransportImpl that,
+      required String address,
+      int? fromLt,
+      required int count,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionsMethodGqlTransportImplConstMeta;
+
+  /// Get single transaction by its hash.
+  /// Return json-encoded Transaction or throw error
+  Future<String?> getTransactionMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String hash, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionMethodGqlTransportImplConstMeta;
+
+  /// Get transport signature id and return it or throw error
+  Future<int?> getSignatureIdMethodGqlTransportImpl(
+      {required GqlTransportImpl that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetSignatureIdMethodGqlTransportImplConstMeta;
+
+  /// Get latest block by address and return it or throw error
+  Future<LatestBlock> getLatestBlockMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String address, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetLatestBlockMethodGqlTransportImplConstMeta;
+
+  /// Get transport block by id and return base64 encoded block or throw error
+  Future<String> getBlockMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String id, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kGetBlockMethodGqlTransportImplConstMeta;
+
+  /// Wait until next block will come to blockchain and return its id or throw error
+  Future<String> waitForNextBlockMethodGqlTransportImpl(
+      {required GqlTransportImpl that,
+      required String currentBlockId,
+      required String address,
+      required int timeout,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kWaitForNextBlockMethodGqlTransportImplConstMeta;
+
+  Future<JrpcTransportImpl> newStaticMethodJrpcTransportImpl(
+      {required JrpcConnectionDartWrapper jrpcConnection, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kNewStaticMethodJrpcTransportImplConstMeta;
+
+  /// Get contract state of address and return json-encoded RawContractState or throw error
+  Future<String> getContractStateMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, required String address, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetContractStateMethodJrpcTransportImplConstMeta;
+
+  /// Get full contract state of address and return json-encoded FullContractState or throw error
+  Future<String> getFullContractStateMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, required String address, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetFullContractStateMethodJrpcTransportImplConstMeta;
+
+  /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
+  Future<String> getAccountsByCodeHashMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String codeHash,
+      required int limit,
+      String? continuation,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetAccountsByCodeHashMethodJrpcTransportImplConstMeta;
+
+  /// Get list of transactions by address.
+  /// Return json-encoded TransactionsList or throw error
+  Future<String> getTransactionsMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String address,
+      int? fromLt,
+      required int count,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionsMethodJrpcTransportImplConstMeta;
+
+  /// Get single transaction by its hash.
+  /// Return json-encoded Transaction or throw error
+  Future<String?> getTransactionMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, required String hash, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionMethodJrpcTransportImplConstMeta;
+
+  /// Get transport signature id and return it or throw error
+  Future<int?> getSignatureIdMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetSignatureIdMethodJrpcTransportImplConstMeta;
+
+  Future<JrpcConnectionDartWrapper> newStaticMethodJrpcConnectionDartWrapper(
+      {required String instanceHash, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodJrpcConnectionDartWrapperConstMeta;
+
+  Future<GqlConnectionDartWrapper> newStaticMethodGqlConnectionDartWrapper(
+      {required bool isLocal, required String instanceHash, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodGqlConnectionDartWrapperConstMeta;
+
   Future<LedgerConnectionImpl> newStaticMethodLedgerConnectionImpl(
       {required String instanceHash, dynamic hint});
 
@@ -382,23 +532,6 @@ abstract class NekotonBridge {
       {required String instanceHash, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kNewStaticMethodStorageImplConstMeta;
-
-  Future<GqlConnectionDartWrapper> newStaticMethodGqlConnectionDartWrapper(
-      {required bool isLocal, required String instanceHash, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodGqlConnectionDartWrapperConstMeta;
-
-  Future<JrpcConnectionDartWrapper> newStaticMethodJrpcConnectionDartWrapper(
-      {required bool isLocal, required String instanceHash, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodJrpcConnectionDartWrapperConstMeta;
-
-  Future<JrpcTransportImpl> newStaticMethodJrpcTransportImpl(
-      {required JrpcConnectionDartWrapper jrpcConnection, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kNewStaticMethodJrpcTransportImplConstMeta;
 
   Future<MyClass> newStaticMethodMyClass({required int a, dynamic hint});
 
@@ -430,6 +563,10 @@ abstract class NekotonBridge {
   DropFnType get dropOpaqueArcJrpcTransportBoxTrait;
   ShareFnType get shareOpaqueArcJrpcTransportBoxTrait;
   OpaqueTypeFinalizer get ArcJrpcTransportBoxTraitFinalizer;
+
+  DropFnType get dropOpaqueBoxGqlTransportBoxTrait;
+  ShareFnType get shareOpaqueBoxGqlTransportBoxTrait;
+  OpaqueTypeFinalizer get BoxGqlTransportBoxTraitFinalizer;
 
   DropFnType get dropOpaqueBoxUnsignedMessageBoxTrait;
   ShareFnType get shareOpaqueBoxUnsignedMessageBoxTrait;
@@ -482,6 +619,22 @@ class ArcJrpcTransportBoxTrait extends FrbOpaque {
   @override
   OpaqueTypeFinalizer get staticFinalizer =>
       bridge.ArcJrpcTransportBoxTraitFinalizer;
+}
+
+@sealed
+class BoxGqlTransportBoxTrait extends FrbOpaque {
+  final NekotonBridge bridge;
+  BoxGqlTransportBoxTrait.fromRaw(int ptr, int size, this.bridge)
+      : super.unsafe(ptr, size);
+  @override
+  DropFnType get dropFn => bridge.dropOpaqueBoxGqlTransportBoxTrait;
+
+  @override
+  ShareFnType get shareFn => bridge.shareOpaqueBoxGqlTransportBoxTrait;
+
+  @override
+  OpaqueTypeFinalizer get staticFinalizer =>
+      bridge.BoxGqlTransportBoxTraitFinalizer;
 }
 
 @sealed
@@ -648,6 +801,108 @@ class GqlConnectionDartWrapper {
           isLocal: isLocal, instanceHash: instanceHash, hint: hint);
 }
 
+/// Wrapper structure above GqlTransport that provides interface to communicate with it
+/// via GqlTransportBoxTrait.
+class GqlTransportImpl {
+  final NekotonBridge bridge;
+  final BoxGqlTransportBoxTrait innerTransport;
+
+  const GqlTransportImpl({
+    required this.bridge,
+    required this.innerTransport,
+  });
+
+  static Future<GqlTransportImpl> newGqlTransportImpl(
+          {required NekotonBridge bridge,
+          required GqlConnectionDartWrapper gqlConnection,
+          dynamic hint}) =>
+      bridge.newStaticMethodGqlTransportImpl(
+          gqlConnection: gqlConnection, hint: hint);
+
+  /// Get contract state of address and return json-encoded RawContractState or throw error
+  Future<String> getContractState({required String address, dynamic hint}) =>
+      bridge.getContractStateMethodGqlTransportImpl(
+        that: this,
+        address: address,
+      );
+
+  /// Get full contract state of address and return json-encoded FullContractState or throw error
+  Future<String> getFullContractState(
+          {required String address, dynamic hint}) =>
+      bridge.getFullContractStateMethodGqlTransportImpl(
+        that: this,
+        address: address,
+      );
+
+  /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
+  Future<String> getAccountsByCodeHash(
+          {required String codeHash,
+          required int limit,
+          String? continuation,
+          dynamic hint}) =>
+      bridge.getAccountsByCodeHashMethodGqlTransportImpl(
+        that: this,
+        codeHash: codeHash,
+        limit: limit,
+        continuation: continuation,
+      );
+
+  /// Get list of transactions by address.
+  /// Return json-encoded TransactionsList or throw error
+  Future<String> getTransactions(
+          {required String address,
+          int? fromLt,
+          required int count,
+          dynamic hint}) =>
+      bridge.getTransactionsMethodGqlTransportImpl(
+        that: this,
+        address: address,
+        fromLt: fromLt,
+        count: count,
+      );
+
+  /// Get single transaction by its hash.
+  /// Return json-encoded Transaction or throw error
+  Future<String?> getTransaction({required String hash, dynamic hint}) =>
+      bridge.getTransactionMethodGqlTransportImpl(
+        that: this,
+        hash: hash,
+      );
+
+  /// Get transport signature id and return it or throw error
+  Future<int?> getSignatureId({dynamic hint}) =>
+      bridge.getSignatureIdMethodGqlTransportImpl(
+        that: this,
+      );
+
+  /// Get latest block by address and return it or throw error
+  Future<LatestBlock> getLatestBlock({required String address, dynamic hint}) =>
+      bridge.getLatestBlockMethodGqlTransportImpl(
+        that: this,
+        address: address,
+      );
+
+  /// Get transport block by id and return base64 encoded block or throw error
+  Future<String> getBlock({required String id, dynamic hint}) =>
+      bridge.getBlockMethodGqlTransportImpl(
+        that: this,
+        id: id,
+      );
+
+  /// Wait until next block will come to blockchain and return its id or throw error
+  Future<String> waitForNextBlock(
+          {required String currentBlockId,
+          required String address,
+          required int timeout,
+          dynamic hint}) =>
+      bridge.waitForNextBlockMethodGqlTransportImpl(
+        that: this,
+        currentBlockId: currentBlockId,
+        address: address,
+        timeout: timeout,
+      );
+}
+
 ///----------------------------
 /// CONTENT OF src/nekoton_wrapper/external/jrpc_connection_api.rs
 ///----------------------------
@@ -663,11 +918,10 @@ class JrpcConnectionDartWrapper {
 
   static Future<JrpcConnectionDartWrapper> newJrpcConnectionDartWrapper(
           {required NekotonBridge bridge,
-          required bool isLocal,
           required String instanceHash,
           dynamic hint}) =>
       bridge.newStaticMethodJrpcConnectionDartWrapper(
-          isLocal: isLocal, instanceHash: instanceHash, hint: hint);
+          instanceHash: instanceHash, hint: hint);
 }
 
 ///----------------------------
@@ -690,6 +944,77 @@ class JrpcTransportImpl {
           dynamic hint}) =>
       bridge.newStaticMethodJrpcTransportImpl(
           jrpcConnection: jrpcConnection, hint: hint);
+
+  /// Get contract state of address and return json-encoded RawContractState or throw error
+  Future<String> getContractState({required String address, dynamic hint}) =>
+      bridge.getContractStateMethodJrpcTransportImpl(
+        that: this,
+        address: address,
+      );
+
+  /// Get full contract state of address and return json-encoded FullContractState or throw error
+  Future<String> getFullContractState(
+          {required String address, dynamic hint}) =>
+      bridge.getFullContractStateMethodJrpcTransportImpl(
+        that: this,
+        address: address,
+      );
+
+  /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
+  Future<String> getAccountsByCodeHash(
+          {required String codeHash,
+          required int limit,
+          String? continuation,
+          dynamic hint}) =>
+      bridge.getAccountsByCodeHashMethodJrpcTransportImpl(
+        that: this,
+        codeHash: codeHash,
+        limit: limit,
+        continuation: continuation,
+      );
+
+  /// Get list of transactions by address.
+  /// Return json-encoded TransactionsList or throw error
+  Future<String> getTransactions(
+          {required String address,
+          int? fromLt,
+          required int count,
+          dynamic hint}) =>
+      bridge.getTransactionsMethodJrpcTransportImpl(
+        that: this,
+        address: address,
+        fromLt: fromLt,
+        count: count,
+      );
+
+  /// Get single transaction by its hash.
+  /// Return json-encoded Transaction or throw error
+  Future<String?> getTransaction({required String hash, dynamic hint}) =>
+      bridge.getTransactionMethodJrpcTransportImpl(
+        that: this,
+        hash: hash,
+      );
+
+  /// Get transport signature id and return it or throw error
+  Future<int?> getSignatureId({dynamic hint}) =>
+      bridge.getSignatureIdMethodJrpcTransportImpl(
+        that: this,
+      );
+}
+
+///----------------------------
+/// CONTENT OF src/nekoton_wrapper/transport/gql_transport_api.rs
+///----------------------------
+class LatestBlock {
+  final String id;
+  final int endLt;
+  final int genUtime;
+
+  const LatestBlock({
+    required this.id,
+    required this.endLt,
+    required this.genUtime,
+  });
 }
 
 ///----------------------------
@@ -824,6 +1149,30 @@ class NekotonBridgeImpl implements NekotonBridge {
   factory NekotonBridgeImpl.wasm(FutureOr<WasmModule> module) =>
       NekotonBridgeImpl(module as ExternalLibrary);
   NekotonBridgeImpl.raw(this._platform);
+  Future<bool> verifySignature(
+      {required String publicKey,
+      required String dataHash,
+      required String signature,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(publicKey);
+    var arg1 = _platform.api2wire_String(dataHash);
+    var arg2 = _platform.api2wire_String(signature);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_verify_signature(port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_bool,
+      constMeta: kVerifySignatureConstMeta,
+      argValues: [publicKey, dataHash, signature],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "verify_signature",
+        argNames: ["publicKey", "dataHash", "signature"],
+      );
+
   Future<GeneratedKeyG> ntGenerateKey(
       {required MnemonicType accountType, dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_mnemonic_type(accountType);
@@ -879,30 +1228,6 @@ class NekotonBridgeImpl implements NekotonBridge {
       const FlutterRustBridgeTaskConstMeta(
         debugName: "nt_derive_from_phrase",
         argNames: ["phrase", "mnemonicType"],
-      );
-
-  Future<bool> verifySignature(
-      {required String publicKey,
-      required String dataHash,
-      required String signature,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_String(publicKey);
-    var arg1 = _platform.api2wire_String(dataHash);
-    var arg2 = _platform.api2wire_String(signature);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) =>
-          _platform.inner.wire_verify_signature(port_, arg0, arg1, arg2),
-      parseSuccessData: _wire2api_bool,
-      constMeta: kVerifySignatureConstMeta,
-      argValues: [publicKey, dataHash, signature],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "verify_signature",
-        argNames: ["publicKey", "dataHash", "signature"],
       );
 
   Future<bool> checkPublicKey({required String publicKey, dynamic hint}) {
@@ -1483,6 +1808,91 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: ["code"],
       );
 
+  Future<void> testLoggerInfo({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_info(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerInfoConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerInfoConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_info",
+        argNames: ["string"],
+      );
+
+  Future<void> testLoggerDebug({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_debug(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerDebugConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerDebugConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_debug",
+        argNames: ["string"],
+      );
+
+  Future<void> testLoggerWarn({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_warn(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerWarnConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerWarnConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_warn",
+        argNames: ["string"],
+      );
+
+  Future<void> testLoggerError({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_error(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerErrorConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerErrorConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_error",
+        argNames: ["string"],
+      );
+
+  Future<void> testLoggerPanic({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_panic(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerPanicConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerPanicConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_panic",
+        argNames: ["string"],
+      );
+
   Future<void> initLogger(
       {required LogLevel level, required bool mobileLogger, dynamic hint}) {
     var arg0 = api2wire_log_level(level);
@@ -1738,91 +2148,6 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: [],
       );
 
-  Future<void> testLoggerInfo({required String string, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_test_logger_info(port_, arg0),
-      parseSuccessData: _wire2api_unit,
-      constMeta: kTestLoggerInfoConstMeta,
-      argValues: [string],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerInfoConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_logger_info",
-        argNames: ["string"],
-      );
-
-  Future<void> testLoggerDebug({required String string, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_test_logger_debug(port_, arg0),
-      parseSuccessData: _wire2api_unit,
-      constMeta: kTestLoggerDebugConstMeta,
-      argValues: [string],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerDebugConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_logger_debug",
-        argNames: ["string"],
-      );
-
-  Future<void> testLoggerWarn({required String string, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_test_logger_warn(port_, arg0),
-      parseSuccessData: _wire2api_unit,
-      constMeta: kTestLoggerWarnConstMeta,
-      argValues: [string],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerWarnConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_logger_warn",
-        argNames: ["string"],
-      );
-
-  Future<void> testLoggerError({required String string, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_test_logger_error(port_, arg0),
-      parseSuccessData: _wire2api_unit,
-      constMeta: kTestLoggerErrorConstMeta,
-      argValues: [string],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerErrorConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_logger_error",
-        argNames: ["string"],
-      );
-
-  Future<void> testLoggerPanic({required String string, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_test_logger_panic(port_, arg0),
-      parseSuccessData: _wire2api_unit,
-      constMeta: kTestLoggerPanicConstMeta,
-      argValues: [string],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerPanicConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_logger_panic",
-        argNames: ["string"],
-      );
-
   Future<void> refreshTimeoutMethodUnsignedMessageImpl(
       {required UnsignedMessageImpl that, dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_unsigned_message_impl(that);
@@ -1904,6 +2229,443 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: ["that", "signature"],
       );
 
+  Future<GqlTransportImpl> newStaticMethodGqlTransportImpl(
+      {required GqlConnectionDartWrapper gqlConnection, dynamic hint}) {
+    var arg0 = _platform
+        .api2wire_box_autoadd_gql_connection_dart_wrapper(gqlConnection);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_new__static_method__GqlTransportImpl(port_, arg0),
+      parseSuccessData: (d) => _wire2api_gql_transport_impl(d),
+      constMeta: kNewStaticMethodGqlTransportImplConstMeta,
+      argValues: [gqlConnection],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodGqlTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "new__static_method__GqlTransportImpl",
+            argNames: ["gqlConnection"],
+          );
+
+  Future<String> getContractStateMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String address, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    var arg1 = _platform.api2wire_String(address);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_contract_state__method__GqlTransportImpl(port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetContractStateMethodGqlTransportImplConstMeta,
+      argValues: [that, address],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetContractStateMethodGqlTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_contract_state__method__GqlTransportImpl",
+            argNames: ["that", "address"],
+          );
+
+  Future<String> getFullContractStateMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String address, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    var arg1 = _platform.api2wire_String(address);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_full_contract_state__method__GqlTransportImpl(
+              port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetFullContractStateMethodGqlTransportImplConstMeta,
+      argValues: [that, address],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetFullContractStateMethodGqlTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_full_contract_state__method__GqlTransportImpl",
+            argNames: ["that", "address"],
+          );
+
+  Future<String> getAccountsByCodeHashMethodGqlTransportImpl(
+      {required GqlTransportImpl that,
+      required String codeHash,
+      required int limit,
+      String? continuation,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    var arg1 = _platform.api2wire_String(codeHash);
+    var arg2 = api2wire_u8(limit);
+    var arg3 = _platform.api2wire_opt_String(continuation);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_accounts_by_code_hash__method__GqlTransportImpl(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetAccountsByCodeHashMethodGqlTransportImplConstMeta,
+      argValues: [that, codeHash, limit, continuation],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetAccountsByCodeHashMethodGqlTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_accounts_by_code_hash__method__GqlTransportImpl",
+            argNames: ["that", "codeHash", "limit", "continuation"],
+          );
+
+  Future<String> getTransactionsMethodGqlTransportImpl(
+      {required GqlTransportImpl that,
+      required String address,
+      int? fromLt,
+      required int count,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    var arg1 = _platform.api2wire_String(address);
+    var arg2 = _platform.api2wire_opt_box_autoadd_u64(fromLt);
+    var arg3 = api2wire_u8(count);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_transactions__method__GqlTransportImpl(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetTransactionsMethodGqlTransportImplConstMeta,
+      argValues: [that, address, fromLt, count],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionsMethodGqlTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_transactions__method__GqlTransportImpl",
+            argNames: ["that", "address", "fromLt", "count"],
+          );
+
+  Future<String?> getTransactionMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String hash, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    var arg1 = _platform.api2wire_String(hash);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_transaction__method__GqlTransportImpl(port_, arg0, arg1),
+      parseSuccessData: _wire2api_opt_String,
+      constMeta: kGetTransactionMethodGqlTransportImplConstMeta,
+      argValues: [that, hash],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionMethodGqlTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_transaction__method__GqlTransportImpl",
+            argNames: ["that", "hash"],
+          );
+
+  Future<int?> getSignatureIdMethodGqlTransportImpl(
+      {required GqlTransportImpl that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_signature_id__method__GqlTransportImpl(port_, arg0),
+      parseSuccessData: _wire2api_opt_box_autoadd_i32,
+      constMeta: kGetSignatureIdMethodGqlTransportImplConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetSignatureIdMethodGqlTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_signature_id__method__GqlTransportImpl",
+            argNames: ["that"],
+          );
+
+  Future<LatestBlock> getLatestBlockMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String address, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    var arg1 = _platform.api2wire_String(address);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_latest_block__method__GqlTransportImpl(port_, arg0, arg1),
+      parseSuccessData: _wire2api_latest_block,
+      constMeta: kGetLatestBlockMethodGqlTransportImplConstMeta,
+      argValues: [that, address],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetLatestBlockMethodGqlTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_latest_block__method__GqlTransportImpl",
+            argNames: ["that", "address"],
+          );
+
+  Future<String> getBlockMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String id, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    var arg1 = _platform.api2wire_String(id);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_block__method__GqlTransportImpl(port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetBlockMethodGqlTransportImplConstMeta,
+      argValues: [that, id],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kGetBlockMethodGqlTransportImplConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "get_block__method__GqlTransportImpl",
+        argNames: ["that", "id"],
+      );
+
+  Future<String> waitForNextBlockMethodGqlTransportImpl(
+      {required GqlTransportImpl that,
+      required String currentBlockId,
+      required String address,
+      required int timeout,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    var arg1 = _platform.api2wire_String(currentBlockId);
+    var arg2 = _platform.api2wire_String(address);
+    var arg3 = _platform.api2wire_u64(timeout);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_wait_for_next_block__method__GqlTransportImpl(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kWaitForNextBlockMethodGqlTransportImplConstMeta,
+      argValues: [that, currentBlockId, address, timeout],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kWaitForNextBlockMethodGqlTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "wait_for_next_block__method__GqlTransportImpl",
+            argNames: ["that", "currentBlockId", "address", "timeout"],
+          );
+
+  Future<JrpcTransportImpl> newStaticMethodJrpcTransportImpl(
+      {required JrpcConnectionDartWrapper jrpcConnection, dynamic hint}) {
+    var arg0 = _platform
+        .api2wire_box_autoadd_jrpc_connection_dart_wrapper(jrpcConnection);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_new__static_method__JrpcTransportImpl(port_, arg0),
+      parseSuccessData: (d) => _wire2api_jrpc_transport_impl(d),
+      constMeta: kNewStaticMethodJrpcTransportImplConstMeta,
+      argValues: [jrpcConnection],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "new__static_method__JrpcTransportImpl",
+            argNames: ["jrpcConnection"],
+          );
+
+  Future<String> getContractStateMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String address,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = _platform.api2wire_String(address);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_contract_state__method__JrpcTransportImpl(
+              port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetContractStateMethodJrpcTransportImplConstMeta,
+      argValues: [that, address],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetContractStateMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_contract_state__method__JrpcTransportImpl",
+            argNames: ["that", "address"],
+          );
+
+  Future<String> getFullContractStateMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String address,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = _platform.api2wire_String(address);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_full_contract_state__method__JrpcTransportImpl(
+              port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetFullContractStateMethodJrpcTransportImplConstMeta,
+      argValues: [that, address],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetFullContractStateMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_full_contract_state__method__JrpcTransportImpl",
+            argNames: ["that", "address"],
+          );
+
+  Future<String> getAccountsByCodeHashMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String codeHash,
+      required int limit,
+      String? continuation,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = _platform.api2wire_String(codeHash);
+    var arg2 = api2wire_u8(limit);
+    var arg3 = _platform.api2wire_opt_String(continuation);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetAccountsByCodeHashMethodJrpcTransportImplConstMeta,
+      argValues: [that, codeHash, limit, continuation],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetAccountsByCodeHashMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_accounts_by_code_hash__method__JrpcTransportImpl",
+            argNames: ["that", "codeHash", "limit", "continuation"],
+          );
+
+  Future<String> getTransactionsMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String address,
+      int? fromLt,
+      required int count,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = _platform.api2wire_String(address);
+    var arg2 = _platform.api2wire_opt_box_autoadd_u64(fromLt);
+    var arg3 = api2wire_u8(count);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_transactions__method__JrpcTransportImpl(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetTransactionsMethodJrpcTransportImplConstMeta,
+      argValues: [that, address, fromLt, count],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionsMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_transactions__method__JrpcTransportImpl",
+            argNames: ["that", "address", "fromLt", "count"],
+          );
+
+  Future<String?> getTransactionMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, required String hash, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = _platform.api2wire_String(hash);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_transaction__method__JrpcTransportImpl(port_, arg0, arg1),
+      parseSuccessData: _wire2api_opt_String,
+      constMeta: kGetTransactionMethodJrpcTransportImplConstMeta,
+      argValues: [that, hash],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_transaction__method__JrpcTransportImpl",
+            argNames: ["that", "hash"],
+          );
+
+  Future<int?> getSignatureIdMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_signature_id__method__JrpcTransportImpl(port_, arg0),
+      parseSuccessData: _wire2api_opt_box_autoadd_i32,
+      constMeta: kGetSignatureIdMethodJrpcTransportImplConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetSignatureIdMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_signature_id__method__JrpcTransportImpl",
+            argNames: ["that"],
+          );
+
+  Future<JrpcConnectionDartWrapper> newStaticMethodJrpcConnectionDartWrapper(
+      {required String instanceHash, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(instanceHash);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_new__static_method__JrpcConnectionDartWrapper(port_, arg0),
+      parseSuccessData: (d) => _wire2api_jrpc_connection_dart_wrapper(d),
+      constMeta: kNewStaticMethodJrpcConnectionDartWrapperConstMeta,
+      argValues: [instanceHash],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodJrpcConnectionDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "new__static_method__JrpcConnectionDartWrapper",
+            argNames: ["instanceHash"],
+          );
+
+  Future<GqlConnectionDartWrapper> newStaticMethodGqlConnectionDartWrapper(
+      {required bool isLocal, required String instanceHash, dynamic hint}) {
+    var arg0 = isLocal;
+    var arg1 = _platform.api2wire_String(instanceHash);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_new__static_method__GqlConnectionDartWrapper(port_, arg0, arg1),
+      parseSuccessData: (d) => _wire2api_gql_connection_dart_wrapper(d),
+      constMeta: kNewStaticMethodGqlConnectionDartWrapperConstMeta,
+      argValues: [isLocal, instanceHash],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodGqlConnectionDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "new__static_method__GqlConnectionDartWrapper",
+            argNames: ["isLocal", "instanceHash"],
+          );
+
   Future<LedgerConnectionImpl> newStaticMethodLedgerConnectionImpl(
       {required String instanceHash, dynamic hint}) {
     var arg0 = _platform.api2wire_String(instanceHash);
@@ -1942,70 +2704,6 @@ class NekotonBridgeImpl implements NekotonBridge {
         debugName: "new__static_method__StorageImpl",
         argNames: ["instanceHash"],
       );
-
-  Future<GqlConnectionDartWrapper> newStaticMethodGqlConnectionDartWrapper(
-      {required bool isLocal, required String instanceHash, dynamic hint}) {
-    var arg0 = isLocal;
-    var arg1 = _platform.api2wire_String(instanceHash);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_new__static_method__GqlConnectionDartWrapper(port_, arg0, arg1),
-      parseSuccessData: (d) => _wire2api_gql_connection_dart_wrapper(d),
-      constMeta: kNewStaticMethodGqlConnectionDartWrapperConstMeta,
-      argValues: [isLocal, instanceHash],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodGqlConnectionDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "new__static_method__GqlConnectionDartWrapper",
-            argNames: ["isLocal", "instanceHash"],
-          );
-
-  Future<JrpcConnectionDartWrapper> newStaticMethodJrpcConnectionDartWrapper(
-      {required bool isLocal, required String instanceHash, dynamic hint}) {
-    var arg0 = isLocal;
-    var arg1 = _platform.api2wire_String(instanceHash);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_new__static_method__JrpcConnectionDartWrapper(
-              port_, arg0, arg1),
-      parseSuccessData: (d) => _wire2api_jrpc_connection_dart_wrapper(d),
-      constMeta: kNewStaticMethodJrpcConnectionDartWrapperConstMeta,
-      argValues: [isLocal, instanceHash],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodJrpcConnectionDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "new__static_method__JrpcConnectionDartWrapper",
-            argNames: ["isLocal", "instanceHash"],
-          );
-
-  Future<JrpcTransportImpl> newStaticMethodJrpcTransportImpl(
-      {required JrpcConnectionDartWrapper jrpcConnection, dynamic hint}) {
-    var arg0 = _platform
-        .api2wire_box_autoadd_jrpc_connection_dart_wrapper(jrpcConnection);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_new__static_method__JrpcTransportImpl(port_, arg0),
-      parseSuccessData: (d) => _wire2api_jrpc_transport_impl(d),
-      constMeta: kNewStaticMethodJrpcTransportImplConstMeta,
-      argValues: [jrpcConnection],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodJrpcTransportImplConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "new__static_method__JrpcTransportImpl",
-            argNames: ["jrpcConnection"],
-          );
 
   Future<MyClass> newStaticMethodMyClass({required int a, dynamic hint}) {
     var arg0 = api2wire_i32(a);
@@ -2104,6 +2802,13 @@ class NekotonBridgeImpl implements NekotonBridge {
   OpaqueTypeFinalizer get ArcJrpcTransportBoxTraitFinalizer =>
       _platform.ArcJrpcTransportBoxTraitFinalizer;
 
+  DropFnType get dropOpaqueBoxGqlTransportBoxTrait =>
+      _platform.inner.drop_opaque_BoxGqlTransportBoxTrait;
+  ShareFnType get shareOpaqueBoxGqlTransportBoxTrait =>
+      _platform.inner.share_opaque_BoxGqlTransportBoxTrait;
+  OpaqueTypeFinalizer get BoxGqlTransportBoxTraitFinalizer =>
+      _platform.BoxGqlTransportBoxTraitFinalizer;
+
   DropFnType get dropOpaqueBoxUnsignedMessageBoxTrait =>
       _platform.inner.drop_opaque_BoxUnsignedMessageBoxTrait;
   ShareFnType get shareOpaqueBoxUnsignedMessageBoxTrait =>
@@ -2128,6 +2833,10 @@ class NekotonBridgeImpl implements NekotonBridge {
     return ArcJrpcTransportBoxTrait.fromRaw(raw[0], raw[1], this);
   }
 
+  BoxGqlTransportBoxTrait _wire2api_BoxGqlTransportBoxTrait(dynamic raw) {
+    return BoxGqlTransportBoxTrait.fromRaw(raw[0], raw[1], this);
+  }
+
   BoxUnsignedMessageBoxTrait _wire2api_BoxUnsignedMessageBoxTrait(dynamic raw) {
     return BoxUnsignedMessageBoxTrait.fromRaw(raw[0], raw[1], this);
   }
@@ -2146,6 +2855,10 @@ class NekotonBridgeImpl implements NekotonBridge {
 
   DynamicValue _wire2api_box_autoadd_dynamic_value(dynamic raw) {
     return _wire2api_dynamic_value(raw);
+  }
+
+  int _wire2api_box_autoadd_i32(dynamic raw) {
+    return raw as int;
   }
 
   CallerTestClass _wire2api_caller_test_class(dynamic raw) {
@@ -2272,6 +2985,16 @@ class NekotonBridgeImpl implements NekotonBridge {
     );
   }
 
+  GqlTransportImpl _wire2api_gql_transport_impl(dynamic raw) {
+    final arr = raw as List<dynamic>;
+    if (arr.length != 1)
+      throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
+    return GqlTransportImpl(
+      bridge: this,
+      innerTransport: _wire2api_BoxGqlTransportBoxTrait(arr[0]),
+    );
+  }
+
   int _wire2api_i32(dynamic raw) {
     return raw as int;
   }
@@ -2298,6 +3021,17 @@ class NekotonBridgeImpl implements NekotonBridge {
     return JrpcTransportImpl(
       bridge: this,
       innerTransport: _wire2api_ArcJrpcTransportBoxTrait(arr[0]),
+    );
+  }
+
+  LatestBlock _wire2api_latest_block(dynamic raw) {
+    final arr = raw as List<dynamic>;
+    if (arr.length != 3)
+      throw Exception('unexpected arr length: expect 3 but see ${arr.length}');
+    return LatestBlock(
+      id: _wire2api_String(arr[0]),
+      endLt: _wire2api_u64(arr[1]),
+      genUtime: _wire2api_u32(arr[2]),
     );
   }
 
@@ -2368,6 +3102,10 @@ class NekotonBridgeImpl implements NekotonBridge {
 
   DynamicValue? _wire2api_opt_box_autoadd_dynamic_value(dynamic raw) {
     return raw == null ? null : _wire2api_box_autoadd_dynamic_value(raw);
+  }
+
+  int? _wire2api_opt_box_autoadd_i32(dynamic raw) {
+    return raw == null ? null : _wire2api_box_autoadd_i32(raw);
   }
 
   StorageImpl _wire2api_storage_impl(dynamic raw) {

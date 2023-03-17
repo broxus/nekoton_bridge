@@ -14,7 +14,7 @@ pub struct JrpcConnectionDartWrapper {
 }
 
 impl JrpcConnectionDartWrapper {
-    pub fn new(is_local: bool, instance_hash: String) -> JrpcConnectionDartWrapper {
+    pub fn new(instance_hash: String) -> JrpcConnectionDartWrapper {
         Self {
             inner_connection: RustOpaque::new(JrpcConnectionBox::create(Arc::new(
                 JrpcConnectionImpl { instance_hash },

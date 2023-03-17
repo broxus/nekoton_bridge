@@ -29,6 +29,26 @@ use crate::utils::logger::LogLevel;
 
 // Section: wire functions
 
+fn wire_verify_signature_impl(
+    port_: MessagePort,
+    public_key: impl Wire2Api<String> + UnwindSafe,
+    data_hash: impl Wire2Api<String> + UnwindSafe,
+    signature: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "verify_signature",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_public_key = public_key.wire2api();
+            let api_data_hash = data_hash.wire2api();
+            let api_signature = signature.wire2api();
+            move |task_callback| verify_signature(api_public_key, api_data_hash, api_signature)
+        },
+    )
+}
 fn wire_nt_generate_key_impl(
     port_: MessagePort,
     account_type: impl Wire2Api<MnemonicType> + UnwindSafe,
@@ -73,26 +93,6 @@ fn wire_nt_derive_from_phrase_impl(
             let api_phrase = phrase.wire2api();
             let api_mnemonic_type = mnemonic_type.wire2api();
             move |task_callback| nt_derive_from_phrase(api_phrase, api_mnemonic_type)
-        },
-    )
-}
-fn wire_verify_signature_impl(
-    port_: MessagePort,
-    public_key: impl Wire2Api<String> + UnwindSafe,
-    data_hash: impl Wire2Api<String> + UnwindSafe,
-    signature: impl Wire2Api<String> + UnwindSafe,
-) {
-    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
-        WrapInfo {
-            debug_name: "verify_signature",
-            port: Some(port_),
-            mode: FfiCallMode::Normal,
-        },
-        move || {
-            let api_public_key = public_key.wire2api();
-            let api_data_hash = data_hash.wire2api();
-            let api_signature = signature.wire2api();
-            move |task_callback| verify_signature(api_public_key, api_data_hash, api_signature)
         },
     )
 }
@@ -584,6 +584,71 @@ fn wire_get_code_salt_impl(port_: MessagePort, code: impl Wire2Api<String> + Unw
         },
     )
 }
+fn wire_test_logger_info_impl(port_: MessagePort, string: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "test_logger_info",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_string = string.wire2api();
+            move |task_callback| Ok(test_logger_info(api_string))
+        },
+    )
+}
+fn wire_test_logger_debug_impl(port_: MessagePort, string: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "test_logger_debug",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_string = string.wire2api();
+            move |task_callback| Ok(test_logger_debug(api_string))
+        },
+    )
+}
+fn wire_test_logger_warn_impl(port_: MessagePort, string: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "test_logger_warn",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_string = string.wire2api();
+            move |task_callback| Ok(test_logger_warn(api_string))
+        },
+    )
+}
+fn wire_test_logger_error_impl(port_: MessagePort, string: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "test_logger_error",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_string = string.wire2api();
+            move |task_callback| Ok(test_logger_error(api_string))
+        },
+    )
+}
+fn wire_test_logger_panic_impl(port_: MessagePort, string: impl Wire2Api<String> + UnwindSafe) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "test_logger_panic",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_string = string.wire2api();
+            move |task_callback| Ok(test_logger_panic(api_string))
+        },
+    )
+}
 fn wire_init_logger_impl(
     port_: MessagePort,
     level: impl Wire2Api<LogLevel> + UnwindSafe,
@@ -777,71 +842,6 @@ fn wire_simple_call_func2_impl(port_: MessagePort) {
         move || move |task_callback| Ok(simple_call_func2()),
     )
 }
-fn wire_test_logger_info_impl(port_: MessagePort, string: impl Wire2Api<String> + UnwindSafe) {
-    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
-        WrapInfo {
-            debug_name: "test_logger_info",
-            port: Some(port_),
-            mode: FfiCallMode::Normal,
-        },
-        move || {
-            let api_string = string.wire2api();
-            move |task_callback| Ok(test_logger_info(api_string))
-        },
-    )
-}
-fn wire_test_logger_debug_impl(port_: MessagePort, string: impl Wire2Api<String> + UnwindSafe) {
-    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
-        WrapInfo {
-            debug_name: "test_logger_debug",
-            port: Some(port_),
-            mode: FfiCallMode::Normal,
-        },
-        move || {
-            let api_string = string.wire2api();
-            move |task_callback| Ok(test_logger_debug(api_string))
-        },
-    )
-}
-fn wire_test_logger_warn_impl(port_: MessagePort, string: impl Wire2Api<String> + UnwindSafe) {
-    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
-        WrapInfo {
-            debug_name: "test_logger_warn",
-            port: Some(port_),
-            mode: FfiCallMode::Normal,
-        },
-        move || {
-            let api_string = string.wire2api();
-            move |task_callback| Ok(test_logger_warn(api_string))
-        },
-    )
-}
-fn wire_test_logger_error_impl(port_: MessagePort, string: impl Wire2Api<String> + UnwindSafe) {
-    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
-        WrapInfo {
-            debug_name: "test_logger_error",
-            port: Some(port_),
-            mode: FfiCallMode::Normal,
-        },
-        move || {
-            let api_string = string.wire2api();
-            move |task_callback| Ok(test_logger_error(api_string))
-        },
-    )
-}
-fn wire_test_logger_panic_impl(port_: MessagePort, string: impl Wire2Api<String> + UnwindSafe) {
-    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
-        WrapInfo {
-            debug_name: "test_logger_panic",
-            port: Some(port_),
-            mode: FfiCallMode::Normal,
-        },
-        move || {
-            let api_string = string.wire2api();
-            move |task_callback| Ok(test_logger_panic(api_string))
-        },
-    )
-}
 fn wire_refresh_timeout__method__UnsignedMessageImpl_impl(
     port_: MessagePort,
     that: impl Wire2Api<UnsignedMessageImpl> + UnwindSafe,
@@ -908,6 +908,393 @@ fn wire_sign__method__UnsignedMessageImpl_impl(
         },
     )
 }
+fn wire_new__static_method__GqlTransportImpl_impl(
+    port_: MessagePort,
+    gql_connection: impl Wire2Api<GqlConnectionDartWrapper> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "new__static_method__GqlTransportImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_gql_connection = gql_connection.wire2api();
+            move |task_callback| Ok(GqlTransportImpl::new(api_gql_connection))
+        },
+    )
+}
+fn wire_get_contract_state__method__GqlTransportImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<GqlTransportImpl> + UnwindSafe,
+    address: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_contract_state__method__GqlTransportImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_address = address.wire2api();
+            move |task_callback| GqlTransportImpl::get_contract_state(&api_that, api_address)
+        },
+    )
+}
+fn wire_get_full_contract_state__method__GqlTransportImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<GqlTransportImpl> + UnwindSafe,
+    address: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_full_contract_state__method__GqlTransportImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_address = address.wire2api();
+            move |task_callback| GqlTransportImpl::get_full_contract_state(&api_that, api_address)
+        },
+    )
+}
+fn wire_get_accounts_by_code_hash__method__GqlTransportImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<GqlTransportImpl> + UnwindSafe,
+    code_hash: impl Wire2Api<String> + UnwindSafe,
+    limit: impl Wire2Api<u8> + UnwindSafe,
+    continuation: impl Wire2Api<Option<String>> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_accounts_by_code_hash__method__GqlTransportImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_code_hash = code_hash.wire2api();
+            let api_limit = limit.wire2api();
+            let api_continuation = continuation.wire2api();
+            move |task_callback| {
+                GqlTransportImpl::get_accounts_by_code_hash(
+                    &api_that,
+                    api_code_hash,
+                    api_limit,
+                    api_continuation,
+                )
+            }
+        },
+    )
+}
+fn wire_get_transactions__method__GqlTransportImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<GqlTransportImpl> + UnwindSafe,
+    address: impl Wire2Api<String> + UnwindSafe,
+    from_lt: impl Wire2Api<Option<u64>> + UnwindSafe,
+    count: impl Wire2Api<u8> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_transactions__method__GqlTransportImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_address = address.wire2api();
+            let api_from_lt = from_lt.wire2api();
+            let api_count = count.wire2api();
+            move |task_callback| {
+                GqlTransportImpl::get_transactions(&api_that, api_address, api_from_lt, api_count)
+            }
+        },
+    )
+}
+fn wire_get_transaction__method__GqlTransportImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<GqlTransportImpl> + UnwindSafe,
+    hash: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_transaction__method__GqlTransportImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_hash = hash.wire2api();
+            move |task_callback| GqlTransportImpl::get_transaction(&api_that, api_hash)
+        },
+    )
+}
+fn wire_get_signature_id__method__GqlTransportImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<GqlTransportImpl> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_signature_id__method__GqlTransportImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            move |task_callback| GqlTransportImpl::get_signature_id(&api_that)
+        },
+    )
+}
+fn wire_get_latest_block__method__GqlTransportImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<GqlTransportImpl> + UnwindSafe,
+    address: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_latest_block__method__GqlTransportImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_address = address.wire2api();
+            move |task_callback| {
+                Ok(mirror_LatestBlock(GqlTransportImpl::get_latest_block(
+                    &api_that,
+                    api_address,
+                )?))
+            }
+        },
+    )
+}
+fn wire_get_block__method__GqlTransportImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<GqlTransportImpl> + UnwindSafe,
+    id: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_block__method__GqlTransportImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_id = id.wire2api();
+            move |task_callback| GqlTransportImpl::get_block(&api_that, api_id)
+        },
+    )
+}
+fn wire_wait_for_next_block__method__GqlTransportImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<GqlTransportImpl> + UnwindSafe,
+    current_block_id: impl Wire2Api<String> + UnwindSafe,
+    address: impl Wire2Api<String> + UnwindSafe,
+    timeout: impl Wire2Api<u64> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "wait_for_next_block__method__GqlTransportImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_current_block_id = current_block_id.wire2api();
+            let api_address = address.wire2api();
+            let api_timeout = timeout.wire2api();
+            move |task_callback| {
+                GqlTransportImpl::wait_for_next_block(
+                    &api_that,
+                    api_current_block_id,
+                    api_address,
+                    api_timeout,
+                )
+            }
+        },
+    )
+}
+fn wire_new__static_method__JrpcTransportImpl_impl(
+    port_: MessagePort,
+    jrpc_connection: impl Wire2Api<JrpcConnectionDartWrapper> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "new__static_method__JrpcTransportImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_jrpc_connection = jrpc_connection.wire2api();
+            move |task_callback| Ok(JrpcTransportImpl::new(api_jrpc_connection))
+        },
+    )
+}
+fn wire_get_contract_state__method__JrpcTransportImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<JrpcTransportImpl> + UnwindSafe,
+    address: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_contract_state__method__JrpcTransportImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_address = address.wire2api();
+            move |task_callback| JrpcTransportImpl::get_contract_state(&api_that, api_address)
+        },
+    )
+}
+fn wire_get_full_contract_state__method__JrpcTransportImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<JrpcTransportImpl> + UnwindSafe,
+    address: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_full_contract_state__method__JrpcTransportImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_address = address.wire2api();
+            move |task_callback| JrpcTransportImpl::get_full_contract_state(&api_that, api_address)
+        },
+    )
+}
+fn wire_get_accounts_by_code_hash__method__JrpcTransportImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<JrpcTransportImpl> + UnwindSafe,
+    code_hash: impl Wire2Api<String> + UnwindSafe,
+    limit: impl Wire2Api<u8> + UnwindSafe,
+    continuation: impl Wire2Api<Option<String>> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_accounts_by_code_hash__method__JrpcTransportImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_code_hash = code_hash.wire2api();
+            let api_limit = limit.wire2api();
+            let api_continuation = continuation.wire2api();
+            move |task_callback| {
+                JrpcTransportImpl::get_accounts_by_code_hash(
+                    &api_that,
+                    api_code_hash,
+                    api_limit,
+                    api_continuation,
+                )
+            }
+        },
+    )
+}
+fn wire_get_transactions__method__JrpcTransportImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<JrpcTransportImpl> + UnwindSafe,
+    address: impl Wire2Api<String> + UnwindSafe,
+    from_lt: impl Wire2Api<Option<u64>> + UnwindSafe,
+    count: impl Wire2Api<u8> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_transactions__method__JrpcTransportImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_address = address.wire2api();
+            let api_from_lt = from_lt.wire2api();
+            let api_count = count.wire2api();
+            move |task_callback| {
+                JrpcTransportImpl::get_transactions(&api_that, api_address, api_from_lt, api_count)
+            }
+        },
+    )
+}
+fn wire_get_transaction__method__JrpcTransportImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<JrpcTransportImpl> + UnwindSafe,
+    hash: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_transaction__method__JrpcTransportImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            let api_hash = hash.wire2api();
+            move |task_callback| JrpcTransportImpl::get_transaction(&api_that, api_hash)
+        },
+    )
+}
+fn wire_get_signature_id__method__JrpcTransportImpl_impl(
+    port_: MessagePort,
+    that: impl Wire2Api<JrpcTransportImpl> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_signature_id__method__JrpcTransportImpl",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_that = that.wire2api();
+            move |task_callback| JrpcTransportImpl::get_signature_id(&api_that)
+        },
+    )
+}
+fn wire_new__static_method__JrpcConnectionDartWrapper_impl(
+    port_: MessagePort,
+    instance_hash: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "new__static_method__JrpcConnectionDartWrapper",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_instance_hash = instance_hash.wire2api();
+            move |task_callback| Ok(JrpcConnectionDartWrapper::new(api_instance_hash))
+        },
+    )
+}
+fn wire_new__static_method__GqlConnectionDartWrapper_impl(
+    port_: MessagePort,
+    is_local: impl Wire2Api<bool> + UnwindSafe,
+    instance_hash: impl Wire2Api<String> + UnwindSafe,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "new__static_method__GqlConnectionDartWrapper",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_is_local = is_local.wire2api();
+            let api_instance_hash = instance_hash.wire2api();
+            move |task_callback| {
+                Ok(GqlConnectionDartWrapper::new(
+                    api_is_local,
+                    api_instance_hash,
+                ))
+            }
+        },
+    )
+}
 fn wire_new__static_method__LedgerConnectionImpl_impl(
     port_: MessagePort,
     instance_hash: impl Wire2Api<String> + UnwindSafe,
@@ -937,68 +1324,6 @@ fn wire_new__static_method__StorageImpl_impl(
         move || {
             let api_instance_hash = instance_hash.wire2api();
             move |task_callback| Ok(StorageImpl::new(api_instance_hash))
-        },
-    )
-}
-fn wire_new__static_method__GqlConnectionDartWrapper_impl(
-    port_: MessagePort,
-    is_local: impl Wire2Api<bool> + UnwindSafe,
-    instance_hash: impl Wire2Api<String> + UnwindSafe,
-) {
-    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
-        WrapInfo {
-            debug_name: "new__static_method__GqlConnectionDartWrapper",
-            port: Some(port_),
-            mode: FfiCallMode::Normal,
-        },
-        move || {
-            let api_is_local = is_local.wire2api();
-            let api_instance_hash = instance_hash.wire2api();
-            move |task_callback| {
-                Ok(GqlConnectionDartWrapper::new(
-                    api_is_local,
-                    api_instance_hash,
-                ))
-            }
-        },
-    )
-}
-fn wire_new__static_method__JrpcConnectionDartWrapper_impl(
-    port_: MessagePort,
-    is_local: impl Wire2Api<bool> + UnwindSafe,
-    instance_hash: impl Wire2Api<String> + UnwindSafe,
-) {
-    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
-        WrapInfo {
-            debug_name: "new__static_method__JrpcConnectionDartWrapper",
-            port: Some(port_),
-            mode: FfiCallMode::Normal,
-        },
-        move || {
-            let api_is_local = is_local.wire2api();
-            let api_instance_hash = instance_hash.wire2api();
-            move |task_callback| {
-                Ok(JrpcConnectionDartWrapper::new(
-                    api_is_local,
-                    api_instance_hash,
-                ))
-            }
-        },
-    )
-}
-fn wire_new__static_method__JrpcTransportImpl_impl(
-    port_: MessagePort,
-    jrpc_connection: impl Wire2Api<JrpcConnectionDartWrapper> + UnwindSafe,
-) {
-    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
-        WrapInfo {
-            debug_name: "new__static_method__JrpcTransportImpl",
-            port: Some(port_),
-            mode: FfiCallMode::Normal,
-        },
-        move || {
-            let api_jrpc_connection = jrpc_connection.wire2api();
-            move |task_callback| Ok(JrpcTransportImpl::new(api_jrpc_connection))
         },
     )
 }
@@ -1068,14 +1393,25 @@ fn wire_call_some_func__method__CallerTestClass_impl(
 // Section: wrapper structs
 
 #[derive(Clone)]
+struct mirror_LatestBlock(LatestBlock);
+
+#[derive(Clone)]
 struct mirror_MnemonicType(MnemonicType);
 
 // Section: static checks
 
-const _: fn() = || match None::<MnemonicType>.unwrap() {
-    MnemonicType::Legacy => {}
-    MnemonicType::Labs(field0) => {
-        let _: u16 = field0;
+const _: fn() = || {
+    {
+        let LatestBlock = None::<LatestBlock>.unwrap();
+        let _: String = LatestBlock.id;
+        let _: u64 = LatestBlock.end_lt;
+        let _: u32 = LatestBlock.gen_utime;
+    }
+    match None::<MnemonicType>.unwrap() {
+        MnemonicType::Legacy => {}
+        MnemonicType::Labs(field0) => {
+            let _: u16 = field0;
+        }
     }
 };
 // Section: allocate functions
@@ -1124,6 +1460,7 @@ impl Wire2Api<f64> for f64 {
         self
     }
 }
+
 impl Wire2Api<i32> for i32 {
     fn wire2api(self) -> i32 {
         self
@@ -1259,6 +1596,13 @@ impl support::IntoDart for GqlConnectionDartWrapper {
 }
 impl support::IntoDartExceptPrimitive for GqlConnectionDartWrapper {}
 
+impl support::IntoDart for GqlTransportImpl {
+    fn into_dart(self) -> support::DartAbi {
+        vec![self.inner_transport.into_dart()].into_dart()
+    }
+}
+impl support::IntoDartExceptPrimitive for GqlTransportImpl {}
+
 impl support::IntoDart for JrpcConnectionDartWrapper {
     fn into_dart(self) -> support::DartAbi {
         vec![self.inner_connection.into_dart()].into_dart()
@@ -1272,6 +1616,18 @@ impl support::IntoDart for JrpcTransportImpl {
     }
 }
 impl support::IntoDartExceptPrimitive for JrpcTransportImpl {}
+
+impl support::IntoDart for mirror_LatestBlock {
+    fn into_dart(self) -> support::DartAbi {
+        vec![
+            self.0.id.into_dart(),
+            self.0.end_lt.into_dart(),
+            self.0.gen_utime.into_dart(),
+        ]
+        .into_dart()
+    }
+}
+impl support::IntoDartExceptPrimitive for mirror_LatestBlock {}
 
 impl support::IntoDart for LedgerConnectionImpl {
     fn into_dart(self) -> support::DartAbi {
@@ -1349,6 +1705,16 @@ mod web {
     // Section: wire functions
 
     #[wasm_bindgen]
+    pub fn wire_verify_signature(
+        port_: MessagePort,
+        public_key: String,
+        data_hash: String,
+        signature: String,
+    ) {
+        wire_verify_signature_impl(port_, public_key, data_hash, signature)
+    }
+
+    #[wasm_bindgen]
     pub fn wire_nt_generate_key(port_: MessagePort, account_type: JsValue) {
         wire_nt_generate_key_impl(port_, account_type)
     }
@@ -1361,16 +1727,6 @@ mod web {
     #[wasm_bindgen]
     pub fn wire_nt_derive_from_phrase(port_: MessagePort, phrase: String, mnemonic_type: JsValue) {
         wire_nt_derive_from_phrase_impl(port_, phrase, mnemonic_type)
-    }
-
-    #[wasm_bindgen]
-    pub fn wire_verify_signature(
-        port_: MessagePort,
-        public_key: String,
-        data_hash: String,
-        signature: String,
-    ) {
-        wire_verify_signature_impl(port_, public_key, data_hash, signature)
     }
 
     #[wasm_bindgen]
@@ -1601,6 +1957,31 @@ mod web {
     }
 
     #[wasm_bindgen]
+    pub fn wire_test_logger_info(port_: MessagePort, string: String) {
+        wire_test_logger_info_impl(port_, string)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_test_logger_debug(port_: MessagePort, string: String) {
+        wire_test_logger_debug_impl(port_, string)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_test_logger_warn(port_: MessagePort, string: String) {
+        wire_test_logger_warn_impl(port_, string)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_test_logger_error(port_: MessagePort, string: String) {
+        wire_test_logger_error_impl(port_, string)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_test_logger_panic(port_: MessagePort, string: String) {
+        wire_test_logger_panic_impl(port_, string)
+    }
+
+    #[wasm_bindgen]
     pub fn wire_init_logger(port_: MessagePort, level: i32, mobile_logger: bool) {
         wire_init_logger_impl(port_, level, mobile_logger)
     }
@@ -1676,31 +2057,6 @@ mod web {
     }
 
     #[wasm_bindgen]
-    pub fn wire_test_logger_info(port_: MessagePort, string: String) {
-        wire_test_logger_info_impl(port_, string)
-    }
-
-    #[wasm_bindgen]
-    pub fn wire_test_logger_debug(port_: MessagePort, string: String) {
-        wire_test_logger_debug_impl(port_, string)
-    }
-
-    #[wasm_bindgen]
-    pub fn wire_test_logger_warn(port_: MessagePort, string: String) {
-        wire_test_logger_warn_impl(port_, string)
-    }
-
-    #[wasm_bindgen]
-    pub fn wire_test_logger_error(port_: MessagePort, string: String) {
-        wire_test_logger_error_impl(port_, string)
-    }
-
-    #[wasm_bindgen]
-    pub fn wire_test_logger_panic(port_: MessagePort, string: String) {
-        wire_test_logger_panic_impl(port_, string)
-    }
-
-    #[wasm_bindgen]
     pub fn wire_refresh_timeout__method__UnsignedMessageImpl(port_: MessagePort, that: JsValue) {
         wire_refresh_timeout__method__UnsignedMessageImpl_impl(port_, that)
     }
@@ -1725,16 +2081,175 @@ mod web {
     }
 
     #[wasm_bindgen]
-    pub fn wire_new__static_method__LedgerConnectionImpl(
-        port_: MessagePort,
-        instance_hash: String,
-    ) {
-        wire_new__static_method__LedgerConnectionImpl_impl(port_, instance_hash)
+    pub fn wire_new__static_method__GqlTransportImpl(port_: MessagePort, gql_connection: JsValue) {
+        wire_new__static_method__GqlTransportImpl_impl(port_, gql_connection)
     }
 
     #[wasm_bindgen]
-    pub fn wire_new__static_method__StorageImpl(port_: MessagePort, instance_hash: String) {
-        wire_new__static_method__StorageImpl_impl(port_, instance_hash)
+    pub fn wire_get_contract_state__method__GqlTransportImpl(
+        port_: MessagePort,
+        that: JsValue,
+        address: String,
+    ) {
+        wire_get_contract_state__method__GqlTransportImpl_impl(port_, that, address)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_get_full_contract_state__method__GqlTransportImpl(
+        port_: MessagePort,
+        that: JsValue,
+        address: String,
+    ) {
+        wire_get_full_contract_state__method__GqlTransportImpl_impl(port_, that, address)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_get_accounts_by_code_hash__method__GqlTransportImpl(
+        port_: MessagePort,
+        that: JsValue,
+        code_hash: String,
+        limit: u8,
+        continuation: Option<String>,
+    ) {
+        wire_get_accounts_by_code_hash__method__GqlTransportImpl_impl(
+            port_,
+            that,
+            code_hash,
+            limit,
+            continuation,
+        )
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_get_transactions__method__GqlTransportImpl(
+        port_: MessagePort,
+        that: JsValue,
+        address: String,
+        from_lt: JsValue,
+        count: u8,
+    ) {
+        wire_get_transactions__method__GqlTransportImpl_impl(port_, that, address, from_lt, count)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_get_transaction__method__GqlTransportImpl(
+        port_: MessagePort,
+        that: JsValue,
+        hash: String,
+    ) {
+        wire_get_transaction__method__GqlTransportImpl_impl(port_, that, hash)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_get_signature_id__method__GqlTransportImpl(port_: MessagePort, that: JsValue) {
+        wire_get_signature_id__method__GqlTransportImpl_impl(port_, that)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_get_latest_block__method__GqlTransportImpl(
+        port_: MessagePort,
+        that: JsValue,
+        address: String,
+    ) {
+        wire_get_latest_block__method__GqlTransportImpl_impl(port_, that, address)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_get_block__method__GqlTransportImpl(port_: MessagePort, that: JsValue, id: String) {
+        wire_get_block__method__GqlTransportImpl_impl(port_, that, id)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_wait_for_next_block__method__GqlTransportImpl(
+        port_: MessagePort,
+        that: JsValue,
+        current_block_id: String,
+        address: String,
+        timeout: u64,
+    ) {
+        wire_wait_for_next_block__method__GqlTransportImpl_impl(
+            port_,
+            that,
+            current_block_id,
+            address,
+            timeout,
+        )
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_new__static_method__JrpcTransportImpl(
+        port_: MessagePort,
+        jrpc_connection: JsValue,
+    ) {
+        wire_new__static_method__JrpcTransportImpl_impl(port_, jrpc_connection)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_get_contract_state__method__JrpcTransportImpl(
+        port_: MessagePort,
+        that: JsValue,
+        address: String,
+    ) {
+        wire_get_contract_state__method__JrpcTransportImpl_impl(port_, that, address)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_get_full_contract_state__method__JrpcTransportImpl(
+        port_: MessagePort,
+        that: JsValue,
+        address: String,
+    ) {
+        wire_get_full_contract_state__method__JrpcTransportImpl_impl(port_, that, address)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
+        port_: MessagePort,
+        that: JsValue,
+        code_hash: String,
+        limit: u8,
+        continuation: Option<String>,
+    ) {
+        wire_get_accounts_by_code_hash__method__JrpcTransportImpl_impl(
+            port_,
+            that,
+            code_hash,
+            limit,
+            continuation,
+        )
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_get_transactions__method__JrpcTransportImpl(
+        port_: MessagePort,
+        that: JsValue,
+        address: String,
+        from_lt: JsValue,
+        count: u8,
+    ) {
+        wire_get_transactions__method__JrpcTransportImpl_impl(port_, that, address, from_lt, count)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_get_transaction__method__JrpcTransportImpl(
+        port_: MessagePort,
+        that: JsValue,
+        hash: String,
+    ) {
+        wire_get_transaction__method__JrpcTransportImpl_impl(port_, that, hash)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_get_signature_id__method__JrpcTransportImpl(port_: MessagePort, that: JsValue) {
+        wire_get_signature_id__method__JrpcTransportImpl_impl(port_, that)
+    }
+
+    #[wasm_bindgen]
+    pub fn wire_new__static_method__JrpcConnectionDartWrapper(
+        port_: MessagePort,
+        instance_hash: String,
+    ) {
+        wire_new__static_method__JrpcConnectionDartWrapper_impl(port_, instance_hash)
     }
 
     #[wasm_bindgen]
@@ -1747,20 +2262,16 @@ mod web {
     }
 
     #[wasm_bindgen]
-    pub fn wire_new__static_method__JrpcConnectionDartWrapper(
+    pub fn wire_new__static_method__LedgerConnectionImpl(
         port_: MessagePort,
-        is_local: bool,
         instance_hash: String,
     ) {
-        wire_new__static_method__JrpcConnectionDartWrapper_impl(port_, is_local, instance_hash)
+        wire_new__static_method__LedgerConnectionImpl_impl(port_, instance_hash)
     }
 
     #[wasm_bindgen]
-    pub fn wire_new__static_method__JrpcTransportImpl(
-        port_: MessagePort,
-        jrpc_connection: JsValue,
-    ) {
-        wire_new__static_method__JrpcTransportImpl_impl(port_, jrpc_connection)
+    pub fn wire_new__static_method__StorageImpl(port_: MessagePort, instance_hash: String) {
+        wire_new__static_method__StorageImpl_impl(port_, instance_hash)
     }
 
     #[wasm_bindgen]
@@ -1832,6 +2343,21 @@ mod web {
     pub fn share_opaque_ArcJrpcTransportBoxTrait(ptr: *const c_void) -> *const c_void {
         unsafe {
             Arc::<Arc<dyn JrpcTransportBoxTrait>>::increment_strong_count(ptr as _);
+            ptr
+        }
+    }
+
+    #[wasm_bindgen]
+    pub fn drop_opaque_BoxGqlTransportBoxTrait(ptr: *const c_void) {
+        unsafe {
+            Arc::<Box<dyn GqlTransportBoxTrait>>::decrement_strong_count(ptr as _);
+        }
+    }
+
+    #[wasm_bindgen]
+    pub fn share_opaque_BoxGqlTransportBoxTrait(ptr: *const c_void) -> *const c_void {
+        unsafe {
+            Arc::<Box<dyn GqlTransportBoxTrait>>::increment_strong_count(ptr as _);
             ptr
         }
     }
@@ -1926,6 +2452,35 @@ mod web {
         }
     }
 
+    impl Wire2Api<GqlConnectionDartWrapper> for JsValue {
+        fn wire2api(self) -> GqlConnectionDartWrapper {
+            let self_ = self.dyn_into::<JsArray>().unwrap();
+            assert_eq!(
+                self_.length(),
+                1,
+                "Expected 1 elements, got {}",
+                self_.length()
+            );
+            GqlConnectionDartWrapper {
+                inner_connection: self_.get(0).wire2api(),
+            }
+        }
+    }
+    impl Wire2Api<GqlTransportImpl> for JsValue {
+        fn wire2api(self) -> GqlTransportImpl {
+            let self_ = self.dyn_into::<JsArray>().unwrap();
+            assert_eq!(
+                self_.length(),
+                1,
+                "Expected 1 elements, got {}",
+                self_.length()
+            );
+            GqlTransportImpl {
+                inner_transport: self_.get(0).wire2api(),
+            }
+        }
+    }
+
     impl Wire2Api<JrpcConnectionDartWrapper> for JsValue {
         fn wire2api(self) -> JrpcConnectionDartWrapper {
             let self_ = self.dyn_into::<JsArray>().unwrap();
@@ -1937,6 +2492,20 @@ mod web {
             );
             JrpcConnectionDartWrapper {
                 inner_connection: self_.get(0).wire2api(),
+            }
+        }
+    }
+    impl Wire2Api<JrpcTransportImpl> for JsValue {
+        fn wire2api(self) -> JrpcTransportImpl {
+            let self_ = self.dyn_into::<JsArray>().unwrap();
+            assert_eq!(
+                self_.length(),
+                1,
+                "Expected 1 elements, got {}",
+                self_.length()
+            );
+            JrpcTransportImpl {
+                inner_transport: self_.get(0).wire2api(),
             }
         }
     }
@@ -2015,8 +2584,38 @@ mod web {
     }
     // Section: impl Wire2Api for JsValue
 
+    impl Wire2Api<RustOpaque<Arc<dyn GqlConnectionBoxTrait>>> for JsValue {
+        fn wire2api(self) -> RustOpaque<Arc<dyn GqlConnectionBoxTrait>> {
+            #[cfg(target_pointer_width = "64")]
+            {
+                compile_error!("64-bit pointers are not supported.");
+            }
+
+            unsafe { support::opaque_from_dart((self.as_f64().unwrap() as usize) as _) }
+        }
+    }
     impl Wire2Api<RustOpaque<Arc<dyn JrpcConnectionBoxTrait>>> for JsValue {
         fn wire2api(self) -> RustOpaque<Arc<dyn JrpcConnectionBoxTrait>> {
+            #[cfg(target_pointer_width = "64")]
+            {
+                compile_error!("64-bit pointers are not supported.");
+            }
+
+            unsafe { support::opaque_from_dart((self.as_f64().unwrap() as usize) as _) }
+        }
+    }
+    impl Wire2Api<RustOpaque<Arc<dyn JrpcTransportBoxTrait>>> for JsValue {
+        fn wire2api(self) -> RustOpaque<Arc<dyn JrpcTransportBoxTrait>> {
+            #[cfg(target_pointer_width = "64")]
+            {
+                compile_error!("64-bit pointers are not supported.");
+            }
+
+            unsafe { support::opaque_from_dart((self.as_f64().unwrap() as usize) as _) }
+        }
+    }
+    impl Wire2Api<RustOpaque<Box<dyn GqlTransportBoxTrait>>> for JsValue {
+        fn wire2api(self) -> RustOpaque<Box<dyn GqlTransportBoxTrait>> {
             #[cfg(target_pointer_width = "64")]
             {
                 compile_error!("64-bit pointers are not supported.");
@@ -2085,6 +2684,11 @@ mod web {
             (!self.is_undefined() && !self.is_null()).then(|| self.wire2api())
         }
     }
+    impl Wire2Api<Option<u64>> for JsValue {
+        fn wire2api(self) -> Option<u64> {
+            (!self.is_undefined() && !self.is_null()).then(|| self.wire2api())
+        }
+    }
     impl Wire2Api<u16> for JsValue {
         fn wire2api(self) -> u16 {
             self.unchecked_into_f64() as _
@@ -2120,6 +2724,16 @@ mod io {
     // Section: wire functions
 
     #[no_mangle]
+    pub extern "C" fn wire_verify_signature(
+        port_: i64,
+        public_key: *mut wire_uint_8_list,
+        data_hash: *mut wire_uint_8_list,
+        signature: *mut wire_uint_8_list,
+    ) {
+        wire_verify_signature_impl(port_, public_key, data_hash, signature)
+    }
+
+    #[no_mangle]
     pub extern "C" fn wire_nt_generate_key(port_: i64, account_type: *mut wire_MnemonicType) {
         wire_nt_generate_key_impl(port_, account_type)
     }
@@ -2136,16 +2750,6 @@ mod io {
         mnemonic_type: *mut wire_MnemonicType,
     ) {
         wire_nt_derive_from_phrase_impl(port_, phrase, mnemonic_type)
-    }
-
-    #[no_mangle]
-    pub extern "C" fn wire_verify_signature(
-        port_: i64,
-        public_key: *mut wire_uint_8_list,
-        data_hash: *mut wire_uint_8_list,
-        signature: *mut wire_uint_8_list,
-    ) {
-        wire_verify_signature_impl(port_, public_key, data_hash, signature)
     }
 
     #[no_mangle]
@@ -2392,6 +2996,31 @@ mod io {
     }
 
     #[no_mangle]
+    pub extern "C" fn wire_test_logger_info(port_: i64, string: *mut wire_uint_8_list) {
+        wire_test_logger_info_impl(port_, string)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_test_logger_debug(port_: i64, string: *mut wire_uint_8_list) {
+        wire_test_logger_debug_impl(port_, string)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_test_logger_warn(port_: i64, string: *mut wire_uint_8_list) {
+        wire_test_logger_warn_impl(port_, string)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_test_logger_error(port_: i64, string: *mut wire_uint_8_list) {
+        wire_test_logger_error_impl(port_, string)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_test_logger_panic(port_: i64, string: *mut wire_uint_8_list) {
+        wire_test_logger_panic_impl(port_, string)
+    }
+
+    #[no_mangle]
     pub extern "C" fn wire_init_logger(port_: i64, level: i32, mobile_logger: bool) {
         wire_init_logger_impl(port_, level, mobile_logger)
     }
@@ -2471,31 +3100,6 @@ mod io {
     }
 
     #[no_mangle]
-    pub extern "C" fn wire_test_logger_info(port_: i64, string: *mut wire_uint_8_list) {
-        wire_test_logger_info_impl(port_, string)
-    }
-
-    #[no_mangle]
-    pub extern "C" fn wire_test_logger_debug(port_: i64, string: *mut wire_uint_8_list) {
-        wire_test_logger_debug_impl(port_, string)
-    }
-
-    #[no_mangle]
-    pub extern "C" fn wire_test_logger_warn(port_: i64, string: *mut wire_uint_8_list) {
-        wire_test_logger_warn_impl(port_, string)
-    }
-
-    #[no_mangle]
-    pub extern "C" fn wire_test_logger_error(port_: i64, string: *mut wire_uint_8_list) {
-        wire_test_logger_error_impl(port_, string)
-    }
-
-    #[no_mangle]
-    pub extern "C" fn wire_test_logger_panic(port_: i64, string: *mut wire_uint_8_list) {
-        wire_test_logger_panic_impl(port_, string)
-    }
-
-    #[no_mangle]
     pub extern "C" fn wire_refresh_timeout__method__UnsignedMessageImpl(
         port_: i64,
         that: *mut wire_UnsignedMessageImpl,
@@ -2529,6 +3133,200 @@ mod io {
     }
 
     #[no_mangle]
+    pub extern "C" fn wire_new__static_method__GqlTransportImpl(
+        port_: i64,
+        gql_connection: *mut wire_GqlConnectionDartWrapper,
+    ) {
+        wire_new__static_method__GqlTransportImpl_impl(port_, gql_connection)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_get_contract_state__method__GqlTransportImpl(
+        port_: i64,
+        that: *mut wire_GqlTransportImpl,
+        address: *mut wire_uint_8_list,
+    ) {
+        wire_get_contract_state__method__GqlTransportImpl_impl(port_, that, address)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_get_full_contract_state__method__GqlTransportImpl(
+        port_: i64,
+        that: *mut wire_GqlTransportImpl,
+        address: *mut wire_uint_8_list,
+    ) {
+        wire_get_full_contract_state__method__GqlTransportImpl_impl(port_, that, address)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_get_accounts_by_code_hash__method__GqlTransportImpl(
+        port_: i64,
+        that: *mut wire_GqlTransportImpl,
+        code_hash: *mut wire_uint_8_list,
+        limit: u8,
+        continuation: *mut wire_uint_8_list,
+    ) {
+        wire_get_accounts_by_code_hash__method__GqlTransportImpl_impl(
+            port_,
+            that,
+            code_hash,
+            limit,
+            continuation,
+        )
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_get_transactions__method__GqlTransportImpl(
+        port_: i64,
+        that: *mut wire_GqlTransportImpl,
+        address: *mut wire_uint_8_list,
+        from_lt: *mut u64,
+        count: u8,
+    ) {
+        wire_get_transactions__method__GqlTransportImpl_impl(port_, that, address, from_lt, count)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_get_transaction__method__GqlTransportImpl(
+        port_: i64,
+        that: *mut wire_GqlTransportImpl,
+        hash: *mut wire_uint_8_list,
+    ) {
+        wire_get_transaction__method__GqlTransportImpl_impl(port_, that, hash)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_get_signature_id__method__GqlTransportImpl(
+        port_: i64,
+        that: *mut wire_GqlTransportImpl,
+    ) {
+        wire_get_signature_id__method__GqlTransportImpl_impl(port_, that)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_get_latest_block__method__GqlTransportImpl(
+        port_: i64,
+        that: *mut wire_GqlTransportImpl,
+        address: *mut wire_uint_8_list,
+    ) {
+        wire_get_latest_block__method__GqlTransportImpl_impl(port_, that, address)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_get_block__method__GqlTransportImpl(
+        port_: i64,
+        that: *mut wire_GqlTransportImpl,
+        id: *mut wire_uint_8_list,
+    ) {
+        wire_get_block__method__GqlTransportImpl_impl(port_, that, id)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_wait_for_next_block__method__GqlTransportImpl(
+        port_: i64,
+        that: *mut wire_GqlTransportImpl,
+        current_block_id: *mut wire_uint_8_list,
+        address: *mut wire_uint_8_list,
+        timeout: u64,
+    ) {
+        wire_wait_for_next_block__method__GqlTransportImpl_impl(
+            port_,
+            that,
+            current_block_id,
+            address,
+            timeout,
+        )
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_new__static_method__JrpcTransportImpl(
+        port_: i64,
+        jrpc_connection: *mut wire_JrpcConnectionDartWrapper,
+    ) {
+        wire_new__static_method__JrpcTransportImpl_impl(port_, jrpc_connection)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_get_contract_state__method__JrpcTransportImpl(
+        port_: i64,
+        that: *mut wire_JrpcTransportImpl,
+        address: *mut wire_uint_8_list,
+    ) {
+        wire_get_contract_state__method__JrpcTransportImpl_impl(port_, that, address)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_get_full_contract_state__method__JrpcTransportImpl(
+        port_: i64,
+        that: *mut wire_JrpcTransportImpl,
+        address: *mut wire_uint_8_list,
+    ) {
+        wire_get_full_contract_state__method__JrpcTransportImpl_impl(port_, that, address)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
+        port_: i64,
+        that: *mut wire_JrpcTransportImpl,
+        code_hash: *mut wire_uint_8_list,
+        limit: u8,
+        continuation: *mut wire_uint_8_list,
+    ) {
+        wire_get_accounts_by_code_hash__method__JrpcTransportImpl_impl(
+            port_,
+            that,
+            code_hash,
+            limit,
+            continuation,
+        )
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_get_transactions__method__JrpcTransportImpl(
+        port_: i64,
+        that: *mut wire_JrpcTransportImpl,
+        address: *mut wire_uint_8_list,
+        from_lt: *mut u64,
+        count: u8,
+    ) {
+        wire_get_transactions__method__JrpcTransportImpl_impl(port_, that, address, from_lt, count)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_get_transaction__method__JrpcTransportImpl(
+        port_: i64,
+        that: *mut wire_JrpcTransportImpl,
+        hash: *mut wire_uint_8_list,
+    ) {
+        wire_get_transaction__method__JrpcTransportImpl_impl(port_, that, hash)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_get_signature_id__method__JrpcTransportImpl(
+        port_: i64,
+        that: *mut wire_JrpcTransportImpl,
+    ) {
+        wire_get_signature_id__method__JrpcTransportImpl_impl(port_, that)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_new__static_method__JrpcConnectionDartWrapper(
+        port_: i64,
+        instance_hash: *mut wire_uint_8_list,
+    ) {
+        wire_new__static_method__JrpcConnectionDartWrapper_impl(port_, instance_hash)
+    }
+
+    #[no_mangle]
+    pub extern "C" fn wire_new__static_method__GqlConnectionDartWrapper(
+        port_: i64,
+        is_local: bool,
+        instance_hash: *mut wire_uint_8_list,
+    ) {
+        wire_new__static_method__GqlConnectionDartWrapper_impl(port_, is_local, instance_hash)
+    }
+
+    #[no_mangle]
     pub extern "C" fn wire_new__static_method__LedgerConnectionImpl(
         port_: i64,
         instance_hash: *mut wire_uint_8_list,
@@ -2542,32 +3340,6 @@ mod io {
         instance_hash: *mut wire_uint_8_list,
     ) {
         wire_new__static_method__StorageImpl_impl(port_, instance_hash)
-    }
-
-    #[no_mangle]
-    pub extern "C" fn wire_new__static_method__GqlConnectionDartWrapper(
-        port_: i64,
-        is_local: bool,
-        instance_hash: *mut wire_uint_8_list,
-    ) {
-        wire_new__static_method__GqlConnectionDartWrapper_impl(port_, is_local, instance_hash)
-    }
-
-    #[no_mangle]
-    pub extern "C" fn wire_new__static_method__JrpcConnectionDartWrapper(
-        port_: i64,
-        is_local: bool,
-        instance_hash: *mut wire_uint_8_list,
-    ) {
-        wire_new__static_method__JrpcConnectionDartWrapper_impl(port_, is_local, instance_hash)
-    }
-
-    #[no_mangle]
-    pub extern "C" fn wire_new__static_method__JrpcTransportImpl(
-        port_: i64,
-        jrpc_connection: *mut wire_JrpcConnectionDartWrapper,
-    ) {
-        wire_new__static_method__JrpcTransportImpl_impl(port_, jrpc_connection)
     }
 
     #[no_mangle]
@@ -2600,8 +3372,23 @@ mod io {
     // Section: allocate functions
 
     #[no_mangle]
+    pub extern "C" fn new_ArcGqlConnectionBoxTrait() -> wire_ArcGqlConnectionBoxTrait {
+        wire_ArcGqlConnectionBoxTrait::new_with_null_ptr()
+    }
+
+    #[no_mangle]
     pub extern "C" fn new_ArcJrpcConnectionBoxTrait() -> wire_ArcJrpcConnectionBoxTrait {
         wire_ArcJrpcConnectionBoxTrait::new_with_null_ptr()
+    }
+
+    #[no_mangle]
+    pub extern "C" fn new_ArcJrpcTransportBoxTrait() -> wire_ArcJrpcTransportBoxTrait {
+        wire_ArcJrpcTransportBoxTrait::new_with_null_ptr()
+    }
+
+    #[no_mangle]
+    pub extern "C" fn new_BoxGqlTransportBoxTrait() -> wire_BoxGqlTransportBoxTrait {
+        wire_BoxGqlTransportBoxTrait::new_with_null_ptr()
     }
 
     #[no_mangle]
@@ -2625,9 +3412,25 @@ mod io {
     }
 
     #[no_mangle]
+    pub extern "C" fn new_box_autoadd_gql_connection_dart_wrapper_0(
+    ) -> *mut wire_GqlConnectionDartWrapper {
+        support::new_leak_box_ptr(wire_GqlConnectionDartWrapper::new_with_null_ptr())
+    }
+
+    #[no_mangle]
+    pub extern "C" fn new_box_autoadd_gql_transport_impl_0() -> *mut wire_GqlTransportImpl {
+        support::new_leak_box_ptr(wire_GqlTransportImpl::new_with_null_ptr())
+    }
+
+    #[no_mangle]
     pub extern "C" fn new_box_autoadd_jrpc_connection_dart_wrapper_0(
     ) -> *mut wire_JrpcConnectionDartWrapper {
         support::new_leak_box_ptr(wire_JrpcConnectionDartWrapper::new_with_null_ptr())
+    }
+
+    #[no_mangle]
+    pub extern "C" fn new_box_autoadd_jrpc_transport_impl_0() -> *mut wire_JrpcTransportImpl {
+        support::new_leak_box_ptr(wire_JrpcTransportImpl::new_with_null_ptr())
     }
 
     #[no_mangle]
@@ -2638,6 +3441,11 @@ mod io {
     #[no_mangle]
     pub extern "C" fn new_box_autoadd_my_class_0() -> *mut wire_MyClass {
         support::new_leak_box_ptr(wire_MyClass::new_with_null_ptr())
+    }
+
+    #[no_mangle]
+    pub extern "C" fn new_box_autoadd_u64_0(value: u64) -> *mut u64 {
+        support::new_leak_box_ptr(value)
     }
 
     #[no_mangle]
@@ -2722,6 +3530,21 @@ mod io {
     }
 
     #[no_mangle]
+    pub extern "C" fn drop_opaque_BoxGqlTransportBoxTrait(ptr: *const c_void) {
+        unsafe {
+            Arc::<Box<dyn GqlTransportBoxTrait>>::decrement_strong_count(ptr as _);
+        }
+    }
+
+    #[no_mangle]
+    pub extern "C" fn share_opaque_BoxGqlTransportBoxTrait(ptr: *const c_void) -> *const c_void {
+        unsafe {
+            Arc::<Box<dyn GqlTransportBoxTrait>>::increment_strong_count(ptr as _);
+            ptr
+        }
+    }
+
+    #[no_mangle]
     pub extern "C" fn drop_opaque_BoxUnsignedMessageBoxTrait(ptr: *const c_void) {
         unsafe {
             Arc::<Box<dyn UnsignedMessageBoxTrait>>::decrement_strong_count(ptr as _);
@@ -2738,8 +3561,23 @@ mod io {
 
     // Section: impl Wire2Api
 
+    impl Wire2Api<RustOpaque<Arc<dyn GqlConnectionBoxTrait>>> for wire_ArcGqlConnectionBoxTrait {
+        fn wire2api(self) -> RustOpaque<Arc<dyn GqlConnectionBoxTrait>> {
+            unsafe { support::opaque_from_dart(self.ptr as _) }
+        }
+    }
     impl Wire2Api<RustOpaque<Arc<dyn JrpcConnectionBoxTrait>>> for wire_ArcJrpcConnectionBoxTrait {
         fn wire2api(self) -> RustOpaque<Arc<dyn JrpcConnectionBoxTrait>> {
+            unsafe { support::opaque_from_dart(self.ptr as _) }
+        }
+    }
+    impl Wire2Api<RustOpaque<Arc<dyn JrpcTransportBoxTrait>>> for wire_ArcJrpcTransportBoxTrait {
+        fn wire2api(self) -> RustOpaque<Arc<dyn JrpcTransportBoxTrait>> {
+            unsafe { support::opaque_from_dart(self.ptr as _) }
+        }
+    }
+    impl Wire2Api<RustOpaque<Box<dyn GqlTransportBoxTrait>>> for wire_BoxGqlTransportBoxTrait {
+        fn wire2api(self) -> RustOpaque<Box<dyn GqlTransportBoxTrait>> {
             unsafe { support::opaque_from_dart(self.ptr as _) }
         }
     }
@@ -2773,10 +3611,28 @@ mod io {
             Wire2Api::<DynamicValue>::wire2api(*wrap).into()
         }
     }
+    impl Wire2Api<GqlConnectionDartWrapper> for *mut wire_GqlConnectionDartWrapper {
+        fn wire2api(self) -> GqlConnectionDartWrapper {
+            let wrap = unsafe { support::box_from_leak_ptr(self) };
+            Wire2Api::<GqlConnectionDartWrapper>::wire2api(*wrap).into()
+        }
+    }
+    impl Wire2Api<GqlTransportImpl> for *mut wire_GqlTransportImpl {
+        fn wire2api(self) -> GqlTransportImpl {
+            let wrap = unsafe { support::box_from_leak_ptr(self) };
+            Wire2Api::<GqlTransportImpl>::wire2api(*wrap).into()
+        }
+    }
     impl Wire2Api<JrpcConnectionDartWrapper> for *mut wire_JrpcConnectionDartWrapper {
         fn wire2api(self) -> JrpcConnectionDartWrapper {
             let wrap = unsafe { support::box_from_leak_ptr(self) };
             Wire2Api::<JrpcConnectionDartWrapper>::wire2api(*wrap).into()
+        }
+    }
+    impl Wire2Api<JrpcTransportImpl> for *mut wire_JrpcTransportImpl {
+        fn wire2api(self) -> JrpcTransportImpl {
+            let wrap = unsafe { support::box_from_leak_ptr(self) };
+            Wire2Api::<JrpcTransportImpl>::wire2api(*wrap).into()
         }
     }
     impl Wire2Api<MnemonicType> for *mut wire_MnemonicType {
@@ -2789,6 +3645,11 @@ mod io {
         fn wire2api(self) -> MyClass {
             let wrap = unsafe { support::box_from_leak_ptr(self) };
             Wire2Api::<MyClass>::wire2api(*wrap).into()
+        }
+    }
+    impl Wire2Api<u64> for *mut u64 {
+        fn wire2api(self) -> u64 {
+            unsafe { *support::box_from_leak_ptr(self) }
         }
     }
     impl Wire2Api<UnsignedMessageImpl> for *mut wire_UnsignedMessageImpl {
@@ -2882,10 +3743,32 @@ mod io {
         }
     }
 
+    impl Wire2Api<GqlConnectionDartWrapper> for wire_GqlConnectionDartWrapper {
+        fn wire2api(self) -> GqlConnectionDartWrapper {
+            GqlConnectionDartWrapper {
+                inner_connection: self.inner_connection.wire2api(),
+            }
+        }
+    }
+    impl Wire2Api<GqlTransportImpl> for wire_GqlTransportImpl {
+        fn wire2api(self) -> GqlTransportImpl {
+            GqlTransportImpl {
+                inner_transport: self.inner_transport.wire2api(),
+            }
+        }
+    }
+
     impl Wire2Api<JrpcConnectionDartWrapper> for wire_JrpcConnectionDartWrapper {
         fn wire2api(self) -> JrpcConnectionDartWrapper {
             JrpcConnectionDartWrapper {
                 inner_connection: self.inner_connection.wire2api(),
+            }
+        }
+    }
+    impl Wire2Api<JrpcTransportImpl> for wire_JrpcTransportImpl {
+        fn wire2api(self) -> JrpcTransportImpl {
+            JrpcTransportImpl {
+                inner_transport: self.inner_transport.wire2api(),
             }
         }
     }
@@ -2948,7 +3831,25 @@ mod io {
 
     #[repr(C)]
     #[derive(Clone)]
+    pub struct wire_ArcGqlConnectionBoxTrait {
+        ptr: *const core::ffi::c_void,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
     pub struct wire_ArcJrpcConnectionBoxTrait {
+        ptr: *const core::ffi::c_void,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_ArcJrpcTransportBoxTrait {
+        ptr: *const core::ffi::c_void,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_BoxGqlTransportBoxTrait {
         ptr: *const core::ffi::c_void,
     }
 
@@ -2983,8 +3884,26 @@ mod io {
 
     #[repr(C)]
     #[derive(Clone)]
+    pub struct wire_GqlConnectionDartWrapper {
+        inner_connection: wire_ArcGqlConnectionBoxTrait,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_GqlTransportImpl {
+        inner_transport: wire_BoxGqlTransportBoxTrait,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
     pub struct wire_JrpcConnectionDartWrapper {
         inner_connection: wire_ArcJrpcConnectionBoxTrait,
+    }
+
+    #[repr(C)]
+    #[derive(Clone)]
+    pub struct wire_JrpcTransportImpl {
+        inner_transport: wire_ArcJrpcTransportBoxTrait,
     }
 
     #[repr(C)]
@@ -3141,7 +4060,28 @@ mod io {
         }
     }
 
+    impl NewWithNullPtr for wire_ArcGqlConnectionBoxTrait {
+        fn new_with_null_ptr() -> Self {
+            Self {
+                ptr: core::ptr::null(),
+            }
+        }
+    }
     impl NewWithNullPtr for wire_ArcJrpcConnectionBoxTrait {
+        fn new_with_null_ptr() -> Self {
+            Self {
+                ptr: core::ptr::null(),
+            }
+        }
+    }
+    impl NewWithNullPtr for wire_ArcJrpcTransportBoxTrait {
+        fn new_with_null_ptr() -> Self {
+            Self {
+                ptr: core::ptr::null(),
+            }
+        }
+    }
+    impl NewWithNullPtr for wire_BoxGqlTransportBoxTrait {
         fn new_with_null_ptr() -> Self {
             Self {
                 ptr: core::ptr::null(),
@@ -3302,6 +4242,34 @@ mod io {
         })
     }
 
+    impl NewWithNullPtr for wire_GqlConnectionDartWrapper {
+        fn new_with_null_ptr() -> Self {
+            Self {
+                inner_connection: wire_ArcGqlConnectionBoxTrait::new_with_null_ptr(),
+            }
+        }
+    }
+
+    impl Default for wire_GqlConnectionDartWrapper {
+        fn default() -> Self {
+            Self::new_with_null_ptr()
+        }
+    }
+
+    impl NewWithNullPtr for wire_GqlTransportImpl {
+        fn new_with_null_ptr() -> Self {
+            Self {
+                inner_transport: wire_BoxGqlTransportBoxTrait::new_with_null_ptr(),
+            }
+        }
+    }
+
+    impl Default for wire_GqlTransportImpl {
+        fn default() -> Self {
+            Self::new_with_null_ptr()
+        }
+    }
+
     impl NewWithNullPtr for wire_JrpcConnectionDartWrapper {
         fn new_with_null_ptr() -> Self {
             Self {
@@ -3311,6 +4279,20 @@ mod io {
     }
 
     impl Default for wire_JrpcConnectionDartWrapper {
+        fn default() -> Self {
+            Self::new_with_null_ptr()
+        }
+    }
+
+    impl NewWithNullPtr for wire_JrpcTransportImpl {
+        fn new_with_null_ptr() -> Self {
+            Self {
+                inner_transport: wire_ArcJrpcTransportBoxTrait::new_with_null_ptr(),
+            }
+        }
+    }
+
+    impl Default for wire_JrpcTransportImpl {
         fn default() -> Self {
             Self::new_with_null_ptr()
         }

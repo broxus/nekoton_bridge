@@ -20,7 +20,22 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
 // Section: api2wire
 
   @protected
+  Object api2wire_ArcGqlConnectionBoxTrait(ArcGqlConnectionBoxTrait raw) {
+    return raw.shareOrMove();
+  }
+
+  @protected
   Object api2wire_ArcJrpcConnectionBoxTrait(ArcJrpcConnectionBoxTrait raw) {
+    return raw.shareOrMove();
+  }
+
+  @protected
+  Object api2wire_ArcJrpcTransportBoxTrait(ArcJrpcTransportBoxTrait raw) {
+    return raw.shareOrMove();
+  }
+
+  @protected
+  Object api2wire_BoxGqlTransportBoxTrait(BoxGqlTransportBoxTrait raw) {
     return raw.shareOrMove();
   }
 
@@ -50,9 +65,26 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
   }
 
   @protected
+  List<dynamic> api2wire_box_autoadd_gql_connection_dart_wrapper(
+      GqlConnectionDartWrapper raw) {
+    return api2wire_gql_connection_dart_wrapper(raw);
+  }
+
+  @protected
+  List<dynamic> api2wire_box_autoadd_gql_transport_impl(GqlTransportImpl raw) {
+    return api2wire_gql_transport_impl(raw);
+  }
+
+  @protected
   List<dynamic> api2wire_box_autoadd_jrpc_connection_dart_wrapper(
       JrpcConnectionDartWrapper raw) {
     return api2wire_jrpc_connection_dart_wrapper(raw);
+  }
+
+  @protected
+  List<dynamic> api2wire_box_autoadd_jrpc_transport_impl(
+      JrpcTransportImpl raw) {
+    return api2wire_jrpc_transport_impl(raw);
   }
 
   @protected
@@ -63,6 +95,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
   @protected
   List<dynamic> api2wire_box_autoadd_my_class(MyClass raw) {
     return api2wire_my_class(raw);
+  }
+
+  @protected
+  Object api2wire_box_autoadd_u64(int raw) {
+    return api2wire_u64(raw);
   }
 
   @protected
@@ -134,6 +171,17 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
   }
 
   @protected
+  List<dynamic> api2wire_gql_connection_dart_wrapper(
+      GqlConnectionDartWrapper raw) {
+    return [api2wire_ArcGqlConnectionBoxTrait(raw.innerConnection)];
+  }
+
+  @protected
+  List<dynamic> api2wire_gql_transport_impl(GqlTransportImpl raw) {
+    return [api2wire_BoxGqlTransportBoxTrait(raw.innerTransport)];
+  }
+
+  @protected
   Object api2wire_i64(int raw) {
     return castNativeBigInt(raw);
   }
@@ -142,6 +190,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
   List<dynamic> api2wire_jrpc_connection_dart_wrapper(
       JrpcConnectionDartWrapper raw) {
     return [api2wire_ArcJrpcConnectionBoxTrait(raw.innerConnection)];
+  }
+
+  @protected
+  List<dynamic> api2wire_jrpc_transport_impl(JrpcTransportImpl raw) {
+    return [api2wire_ArcJrpcTransportBoxTrait(raw.innerTransport)];
   }
 
   @protected
@@ -182,6 +235,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
   }
 
   @protected
+  Object? api2wire_opt_box_autoadd_u64(int? raw) {
+    return raw == null ? null : api2wire_box_autoadd_u64(raw);
+  }
+
+  @protected
   Object api2wire_u64(int raw) {
     return castNativeBigInt(raw);
   }
@@ -209,6 +267,10 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
       Finalizer<PlatformPointer>(inner.drop_opaque_ArcJrpcTransportBoxTrait);
   Finalizer<PlatformPointer> get ArcJrpcTransportBoxTraitFinalizer =>
       _ArcJrpcTransportBoxTraitFinalizer;
+  late final Finalizer<PlatformPointer> _BoxGqlTransportBoxTraitFinalizer =
+      Finalizer<PlatformPointer>(inner.drop_opaque_BoxGqlTransportBoxTrait);
+  Finalizer<PlatformPointer> get BoxGqlTransportBoxTraitFinalizer =>
+      _BoxGqlTransportBoxTraitFinalizer;
   late final Finalizer<PlatformPointer> _BoxUnsignedMessageBoxTraitFinalizer =
       Finalizer<PlatformPointer>(inner.drop_opaque_BoxUnsignedMessageBoxTrait);
   Finalizer<PlatformPointer> get BoxUnsignedMessageBoxTraitFinalizer =>
@@ -225,6 +287,9 @@ external NekotonBridgeWasmModule get wasmModule;
 class NekotonBridgeWasmModule implements WasmModule {
   external Object /* Promise */ call([String? moduleName]);
   external NekotonBridgeWasmModule bind(dynamic thisArg, String moduleName);
+  external dynamic /* void */ wire_verify_signature(NativePortType port_,
+      String public_key, String data_hash, String signature);
+
   external dynamic /* void */ wire_nt_generate_key(
       NativePortType port_, List<dynamic> account_type);
 
@@ -233,9 +298,6 @@ class NekotonBridgeWasmModule implements WasmModule {
 
   external dynamic /* void */ wire_nt_derive_from_phrase(
       NativePortType port_, String phrase, List<dynamic> mnemonic_type);
-
-  external dynamic /* void */ wire_verify_signature(NativePortType port_,
-      String public_key, String data_hash, String signature);
 
   external dynamic /* void */ wire_check_public_key(
       NativePortType port_, String public_key);
@@ -334,6 +396,21 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_get_code_salt(
       NativePortType port_, String code);
 
+  external dynamic /* void */ wire_test_logger_info(
+      NativePortType port_, String string);
+
+  external dynamic /* void */ wire_test_logger_debug(
+      NativePortType port_, String string);
+
+  external dynamic /* void */ wire_test_logger_warn(
+      NativePortType port_, String string);
+
+  external dynamic /* void */ wire_test_logger_error(
+      NativePortType port_, String string);
+
+  external dynamic /* void */ wire_test_logger_panic(
+      NativePortType port_, String string);
+
   external dynamic /* void */ wire_init_logger(
       NativePortType port_, int level, bool mobile_logger);
 
@@ -371,21 +448,6 @@ class NekotonBridgeWasmModule implements WasmModule {
 
   external dynamic /* void */ wire_simple_call_func2(NativePortType port_);
 
-  external dynamic /* void */ wire_test_logger_info(
-      NativePortType port_, String string);
-
-  external dynamic /* void */ wire_test_logger_debug(
-      NativePortType port_, String string);
-
-  external dynamic /* void */ wire_test_logger_warn(
-      NativePortType port_, String string);
-
-  external dynamic /* void */ wire_test_logger_error(
-      NativePortType port_, String string);
-
-  external dynamic /* void */ wire_test_logger_panic(
-      NativePortType port_, String string);
-
   external dynamic /* void */ wire_refresh_timeout__method__UnsignedMessageImpl(
       NativePortType port_, List<dynamic> that);
 
@@ -398,21 +460,95 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_sign__method__UnsignedMessageImpl(
       NativePortType port_, List<dynamic> that, String signature);
 
+  external dynamic /* void */ wire_new__static_method__GqlTransportImpl(
+      NativePortType port_, List<dynamic> gql_connection);
+
+  external dynamic /* void */ wire_get_contract_state__method__GqlTransportImpl(
+      NativePortType port_, List<dynamic> that, String address);
+
+  external dynamic /* void */
+      wire_get_full_contract_state__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that, String address);
+
+  external dynamic /* void */
+      wire_get_accounts_by_code_hash__method__GqlTransportImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String code_hash,
+          int limit,
+          String? continuation);
+
+  external dynamic /* void */ wire_get_transactions__method__GqlTransportImpl(
+      NativePortType port_,
+      List<dynamic> that,
+      String address,
+      Object? from_lt,
+      int count);
+
+  external dynamic /* void */ wire_get_transaction__method__GqlTransportImpl(
+      NativePortType port_, List<dynamic> that, String hash);
+
+  external dynamic /* void */ wire_get_signature_id__method__GqlTransportImpl(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */ wire_get_latest_block__method__GqlTransportImpl(
+      NativePortType port_, List<dynamic> that, String address);
+
+  external dynamic /* void */ wire_get_block__method__GqlTransportImpl(
+      NativePortType port_, List<dynamic> that, String id);
+
+  external dynamic /* void */
+      wire_wait_for_next_block__method__GqlTransportImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String current_block_id,
+          String address,
+          Object timeout);
+
+  external dynamic /* void */ wire_new__static_method__JrpcTransportImpl(
+      NativePortType port_, List<dynamic> jrpc_connection);
+
+  external dynamic /* void */
+      wire_get_contract_state__method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> that, String address);
+
+  external dynamic /* void */
+      wire_get_full_contract_state__method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> that, String address);
+
+  external dynamic /* void */
+      wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String code_hash,
+          int limit,
+          String? continuation);
+
+  external dynamic /* void */ wire_get_transactions__method__JrpcTransportImpl(
+      NativePortType port_,
+      List<dynamic> that,
+      String address,
+      Object? from_lt,
+      int count);
+
+  external dynamic /* void */ wire_get_transaction__method__JrpcTransportImpl(
+      NativePortType port_, List<dynamic> that, String hash);
+
+  external dynamic /* void */ wire_get_signature_id__method__JrpcTransportImpl(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */
+      wire_new__static_method__JrpcConnectionDartWrapper(
+          NativePortType port_, String instance_hash);
+
+  external dynamic /* void */ wire_new__static_method__GqlConnectionDartWrapper(
+      NativePortType port_, bool is_local, String instance_hash);
+
   external dynamic /* void */ wire_new__static_method__LedgerConnectionImpl(
       NativePortType port_, String instance_hash);
 
   external dynamic /* void */ wire_new__static_method__StorageImpl(
       NativePortType port_, String instance_hash);
-
-  external dynamic /* void */ wire_new__static_method__GqlConnectionDartWrapper(
-      NativePortType port_, bool is_local, String instance_hash);
-
-  external dynamic /* void */
-      wire_new__static_method__JrpcConnectionDartWrapper(
-          NativePortType port_, bool is_local, String instance_hash);
-
-  external dynamic /* void */ wire_new__static_method__JrpcTransportImpl(
-      NativePortType port_, List<dynamic> jrpc_connection);
 
   external dynamic /* void */ wire_new__static_method__MyClass(
       NativePortType port_, int a);
@@ -438,6 +574,10 @@ class NekotonBridgeWasmModule implements WasmModule {
 
   external int /* *const c_void */ share_opaque_ArcJrpcTransportBoxTrait(ptr);
 
+  external dynamic /*  */ drop_opaque_BoxGqlTransportBoxTrait(ptr);
+
+  external int /* *const c_void */ share_opaque_BoxGqlTransportBoxTrait(ptr);
+
   external dynamic /*  */ drop_opaque_BoxUnsignedMessageBoxTrait(ptr);
 
   external int /* *const c_void */ share_opaque_BoxUnsignedMessageBoxTrait(ptr);
@@ -450,6 +590,10 @@ class NekotonBridgeWire
   NekotonBridgeWire(FutureOr<WasmModule> module)
       : super(WasmModule.cast<NekotonBridgeWasmModule>(module));
 
+  void wire_verify_signature(NativePortType port_, String public_key,
+          String data_hash, String signature) =>
+      wasmModule.wire_verify_signature(port_, public_key, data_hash, signature);
+
   void wire_nt_generate_key(NativePortType port_, List<dynamic> account_type) =>
       wasmModule.wire_nt_generate_key(port_, account_type);
 
@@ -459,10 +603,6 @@ class NekotonBridgeWire
   void wire_nt_derive_from_phrase(
           NativePortType port_, String phrase, List<dynamic> mnemonic_type) =>
       wasmModule.wire_nt_derive_from_phrase(port_, phrase, mnemonic_type);
-
-  void wire_verify_signature(NativePortType port_, String public_key,
-          String data_hash, String signature) =>
-      wasmModule.wire_verify_signature(port_, public_key, data_hash, signature);
 
   void wire_check_public_key(NativePortType port_, String public_key) =>
       wasmModule.wire_check_public_key(port_, public_key);
@@ -578,6 +718,21 @@ class NekotonBridgeWire
   void wire_get_code_salt(NativePortType port_, String code) =>
       wasmModule.wire_get_code_salt(port_, code);
 
+  void wire_test_logger_info(NativePortType port_, String string) =>
+      wasmModule.wire_test_logger_info(port_, string);
+
+  void wire_test_logger_debug(NativePortType port_, String string) =>
+      wasmModule.wire_test_logger_debug(port_, string);
+
+  void wire_test_logger_warn(NativePortType port_, String string) =>
+      wasmModule.wire_test_logger_warn(port_, string);
+
+  void wire_test_logger_error(NativePortType port_, String string) =>
+      wasmModule.wire_test_logger_error(port_, string);
+
+  void wire_test_logger_panic(NativePortType port_, String string) =>
+      wasmModule.wire_test_logger_panic(port_, string);
+
   void wire_init_logger(NativePortType port_, int level, bool mobile_logger) =>
       wasmModule.wire_init_logger(port_, level, mobile_logger);
 
@@ -622,21 +777,6 @@ class NekotonBridgeWire
   void wire_simple_call_func2(NativePortType port_) =>
       wasmModule.wire_simple_call_func2(port_);
 
-  void wire_test_logger_info(NativePortType port_, String string) =>
-      wasmModule.wire_test_logger_info(port_, string);
-
-  void wire_test_logger_debug(NativePortType port_, String string) =>
-      wasmModule.wire_test_logger_debug(port_, string);
-
-  void wire_test_logger_warn(NativePortType port_, String string) =>
-      wasmModule.wire_test_logger_warn(port_, string);
-
-  void wire_test_logger_error(NativePortType port_, String string) =>
-      wasmModule.wire_test_logger_error(port_, string);
-
-  void wire_test_logger_panic(NativePortType port_, String string) =>
-      wasmModule.wire_test_logger_panic(port_, string);
-
   void wire_refresh_timeout__method__UnsignedMessageImpl(
           NativePortType port_, List<dynamic> that) =>
       wasmModule.wire_refresh_timeout__method__UnsignedMessageImpl(port_, that);
@@ -653,6 +793,110 @@ class NekotonBridgeWire
           NativePortType port_, List<dynamic> that, String signature) =>
       wasmModule.wire_sign__method__UnsignedMessageImpl(port_, that, signature);
 
+  void wire_new__static_method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> gql_connection) =>
+      wasmModule.wire_new__static_method__GqlTransportImpl(
+          port_, gql_connection);
+
+  void wire_get_contract_state__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that, String address) =>
+      wasmModule.wire_get_contract_state__method__GqlTransportImpl(
+          port_, that, address);
+
+  void wire_get_full_contract_state__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that, String address) =>
+      wasmModule.wire_get_full_contract_state__method__GqlTransportImpl(
+          port_, that, address);
+
+  void wire_get_accounts_by_code_hash__method__GqlTransportImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String code_hash,
+          int limit,
+          String? continuation) =>
+      wasmModule.wire_get_accounts_by_code_hash__method__GqlTransportImpl(
+          port_, that, code_hash, limit, continuation);
+
+  void wire_get_transactions__method__GqlTransportImpl(NativePortType port_,
+          List<dynamic> that, String address, Object? from_lt, int count) =>
+      wasmModule.wire_get_transactions__method__GqlTransportImpl(
+          port_, that, address, from_lt, count);
+
+  void wire_get_transaction__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that, String hash) =>
+      wasmModule.wire_get_transaction__method__GqlTransportImpl(
+          port_, that, hash);
+
+  void wire_get_signature_id__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_get_signature_id__method__GqlTransportImpl(port_, that);
+
+  void wire_get_latest_block__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that, String address) =>
+      wasmModule.wire_get_latest_block__method__GqlTransportImpl(
+          port_, that, address);
+
+  void wire_get_block__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that, String id) =>
+      wasmModule.wire_get_block__method__GqlTransportImpl(port_, that, id);
+
+  void wire_wait_for_next_block__method__GqlTransportImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String current_block_id,
+          String address,
+          Object timeout) =>
+      wasmModule.wire_wait_for_next_block__method__GqlTransportImpl(
+          port_, that, current_block_id, address, timeout);
+
+  void wire_new__static_method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> jrpc_connection) =>
+      wasmModule.wire_new__static_method__JrpcTransportImpl(
+          port_, jrpc_connection);
+
+  void wire_get_contract_state__method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> that, String address) =>
+      wasmModule.wire_get_contract_state__method__JrpcTransportImpl(
+          port_, that, address);
+
+  void wire_get_full_contract_state__method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> that, String address) =>
+      wasmModule.wire_get_full_contract_state__method__JrpcTransportImpl(
+          port_, that, address);
+
+  void wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String code_hash,
+          int limit,
+          String? continuation) =>
+      wasmModule.wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
+          port_, that, code_hash, limit, continuation);
+
+  void wire_get_transactions__method__JrpcTransportImpl(NativePortType port_,
+          List<dynamic> that, String address, Object? from_lt, int count) =>
+      wasmModule.wire_get_transactions__method__JrpcTransportImpl(
+          port_, that, address, from_lt, count);
+
+  void wire_get_transaction__method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> that, String hash) =>
+      wasmModule.wire_get_transaction__method__JrpcTransportImpl(
+          port_, that, hash);
+
+  void wire_get_signature_id__method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_get_signature_id__method__JrpcTransportImpl(port_, that);
+
+  void wire_new__static_method__JrpcConnectionDartWrapper(
+          NativePortType port_, String instance_hash) =>
+      wasmModule.wire_new__static_method__JrpcConnectionDartWrapper(
+          port_, instance_hash);
+
+  void wire_new__static_method__GqlConnectionDartWrapper(
+          NativePortType port_, bool is_local, String instance_hash) =>
+      wasmModule.wire_new__static_method__GqlConnectionDartWrapper(
+          port_, is_local, instance_hash);
+
   void wire_new__static_method__LedgerConnectionImpl(
           NativePortType port_, String instance_hash) =>
       wasmModule.wire_new__static_method__LedgerConnectionImpl(
@@ -661,21 +905,6 @@ class NekotonBridgeWire
   void wire_new__static_method__StorageImpl(
           NativePortType port_, String instance_hash) =>
       wasmModule.wire_new__static_method__StorageImpl(port_, instance_hash);
-
-  void wire_new__static_method__GqlConnectionDartWrapper(
-          NativePortType port_, bool is_local, String instance_hash) =>
-      wasmModule.wire_new__static_method__GqlConnectionDartWrapper(
-          port_, is_local, instance_hash);
-
-  void wire_new__static_method__JrpcConnectionDartWrapper(
-          NativePortType port_, bool is_local, String instance_hash) =>
-      wasmModule.wire_new__static_method__JrpcConnectionDartWrapper(
-          port_, is_local, instance_hash);
-
-  void wire_new__static_method__JrpcTransportImpl(
-          NativePortType port_, List<dynamic> jrpc_connection) =>
-      wasmModule.wire_new__static_method__JrpcTransportImpl(
-          port_, jrpc_connection);
 
   void wire_new__static_method__MyClass(NativePortType port_, int a) =>
       wasmModule.wire_new__static_method__MyClass(port_, a);
@@ -710,6 +939,12 @@ class NekotonBridgeWire
 
   int /* *const c_void */ share_opaque_ArcJrpcTransportBoxTrait(ptr) =>
       wasmModule.share_opaque_ArcJrpcTransportBoxTrait(ptr);
+
+  dynamic /*  */ drop_opaque_BoxGqlTransportBoxTrait(ptr) =>
+      wasmModule.drop_opaque_BoxGqlTransportBoxTrait(ptr);
+
+  int /* *const c_void */ share_opaque_BoxGqlTransportBoxTrait(ptr) =>
+      wasmModule.share_opaque_BoxGqlTransportBoxTrait(ptr);
 
   dynamic /*  */ drop_opaque_BoxUnsignedMessageBoxTrait(ptr) =>
       wasmModule.drop_opaque_BoxUnsignedMessageBoxTrait(ptr);

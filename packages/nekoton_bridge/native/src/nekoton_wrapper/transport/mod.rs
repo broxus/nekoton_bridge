@@ -1,3 +1,5 @@
+#![allow(unused_variables, dead_code)]
+
 use crate::nekoton_wrapper::transport::models::{
     AccountsList, FullContractState, RawContractStateHelper, TransactionsList,
 };
@@ -47,7 +49,7 @@ pub trait JrpcTransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     async fn get_transactions(
         &self,
         address: String,
-        from_lt: u64,
+        from_lt: Option<u64>,
         count: u8,
     ) -> anyhow::Result<String, anyhow::Error>;
 
@@ -164,10 +166,12 @@ impl JrpcTransportBoxTrait for JrpcTransportBox {
     async fn get_transactions(
         &self,
         address: String,
-        from_lt: u64,
+        from_lt: Option<u64>,
         count: u8,
     ) -> anyhow::Result<String, anyhow::Error> {
         let address = parse_address(address)?;
+
+        let from_lt = from_lt.unwrap_or(u64::MAX);
 
         let raw_transactions = self
             .inner_transport
@@ -220,7 +224,10 @@ impl JrpcTransportBoxTrait for JrpcTransportBox {
             .transpose()
             .handle_error()?;
 
-        Ok(Some(serde_json::to_string(&transaction).handle_error()?))
+        match transaction {
+            None => Ok(None),
+            Some(_) => Ok(Some(serde_json::to_string(&transaction).handle_error()?)),
+        }
     }
 
     /// Get transport signature id and return it or throw error
@@ -261,7 +268,7 @@ pub trait GqlTransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     async fn get_transactions(
         &self,
         address: String,
-        from_lt: u64,
+        from_lt: Option<u64>,
         count: u8,
     ) -> anyhow::Result<String, anyhow::Error>;
 
@@ -392,10 +399,12 @@ impl GqlTransportBoxTrait for GqlTransportBox {
     async fn get_transactions(
         &self,
         address: String,
-        from_lt: u64,
+        from_lt: Option<u64>,
         count: u8,
     ) -> anyhow::Result<String, anyhow::Error> {
         let address = parse_address(address)?;
+
+        let from_lt = from_lt.unwrap_or(u64::MAX);
 
         let raw_transactions = self
             .inner_transport
@@ -447,8 +456,10 @@ impl GqlTransportBoxTrait for GqlTransportBox {
             .map(|e| Transaction::try_from((e.hash, e.data)))
             .transpose()
             .handle_error()?;
-
-        Ok(Some(serde_json::to_string(&transaction).handle_error()?))
+        match transaction {
+            None => Ok(None),
+            Some(_) => Ok(Some(serde_json::to_string(&transaction).handle_error()?)),
+        }
     }
 
     /// Get transport signature id and return it or throw error
