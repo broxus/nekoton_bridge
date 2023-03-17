@@ -40,3 +40,5 @@ build/
 *_generated.*
 *.freezed.dart
 *.g.dart
+*.reflectable.dart
+
