@@ -1,1 +1,1 @@
-const kKeystoreStorageKey = '__core__keystore';
+const keystoreStorageKey = '__core__keystore';

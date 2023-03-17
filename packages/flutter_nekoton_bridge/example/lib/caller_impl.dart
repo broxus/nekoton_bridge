@@ -4,6 +4,7 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart'
 import 'package:flutter_nekoton_bridge/example_related/mega_struct.dart';
 
 class CallerImpl extends flutter_nekoton_bridge.AbstractCaller {
+  // TODO: remove all non-integration test related things FROM here
   @override
   String func0(String string, int i, double d,
       {required int arg0, required double arg1}) {
@@ -39,5 +40,19 @@ class CallerImpl extends flutter_nekoton_bridge.AbstractCaller {
         });
     return flutter_nekoton_bridge.DynamicValueConvert.megaStruct(
         toSendDynamicValue);
+  }
+  // TODO: remove all non-integration test related things TO here
+
+  // These methods SHOULD NOT be removed
+  // or altered because it used in integration tests
+  @override
+  Future<flutter_nekoton_bridge.DynamicValue> test0(String string) async {
+    return flutter_nekoton_bridge.DynamicValue.string(string);
+  }
+
+  @override
+  Future<flutter_nekoton_bridge.DynamicValue> test1(String string) async {
+    await Future.delayed(const Duration(milliseconds: 1000), () {});
+    return flutter_nekoton_bridge.DynamicValue.string(string);
   }
 }

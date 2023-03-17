@@ -10,6 +10,7 @@ use ton_block::MsgAddressInt;
 #[derive(Serialize, Deserialize)]
 pub struct RawContractStateHelper(#[serde(with = "RawContractStateDef")] pub RawContractState);
 
+#[allow(clippy::large_enum_variant)]
 #[derive(Serialize, Deserialize)]
 #[serde(
     remote = "RawContractState",

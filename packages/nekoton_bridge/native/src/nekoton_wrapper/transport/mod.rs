@@ -145,7 +145,7 @@ impl JrpcTransportBoxTrait for JrpcTransportBox {
         continuation: Option<String>,
     ) -> anyhow::Result<String, anyhow::Error> {
         let code_hash = parse_hash(code_hash)?;
-        let continuation = continuation.map(|addr| parse_address(addr)).transpose()?;
+        let continuation = continuation.map(parse_address).transpose()?;
 
         let accounts = self
             .inner_transport
@@ -378,7 +378,7 @@ impl GqlTransportBoxTrait for GqlTransportBox {
         continuation: Option<String>,
     ) -> anyhow::Result<String, anyhow::Error> {
         let code_hash = parse_hash(code_hash)?;
-        let continuation = continuation.map(|addr| parse_address(addr)).transpose()?;
+        let continuation = continuation.map(parse_address).transpose()?;
 
         let accounts = self
             .inner_transport

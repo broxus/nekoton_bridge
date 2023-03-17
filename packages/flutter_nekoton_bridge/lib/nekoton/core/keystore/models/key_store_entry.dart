@@ -1,9 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:flutter_nekoton_bridge/nekoton/crypto/derived_key/constants.dart';
 import 'package:flutter_nekoton_bridge/nekoton/crypto/encrypted_key/constants.dart';
-import 'package:flutter_nekoton_bridge/nekoton/crypto/ledger_key/constants.dart';
 
 part 'key_store_entry.freezed.dart';
+
 part 'key_store_entry.g.dart';
 
 @freezed
@@ -22,10 +21,9 @@ class KeyStoreEntry with _$KeyStoreEntry implements Comparable<KeyStoreEntry> {
 
   const KeyStoreEntry._();
 
-  bool get isLegacy => signerName == kEncryptedKeySignerName;
+  bool get isLegacy => signerName == encryptedKeySignerName;
 
-  bool get isNotLegacy =>
-      signerName == kDerivedKeySignerName || signerName == kLedgerKeySignerName;
+  bool get isNotLegacy => !isLegacy;
 
   bool get isMaster => publicKey == masterKey;
 

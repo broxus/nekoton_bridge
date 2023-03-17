@@ -8,12 +8,11 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   group('end-to-end test', () {
-    testWidgets('run simple app', (WidgetTester tester) async {
+    testWidgets('just run the app', (WidgetTester tester) async {
       app.main();
       await tester.pumpAndSettle();
 
-      expect(find.textContaining('sum(1, 2) = 3'), findsOneWidget);
-      expect(find.textContaining('await sumAsync(3, 4) = 7'), findsOneWidget);
+      expect(find.textContaining('logger-related'), findsOneWidget);
     });
   });
 }

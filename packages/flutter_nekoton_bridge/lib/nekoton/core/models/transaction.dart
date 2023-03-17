@@ -4,6 +4,7 @@ import 'package:flutter_nekoton_bridge/nekoton/core/models/message.dart';
 import 'package:flutter_nekoton_bridge/nekoton/core/models/transaction_id.dart';
 
 part 'transaction.freezed.dart';
+
 part 'transaction.g.dart';
 
 @freezed
@@ -28,5 +29,5 @@ class Transaction with _$Transaction implements Comparable<Transaction> {
   const Transaction._();
 
   @override
-  int compareTo(Transaction other) => -createdAt.compareTo(other.createdAt);
+  int compareTo(Transaction other) => other.createdAt.compareTo(createdAt);
 }
