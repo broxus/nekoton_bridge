@@ -6,11 +6,12 @@ import 'caller_wrapper.reflectable.dart';
 
 @reflector
 class CallerWrapper extends RustToDartMirrorInterface {
-  final AbstractCaller storage;
+  final AbstractCaller caller;
 
   /// Override
-  CallerWrapper(this.storage) : super('0');
+  CallerWrapper(this.caller) : super('0');
 
+  // TODO: remove all non-integration test related things FROM here
   String func0(
     String string,
     int i,
@@ -19,7 +20,7 @@ class CallerWrapper extends RustToDartMirrorInterface {
     required double arg1,
   }) {
     debugPrint('CallerWrapper: func0($instanceHash)');
-    return storage.func0(string, i, d, arg0: arg0, arg1: arg1);
+    return caller.func0(string, i, d, arg0: arg0, arg1: arg1);
   }
 
   Future<String> func1(
@@ -30,12 +31,24 @@ class CallerWrapper extends RustToDartMirrorInterface {
     required double arg1,
   }) async {
     debugPrint('CallerWrapper: func1($instanceHash)');
-    return storage.func1(string, i, d, arg0: arg0, arg1: arg1);
+    return caller.func1(string, i, d, arg0: arg0, arg1: arg1);
   }
 
   DynamicValue func2(MegaStruct megaStruct) {
     debugPrint('CallerWrapper: func2($instanceHash)');
-    return storage.func2(megaStruct);
+    return caller.func2(megaStruct);
+  }
+  // TODO: remove all non-integration test related things TO here
+
+  // These methods SHOULD NOT be removed
+  // or altered because it used in integration tests
+
+  Future<DynamicValue> test0(String string) {
+    return caller.test0(string);
+  }
+
+  Future<DynamicValue> test1(String string) {
+    return caller.test1(string);
   }
 
   @override

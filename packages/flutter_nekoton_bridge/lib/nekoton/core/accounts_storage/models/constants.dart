@@ -1,1 +1,1 @@
-const AccountsStorageKey = '__core__accounts';
+const accountsStorageKey = '__core__accounts';

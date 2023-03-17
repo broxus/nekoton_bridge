@@ -1,5 +1,5 @@
-const SecretKeyLength = 32;
+const secretKeyLength = 32;
 
-const PublicKeyLength = 32;
+const publicKeyLength = 32;
 
-const SignatureLength = 64;
+const signatureLength = 64;

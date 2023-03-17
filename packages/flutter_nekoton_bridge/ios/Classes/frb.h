@@ -32,6 +32,8 @@ typedef struct wire_MnemonicType {
   union MnemonicTypeKind *kind;
 } wire_MnemonicType;
 
+typedef struct DartCObject *WireSyncReturn;
+
 typedef struct wire_DynamicValue_U16 {
   uint16_t field0;
 } wire_DynamicValue_U16;
@@ -94,8 +96,6 @@ typedef struct wire_DynamicValue {
   int32_t tag;
   union DynamicValueKind *kind;
 } wire_DynamicValue;
-
-typedef struct DartCObject *WireSyncReturn;
 
 typedef struct wire_list_dynamic_value {
   struct wire_DynamicValue *ptr;
@@ -270,6 +270,16 @@ void wire_test_logger_error(int64_t port_, struct wire_uint_8_list *string);
 
 void wire_test_logger_panic(int64_t port_, struct wire_uint_8_list *string);
 
+void wire_test_caller_call_test0_async(int64_t port_,
+                                       struct wire_uint_8_list *string,
+                                       bool need_result);
+
+WireSyncReturn wire_test_caller_call_test0_sync(struct wire_uint_8_list *string, bool need_result);
+
+void wire_test_caller_call_test1_async(int64_t port_,
+                                       struct wire_uint_8_list *string,
+                                       bool need_result);
+
 void wire_init_logger(int64_t port_, int32_t level, bool mobile_logger);
 
 void wire_create_log_stream(int64_t port_);
@@ -420,6 +430,9 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_test_logger_warn);
     dummy_var ^= ((int64_t) (void*) wire_test_logger_error);
     dummy_var ^= ((int64_t) (void*) wire_test_logger_panic);
+    dummy_var ^= ((int64_t) (void*) wire_test_caller_call_test0_async);
+    dummy_var ^= ((int64_t) (void*) wire_test_caller_call_test0_sync);
+    dummy_var ^= ((int64_t) (void*) wire_test_caller_call_test1_async);
     dummy_var ^= ((int64_t) (void*) wire_init_logger);
     dummy_var ^= ((int64_t) (void*) wire_create_log_stream);
     dummy_var ^= ((int64_t) (void*) wire_init_caller);
