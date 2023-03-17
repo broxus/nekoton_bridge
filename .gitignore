@@ -39,4 +39,6 @@ build/
 # Generated code
 *_generated.*
 *.freezed.dart
+*.reflectable.dart
 *.g.dart
+
