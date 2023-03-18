@@ -18,26 +18,13 @@ Future<String> postTransportData({
   return response.body;
 }
 
-Future<String> getTransportData(String endpoint) async {
-  final response = await http.get(Uri.parse(endpoint));
-
-  return response.body;
-}
-
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   const name = 'Mainnet (GQL)';
   const networkId = 1;
   const networkGroup = 'mainnet';
-  const endpoint =
-      'https://mainnet.evercloud.dev/89a3b8f46a484f2ea3bdd364ddaee3a3/graphql';
-
-  const kDefaultLatencyDetectionInterval = 60000;
-
-  const kDefaultMaxLatency = 60000;
-
-  const kDefaultEndpointSelectionRetryCount = 5;
+  const endpoint = 'https://jrpc.everwallet.net/rpc';
 
   /// System account address
   const accountAddress =
@@ -45,13 +32,7 @@ void main() {
   const accountTransaction =
       'd0a278d82e699a63adeaede7e602ff6da8168c333ceb4f2344f42cb739c28940';
 
-  const gqlSettings = GqlNetworkSettings(
-    endpoints: [endpoint],
-    latencyDetectionInterval: kDefaultLatencyDetectionInterval,
-    maxLatency: kDefaultMaxLatency,
-    endpointSelectionRetryCount: kDefaultEndpointSelectionRetryCount,
-    local: false,
-  );
+  const jrpcSettings = JrpcNetworkSettings(endpoint: endpoint);
 
   setUp(() {
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
@@ -64,63 +45,60 @@ void main() {
     );
   });
 
-  group('GqlTransport tests', () {
-    testWidgets('Create GqlTransport', (WidgetTester tester) async {
+  group('JrpcTransport tests', () {
+    testWidgets('Create JrpcTransport', (WidgetTester tester) async {
       runApp(Container());
 
       await tester.pumpAndSettle();
 
-      final connection = await GqlConnection.create(
+      final connection = await JrpcConnection.create(
         post: postTransportData,
-        get: getTransportData,
-        settings: gqlSettings,
+        settings: jrpcSettings,
         name: name,
         group: networkGroup,
         networkId: networkId,
       );
-      final transport = await GqlTransport.create(gqlConnection: connection);
+      final transport = await JrpcTransport.create(jrpcConnection: connection);
 
       expect(transport.transport, isNotNull);
     });
 
-    testWidgets('GqlTransport getSignatureId ', (WidgetTester tester) async {
+    testWidgets('JrpcTransport getSignatureId ', (WidgetTester tester) async {
       runApp(Container());
 
       await tester.pumpAndSettle();
 
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = await JrpcConnection.create(
         post: postTransportData,
-        get: getTransportData,
-        settings: gqlSettings,
+        settings: jrpcSettings,
         name: name,
         group: networkGroup,
         networkId: networkId,
       );
-      final transport = await GqlTransport.create(gqlConnection: connection);
+      final transport = await JrpcTransport.create(jrpcConnection: connection);
 
       final signature = await transport.getSignatureId();
 
       expect(signature, isNull);
     });
 
-    testWidgets('GqlTransport getTransactions ', (WidgetTester tester) async {
+    testWidgets('JrpcTransport getTransactions ', (WidgetTester tester) async {
       runApp(Container());
 
       await tester.pumpAndSettle();
 
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = await JrpcConnection.create(
         post: postTransportData,
-        get: getTransportData,
-        settings: gqlSettings,
+        settings: jrpcSettings,
         name: name,
         group: networkGroup,
         networkId: networkId,
       );
-      final transport = await GqlTransport.create(gqlConnection: connection);
+      final transport = await JrpcTransport.create(jrpcConnection: connection);
 
       final transactions = await transport.getTransactions(
         address: accountAddress,
@@ -130,22 +108,21 @@ void main() {
       expect(transactions.transactions.length, 10);
     });
 
-    testWidgets('GqlTransport getTransaction ', (WidgetTester tester) async {
+    testWidgets('JrpcTransport getTransaction ', (WidgetTester tester) async {
       runApp(Container());
 
       await tester.pumpAndSettle();
 
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = await JrpcConnection.create(
         post: postTransportData,
-        get: getTransportData,
-        settings: gqlSettings,
+        settings: jrpcSettings,
         name: name,
         group: networkGroup,
         networkId: networkId,
       );
-      final transport = await GqlTransport.create(gqlConnection: connection);
+      final transport = await JrpcTransport.create(jrpcConnection: connection);
 
       final transaction = await transport.getTransaction(accountTransaction);
 
@@ -156,22 +133,21 @@ void main() {
       expect(transaction.outMessages.length, 0);
     });
 
-    testWidgets('GqlTransport multiple calls ', (WidgetTester tester) async {
+    testWidgets('JrpcTransport multiple calls ', (WidgetTester tester) async {
       runApp(Container());
 
       await tester.pumpAndSettle();
 
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = await JrpcConnection.create(
         post: postTransportData,
-        get: getTransportData,
-        settings: gqlSettings,
+        settings: jrpcSettings,
         name: name,
         group: networkGroup,
         networkId: networkId,
       );
-      final transport = await GqlTransport.create(gqlConnection: connection);
+      final transport = await JrpcTransport.create(jrpcConnection: connection);
 
       expect(
         await transport.getTransaction(accountTransaction),
@@ -194,22 +170,21 @@ void main() {
       );
     });
 
-    testWidgets('GqlTransport getContractState ', (WidgetTester tester) async {
+    testWidgets('JrpcTransport getContractState ', (WidgetTester tester) async {
       runApp(Container());
 
       await tester.pumpAndSettle();
 
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = await JrpcConnection.create(
         post: postTransportData,
-        get: getTransportData,
-        settings: gqlSettings,
+        settings: jrpcSettings,
         name: name,
         group: networkGroup,
         networkId: networkId,
       );
-      final transport = await GqlTransport.create(gqlConnection: connection);
+      final transport = await JrpcTransport.create(jrpcConnection: connection);
 
       final state = await transport.getContractState(accountAddress);
 
@@ -220,7 +195,7 @@ void main() {
       );
     });
 
-    testWidgets('GqlTransport getFullContractState ', (
+    testWidgets('JrpcTransport getFullContractState ', (
       WidgetTester tester,
     ) async {
       runApp(Container());
@@ -229,15 +204,14 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = await JrpcConnection.create(
         post: postTransportData,
-        get: getTransportData,
-        settings: gqlSettings,
+        settings: jrpcSettings,
         name: name,
         group: networkGroup,
         networkId: networkId,
       );
-      final transport = await GqlTransport.create(gqlConnection: connection);
+      final transport = await JrpcTransport.create(jrpcConnection: connection);
 
       final state = await transport.getFullContractState(accountAddress);
 

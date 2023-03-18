@@ -2,7 +2,6 @@
 
 use crate::nekoton_wrapper::external::connections::{GqlConnectionBox, GqlConnectionBoxTrait};
 use crate::utils::caller;
-use anyhow::anyhow;
 use async_trait::async_trait;
 use flutter_rust_bridge::RustOpaque;
 use nekoton::external::{GqlConnection, GqlRequest};
@@ -27,11 +26,7 @@ impl GqlConnectionDartWrapper {
 
     /// Method to provide real GqlConnection to transport level, used only in rust
     pub(crate) fn get_connection(&self) -> Arc<dyn GqlConnectionBoxTrait> {
-        self.inner_connection
-            .clone()
-            .try_unwrap()
-            .map_err(|e| anyhow!("get connection error"))
-            .unwrap()
+        (*self.inner_connection).clone()
     }
 }
 
