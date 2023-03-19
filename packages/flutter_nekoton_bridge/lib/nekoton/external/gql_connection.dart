@@ -17,7 +17,7 @@ typedef GqlConnectionGet = Future<String> Function(String endpoint);
 
 @reflector
 class GqlConnection extends RustToDartMirrorInterface {
-  late GqlConnectionImpl connection;
+  late GqlConnectionDartWrapper connection;
 
   final GqlConnectionPost _post;
   final GqlConnectionGet _get;
@@ -25,8 +25,9 @@ class GqlConnection extends RustToDartMirrorInterface {
   final String _name;
   final int _networkId;
   final String _group;
-  final _type = TransportType.gql;
   final GqlNetworkSettings _settings;
+
+  final type = TransportType.gql;
 
   String? _cachedEndpoint;
 
@@ -51,7 +52,7 @@ class GqlConnection extends RustToDartMirrorInterface {
         GqlConnection._(post, get, settings, name, group, networkId);
 
     final lib = createLib();
-    instance.connection = await lib.newStaticMethodGqlConnectionImpl(
+    instance.connection = await lib.newStaticMethodGqlConnectionDartWrapper(
       instanceHash: instance.instanceHash,
       isLocal: settings.local,
     );
@@ -64,8 +65,6 @@ class GqlConnection extends RustToDartMirrorInterface {
   int get networkId => _networkId;
 
   String get group => _group;
-
-  TransportType get type => _type;
 
   /// Method to make post request. It's called from rust
   Future<String> post(String requestData) async {

@@ -12,15 +12,16 @@ typedef JrpcConnectionPost = Future<String> Function({
 
 @reflector
 class JrpcConnection extends RustToDartMirrorInterface {
-  late JrpcConnectionImpl connection;
+  late JrpcConnectionDartWrapper connection;
 
   final JrpcConnectionPost _post;
 
   final String _name;
   final int _networkId;
   final String _group;
-  final _type = TransportType.gql;
   final JrpcNetworkSettings _settings;
+
+  final type = TransportType.gql;
 
   JrpcConnection._(
     this._post,
@@ -40,7 +41,7 @@ class JrpcConnection extends RustToDartMirrorInterface {
     final instance = JrpcConnection._(post, settings, name, group, networkId);
 
     final lib = createLib();
-    instance.connection = await lib.newStaticMethodJrpcConnectionImpl(
+    instance.connection = await lib.newStaticMethodJrpcConnectionDartWrapper(
       instanceHash: instance.instanceHash,
     );
 
@@ -52,8 +53,6 @@ class JrpcConnection extends RustToDartMirrorInterface {
   int get networkId => _networkId;
 
   String get group => _group;
-
-  TransportType get type => _type;
 
   /// Method to make post request. It's called from rust
   Future<String> post(String requestData) async {
