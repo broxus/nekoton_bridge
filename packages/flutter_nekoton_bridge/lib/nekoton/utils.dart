@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-const amountConverter = AmountJsonConverter();
+const amountJsonConverter = AmountJsonConverter();
 
 /// Json converter of amount value from string to BigInt
 class AmountJsonConverter extends JsonConverter<BigInt, String> {

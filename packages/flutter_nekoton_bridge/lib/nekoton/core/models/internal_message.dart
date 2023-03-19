@@ -10,7 +10,7 @@ class InternalMessage with _$InternalMessage {
   factory InternalMessage({
     String? source,
     required String destination,
-    @amountConverter required BigInt amount,
+    @amountJsonConverter required BigInt amount,
     required bool bounce,
     required String body,
   }) = _InternalMessage;
