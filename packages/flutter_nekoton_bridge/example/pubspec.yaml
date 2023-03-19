@@ -46,6 +46,8 @@ dependencies:
   freezed_annotation: ^2.2.0
 
 dev_dependencies:
+  #  Used for tests
+  http: 0.13.5
   flutter_test:
     sdk: flutter
   integration_test:

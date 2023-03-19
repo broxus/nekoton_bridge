@@ -1,81 +1,111 @@
 pub mod crypto;
 pub mod external;
+pub mod helpers;
 pub mod models_api;
+pub mod transport;
 
-use anyhow::Result;
+use anyhow::{Context, Result};
+use lazy_static::lazy_static;
+use nekoton_utils::SimpleClock;
 use serde::Serialize;
+use std::str::FromStr;
+use std::sync::Arc;
+use ton_block::MsgAddressInt;
+use ton_types::UInt256;
+
+lazy_static! {
+    pub static ref CLOCK: Arc<SimpleClock> = Arc::new(SimpleClock {});
+    pub static ref RUNTIME: tokio::runtime::Runtime = tokio::runtime::Builder::new_multi_thread()
+        .enable_all()
+        .build()
+        .unwrap();
+}
 
 #[macro_export]
 macro_rules! clock {
     () => {
-        CLOCK.clone()
+        $crate::nekoton_wrapper::CLOCK.clone()
     };
 }
 
-#[derive(Serialize)]
-#[serde(rename_all = "camelCase", tag = "type", content = "data")]
-pub enum ExecutionResult<T>
-where
-    T: Serialize,
-{
-    Ok(T),
-    Err(String),
+#[macro_export]
+/// This macro help to run async code in sync way on the global runtime.
+macro_rules! async_run {
+    ($exp:expr) => {
+        $crate::nekoton_wrapper::RUNTIME.block_on(async { $exp })
+    };
 }
 
-pub trait MatchResult {
-    fn match_result(self) -> String;
+/// This help interface to convert value to json string or return error.
+/// Typical usage:
+/// ```
+/// serde_json::to_value(my_object_to_json).json_or_error()
+/// ```
+pub trait JsonOrError {
+    fn json_or_error(self) -> Result<String, anyhow::Error>;
 }
 
-impl<T> MatchResult for Result<T, String>
+impl<T, E> JsonOrError for Result<T, E>
 where
     T: Serialize,
+    E: ToString,
 {
-    fn match_result(self) -> String {
-        let result = match self {
-            Ok(ok) => ExecutionResult::Ok(ok),
-            Err(err) => ExecutionResult::Err(err),
-        };
-
-        serde_json::to_string(&result).unwrap()
+    fn json_or_error(self) -> Result<String, anyhow::Error> {
+        match self {
+            Ok(ok) => serde_json::to_string(&ok).handle_error(),
+            Err(err) => Err(anyhow::Error::msg(err.to_string())),
+        }
     }
 }
 
+/// Returns expected type or Error
 pub trait HandleError {
     type Output;
 
-    fn handle_error(self) -> Result<Self::Output, String>;
+    fn handle_error(self) -> Result<Self::Output, anyhow::Error>;
 }
 
-/// Returns T or String as error
+/// Returns expected type or Error
 impl<T, E> HandleError for Result<T, E>
 where
     E: ToString,
 {
     type Output = T;
 
-    fn handle_error(self) -> Result<Self::Output, String> {
-        self.map_err(|e| e.to_string())
+    fn handle_error(self) -> Result<Self::Output, anyhow::Error> {
+        self.map_err(|e| anyhow::Error::msg(e.to_string()))
     }
 }
 
-// fn parse_hash(hash: String) -> Result<ton_types::UInt256, String> {
-//     ton_types::UInt256::from_str(hash.as_str()).handle_error()
-// }
+/// Parse hash string to UInt256
+pub fn parse_hash(hash: String) -> Result<UInt256, anyhow::Error> {
+    ton_types::UInt256::from_str(hash.as_str()).handle_error()
+}
 
-// fn parse_public_key(public_key: String) -> Result<ed25519_dalek::PublicKey, anyhow::Error> {
-//     Ok(ed25519_dalek::PublicKey::from_bytes(
-//         &hex::decode(public_key.as_str()).context("Bad hex data")?,
-//     )?)
-// }
+/// Parse public key from string and return its instance or throw error
+pub fn parse_public_key(public_key: String) -> Result<ed25519_dalek::PublicKey, anyhow::Error> {
+    Ok(ed25519_dalek::PublicKey::from_bytes(
+        &hex::decode(public_key).context("Bad hex data")?,
+    )?)
+}
 
-// fn parse_address(address: String) -> Result<MsgAddressInt, String> {
-//     MsgAddressInt::from_str(address.as_str()).handle_error()
-// }
+/// Parse address from string and return its instance or throw error
+pub fn parse_address(address: String) -> Result<MsgAddressInt, anyhow::Error> {
+    MsgAddressInt::from_str(address.as_str()).handle_error()
+}
 
-pub(crate) fn str_list_to_string_vec(slice: &[&str]) -> Vec<String> {
+pub fn str_list_to_string_vec(slice: &[&str]) -> Vec<String> {
     slice.iter().map(|x| x.to_string()).collect()
 }
 
-pub(crate) fn str_vec_to_string_vec(slice: Vec<&'static str>) -> Vec<String> {
+pub fn str_vec_to_string_vec(slice: Vec<&'static str>) -> Vec<String> {
     slice.into_iter().map(|x| x.to_string()).collect()
+}
+
+pub trait ToNekoton<T> {
+    fn to_nekoton(self) -> T;
+}
+
+pub trait ToSerializable<T> {
+    fn to_serializable(self) -> T;
 }
