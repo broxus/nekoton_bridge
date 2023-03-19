@@ -44,10 +44,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   freezed_annotation: ^2.2.0
-  #  Used for tests
-  http: 0.13.5
 
 dev_dependencies:
+  #  Used for tests
+  http: 0.13.5
   flutter_test:
     sdk: flutter
   integration_test:

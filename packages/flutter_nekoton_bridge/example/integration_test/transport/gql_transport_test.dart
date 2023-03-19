@@ -33,11 +33,11 @@ void main() {
   const endpoint =
       'https://mainnet.evercloud.dev/89a3b8f46a484f2ea3bdd364ddaee3a3/graphql';
 
-  const kDefaultLatencyDetectionInterval = 60000;
+  const defaultLatencyDetectionInterval = 60000;
 
-  const kDefaultMaxLatency = 60000;
+  const defaultMaxLatency = 60000;
 
-  const kDefaultEndpointSelectionRetryCount = 5;
+  const defaultEndpointSelectionRetryCount = 5;
 
   /// System account address
   const accountAddress =
@@ -47,9 +47,9 @@ void main() {
 
   const gqlSettings = GqlNetworkSettings(
     endpoints: [endpoint],
-    latencyDetectionInterval: kDefaultLatencyDetectionInterval,
-    maxLatency: kDefaultMaxLatency,
-    endpointSelectionRetryCount: kDefaultEndpointSelectionRetryCount,
+    latencyDetectionInterval: defaultLatencyDetectionInterval,
+    maxLatency: defaultMaxLatency,
+    endpointSelectionRetryCount: defaultEndpointSelectionRetryCount,
     local: false,
   );
 

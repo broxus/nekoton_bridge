@@ -9,12 +9,12 @@ part 'encrypted_key_create_input.g.dart';
 class EncryptedKeyCreateInput
     with _$EncryptedKeyCreateInput
     implements CreateKeyInput {
-  const factory EncryptedKeyCreateInput(
+  factory EncryptedKeyCreateInput({
     String? name,
-    String phrase,
-    @mnemonicJsonConverter MnemonicType mnemonicType,
-    Password password,
-  ) = _EncryptedKeyCreateInput;
+    required String phrase,
+    @mnemonicJsonConverter required MnemonicType mnemonicType,
+    required Password password,
+  }) = _EncryptedKeyCreateInput;
 
   factory EncryptedKeyCreateInput.fromJson(Map<String, dynamic> json) =>
       _$EncryptedKeyCreateInputFromJson(json);
