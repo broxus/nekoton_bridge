@@ -1,6 +1,7 @@
 #![allow(unused_variables, dead_code)]
 
 use crate::clock;
+use base64::{Engine as _, engine::general_purpose};
 use flutter_rust_bridge::RustOpaque;
 pub use nekoton::crypto;
 use nekoton_utils::serde_uint256;
@@ -127,11 +128,11 @@ impl UnsignedMessageBoxTrait for UnsignedMessageBox {
 
     /// Returns base64 encoded hash string of UnsignedMessage
     fn hash(&self) -> String {
-        base64::encode(self.inner_message.hash())
+        general_purpose::STANDARD.encode(self.inner_message.hash())
     }
 
     fn sign(&self, signature: String) -> Result<String, anyhow::Error> {
-        let signature: [u8; ed25519_dalek::SIGNATURE_LENGTH] = base64::decode(signature)
+        let signature: [u8; ed25519_dalek::SIGNATURE_LENGTH] = general_purpose::STANDARD.decode(signature)
             .handle_error()?
             .as_slice()
             .try_into()

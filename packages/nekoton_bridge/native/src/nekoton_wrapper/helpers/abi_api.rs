@@ -20,6 +20,7 @@ use std::borrow::Cow;
 use std::collections::HashMap;
 use std::time::{SystemTime, UNIX_EPOCH};
 use ton_block::{Deserializable, Serializable};
+use base64::{Engine as _, engine::general_purpose};
 
 /// Check if public key is correct.
 /// If no - throws error, if ok - return true
@@ -111,7 +112,7 @@ pub fn get_expected_address(
 
     let address = format!("{workchain_id}:{repr_hash}");
     let state_init = ton_types::serialize_toc(&cell)
-        .map(base64::encode)
+        .map(general_purpose::STANDARD.encode)
         .handle_error()?;
 
     Ok(vec![address, state_init])
@@ -137,7 +138,7 @@ pub fn encode_internal_input(
 
     let body = ton_types::serialize_toc(&body).handle_error()?;
 
-    Ok(base64::encode(body))
+    Ok(general_purpose::STANDARD.encode(body))
 }
 
 /// Returns json-encoded SignedMessage from nekoton or throws error
@@ -442,7 +443,7 @@ pub fn decode_transaction_events(
 
 /// Returns hash of decoded boc or throws error
 pub fn get_boc_hash(boc: String) -> Result<String, anyhow::Error> {
-    let body = base64::decode(boc).handle_error()?;
+    let body = general_purpose::STANDARD.decode(boc).handle_error()?;
 
     let hash = ton_types::deserialize_tree_of_cells(&mut body.as_slice())
         .handle_error()?
@@ -462,7 +463,7 @@ pub fn pack_into_cell(params: String, tokens: String) -> Result<String, anyhow::
     let cell = nekoton_abi::pack_into_cell(&tokens, version).handle_error()?;
     let bytes = ton_types::serialize_toc(&cell).handle_error()?;
 
-    let bytes = base64::encode(bytes);
+    let bytes = general_purpose::STANDARD.encode(bytes);
 
     Ok(bytes)
 }
@@ -474,7 +475,7 @@ pub fn unpack_from_cell(
     allow_partial: bool,
 ) -> Result<String, anyhow::Error> {
     let params = parse_params_list(params)?;
-    let body = base64::decode(boc).handle_error()?;
+    let body = general_purpose::STANDARD.decode(boc).handle_error()?;
     let cell = ton_types::deserialize_tree_of_cells(&mut body.as_slice()).handle_error()?;
     let version = ton_abi::contract::AbiVersion { major: 2, minor: 2 };
 
@@ -533,14 +534,14 @@ pub fn extract_public_key(boc: String) -> Result<String, anyhow::Error> {
 
 /// Convert code to base64 tvc string and return it or throw error
 pub fn code_to_tvc(code: String) -> Result<String, anyhow::Error> {
-    let cell = base64::decode(code).handle_error()?;
+    let cell = general_purpose::STANDARD.decode(code).handle_error()?;
 
     let tvc = ton_types::deserialize_tree_of_cells(&mut cell.as_slice())
         .handle_error()
         .and_then(|e| nekoton_abi::code_to_tvc(e).handle_error())
         .and_then(|e| e.serialize().handle_error())
         .and_then(|e| ton_types::serialize_toc(&e).handle_error())
-        .map(base64::encode)?;
+        .map(general_purpose::STANDARD.encode)?;
 
     Ok(tvc)
 }
@@ -556,7 +557,7 @@ pub fn merge_tvc(code: String, data: String) -> Result<String, anyhow::Error> {
     let cell = state_init.serialize().handle_error()?;
     let bytes = ton_types::serialize_toc(&cell).handle_error()?;
 
-    Ok(base64::encode(bytes))
+    Ok(general_purpose::STANDARD.encode(bytes))
 }
 
 /// Split base64 tvc string into data and code.
@@ -568,7 +569,7 @@ pub fn split_tvc(tvc: String) -> Result<Vec<Option<String>>, anyhow::Error> {
         Some(data) => {
             let data = ton_types::serialize_toc(&data).handle_error()?;
 
-            Some(base64::encode(data))
+            Some(general_purpose::STANDARD.encode(data))
         }
         None => None,
     };
@@ -577,7 +578,7 @@ pub fn split_tvc(tvc: String) -> Result<Vec<Option<String>>, anyhow::Error> {
         Some(code) => {
             let code = ton_types::serialize_toc(&code).handle_error()?;
 
-            Some(base64::encode(code))
+            Some(general_purpose::STANDARD.encode(code))
         }
         None => None,
     };
@@ -589,14 +590,14 @@ pub fn split_tvc(tvc: String) -> Result<Vec<Option<String>>, anyhow::Error> {
 pub fn set_code_salt(code: String, salt: String) -> Result<String, anyhow::Error> {
     nekoton_abi::set_code_salt(parse_cell(code)?, parse_cell(salt)?)
         .and_then(|cell| ton_types::serialize_toc(&cell))
-        .map(base64::encode)
+        .map(general_purpose::STANDARD.encode)
         .handle_error()
 }
 
 /// Get salt from code if possible and return base64-encoded salt or throw error
 pub fn get_code_salt(code: String) -> Result<Option<String>, anyhow::Error> {
     let salt = match nekoton_abi::get_code_salt(parse_cell(code)?).handle_error()? {
-        Some(salt) => Some(base64::encode(
+        Some(salt) => Some(general_purpose::STANDARD.encode(
             ton_types::serialize_toc(&salt).handle_error()?,
         )),
         None => None,

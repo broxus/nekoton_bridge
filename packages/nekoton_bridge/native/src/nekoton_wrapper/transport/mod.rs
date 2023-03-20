@@ -18,6 +18,7 @@ use std::panic::{RefUnwindSafe, UnwindSafe};
 use std::sync::Arc;
 use std::time::Duration;
 use ton_block::Serializable;
+use base64::{Engine as _, engine::general_purpose};
 
 pub mod gql_transport_api;
 pub mod jrpc_transport_api;
@@ -114,7 +115,7 @@ impl JrpcTransportBoxTrait for JrpcTransportBox {
                     .as_ref()
                     .map(ton_types::serialize_toc)
                     .handle_error()?
-                    .map(base64::encode)
+                    .map(general_purpose::STANDARD.encode)
                     .handle_error()?;
 
                 let is_deployed = matches!(
@@ -347,7 +348,7 @@ impl GqlTransportBoxTrait for GqlTransportBox {
                     .as_ref()
                     .map(ton_types::serialize_toc)
                     .handle_error()?
-                    .map(base64::encode)
+                    .map(general_purpose::STANDARD.encode)
                     .handle_error()?;
 
                 let is_deployed = matches!(
@@ -495,7 +496,7 @@ impl GqlTransportBoxTrait for GqlTransportBox {
             .as_ref()
             .map(ton_types::serialize_toc)
             .handle_error()?
-            .map(base64::encode)
+            .map(general_purpose::STANDARD.encode)
             .handle_error()?;
 
         Ok(block)

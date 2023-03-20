@@ -21,7 +21,7 @@ pub enum AbiError {
 
 /// Parse account stuff and return its instance or throw error
 pub fn parse_account_stuff(boc: String) -> Result<ton_block::AccountStuff, anyhow::Error> {
-    let bytes = base64::decode(boc).handle_error()?;
+    let bytes = general_purpose::STANDARD.decode(boc).handle_error()?;
     ton_types::deserialize_tree_of_cells(&mut bytes.as_slice())
         .and_then(|cell| {
             let slice = &mut cell.into();
@@ -49,7 +49,7 @@ pub fn parse_cell(boc: String) -> Result<ton_types::Cell, anyhow::Error> {
     if boc.is_empty() {
         Ok(ton_types::Cell::default())
     } else {
-        let body = base64::decode(boc).handle_error()?;
+        let body = general_purpose::STANDARD.decode(boc).handle_error()?;
         ton_types::deserialize_tree_of_cells(&mut body.as_slice()).handle_error()
     }
 }
@@ -77,7 +77,7 @@ pub fn parse_method_name(value: Option<String>) -> Result<MethodName, anyhow::Er
 
 /// Parse boc to slice and return its instance or throws error
 pub fn parse_slice(boc: String) -> Result<ton_types::SliceData, anyhow::Error> {
-    let body = base64::decode(boc).handle_error()?;
+    let body = general_purpose::STANDARD.decode(boc).handle_error()?;
     let cell = ton_types::deserialize_tree_of_cells(&mut body.as_slice()).handle_error()?;
     Ok(cell.into())
 }
