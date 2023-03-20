@@ -1,4 +1,5 @@
 use std::env;
+use std::fs;
 use lib_flutter_rust_bridge_codegen::{
     config_parse, frb_codegen, get_symbols_if_no_duplicates, RawOpts,
 };
@@ -7,7 +8,7 @@ use rerun_except::rerun_except;
 const RUST_INPUT: &str = "src/merged.rs";
 const DART_OUTPUT: &str = "../lib/src/bridge_generated.dart";
 const IOS_C_OUTPUT: &str = "../../flutter_nekoton_bridge/ios/Classes/frb.h";
-// const MACOS_C_OUTPUT: &str = "../../flutter_nekoton_bridge/macos/Classes/frb.h";
+const MACOS_C_OUTPUT: &str = "../../flutter_nekoton_bridge/macos/Classes/frb.h";
 
 fn main() {
     env::set_var("RUST_BACKTRACE", "full");
@@ -40,6 +41,8 @@ fn main() {
     for config in configs.iter() {
         frb_codegen(config, &all_symbols).unwrap();
     }
+
+    fs::copy(IOS_C_OUTPUT, MACOS_C_OUTPUT).expect("Can't copy frb.h from ios to macos build dir");
 
     // Format the generated Dart code
     _ = std::process::Command::new("flutter")

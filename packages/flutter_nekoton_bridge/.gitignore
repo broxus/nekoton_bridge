@@ -31,3 +31,4 @@ build/
 
 # Generated code
 ios/Classes/frb.h
+macos/Classes/frb.h

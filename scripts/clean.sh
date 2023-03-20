@@ -7,6 +7,7 @@ find . -type f -name "*.g.dart" -delete
 find . -type f -name "*.reflectable.dart" -delete
 rm -rdf packages/nekoton_bridge/native/src/merged.rs
 rm -rdf packages/flutter_nekoton_bridge/ios/Classes/frb.h
+rm -rdf packages/flutter_nekoton_bridge/macos/Classes/frb.h
 
 # Remove build files (output)
 rm -rdf platform-build/{,.[!.],..?}*
@@ -20,6 +21,10 @@ rm -rdf packages/flutter_nekoton_bridge/android/src/main/jniLibs/*
 # Remove build files (working directory, ios)
 rm -rdf packages/flutter_nekoton_bridge/ios/Frameworks/NekotonBridge.xcframework
 rm -rdf packages/flutter_nekoton_bridge/ios/Frameworks/nekoton_bridge*.zip
+
+# Remove build files (working directory, macos)
+rm -rdf packages/flutter_nekoton_bridge/macos/Frameworks/NekotonBridge.xcframework
+rm -rdf packages/flutter_nekoton_bridge/macos/Frameworks/nekoton_bridge*.zip
 
 # Flutter clean for package
 cd packages/flutter_nekoton_bridge

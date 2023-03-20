@@ -18,23 +18,27 @@ release_tag_name = 'nekoton_bridge-v1.6.0-dev.0' # generated; do not edit
 #   # paths, so Classes contains a forwarder C file that relatively imports
 #   # `../src/*` so that the C sources can be shared among all target platforms.
 #   s.source           = { :path => '.' }
-#   s.source_files     = 'Classes/**/*'
-#   s.dependency 'FlutterMacOS'
+#   s.source_files = 'Classes/**/*'
+#   s.dependency 'Flutter'
+#   s.platform = :ios, '9.0'
 
-#   s.platform = :osx, '10.11'
-#   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
+#   # Flutter.framework does not contain a i386 slice.
+#   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
 #   s.swift_version = '5.0'
 # end
 
 # We cannot distribute the XCFramework alongside the library directly,
 # so we have to fetch the correct version here.
 framework_name = 'NekotonBridge.xcframework'
+local_build_zip_name = "../../../../platform-build/#{framework_name}.zip"
 remote_zip_name = "#{framework_name}.zip"
 url = "https://github.com/broxus/nekoton_bridge/releases/download/#{release_tag_name}/#{remote_zip_name}"
 local_zip_name = "#{release_tag_name}.zip"
 `
 cd Frameworks
 rm -rf #{framework_name}
+
+cp -f #{local_build_zip_name} #{local_zip_name}
 
 if [ ! -f #{local_zip_name} ]
 then
@@ -59,5 +63,5 @@ Pod::Spec.new do |spec|
   spec.vendored_frameworks = "Frameworks/#{framework_name}"
 
   spec.ios.deployment_target = '11.0'
-  spec.osx.deployment_target = '10.11'
+  spec.osx.deployment_target = '10.14'
 end
