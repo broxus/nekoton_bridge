@@ -533,8 +533,7 @@ pub fn extract_public_key(boc: String) -> Result<String, anyhow::Error> {
 
 /// Convert code to base64 tvc string and return it or throw error
 pub fn code_to_tvc(code: String) -> Result<String, anyhow::Error> {
-    let cell = base64::decode(code)
-        .handle_error()?;
+    let cell = base64::decode(code).handle_error()?;
 
     let tvc = ton_types::deserialize_tree_of_cells(&mut cell.as_slice())
         .handle_error()
@@ -597,9 +596,9 @@ pub fn set_code_salt(code: String, salt: String) -> Result<String, anyhow::Error
 /// Get salt from code if possible and return base64-encoded salt or throw error
 pub fn get_code_salt(code: String) -> Result<Option<String>, anyhow::Error> {
     let salt = match nekoton_abi::get_code_salt(parse_cell(code)?).handle_error()? {
-        Some(salt) => Some(
-            base64::encode(ton_types::serialize_toc(&salt).handle_error()?),
-        ),
+        Some(salt) => Some(base64::encode(
+            ton_types::serialize_toc(&salt).handle_error()?,
+        )),
         None => None,
     };
     Ok(salt)
