@@ -79,6 +79,7 @@ command:
       post: bash scripts/clean.sh
   bootstrap:
     hooks:
+      pre: bash scripts/pre-bs.sh
       post: melos codegen
   version:
     hooks:
