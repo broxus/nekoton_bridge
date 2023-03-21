@@ -6,7 +6,6 @@ use ed25519_dalek::Verifier;
 pub use flutter_rust_bridge::RustOpaque;
 pub use nekoton::crypto::UnsignedMessage;
 use std::convert::TryFrom;
-use base64::{Engine as _, engine::general_purpose};
 
 /// Check signature by publicKey and data hash
 pub fn verify_signature(
@@ -18,7 +17,7 @@ pub fn verify_signature(
 
     let data_hash = match hex::decode(&data_hash) {
         Ok(data_hash) => data_hash,
-        Err(e) => match general_purpose::STANDARD.decode(&data_hash) {
+        Err(e) => match base64::decode(&data_hash) {
             Ok(data_hash) => data_hash,
             Err(e) => return Err(anyhow::Error::msg(e)),
         },
@@ -28,7 +27,7 @@ pub fn verify_signature(
         return Err(anyhow::Error::msg("Invalid data hash. Expected 32 bytes"));
     }
 
-    let signature = match general_purpose::STANDARD.decode(&signature) {
+    let signature = match base64::decode(&signature) {
         Ok(signature) => signature,
         Err(e) => match hex::decode(&signature) {
             Ok(signature) => signature,
