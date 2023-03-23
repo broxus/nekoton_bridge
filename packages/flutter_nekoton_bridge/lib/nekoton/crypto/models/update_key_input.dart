@@ -1,19 +1,14 @@
-import 'package:flutter_nekoton_bridge/nekoton/crypto/derived_key/constants.dart';
-import 'package:flutter_nekoton_bridge/nekoton/crypto/derived_key/derived_key_update_params.dart';
-import 'package:flutter_nekoton_bridge/nekoton/crypto/encrypted_key/constants.dart';
-import 'package:flutter_nekoton_bridge/nekoton/crypto/encrypted_key/encrypted_key_update_params.dart';
-import 'package:flutter_nekoton_bridge/nekoton/crypto/ledger_key/constants.dart';
-import 'package:flutter_nekoton_bridge/nekoton/crypto/ledger_key/ledger_update_key_input.dart';
+import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
 abstract class UpdateKeyInput {
   Map<String, dynamic> toJson();
 }
 
 extension UpdateKeyInputToSigner on UpdateKeyInput {
-  String toSigner() {
-    if (this is EncryptedKeyUpdateParams) return encryptedKeySignerName;
-    if (this is DerivedKeyUpdateParams) return derivedKeySignerName;
-    if (this is LedgerUpdateKeyInput) return ledgerKeySignerName;
+  KeySigner toSigner() {
+    if (this is EncryptedKeyUpdateParams) return const KeySigner.encrypted();
+    if (this is DerivedKeyUpdateParams) return const KeySigner.derived();
+    if (this is LedgerUpdateKeyInput) return const KeySigner.ledger();
     throw UnsupportedError('Invalid signer');
   }
 }

@@ -1,3 +1,4 @@
+use crate::nekoton_wrapper::crypto::mnemonic::models::MnemonicTypeDef;
 use nekoton::crypto::{EncryptedKeyCreateInput, EncryptedKeyExportOutput, MnemonicType, Password};
 use secstr::SecUtf8;
 use serde::{Deserialize, Serialize};
@@ -12,6 +13,7 @@ pub struct EncryptedKeyCreateInputHelper(
 pub struct EncryptedKeyCreateInputDef {
     pub name: Option<String>,
     pub phrase: SecUtf8,
+    #[serde(with = "MnemonicTypeDef")]
     pub mnemonic_type: MnemonicType,
     pub password: Password,
 }
@@ -25,5 +27,6 @@ pub struct EncryptedKeyExportOutputHelper(
 #[serde(remote = "EncryptedKeyExportOutput", rename_all = "camelCase")]
 pub struct EncryptedKeyExportOutputDef {
     pub phrase: SecUtf8,
+    #[serde(with = "MnemonicTypeDef")]
     pub mnemonic_type: MnemonicType,
 }

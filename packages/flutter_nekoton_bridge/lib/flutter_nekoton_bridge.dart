@@ -80,11 +80,23 @@ Future<void> registerRustToDartCaller(RustToDartCaller rustToDartCaller) async {
         } else if (result is Future<String>) {
           lib.callSendResult(id: id, value: DynamicValue.string(await result));
           return;
+        } else if (result is Future<String?>) {
+          final r = await result;
+          if (r == null) {
+            lib.callSendResult(id: id, value: const DynamicValue.none());
+          } else {
+            lib.callSendResult(id: id, value: DynamicValue.string(r));
+          }
+          return;
         } else if (result is int) {
           lib.callSendResult(id: id, value: DynamicValue.i64(result));
           return;
         } else if (result is Future<int>) {
           lib.callSendResult(id: id, value: DynamicValue.i64(await result));
+          return;
+        } else if (result is Future<void>) {
+          await result;
+          lib.callSendResult(id: id, value: const DynamicValue.none());
           return;
         } else if (result is double) {
           lib.callSendResult(id: id, value: DynamicValue.f64(result));

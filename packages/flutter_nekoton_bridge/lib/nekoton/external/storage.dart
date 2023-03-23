@@ -21,7 +21,7 @@ typedef StorageRemoveUnchecked = void Function(String key);
 
 @reflector
 class Storage extends RustToDartMirrorInterface {
-  late StorageImpl storage;
+  late StorageDartWrapper storage;
 
   final StorageGet _get;
   final StorageSet _set;
@@ -47,7 +47,7 @@ class Storage extends RustToDartMirrorInterface {
     final instance = Storage._(get, set, setUnchecked, remove, removeUnchecked);
 
     final lib = createLib();
-    instance.storage = await lib.newStaticMethodStorageImpl(
+    instance.storage = await lib.newStaticMethodStorageDartWrapper(
       instanceHash: instance.instanceHash,
     );
 
@@ -93,6 +93,12 @@ class Storage extends RustToDartMirrorInterface {
     try {
       _removeUnchecked(key);
     } catch (_) {}
+  }
+
+  @override
+  void dispose() {
+    storage.innerStorage.dispose();
+    super.dispose();
   }
 
   @override

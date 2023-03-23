@@ -16,6 +16,29 @@ use crate::nekoton_wrapper::{HandleError, JsonOrError, ToNekoton, ToSerializable
 /// Rust level models, no need to import it to Dart
 /// ------------------------------
 
+/// List of key signers that could be used in keystore
+#[derive(Eq, PartialEq)]
+pub enum KeySigner {
+    Encrypted,
+    Derived,
+    Ledger,
+
+    /// Do not use this type. This is fucking hack because generator don't want generate
+    /// converter for Vec<KeySigner> if it is simple enum
+    Fake(bool),
+}
+
+impl ToString for KeySigner {
+    fn to_string(&self) -> String {
+        match self {
+            KeySigner::Encrypted => String::from("EncryptedKeySigner"),
+            KeySigner::Derived => String::from("DerivedKeySigner"),
+            KeySigner::Ledger => String::from("LedgerKeySigner"),
+            KeySigner::Fake(_) => String::from(""),
+        }
+    }
+}
+
 #[derive(Serialize, Deserialize)]
 pub struct SignedMessage {
     #[serde(with = "serde_uint256")]

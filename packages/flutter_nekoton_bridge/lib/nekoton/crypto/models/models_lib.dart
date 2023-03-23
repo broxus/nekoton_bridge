@@ -6,8 +6,5 @@ export 'export_key_output.dart';
 export 'get_public_keys.dart';
 export 'keypair.dart';
 export 'sign_input.dart';
-export 'signature_parts.dart';
-export 'signed_data.dart';
-export 'signed_data_raw.dart';
 export 'signed_message.dart';
 export 'update_key_input.dart';

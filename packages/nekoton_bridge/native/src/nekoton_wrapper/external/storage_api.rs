@@ -1,9 +1,32 @@
 #![allow(unused_variables, dead_code)]
 
+use crate::nekoton_wrapper::external::storage::{StorageBox, StorageBoxTrait};
 use crate::utils::caller;
 use crate::utils::caller::{DynamicNamedValue, DynamicValue};
 use async_trait::async_trait;
+use flutter_rust_bridge::RustOpaque;
 use nekoton::external::Storage;
+use std::sync::Arc;
+
+/// This is a wrapper structure above StorageBoxTrait to provide instance in dart side.
+pub struct StorageDartWrapper {
+    pub inner_storage: RustOpaque<Arc<dyn StorageBoxTrait>>,
+}
+
+impl StorageDartWrapper {
+    pub fn new(instance_hash: String) -> StorageDartWrapper {
+        Self {
+            inner_storage: RustOpaque::new(StorageBox::create(Arc::new(StorageImpl {
+                instance_hash,
+            }))),
+        }
+    }
+
+    /// Method to provide real Storage to keystore level, used only in rust
+    pub(crate) fn get_storage(&self) -> Arc<dyn StorageBoxTrait> {
+        (*self.inner_storage).clone()
+    }
+}
 
 /// Implementation of nekoton's Storage
 pub struct StorageImpl {
