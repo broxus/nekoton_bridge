@@ -163,6 +163,21 @@ void main() {
           {'dict', 'derive_from_phrase', 'generate_key'});
       expect(cryptoCrate.moduleName, 'crypto');
     });
+
+    test('Test names rust import with as', () {
+      const crateImport = 'base64::{Engine as _, engine::general_purpose}';
+      final crates = <String, ModuleHierarchy>{};
+
+      parseImports(crateImport, crates);
+      final base64Crate = crates['base64']!;
+      expect(base64Crate.directImports.length, 1);
+      expect(base64Crate.directImports, {'Engine as _'});
+      expect(base64Crate.subModules.length, 1);
+      expect(
+        base64Crate.subModules['engine']!.directImports,
+        {'general_purpose'},
+      );
+    });
   });
 
   group('Test hierarchy converting to string', () {

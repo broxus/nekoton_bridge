@@ -7,11 +7,11 @@ edition = "2018"
 crate-type = ["staticlib", "cdylib"]
 
 [build-dependencies]
-flutter_rust_bridge_codegen = "1.70.*"
+flutter_rust_bridge_codegen = "1.71.*"
 rerun_except = "1.0.0"
 
 [dependencies]
-flutter_rust_bridge = { version = "1.70.*", features = ["worker-max"] }
+flutter_rust_bridge = { version = "1.71.*", features = ["worker-max"] }
 lazy_static = "1.4.0"
 anyhow = "1.0.54"
 thiserror="1.0.39"
@@ -31,7 +31,7 @@ ton_abi = { git = "https://github.com/broxus/ton-labs-abi" }
 ton_block = { git = "https://github.com/broxus/ton-labs-block.git" }
 ton_types = { git = "https://github.com/broxus/ton-labs-types.git" }
 
-base64 = "0.13.0"
+base64 = "0.13"
 ed25519-dalek = { git = "https://github.com/broxus/ed25519-dalek.git" }
 secstr = { version = "0.5.0", features = ["serde"] }
 serde = { version = "1.0.136", features = ["derive"] }
