@@ -225,7 +225,17 @@ void main() {
       final addedKey2 = await keystore.addKey(addKeyInputLegacy);
 
       final entries = await keystore.getEntries();
-      expect(jsonEncode(entries), jsonEncode([addedKey1, addedKey2]));
+
+      /// sort needs to avoid random order of keys
+      expect(
+        jsonEncode(
+          entries..sort((a, b) => a.publicKey.compareTo(b.publicKey)),
+        ),
+        jsonEncode(
+          [addedKey1, addedKey2]
+            ..sort((a, b) => a.publicKey.compareTo(b.publicKey)),
+        ),
+      );
       expect(storageMethods.data.isNotEmpty, isTrue);
     });
 
