@@ -55,7 +55,7 @@ void main() {
   );
   const addKeyInputLabs = DerivedKeyCreateInput.import(inputLabsData);
 
-  setUp(() {
+  setUp(() async {
     storageMethods = MockedStorageMethods();
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
     setupLogger(
@@ -65,14 +65,13 @@ void main() {
         'FromLib: ${logEntry.level} ${logEntry.tag} ${logEntry.msg} (lib_time=${logEntry.timeMillis})',
       ),
     );
+    runApp(Container());
+    await initRustToDartCaller();
   });
 
   group('AccountsStorage test', () {
     testWidgets('Create AccountsStorage', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
-      await initRustToDartCaller();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -88,10 +87,7 @@ void main() {
     });
 
     testWidgets('AccountsStorage addAccount', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
-      await initRustToDartCaller();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -123,10 +119,7 @@ void main() {
     });
 
     testWidgets('AccountsStorage addAccounts', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
-      await initRustToDartCaller();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -159,10 +152,7 @@ void main() {
     });
 
     testWidgets('AccountsStorage getEntries', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
-      await initRustToDartCaller();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -199,10 +189,7 @@ void main() {
     });
 
     testWidgets('AccountsStorage removeAccount', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
-      await initRustToDartCaller();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -238,10 +225,7 @@ void main() {
     });
 
     testWidgets('AccountsStorage removeAccounts', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
-      await initRustToDartCaller();
 
       final storage = await Storage.create(
         get: storageMethods.get,
