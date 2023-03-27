@@ -71,7 +71,7 @@ void main() {
     ),
   );
 
-  setUp(() {
+  setUp(() async {
     storageMethods = MockedStorageMethods();
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
     setupLogger(
@@ -81,14 +81,15 @@ void main() {
         'FromLib: ${logEntry.level} ${logEntry.tag} ${logEntry.msg} (lib_time=${logEntry.timeMillis})',
       ),
     );
+
+    runApp(Container());
+
+    await initRustToDartCaller();
   });
 
   group('KeyStore test', () {
     testWidgets('Create KeyStore', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
-      await initRustToDartCaller();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -106,10 +107,7 @@ void main() {
     });
 
     testWidgets('KeyStore addKey derived', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
-      await initRustToDartCaller();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -138,10 +136,7 @@ void main() {
     });
 
     testWidgets('KeyStore addKey encrypted', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
-      await initRustToDartCaller();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -170,10 +165,7 @@ void main() {
     });
 
     testWidgets('KeyStore addKeys', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
-      await initRustToDartCaller();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -203,10 +195,7 @@ void main() {
     });
 
     testWidgets('KeyStore getEntries', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
-      await initRustToDartCaller();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -240,10 +229,7 @@ void main() {
     });
 
     testWidgets('KeyStore removeKey', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
-      await initRustToDartCaller();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -267,10 +253,7 @@ void main() {
     });
 
     testWidgets('KeyStore removeKeys', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
-      await initRustToDartCaller();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -298,10 +281,7 @@ void main() {
     });
 
     testWidgets('KeyStore clearStore', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
-      await initRustToDartCaller();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -326,10 +306,7 @@ void main() {
     });
 
     testWidgets('KeyStore exportKey', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
-      await initRustToDartCaller();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -354,10 +331,7 @@ void main() {
     });
 
     testWidgets('KeyStore getPublicKeys', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
-      await initRustToDartCaller();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -385,10 +359,7 @@ void main() {
     });
 
     testWidgets('KeyStore updateKey', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
-      await initRustToDartCaller();
 
       final storage = await Storage.create(
         get: storageMethods.get,

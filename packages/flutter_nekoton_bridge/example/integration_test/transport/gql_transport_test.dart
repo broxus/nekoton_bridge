@@ -62,12 +62,12 @@ void main() {
         'FromLib: ${logEntry.level} ${logEntry.tag} ${logEntry.msg} (lib_time=${logEntry.timeMillis})',
       ),
     );
+
+    runApp(Container());
   });
 
   group('GqlTransport tests', () {
     testWidgets('Create GqlTransport', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
 
       final connection = await GqlConnection.create(
@@ -84,8 +84,6 @@ void main() {
     });
 
     testWidgets('GqlTransport getSignatureId ', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
 
       await initRustToDartCaller();
@@ -106,8 +104,6 @@ void main() {
     });
 
     testWidgets('GqlTransport getTransactions ', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
 
       await initRustToDartCaller();
@@ -131,8 +127,6 @@ void main() {
     });
 
     testWidgets('GqlTransport getTransaction ', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
 
       await initRustToDartCaller();
@@ -157,8 +151,6 @@ void main() {
     });
 
     testWidgets('GqlTransport multiple calls ', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
 
       await initRustToDartCaller();
@@ -195,8 +187,6 @@ void main() {
     });
 
     testWidgets('GqlTransport getContractState ', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
 
       await initRustToDartCaller();
@@ -223,8 +213,6 @@ void main() {
     testWidgets('GqlTransport getFullContractState ', (
       WidgetTester tester,
     ) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
 
       await initRustToDartCaller();

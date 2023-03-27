@@ -25,7 +25,7 @@ pub enum KeySigner {
 
     /// Do not use this type. This is fucking hack because generator don't want generate
     /// converter for Vec<KeySigner> if it is simple enum
-    Fake(bool),
+    Stub(bool),
 }
 
 impl ToString for KeySigner {
@@ -34,7 +34,7 @@ impl ToString for KeySigner {
             KeySigner::Encrypted => String::from("EncryptedKeySigner"),
             KeySigner::Derived => String::from("DerivedKeySigner"),
             KeySigner::Ledger => String::from("LedgerKeySigner"),
-            KeySigner::Fake(_) => String::from(""),
+            KeySigner::Stub(_) => String::from(""),
         }
     }
 }
