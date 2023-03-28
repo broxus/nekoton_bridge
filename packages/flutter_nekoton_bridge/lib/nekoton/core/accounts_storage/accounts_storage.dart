@@ -1,11 +1,14 @@
 import 'dart:convert';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:rxdart/rxdart.dart';
 
 /// Implementations of nekoton's AccountsStorage
 class AccountsStorage {
   final Storage storage;
   late AccountsStorageImpl accountsStorage;
+
+  final _accountsSubject = BehaviorSubject<List<AssetsList>>();
 
   AccountsStorage._(this.storage);
 
@@ -17,8 +20,13 @@ class AccountsStorage {
       storage: storage.storage,
     );
 
+    await instance._updateData();
+
     return instance;
   }
+
+  /// Stream of accounts that could be listened outside
+  Stream<List<AssetsList>> get accountsStream => _accountsSubject.stream;
 
   /// Get list of accounts or throw error
   Future<List<AssetsList>> getEntries() async {
@@ -34,6 +42,7 @@ class AccountsStorage {
     final encoded =
         await accountsStorage.addAccount(account: jsonEncode(account));
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
+    _updateData();
     return AssetsList.fromJson(decoded);
   }
 
@@ -42,6 +51,7 @@ class AccountsStorage {
     final encoded =
         await accountsStorage.addAccounts(accounts: jsonEncode(account));
     final decoded = jsonDecode(encoded) as List<dynamic>;
+    _updateData();
     return decoded
         .map((e) => AssetsList.fromJson(e as Map<String, dynamic>))
         .toList();
@@ -54,6 +64,7 @@ class AccountsStorage {
       name: name,
     );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
+    _updateData();
     return AssetsList.fromJson(decoded);
   }
 
@@ -74,6 +85,7 @@ class AccountsStorage {
       rootTokenContract: rootTokenContract,
     );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
+    _updateData();
     return AssetsList.fromJson(decoded);
   }
 
@@ -94,6 +106,7 @@ class AccountsStorage {
       rootTokenContract: rootTokenContract,
     );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
+    _updateData();
     return AssetsList.fromJson(decoded);
   }
 
@@ -106,6 +119,7 @@ class AccountsStorage {
     );
     if (encoded == null) return null;
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
+    _updateData();
     return AssetsList.fromJson(decoded);
   }
 
@@ -117,20 +131,37 @@ class AccountsStorage {
       accountAddresses: accountAddresses,
     );
     final decoded = jsonDecode(encoded) as List<dynamic>;
+    _updateData();
     return decoded
         .map((e) => AssetsList.fromJson(e as Map<String, dynamic>))
         .toList();
   }
 
   /// Clear storage and remove all data or throw error
-  Future<void> clear() => accountsStorage.clear();
+  Future<void> clear() async {
+    await accountsStorage.clear();
+    _updateData();
+  }
 
   /// Reload storage and read all data again or throw error.
-  Future<void> reload() => accountsStorage.reload();
+  Future<void> reload() async {
+    await accountsStorage.reload();
+    _updateData();
+  }
 
   /// Check if [data] is correct for storage.
   static Future<bool> verifyData(String data) {
     final lib = createLib();
     return lib.verifyDataStaticMethodAccountsStorageImpl(data: data);
+  }
+
+  Future<void> _updateData() async {
+    final keys = await getEntries();
+    _accountsSubject.add(keys);
+  }
+
+  void dispose() {
+    _accountsSubject.close();
+    accountsStorage.innerStorage.dispose();
   }
 }

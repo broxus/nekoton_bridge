@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:rxdart/rxdart.dart';
 
 /// Implementation of nekoton's KeyStore
 /// For all of method:
@@ -9,6 +10,8 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 class KeyStore {
   final Storage storage;
   late KeystoreDartWrapper keystore;
+
+  final _keysSubject = BehaviorSubject<List<KeyStoreEntry>>();
 
   KeyStore._(this.storage);
 
@@ -26,8 +29,13 @@ class KeyStore {
       ledgerConnection: ledgerConnection?.connection,
     );
 
+    await instance._updateData();
+
     return instance;
   }
+
+  /// Stream of keys that could be listened outside
+  Stream<List<KeyStoreEntry>> get keysStream => _keysSubject.stream;
 
   /// Return list KeyStoreEntry or throw error
   Future<List<KeyStoreEntry>> getEntries() async {
@@ -45,6 +53,7 @@ class KeyStore {
       input: jsonEncode(input),
     );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
+    _updateData();
     return KeyStoreEntry.fromJson(decoded);
   }
 
@@ -59,6 +68,7 @@ class KeyStore {
       input: jsonEncode(inputs),
     );
     final decoded = jsonDecode(encoded) as List<dynamic>;
+    _updateData();
     return decoded
         .map((e) => KeyStoreEntry.fromJson(e as Map<String, dynamic>))
         .toList();
@@ -71,6 +81,7 @@ class KeyStore {
       input: jsonEncode(input),
     );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
+    _updateData();
     return KeyStoreEntry.fromJson(decoded);
   }
 
@@ -187,6 +198,7 @@ class KeyStore {
     final encoded = await keystore.removeKey(publicKey: publicKey);
     if (encoded == null) return null;
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
+    _updateData();
     return KeyStoreEntry.fromJson(decoded);
   }
 
@@ -197,6 +209,7 @@ class KeyStore {
   }) async {
     final encoded = await keystore.removeKeys(publicKeys: publicKeys);
     final decoded = jsonDecode(encoded) as List<dynamic>;
+    _updateData();
     return decoded
         .map((e) => KeyStoreEntry.fromJson(e as Map<String, dynamic>))
         .toList();
@@ -218,11 +231,13 @@ class KeyStore {
   /// Clear KeyStore and remove all entries and all sensitive data.
   Future<void> clearStore() async {
     await keystore.clearKeystore();
+    _updateData();
   }
 
   /// Try to reload all stored data.
   Future<void> reloadKeystore() async {
     await keystore.reloadKeystore();
+    _updateData();
   }
 
   /// Verify if data is valid with specified signers and connection or not.
@@ -240,8 +255,14 @@ class KeyStore {
     );
   }
 
+  Future<void> _updateData() async {
+    final keys = await getEntries();
+    _keysSubject.add(keys);
+  }
+
   void dispose() {
     storage.dispose();
+    _keysSubject.close();
     keystore.innerKeystore.dispose();
   }
 }
