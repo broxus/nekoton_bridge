@@ -10,7 +10,8 @@ final importsReg = RegExp('.*use (?:.*?|\n)*?;');
 final cratesInSingleLineSpaceReg = RegExp(r', \w+::');
 
 /// RegExp to parse all sub modules and direct imports from brackets { .. }
-final subCratesParserReg = RegExp(r'((.+::)+({.+}|\w+,))|(\w+)');
+final subCratesParserReg =
+    RegExp(r'((\w+::)+({.+}|\w+(,|)))|(\w+( \w+)*[^\w+::\w+])');
 
 /// This runs automatically in the beginning of build.rs script
 /// [Directory.current] must be /nekoton_bridge/native
@@ -96,7 +97,9 @@ void parseSingleImport(String importFull, Map<String, ModuleHierarchy> crates) {
 
 /// Convert resulted [hierarchy] to single string with all nested sub-modules.
 void convertCrateToString(
-    Map<String, ModuleHierarchy> hierarchy, StringBuffer buffer) {
+  Map<String, ModuleHierarchy> hierarchy,
+  StringBuffer buffer,
+) {
   hierarchy.forEach((moduleName, hierarchy) {
     buffer.write(
       '${hierarchy.isRootPublic ? 'pub ' : ''}${hierarchy.isRoot ? 'use ' : ''}$moduleName::{',
@@ -171,10 +174,18 @@ void parseImports(
     // remove brackets { }
     croppedCrate = croppedCrate.substring(1, croppedCrate.length - 1).trim();
 
+    /// Small hack to be sure, that all single imports will be handled normally
+    /// because of updated regexp
+    if (!croppedCrate.endsWith(',')) {
+      croppedCrate = '$croppedCrate,';
+    }
+
     // iterate over sub-blocks and direct imports, group 1 is blocks, group 3 is direct imports
     subCratesParserReg.allMatches(croppedCrate).forEach((match) {
-      if (match.group(4) != null) {
-        hierarchy[moduleName]!.directImports.add(match.group(4)!.trim());
+      if (match.group(5) != null) {
+        hierarchy[moduleName]!
+            .directImports
+            .add(match.group(5)!.trim().replaceAll(',', ''));
       } else if (match.group(1) != null) {
         final cratesGroup = match.group(1)!;
         // If there are some glued crates in one line, we should split it
