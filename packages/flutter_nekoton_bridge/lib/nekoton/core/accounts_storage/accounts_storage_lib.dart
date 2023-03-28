@@ -1,3 +1,4 @@
+export 'accounts_storage.dart';
 export 'models/account_to_add.dart';
 export 'models/additional_assets.dart';
 export 'models/assets_list.dart';

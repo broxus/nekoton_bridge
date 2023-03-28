@@ -2,14 +2,14 @@
 
 use crate::async_run;
 use crate::nekoton_wrapper::external::jrpc_connection_api::JrpcConnectionDartWrapper;
-use crate::nekoton_wrapper::transport::{JrpcTransportBox, JrpcTransportBoxTrait};
+use crate::nekoton_wrapper::transport::{JrpcTransportBox, TransportBoxTrait};
 use flutter_rust_bridge::RustOpaque;
 use std::sync::Arc;
 
 /// Wrapper structure above JrpcTransport that provides interface to communicate with it
-/// via JrpcTransportBoxTrait.
+/// via TransportBoxTrait.
 pub struct JrpcTransportImpl {
-    pub inner_transport: RustOpaque<Arc<dyn JrpcTransportBoxTrait>>,
+    pub inner_transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
 }
 
 impl JrpcTransportImpl {

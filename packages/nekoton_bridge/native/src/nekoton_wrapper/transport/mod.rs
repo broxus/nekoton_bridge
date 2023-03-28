@@ -4,6 +4,7 @@ use crate::nekoton_wrapper::transport::models::{
     AccountsList, FullContractState, RawContractStateHelper, TransactionsList,
 };
 use crate::nekoton_wrapper::{parse_address, parse_hash, HandleError};
+use anyhow::Error;
 use async_trait::async_trait;
 use flutter_rust_bridge::RustOpaque;
 use nekoton::core::models::{Transaction, TransactionsBatchInfo, TransactionsBatchType};
@@ -23,10 +24,17 @@ pub mod gql_transport_api;
 pub mod jrpc_transport_api;
 pub mod models;
 
-/// This is a fucking hack that allows using nekoton::JrpcTransport in dart classes.
-/// This is a trait-wrapper above real JrpcTransport with UnwindSafe + RefUnwindSafe.
+/// This is a fucking hack that allows using nekoton::JrpcTransport or nekoton::GqlTransport in dart classes.
+/// This is a trait-wrapper above real JrpcTransport or GqlTransport with UnwindSafe + RefUnwindSafe.
+///
+/// This class is a unification above jrpc or gql to allow re-use this trait as a single transport
+/// without any differences for TonWallet or TokenWallet.
+/// This allows using RustOpaque<Arc<dyn TransportBoxTrait>> in rust side to accept data from dart side.
 #[async_trait]
-pub trait JrpcTransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
+pub trait TransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
+    /// Get nekoton's transport. For rust side only
+    fn get_transport(&self) -> Arc<dyn Transport>;
+
     /// Get contract state of address and return json-encoded RawContractState or throw error
     async fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error>;
 
@@ -59,10 +67,24 @@ pub trait JrpcTransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
 
     /// Get transport signature id and return it or throw error
     async fn get_signature_id(&self) -> anyhow::Result<Option<i32>, anyhow::Error>;
+
+    /// Get latest block by address and return it or throw error
+    async fn get_latest_block(&self, address: String) -> Result<LatestBlock, anyhow::Error>;
+
+    /// Get transport block by id and return base64 encoded block or throw error
+    async fn get_block(&self, id: String) -> Result<String, anyhow::Error>;
+
+    /// Wait until next block will come to blockchain and return its id or throw error
+    async fn wait_for_next_block(
+        &self,
+        current_block_id: String,
+        address: String,
+        timeout: u64,
+    ) -> Result<String, anyhow::Error>;
 }
 
 pub struct JrpcTransportBox {
-    inner_transport: Box<JrpcTransport>,
+    inner_transport: Arc<JrpcTransport>,
 }
 
 impl UnwindSafe for JrpcTransportBox {}
@@ -71,15 +93,20 @@ impl RefUnwindSafe for JrpcTransportBox {}
 impl JrpcTransportBox {
     pub fn create(
         jrpc_connection: Arc<dyn JrpcConnection>,
-    ) -> RustOpaque<Arc<dyn JrpcTransportBoxTrait>> {
+    ) -> RustOpaque<Arc<dyn TransportBoxTrait>> {
         RustOpaque::new(Arc::new(Self {
-            inner_transport: Box::new(JrpcTransport::new(jrpc_connection)),
+            inner_transport: Arc::new(JrpcTransport::new(jrpc_connection)),
         }))
     }
 }
 
 #[async_trait]
-impl JrpcTransportBoxTrait for JrpcTransportBox {
+impl TransportBoxTrait for JrpcTransportBox {
+    /// Get nekoton's transport. For rust side only
+    fn get_transport(&self) -> Arc<dyn Transport> {
+        self.inner_transport.clone()
+    }
+
     /// Get contract state of address and return json-encoded RawContractState or throw error
     async fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
         let address = parse_address(address)?;
@@ -240,62 +267,34 @@ impl JrpcTransportBoxTrait for JrpcTransportBox {
             .signature_id();
         Ok(id)
     }
-}
 
-/// This is a fucking hack that allows using nekoton::GqlTransport in dart classes.
-/// This is a trait-wrapper above real GqlTransport with UnwindSafe + RefUnwindSafe.
-#[async_trait]
-pub trait GqlTransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
-    /// Get contract state of address and return json-encoded RawContractState or throw error
-    async fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error>;
+    /// Not used in jrpc
+    async fn get_latest_block(&self, address: String) -> Result<LatestBlock, Error> {
+        Err(Error::msg(
+            "get_latest_block not implemented for JrpcTransportBox",
+        ))
+    }
 
-    /// Get full contract state of address and return json-encoded FullContractState or throw error
-    async fn get_full_contract_state(
-        &self,
-        address: String,
-    ) -> anyhow::Result<String, anyhow::Error>;
+    /// Not used in jrpc
+    async fn get_block(&self, id: String) -> Result<String, Error> {
+        Err(Error::msg("get_block not implemented for JrpcTransportBox"))
+    }
 
-    /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
-    async fn get_accounts_by_code_hash(
-        &self,
-        code_hash: String,
-        limit: u8,
-        continuation: Option<String>,
-    ) -> anyhow::Result<String, anyhow::Error>;
-
-    /// Get list of transactions by address.
-    /// Return json-encoded TransactionsList or throw error
-    async fn get_transactions(
-        &self,
-        address: String,
-        from_lt: Option<u64>,
-        count: u8,
-    ) -> anyhow::Result<String, anyhow::Error>;
-
-    /// Get single transaction by its id.
-    /// Return json-encoded Transaction or throw error
-    async fn get_transaction(&self, id: String) -> anyhow::Result<Option<String>, anyhow::Error>;
-
-    /// Get transport signature id and return it or throw error
-    async fn get_signature_id(&self) -> anyhow::Result<Option<i32>, anyhow::Error>;
-
-    /// Get latest block by address and return it or throw error
-    async fn get_latest_block(&self, address: String) -> Result<LatestBlock, anyhow::Error>;
-
-    /// Get transport block by id and return base64 encoded block or throw error
-    async fn get_block(&self, id: String) -> Result<String, anyhow::Error>;
-
-    /// Wait until next block will come to blockchain and return its id or throw error
+    /// Not used in jrpc
     async fn wait_for_next_block(
         &self,
         current_block_id: String,
         address: String,
         timeout: u64,
-    ) -> Result<String, anyhow::Error>;
+    ) -> Result<String, Error> {
+        Err(Error::msg(
+            "wait_for_next_block not implemented for JrpcTransportBox",
+        ))
+    }
 }
 
 pub struct GqlTransportBox {
-    inner_transport: Box<GqlTransport>,
+    inner_transport: Arc<GqlTransport>,
 }
 
 impl UnwindSafe for GqlTransportBox {}
@@ -304,15 +303,20 @@ impl RefUnwindSafe for GqlTransportBox {}
 impl GqlTransportBox {
     pub fn create(
         gql_connection: Arc<dyn GqlConnection>,
-    ) -> RustOpaque<Box<dyn GqlTransportBoxTrait>> {
-        RustOpaque::new(Box::new(Self {
-            inner_transport: Box::new(GqlTransport::new(gql_connection)),
+    ) -> RustOpaque<Arc<dyn TransportBoxTrait>> {
+        RustOpaque::new(Arc::new(Self {
+            inner_transport: Arc::new(GqlTransport::new(gql_connection)),
         }))
     }
 }
 
 #[async_trait]
-impl GqlTransportBoxTrait for GqlTransportBox {
+impl TransportBoxTrait for GqlTransportBox {
+    /// Get nekoton's transport. For rust side only
+    fn get_transport(&self) -> Arc<dyn Transport> {
+        self.inner_transport.clone()
+    }
+
     /// Get contract state of address and return json-encoded RawContractState or throw error
     async fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
         let address = parse_address(address)?;

@@ -90,4 +90,7 @@ class JrpcTransport extends Transport {
 
   @override
   TransportType get type => jrpcConnection.type;
+
+  @override
+  ArcTransportBoxTrait get transportBox => transport.innerTransport;
 }

@@ -1,5 +1,4 @@
 #![allow(unused_variables, dead_code)]
-
 use crate::clock;
 use flutter_rust_bridge::RustOpaque;
 pub use nekoton::crypto;
@@ -7,6 +6,7 @@ use nekoton_utils::serde_uint256;
 use serde::{Deserialize, Serialize};
 use std::convert::TryInto;
 use std::panic::{RefUnwindSafe, UnwindSafe};
+use std::sync::Arc;
 use ton_block::Serializable;
 use ton_types::{Cell, UInt256};
 
@@ -130,8 +130,8 @@ impl RefUnwindSafe for UnsignedMessageBox {}
 impl UnsignedMessageBox {
     pub fn create(
         inner_message: Box<dyn crypto::UnsignedMessage>,
-    ) -> RustOpaque<Box<dyn UnsignedMessageBoxTrait>> {
-        RustOpaque::new(Box::new(Self { inner_message }))
+    ) -> RustOpaque<Arc<dyn UnsignedMessageBoxTrait>> {
+        RustOpaque::new(Arc::new(Self { inner_message }))
     }
 }
 
@@ -153,6 +153,8 @@ impl UnsignedMessageBoxTrait for UnsignedMessageBox {
         base64::encode(self.inner_message.hash())
     }
 
+    /// Sign message with signature and return json-encoded SignedMessage.
+    /// signature receives from UnsignedMessage.hash
     fn sign(&self, signature: String) -> Result<String, anyhow::Error> {
         let signature: [u8; ed25519_dalek::SIGNATURE_LENGTH] = base64::decode(signature)
             .handle_error()?
