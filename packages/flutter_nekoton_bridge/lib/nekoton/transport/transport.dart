@@ -30,5 +30,8 @@ abstract class Transport {
 
   Future<int?> getSignatureId();
 
+  /// Used only for creating rust instances.
+  ArcTransportBoxTrait get transportBox;
+
   void dispose();
 }

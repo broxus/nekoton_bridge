@@ -60,7 +60,7 @@ void main() async {
     }
   }
 
-  mergedFileSink.write('#![allow(unused)]\n');
+  mergedFileSink.write('#![allow(unused, clippy::too_many_arguments)]\n');
 
   /// Write new hierarchy of imports
   final imports = StringBuffer();
