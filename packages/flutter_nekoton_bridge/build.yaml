@@ -14,5 +14,6 @@ targets:
           - lib/nekoton/external/jrpc_connection.dart
           - lib/nekoton/external/ledger_connection.dart
           - lib/nekoton/external/storage.dart
+          - lib/nekoton/core/ton_wallet/ton_wallet.dart
         options:
           formatted: true

@@ -13,7 +13,6 @@ export 'on_message_sent_payload.dart';
 export 'on_state_changed_payload.dart';
 export 'on_transactions_found_payload.dart';
 export 'pending_transaction.dart';
-export 'polling_method.dart';
 export 'raw_contract_state.dart';
 export 'subscription_handler_message.dart';
 export 'transaction.dart';

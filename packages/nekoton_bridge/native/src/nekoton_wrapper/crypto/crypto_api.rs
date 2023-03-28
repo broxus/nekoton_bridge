@@ -6,6 +6,7 @@ use ed25519_dalek::Verifier;
 pub use flutter_rust_bridge::RustOpaque;
 pub use nekoton::crypto::UnsignedMessage;
 use std::convert::TryFrom;
+use std::sync::Arc;
 
 /// Check signature by publicKey and data hash
 pub fn verify_signature(
@@ -45,7 +46,7 @@ pub fn verify_signature(
 
 /// This struct creates only in rust side and describes UnsignedMessage
 pub struct UnsignedMessageImpl {
-    pub inner_message: RustOpaque<Box<dyn UnsignedMessageBoxTrait>>,
+    pub inner_message: RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>,
 }
 
 impl UnsignedMessageImpl {
@@ -63,6 +64,8 @@ impl UnsignedMessageImpl {
         self.inner_message.hash()
     }
 
+    /// Sign message with signature and return json-encoded SignedMessage.
+    /// signature receives from UnsignedMessage.hash
     pub fn sign(&self, signature: String) -> Result<String, anyhow::Error> {
         self.inner_message.sign(signature)
     }
