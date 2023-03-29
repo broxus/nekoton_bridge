@@ -1,5 +1,20 @@
+#![allow(unused_variables, dead_code)]
+use nekoton::crypto::MnemonicType;
 use nekoton_utils::{serde_public_key, serde_secret_key};
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
+
+/// Helper for parsing MnemonicType from json
+#[derive(Serialize, Deserialize)]
+#[serde(
+    remote = "MnemonicType",
+    rename_all = "camelCase",
+    tag = "type",
+    content = "data"
+)]
+pub enum MnemonicTypeDef {
+    Legacy,
+    Labs(u16),
+}
 
 #[derive(Serialize)]
 pub struct KeypairHelper(#[serde(with = "KeypairDef")] pub ed25519_dalek::Keypair);

@@ -2,10 +2,11 @@
 
 use crate::async_run;
 use crate::nekoton_wrapper::external::gql_connection_api::GqlConnectionDartWrapper;
-use crate::nekoton_wrapper::transport::{GqlTransportBox, GqlTransportBoxTrait};
+use crate::nekoton_wrapper::transport::{GqlTransportBox, TransportBoxTrait};
 use flutter_rust_bridge::frb;
 use flutter_rust_bridge::RustOpaque;
 pub use nekoton::transport::gql::LatestBlock;
+use std::sync::Arc;
 
 #[frb(mirror(LatestBlock))]
 pub struct _LatestBlock {
@@ -15,9 +16,9 @@ pub struct _LatestBlock {
 }
 
 /// Wrapper structure above GqlTransport that provides interface to communicate with it
-/// via GqlTransportBoxTrait.
+/// via TransportBoxTrait.
 pub struct GqlTransportImpl {
-    pub inner_transport: RustOpaque<Box<dyn GqlTransportBoxTrait>>,
+    pub inner_transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
 }
 
 impl GqlTransportImpl {

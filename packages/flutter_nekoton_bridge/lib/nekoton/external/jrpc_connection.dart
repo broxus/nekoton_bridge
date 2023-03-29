@@ -70,6 +70,12 @@ class JrpcConnection extends RustToDartMirrorInterface {
   }
 
   @override
+  void dispose() {
+    connection.innerConnection.dispose();
+    super.dispose();
+  }
+
+  @override
   InstanceMirror initializeMirror() {
     initializeReflectable(); // auto-generated reflectable file
     return reflector.reflect(this);

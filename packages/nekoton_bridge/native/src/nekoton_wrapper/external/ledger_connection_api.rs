@@ -1,10 +1,35 @@
 #![allow(unused_variables, dead_code)]
 
+use crate::nekoton_wrapper::external::connections::{
+    LedgerConnectionBox, LedgerConnectionBoxTrait,
+};
 use crate::utils::caller;
 use async_trait::async_trait;
 pub use ed25519_dalek::{PUBLIC_KEY_LENGTH, SIGNATURE_LENGTH};
+use flutter_rust_bridge::RustOpaque;
 pub use nekoton::external;
 use std::convert::TryInto;
+use std::sync::Arc;
+
+/// This is a wrapper structure above LedgerConnectionBoxTrait to provide instance in dart side.
+pub struct LedgerConnectionDartWrapper {
+    pub inner_connection: RustOpaque<Arc<dyn LedgerConnectionBoxTrait>>,
+}
+
+impl LedgerConnectionDartWrapper {
+    pub fn new(instance_hash: String) -> LedgerConnectionDartWrapper {
+        Self {
+            inner_connection: RustOpaque::new(LedgerConnectionBox::create(Arc::new(
+                LedgerConnectionImpl { instance_hash },
+            ))),
+        }
+    }
+
+    /// Method to provide real LedgerConnection to KeyStore level, used only in rust
+    pub(crate) fn get_connection(&self) -> Arc<dyn LedgerConnectionBoxTrait> {
+        (*self.inner_connection).clone()
+    }
+}
 
 /// Implementation of nekoton's LedgerConnection
 pub struct LedgerConnectionImpl {

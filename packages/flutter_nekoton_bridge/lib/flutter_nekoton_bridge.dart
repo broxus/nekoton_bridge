@@ -80,6 +80,14 @@ Future<void> registerRustToDartCaller(RustToDartCaller rustToDartCaller) async {
         } else if (result is Future<String>) {
           lib.callSendResult(id: id, value: DynamicValue.string(await result));
           return;
+        } else if (result is Future<String?>) {
+          final r = await result;
+          if (r == null) {
+            lib.callSendResult(id: id, value: const DynamicValue.none());
+          } else {
+            lib.callSendResult(id: id, value: DynamicValue.string(r));
+          }
+          return;
         } else if (result is int) {
           lib.callSendResult(id: id, value: DynamicValue.i64(result));
           return;
@@ -106,6 +114,13 @@ Future<void> registerRustToDartCaller(RustToDartCaller rustToDartCaller) async {
           return;
         } else if (result == null) {
           lib.callSendResult(id: id, value: const DynamicValue.none());
+        }
+        // This option must be at last place because void can be determined
+        // as any type
+        else if (result is Future<void>) {
+          await result;
+          lib.callSendResult(id: id, value: const DynamicValue.none());
+          return;
         }
 
         final logEntry = LogEntryCreate.create(

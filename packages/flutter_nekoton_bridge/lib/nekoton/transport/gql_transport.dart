@@ -79,6 +79,25 @@ class GqlTransport extends Transport {
     return TransactionsList.fromJson(jsonDecode(res));
   }
 
+  /// Get latest block by address and return it or throw error
+  Future<LatestBlock> getLatestBlock({required String address}) =>
+      transport.getLatestBlock(address: address);
+
+  /// Get transport block by id and return base64 encoded block or throw error
+  Future<String> getBlock({required String id}) => transport.getBlock(id: id);
+
+  /// Wait until next block will come to blockchain and return its id or throw error
+  Future<String> waitForNextBlock({
+    required String currentBlockId,
+    required String address,
+    required int timeout,
+  }) =>
+      transport.waitForNextBlock(
+        currentBlockId: currentBlockId,
+        address: address,
+        timeout: timeout,
+      );
+
   @override
   String get group => gqlConnection.group;
 
@@ -90,4 +109,7 @@ class GqlTransport extends Transport {
 
   @override
   TransportType get type => gqlConnection.type;
+
+  @override
+  ArcTransportBoxTrait get transportBox => transport.innerTransport;
 }

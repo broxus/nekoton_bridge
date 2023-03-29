@@ -5,6 +5,7 @@ part 'encrypted_key_create_input.freezed.dart';
 
 part 'encrypted_key_create_input.g.dart';
 
+/// Input for creating legacy key
 @freezed
 class EncryptedKeyCreateInput
     with _$EncryptedKeyCreateInput

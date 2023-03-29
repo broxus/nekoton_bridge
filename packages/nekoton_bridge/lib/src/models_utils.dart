@@ -27,11 +27,18 @@ class MnemonicTypeJsonConverter
   }
 
   @override
-  Map<String, dynamic> toJson(MnemonicType object) => {
-        'data': object.when(
-          legacy: () => null,
-          labs: (field0) => field0,
-        ),
-        'type': object.when(legacy: () => 'legacy', labs: (_) => 'labs'),
-      };
+  Map<String, dynamic> toJson(MnemonicType object) {
+    final json = <String, dynamic>{
+      'type': object.when(legacy: () => 'legacy', labs: (_) => 'labs'),
+    };
+    final data = object.when(
+      legacy: () => null,
+      labs: (field0) => field0,
+    );
+    if (data != null) {
+      json['data'] = data;
+    }
+
+    return json;
+  }
 }

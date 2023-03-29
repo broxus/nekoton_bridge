@@ -15,7 +15,7 @@ typedef LedgerConnectionSign = Future<String> Function({
 
 @reflector
 class LedgerConnection extends RustToDartMirrorInterface {
-  late LedgerConnectionImpl connection;
+  late LedgerConnectionDartWrapper connection;
 
   final LedgerConnectionGetPublicKey _getPublicKey;
 
@@ -34,7 +34,7 @@ class LedgerConnection extends RustToDartMirrorInterface {
     final instance = LedgerConnection._(getPublicKey, connectionSign);
 
     final lib = createLib();
-    instance.connection = await lib.newStaticMethodLedgerConnectionImpl(
+    instance.connection = await lib.newStaticMethodLedgerConnectionDartWrapper(
       instanceHash: instance.instanceHash,
     );
 
@@ -48,6 +48,12 @@ class LedgerConnection extends RustToDartMirrorInterface {
     } catch (error) {
       throw ErrorCode.Generic;
     }
+  }
+
+  @override
+  void dispose() {
+    connection.innerConnection.dispose();
+    super.dispose();
   }
 
   @override

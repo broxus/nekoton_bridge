@@ -1,3 +1,4 @@
+export 'ton_wallet.dart' hide main;
 export 'models/de_pool_on_round_complete_notification.dart';
 export 'models/de_pool_receive_answer_notification.dart';
 export 'models/existing_wallet_info.dart';

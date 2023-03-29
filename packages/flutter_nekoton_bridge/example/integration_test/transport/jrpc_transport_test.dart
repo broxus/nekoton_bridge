@@ -43,12 +43,11 @@ void main() {
         'FromLib: ${logEntry.level} ${logEntry.tag} ${logEntry.msg} (lib_time=${logEntry.timeMillis})',
       ),
     );
+    runApp(Container());
   });
 
   group('JrpcTransport tests', () {
     testWidgets('Create JrpcTransport', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
 
       final connection = await JrpcConnection.create(
@@ -64,8 +63,6 @@ void main() {
     });
 
     testWidgets('JrpcTransport getSignatureId ', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
 
       await initRustToDartCaller();
@@ -85,8 +82,6 @@ void main() {
     });
 
     testWidgets('JrpcTransport getTransactions ', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
 
       await initRustToDartCaller();
@@ -109,8 +104,6 @@ void main() {
     });
 
     testWidgets('JrpcTransport getTransaction ', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
 
       await initRustToDartCaller();
@@ -134,8 +127,6 @@ void main() {
     });
 
     testWidgets('JrpcTransport multiple calls ', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
 
       await initRustToDartCaller();
@@ -171,8 +162,6 @@ void main() {
     });
 
     testWidgets('JrpcTransport getContractState ', (WidgetTester tester) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
 
       await initRustToDartCaller();
@@ -198,8 +187,6 @@ void main() {
     testWidgets('JrpcTransport getFullContractState ', (
       WidgetTester tester,
     ) async {
-      runApp(Container());
-
       await tester.pumpAndSettle();
 
       await initRustToDartCaller();

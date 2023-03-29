@@ -1,5 +1,4 @@
 #![allow(unused_variables, dead_code)]
-
 use crate::clock;
 use flutter_rust_bridge::RustOpaque;
 pub use nekoton::crypto;
@@ -7,6 +6,7 @@ use nekoton_utils::serde_uint256;
 use serde::{Deserialize, Serialize};
 use std::convert::TryInto;
 use std::panic::{RefUnwindSafe, UnwindSafe};
+use std::sync::Arc;
 use ton_block::Serializable;
 use ton_types::{Cell, UInt256};
 
@@ -15,6 +15,29 @@ use crate::nekoton_wrapper::{HandleError, JsonOrError, ToNekoton, ToSerializable
 /// -----------------------------
 /// Rust level models, no need to import it to Dart
 /// ------------------------------
+
+/// List of key signers that could be used in keystore
+#[derive(Eq, PartialEq)]
+pub enum KeySigner {
+    Encrypted,
+    Derived,
+    Ledger,
+
+    /// Do not use this type. This is fucking hack because generator don't want generate
+    /// converter for Vec<KeySigner> if it is simple enum
+    Stub(bool),
+}
+
+impl ToString for KeySigner {
+    fn to_string(&self) -> String {
+        match self {
+            KeySigner::Encrypted => String::from("EncryptedKeySigner"),
+            KeySigner::Derived => String::from("DerivedKeySigner"),
+            KeySigner::Ledger => String::from("LedgerKeySigner"),
+            KeySigner::Stub(_) => String::from(""),
+        }
+    }
+}
 
 #[derive(Serialize, Deserialize)]
 pub struct SignedMessage {
@@ -107,8 +130,8 @@ impl RefUnwindSafe for UnsignedMessageBox {}
 impl UnsignedMessageBox {
     pub fn create(
         inner_message: Box<dyn crypto::UnsignedMessage>,
-    ) -> RustOpaque<Box<dyn UnsignedMessageBoxTrait>> {
-        RustOpaque::new(Box::new(Self { inner_message }))
+    ) -> RustOpaque<Arc<dyn UnsignedMessageBoxTrait>> {
+        RustOpaque::new(Arc::new(Self { inner_message }))
     }
 }
 
@@ -130,6 +153,8 @@ impl UnsignedMessageBoxTrait for UnsignedMessageBox {
         base64::encode(self.inner_message.hash())
     }
 
+    /// Sign message with signature and return json-encoded SignedMessage.
+    /// signature receives from UnsignedMessage.hash
     fn sign(&self, signature: String) -> Result<String, anyhow::Error> {
         let signature: [u8; ed25519_dalek::SIGNATURE_LENGTH] = base64::decode(signature)
             .handle_error()?
