@@ -15,5 +15,6 @@ targets:
           - lib/nekoton/external/ledger_connection.dart
           - lib/nekoton/external/storage.dart
           - lib/nekoton/core/ton_wallet/ton_wallet.dart
+          - lib/nekoton/core/token_wallet/token_wallet.dart
         options:
           formatted: true
