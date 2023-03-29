@@ -9,7 +9,7 @@ use crate::clock;
 use crate::nekoton_wrapper::{parse_address, HandleError};
 use async_trait::async_trait;
 use flutter_rust_bridge::RustOpaque;
-use nekoton::core::models::{TransferRecipient};
+use nekoton::core::models::TransferRecipient;
 use nekoton::core::token_wallet::{
     get_token_root_details_from_token_wallet, get_token_wallet_details, TokenWallet,
     TokenWalletSubscriptionHandler,
