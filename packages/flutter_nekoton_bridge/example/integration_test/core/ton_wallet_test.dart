@@ -27,8 +27,8 @@ void main() {
   const networkGroup = 'mainnet';
   const endpoint = 'https://jrpc.everwallet.net/rpc';
 
-  // const stEverContractVault =
-  //     '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68';
+  const stEverContractVault =
+      '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68';
   const publicKey =
       'ad158ac64c5deff5abd4d5e86a81d954716445c45e31f17a9dfe780f9cef7602';
   const address =
@@ -123,27 +123,27 @@ void main() {
       expect(wallet.workchain, 0);
     });
 
-    // TODO: Right now not works, fix later
-    // testWidgets('TonWallet prepareTransfer', (WidgetTester tester) async {
-    //   await tester.pumpAndSettle();
-    //
-    //   final wallet = await TonWallet.subscribeByAddress(
-    //     transport: transport,
-    //     address: address,
-    //   );
-    //
-    //   final contract = await transport.getContractState(stEverContractVault);
-    //
-    //   final message = await wallet.prepareTransfer(
-    //     contractState: contract,
-    //     publicKey: publicKey,
-    //     destination: await repackAddress(stEverContractVault),
-    //     amount: '1000000000',
-    //     bounce: false,
-    //     expiration: expiration,
-    //   );
-    //   expect(message, isNotNull);
-    // });
+    testWidgets('TonWallet prepareTransfer', (WidgetTester tester) async {
+      await tester.pumpAndSettle();
+
+      final wallet = await TonWallet.subscribeByAddress(
+        transport: transport,
+        address: address,
+      );
+
+      final contract = await transport.getContractState(stEverContractVault);
+      final repacked = await repackAddress(stEverContractVault);
+      debugPrint('ADDRESS: $repacked');
+      final message = await wallet.prepareTransfer(
+        contractState: contract,
+        publicKey: publicKey,
+        destination: repacked,
+        amount: BigInt.parse('100000000'),
+        bounce: false,
+        expiration: expiration,
+      );
+      expect(message, isNotNull);
+    });
 
     testWidgets('TonWallet prepareDeploy', (WidgetTester tester) async {
       await tester.pumpAndSettle();

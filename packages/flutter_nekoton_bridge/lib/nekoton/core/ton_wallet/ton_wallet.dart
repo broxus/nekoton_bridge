@@ -259,7 +259,7 @@ class TonWallet extends RustToDartMirrorInterface {
     required RawContractState contractState,
     required String publicKey,
     required String destination,
-    required String amount,
+    required BigInt amount,
     required bool bounce,
     String? body,
     required Expiration expiration,
@@ -268,7 +268,7 @@ class TonWallet extends RustToDartMirrorInterface {
       contractState: jsonEncode(contractState),
       publicKey: publicKey,
       destination: destination,
-      amount: amount,
+      amount: amount.toString(),
       bounce: bounce,
       expiration: jsonEncode(expiration),
     );

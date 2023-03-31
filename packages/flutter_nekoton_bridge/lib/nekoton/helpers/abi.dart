@@ -249,8 +249,9 @@ Future<bool> validateAddress(String address) {
 }
 
 /// Repack address and return json-encoded MsgAddressInt or throw error
-Future<String> repackAddress(String address) {
-  return createLib().repackAddress(address: address);
+Future<String> repackAddress(String address) async {
+  return jsonDecode(await createLib().repackAddress(address: address))
+      as String;
 }
 
 /// Extract public key from boc and return it or throw error
