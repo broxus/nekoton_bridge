@@ -172,7 +172,7 @@ void main() {
       expect(wallet.address, address);
       expect(wallet.publicKey, publicKey);
       expect(wallet.walletType, walletType);
-      expect(wallet.contractState.balance, isNot('0'));
+      expect(wallet.contractState.balance, isNot(BigInt.parse('0')));
       expect(wallet.contractState.isDeployed, isTrue);
     });
 
