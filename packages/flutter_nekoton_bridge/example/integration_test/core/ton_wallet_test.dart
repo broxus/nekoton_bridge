@@ -5,6 +5,36 @@ import 'package:integration_test/integration_test.dart';
 
 import 'package:http/http.dart' as http;
 
+class MockedStorageMethods {
+  final data = <String, String>{};
+
+  Future<String?> get(String key) async {
+    return data[key];
+  }
+
+  Future<void> set({
+    required String key,
+    required String value,
+  }) async {
+    data[key] = value;
+  }
+
+  void setUnchecked({
+    required String key,
+    required String value,
+  }) {
+    data[key] = value;
+  }
+
+  Future<void> remove(String key) async {
+    data.remove(key);
+  }
+
+  void removeUnchecked(String key) {
+    data.remove(key);
+  }
+}
+
 Future<String> postTransportData({
   required String endpoint,
   required Map<String, String> headers,
@@ -133,7 +163,7 @@ void main() {
 
       final contract = await transport.getContractState(stEverContractVault);
       final repacked = await repackAddress(stEverContractVault);
-      debugPrint('ADDRESS: $repacked');
+
       final message = await wallet.prepareTransfer(
         contractState: contract,
         publicKey: publicKey,
@@ -143,6 +173,90 @@ void main() {
         expiration: expiration,
       );
       expect(message, isNotNull);
+    });
+
+    testWidgets('TonWallet prepareTransfer and sign',
+        (WidgetTester tester) async {
+      await tester.pumpAndSettle();
+
+      final storageMethods = MockedStorageMethods();
+      const signers = [KeySigner.encrypted(), KeySigner.derived()];
+
+      /// ---------------------------------------
+      /// ADDING KEY
+      /// ---------------------------------------
+      const phraseLabs =
+          'company conduct cave custom ill fox loop type holiday veteran clog oxygen';
+      const password = 'password';
+      const inputLabsData = DerivedKeyCreateInputImport(
+        keyName: 'KeyNameLabs',
+        phrase: phraseLabs,
+        password: Password.explicit(
+          PasswordExplicit(
+            password: password,
+            cacheBehavior: PasswordCacheBehavior.nop(),
+          ),
+        ),
+      );
+      const input = DerivedKeyCreateInput.import(inputLabsData);
+
+      final storage = await Storage.create(
+        get: storageMethods.get,
+        set: storageMethods.set,
+        setUnchecked: storageMethods.setUnchecked,
+        remove: storageMethods.remove,
+        removeUnchecked: storageMethods.removeUnchecked,
+      );
+
+      final keystore = await KeyStore.create(
+        storage: storage,
+        signers: signers,
+      );
+      final key = await keystore.addKey(input);
+
+      /// ---------------------------------------
+      /// CREATING WALLET
+      /// ---------------------------------------
+
+      final wallet = await TonWallet.subscribeByAddress(
+        transport: transport,
+        address: address,
+      );
+
+      final contract = await transport.getContractState(stEverContractVault);
+      final repacked = await repackAddress(stEverContractVault);
+
+      final message = await wallet.prepareTransfer(
+        contractState: contract,
+        publicKey: publicKey,
+        destination: repacked,
+        amount: BigInt.parse('100000000'),
+        bounce: false,
+        expiration: expiration,
+      );
+      await message.refreshTimeout();
+
+      final signature = await keystore.sign(
+        data: message.hash,
+        input: DerivedKeySignParams.byAccountId(
+          DerivedKeySignParamsByAccountId(
+            masterKey: key.masterKey,
+            accountId: key.accountId,
+            password: const Password.explicit(
+              PasswordExplicit(
+                password: password,
+                cacheBehavior: PasswordCacheBehavior.nop(),
+              ),
+            ),
+          ),
+        ),
+        signatureId: 0,
+      );
+
+      final signedMessage = await message.sign(signature: signature);
+      expect(signedMessage, isNotNull);
+      expect(signedMessage.expireAt, message.expireAt);
+      expect(signedMessage.hash.length, 64);
     });
 
     testWidgets('TonWallet prepareDeploy', (WidgetTester tester) async {

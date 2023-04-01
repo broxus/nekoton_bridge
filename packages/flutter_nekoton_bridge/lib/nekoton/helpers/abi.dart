@@ -85,7 +85,7 @@ Future<SignedMessage> createExternalMessageWithoutSignature({
 }
 
 /// Create external unsigned message that can be listened and handled or throws error
-Future<UnsignedMessageImpl> createExternalMessage({
+Future<UnsignedMessage> createExternalMessage({
   required String dst,
   required String contractAbi,
   required String method,
@@ -94,13 +94,15 @@ Future<UnsignedMessageImpl> createExternalMessage({
   required String publicKey,
   required int timeout,
 }) async {
-  return createLib().createExternalMessage(
-    dst: dst,
-    contractAbi: contractAbi,
-    method: method,
-    input: jsonEncode(input),
-    publicKey: publicKey,
-    timeout: timeout,
+  return UnsignedMessage.create(
+    message: await createLib().createExternalMessage(
+      dst: dst,
+      contractAbi: contractAbi,
+      method: method,
+      input: jsonEncode(input),
+      publicKey: publicKey,
+      timeout: timeout,
+    ),
   );
 }
 
