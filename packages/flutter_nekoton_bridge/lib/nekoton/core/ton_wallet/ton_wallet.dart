@@ -227,25 +227,29 @@ class TonWallet extends RustToDartMirrorInterface {
   Future<List<String>?> getCustodians() => wallet.custodians();
 
   /// Prepare TonWallet for deploy action.
-  /// Returns UnsignedMessageImpl or throw error.
-  Future<UnsignedMessageImpl> prepareDeploy({
+  /// Returns UnsignedMessage or throw error.
+  Future<UnsignedMessage> prepareDeploy({
     required Expiration expiration,
-  }) =>
-      wallet.prepareDeploy(expiration: jsonEncode(expiration));
+  }) async =>
+      UnsignedMessage.create(
+        message: await wallet.prepareDeploy(expiration: jsonEncode(expiration)),
+      );
 
   /// Prepare TonWallet for deploy actions if wallet is multisig.
   /// [custodians] - list of public keys of custodians.
   /// [reqConfirms] - count of required confirmations from 1 to [custodians] count
-  /// Returns UnsignedMessageImpl or throw error.
-  Future<UnsignedMessageImpl> prepareDeployWithMultipleOwners({
+  /// Returns UnsignedMessage or throw error.
+  Future<UnsignedMessage> prepareDeployWithMultipleOwners({
     required Expiration expiration,
     required List<String> custodians,
     required int reqConfirms,
-  }) =>
-      wallet.prepareDeployWithMultipleOwners(
-        expiration: jsonEncode(expiration),
-        custodians: custodians,
-        reqConfirms: reqConfirms,
+  }) async =>
+      UnsignedMessage.create(
+        message: await wallet.prepareDeployWithMultipleOwners(
+          expiration: jsonEncode(expiration),
+          custodians: custodians,
+          reqConfirms: reqConfirms,
+        ),
       );
 
   /// Prepare transferring tokens from this wallet to other.
@@ -254,12 +258,12 @@ class TonWallet extends RustToDartMirrorInterface {
   /// [amount] - amount of tokens that should be transferred
   /// [bounce] - nekoton's bounce param
   /// [body] - body of transfer aka comment
-  /// Returns UnsignedMessageImpl or throw error.
-  Future<UnsignedMessageImpl> prepareTransfer({
+  /// Returns UnsignedMessage or throw error.
+  Future<UnsignedMessage> prepareTransfer({
     required RawContractState contractState,
     required String publicKey,
     required String destination,
-    required String amount,
+    required BigInt amount,
     required bool bounce,
     String? body,
     required Expiration expiration,
@@ -268,29 +272,31 @@ class TonWallet extends RustToDartMirrorInterface {
       contractState: jsonEncode(contractState),
       publicKey: publicKey,
       destination: destination,
-      amount: amount,
+      amount: amount.toString(),
       bounce: bounce,
       expiration: jsonEncode(expiration),
     );
     _updateData();
-    return message;
+    return UnsignedMessage.create(message: message);
   }
 
   /// Prepare transaction for confirmation.
   /// publicKey - key of account that had initiated transfer
   /// [transactionId] - id of transaction, u64 in rust.
-  /// Returns UnsignedMessageImpl or throw error.
-  Future<UnsignedMessageImpl> prepareConfirmTransaction({
+  /// Returns UnsignedMessage or throw error.
+  Future<UnsignedMessage> prepareConfirmTransaction({
     required RawContractState contractState,
     required String publicKey,
     required String transactionId,
     required Expiration expiration,
-  }) =>
-      wallet.prepareConfirmTransaction(
-        contractState: jsonEncode(contractState),
-        publicKey: publicKey,
-        expiration: jsonEncode(expiration),
-        transactionId: transactionId,
+  }) async =>
+      UnsignedMessage.create(
+        message: await wallet.prepareConfirmTransaction(
+          contractState: jsonEncode(contractState),
+          publicKey: publicKey,
+          expiration: jsonEncode(expiration),
+          transactionId: transactionId,
+        ),
       );
 
   /// Calculate fees for transaction.

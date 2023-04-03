@@ -16,5 +16,6 @@ targets:
           - lib/nekoton/external/storage.dart
           - lib/nekoton/core/ton_wallet/ton_wallet.dart
           - lib/nekoton/core/token_wallet/token_wallet.dart
+          - lib/nekoton/core/generic_contract/generic_contract.dart
         options:
           formatted: true

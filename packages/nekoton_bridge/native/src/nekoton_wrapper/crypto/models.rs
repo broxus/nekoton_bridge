@@ -115,7 +115,7 @@ pub trait UnsignedMessageBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
 
     /// Create signed message from prepared inputs
     /// # Arguments
-    /// `signature` - signature, received from [`UnsignedMessage::hash`]
+    /// `signature` - signature receives from KeyStore.sign where data is UnsignedMessage.hash
     fn sign(&self, signature: String) -> Result<String, anyhow::Error>;
 }
 
