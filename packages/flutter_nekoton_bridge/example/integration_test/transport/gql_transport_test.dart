@@ -236,5 +236,22 @@ void main() {
       );
       expect(state.isDeployed, true);
     });
+
+    testWidgets('GqlTransport getNetworkId ', (WidgetTester tester) async {
+      await tester.pumpAndSettle();
+      await initRustToDartCaller();
+
+      final connection = await GqlConnection.create(
+        post: postTransportData,
+        get: getTransportData,
+        settings: gqlSettings,
+        name: name,
+        group: networkGroup,
+        networkId: networkId,
+      );
+      final transport = await GqlTransport.create(gqlConnection: connection);
+      final id = await transport.getNetworkId();
+      expect(id, 42);
+    });
   });
 }

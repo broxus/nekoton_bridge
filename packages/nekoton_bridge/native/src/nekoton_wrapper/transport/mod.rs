@@ -68,6 +68,9 @@ pub trait TransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     /// Get transport signature id and return it or throw error
     async fn get_signature_id(&self) -> anyhow::Result<Option<i32>, anyhow::Error>;
 
+    /// Get id of network or throw error
+    async fn get_network_id(&self) -> anyhow::Result<i32, anyhow::Error>;
+
     /// Get latest block by address and return it or throw error
     async fn get_latest_block(&self, address: String) -> Result<LatestBlock, anyhow::Error>;
 
@@ -266,6 +269,16 @@ impl TransportBoxTrait for JrpcTransportBox {
             .handle_error()?
             .signature_id();
         Ok(id)
+    }
+
+    /// Get id of network or throw error
+    async fn get_network_id(&self) -> anyhow::Result<i32, anyhow::Error> {
+        let id = self
+            .inner_transport
+            .get_capabilities(&SimpleClock)
+            .await
+            .handle_error()?;
+        Ok(id.global_id)
     }
 
     /// Not used in jrpc
@@ -475,6 +488,16 @@ impl TransportBoxTrait for GqlTransportBox {
             .handle_error()?
             .signature_id();
         Ok(id)
+    }
+
+    /// Get id of network or throw error
+    async fn get_network_id(&self) -> anyhow::Result<i32, anyhow::Error> {
+        let id = self
+            .inner_transport
+            .get_capabilities(&SimpleClock)
+            .await
+            .handle_error()?;
+        Ok(id.global_id)
     }
 
     /// Get latest block by address and return it or throw error

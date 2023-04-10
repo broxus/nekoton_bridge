@@ -209,5 +209,21 @@ void main() {
       );
       expect(state.isDeployed, true);
     });
+
+    testWidgets('JrpcTransport getNetworkId ', (WidgetTester tester) async {
+      await tester.pumpAndSettle();
+      await initRustToDartCaller();
+
+      final connection = await JrpcConnection.create(
+        post: postTransportData,
+        settings: jrpcSettings,
+        name: name,
+        group: networkGroup,
+        networkId: networkId,
+      );
+      final transport = await JrpcTransport.create(jrpcConnection: connection);
+      final id = await transport.getNetworkId();
+      expect(id, 42);
+    });
   });
 }

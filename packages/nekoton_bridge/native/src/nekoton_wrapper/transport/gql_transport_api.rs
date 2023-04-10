@@ -83,6 +83,11 @@ impl GqlTransportImpl {
         async_run!(self.inner_transport.get_signature_id().await)
     }
 
+    /// Get id of network or throw error
+    pub fn get_network_id(&self) -> anyhow::Result<i32, anyhow::Error> {
+        async_run!(self.inner_transport.get_network_id().await)
+    }
+
     /// Get latest block by address and return it or throw error
     pub fn get_latest_block(&self, address: String) -> Result<LatestBlock, anyhow::Error> {
         async_run!(self.inner_transport.get_latest_block(address).await)
