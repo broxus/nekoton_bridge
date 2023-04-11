@@ -4,6 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:http/http.dart' as http;
 
+import '../timeout_utils.dart';
+
 Future<String> postTransportData({
   required String endpoint,
   required Map<String, String> headers,
@@ -68,7 +70,7 @@ void main() {
 
   group('GqlTransport tests', () {
     testWidgets('Create GqlTransport', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final connection = await GqlConnection.create(
         post: postTransportData,
@@ -84,7 +86,7 @@ void main() {
     });
 
     testWidgets('GqlTransport getSignatureId ', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -104,7 +106,7 @@ void main() {
     });
 
     testWidgets('GqlTransport getTransactions ', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -127,7 +129,7 @@ void main() {
     });
 
     testWidgets('GqlTransport getTransaction ', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -151,7 +153,7 @@ void main() {
     });
 
     testWidgets('GqlTransport multiple calls ', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -187,7 +189,7 @@ void main() {
     });
 
     testWidgets('GqlTransport getContractState ', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -213,7 +215,7 @@ void main() {
     testWidgets('GqlTransport getFullContractState ', (
       WidgetTester tester,
     ) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -238,7 +240,7 @@ void main() {
     });
 
     testWidgets('GqlTransport getNetworkId ', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
       final connection = await GqlConnection.create(

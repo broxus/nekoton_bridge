@@ -5,6 +5,8 @@ import 'package:integration_test/integration_test.dart';
 
 import 'package:http/http.dart' as http;
 
+import '../timeout_utils.dart';
+
 Future<String> postTransportData({
   required String endpoint,
   required Map<String, String> headers,
@@ -61,7 +63,7 @@ void main() {
 
   group('TokenWallet test', () {
     testWidgets('TokenWallet subscribe', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TokenWallet.subscribe(
         transport: transport,
@@ -83,7 +85,7 @@ void main() {
     });
 
     testWidgets('TokenWallet prepareTransfer', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TokenWallet.subscribe(
         transport: transport,
@@ -110,7 +112,7 @@ void main() {
 
     testWidgets('TokenWallet getTokenWalletDetails',
         (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final details = await TokenWallet.getTokenWalletDetails(
         transport: transport,
@@ -131,7 +133,7 @@ void main() {
 
     testWidgets('TokenWallet getTokenRootDetailsFromTokenWallet',
         (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final details = await TokenWallet.getTokenRootDetailsFromTokenWallet(
         transport: transport,

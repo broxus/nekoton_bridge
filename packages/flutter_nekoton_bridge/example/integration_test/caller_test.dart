@@ -3,6 +3,8 @@ import 'package:flutter_nekoton_bridge_example/main.dart' as app;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
+import 'timeout_utils.dart';
+
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
@@ -12,7 +14,7 @@ void main() {
       final List<String> log = <String>[];
 
       app.main();
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final DebugPrintCallback originalDebugPrint = debugPrint;
 
@@ -24,13 +26,13 @@ void main() {
 
       expect(log, isEmpty);
       await tester.tap(find.text('initDartCaller'));
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
       expect(log, hasLength(0));
       log.clear();
 
       expect(log, isEmpty);
       await tester.tap(find.text('Test0Async'));
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
       expect(log, hasLength(2));
       expect(
           log,
@@ -41,7 +43,7 @@ void main() {
 
       expect(log, isEmpty);
       await tester.tap(find.text('Test0AsyncResult'));
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
       expect(log, hasLength(2));
       expect(
           log,
@@ -52,7 +54,7 @@ void main() {
 
       expect(log, isEmpty);
       await tester.tap(find.text('Test0Sync'));
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
       expect(log, hasLength(2));
       expect(
           log,
@@ -70,7 +72,7 @@ void main() {
       final List<String> log = <String>[];
 
       app.main();
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final DebugPrintCallback originalDebugPrint = debugPrint;
 
@@ -82,13 +84,13 @@ void main() {
 
       expect(log, isEmpty);
       await tester.tap(find.text('initDartCaller'));
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
       expect(log, hasLength(0));
       log.clear();
 
       expect(log, isEmpty);
       await tester.tap(find.text('Test1AsyncResult'));
-      await tester.pumpAndSettle(const Duration(seconds: 2));
+      await tester.pumpAndSettleWithTimeout(const Duration(seconds: 2));
       expect(log, hasLength(14),
           reason: 'failed log entry count, found ${log.length}, should be 14');
       count(String substring) => log.fold(

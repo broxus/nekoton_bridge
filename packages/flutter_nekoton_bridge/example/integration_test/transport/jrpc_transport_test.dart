@@ -4,6 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:http/http.dart' as http;
 
+import '../timeout_utils.dart';
+
 Future<String> postTransportData({
   required String endpoint,
   required Map<String, String> headers,
@@ -48,7 +50,7 @@ void main() {
 
   group('JrpcTransport tests', () {
     testWidgets('Create JrpcTransport', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final connection = await JrpcConnection.create(
         post: postTransportData,
@@ -63,7 +65,7 @@ void main() {
     });
 
     testWidgets('JrpcTransport getSignatureId ', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -82,7 +84,7 @@ void main() {
     });
 
     testWidgets('JrpcTransport getTransactions ', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -104,7 +106,7 @@ void main() {
     });
 
     testWidgets('JrpcTransport getTransaction ', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -127,7 +129,7 @@ void main() {
     });
 
     testWidgets('JrpcTransport multiple calls ', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -162,7 +164,7 @@ void main() {
     });
 
     testWidgets('JrpcTransport getContractState ', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -187,7 +189,7 @@ void main() {
     testWidgets('JrpcTransport getFullContractState ', (
       WidgetTester tester,
     ) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -211,7 +213,7 @@ void main() {
     });
 
     testWidgets('JrpcTransport getNetworkId ', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
       final connection = await JrpcConnection.create(
