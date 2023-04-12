@@ -41,3 +41,6 @@ build/
 *.g.dart
 *.reflectable.dart
 
+# js-related
+**/node_modules/
+**/assets/js/

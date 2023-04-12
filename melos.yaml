@@ -32,6 +32,10 @@ scripts:
     run: bash scripts/codegen.sh
     description: Generate code.
 
+  generate-js:
+    run: bash scripts/generate-js.sh
+    description: Generate JS bindings.
+
   build:apple:
     run: bash scripts/build-apple.sh
     description: Build the XCFramework for iOS and macOS.
@@ -80,7 +84,7 @@ command:
   bootstrap:
     hooks:
       pre: bash scripts/pre-bs.sh
-      post: melos codegen
+      post: melos codegen && melos generate-js
   version:
     hooks:
       preCommit: bash scripts/version.sh
