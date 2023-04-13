@@ -59,6 +59,9 @@ class JrpcTransport extends Transport {
   }
 
   @override
+  Future<int> getNetworkId() => transport.getNetworkId();
+
+  @override
   Future<Transaction?> getTransaction(String hash) async {
     final res = await transport.getTransaction(hash: hash);
     if (res == null) return null;

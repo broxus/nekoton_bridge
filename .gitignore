@@ -33,7 +33,6 @@ build/
 
 # Rust related
 /target/
-/Cargo.lock
 /platform-build
 
 # Generated code
@@ -42,3 +41,6 @@ build/
 *.g.dart
 *.reflectable.dart
 
+# js-related
+**/node_modules/
+**/assets/js/

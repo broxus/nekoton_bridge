@@ -1,5 +1,6 @@
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
+export 'unsigned_message.dart';
 export 'constants.dart';
 export 'derived_key/derived_key_lib.dart';
 export 'encrypted_key/encrypted_key_lib.dart';

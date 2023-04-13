@@ -4,7 +4,7 @@
 minversion='3.0.0'
 
 echo "Checking melos version..."
-version=$(melos --version)
+version=$(melos --version | head -n 1)
 cmp=$(bash scripts/semver-tool/semver compare $version $minversion)
 
 if (($cmp < 0)); then

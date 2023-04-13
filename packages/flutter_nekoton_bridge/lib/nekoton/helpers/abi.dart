@@ -85,7 +85,7 @@ Future<SignedMessage> createExternalMessageWithoutSignature({
 }
 
 /// Create external unsigned message that can be listened and handled or throws error
-Future<UnsignedMessageImpl> createExternalMessage({
+Future<UnsignedMessage> createExternalMessage({
   required String dst,
   required String contractAbi,
   required String method,
@@ -94,13 +94,15 @@ Future<UnsignedMessageImpl> createExternalMessage({
   required String publicKey,
   required int timeout,
 }) async {
-  return createLib().createExternalMessage(
-    dst: dst,
-    contractAbi: contractAbi,
-    method: method,
-    input: jsonEncode(input),
-    publicKey: publicKey,
-    timeout: timeout,
+  return UnsignedMessage.create(
+    message: await createLib().createExternalMessage(
+      dst: dst,
+      contractAbi: contractAbi,
+      method: method,
+      input: jsonEncode(input),
+      publicKey: publicKey,
+      timeout: timeout,
+    ),
   );
 }
 
@@ -249,8 +251,9 @@ Future<bool> validateAddress(String address) {
 }
 
 /// Repack address and return json-encoded MsgAddressInt or throw error
-Future<String> repackAddress(String address) {
-  return createLib().repackAddress(address: address);
+Future<String> repackAddress(String address) async {
+  return jsonDecode(await createLib().repackAddress(address: address))
+      as String;
 }
 
 /// Extract public key from boc and return it or throw error

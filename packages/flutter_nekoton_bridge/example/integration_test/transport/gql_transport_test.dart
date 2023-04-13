@@ -4,6 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:http/http.dart' as http;
 
+import '../timeout_utils.dart';
+
 Future<String> postTransportData({
   required String endpoint,
   required Map<String, String> headers,
@@ -68,7 +70,7 @@ void main() {
 
   group('GqlTransport tests', () {
     testWidgets('Create GqlTransport', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final connection = await GqlConnection.create(
         post: postTransportData,
@@ -84,7 +86,7 @@ void main() {
     });
 
     testWidgets('GqlTransport getSignatureId ', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -104,7 +106,7 @@ void main() {
     });
 
     testWidgets('GqlTransport getTransactions ', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -127,7 +129,7 @@ void main() {
     });
 
     testWidgets('GqlTransport getTransaction ', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -151,7 +153,7 @@ void main() {
     });
 
     testWidgets('GqlTransport multiple calls ', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -187,7 +189,7 @@ void main() {
     });
 
     testWidgets('GqlTransport getContractState ', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -213,7 +215,7 @@ void main() {
     testWidgets('GqlTransport getFullContractState ', (
       WidgetTester tester,
     ) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
@@ -235,6 +237,23 @@ void main() {
         'te6ccgECDAEAATEABHCf4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEMQOGgAAAAAAAAOzZVsfoIvoGy1kAZwkIBwECAWIFAgFCv0EkKSBepm1vIATt+lcPb1az6F5ZuqG++8c7faXVW9xgAwEEEjQEAARWeAFCv1ou71BWd19blXL/OtY90qcdH7KByhd6Xhx0cw7MsuUTBgAPq6yrrausq6gASAAAAAAyPyUBiKLCfgMdYGmpYfMu8iONcZGJWhVFjpkr/pXlNQCY/wAg3SCCAUyXupcw7UTQ1wsf4KTyYIECANcYINcLH+1E0NMf0//RURK68qEi+QFUEET5EPKi+AAB0x8x0wfU0QH7AKTIyx/L/8ntVAIBIAsKABW/////vL0alKIAEAAVvgAAA7yzZw3BVVA=',
       );
       expect(state.isDeployed, true);
+    });
+
+    testWidgets('GqlTransport getNetworkId ', (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+      await initRustToDartCaller();
+
+      final connection = await GqlConnection.create(
+        post: postTransportData,
+        get: getTransportData,
+        settings: gqlSettings,
+        name: name,
+        group: networkGroup,
+        networkId: networkId,
+      );
+      final transport = await GqlTransport.create(gqlConnection: connection);
+      final id = await transport.getNetworkId();
+      expect(id, 42);
     });
   });
 }

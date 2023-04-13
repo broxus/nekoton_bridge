@@ -3,6 +3,8 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
+import '../timeout_utils.dart';
+
 class MockedStorageMethods {
   final data = <String, String>{};
 
@@ -71,7 +73,7 @@ void main() {
 
   group('AccountsStorage test', () {
     testWidgets('Create AccountsStorage', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -87,7 +89,7 @@ void main() {
     });
 
     testWidgets('AccountsStorage addAccount', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -119,7 +121,7 @@ void main() {
     });
 
     testWidgets('AccountsStorage addAccounts', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -152,7 +154,7 @@ void main() {
     });
 
     testWidgets('AccountsStorage getEntries', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -189,7 +191,7 @@ void main() {
     });
 
     testWidgets('AccountsStorage removeAccount', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -225,7 +227,7 @@ void main() {
     });
 
     testWidgets('AccountsStorage removeAccounts', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
         get: storageMethods.get,

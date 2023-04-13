@@ -3,6 +3,8 @@ import 'package:flutter_nekoton_bridge_example/main.dart' as app;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
+import 'timeout_utils.dart';
+
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
@@ -11,7 +13,7 @@ void main() {
       final List<String> log = <String>[];
 
       app.main();
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final DebugPrintCallback originalDebugPrint = debugPrint;
 
@@ -23,28 +25,28 @@ void main() {
 
       expect(log, isEmpty);
       await tester.tap(find.text('i'));
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
       expect(log, hasLength(1));
       expect(log[0], contains('Info: test logger: info'));
       log.clear();
 
       expect(log, isEmpty);
       await tester.tap(find.text('d'));
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
       expect(log, hasLength(1));
       expect(log[0], contains('Debug: test logger: debug'));
       log.clear();
 
       expect(log, isEmpty);
       await tester.tap(find.text('w'));
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
       expect(log, hasLength(1));
       expect(log[0], contains('Warn: test logger: warn'));
       log.clear();
 
       expect(log, isEmpty);
       await tester.tap(find.text('e'));
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
       expect(log, hasLength(1));
       expect(log[0], contains('Error: test logger: error'));
       log.clear();
@@ -62,7 +64,7 @@ void main() {
       final List<String> log = <String>[];
 
       app.main();
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final DebugPrintCallback originalDebugPrint = debugPrint;
 
@@ -78,7 +80,7 @@ void main() {
       FlutterError.onError = (details) {};
 
       await tester.tap(find.text('p'));
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       FlutterError.onError = originalOnError;
 

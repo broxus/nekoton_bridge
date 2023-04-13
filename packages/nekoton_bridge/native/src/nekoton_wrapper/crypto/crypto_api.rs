@@ -65,7 +65,7 @@ impl UnsignedMessageImpl {
     }
 
     /// Sign message with signature and return json-encoded SignedMessage.
-    /// signature receives from UnsignedMessage.hash
+    /// signature receives from KeyStore.sign where data is UnsignedMessage.hash
     pub fn sign(&self, signature: String) -> Result<String, anyhow::Error> {
         self.inner_message.sign(signature)
     }

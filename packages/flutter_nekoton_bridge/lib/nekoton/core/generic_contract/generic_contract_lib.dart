@@ -1,1 +1,1 @@
-export 'models/transaction_execution_options.dart';
+export 'generic_contract.dart' hide main;
