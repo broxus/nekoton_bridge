@@ -126,6 +126,7 @@ jobs:
 
   ios_integration_test:
     runs-on: macos-latest
+    timeout-minutes: 360
 
     steps:
       - uses: actions/checkout@v3
@@ -155,6 +156,7 @@ jobs:
 
   android_integration_test:
     runs-on: macos-latest
+    timeout-minutes: 360
 
     steps:
       - uses: actions/checkout@v3

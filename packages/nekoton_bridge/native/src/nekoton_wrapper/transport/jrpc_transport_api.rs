@@ -73,4 +73,9 @@ impl JrpcTransportImpl {
     pub fn get_signature_id(&self) -> anyhow::Result<Option<i32>, anyhow::Error> {
         async_run!(self.inner_transport.get_signature_id().await)
     }
+
+    /// Get id of network or throw error
+    pub fn get_network_id(&self) -> anyhow::Result<i32, anyhow::Error> {
+        async_run!(self.inner_transport.get_network_id().await)
+    }
 }

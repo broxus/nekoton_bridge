@@ -5,6 +5,8 @@ import 'package:integration_test/integration_test.dart';
 
 import 'package:http/http.dart' as http;
 
+import '../timeout_utils.dart';
+
 class MockedStorageMethods {
   final data = <String, String>{};
 
@@ -96,7 +98,7 @@ void main() {
 
   group('TonWallet test', () {
     testWidgets('TonWallet subscribe', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TonWallet.subscribe(
         transport: transport,
@@ -113,7 +115,7 @@ void main() {
     });
 
     testWidgets('TonWallet subscribeByAddress', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TonWallet.subscribeByAddress(
         transport: transport,
@@ -129,7 +131,7 @@ void main() {
 
     testWidgets('TonWallet subscribeByExistingWallet',
         (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final infoList = await TonWallet.findExistingWallets(
         transport: transport,
@@ -154,7 +156,7 @@ void main() {
     });
 
     testWidgets('TonWallet prepareTransfer', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TonWallet.subscribeByAddress(
         transport: transport,
@@ -177,7 +179,7 @@ void main() {
 
     testWidgets('TonWallet prepareTransfer and sign',
         (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storageMethods = MockedStorageMethods();
       const signers = [KeySigner.encrypted(), KeySigner.derived()];
@@ -260,7 +262,7 @@ void main() {
     });
 
     testWidgets('TonWallet prepareDeploy', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TonWallet.subscribeByAddress(
         transport: transport,
@@ -276,7 +278,7 @@ void main() {
     });
 
     testWidgets('TonWallet getExistingWalletInfo', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TonWallet.getExistingWalletInfo(
         transport: transport,
@@ -291,7 +293,7 @@ void main() {
     });
 
     testWidgets('TonWallet getWalletCustodians', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final custodians1 = await TonWallet.getWalletCustodians(
         transport: transport,
