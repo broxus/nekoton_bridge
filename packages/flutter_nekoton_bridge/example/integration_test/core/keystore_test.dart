@@ -5,6 +5,8 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
+import '../timeout_utils.dart';
+
 class MockedStorageMethods {
   final data = <String, String>{};
 
@@ -89,7 +91,7 @@ void main() {
 
   group('KeyStore test', () {
     testWidgets('Create KeyStore', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -107,7 +109,7 @@ void main() {
     });
 
     testWidgets('KeyStore addKey derived', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -136,7 +138,7 @@ void main() {
     });
 
     testWidgets('KeyStore addKey encrypted', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -165,7 +167,7 @@ void main() {
     });
 
     testWidgets('KeyStore addKeys', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -195,7 +197,7 @@ void main() {
     });
 
     testWidgets('KeyStore getEntries', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -229,7 +231,7 @@ void main() {
     });
 
     testWidgets('KeyStore removeKey', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -253,7 +255,7 @@ void main() {
     });
 
     testWidgets('KeyStore removeKeys', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -281,7 +283,7 @@ void main() {
     });
 
     testWidgets('KeyStore clearStore', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -306,7 +308,7 @@ void main() {
     });
 
     testWidgets('KeyStore exportKey', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -331,7 +333,7 @@ void main() {
     });
 
     testWidgets('KeyStore getPublicKeys', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
         get: storageMethods.get,
@@ -359,7 +361,7 @@ void main() {
     });
 
     testWidgets('KeyStore updateKey', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
         get: storageMethods.get,

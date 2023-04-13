@@ -5,6 +5,8 @@ import 'package:integration_test/integration_test.dart';
 
 import 'package:http/http.dart' as http;
 
+import '../timeout_utils.dart';
+
 Future<String> postTransportData({
   required String endpoint,
   required Map<String, String> headers,
@@ -59,7 +61,7 @@ void main() {
 
   group('GenericContract test', () {
     testWidgets('GenericContract subscribe', (WidgetTester tester) async {
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettleWithTimeout();
 
       final contract = await GenericContract.subscribe(
         transport: transport,
