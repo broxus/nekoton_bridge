@@ -1,5 +1,7 @@
 #!/bin/bash
 
 cd packages/flutter_nekoton_bridge/js
-npm install
+npm ci
 npm run build
+npm run clean
+
