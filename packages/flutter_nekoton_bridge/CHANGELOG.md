@@ -1,3 +1,7 @@
+## 1.8.0-dev.2
+
+ - **FIX**: change packages version. ([ab1f7ff1](https://github.com/broxus/nekoton_bridge/commit/ab1f7ff13e7e874b1a8dcf7172464a76e843e246))
+
 ## 1.7.0-dev.1
 
  - **FIX**: upgrade js packages. ([ef48ece8](https://github.com/broxus/nekoton_bridge/commit/ef48ece8ef25e9a3343fd95f2484cf6126133448))

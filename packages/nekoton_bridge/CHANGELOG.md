@@ -1,3 +1,7 @@
+## 1.8.0-dev.2
+
+ - **FIX**: change packages version. ([ab1f7ff1](https://github.com/broxus/nekoton_bridge/commit/ab1f7ff13e7e874b1a8dcf7172464a76e843e246))
+
 ## 1.6.0-dev.1
 
  - **FIX**: upgrade rust libs, fix pre-bs script ([#68](https://github.com/broxus/nekoton_bridge/issues/68)). ([a046c994](https://github.com/broxus/nekoton_bridge/commit/a046c9942f6a9821f3e2d20d4012f4e5dcf49566))

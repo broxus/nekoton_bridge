@@ -15,6 +15,37 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_nekoton_bridge` - `v1.8.0-dev.2`](#flutter_nekoton_bridge---v180-dev2)
+ - [`flutter_nekoton_bridge_example` - `v1.8.0-dev.2`](#flutter_nekoton_bridge_example---v180-dev2)
+ - [`nekoton_bridge` - `v1.8.0-dev.2`](#nekoton_bridge---v180-dev2)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.8.0-dev.2`
+
+ - **FIX**: change packages version. ([ab1f7ff1](https://github.com/broxus/nekoton_bridge/commit/ab1f7ff13e7e874b1a8dcf7172464a76e843e246))
+
+#### `flutter_nekoton_bridge_example` - `v1.8.0-dev.2`
+
+ - **FIX**: change packages version. ([ab1f7ff1](https://github.com/broxus/nekoton_bridge/commit/ab1f7ff13e7e874b1a8dcf7172464a76e843e246))
+
+#### `nekoton_bridge` - `v1.8.0-dev.2`
+
+ - **FIX**: change packages version. ([ab1f7ff1](https://github.com/broxus/nekoton_bridge/commit/ab1f7ff13e7e874b1a8dcf7172464a76e843e246))
+
+
+## 2023-04-17
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v1.7.0-dev.1`](#flutter_nekoton_bridge---v170-dev1)
  - [`flutter_nekoton_bridge_example` - `v1.1.0-dev.1`](#flutter_nekoton_bridge_example---v110-dev1)
  - [`nekoton_bridge` - `v1.6.0-dev.1`](#nekoton_bridge---v160-dev1)

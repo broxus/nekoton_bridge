@@ -1,3 +1,7 @@
+## 1.8.0-dev.2
+
+ - **FIX**: change packages version. ([ab1f7ff1](https://github.com/broxus/nekoton_bridge/commit/ab1f7ff13e7e874b1a8dcf7172464a76e843e246))
+
 ## 1.1.0-dev.1
 
  - **FIX**: downgrade frb version temporary ([#58](https://github.com/broxus/nekoton_bridge/issues/58)). ([89e898b9](https://github.com/broxus/nekoton_bridge/commit/89e898b9e4acc07d35be4ef296e9e0baeb572f82))
