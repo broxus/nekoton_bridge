@@ -1,3 +1,8 @@
+## 1.8.0-dev.3
+
+ - **FIX**: upgrade js packages ([#75](https://github.com/broxus/nekoton_bridge/issues/75)). ([76a8c91b](https://github.com/broxus/nekoton_bridge/commit/76a8c91b0317e7f815a4611e71a0d8b54a9247cc))
+ - **FIX**: change packages version. ([ab1f7ff1](https://github.com/broxus/nekoton_bridge/commit/ab1f7ff13e7e874b1a8dcf7172464a76e843e246))
+
 ## 1.8.0-dev.2
 
  - **FIX**: change packages version. ([ab1f7ff1](https://github.com/broxus/nekoton_bridge/commit/ab1f7ff13e7e874b1a8dcf7172464a76e843e246))

@@ -15,6 +15,42 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_nekoton_bridge` - `v1.8.0-dev.3`](#flutter_nekoton_bridge---v180-dev3)
+ - [`flutter_nekoton_bridge_example` - `v1.8.0-dev.3`](#flutter_nekoton_bridge_example---v180-dev3)
+ - [`nekoton_bridge` - `v1.8.0-dev.3`](#nekoton_bridge---v180-dev3)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.8.0-dev.3`
+
+ - **FIX**: js bundle build. ([5dd15d3c](https://github.com/broxus/nekoton_bridge/commit/5dd15d3c257a534db32b9f6f00168bb0541de2cf))
+ - **FIX**: upgrade js packages ([#75](https://github.com/broxus/nekoton_bridge/issues/75)). ([76a8c91b](https://github.com/broxus/nekoton_bridge/commit/76a8c91b0317e7f815a4611e71a0d8b54a9247cc))
+ - **FIX**: change packages version. ([ab1f7ff1](https://github.com/broxus/nekoton_bridge/commit/ab1f7ff13e7e874b1a8dcf7172464a76e843e246))
+ - **FIX**: upgrade js packages. ([ef48ece8](https://github.com/broxus/nekoton_bridge/commit/ef48ece8ef25e9a3343fd95f2484cf6126133448))
+
+#### `flutter_nekoton_bridge_example` - `v1.8.0-dev.3`
+
+ - **FIX**: upgrade js packages ([#75](https://github.com/broxus/nekoton_bridge/issues/75)). ([76a8c91b](https://github.com/broxus/nekoton_bridge/commit/76a8c91b0317e7f815a4611e71a0d8b54a9247cc))
+ - **FIX**: change packages version. ([ab1f7ff1](https://github.com/broxus/nekoton_bridge/commit/ab1f7ff13e7e874b1a8dcf7172464a76e843e246))
+
+#### `nekoton_bridge` - `v1.8.0-dev.3`
+
+ - **FIX**: upgrade js packages ([#75](https://github.com/broxus/nekoton_bridge/issues/75)). ([76a8c91b](https://github.com/broxus/nekoton_bridge/commit/76a8c91b0317e7f815a4611e71a0d8b54a9247cc))
+ - **FIX**: change packages version. ([ab1f7ff1](https://github.com/broxus/nekoton_bridge/commit/ab1f7ff13e7e874b1a8dcf7172464a76e843e246))
+
+
+## 2023-04-17
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v1.8.0-dev.2`](#flutter_nekoton_bridge---v180-dev2)
  - [`flutter_nekoton_bridge_example` - `v1.8.0-dev.2`](#flutter_nekoton_bridge_example---v180-dev2)
  - [`nekoton_bridge` - `v1.8.0-dev.2`](#nekoton_bridge---v180-dev2)
