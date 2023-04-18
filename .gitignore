@@ -43,4 +43,4 @@ build/
 
 # js-related
 **/node_modules/
-**/assets/js/
+

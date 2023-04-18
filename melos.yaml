@@ -84,7 +84,7 @@ command:
   bootstrap:
     hooks:
       pre: bash scripts/pre-bs.sh
-      post: melos codegen && melos generate-js
+      post: melos codegen
   version:
     hooks:
       preCommit: bash scripts/version.sh
