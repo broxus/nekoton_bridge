@@ -46,6 +46,10 @@ jobs:
       - name: Run Dart tests
         run: melos run test
 
+      # JS bundle
+      - name: JS bundle is up to date
+        run: melos generate-js -- test
+
   # macos_integration_test:
   #   runs-on: macos-latest
 
