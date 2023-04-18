@@ -8,4 +8,5 @@ export enum RpcErrorCode {
     REJECTED_BY_USER,
     CONNECTION_IS_NOT_INITIALIZED,
     MESSAGE_EXPIRED,
+    JS_BUNDLE_TEST,
 }
