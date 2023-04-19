@@ -13,6 +13,9 @@ on:
           - '--prerelease'
           - '--graduate'
 
+env:
+  CARGO_INCREMENTAL: '1'
+
 jobs:
   create_release:
     runs-on: ubuntu-latest
