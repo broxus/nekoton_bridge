@@ -5,6 +5,9 @@ on:
     tags:
       - "*"
 
+env:
+  CARGO_INCREMENTAL: '1'
+
 permissions:
   contents: write
 
