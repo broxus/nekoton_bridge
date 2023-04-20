@@ -1,3 +1,7 @@
+## 1.8.0-dev.4
+
+ - **FIX**: update melos configuration. ([a05b0aa9](https://github.com/broxus/nekoton_bridge/commit/a05b0aa908483cc0c684d9d94fe0260d30283c87))
+
 ## 1.8.0-dev.3
 
  - **FIX**: upgrade js packages ([#75](https://github.com/broxus/nekoton_bridge/issues/75)). ([76a8c91b](https://github.com/broxus/nekoton_bridge/commit/76a8c91b0317e7f815a4611e71a0d8b54a9247cc))

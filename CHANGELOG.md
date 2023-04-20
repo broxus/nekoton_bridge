@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-04-20
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.8.0-dev.4`](#flutter_nekoton_bridge---v180-dev4)
+ - [`nekoton_bridge` - `v1.8.0-dev.4`](#nekoton_bridge---v180-dev4)
+ - [`flutter_nekoton_bridge_example` - `v1.8.0-dev.4`](#flutter_nekoton_bridge_example---v180-dev4)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.8.0-dev.4`
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.8.0-dev.4`
+
+ - **FIX**: bump nb version ([#85](https://github.com/broxus/nekoton_bridge/issues/85)). ([0dd3f2f4](https://github.com/broxus/nekoton_bridge/commit/0dd3f2f4f4845e5caea4510f13627487bbd6add6))
+ - **FIX**: js bundle build. ([5dd15d3c](https://github.com/broxus/nekoton_bridge/commit/5dd15d3c257a534db32b9f6f00168bb0541de2cf))
+
+#### `nekoton_bridge` - `v1.8.0-dev.4`
+
+ - **FIX**: update melos configuration. ([a05b0aa9](https://github.com/broxus/nekoton_bridge/commit/a05b0aa908483cc0c684d9d94fe0260d30283c87))
+
+
 ## 2023-04-17
 
 ### Changes
