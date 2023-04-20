@@ -6,6 +6,7 @@ export 'package:nekoton_bridge/nekoton_bridge.dart';
 import 'dynamic_value.dart';
 export 'dynamic_value.dart';
 import 'log_entry.dart';
+export 'log_entry.dart';
 
 import 'rust_to_dart/rust_to_dart_caller.dart';
 export 'rust_to_dart/rust_to_dart_caller.dart';
