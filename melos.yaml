@@ -86,5 +86,6 @@ command:
       pre: bash scripts/pre-bs.sh
       post: melos codegen
   version:
+    updateGitTagRefs: true
     hooks:
       preCommit: bash scripts/version.sh

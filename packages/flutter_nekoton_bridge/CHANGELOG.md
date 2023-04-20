@@ -1,3 +1,8 @@
+## 1.8.0-dev.4
+
+ - **FIX**: bump nb version ([#85](https://github.com/broxus/nekoton_bridge/issues/85)). ([0dd3f2f4](https://github.com/broxus/nekoton_bridge/commit/0dd3f2f4f4845e5caea4510f13627487bbd6add6))
+ - **FIX**: js bundle build. ([5dd15d3c](https://github.com/broxus/nekoton_bridge/commit/5dd15d3c257a534db32b9f6f00168bb0541de2cf))
+
 ## 1.8.0-dev.3
 
  - **FIX**: js bundle build. ([5dd15d3c](https://github.com/broxus/nekoton_bridge/commit/5dd15d3c257a534db32b9f6f00168bb0541de2cf))

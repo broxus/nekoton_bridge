@@ -1,3 +1,7 @@
+## 1.8.0-dev.4
+
+ - Update a dependency to the latest release.
+
 ## 1.8.0-dev.3
 
  - **FIX**: upgrade js packages ([#75](https://github.com/broxus/nekoton_bridge/issues/75)). ([76a8c91b](https://github.com/broxus/nekoton_bridge/commit/76a8c91b0317e7f815a4611e71a0d8b54a9247cc))
