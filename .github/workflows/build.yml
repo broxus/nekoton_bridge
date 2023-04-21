@@ -63,7 +63,11 @@ jobs:
 
       # JS bundle
       - name: JS bundle is up to date
-        run: melos generate-js -- test
+        run: melos generate-js
+        
+      # Git
+      - name: Check git diff
+        run: melos git-check -- test
 
   # macos_integration_test:
   #   runs-on: macos-latest
