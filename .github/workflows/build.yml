@@ -54,6 +54,8 @@ jobs:
         run: cargo test
 
       # Dart/Flutter
+      - name: Generate dart code
+        run: melos codegen
       - name: Check Dart format
         run: melos run check-format --no-select
       - name: Dart code analysis

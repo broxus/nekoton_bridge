@@ -22,16 +22,12 @@ EncryptedKeyCreateInput _$EncryptedKeyCreateInputFromJson(
 /// @nodoc
 mixin _$EncryptedKeyCreateInput {
   String? get name => throw _privateConstructorUsedError;
-
   String get phrase => throw _privateConstructorUsedError;
-
   @mnemonicJsonConverter
   MnemonicType get mnemonicType => throw _privateConstructorUsedError;
-
   Password get password => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $EncryptedKeyCreateInputCopyWith<EncryptedKeyCreateInput> get copyWith =>
       throw _privateConstructorUsedError;
@@ -42,7 +38,6 @@ abstract class $EncryptedKeyCreateInputCopyWith<$Res> {
   factory $EncryptedKeyCreateInputCopyWith(EncryptedKeyCreateInput value,
           $Res Function(EncryptedKeyCreateInput) then) =
       _$EncryptedKeyCreateInputCopyWithImpl<$Res, EncryptedKeyCreateInput>;
-
   @useResult
   $Res call(
       {String? name,
@@ -51,7 +46,6 @@ abstract class $EncryptedKeyCreateInputCopyWith<$Res> {
       Password password});
 
   $MnemonicTypeCopyWith<$Res> get mnemonicType;
-
   $PasswordCopyWith<$Res> get password;
 }
 
@@ -63,7 +57,6 @@ class _$EncryptedKeyCreateInputCopyWithImpl<$Res,
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -118,7 +111,6 @@ abstract class _$$_EncryptedKeyCreateInputCopyWith<$Res>
   factory _$$_EncryptedKeyCreateInputCopyWith(_$_EncryptedKeyCreateInput value,
           $Res Function(_$_EncryptedKeyCreateInput) then) =
       __$$_EncryptedKeyCreateInputCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -129,7 +121,6 @@ abstract class _$$_EncryptedKeyCreateInputCopyWith<$Res>
 
   @override
   $MnemonicTypeCopyWith<$Res> get mnemonicType;
-
   @override
   $PasswordCopyWith<$Res> get password;
 }
@@ -245,17 +236,13 @@ abstract class _EncryptedKeyCreateInput implements EncryptedKeyCreateInput {
 
   @override
   String? get name;
-
   @override
   String get phrase;
-
   @override
   @mnemonicJsonConverter
   MnemonicType get mnemonicType;
-
   @override
   Password get password;
-
   @override
   @JsonKey(ignore: true)
   _$$_EncryptedKeyCreateInputCopyWith<_$_EncryptedKeyCreateInput>
