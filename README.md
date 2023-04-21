@@ -126,7 +126,7 @@ You need to run emulator/simulator to complete this command
 
 ## Version
 
-At this time melos updates version for nekoton_bridge automatically, links it to flutter_nekoton_bridge (changes 'ref'), but don't update flutter_nekoton_bridge version itself. I don't know what to do with it, so we should fix it manually.
+Package version control is done by melos. It runs by gh action 'create-release' ```melos version -a --yes```.
 
 
 # HOW to write rust code for nekoton_bridge
