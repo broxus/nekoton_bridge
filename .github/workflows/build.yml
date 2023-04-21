@@ -10,7 +10,7 @@ on:
     - cron: "0 10 * * *"
 
 env:
-  CARGO_INCREMENTAL: '1'
+  CARGO_INCREMENTAL: "1"
 
 jobs:
   # General build, check, and test steps
@@ -54,10 +54,10 @@ jobs:
         run: cargo test
 
       # Dart/Flutter
-      - name: Generate dart code
-        run: melos codegen
       - name: Check Dart format
         run: melos run check-format --no-select
+      - name: Generate dart code
+        run: melos codegen
       - name: Dart code analysis
         run: melos run analyze --no-select
       - name: Run Dart tests
@@ -76,7 +76,7 @@ jobs:
 
   #   steps:
   #     - uses: actions/checkout@v3
-      # - uses: subosito/flutter-action@v2
+  #     - uses: subosito/flutter-action@v2
   #       with:
   #         cache: true
   #         cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
