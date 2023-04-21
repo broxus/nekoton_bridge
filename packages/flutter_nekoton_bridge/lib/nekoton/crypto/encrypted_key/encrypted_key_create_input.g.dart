@@ -11,8 +11,8 @@ _$_EncryptedKeyCreateInput _$$_EncryptedKeyCreateInputFromJson(
     _$_EncryptedKeyCreateInput(
       name: json['name'] as String?,
       phrase: json['phrase'] as String,
-      mnemonicType: _$JsonConverterFromJson<Map<String, dynamic>, dynamic>(
-          json['mnemonicType'], mnemonicJsonConverter.fromJson),
+      mnemonicType: mnemonicJsonConverter
+          .fromJson(json['mnemonicType'] as Map<String, dynamic>),
       password: Password.fromJson(json['password'] as Map<String, dynamic>),
     );
 
@@ -24,9 +24,3 @@ Map<String, dynamic> _$$_EncryptedKeyCreateInputToJson(
       'mnemonicType': mnemonicJsonConverter.toJson(instance.mnemonicType),
       'password': instance.password,
     };
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) =>
-    json == null ? null : fromJson(json as Json);

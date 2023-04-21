@@ -10,8 +10,8 @@ _$_EncryptedKeyExportOutput _$$_EncryptedKeyExportOutputFromJson(
         Map<String, dynamic> json) =>
     _$_EncryptedKeyExportOutput(
       phrase: json['phrase'] as String,
-      mnemonicType: _$JsonConverterFromJson<Map<String, dynamic>, dynamic>(
-          json['mnemonicType'], mnemonicJsonConverter.fromJson),
+      mnemonicType: mnemonicJsonConverter
+          .fromJson(json['mnemonicType'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_EncryptedKeyExportOutputToJson(
@@ -20,9 +20,3 @@ Map<String, dynamic> _$$_EncryptedKeyExportOutputToJson(
       'phrase': instance.phrase,
       'mnemonicType': mnemonicJsonConverter.toJson(instance.mnemonicType),
     };
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) =>
-    json == null ? null : fromJson(json as Json);
