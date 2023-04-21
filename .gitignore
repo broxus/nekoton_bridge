@@ -36,10 +36,10 @@ build/
 /platform-build
 
 # Generated code
-*_generated.*
-*.freezed.dart
-*.g.dart
-*.reflectable.dart
+*_generated.rs
+#*.freezed.dart
+#*.g.dart
+#*.reflectable.dart
 
 # js-related
 **/node_modules/
