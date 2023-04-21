@@ -64,7 +64,7 @@ jobs:
         run: melos run test
 
       # JS bundle
-      - name: JS bundle is up to date
+      - name: Generate JS bundle
         run: melos generate-js
 
       # Check if all the generated code is up to date
