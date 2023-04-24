@@ -1,3 +1,7 @@
+## 1.8.0-dev.6
+
+ - **FIX**: add ios frb headers ([#95](https://github.com/broxus/nekoton_bridge/issues/95)). ([716a4d51](https://github.com/broxus/nekoton_bridge/commit/716a4d510d4d8b616edf21ab676de7cd1ca4f61b))
+
 ## 1.8.0-dev.5
 
  - **FIX**: add ios frb headers ([#95](https://github.com/broxus/nekoton_bridge/issues/95)). ([716a4d51](https://github.com/broxus/nekoton_bridge/commit/716a4d510d4d8b616edf21ab676de7cd1ca4f61b))
