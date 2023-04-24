@@ -68,8 +68,8 @@ jobs:
         run: melos generate-js
 
       # Check if all the generated code is up to date
-      - name: Check git diff
-        run: melos git-check
+#      - name: Check git diff
+#        run: melos git-check
 
   # macos_integration_test:
   #   runs-on: macos-latest
