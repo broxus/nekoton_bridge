@@ -1,3 +1,9 @@
+## 1.8.0-dev.5
+
+ - **FIX**: melos config ([#86](https://github.com/broxus/nekoton_bridge/issues/86)). ([2ec0c464](https://github.com/broxus/nekoton_bridge/commit/2ec0c4647746be298c84b362fdaf73353133008f))
+ - **FIX**: update melos configuration. ([a05b0aa9](https://github.com/broxus/nekoton_bridge/commit/a05b0aa908483cc0c684d9d94fe0260d30283c87))
+ - **FEAT**: add generated files to git ([#88](https://github.com/broxus/nekoton_bridge/issues/88)). ([ef54b95a](https://github.com/broxus/nekoton_bridge/commit/ef54b95a6d763577e420af3cd7ccc8fa2d81670d))
+
 ## 1.8.0-dev.4
 
  - **FIX**: update melos configuration. ([a05b0aa9](https://github.com/broxus/nekoton_bridge/commit/a05b0aa908483cc0c684d9d94fe0260d30283c87))

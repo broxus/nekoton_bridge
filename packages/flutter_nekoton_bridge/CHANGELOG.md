@@ -1,3 +1,9 @@
+## 1.8.0-dev.5
+
+ - **FIX**: add ios frb headers ([#95](https://github.com/broxus/nekoton_bridge/issues/95)). ([716a4d51](https://github.com/broxus/nekoton_bridge/commit/716a4d510d4d8b616edf21ab676de7cd1ca4f61b))
+ - **FIX**: melos config ([#86](https://github.com/broxus/nekoton_bridge/issues/86)). ([2ec0c464](https://github.com/broxus/nekoton_bridge/commit/2ec0c4647746be298c84b362fdaf73353133008f))
+ - **FEAT**: add generated files to git ([#88](https://github.com/broxus/nekoton_bridge/issues/88)). ([ef54b95a](https://github.com/broxus/nekoton_bridge/commit/ef54b95a6d763577e420af3cd7ccc8fa2d81670d))
+
 ## 1.8.0-dev.4
 
  - **FIX**: bump nb version ([#85](https://github.com/broxus/nekoton_bridge/issues/85)). ([0dd3f2f4](https://github.com/broxus/nekoton_bridge/commit/0dd3f2f4f4845e5caea4510f13627487bbd6add6))
