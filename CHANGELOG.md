@@ -3,6 +3,69 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-04-24
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.8.0-dev.6`](#flutter_nekoton_bridge---v180-dev6)
+ - [`flutter_nekoton_bridge_example` - `v1.8.0-dev.6`](#flutter_nekoton_bridge_example---v180-dev6)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.8.0-dev.6`
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.8.0-dev.6`
+
+ - **FIX**: add ios frb headers ([#95](https://github.com/broxus/nekoton_bridge/issues/95)). ([716a4d51](https://github.com/broxus/nekoton_bridge/commit/716a4d510d4d8b616edf21ab676de7cd1ca4f61b))
+
+
+## 2023-04-24
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.8.0-dev.5`](#flutter_nekoton_bridge---v180-dev5)
+ - [`flutter_nekoton_bridge_example` - `v1.8.0-dev.5`](#flutter_nekoton_bridge_example---v180-dev5)
+ - [`nekoton_bridge` - `v1.8.0-dev.5`](#nekoton_bridge---v180-dev5)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.8.0-dev.5`
+
+ - **FIX**: add ios frb headers ([#95](https://github.com/broxus/nekoton_bridge/issues/95)). ([716a4d51](https://github.com/broxus/nekoton_bridge/commit/716a4d510d4d8b616edf21ab676de7cd1ca4f61b))
+ - **FIX**: melos config ([#86](https://github.com/broxus/nekoton_bridge/issues/86)). ([2ec0c464](https://github.com/broxus/nekoton_bridge/commit/2ec0c4647746be298c84b362fdaf73353133008f))
+ - **FEAT**: add generated files to git ([#88](https://github.com/broxus/nekoton_bridge/issues/88)). ([ef54b95a](https://github.com/broxus/nekoton_bridge/commit/ef54b95a6d763577e420af3cd7ccc8fa2d81670d))
+
+#### `flutter_nekoton_bridge_example` - `v1.8.0-dev.5`
+
+ - **FIX**: melos config ([#86](https://github.com/broxus/nekoton_bridge/issues/86)). ([2ec0c464](https://github.com/broxus/nekoton_bridge/commit/2ec0c4647746be298c84b362fdaf73353133008f))
+
+#### `nekoton_bridge` - `v1.8.0-dev.5`
+
+ - **FIX**: melos config ([#86](https://github.com/broxus/nekoton_bridge/issues/86)). ([2ec0c464](https://github.com/broxus/nekoton_bridge/commit/2ec0c4647746be298c84b362fdaf73353133008f))
+ - **FIX**: update melos configuration. ([a05b0aa9](https://github.com/broxus/nekoton_bridge/commit/a05b0aa908483cc0c684d9d94fe0260d30283c87))
+ - **FEAT**: add generated files to git ([#88](https://github.com/broxus/nekoton_bridge/issues/88)). ([ef54b95a](https://github.com/broxus/nekoton_bridge/commit/ef54b95a6d763577e420af3cd7ccc8fa2d81670d))
+
+
 ## 2023-04-20
 
 ### Changes
