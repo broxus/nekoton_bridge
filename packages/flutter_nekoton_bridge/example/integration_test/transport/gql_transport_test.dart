@@ -148,7 +148,7 @@ void main() {
       expect(transaction, isNotNull);
       expect(transaction!.id.hash, accountTransaction);
       expect(transaction.aborted, false);
-      expect(transaction.inMessage.value, '100000000');
+      expect(transaction.inMessage.value, Fixed.parse('100000000'));
       expect(transaction.outMessages.length, 0);
     });
 

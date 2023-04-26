@@ -14,6 +14,8 @@ dependencies:
   plugin_platform_interface: ^2.0.2
   rxdart: 0.27.7
   reflectable: ^4.0.5
+  money2: ^3.3.0
+  money2_improver: ^1.2.0
   nekoton_bridge:
     git:
       url: https://github.com/broxus/nekoton_bridge.git

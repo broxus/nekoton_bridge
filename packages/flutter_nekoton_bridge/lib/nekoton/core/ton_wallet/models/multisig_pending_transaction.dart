@@ -1,3 +1,4 @@
+import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'multisig_pending_transaction.freezed.dart';
@@ -14,7 +15,7 @@ class MultisigPendingTransaction with _$MultisigPendingTransaction {
     required String creator,
     required int index,
     required String dest,
-    required String value,
+    @amountJsonConverter required Fixed value,
     required int sendFlags,
     required String payload,
     required bool bounce,
