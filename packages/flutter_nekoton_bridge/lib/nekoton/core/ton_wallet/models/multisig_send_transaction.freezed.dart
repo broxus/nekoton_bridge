@@ -22,7 +22,8 @@ MultisigSendTransaction _$MultisigSendTransactionFromJson(
 /// @nodoc
 mixin _$MultisigSendTransaction {
   String get dest => throw _privateConstructorUsedError;
-  String get value => throw _privateConstructorUsedError;
+  @amountJsonConverter
+  Fixed get value => throw _privateConstructorUsedError;
   bool get bounce => throw _privateConstructorUsedError;
   int get flags => throw _privateConstructorUsedError;
   String get payload => throw _privateConstructorUsedError;
@@ -40,7 +41,11 @@ abstract class $MultisigSendTransactionCopyWith<$Res> {
       _$MultisigSendTransactionCopyWithImpl<$Res, MultisigSendTransaction>;
   @useResult
   $Res call(
-      {String dest, String value, bool bounce, int flags, String payload});
+      {String dest,
+      @amountJsonConverter Fixed value,
+      bool bounce,
+      int flags,
+      String payload});
 }
 
 /// @nodoc
@@ -71,7 +76,7 @@ class _$MultisigSendTransactionCopyWithImpl<$Res,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
       bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
@@ -97,7 +102,11 @@ abstract class _$$_MultisigSendTransactionCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String dest, String value, bool bounce, int flags, String payload});
+      {String dest,
+      @amountJsonConverter Fixed value,
+      bool bounce,
+      int flags,
+      String payload});
 }
 
 /// @nodoc
@@ -126,7 +135,7 @@ class __$$_MultisigSendTransactionCopyWithImpl<$Res>
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
       bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
@@ -148,7 +157,7 @@ class __$$_MultisigSendTransactionCopyWithImpl<$Res>
 class _$_MultisigSendTransaction implements _MultisigSendTransaction {
   const _$_MultisigSendTransaction(
       {required this.dest,
-      required this.value,
+      @amountJsonConverter required this.value,
       required this.bounce,
       required this.flags,
       required this.payload});
@@ -159,7 +168,8 @@ class _$_MultisigSendTransaction implements _MultisigSendTransaction {
   @override
   final String dest;
   @override
-  final String value;
+  @amountJsonConverter
+  final Fixed value;
   @override
   final bool bounce;
   @override
@@ -208,7 +218,7 @@ class _$_MultisigSendTransaction implements _MultisigSendTransaction {
 abstract class _MultisigSendTransaction implements MultisigSendTransaction {
   const factory _MultisigSendTransaction(
       {required final String dest,
-      required final String value,
+      @amountJsonConverter required final Fixed value,
       required final bool bounce,
       required final int flags,
       required final String payload}) = _$_MultisigSendTransaction;
@@ -219,7 +229,8 @@ abstract class _MultisigSendTransaction implements MultisigSendTransaction {
   @override
   String get dest;
   @override
-  String get value;
+  @amountJsonConverter
+  Fixed get value;
   @override
   bool get bounce;
   @override

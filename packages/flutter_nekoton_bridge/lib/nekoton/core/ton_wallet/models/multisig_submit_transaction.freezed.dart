@@ -23,7 +23,8 @@ MultisigSubmitTransaction _$MultisigSubmitTransactionFromJson(
 mixin _$MultisigSubmitTransaction {
   String get custodian => throw _privateConstructorUsedError;
   String get dest => throw _privateConstructorUsedError;
-  String get value => throw _privateConstructorUsedError;
+  @amountJsonConverter
+  Fixed get value => throw _privateConstructorUsedError;
   bool get bounce => throw _privateConstructorUsedError;
   bool get allBalance => throw _privateConstructorUsedError;
   String get payload => throw _privateConstructorUsedError;
@@ -44,7 +45,7 @@ abstract class $MultisigSubmitTransactionCopyWith<$Res> {
   $Res call(
       {String custodian,
       String dest,
-      String value,
+      @amountJsonConverter Fixed value,
       bool bounce,
       bool allBalance,
       String payload,
@@ -85,7 +86,7 @@ class _$MultisigSubmitTransactionCopyWithImpl<$Res,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
       bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
@@ -118,7 +119,7 @@ abstract class _$$_MultisigSubmitTransactionCopyWith<$Res>
   $Res call(
       {String custodian,
       String dest,
-      String value,
+      @amountJsonConverter Fixed value,
       bool bounce,
       bool allBalance,
       String payload,
@@ -158,7 +159,7 @@ class __$$_MultisigSubmitTransactionCopyWithImpl<$Res>
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
       bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
@@ -185,7 +186,7 @@ class _$_MultisigSubmitTransaction implements _MultisigSubmitTransaction {
   const _$_MultisigSubmitTransaction(
       {required this.custodian,
       required this.dest,
-      required this.value,
+      @amountJsonConverter required this.value,
       required this.bounce,
       required this.allBalance,
       required this.payload,
@@ -199,7 +200,8 @@ class _$_MultisigSubmitTransaction implements _MultisigSubmitTransaction {
   @override
   final String dest;
   @override
-  final String value;
+  @amountJsonConverter
+  final Fixed value;
   @override
   final bool bounce;
   @override
@@ -254,7 +256,7 @@ abstract class _MultisigSubmitTransaction implements MultisigSubmitTransaction {
   const factory _MultisigSubmitTransaction(
       {required final String custodian,
       required final String dest,
-      required final String value,
+      @amountJsonConverter required final Fixed value,
       required final bool bounce,
       required final bool allBalance,
       required final String payload,
@@ -268,7 +270,8 @@ abstract class _MultisigSubmitTransaction implements MultisigSubmitTransaction {
   @override
   String get dest;
   @override
-  String get value;
+  @amountJsonConverter
+  Fixed get value;
   @override
   bool get bounce;
   @override

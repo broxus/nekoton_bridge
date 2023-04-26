@@ -23,7 +23,7 @@ mixin _$InternalMessage {
   String? get source => throw _privateConstructorUsedError;
   String get destination => throw _privateConstructorUsedError;
   @amountJsonConverter
-  BigInt get amount => throw _privateConstructorUsedError;
+  Fixed get amount => throw _privateConstructorUsedError;
   bool get bounce => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
 
@@ -42,7 +42,7 @@ abstract class $InternalMessageCopyWith<$Res> {
   $Res call(
       {String? source,
       String destination,
-      @amountJsonConverter BigInt amount,
+      @amountJsonConverter Fixed amount,
       bool bounce,
       String body});
 }
@@ -78,7 +78,7 @@ class _$InternalMessageCopyWithImpl<$Res, $Val extends InternalMessage>
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as BigInt,
+              as Fixed,
       bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
@@ -102,7 +102,7 @@ abstract class _$$_InternalMessageCopyWith<$Res>
   $Res call(
       {String? source,
       String destination,
-      @amountJsonConverter BigInt amount,
+      @amountJsonConverter Fixed amount,
       bool bounce,
       String body});
 }
@@ -136,7 +136,7 @@ class __$$_InternalMessageCopyWithImpl<$Res>
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as BigInt,
+              as Fixed,
       bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
@@ -168,7 +168,7 @@ class _$_InternalMessage implements _InternalMessage {
   final String destination;
   @override
   @amountJsonConverter
-  final BigInt amount;
+  final Fixed amount;
   @override
   final bool bounce;
   @override
@@ -215,7 +215,7 @@ abstract class _InternalMessage implements InternalMessage {
   factory _InternalMessage(
       {final String? source,
       required final String destination,
-      @amountJsonConverter required final BigInt amount,
+      @amountJsonConverter required final Fixed amount,
       required final bool bounce,
       required final String body}) = _$_InternalMessage;
 
@@ -228,7 +228,7 @@ abstract class _InternalMessage implements InternalMessage {
   String get destination;
   @override
   @amountJsonConverter
-  BigInt get amount;
+  Fixed get amount;
   @override
   bool get bounce;
   @override
