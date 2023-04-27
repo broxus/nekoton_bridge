@@ -1,3 +1,7 @@
+## 1.8.0-dev.7
+
+ - **FEAT**: replace BigInt to Fixed ([#98](https://github.com/broxus/nekoton_bridge/issues/98)). ([14dc50f6](https://github.com/broxus/nekoton_bridge/commit/14dc50f6e55fae59452dd250a306bd761e5b186e))
+
 ## 1.8.0-dev.6
 
  - Update a dependency to the latest release.
