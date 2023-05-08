@@ -16,6 +16,8 @@ export 'example_related/example_related_lib.dart';
 export 'tests_related/tests_related_lib.dart';
 
 export 'nekoton/nekoton_lib.dart';
+export 'package:money2_improver/money2_improver.dart';
+export 'package:money2/money2.dart';
 
 void Function(LogEntry logEntry)? _logHandler;
 const String _tag = 'flutter_nekoton_bridge';

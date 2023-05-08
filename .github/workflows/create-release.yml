@@ -6,15 +6,15 @@ on:
       version_parameters:
         description: 'Parameters to pass to "melos version"'
         required: true
-        default: ' '
+        default: " "
         type: choice
         options:
-          - '--'
-          - '--prerelease'
-          - '--graduate'
+          - "--"
+          - "--prerelease"
+          - "--graduate"
 
 env:
-  CARGO_INCREMENTAL: '1'
+  CARGO_INCREMENTAL: "1"
 
 jobs:
   create_release:

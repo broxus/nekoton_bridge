@@ -1,3 +1,11 @@
+## 1.8.0-dev.6
+
+ - Update a dependency to the latest release.
+
+## 1.8.0-dev.5
+
+ - **FIX**: melos config ([#86](https://github.com/broxus/nekoton_bridge/issues/86)). ([2ec0c464](https://github.com/broxus/nekoton_bridge/commit/2ec0c4647746be298c84b362fdaf73353133008f))
+
 ## 1.8.0-dev.4
 
  - Update a dependency to the latest release.
