@@ -463,7 +463,12 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
     /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeySignParams or
     ///   LedgerSignInput.
     /// Returns base64-encoded data or throw error.
-    async fn decrypt(&self, signer: KeySigner, data: String, input: String) -> anyhow::Result<String> {
+    async fn decrypt(
+        &self,
+        signer: KeySigner,
+        data: String,
+        input: String,
+    ) -> anyhow::Result<String> {
         let data = serde_json::from_str::<EncryptedData>(&data).handle_error()?;
 
         let data = match signer {

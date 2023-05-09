@@ -242,7 +242,7 @@ pub fn create_external_message(
         Cow::Owned(method.to_owned()),
         input,
     )
-        .handle_error()?;
+    .handle_error()?;
 
     Ok(UnsignedMessageImpl {
         inner_message: UnsignedMessageBox::create(unsigned_message),
@@ -396,7 +396,10 @@ pub fn decode_transaction(
 }
 
 /// Decode events of transaction and return json-encoded list of DecodedEvent or throws error
-pub fn decode_transaction_events(transaction: String, contract_abi: String) -> anyhow::Result<String> {
+pub fn decode_transaction_events(
+    transaction: String,
+    contract_abi: String,
+) -> anyhow::Result<String> {
     let transaction = serde_json::from_str::<Transaction>(&transaction).handle_error()?;
     let contract_abi = parse_contract_abi(contract_abi)?;
 
@@ -465,7 +468,11 @@ pub fn pack_into_cell(params: String, tokens: String) -> anyhow::Result<String> 
 }
 
 /// Parse list of params and return json-encoded Tokens or throws error
-pub fn unpack_from_cell(params: String, boc: String, allow_partial: bool) -> anyhow::Result<String> {
+pub fn unpack_from_cell(
+    params: String,
+    boc: String,
+    allow_partial: bool,
+) -> anyhow::Result<String> {
     let params = parse_params_list(params)?;
     let body = base64::decode(boc).handle_error()?;
     let cell = ton_types::deserialize_tree_of_cells(&mut body.as_slice()).handle_error()?;
@@ -480,7 +487,11 @@ pub fn unpack_from_cell(params: String, boc: String, allow_partial: bool) -> any
 
 /// Pack address std smd or throw error
 /// Returns new packed address as string
-pub fn pack_std_smc_addr(addr: String, base64_url: bool, bounceable: bool) -> anyhow::Result<String> {
+pub fn pack_std_smc_addr(
+    addr: String,
+    base64_url: bool,
+    bounceable: bool,
+) -> anyhow::Result<String> {
     let addr = parse_address(addr)?;
     let packed_addr =
         nekoton_utils::pack_std_smc_addr(base64_url, &addr, bounceable).handle_error()?;
