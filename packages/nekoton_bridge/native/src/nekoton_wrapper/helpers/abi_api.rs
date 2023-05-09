@@ -23,7 +23,7 @@ use ton_block::{Deserializable, Serializable};
 
 /// Check if public key is correct.
 /// If no - throws error, if ok - return true
-pub fn check_public_key(public_key: String) -> Result<bool, anyhow::Error> {
+pub fn check_public_key(public_key: String) -> anyhow::Result<bool> {
     let _ = parse_public_key(public_key).handle_error();
     Ok(true)
 }
@@ -38,7 +38,7 @@ pub fn run_local(
     method: String,
     input: String,
     responsible: bool,
-) -> Result<String, anyhow::Error> {
+) -> anyhow::Result<String> {
     let account_stuff = parse_account_stuff(account_stuff_boc)?;
     let contract_abi = parse_contract_abi(contract_abi)?;
     let method = contract_abi.function(&method).handle_error()?;
@@ -77,7 +77,7 @@ pub fn get_expected_address(
     workchain_id: i8,
     public_key: Option<String>,
     init_data: String,
-) -> Result<Vec<String>, anyhow::Error> {
+) -> anyhow::Result<Vec<String>> {
     let mut state_init = ton_block::StateInit::construct_from_base64(&tvc).handle_error()?;
     let contract_abi = parse_contract_abi(contract_abi)?;
     let public_key = public_key
@@ -122,7 +122,7 @@ pub fn encode_internal_input(
     contract_abi: String,
     method: String,
     input: String,
-) -> Result<String, anyhow::Error> {
+) -> anyhow::Result<String> {
     let contract_abi = parse_contract_abi(contract_abi)?;
 
     let method = contract_abi.function(&method).handle_error()?;
@@ -148,7 +148,7 @@ pub fn create_external_message_without_signature(
     state_init: Option<String>,
     input: String,
     timeout: u32,
-) -> Result<String, anyhow::Error> {
+) -> anyhow::Result<String> {
     let dst = parse_address(dst)?;
     let contract_abi = parse_contract_abi(contract_abi)?;
     let method = contract_abi.function(&method).handle_error()?;
@@ -208,7 +208,7 @@ pub fn create_external_message(
     input: String,
     public_key: String,
     timeout: u32,
-) -> Result<UnsignedMessageImpl, anyhow::Error> {
+) -> anyhow::Result<UnsignedMessageImpl> {
     let dst = parse_address(dst)?;
     let contract_abi = parse_contract_abi(contract_abi)?;
     let method = contract_abi.function(&method).handle_error()?;
@@ -242,7 +242,7 @@ pub fn create_external_message(
         Cow::Owned(method.to_owned()),
         input,
     )
-    .handle_error()?;
+        .handle_error()?;
 
     Ok(UnsignedMessageImpl {
         inner_message: UnsignedMessageBox::create(unsigned_message),
@@ -250,7 +250,7 @@ pub fn create_external_message(
 }
 
 /// Parse payload and return optional json-encoded KnownPayload or throws error
-pub fn parse_known_payload(payload: String) -> Result<String, anyhow::Error> {
+pub fn parse_known_payload(payload: String) -> anyhow::Result<String> {
     let payload = parse_slice(payload)?;
 
     let known_payload = parse_payload(payload);
@@ -264,7 +264,7 @@ pub fn decode_input(
     contract_abi: String,
     method: Option<String>,
     internal: bool,
-) -> Result<String, anyhow::Error> {
+) -> anyhow::Result<String> {
     let message_body = parse_slice(message_body)?;
     let contract_abi = parse_contract_abi(contract_abi)?;
     let method = parse_method_name(method)?;
@@ -292,7 +292,7 @@ pub fn decode_event(
     message_body: String,
     contract_abi: String,
     event: Option<String>,
-) -> Result<String, anyhow::Error> {
+) -> anyhow::Result<String> {
     let message_body = parse_slice(message_body)?;
     let contract_abi = parse_contract_abi(contract_abi)?;
     let event = parse_method_name(event)?;
@@ -319,7 +319,7 @@ pub fn decode_output(
     message_body: String,
     contract_abi: String,
     method: Option<String>,
-) -> Result<String, anyhow::Error> {
+) -> anyhow::Result<String> {
     let message_body = parse_slice(message_body)?;
     let contract_abi = parse_contract_abi(contract_abi)?;
     let method = parse_method_name(method)?;
@@ -346,7 +346,7 @@ pub fn decode_transaction(
     transaction: String,
     contract_abi: String,
     method: Option<String>,
-) -> Result<String, anyhow::Error> {
+) -> anyhow::Result<String> {
     let transaction = serde_json::from_str::<Transaction>(&transaction).handle_error()?;
     let contract_abi = parse_contract_abi(contract_abi)?;
     let method = parse_method_name(method)?;
@@ -381,7 +381,7 @@ pub fn decode_transaction(
                 None => Err("Expected message body").handle_error(),
             })
         })
-        .collect::<Result<Vec<_>, anyhow::Error>>()?;
+        .collect::<anyhow::Result<Vec<_>>>()?;
 
     let output = nekoton_abi::process_raw_outputs(&ext_out_msgs, method).handle_error()?;
     let output = nekoton_abi::make_abi_tokens(&output).handle_error()?;
@@ -396,10 +396,7 @@ pub fn decode_transaction(
 }
 
 /// Decode events of transaction and return json-encoded list of DecodedEvent or throws error
-pub fn decode_transaction_events(
-    transaction: String,
-    contract_abi: String,
-) -> Result<String, anyhow::Error> {
+pub fn decode_transaction_events(transaction: String, contract_abi: String) -> anyhow::Result<String> {
     let transaction = serde_json::from_str::<Transaction>(&transaction).handle_error()?;
     let contract_abi = parse_contract_abi(contract_abi)?;
 
@@ -416,7 +413,7 @@ pub fn decode_transaction_events(
                 None => Err("Expected message body").handle_error(),
             })
         })
-        .collect::<Result<Vec<_>, anyhow::Error>>()?;
+        .collect::<anyhow::Result<Vec<_>>>()?;
 
     let events = ext_out_msgs
         .into_iter()
@@ -435,13 +432,13 @@ pub fn decode_transaction_events(
 
             Some(data)
         })
-        .collect::<Result<Vec<_>, anyhow::Error>>()?;
+        .collect::<anyhow::Result<Vec<_>>>()?;
 
     serde_json::to_string(&events).handle_error()
 }
 
 /// Returns hash of decoded boc or throws error
-pub fn get_boc_hash(boc: String) -> Result<String, anyhow::Error> {
+pub fn get_boc_hash(boc: String) -> anyhow::Result<String> {
     let body = base64::decode(boc).handle_error()?;
 
     let hash = ton_types::deserialize_tree_of_cells(&mut body.as_slice())
@@ -453,7 +450,7 @@ pub fn get_boc_hash(boc: String) -> Result<String, anyhow::Error> {
 }
 
 /// Return base64 encoded bytes of tokens or throws error
-pub fn pack_into_cell(params: String, tokens: String) -> Result<String, anyhow::Error> {
+pub fn pack_into_cell(params: String, tokens: String) -> anyhow::Result<String> {
     let params = parse_params_list(params)?;
     let tokens = serde_json::from_str::<serde_json::Value>(&tokens).handle_error()?;
     let tokens = nekoton_abi::parse_abi_tokens(&params, tokens).handle_error()?;
@@ -468,11 +465,7 @@ pub fn pack_into_cell(params: String, tokens: String) -> Result<String, anyhow::
 }
 
 /// Parse list of params and return json-encoded Tokens or throws error
-pub fn unpack_from_cell(
-    params: String,
-    boc: String,
-    allow_partial: bool,
-) -> Result<String, anyhow::Error> {
+pub fn unpack_from_cell(params: String, boc: String, allow_partial: bool) -> anyhow::Result<String> {
     let params = parse_params_list(params)?;
     let body = base64::decode(boc).handle_error()?;
     let cell = ton_types::deserialize_tree_of_cells(&mut body.as_slice()).handle_error()?;
@@ -487,11 +480,7 @@ pub fn unpack_from_cell(
 
 /// Pack address std smd or throw error
 /// Returns new packed address as string
-pub fn pack_std_smc_addr(
-    addr: String,
-    base64_url: bool,
-    bounceable: bool,
-) -> Result<String, anyhow::Error> {
+pub fn pack_std_smc_addr(addr: String, base64_url: bool, bounceable: bool) -> anyhow::Result<String> {
     let addr = parse_address(addr)?;
     let packed_addr =
         nekoton_utils::pack_std_smc_addr(base64_url, &addr, bounceable).handle_error()?;
@@ -500,7 +489,7 @@ pub fn pack_std_smc_addr(
 
 /// Unpack address std smd or throw error.
 /// Returns json-encoded MsgAddressInt
-pub fn unpack_std_smc_addr(packed: String, base64_url: bool) -> Result<String, anyhow::Error> {
+pub fn unpack_std_smc_addr(packed: String, base64_url: bool) -> anyhow::Result<String> {
     let unpacked_addr = nekoton_utils::unpack_std_smc_addr(&packed, base64_url)
         .handle_error()?
         .to_string();
@@ -514,7 +503,7 @@ pub fn validate_address(address: String) -> bool {
 }
 
 /// Repack address and return json-encoded MsgAddressInt or throw error
-pub fn repack_address(address: String) -> Result<String, anyhow::Error> {
+pub fn repack_address(address: String) -> anyhow::Result<String> {
     let address = nekoton_utils::repack_address(&address)
         .handle_error()?
         .to_string();
@@ -523,7 +512,7 @@ pub fn repack_address(address: String) -> Result<String, anyhow::Error> {
 }
 
 /// Extract public key from boc and return it or throw error
-pub fn extract_public_key(boc: String) -> Result<String, anyhow::Error> {
+pub fn extract_public_key(boc: String) -> anyhow::Result<String> {
     let public_key = parse_account_stuff(boc)
         .and_then(|e| nekoton_abi::extract_public_key(&e).handle_error())
         .map(hex::encode)?;
@@ -532,7 +521,7 @@ pub fn extract_public_key(boc: String) -> Result<String, anyhow::Error> {
 }
 
 /// Convert code to base64 tvc string and return it or throw error
-pub fn code_to_tvc(code: String) -> Result<String, anyhow::Error> {
+pub fn code_to_tvc(code: String) -> anyhow::Result<String> {
     let cell = base64::decode(code).handle_error()?;
 
     let tvc = ton_types::deserialize_tree_of_cells(&mut cell.as_slice())
@@ -546,7 +535,7 @@ pub fn code_to_tvc(code: String) -> Result<String, anyhow::Error> {
 }
 
 /// Merge code and data to tvc base64 string and return it or throw error
-pub fn merge_tvc(code: String, data: String) -> Result<String, anyhow::Error> {
+pub fn merge_tvc(code: String, data: String) -> anyhow::Result<String> {
     let state_init = ton_block::StateInit {
         code: Some(parse_cell(code)?),
         data: Some(parse_cell(data)?),
@@ -561,7 +550,7 @@ pub fn merge_tvc(code: String, data: String) -> Result<String, anyhow::Error> {
 
 /// Split base64 tvc string into data and code.
 /// Return vec![data, code] or throw error
-pub fn split_tvc(tvc: String) -> Result<Vec<Option<String>>, anyhow::Error> {
+pub fn split_tvc(tvc: String) -> anyhow::Result<Vec<Option<String>>> {
     let state_init = ton_block::StateInit::construct_from_base64(&tvc).handle_error()?;
 
     let data = match state_init.data {
@@ -586,7 +575,7 @@ pub fn split_tvc(tvc: String) -> Result<Vec<Option<String>>, anyhow::Error> {
 }
 
 /// Set salt to code and return base64-encoded string or throw error
-pub fn set_code_salt(code: String, salt: String) -> Result<String, anyhow::Error> {
+pub fn set_code_salt(code: String, salt: String) -> anyhow::Result<String> {
     nekoton_abi::set_code_salt(parse_cell(code)?, parse_cell(salt)?)
         .and_then(|cell| ton_types::serialize_toc(&cell))
         .map(base64::encode)
@@ -594,7 +583,7 @@ pub fn set_code_salt(code: String, salt: String) -> Result<String, anyhow::Error
 }
 
 /// Get salt from code if possible and return base64-encoded salt or throw error
-pub fn get_code_salt(code: String) -> Result<Option<String>, anyhow::Error> {
+pub fn get_code_salt(code: String) -> anyhow::Result<Option<String>> {
     let salt = match nekoton_abi::get_code_salt(parse_cell(code)?).handle_error()? {
         Some(salt) => Some(base64::encode(
             ton_types::serialize_toc(&salt).handle_error()?,

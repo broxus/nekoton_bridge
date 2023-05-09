@@ -39,22 +39,22 @@ pub trait TonWalletBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     async fn public_key(&self) -> String;
 
     /// Get json-encoded WalletType or throw error.
-    async fn wallet_type(&self) -> Result<String, anyhow::Error>;
+    async fn wallet_type(&self) -> anyhow::Result<String>;
 
     /// Get json-encoded ContractState or throw error.
-    async fn contract_state(&self) -> Result<String, anyhow::Error>;
+    async fn contract_state(&self) -> anyhow::Result<String>;
 
     /// Get list of json-encoded PendingTransaction or throw error.
-    async fn pending_transactions(&self) -> Result<String, anyhow::Error>;
+    async fn pending_transactions(&self) -> anyhow::Result<String>;
 
     /// Get json-encoded PollingMethod of wallet or throw error.
     async fn polling_method(&self) -> PollingMethod;
 
     /// Get json-encoded TonWalletDetails or throw error.
-    async fn details(&self) -> Result<String, anyhow::Error>;
+    async fn details(&self) -> anyhow::Result<String>;
 
     /// Get json-encoded list of MultisigPendingTransaction or throw error.
-    async fn unconfirmed_transactions(&self) -> Result<String, anyhow::Error>;
+    async fn unconfirmed_transactions(&self) -> anyhow::Result<String>;
 
     /// Get optional list of custodians.
     /// Returns list of public keys.
@@ -66,7 +66,7 @@ pub trait TonWalletBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     async fn prepare_deploy(
         &self,
         expiration: String,
-    ) -> Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>, anyhow::Error>;
+    ) -> anyhow::Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>>;
 
     /// Prepare TonWallet for deploy actions if wallet is multisig.
     /// expiration - json-encoded Expiration.
@@ -78,7 +78,7 @@ pub trait TonWalletBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         expiration: String,
         custodians: Vec<String>,
         req_confirms: u8,
-    ) -> Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>, anyhow::Error>;
+    ) -> anyhow::Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>>;
 
     /// Prepare transferring tokens from this wallet to other.
     /// contract_state - json-encoded RawContractState
@@ -98,7 +98,7 @@ pub trait TonWalletBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         bounce: bool,
         body: Option<String>,
         expiration: String,
-    ) -> Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>, anyhow::Error>;
+    ) -> anyhow::Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>>;
 
     /// Prepare transaction for confirmation.
     /// contract_state - json-encoded RawContractState
@@ -112,31 +112,31 @@ pub trait TonWalletBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         public_key: String,
         transaction_id: String,
         expiration: String,
-    ) -> Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>, anyhow::Error>;
+    ) -> anyhow::Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>>;
 
     /// Calculate fees for transaction.
     /// signed_message - json-encoded SignedMessage.
     /// Returns fees as string representation of u128 or throw error.
-    async fn estimate_fees(&self, signed_message: String) -> Result<String, anyhow::Error>;
+    async fn estimate_fees(&self, signed_message: String) -> anyhow::Result<String>;
 
     /// Send message to blockchain and receive transaction of send.
     /// signed_message - json-encoded SignedMessage.
     /// Returns json-encoded PendingTransaction or throw error.
-    async fn send(&self, signed_message: String) -> Result<String, anyhow::Error>;
+    async fn send(&self, signed_message: String) -> anyhow::Result<String>;
 
     /// Refresh wallet and update its data.
     /// Returns true or throw error.
-    async fn refresh(&self) -> Result<bool, anyhow::Error>;
+    async fn refresh(&self) -> anyhow::Result<bool>;
 
     /// Preload transactions of wallet.
     /// from_lt - offset for loading data, string representation of u64
     /// Returns true or throw error.
-    async fn preload_transactions(&self, from_lt: String) -> Result<bool, anyhow::Error>;
+    async fn preload_transactions(&self, from_lt: String) -> anyhow::Result<bool>;
 
     /// Handle block of blockchain.
     /// block - base64-encoded Block.
     /// Return true or throw error.
-    async fn handle_block(&self, block: String) -> Result<bool, anyhow::Error>;
+    async fn handle_block(&self, block: String) -> anyhow::Result<bool>;
 }
 
 pub struct TonWalletBox {
@@ -153,7 +153,7 @@ impl TonWalletBox {
         public_key: String,
         wallet_type: String,
         handler: Arc<dyn TonWalletSubscriptionHandler>,
-    ) -> Result<RustOpaque<Arc<dyn TonWalletBoxTrait>>, anyhow::Error> {
+    ) -> anyhow::Result<RustOpaque<Arc<dyn TonWalletBoxTrait>>> {
         let public_key = parse_public_key(public_key).handle_error()?;
 
         let contract = serde_json::from_str::<WalletTypeHelper>(&wallet_type)
@@ -181,7 +181,7 @@ impl TonWalletBox {
         transport: Arc<dyn Transport>,
         address: String,
         handler: Arc<dyn TonWalletSubscriptionHandler>,
-    ) -> Result<RustOpaque<Arc<dyn TonWalletBoxTrait>>, anyhow::Error> {
+    ) -> anyhow::Result<RustOpaque<Arc<dyn TonWalletBoxTrait>>> {
         let address = parse_address(address)?;
 
         let ton_wallet = TonWallet::subscribe_by_address(clock!(), transport, address, handler)
@@ -199,7 +199,7 @@ impl TonWalletBox {
         transport: Arc<dyn Transport>,
         existing_wallet: String,
         handler: Arc<dyn TonWalletSubscriptionHandler>,
-    ) -> Result<RustOpaque<Arc<dyn TonWalletBoxTrait>>, anyhow::Error> {
+    ) -> anyhow::Result<RustOpaque<Arc<dyn TonWalletBoxTrait>>> {
         let existing_wallet = serde_json::from_str::<ExistingWalletInfoHelper>(&existing_wallet)
             .map(|ExistingWalletInfoHelper(existing_wallet_info)| existing_wallet_info)
             .handle_error()?;
@@ -236,20 +236,20 @@ impl TonWalletBoxTrait for TonWalletBox {
     }
 
     /// Get json-encoded WalletType or throw error.
-    async fn wallet_type(&self) -> Result<String, anyhow::Error> {
+    async fn wallet_type(&self) -> anyhow::Result<String> {
         let contract = self.inner_wallet.lock().await.wallet_type();
         serde_json::to_string(&WalletTypeHelper(contract)).handle_error()
     }
 
     /// Get json-encoded ContractState or throw error.
-    async fn contract_state(&self) -> Result<String, anyhow::Error> {
+    async fn contract_state(&self) -> anyhow::Result<String> {
         let wallet = self.inner_wallet.lock().await;
         let contract_state = wallet.contract_state();
         serde_json::to_string(contract_state).handle_error()
     }
 
     /// Get list of json-encoded PendingTransaction or throw error.
-    async fn pending_transactions(&self) -> Result<String, anyhow::Error> {
+    async fn pending_transactions(&self) -> anyhow::Result<String> {
         let wallet = self.inner_wallet.lock().await;
         let pending_transactions = wallet.pending_transactions();
         serde_json::to_string(pending_transactions).handle_error()
@@ -261,13 +261,13 @@ impl TonWalletBoxTrait for TonWalletBox {
     }
 
     /// Get json-encoded TonWalletDetails or throw error.
-    async fn details(&self) -> Result<String, anyhow::Error> {
+    async fn details(&self) -> anyhow::Result<String> {
         let details = self.inner_wallet.lock().await.details();
         serde_json::to_string(&details).handle_error()
     }
 
     /// Get json-encoded list of MultisigPendingTransaction or throw error.
-    async fn unconfirmed_transactions(&self) -> Result<String, anyhow::Error> {
+    async fn unconfirmed_transactions(&self) -> anyhow::Result<String> {
         let wallet = self.inner_wallet.lock().await;
         let transactions = wallet.get_unconfirmed_transactions();
         serde_json::to_string(transactions).handle_error()
@@ -290,7 +290,7 @@ impl TonWalletBoxTrait for TonWalletBox {
     async fn prepare_deploy(
         &self,
         expiration: String,
-    ) -> Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>, anyhow::Error> {
+    ) -> anyhow::Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>> {
         let expiration = serde_json::from_str::<Expiration>(&expiration).handle_error()?;
 
         let unsigned_message = self
@@ -313,13 +313,13 @@ impl TonWalletBoxTrait for TonWalletBox {
         expiration: String,
         custodians: Vec<String>,
         req_confirms: u8,
-    ) -> Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>, anyhow::Error> {
+    ) -> anyhow::Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>> {
         let expiration = serde_json::from_str::<Expiration>(&expiration).handle_error()?;
 
         let custodians = custodians
             .into_iter()
             .map(parse_public_key)
-            .collect::<Result<Vec<_>, anyhow::Error>>()
+            .collect::<anyhow::Result<Vec<_>>>()
             .handle_error()?;
 
         let unsigned_message = self
@@ -350,7 +350,7 @@ impl TonWalletBoxTrait for TonWalletBox {
         bounce: bool,
         body: Option<String>,
         expiration: String,
-    ) -> Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>, anyhow::Error> {
+    ) -> anyhow::Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>> {
         let contract_state = serde_json::from_str::<RawContractStateHelper>(&contract_state)
             .map(|RawContractStateHelper(raw_contract_state)| raw_contract_state)
             .handle_error()?;
@@ -411,7 +411,7 @@ impl TonWalletBoxTrait for TonWalletBox {
         public_key: String,
         transaction_id: String,
         expiration: String,
-    ) -> Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>, anyhow::Error> {
+    ) -> anyhow::Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>> {
         let contract_state = serde_json::from_str::<RawContractStateHelper>(&contract_state)
             .map(|RawContractStateHelper(raw_contract_state)| raw_contract_state)
             .handle_error()?;
@@ -442,7 +442,7 @@ impl TonWalletBoxTrait for TonWalletBox {
     /// Calculate fees for transaction.
     /// signed_message - json-encoded SignedMessage.
     /// Returns fees as string representation of u128 or throw error.
-    async fn estimate_fees(&self, signed_message: String) -> Result<String, anyhow::Error> {
+    async fn estimate_fees(&self, signed_message: String) -> anyhow::Result<String> {
         let message = serde_json::from_str::<SignedMessage>(&signed_message)
             .handle_error()?
             .message;
@@ -462,7 +462,7 @@ impl TonWalletBoxTrait for TonWalletBox {
     /// Send message to blockchain and receive transaction of send.
     /// signed_message - json-encoded SignedMessage.
     /// Returns json-encoded PendingTransaction or throw error.
-    async fn send(&self, signed_message: String) -> Result<String, anyhow::Error> {
+    async fn send(&self, signed_message: String) -> anyhow::Result<String> {
         let signed_message =
             serde_json::from_str::<SignedMessage>(&signed_message).handle_error()?;
 
@@ -479,7 +479,7 @@ impl TonWalletBoxTrait for TonWalletBox {
 
     /// Refresh wallet and update its data.
     /// Returns true or throw error.
-    async fn refresh(&self) -> Result<bool, anyhow::Error> {
+    async fn refresh(&self) -> anyhow::Result<bool> {
         self.inner_wallet
             .lock()
             .await
@@ -492,7 +492,7 @@ impl TonWalletBoxTrait for TonWalletBox {
     /// Preload transactions of wallet.
     /// from_lt - offset for loading data, string representation of u64
     /// Returns true or throw error.
-    async fn preload_transactions(&self, from_lt: String) -> Result<bool, anyhow::Error> {
+    async fn preload_transactions(&self, from_lt: String) -> anyhow::Result<bool> {
         let from_lt = from_lt.parse::<u64>().handle_error()?;
         self.inner_wallet
             .lock()
@@ -506,7 +506,7 @@ impl TonWalletBoxTrait for TonWalletBox {
     /// Handle block of blockchain.
     /// block - base64-encoded Block.
     /// Return true or throw error.
-    async fn handle_block(&self, block: String) -> Result<bool, anyhow::Error> {
+    async fn handle_block(&self, block: String) -> anyhow::Result<bool> {
         let block = Block::construct_from_base64(&block).handle_error()?;
         self.inner_wallet
             .lock()
@@ -527,7 +527,7 @@ pub async fn ton_wallet_find_existing_wallets(
     public_key: String,
     workchain_id: i8,
     wallet_types: String,
-) -> Result<String, anyhow::Error> {
+) -> anyhow::Result<String> {
     let public_key = parse_public_key(public_key).handle_error()?;
 
     let wallet_types = serde_json::from_str::<Vec<WalletTypeHelper>>(&wallet_types)
@@ -552,7 +552,7 @@ pub async fn ton_wallet_find_existing_wallets(
 pub async fn ton_wallet_get_existing_wallet_info(
     transport: Arc<dyn Transport>,
     address: String,
-) -> Result<String, anyhow::Error> {
+) -> anyhow::Result<String> {
     let address = parse_address(address)?;
 
     let raw_contract_state = transport
@@ -584,7 +584,7 @@ pub async fn ton_wallet_get_existing_wallet_info(
 pub async fn ton_wallet_get_custodians(
     transport: Arc<dyn Transport>,
     address: String,
-) -> Result<Vec<String>, anyhow::Error> {
+) -> anyhow::Result<Vec<String>> {
     let address = parse_address(address)?;
 
     let raw_contract_state = transport

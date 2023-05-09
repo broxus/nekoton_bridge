@@ -31,7 +31,7 @@ pub fn nt_get_hints(input: String) -> Vec<String> {
 pub fn nt_derive_from_phrase(
     phrase: String,
     mnemonic_type: MnemonicType,
-) -> Result<String, anyhow::Error> {
+) -> anyhow::Result<String> {
     let keypair = derive_from_phrase(phrase.as_str(), mnemonic_type).handle_error()?;
     serde_json::to_value(KeypairHelper(keypair)).json_or_error()
 }

@@ -27,7 +27,7 @@ impl TokenWalletDartWrapper {
         owner: String,
         root_token_contract: String,
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
-    ) -> Result<TokenWalletDartWrapper, anyhow::Error> {
+    ) -> anyhow::Result<TokenWalletDartWrapper> {
         let wallet = async_run!(
             TokenWalletBox::subscribe(
                 transport.get_transport(),
@@ -56,12 +56,12 @@ impl TokenWalletDartWrapper {
 
     /// Get symbol of contract of wallet.
     /// Return json-encoded Symbol or throw error
-    pub fn symbol(&self) -> Result<String, anyhow::Error> {
+    pub fn symbol(&self) -> anyhow::Result<String> {
         async_run!(self.inner_wallet.symbol().await)
     }
 
     /// Get json-encoded TokenWalletVersion or throw error.
-    pub fn version(&self) -> Result<String, anyhow::Error> {
+    pub fn version(&self) -> anyhow::Result<String> {
         async_run!(self.inner_wallet.version().await)
     }
 
@@ -72,7 +72,7 @@ impl TokenWalletDartWrapper {
     }
 
     /// Get json-encoded ContractState or throw error.
-    pub fn contract_state(&self) -> Result<String, anyhow::Error> {
+    pub fn contract_state(&self) -> anyhow::Result<String> {
         async_run!(self.inner_wallet.contract_state().await)
     }
 
@@ -91,7 +91,7 @@ impl TokenWalletDartWrapper {
         notify_receiver: bool,
         attached_amount: Option<String>,
         payload: Option<String>,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         async_run!(
             self.inner_wallet
                 .prepare_transfer(
@@ -107,21 +107,21 @@ impl TokenWalletDartWrapper {
 
     /// Refresh wallet and update its data.
     /// Returns true or throw error.
-    pub fn refresh(&self) -> Result<bool, anyhow::Error> {
+    pub fn refresh(&self) -> anyhow::Result<bool> {
         async_run!(self.inner_wallet.refresh().await)
     }
 
     /// Preload transactions of wallet.
     /// from_lt - offset for loading data, string representation of u64
     /// Returns true or throw error.
-    pub fn preload_transactions(&self, from_lt: String) -> Result<bool, anyhow::Error> {
+    pub fn preload_transactions(&self, from_lt: String) -> anyhow::Result<bool> {
         async_run!(self.inner_wallet.preload_transactions(from_lt).await)
     }
 
     /// Handle block of blockchain.
     /// block - base64-encoded Block.
     /// Return true or throw error.
-    pub fn handle_block(&self, block: String) -> Result<bool, anyhow::Error> {
+    pub fn handle_block(&self, block: String) -> anyhow::Result<bool> {
         async_run!(self.inner_wallet.handle_block(block).await)
     }
 
@@ -134,7 +134,7 @@ impl TokenWalletDartWrapper {
     pub fn get_token_wallet_details(
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
         address: String,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         async_run!(token_wallet_details(transport.get_transport(), address,).await)
     }
 
@@ -146,7 +146,7 @@ impl TokenWalletDartWrapper {
     pub fn get_token_root_details_from_token_wallet(
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
         token_wallet_address: String,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         async_run!(
             token_root_details_from_token_wallet(transport.get_transport(), token_wallet_address,)
                 .await

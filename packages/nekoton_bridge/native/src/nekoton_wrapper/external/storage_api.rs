@@ -45,7 +45,7 @@ impl Storage for StorageImpl {
         let stub = caller::DartCallStub {
             instance_hash: self.instance_hash.clone(),
             fn_name: String::from("get"),
-            args: vec![caller::DynamicValue::String(key.to_string())],
+            args: vec![DynamicValue::String(key.to_string())],
             named_args: vec![],
         };
         caller::call(stub, true).as_string_option()
@@ -59,11 +59,11 @@ impl Storage for StorageImpl {
             named_args: vec![
                 DynamicNamedValue {
                     name: "key".to_string(),
-                    value: Option::Some(DynamicValue::String(key.to_string())),
+                    value: Some(DynamicValue::String(key.to_string())),
                 },
                 DynamicNamedValue {
                     name: "value".to_string(),
-                    value: Option::Some(DynamicValue::String(value.to_string())),
+                    value: Some(DynamicValue::String(value.to_string())),
                 },
             ],
         };
@@ -78,11 +78,11 @@ impl Storage for StorageImpl {
             named_args: vec![
                 DynamicNamedValue {
                     name: "key".to_string(),
-                    value: Option::Some(DynamicValue::String(key.to_string())),
+                    value: Some(DynamicValue::String(key.to_string())),
                 },
                 DynamicNamedValue {
                     name: "value".to_string(),
-                    value: Option::Some(DynamicValue::String(value.to_string())),
+                    value: Some(DynamicValue::String(value.to_string())),
                 },
             ],
         };
@@ -96,7 +96,7 @@ impl Storage for StorageImpl {
             args: vec![],
             named_args: vec![DynamicNamedValue {
                 name: "key".to_string(),
-                value: Option::Some(DynamicValue::String(key.to_string())),
+                value: Some(DynamicValue::String(key.to_string())),
             }],
         };
         caller::call(stub, true).as_void()
@@ -109,7 +109,7 @@ impl Storage for StorageImpl {
             args: vec![],
             named_args: vec![DynamicNamedValue {
                 name: "key".to_string(),
-                value: Option::Some(DynamicValue::String(key.to_string())),
+                value: Some(DynamicValue::String(key.to_string())),
             }],
         };
         caller::call(stub, false);

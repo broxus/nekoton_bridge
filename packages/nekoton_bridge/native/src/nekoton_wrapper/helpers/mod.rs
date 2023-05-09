@@ -20,7 +20,7 @@ pub enum AbiError {
 }
 
 /// Parse account stuff and return its instance or throw error
-pub fn parse_account_stuff(boc: String) -> Result<ton_block::AccountStuff, anyhow::Error> {
+pub fn parse_account_stuff(boc: String) -> anyhow::Result<ton_block::AccountStuff> {
     let bytes = base64::decode(boc).handle_error()?;
     ton_types::deserialize_tree_of_cells(&mut bytes.as_slice())
         .and_then(|cell| {
@@ -44,7 +44,7 @@ pub fn parse_account_stuff(boc: String) -> Result<ton_block::AccountStuff, anyho
 }
 
 /// Parse cell and return its instance or throw error
-pub fn parse_cell(boc: String) -> Result<ton_types::Cell, anyhow::Error> {
+pub fn parse_cell(boc: String) -> anyhow::Result<ton_types::Cell> {
     let boc = boc.trim();
     if boc.is_empty() {
         Ok(ton_types::Cell::default())
@@ -55,12 +55,12 @@ pub fn parse_cell(boc: String) -> Result<ton_types::Cell, anyhow::Error> {
 }
 
 /// Parse contract abi from string and return its instance or throws error
-pub fn parse_contract_abi(contract_abi: String) -> Result<ton_abi::Contract, anyhow::Error> {
+pub fn parse_contract_abi(contract_abi: String) -> anyhow::Result<ton_abi::Contract> {
     ton_abi::Contract::load(&contract_abi).handle_error()
 }
 
 /// Parse method name and return its instance or throws error
-pub fn parse_method_name(value: Option<String>) -> Result<MethodName, anyhow::Error> {
+pub fn parse_method_name(value: Option<String>) -> anyhow::Result<MethodName> {
     match value {
         Some(value) => {
             if let Ok(value) = serde_json::from_str::<String>(&value) {
@@ -76,25 +76,25 @@ pub fn parse_method_name(value: Option<String>) -> Result<MethodName, anyhow::Er
 }
 
 /// Parse boc to slice and return its instance or throws error
-pub fn parse_slice(boc: String) -> Result<ton_types::SliceData, anyhow::Error> {
+pub fn parse_slice(boc: String) -> anyhow::Result<ton_types::SliceData> {
     let body = base64::decode(boc).handle_error()?;
     let cell = ton_types::deserialize_tree_of_cells(&mut body.as_slice()).handle_error()?;
     Ok(cell.into())
 }
 
 /// Parse params list and returns vector of these instances or throws error
-pub fn parse_params_list(params: String) -> Result<Vec<ton_abi::Param>, anyhow::Error> {
+pub fn parse_params_list(params: String) -> anyhow::Result<Vec<ton_abi::Param>> {
     let params = serde_json::from_str::<Vec<AbiParam>>(&params).handle_error()?;
 
     params
         .iter()
         .map(parse_param)
-        .collect::<Result<_, AbiError>>()
+        .collect::<anyhow::Result<Vec<_>, AbiError>>()
         .handle_error()
 }
 
 /// Parse single param and return its instance or throws error
-pub fn parse_param(param: &AbiParam) -> Result<ton_abi::Param, AbiError> {
+pub fn parse_param(param: &AbiParam) -> anyhow::Result<ton_abi::Param, AbiError> {
     let name = param.name.to_owned();
 
     let mut kind: ton_abi::ParamType = parse_param_type(&param.param_type)?;
@@ -103,7 +103,7 @@ pub fn parse_param(param: &AbiParam) -> Result<ton_abi::Param, AbiError> {
         Some(components) => components
             .iter()
             .map(parse_param)
-            .collect::<Result<_, AbiError>>()?,
+            .collect::<anyhow::Result<Vec<_>, AbiError>>()?,
         None => Vec::new(),
     };
 
@@ -115,7 +115,7 @@ pub fn parse_param(param: &AbiParam) -> Result<ton_abi::Param, AbiError> {
 
 /// Parse param type and return its instance or throws error
 #[allow(clippy::disallowed_methods)]
-pub fn parse_param_type(kind: &str) -> Result<ton_abi::ParamType, AbiError> {
+pub fn parse_param_type(kind: &str) -> anyhow::Result<ton_abi::ParamType, AbiError> {
     if let Some(']') = kind.chars().last() {
         let num: String = kind
             .chars()
