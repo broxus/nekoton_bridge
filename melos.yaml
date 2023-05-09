@@ -81,6 +81,10 @@ scripts:
     description: Prepare to commit by checking all things
     run: melos analyze && melos check-format && melos check-rust && melos test && melos test:integration
 
+  clean-example:
+    run: bash scripts/clean-example.sh
+    description: Clean example for rebuilding after FNB update
+
 command:
   clean:
     hooks:
