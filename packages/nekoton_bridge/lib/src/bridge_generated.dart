@@ -361,6 +361,10 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kSimpleCallFunc2ConstMeta;
 
+  Future<void> simpleCallFunc3({dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kSimpleCallFunc3ConstMeta;
+
   Future<void> refreshTimeoutMethodUnsignedMessageImpl(
       {required UnsignedMessageImpl that, dynamic hint});
 
@@ -4242,6 +4246,22 @@ class NekotonBridgeImpl implements NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kSimpleCallFunc2ConstMeta =>
       const FlutterRustBridgeTaskConstMeta(
         debugName: "simple_call_func2",
+        argNames: [],
+      );
+
+  Future<void> simpleCallFunc3({dynamic hint}) {
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_simple_call_func3(port_),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kSimpleCallFunc3ConstMeta,
+      argValues: [],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kSimpleCallFunc3ConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "simple_call_func3",
         argNames: [],
       );
 

@@ -1954,6 +1954,20 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_simple_call_func2 =
       _wire_simple_call_func2Ptr.asFunction<void Function(int)>();
 
+  void wire_simple_call_func3(
+    int port_,
+  ) {
+    return _wire_simple_call_func3(
+      port_,
+    );
+  }
+
+  late final _wire_simple_call_func3Ptr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_simple_call_func3');
+  late final _wire_simple_call_func3 =
+      _wire_simple_call_func3Ptr.asFunction<void Function(int)>();
+
   void wire_refresh_timeout__method__UnsignedMessageImpl(
     int port_,
     ffi.Pointer<wire_UnsignedMessageImpl> that,

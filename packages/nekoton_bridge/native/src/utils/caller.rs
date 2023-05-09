@@ -1,4 +1,5 @@
 #![allow(dead_code)]
+use std::{thread, time};
 
 use std::{
     collections::HashMap,
@@ -17,7 +18,7 @@ use uuid::Uuid;
 
 use crate::utils::mega_struct;
 
-const MAX_WORKERS: usize = 7;
+const MAX_WORKERS: usize = 2;
 
 #[derive(Clone, Debug, Error)]
 pub enum ErrorCode {
@@ -152,22 +153,44 @@ pub fn set_stream_sink(stream_sink: StreamSink<DartCallStubRegistred>) {
 
 /// Call Dart method
 pub fn call(stub: DartCallStub, need_result: bool) -> DynamicValue {
+    let (id, rx) = if need_result {
+        loop {
+            let mut mutex = CALLBACK_MAP.lock();
+            let map = mutex.as_mut().unwrap();
+            let duration = time::Duration::from_millis(200);
+            warn!("CALLER?: => {}", map.len());
+            if map.len() < MAX_WORKERS {
+                let (tx, rx) = mpsc::channel::<DynamicValue>();
+                let id = Uuid::new_v4().to_string();
+                map.insert(id.clone(), tx);
+                warn!("CALLER OK!: => {MAX_WORKERS} workers: {}", map.len());
+                break (Some(id), Some(rx));
+            } else {
+                let len = map.len();
+                drop(map);
+                drop(mutex);
+                warn!("CALLER NOK!: => {MAX_WORKERS} workers: {}", len);
+                thread::sleep(duration);
+            }
+        }
+        // let (tx, rx) = mpsc::channel::<DynamicValue>();
+        // let id = Uuid::new_v4().to_string();
+        // let mut map = CALLBACK_MAP.lock().unwrap();
+        // map.insert(id.clone(), tx);
+        // let duration = time::Duration::from_millis(50);
+        // while map.len() >= MAX_WORKERS {
+        //     warn!("caller: more than {MAX_WORKERS} workers: {}", map.len());
+        //     thread::sleep(duration);
+        // }
+        // TODO: maybe we should take some actions to prevent deadlock?
+        // if map.len() >= MAX_WORKERS {
+        // warn!("caller: more than {MAX_WORKERS} workers: {}", map.len());
+        // };
+    } else {
+        (None, None)
+    };
+
     if let Some(sink) = &*SEND_TO_DART_CALLER_STREAM_SINK.read() {
-        let (id, rx) = if need_result {
-            let (tx, rx) = mpsc::channel::<DynamicValue>();
-            let id = Uuid::new_v4().to_string();
-            let mut map = CALLBACK_MAP.lock().unwrap();
-            map.insert(id.clone(), tx);
-            // TODO: maybe we should take some actions to prevent deadlock?
-            if map.len() > MAX_WORKERS {
-                warn!("caller: more than {MAX_WORKERS} workers: {}", map.len());
-            };
-
-            (Some(id), Some(rx))
-        } else {
-            (None, None)
-        };
-
         let stub_registred = DartCallStubRegistred { id, stub };
         sink.add(stub_registred);
         if rx.is_none() {
@@ -175,6 +198,7 @@ pub fn call(stub: DartCallStub, need_result: bool) -> DynamicValue {
         }
         return rx.unwrap().recv().unwrap();
     }
+
     panic!("Can't call Dart function {:?}", stub);
 }
 
@@ -182,5 +206,6 @@ pub fn call(stub: DartCallStub, need_result: bool) -> DynamicValue {
 pub fn call_send_result(id: String, value: DynamicValue) {
     let mut map = CALLBACK_MAP.lock().unwrap();
     let sender = map.remove(&id).expect("Can't find caller Sender");
+    warn!("call_send_result: workers: {}", map.len());
     sender.send(value).expect("Can't send to caller");
 }

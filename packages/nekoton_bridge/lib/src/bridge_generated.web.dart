@@ -656,6 +656,8 @@ class NekotonBridgeWasmModule implements WasmModule {
 
   external dynamic /* void */ wire_simple_call_func2(NativePortType port_);
 
+  external dynamic /* void */ wire_simple_call_func3(NativePortType port_);
+
   external dynamic /* void */ wire_refresh_timeout__method__UnsignedMessageImpl(
       NativePortType port_, List<dynamic> that);
 
@@ -1405,6 +1407,9 @@ class NekotonBridgeWire
 
   void wire_simple_call_func2(NativePortType port_) =>
       wasmModule.wire_simple_call_func2(port_);
+
+  void wire_simple_call_func3(NativePortType port_) =>
+      wasmModule.wire_simple_call_func3(port_);
 
   void wire_refresh_timeout__method__UnsignedMessageImpl(
           NativePortType port_, List<dynamic> that) =>
