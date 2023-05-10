@@ -1,4 +1,5 @@
 #![allow(unused_variables, dead_code)]
+
 use crate::clock;
 use flutter_rust_bridge::RustOpaque;
 pub use nekoton::crypto;
@@ -89,7 +90,7 @@ pub mod serde_message {
     {
         use serde::ser::Error;
 
-        serde_cell::serialize(&data.serialize().map_err(S::Error::custom)?, serializer)
+        serde_cell::serialize(&data.serialize().map_err(Error::custom)?, serializer)
     }
 
     pub fn deserialize<'de, D>(deserializer: D) -> Result<ton_block::Message, D::Error>
@@ -97,7 +98,7 @@ pub mod serde_message {
         D: serde::Deserializer<'de>,
     {
         let data = String::deserialize(deserializer)?;
-        ton_block::Message::construct_from_base64(&data).map_err(D::Error::custom)
+        ton_block::Message::construct_from_base64(&data).map_err(Error::custom)
     }
 }
 
@@ -116,7 +117,7 @@ pub trait UnsignedMessageBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     /// Create signed message from prepared inputs
     /// # Arguments
     /// `signature` - signature receives from KeyStore.sign where data is UnsignedMessage.hash
-    fn sign(&self, signature: String) -> Result<String, anyhow::Error>;
+    fn sign(&self, signature: String) -> anyhow::Result<String>;
 }
 
 pub struct UnsignedMessageBox {
@@ -124,6 +125,7 @@ pub struct UnsignedMessageBox {
 }
 
 impl UnwindSafe for UnsignedMessageBox {}
+
 impl RefUnwindSafe for UnsignedMessageBox {}
 
 /// Create suitable object for frb
@@ -155,7 +157,7 @@ impl UnsignedMessageBoxTrait for UnsignedMessageBox {
 
     /// Sign message with signature and return json-encoded SignedMessage.
     /// signature receives from UnsignedMessage.hash
-    fn sign(&self, signature: String) -> Result<String, anyhow::Error> {
+    fn sign(&self, signature: String) -> anyhow::Result<String> {
         let signature: [u8; ed25519_dalek::SIGNATURE_LENGTH] = base64::decode(signature)
             .handle_error()?
             .as_slice()

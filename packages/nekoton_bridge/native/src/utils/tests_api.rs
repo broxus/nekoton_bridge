@@ -1,11 +1,10 @@
-#![allow(unused_variables, dead_code)]
+#![allow(unused_variables, dead_code, unused_imports)]
 
 use std::collections::HashMap;
 
 use flutter_rust_bridge::*;
 use log::*;
 
-use crate::utils::caller;
 use crate::utils::caller;
 use crate::utils::logger;
 use crate::utils::mega_struct;
@@ -34,7 +33,7 @@ pub fn test_logger_panic(string: String) {
 
 // caller tests
 
-pub fn test_caller_call_test0_async(string: String, need_result: bool) -> DynamicValue {
+pub fn test_caller_call_test0_async(string: String, need_result: bool) -> caller::DynamicValue {
     info!("test_caller_call_test0_async {string}");
     let stub = caller::DartCallStub {
         instance_hash: String::from("0"),
@@ -46,7 +45,10 @@ pub fn test_caller_call_test0_async(string: String, need_result: bool) -> Dynami
     caller::call(stub, need_result)
 }
 
-pub fn test_caller_call_test0_sync(string: String, need_result: bool) -> SyncReturn<DynamicValue> {
+pub fn test_caller_call_test0_sync(
+    string: String,
+    need_result: bool,
+) -> SyncReturn<caller::DynamicValue> {
     info!("test_caller_call_test0_sync {string}");
     let stub = caller::DartCallStub {
         instance_hash: String::from("0"),
@@ -58,14 +60,14 @@ pub fn test_caller_call_test0_sync(string: String, need_result: bool) -> SyncRet
     SyncReturn(caller::call(stub, need_result))
 }
 
-pub fn test_caller_call_test1_async(string: String, need_result: bool) -> DynamicValue {
-  info!("test_caller_call_test1_async {string}");
-  let stub = caller::DartCallStub {
-      instance_hash: String::from("0"),
-      fn_name: String::from("test1"),
-      args: vec![caller::DynamicValue::String(string)],
-      named_args: vec![],
-  };
+pub fn test_caller_call_test1_async(string: String, need_result: bool) -> caller::DynamicValue {
+    info!("test_caller_call_test1_async {string}");
+    let stub = caller::DartCallStub {
+        instance_hash: String::from("0"),
+        fn_name: String::from("test1"),
+        args: vec![caller::DynamicValue::String(string)],
+        named_args: vec![],
+    };
 
-  caller::call(stub, need_result)
+    caller::call(stub, need_result)
 }

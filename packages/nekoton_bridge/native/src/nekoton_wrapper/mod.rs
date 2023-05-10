@@ -5,7 +5,7 @@ pub mod helpers;
 pub mod models_api;
 pub mod transport;
 
-use anyhow::{Context, Result};
+use anyhow::Context;
 use lazy_static::lazy_static;
 use nekoton_utils::SimpleClock;
 use serde::Serialize;
@@ -43,15 +43,15 @@ macro_rules! async_run {
 /// serde_json::to_value(my_object_to_json).json_or_error()
 /// ```
 pub trait JsonOrError {
-    fn json_or_error(self) -> Result<String, anyhow::Error>;
+    fn json_or_error(self) -> anyhow::Result<String>;
 }
 
-impl<T, E> JsonOrError for Result<T, E>
+impl<T, E> JsonOrError for anyhow::Result<T, E>
 where
     T: Serialize,
     E: ToString,
 {
-    fn json_or_error(self) -> Result<String, anyhow::Error> {
+    fn json_or_error(self) -> anyhow::Result<String> {
         match self {
             Ok(ok) => serde_json::to_string(&ok).handle_error(),
             Err(err) => Err(anyhow::Error::msg(err.to_string())),
@@ -63,35 +63,35 @@ where
 pub trait HandleError {
     type Output;
 
-    fn handle_error(self) -> Result<Self::Output, anyhow::Error>;
+    fn handle_error(self) -> anyhow::Result<Self::Output>;
 }
 
 /// Returns expected type or Error
-impl<T, E> HandleError for Result<T, E>
+impl<T, E> HandleError for anyhow::Result<T, E>
 where
     E: ToString,
 {
     type Output = T;
 
-    fn handle_error(self) -> Result<Self::Output, anyhow::Error> {
+    fn handle_error(self) -> anyhow::Result<Self::Output> {
         self.map_err(|e| anyhow::Error::msg(e.to_string()))
     }
 }
 
 /// Parse hash string to UInt256
-pub fn parse_hash(hash: String) -> Result<UInt256, anyhow::Error> {
-    ton_types::UInt256::from_str(hash.as_str()).handle_error()
+pub fn parse_hash(hash: String) -> anyhow::Result<UInt256> {
+    UInt256::from_str(hash.as_str()).handle_error()
 }
 
 /// Parse public key from string and return its instance or throw error
-pub fn parse_public_key(public_key: String) -> Result<ed25519_dalek::PublicKey, anyhow::Error> {
+pub fn parse_public_key(public_key: String) -> anyhow::Result<ed25519_dalek::PublicKey> {
     Ok(ed25519_dalek::PublicKey::from_bytes(
         &hex::decode(public_key).context("Bad hex data")?,
     )?)
 }
 
 /// Parse address from string and return its instance or throw error
-pub fn parse_address(address: String) -> Result<MsgAddressInt, anyhow::Error> {
+pub fn parse_address(address: String) -> anyhow::Result<MsgAddressInt> {
     MsgAddressInt::from_str(address.as_str()).handle_error()
 }
 

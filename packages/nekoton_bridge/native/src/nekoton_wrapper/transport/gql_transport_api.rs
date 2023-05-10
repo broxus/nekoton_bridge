@@ -31,15 +31,12 @@ impl GqlTransportImpl {
     }
 
     /// Get contract state of address and return json-encoded RawContractState or throw error
-    pub fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
+    pub fn get_contract_state(&self, address: String) -> anyhow::Result<String> {
         async_run!(self.inner_transport.get_contract_state(address).await)
     }
 
     /// Get full contract state of address and return json-encoded FullContractState or throw error
-    pub fn get_full_contract_state(
-        &self,
-        address: String,
-    ) -> anyhow::Result<String, anyhow::Error> {
+    pub fn get_full_contract_state(&self, address: String) -> anyhow::Result<String> {
         async_run!(self.inner_transport.get_full_contract_state(address).await)
     }
 
@@ -49,7 +46,7 @@ impl GqlTransportImpl {
         code_hash: String,
         limit: u8,
         continuation: Option<String>,
-    ) -> anyhow::Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         async_run!(
             self.inner_transport
                 .get_accounts_by_code_hash(code_hash, limit, continuation)
@@ -64,7 +61,7 @@ impl GqlTransportImpl {
         address: String,
         from_lt: Option<u64>,
         count: u8,
-    ) -> anyhow::Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         async_run!(
             self.inner_transport
                 .get_transactions(address, from_lt, count)
@@ -74,27 +71,27 @@ impl GqlTransportImpl {
 
     /// Get single transaction by its hash.
     /// Return json-encoded Transaction or throw error
-    pub fn get_transaction(&self, hash: String) -> anyhow::Result<Option<String>, anyhow::Error> {
+    pub fn get_transaction(&self, hash: String) -> anyhow::Result<Option<String>> {
         async_run!(self.inner_transport.get_transaction(hash).await)
     }
 
     /// Get transport signature id and return it or throw error
-    pub fn get_signature_id(&self) -> anyhow::Result<Option<i32>, anyhow::Error> {
+    pub fn get_signature_id(&self) -> anyhow::Result<Option<i32>> {
         async_run!(self.inner_transport.get_signature_id().await)
     }
 
     /// Get id of network or throw error
-    pub fn get_network_id(&self) -> anyhow::Result<i32, anyhow::Error> {
+    pub fn get_network_id(&self) -> anyhow::Result<i32> {
         async_run!(self.inner_transport.get_network_id().await)
     }
 
     /// Get latest block by address and return it or throw error
-    pub fn get_latest_block(&self, address: String) -> Result<LatestBlock, anyhow::Error> {
+    pub fn get_latest_block(&self, address: String) -> anyhow::Result<LatestBlock> {
         async_run!(self.inner_transport.get_latest_block(address).await)
     }
 
     /// Get transport block by id and return base64 encoded block or throw error
-    pub fn get_block(&self, id: String) -> Result<String, anyhow::Error> {
+    pub fn get_block(&self, id: String) -> anyhow::Result<String> {
         async_run!(self.inner_transport.get_block(id).await)
     }
 
@@ -104,7 +101,7 @@ impl GqlTransportImpl {
         current_block_id: String,
         address: String,
         timeout: u64,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         async_run!(
             self.inner_transport
                 .wait_for_next_block(current_block_id, address, timeout)

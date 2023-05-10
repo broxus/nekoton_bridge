@@ -4,7 +4,6 @@ use crate::nekoton_wrapper::transport::models::{
     AccountsList, FullContractState, RawContractStateHelper, TransactionsList,
 };
 use crate::nekoton_wrapper::{parse_address, parse_hash, HandleError};
-use anyhow::Error;
 use async_trait::async_trait;
 use flutter_rust_bridge::RustOpaque;
 use nekoton::core::models::{Transaction, TransactionsBatchInfo, TransactionsBatchType};
@@ -36,13 +35,10 @@ pub trait TransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     fn get_transport(&self) -> Arc<dyn Transport>;
 
     /// Get contract state of address and return json-encoded RawContractState or throw error
-    async fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error>;
+    async fn get_contract_state(&self, address: String) -> anyhow::Result<String>;
 
     /// Get full contract state of address and return json-encoded FullContractState or throw error
-    async fn get_full_contract_state(
-        &self,
-        address: String,
-    ) -> anyhow::Result<String, anyhow::Error>;
+    async fn get_full_contract_state(&self, address: String) -> anyhow::Result<String>;
 
     /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
     async fn get_accounts_by_code_hash(
@@ -50,7 +46,7 @@ pub trait TransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         code_hash: String,
         limit: u8,
         continuation: Option<String>,
-    ) -> anyhow::Result<String, anyhow::Error>;
+    ) -> anyhow::Result<String>;
 
     /// Get list of transactions by address.
     /// Return json-encoded TransactionsList or throw error
@@ -59,23 +55,23 @@ pub trait TransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         address: String,
         from_lt: Option<u64>,
         count: u8,
-    ) -> anyhow::Result<String, anyhow::Error>;
+    ) -> anyhow::Result<String>;
 
     /// Get single transaction by its id.
     /// Return json-encoded Transaction or throw error
-    async fn get_transaction(&self, id: String) -> anyhow::Result<Option<String>, anyhow::Error>;
+    async fn get_transaction(&self, id: String) -> anyhow::Result<Option<String>>;
 
     /// Get transport signature id and return it or throw error
-    async fn get_signature_id(&self) -> anyhow::Result<Option<i32>, anyhow::Error>;
+    async fn get_signature_id(&self) -> anyhow::Result<Option<i32>>;
 
     /// Get id of network or throw error
-    async fn get_network_id(&self) -> anyhow::Result<i32, anyhow::Error>;
+    async fn get_network_id(&self) -> anyhow::Result<i32>;
 
     /// Get latest block by address and return it or throw error
-    async fn get_latest_block(&self, address: String) -> Result<LatestBlock, anyhow::Error>;
+    async fn get_latest_block(&self, address: String) -> anyhow::Result<LatestBlock>;
 
     /// Get transport block by id and return base64 encoded block or throw error
-    async fn get_block(&self, id: String) -> Result<String, anyhow::Error>;
+    async fn get_block(&self, id: String) -> anyhow::Result<String>;
 
     /// Wait until next block will come to blockchain and return its id or throw error
     async fn wait_for_next_block(
@@ -83,7 +79,7 @@ pub trait TransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         current_block_id: String,
         address: String,
         timeout: u64,
-    ) -> Result<String, anyhow::Error>;
+    ) -> anyhow::Result<String>;
 }
 
 pub struct JrpcTransportBox {
@@ -111,7 +107,7 @@ impl TransportBoxTrait for JrpcTransportBox {
     }
 
     /// Get contract state of address and return json-encoded RawContractState or throw error
-    async fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
+    async fn get_contract_state(&self, address: String) -> anyhow::Result<String> {
         let address = parse_address(address)?;
 
         let contract_state = self
@@ -124,10 +120,7 @@ impl TransportBoxTrait for JrpcTransportBox {
     }
 
     /// Get full contract state of address and return json-encoded FullContractState or throw error
-    async fn get_full_contract_state(
-        &self,
-        address: String,
-    ) -> anyhow::Result<String, anyhow::Error> {
+    async fn get_full_contract_state(&self, address: String) -> anyhow::Result<String> {
         let address = parse_address(address)?;
 
         let raw_contract_state = self
@@ -173,7 +166,7 @@ impl TransportBoxTrait for JrpcTransportBox {
         code_hash: String,
         limit: u8,
         continuation: Option<String>,
-    ) -> anyhow::Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         let code_hash = parse_hash(code_hash)?;
         let continuation = continuation.map(parse_address).transpose()?;
 
@@ -198,7 +191,7 @@ impl TransportBoxTrait for JrpcTransportBox {
         address: String,
         from_lt: Option<u64>,
         count: u8,
-    ) -> anyhow::Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         let address = parse_address(address)?;
 
         let from_lt = from_lt.unwrap_or(u64::MAX);
@@ -242,7 +235,7 @@ impl TransportBoxTrait for JrpcTransportBox {
 
     /// Get single transaction by its id.
     /// Return json-encoded Transaction or throw error
-    async fn get_transaction(&self, id: String) -> anyhow::Result<Option<String>, anyhow::Error> {
+    async fn get_transaction(&self, id: String) -> anyhow::Result<Option<String>> {
         let hash = parse_hash(id)?;
 
         let transaction = self
@@ -261,7 +254,7 @@ impl TransportBoxTrait for JrpcTransportBox {
     }
 
     /// Get transport signature id and return it or throw error
-    async fn get_signature_id(&self) -> anyhow::Result<Option<i32>, anyhow::Error> {
+    async fn get_signature_id(&self) -> anyhow::Result<Option<i32>> {
         let id = self
             .inner_transport
             .get_capabilities(&SimpleClock)
@@ -272,7 +265,7 @@ impl TransportBoxTrait for JrpcTransportBox {
     }
 
     /// Get id of network or throw error
-    async fn get_network_id(&self) -> anyhow::Result<i32, anyhow::Error> {
+    async fn get_network_id(&self) -> anyhow::Result<i32> {
         let id = self
             .inner_transport
             .get_capabilities(&SimpleClock)
@@ -282,15 +275,17 @@ impl TransportBoxTrait for JrpcTransportBox {
     }
 
     /// Not used in jrpc
-    async fn get_latest_block(&self, address: String) -> Result<LatestBlock, Error> {
-        Err(Error::msg(
+    async fn get_latest_block(&self, address: String) -> anyhow::Result<LatestBlock> {
+        Err(anyhow::Error::msg(
             "get_latest_block not implemented for JrpcTransportBox",
         ))
     }
 
     /// Not used in jrpc
-    async fn get_block(&self, id: String) -> Result<String, Error> {
-        Err(Error::msg("get_block not implemented for JrpcTransportBox"))
+    async fn get_block(&self, id: String) -> anyhow::Result<String> {
+        Err(anyhow::Error::msg(
+            "get_block not implemented for JrpcTransportBox",
+        ))
     }
 
     /// Not used in jrpc
@@ -299,8 +294,8 @@ impl TransportBoxTrait for JrpcTransportBox {
         current_block_id: String,
         address: String,
         timeout: u64,
-    ) -> Result<String, Error> {
-        Err(Error::msg(
+    ) -> anyhow::Result<String> {
+        Err(anyhow::Error::msg(
             "wait_for_next_block not implemented for JrpcTransportBox",
         ))
     }
@@ -331,7 +326,7 @@ impl TransportBoxTrait for GqlTransportBox {
     }
 
     /// Get contract state of address and return json-encoded RawContractState or throw error
-    async fn get_contract_state(&self, address: String) -> anyhow::Result<String, anyhow::Error> {
+    async fn get_contract_state(&self, address: String) -> anyhow::Result<String> {
         let address = parse_address(address)?;
 
         let contract_state = self
@@ -344,10 +339,7 @@ impl TransportBoxTrait for GqlTransportBox {
     }
 
     /// Get full contract state of address and return json-encoded FullContractState or throw error
-    async fn get_full_contract_state(
-        &self,
-        address: String,
-    ) -> anyhow::Result<String, anyhow::Error> {
+    async fn get_full_contract_state(&self, address: String) -> anyhow::Result<String> {
         let address = parse_address(address)?;
 
         let raw_contract_state = self
@@ -393,7 +385,7 @@ impl TransportBoxTrait for GqlTransportBox {
         code_hash: String,
         limit: u8,
         continuation: Option<String>,
-    ) -> anyhow::Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         let code_hash = parse_hash(code_hash)?;
         let continuation = continuation.map(parse_address).transpose()?;
 
@@ -418,7 +410,7 @@ impl TransportBoxTrait for GqlTransportBox {
         address: String,
         from_lt: Option<u64>,
         count: u8,
-    ) -> anyhow::Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         let address = parse_address(address)?;
 
         let from_lt = from_lt.unwrap_or(u64::MAX);
@@ -462,7 +454,7 @@ impl TransportBoxTrait for GqlTransportBox {
 
     /// Get single transaction by its id.
     /// Return json-encoded Transaction or throw error
-    async fn get_transaction(&self, id: String) -> anyhow::Result<Option<String>, anyhow::Error> {
+    async fn get_transaction(&self, id: String) -> anyhow::Result<Option<String>> {
         let hash = parse_hash(id)?;
 
         let transaction = self
@@ -480,7 +472,7 @@ impl TransportBoxTrait for GqlTransportBox {
     }
 
     /// Get transport signature id and return it or throw error
-    async fn get_signature_id(&self) -> anyhow::Result<Option<i32>, anyhow::Error> {
+    async fn get_signature_id(&self) -> anyhow::Result<Option<i32>> {
         let id = self
             .inner_transport
             .get_capabilities(&SimpleClock)
@@ -491,7 +483,7 @@ impl TransportBoxTrait for GqlTransportBox {
     }
 
     /// Get id of network or throw error
-    async fn get_network_id(&self) -> anyhow::Result<i32, anyhow::Error> {
+    async fn get_network_id(&self) -> anyhow::Result<i32> {
         let id = self
             .inner_transport
             .get_capabilities(&SimpleClock)
@@ -501,7 +493,7 @@ impl TransportBoxTrait for GqlTransportBox {
     }
 
     /// Get latest block by address and return it or throw error
-    async fn get_latest_block(&self, address: String) -> Result<LatestBlock, anyhow::Error> {
+    async fn get_latest_block(&self, address: String) -> anyhow::Result<LatestBlock> {
         let address = parse_address(address)?;
 
         let latest_block_id = self
@@ -514,7 +506,7 @@ impl TransportBoxTrait for GqlTransportBox {
     }
 
     /// Get transport block by id and return base64 encoded block or throw error
-    async fn get_block(&self, id: String) -> Result<String, anyhow::Error> {
+    async fn get_block(&self, id: String) -> anyhow::Result<String> {
         let block = self.inner_transport.get_block(&id).await.handle_error()?;
 
         let block = block
@@ -534,7 +526,7 @@ impl TransportBoxTrait for GqlTransportBox {
         current_block_id: String,
         address: String,
         timeout: u64,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         let address = parse_address(address)?;
 
         let timeout = Duration::from_millis(timeout);

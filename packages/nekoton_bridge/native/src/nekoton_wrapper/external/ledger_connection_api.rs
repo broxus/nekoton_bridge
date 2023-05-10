@@ -53,8 +53,8 @@ impl external::LedgerConnection for LedgerConnectionImpl {
         };
         let res = caller::call(stub, true).as_string();
         match res {
-            Ok(v) => anyhow::Result::Ok(hex::decode(v).unwrap().as_slice().try_into().unwrap()),
-            Err(e) => anyhow::Result::Err(e),
+            Ok(v) => Ok(hex::decode(v).unwrap().as_slice().try_into().unwrap()),
+            Err(e) => Err(e),
         }
     }
 
