@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-05-10
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.8.0-dev.7`](#flutter_nekoton_bridge---v180-dev7)
+ - [`flutter_nekoton_bridge_example` - `v1.8.0-dev.7`](#flutter_nekoton_bridge_example---v180-dev7)
+ - [`nekoton_bridge` - `v1.8.0-dev.6`](#nekoton_bridge---v180-dev6)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.8.0-dev.7`
+
+ - **FIX**: transport tests ([#101](https://github.com/broxus/nekoton_bridge/issues/101)). ([0d3d9af3](https://github.com/broxus/nekoton_bridge/commit/0d3d9af375c12a55eb525fc2d6afcb96427c869f))
+ - **FEAT**: replace BigInt to Fixed ([#98](https://github.com/broxus/nekoton_bridge/issues/98)). ([14dc50f6](https://github.com/broxus/nekoton_bridge/commit/14dc50f6e55fae59452dd250a306bd761e5b186e))
+
+#### `flutter_nekoton_bridge_example` - `v1.8.0-dev.7`
+
+ - **FIX**: transport tests ([#101](https://github.com/broxus/nekoton_bridge/issues/101)). ([0d3d9af3](https://github.com/broxus/nekoton_bridge/commit/0d3d9af375c12a55eb525fc2d6afcb96427c869f))
+ - **FEAT**: replace BigInt to Fixed ([#98](https://github.com/broxus/nekoton_bridge/issues/98)). ([14dc50f6](https://github.com/broxus/nekoton_bridge/commit/14dc50f6e55fae59452dd250a306bd761e5b186e))
+
+#### `nekoton_bridge` - `v1.8.0-dev.6`
+
+ - **FIX**: update frb ([#89](https://github.com/broxus/nekoton_bridge/issues/89)). ([e42f9297](https://github.com/broxus/nekoton_bridge/commit/e42f92971cce2f36c472af22a67c089b475027e3))
+
+
 ## 2023-04-24
 
 ### Changes
