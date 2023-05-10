@@ -1,7 +1,6 @@
 #![allow(unused_variables, dead_code)]
 
 use crate::async_run;
-use anyhow::Error;
 use flutter_rust_bridge::RustOpaque;
 use std::panic::{RefUnwindSafe, UnwindSafe};
 use std::sync::Arc;
@@ -21,27 +20,24 @@ pub mod models;
 pub trait AccountsStorageBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     /// Get list of accounts.
     /// Returns json-encoded List of AssetsList or throw error
-    async fn get_entries(&self) -> Result<String, anyhow::Error>;
+    async fn get_entries(&self) -> anyhow::Result<String>;
 
     /// Add new account to storage and return its instance.
     /// account - json-encoded AccountToAdd.
     /// Return json-encoded AssetsList or throw error.
-    async fn add_account(&self, account: String) -> Result<String, anyhow::Error>;
+    async fn add_account(&self, account: String) -> anyhow::Result<String>;
 
     /// Add list of new accounts to storage and return it instances.
     /// account - json-encoded list of AccountToAdd.
     /// Return json-encoded list of AssetsList or throw error.
-    async fn add_accounts(&self, accounts: String) -> Result<String, anyhow::Error>;
+    async fn add_accounts(&self, accounts: String) -> anyhow::Result<String>;
 
     /// Rename existed account and return its renamed instance.
     /// account_address - address of account
     /// name - new name of account
     /// Return json-encoded AssetsList or throw error.
-    async fn rename_account(
-        &self,
-        account_address: String,
-        name: String,
-    ) -> Result<String, anyhow::Error>;
+    async fn rename_account(&self, account_address: String, name: String)
+        -> anyhow::Result<String>;
 
     /// Add token wallet signature to account (add new token to account aka enable it via slider).
     /// account_address - address of account
@@ -54,7 +50,7 @@ pub trait AccountsStorageBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         account_address: String,
         network_group: String,
         root_token_contract: String,
-    ) -> Result<String, anyhow::Error>;
+    ) -> anyhow::Result<String>;
 
     /// Remove token wallet signature from account (remove token from account aka disable it via slider).
     /// account_address - address of account
@@ -67,31 +63,25 @@ pub trait AccountsStorageBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         account_address: String,
         network_group: String,
         root_token_contract: String,
-    ) -> Result<String, anyhow::Error>;
+    ) -> anyhow::Result<String>;
 
     /// Remove account from storage and return its instance if it was removed.
     /// account_address - address of account
     /// Return json-encoded AssetsList that was removed or null or throw error.
-    async fn remove_account(
-        &self,
-        account_address: String,
-    ) -> Result<Option<String>, anyhow::Error>;
+    async fn remove_account(&self, account_address: String) -> anyhow::Result<Option<String>>;
 
     /// Remove list of account from storage and return it instances if it were removed.
     /// account_addresses - list of addresses of accounts.
     /// Return json-encoded list of AssetsList that were removed or throw error.
-    async fn remove_accounts(
-        &self,
-        account_addresses: Vec<String>,
-    ) -> Result<String, anyhow::Error>;
+    async fn remove_accounts(&self, account_addresses: Vec<String>) -> anyhow::Result<String>;
 
     /// Clear storage and remove all data.
     /// Returns true or throw error
-    async fn clear(&self) -> Result<bool, anyhow::Error>;
+    async fn clear(&self) -> anyhow::Result<bool>;
 
     /// Reload storage and read all data again.
     /// Returns true or throw error.
-    async fn reload(&self) -> Result<bool, anyhow::Error>;
+    async fn reload(&self) -> anyhow::Result<bool>;
 }
 
 pub struct AccountsStorageBox {
@@ -99,13 +89,14 @@ pub struct AccountsStorageBox {
 }
 
 impl UnwindSafe for AccountsStorageBox {}
+
 impl RefUnwindSafe for AccountsStorageBox {}
 
 impl AccountsStorageBox {
     /// Create AccountsStorageBox or throw error
     pub fn create(
         storage: Arc<dyn Storage>,
-    ) -> Result<RustOpaque<Arc<dyn AccountsStorageBoxTrait>>, anyhow::Error> {
+    ) -> anyhow::Result<RustOpaque<Arc<dyn AccountsStorageBoxTrait>>> {
         let storage = async_run!(AccountsStorage::load(storage).await).handle_error()?;
         Ok(RustOpaque::new(Arc::new(Self {
             inner_storage: Arc::new(storage),
@@ -117,7 +108,7 @@ impl AccountsStorageBox {
 impl AccountsStorageBoxTrait for AccountsStorageBox {
     /// Get list of accounts.
     /// Returns json-encoded List of AssetsList or throw error
-    async fn get_entries(&self) -> Result<String, Error> {
+    async fn get_entries(&self) -> anyhow::Result<String> {
         let entries = self
             .inner_storage
             .stored_data()
@@ -134,7 +125,7 @@ impl AccountsStorageBoxTrait for AccountsStorageBox {
     /// Add new account to storage and return its instance.
     /// account - json-encoded AccountToAdd.
     /// Return json-encoded AssetsList or throw error.
-    async fn add_account(&self, account: String) -> Result<String, anyhow::Error> {
+    async fn add_account(&self, account: String) -> anyhow::Result<String> {
         let new_account = serde_json::from_str::<AccountToAddHelper>(&account)
             .map(|AccountToAddHelper(account_to_add)| account_to_add)
             .handle_error()?;
@@ -151,7 +142,7 @@ impl AccountsStorageBoxTrait for AccountsStorageBox {
     /// Add list of new accounts to storage and return it instances.
     /// account - json-encoded list of AccountToAdd.
     /// Return json-encoded list of AssetsList or throw error.
-    async fn add_accounts(&self, accounts: String) -> Result<String, anyhow::Error> {
+    async fn add_accounts(&self, accounts: String) -> anyhow::Result<String> {
         let new_accounts = serde_json::from_str::<Vec<AccountToAddHelper>>(&accounts)
             .handle_error()?
             .into_iter()
@@ -178,7 +169,7 @@ impl AccountsStorageBoxTrait for AccountsStorageBox {
         &self,
         account_address: String,
         name: String,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         let entry = self
             .inner_storage
             .rename_account(&account_address, name)
@@ -199,7 +190,7 @@ impl AccountsStorageBoxTrait for AccountsStorageBox {
         account_address: String,
         network_group: String,
         root_token_contract: String,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         let root_token_contract = parse_address(root_token_contract)?;
 
         let entry = self
@@ -222,7 +213,7 @@ impl AccountsStorageBoxTrait for AccountsStorageBox {
         account_address: String,
         network_group: String,
         root_token_contract: String,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         let root_token_contract = parse_address(root_token_contract)?;
 
         let entry = self
@@ -237,10 +228,7 @@ impl AccountsStorageBoxTrait for AccountsStorageBox {
     /// Remove account from storage and return its instance if it was removed.
     /// account_address - address of account
     /// Return json-encoded AssetsList that was removed or null or throw error.
-    async fn remove_account(
-        &self,
-        account_address: String,
-    ) -> Result<Option<String>, anyhow::Error> {
+    async fn remove_account(&self, account_address: String) -> anyhow::Result<Option<String>> {
         let entry = self
             .inner_storage
             .remove_account(&account_address)
@@ -257,10 +245,7 @@ impl AccountsStorageBoxTrait for AccountsStorageBox {
     /// Remove list of account from storage and return it instances if it were removed.
     /// account_addresses - list of addresses of accounts.
     /// Return json-encoded list of AssetsList that were removed or throw error.
-    async fn remove_accounts(
-        &self,
-        account_addresses: Vec<String>,
-    ) -> Result<String, anyhow::Error> {
+    async fn remove_accounts(&self, account_addresses: Vec<String>) -> anyhow::Result<String> {
         let accounts = account_addresses
             .iter()
             .map(|item| item.as_str())
@@ -279,14 +264,14 @@ impl AccountsStorageBoxTrait for AccountsStorageBox {
 
     /// Clear storage and remove all data.
     /// Returns true or throw error
-    async fn clear(&self) -> Result<bool, anyhow::Error> {
+    async fn clear(&self) -> anyhow::Result<bool> {
         self.inner_storage.clear().await.handle_error()?;
         Ok(true)
     }
 
     /// Reload storage and read all data again.
     /// Returns true or throw error.
-    async fn reload(&self) -> Result<bool, anyhow::Error> {
+    async fn reload(&self) -> anyhow::Result<bool> {
         self.inner_storage.reload().await.handle_error()?;
         Ok(true)
     }

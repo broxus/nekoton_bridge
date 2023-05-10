@@ -12,6 +12,10 @@ const MACOS_C_OUTPUT: &str = "../../flutter_nekoton_bridge/macos/Classes/frb.h";
 
 fn main() {
     env::set_var("RUST_BACKTRACE", "full");
+    // To debug frb uncomment here and in Cargo.toml
+    // env::set_var("RUST_LOG", "debug");
+    // env_logger::init();
+
 
     // Tell Cargo that if the input Rust code changes, rerun this build script
     rerun_except(&["**/*_api.rs"]).unwrap();

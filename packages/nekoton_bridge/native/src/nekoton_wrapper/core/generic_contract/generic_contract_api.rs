@@ -32,7 +32,7 @@ impl GenericContractDartWrapper {
         address: String,
         preload_transactions: bool,
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
-    ) -> Result<GenericContractDartWrapper, anyhow::Error> {
+    ) -> anyhow::Result<GenericContractDartWrapper> {
         let contract = async_run!(
             GenericContractBox::subscribe(
                 transport.get_transport(),
@@ -55,12 +55,12 @@ impl GenericContractDartWrapper {
     }
 
     /// Get json-encoded ContractState or throw error.
-    pub fn contract_state(&self) -> Result<String, anyhow::Error> {
+    pub fn contract_state(&self) -> anyhow::Result<String> {
         async_run!(self.inner_contract.contract_state().await)
     }
 
     /// Get list of json-encoded PendingTransaction or throw error.
-    pub fn pending_transactions(&self) -> Result<String, anyhow::Error> {
+    pub fn pending_transactions(&self) -> anyhow::Result<String> {
         async_run!(self.inner_contract.pending_transactions().await)
     }
 
@@ -77,7 +77,7 @@ impl GenericContractDartWrapper {
         &self,
         signed_message: String,
         options: TransactionExecutionOptions,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         async_run!(
             self.inner_contract
                 .execute_transaction_locally(signed_message, options)
@@ -88,34 +88,34 @@ impl GenericContractDartWrapper {
     /// Calculate fees for transaction.
     /// signed_message - json-encoded SignedMessage.
     /// Returns fees as string representation of u128 or throw error.
-    pub fn estimate_fees(&self, signed_message: String) -> Result<String, anyhow::Error> {
+    pub fn estimate_fees(&self, signed_message: String) -> anyhow::Result<String> {
         async_run!(self.inner_contract.estimate_fees(signed_message).await)
     }
 
     /// Send message to blockchain and receive transaction of send.
     /// signed_message - json-encoded SignedMessage.
     /// Returns json-encoded PendingTransaction or throw error.
-    pub fn send(&self, signed_message: String) -> Result<String, anyhow::Error> {
+    pub fn send(&self, signed_message: String) -> anyhow::Result<String> {
         async_run!(self.inner_contract.send(signed_message).await)
     }
 
     /// Refresh contract and update its data.
     /// Returns true or throw error.
-    pub fn refresh(&self) -> Result<bool, anyhow::Error> {
+    pub fn refresh(&self) -> anyhow::Result<bool> {
         async_run!(self.inner_contract.refresh().await)
     }
 
     /// Preload transactions of contract.
     /// from_lt - offset for loading data, string representation of u64
     /// Returns true or throw error.
-    pub fn preload_transactions(&self, from_lt: String) -> Result<bool, anyhow::Error> {
+    pub fn preload_transactions(&self, from_lt: String) -> anyhow::Result<bool> {
         async_run!(self.inner_contract.preload_transactions(from_lt).await)
     }
 
     /// Handle block of blockchain.
     /// block - base64-encoded Block.
     /// Return true or throw error.
-    pub fn handle_block(&self, block: String) -> Result<bool, anyhow::Error> {
+    pub fn handle_block(&self, block: String) -> anyhow::Result<bool> {
         async_run!(self.inner_contract.handle_block(block).await)
     }
 }
