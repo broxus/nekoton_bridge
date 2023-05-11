@@ -44,7 +44,7 @@ jobs:
 
       # Dart/Flutter format checking
       - name: Clean before check-format
-        run: melos run clean --no-select
+        run: melos run clean
       - name: Check Dart format
         run: melos run check-format --no-select
 
