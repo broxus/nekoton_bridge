@@ -156,7 +156,6 @@ pub fn call(stub: DartCallStub, need_result: bool) -> DynamicValue {
         let (tx, rx) = mpsc::channel::<DynamicValue>();
         let id = Uuid::new_v4().to_string();
         map.insert(id.clone(), tx);
-        drop(map);
         // We want to be shure that we unlock mutex before sending message to dart
         // and wait for response
         drop(mutex);
