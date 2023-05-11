@@ -1,3 +1,8 @@
+## 1.8.0-dev.7
+
+ - **FIX**: transport tests ([#101](https://github.com/broxus/nekoton_bridge/issues/101)). ([0d3d9af3](https://github.com/broxus/nekoton_bridge/commit/0d3d9af375c12a55eb525fc2d6afcb96427c869f))
+ - **FEAT**: replace BigInt to Fixed ([#98](https://github.com/broxus/nekoton_bridge/issues/98)). ([14dc50f6](https://github.com/broxus/nekoton_bridge/commit/14dc50f6e55fae59452dd250a306bd761e5b186e))
+
 ## 1.8.0-dev.6
 
  - Update a dependency to the latest release.

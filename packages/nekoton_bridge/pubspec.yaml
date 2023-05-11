@@ -1,6 +1,6 @@
 name: nekoton_bridge
 description: A starting point for Dart libraries or applications.
-version: 1.8.0-dev.5
+version: 1.8.0-dev.6
 homepage: https://github.com/broxus/nekoton_bridge.git
 
 environment:
