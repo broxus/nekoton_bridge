@@ -26,7 +26,7 @@ pub fn init_caller(stream_sink: StreamSink<caller::DartCallStubRegistred>) {
 }
 
 /// Callback functions for returning Dart method result
-pub fn call_send_result(id: String, value: caller::DynamicValue) -> SyncReturn<()>{
+pub fn call_send_result(id: String, value: caller::DynamicValue) -> SyncReturn<()> {
     caller::call_send_result(id, value)
 }
 
