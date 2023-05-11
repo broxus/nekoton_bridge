@@ -42,6 +42,12 @@ jobs:
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
           restore-keys: ${{ runner.os }}-cargo-
 
+      # Dart/Flutter format checking
+      - name: Clean before check-format
+        run: melos run clean --no-select
+      - name: Check Dart format
+        run: melos run check-format --no-select
+
       # Rust
       - name: Build Rust code for Dart tests
         run: cargo build -r
@@ -54,14 +60,12 @@ jobs:
         run: cargo test
 
       # Dart/Flutter
-      - name: Check Dart format
-        run: melos run check-format --no-select
       - name: Generate dart code
-        run: melos codegen
+        run: melos codegen --no-select
       - name: Dart code analysis
         run: melos run analyze --no-select
       - name: Run Dart tests
-        run: melos run test
+        run: melos run test --no-select
 
       # JS bundle
       - name: Generate JS bundle
