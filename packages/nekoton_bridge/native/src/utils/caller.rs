@@ -17,8 +17,6 @@ use uuid::Uuid;
 
 use crate::utils::mega_struct;
 
-const MAX_WORKERS: usize = 2;
-
 #[derive(Clone, Debug, Error)]
 pub enum ErrorCode {
     #[error("No error, ok")]
