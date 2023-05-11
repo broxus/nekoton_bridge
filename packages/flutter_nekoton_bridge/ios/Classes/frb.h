@@ -413,9 +413,7 @@ void wire_create_log_stream(int64_t port_);
 
 void wire_init_caller(int64_t port_);
 
-void wire_call_send_result(int64_t port_,
-                           struct wire_uint_8_list *id,
-                           struct wire_DynamicValue *value);
+WireSyncReturn wire_call_send_result(struct wire_uint_8_list *id, struct wire_DynamicValue *value);
 
 void wire_simple_log(int64_t port_, struct wire_uint_8_list *string);
 

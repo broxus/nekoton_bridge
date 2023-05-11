@@ -314,7 +314,7 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kInitCallerConstMeta;
 
   /// Callback functions for returning Dart method result
-  Future<void> callSendResult(
+  void callSendResult(
       {required String id, required DynamicValue value, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kCallSendResultConstMeta;
@@ -4047,13 +4047,12 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: [],
       );
 
-  Future<void> callSendResult(
+  void callSendResult(
       {required String id, required DynamicValue value, dynamic hint}) {
     var arg0 = _platform.api2wire_String(id);
     var arg1 = _platform.api2wire_box_autoadd_dynamic_value(value);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) =>
-          _platform.inner.wire_call_send_result(port_, arg0, arg1),
+    return _platform.executeSync(FlutterRustBridgeSyncTask(
+      callFfi: () => _platform.inner.wire_call_send_result(arg0, arg1),
       parseSuccessData: _wire2api_unit,
       constMeta: kCallSendResultConstMeta,
       argValues: [id, value],

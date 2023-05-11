@@ -26,8 +26,8 @@ pub fn init_caller(stream_sink: StreamSink<caller::DartCallStubRegistred>) {
 }
 
 /// Callback functions for returning Dart method result
-pub fn call_send_result(id: String, value: caller::DynamicValue) {
-    caller::call_send_result(id, value);
+pub fn call_send_result(id: String, value: caller::DynamicValue) -> SyncReturn<()>{
+    caller::call_send_result(id, value)
 }
 
 // TODO: remove all non-integration test related things FROM here

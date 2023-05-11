@@ -1,5 +1,4 @@
 #![allow(dead_code)]
-use std::{thread, time};
 
 use std::{
     collections::HashMap,
@@ -10,7 +9,7 @@ use std::{
 };
 use thiserror::Error;
 
-use flutter_rust_bridge::StreamSink;
+use flutter_rust_bridge::{StreamSink, SyncReturn};
 use lazy_static::lazy_static;
 use log::warn;
 use parking_lot::RwLock;
@@ -154,38 +153,16 @@ pub fn set_stream_sink(stream_sink: StreamSink<DartCallStubRegistred>) {
 /// Call Dart method
 pub fn call(stub: DartCallStub, need_result: bool) -> DynamicValue {
     let (id, rx) = if need_result {
-        loop {
-            let mut mutex = CALLBACK_MAP.lock();
-            let map = mutex.as_mut().unwrap();
-            let duration = time::Duration::from_millis(200);
-            warn!("CALLER?: => {}", map.len());
-            if map.len() < MAX_WORKERS {
-                let (tx, rx) = mpsc::channel::<DynamicValue>();
-                let id = Uuid::new_v4().to_string();
-                map.insert(id.clone(), tx);
-                warn!("CALLER OK!: => {MAX_WORKERS} workers: {}", map.len());
-                break (Some(id), Some(rx));
-            } else {
-                let len = map.len();
-                drop(map);
-                drop(mutex);
-                warn!("CALLER NOK!: => {MAX_WORKERS} workers: {}", len);
-                thread::sleep(duration);
-            }
-        }
-        // let (tx, rx) = mpsc::channel::<DynamicValue>();
-        // let id = Uuid::new_v4().to_string();
-        // let mut map = CALLBACK_MAP.lock().unwrap();
-        // map.insert(id.clone(), tx);
-        // let duration = time::Duration::from_millis(50);
-        // while map.len() >= MAX_WORKERS {
-        //     warn!("caller: more than {MAX_WORKERS} workers: {}", map.len());
-        //     thread::sleep(duration);
-        // }
-        // TODO: maybe we should take some actions to prevent deadlock?
-        // if map.len() >= MAX_WORKERS {
-        // warn!("caller: more than {MAX_WORKERS} workers: {}", map.len());
-        // };
+        let mut mutex = CALLBACK_MAP.lock();
+        let map = mutex.as_mut().unwrap();
+        let (tx, rx) = mpsc::channel::<DynamicValue>();
+        let id = Uuid::new_v4().to_string();
+        map.insert(id.clone(), tx);
+        drop(map);
+        // We want to be shure that we unlock mutex before sending message to dart
+        // and wait for response
+        drop(mutex);
+        (Some(id), Some(rx))
     } else {
         (None, None)
     };
@@ -203,9 +180,9 @@ pub fn call(stub: DartCallStub, need_result: bool) -> DynamicValue {
 }
 
 /// Get result from dart side and return it to rust function that had initiated call
-pub fn call_send_result(id: String, value: DynamicValue) {
+pub fn call_send_result(id: String, value: DynamicValue) -> SyncReturn<()> {
     let mut map = CALLBACK_MAP.lock().unwrap();
     let sender = map.remove(&id).expect("Can't find caller Sender");
-    warn!("call_send_result: workers: {}", map.len());
     sender.send(value).expect("Can't send to caller");
+    SyncReturn(())
 }
