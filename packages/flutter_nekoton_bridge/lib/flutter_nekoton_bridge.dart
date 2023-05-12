@@ -222,4 +222,8 @@ Future<void> simpleCallFunc2() async {
   createLib().simpleCallFunc2();
 }
 
+Future<void> simpleCallFunc3() async {
+  createLib().simpleCallFunc3();
+}
+
 // TODO: remove all non-integration test related things TO here

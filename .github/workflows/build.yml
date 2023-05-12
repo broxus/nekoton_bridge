@@ -22,6 +22,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2
         with:
+          flutter-version: '3.7.12'
+          channel: 'stable'
           cache: true
           cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
       - uses: bluefireteam/melos-action@v2
@@ -42,6 +44,14 @@ jobs:
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
           restore-keys: ${{ runner.os }}-cargo-
 
+      # Dart/Flutter format checking
+      - name: Clean before check-format
+        run: melos clean
+      - name: Boostrap everything
+        run: melos bs
+      - name: Check Dart format
+        run: melos run check-format --no-select
+
       # Rust
       - name: Build Rust code for Dart tests
         run: cargo build -r
@@ -54,14 +64,12 @@ jobs:
         run: cargo test
 
       # Dart/Flutter
-      - name: Check Dart format
-        run: melos run check-format --no-select
       - name: Generate dart code
-        run: melos codegen
+        run: melos codegen --no-select
       - name: Dart code analysis
         run: melos run analyze --no-select
       - name: Run Dart tests
-        run: melos run test
+        run: melos run test --no-select
 
       # JS bundle
       - name: Generate JS bundle
