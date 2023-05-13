@@ -248,9 +248,9 @@ jobs:
           echo Copied file!
       - name: Pod Install (trying to get along https://github.com/flutter/flutter/issues/105913)
         run: |
-          cd packages/flutter_nekoton_bridge/ios
+          cd packages/flutter_nekoton_bridge/example/ios
           pod install
-          cd ../../..
+          cd ../../../..
       - name: Run Flutter integration tests
         working-directory: packages/flutter_nekoton_bridge/example
         run: flutter test -j 1 -d ${{ env.DEVICE_ID }} integration_test
