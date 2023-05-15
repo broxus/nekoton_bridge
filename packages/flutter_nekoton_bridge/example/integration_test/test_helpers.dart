@@ -5,7 +5,7 @@ String _envStringSkipFlakyAndroid = 'FLUTTER_TEST_SKIP_FLAKY_ANDROID';
 
 bool getBooleanEnv(String key) {
   final value = Platform.environment[key];
-  switch (value?.toLowerCase() ?? false) {
+  switch (value?.toLowerCase() ?? 'false') {
     case 'true':
       return true;
     case 'false':
