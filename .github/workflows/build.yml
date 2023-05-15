@@ -246,11 +246,7 @@ jobs:
           CURR_VERSION=nekoton_bridge-v`awk '/^version: /{print $2}' packages/nekoton_bridge/pubspec.yaml`
           cp platform-build/NekotonBridge.xcframework.zip packages/flutter_nekoton_bridge/ios/Frameworks/$CURR_VERSION.zip
           echo Copied file!
-      - name: Pod Install (trying to get along https://github.com/flutter/flutter/issues/105913)
-        run: |
-          cd packages/flutter_nekoton_bridge/example/ios
-          pod install
-          cd ../../../..
+  # -j 1 explanation: trying to get along https://github.com/flutter/flutter/issues/105913)
       - name: Run Flutter integration tests
         working-directory: packages/flutter_nekoton_bridge/example
         run: flutter test -j 1 -d ${{ env.DEVICE_ID }} integration_test
