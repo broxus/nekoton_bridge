@@ -22,11 +22,6 @@ Future<String> postTransportData({
 }
 
 void main() {
-  // TODO(nesquikm): it's not clear which test is causing flaky behavior
-  if (skipBecauseFlaky()) {
-    return;
-  }
-
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   const name = 'Mainnet (GQL)';
@@ -51,10 +46,12 @@ void main() {
         'FromLib: ${logEntry.level} ${logEntry.tag} ${logEntry.msg} (lib_time=${logEntry.timeMillis})',
       ),
     );
+
     runApp(Container());
   });
 
-  group('JrpcTransport tests', () {
+  // TODO(nesquikm): it's not clear which test is causing flaky behavior
+  group('JrpcTransport tests', skip: skipBecauseFlaky(), () {
     testWidgets('Create JrpcTransport', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
