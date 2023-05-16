@@ -53,6 +53,12 @@ Future<String> postTransportData({
 }
 
 void main() {
+  // TODO(nesquikm): it's not clear which test is causing flaky behavior
+  // https://github.com/flutter/flutter/issues/105913
+  if (skipBecauseFlaky()) {
+    return;
+  }
+
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   const name = 'Mainnet (GQL)';
@@ -98,7 +104,7 @@ void main() {
   });
 
   // TODO(nesquikm): it's not clear which test is causing flaky behavior
-  group('TonWallet test', skip: skipBecauseFlaky(), () {
+  group('TonWallet test', () {
     testWidgets('TonWallet subscribe', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 

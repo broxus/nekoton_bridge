@@ -28,6 +28,12 @@ Future<String> getTransportData(String endpoint) async {
 }
 
 void main() {
+  // TODO(nesquikm): it's not clear which test is causing flaky behavior
+  // https://github.com/flutter/flutter/issues/105913
+  if (skipBecauseFlaky()) {
+    return;
+  }
+
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   const name = 'Mainnet (GQL)';
@@ -70,7 +76,7 @@ void main() {
   });
 
   // TODO(nesquikm): it's not clear which test is causing flaky behavior
-  group('GqlTransport tests', skip: skipBecauseFlaky(), () {
+  group('GqlTransport tests', () {
     testWidgets('Create GqlTransport', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 

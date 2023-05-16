@@ -23,6 +23,12 @@ Future<String> postTransportData({
 }
 
 void main() {
+  // TODO(nesquikm): it's not clear which test is causing flaky behavior
+  // https://github.com/flutter/flutter/issues/105913
+  if (skipBecauseFlaky()) {
+    return;
+  }
+
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   const name = 'Mainnet (GQL)';
@@ -62,8 +68,7 @@ void main() {
     transport = await JrpcTransport.create(jrpcConnection: connection);
   });
 
-  // TODO(nesquikm): it's not clear which test is causing flaky behavior
-  group('TokenWallet test', skip: skipBecauseFlaky(), () {
+  group('TokenWallet test', () {
     testWidgets('TokenWallet subscribe', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
