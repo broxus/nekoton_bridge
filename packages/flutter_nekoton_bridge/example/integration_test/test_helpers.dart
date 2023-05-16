@@ -1,27 +1,18 @@
 import 'dart:io';
 
-String _envStringSkipFlakyIOS = 'FLUTTER_TEST_SKIP_FLAKY_IOS';
-String _envStringSkipFlakyAndroid = 'FLUTTER_TEST_SKIP_FLAKY_ANDROID';
-
-bool getBooleanEnv(String key) {
-  final value = Platform.environment[key];
-  switch (value?.toLowerCase() ?? 'false') {
-    case 'true':
-      return true;
-    case 'false':
-      return false;
-    default:
-      throw Exception('Unknown value for $key: $value');
-  }
-}
+const String _envStringSkipFlakyIOS = 'FLUTTER_TEST_SKIP_FLAKY_IOS';
+const String _envStringSkipFlakyAndroid = 'FLUTTER_TEST_SKIP_FLAKY_ANDROID';
 
 bool skipBecauseFlaky() {
-  if (Platform.isIOS && getBooleanEnv(_envStringSkipFlakyIOS)) {
-    stdout.writeln('Skipping test because $_envStringSkipFlakyIOS is set');
+  if (Platform.isIOS && const bool.fromEnvironment(_envStringSkipFlakyIOS)) {
+    // ignore: avoid_print
+    print('Skipping test because $_envStringSkipFlakyIOS is set');
     return true;
   }
-  if (Platform.isAndroid && getBooleanEnv(_envStringSkipFlakyAndroid)) {
-    stdout.writeln('Skipping test because $_envStringSkipFlakyAndroid is set');
+  if (Platform.isAndroid &&
+      const bool.fromEnvironment(_envStringSkipFlakyAndroid)) {
+    // ignore: avoid_print
+    print('Skipping test because $_envStringSkipFlakyAndroid is set');
     return true;
   }
   return false;
