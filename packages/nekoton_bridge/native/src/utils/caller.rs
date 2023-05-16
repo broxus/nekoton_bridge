@@ -9,15 +9,13 @@ use std::{
 };
 use thiserror::Error;
 
-use flutter_rust_bridge::StreamSink;
+use flutter_rust_bridge::{StreamSink, SyncReturn};
 use lazy_static::lazy_static;
 use log::warn;
 use parking_lot::RwLock;
 use uuid::Uuid;
 
 use crate::utils::mega_struct;
-
-const MAX_WORKERS: usize = 7;
 
 #[derive(Clone, Debug, Error)]
 pub enum ErrorCode {
@@ -152,22 +150,21 @@ pub fn set_stream_sink(stream_sink: StreamSink<DartCallStubRegistred>) {
 
 /// Call Dart method
 pub fn call(stub: DartCallStub, need_result: bool) -> DynamicValue {
+    let (id, rx) = if need_result {
+        let mut mutex = CALLBACK_MAP.lock();
+        let map = mutex.as_mut().unwrap();
+        let (tx, rx) = mpsc::channel::<DynamicValue>();
+        let id = Uuid::new_v4().to_string();
+        map.insert(id.clone(), tx);
+        // We want to be shure that we unlock mutex before sending message to dart
+        // and wait for response
+        drop(mutex);
+        (Some(id), Some(rx))
+    } else {
+        (None, None)
+    };
+
     if let Some(sink) = &*SEND_TO_DART_CALLER_STREAM_SINK.read() {
-        let (id, rx) = if need_result {
-            let (tx, rx) = mpsc::channel::<DynamicValue>();
-            let id = Uuid::new_v4().to_string();
-            let mut map = CALLBACK_MAP.lock().unwrap();
-            map.insert(id.clone(), tx);
-            // TODO: maybe we should take some actions to prevent deadlock?
-            if map.len() > MAX_WORKERS {
-                warn!("caller: more than {MAX_WORKERS} workers: {}", map.len());
-            };
-
-            (Some(id), Some(rx))
-        } else {
-            (None, None)
-        };
-
         let stub_registred = DartCallStubRegistred { id, stub };
         sink.add(stub_registred);
         if rx.is_none() {
@@ -175,12 +172,14 @@ pub fn call(stub: DartCallStub, need_result: bool) -> DynamicValue {
         }
         return rx.unwrap().recv().unwrap();
     }
+
     panic!("Can't call Dart function {:?}", stub);
 }
 
 /// Get result from dart side and return it to rust function that had initiated call
-pub fn call_send_result(id: String, value: DynamicValue) {
+pub fn call_send_result(id: String, value: DynamicValue) -> SyncReturn<()> {
     let mut map = CALLBACK_MAP.lock().unwrap();
     let sender = map.remove(&id).expect("Can't find caller Sender");
     sender.send(value).expect("Can't send to caller");
+    SyncReturn(())
 }

@@ -628,7 +628,7 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_init_caller(NativePortType port_);
 
   external dynamic /* void */ wire_call_send_result(
-      NativePortType port_, String id, List<dynamic> value);
+      String id, List<dynamic> value);
 
   external dynamic /* void */ wire_simple_log(
       NativePortType port_, String string);
@@ -656,6 +656,8 @@ class NekotonBridgeWasmModule implements WasmModule {
       NativePortType port_, bool need_result);
 
   external dynamic /* void */ wire_simple_call_func2(NativePortType port_);
+
+  external dynamic /* void */ wire_simple_call_func3(NativePortType port_);
 
   external dynamic /* void */ wire_refresh_timeout__method__UnsignedMessageImpl(
       NativePortType port_, List<dynamic> that);
@@ -1372,9 +1374,8 @@ class NekotonBridgeWire
   void wire_init_caller(NativePortType port_) =>
       wasmModule.wire_init_caller(port_);
 
-  void wire_call_send_result(
-          NativePortType port_, String id, List<dynamic> value) =>
-      wasmModule.wire_call_send_result(port_, id, value);
+  dynamic /* void */ wire_call_send_result(String id, List<dynamic> value) =>
+      wasmModule.wire_call_send_result(id, value);
 
   void wire_simple_log(NativePortType port_, String string) =>
       wasmModule.wire_simple_log(port_, string);
@@ -1406,6 +1407,9 @@ class NekotonBridgeWire
 
   void wire_simple_call_func2(NativePortType port_) =>
       wasmModule.wire_simple_call_func2(port_);
+
+  void wire_simple_call_func3(NativePortType port_) =>
+      wasmModule.wire_simple_call_func3(port_);
 
   void wire_refresh_timeout__method__UnsignedMessageImpl(
           NativePortType port_, List<dynamic> that) =>
