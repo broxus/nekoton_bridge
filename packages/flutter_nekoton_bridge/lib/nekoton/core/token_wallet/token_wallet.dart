@@ -24,7 +24,7 @@ class TokenWallet extends RustToDartMirrorInterface {
   bool _isInitialized = false;
 
   /// Controllers that contains data that emits from rust.
-  final _onBalanceChangedController = StreamController<BigInt>.broadcast();
+  final _onBalanceChangedController = StreamController<Fixed>.broadcast();
   final _onTransactionsFoundController = StreamController<
       Tuple2<List<TransactionWithData<TokenWalletTransaction?>>,
           TransactionsBatchInfo>>.broadcast();
@@ -33,7 +33,7 @@ class TokenWallet extends RustToDartMirrorInterface {
   /// during [_updateData]. It means, that fields could be changed after any
   /// event that can change internal state of wallet.
   late ContractState _contractState;
-  late BigInt balance;
+  late Fixed balance;
 
   /// Triggers subscribers when [_updateData] completes
   final _fieldsUpdateController = StreamController<void>.broadcast();
@@ -92,7 +92,7 @@ class TokenWallet extends RustToDartMirrorInterface {
   Stream<void> get fieldUpdatesStream => _fieldsUpdateController.stream;
 
   /// Stream that emits data when balance of wallet changes
-  Stream<BigInt> get onBalanceChangedStream =>
+  Stream<Fixed> get onBalanceChangedStream =>
       _onBalanceChangedController.stream;
 
   /// Stream that emits data when transactions of wallet founds
@@ -143,9 +143,9 @@ class TokenWallet extends RustToDartMirrorInterface {
   /// Returns InternalMessage or throw error.
   Future<InternalMessage> prepareTransfer({
     required String destination,
-    required BigInt amount,
+    required Fixed amount,
     bool notifyReceiver = false,
-    BigInt? attachedAmount,
+    Fixed? attachedAmount,
     String? payload,
   }) async {
     final encoded = await wallet.prepareTransfer(
@@ -230,7 +230,7 @@ class TokenWallet extends RustToDartMirrorInterface {
 
   /// Calls from rust side when balance of wallet has been changed
   void onBalanceChanged(String balance) {
-    _onBalanceChangedController.add(BigInt.parse(balance));
+    _onBalanceChangedController.add(Fixed.parse(balance));
 
     /// For some strange reason, rust calls this method before creation completes
     if (!_isInitialized) return;
@@ -261,7 +261,7 @@ class TokenWallet extends RustToDartMirrorInterface {
   /// Method that updates all internal data and notify subscribers about it.
   Future<void> _updateData() async {
     _contractState = await getContractState();
-    balance = BigInt.parse(await _getBalance());
+    balance = Fixed.parse(await _getBalance());
 
     _fieldsUpdateController.add(null);
   }

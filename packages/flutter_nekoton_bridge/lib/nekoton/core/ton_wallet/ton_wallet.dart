@@ -263,7 +263,7 @@ class TonWallet extends RustToDartMirrorInterface {
     required RawContractState contractState,
     required String publicKey,
     required String destination,
-    required BigInt amount,
+    required Fixed amount,
     required bool bounce,
     String? body,
     required Expiration expiration,

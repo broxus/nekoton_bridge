@@ -4,7 +4,6 @@ pub mod generic_contract_api;
 
 use crate::clock;
 use crate::nekoton_wrapper::{parse_address, HandleError};
-use anyhow::Error;
 use async_trait::async_trait;
 use flutter_rust_bridge::RustOpaque;
 use nekoton::core::generic_contract::{GenericContract, GenericContractSubscriptionHandler};
@@ -25,10 +24,10 @@ pub trait GenericContractBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     async fn address(&self) -> String;
 
     /// Get json-encoded ContractState or throw error.
-    async fn contract_state(&self) -> Result<String, anyhow::Error>;
+    async fn contract_state(&self) -> anyhow::Result<String>;
 
     /// Get list of json-encoded PendingTransaction or throw error.
-    async fn pending_transactions(&self) -> Result<String, anyhow::Error>;
+    async fn pending_transactions(&self) -> anyhow::Result<String>;
 
     /// Get json-encoded PollingMethod of contract or throw error.
     async fn polling_method(&self) -> PollingMethod;
@@ -41,31 +40,31 @@ pub trait GenericContractBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         &self,
         signed_message: String,
         options: TransactionExecutionOptions,
-    ) -> Result<String, anyhow::Error>;
+    ) -> anyhow::Result<String>;
 
     /// Calculate fees for transaction.
     /// signed_message - json-encoded SignedMessage.
     /// Returns fees as string representation of u128 or throw error.
-    async fn estimate_fees(&self, signed_message: String) -> Result<String, anyhow::Error>;
+    async fn estimate_fees(&self, signed_message: String) -> anyhow::Result<String>;
 
     /// Send message to blockchain and receive transaction of send.
     /// signed_message - json-encoded SignedMessage.
     /// Returns json-encoded PendingTransaction or throw error.
-    async fn send(&self, signed_message: String) -> Result<String, anyhow::Error>;
+    async fn send(&self, signed_message: String) -> anyhow::Result<String>;
 
     /// Refresh contract and update its data.
     /// Returns true or throw error.
-    async fn refresh(&self) -> Result<bool, anyhow::Error>;
+    async fn refresh(&self) -> anyhow::Result<bool>;
 
     /// Preload transactions of contract.
     /// from_lt - offset for loading data, string representation of u64
     /// Returns true or throw error.
-    async fn preload_transactions(&self, from_lt: String) -> Result<bool, anyhow::Error>;
+    async fn preload_transactions(&self, from_lt: String) -> anyhow::Result<bool>;
 
     /// Handle block of blockchain.
     /// block - base64-encoded Block.
     /// Return true or throw error.
-    async fn handle_block(&self, block: String) -> Result<bool, anyhow::Error>;
+    async fn handle_block(&self, block: String) -> anyhow::Result<bool>;
 }
 
 pub struct GenericContractBox {
@@ -81,7 +80,7 @@ impl GenericContractBox {
         address: String,
         preload_transactions: bool,
         handler: Arc<dyn GenericContractSubscriptionHandler>,
-    ) -> Result<RustOpaque<Arc<dyn GenericContractBoxTrait>>, anyhow::Error> {
+    ) -> anyhow::Result<RustOpaque<Arc<dyn GenericContractBoxTrait>>> {
         let address = parse_address(address)?;
 
         let generic_contract =
@@ -96,6 +95,7 @@ impl GenericContractBox {
 }
 
 impl UnwindSafe for GenericContractBox {}
+
 impl RefUnwindSafe for GenericContractBox {}
 
 #[async_trait]
@@ -107,13 +107,13 @@ impl GenericContractBoxTrait for GenericContractBox {
     }
 
     /// Get json-encoded ContractState or throw error.
-    async fn contract_state(&self) -> Result<String, anyhow::Error> {
+    async fn contract_state(&self) -> anyhow::Result<String> {
         let contract = self.inner_contract.lock().await;
         serde_json::to_string(&contract.contract_state()).handle_error()
     }
 
     /// Get list of json-encoded PendingTransaction or throw error.
-    async fn pending_transactions(&self) -> Result<String, anyhow::Error> {
+    async fn pending_transactions(&self) -> anyhow::Result<String> {
         let contract = self.inner_contract.lock().await;
         let pending_transactions = contract.pending_transactions();
         serde_json::to_string(pending_transactions).handle_error()
@@ -132,7 +132,7 @@ impl GenericContractBoxTrait for GenericContractBox {
         &self,
         signed_message: String,
         options: TransactionExecutionOptions,
-    ) -> Result<String, Error> {
+    ) -> anyhow::Result<String> {
         let message = serde_json::from_str::<SignedMessage>(&signed_message)
             .handle_error()?
             .message;
@@ -151,7 +151,7 @@ impl GenericContractBoxTrait for GenericContractBox {
     /// Calculate fees for transaction.
     /// signed_message - json-encoded SignedMessage.
     /// Returns fees as string representation of u128 or throw error.
-    async fn estimate_fees(&self, signed_message: String) -> Result<String, anyhow::Error> {
+    async fn estimate_fees(&self, signed_message: String) -> anyhow::Result<String> {
         let message = serde_json::from_str::<SignedMessage>(&signed_message)
             .handle_error()?
             .message;
@@ -171,7 +171,7 @@ impl GenericContractBoxTrait for GenericContractBox {
     /// Send message to blockchain and receive transaction of send.
     /// signed_message - json-encoded SignedMessage.
     /// Returns json-encoded PendingTransaction or throw error.
-    async fn send(&self, signed_message: String) -> Result<String, anyhow::Error> {
+    async fn send(&self, signed_message: String) -> anyhow::Result<String> {
         let signed_message =
             serde_json::from_str::<SignedMessage>(&signed_message).handle_error()?;
 
@@ -188,7 +188,7 @@ impl GenericContractBoxTrait for GenericContractBox {
 
     /// Refresh contract and update its data.
     /// Returns true or throw error.
-    async fn refresh(&self) -> Result<bool, anyhow::Error> {
+    async fn refresh(&self) -> anyhow::Result<bool> {
         self.inner_contract
             .lock()
             .await
@@ -201,7 +201,7 @@ impl GenericContractBoxTrait for GenericContractBox {
     /// Preload transactions of contract.
     /// from_lt - offset for loading data, string representation of u64
     /// Returns true or throw error.
-    async fn preload_transactions(&self, from_lt: String) -> Result<bool, anyhow::Error> {
+    async fn preload_transactions(&self, from_lt: String) -> anyhow::Result<bool> {
         let from_lt = from_lt.parse::<u64>().handle_error()?;
         self.inner_contract
             .lock()
@@ -215,7 +215,7 @@ impl GenericContractBoxTrait for GenericContractBox {
     /// Handle block of blockchain.
     /// block - base64-encoded Block.
     /// Return true or throw error.
-    async fn handle_block(&self, block: String) -> Result<bool, anyhow::Error> {
+    async fn handle_block(&self, block: String) -> anyhow::Result<bool> {
         let block = Block::construct_from_base64(&block).handle_error()?;
         self.inner_contract
             .lock()

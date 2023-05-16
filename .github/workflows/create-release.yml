@@ -6,12 +6,15 @@ on:
       version_parameters:
         description: 'Parameters to pass to "melos version"'
         required: true
-        default: ' '
+        default: " "
         type: choice
         options:
-          - '--'
-          - '--prerelease'
-          - '--graduate'
+          - "--"
+          - "--prerelease"
+          - "--graduate"
+
+env:
+  CARGO_INCREMENTAL: "1"
 
 jobs:
   create_release:
@@ -27,6 +30,11 @@ jobs:
           git config user.name "nesquikm"
           git config user.email "drapolyuk@gmail.com"
       - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.7.12'
+          channel: 'stable'
+          cache: true
+          cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
       - uses: bluefireteam/melos-action@v2
 
       - name: Create the new version(s)

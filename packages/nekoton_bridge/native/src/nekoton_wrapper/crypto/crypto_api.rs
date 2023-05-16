@@ -13,7 +13,7 @@ pub fn verify_signature(
     public_key: String,
     data_hash: String,
     signature: String,
-) -> Result<bool, anyhow::Error> {
+) -> anyhow::Result<bool> {
     let public_key = parse_public_key(public_key).handle_error()?;
 
     let data_hash = match hex::decode(&data_hash) {
@@ -41,7 +41,7 @@ pub fn verify_signature(
         Err(_) => return Err(anyhow::Error::msg("Invalid signature. Expected 64 bytes")),
     };
 
-    anyhow::Result::Ok(public_key.verify(&data_hash, &signature).is_ok())
+    Ok(public_key.verify(&data_hash, &signature).is_ok())
 }
 
 /// This struct creates only in rust side and describes UnsignedMessage
@@ -66,7 +66,7 @@ impl UnsignedMessageImpl {
 
     /// Sign message with signature and return json-encoded SignedMessage.
     /// signature receives from KeyStore.sign where data is UnsignedMessage.hash
-    pub fn sign(&self, signature: String) -> Result<String, anyhow::Error> {
+    pub fn sign(&self, signature: String) -> anyhow::Result<String> {
         self.inner_message.sign(signature)
     }
 }

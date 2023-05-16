@@ -5,6 +5,9 @@ on:
     tags:
       - "*"
 
+env:
+  CARGO_INCREMENTAL: "1"
+
 permissions:
   contents: write
 
@@ -16,6 +19,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.7.12'
+          channel: 'stable'
+          cache: true
+          cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
       - uses: bluefireteam/melos-action@v2
       - uses: goto-bus-stop/setup-zig@v2
       - uses: KyleMayes/install-llvm-action@v1
@@ -24,6 +32,18 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
+      - name: Set up cargo cache
+        uses: actions/cache@v3
+        continue-on-error: false
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-
       - uses: nttld/setup-ndk@v1
         with:
           ndk-version: r25b
@@ -35,23 +55,25 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: platform-build/*
-
 # TODO: Publish to pub.dev
-  # publish_pub_release:
-  #   needs: publish_github_release
-  #   runs-on: ubuntu-latest
+# publish_pub_release:
+#   needs: publish_github_release
+#   runs-on: ubuntu-latest
 
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: subosito/flutter-action@v2
-  #     - uses: bluefireteam/melos-action@v2
-  #     - name: Setup pub.dev credentials
-  #       run: |
-  #         mkdir -p $HOME/.config/dart
-  #         cat << EOF > $HOME/.config/dart/pub-credentials.json
-  #         ${{ secrets.PUB_CRED_JSON }}
-  #         EOF
-  #    - name: Dry-run publish to pub.dev
-  #      run: melos publish -y --dry-run
-  #    - name: Publish to pub.dev
-  #      run: melos publish -y --no-dry-run
+#   steps:
+#     - uses: actions/checkout@v3
+#     - uses: subosito/flutter-action@v2
+#       with:
+#         cache: true
+#         cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
+#     - uses: bluefireteam/melos-action@v2
+#     - name: Setup pub.dev credentials
+#       run: |
+#         mkdir -p $HOME/.config/dart
+#         cat << EOF > $HOME/.config/dart/pub-credentials.json
+#         ${{ secrets.PUB_CRED_JSON }}
+#         EOF
+#    - name: Dry-run publish to pub.dev
+#      run: melos publish -y --dry-run
+#    - name: Publish to pub.dev
+#      run: melos publish -y --no-dry-run

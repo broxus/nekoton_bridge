@@ -32,17 +32,17 @@ pub trait TokenWalletBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
 
     /// Get symbol of contract of wallet.
     /// Return json-encoded Symbol or throw error
-    async fn symbol(&self) -> Result<String, anyhow::Error>;
+    async fn symbol(&self) -> anyhow::Result<String>;
 
     /// Get json-encoded TokenWalletVersion or throw error.
-    async fn version(&self) -> Result<String, anyhow::Error>;
+    async fn version(&self) -> anyhow::Result<String>;
 
     /// Get balance of wallet.
     /// Return string representation of rust BigUInt
     async fn balance(&self) -> String;
 
     /// Get json-encoded ContractState or throw error.
-    async fn contract_state(&self) -> Result<String, anyhow::Error>;
+    async fn contract_state(&self) -> anyhow::Result<String>;
 
     /// Prepare transferring tokens from this wallet to other.
     /// destination - address of account that should receive token
@@ -59,21 +59,21 @@ pub trait TokenWalletBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         notify_receiver: bool,
         attached_amount: Option<String>,
         payload: Option<String>,
-    ) -> Result<String, anyhow::Error>;
+    ) -> anyhow::Result<String>;
 
     /// Refresh wallet and update its data.
     /// Returns true or throw error.
-    async fn refresh(&self) -> Result<bool, anyhow::Error>;
+    async fn refresh(&self) -> anyhow::Result<bool>;
 
     /// Preload transactions of wallet.
     /// from_lt - offset for loading data, string representation of u64
     /// Returns true or throw error.
-    async fn preload_transactions(&self, from_lt: String) -> Result<bool, anyhow::Error>;
+    async fn preload_transactions(&self, from_lt: String) -> anyhow::Result<bool>;
 
     /// Handle block of blockchain.
     /// block - base64-encoded Block.
     /// Return true or throw error.
-    async fn handle_block(&self, block: String) -> Result<bool, anyhow::Error>;
+    async fn handle_block(&self, block: String) -> anyhow::Result<bool>;
 }
 
 pub struct TokenWalletBox {
@@ -89,7 +89,7 @@ impl TokenWalletBox {
         owner: String,
         root_token_contract: String,
         handler: Arc<dyn TokenWalletSubscriptionHandler>,
-    ) -> Result<RustOpaque<Arc<dyn TokenWalletBoxTrait>>, anyhow::Error> {
+    ) -> anyhow::Result<RustOpaque<Arc<dyn TokenWalletBoxTrait>>> {
         let owner = parse_address(owner)?;
         let root_token_contract = parse_address(root_token_contract)?;
 
@@ -123,13 +123,13 @@ impl TokenWalletBoxTrait for TokenWalletBox {
 
     /// Get symbol of contract of wallet.
     /// Return json-encoded Symbol or throw error
-    async fn symbol(&self) -> Result<String, anyhow::Error> {
+    async fn symbol(&self) -> anyhow::Result<String> {
         let wallet = self.inner_wallet.lock().await;
         serde_json::to_string(&wallet.symbol()).handle_error()
     }
 
     /// Get json-encoded TokenWalletVersion or throw error.
-    async fn version(&self) -> Result<String, anyhow::Error> {
+    async fn version(&self) -> anyhow::Result<String> {
         let wallet = self.inner_wallet.lock().await;
         serde_json::to_string(&wallet.version()).handle_error()
     }
@@ -142,7 +142,7 @@ impl TokenWalletBoxTrait for TokenWalletBox {
     }
 
     /// Get json-encoded ContractState or throw error.
-    async fn contract_state(&self) -> Result<String, anyhow::Error> {
+    async fn contract_state(&self) -> anyhow::Result<String> {
         let wallet = self.inner_wallet.lock().await;
         serde_json::to_string(&wallet.contract_state()).handle_error()
     }
@@ -162,7 +162,7 @@ impl TokenWalletBoxTrait for TokenWalletBox {
         notify_receiver: bool,
         attached_amount: Option<String>,
         payload: Option<String>,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         let destination = parse_address(destination)?;
 
         let destination = TransferRecipient::OwnerWallet(destination);
@@ -199,7 +199,7 @@ impl TokenWalletBoxTrait for TokenWalletBox {
 
     /// Refresh wallet and update its data.
     /// Returns true or throw error.
-    async fn refresh(&self) -> Result<bool, anyhow::Error> {
+    async fn refresh(&self) -> anyhow::Result<bool> {
         self.inner_wallet
             .lock()
             .await
@@ -212,7 +212,7 @@ impl TokenWalletBoxTrait for TokenWalletBox {
     /// Preload transactions of wallet.
     /// from_lt - offset for loading data, string representation of u64
     /// Returns true or throw error.
-    async fn preload_transactions(&self, from_lt: String) -> Result<bool, anyhow::Error> {
+    async fn preload_transactions(&self, from_lt: String) -> anyhow::Result<bool> {
         let from_lt = from_lt.parse::<u64>().handle_error()?;
         self.inner_wallet
             .lock()
@@ -226,7 +226,7 @@ impl TokenWalletBoxTrait for TokenWalletBox {
     /// Handle block of blockchain.
     /// block - base64-encoded Block.
     /// Return true or throw error.
-    async fn handle_block(&self, block: String) -> Result<bool, anyhow::Error> {
+    async fn handle_block(&self, block: String) -> anyhow::Result<bool> {
         let block = Block::construct_from_base64(&block).handle_error()?;
         self.inner_wallet
             .lock()
@@ -247,7 +247,7 @@ impl TokenWalletBoxTrait for TokenWalletBox {
 pub async fn token_wallet_details(
     transport: Arc<dyn Transport>,
     address: String,
-) -> Result<String, anyhow::Error> {
+) -> anyhow::Result<String> {
     let token_wallet = parse_address(address)?;
 
     let details = get_token_wallet_details(clock!().as_ref(), transport.as_ref(), &token_wallet)
@@ -265,7 +265,7 @@ pub async fn token_wallet_details(
 pub async fn token_root_details_from_token_wallet(
     transport: Arc<dyn Transport>,
     token_wallet_address: String,
-) -> Result<String, anyhow::Error> {
+) -> anyhow::Result<String> {
     let token_wallet = parse_address(token_wallet_address)?;
 
     let details = get_token_root_details_from_token_wallet(

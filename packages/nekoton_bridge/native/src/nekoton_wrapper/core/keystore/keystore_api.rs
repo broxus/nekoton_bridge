@@ -21,7 +21,7 @@ impl KeystoreDartWrapper {
         storage: StorageDartWrapper,
         signers: Vec<KeySigner>,
         ledger_connection: Option<LedgerConnectionDartWrapper>,
-    ) -> Result<KeystoreDartWrapper, anyhow::Error> {
+    ) -> anyhow::Result<KeystoreDartWrapper> {
         let keystore_builder = map_keystore_builder(signers, ledger_connection)?;
         let keystore =
             KeyStoreApiBox::create(keystore_builder, storage.get_storage().get_storage())?;
@@ -31,21 +31,21 @@ impl KeystoreDartWrapper {
     }
 
     /// Get list of json-encoded KeyStoreEntry or throw error
-    pub fn get_entries(&self) -> Result<String, anyhow::Error> {
+    pub fn get_entries(&self) -> anyhow::Result<String> {
         async_run!(self.inner_keystore.get_entries().await)
     }
 
     /// Insert new key in keystore. Returns json-encoded KeystoreEntry or throw error.
     /// input - json-encoded action specified for signer eg EncryptedKeyCreateInput or
     ///   DerivedKeyCreateInput or LedgerKeyCreateInput
-    pub fn add_key(&self, signer: KeySigner, input: String) -> Result<String, anyhow::Error> {
+    pub fn add_key(&self, signer: KeySigner, input: String) -> anyhow::Result<String> {
         async_run!(self.inner_keystore.add_key(signer, input).await)
     }
 
     /// Method same as add_key but allows add multiple keys at time.
     /// Returns json-encoded list of KeyStoreEntry or throw error.
     /// input - json-encoded list of inputs, same as in add_key method
-    pub fn add_keys(&self, signer: KeySigner, input: String) -> Result<String, anyhow::Error> {
+    pub fn add_keys(&self, signer: KeySigner, input: String) -> anyhow::Result<String> {
         async_run!(self.inner_keystore.add_keys(signer, input).await)
     }
 
@@ -53,25 +53,21 @@ impl KeystoreDartWrapper {
     /// Returns updated json-encoded KeyStoreEntry or throw error.
     /// input - json-encoded action specified for signer eg EncryptedKeyUpdateParams or
     ///   DerivedKeyUpdateParams or LedgerUpdateKeyInput
-    pub fn update_key(&self, signer: KeySigner, input: String) -> Result<String, anyhow::Error> {
+    pub fn update_key(&self, signer: KeySigner, input: String) -> anyhow::Result<String> {
         async_run!(self.inner_keystore.update_key(signer, input).await)
     }
 
     /// Export key and get its seed phrase and mnemonic type.
     /// THIS METHOD DO NOT WORK for LEDGER.
     /// Returns json-encoded EncryptedKeyExportOutput or DerivedKeyExportOutput or throw error
-    pub fn export_key(&self, signer: KeySigner, input: String) -> Result<String, anyhow::Error> {
+    pub fn export_key(&self, signer: KeySigner, input: String) -> anyhow::Result<String> {
         async_run!(self.inner_keystore.export_key(signer, input).await)
     }
 
     /// Return list of public keys specified for signer or throw error.
     /// input - json-encoded action specified for signer eg EncryptedKeyGetPublicKeys or
     ///   DerivedKeyGetPublicKeys or LedgerKeyGetPublicKeys
-    pub fn get_public_keys(
-        &self,
-        signer: KeySigner,
-        input: String,
-    ) -> Result<Vec<String>, anyhow::Error> {
+    pub fn get_public_keys(&self, signer: KeySigner, input: String) -> anyhow::Result<Vec<String>> {
         async_run!(self.inner_keystore.get_public_keys(signer, input).await)
     }
 
@@ -89,7 +85,7 @@ impl KeystoreDartWrapper {
         public_keys: Vec<String>,
         algorithm: String,
         input: String,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         async_run!(
             self.inner_keystore
                 .encrypt(signer, data, public_keys, algorithm, input)
@@ -106,7 +102,7 @@ impl KeystoreDartWrapper {
         signer: KeySigner,
         data: String,
         input: String,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         async_run!(self.inner_keystore.decrypt(signer, data, input).await)
     }
 
@@ -121,7 +117,7 @@ impl KeystoreDartWrapper {
         data: String,
         input: String,
         signature_id: Option<i32>,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         async_run!(
             self.inner_keystore
                 .sign(signer, data, input, signature_id)
@@ -138,7 +134,7 @@ impl KeystoreDartWrapper {
         data: String,
         input: String,
         signature_id: Option<i32>,
-    ) -> Result<SignedData, anyhow::Error> {
+    ) -> anyhow::Result<SignedData> {
         async_run!(
             self.inner_keystore
                 .sign_data(signer, data, input, signature_id)
@@ -155,7 +151,7 @@ impl KeystoreDartWrapper {
         data: String,
         input: String,
         signature_id: Option<i32>,
-    ) -> Result<SignedDataRaw, anyhow::Error> {
+    ) -> anyhow::Result<SignedDataRaw> {
         async_run!(
             self.inner_keystore
                 .sign_data_raw(signer, data, input, signature_id)
@@ -164,24 +160,20 @@ impl KeystoreDartWrapper {
     }
 
     /// Remove public key from KeyStore and return json-encoded KeyStoreEntry if it was removed.
-    pub fn remove_key(&self, public_key: String) -> Result<Option<String>, anyhow::Error> {
+    pub fn remove_key(&self, public_key: String) -> anyhow::Result<Option<String>> {
         async_run!(self.inner_keystore.remove_key(public_key).await)
     }
 
     /// Remove list of public key from KeyStore and return json-encoded list of KeyStoreEntry's
     /// that were removed or throw error.
-    pub fn remove_keys(&self, public_keys: Vec<String>) -> Result<String, anyhow::Error> {
+    pub fn remove_keys(&self, public_keys: Vec<String>) -> anyhow::Result<String> {
         async_run!(self.inner_keystore.remove_keys(public_keys).await)
     }
 
     /// Check if password cached for specified public_key.
     /// duration - timestamp in milliseconds of expiring key.
     /// Returns true/false or throw error.
-    pub fn is_password_cached(
-        &self,
-        public_key: String,
-        duration: u64,
-    ) -> Result<bool, anyhow::Error> {
+    pub fn is_password_cached(&self, public_key: String, duration: u64) -> anyhow::Result<bool> {
         async_run!(
             self.inner_keystore
                 .is_password_cached(public_key, duration)
@@ -190,12 +182,12 @@ impl KeystoreDartWrapper {
     }
 
     /// Clear KeyStore and remove all entries and all sensitive data.
-    pub fn clear_keystore(&self) -> Result<String, anyhow::Error> {
+    pub fn clear_keystore(&self) -> anyhow::Result<String> {
         async_run!(self.inner_keystore.clear_keystore().await)
     }
 
     /// Try to reload all stored data.
-    pub fn reload_keystore(&self) -> Result<String, anyhow::Error> {
+    pub fn reload_keystore(&self) -> anyhow::Result<String> {
         async_run!(self.inner_keystore.reload_keystore().await)
     }
 
@@ -205,7 +197,7 @@ impl KeystoreDartWrapper {
         signers: Vec<KeySigner>,
         ledger_connection: Option<LedgerConnectionDartWrapper>,
         data: String,
-    ) -> Result<bool, anyhow::Error> {
+    ) -> anyhow::Result<bool> {
         let builder = map_keystore_builder(signers, ledger_connection)?;
         Ok(verify_data(builder, data))
     }
@@ -214,7 +206,7 @@ impl KeystoreDartWrapper {
 fn map_keystore_builder(
     signers: Vec<KeySigner>,
     connection: Option<LedgerConnectionDartWrapper>,
-) -> Result<KeyStoreBuilder, anyhow::Error> {
+) -> anyhow::Result<KeyStoreBuilder> {
     let mut keystore_builder = KeyStore::builder();
 
     if signers.contains(&KeySigner::Encrypted) {

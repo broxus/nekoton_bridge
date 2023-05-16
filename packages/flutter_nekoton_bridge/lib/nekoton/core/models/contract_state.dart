@@ -1,7 +1,5 @@
-import 'package:flutter_nekoton_bridge/nekoton/utils.dart';
+import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:flutter_nekoton_bridge/nekoton/core/models/gen_timings.dart';
-import 'package:flutter_nekoton_bridge/nekoton/core/models/last_transaction_id.dart';
 
 part 'contract_state.freezed.dart';
 
@@ -10,7 +8,7 @@ part 'contract_state.g.dart';
 @freezed
 class ContractState with _$ContractState {
   const factory ContractState({
-    @amountJsonConverter required BigInt balance,
+    @amountJsonConverter required Fixed balance,
     required GenTimings genTimings,
     LastTransactionId? lastTransactionId,
     required bool isDeployed,
