@@ -1766,13 +1766,11 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_init_caller =
       _wire_init_callerPtr.asFunction<void Function(int)>();
 
-  void wire_call_send_result(
-    int port_,
+  WireSyncReturn wire_call_send_result(
     ffi.Pointer<wire_uint_8_list> id,
     ffi.Pointer<wire_DynamicValue> value,
   ) {
     return _wire_call_send_result(
-      port_,
       id,
       value,
     );
@@ -1780,11 +1778,11 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
 
   late final _wire_call_send_resultPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
+          WireSyncReturn Function(ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_DynamicValue>)>>('wire_call_send_result');
   late final _wire_call_send_result = _wire_call_send_resultPtr.asFunction<
-      void Function(int, ffi.Pointer<wire_uint_8_list>,
-          ffi.Pointer<wire_DynamicValue>)>();
+      WireSyncReturn Function(
+          ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_DynamicValue>)>();
 
   void wire_simple_log(
     int port_,
@@ -1954,6 +1952,20 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           'wire_simple_call_func2');
   late final _wire_simple_call_func2 =
       _wire_simple_call_func2Ptr.asFunction<void Function(int)>();
+
+  void wire_simple_call_func3(
+    int port_,
+  ) {
+    return _wire_simple_call_func3(
+      port_,
+    );
+  }
+
+  late final _wire_simple_call_func3Ptr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_simple_call_func3');
+  late final _wire_simple_call_func3 =
+      _wire_simple_call_func3Ptr.asFunction<void Function(int)>();
 
   void wire_refresh_timeout__method__UnsignedMessageImpl(
     int port_,

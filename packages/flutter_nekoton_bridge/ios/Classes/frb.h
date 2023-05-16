@@ -413,9 +413,7 @@ void wire_create_log_stream(int64_t port_);
 
 void wire_init_caller(int64_t port_);
 
-void wire_call_send_result(int64_t port_,
-                           struct wire_uint_8_list *id,
-                           struct wire_DynamicValue *value);
+WireSyncReturn wire_call_send_result(struct wire_uint_8_list *id, struct wire_DynamicValue *value);
 
 void wire_simple_log(int64_t port_, struct wire_uint_8_list *string);
 
@@ -438,6 +436,8 @@ void wire_simple_call_func0(int64_t port_, bool need_result);
 void wire_simple_call_func1(int64_t port_, bool need_result);
 
 void wire_simple_call_func2(int64_t port_);
+
+void wire_simple_call_func3(int64_t port_);
 
 void wire_refresh_timeout__method__UnsignedMessageImpl(int64_t port_,
                                                        struct wire_UnsignedMessageImpl *that);
@@ -1095,6 +1095,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_simple_call_func0);
     dummy_var ^= ((int64_t) (void*) wire_simple_call_func1);
     dummy_var ^= ((int64_t) (void*) wire_simple_call_func2);
+    dummy_var ^= ((int64_t) (void*) wire_simple_call_func3);
     dummy_var ^= ((int64_t) (void*) wire_refresh_timeout__method__UnsignedMessageImpl);
     dummy_var ^= ((int64_t) (void*) wire_expire_at__method__UnsignedMessageImpl);
     dummy_var ^= ((int64_t) (void*) wire_hash__method__UnsignedMessageImpl);

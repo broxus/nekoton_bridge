@@ -95,6 +95,21 @@ class _MyAppState extends State<MyApp> {
     flutter_nekoton_bridge.simpleCallFunc2();
   }
 
+  void _onPressedDartCallFunc3() async {
+    flutter_nekoton_bridge.simpleCallFunc3();
+    flutter_nekoton_bridge.simpleCallFunc3();
+    flutter_nekoton_bridge.simpleCallFunc3();
+    flutter_nekoton_bridge.simpleCallFunc3();
+    flutter_nekoton_bridge.simpleCallFunc3();
+    flutter_nekoton_bridge.simpleCallFunc3();
+    flutter_nekoton_bridge.simpleCallFunc3();
+    flutter_nekoton_bridge.simpleCallFunc3();
+    flutter_nekoton_bridge.simpleCallFunc3();
+    flutter_nekoton_bridge.simpleCallFunc3();
+    flutter_nekoton_bridge.simpleCallFunc3();
+    flutter_nekoton_bridge.simpleCallFunc3();
+  }
+
   // TODO: remove all non-integration test related things TO here
 
   // These buttons (with *Test* callbacks) SHOULD NOT be removed
@@ -281,6 +296,10 @@ class _MyAppState extends State<MyApp> {
                 TextButton(
                   onPressed: () => _onPressedTriggerTestCallers(),
                   child: const Text('Trigger test callers'),
+                ),
+                TextButton(
+                  onPressed: () => _onPressedDartCallFunc3(),
+                  child: const Text('CallFunc3'),
                 ),
                 // TODO: remove all non-integration test related things TO here
               ],

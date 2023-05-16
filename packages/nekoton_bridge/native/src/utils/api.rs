@@ -1,6 +1,7 @@
 #![allow(unused_variables, dead_code)]
 
 use std::collections::HashMap;
+use std::{thread, time};
 
 use flutter_rust_bridge::*;
 use log::*;
@@ -25,8 +26,8 @@ pub fn init_caller(stream_sink: StreamSink<caller::DartCallStubRegistred>) {
 }
 
 /// Callback functions for returning Dart method result
-pub fn call_send_result(id: String, value: caller::DynamicValue) {
-    caller::call_send_result(id, value);
+pub fn call_send_result(id: String, value: caller::DynamicValue) -> SyncReturn<()> {
+    caller::call_send_result(id, value)
 }
 
 // TODO: remove all non-integration test related things FROM here
@@ -202,6 +203,13 @@ pub fn simple_call_func2() {
         "Something returned from simple_call_func2: name: {} debug: {:?}",
         mega_struct.name, mega_struct,
     );
+}
+
+pub fn simple_call_func3() {
+    let duration = time::Duration::from_secs(2);
+    thread::sleep(duration);
+
+    debug!("Returned from simple_call_func3");
 }
 
 pub struct CallerTestClass {
