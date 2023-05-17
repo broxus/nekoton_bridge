@@ -34,6 +34,9 @@ class KeyStore {
     return instance;
   }
 
+  /// Get list of keys that stores in KeyStore in that moment.
+  List<KeyStoreEntry> get keys => _keysSubject.value;
+
   /// Stream of keys that could be listened outside
   Stream<List<KeyStoreEntry>> get keysStream => _keysSubject.stream;
 
@@ -46,20 +49,20 @@ class KeyStore {
         .toList();
   }
 
-  /// Return added KeyStoreEntry or throw error
-  Future<KeyStoreEntry> addKey(CreateKeyInput input) async {
+  /// Return added public key of added KeyStoreEntry or throw error
+  Future<String> addKey(CreateKeyInput input) async {
     final encoded = await keystore.addKey(
       signer: input.toSigner(),
       input: jsonEncode(input),
     );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
-    _updateData();
-    return KeyStoreEntry.fromJson(decoded);
+    await _updateData();
+    return KeyStoreEntry.fromJson(decoded).publicKey;
   }
 
-  /// Return list of added KeyStoreEntry or throw error
+  /// Return list of public keys of added KeyStoreEntry or throw error
   /// All [inputs] must contains same signer information.
-  Future<List<KeyStoreEntry>> addKeys(List<CreateKeyInput> inputs) async {
+  Future<List<String>> addKeys(List<CreateKeyInput> inputs) async {
     final signers = inputs.map((e) => e.toSigner()).toSet().toList();
     assert(signers.length == 1);
 
@@ -68,21 +71,19 @@ class KeyStore {
       input: jsonEncode(inputs),
     );
     final decoded = jsonDecode(encoded) as List<dynamic>;
-    _updateData();
+    await _updateData();
     return decoded
-        .map((e) => KeyStoreEntry.fromJson(e as Map<String, dynamic>))
+        .map((e) => KeyStoreEntry.fromJson(e as Map<String, dynamic>).publicKey)
         .toList();
   }
 
-  /// Return updated KeyStoreEntry or throw error
-  Future<KeyStoreEntry> updateKey(UpdateKeyInput input) async {
-    final encoded = await keystore.updateKey(
+  /// Update key, may throw error
+  Future<void> updateKey(UpdateKeyInput input) async {
+    await keystore.updateKey(
       signer: input.toSigner(),
       input: jsonEncode(input),
     );
-    final decoded = jsonDecode(encoded) as Map<String, dynamic>;
-    _updateData();
-    return KeyStoreEntry.fromJson(decoded);
+    await _updateData();
   }
 
   /// Export key and get its seed phrase and mnemonic type.
@@ -193,25 +194,24 @@ class KeyStore {
     );
   }
 
-  /// Remove public key from KeyStore and return KeyStoreEntry if it was removed.
-  Future<KeyStoreEntry?> removeKey({required String publicKey}) async {
+  /// Remove public key from KeyStore and return if it was removed.
+  Future<bool> removeKey({required String publicKey}) async {
     final encoded = await keystore.removeKey(publicKey: publicKey);
-    if (encoded == null) return null;
-    final decoded = jsonDecode(encoded) as Map<String, dynamic>;
-    _updateData();
-    return KeyStoreEntry.fromJson(decoded);
+    if (encoded == null) return false;
+    await _updateData();
+    return true;
   }
 
-  /// Remove list of public key from KeyStore and return list of KeyStoreEntry's
+  /// Remove list of public key from KeyStore and return list public keys
   /// that were removed or throw error.
-  Future<List<KeyStoreEntry>> removeKeys({
+  Future<List<String>> removeKeys({
     required List<String> publicKeys,
   }) async {
     final encoded = await keystore.removeKeys(publicKeys: publicKeys);
     final decoded = jsonDecode(encoded) as List<dynamic>;
-    _updateData();
+    await _updateData();
     return decoded
-        .map((e) => KeyStoreEntry.fromJson(e as Map<String, dynamic>))
+        .map((e) => KeyStoreEntry.fromJson(e as Map<String, dynamic>).publicKey)
         .toList();
   }
 
@@ -231,13 +231,13 @@ class KeyStore {
   /// Clear KeyStore and remove all entries and all sensitive data.
   Future<void> clearStore() async {
     await keystore.clearKeystore();
-    _updateData();
+    await _updateData();
   }
 
   /// Try to reload all stored data.
   Future<void> reloadKeystore() async {
     await keystore.reloadKeystore();
-    _updateData();
+    await _updateData();
   }
 
   /// Verify if data is valid with specified signers and connection or not.

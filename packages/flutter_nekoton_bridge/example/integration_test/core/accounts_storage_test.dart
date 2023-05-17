@@ -108,14 +108,16 @@ void main() {
       final accountsStorage = await AccountsStorage.create(storage: storage);
       final addAccount = AccountToAdd(
         name: 'Name',
-        publicKey: key.publicKey,
+        publicKey: key,
         contract: const WalletType.everWallet(),
         workchain: 0,
       );
-      final asset = await accountsStorage.addAccount(addAccount);
+      final address = await accountsStorage.addAccount(addAccount);
+      final asset = accountsStorage.accounts.first;
 
+      expect(address, asset.address);
       expect(asset.address.isNotEmpty, isTrue);
-      expect(asset.publicKey, key.publicKey);
+      expect(asset.publicKey, key);
       expect(asset.tonWallet.contract, const WalletType.everWallet());
       expect(accountsStorage, isNotNull);
     });
@@ -140,15 +142,17 @@ void main() {
       final accountsStorage = await AccountsStorage.create(storage: storage);
       final addAccount = AccountToAdd(
         name: 'Name',
-        publicKey: key.publicKey,
+        publicKey: key,
         contract: const WalletType.everWallet(),
         workchain: 0,
       );
-      final assets = await accountsStorage.addAccounts([addAccount]);
-      final asset = assets.first;
+      final addresses = await accountsStorage.addAccounts([addAccount]);
+      final address = addresses.first;
+      final asset = accountsStorage.accounts.first;
 
+      expect(address, asset.address);
       expect(asset.address.isNotEmpty, isTrue);
-      expect(asset.publicKey, key.publicKey);
+      expect(asset.publicKey, key);
       expect(asset.tonWallet.contract, const WalletType.everWallet());
       expect(accountsStorage, isNotNull);
     });
@@ -173,7 +177,7 @@ void main() {
       final accountsStorage = await AccountsStorage.create(storage: storage);
       final addAccount = AccountToAdd(
         name: 'Name',
-        publicKey: key.publicKey,
+        publicKey: key,
         contract: const WalletType.everWallet(),
         workchain: 0,
       );
@@ -185,7 +189,7 @@ void main() {
       final asset = entries.first;
 
       expect(asset.address.isNotEmpty, isTrue);
-      expect(asset.publicKey, key.publicKey);
+      expect(asset.publicKey, key);
       expect(asset.tonWallet.contract, const WalletType.everWallet());
       expect(accountsStorage, isNotNull);
     });
@@ -210,19 +214,17 @@ void main() {
       final accountsStorage = await AccountsStorage.create(storage: storage);
       final addAccount = AccountToAdd(
         name: 'Name',
-        publicKey: key.publicKey,
+        publicKey: key,
         contract: const WalletType.everWallet(),
         workchain: 0,
       );
-      final added = await accountsStorage.addAccount(addAccount);
-      final removed = await accountsStorage.removeAccount(added.address);
+      final address = await accountsStorage.addAccount(addAccount);
+      final removed = await accountsStorage.removeAccount(address);
 
       final entries = await accountsStorage.getEntries();
 
       expect(entries.isEmpty, isTrue);
-      expect(removed!.address.isNotEmpty, isTrue);
-      expect(removed.publicKey, key.publicKey);
-      expect(removed.tonWallet.contract, const WalletType.everWallet());
+      expect(removed, isTrue);
       expect(accountsStorage, isNotNull);
     });
 
@@ -246,7 +248,7 @@ void main() {
       final accountsStorage = await AccountsStorage.create(storage: storage);
       final addAccount = AccountToAdd(
         name: 'Name',
-        publicKey: key.publicKey,
+        publicKey: key,
         contract: const WalletType.everWallet(),
         workchain: 0,
       );
