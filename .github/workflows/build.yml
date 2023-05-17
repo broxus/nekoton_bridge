@@ -246,10 +246,9 @@ jobs:
           CURR_VERSION=nekoton_bridge-v`awk '/^version: /{print $2}' packages/nekoton_bridge/pubspec.yaml`
           cp platform-build/NekotonBridge.xcframework.zip packages/flutter_nekoton_bridge/ios/Frameworks/$CURR_VERSION.zip
           echo Copied file!
-
       - name: Run Flutter integration tests
         working-directory: packages/flutter_nekoton_bridge/example
-        run: flutter test -d ${{ env.DEVICE_ID }} integration_test
+        run: flutter test -d ${{ env.DEVICE_ID }} --dart-define=FLUTTER_TEST_SKIP_FLAKY_IOS=${{ vars.FLUTTER_TEST_SKIP_FLAKY_IOS }} integration_test
 
   android_integration_test:
     runs-on: macos-latest
@@ -304,4 +303,4 @@ jobs:
             arch: x86_64
             ram-size: 1024M
             disk-size: 2048M
-            script: cd packages/flutter_nekoton_bridge/example && flutter test -d `flutter devices | grep android | tr ' ' '\n' | grep emulator-` integration_test
+            script: cd packages/flutter_nekoton_bridge/example && flutter test --dart-define=FLUTTER_TEST_SKIP_FLAKY_ANDROID=${{ vars.FLUTTER_TEST_SKIP_FLAKY_ANDROID }} -d `flutter devices | grep android | tr ' ' '\n' | grep emulator-` integration_test
