@@ -246,6 +246,13 @@ jobs:
           CURR_VERSION=nekoton_bridge-v`awk '/^version: /{print $2}' packages/nekoton_bridge/pubspec.yaml`
           cp platform-build/NekotonBridge.xcframework.zip packages/flutter_nekoton_bridge/ios/Frameworks/$CURR_VERSION.zip
           echo Copied file!
+      # This is fucking hilarious, but no one has an idea how to fix
+      # TimeoutException after 0:12:00.000000 bug:
+      # https://github.com/flutter/flutter/issues/105913
+      # So, this is a magic that probably can 'fix'
+      - name: Pre-build the Flutter app
+        working-directory: packages/flutter_nekoton_bridge/example
+        run: flutter build ios --no-codesign --simulator --target=integration_test/app_test.dart
       - name: Run Flutter integration tests
         working-directory: packages/flutter_nekoton_bridge/example
         run: flutter test -d ${{ env.DEVICE_ID }} --dart-define=FLUTTER_TEST_SKIP_FLAKY_IOS=${{ vars.FLUTTER_TEST_SKIP_FLAKY_IOS }} integration_test
