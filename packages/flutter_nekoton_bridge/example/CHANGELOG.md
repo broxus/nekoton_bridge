@@ -1,3 +1,8 @@
+## 1.8.0-dev.8
+
+ - **FIX**: caller parallelelism ([#105](https://github.com/broxus/nekoton_bridge/issues/105)). ([6892cca0](https://github.com/broxus/nekoton_bridge/commit/6892cca0af429d4bfad3ae6b03a9d8f89044931b))
+ - **FIX**: transport tests ([#101](https://github.com/broxus/nekoton_bridge/issues/101)). ([0d3d9af3](https://github.com/broxus/nekoton_bridge/commit/0d3d9af375c12a55eb525fc2d6afcb96427c869f))
+
 ## 1.8.0-dev.7
 
  - **FIX**: transport tests ([#101](https://github.com/broxus/nekoton_bridge/issues/101)). ([0d3d9af3](https://github.com/broxus/nekoton_bridge/commit/0d3d9af375c12a55eb525fc2d6afcb96427c869f))
