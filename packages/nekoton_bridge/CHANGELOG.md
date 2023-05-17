@@ -1,3 +1,7 @@
+## 1.8.0-dev.7
+
+ - **FIX**: caller parallelelism ([#105](https://github.com/broxus/nekoton_bridge/issues/105)). ([6892cca0](https://github.com/broxus/nekoton_bridge/commit/6892cca0af429d4bfad3ae6b03a9d8f89044931b))
+
 ## 1.8.0-dev.6
 
  - **FIX**: update frb ([#89](https://github.com/broxus/nekoton_bridge/issues/89)). ([e42f9297](https://github.com/broxus/nekoton_bridge/commit/e42f92971cce2f36c472af22a67c089b475027e3))
