@@ -216,6 +216,7 @@ void main() {
         signers: signers,
       );
       final key = await keystore.addKey(input);
+      final keysEntry = keystore.keys.first;
 
       /// ---------------------------------------
       /// CREATING WALLET
@@ -243,8 +244,8 @@ void main() {
         data: message.hash,
         input: DerivedKeySignParams.byAccountId(
           DerivedKeySignParamsByAccountId(
-            masterKey: key.masterKey,
-            accountId: key.accountId,
+            masterKey: key,
+            accountId: keysEntry.accountId,
             password: const Password.explicit(
               PasswordExplicit(
                 password: password,
