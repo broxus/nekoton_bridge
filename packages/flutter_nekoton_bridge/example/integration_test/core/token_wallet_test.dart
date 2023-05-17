@@ -5,7 +5,6 @@ import 'package:integration_test/integration_test.dart';
 
 import 'package:http/http.dart' as http;
 
-import '../test_helpers.dart';
 import '../timeout_utils.dart';
 
 Future<String> postTransportData({
@@ -23,12 +22,6 @@ Future<String> postTransportData({
 }
 
 void main() {
-  // TODO(nesquikm): it's not clear which test is causing flaky behavior
-  // https://github.com/flutter/flutter/issues/105913
-  if (skipBecauseFlaky()) {
-    return;
-  }
-
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   const name = 'Mainnet (GQL)';
