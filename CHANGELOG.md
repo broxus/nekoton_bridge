@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-05-17
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.8.0-dev.9`](#flutter_nekoton_bridge---v180-dev9)
+ - [`flutter_nekoton_bridge_example` - `v1.8.0-dev.9`](#flutter_nekoton_bridge_example---v180-dev9)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.8.0-dev.9`
+
+ - **FIX**: change test skipping behavoir ([#109](https://github.com/broxus/nekoton_bridge/issues/109)). ([5db256d2](https://github.com/broxus/nekoton_bridge/commit/5db256d2a9a73904ff4e3a0c7b4345aa20fb981a))
+ - **FIX**: 12 min timeout flaky tests ([#107](https://github.com/broxus/nekoton_bridge/issues/107)). ([35003c00](https://github.com/broxus/nekoton_bridge/commit/35003c00a70a48dbcd8afb84725531307543f13f))
+ - **FEAT**: update keystore and accountsstorage logic ([#110](https://github.com/broxus/nekoton_bridge/issues/110)). ([414cfe18](https://github.com/broxus/nekoton_bridge/commit/414cfe18b3bac75b9bc58878e1ab8f29fe9045eb))
+
+#### `flutter_nekoton_bridge_example` - `v1.8.0-dev.9`
+
+ - **FIX**: change test skipping behavoir ([#109](https://github.com/broxus/nekoton_bridge/issues/109)). ([5db256d2](https://github.com/broxus/nekoton_bridge/commit/5db256d2a9a73904ff4e3a0c7b4345aa20fb981a))
+ - **FIX**: 12 min timeout flaky tests ([#107](https://github.com/broxus/nekoton_bridge/issues/107)). ([35003c00](https://github.com/broxus/nekoton_bridge/commit/35003c00a70a48dbcd8afb84725531307543f13f))
+ - **FEAT**: update keystore and accountsstorage logic ([#110](https://github.com/broxus/nekoton_bridge/issues/110)). ([414cfe18](https://github.com/broxus/nekoton_bridge/commit/414cfe18b3bac75b9bc58878e1ab8f29fe9045eb))
+
+
 ## 2023-05-12
 
 ### Changes
