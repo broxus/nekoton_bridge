@@ -25,6 +25,9 @@ class AccountsStorage {
     return instance;
   }
 
+  /// Get list of accounts that stores in AccountsStorage in that moment.
+  List<AssetsList> get accounts => _accountsSubject.value;
+
   /// Stream of accounts that could be listened outside
   Stream<List<AssetsList>> get accountsStream => _accountsSubject.stream;
 
@@ -37,35 +40,33 @@ class AccountsStorage {
         .toList();
   }
 
-  /// Add new account to storage and return its instance or throw error
-  Future<AssetsList> addAccount(AccountToAdd account) async {
+  /// Add new account to storage and return its address or throw error
+  Future<String> addAccount(AccountToAdd account) async {
     final encoded =
         await accountsStorage.addAccount(account: jsonEncode(account));
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
-    _updateData();
-    return AssetsList.fromJson(decoded);
+    await _updateData();
+    return AssetsList.fromJson(decoded).address;
   }
 
-  /// Add list of new accounts to storage and return it instances.
-  Future<List<AssetsList>> addAccounts(List<AccountToAdd> account) async {
+  /// Add list of new accounts to storage and return its addresses.
+  Future<List<String>> addAccounts(List<AccountToAdd> account) async {
     final encoded =
         await accountsStorage.addAccounts(accounts: jsonEncode(account));
     final decoded = jsonDecode(encoded) as List<dynamic>;
-    _updateData();
+    await _updateData();
     return decoded
-        .map((e) => AssetsList.fromJson(e as Map<String, dynamic>))
+        .map((e) => AssetsList.fromJson(e as Map<String, dynamic>).address)
         .toList();
   }
 
   /// Add new account to storage and return its instance or throw error
-  Future<AssetsList> renameAccount(String accountAddress, String name) async {
-    final encoded = await accountsStorage.renameAccount(
+  Future<void> renameAccount(String accountAddress, String name) async {
+    await accountsStorage.renameAccount(
       accountAddress: accountAddress,
       name: name,
     );
-    final decoded = jsonDecode(encoded) as Map<String, dynamic>;
-    _updateData();
-    return AssetsList.fromJson(decoded);
+    await _updateData();
   }
 
   /// Add token wallet signature to account (add new token to account aka enable it via slider).
@@ -85,7 +86,7 @@ class AccountsStorage {
       rootTokenContract: rootTokenContract,
     );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
-    _updateData();
+    await _updateData();
     return AssetsList.fromJson(decoded);
   }
 
@@ -106,47 +107,46 @@ class AccountsStorage {
       rootTokenContract: rootTokenContract,
     );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
-    _updateData();
+    await _updateData();
     return AssetsList.fromJson(decoded);
   }
 
-  /// Remove account from storage and return its instance if it was removed.
+  /// Remove account from storage and return true if it was removed or false.
   /// [accountAddress] - address of account
-  /// Return AssetsList that was removed or null or throw error.
-  Future<AssetsList?> removeAccount(String accountAddress) async {
+  /// Return if asset was removed or throw error.
+  Future<bool> removeAccount(String accountAddress) async {
     final encoded = await accountsStorage.removeAccount(
       accountAddress: accountAddress,
     );
-    if (encoded == null) return null;
-    final decoded = jsonDecode(encoded) as Map<String, dynamic>;
-    _updateData();
-    return AssetsList.fromJson(decoded);
+    if (encoded == null) return false;
+    await _updateData();
+    return true;
   }
 
-  /// Remove list of account from storage and return it instances if it were removed.
+  /// Remove list of account addresses that were removed from storage.
   /// [accountAddresses] - list of addresses of accounts.
-  /// Return list of AssetsList that were removed or throw error.
-  Future<List<AssetsList>> removeAccounts(List<String> accountAddresses) async {
+  /// Return list of addresses that were removed or throw error.
+  Future<List<String>> removeAccounts(List<String> accountAddresses) async {
     final encoded = await accountsStorage.removeAccounts(
       accountAddresses: accountAddresses,
     );
     final decoded = jsonDecode(encoded) as List<dynamic>;
-    _updateData();
+    await _updateData();
     return decoded
-        .map((e) => AssetsList.fromJson(e as Map<String, dynamic>))
+        .map((e) => AssetsList.fromJson(e as Map<String, dynamic>).address)
         .toList();
   }
 
   /// Clear storage and remove all data or throw error
   Future<void> clear() async {
     await accountsStorage.clear();
-    _updateData();
+    await _updateData();
   }
 
   /// Reload storage and read all data again or throw error.
   Future<void> reload() async {
     await accountsStorage.reload();
-    _updateData();
+    await _updateData();
   }
 
   /// Check if [data] is correct for storage.
