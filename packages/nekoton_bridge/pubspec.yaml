@@ -17,7 +17,7 @@ dependencies:
   ffi: ^2.0.1
   flutter_rust_bridge: ^1.75.2
   freezed_annotation: 2.2.0
-  basic_utils: 5.5.1
+  basic_utils: ^5.5.1
   flutter_lints: 2.0.1
   money2_improver: ^1.1.0
   money2: ^3.3.0
