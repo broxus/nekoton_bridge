@@ -5,7 +5,6 @@ import 'package:integration_test/integration_test.dart';
 
 import 'package:http/http.dart' as http;
 
-import '../test_helpers.dart';
 import '../timeout_utils.dart';
 
 class MockedStorageMethods {
@@ -98,7 +97,7 @@ void main() {
   });
 
   // TODO(nesquikm): it's not clear which test is causing flaky behavior
-  group('TonWallet test', skip: skipBecauseFlaky(), () {
+  group('TonWallet test', () {
     testWidgets('TonWallet subscribe', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
@@ -217,6 +216,7 @@ void main() {
         signers: signers,
       );
       final key = await keystore.addKey(input);
+      final keysEntry = keystore.keys.first;
 
       /// ---------------------------------------
       /// CREATING WALLET
@@ -244,8 +244,8 @@ void main() {
         data: message.hash,
         input: DerivedKeySignParams.byAccountId(
           DerivedKeySignParamsByAccountId(
-            masterKey: key.masterKey,
-            accountId: key.accountId,
+            masterKey: key,
+            accountId: keysEntry.accountId,
             password: const Password.explicit(
               PasswordExplicit(
                 password: password,

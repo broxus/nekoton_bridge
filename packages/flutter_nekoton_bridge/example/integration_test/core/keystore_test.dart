@@ -126,14 +126,16 @@ void main() {
 
       final key = await keystore.addKey(addKeyInputLabs);
       expect(key, isNotNull);
-      expect(key.name, inputLabsData.keyName);
-      expect(key.isLegacy, false);
-      expect(key.isMaster, true);
-      expect(key.signerName, const KeySigner.derived().name);
       expect(
-        key.publicKey,
+        key,
         '43c77e697042c96481336afd84a858079d97b3223dcb1228ec70112d89ecbf93',
       );
+      final keysEntry = keystore.keys.first;
+      expect(keysEntry.name, inputLabsData.keyName);
+      expect(keysEntry.isLegacy, false);
+      expect(keysEntry.isMaster, true);
+      expect(keysEntry.signerName, const KeySigner.derived().name);
+      expect(key, keysEntry.publicKey);
       expect(storageMethods.data.isNotEmpty, isTrue);
     });
 
@@ -155,14 +157,17 @@ void main() {
 
       final key = await keystore.addKey(addKeyInputLegacy);
       expect(key, isNotNull);
-      expect(key.name, addKeyInputLegacy.name);
-      expect(key.isLegacy, true);
-      expect(key.isMaster, true);
-      expect(key.signerName, const KeySigner.encrypted().name);
       expect(
-        key.publicKey,
+        key,
         '69fb667f274805ca5341afa06c4ba1227c37cd52f3a253f39426d211428fd78b',
       );
+      final keysEntry = keystore.keys.first;
+      expect(keysEntry.name, addKeyInputLegacy.name);
+      expect(keysEntry.isLegacy, true);
+      expect(keysEntry.isMaster, true);
+      expect(keysEntry.signerName, const KeySigner.encrypted().name);
+      expect(key, keysEntry.publicKey);
+
       expect(storageMethods.data.isNotEmpty, isTrue);
     });
 
@@ -185,14 +190,17 @@ void main() {
       final keys = await keystore.addKeys([addKeyInputLabs]);
       final key = keys.first;
       expect(key, isNotNull);
-      expect(key.name, inputLabsData.keyName);
-      expect(key.isLegacy, false);
-      expect(key.isMaster, true);
-      expect(key.signerName, const KeySigner.derived().name);
       expect(
-        key.publicKey,
+        key,
         '43c77e697042c96481336afd84a858079d97b3223dcb1228ec70112d89ecbf93',
       );
+      final keysEntry = keystore.keys.first;
+      expect(keysEntry.name, inputLabsData.keyName);
+      expect(keysEntry.isLegacy, false);
+      expect(keysEntry.isMaster, true);
+      expect(keysEntry.signerName, const KeySigner.derived().name);
+      expect(key, keysEntry.publicKey);
+
       expect(storageMethods.data.isNotEmpty, isTrue);
     });
 
@@ -215,16 +223,16 @@ void main() {
       final addedKey1 = await keystore.addKey(addKeyInputLabs);
       final addedKey2 = await keystore.addKey(addKeyInputLegacy);
 
-      final entries = await keystore.getEntries();
+      final entries =
+          (await keystore.getEntries()).map((e) => e.publicKey).toList();
 
       /// sort needs to avoid random order of keys
       expect(
         jsonEncode(
-          entries..sort((a, b) => a.publicKey.compareTo(b.publicKey)),
+          entries..sort((a, b) => a.compareTo(b)),
         ),
         jsonEncode(
-          [addedKey1, addedKey2]
-            ..sort((a, b) => a.publicKey.compareTo(b.publicKey)),
+          [addedKey1, addedKey2]..sort((a, b) => a.compareTo(b)),
         ),
       );
       expect(storageMethods.data.isNotEmpty, isTrue);
@@ -247,11 +255,11 @@ void main() {
       );
 
       final addedKey = await keystore.addKey(addKeyInputLabs);
-      final removed = await keystore.removeKey(publicKey: addedKey.publicKey);
+      final removed = await keystore.removeKey(publicKey: addedKey);
 
       final entries = await keystore.getEntries();
       expect(entries.length, 0);
-      expect(jsonEncode(addedKey), jsonEncode(removed));
+      expect(removed, isTrue);
     });
 
     testWidgets('KeyStore removeKeys', (WidgetTester tester) async {
@@ -273,7 +281,7 @@ void main() {
       final addedKey1 = await keystore.addKey(addKeyInputLabs);
       final addedKey2 = await keystore.addKey(addKeyInputLegacy);
       final removed = await keystore.removeKeys(
-        publicKeys: [addedKey1.publicKey, addedKey2.publicKey],
+        publicKeys: [addedKey1, addedKey2],
       );
 
       final entries = await keystore.getEntries();
@@ -326,7 +334,7 @@ void main() {
       final key = await keystore.addKey(addKeyInputLabs);
       final exported = (await keystore.exportKey(DerivedKeyExportParams(
         password: inputLabsData.password,
-        masterKey: key.publicKey,
+        masterKey: key,
       ))) as DerivedKeyExportOutput;
 
       expect(exported.phrase, inputLabsData.phrase);
@@ -350,14 +358,14 @@ void main() {
 
       final key = await keystore.addKey(addKeyInputLabs);
       final keys = await keystore.getPublicKeys(DerivedKeyGetPublicKeys(
-        masterKey: key.publicKey,
+        masterKey: key,
         password: inputLabsData.password,
         offset: 0,
         limit: 5,
       ));
 
       expect(keys.length, 5);
-      expect(keys[0], key.publicKey);
+      expect(keys[0], key);
     });
 
     testWidgets('KeyStore updateKey', (WidgetTester tester) async {
@@ -377,20 +385,19 @@ void main() {
       );
 
       final key = await keystore.addKey(addKeyInputLabs);
-      final updated = await keystore.updateKey(DerivedKeyUpdateParams.renameKey(
+      await keystore.updateKey(DerivedKeyUpdateParams.renameKey(
         DerivedKeyUpdateParamsRenameKey(
           name: 'Renamed',
-          publicKey: key.publicKey,
-          masterKey: key.publicKey,
+          publicKey: key,
+          masterKey: key,
         ),
       ));
       final entry = (await keystore.getEntries()).first;
 
-      expect(updated.name, entry.name);
-      expect(updated.name, 'Renamed');
-      expect(updated.publicKey, entry.publicKey);
-      expect(updated.masterKey, entry.masterKey);
-      expect(updated.isLegacy, entry.isLegacy);
+      expect(entry.name, 'Renamed');
+      expect(entry.publicKey, key);
+      expect(entry.masterKey, key);
+      expect(entry.isLegacy, false);
       expect(storageMethods.data.length, 1);
     });
   });

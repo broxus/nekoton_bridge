@@ -102,6 +102,19 @@ You can run dart, flutter and integration tests: `melos run test:dart`, `melos r
 
 You need to run emulator/simulator to complete `melos run test:integration`
 
+### Disabling flaky tests
+
+Yu can disable test or even test group by adding
+
+```dart
+skip: skipBecauseFlaky()
+```
+
+It detects current OS and skips test depending on FLUTTER_TEST_SKIP_FLAKY_* environment variable that can be set in CI. Currently it supports:
+
+* Android: FLUTTER_TEST_SKIP_FLAKY_ANDROID
+* iOS: FLUTTER_TEST_SKIP_FLAKY_IOS
+
 ## Code analysis
 
 You can run code analysis: `melos run analyze`. It will analyze all dart code, including subpackages.
@@ -148,3 +161,4 @@ and you will see duplicate. Better to put it inside other files of module and im
    and error can be got by calling `handle_error` function.
 7) If you have problems with implementing `dyn AnyTrait` of nekoton, then you need to make a hack with
    self-wrapped trait with implemented `UnwindSafe + RefUnwindSafe`, see `UnsignedMessageBoxTrait`
+
