@@ -22,7 +22,7 @@ OnBalanceChangedPayload _$OnBalanceChangedPayloadFromJson(
 /// @nodoc
 mixin _$OnBalanceChangedPayload {
   @amountJsonConverter
-  BigInt get balance => throw _privateConstructorUsedError;
+  Fixed get balance => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $OnBalanceChangedPayloadCopyWith<$Res> {
           $Res Function(OnBalanceChangedPayload) then) =
       _$OnBalanceChangedPayloadCopyWithImpl<$Res, OnBalanceChangedPayload>;
   @useResult
-  $Res call({@amountJsonConverter BigInt balance});
+  $Res call({@amountJsonConverter Fixed balance});
 }
 
 /// @nodoc
@@ -59,7 +59,7 @@ class _$OnBalanceChangedPayloadCopyWithImpl<$Res,
       balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
-              as BigInt,
+              as Fixed,
     ) as $Val);
   }
 }
@@ -72,7 +72,7 @@ abstract class _$$_OnBalanceChangedPayloadCopyWith<$Res>
       __$$_OnBalanceChangedPayloadCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@amountJsonConverter BigInt balance});
+  $Res call({@amountJsonConverter Fixed balance});
 }
 
 /// @nodoc
@@ -93,7 +93,7 @@ class __$$_OnBalanceChangedPayloadCopyWithImpl<$Res>
       balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
-              as BigInt,
+              as Fixed,
     ));
   }
 }
@@ -109,7 +109,7 @@ class _$_OnBalanceChangedPayload implements _OnBalanceChangedPayload {
 
   @override
   @amountJsonConverter
-  final BigInt balance;
+  final Fixed balance;
 
   @override
   String toString() {
@@ -146,7 +146,7 @@ class _$_OnBalanceChangedPayload implements _OnBalanceChangedPayload {
 
 abstract class _OnBalanceChangedPayload implements OnBalanceChangedPayload {
   const factory _OnBalanceChangedPayload(
-          {@amountJsonConverter required final BigInt balance}) =
+          {@amountJsonConverter required final Fixed balance}) =
       _$_OnBalanceChangedPayload;
 
   factory _OnBalanceChangedPayload.fromJson(Map<String, dynamic> json) =
@@ -154,7 +154,7 @@ abstract class _OnBalanceChangedPayload implements OnBalanceChangedPayload {
 
   @override
   @amountJsonConverter
-  BigInt get balance;
+  Fixed get balance;
   @override
   @JsonKey(ignore: true)
   _$$_OnBalanceChangedPayloadCopyWith<_$_OnBalanceChangedPayload>

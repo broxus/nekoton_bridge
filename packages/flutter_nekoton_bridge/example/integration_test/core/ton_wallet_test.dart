@@ -96,6 +96,7 @@ void main() {
     transport = await JrpcTransport.create(jrpcConnection: connection);
   });
 
+  // TODO(nesquikm): it's not clear which test is causing flaky behavior
   group('TonWallet test', () {
     testWidgets('TonWallet subscribe', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
@@ -170,7 +171,7 @@ void main() {
         contractState: contract,
         publicKey: publicKey,
         destination: repacked,
-        amount: BigInt.parse('100000000'),
+        amount: Fixed.parse('100000000'),
         bounce: false,
         expiration: expiration,
       );
@@ -215,6 +216,7 @@ void main() {
         signers: signers,
       );
       final key = await keystore.addKey(input);
+      final keysEntry = keystore.keys.first;
 
       /// ---------------------------------------
       /// CREATING WALLET
@@ -232,7 +234,7 @@ void main() {
         contractState: contract,
         publicKey: publicKey,
         destination: repacked,
-        amount: BigInt.parse('100000000'),
+        amount: Fixed.parse('100000000'),
         bounce: false,
         expiration: expiration,
       );
@@ -242,8 +244,8 @@ void main() {
         data: message.hash,
         input: DerivedKeySignParams.byAccountId(
           DerivedKeySignParamsByAccountId(
-            masterKey: key.masterKey,
-            accountId: key.accountId,
+            masterKey: key,
+            accountId: keysEntry.accountId,
             password: const Password.explicit(
               PasswordExplicit(
                 password: password,
@@ -288,7 +290,7 @@ void main() {
       expect(wallet.address, address);
       expect(wallet.publicKey, publicKey);
       expect(wallet.walletType, walletType);
-      expect(wallet.contractState.balance, isNot(BigInt.parse('0')));
+      expect(wallet.contractState.balance, isNot(Fixed.parse('0')));
       expect(wallet.contractState.isDeployed, isTrue);
     });
 

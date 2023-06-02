@@ -16,6 +16,8 @@ export 'example_related/example_related_lib.dart';
 export 'tests_related/tests_related_lib.dart';
 
 export 'nekoton/nekoton_lib.dart';
+export 'package:money2_improver/money2_improver.dart';
+export 'package:money2/money2.dart';
 
 void Function(LogEntry logEntry)? _logHandler;
 const String _tag = 'flutter_nekoton_bridge';
@@ -218,6 +220,10 @@ Future<void> simpleCallFunc1({required bool needResult}) async {
 
 Future<void> simpleCallFunc2() async {
   createLib().simpleCallFunc2();
+}
+
+Future<void> simpleCallFunc3() async {
+  createLib().simpleCallFunc3();
 }
 
 // TODO: remove all non-integration test related things TO here

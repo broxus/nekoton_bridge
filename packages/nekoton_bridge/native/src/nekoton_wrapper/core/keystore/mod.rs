@@ -30,28 +30,28 @@ pub mod models;
 #[async_trait]
 pub trait KeyStoreApiBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     /// Get list of json-encoded KeyStoreEntry or throw error
-    async fn get_entries(&self) -> Result<String, anyhow::Error>;
+    async fn get_entries(&self) -> anyhow::Result<String>;
 
     /// Insert new key in keystore. Returns json-encoded KeystoreEntry or throw error.
     /// input - json-encoded action specified for signer eg EncryptedKeyCreateInput or
     ///   DerivedKeyCreateInput or LedgerKeyCreateInput
-    async fn add_key(&self, signer: KeySigner, input: String) -> Result<String, anyhow::Error>;
+    async fn add_key(&self, signer: KeySigner, input: String) -> anyhow::Result<String>;
 
     /// Method same as add_key but allows add multiple keys at time.
     /// Returns json-encoded list of KeyStoreEntry or throw error.
     /// input - json-encoded list of inputs, same as in add_key method
-    async fn add_keys(&self, signer: KeySigner, input: String) -> Result<String, anyhow::Error>;
+    async fn add_keys(&self, signer: KeySigner, input: String) -> anyhow::Result<String>;
 
     /// Update key data.
     /// Returns updated json-encoded KeyStoreEntry r throw error.
     /// input - json-encoded action specified for signer eg EncryptedKeyUpdateParams or
     ///   DerivedKeyUpdateParams or LedgerUpdateKeyInput
-    async fn update_key(&self, signer: KeySigner, input: String) -> Result<String, anyhow::Error>;
+    async fn update_key(&self, signer: KeySigner, input: String) -> anyhow::Result<String>;
 
     /// Export key and get its seed phrase and mnemonic type.
     /// THIS METHOD DO NOT WORK for LEDGER.
     /// Returns json-encoded EncryptedKeyExportOutput or DerivedKeyExportOutput or throw error
-    async fn export_key(&self, signer: KeySigner, input: String) -> Result<String, anyhow::Error>;
+    async fn export_key(&self, signer: KeySigner, input: String) -> anyhow::Result<String>;
 
     /// Return list of public keys specified for signer or throw error.
     /// input - json-encoded action specified for signer eg EncryptedKeyGetPublicKeys or
@@ -60,7 +60,7 @@ pub trait KeyStoreApiBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         &self,
         signer: KeySigner,
         input: String,
-    ) -> Result<Vec<String>, anyhow::Error>;
+    ) -> anyhow::Result<Vec<String>>;
 
     /// Encrypt data with specified algorithm and input specified for signer eg EncryptedKeyPassword
     ///   or DerivedKeySignParams or LedgerSignInput.
@@ -76,7 +76,7 @@ pub trait KeyStoreApiBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         public_keys: Vec<String>,
         algorithm: String,
         input: String,
-    ) -> Result<String, anyhow::Error>;
+    ) -> anyhow::Result<String>;
 
     /// Decrypt json-encoded EncryptedData in data.
     /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeySignParams or
@@ -87,7 +87,7 @@ pub trait KeyStoreApiBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         signer: KeySigner,
         data: String,
         input: String,
-    ) -> Result<String, anyhow::Error>;
+    ) -> anyhow::Result<String>;
 
     /// Sign data and return base64-encoded signature or throw error.
     /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeySignParams or
@@ -100,7 +100,7 @@ pub trait KeyStoreApiBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         data: String,
         input: String,
         signature_id: Option<i32>,
-    ) -> Result<String, anyhow::Error>;
+    ) -> anyhow::Result<String>;
 
     /// Same method as sign but data is base64-encoded string that is used as hash via Sha256 algo.
     /// Return SignedData or throw error.
@@ -110,7 +110,7 @@ pub trait KeyStoreApiBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         data: String,
         input: String,
         signature_id: Option<i32>,
-    ) -> Result<SignedData, anyhow::Error>;
+    ) -> anyhow::Result<SignedData>;
 
     /// Same method as sign.
     /// data - base64-encoded string.
@@ -121,29 +121,25 @@ pub trait KeyStoreApiBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         data: String,
         input: String,
         signature_id: Option<i32>,
-    ) -> Result<SignedDataRaw, anyhow::Error>;
+    ) -> anyhow::Result<SignedDataRaw>;
 
     /// Remove public key from KeyStore and return json-encoded KeyStoreEntry if it was removed.
-    async fn remove_key(&self, public_key: String) -> Result<Option<String>, anyhow::Error>;
+    async fn remove_key(&self, public_key: String) -> anyhow::Result<Option<String>>;
 
     /// Remove list of public key from KeyStore and return json-encoded list of KeyStoreEntry's
     /// that were removed.
-    async fn remove_keys(&self, public_keys: Vec<String>) -> Result<String, anyhow::Error>;
+    async fn remove_keys(&self, public_keys: Vec<String>) -> anyhow::Result<String>;
 
     /// Check if password cached for specified public_key.
     /// duration - timestamp in milliseconds of expiring key.
     /// Returns true/false or throw error.
-    async fn is_password_cached(
-        &self,
-        public_key: String,
-        duration: u64,
-    ) -> Result<bool, anyhow::Error>;
+    async fn is_password_cached(&self, public_key: String, duration: u64) -> anyhow::Result<bool>;
 
     /// Clear KeyStore and remove all entries and all sensitive data.
-    async fn clear_keystore(&self) -> Result<String, anyhow::Error>;
+    async fn clear_keystore(&self) -> anyhow::Result<String>;
 
     /// Try to reload all stored data.
-    async fn reload_keystore(&self) -> Result<String, anyhow::Error>;
+    async fn reload_keystore(&self) -> anyhow::Result<String>;
 }
 
 pub struct KeyStoreApiBox {
@@ -158,7 +154,7 @@ impl KeyStoreApiBox {
     pub fn create(
         keystore_builder: KeyStoreBuilder,
         storage: Arc<dyn Storage>,
-    ) -> Result<RustOpaque<Arc<dyn KeyStoreApiBoxTrait>>, anyhow::Error> {
+    ) -> anyhow::Result<RustOpaque<Arc<dyn KeyStoreApiBoxTrait>>> {
         let keystore = async_run!(keystore_builder.load(storage).await).handle_error()?;
         Ok(RustOpaque::new(Arc::new(Self {
             inner_keystore: Arc::new(keystore),
@@ -169,7 +165,7 @@ impl KeyStoreApiBox {
 #[async_trait]
 impl KeyStoreApiBoxTrait for KeyStoreApiBox {
     /// Get list of json-encoded KeyStoreEntry or throw error
-    async fn get_entries(&self) -> Result<String, anyhow::Error> {
+    async fn get_entries(&self) -> anyhow::Result<String> {
         let entries = self.inner_keystore.get_entries().await;
 
         serde_json::to_string(&entries).handle_error()
@@ -178,7 +174,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
     /// Insert new key in keystore. Returns json-encoded KeystoreEntry or throw error.
     /// input - json-encoded action specified for signer eg EncryptedKeyCreateInput or
     ///   DerivedKeyCreateInput or LedgerKeyCreateInput
-    async fn add_key(&self, signer: KeySigner, input: String) -> Result<String, anyhow::Error> {
+    async fn add_key(&self, signer: KeySigner, input: String) -> anyhow::Result<String> {
         let entry = match signer {
             KeySigner::Encrypted => {
                 let input = serde_json::from_str::<EncryptedKeyCreateInputHelper>(&input)
@@ -221,7 +217,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
     /// Method same as add_key but allows add multiple keys at time.
     /// Returns json-encoded list of KeyStoreEntry or throw error.
     /// input - json-encoded list of inputs, same as in add_key method
-    async fn add_keys(&self, signer: KeySigner, input: String) -> Result<String, anyhow::Error> {
+    async fn add_keys(&self, signer: KeySigner, input: String) -> anyhow::Result<String> {
         let entries = match signer {
             KeySigner::Encrypted => {
                 let input = serde_json::from_str::<Vec<EncryptedKeyCreateInputHelper>>(&input)
@@ -269,7 +265,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
     /// Returns updated json-encoded KeyStoreEntry r throw error.
     /// input - json-encoded action specified for signer eg EncryptedKeyUpdateParams or
     ///   DerivedKeyUpdateParams or LedgerUpdateKeyInput
-    async fn update_key(&self, signer: KeySigner, input: String) -> Result<String, anyhow::Error> {
+    async fn update_key(&self, signer: KeySigner, input: String) -> anyhow::Result<String> {
         let entry = match signer {
             KeySigner::Encrypted => {
                 let input =
@@ -308,7 +304,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
     /// Export key and get its seed phrase and mnemonic type.
     /// THIS METHOD DO NOT WORK for LEDGER.
     /// Returns json-encoded EncryptedKeyExportOutput or DerivedKeyExportOutput or throw error
-    async fn export_key(&self, signer: KeySigner, input: String) -> Result<String, anyhow::Error> {
+    async fn export_key(&self, signer: KeySigner, input: String) -> anyhow::Result<String> {
         match signer {
             KeySigner::Encrypted => {
                 let input = serde_json::from_str::<EncryptedKeyPassword>(&input).handle_error()?;
@@ -349,7 +345,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
         &self,
         signer: KeySigner,
         input: String,
-    ) -> Result<Vec<String>, anyhow::Error> {
+    ) -> anyhow::Result<Vec<String>> {
         match signer {
             KeySigner::Encrypted => {
                 let input =
@@ -410,13 +406,13 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
         public_keys: Vec<String>,
         algorithm: String,
         input: String,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         let data = base64::decode(data).handle_error()?;
 
         let public_keys = public_keys
             .into_iter()
             .map(parse_public_key)
-            .collect::<Result<Vec<_>, anyhow::Error>>()
+            .collect::<anyhow::Result<Vec<_>>>()
             .context("Bad keys")
             .handle_error()?;
 
@@ -472,7 +468,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
         signer: KeySigner,
         data: String,
         input: String,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         let data = serde_json::from_str::<EncryptedData>(&data).handle_error()?;
 
         let data = match signer {
@@ -521,7 +517,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
         data: String,
         input: String,
         signature_id: Option<i32>,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         let data = base64::decode(&data).handle_error()?;
         let signature = sign(
             self.inner_keystore.clone(),
@@ -543,7 +539,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
         data: String,
         input: String,
         signature_id: Option<i32>,
-    ) -> Result<SignedData, anyhow::Error> {
+    ) -> anyhow::Result<SignedData> {
         let data = base64::decode(data).handle_error()?;
         let hash: [u8; 32] = sha2::Sha256::digest(&data).into();
 
@@ -576,7 +572,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
         data: String,
         input: String,
         signature_id: Option<i32>,
-    ) -> Result<SignedDataRaw, anyhow::Error> {
+    ) -> anyhow::Result<SignedDataRaw> {
         let data = base64::decode(data).handle_error()?;
 
         let signature = sign(
@@ -599,7 +595,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
     }
 
     /// Remove public key from KeyStore and return json-encoded KeyStoreEntry if it was removed.
-    async fn remove_key(&self, public_key: String) -> Result<Option<String>, anyhow::Error> {
+    async fn remove_key(&self, public_key: String) -> anyhow::Result<Option<String>> {
         let public_key = parse_public_key(public_key)?;
 
         let entry = self
@@ -616,11 +612,11 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
 
     /// Remove list of public key from KeyStore and return json-encoded list of KeyStoreEntry's
     /// that were removed.
-    async fn remove_keys(&self, public_keys: Vec<String>) -> Result<String, anyhow::Error> {
+    async fn remove_keys(&self, public_keys: Vec<String>) -> anyhow::Result<String> {
         let public_keys = public_keys
             .into_iter()
             .map(parse_public_key)
-            .collect::<Result<Vec<_>, anyhow::Error>>()
+            .collect::<anyhow::Result<Vec<_>>>()
             .handle_error()?;
 
         let entries = self
@@ -635,11 +631,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
     /// Check if password cached for specified public_key.
     /// duration - timestamp in milliseconds of expiring key.
     /// Returns true/false or throw error.
-    async fn is_password_cached(
-        &self,
-        public_key: String,
-        duration: u64,
-    ) -> Result<bool, anyhow::Error> {
+    async fn is_password_cached(&self, public_key: String, duration: u64) -> anyhow::Result<bool> {
         let id = parse_public_key(public_key).handle_error()?.to_bytes();
         let duration = Duration::from_millis(duration);
         let is_cached = self.inner_keystore.is_password_cached(&id, duration);
@@ -648,13 +640,13 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
     }
 
     /// Clear KeyStore and remove all entries and all sensitive data.
-    async fn clear_keystore(&self) -> Result<String, anyhow::Error> {
+    async fn clear_keystore(&self) -> anyhow::Result<String> {
         let _ = self.inner_keystore.clear().await.handle_error()?;
         Ok(serde_json::Value::Null.to_string())
     }
 
     /// Try to reload all stored data.
-    async fn reload_keystore(&self) -> Result<String, anyhow::Error> {
+    async fn reload_keystore(&self) -> anyhow::Result<String> {
         let _ = self.inner_keystore.reload().await.handle_error()?;
         Ok(serde_json::Value::Null.to_string())
     }
@@ -671,7 +663,7 @@ async fn sign(
     data: &[u8],
     input: String,
     signature_id: Option<i32>,
-) -> Result<Signature, anyhow::Error> {
+) -> anyhow::Result<Signature> {
     let signature_id = signature_id;
 
     match signer {

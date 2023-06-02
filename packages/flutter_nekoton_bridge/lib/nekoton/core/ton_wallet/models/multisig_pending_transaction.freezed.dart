@@ -28,7 +28,8 @@ mixin _$MultisigPendingTransaction {
   String get creator => throw _privateConstructorUsedError;
   int get index => throw _privateConstructorUsedError;
   String get dest => throw _privateConstructorUsedError;
-  String get value => throw _privateConstructorUsedError;
+  @amountJsonConverter
+  Fixed get value => throw _privateConstructorUsedError;
   int get sendFlags => throw _privateConstructorUsedError;
   String get payload => throw _privateConstructorUsedError;
   bool get bounce => throw _privateConstructorUsedError;
@@ -54,7 +55,7 @@ abstract class $MultisigPendingTransactionCopyWith<$Res> {
       String creator,
       int index,
       String dest,
-      String value,
+      @amountJsonConverter Fixed value,
       int sendFlags,
       String payload,
       bool bounce});
@@ -118,7 +119,7 @@ class _$MultisigPendingTransactionCopyWithImpl<$Res,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
       sendFlags: null == sendFlags
           ? _value.sendFlags
           : sendFlags // ignore: cast_nullable_to_non_nullable
@@ -152,7 +153,7 @@ abstract class _$$_MultisigPendingTransactionCopyWith<$Res>
       String creator,
       int index,
       String dest,
-      String value,
+      @amountJsonConverter Fixed value,
       int sendFlags,
       String payload,
       bool bounce});
@@ -215,7 +216,7 @@ class __$$_MultisigPendingTransactionCopyWithImpl<$Res>
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
       sendFlags: null == sendFlags
           ? _value.sendFlags
           : sendFlags // ignore: cast_nullable_to_non_nullable
@@ -244,7 +245,7 @@ class _$_MultisigPendingTransaction implements _MultisigPendingTransaction {
       required this.creator,
       required this.index,
       required this.dest,
-      required this.value,
+      @amountJsonConverter required this.value,
       required this.sendFlags,
       required this.payload,
       required this.bounce})
@@ -274,7 +275,8 @@ class _$_MultisigPendingTransaction implements _MultisigPendingTransaction {
   @override
   final String dest;
   @override
-  final String value;
+  @amountJsonConverter
+  final Fixed value;
   @override
   final int sendFlags;
   @override
@@ -350,7 +352,7 @@ abstract class _MultisigPendingTransaction
       required final String creator,
       required final int index,
       required final String dest,
-      required final String value,
+      @amountJsonConverter required final Fixed value,
       required final int sendFlags,
       required final String payload,
       required final bool bounce}) = _$_MultisigPendingTransaction;
@@ -373,7 +375,8 @@ abstract class _MultisigPendingTransaction
   @override
   String get dest;
   @override
-  String get value;
+  @amountJsonConverter
+  Fixed get value;
   @override
   int get sendFlags;
   @override

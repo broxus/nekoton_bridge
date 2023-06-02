@@ -23,7 +23,8 @@ mixin _$Message {
   String get hash => throw _privateConstructorUsedError;
   String? get src => throw _privateConstructorUsedError;
   String? get dst => throw _privateConstructorUsedError;
-  String get value => throw _privateConstructorUsedError;
+  @amountJsonConverter
+  Fixed get value => throw _privateConstructorUsedError;
   bool get bounce => throw _privateConstructorUsedError;
   bool get bounced => throw _privateConstructorUsedError;
   String? get body => throw _privateConstructorUsedError;
@@ -43,7 +44,7 @@ abstract class $MessageCopyWith<$Res> {
       {String hash,
       String? src,
       String? dst,
-      String value,
+      @amountJsonConverter Fixed value,
       bool bounce,
       bool bounced,
       String? body,
@@ -88,7 +89,7 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
       bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
@@ -120,7 +121,7 @@ abstract class _$$_MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
       {String hash,
       String? src,
       String? dst,
-      String value,
+      @amountJsonConverter Fixed value,
       bool bounce,
       bool bounced,
       String? body,
@@ -162,7 +163,7 @@ class __$$_MessageCopyWithImpl<$Res>
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
       bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
@@ -190,7 +191,7 @@ class _$_Message implements _Message {
       {required this.hash,
       this.src,
       this.dst,
-      required this.value,
+      @amountJsonConverter required this.value,
       required this.bounce,
       required this.bounced,
       this.body,
@@ -206,7 +207,8 @@ class _$_Message implements _Message {
   @override
   final String? dst;
   @override
-  final String value;
+  @amountJsonConverter
+  final Fixed value;
   @override
   final bool bounce;
   @override
@@ -261,7 +263,7 @@ abstract class _Message implements Message {
       {required final String hash,
       final String? src,
       final String? dst,
-      required final String value,
+      @amountJsonConverter required final Fixed value,
       required final bool bounce,
       required final bool bounced,
       final String? body,
@@ -276,7 +278,8 @@ abstract class _Message implements Message {
   @override
   String? get dst;
   @override
-  String get value;
+  @amountJsonConverter
+  Fixed get value;
   @override
   bool get bounce;
   @override

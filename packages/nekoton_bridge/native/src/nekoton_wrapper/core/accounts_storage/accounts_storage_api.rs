@@ -15,7 +15,7 @@ pub struct AccountsStorageImpl {
 
 impl AccountsStorageImpl {
     /// Create AccountsStorage or throw error
-    pub fn new(storage: StorageDartWrapper) -> Result<AccountsStorageImpl, anyhow::Error> {
+    pub fn new(storage: StorageDartWrapper) -> anyhow::Result<AccountsStorageImpl> {
         Ok(Self {
             inner_storage: AccountsStorageBox::create(storage.get_storage().get_storage())?,
         })
@@ -23,21 +23,21 @@ impl AccountsStorageImpl {
 
     /// Get list of accounts.
     /// Returns json-encoded List of AssetsList or throw error
-    pub fn get_entries(&self) -> Result<String, anyhow::Error> {
+    pub fn get_entries(&self) -> anyhow::Result<String> {
         async_run!(self.inner_storage.get_entries().await)
     }
 
     /// Add new account to storage and return its instance.
     /// account - json-encoded AccountToAdd.
     /// Return json-encoded AssetsList or throw error.
-    pub fn add_account(&self, account: String) -> Result<String, anyhow::Error> {
+    pub fn add_account(&self, account: String) -> anyhow::Result<String> {
         async_run!(self.inner_storage.add_account(account).await)
     }
 
     /// Add list of new accounts to storage and return it instances.
     /// account - json-encoded list of AccountToAdd.
     /// Return json-encoded list of AssetsList or throw error.
-    pub fn add_accounts(&self, accounts: String) -> Result<String, anyhow::Error> {
+    pub fn add_accounts(&self, accounts: String) -> anyhow::Result<String> {
         async_run!(self.inner_storage.add_accounts(accounts).await)
     }
 
@@ -45,11 +45,7 @@ impl AccountsStorageImpl {
     /// account_address - address of account
     /// name - new name of account
     /// Return json-encoded AssetsList or throw error.
-    pub fn rename_account(
-        &self,
-        account_address: String,
-        name: String,
-    ) -> Result<String, anyhow::Error> {
+    pub fn rename_account(&self, account_address: String, name: String) -> anyhow::Result<String> {
         async_run!(
             self.inner_storage
                 .rename_account(account_address, name)
@@ -68,7 +64,7 @@ impl AccountsStorageImpl {
         account_address: String,
         network_group: String,
         root_token_contract: String,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         async_run!(
             self.inner_storage
                 .add_token_wallet(account_address, network_group, root_token_contract)
@@ -87,7 +83,7 @@ impl AccountsStorageImpl {
         account_address: String,
         network_group: String,
         root_token_contract: String,
-    ) -> Result<String, anyhow::Error> {
+    ) -> anyhow::Result<String> {
         async_run!(
             self.inner_storage
                 .remove_token_wallet(account_address, network_group, root_token_contract)
@@ -98,26 +94,26 @@ impl AccountsStorageImpl {
     /// Remove account from storage and return its instance if it was removed.
     /// account_address - address of account
     /// Return json-encoded AssetsList that was removed or null or throw error.
-    pub fn remove_account(&self, account_address: String) -> Result<Option<String>, anyhow::Error> {
+    pub fn remove_account(&self, account_address: String) -> anyhow::Result<Option<String>> {
         async_run!(self.inner_storage.remove_account(account_address).await)
     }
 
     /// Remove list of account from storage and return it instances if it were removed.
     /// account_addresses - list of addresses of accounts.
     /// Return json-encoded list of AssetsList that were removed or throw error.
-    pub fn remove_accounts(&self, account_addresses: Vec<String>) -> Result<String, anyhow::Error> {
+    pub fn remove_accounts(&self, account_addresses: Vec<String>) -> anyhow::Result<String> {
         async_run!(self.inner_storage.remove_accounts(account_addresses).await)
     }
 
     /// Clear storage and remove all data.
     /// Returns true or throw error
-    pub fn clear(&self) -> Result<bool, anyhow::Error> {
+    pub fn clear(&self) -> anyhow::Result<bool> {
         async_run!(self.inner_storage.clear().await)
     }
 
     /// Reload storage and read all data again.
     /// Returns true or throw error.
-    pub fn reload(&self) -> Result<bool, anyhow::Error> {
+    pub fn reload(&self) -> anyhow::Result<bool> {
         async_run!(self.inner_storage.reload().await)
     }
 

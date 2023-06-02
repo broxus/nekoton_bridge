@@ -3,15 +3,16 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 const amountJsonConverter = AmountJsonConverter();
 
-/// Json converter of amount value from string to BigInt
-class AmountJsonConverter extends JsonConverter<BigInt, String> {
+/// Json converter of amount value from string to Fixed (without currency
+/// identification)
+class AmountJsonConverter extends JsonConverter<Fixed, String> {
   const AmountJsonConverter();
 
   @override
-  BigInt fromJson(String json) => BigInt.parse(json);
+  Fixed fromJson(String json) => Fixed.parse(json);
 
   @override
-  String toJson(BigInt object) => object.toString();
+  String toJson(Fixed object) => object.toString();
 }
 
 /// Get name of KeySigner, same as in rust side

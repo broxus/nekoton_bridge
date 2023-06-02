@@ -1,12 +1,12 @@
 name: flutter_nekoton_bridge
 description: A new Flutter FFI plugin project.
-version: 1.8.0-dev.4
+version: 1.8.0-dev.9
 homepage: https://github.com/broxus/nekoton_bridge.git
 publish_to: none
 
 environment:
-  sdk: '>=2.18.5 <3.0.0'
-  flutter: ">=2.11.0"
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.2"
 
 dependencies:
   flutter:
@@ -14,19 +14,21 @@ dependencies:
   plugin_platform_interface: ^2.0.2
   rxdart: 0.27.7
   reflectable: ^4.0.5
+  money2: ^3.3.0
+  money2_improver: ^1.2.0
   nekoton_bridge:
     git:
       url: https://github.com/broxus/nekoton_bridge.git
       path: packages/nekoton_bridge
-      ref: nekoton_bridge-v1.8.0-dev.4
+      ref: nekoton_bridge-v1.8.0-dev.7
   freezed_annotation: ^2.2.0
-  json_annotation: ^4.8.0
+  json_annotation: ^4.8.1
   #  for generating mirror hash
   uuid: 3.0.7
   tuple: 2.0.1
 dev_dependencies:
-  ffi: ^2.0.1
-  ffigen: ^7.2.4
+  ffi: ^2.0.2
+  ffigen: ^8.0.2
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0

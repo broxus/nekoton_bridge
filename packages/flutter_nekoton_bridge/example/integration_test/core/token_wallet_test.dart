@@ -77,7 +77,7 @@ void main() {
         wallet.address,
         '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01',
       );
-      expect(wallet.contractState.balance, BigInt.parse('100000000'));
+      expect(wallet.contractState.balance, Fixed.parse('100000000'));
       expect(wallet.symbol.decimals, 9);
       expect(wallet.symbol.rootTokenContract, stEverRootContract);
       expect(wallet.symbol.name, 'STEVER');
@@ -95,19 +95,19 @@ void main() {
 
       final message1 = await wallet.prepareTransfer(
         destination: stEverRootContract,
-        amount: BigInt.parse('1000000000'),
+        amount: Fixed.parse('1000000000'),
       );
       final message2 = await wallet.prepareTransfer(
         destination: stEverRootContract,
-        amount: BigInt.parse('100000000'),
-        attachedAmount: BigInt.parse('100000000'),
+        amount: Fixed.parse('100000000'),
+        attachedAmount: Fixed.parse('100000000'),
       );
 
       expect(message1, isNotNull);
-      expect(message1.amount, BigInt.parse('500000000'));
+      expect(message1.amount, Fixed.parse('500000000'));
 
       expect(message2, isNotNull);
-      expect(message2.amount, BigInt.parse('200000000'));
+      expect(message2.amount, Fixed.parse('200000000'));
     });
 
     testWidgets('TokenWallet getTokenWalletDetails',
@@ -120,7 +120,7 @@ void main() {
             '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01',
       );
 
-      expect(details.item1.balance, BigInt.parse('0'));
+      expect(details.item1.balance, Fixed.parse('0'));
       expect(details.item1.ownerAddress, address);
       expect(details.item1.rootAddress, stEverRootContract);
       expect(
