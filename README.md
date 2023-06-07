@@ -110,7 +110,7 @@ final t2 = Fixed.fromNum(1.234, scale: 3); // == 1.234
 
 Also we recommend to use [money2](https://pub.dev/packages/money2) package for money calculations. It's a good idea to use it for all money calculations in your app.
 
-Please note that due to found bug https://github.com/onepub-dev/money.dart/issues/75 we highly recommend to use [money2_improver](https://pub.dev/packages/money2_improver) for parsing amounts from strings. Also this package contains some useful extensions for money2.
+Please note that due to found [bug](https://github.com/onepub-dev/money.dart/issues/75) we highly recommend to use [money2_improver](https://pub.dev/packages/money2_improver) for parsing amounts from strings. Also this package contains some useful extensions for money2.
 
 ## Getting Started as hacker 👨🏻‍💻
 
