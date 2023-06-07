@@ -95,8 +95,6 @@ Fixed.fromBigInt(BigInt.from(1234), scale: 3); // == 1.234
 
 final t1 = Fixed.fromDecimal(Decimal.fromInt(1), scale: 2); // == 1.00
 
-final t3 = Fixed.parse('1.234'); // == 1.234, scale: 3
-
 final t3 = Fixed.parse('1.234', scale: 2); // == 1.23, scale: 2
 ```
 
