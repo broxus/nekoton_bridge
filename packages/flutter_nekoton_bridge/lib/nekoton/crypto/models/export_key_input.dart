@@ -7,7 +7,7 @@ abstract class ExportKeyInput {
 extension ExportKeyInputToSigner on ExportKeyInput {
   KeySigner toSigner() {
     if (this is EncryptedKeyPassword) return const KeySigner.encrypted();
-    if (this is DerivedKeyExportParams) return const KeySigner.derived();
+    if (this is DerivedKeyExportSeedParams) return const KeySigner.derived();
     throw UnsupportedError('Invalid signer');
   }
 }

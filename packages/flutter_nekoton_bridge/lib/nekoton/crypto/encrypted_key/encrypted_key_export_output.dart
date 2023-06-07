@@ -6,14 +6,14 @@ part 'encrypted_key_export_output.freezed.dart';
 part 'encrypted_key_export_output.g.dart';
 
 @freezed
-class EncryptedKeyExportOutput
-    with _$EncryptedKeyExportOutput
+class EncryptedKeyExportSeedOutput
+    with _$EncryptedKeyExportSeedOutput
     implements ExportKeyOutput {
-  factory EncryptedKeyExportOutput({
+  factory EncryptedKeyExportSeedOutput({
     required String phrase,
     @mnemonicJsonConverter required MnemonicType mnemonicType,
-  }) = _EncryptedKeyExportOutput;
+  }) = _EncryptedKeyExportSeedOutput;
 
-  factory EncryptedKeyExportOutput.fromJson(Map<String, dynamic> json) =>
-      _$EncryptedKeyExportOutputFromJson(json);
+  factory EncryptedKeyExportSeedOutput.fromJson(Map<String, dynamic> json) =>
+      _$EncryptedKeyExportSeedOutputFromJson(json);
 }

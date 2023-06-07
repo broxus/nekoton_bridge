@@ -23,12 +23,12 @@ parking_lot = "0.12.1"
 simplelog = "0.12.0"
 log = { version = "0.4.17", features = ["kv_unstable"] }
 log-panics = { version = "2.1.0", features = ["with-backtrace"] }
-nekoton = { git = "https://github.com/broxus/nekoton.git", tag = "v0.11.0", features = [
+nekoton = { git = "https://github.com/broxus/nekoton.git", tag = "v0.12.0", features = [
     "gql_transport",
     "jrpc_transport",
 ] }
-nekoton-abi = { git = "https://github.com/broxus/nekoton.git", tag = "v0.11.0" }
-nekoton-utils = { git = "https://github.com/broxus/nekoton.git", tag = "v0.11.0" }
+nekoton-abi = { git = "https://github.com/broxus/nekoton.git", tag = "v0.12.0" }
+nekoton-utils = { git = "https://github.com/broxus/nekoton.git", tag = "v0.12.0" }
 ton_abi = { git = "https://github.com/broxus/ton-labs-abi" }
 ton_block = { git = "https://github.com/broxus/ton-labs-block.git" }
 ton_types = { git = "https://github.com/broxus/ton-labs-types.git" }

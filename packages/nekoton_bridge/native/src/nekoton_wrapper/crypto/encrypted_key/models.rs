@@ -1,5 +1,5 @@
 use crate::nekoton_wrapper::crypto::mnemonic::models::MnemonicTypeDef;
-use nekoton::crypto::{EncryptedKeyCreateInput, EncryptedKeyExportOutput, MnemonicType, Password};
+use nekoton::crypto::{EncryptedKeyCreateInput, EncryptedKeyExportSeedOutput, MnemonicType, Password};
 use secstr::SecUtf8;
 use serde::{Deserialize, Serialize};
 
@@ -19,13 +19,13 @@ pub struct EncryptedKeyCreateInputDef {
 }
 
 #[derive(Serialize)]
-pub struct EncryptedKeyExportOutputHelper(
-    #[serde(with = "EncryptedKeyExportOutputDef")] pub EncryptedKeyExportOutput,
+pub struct EncryptedKeyExportSeedOutputHelper(
+    #[serde(with = "EncryptedKeyExportSeedOutputDef")] pub EncryptedKeyExportSeedOutput,
 );
 
 #[derive(Serialize)]
-#[serde(remote = "EncryptedKeyExportOutput", rename_all = "camelCase")]
-pub struct EncryptedKeyExportOutputDef {
+#[serde(remote = "EncryptedKeyExportSeedOutput", rename_all = "camelCase")]
+pub struct EncryptedKeyExportSeedOutputDef {
     pub phrase: SecUtf8,
     #[serde(with = "MnemonicTypeDef")]
     pub mnemonic_type: MnemonicType,

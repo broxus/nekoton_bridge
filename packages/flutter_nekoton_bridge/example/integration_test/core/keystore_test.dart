@@ -332,7 +332,7 @@ void main() {
       );
 
       final key = await keystore.addKey(addKeyInputLabs);
-      final exported = (await keystore.exportKey(DerivedKeyExportParams(
+      final exported = (await keystore.exportSeed(DerivedKeyExportSeedParams(
         password: inputLabsData.password,
         masterKey: key,
       ))) as DerivedKeyExportOutput;

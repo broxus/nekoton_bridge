@@ -6,17 +6,17 @@ part of 'derived_key_sign_params_by_account_id.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DerivedKeySignParamsByAccountIdByAccountId
-    _$$_DerivedKeySignParamsByAccountIdByAccountIdFromJson(
+_$_DerivedKeyPasswordByAccountIdByAccountId
+    _$$_DerivedKeyPasswordByAccountIdByAccountIdFromJson(
             Map<String, dynamic> json) =>
-        _$_DerivedKeySignParamsByAccountIdByAccountId(
+        _$_DerivedKeyPasswordByAccountIdByAccountId(
           masterKey: json['master_key'] as String,
           accountId: json['account_id'] as int,
           password: Password.fromJson(json['password'] as Map<String, dynamic>),
         );
 
-Map<String, dynamic> _$$_DerivedKeySignParamsByAccountIdByAccountIdToJson(
-        _$_DerivedKeySignParamsByAccountIdByAccountId instance) =>
+Map<String, dynamic> _$$_DerivedKeyPasswordByAccountIdByAccountIdToJson(
+        _$_DerivedKeyPasswordByAccountIdByAccountId instance) =>
     <String, dynamic>{
       'master_key': instance.masterKey,
       'account_id': instance.accountId,
