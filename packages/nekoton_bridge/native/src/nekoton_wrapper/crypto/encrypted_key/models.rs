@@ -1,5 +1,7 @@
 use crate::nekoton_wrapper::crypto::mnemonic::models::MnemonicTypeDef;
-use nekoton::crypto::{EncryptedKeyCreateInput, EncryptedKeyExportSeedOutput, MnemonicType, Password};
+use nekoton::crypto::{
+    EncryptedKeyCreateInput, EncryptedKeyExportSeedOutput, MnemonicType, Password,
+};
 use secstr::SecUtf8;
 use serde::{Deserialize, Serialize};
 
