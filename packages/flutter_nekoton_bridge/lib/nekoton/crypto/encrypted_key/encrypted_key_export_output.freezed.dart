@@ -14,28 +14,30 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-EncryptedKeyExportOutput _$EncryptedKeyExportOutputFromJson(
+EncryptedKeyExportSeedOutput _$EncryptedKeyExportSeedOutputFromJson(
     Map<String, dynamic> json) {
-  return _EncryptedKeyExportOutput.fromJson(json);
+  return _EncryptedKeyExportSeedOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$EncryptedKeyExportOutput {
+mixin _$EncryptedKeyExportSeedOutput {
   String get phrase => throw _privateConstructorUsedError;
   @mnemonicJsonConverter
   MnemonicType get mnemonicType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $EncryptedKeyExportOutputCopyWith<EncryptedKeyExportOutput> get copyWith =>
-      throw _privateConstructorUsedError;
+  $EncryptedKeyExportSeedOutputCopyWith<EncryptedKeyExportSeedOutput>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $EncryptedKeyExportOutputCopyWith<$Res> {
-  factory $EncryptedKeyExportOutputCopyWith(EncryptedKeyExportOutput value,
-          $Res Function(EncryptedKeyExportOutput) then) =
-      _$EncryptedKeyExportOutputCopyWithImpl<$Res, EncryptedKeyExportOutput>;
+abstract class $EncryptedKeyExportSeedOutputCopyWith<$Res> {
+  factory $EncryptedKeyExportSeedOutputCopyWith(
+          EncryptedKeyExportSeedOutput value,
+          $Res Function(EncryptedKeyExportSeedOutput) then) =
+      _$EncryptedKeyExportSeedOutputCopyWithImpl<$Res,
+          EncryptedKeyExportSeedOutput>;
   @useResult
   $Res call({String phrase, @mnemonicJsonConverter MnemonicType mnemonicType});
 
@@ -43,10 +45,10 @@ abstract class $EncryptedKeyExportOutputCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EncryptedKeyExportOutputCopyWithImpl<$Res,
-        $Val extends EncryptedKeyExportOutput>
-    implements $EncryptedKeyExportOutputCopyWith<$Res> {
-  _$EncryptedKeyExportOutputCopyWithImpl(this._value, this._then);
+class _$EncryptedKeyExportSeedOutputCopyWithImpl<$Res,
+        $Val extends EncryptedKeyExportSeedOutput>
+    implements $EncryptedKeyExportSeedOutputCopyWith<$Res> {
+  _$EncryptedKeyExportSeedOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -81,12 +83,12 @@ class _$EncryptedKeyExportOutputCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_EncryptedKeyExportOutputCopyWith<$Res>
-    implements $EncryptedKeyExportOutputCopyWith<$Res> {
-  factory _$$_EncryptedKeyExportOutputCopyWith(
-          _$_EncryptedKeyExportOutput value,
-          $Res Function(_$_EncryptedKeyExportOutput) then) =
-      __$$_EncryptedKeyExportOutputCopyWithImpl<$Res>;
+abstract class _$$_EncryptedKeyExportSeedOutputCopyWith<$Res>
+    implements $EncryptedKeyExportSeedOutputCopyWith<$Res> {
+  factory _$$_EncryptedKeyExportSeedOutputCopyWith(
+          _$_EncryptedKeyExportSeedOutput value,
+          $Res Function(_$_EncryptedKeyExportSeedOutput) then) =
+      __$$_EncryptedKeyExportSeedOutputCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String phrase, @mnemonicJsonConverter MnemonicType mnemonicType});
@@ -96,12 +98,13 @@ abstract class _$$_EncryptedKeyExportOutputCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EncryptedKeyExportOutputCopyWithImpl<$Res>
-    extends _$EncryptedKeyExportOutputCopyWithImpl<$Res,
-        _$_EncryptedKeyExportOutput>
-    implements _$$_EncryptedKeyExportOutputCopyWith<$Res> {
-  __$$_EncryptedKeyExportOutputCopyWithImpl(_$_EncryptedKeyExportOutput _value,
-      $Res Function(_$_EncryptedKeyExportOutput) _then)
+class __$$_EncryptedKeyExportSeedOutputCopyWithImpl<$Res>
+    extends _$EncryptedKeyExportSeedOutputCopyWithImpl<$Res,
+        _$_EncryptedKeyExportSeedOutput>
+    implements _$$_EncryptedKeyExportSeedOutputCopyWith<$Res> {
+  __$$_EncryptedKeyExportSeedOutputCopyWithImpl(
+      _$_EncryptedKeyExportSeedOutput _value,
+      $Res Function(_$_EncryptedKeyExportSeedOutput) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +113,7 @@ class __$$_EncryptedKeyExportOutputCopyWithImpl<$Res>
     Object? phrase = null,
     Object? mnemonicType = null,
   }) {
-    return _then(_$_EncryptedKeyExportOutput(
+    return _then(_$_EncryptedKeyExportSeedOutput(
       phrase: null == phrase
           ? _value.phrase
           : phrase // ignore: cast_nullable_to_non_nullable
@@ -125,13 +128,13 @@ class __$$_EncryptedKeyExportOutputCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EncryptedKeyExportOutput implements _EncryptedKeyExportOutput {
-  _$_EncryptedKeyExportOutput(
+class _$_EncryptedKeyExportSeedOutput implements _EncryptedKeyExportSeedOutput {
+  _$_EncryptedKeyExportSeedOutput(
       {required this.phrase,
       @mnemonicJsonConverter required this.mnemonicType});
 
-  factory _$_EncryptedKeyExportOutput.fromJson(Map<String, dynamic> json) =>
-      _$$_EncryptedKeyExportOutputFromJson(json);
+  factory _$_EncryptedKeyExportSeedOutput.fromJson(Map<String, dynamic> json) =>
+      _$$_EncryptedKeyExportSeedOutputFromJson(json);
 
   @override
   final String phrase;
@@ -141,14 +144,14 @@ class _$_EncryptedKeyExportOutput implements _EncryptedKeyExportOutput {
 
   @override
   String toString() {
-    return 'EncryptedKeyExportOutput(phrase: $phrase, mnemonicType: $mnemonicType)';
+    return 'EncryptedKeyExportSeedOutput(phrase: $phrase, mnemonicType: $mnemonicType)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EncryptedKeyExportOutput &&
+            other is _$_EncryptedKeyExportSeedOutput &&
             (identical(other.phrase, phrase) || other.phrase == phrase) &&
             (identical(other.mnemonicType, mnemonicType) ||
                 other.mnemonicType == mnemonicType));
@@ -161,26 +164,27 @@ class _$_EncryptedKeyExportOutput implements _EncryptedKeyExportOutput {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EncryptedKeyExportOutputCopyWith<_$_EncryptedKeyExportOutput>
-      get copyWith => __$$_EncryptedKeyExportOutputCopyWithImpl<
-          _$_EncryptedKeyExportOutput>(this, _$identity);
+  _$$_EncryptedKeyExportSeedOutputCopyWith<_$_EncryptedKeyExportSeedOutput>
+      get copyWith => __$$_EncryptedKeyExportSeedOutputCopyWithImpl<
+          _$_EncryptedKeyExportSeedOutput>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EncryptedKeyExportOutputToJson(
+    return _$$_EncryptedKeyExportSeedOutputToJson(
       this,
     );
   }
 }
 
-abstract class _EncryptedKeyExportOutput implements EncryptedKeyExportOutput {
-  factory _EncryptedKeyExportOutput(
+abstract class _EncryptedKeyExportSeedOutput
+    implements EncryptedKeyExportSeedOutput {
+  factory _EncryptedKeyExportSeedOutput(
           {required final String phrase,
           @mnemonicJsonConverter required final MnemonicType mnemonicType}) =
-      _$_EncryptedKeyExportOutput;
+      _$_EncryptedKeyExportSeedOutput;
 
-  factory _EncryptedKeyExportOutput.fromJson(Map<String, dynamic> json) =
-      _$_EncryptedKeyExportOutput.fromJson;
+  factory _EncryptedKeyExportSeedOutput.fromJson(Map<String, dynamic> json) =
+      _$_EncryptedKeyExportSeedOutput.fromJson;
 
   @override
   String get phrase;
@@ -189,6 +193,6 @@ abstract class _EncryptedKeyExportOutput implements EncryptedKeyExportOutput {
   MnemonicType get mnemonicType;
   @override
   @JsonKey(ignore: true)
-  _$$_EncryptedKeyExportOutputCopyWith<_$_EncryptedKeyExportOutput>
+  _$$_EncryptedKeyExportSeedOutputCopyWith<_$_EncryptedKeyExportSeedOutput>
       get copyWith => throw _privateConstructorUsedError;
 }

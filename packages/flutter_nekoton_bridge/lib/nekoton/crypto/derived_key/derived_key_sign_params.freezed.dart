@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-DerivedKeySignParams _$DerivedKeySignParamsFromJson(Map<String, dynamic> json) {
+DerivedKeyPassword _$DerivedKeyPasswordFromJson(Map<String, dynamic> json) {
   switch (json['type']) {
     case 'by_account_id':
       return _ByAccountId.fromJson(json);
@@ -22,30 +22,30 @@ DerivedKeySignParams _$DerivedKeySignParamsFromJson(Map<String, dynamic> json) {
       return _ByPublicKey.fromJson(json);
 
     default:
-      throw CheckedFromJsonException(json, 'type', 'DerivedKeySignParams',
+      throw CheckedFromJsonException(json, 'type', 'DerivedKeyPassword',
           'Invalid union type "${json['type']}"!');
   }
 }
 
 /// @nodoc
-mixin _$DerivedKeySignParams {
+mixin _$DerivedKeyPassword {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DerivedKeySignParamsByAccountId data) byAccountId,
-    required TResult Function(DerivedKeySignParamsByPublicKey data) byPublicKey,
+    required TResult Function(DerivedKeyPasswordByAccountId data) byAccountId,
+    required TResult Function(DerivedKeyPasswordByPublicKey data) byPublicKey,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DerivedKeySignParamsByAccountId data)? byAccountId,
-    TResult? Function(DerivedKeySignParamsByPublicKey data)? byPublicKey,
+    TResult? Function(DerivedKeyPasswordByAccountId data)? byAccountId,
+    TResult? Function(DerivedKeyPasswordByPublicKey data)? byPublicKey,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DerivedKeySignParamsByAccountId data)? byAccountId,
-    TResult Function(DerivedKeySignParamsByPublicKey data)? byPublicKey,
+    TResult Function(DerivedKeyPasswordByAccountId data)? byAccountId,
+    TResult Function(DerivedKeyPasswordByPublicKey data)? byPublicKey,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,17 +72,16 @@ mixin _$DerivedKeySignParams {
 }
 
 /// @nodoc
-abstract class $DerivedKeySignParamsCopyWith<$Res> {
-  factory $DerivedKeySignParamsCopyWith(DerivedKeySignParams value,
-          $Res Function(DerivedKeySignParams) then) =
-      _$DerivedKeySignParamsCopyWithImpl<$Res, DerivedKeySignParams>;
+abstract class $DerivedKeyPasswordCopyWith<$Res> {
+  factory $DerivedKeyPasswordCopyWith(
+          DerivedKeyPassword value, $Res Function(DerivedKeyPassword) then) =
+      _$DerivedKeyPasswordCopyWithImpl<$Res, DerivedKeyPassword>;
 }
 
 /// @nodoc
-class _$DerivedKeySignParamsCopyWithImpl<$Res,
-        $Val extends DerivedKeySignParams>
-    implements $DerivedKeySignParamsCopyWith<$Res> {
-  _$DerivedKeySignParamsCopyWithImpl(this._value, this._then);
+class _$DerivedKeyPasswordCopyWithImpl<$Res, $Val extends DerivedKeyPassword>
+    implements $DerivedKeyPasswordCopyWith<$Res> {
+  _$DerivedKeyPasswordCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -96,14 +95,14 @@ abstract class _$$_ByAccountIdCopyWith<$Res> {
           _$_ByAccountId value, $Res Function(_$_ByAccountId) then) =
       __$$_ByAccountIdCopyWithImpl<$Res>;
   @useResult
-  $Res call({DerivedKeySignParamsByAccountId data});
+  $Res call({DerivedKeyPasswordByAccountId data});
 
-  $DerivedKeySignParamsByAccountIdCopyWith<$Res> get data;
+  $DerivedKeyPasswordByAccountIdCopyWith<$Res> get data;
 }
 
 /// @nodoc
 class __$$_ByAccountIdCopyWithImpl<$Res>
-    extends _$DerivedKeySignParamsCopyWithImpl<$Res, _$_ByAccountId>
+    extends _$DerivedKeyPasswordCopyWithImpl<$Res, _$_ByAccountId>
     implements _$$_ByAccountIdCopyWith<$Res> {
   __$$_ByAccountIdCopyWithImpl(
       _$_ByAccountId _value, $Res Function(_$_ByAccountId) _then)
@@ -118,14 +117,14 @@ class __$$_ByAccountIdCopyWithImpl<$Res>
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as DerivedKeySignParamsByAccountId,
+              as DerivedKeyPasswordByAccountId,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $DerivedKeySignParamsByAccountIdCopyWith<$Res> get data {
-    return $DerivedKeySignParamsByAccountIdCopyWith<$Res>(_value.data, (value) {
+  $DerivedKeyPasswordByAccountIdCopyWith<$Res> get data {
+    return $DerivedKeyPasswordByAccountIdCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -141,14 +140,14 @@ class _$_ByAccountId implements _ByAccountId {
       _$$_ByAccountIdFromJson(json);
 
   @override
-  final DerivedKeySignParamsByAccountId data;
+  final DerivedKeyPasswordByAccountId data;
 
   @JsonKey(name: 'type')
   final String $type;
 
   @override
   String toString() {
-    return 'DerivedKeySignParams.byAccountId(data: $data)';
+    return 'DerivedKeyPassword.byAccountId(data: $data)';
   }
 
   @override
@@ -172,8 +171,8 @@ class _$_ByAccountId implements _ByAccountId {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DerivedKeySignParamsByAccountId data) byAccountId,
-    required TResult Function(DerivedKeySignParamsByPublicKey data) byPublicKey,
+    required TResult Function(DerivedKeyPasswordByAccountId data) byAccountId,
+    required TResult Function(DerivedKeyPasswordByPublicKey data) byPublicKey,
   }) {
     return byAccountId(data);
   }
@@ -181,8 +180,8 @@ class _$_ByAccountId implements _ByAccountId {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DerivedKeySignParamsByAccountId data)? byAccountId,
-    TResult? Function(DerivedKeySignParamsByPublicKey data)? byPublicKey,
+    TResult? Function(DerivedKeyPasswordByAccountId data)? byAccountId,
+    TResult? Function(DerivedKeyPasswordByPublicKey data)? byPublicKey,
   }) {
     return byAccountId?.call(data);
   }
@@ -190,8 +189,8 @@ class _$_ByAccountId implements _ByAccountId {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DerivedKeySignParamsByAccountId data)? byAccountId,
-    TResult Function(DerivedKeySignParamsByPublicKey data)? byPublicKey,
+    TResult Function(DerivedKeyPasswordByAccountId data)? byAccountId,
+    TResult Function(DerivedKeyPasswordByPublicKey data)? byPublicKey,
     required TResult orElse(),
   }) {
     if (byAccountId != null) {
@@ -239,15 +238,15 @@ class _$_ByAccountId implements _ByAccountId {
   }
 }
 
-abstract class _ByAccountId implements DerivedKeySignParams {
-  const factory _ByAccountId(final DerivedKeySignParamsByAccountId data) =
+abstract class _ByAccountId implements DerivedKeyPassword {
+  const factory _ByAccountId(final DerivedKeyPasswordByAccountId data) =
       _$_ByAccountId;
 
   factory _ByAccountId.fromJson(Map<String, dynamic> json) =
       _$_ByAccountId.fromJson;
 
   @override
-  DerivedKeySignParamsByAccountId get data;
+  DerivedKeyPasswordByAccountId get data;
   @JsonKey(ignore: true)
   _$$_ByAccountIdCopyWith<_$_ByAccountId> get copyWith =>
       throw _privateConstructorUsedError;
@@ -259,14 +258,14 @@ abstract class _$$_ByPublicKeyCopyWith<$Res> {
           _$_ByPublicKey value, $Res Function(_$_ByPublicKey) then) =
       __$$_ByPublicKeyCopyWithImpl<$Res>;
   @useResult
-  $Res call({DerivedKeySignParamsByPublicKey data});
+  $Res call({DerivedKeyPasswordByPublicKey data});
 
-  $DerivedKeySignParamsByPublicKeyCopyWith<$Res> get data;
+  $DerivedKeyPasswordByPublicKeyCopyWith<$Res> get data;
 }
 
 /// @nodoc
 class __$$_ByPublicKeyCopyWithImpl<$Res>
-    extends _$DerivedKeySignParamsCopyWithImpl<$Res, _$_ByPublicKey>
+    extends _$DerivedKeyPasswordCopyWithImpl<$Res, _$_ByPublicKey>
     implements _$$_ByPublicKeyCopyWith<$Res> {
   __$$_ByPublicKeyCopyWithImpl(
       _$_ByPublicKey _value, $Res Function(_$_ByPublicKey) _then)
@@ -281,14 +280,14 @@ class __$$_ByPublicKeyCopyWithImpl<$Res>
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as DerivedKeySignParamsByPublicKey,
+              as DerivedKeyPasswordByPublicKey,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $DerivedKeySignParamsByPublicKeyCopyWith<$Res> get data {
-    return $DerivedKeySignParamsByPublicKeyCopyWith<$Res>(_value.data, (value) {
+  $DerivedKeyPasswordByPublicKeyCopyWith<$Res> get data {
+    return $DerivedKeyPasswordByPublicKeyCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -304,14 +303,14 @@ class _$_ByPublicKey implements _ByPublicKey {
       _$$_ByPublicKeyFromJson(json);
 
   @override
-  final DerivedKeySignParamsByPublicKey data;
+  final DerivedKeyPasswordByPublicKey data;
 
   @JsonKey(name: 'type')
   final String $type;
 
   @override
   String toString() {
-    return 'DerivedKeySignParams.byPublicKey(data: $data)';
+    return 'DerivedKeyPassword.byPublicKey(data: $data)';
   }
 
   @override
@@ -335,8 +334,8 @@ class _$_ByPublicKey implements _ByPublicKey {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DerivedKeySignParamsByAccountId data) byAccountId,
-    required TResult Function(DerivedKeySignParamsByPublicKey data) byPublicKey,
+    required TResult Function(DerivedKeyPasswordByAccountId data) byAccountId,
+    required TResult Function(DerivedKeyPasswordByPublicKey data) byPublicKey,
   }) {
     return byPublicKey(data);
   }
@@ -344,8 +343,8 @@ class _$_ByPublicKey implements _ByPublicKey {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DerivedKeySignParamsByAccountId data)? byAccountId,
-    TResult? Function(DerivedKeySignParamsByPublicKey data)? byPublicKey,
+    TResult? Function(DerivedKeyPasswordByAccountId data)? byAccountId,
+    TResult? Function(DerivedKeyPasswordByPublicKey data)? byPublicKey,
   }) {
     return byPublicKey?.call(data);
   }
@@ -353,8 +352,8 @@ class _$_ByPublicKey implements _ByPublicKey {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DerivedKeySignParamsByAccountId data)? byAccountId,
-    TResult Function(DerivedKeySignParamsByPublicKey data)? byPublicKey,
+    TResult Function(DerivedKeyPasswordByAccountId data)? byAccountId,
+    TResult Function(DerivedKeyPasswordByPublicKey data)? byPublicKey,
     required TResult orElse(),
   }) {
     if (byPublicKey != null) {
@@ -402,15 +401,15 @@ class _$_ByPublicKey implements _ByPublicKey {
   }
 }
 
-abstract class _ByPublicKey implements DerivedKeySignParams {
-  const factory _ByPublicKey(final DerivedKeySignParamsByPublicKey data) =
+abstract class _ByPublicKey implements DerivedKeyPassword {
+  const factory _ByPublicKey(final DerivedKeyPasswordByPublicKey data) =
       _$_ByPublicKey;
 
   factory _ByPublicKey.fromJson(Map<String, dynamic> json) =
       _$_ByPublicKey.fromJson;
 
   @override
-  DerivedKeySignParamsByPublicKey get data;
+  DerivedKeyPasswordByPublicKey get data;
   @JsonKey(ignore: true)
   _$$_ByPublicKeyCopyWith<_$_ByPublicKey> get copyWith =>
       throw _privateConstructorUsedError;

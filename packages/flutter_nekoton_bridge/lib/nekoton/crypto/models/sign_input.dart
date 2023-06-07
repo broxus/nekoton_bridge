@@ -7,7 +7,7 @@ abstract class SignInput {
 extension SignInputToSigner on SignInput {
   KeySigner toSigner() {
     if (this is EncryptedKeyPassword) return const KeySigner.encrypted();
-    if (this is DerivedKeySignParams) return const KeySigner.derived();
+    if (this is DerivedKeyPassword) return const KeySigner.derived();
     if (this is LedgerSignInput) return const KeySigner.ledger();
     throw UnsupportedError('Invalid signer');
   }

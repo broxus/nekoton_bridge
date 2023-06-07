@@ -736,15 +736,15 @@ abstract class NekotonBridge {
 
   /// Export key and get its seed phrase and mnemonic type.
   /// THIS METHOD DO NOT WORK for LEDGER.
-  /// Returns json-encoded EncryptedKeyExportOutput or DerivedKeyExportOutput or throw error
-  Future<String> exportKeyMethodKeystoreDartWrapper(
+  /// Returns json-encoded EncryptedKeyExportSeedOutput or DerivedKeyExportOutput or throw error
+  Future<String> exportSeedMethodKeystoreDartWrapper(
       {required KeystoreDartWrapper that,
       required KeySigner signer,
       required String input,
       dynamic hint});
 
   FlutterRustBridgeTaskConstMeta
-      get kExportKeyMethodKeystoreDartWrapperConstMeta;
+      get kExportSeedMethodKeystoreDartWrapperConstMeta;
 
   /// Return list of public keys specified for signer or throw error.
   /// input - json-encoded action specified for signer eg EncryptedKeyGetPublicKeys or
@@ -759,7 +759,7 @@ abstract class NekotonBridge {
       get kGetPublicKeysMethodKeystoreDartWrapperConstMeta;
 
   /// Encrypt data with specified algorithm and input specified for signer eg EncryptedKeyPassword
-  ///   or DerivedKeySignParams or LedgerSignInput.
+  ///   or DerivedKeyPassword or LedgerSignInput.
   /// data - base64 encoded data that must be encrypted.
   /// algorithm - name of algorithm that should be used for encryption, for example ChaCha20Poly1305
   /// public_keys - list of keys that is used for encryption.
@@ -777,7 +777,7 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kEncryptMethodKeystoreDartWrapperConstMeta;
 
   /// Decrypt json-encoded EncryptedData in data.
-  /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeySignParams or
+  /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
   ///   LedgerSignInput.
   /// Returns base64-encoded data or throw error.
   Future<String> decryptMethodKeystoreDartWrapper(
@@ -790,7 +790,7 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kDecryptMethodKeystoreDartWrapperConstMeta;
 
   /// Sign data and return base64-encoded signature or throw error.
-  /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeySignParams or
+  /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
   ///   LedgerSignInput.
   /// signature_id - id of transport
   /// data - base64-encoded data that should be signed.
@@ -2340,10 +2340,10 @@ class KeystoreDartWrapper {
 
   /// Export key and get its seed phrase and mnemonic type.
   /// THIS METHOD DO NOT WORK for LEDGER.
-  /// Returns json-encoded EncryptedKeyExportOutput or DerivedKeyExportOutput or throw error
-  Future<String> exportKey(
+  /// Returns json-encoded EncryptedKeyExportSeedOutput or DerivedKeyExportOutput or throw error
+  Future<String> exportSeed(
           {required KeySigner signer, required String input, dynamic hint}) =>
-      bridge.exportKeyMethodKeystoreDartWrapper(
+      bridge.exportSeedMethodKeystoreDartWrapper(
         that: this,
         signer: signer,
         input: input,
@@ -2361,7 +2361,7 @@ class KeystoreDartWrapper {
       );
 
   /// Encrypt data with specified algorithm and input specified for signer eg EncryptedKeyPassword
-  ///   or DerivedKeySignParams or LedgerSignInput.
+  ///   or DerivedKeyPassword or LedgerSignInput.
   /// data - base64 encoded data that must be encrypted.
   /// algorithm - name of algorithm that should be used for encryption, for example ChaCha20Poly1305
   /// public_keys - list of keys that is used for encryption.
@@ -2384,7 +2384,7 @@ class KeystoreDartWrapper {
       );
 
   /// Decrypt json-encoded EncryptedData in data.
-  /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeySignParams or
+  /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
   ///   LedgerSignInput.
   /// Returns base64-encoded data or throw error.
   Future<String> decrypt(
@@ -2400,7 +2400,7 @@ class KeystoreDartWrapper {
       );
 
   /// Sign data and return base64-encoded signature or throw error.
-  /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeySignParams or
+  /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
   ///   LedgerSignInput.
   /// signature_id - id of transport
   /// data - base64-encoded data that should be signed.
@@ -5226,7 +5226,7 @@ class NekotonBridgeImpl implements NekotonBridge {
             argNames: ["that", "signer", "input"],
           );
 
-  Future<String> exportKeyMethodKeystoreDartWrapper(
+  Future<String> exportSeedMethodKeystoreDartWrapper(
       {required KeystoreDartWrapper that,
       required KeySigner signer,
       required String input,
@@ -5236,19 +5236,19 @@ class NekotonBridgeImpl implements NekotonBridge {
     var arg2 = _platform.api2wire_String(input);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
-          .wire_export_key__method__KeystoreDartWrapper(
+          .wire_export_seed__method__KeystoreDartWrapper(
               port_, arg0, arg1, arg2),
       parseSuccessData: _wire2api_String,
-      constMeta: kExportKeyMethodKeystoreDartWrapperConstMeta,
+      constMeta: kExportSeedMethodKeystoreDartWrapperConstMeta,
       argValues: [that, signer, input],
       hint: hint,
     ));
   }
 
   FlutterRustBridgeTaskConstMeta
-      get kExportKeyMethodKeystoreDartWrapperConstMeta =>
+      get kExportSeedMethodKeystoreDartWrapperConstMeta =>
           const FlutterRustBridgeTaskConstMeta(
-            debugName: "export_key__method__KeystoreDartWrapper",
+            debugName: "export_seed__method__KeystoreDartWrapper",
             argNames: ["that", "signer", "input"],
           );
 

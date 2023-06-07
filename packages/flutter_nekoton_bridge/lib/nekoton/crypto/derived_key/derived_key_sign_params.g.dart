@@ -8,7 +8,7 @@ part of 'derived_key_sign_params.dart';
 
 _$_ByAccountId _$$_ByAccountIdFromJson(Map<String, dynamic> json) =>
     _$_ByAccountId(
-      DerivedKeySignParamsByAccountId.fromJson(
+      DerivedKeyPasswordByAccountId.fromJson(
           json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
@@ -21,7 +21,7 @@ Map<String, dynamic> _$$_ByAccountIdToJson(_$_ByAccountId instance) =>
 
 _$_ByPublicKey _$$_ByPublicKeyFromJson(Map<String, dynamic> json) =>
     _$_ByPublicKey(
-      DerivedKeySignParamsByPublicKey.fromJson(
+      DerivedKeyPasswordByPublicKey.fromJson(
           json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );

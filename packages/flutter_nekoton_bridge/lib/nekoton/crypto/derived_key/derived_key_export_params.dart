@@ -6,15 +6,15 @@ part 'derived_key_export_params.freezed.dart';
 part 'derived_key_export_params.g.dart';
 
 @freezed
-class DerivedKeyExportParams
-    with _$DerivedKeyExportParams
+class DerivedKeyExportSeedParams
+    with _$DerivedKeyExportSeedParams
     implements ExportKeyInput {
   @JsonSerializable(fieldRename: FieldRename.snake)
-  const factory DerivedKeyExportParams({
+  const factory DerivedKeyExportSeedParams({
     required String masterKey,
     required Password password,
-  }) = _DerivedKeyExportParams;
+  }) = _DerivedKeyExportSeedParams;
 
-  factory DerivedKeyExportParams.fromJson(Map<String, dynamic> json) =>
-      _$DerivedKeyExportParamsFromJson(json);
+  factory DerivedKeyExportSeedParams.fromJson(Map<String, dynamic> json) =>
+      _$DerivedKeyExportSeedParamsFromJson(json);
 }

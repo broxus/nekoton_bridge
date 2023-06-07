@@ -88,16 +88,16 @@ class KeyStore {
 
   /// Export key and get its seed phrase and mnemonic type.
   /// THIS METHOD DO NOT WORK for LEDGER.
-  Future<ExportKeyOutput> exportKey(ExportKeyInput input) async {
+  Future<ExportKeyOutput> exportSeed(ExportKeyInput input) async {
     final signer = input.toSigner();
-    final encoded = await keystore.exportKey(
+    final encoded = await keystore.exportSeed(
       signer: signer,
       input: jsonEncode(input),
     );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
 
     return signer.maybeWhen(
-      encrypted: () => EncryptedKeyExportOutput.fromJson(decoded),
+      encrypted: () => EncryptedKeyExportSeedOutput.fromJson(decoded),
       derived: () => DerivedKeyExportOutput.fromJson(decoded),
       orElse: () => throw UnsupportedError('Invalid signer'),
     );

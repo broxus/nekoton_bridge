@@ -605,10 +605,10 @@ void wire_update_key__method__KeystoreDartWrapper(int64_t port_,
                                                   struct wire_KeySigner *signer,
                                                   struct wire_uint_8_list *input);
 
-void wire_export_key__method__KeystoreDartWrapper(int64_t port_,
-                                                  struct wire_KeystoreDartWrapper *that,
-                                                  struct wire_KeySigner *signer,
-                                                  struct wire_uint_8_list *input);
+void wire_export_seed__method__KeystoreDartWrapper(int64_t port_,
+                                                   struct wire_KeystoreDartWrapper *that,
+                                                   struct wire_KeySigner *signer,
+                                                   struct wire_uint_8_list *input);
 
 void wire_get_public_keys__method__KeystoreDartWrapper(int64_t port_,
                                                        struct wire_KeystoreDartWrapper *that,
@@ -1137,7 +1137,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_add_key__method__KeystoreDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_add_keys__method__KeystoreDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_update_key__method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_export_key__method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_export_seed__method__KeystoreDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_get_public_keys__method__KeystoreDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_encrypt__method__KeystoreDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_decrypt__method__KeystoreDartWrapper);

@@ -242,8 +242,8 @@ void main() {
 
       final signature = await keystore.sign(
         data: message.hash,
-        input: DerivedKeySignParams.byAccountId(
-          DerivedKeySignParamsByAccountId(
+        input: DerivedKeyPassword.byAccountId(
+          DerivedKeyPasswordByAccountId(
             masterKey: key,
             accountId: keysEntry.accountId,
             password: const Password.explicit(

@@ -14,30 +14,30 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-DerivedKeySignParamsByPublicKey _$DerivedKeySignParamsByPublicKeyFromJson(
+DerivedKeyPasswordByPublicKey _$DerivedKeyPasswordByPublicKeyFromJson(
     Map<String, dynamic> json) {
-  return _DerivedKeySignParamsByPublicKeyByPublicKey.fromJson(json);
+  return _DerivedKeyPasswordByPublicKeyByPublicKey.fromJson(json);
 }
 
 /// @nodoc
-mixin _$DerivedKeySignParamsByPublicKey {
+mixin _$DerivedKeyPasswordByPublicKey {
   String get masterKey => throw _privateConstructorUsedError;
   String get publicKey => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DerivedKeySignParamsByPublicKeyCopyWith<DerivedKeySignParamsByPublicKey>
+  $DerivedKeyPasswordByPublicKeyCopyWith<DerivedKeyPasswordByPublicKey>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DerivedKeySignParamsByPublicKeyCopyWith<$Res> {
-  factory $DerivedKeySignParamsByPublicKeyCopyWith(
-          DerivedKeySignParamsByPublicKey value,
-          $Res Function(DerivedKeySignParamsByPublicKey) then) =
-      _$DerivedKeySignParamsByPublicKeyCopyWithImpl<$Res,
-          DerivedKeySignParamsByPublicKey>;
+abstract class $DerivedKeyPasswordByPublicKeyCopyWith<$Res> {
+  factory $DerivedKeyPasswordByPublicKeyCopyWith(
+          DerivedKeyPasswordByPublicKey value,
+          $Res Function(DerivedKeyPasswordByPublicKey) then) =
+      _$DerivedKeyPasswordByPublicKeyCopyWithImpl<$Res,
+          DerivedKeyPasswordByPublicKey>;
   @useResult
   $Res call({String masterKey, String publicKey, Password password});
 
@@ -45,10 +45,10 @@ abstract class $DerivedKeySignParamsByPublicKeyCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DerivedKeySignParamsByPublicKeyCopyWithImpl<$Res,
-        $Val extends DerivedKeySignParamsByPublicKey>
-    implements $DerivedKeySignParamsByPublicKeyCopyWith<$Res> {
-  _$DerivedKeySignParamsByPublicKeyCopyWithImpl(this._value, this._then);
+class _$DerivedKeyPasswordByPublicKeyCopyWithImpl<$Res,
+        $Val extends DerivedKeyPasswordByPublicKey>
+    implements $DerivedKeyPasswordByPublicKeyCopyWith<$Res> {
+  _$DerivedKeyPasswordByPublicKeyCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -88,12 +88,12 @@ class _$DerivedKeySignParamsByPublicKeyCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWith<$Res>
-    implements $DerivedKeySignParamsByPublicKeyCopyWith<$Res> {
-  factory _$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWith(
-          _$_DerivedKeySignParamsByPublicKeyByPublicKey value,
-          $Res Function(_$_DerivedKeySignParamsByPublicKeyByPublicKey) then) =
-      __$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWithImpl<$Res>;
+abstract class _$$_DerivedKeyPasswordByPublicKeyByPublicKeyCopyWith<$Res>
+    implements $DerivedKeyPasswordByPublicKeyCopyWith<$Res> {
+  factory _$$_DerivedKeyPasswordByPublicKeyByPublicKeyCopyWith(
+          _$_DerivedKeyPasswordByPublicKeyByPublicKey value,
+          $Res Function(_$_DerivedKeyPasswordByPublicKeyByPublicKey) then) =
+      __$$_DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String masterKey, String publicKey, Password password});
@@ -103,13 +103,13 @@ abstract class _$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWithImpl<$Res>
-    extends _$DerivedKeySignParamsByPublicKeyCopyWithImpl<$Res,
-        _$_DerivedKeySignParamsByPublicKeyByPublicKey>
-    implements _$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWith<$Res> {
-  __$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWithImpl(
-      _$_DerivedKeySignParamsByPublicKeyByPublicKey _value,
-      $Res Function(_$_DerivedKeySignParamsByPublicKeyByPublicKey) _then)
+class __$$_DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl<$Res>
+    extends _$DerivedKeyPasswordByPublicKeyCopyWithImpl<$Res,
+        _$_DerivedKeyPasswordByPublicKeyByPublicKey>
+    implements _$$_DerivedKeyPasswordByPublicKeyByPublicKeyCopyWith<$Res> {
+  __$$_DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl(
+      _$_DerivedKeyPasswordByPublicKeyByPublicKey _value,
+      $Res Function(_$_DerivedKeyPasswordByPublicKeyByPublicKey) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,7 +119,7 @@ class __$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWithImpl<$Res>
     Object? publicKey = null,
     Object? password = null,
   }) {
-    return _then(_$_DerivedKeySignParamsByPublicKeyByPublicKey(
+    return _then(_$_DerivedKeyPasswordByPublicKeyByPublicKey(
       masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
@@ -139,16 +139,16 @@ class __$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$_DerivedKeySignParamsByPublicKeyByPublicKey
-    implements _DerivedKeySignParamsByPublicKeyByPublicKey {
-  const _$_DerivedKeySignParamsByPublicKeyByPublicKey(
+class _$_DerivedKeyPasswordByPublicKeyByPublicKey
+    implements _DerivedKeyPasswordByPublicKeyByPublicKey {
+  const _$_DerivedKeyPasswordByPublicKeyByPublicKey(
       {required this.masterKey,
       required this.publicKey,
       required this.password});
 
-  factory _$_DerivedKeySignParamsByPublicKeyByPublicKey.fromJson(
+  factory _$_DerivedKeyPasswordByPublicKeyByPublicKey.fromJson(
           Map<String, dynamic> json) =>
-      _$$_DerivedKeySignParamsByPublicKeyByPublicKeyFromJson(json);
+      _$$_DerivedKeyPasswordByPublicKeyByPublicKeyFromJson(json);
 
   @override
   final String masterKey;
@@ -159,14 +159,14 @@ class _$_DerivedKeySignParamsByPublicKeyByPublicKey
 
   @override
   String toString() {
-    return 'DerivedKeySignParamsByPublicKey(masterKey: $masterKey, publicKey: $publicKey, password: $password)';
+    return 'DerivedKeyPasswordByPublicKey(masterKey: $masterKey, publicKey: $publicKey, password: $password)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DerivedKeySignParamsByPublicKeyByPublicKey &&
+            other is _$_DerivedKeyPasswordByPublicKeyByPublicKey &&
             (identical(other.masterKey, masterKey) ||
                 other.masterKey == masterKey) &&
             (identical(other.publicKey, publicKey) ||
@@ -182,31 +182,30 @@ class _$_DerivedKeySignParamsByPublicKeyByPublicKey
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWith<
-          _$_DerivedKeySignParamsByPublicKeyByPublicKey>
-      get copyWith =>
-          __$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWithImpl<
-              _$_DerivedKeySignParamsByPublicKeyByPublicKey>(this, _$identity);
+  _$$_DerivedKeyPasswordByPublicKeyByPublicKeyCopyWith<
+          _$_DerivedKeyPasswordByPublicKeyByPublicKey>
+      get copyWith => __$$_DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl<
+          _$_DerivedKeyPasswordByPublicKeyByPublicKey>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DerivedKeySignParamsByPublicKeyByPublicKeyToJson(
+    return _$$_DerivedKeyPasswordByPublicKeyByPublicKeyToJson(
       this,
     );
   }
 }
 
-abstract class _DerivedKeySignParamsByPublicKeyByPublicKey
-    implements DerivedKeySignParamsByPublicKey {
-  const factory _DerivedKeySignParamsByPublicKeyByPublicKey(
+abstract class _DerivedKeyPasswordByPublicKeyByPublicKey
+    implements DerivedKeyPasswordByPublicKey {
+  const factory _DerivedKeyPasswordByPublicKeyByPublicKey(
           {required final String masterKey,
           required final String publicKey,
           required final Password password}) =
-      _$_DerivedKeySignParamsByPublicKeyByPublicKey;
+      _$_DerivedKeyPasswordByPublicKeyByPublicKey;
 
-  factory _DerivedKeySignParamsByPublicKeyByPublicKey.fromJson(
+  factory _DerivedKeyPasswordByPublicKeyByPublicKey.fromJson(
           Map<String, dynamic> json) =
-      _$_DerivedKeySignParamsByPublicKeyByPublicKey.fromJson;
+      _$_DerivedKeyPasswordByPublicKeyByPublicKey.fromJson;
 
   @override
   String get masterKey;
@@ -216,7 +215,7 @@ abstract class _DerivedKeySignParamsByPublicKeyByPublicKey
   Password get password;
   @override
   @JsonKey(ignore: true)
-  _$$_DerivedKeySignParamsByPublicKeyByPublicKeyCopyWith<
-          _$_DerivedKeySignParamsByPublicKeyByPublicKey>
+  _$$_DerivedKeyPasswordByPublicKeyByPublicKeyCopyWith<
+          _$_DerivedKeyPasswordByPublicKeyByPublicKey>
       get copyWith => throw _privateConstructorUsedError;
 }

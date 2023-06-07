@@ -2946,13 +2946,13 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           void Function(int, ffi.Pointer<wire_KeystoreDartWrapper>,
               ffi.Pointer<wire_KeySigner>, ffi.Pointer<wire_uint_8_list>)>();
 
-  void wire_export_key__method__KeystoreDartWrapper(
+  void wire_export_seed__method__KeystoreDartWrapper(
     int port_,
     ffi.Pointer<wire_KeystoreDartWrapper> that,
     ffi.Pointer<wire_KeySigner> signer,
     ffi.Pointer<wire_uint_8_list> input,
   ) {
-    return _wire_export_key__method__KeystoreDartWrapper(
+    return _wire_export_seed__method__KeystoreDartWrapper(
       port_,
       that,
       signer,
@@ -2960,16 +2960,16 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _wire_export_key__method__KeystoreDartWrapperPtr = _lookup<
+  late final _wire_export_seed__method__KeystoreDartWrapperPtr = _lookup<
           ffi.NativeFunction<
               ffi.Void Function(
                   ffi.Int64,
                   ffi.Pointer<wire_KeystoreDartWrapper>,
                   ffi.Pointer<wire_KeySigner>,
                   ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_export_key__method__KeystoreDartWrapper');
-  late final _wire_export_key__method__KeystoreDartWrapper =
-      _wire_export_key__method__KeystoreDartWrapperPtr.asFunction<
+      'wire_export_seed__method__KeystoreDartWrapper');
+  late final _wire_export_seed__method__KeystoreDartWrapper =
+      _wire_export_seed__method__KeystoreDartWrapperPtr.asFunction<
           void Function(int, ffi.Pointer<wire_KeystoreDartWrapper>,
               ffi.Pointer<wire_KeySigner>, ffi.Pointer<wire_uint_8_list>)>();
 

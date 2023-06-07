@@ -2,7 +2,7 @@
 use crate::async_run;
 use crate::nekoton_wrapper::core::keystore::models::{SignatureParts, SignedData, SignedDataRaw};
 use crate::nekoton_wrapper::crypto::encrypted_key::models::{
-    EncryptedKeyCreateInputHelper, EncryptedKeyExportOutputHelper,
+    EncryptedKeyCreateInputHelper, EncryptedKeyExportSeedOutputHelper,
 };
 use crate::nekoton_wrapper::crypto::models::KeySigner;
 use crate::nekoton_wrapper::{parse_public_key, HandleError};
@@ -11,7 +11,7 @@ use async_trait::async_trait;
 use flutter_rust_bridge::RustOpaque;
 use nekoton::core::keystore::{KeyStore, KeyStoreBuilder};
 use nekoton::crypto::{
-    DerivedKeyCreateInput, DerivedKeyExportParams, DerivedKeyGetPublicKeys, DerivedKeySignParams,
+    DerivedKeyCreateInput, DerivedKeyExportSeedParams, DerivedKeyGetPublicKeys, DerivedKeyPassword,
     DerivedKeySigner, DerivedKeyUpdateParams, EncryptedData, EncryptedKeyCreateInput,
     EncryptedKeyGetPublicKeys, EncryptedKeyPassword, EncryptedKeySigner, EncryptedKeyUpdateParams,
     EncryptionAlgorithm, LedgerKeyCreateInput, LedgerKeyGetPublicKeys, LedgerKeySigner,
@@ -50,8 +50,8 @@ pub trait KeyStoreApiBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
 
     /// Export key and get its seed phrase and mnemonic type.
     /// THIS METHOD DO NOT WORK for LEDGER.
-    /// Returns json-encoded EncryptedKeyExportOutput or DerivedKeyExportOutput or throw error
-    async fn export_key(&self, signer: KeySigner, input: String) -> anyhow::Result<String>;
+    /// Returns json-encoded EncryptedKeyExportSeedOutput or DerivedKeyExportOutput or throw error
+    async fn export_seed(&self, signer: KeySigner, input: String) -> anyhow::Result<String>;
 
     /// Return list of public keys specified for signer or throw error.
     /// input - json-encoded action specified for signer eg EncryptedKeyGetPublicKeys or
@@ -63,7 +63,7 @@ pub trait KeyStoreApiBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     ) -> anyhow::Result<Vec<String>>;
 
     /// Encrypt data with specified algorithm and input specified for signer eg EncryptedKeyPassword
-    ///   or DerivedKeySignParams or LedgerSignInput.
+    ///   or DerivedKeyPassword or LedgerSignInput.
     /// data - base64 encoded data that must be encrypted.
     /// algorithm - name of algorithm that should be used for encryption, for example ChaCha20Poly1305
     /// public_keys - list of keys that is used for encryption.
@@ -79,7 +79,7 @@ pub trait KeyStoreApiBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     ) -> anyhow::Result<String>;
 
     /// Decrypt json-encoded EncryptedData in data.
-    /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeySignParams or
+    /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
     ///   LedgerSignInput.
     /// Returns base64-encoded data or throw error.
     async fn decrypt(
@@ -90,7 +90,7 @@ pub trait KeyStoreApiBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     ) -> anyhow::Result<String>;
 
     /// Sign data and return base64-encoded signature or throw error.
-    /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeySignParams or
+    /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
     ///   LedgerSignInput.
     /// signature_id - id of transport
     /// data - base64-encoded data that should be signed.
@@ -303,34 +303,34 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
 
     /// Export key and get its seed phrase and mnemonic type.
     /// THIS METHOD DO NOT WORK for LEDGER.
-    /// Returns json-encoded EncryptedKeyExportOutput or DerivedKeyExportOutput or throw error
-    async fn export_key(&self, signer: KeySigner, input: String) -> anyhow::Result<String> {
+    /// Returns json-encoded EncryptedKeyExportSeedOutput or DerivedKeyExportOutput or throw error
+    async fn export_seed(&self, signer: KeySigner, input: String) -> anyhow::Result<String> {
         match signer {
             KeySigner::Encrypted => {
                 let input = serde_json::from_str::<EncryptedKeyPassword>(&input).handle_error()?;
 
                 let output = self
                     .inner_keystore
-                    .export_key::<EncryptedKeySigner>(input)
+                    .export_seed::<EncryptedKeySigner>(input)
                     .await
                     .handle_error()?;
 
-                serde_json::to_string(&EncryptedKeyExportOutputHelper(output)).handle_error()
+                serde_json::to_string(&EncryptedKeyExportSeedOutputHelper(output)).handle_error()
             }
             KeySigner::Derived => {
                 let input =
-                    serde_json::from_str::<DerivedKeyExportParams>(&input).handle_error()?;
+                    serde_json::from_str::<DerivedKeyExportSeedParams>(&input).handle_error()?;
 
                 let output = self
                     .inner_keystore
-                    .export_key::<DerivedKeySigner>(input)
+                    .export_seed::<DerivedKeySigner>(input)
                     .await
                     .handle_error()?;
 
                 serde_json::to_string(&output).handle_error()
             }
             KeySigner::Ledger => Err(anyhow::Error::msg(
-                "export_key is not allowed for KeySigner::Ledger",
+                "export_seed is not allowed for KeySigner::Ledger",
             )),
             _ => {
                 panic!("KeySigner:Fake is forbidden")
@@ -393,7 +393,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
     }
 
     /// Encrypt data with specified algorithm and input specified for signer eg EncryptedKeyPassword
-    ///   or DerivedKeySignParams or LedgerSignInput.
+    ///   or DerivedKeyPassword or LedgerSignInput.
     /// data - base64 encoded data that must be encrypted.
     /// algorithm - name of algorithm that should be used for encryption, for example ChaCha20Poly1305
     /// public_keys - list of keys that is used for encryption.
@@ -433,8 +433,8 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
                     .handle_error()?
             }
             KeySigner::Derived => {
-                let input = serde_json::from_str::<DerivedKeySignParams>(&input)
-                    .context("Invalid DerivedKeySignParams")
+                let input = serde_json::from_str::<DerivedKeyPassword>(&input)
+                    .context("Invalid DerivedKeyPassword")
                     .handle_error()?;
 
                 self.inner_keystore
@@ -460,7 +460,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
     }
 
     /// Decrypt json-encoded EncryptedData in data.
-    /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeySignParams or
+    /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
     ///   LedgerSignInput.
     /// Returns base64-encoded data or throw error.
     async fn decrypt(
@@ -481,7 +481,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
                     .handle_error()?
             }
             KeySigner::Derived => {
-                let input = serde_json::from_str::<DerivedKeySignParams>(&input).handle_error()?;
+                let input = serde_json::from_str::<DerivedKeyPassword>(&input).handle_error()?;
 
                 self.inner_keystore
                     .decrypt::<DerivedKeySigner>(&data, input)
@@ -507,7 +507,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
     }
 
     /// Sign data and return base64-encoded signature or throw error.
-    /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeySignParams or
+    /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
     ///   LedgerSignInput.
     /// signature_id - id of transport
     /// data - base64-encoded data that should be signed.
@@ -676,7 +676,7 @@ async fn sign(
                 .handle_error()
         }
         KeySigner::Derived => {
-            let input = serde_json::from_str::<DerivedKeySignParams>(&input).handle_error()?;
+            let input = serde_json::from_str::<DerivedKeyPassword>(&input).handle_error()?;
 
             keystore
                 .sign::<DerivedKeySigner>(data, signature_id, input)

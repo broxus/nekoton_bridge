@@ -7,13 +7,13 @@ part 'derived_key_sign_params.freezed.dart';
 part 'derived_key_sign_params.g.dart';
 
 @Freezed(unionKey: 'type', unionValueCase: FreezedUnionCase.snake)
-class DerivedKeySignParams with _$DerivedKeySignParams implements SignInput {
-  const factory DerivedKeySignParams.byAccountId(
-      DerivedKeySignParamsByAccountId data) = _ByAccountId;
+class DerivedKeyPassword with _$DerivedKeyPassword implements SignInput {
+  const factory DerivedKeyPassword.byAccountId(
+      DerivedKeyPasswordByAccountId data) = _ByAccountId;
 
-  const factory DerivedKeySignParams.byPublicKey(
-      DerivedKeySignParamsByPublicKey data) = _ByPublicKey;
+  const factory DerivedKeyPassword.byPublicKey(
+      DerivedKeyPasswordByPublicKey data) = _ByPublicKey;
 
-  factory DerivedKeySignParams.fromJson(Map<String, dynamic> json) =>
-      _$DerivedKeySignParamsFromJson(json);
+  factory DerivedKeyPassword.fromJson(Map<String, dynamic> json) =>
+      _$DerivedKeyPasswordFromJson(json);
 }

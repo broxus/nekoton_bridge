@@ -59,9 +59,9 @@ impl KeystoreDartWrapper {
 
     /// Export key and get its seed phrase and mnemonic type.
     /// THIS METHOD DO NOT WORK for LEDGER.
-    /// Returns json-encoded EncryptedKeyExportOutput or DerivedKeyExportOutput or throw error
-    pub fn export_key(&self, signer: KeySigner, input: String) -> anyhow::Result<String> {
-        async_run!(self.inner_keystore.export_key(signer, input).await)
+    /// Returns json-encoded EncryptedKeyExportSeedOutput or DerivedKeyExportOutput or throw error
+    pub fn export_seed(&self, signer: KeySigner, input: String) -> anyhow::Result<String> {
+        async_run!(self.inner_keystore.export_seed(signer, input).await)
     }
 
     /// Return list of public keys specified for signer or throw error.
@@ -72,7 +72,7 @@ impl KeystoreDartWrapper {
     }
 
     /// Encrypt data with specified algorithm and input specified for signer eg EncryptedKeyPassword
-    ///   or DerivedKeySignParams or LedgerSignInput.
+    ///   or DerivedKeyPassword or LedgerSignInput.
     /// data - base64 encoded data that must be encrypted.
     /// algorithm - name of algorithm that should be used for encryption, for example ChaCha20Poly1305
     /// public_keys - list of keys that is used for encryption.
@@ -94,7 +94,7 @@ impl KeystoreDartWrapper {
     }
 
     /// Decrypt json-encoded EncryptedData in data.
-    /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeySignParams or
+    /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
     ///   LedgerSignInput.
     /// Returns base64-encoded data or throw error.
     pub fn decrypt(
@@ -107,7 +107,7 @@ impl KeystoreDartWrapper {
     }
 
     /// Sign data and return base64-encoded signature or throw error.
-    /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeySignParams or
+    /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
     ///   LedgerSignInput.
     /// signature_id - id of transport
     /// data - base64-encoded data that should be signed.

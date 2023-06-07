@@ -836,7 +836,7 @@ class NekotonBridgeWasmModule implements WasmModule {
       List<dynamic> signer,
       String input);
 
-  external dynamic /* void */ wire_export_key__method__KeystoreDartWrapper(
+  external dynamic /* void */ wire_export_seed__method__KeystoreDartWrapper(
       NativePortType port_,
       List<dynamic> that,
       List<dynamic> signer,
@@ -1629,9 +1629,9 @@ class NekotonBridgeWire
       wasmModule.wire_update_key__method__KeystoreDartWrapper(
           port_, that, signer, input);
 
-  void wire_export_key__method__KeystoreDartWrapper(NativePortType port_,
+  void wire_export_seed__method__KeystoreDartWrapper(NativePortType port_,
           List<dynamic> that, List<dynamic> signer, String input) =>
-      wasmModule.wire_export_key__method__KeystoreDartWrapper(
+      wasmModule.wire_export_seed__method__KeystoreDartWrapper(
           port_, that, signer, input);
 
   void wire_get_public_keys__method__KeystoreDartWrapper(NativePortType port_,
