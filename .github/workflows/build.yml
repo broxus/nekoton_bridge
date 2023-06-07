@@ -71,10 +71,6 @@ jobs:
       - name: Run Dart tests
         run: melos run test --no-select
 
-      # JS bundle
-      - name: Generate JS bundle
-        run: melos generate-js
-
       # Check if all the generated code is up to date
       - name: Check git diff
         run: melos git-check

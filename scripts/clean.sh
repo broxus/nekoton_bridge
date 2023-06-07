@@ -26,10 +26,6 @@ rm -rdf packages/flutter_nekoton_bridge/ios/Frameworks/nekoton_bridge*.zip
 rm -rdf packages/flutter_nekoton_bridge/macos/Frameworks/NekotonBridge.xcframework
 rm -rdf packages/flutter_nekoton_bridge/macos/Frameworks/nekoton_bridge*.zip
 
-# Remove js-related files
-rm -rdf packages/flutter_nekoton_bridge/js/node_modules/
-rm -rdf packages/flutter_nekoton_bridge/assets/
-
 # Flutter clean for package
 cd packages/flutter_nekoton_bridge
 flutter clean

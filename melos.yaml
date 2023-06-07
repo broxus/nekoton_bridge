@@ -32,10 +32,6 @@ scripts:
     run: bash scripts/codegen.sh
     description: Generate code.
 
-  generate-js:
-    run: bash scripts/generate-js.sh
-    description: Generate JS bindings.
-
   git-check:
     run: bash scripts/git-check.sh
     description: Check if some code changed during build

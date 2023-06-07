@@ -50,16 +50,6 @@ This thing will run all code generators for all packages:
 $ melos run codegen
 ```
 
-## JS bundle
-
-Due to the fact that the JS bundle should be stored in package's assets, we commiting it into git. You can run this for full JS bundle rebuild:
-
-```
-$ melos generate-js
-```
-
-There is a check on CI that runs melos ```generate-js -- test``` to check if the bundle is up to date.
-
 ### Build 🪛
 
 The library consists of dart files and platform-specific binaries. pub.dev has a hard 100 MB upload limit, so we can't distribute platform-specific (they can be really huge!) this way. So, we should use something like Github releases for distribute it. Commands below will build everything for two platforms:
