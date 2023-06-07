@@ -4,7 +4,115 @@
 
 This package based on [flutter_rust_bridge](https://cjycode.com/flutter_rust_bridge) generator.
 
-## Getting Started 🚀
+## Gettind Started as user 🚀
+
+### Installation ⚙️
+
+At this moment we don't publish this package to pub.dev, so you should add it to your pubspec.yaml manually as git dependency.:
+
+```yaml
+  flutter_nekoton_bridge:
+    git:
+      url: https://github.com/broxus/nekoton_bridge.git
+      ref: flutter_nekoton_bridge-v1.8.0-dev.9
+      path: packages/flutter_nekoton_bridge
+```
+
+### Logger 🪵
+
+The first thing you need to do is to setup logger. You can use any logger you want, but we recommend to use [logging](https://pub.dev/packages/logging)-based package. For example, you can check [fancy_logger](https://github.com/broxus/ever_wallet_flutter_new/tree/main/packages/fancy_logger) from Sparx wallet.
+
+To setup logger you need to call `setupLogger` function from `flutter_nekoton_bridge` package. It's a good idea to provide mapping from `LogLevel` to your logger levels. For example, you can use `LogLevel` from `logger` package:
+
+```dart
+  /// The main log level map
+  static final Map<Level, fnb.LogLevel?> _logMap = {
+    Level.ALL: fnb.LogLevel.Trace,
+    Level.FINEST: fnb.LogLevel.Trace,
+    Level.FINER: fnb.LogLevel.Trace,
+    Level.FINE: fnb.LogLevel.Debug,
+    Level.CONFIG: fnb.LogLevel.Debug,
+    Level.INFO: fnb.LogLevel.Info,
+    Level.WARNING: fnb.LogLevel.Warn,
+    Level.SEVERE: fnb.LogLevel.Error,
+    Level.SHOUT: fnb.LogLevel.Error,
+    Level.OFF: null,
+  };
+
+  Level _toLogLevel(fnb.LogLevel level) {
+    return _logMap.keys.firstWhere((key) => _logMap[key] == level);
+  }
+```
+
+Then you can use it in ```_logHandler``` callback:
+
+```dart
+  void _logHandler(fnb.LogEntry logEntry) {
+    final logLevel = _toLogLevel(logEntry.level);
+
+    _log.log(logLevel, '${logEntry.tag}: ${logEntry.msg}');
+  }
+```
+
+And finally, you can setup logger in your app using this code:
+
+```dart
+   fnb.setupLogger(
+      level: logLevel,
+      mobileLogger: mobileLogger,
+      logHandler: _logHandler,
+   );
+```
+
+Where ```level``` is your default log level, ```mobileLogger``` is just a flag that you want to use mobile logger (if you want to use your own logger, you can set it to false) and ```logHandler` is a callback that will be called for each log entry.
+
+Please note: you should setup logger before any other calls to bridge.
+
+### Bridge initialization 🎬
+
+To initialize bridge you need to call ```initRustToDartCaller``` function from the package. It will register all callbacks and initialize bridge. You should call it before any other calls to bridge (just call it right after logger setup).
+
+```dart
+  fnb.initRustToDartCaller();
+```
+
+It's a good idea to check how we do it in Sparx wallet in [NekotonRepository](https://github.com/broxus/ever_wallet_flutter_new/blob/main/packages/nekoton_repository/lib/src/nekoton_repository.dart).
+
+### Bridge usage 📈
+
+#### Fixed point numbers 🔝
+
+We used [Fixed](https://pub.dev/packages/fixed) package for all fixed point calculations. So, you should use it too.
+
+Fixed allows you to store and manipulate fixed point numbers. Fixed point numbers are numbers that have a fixed number of digits after the decimal point. You shouldn't use floating point numbers for financial calculations because they are not precise enough. Using strings 🩼 for storing fixed point is also not a good idea because it's not efficient and can produce bugs due to decimal separator difference (, or .) and can't be used in calculations. Fixed point numbers are precise and can be used for financial calculations.
+
+For [example](https://fixed.onepub.dev/constructors):
+
+```dart
+Fixed.fromInt(1234, scale: 3); // == 1.234
+
+Fixed.fromBigInt(BigInt.from(1234), scale: 3); // == 1.234
+
+final t1 = Fixed.fromDecimal(Decimal.fromInt(1), scale: 2); // == 1.00
+
+final t3 = Fixed.parse('1.234'); // == 1.234, scale: 3
+
+final t3 = Fixed.parse('1.234', scale: 2); // == 1.23, scale: 2
+```
+
+Please note: this is the least desireable method as it can introduce rounding errors:
+
+```dart
+final t2 = Fixed.fromNum(1.234, scale: 3); // == 1.234
+```
+
+#### Money 💰
+
+Also we recommend to use [money2](https://pub.dev/packages/money2) package for money calculations. It's a good idea to use it for all money calculations in your app.
+
+Please note that due to found bug https://github.com/onepub-dev/money.dart/issues/75 we highly recommend to use [money2_improver](https://pub.dev/packages/money2_improver) for parsing amounts from strings. Also this package contains some useful extensions for money2.
+
+## Getting Started as hacker 👨🏻‍💻
 
 You should start installing the main things:
 * [Flutter](https://docs.flutter.dev/get-started/install)
@@ -28,7 +136,7 @@ dart pub global activate melos
 
 At this point, all preparations should be completed and we can start compiling the library.
 
-## Melos magic 	🪄
+## Melos magic 🪄
 
 Using [melos](https://melos.invertase.dev/) makes it very easy to work with the project, so enjoy.
 
@@ -92,7 +200,7 @@ You can run dart, flutter and integration tests: `melos run test:dart`, `melos r
 
 You need to run emulator/simulator to complete `melos run test:integration`
 
-### Disabling flaky tests
+### Disabling flaky tests 💩
 
 Yu can disable test or even test group by adding
 
@@ -105,19 +213,19 @@ It detects current OS and skips test depending on FLUTTER_TEST_SKIP_FLAKY_* envi
 * Android: FLUTTER_TEST_SKIP_FLAKY_ANDROID
 * iOS: FLUTTER_TEST_SKIP_FLAKY_IOS
 
-## Code analysis
+## Code 📊
 
 You can run code analysis: `melos run analyze`. It will analyze all dart code, including subpackages.
 
-## Code format
+## Code format 🗃️
 
 `melos run check-format` will check, `melos run format` will fix dart code formatting.
 
-## Rust code format and analysis
+## Rust code format and analysis 🦀
 
 `melos run check-rust` will ckeck and analyze rust code.
 
-## Prepare to commit
+## Prepare to commit 🤝🏻
 
 `melos run check-all` will ckeck, analyze and run all tests. In future this thing will be in git pre-comit hook.
 
@@ -127,12 +235,12 @@ You need to run emulator/simulator to complete this command
 
 [This magic](https://melos.invertase.dev/guides/automated-releases#versioning) will update version and build our library automatically using commit messages and tags. [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0) is a lightweight convention on top of commit messages.
 
-## Version
+## Version 🏷️
 
 Package version control is done by melos. It runs by gh action 'create-release' ```melos version -a --yes```.
 
 
-# HOW to write rust code for nekoton_bridge
+# HOW to write rust code for nekoton_bridge 🦀
 The first thing you need understand is because of `frb` ability to generate Dart code correctly only
 from single rust file, we must merge all necessary source code into single file.
 
