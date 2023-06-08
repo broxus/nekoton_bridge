@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-06-08
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.8.0-dev.10`](#flutter_nekoton_bridge---v180-dev10)
+ - [`flutter_nekoton_bridge_example` - `v1.8.0-dev.10`](#flutter_nekoton_bridge_example---v180-dev10)
+ - [`nekoton_bridge` - `v1.8.0-dev.8`](#nekoton_bridge---v180-dev8)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.8.0-dev.10`
+
+ - **REFACTOR**: remove js bundle ([#115](https://github.com/broxus/nekoton_bridge/issues/115)). ([96b0fc05](https://github.com/broxus/nekoton_bridge/commit/96b0fc056aa156bfc53e44ead12de7e39f93a741))
+ - **REFACTOR**: flutter dart upgrade ([#114](https://github.com/broxus/nekoton_bridge/issues/114)). ([5e1d9308](https://github.com/broxus/nekoton_bridge/commit/5e1d93083db6565fe9b19c06a354efd3ba6db706))
+
+#### `flutter_nekoton_bridge_example` - `v1.8.0-dev.10`
+
+ - **REFACTOR**: flutter dart upgrade ([#114](https://github.com/broxus/nekoton_bridge/issues/114)). ([5e1d9308](https://github.com/broxus/nekoton_bridge/commit/5e1d93083db6565fe9b19c06a354efd3ba6db706))
+
+#### `nekoton_bridge` - `v1.8.0-dev.8`
+
+ - **REFACTOR**: flutter dart upgrade ([#114](https://github.com/broxus/nekoton_bridge/issues/114)). ([5e1d9308](https://github.com/broxus/nekoton_bridge/commit/5e1d93083db6565fe9b19c06a354efd3ba6db706))
+ - **FIX**: money2 version up ([#97](https://github.com/broxus/nekoton_bridge/issues/97)). ([75b6deca](https://github.com/broxus/nekoton_bridge/commit/75b6decad43af0a06de639ed0c734d243699669b))
+
+
 ## 2023-05-17
 
 ### Changes

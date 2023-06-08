@@ -1,3 +1,8 @@
+## 1.8.0-dev.10
+
+ - **REFACTOR**: remove js bundle ([#115](https://github.com/broxus/nekoton_bridge/issues/115)). ([96b0fc05](https://github.com/broxus/nekoton_bridge/commit/96b0fc056aa156bfc53e44ead12de7e39f93a741))
+ - **REFACTOR**: flutter dart upgrade ([#114](https://github.com/broxus/nekoton_bridge/issues/114)). ([5e1d9308](https://github.com/broxus/nekoton_bridge/commit/5e1d93083db6565fe9b19c06a354efd3ba6db706))
+
 ## 1.8.0-dev.9
 
  - **FIX**: change test skipping behavoir ([#109](https://github.com/broxus/nekoton_bridge/issues/109)). ([5db256d2](https://github.com/broxus/nekoton_bridge/commit/5db256d2a9a73904ff4e3a0c7b4345aa20fb981a))
