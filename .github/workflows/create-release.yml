@@ -54,7 +54,7 @@ jobs:
           body: |
             ## Description
 
-            This is an automated PR to bump the version of the main app.
+            This is an automated PR to bump the version of the package.
 
             ## Type of Change
 
