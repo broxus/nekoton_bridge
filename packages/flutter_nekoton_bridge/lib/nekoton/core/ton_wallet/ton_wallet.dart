@@ -274,6 +274,7 @@ class TonWallet extends RustToDartMirrorInterface {
       destination: destination,
       amount: amount.toString(),
       bounce: bounce,
+      body: body,
       expiration: jsonEncode(expiration),
     );
     _updateData();

@@ -37,6 +37,7 @@ class GqlTransport extends Transport {
     final res = await transport.getAccountsByCodeHash(
       codeHash: codeHash,
       limit: limit,
+      continuation: continuation,
     );
     return AccountsList.fromJson(jsonDecode(res));
   }
