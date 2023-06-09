@@ -47,6 +47,7 @@ Future<Tuple2<String, String>> getExpectedAddress({
     tvc: tvc,
     contractAbi: contractAbi,
     workchainId: workchainId,
+    publicKey: publicKey,
     initData: jsonEncode(initData),
   );
   return Tuple2(res[0], res[1]);
@@ -80,6 +81,7 @@ Future<SignedMessage> createExternalMessageWithoutSignature({
     method: method,
     input: jsonEncode(input),
     timeout: timeout,
+    stateInit: stateInit,
   );
   return SignedMessage.fromJson(jsonDecode(res));
 }
@@ -102,6 +104,7 @@ Future<UnsignedMessage> createExternalMessage({
       input: jsonEncode(input),
       publicKey: publicKey,
       timeout: timeout,
+      stateInit: stateInit,
     ),
   );
 }
