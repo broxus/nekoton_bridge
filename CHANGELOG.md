@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-06-09
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.8.0-dev.11`](#flutter_nekoton_bridge---v180-dev11)
+ - [`flutter_nekoton_bridge_example` - `v1.8.0-dev.11`](#flutter_nekoton_bridge_example---v180-dev11)
+ - [`nekoton_bridge` - `v1.8.0-dev.9`](#nekoton_bridge---v180-dev9)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.8.0-dev.11`
+
+ - **REFACTOR**: versioning create PR ([#118](https://github.com/broxus/nekoton_bridge/issues/118)). ([0e605265](https://github.com/broxus/nekoton_bridge/commit/0e605265d9f3abe946df5d39f5ad5cf0a2aeca76))
+ - **FIX**: pass down body field in prepareTransfer ([#120](https://github.com/broxus/nekoton_bridge/issues/120)). ([b833cfa5](https://github.com/broxus/nekoton_bridge/commit/b833cfa56838a768442c0be9ecd508dc29d82079))
+
+#### `flutter_nekoton_bridge_example` - `v1.8.0-dev.11`
+
+ - **REFACTOR**: versioning create PR ([#118](https://github.com/broxus/nekoton_bridge/issues/118)). ([0e605265](https://github.com/broxus/nekoton_bridge/commit/0e605265d9f3abe946df5d39f5ad5cf0a2aeca76))
+
+#### `nekoton_bridge` - `v1.8.0-dev.9`
+
+ - **REFACTOR**: versioning create PR ([#118](https://github.com/broxus/nekoton_bridge/issues/118)). ([0e605265](https://github.com/broxus/nekoton_bridge/commit/0e605265d9f3abe946df5d39f5ad5cf0a2aeca76))
+
+
 ## 2023-06-08
 
 ### Changes

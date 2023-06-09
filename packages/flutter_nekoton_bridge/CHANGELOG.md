@@ -1,3 +1,8 @@
+## 1.8.0-dev.11
+
+ - **REFACTOR**: versioning create PR ([#118](https://github.com/broxus/nekoton_bridge/issues/118)). ([0e605265](https://github.com/broxus/nekoton_bridge/commit/0e605265d9f3abe946df5d39f5ad5cf0a2aeca76))
+ - **FIX**: pass down body field in prepareTransfer ([#120](https://github.com/broxus/nekoton_bridge/issues/120)). ([b833cfa5](https://github.com/broxus/nekoton_bridge/commit/b833cfa56838a768442c0be9ecd508dc29d82079))
+
 ## 1.8.0-dev.10
 
  - **REFACTOR**: remove js bundle ([#115](https://github.com/broxus/nekoton_bridge/issues/115)). ([96b0fc05](https://github.com/broxus/nekoton_bridge/commit/96b0fc056aa156bfc53e44ead12de7e39f93a741))
