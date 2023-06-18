@@ -58,6 +58,7 @@ apply plugin: 'com.android.library'
 //     }
 // }
 android {
+    namespace 'com.broxus.flutter_nekoton_bridge.flutter_nekoton_bridge'
     compileSdkVersion 33
 
     defaultConfig {
