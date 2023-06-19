@@ -47,7 +47,7 @@ dependencies:
 
 dev_dependencies:
   #  Used for tests
-  http: ^0.13.6
+  http: ^1.0.0
   flutter_test:
     sdk: flutter
   integration_test:
