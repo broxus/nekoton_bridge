@@ -146,7 +146,7 @@ impl TransportBoxTrait for JrpcTransportBox {
                 );
 
                 Some(FullContractState {
-                    balance: state.account.storage.balance.grams.0.to_string(),
+                    balance: state.account.storage.balance.grams.as_u128().to_string(),
                     gen_timings: state.timings,
                     last_transaction_id: Some(state.last_transaction_id),
                     is_deployed,
@@ -365,7 +365,7 @@ impl TransportBoxTrait for GqlTransportBox {
                 );
 
                 Some(FullContractState {
-                    balance: state.account.storage.balance.grams.0.to_string(),
+                    balance: state.account.storage.balance.grams.as_u128().to_string(),
                     gen_timings: state.timings,
                     last_transaction_id: Some(state.last_transaction_id),
                     is_deployed,
