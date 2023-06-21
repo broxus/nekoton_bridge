@@ -985,6 +985,20 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           void Function(int, ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_MnemonicType>)>();
 
+  void wire_init_runtime(
+    int port_,
+  ) {
+    return _wire_init_runtime(
+      port_,
+    );
+  }
+
+  late final _wire_init_runtimePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
+          'wire_init_runtime');
+  late final _wire_init_runtime =
+      _wire_init_runtimePtr.asFunction<void Function(int)>();
+
   void wire_check_public_key(
     int port_,
     ffi.Pointer<wire_uint_8_list> public_key,

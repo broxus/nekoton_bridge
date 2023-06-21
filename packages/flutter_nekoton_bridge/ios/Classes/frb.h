@@ -286,6 +286,8 @@ void wire_nt_derive_from_phrase(int64_t port_,
                                 struct wire_uint_8_list *phrase,
                                 struct wire_MnemonicType *mnemonic_type);
 
+void wire_init_runtime(int64_t port_);
+
 void wire_check_public_key(int64_t port_, struct wire_uint_8_list *public_key);
 
 void wire_run_local(int64_t port_,
@@ -1047,6 +1049,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_nt_generate_key);
     dummy_var ^= ((int64_t) (void*) wire_nt_get_hints);
     dummy_var ^= ((int64_t) (void*) wire_nt_derive_from_phrase);
+    dummy_var ^= ((int64_t) (void*) wire_init_runtime);
     dummy_var ^= ((int64_t) (void*) wire_check_public_key);
     dummy_var ^= ((int64_t) (void*) wire_run_local);
     dummy_var ^= ((int64_t) (void*) wire_get_expected_address);
