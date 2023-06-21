@@ -39,7 +39,7 @@ Stream<DartCallStubRegistred>? _caller;
 Future<void> registerRustToDartCaller(RustToDartCaller rustToDartCaller) async {
   final lib = createLib();
 
-  lib.initRuntime();
+  await lib.initRuntime();
 
   if (_caller != null) {
     final logEntry = LogEntryCreate.create(
