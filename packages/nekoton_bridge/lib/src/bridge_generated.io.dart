@@ -836,7 +836,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       : _lookup = lookup;
 
   void store_dart_post_cobject(
-    int ptr,
+    DartPostCObjectFnType ptr,
   ) {
     return _store_dart_post_cobject(
       ptr,
@@ -844,10 +844,10 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   }
 
   late final _store_dart_post_cobjectPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int)>>(
+      _lookup<ffi.NativeFunction<ffi.Void Function(DartPostCObjectFnType)>>(
           'store_dart_post_cobject');
-  late final _store_dart_post_cobject =
-      _store_dart_post_cobjectPtr.asFunction<void Function(int)>();
+  late final _store_dart_post_cobject = _store_dart_post_cobjectPtr
+      .asFunction<void Function(DartPostCObjectFnType)>();
 
   Object get_dart_object(
     int ptr,
@@ -905,6 +905,31 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _init_frb_dart_api_dl = _init_frb_dart_api_dlPtr
       .asFunction<int Function(ffi.Pointer<ffi.Void>)>();
 
+  void wire_verify_signature(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> public_key,
+    ffi.Pointer<wire_uint_8_list> data_hash,
+    ffi.Pointer<wire_uint_8_list> signature,
+  ) {
+    return _wire_verify_signature(
+      port_,
+      public_key,
+      data_hash,
+      signature,
+    );
+  }
+
+  late final _wire_verify_signaturePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_verify_signature');
+  late final _wire_verify_signature = _wire_verify_signaturePtr.asFunction<
+      void Function(int, ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
+
   void wire_nt_generate_key(
     int port_,
     ffi.Pointer<wire_MnemonicType> account_type,
@@ -960,31 +985,6 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           void Function(int, ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_MnemonicType>)>();
 
-  void wire_verify_signature(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> public_key,
-    ffi.Pointer<wire_uint_8_list> data_hash,
-    ffi.Pointer<wire_uint_8_list> signature,
-  ) {
-    return _wire_verify_signature(
-      port_,
-      public_key,
-      data_hash,
-      signature,
-    );
-  }
-
-  late final _wire_verify_signaturePtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(
-              ffi.Int64,
-              ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<wire_uint_8_list>)>>('wire_verify_signature');
-  late final _wire_verify_signature = _wire_verify_signaturePtr.asFunction<
-      void Function(int, ffi.Pointer<wire_uint_8_list>,
-          ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
-
   void wire_check_public_key(
     int port_,
     ffi.Pointer<wire_uint_8_list> public_key,
@@ -1008,7 +1008,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     ffi.Pointer<wire_uint_8_list> contract_abi,
     ffi.Pointer<wire_uint_8_list> method,
     ffi.Pointer<wire_uint_8_list> input,
-    ffi.Pointer<bool> responsible,
+    bool responsible,
   ) {
     return _wire_run_local(
       port_,
@@ -1028,7 +1028,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<bool>)>>('wire_run_local');
+              ffi.Bool)>>('wire_run_local');
   late final _wire_run_local = _wire_run_localPtr.asFunction<
       void Function(
           int,
@@ -1036,7 +1036,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           ffi.Pointer<wire_uint_8_list>,
           ffi.Pointer<wire_uint_8_list>,
           ffi.Pointer<wire_uint_8_list>,
-          ffi.Pointer<bool>)>();
+          bool)>();
 
   void wire_get_expected_address(
     int port_,
@@ -1209,7 +1209,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     ffi.Pointer<wire_uint_8_list> message_body,
     ffi.Pointer<wire_uint_8_list> contract_abi,
     ffi.Pointer<wire_uint_8_list> method,
-    ffi.Pointer<bool> internal,
+    bool internal,
   ) {
     return _wire_decode_input(
       port_,
@@ -1227,14 +1227,14 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<bool>)>>('wire_decode_input');
+              ffi.Bool)>>('wire_decode_input');
   late final _wire_decode_input = _wire_decode_inputPtr.asFunction<
       void Function(
           int,
           ffi.Pointer<wire_uint_8_list>,
           ffi.Pointer<wire_uint_8_list>,
           ffi.Pointer<wire_uint_8_list>,
-          ffi.Pointer<bool>)>();
+          bool)>();
 
   void wire_decode_event(
     int port_,
@@ -1374,7 +1374,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     int port_,
     ffi.Pointer<wire_uint_8_list> params,
     ffi.Pointer<wire_uint_8_list> boc,
-    ffi.Pointer<bool> allow_partial,
+    bool allow_partial,
   ) {
     return _wire_unpack_from_cell(
       port_,
@@ -1390,16 +1390,16 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Int64,
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<bool>)>>('wire_unpack_from_cell');
+              ffi.Bool)>>('wire_unpack_from_cell');
   late final _wire_unpack_from_cell = _wire_unpack_from_cellPtr.asFunction<
       void Function(int, ffi.Pointer<wire_uint_8_list>,
-          ffi.Pointer<wire_uint_8_list>, ffi.Pointer<bool>)>();
+          ffi.Pointer<wire_uint_8_list>, bool)>();
 
   void wire_pack_std_smc_addr(
     int port_,
     ffi.Pointer<wire_uint_8_list> addr,
-    ffi.Pointer<bool> base64_url,
-    ffi.Pointer<bool> bounceable,
+    bool base64_url,
+    bool bounceable,
   ) {
     return _wire_pack_std_smc_addr(
       port_,
@@ -1411,16 +1411,15 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
 
   late final _wire_pack_std_smc_addrPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<bool>, ffi.Pointer<bool>)>>('wire_pack_std_smc_addr');
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>, ffi.Bool,
+              ffi.Bool)>>('wire_pack_std_smc_addr');
   late final _wire_pack_std_smc_addr = _wire_pack_std_smc_addrPtr.asFunction<
-      void Function(int, ffi.Pointer<wire_uint_8_list>, ffi.Pointer<bool>,
-          ffi.Pointer<bool>)>();
+      void Function(int, ffi.Pointer<wire_uint_8_list>, bool, bool)>();
 
   void wire_unpack_std_smc_addr(
     int port_,
     ffi.Pointer<wire_uint_8_list> packed,
-    ffi.Pointer<bool> base64_url,
+    bool base64_url,
   ) {
     return _wire_unpack_std_smc_addr(
       port_,
@@ -1432,11 +1431,9 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_unpack_std_smc_addrPtr = _lookup<
       ffi.NativeFunction<
           ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<bool>)>>('wire_unpack_std_smc_addr');
-  late final _wire_unpack_std_smc_addr =
-      _wire_unpack_std_smc_addrPtr.asFunction<
-          void Function(
-              int, ffi.Pointer<wire_uint_8_list>, ffi.Pointer<bool>)>();
+              ffi.Bool)>>('wire_unpack_std_smc_addr');
+  late final _wire_unpack_std_smc_addr = _wire_unpack_std_smc_addrPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>, bool)>();
 
   void wire_validate_address(
     int port_,
@@ -1580,10 +1577,153 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_get_code_salt = _wire_get_code_saltPtr
       .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
 
+  void wire_test_logger_info(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+  ) {
+    return _wire_test_logger_info(
+      port_,
+      string,
+    );
+  }
+
+  late final _wire_test_logger_infoPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_info');
+  late final _wire_test_logger_info = _wire_test_logger_infoPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_test_logger_debug(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+  ) {
+    return _wire_test_logger_debug(
+      port_,
+      string,
+    );
+  }
+
+  late final _wire_test_logger_debugPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_debug');
+  late final _wire_test_logger_debug = _wire_test_logger_debugPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_test_logger_warn(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+  ) {
+    return _wire_test_logger_warn(
+      port_,
+      string,
+    );
+  }
+
+  late final _wire_test_logger_warnPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_warn');
+  late final _wire_test_logger_warn = _wire_test_logger_warnPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_test_logger_error(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+  ) {
+    return _wire_test_logger_error(
+      port_,
+      string,
+    );
+  }
+
+  late final _wire_test_logger_errorPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_error');
+  late final _wire_test_logger_error = _wire_test_logger_errorPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_test_logger_panic(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+  ) {
+    return _wire_test_logger_panic(
+      port_,
+      string,
+    );
+  }
+
+  late final _wire_test_logger_panicPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_panic');
+  late final _wire_test_logger_panic = _wire_test_logger_panicPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_test_caller_call_test0_async(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+    bool need_result,
+  ) {
+    return _wire_test_caller_call_test0_async(
+      port_,
+      string,
+      need_result,
+    );
+  }
+
+  late final _wire_test_caller_call_test0_asyncPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
+              ffi.Bool)>>('wire_test_caller_call_test0_async');
+  late final _wire_test_caller_call_test0_async =
+      _wire_test_caller_call_test0_asyncPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_uint_8_list>, bool)>();
+
+  WireSyncReturn wire_test_caller_call_test0_sync(
+    ffi.Pointer<wire_uint_8_list> string,
+    bool need_result,
+  ) {
+    return _wire_test_caller_call_test0_sync(
+      string,
+      need_result,
+    );
+  }
+
+  late final _wire_test_caller_call_test0_syncPtr = _lookup<
+      ffi.NativeFunction<
+          WireSyncReturn Function(ffi.Pointer<wire_uint_8_list>,
+              ffi.Bool)>>('wire_test_caller_call_test0_sync');
+  late final _wire_test_caller_call_test0_sync =
+      _wire_test_caller_call_test0_syncPtr.asFunction<
+          WireSyncReturn Function(ffi.Pointer<wire_uint_8_list>, bool)>();
+
+  void wire_test_caller_call_test1_async(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> string,
+    bool need_result,
+  ) {
+    return _wire_test_caller_call_test1_async(
+      port_,
+      string,
+      need_result,
+    );
+  }
+
+  late final _wire_test_caller_call_test1_asyncPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
+              ffi.Bool)>>('wire_test_caller_call_test1_async');
+  late final _wire_test_caller_call_test1_async =
+      _wire_test_caller_call_test1_asyncPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_uint_8_list>, bool)>();
+
   void wire_init_logger(
     int port_,
     int level,
-    ffi.Pointer<bool> mobile_logger,
+    bool mobile_logger,
   ) {
     return _wire_init_logger(
       port_,
@@ -1595,9 +1735,9 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_init_loggerPtr = _lookup<
       ffi.NativeFunction<
           ffi.Void Function(
-              ffi.Int64, ffi.Int32, ffi.Pointer<bool>)>>('wire_init_logger');
-  late final _wire_init_logger = _wire_init_loggerPtr
-      .asFunction<void Function(int, int, ffi.Pointer<bool>)>();
+              ffi.Int64, ffi.Int32, ffi.Bool)>>('wire_init_logger');
+  late final _wire_init_logger =
+      _wire_init_loggerPtr.asFunction<void Function(int, int, bool)>();
 
   void wire_create_log_stream(
     int port_,
@@ -1770,7 +1910,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
 
   void wire_simple_call_func0(
     int port_,
-    ffi.Pointer<bool> need_result,
+    bool need_result,
   ) {
     return _wire_simple_call_func0(
       port_,
@@ -1778,15 +1918,15 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _wire_simple_call_func0Ptr = _lookup<
-          ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Pointer<bool>)>>(
-      'wire_simple_call_func0');
-  late final _wire_simple_call_func0 = _wire_simple_call_func0Ptr
-      .asFunction<void Function(int, ffi.Pointer<bool>)>();
+  late final _wire_simple_call_func0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Bool)>>(
+          'wire_simple_call_func0');
+  late final _wire_simple_call_func0 =
+      _wire_simple_call_func0Ptr.asFunction<void Function(int, bool)>();
 
   void wire_simple_call_func1(
     int port_,
-    ffi.Pointer<bool> need_result,
+    bool need_result,
   ) {
     return _wire_simple_call_func1(
       port_,
@@ -1794,11 +1934,11 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _wire_simple_call_func1Ptr = _lookup<
-          ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Pointer<bool>)>>(
-      'wire_simple_call_func1');
-  late final _wire_simple_call_func1 = _wire_simple_call_func1Ptr
-      .asFunction<void Function(int, ffi.Pointer<bool>)>();
+  late final _wire_simple_call_func1Ptr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Bool)>>(
+          'wire_simple_call_func1');
+  late final _wire_simple_call_func1 =
+      _wire_simple_call_func1Ptr.asFunction<void Function(int, bool)>();
 
   void wire_simple_call_func2(
     int port_,
@@ -1827,152 +1967,6 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           'wire_simple_call_func3');
   late final _wire_simple_call_func3 =
       _wire_simple_call_func3Ptr.asFunction<void Function(int)>();
-
-  void wire_test_logger_info(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> string,
-  ) {
-    return _wire_test_logger_info(
-      port_,
-      string,
-    );
-  }
-
-  late final _wire_test_logger_infoPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Int64,
-              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_info');
-  late final _wire_test_logger_info = _wire_test_logger_infoPtr
-      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_test_logger_debug(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> string,
-  ) {
-    return _wire_test_logger_debug(
-      port_,
-      string,
-    );
-  }
-
-  late final _wire_test_logger_debugPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Int64,
-              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_debug');
-  late final _wire_test_logger_debug = _wire_test_logger_debugPtr
-      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_test_logger_warn(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> string,
-  ) {
-    return _wire_test_logger_warn(
-      port_,
-      string,
-    );
-  }
-
-  late final _wire_test_logger_warnPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Int64,
-              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_warn');
-  late final _wire_test_logger_warn = _wire_test_logger_warnPtr
-      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_test_logger_error(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> string,
-  ) {
-    return _wire_test_logger_error(
-      port_,
-      string,
-    );
-  }
-
-  late final _wire_test_logger_errorPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Int64,
-              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_error');
-  late final _wire_test_logger_error = _wire_test_logger_errorPtr
-      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_test_logger_panic(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> string,
-  ) {
-    return _wire_test_logger_panic(
-      port_,
-      string,
-    );
-  }
-
-  late final _wire_test_logger_panicPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Int64,
-              ffi.Pointer<wire_uint_8_list>)>>('wire_test_logger_panic');
-  late final _wire_test_logger_panic = _wire_test_logger_panicPtr
-      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_test_caller_call_test0_async(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> string,
-    ffi.Pointer<bool> need_result,
-  ) {
-    return _wire_test_caller_call_test0_async(
-      port_,
-      string,
-      need_result,
-    );
-  }
-
-  late final _wire_test_caller_call_test0_asyncPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<bool>)>>('wire_test_caller_call_test0_async');
-  late final _wire_test_caller_call_test0_async =
-      _wire_test_caller_call_test0_asyncPtr.asFunction<
-          void Function(
-              int, ffi.Pointer<wire_uint_8_list>, ffi.Pointer<bool>)>();
-
-  WireSyncReturn wire_test_caller_call_test0_sync(
-    ffi.Pointer<wire_uint_8_list> string,
-    ffi.Pointer<bool> need_result,
-  ) {
-    return _wire_test_caller_call_test0_sync(
-      string,
-      need_result,
-    );
-  }
-
-  late final _wire_test_caller_call_test0_syncPtr = _lookup<
-      ffi.NativeFunction<
-          WireSyncReturn Function(ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<bool>)>>('wire_test_caller_call_test0_sync');
-  late final _wire_test_caller_call_test0_sync =
-      _wire_test_caller_call_test0_syncPtr.asFunction<
-          WireSyncReturn Function(
-              ffi.Pointer<wire_uint_8_list>, ffi.Pointer<bool>)>();
-
-  void wire_test_caller_call_test1_async(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> string,
-    ffi.Pointer<bool> need_result,
-  ) {
-    return _wire_test_caller_call_test1_async(
-      port_,
-      string,
-      need_result,
-    );
-  }
-
-  late final _wire_test_caller_call_test1_asyncPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<bool>)>>('wire_test_caller_call_test1_async');
-  late final _wire_test_caller_call_test1_async =
-      _wire_test_caller_call_test1_asyncPtr.asFunction<
-          void Function(
-              int, ffi.Pointer<wire_uint_8_list>, ffi.Pointer<bool>)>();
 
   void wire_refresh_timeout__method__UnsignedMessageImpl(
     int port_,
@@ -2055,670 +2049,772 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           void Function(int, ffi.Pointer<wire_UnsignedMessageImpl>,
               ffi.Pointer<wire_uint_8_list>)>();
 
-  void wire_new__static_method__GqlConnectionDartWrapper(
+  void wire_new__static_method__GqlTransportImpl(
     int port_,
-    ffi.Pointer<bool> is_local,
-    ffi.Pointer<wire_uint_8_list> instance_hash,
+    ffi.Pointer<wire_GqlConnectionDartWrapper> gql_connection,
   ) {
-    return _wire_new__static_method__GqlConnectionDartWrapper(
+    return _wire_new__static_method__GqlTransportImpl(
       port_,
-      is_local,
-      instance_hash,
+      gql_connection,
     );
   }
 
-  late final _wire_new__static_method__GqlConnectionDartWrapperPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(ffi.Int64, ffi.Pointer<bool>,
-                  ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_new__static_method__GqlConnectionDartWrapper');
-  late final _wire_new__static_method__GqlConnectionDartWrapper =
-      _wire_new__static_method__GqlConnectionDartWrapperPtr.asFunction<
-          void Function(
-              int, ffi.Pointer<bool>, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_new__static_method__JrpcConnectionDartWrapper(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> instance_hash,
-  ) {
-    return _wire_new__static_method__JrpcConnectionDartWrapper(
-      port_,
-      instance_hash,
-    );
-  }
-
-  late final _wire_new__static_method__JrpcConnectionDartWrapperPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_new__static_method__JrpcConnectionDartWrapper');
-  late final _wire_new__static_method__JrpcConnectionDartWrapper =
-      _wire_new__static_method__JrpcConnectionDartWrapperPtr
-          .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_new__static_method__LedgerConnectionDartWrapper(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> instance_hash,
-  ) {
-    return _wire_new__static_method__LedgerConnectionDartWrapper(
-      port_,
-      instance_hash,
-    );
-  }
-
-  late final _wire_new__static_method__LedgerConnectionDartWrapperPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_new__static_method__LedgerConnectionDartWrapper');
-  late final _wire_new__static_method__LedgerConnectionDartWrapper =
-      _wire_new__static_method__LedgerConnectionDartWrapperPtr
-          .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_new__static_method__LedgerConnectionImpl(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> instance_hash,
-  ) {
-    return _wire_new__static_method__LedgerConnectionImpl(
-      port_,
-      instance_hash,
-    );
-  }
-
-  late final _wire_new__static_method__LedgerConnectionImplPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_new__static_method__LedgerConnectionImpl');
-  late final _wire_new__static_method__LedgerConnectionImpl =
-      _wire_new__static_method__LedgerConnectionImplPtr
-          .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_new__static_method__StorageDartWrapper(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> instance_hash,
-  ) {
-    return _wire_new__static_method__StorageDartWrapper(
-      port_,
-      instance_hash,
-    );
-  }
-
-  late final _wire_new__static_method__StorageDartWrapperPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_new__static_method__StorageDartWrapper');
-  late final _wire_new__static_method__StorageDartWrapper =
-      _wire_new__static_method__StorageDartWrapperPtr
-          .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_new__static_method__StorageImpl(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> instance_hash,
-  ) {
-    return _wire_new__static_method__StorageImpl(
-      port_,
-      instance_hash,
-    );
-  }
-
-  late final _wire_new__static_method__StorageImplPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_new__static_method__StorageImpl');
-  late final _wire_new__static_method__StorageImpl =
-      _wire_new__static_method__StorageImplPtr
-          .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_new__static_method__AccountsStorageImpl(
-    int port_,
-    ffi.Pointer<wire_StorageDartWrapper> storage,
-  ) {
-    return _wire_new__static_method__AccountsStorageImpl(
-      port_,
-      storage,
-    );
-  }
-
-  late final _wire_new__static_method__AccountsStorageImplPtr = _lookup<
+  late final _wire_new__static_method__GqlTransportImplPtr = _lookup<
           ffi.NativeFunction<
               ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_StorageDartWrapper>)>>(
-      'wire_new__static_method__AccountsStorageImpl');
-  late final _wire_new__static_method__AccountsStorageImpl =
-      _wire_new__static_method__AccountsStorageImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_StorageDartWrapper>)>();
+                  ffi.Int64, ffi.Pointer<wire_GqlConnectionDartWrapper>)>>(
+      'wire_new__static_method__GqlTransportImpl');
+  late final _wire_new__static_method__GqlTransportImpl =
+      _wire_new__static_method__GqlTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_GqlConnectionDartWrapper>)>();
 
-  void wire_get_entries__method__AccountsStorageImpl(
+  void wire_get_contract_state__method__GqlTransportImpl(
     int port_,
-    ffi.Pointer<wire_AccountsStorageImpl> that,
+    ffi.Pointer<wire_GqlTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> address,
   ) {
-    return _wire_get_entries__method__AccountsStorageImpl(
+    return _wire_get_contract_state__method__GqlTransportImpl(
       port_,
       that,
+      address,
     );
   }
 
-  late final _wire_get_entries__method__AccountsStorageImplPtr = _lookup<
+  late final _wire_get_contract_state__method__GqlTransportImplPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_AccountsStorageImpl>)>>(
-      'wire_get_entries__method__AccountsStorageImpl');
-  late final _wire_get_entries__method__AccountsStorageImpl =
-      _wire_get_entries__method__AccountsStorageImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_AccountsStorageImpl>)>();
-
-  void wire_add_account__method__AccountsStorageImpl(
-    int port_,
-    ffi.Pointer<wire_AccountsStorageImpl> that,
-    ffi.Pointer<wire_uint_8_list> account,
-  ) {
-    return _wire_add_account__method__AccountsStorageImpl(
-      port_,
-      that,
-      account,
-    );
-  }
-
-  late final _wire_add_account__method__AccountsStorageImplPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64,
-                  ffi.Pointer<wire_AccountsStorageImpl>,
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_GqlTransportImpl>,
                   ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_add_account__method__AccountsStorageImpl');
-  late final _wire_add_account__method__AccountsStorageImpl =
-      _wire_add_account__method__AccountsStorageImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_AccountsStorageImpl>,
+      'wire_get_contract_state__method__GqlTransportImpl');
+  late final _wire_get_contract_state__method__GqlTransportImpl =
+      _wire_get_contract_state__method__GqlTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_GqlTransportImpl>,
               ffi.Pointer<wire_uint_8_list>)>();
 
-  void wire_add_accounts__method__AccountsStorageImpl(
+  void wire_get_full_contract_state__method__GqlTransportImpl(
     int port_,
-    ffi.Pointer<wire_AccountsStorageImpl> that,
-    ffi.Pointer<wire_uint_8_list> accounts,
+    ffi.Pointer<wire_GqlTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> address,
   ) {
-    return _wire_add_accounts__method__AccountsStorageImpl(
+    return _wire_get_full_contract_state__method__GqlTransportImpl(
       port_,
       that,
-      accounts,
+      address,
     );
   }
 
-  late final _wire_add_accounts__method__AccountsStorageImplPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64,
-                  ffi.Pointer<wire_AccountsStorageImpl>,
-                  ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_add_accounts__method__AccountsStorageImpl');
-  late final _wire_add_accounts__method__AccountsStorageImpl =
-      _wire_add_accounts__method__AccountsStorageImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_AccountsStorageImpl>,
-              ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_rename_account__method__AccountsStorageImpl(
-    int port_,
-    ffi.Pointer<wire_AccountsStorageImpl> that,
-    ffi.Pointer<wire_uint_8_list> account_address,
-    ffi.Pointer<wire_uint_8_list> name,
-  ) {
-    return _wire_rename_account__method__AccountsStorageImpl(
-      port_,
-      that,
-      account_address,
-      name,
-    );
-  }
-
-  late final _wire_rename_account__method__AccountsStorageImplPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64,
-                  ffi.Pointer<wire_AccountsStorageImpl>,
-                  ffi.Pointer<wire_uint_8_list>,
-                  ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_rename_account__method__AccountsStorageImpl');
-  late final _wire_rename_account__method__AccountsStorageImpl =
-      _wire_rename_account__method__AccountsStorageImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_AccountsStorageImpl>,
-              ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_add_token_wallet__method__AccountsStorageImpl(
-    int port_,
-    ffi.Pointer<wire_AccountsStorageImpl> that,
-    ffi.Pointer<wire_uint_8_list> account_address,
-    ffi.Pointer<wire_uint_8_list> network_group,
-    ffi.Pointer<wire_uint_8_list> root_token_contract,
-  ) {
-    return _wire_add_token_wallet__method__AccountsStorageImpl(
-      port_,
-      that,
-      account_address,
-      network_group,
-      root_token_contract,
-    );
-  }
-
-  late final _wire_add_token_wallet__method__AccountsStorageImplPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64,
-                  ffi.Pointer<wire_AccountsStorageImpl>,
-                  ffi.Pointer<wire_uint_8_list>,
-                  ffi.Pointer<wire_uint_8_list>,
-                  ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_add_token_wallet__method__AccountsStorageImpl');
-  late final _wire_add_token_wallet__method__AccountsStorageImpl =
-      _wire_add_token_wallet__method__AccountsStorageImplPtr.asFunction<
-          void Function(
-              int,
-              ffi.Pointer<wire_AccountsStorageImpl>,
-              ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_remove_token_wallet__method__AccountsStorageImpl(
-    int port_,
-    ffi.Pointer<wire_AccountsStorageImpl> that,
-    ffi.Pointer<wire_uint_8_list> account_address,
-    ffi.Pointer<wire_uint_8_list> network_group,
-    ffi.Pointer<wire_uint_8_list> root_token_contract,
-  ) {
-    return _wire_remove_token_wallet__method__AccountsStorageImpl(
-      port_,
-      that,
-      account_address,
-      network_group,
-      root_token_contract,
-    );
-  }
-
-  late final _wire_remove_token_wallet__method__AccountsStorageImplPtr =
+  late final _wire_get_full_contract_state__method__GqlTransportImplPtr =
       _lookup<
               ffi.NativeFunction<
                   ffi.Void Function(
                       ffi.Int64,
-                      ffi.Pointer<wire_AccountsStorageImpl>,
-                      ffi.Pointer<wire_uint_8_list>,
-                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_GqlTransportImpl>,
                       ffi.Pointer<wire_uint_8_list>)>>(
-          'wire_remove_token_wallet__method__AccountsStorageImpl');
-  late final _wire_remove_token_wallet__method__AccountsStorageImpl =
-      _wire_remove_token_wallet__method__AccountsStorageImplPtr.asFunction<
+          'wire_get_full_contract_state__method__GqlTransportImpl');
+  late final _wire_get_full_contract_state__method__GqlTransportImpl =
+      _wire_get_full_contract_state__method__GqlTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_GqlTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_get_accounts_by_code_hash__method__GqlTransportImpl(
+    int port_,
+    ffi.Pointer<wire_GqlTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> code_hash,
+    int limit,
+    ffi.Pointer<wire_uint_8_list> continuation,
+  ) {
+    return _wire_get_accounts_by_code_hash__method__GqlTransportImpl(
+      port_,
+      that,
+      code_hash,
+      limit,
+      continuation,
+    );
+  }
+
+  late final _wire_get_accounts_by_code_hash__method__GqlTransportImplPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(
+                      ffi.Int64,
+                      ffi.Pointer<wire_GqlTransportImpl>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Uint8,
+                      ffi.Pointer<wire_uint_8_list>)>>(
+          'wire_get_accounts_by_code_hash__method__GqlTransportImpl');
+  late final _wire_get_accounts_by_code_hash__method__GqlTransportImpl =
+      _wire_get_accounts_by_code_hash__method__GqlTransportImplPtr.asFunction<
           void Function(
               int,
-              ffi.Pointer<wire_AccountsStorageImpl>,
+              ffi.Pointer<wire_GqlTransportImpl>,
               ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<wire_uint_8_list>,
+              int,
               ffi.Pointer<wire_uint_8_list>)>();
 
-  void wire_remove_account__method__AccountsStorageImpl(
+  void wire_get_transactions__method__GqlTransportImpl(
     int port_,
-    ffi.Pointer<wire_AccountsStorageImpl> that,
-    ffi.Pointer<wire_uint_8_list> account_address,
+    ffi.Pointer<wire_GqlTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> address,
+    ffi.Pointer<ffi.Uint64> from_lt,
+    int count,
   ) {
-    return _wire_remove_account__method__AccountsStorageImpl(
+    return _wire_get_transactions__method__GqlTransportImpl(
       port_,
       that,
-      account_address,
+      address,
+      from_lt,
+      count,
     );
   }
 
-  late final _wire_remove_account__method__AccountsStorageImplPtr = _lookup<
+  late final _wire_get_transactions__method__GqlTransportImplPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_GqlTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<ffi.Uint64>,
+              ffi.Uint8)>>('wire_get_transactions__method__GqlTransportImpl');
+  late final _wire_get_transactions__method__GqlTransportImpl =
+      _wire_get_transactions__method__GqlTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_GqlTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>, ffi.Pointer<ffi.Uint64>, int)>();
+
+  void wire_get_transaction__method__GqlTransportImpl(
+    int port_,
+    ffi.Pointer<wire_GqlTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> hash,
+  ) {
+    return _wire_get_transaction__method__GqlTransportImpl(
+      port_,
+      that,
+      hash,
+    );
+  }
+
+  late final _wire_get_transaction__method__GqlTransportImplPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64,
-                  ffi.Pointer<wire_AccountsStorageImpl>,
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_GqlTransportImpl>,
                   ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_remove_account__method__AccountsStorageImpl');
-  late final _wire_remove_account__method__AccountsStorageImpl =
-      _wire_remove_account__method__AccountsStorageImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_AccountsStorageImpl>,
+      'wire_get_transaction__method__GqlTransportImpl');
+  late final _wire_get_transaction__method__GqlTransportImpl =
+      _wire_get_transaction__method__GqlTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_GqlTransportImpl>,
               ffi.Pointer<wire_uint_8_list>)>();
 
-  void wire_remove_accounts__method__AccountsStorageImpl(
+  void wire_get_signature_id__method__GqlTransportImpl(
     int port_,
-    ffi.Pointer<wire_AccountsStorageImpl> that,
-    ffi.Pointer<wire_StringList> account_addresses,
+    ffi.Pointer<wire_GqlTransportImpl> that,
   ) {
-    return _wire_remove_accounts__method__AccountsStorageImpl(
+    return _wire_get_signature_id__method__GqlTransportImpl(
       port_,
       that,
-      account_addresses,
     );
   }
 
-  late final _wire_remove_accounts__method__AccountsStorageImplPtr = _lookup<
+  late final _wire_get_signature_id__method__GqlTransportImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_GqlTransportImpl>)>>(
+      'wire_get_signature_id__method__GqlTransportImpl');
+  late final _wire_get_signature_id__method__GqlTransportImpl =
+      _wire_get_signature_id__method__GqlTransportImplPtr
+          .asFunction<void Function(int, ffi.Pointer<wire_GqlTransportImpl>)>();
+
+  void wire_get_network_id__method__GqlTransportImpl(
+    int port_,
+    ffi.Pointer<wire_GqlTransportImpl> that,
+  ) {
+    return _wire_get_network_id__method__GqlTransportImpl(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_get_network_id__method__GqlTransportImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_GqlTransportImpl>)>>(
+      'wire_get_network_id__method__GqlTransportImpl');
+  late final _wire_get_network_id__method__GqlTransportImpl =
+      _wire_get_network_id__method__GqlTransportImplPtr
+          .asFunction<void Function(int, ffi.Pointer<wire_GqlTransportImpl>)>();
+
+  void wire_get_latest_block__method__GqlTransportImpl(
+    int port_,
+    ffi.Pointer<wire_GqlTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> address,
+  ) {
+    return _wire_get_latest_block__method__GqlTransportImpl(
+      port_,
+      that,
+      address,
+    );
+  }
+
+  late final _wire_get_latest_block__method__GqlTransportImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_GqlTransportImpl>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_get_latest_block__method__GqlTransportImpl');
+  late final _wire_get_latest_block__method__GqlTransportImpl =
+      _wire_get_latest_block__method__GqlTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_GqlTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_get_block__method__GqlTransportImpl(
+    int port_,
+    ffi.Pointer<wire_GqlTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> id,
+  ) {
+    return _wire_get_block__method__GqlTransportImpl(
+      port_,
+      that,
+      id,
+    );
+  }
+
+  late final _wire_get_block__method__GqlTransportImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_GqlTransportImpl>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_get_block__method__GqlTransportImpl');
+  late final _wire_get_block__method__GqlTransportImpl =
+      _wire_get_block__method__GqlTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_GqlTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_wait_for_next_block__method__GqlTransportImpl(
+    int port_,
+    ffi.Pointer<wire_GqlTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> current_block_id,
+    ffi.Pointer<wire_uint_8_list> address,
+    int timeout,
+  ) {
+    return _wire_wait_for_next_block__method__GqlTransportImpl(
+      port_,
+      that,
+      current_block_id,
+      address,
+      timeout,
+    );
+  }
+
+  late final _wire_wait_for_next_block__method__GqlTransportImplPtr = _lookup<
           ffi.NativeFunction<
               ffi.Void Function(
                   ffi.Int64,
-                  ffi.Pointer<wire_AccountsStorageImpl>,
-                  ffi.Pointer<wire_StringList>)>>(
-      'wire_remove_accounts__method__AccountsStorageImpl');
-  late final _wire_remove_accounts__method__AccountsStorageImpl =
-      _wire_remove_accounts__method__AccountsStorageImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_AccountsStorageImpl>,
-              ffi.Pointer<wire_StringList>)>();
+                  ffi.Pointer<wire_GqlTransportImpl>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Uint64)>>(
+      'wire_wait_for_next_block__method__GqlTransportImpl');
+  late final _wire_wait_for_next_block__method__GqlTransportImpl =
+      _wire_wait_for_next_block__method__GqlTransportImplPtr.asFunction<
+          void Function(
+              int,
+              ffi.Pointer<wire_GqlTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              int)>();
 
-  void wire_clear__method__AccountsStorageImpl(
+  void wire_new__static_method__JrpcTransportImpl(
     int port_,
-    ffi.Pointer<wire_AccountsStorageImpl> that,
+    ffi.Pointer<wire_JrpcConnectionDartWrapper> jrpc_connection,
   ) {
-    return _wire_clear__method__AccountsStorageImpl(
+    return _wire_new__static_method__JrpcTransportImpl(
+      port_,
+      jrpc_connection,
+    );
+  }
+
+  late final _wire_new__static_method__JrpcTransportImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_JrpcConnectionDartWrapper>)>>(
+      'wire_new__static_method__JrpcTransportImpl');
+  late final _wire_new__static_method__JrpcTransportImpl =
+      _wire_new__static_method__JrpcTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_JrpcConnectionDartWrapper>)>();
+
+  void wire_get_contract_state__method__JrpcTransportImpl(
+    int port_,
+    ffi.Pointer<wire_JrpcTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> address,
+  ) {
+    return _wire_get_contract_state__method__JrpcTransportImpl(
+      port_,
+      that,
+      address,
+    );
+  }
+
+  late final _wire_get_contract_state__method__JrpcTransportImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_JrpcTransportImpl>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_get_contract_state__method__JrpcTransportImpl');
+  late final _wire_get_contract_state__method__JrpcTransportImpl =
+      _wire_get_contract_state__method__JrpcTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_JrpcTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_get_full_contract_state__method__JrpcTransportImpl(
+    int port_,
+    ffi.Pointer<wire_JrpcTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> address,
+  ) {
+    return _wire_get_full_contract_state__method__JrpcTransportImpl(
+      port_,
+      that,
+      address,
+    );
+  }
+
+  late final _wire_get_full_contract_state__method__JrpcTransportImplPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(
+                      ffi.Int64,
+                      ffi.Pointer<wire_JrpcTransportImpl>,
+                      ffi.Pointer<wire_uint_8_list>)>>(
+          'wire_get_full_contract_state__method__JrpcTransportImpl');
+  late final _wire_get_full_contract_state__method__JrpcTransportImpl =
+      _wire_get_full_contract_state__method__JrpcTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_JrpcTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
+    int port_,
+    ffi.Pointer<wire_JrpcTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> code_hash,
+    int limit,
+    ffi.Pointer<wire_uint_8_list> continuation,
+  ) {
+    return _wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
+      port_,
+      that,
+      code_hash,
+      limit,
+      continuation,
+    );
+  }
+
+  late final _wire_get_accounts_by_code_hash__method__JrpcTransportImplPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(
+                      ffi.Int64,
+                      ffi.Pointer<wire_JrpcTransportImpl>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Uint8,
+                      ffi.Pointer<wire_uint_8_list>)>>(
+          'wire_get_accounts_by_code_hash__method__JrpcTransportImpl');
+  late final _wire_get_accounts_by_code_hash__method__JrpcTransportImpl =
+      _wire_get_accounts_by_code_hash__method__JrpcTransportImplPtr.asFunction<
+          void Function(
+              int,
+              ffi.Pointer<wire_JrpcTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>,
+              int,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_get_transactions__method__JrpcTransportImpl(
+    int port_,
+    ffi.Pointer<wire_JrpcTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> address,
+    ffi.Pointer<ffi.Uint64> from_lt,
+    int count,
+  ) {
+    return _wire_get_transactions__method__JrpcTransportImpl(
+      port_,
+      that,
+      address,
+      from_lt,
+      count,
+    );
+  }
+
+  late final _wire_get_transactions__method__JrpcTransportImplPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_JrpcTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<ffi.Uint64>,
+              ffi.Uint8)>>('wire_get_transactions__method__JrpcTransportImpl');
+  late final _wire_get_transactions__method__JrpcTransportImpl =
+      _wire_get_transactions__method__JrpcTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_JrpcTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>, ffi.Pointer<ffi.Uint64>, int)>();
+
+  void wire_get_transaction__method__JrpcTransportImpl(
+    int port_,
+    ffi.Pointer<wire_JrpcTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> hash,
+  ) {
+    return _wire_get_transaction__method__JrpcTransportImpl(
+      port_,
+      that,
+      hash,
+    );
+  }
+
+  late final _wire_get_transaction__method__JrpcTransportImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_JrpcTransportImpl>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_get_transaction__method__JrpcTransportImpl');
+  late final _wire_get_transaction__method__JrpcTransportImpl =
+      _wire_get_transaction__method__JrpcTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_JrpcTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_get_signature_id__method__JrpcTransportImpl(
+    int port_,
+    ffi.Pointer<wire_JrpcTransportImpl> that,
+  ) {
+    return _wire_get_signature_id__method__JrpcTransportImpl(
       port_,
       that,
     );
   }
 
-  late final _wire_clear__method__AccountsStorageImplPtr = _lookup<
+  late final _wire_get_signature_id__method__JrpcTransportImplPtr = _lookup<
           ffi.NativeFunction<
               ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_AccountsStorageImpl>)>>(
-      'wire_clear__method__AccountsStorageImpl');
-  late final _wire_clear__method__AccountsStorageImpl =
-      _wire_clear__method__AccountsStorageImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_AccountsStorageImpl>)>();
+                  ffi.Int64, ffi.Pointer<wire_JrpcTransportImpl>)>>(
+      'wire_get_signature_id__method__JrpcTransportImpl');
+  late final _wire_get_signature_id__method__JrpcTransportImpl =
+      _wire_get_signature_id__method__JrpcTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_JrpcTransportImpl>)>();
 
-  void wire_reload__method__AccountsStorageImpl(
+  void wire_get_network_id__method__JrpcTransportImpl(
     int port_,
-    ffi.Pointer<wire_AccountsStorageImpl> that,
+    ffi.Pointer<wire_JrpcTransportImpl> that,
   ) {
-    return _wire_reload__method__AccountsStorageImpl(
+    return _wire_get_network_id__method__JrpcTransportImpl(
       port_,
       that,
     );
   }
 
-  late final _wire_reload__method__AccountsStorageImplPtr = _lookup<
+  late final _wire_get_network_id__method__JrpcTransportImplPtr = _lookup<
           ffi.NativeFunction<
               ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_AccountsStorageImpl>)>>(
-      'wire_reload__method__AccountsStorageImpl');
-  late final _wire_reload__method__AccountsStorageImpl =
-      _wire_reload__method__AccountsStorageImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_AccountsStorageImpl>)>();
+                  ffi.Int64, ffi.Pointer<wire_JrpcTransportImpl>)>>(
+      'wire_get_network_id__method__JrpcTransportImpl');
+  late final _wire_get_network_id__method__JrpcTransportImpl =
+      _wire_get_network_id__method__JrpcTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_JrpcTransportImpl>)>();
 
-  void wire_verify_data__static_method__AccountsStorageImpl(
-    int port_,
-    ffi.Pointer<wire_uint_8_list> data,
-  ) {
-    return _wire_verify_data__static_method__AccountsStorageImpl(
-      port_,
-      data,
-    );
-  }
-
-  late final _wire_verify_data__static_method__AccountsStorageImplPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_verify_data__static_method__AccountsStorageImpl');
-  late final _wire_verify_data__static_method__AccountsStorageImpl =
-      _wire_verify_data__static_method__AccountsStorageImplPtr
-          .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_subscribe__static_method__GenericContractDartWrapper(
+  void wire_subscribe__static_method__TokenWalletDartWrapper(
     int port_,
     ffi.Pointer<wire_uint_8_list> instance_hash,
-    ffi.Pointer<wire_uint_8_list> address,
-    ffi.Pointer<bool> preload_transactions,
+    ffi.Pointer<wire_uint_8_list> owner,
+    ffi.Pointer<wire_uint_8_list> root_token_contract,
     wire_ArcTransportBoxTrait transport,
   ) {
-    return _wire_subscribe__static_method__GenericContractDartWrapper(
+    return _wire_subscribe__static_method__TokenWalletDartWrapper(
       port_,
       instance_hash,
-      address,
-      preload_transactions,
+      owner,
+      root_token_contract,
       transport,
     );
   }
 
-  late final _wire_subscribe__static_method__GenericContractDartWrapperPtr =
+  late final _wire_subscribe__static_method__TokenWalletDartWrapperPtr =
       _lookup<
               ffi.NativeFunction<
                   ffi.Void Function(
                       ffi.Int64,
                       ffi.Pointer<wire_uint_8_list>,
                       ffi.Pointer<wire_uint_8_list>,
-                      ffi.Pointer<bool>,
+                      ffi.Pointer<wire_uint_8_list>,
                       wire_ArcTransportBoxTrait)>>(
-          'wire_subscribe__static_method__GenericContractDartWrapper');
-  late final _wire_subscribe__static_method__GenericContractDartWrapper =
-      _wire_subscribe__static_method__GenericContractDartWrapperPtr.asFunction<
+          'wire_subscribe__static_method__TokenWalletDartWrapper');
+  late final _wire_subscribe__static_method__TokenWalletDartWrapper =
+      _wire_subscribe__static_method__TokenWalletDartWrapperPtr.asFunction<
           void Function(
               int,
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<bool>,
+              ffi.Pointer<wire_uint_8_list>,
               wire_ArcTransportBoxTrait)>();
 
-  void wire_address__method__GenericContractDartWrapper(
+  void wire_owner__method__TokenWalletDartWrapper(
     int port_,
-    ffi.Pointer<wire_GenericContractDartWrapper> that,
+    ffi.Pointer<wire_TokenWalletDartWrapper> that,
   ) {
-    return _wire_address__method__GenericContractDartWrapper(
+    return _wire_owner__method__TokenWalletDartWrapper(
       port_,
       that,
     );
   }
 
-  late final _wire_address__method__GenericContractDartWrapperPtr = _lookup<
+  late final _wire_owner__method__TokenWalletDartWrapperPtr = _lookup<
           ffi.NativeFunction<
               ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_GenericContractDartWrapper>)>>(
-      'wire_address__method__GenericContractDartWrapper');
-  late final _wire_address__method__GenericContractDartWrapper =
-      _wire_address__method__GenericContractDartWrapperPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_GenericContractDartWrapper>)>();
+                  ffi.Int64, ffi.Pointer<wire_TokenWalletDartWrapper>)>>(
+      'wire_owner__method__TokenWalletDartWrapper');
+  late final _wire_owner__method__TokenWalletDartWrapper =
+      _wire_owner__method__TokenWalletDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>)>();
 
-  void wire_contract_state__method__GenericContractDartWrapper(
+  void wire_address__method__TokenWalletDartWrapper(
     int port_,
-    ffi.Pointer<wire_GenericContractDartWrapper> that,
+    ffi.Pointer<wire_TokenWalletDartWrapper> that,
   ) {
-    return _wire_contract_state__method__GenericContractDartWrapper(
+    return _wire_address__method__TokenWalletDartWrapper(
       port_,
       that,
     );
   }
 
-  late final _wire_contract_state__method__GenericContractDartWrapperPtr =
-      _lookup<
-              ffi.NativeFunction<
-                  ffi.Void Function(ffi.Int64,
-                      ffi.Pointer<wire_GenericContractDartWrapper>)>>(
-          'wire_contract_state__method__GenericContractDartWrapper');
-  late final _wire_contract_state__method__GenericContractDartWrapper =
-      _wire_contract_state__method__GenericContractDartWrapperPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_GenericContractDartWrapper>)>();
+  late final _wire_address__method__TokenWalletDartWrapperPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_TokenWalletDartWrapper>)>>(
+      'wire_address__method__TokenWalletDartWrapper');
+  late final _wire_address__method__TokenWalletDartWrapper =
+      _wire_address__method__TokenWalletDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>)>();
 
-  void wire_pending_transactions__method__GenericContractDartWrapper(
+  void wire_symbol__method__TokenWalletDartWrapper(
     int port_,
-    ffi.Pointer<wire_GenericContractDartWrapper> that,
+    ffi.Pointer<wire_TokenWalletDartWrapper> that,
   ) {
-    return _wire_pending_transactions__method__GenericContractDartWrapper(
+    return _wire_symbol__method__TokenWalletDartWrapper(
       port_,
       that,
     );
   }
 
-  late final _wire_pending_transactions__method__GenericContractDartWrapperPtr =
-      _lookup<
-              ffi.NativeFunction<
-                  ffi.Void Function(ffi.Int64,
-                      ffi.Pointer<wire_GenericContractDartWrapper>)>>(
-          'wire_pending_transactions__method__GenericContractDartWrapper');
-  late final _wire_pending_transactions__method__GenericContractDartWrapper =
-      _wire_pending_transactions__method__GenericContractDartWrapperPtr
-          .asFunction<
-              void Function(
-                  int, ffi.Pointer<wire_GenericContractDartWrapper>)>();
+  late final _wire_symbol__method__TokenWalletDartWrapperPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_TokenWalletDartWrapper>)>>(
+      'wire_symbol__method__TokenWalletDartWrapper');
+  late final _wire_symbol__method__TokenWalletDartWrapper =
+      _wire_symbol__method__TokenWalletDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>)>();
 
-  void wire_polling_method__method__GenericContractDartWrapper(
+  void wire_version__method__TokenWalletDartWrapper(
     int port_,
-    ffi.Pointer<wire_GenericContractDartWrapper> that,
+    ffi.Pointer<wire_TokenWalletDartWrapper> that,
   ) {
-    return _wire_polling_method__method__GenericContractDartWrapper(
+    return _wire_version__method__TokenWalletDartWrapper(
       port_,
       that,
     );
   }
 
-  late final _wire_polling_method__method__GenericContractDartWrapperPtr =
-      _lookup<
-              ffi.NativeFunction<
-                  ffi.Void Function(ffi.Int64,
-                      ffi.Pointer<wire_GenericContractDartWrapper>)>>(
-          'wire_polling_method__method__GenericContractDartWrapper');
-  late final _wire_polling_method__method__GenericContractDartWrapper =
-      _wire_polling_method__method__GenericContractDartWrapperPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_GenericContractDartWrapper>)>();
+  late final _wire_version__method__TokenWalletDartWrapperPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_TokenWalletDartWrapper>)>>(
+      'wire_version__method__TokenWalletDartWrapper');
+  late final _wire_version__method__TokenWalletDartWrapper =
+      _wire_version__method__TokenWalletDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>)>();
 
-  void wire_execute_transaction_locally__method__GenericContractDartWrapper(
+  void wire_balance__method__TokenWalletDartWrapper(
     int port_,
-    ffi.Pointer<wire_GenericContractDartWrapper> that,
-    ffi.Pointer<wire_uint_8_list> signed_message,
-    ffi.Pointer<wire_TransactionExecutionOptions> options,
+    ffi.Pointer<wire_TokenWalletDartWrapper> that,
   ) {
-    return _wire_execute_transaction_locally__method__GenericContractDartWrapper(
+    return _wire_balance__method__TokenWalletDartWrapper(
       port_,
       that,
-      signed_message,
-      options,
     );
   }
 
-  late final _wire_execute_transaction_locally__method__GenericContractDartWrapperPtr =
+  late final _wire_balance__method__TokenWalletDartWrapperPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_TokenWalletDartWrapper>)>>(
+      'wire_balance__method__TokenWalletDartWrapper');
+  late final _wire_balance__method__TokenWalletDartWrapper =
+      _wire_balance__method__TokenWalletDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>)>();
+
+  void wire_contract_state__method__TokenWalletDartWrapper(
+    int port_,
+    ffi.Pointer<wire_TokenWalletDartWrapper> that,
+  ) {
+    return _wire_contract_state__method__TokenWalletDartWrapper(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_contract_state__method__TokenWalletDartWrapperPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_TokenWalletDartWrapper>)>>(
+      'wire_contract_state__method__TokenWalletDartWrapper');
+  late final _wire_contract_state__method__TokenWalletDartWrapper =
+      _wire_contract_state__method__TokenWalletDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>)>();
+
+  void wire_prepare_transfer__method__TokenWalletDartWrapper(
+    int port_,
+    ffi.Pointer<wire_TokenWalletDartWrapper> that,
+    ffi.Pointer<wire_uint_8_list> destination,
+    ffi.Pointer<wire_uint_8_list> amount,
+    bool notify_receiver,
+    ffi.Pointer<wire_uint_8_list> attached_amount,
+    ffi.Pointer<wire_uint_8_list> payload,
+  ) {
+    return _wire_prepare_transfer__method__TokenWalletDartWrapper(
+      port_,
+      that,
+      destination,
+      amount,
+      notify_receiver,
+      attached_amount,
+      payload,
+    );
+  }
+
+  late final _wire_prepare_transfer__method__TokenWalletDartWrapperPtr =
       _lookup<
               ffi.NativeFunction<
                   ffi.Void Function(
                       ffi.Int64,
-                      ffi.Pointer<wire_GenericContractDartWrapper>,
+                      ffi.Pointer<wire_TokenWalletDartWrapper>,
                       ffi.Pointer<wire_uint_8_list>,
-                      ffi.Pointer<wire_TransactionExecutionOptions>)>>(
-          'wire_execute_transaction_locally__method__GenericContractDartWrapper');
-  late final _wire_execute_transaction_locally__method__GenericContractDartWrapper =
-      _wire_execute_transaction_locally__method__GenericContractDartWrapperPtr
-          .asFunction<
-              void Function(
-                  int,
-                  ffi.Pointer<wire_GenericContractDartWrapper>,
-                  ffi.Pointer<wire_uint_8_list>,
-                  ffi.Pointer<wire_TransactionExecutionOptions>)>();
-
-  void wire_estimate_fees__method__GenericContractDartWrapper(
-    int port_,
-    ffi.Pointer<wire_GenericContractDartWrapper> that,
-    ffi.Pointer<wire_uint_8_list> signed_message,
-  ) {
-    return _wire_estimate_fees__method__GenericContractDartWrapper(
-      port_,
-      that,
-      signed_message,
-    );
-  }
-
-  late final _wire_estimate_fees__method__GenericContractDartWrapperPtr =
-      _lookup<
-              ffi.NativeFunction<
-                  ffi.Void Function(
-                      ffi.Int64,
-                      ffi.Pointer<wire_GenericContractDartWrapper>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Bool,
+                      ffi.Pointer<wire_uint_8_list>,
                       ffi.Pointer<wire_uint_8_list>)>>(
-          'wire_estimate_fees__method__GenericContractDartWrapper');
-  late final _wire_estimate_fees__method__GenericContractDartWrapper =
-      _wire_estimate_fees__method__GenericContractDartWrapperPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_GenericContractDartWrapper>,
+          'wire_prepare_transfer__method__TokenWalletDartWrapper');
+  late final _wire_prepare_transfer__method__TokenWalletDartWrapper =
+      _wire_prepare_transfer__method__TokenWalletDartWrapperPtr.asFunction<
+          void Function(
+              int,
+              ffi.Pointer<wire_TokenWalletDartWrapper>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              bool,
+              ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>)>();
 
-  void wire_send__method__GenericContractDartWrapper(
+  void wire_refresh__method__TokenWalletDartWrapper(
     int port_,
-    ffi.Pointer<wire_GenericContractDartWrapper> that,
-    ffi.Pointer<wire_uint_8_list> signed_message,
+    ffi.Pointer<wire_TokenWalletDartWrapper> that,
   ) {
-    return _wire_send__method__GenericContractDartWrapper(
-      port_,
-      that,
-      signed_message,
-    );
-  }
-
-  late final _wire_send__method__GenericContractDartWrapperPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64,
-                  ffi.Pointer<wire_GenericContractDartWrapper>,
-                  ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_send__method__GenericContractDartWrapper');
-  late final _wire_send__method__GenericContractDartWrapper =
-      _wire_send__method__GenericContractDartWrapperPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_GenericContractDartWrapper>,
-              ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_refresh__method__GenericContractDartWrapper(
-    int port_,
-    ffi.Pointer<wire_GenericContractDartWrapper> that,
-  ) {
-    return _wire_refresh__method__GenericContractDartWrapper(
+    return _wire_refresh__method__TokenWalletDartWrapper(
       port_,
       that,
     );
   }
 
-  late final _wire_refresh__method__GenericContractDartWrapperPtr = _lookup<
+  late final _wire_refresh__method__TokenWalletDartWrapperPtr = _lookup<
           ffi.NativeFunction<
               ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_GenericContractDartWrapper>)>>(
-      'wire_refresh__method__GenericContractDartWrapper');
-  late final _wire_refresh__method__GenericContractDartWrapper =
-      _wire_refresh__method__GenericContractDartWrapperPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_GenericContractDartWrapper>)>();
+                  ffi.Int64, ffi.Pointer<wire_TokenWalletDartWrapper>)>>(
+      'wire_refresh__method__TokenWalletDartWrapper');
+  late final _wire_refresh__method__TokenWalletDartWrapper =
+      _wire_refresh__method__TokenWalletDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>)>();
 
-  void wire_preload_transactions__method__GenericContractDartWrapper(
+  void wire_preload_transactions__method__TokenWalletDartWrapper(
     int port_,
-    ffi.Pointer<wire_GenericContractDartWrapper> that,
+    ffi.Pointer<wire_TokenWalletDartWrapper> that,
     ffi.Pointer<wire_uint_8_list> from_lt,
   ) {
-    return _wire_preload_transactions__method__GenericContractDartWrapper(
+    return _wire_preload_transactions__method__TokenWalletDartWrapper(
       port_,
       that,
       from_lt,
     );
   }
 
-  late final _wire_preload_transactions__method__GenericContractDartWrapperPtr =
+  late final _wire_preload_transactions__method__TokenWalletDartWrapperPtr =
       _lookup<
               ffi.NativeFunction<
                   ffi.Void Function(
                       ffi.Int64,
-                      ffi.Pointer<wire_GenericContractDartWrapper>,
+                      ffi.Pointer<wire_TokenWalletDartWrapper>,
                       ffi.Pointer<wire_uint_8_list>)>>(
-          'wire_preload_transactions__method__GenericContractDartWrapper');
-  late final _wire_preload_transactions__method__GenericContractDartWrapper =
-      _wire_preload_transactions__method__GenericContractDartWrapperPtr
-          .asFunction<
-              void Function(int, ffi.Pointer<wire_GenericContractDartWrapper>,
-                  ffi.Pointer<wire_uint_8_list>)>();
+          'wire_preload_transactions__method__TokenWalletDartWrapper');
+  late final _wire_preload_transactions__method__TokenWalletDartWrapper =
+      _wire_preload_transactions__method__TokenWalletDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>,
+              ffi.Pointer<wire_uint_8_list>)>();
 
-  void wire_handle_block__method__GenericContractDartWrapper(
+  void wire_handle_block__method__TokenWalletDartWrapper(
     int port_,
-    ffi.Pointer<wire_GenericContractDartWrapper> that,
+    ffi.Pointer<wire_TokenWalletDartWrapper> that,
     ffi.Pointer<wire_uint_8_list> block,
   ) {
-    return _wire_handle_block__method__GenericContractDartWrapper(
+    return _wire_handle_block__method__TokenWalletDartWrapper(
       port_,
       that,
       block,
     );
   }
 
-  late final _wire_handle_block__method__GenericContractDartWrapperPtr =
+  late final _wire_handle_block__method__TokenWalletDartWrapperPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.Pointer<wire_TokenWalletDartWrapper>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_handle_block__method__TokenWalletDartWrapper');
+  late final _wire_handle_block__method__TokenWalletDartWrapper =
+      _wire_handle_block__method__TokenWalletDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_get_token_wallet_details__static_method__TokenWalletDartWrapper(
+    int port_,
+    wire_ArcTransportBoxTrait transport,
+    ffi.Pointer<wire_uint_8_list> address,
+  ) {
+    return _wire_get_token_wallet_details__static_method__TokenWalletDartWrapper(
+      port_,
+      transport,
+      address,
+    );
+  }
+
+  late final _wire_get_token_wallet_details__static_method__TokenWalletDartWrapperPtr =
       _lookup<
               ffi.NativeFunction<
-                  ffi.Void Function(
-                      ffi.Int64,
-                      ffi.Pointer<wire_GenericContractDartWrapper>,
+                  ffi.Void Function(ffi.Int64, wire_ArcTransportBoxTrait,
                       ffi.Pointer<wire_uint_8_list>)>>(
-          'wire_handle_block__method__GenericContractDartWrapper');
-  late final _wire_handle_block__method__GenericContractDartWrapper =
-      _wire_handle_block__method__GenericContractDartWrapperPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_GenericContractDartWrapper>,
-              ffi.Pointer<wire_uint_8_list>)>();
+          'wire_get_token_wallet_details__static_method__TokenWalletDartWrapper');
+  late final _wire_get_token_wallet_details__static_method__TokenWalletDartWrapper =
+      _wire_get_token_wallet_details__static_method__TokenWalletDartWrapperPtr
+          .asFunction<
+              void Function(int, wire_ArcTransportBoxTrait,
+                  ffi.Pointer<wire_uint_8_list>)>();
+
+  void
+      wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper(
+    int port_,
+    wire_ArcTransportBoxTrait transport,
+    ffi.Pointer<wire_uint_8_list> token_wallet_address,
+  ) {
+    return _wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper(
+      port_,
+      transport,
+      token_wallet_address,
+    );
+  }
+
+  late final _wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapperPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Int64, wire_ArcTransportBoxTrait,
+                      ffi.Pointer<wire_uint_8_list>)>>(
+          'wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper');
+  late final _wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper =
+      _wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapperPtr
+          .asFunction<
+              void Function(int, wire_ArcTransportBoxTrait,
+                  ffi.Pointer<wire_uint_8_list>)>();
 
   void wire_new__static_method__KeystoreDartWrapper(
     int port_,
@@ -3237,314 +3333,558 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Pointer<wire_LedgerConnectionDartWrapper>,
               ffi.Pointer<wire_uint_8_list>)>();
 
-  void wire_subscribe__static_method__TokenWalletDartWrapper(
+  void wire_new__static_method__AccountsStorageImpl(
+    int port_,
+    ffi.Pointer<wire_StorageDartWrapper> storage,
+  ) {
+    return _wire_new__static_method__AccountsStorageImpl(
+      port_,
+      storage,
+    );
+  }
+
+  late final _wire_new__static_method__AccountsStorageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_StorageDartWrapper>)>>(
+      'wire_new__static_method__AccountsStorageImpl');
+  late final _wire_new__static_method__AccountsStorageImpl =
+      _wire_new__static_method__AccountsStorageImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_StorageDartWrapper>)>();
+
+  void wire_get_entries__method__AccountsStorageImpl(
+    int port_,
+    ffi.Pointer<wire_AccountsStorageImpl> that,
+  ) {
+    return _wire_get_entries__method__AccountsStorageImpl(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_get_entries__method__AccountsStorageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_AccountsStorageImpl>)>>(
+      'wire_get_entries__method__AccountsStorageImpl');
+  late final _wire_get_entries__method__AccountsStorageImpl =
+      _wire_get_entries__method__AccountsStorageImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_AccountsStorageImpl>)>();
+
+  void wire_add_account__method__AccountsStorageImpl(
+    int port_,
+    ffi.Pointer<wire_AccountsStorageImpl> that,
+    ffi.Pointer<wire_uint_8_list> account,
+  ) {
+    return _wire_add_account__method__AccountsStorageImpl(
+      port_,
+      that,
+      account,
+    );
+  }
+
+  late final _wire_add_account__method__AccountsStorageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.Pointer<wire_AccountsStorageImpl>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_add_account__method__AccountsStorageImpl');
+  late final _wire_add_account__method__AccountsStorageImpl =
+      _wire_add_account__method__AccountsStorageImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_AccountsStorageImpl>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_add_accounts__method__AccountsStorageImpl(
+    int port_,
+    ffi.Pointer<wire_AccountsStorageImpl> that,
+    ffi.Pointer<wire_uint_8_list> accounts,
+  ) {
+    return _wire_add_accounts__method__AccountsStorageImpl(
+      port_,
+      that,
+      accounts,
+    );
+  }
+
+  late final _wire_add_accounts__method__AccountsStorageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.Pointer<wire_AccountsStorageImpl>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_add_accounts__method__AccountsStorageImpl');
+  late final _wire_add_accounts__method__AccountsStorageImpl =
+      _wire_add_accounts__method__AccountsStorageImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_AccountsStorageImpl>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_rename_account__method__AccountsStorageImpl(
+    int port_,
+    ffi.Pointer<wire_AccountsStorageImpl> that,
+    ffi.Pointer<wire_uint_8_list> account_address,
+    ffi.Pointer<wire_uint_8_list> name,
+  ) {
+    return _wire_rename_account__method__AccountsStorageImpl(
+      port_,
+      that,
+      account_address,
+      name,
+    );
+  }
+
+  late final _wire_rename_account__method__AccountsStorageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.Pointer<wire_AccountsStorageImpl>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_rename_account__method__AccountsStorageImpl');
+  late final _wire_rename_account__method__AccountsStorageImpl =
+      _wire_rename_account__method__AccountsStorageImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_AccountsStorageImpl>,
+              ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_add_token_wallet__method__AccountsStorageImpl(
+    int port_,
+    ffi.Pointer<wire_AccountsStorageImpl> that,
+    ffi.Pointer<wire_uint_8_list> account_address,
+    ffi.Pointer<wire_uint_8_list> network_group,
+    ffi.Pointer<wire_uint_8_list> root_token_contract,
+  ) {
+    return _wire_add_token_wallet__method__AccountsStorageImpl(
+      port_,
+      that,
+      account_address,
+      network_group,
+      root_token_contract,
+    );
+  }
+
+  late final _wire_add_token_wallet__method__AccountsStorageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.Pointer<wire_AccountsStorageImpl>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_add_token_wallet__method__AccountsStorageImpl');
+  late final _wire_add_token_wallet__method__AccountsStorageImpl =
+      _wire_add_token_wallet__method__AccountsStorageImplPtr.asFunction<
+          void Function(
+              int,
+              ffi.Pointer<wire_AccountsStorageImpl>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_remove_token_wallet__method__AccountsStorageImpl(
+    int port_,
+    ffi.Pointer<wire_AccountsStorageImpl> that,
+    ffi.Pointer<wire_uint_8_list> account_address,
+    ffi.Pointer<wire_uint_8_list> network_group,
+    ffi.Pointer<wire_uint_8_list> root_token_contract,
+  ) {
+    return _wire_remove_token_wallet__method__AccountsStorageImpl(
+      port_,
+      that,
+      account_address,
+      network_group,
+      root_token_contract,
+    );
+  }
+
+  late final _wire_remove_token_wallet__method__AccountsStorageImplPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(
+                      ffi.Int64,
+                      ffi.Pointer<wire_AccountsStorageImpl>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_uint_8_list>)>>(
+          'wire_remove_token_wallet__method__AccountsStorageImpl');
+  late final _wire_remove_token_wallet__method__AccountsStorageImpl =
+      _wire_remove_token_wallet__method__AccountsStorageImplPtr.asFunction<
+          void Function(
+              int,
+              ffi.Pointer<wire_AccountsStorageImpl>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_remove_account__method__AccountsStorageImpl(
+    int port_,
+    ffi.Pointer<wire_AccountsStorageImpl> that,
+    ffi.Pointer<wire_uint_8_list> account_address,
+  ) {
+    return _wire_remove_account__method__AccountsStorageImpl(
+      port_,
+      that,
+      account_address,
+    );
+  }
+
+  late final _wire_remove_account__method__AccountsStorageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.Pointer<wire_AccountsStorageImpl>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_remove_account__method__AccountsStorageImpl');
+  late final _wire_remove_account__method__AccountsStorageImpl =
+      _wire_remove_account__method__AccountsStorageImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_AccountsStorageImpl>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_remove_accounts__method__AccountsStorageImpl(
+    int port_,
+    ffi.Pointer<wire_AccountsStorageImpl> that,
+    ffi.Pointer<wire_StringList> account_addresses,
+  ) {
+    return _wire_remove_accounts__method__AccountsStorageImpl(
+      port_,
+      that,
+      account_addresses,
+    );
+  }
+
+  late final _wire_remove_accounts__method__AccountsStorageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.Pointer<wire_AccountsStorageImpl>,
+                  ffi.Pointer<wire_StringList>)>>(
+      'wire_remove_accounts__method__AccountsStorageImpl');
+  late final _wire_remove_accounts__method__AccountsStorageImpl =
+      _wire_remove_accounts__method__AccountsStorageImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_AccountsStorageImpl>,
+              ffi.Pointer<wire_StringList>)>();
+
+  void wire_clear__method__AccountsStorageImpl(
+    int port_,
+    ffi.Pointer<wire_AccountsStorageImpl> that,
+  ) {
+    return _wire_clear__method__AccountsStorageImpl(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_clear__method__AccountsStorageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_AccountsStorageImpl>)>>(
+      'wire_clear__method__AccountsStorageImpl');
+  late final _wire_clear__method__AccountsStorageImpl =
+      _wire_clear__method__AccountsStorageImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_AccountsStorageImpl>)>();
+
+  void wire_reload__method__AccountsStorageImpl(
+    int port_,
+    ffi.Pointer<wire_AccountsStorageImpl> that,
+  ) {
+    return _wire_reload__method__AccountsStorageImpl(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_reload__method__AccountsStorageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_AccountsStorageImpl>)>>(
+      'wire_reload__method__AccountsStorageImpl');
+  late final _wire_reload__method__AccountsStorageImpl =
+      _wire_reload__method__AccountsStorageImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_AccountsStorageImpl>)>();
+
+  void wire_verify_data__static_method__AccountsStorageImpl(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> data,
+  ) {
+    return _wire_verify_data__static_method__AccountsStorageImpl(
+      port_,
+      data,
+    );
+  }
+
+  late final _wire_verify_data__static_method__AccountsStorageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_verify_data__static_method__AccountsStorageImpl');
+  late final _wire_verify_data__static_method__AccountsStorageImpl =
+      _wire_verify_data__static_method__AccountsStorageImplPtr
+          .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_subscribe__static_method__GenericContractDartWrapper(
     int port_,
     ffi.Pointer<wire_uint_8_list> instance_hash,
-    ffi.Pointer<wire_uint_8_list> owner,
-    ffi.Pointer<wire_uint_8_list> root_token_contract,
+    ffi.Pointer<wire_uint_8_list> address,
+    bool preload_transactions,
     wire_ArcTransportBoxTrait transport,
   ) {
-    return _wire_subscribe__static_method__TokenWalletDartWrapper(
+    return _wire_subscribe__static_method__GenericContractDartWrapper(
       port_,
       instance_hash,
-      owner,
-      root_token_contract,
+      address,
+      preload_transactions,
       transport,
     );
   }
 
-  late final _wire_subscribe__static_method__TokenWalletDartWrapperPtr =
+  late final _wire_subscribe__static_method__GenericContractDartWrapperPtr =
       _lookup<
               ffi.NativeFunction<
                   ffi.Void Function(
                       ffi.Int64,
                       ffi.Pointer<wire_uint_8_list>,
                       ffi.Pointer<wire_uint_8_list>,
-                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Bool,
                       wire_ArcTransportBoxTrait)>>(
-          'wire_subscribe__static_method__TokenWalletDartWrapper');
-  late final _wire_subscribe__static_method__TokenWalletDartWrapper =
-      _wire_subscribe__static_method__TokenWalletDartWrapperPtr.asFunction<
+          'wire_subscribe__static_method__GenericContractDartWrapper');
+  late final _wire_subscribe__static_method__GenericContractDartWrapper =
+      _wire_subscribe__static_method__GenericContractDartWrapperPtr.asFunction<
           void Function(
               int,
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<wire_uint_8_list>,
+              bool,
               wire_ArcTransportBoxTrait)>();
 
-  void wire_owner__method__TokenWalletDartWrapper(
+  void wire_address__method__GenericContractDartWrapper(
     int port_,
-    ffi.Pointer<wire_TokenWalletDartWrapper> that,
+    ffi.Pointer<wire_GenericContractDartWrapper> that,
   ) {
-    return _wire_owner__method__TokenWalletDartWrapper(
+    return _wire_address__method__GenericContractDartWrapper(
       port_,
       that,
     );
   }
 
-  late final _wire_owner__method__TokenWalletDartWrapperPtr = _lookup<
+  late final _wire_address__method__GenericContractDartWrapperPtr = _lookup<
           ffi.NativeFunction<
               ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_TokenWalletDartWrapper>)>>(
-      'wire_owner__method__TokenWalletDartWrapper');
-  late final _wire_owner__method__TokenWalletDartWrapper =
-      _wire_owner__method__TokenWalletDartWrapperPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>)>();
+                  ffi.Int64, ffi.Pointer<wire_GenericContractDartWrapper>)>>(
+      'wire_address__method__GenericContractDartWrapper');
+  late final _wire_address__method__GenericContractDartWrapper =
+      _wire_address__method__GenericContractDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_GenericContractDartWrapper>)>();
 
-  void wire_address__method__TokenWalletDartWrapper(
+  void wire_contract_state__method__GenericContractDartWrapper(
     int port_,
-    ffi.Pointer<wire_TokenWalletDartWrapper> that,
+    ffi.Pointer<wire_GenericContractDartWrapper> that,
   ) {
-    return _wire_address__method__TokenWalletDartWrapper(
+    return _wire_contract_state__method__GenericContractDartWrapper(
       port_,
       that,
     );
   }
 
-  late final _wire_address__method__TokenWalletDartWrapperPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_TokenWalletDartWrapper>)>>(
-      'wire_address__method__TokenWalletDartWrapper');
-  late final _wire_address__method__TokenWalletDartWrapper =
-      _wire_address__method__TokenWalletDartWrapperPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>)>();
+  late final _wire_contract_state__method__GenericContractDartWrapperPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Int64,
+                      ffi.Pointer<wire_GenericContractDartWrapper>)>>(
+          'wire_contract_state__method__GenericContractDartWrapper');
+  late final _wire_contract_state__method__GenericContractDartWrapper =
+      _wire_contract_state__method__GenericContractDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_GenericContractDartWrapper>)>();
 
-  void wire_symbol__method__TokenWalletDartWrapper(
+  void wire_pending_transactions__method__GenericContractDartWrapper(
     int port_,
-    ffi.Pointer<wire_TokenWalletDartWrapper> that,
+    ffi.Pointer<wire_GenericContractDartWrapper> that,
   ) {
-    return _wire_symbol__method__TokenWalletDartWrapper(
+    return _wire_pending_transactions__method__GenericContractDartWrapper(
       port_,
       that,
     );
   }
 
-  late final _wire_symbol__method__TokenWalletDartWrapperPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_TokenWalletDartWrapper>)>>(
-      'wire_symbol__method__TokenWalletDartWrapper');
-  late final _wire_symbol__method__TokenWalletDartWrapper =
-      _wire_symbol__method__TokenWalletDartWrapperPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>)>();
+  late final _wire_pending_transactions__method__GenericContractDartWrapperPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Int64,
+                      ffi.Pointer<wire_GenericContractDartWrapper>)>>(
+          'wire_pending_transactions__method__GenericContractDartWrapper');
+  late final _wire_pending_transactions__method__GenericContractDartWrapper =
+      _wire_pending_transactions__method__GenericContractDartWrapperPtr
+          .asFunction<
+              void Function(
+                  int, ffi.Pointer<wire_GenericContractDartWrapper>)>();
 
-  void wire_version__method__TokenWalletDartWrapper(
+  void wire_polling_method__method__GenericContractDartWrapper(
     int port_,
-    ffi.Pointer<wire_TokenWalletDartWrapper> that,
+    ffi.Pointer<wire_GenericContractDartWrapper> that,
   ) {
-    return _wire_version__method__TokenWalletDartWrapper(
+    return _wire_polling_method__method__GenericContractDartWrapper(
       port_,
       that,
     );
   }
 
-  late final _wire_version__method__TokenWalletDartWrapperPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_TokenWalletDartWrapper>)>>(
-      'wire_version__method__TokenWalletDartWrapper');
-  late final _wire_version__method__TokenWalletDartWrapper =
-      _wire_version__method__TokenWalletDartWrapperPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>)>();
+  late final _wire_polling_method__method__GenericContractDartWrapperPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Int64,
+                      ffi.Pointer<wire_GenericContractDartWrapper>)>>(
+          'wire_polling_method__method__GenericContractDartWrapper');
+  late final _wire_polling_method__method__GenericContractDartWrapper =
+      _wire_polling_method__method__GenericContractDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_GenericContractDartWrapper>)>();
 
-  void wire_balance__method__TokenWalletDartWrapper(
+  void wire_execute_transaction_locally__method__GenericContractDartWrapper(
     int port_,
-    ffi.Pointer<wire_TokenWalletDartWrapper> that,
+    ffi.Pointer<wire_GenericContractDartWrapper> that,
+    ffi.Pointer<wire_uint_8_list> signed_message,
+    ffi.Pointer<wire_TransactionExecutionOptions> options,
   ) {
-    return _wire_balance__method__TokenWalletDartWrapper(
+    return _wire_execute_transaction_locally__method__GenericContractDartWrapper(
       port_,
       that,
+      signed_message,
+      options,
     );
   }
 
-  late final _wire_balance__method__TokenWalletDartWrapperPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_TokenWalletDartWrapper>)>>(
-      'wire_balance__method__TokenWalletDartWrapper');
-  late final _wire_balance__method__TokenWalletDartWrapper =
-      _wire_balance__method__TokenWalletDartWrapperPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>)>();
-
-  void wire_contract_state__method__TokenWalletDartWrapper(
-    int port_,
-    ffi.Pointer<wire_TokenWalletDartWrapper> that,
-  ) {
-    return _wire_contract_state__method__TokenWalletDartWrapper(
-      port_,
-      that,
-    );
-  }
-
-  late final _wire_contract_state__method__TokenWalletDartWrapperPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_TokenWalletDartWrapper>)>>(
-      'wire_contract_state__method__TokenWalletDartWrapper');
-  late final _wire_contract_state__method__TokenWalletDartWrapper =
-      _wire_contract_state__method__TokenWalletDartWrapperPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>)>();
-
-  void wire_prepare_transfer__method__TokenWalletDartWrapper(
-    int port_,
-    ffi.Pointer<wire_TokenWalletDartWrapper> that,
-    ffi.Pointer<wire_uint_8_list> destination,
-    ffi.Pointer<wire_uint_8_list> amount,
-    ffi.Pointer<bool> notify_receiver,
-    ffi.Pointer<wire_uint_8_list> attached_amount,
-    ffi.Pointer<wire_uint_8_list> payload,
-  ) {
-    return _wire_prepare_transfer__method__TokenWalletDartWrapper(
-      port_,
-      that,
-      destination,
-      amount,
-      notify_receiver,
-      attached_amount,
-      payload,
-    );
-  }
-
-  late final _wire_prepare_transfer__method__TokenWalletDartWrapperPtr =
+  late final _wire_execute_transaction_locally__method__GenericContractDartWrapperPtr =
       _lookup<
               ffi.NativeFunction<
                   ffi.Void Function(
                       ffi.Int64,
-                      ffi.Pointer<wire_TokenWalletDartWrapper>,
+                      ffi.Pointer<wire_GenericContractDartWrapper>,
                       ffi.Pointer<wire_uint_8_list>,
-                      ffi.Pointer<wire_uint_8_list>,
-                      ffi.Pointer<bool>,
-                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_TransactionExecutionOptions>)>>(
+          'wire_execute_transaction_locally__method__GenericContractDartWrapper');
+  late final _wire_execute_transaction_locally__method__GenericContractDartWrapper =
+      _wire_execute_transaction_locally__method__GenericContractDartWrapperPtr
+          .asFunction<
+              void Function(
+                  int,
+                  ffi.Pointer<wire_GenericContractDartWrapper>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_TransactionExecutionOptions>)>();
+
+  void wire_estimate_fees__method__GenericContractDartWrapper(
+    int port_,
+    ffi.Pointer<wire_GenericContractDartWrapper> that,
+    ffi.Pointer<wire_uint_8_list> signed_message,
+  ) {
+    return _wire_estimate_fees__method__GenericContractDartWrapper(
+      port_,
+      that,
+      signed_message,
+    );
+  }
+
+  late final _wire_estimate_fees__method__GenericContractDartWrapperPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(
+                      ffi.Int64,
+                      ffi.Pointer<wire_GenericContractDartWrapper>,
                       ffi.Pointer<wire_uint_8_list>)>>(
-          'wire_prepare_transfer__method__TokenWalletDartWrapper');
-  late final _wire_prepare_transfer__method__TokenWalletDartWrapper =
-      _wire_prepare_transfer__method__TokenWalletDartWrapperPtr.asFunction<
-          void Function(
-              int,
-              ffi.Pointer<wire_TokenWalletDartWrapper>,
-              ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<bool>,
-              ffi.Pointer<wire_uint_8_list>,
+          'wire_estimate_fees__method__GenericContractDartWrapper');
+  late final _wire_estimate_fees__method__GenericContractDartWrapper =
+      _wire_estimate_fees__method__GenericContractDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_GenericContractDartWrapper>,
               ffi.Pointer<wire_uint_8_list>)>();
 
-  void wire_refresh__method__TokenWalletDartWrapper(
+  void wire_send__method__GenericContractDartWrapper(
     int port_,
-    ffi.Pointer<wire_TokenWalletDartWrapper> that,
+    ffi.Pointer<wire_GenericContractDartWrapper> that,
+    ffi.Pointer<wire_uint_8_list> signed_message,
   ) {
-    return _wire_refresh__method__TokenWalletDartWrapper(
+    return _wire_send__method__GenericContractDartWrapper(
+      port_,
+      that,
+      signed_message,
+    );
+  }
+
+  late final _wire_send__method__GenericContractDartWrapperPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.Pointer<wire_GenericContractDartWrapper>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_send__method__GenericContractDartWrapper');
+  late final _wire_send__method__GenericContractDartWrapper =
+      _wire_send__method__GenericContractDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_GenericContractDartWrapper>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_refresh__method__GenericContractDartWrapper(
+    int port_,
+    ffi.Pointer<wire_GenericContractDartWrapper> that,
+  ) {
+    return _wire_refresh__method__GenericContractDartWrapper(
       port_,
       that,
     );
   }
 
-  late final _wire_refresh__method__TokenWalletDartWrapperPtr = _lookup<
+  late final _wire_refresh__method__GenericContractDartWrapperPtr = _lookup<
           ffi.NativeFunction<
               ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_TokenWalletDartWrapper>)>>(
-      'wire_refresh__method__TokenWalletDartWrapper');
-  late final _wire_refresh__method__TokenWalletDartWrapper =
-      _wire_refresh__method__TokenWalletDartWrapperPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>)>();
+                  ffi.Int64, ffi.Pointer<wire_GenericContractDartWrapper>)>>(
+      'wire_refresh__method__GenericContractDartWrapper');
+  late final _wire_refresh__method__GenericContractDartWrapper =
+      _wire_refresh__method__GenericContractDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_GenericContractDartWrapper>)>();
 
-  void wire_preload_transactions__method__TokenWalletDartWrapper(
+  void wire_preload_transactions__method__GenericContractDartWrapper(
     int port_,
-    ffi.Pointer<wire_TokenWalletDartWrapper> that,
+    ffi.Pointer<wire_GenericContractDartWrapper> that,
     ffi.Pointer<wire_uint_8_list> from_lt,
   ) {
-    return _wire_preload_transactions__method__TokenWalletDartWrapper(
+    return _wire_preload_transactions__method__GenericContractDartWrapper(
       port_,
       that,
       from_lt,
     );
   }
 
-  late final _wire_preload_transactions__method__TokenWalletDartWrapperPtr =
+  late final _wire_preload_transactions__method__GenericContractDartWrapperPtr =
       _lookup<
               ffi.NativeFunction<
                   ffi.Void Function(
                       ffi.Int64,
-                      ffi.Pointer<wire_TokenWalletDartWrapper>,
+                      ffi.Pointer<wire_GenericContractDartWrapper>,
                       ffi.Pointer<wire_uint_8_list>)>>(
-          'wire_preload_transactions__method__TokenWalletDartWrapper');
-  late final _wire_preload_transactions__method__TokenWalletDartWrapper =
-      _wire_preload_transactions__method__TokenWalletDartWrapperPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>,
-              ffi.Pointer<wire_uint_8_list>)>();
+          'wire_preload_transactions__method__GenericContractDartWrapper');
+  late final _wire_preload_transactions__method__GenericContractDartWrapper =
+      _wire_preload_transactions__method__GenericContractDartWrapperPtr
+          .asFunction<
+              void Function(int, ffi.Pointer<wire_GenericContractDartWrapper>,
+                  ffi.Pointer<wire_uint_8_list>)>();
 
-  void wire_handle_block__method__TokenWalletDartWrapper(
+  void wire_handle_block__method__GenericContractDartWrapper(
     int port_,
-    ffi.Pointer<wire_TokenWalletDartWrapper> that,
+    ffi.Pointer<wire_GenericContractDartWrapper> that,
     ffi.Pointer<wire_uint_8_list> block,
   ) {
-    return _wire_handle_block__method__TokenWalletDartWrapper(
+    return _wire_handle_block__method__GenericContractDartWrapper(
       port_,
       that,
       block,
     );
   }
 
-  late final _wire_handle_block__method__TokenWalletDartWrapperPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64,
-                  ffi.Pointer<wire_TokenWalletDartWrapper>,
-                  ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_handle_block__method__TokenWalletDartWrapper');
-  late final _wire_handle_block__method__TokenWalletDartWrapper =
-      _wire_handle_block__method__TokenWalletDartWrapperPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>,
+  late final _wire_handle_block__method__GenericContractDartWrapperPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(
+                      ffi.Int64,
+                      ffi.Pointer<wire_GenericContractDartWrapper>,
+                      ffi.Pointer<wire_uint_8_list>)>>(
+          'wire_handle_block__method__GenericContractDartWrapper');
+  late final _wire_handle_block__method__GenericContractDartWrapper =
+      _wire_handle_block__method__GenericContractDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_GenericContractDartWrapper>,
               ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_get_token_wallet_details__static_method__TokenWalletDartWrapper(
-    int port_,
-    wire_ArcTransportBoxTrait transport,
-    ffi.Pointer<wire_uint_8_list> address,
-  ) {
-    return _wire_get_token_wallet_details__static_method__TokenWalletDartWrapper(
-      port_,
-      transport,
-      address,
-    );
-  }
-
-  late final _wire_get_token_wallet_details__static_method__TokenWalletDartWrapperPtr =
-      _lookup<
-              ffi.NativeFunction<
-                  ffi.Void Function(ffi.Int64, wire_ArcTransportBoxTrait,
-                      ffi.Pointer<wire_uint_8_list>)>>(
-          'wire_get_token_wallet_details__static_method__TokenWalletDartWrapper');
-  late final _wire_get_token_wallet_details__static_method__TokenWalletDartWrapper =
-      _wire_get_token_wallet_details__static_method__TokenWalletDartWrapperPtr
-          .asFunction<
-              void Function(int, wire_ArcTransportBoxTrait,
-                  ffi.Pointer<wire_uint_8_list>)>();
-
-  void
-      wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper(
-    int port_,
-    wire_ArcTransportBoxTrait transport,
-    ffi.Pointer<wire_uint_8_list> token_wallet_address,
-  ) {
-    return _wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper(
-      port_,
-      transport,
-      token_wallet_address,
-    );
-  }
-
-  late final _wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapperPtr =
-      _lookup<
-              ffi.NativeFunction<
-                  ffi.Void Function(ffi.Int64, wire_ArcTransportBoxTrait,
-                      ffi.Pointer<wire_uint_8_list>)>>(
-          'wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper');
-  late final _wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper =
-      _wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapperPtr
-          .asFunction<
-              void Function(int, wire_ArcTransportBoxTrait,
-                  ffi.Pointer<wire_uint_8_list>)>();
 
   void wire_subscribe__static_method__TonWalletDartWrapper(
     int port_,
@@ -3902,7 +4242,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     ffi.Pointer<wire_uint_8_list> public_key,
     ffi.Pointer<wire_uint_8_list> destination,
     ffi.Pointer<wire_uint_8_list> amount,
-    ffi.Pointer<bool> bounce,
+    bool bounce,
     ffi.Pointer<wire_uint_8_list> body,
     ffi.Pointer<wire_uint_8_list> expiration,
   ) {
@@ -3928,7 +4268,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
                   ffi.Pointer<wire_uint_8_list>,
                   ffi.Pointer<wire_uint_8_list>,
                   ffi.Pointer<wire_uint_8_list>,
-                  ffi.Pointer<bool>,
+                  ffi.Bool,
                   ffi.Pointer<wire_uint_8_list>,
                   ffi.Pointer<wire_uint_8_list>)>>(
       'wire_prepare_transfer__method__TonWalletDartWrapper');
@@ -3941,7 +4281,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<bool>,
+              bool,
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>)>();
 
@@ -4184,463 +4524,116 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           void Function(
               int, wire_ArcTransportBoxTrait, ffi.Pointer<wire_uint_8_list>)>();
 
-  void wire_new__static_method__GqlTransportImpl(
+  void wire_new__static_method__JrpcConnectionDartWrapper(
     int port_,
-    ffi.Pointer<wire_GqlConnectionDartWrapper> gql_connection,
+    ffi.Pointer<wire_uint_8_list> instance_hash,
   ) {
-    return _wire_new__static_method__GqlTransportImpl(
+    return _wire_new__static_method__JrpcConnectionDartWrapper(
       port_,
-      gql_connection,
+      instance_hash,
     );
   }
 
-  late final _wire_new__static_method__GqlTransportImplPtr = _lookup<
+  late final _wire_new__static_method__JrpcConnectionDartWrapperPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_new__static_method__JrpcConnectionDartWrapper');
+  late final _wire_new__static_method__JrpcConnectionDartWrapper =
+      _wire_new__static_method__JrpcConnectionDartWrapperPtr
+          .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_new__static_method__GqlConnectionDartWrapper(
+    int port_,
+    bool is_local,
+    ffi.Pointer<wire_uint_8_list> instance_hash,
+  ) {
+    return _wire_new__static_method__GqlConnectionDartWrapper(
+      port_,
+      is_local,
+      instance_hash,
+    );
+  }
+
+  late final _wire_new__static_method__GqlConnectionDartWrapperPtr = _lookup<
           ffi.NativeFunction<
               ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_GqlConnectionDartWrapper>)>>(
-      'wire_new__static_method__GqlTransportImpl');
-  late final _wire_new__static_method__GqlTransportImpl =
-      _wire_new__static_method__GqlTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_GqlConnectionDartWrapper>)>();
+                  ffi.Int64, ffi.Bool, ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_new__static_method__GqlConnectionDartWrapper');
+  late final _wire_new__static_method__GqlConnectionDartWrapper =
+      _wire_new__static_method__GqlConnectionDartWrapperPtr.asFunction<
+          void Function(int, bool, ffi.Pointer<wire_uint_8_list>)>();
 
-  void wire_get_contract_state__method__GqlTransportImpl(
+  void wire_new__static_method__LedgerConnectionDartWrapper(
     int port_,
-    ffi.Pointer<wire_GqlTransportImpl> that,
-    ffi.Pointer<wire_uint_8_list> address,
+    ffi.Pointer<wire_uint_8_list> instance_hash,
   ) {
-    return _wire_get_contract_state__method__GqlTransportImpl(
+    return _wire_new__static_method__LedgerConnectionDartWrapper(
       port_,
-      that,
-      address,
+      instance_hash,
     );
   }
 
-  late final _wire_get_contract_state__method__GqlTransportImplPtr = _lookup<
+  late final _wire_new__static_method__LedgerConnectionDartWrapperPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_GqlTransportImpl>,
-                  ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_get_contract_state__method__GqlTransportImpl');
-  late final _wire_get_contract_state__method__GqlTransportImpl =
-      _wire_get_contract_state__method__GqlTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_GqlTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>)>();
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_new__static_method__LedgerConnectionDartWrapper');
+  late final _wire_new__static_method__LedgerConnectionDartWrapper =
+      _wire_new__static_method__LedgerConnectionDartWrapperPtr
+          .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
 
-  void wire_get_full_contract_state__method__GqlTransportImpl(
+  void wire_new__static_method__LedgerConnectionImpl(
     int port_,
-    ffi.Pointer<wire_GqlTransportImpl> that,
-    ffi.Pointer<wire_uint_8_list> address,
+    ffi.Pointer<wire_uint_8_list> instance_hash,
   ) {
-    return _wire_get_full_contract_state__method__GqlTransportImpl(
+    return _wire_new__static_method__LedgerConnectionImpl(
       port_,
-      that,
-      address,
+      instance_hash,
     );
   }
 
-  late final _wire_get_full_contract_state__method__GqlTransportImplPtr =
-      _lookup<
-              ffi.NativeFunction<
-                  ffi.Void Function(
-                      ffi.Int64,
-                      ffi.Pointer<wire_GqlTransportImpl>,
-                      ffi.Pointer<wire_uint_8_list>)>>(
-          'wire_get_full_contract_state__method__GqlTransportImpl');
-  late final _wire_get_full_contract_state__method__GqlTransportImpl =
-      _wire_get_full_contract_state__method__GqlTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_GqlTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_get_accounts_by_code_hash__method__GqlTransportImpl(
-    int port_,
-    ffi.Pointer<wire_GqlTransportImpl> that,
-    ffi.Pointer<wire_uint_8_list> code_hash,
-    int limit,
-    ffi.Pointer<wire_uint_8_list> continuation,
-  ) {
-    return _wire_get_accounts_by_code_hash__method__GqlTransportImpl(
-      port_,
-      that,
-      code_hash,
-      limit,
-      continuation,
-    );
-  }
-
-  late final _wire_get_accounts_by_code_hash__method__GqlTransportImplPtr =
-      _lookup<
-              ffi.NativeFunction<
-                  ffi.Void Function(
-                      ffi.Int64,
-                      ffi.Pointer<wire_GqlTransportImpl>,
-                      ffi.Pointer<wire_uint_8_list>,
-                      ffi.Uint8,
-                      ffi.Pointer<wire_uint_8_list>)>>(
-          'wire_get_accounts_by_code_hash__method__GqlTransportImpl');
-  late final _wire_get_accounts_by_code_hash__method__GqlTransportImpl =
-      _wire_get_accounts_by_code_hash__method__GqlTransportImplPtr.asFunction<
-          void Function(
-              int,
-              ffi.Pointer<wire_GqlTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>,
-              int,
-              ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_get_transactions__method__GqlTransportImpl(
-    int port_,
-    ffi.Pointer<wire_GqlTransportImpl> that,
-    ffi.Pointer<wire_uint_8_list> address,
-    ffi.Pointer<ffi.Uint64> from_lt,
-    int count,
-  ) {
-    return _wire_get_transactions__method__GqlTransportImpl(
-      port_,
-      that,
-      address,
-      from_lt,
-      count,
-    );
-  }
-
-  late final _wire_get_transactions__method__GqlTransportImplPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(
-              ffi.Int64,
-              ffi.Pointer<wire_GqlTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<ffi.Uint64>,
-              ffi.Uint8)>>('wire_get_transactions__method__GqlTransportImpl');
-  late final _wire_get_transactions__method__GqlTransportImpl =
-      _wire_get_transactions__method__GqlTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_GqlTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>, ffi.Pointer<ffi.Uint64>, int)>();
-
-  void wire_get_transaction__method__GqlTransportImpl(
-    int port_,
-    ffi.Pointer<wire_GqlTransportImpl> that,
-    ffi.Pointer<wire_uint_8_list> hash,
-  ) {
-    return _wire_get_transaction__method__GqlTransportImpl(
-      port_,
-      that,
-      hash,
-    );
-  }
-
-  late final _wire_get_transaction__method__GqlTransportImplPtr = _lookup<
+  late final _wire_new__static_method__LedgerConnectionImplPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_GqlTransportImpl>,
-                  ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_get_transaction__method__GqlTransportImpl');
-  late final _wire_get_transaction__method__GqlTransportImpl =
-      _wire_get_transaction__method__GqlTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_GqlTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>)>();
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_new__static_method__LedgerConnectionImpl');
+  late final _wire_new__static_method__LedgerConnectionImpl =
+      _wire_new__static_method__LedgerConnectionImplPtr
+          .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
 
-  void wire_get_signature_id__method__GqlTransportImpl(
+  void wire_new__static_method__StorageDartWrapper(
     int port_,
-    ffi.Pointer<wire_GqlTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> instance_hash,
   ) {
-    return _wire_get_signature_id__method__GqlTransportImpl(
+    return _wire_new__static_method__StorageDartWrapper(
       port_,
-      that,
+      instance_hash,
     );
   }
 
-  late final _wire_get_signature_id__method__GqlTransportImplPtr = _lookup<
+  late final _wire_new__static_method__StorageDartWrapperPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_GqlTransportImpl>)>>(
-      'wire_get_signature_id__method__GqlTransportImpl');
-  late final _wire_get_signature_id__method__GqlTransportImpl =
-      _wire_get_signature_id__method__GqlTransportImplPtr
-          .asFunction<void Function(int, ffi.Pointer<wire_GqlTransportImpl>)>();
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_new__static_method__StorageDartWrapper');
+  late final _wire_new__static_method__StorageDartWrapper =
+      _wire_new__static_method__StorageDartWrapperPtr
+          .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
 
-  void wire_get_network_id__method__GqlTransportImpl(
+  void wire_new__static_method__StorageImpl(
     int port_,
-    ffi.Pointer<wire_GqlTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> instance_hash,
   ) {
-    return _wire_get_network_id__method__GqlTransportImpl(
+    return _wire_new__static_method__StorageImpl(
       port_,
-      that,
+      instance_hash,
     );
   }
 
-  late final _wire_get_network_id__method__GqlTransportImplPtr = _lookup<
+  late final _wire_new__static_method__StorageImplPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_GqlTransportImpl>)>>(
-      'wire_get_network_id__method__GqlTransportImpl');
-  late final _wire_get_network_id__method__GqlTransportImpl =
-      _wire_get_network_id__method__GqlTransportImplPtr
-          .asFunction<void Function(int, ffi.Pointer<wire_GqlTransportImpl>)>();
-
-  void wire_get_latest_block__method__GqlTransportImpl(
-    int port_,
-    ffi.Pointer<wire_GqlTransportImpl> that,
-    ffi.Pointer<wire_uint_8_list> address,
-  ) {
-    return _wire_get_latest_block__method__GqlTransportImpl(
-      port_,
-      that,
-      address,
-    );
-  }
-
-  late final _wire_get_latest_block__method__GqlTransportImplPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_GqlTransportImpl>,
-                  ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_get_latest_block__method__GqlTransportImpl');
-  late final _wire_get_latest_block__method__GqlTransportImpl =
-      _wire_get_latest_block__method__GqlTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_GqlTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_get_block__method__GqlTransportImpl(
-    int port_,
-    ffi.Pointer<wire_GqlTransportImpl> that,
-    ffi.Pointer<wire_uint_8_list> id,
-  ) {
-    return _wire_get_block__method__GqlTransportImpl(
-      port_,
-      that,
-      id,
-    );
-  }
-
-  late final _wire_get_block__method__GqlTransportImplPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_GqlTransportImpl>,
-                  ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_get_block__method__GqlTransportImpl');
-  late final _wire_get_block__method__GqlTransportImpl =
-      _wire_get_block__method__GqlTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_GqlTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_wait_for_next_block__method__GqlTransportImpl(
-    int port_,
-    ffi.Pointer<wire_GqlTransportImpl> that,
-    ffi.Pointer<wire_uint_8_list> current_block_id,
-    ffi.Pointer<wire_uint_8_list> address,
-    int timeout,
-  ) {
-    return _wire_wait_for_next_block__method__GqlTransportImpl(
-      port_,
-      that,
-      current_block_id,
-      address,
-      timeout,
-    );
-  }
-
-  late final _wire_wait_for_next_block__method__GqlTransportImplPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64,
-                  ffi.Pointer<wire_GqlTransportImpl>,
-                  ffi.Pointer<wire_uint_8_list>,
-                  ffi.Pointer<wire_uint_8_list>,
-                  ffi.Uint64)>>(
-      'wire_wait_for_next_block__method__GqlTransportImpl');
-  late final _wire_wait_for_next_block__method__GqlTransportImpl =
-      _wire_wait_for_next_block__method__GqlTransportImplPtr.asFunction<
-          void Function(
-              int,
-              ffi.Pointer<wire_GqlTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<wire_uint_8_list>,
-              int)>();
-
-  void wire_new__static_method__JrpcTransportImpl(
-    int port_,
-    ffi.Pointer<wire_JrpcConnectionDartWrapper> jrpc_connection,
-  ) {
-    return _wire_new__static_method__JrpcTransportImpl(
-      port_,
-      jrpc_connection,
-    );
-  }
-
-  late final _wire_new__static_method__JrpcTransportImplPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_JrpcConnectionDartWrapper>)>>(
-      'wire_new__static_method__JrpcTransportImpl');
-  late final _wire_new__static_method__JrpcTransportImpl =
-      _wire_new__static_method__JrpcTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_JrpcConnectionDartWrapper>)>();
-
-  void wire_get_contract_state__method__JrpcTransportImpl(
-    int port_,
-    ffi.Pointer<wire_JrpcTransportImpl> that,
-    ffi.Pointer<wire_uint_8_list> address,
-  ) {
-    return _wire_get_contract_state__method__JrpcTransportImpl(
-      port_,
-      that,
-      address,
-    );
-  }
-
-  late final _wire_get_contract_state__method__JrpcTransportImplPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_JrpcTransportImpl>,
-                  ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_get_contract_state__method__JrpcTransportImpl');
-  late final _wire_get_contract_state__method__JrpcTransportImpl =
-      _wire_get_contract_state__method__JrpcTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_JrpcTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_get_full_contract_state__method__JrpcTransportImpl(
-    int port_,
-    ffi.Pointer<wire_JrpcTransportImpl> that,
-    ffi.Pointer<wire_uint_8_list> address,
-  ) {
-    return _wire_get_full_contract_state__method__JrpcTransportImpl(
-      port_,
-      that,
-      address,
-    );
-  }
-
-  late final _wire_get_full_contract_state__method__JrpcTransportImplPtr =
-      _lookup<
-              ffi.NativeFunction<
-                  ffi.Void Function(
-                      ffi.Int64,
-                      ffi.Pointer<wire_JrpcTransportImpl>,
-                      ffi.Pointer<wire_uint_8_list>)>>(
-          'wire_get_full_contract_state__method__JrpcTransportImpl');
-  late final _wire_get_full_contract_state__method__JrpcTransportImpl =
-      _wire_get_full_contract_state__method__JrpcTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_JrpcTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
-    int port_,
-    ffi.Pointer<wire_JrpcTransportImpl> that,
-    ffi.Pointer<wire_uint_8_list> code_hash,
-    int limit,
-    ffi.Pointer<wire_uint_8_list> continuation,
-  ) {
-    return _wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
-      port_,
-      that,
-      code_hash,
-      limit,
-      continuation,
-    );
-  }
-
-  late final _wire_get_accounts_by_code_hash__method__JrpcTransportImplPtr =
-      _lookup<
-              ffi.NativeFunction<
-                  ffi.Void Function(
-                      ffi.Int64,
-                      ffi.Pointer<wire_JrpcTransportImpl>,
-                      ffi.Pointer<wire_uint_8_list>,
-                      ffi.Uint8,
-                      ffi.Pointer<wire_uint_8_list>)>>(
-          'wire_get_accounts_by_code_hash__method__JrpcTransportImpl');
-  late final _wire_get_accounts_by_code_hash__method__JrpcTransportImpl =
-      _wire_get_accounts_by_code_hash__method__JrpcTransportImplPtr.asFunction<
-          void Function(
-              int,
-              ffi.Pointer<wire_JrpcTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>,
-              int,
-              ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_get_transactions__method__JrpcTransportImpl(
-    int port_,
-    ffi.Pointer<wire_JrpcTransportImpl> that,
-    ffi.Pointer<wire_uint_8_list> address,
-    ffi.Pointer<ffi.Uint64> from_lt,
-    int count,
-  ) {
-    return _wire_get_transactions__method__JrpcTransportImpl(
-      port_,
-      that,
-      address,
-      from_lt,
-      count,
-    );
-  }
-
-  late final _wire_get_transactions__method__JrpcTransportImplPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(
-              ffi.Int64,
-              ffi.Pointer<wire_JrpcTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<ffi.Uint64>,
-              ffi.Uint8)>>('wire_get_transactions__method__JrpcTransportImpl');
-  late final _wire_get_transactions__method__JrpcTransportImpl =
-      _wire_get_transactions__method__JrpcTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_JrpcTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>, ffi.Pointer<ffi.Uint64>, int)>();
-
-  void wire_get_transaction__method__JrpcTransportImpl(
-    int port_,
-    ffi.Pointer<wire_JrpcTransportImpl> that,
-    ffi.Pointer<wire_uint_8_list> hash,
-  ) {
-    return _wire_get_transaction__method__JrpcTransportImpl(
-      port_,
-      that,
-      hash,
-    );
-  }
-
-  late final _wire_get_transaction__method__JrpcTransportImplPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_JrpcTransportImpl>,
-                  ffi.Pointer<wire_uint_8_list>)>>(
-      'wire_get_transaction__method__JrpcTransportImpl');
-  late final _wire_get_transaction__method__JrpcTransportImpl =
-      _wire_get_transaction__method__JrpcTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_JrpcTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>)>();
-
-  void wire_get_signature_id__method__JrpcTransportImpl(
-    int port_,
-    ffi.Pointer<wire_JrpcTransportImpl> that,
-  ) {
-    return _wire_get_signature_id__method__JrpcTransportImpl(
-      port_,
-      that,
-    );
-  }
-
-  late final _wire_get_signature_id__method__JrpcTransportImplPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_JrpcTransportImpl>)>>(
-      'wire_get_signature_id__method__JrpcTransportImpl');
-  late final _wire_get_signature_id__method__JrpcTransportImpl =
-      _wire_get_signature_id__method__JrpcTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_JrpcTransportImpl>)>();
-
-  void wire_get_network_id__method__JrpcTransportImpl(
-    int port_,
-    ffi.Pointer<wire_JrpcTransportImpl> that,
-  ) {
-    return _wire_get_network_id__method__JrpcTransportImpl(
-      port_,
-      that,
-    );
-  }
-
-  late final _wire_get_network_id__method__JrpcTransportImplPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_JrpcTransportImpl>)>>(
-      'wire_get_network_id__method__JrpcTransportImpl');
-  late final _wire_get_network_id__method__JrpcTransportImpl =
-      _wire_get_network_id__method__JrpcTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_JrpcTransportImpl>)>();
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_new__static_method__StorageImpl');
+  late final _wire_new__static_method__StorageImpl =
+      _wire_new__static_method__StorageImplPtr
+          .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
 
   void wire_new__static_method__MyClass(
     int port_,
@@ -5636,6 +5629,13 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
 
 final class _Dart_Handle extends ffi.Opaque {}
 
+final class wire_uint_8_list extends ffi.Struct {
+  external ffi.Pointer<ffi.Uint8> ptr;
+
+  @ffi.Int32()
+  external int len;
+}
+
 final class wire_MnemonicType_Legacy extends ffi.Opaque {}
 
 final class wire_MnemonicType_Labs extends ffi.Struct {
@@ -5654,13 +5654,6 @@ final class wire_MnemonicType extends ffi.Struct {
   external int tag;
 
   external ffi.Pointer<MnemonicTypeKind> kind;
-}
-
-final class wire_uint_8_list extends ffi.Struct {
-  external ffi.Pointer<ffi.Uint8> ptr;
-
-  @ffi.Int32()
-  external int len;
 }
 
 final class wire_DynamicValue_U16 extends ffi.Struct {
@@ -5782,6 +5775,42 @@ final class wire_UnsignedMessageImpl extends ffi.Struct {
   external wire_ArcUnsignedMessageBoxTrait inner_message;
 }
 
+final class wire_ArcGqlConnectionBoxTrait extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> ptr;
+}
+
+final class wire_GqlConnectionDartWrapper extends ffi.Struct {
+  external wire_ArcGqlConnectionBoxTrait inner_connection;
+}
+
+final class wire_ArcTransportBoxTrait extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> ptr;
+}
+
+final class wire_GqlTransportImpl extends ffi.Struct {
+  external wire_ArcTransportBoxTrait inner_transport;
+}
+
+final class wire_ArcJrpcConnectionBoxTrait extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> ptr;
+}
+
+final class wire_JrpcConnectionDartWrapper extends ffi.Struct {
+  external wire_ArcJrpcConnectionBoxTrait inner_connection;
+}
+
+final class wire_JrpcTransportImpl extends ffi.Struct {
+  external wire_ArcTransportBoxTrait inner_transport;
+}
+
+final class wire_ArcTokenWalletBoxTrait extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> ptr;
+}
+
+final class wire_TokenWalletDartWrapper extends ffi.Struct {
+  external wire_ArcTokenWalletBoxTrait inner_wallet;
+}
+
 final class wire_ArcStorageBoxTrait extends ffi.Struct {
   external ffi.Pointer<ffi.Void> ptr;
 }
@@ -5790,41 +5819,6 @@ final class wire_StorageDartWrapper extends ffi.Struct {
   external wire_ArcStorageBoxTrait inner_storage;
 }
 
-final class wire_ArcAccountsStorageBoxTrait extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> ptr;
-}
-
-final class wire_AccountsStorageImpl extends ffi.Struct {
-  external wire_ArcAccountsStorageBoxTrait inner_storage;
-}
-
-final class wire_StringList extends ffi.Struct {
-  external ffi.Pointer<ffi.Pointer<wire_uint_8_list>> ptr;
-
-  @ffi.Int32()
-  external int len;
-}
-
-final class wire_ArcTransportBoxTrait extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> ptr;
-}
-
-final class wire_ArcGenericContractBoxTrait extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> ptr;
-}
-
-final class wire_GenericContractDartWrapper extends ffi.Struct {
-  external wire_ArcGenericContractBoxTrait inner_contract;
-}
-
-final class wire_TransactionExecutionOptions extends ffi.Struct {
-  external bool disable_signature_check;
-
-  external ffi.Pointer<ffi.Uint64> override_balance;
-}
-
-typedef bool = ffi.NativeFunction<ffi.Int Function(ffi.Pointer<ffi.Int>)>;
-
 final class wire_KeySigner_Encrypted extends ffi.Opaque {}
 
 final class wire_KeySigner_Derived extends ffi.Opaque {}
@@ -5832,6 +5826,7 @@ final class wire_KeySigner_Derived extends ffi.Opaque {}
 final class wire_KeySigner_Ledger extends ffi.Opaque {}
 
 final class wire_KeySigner_Stub extends ffi.Struct {
+  @ffi.Bool()
   external bool field0;
 }
 
@@ -5875,12 +5870,34 @@ final class wire_KeystoreDartWrapper extends ffi.Struct {
   external wire_ArcKeyStoreApiBoxTrait inner_keystore;
 }
 
-final class wire_ArcTokenWalletBoxTrait extends ffi.Struct {
+final class wire_StringList extends ffi.Struct {
+  external ffi.Pointer<ffi.Pointer<wire_uint_8_list>> ptr;
+
+  @ffi.Int32()
+  external int len;
+}
+
+final class wire_ArcAccountsStorageBoxTrait extends ffi.Struct {
   external ffi.Pointer<ffi.Void> ptr;
 }
 
-final class wire_TokenWalletDartWrapper extends ffi.Struct {
-  external wire_ArcTokenWalletBoxTrait inner_wallet;
+final class wire_AccountsStorageImpl extends ffi.Struct {
+  external wire_ArcAccountsStorageBoxTrait inner_storage;
+}
+
+final class wire_ArcGenericContractBoxTrait extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> ptr;
+}
+
+final class wire_GenericContractDartWrapper extends ffi.Struct {
+  external wire_ArcGenericContractBoxTrait inner_contract;
+}
+
+final class wire_TransactionExecutionOptions extends ffi.Struct {
+  @ffi.Bool()
+  external bool disable_signature_check;
+
+  external ffi.Pointer<ffi.Uint64> override_balance;
 }
 
 final class wire_ArcTonWalletBoxTrait extends ffi.Struct {
@@ -5889,30 +5906,6 @@ final class wire_ArcTonWalletBoxTrait extends ffi.Struct {
 
 final class wire_TonWalletDartWrapper extends ffi.Struct {
   external wire_ArcTonWalletBoxTrait inner_wallet;
-}
-
-final class wire_ArcGqlConnectionBoxTrait extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> ptr;
-}
-
-final class wire_GqlConnectionDartWrapper extends ffi.Struct {
-  external wire_ArcGqlConnectionBoxTrait inner_connection;
-}
-
-final class wire_GqlTransportImpl extends ffi.Struct {
-  external wire_ArcTransportBoxTrait inner_transport;
-}
-
-final class wire_ArcJrpcConnectionBoxTrait extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> ptr;
-}
-
-final class wire_JrpcConnectionDartWrapper extends ffi.Struct {
-  external wire_ArcJrpcConnectionBoxTrait inner_connection;
-}
-
-final class wire_JrpcTransportImpl extends ffi.Struct {
-  external wire_ArcTransportBoxTrait inner_transport;
 }
 
 final class wire_MyClass extends ffi.Struct {
@@ -5926,3 +5919,8 @@ final class wire_CallerTestClass extends ffi.Struct {
   @ffi.Int32()
   external int value;
 }
+
+typedef DartPostCObjectFnType = ffi.Pointer<
+    ffi.NativeFunction<
+        ffi.Bool Function(DartPort port_id, ffi.Pointer<ffi.Void> message)>>;
+typedef DartPort = ffi.Int64;

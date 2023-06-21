@@ -9,6 +9,11 @@ typedef int64_t DartPort;
 
 typedef bool (*DartPostCObjectFnType)(DartPort port_id, void *message);
 
+typedef struct wire_uint_8_list {
+  uint8_t *ptr;
+  int32_t len;
+} wire_uint_8_list;
+
 typedef struct wire_MnemonicType_Legacy {
 
 } wire_MnemonicType_Legacy;
@@ -26,11 +31,6 @@ typedef struct wire_MnemonicType {
   int32_t tag;
   union MnemonicTypeKind *kind;
 } wire_MnemonicType;
-
-typedef struct wire_uint_8_list {
-  uint8_t *ptr;
-  int32_t len;
-} wire_uint_8_list;
 
 typedef struct DartCObject *WireSyncReturn;
 
@@ -127,6 +127,42 @@ typedef struct wire_UnsignedMessageImpl {
   struct wire_ArcUnsignedMessageBoxTrait inner_message;
 } wire_UnsignedMessageImpl;
 
+typedef struct wire_ArcGqlConnectionBoxTrait {
+  const void *ptr;
+} wire_ArcGqlConnectionBoxTrait;
+
+typedef struct wire_GqlConnectionDartWrapper {
+  struct wire_ArcGqlConnectionBoxTrait inner_connection;
+} wire_GqlConnectionDartWrapper;
+
+typedef struct wire_ArcTransportBoxTrait {
+  const void *ptr;
+} wire_ArcTransportBoxTrait;
+
+typedef struct wire_GqlTransportImpl {
+  struct wire_ArcTransportBoxTrait inner_transport;
+} wire_GqlTransportImpl;
+
+typedef struct wire_ArcJrpcConnectionBoxTrait {
+  const void *ptr;
+} wire_ArcJrpcConnectionBoxTrait;
+
+typedef struct wire_JrpcConnectionDartWrapper {
+  struct wire_ArcJrpcConnectionBoxTrait inner_connection;
+} wire_JrpcConnectionDartWrapper;
+
+typedef struct wire_JrpcTransportImpl {
+  struct wire_ArcTransportBoxTrait inner_transport;
+} wire_JrpcTransportImpl;
+
+typedef struct wire_ArcTokenWalletBoxTrait {
+  const void *ptr;
+} wire_ArcTokenWalletBoxTrait;
+
+typedef struct wire_TokenWalletDartWrapper {
+  struct wire_ArcTokenWalletBoxTrait inner_wallet;
+} wire_TokenWalletDartWrapper;
+
 typedef struct wire_ArcStorageBoxTrait {
   const void *ptr;
 } wire_ArcStorageBoxTrait;
@@ -134,36 +170,6 @@ typedef struct wire_ArcStorageBoxTrait {
 typedef struct wire_StorageDartWrapper {
   struct wire_ArcStorageBoxTrait inner_storage;
 } wire_StorageDartWrapper;
-
-typedef struct wire_ArcAccountsStorageBoxTrait {
-  const void *ptr;
-} wire_ArcAccountsStorageBoxTrait;
-
-typedef struct wire_AccountsStorageImpl {
-  struct wire_ArcAccountsStorageBoxTrait inner_storage;
-} wire_AccountsStorageImpl;
-
-typedef struct wire_StringList {
-  struct wire_uint_8_list **ptr;
-  int32_t len;
-} wire_StringList;
-
-typedef struct wire_ArcTransportBoxTrait {
-  const void *ptr;
-} wire_ArcTransportBoxTrait;
-
-typedef struct wire_ArcGenericContractBoxTrait {
-  const void *ptr;
-} wire_ArcGenericContractBoxTrait;
-
-typedef struct wire_GenericContractDartWrapper {
-  struct wire_ArcGenericContractBoxTrait inner_contract;
-} wire_GenericContractDartWrapper;
-
-typedef struct wire_TransactionExecutionOptions {
-  bool disable_signature_check;
-  uint64_t *override_balance;
-} wire_TransactionExecutionOptions;
 
 typedef struct wire_KeySigner_Encrypted {
 
@@ -214,13 +220,31 @@ typedef struct wire_KeystoreDartWrapper {
   struct wire_ArcKeyStoreApiBoxTrait inner_keystore;
 } wire_KeystoreDartWrapper;
 
-typedef struct wire_ArcTokenWalletBoxTrait {
-  const void *ptr;
-} wire_ArcTokenWalletBoxTrait;
+typedef struct wire_StringList {
+  struct wire_uint_8_list **ptr;
+  int32_t len;
+} wire_StringList;
 
-typedef struct wire_TokenWalletDartWrapper {
-  struct wire_ArcTokenWalletBoxTrait inner_wallet;
-} wire_TokenWalletDartWrapper;
+typedef struct wire_ArcAccountsStorageBoxTrait {
+  const void *ptr;
+} wire_ArcAccountsStorageBoxTrait;
+
+typedef struct wire_AccountsStorageImpl {
+  struct wire_ArcAccountsStorageBoxTrait inner_storage;
+} wire_AccountsStorageImpl;
+
+typedef struct wire_ArcGenericContractBoxTrait {
+  const void *ptr;
+} wire_ArcGenericContractBoxTrait;
+
+typedef struct wire_GenericContractDartWrapper {
+  struct wire_ArcGenericContractBoxTrait inner_contract;
+} wire_GenericContractDartWrapper;
+
+typedef struct wire_TransactionExecutionOptions {
+  bool disable_signature_check;
+  uint64_t *override_balance;
+} wire_TransactionExecutionOptions;
 
 typedef struct wire_ArcTonWalletBoxTrait {
   const void *ptr;
@@ -229,30 +253,6 @@ typedef struct wire_ArcTonWalletBoxTrait {
 typedef struct wire_TonWalletDartWrapper {
   struct wire_ArcTonWalletBoxTrait inner_wallet;
 } wire_TonWalletDartWrapper;
-
-typedef struct wire_ArcGqlConnectionBoxTrait {
-  const void *ptr;
-} wire_ArcGqlConnectionBoxTrait;
-
-typedef struct wire_GqlConnectionDartWrapper {
-  struct wire_ArcGqlConnectionBoxTrait inner_connection;
-} wire_GqlConnectionDartWrapper;
-
-typedef struct wire_GqlTransportImpl {
-  struct wire_ArcTransportBoxTrait inner_transport;
-} wire_GqlTransportImpl;
-
-typedef struct wire_ArcJrpcConnectionBoxTrait {
-  const void *ptr;
-} wire_ArcJrpcConnectionBoxTrait;
-
-typedef struct wire_JrpcConnectionDartWrapper {
-  struct wire_ArcJrpcConnectionBoxTrait inner_connection;
-} wire_JrpcConnectionDartWrapper;
-
-typedef struct wire_JrpcTransportImpl {
-  struct wire_ArcTransportBoxTrait inner_transport;
-} wire_JrpcTransportImpl;
 
 typedef struct wire_MyClass {
   int32_t val;
@@ -273,6 +273,11 @@ uintptr_t new_dart_opaque(Dart_Handle handle);
 
 intptr_t init_frb_dart_api_dl(void *obj);
 
+void wire_verify_signature(int64_t port_,
+                           struct wire_uint_8_list *public_key,
+                           struct wire_uint_8_list *data_hash,
+                           struct wire_uint_8_list *signature);
+
 void wire_nt_generate_key(int64_t port_, struct wire_MnemonicType *account_type);
 
 void wire_nt_get_hints(int64_t port_, struct wire_uint_8_list *input);
@@ -280,11 +285,6 @@ void wire_nt_get_hints(int64_t port_, struct wire_uint_8_list *input);
 void wire_nt_derive_from_phrase(int64_t port_,
                                 struct wire_uint_8_list *phrase,
                                 struct wire_MnemonicType *mnemonic_type);
-
-void wire_verify_signature(int64_t port_,
-                           struct wire_uint_8_list *public_key,
-                           struct wire_uint_8_list *data_hash,
-                           struct wire_uint_8_list *signature);
 
 void wire_check_public_key(int64_t port_, struct wire_uint_8_list *public_key);
 
@@ -387,6 +387,26 @@ void wire_set_code_salt(int64_t port_,
 
 void wire_get_code_salt(int64_t port_, struct wire_uint_8_list *code);
 
+void wire_test_logger_info(int64_t port_, struct wire_uint_8_list *string);
+
+void wire_test_logger_debug(int64_t port_, struct wire_uint_8_list *string);
+
+void wire_test_logger_warn(int64_t port_, struct wire_uint_8_list *string);
+
+void wire_test_logger_error(int64_t port_, struct wire_uint_8_list *string);
+
+void wire_test_logger_panic(int64_t port_, struct wire_uint_8_list *string);
+
+void wire_test_caller_call_test0_async(int64_t port_,
+                                       struct wire_uint_8_list *string,
+                                       bool need_result);
+
+WireSyncReturn wire_test_caller_call_test0_sync(struct wire_uint_8_list *string, bool need_result);
+
+void wire_test_caller_call_test1_async(int64_t port_,
+                                       struct wire_uint_8_list *string,
+                                       bool need_result);
+
 void wire_init_logger(int64_t port_, int32_t level, bool mobile_logger);
 
 void wire_create_log_stream(int64_t port_);
@@ -419,26 +439,6 @@ void wire_simple_call_func2(int64_t port_);
 
 void wire_simple_call_func3(int64_t port_);
 
-void wire_test_logger_info(int64_t port_, struct wire_uint_8_list *string);
-
-void wire_test_logger_debug(int64_t port_, struct wire_uint_8_list *string);
-
-void wire_test_logger_warn(int64_t port_, struct wire_uint_8_list *string);
-
-void wire_test_logger_error(int64_t port_, struct wire_uint_8_list *string);
-
-void wire_test_logger_panic(int64_t port_, struct wire_uint_8_list *string);
-
-void wire_test_caller_call_test0_async(int64_t port_,
-                                       struct wire_uint_8_list *string,
-                                       bool need_result);
-
-WireSyncReturn wire_test_caller_call_test0_sync(struct wire_uint_8_list *string, bool need_result);
-
-void wire_test_caller_call_test1_async(int64_t port_,
-                                       struct wire_uint_8_list *string,
-                                       bool need_result);
-
 void wire_refresh_timeout__method__UnsignedMessageImpl(int64_t port_,
                                                        struct wire_UnsignedMessageImpl *that);
 
@@ -451,111 +451,136 @@ void wire_sign__method__UnsignedMessageImpl(int64_t port_,
                                             struct wire_UnsignedMessageImpl *that,
                                             struct wire_uint_8_list *signature);
 
-void wire_new__static_method__GqlConnectionDartWrapper(int64_t port_,
-                                                       bool is_local,
-                                                       struct wire_uint_8_list *instance_hash);
+void wire_new__static_method__GqlTransportImpl(int64_t port_,
+                                               struct wire_GqlConnectionDartWrapper *gql_connection);
 
-void wire_new__static_method__JrpcConnectionDartWrapper(int64_t port_,
-                                                        struct wire_uint_8_list *instance_hash);
+void wire_get_contract_state__method__GqlTransportImpl(int64_t port_,
+                                                       struct wire_GqlTransportImpl *that,
+                                                       struct wire_uint_8_list *address);
 
-void wire_new__static_method__LedgerConnectionDartWrapper(int64_t port_,
-                                                          struct wire_uint_8_list *instance_hash);
+void wire_get_full_contract_state__method__GqlTransportImpl(int64_t port_,
+                                                            struct wire_GqlTransportImpl *that,
+                                                            struct wire_uint_8_list *address);
 
-void wire_new__static_method__LedgerConnectionImpl(int64_t port_,
-                                                   struct wire_uint_8_list *instance_hash);
+void wire_get_accounts_by_code_hash__method__GqlTransportImpl(int64_t port_,
+                                                              struct wire_GqlTransportImpl *that,
+                                                              struct wire_uint_8_list *code_hash,
+                                                              uint8_t limit,
+                                                              struct wire_uint_8_list *continuation);
 
-void wire_new__static_method__StorageDartWrapper(int64_t port_,
-                                                 struct wire_uint_8_list *instance_hash);
+void wire_get_transactions__method__GqlTransportImpl(int64_t port_,
+                                                     struct wire_GqlTransportImpl *that,
+                                                     struct wire_uint_8_list *address,
+                                                     uint64_t *from_lt,
+                                                     uint8_t count);
 
-void wire_new__static_method__StorageImpl(int64_t port_, struct wire_uint_8_list *instance_hash);
+void wire_get_transaction__method__GqlTransportImpl(int64_t port_,
+                                                    struct wire_GqlTransportImpl *that,
+                                                    struct wire_uint_8_list *hash);
 
-void wire_new__static_method__AccountsStorageImpl(int64_t port_,
-                                                  struct wire_StorageDartWrapper *storage);
+void wire_get_signature_id__method__GqlTransportImpl(int64_t port_,
+                                                     struct wire_GqlTransportImpl *that);
 
-void wire_get_entries__method__AccountsStorageImpl(int64_t port_,
-                                                   struct wire_AccountsStorageImpl *that);
+void wire_get_network_id__method__GqlTransportImpl(int64_t port_,
+                                                   struct wire_GqlTransportImpl *that);
 
-void wire_add_account__method__AccountsStorageImpl(int64_t port_,
-                                                   struct wire_AccountsStorageImpl *that,
-                                                   struct wire_uint_8_list *account);
+void wire_get_latest_block__method__GqlTransportImpl(int64_t port_,
+                                                     struct wire_GqlTransportImpl *that,
+                                                     struct wire_uint_8_list *address);
 
-void wire_add_accounts__method__AccountsStorageImpl(int64_t port_,
-                                                    struct wire_AccountsStorageImpl *that,
-                                                    struct wire_uint_8_list *accounts);
+void wire_get_block__method__GqlTransportImpl(int64_t port_,
+                                              struct wire_GqlTransportImpl *that,
+                                              struct wire_uint_8_list *id);
 
-void wire_rename_account__method__AccountsStorageImpl(int64_t port_,
-                                                      struct wire_AccountsStorageImpl *that,
-                                                      struct wire_uint_8_list *account_address,
-                                                      struct wire_uint_8_list *name);
+void wire_wait_for_next_block__method__GqlTransportImpl(int64_t port_,
+                                                        struct wire_GqlTransportImpl *that,
+                                                        struct wire_uint_8_list *current_block_id,
+                                                        struct wire_uint_8_list *address,
+                                                        uint64_t timeout);
 
-void wire_add_token_wallet__method__AccountsStorageImpl(int64_t port_,
-                                                        struct wire_AccountsStorageImpl *that,
-                                                        struct wire_uint_8_list *account_address,
-                                                        struct wire_uint_8_list *network_group,
-                                                        struct wire_uint_8_list *root_token_contract);
+void wire_new__static_method__JrpcTransportImpl(int64_t port_,
+                                                struct wire_JrpcConnectionDartWrapper *jrpc_connection);
 
-void wire_remove_token_wallet__method__AccountsStorageImpl(int64_t port_,
-                                                           struct wire_AccountsStorageImpl *that,
-                                                           struct wire_uint_8_list *account_address,
-                                                           struct wire_uint_8_list *network_group,
-                                                           struct wire_uint_8_list *root_token_contract);
+void wire_get_contract_state__method__JrpcTransportImpl(int64_t port_,
+                                                        struct wire_JrpcTransportImpl *that,
+                                                        struct wire_uint_8_list *address);
 
-void wire_remove_account__method__AccountsStorageImpl(int64_t port_,
-                                                      struct wire_AccountsStorageImpl *that,
-                                                      struct wire_uint_8_list *account_address);
+void wire_get_full_contract_state__method__JrpcTransportImpl(int64_t port_,
+                                                             struct wire_JrpcTransportImpl *that,
+                                                             struct wire_uint_8_list *address);
 
-void wire_remove_accounts__method__AccountsStorageImpl(int64_t port_,
-                                                       struct wire_AccountsStorageImpl *that,
-                                                       struct wire_StringList *account_addresses);
+void wire_get_accounts_by_code_hash__method__JrpcTransportImpl(int64_t port_,
+                                                               struct wire_JrpcTransportImpl *that,
+                                                               struct wire_uint_8_list *code_hash,
+                                                               uint8_t limit,
+                                                               struct wire_uint_8_list *continuation);
 
-void wire_clear__method__AccountsStorageImpl(int64_t port_, struct wire_AccountsStorageImpl *that);
+void wire_get_transactions__method__JrpcTransportImpl(int64_t port_,
+                                                      struct wire_JrpcTransportImpl *that,
+                                                      struct wire_uint_8_list *address,
+                                                      uint64_t *from_lt,
+                                                      uint8_t count);
 
-void wire_reload__method__AccountsStorageImpl(int64_t port_, struct wire_AccountsStorageImpl *that);
+void wire_get_transaction__method__JrpcTransportImpl(int64_t port_,
+                                                     struct wire_JrpcTransportImpl *that,
+                                                     struct wire_uint_8_list *hash);
 
-void wire_verify_data__static_method__AccountsStorageImpl(int64_t port_,
-                                                          struct wire_uint_8_list *data);
+void wire_get_signature_id__method__JrpcTransportImpl(int64_t port_,
+                                                      struct wire_JrpcTransportImpl *that);
 
-void wire_subscribe__static_method__GenericContractDartWrapper(int64_t port_,
-                                                               struct wire_uint_8_list *instance_hash,
-                                                               struct wire_uint_8_list *address,
-                                                               bool preload_transactions,
-                                                               struct wire_ArcTransportBoxTrait transport);
+void wire_get_network_id__method__JrpcTransportImpl(int64_t port_,
+                                                    struct wire_JrpcTransportImpl *that);
 
-void wire_address__method__GenericContractDartWrapper(int64_t port_,
-                                                      struct wire_GenericContractDartWrapper *that);
+void wire_subscribe__static_method__TokenWalletDartWrapper(int64_t port_,
+                                                           struct wire_uint_8_list *instance_hash,
+                                                           struct wire_uint_8_list *owner,
+                                                           struct wire_uint_8_list *root_token_contract,
+                                                           struct wire_ArcTransportBoxTrait transport);
 
-void wire_contract_state__method__GenericContractDartWrapper(int64_t port_,
-                                                             struct wire_GenericContractDartWrapper *that);
+void wire_owner__method__TokenWalletDartWrapper(int64_t port_,
+                                                struct wire_TokenWalletDartWrapper *that);
 
-void wire_pending_transactions__method__GenericContractDartWrapper(int64_t port_,
-                                                                   struct wire_GenericContractDartWrapper *that);
+void wire_address__method__TokenWalletDartWrapper(int64_t port_,
+                                                  struct wire_TokenWalletDartWrapper *that);
 
-void wire_polling_method__method__GenericContractDartWrapper(int64_t port_,
-                                                             struct wire_GenericContractDartWrapper *that);
+void wire_symbol__method__TokenWalletDartWrapper(int64_t port_,
+                                                 struct wire_TokenWalletDartWrapper *that);
 
-void wire_execute_transaction_locally__method__GenericContractDartWrapper(int64_t port_,
-                                                                          struct wire_GenericContractDartWrapper *that,
-                                                                          struct wire_uint_8_list *signed_message,
-                                                                          struct wire_TransactionExecutionOptions *options);
+void wire_version__method__TokenWalletDartWrapper(int64_t port_,
+                                                  struct wire_TokenWalletDartWrapper *that);
 
-void wire_estimate_fees__method__GenericContractDartWrapper(int64_t port_,
-                                                            struct wire_GenericContractDartWrapper *that,
-                                                            struct wire_uint_8_list *signed_message);
+void wire_balance__method__TokenWalletDartWrapper(int64_t port_,
+                                                  struct wire_TokenWalletDartWrapper *that);
 
-void wire_send__method__GenericContractDartWrapper(int64_t port_,
-                                                   struct wire_GenericContractDartWrapper *that,
-                                                   struct wire_uint_8_list *signed_message);
+void wire_contract_state__method__TokenWalletDartWrapper(int64_t port_,
+                                                         struct wire_TokenWalletDartWrapper *that);
 
-void wire_refresh__method__GenericContractDartWrapper(int64_t port_,
-                                                      struct wire_GenericContractDartWrapper *that);
+void wire_prepare_transfer__method__TokenWalletDartWrapper(int64_t port_,
+                                                           struct wire_TokenWalletDartWrapper *that,
+                                                           struct wire_uint_8_list *destination,
+                                                           struct wire_uint_8_list *amount,
+                                                           bool notify_receiver,
+                                                           struct wire_uint_8_list *attached_amount,
+                                                           struct wire_uint_8_list *payload);
 
-void wire_preload_transactions__method__GenericContractDartWrapper(int64_t port_,
-                                                                   struct wire_GenericContractDartWrapper *that,
-                                                                   struct wire_uint_8_list *from_lt);
+void wire_refresh__method__TokenWalletDartWrapper(int64_t port_,
+                                                  struct wire_TokenWalletDartWrapper *that);
 
-void wire_handle_block__method__GenericContractDartWrapper(int64_t port_,
-                                                           struct wire_GenericContractDartWrapper *that,
-                                                           struct wire_uint_8_list *block);
+void wire_preload_transactions__method__TokenWalletDartWrapper(int64_t port_,
+                                                               struct wire_TokenWalletDartWrapper *that,
+                                                               struct wire_uint_8_list *from_lt);
+
+void wire_handle_block__method__TokenWalletDartWrapper(int64_t port_,
+                                                       struct wire_TokenWalletDartWrapper *that,
+                                                       struct wire_uint_8_list *block);
+
+void wire_get_token_wallet_details__static_method__TokenWalletDartWrapper(int64_t port_,
+                                                                          struct wire_ArcTransportBoxTrait transport,
+                                                                          struct wire_uint_8_list *address);
+
+void wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper(int64_t port_,
+                                                                                          struct wire_ArcTransportBoxTrait transport,
+                                                                                          struct wire_uint_8_list *token_wallet_address);
 
 void wire_new__static_method__KeystoreDartWrapper(int64_t port_,
                                                   struct wire_StorageDartWrapper *storage,
@@ -649,56 +674,93 @@ void wire_verify_data__static_method__KeystoreDartWrapper(int64_t port_,
                                                           struct wire_LedgerConnectionDartWrapper *ledger_connection,
                                                           struct wire_uint_8_list *data);
 
-void wire_subscribe__static_method__TokenWalletDartWrapper(int64_t port_,
-                                                           struct wire_uint_8_list *instance_hash,
-                                                           struct wire_uint_8_list *owner,
-                                                           struct wire_uint_8_list *root_token_contract,
-                                                           struct wire_ArcTransportBoxTrait transport);
+void wire_new__static_method__AccountsStorageImpl(int64_t port_,
+                                                  struct wire_StorageDartWrapper *storage);
 
-void wire_owner__method__TokenWalletDartWrapper(int64_t port_,
-                                                struct wire_TokenWalletDartWrapper *that);
+void wire_get_entries__method__AccountsStorageImpl(int64_t port_,
+                                                   struct wire_AccountsStorageImpl *that);
 
-void wire_address__method__TokenWalletDartWrapper(int64_t port_,
-                                                  struct wire_TokenWalletDartWrapper *that);
+void wire_add_account__method__AccountsStorageImpl(int64_t port_,
+                                                   struct wire_AccountsStorageImpl *that,
+                                                   struct wire_uint_8_list *account);
 
-void wire_symbol__method__TokenWalletDartWrapper(int64_t port_,
-                                                 struct wire_TokenWalletDartWrapper *that);
+void wire_add_accounts__method__AccountsStorageImpl(int64_t port_,
+                                                    struct wire_AccountsStorageImpl *that,
+                                                    struct wire_uint_8_list *accounts);
 
-void wire_version__method__TokenWalletDartWrapper(int64_t port_,
-                                                  struct wire_TokenWalletDartWrapper *that);
+void wire_rename_account__method__AccountsStorageImpl(int64_t port_,
+                                                      struct wire_AccountsStorageImpl *that,
+                                                      struct wire_uint_8_list *account_address,
+                                                      struct wire_uint_8_list *name);
 
-void wire_balance__method__TokenWalletDartWrapper(int64_t port_,
-                                                  struct wire_TokenWalletDartWrapper *that);
+void wire_add_token_wallet__method__AccountsStorageImpl(int64_t port_,
+                                                        struct wire_AccountsStorageImpl *that,
+                                                        struct wire_uint_8_list *account_address,
+                                                        struct wire_uint_8_list *network_group,
+                                                        struct wire_uint_8_list *root_token_contract);
 
-void wire_contract_state__method__TokenWalletDartWrapper(int64_t port_,
-                                                         struct wire_TokenWalletDartWrapper *that);
+void wire_remove_token_wallet__method__AccountsStorageImpl(int64_t port_,
+                                                           struct wire_AccountsStorageImpl *that,
+                                                           struct wire_uint_8_list *account_address,
+                                                           struct wire_uint_8_list *network_group,
+                                                           struct wire_uint_8_list *root_token_contract);
 
-void wire_prepare_transfer__method__TokenWalletDartWrapper(int64_t port_,
-                                                           struct wire_TokenWalletDartWrapper *that,
-                                                           struct wire_uint_8_list *destination,
-                                                           struct wire_uint_8_list *amount,
-                                                           bool notify_receiver,
-                                                           struct wire_uint_8_list *attached_amount,
-                                                           struct wire_uint_8_list *payload);
+void wire_remove_account__method__AccountsStorageImpl(int64_t port_,
+                                                      struct wire_AccountsStorageImpl *that,
+                                                      struct wire_uint_8_list *account_address);
 
-void wire_refresh__method__TokenWalletDartWrapper(int64_t port_,
-                                                  struct wire_TokenWalletDartWrapper *that);
+void wire_remove_accounts__method__AccountsStorageImpl(int64_t port_,
+                                                       struct wire_AccountsStorageImpl *that,
+                                                       struct wire_StringList *account_addresses);
 
-void wire_preload_transactions__method__TokenWalletDartWrapper(int64_t port_,
-                                                               struct wire_TokenWalletDartWrapper *that,
-                                                               struct wire_uint_8_list *from_lt);
+void wire_clear__method__AccountsStorageImpl(int64_t port_, struct wire_AccountsStorageImpl *that);
 
-void wire_handle_block__method__TokenWalletDartWrapper(int64_t port_,
-                                                       struct wire_TokenWalletDartWrapper *that,
-                                                       struct wire_uint_8_list *block);
+void wire_reload__method__AccountsStorageImpl(int64_t port_, struct wire_AccountsStorageImpl *that);
 
-void wire_get_token_wallet_details__static_method__TokenWalletDartWrapper(int64_t port_,
-                                                                          struct wire_ArcTransportBoxTrait transport,
-                                                                          struct wire_uint_8_list *address);
+void wire_verify_data__static_method__AccountsStorageImpl(int64_t port_,
+                                                          struct wire_uint_8_list *data);
 
-void wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper(int64_t port_,
-                                                                                          struct wire_ArcTransportBoxTrait transport,
-                                                                                          struct wire_uint_8_list *token_wallet_address);
+void wire_subscribe__static_method__GenericContractDartWrapper(int64_t port_,
+                                                               struct wire_uint_8_list *instance_hash,
+                                                               struct wire_uint_8_list *address,
+                                                               bool preload_transactions,
+                                                               struct wire_ArcTransportBoxTrait transport);
+
+void wire_address__method__GenericContractDartWrapper(int64_t port_,
+                                                      struct wire_GenericContractDartWrapper *that);
+
+void wire_contract_state__method__GenericContractDartWrapper(int64_t port_,
+                                                             struct wire_GenericContractDartWrapper *that);
+
+void wire_pending_transactions__method__GenericContractDartWrapper(int64_t port_,
+                                                                   struct wire_GenericContractDartWrapper *that);
+
+void wire_polling_method__method__GenericContractDartWrapper(int64_t port_,
+                                                             struct wire_GenericContractDartWrapper *that);
+
+void wire_execute_transaction_locally__method__GenericContractDartWrapper(int64_t port_,
+                                                                          struct wire_GenericContractDartWrapper *that,
+                                                                          struct wire_uint_8_list *signed_message,
+                                                                          struct wire_TransactionExecutionOptions *options);
+
+void wire_estimate_fees__method__GenericContractDartWrapper(int64_t port_,
+                                                            struct wire_GenericContractDartWrapper *that,
+                                                            struct wire_uint_8_list *signed_message);
+
+void wire_send__method__GenericContractDartWrapper(int64_t port_,
+                                                   struct wire_GenericContractDartWrapper *that,
+                                                   struct wire_uint_8_list *signed_message);
+
+void wire_refresh__method__GenericContractDartWrapper(int64_t port_,
+                                                      struct wire_GenericContractDartWrapper *that);
+
+void wire_preload_transactions__method__GenericContractDartWrapper(int64_t port_,
+                                                                   struct wire_GenericContractDartWrapper *that,
+                                                                   struct wire_uint_8_list *from_lt);
+
+void wire_handle_block__method__GenericContractDartWrapper(int64_t port_,
+                                                           struct wire_GenericContractDartWrapper *that,
+                                                           struct wire_uint_8_list *block);
 
 void wire_subscribe__static_method__TonWalletDartWrapper(int64_t port_,
                                                          struct wire_uint_8_list *instance_hash,
@@ -807,85 +869,23 @@ void wire_get_custodians__static_method__TonWalletDartWrapper(int64_t port_,
                                                               struct wire_ArcTransportBoxTrait transport,
                                                               struct wire_uint_8_list *address);
 
-void wire_new__static_method__GqlTransportImpl(int64_t port_,
-                                               struct wire_GqlConnectionDartWrapper *gql_connection);
+void wire_new__static_method__JrpcConnectionDartWrapper(int64_t port_,
+                                                        struct wire_uint_8_list *instance_hash);
 
-void wire_get_contract_state__method__GqlTransportImpl(int64_t port_,
-                                                       struct wire_GqlTransportImpl *that,
-                                                       struct wire_uint_8_list *address);
+void wire_new__static_method__GqlConnectionDartWrapper(int64_t port_,
+                                                       bool is_local,
+                                                       struct wire_uint_8_list *instance_hash);
 
-void wire_get_full_contract_state__method__GqlTransportImpl(int64_t port_,
-                                                            struct wire_GqlTransportImpl *that,
-                                                            struct wire_uint_8_list *address);
+void wire_new__static_method__LedgerConnectionDartWrapper(int64_t port_,
+                                                          struct wire_uint_8_list *instance_hash);
 
-void wire_get_accounts_by_code_hash__method__GqlTransportImpl(int64_t port_,
-                                                              struct wire_GqlTransportImpl *that,
-                                                              struct wire_uint_8_list *code_hash,
-                                                              uint8_t limit,
-                                                              struct wire_uint_8_list *continuation);
+void wire_new__static_method__LedgerConnectionImpl(int64_t port_,
+                                                   struct wire_uint_8_list *instance_hash);
 
-void wire_get_transactions__method__GqlTransportImpl(int64_t port_,
-                                                     struct wire_GqlTransportImpl *that,
-                                                     struct wire_uint_8_list *address,
-                                                     uint64_t *from_lt,
-                                                     uint8_t count);
+void wire_new__static_method__StorageDartWrapper(int64_t port_,
+                                                 struct wire_uint_8_list *instance_hash);
 
-void wire_get_transaction__method__GqlTransportImpl(int64_t port_,
-                                                    struct wire_GqlTransportImpl *that,
-                                                    struct wire_uint_8_list *hash);
-
-void wire_get_signature_id__method__GqlTransportImpl(int64_t port_,
-                                                     struct wire_GqlTransportImpl *that);
-
-void wire_get_network_id__method__GqlTransportImpl(int64_t port_,
-                                                   struct wire_GqlTransportImpl *that);
-
-void wire_get_latest_block__method__GqlTransportImpl(int64_t port_,
-                                                     struct wire_GqlTransportImpl *that,
-                                                     struct wire_uint_8_list *address);
-
-void wire_get_block__method__GqlTransportImpl(int64_t port_,
-                                              struct wire_GqlTransportImpl *that,
-                                              struct wire_uint_8_list *id);
-
-void wire_wait_for_next_block__method__GqlTransportImpl(int64_t port_,
-                                                        struct wire_GqlTransportImpl *that,
-                                                        struct wire_uint_8_list *current_block_id,
-                                                        struct wire_uint_8_list *address,
-                                                        uint64_t timeout);
-
-void wire_new__static_method__JrpcTransportImpl(int64_t port_,
-                                                struct wire_JrpcConnectionDartWrapper *jrpc_connection);
-
-void wire_get_contract_state__method__JrpcTransportImpl(int64_t port_,
-                                                        struct wire_JrpcTransportImpl *that,
-                                                        struct wire_uint_8_list *address);
-
-void wire_get_full_contract_state__method__JrpcTransportImpl(int64_t port_,
-                                                             struct wire_JrpcTransportImpl *that,
-                                                             struct wire_uint_8_list *address);
-
-void wire_get_accounts_by_code_hash__method__JrpcTransportImpl(int64_t port_,
-                                                               struct wire_JrpcTransportImpl *that,
-                                                               struct wire_uint_8_list *code_hash,
-                                                               uint8_t limit,
-                                                               struct wire_uint_8_list *continuation);
-
-void wire_get_transactions__method__JrpcTransportImpl(int64_t port_,
-                                                      struct wire_JrpcTransportImpl *that,
-                                                      struct wire_uint_8_list *address,
-                                                      uint64_t *from_lt,
-                                                      uint8_t count);
-
-void wire_get_transaction__method__JrpcTransportImpl(int64_t port_,
-                                                     struct wire_JrpcTransportImpl *that,
-                                                     struct wire_uint_8_list *hash);
-
-void wire_get_signature_id__method__JrpcTransportImpl(int64_t port_,
-                                                      struct wire_JrpcTransportImpl *that);
-
-void wire_get_network_id__method__JrpcTransportImpl(int64_t port_,
-                                                    struct wire_JrpcTransportImpl *that);
+void wire_new__static_method__StorageImpl(int64_t port_, struct wire_uint_8_list *instance_hash);
 
 void wire_new__static_method__MyClass(int64_t port_, int32_t a);
 
@@ -1043,10 +1043,10 @@ void free_WireSyncReturn(WireSyncReturn ptr);
 
 static int64_t dummy_method_to_enforce_bundling(void) {
     int64_t dummy_var = 0;
+    dummy_var ^= ((int64_t) (void*) wire_verify_signature);
     dummy_var ^= ((int64_t) (void*) wire_nt_generate_key);
     dummy_var ^= ((int64_t) (void*) wire_nt_get_hints);
     dummy_var ^= ((int64_t) (void*) wire_nt_derive_from_phrase);
-    dummy_var ^= ((int64_t) (void*) wire_verify_signature);
     dummy_var ^= ((int64_t) (void*) wire_check_public_key);
     dummy_var ^= ((int64_t) (void*) wire_run_local);
     dummy_var ^= ((int64_t) (void*) wire_get_expected_address);
@@ -1072,6 +1072,14 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_split_tvc);
     dummy_var ^= ((int64_t) (void*) wire_set_code_salt);
     dummy_var ^= ((int64_t) (void*) wire_get_code_salt);
+    dummy_var ^= ((int64_t) (void*) wire_test_logger_info);
+    dummy_var ^= ((int64_t) (void*) wire_test_logger_debug);
+    dummy_var ^= ((int64_t) (void*) wire_test_logger_warn);
+    dummy_var ^= ((int64_t) (void*) wire_test_logger_error);
+    dummy_var ^= ((int64_t) (void*) wire_test_logger_panic);
+    dummy_var ^= ((int64_t) (void*) wire_test_caller_call_test0_async);
+    dummy_var ^= ((int64_t) (void*) wire_test_caller_call_test0_sync);
+    dummy_var ^= ((int64_t) (void*) wire_test_caller_call_test1_async);
     dummy_var ^= ((int64_t) (void*) wire_init_logger);
     dummy_var ^= ((int64_t) (void*) wire_create_log_stream);
     dummy_var ^= ((int64_t) (void*) wire_init_caller);
@@ -1088,24 +1096,60 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_simple_call_func1);
     dummy_var ^= ((int64_t) (void*) wire_simple_call_func2);
     dummy_var ^= ((int64_t) (void*) wire_simple_call_func3);
-    dummy_var ^= ((int64_t) (void*) wire_test_logger_info);
-    dummy_var ^= ((int64_t) (void*) wire_test_logger_debug);
-    dummy_var ^= ((int64_t) (void*) wire_test_logger_warn);
-    dummy_var ^= ((int64_t) (void*) wire_test_logger_error);
-    dummy_var ^= ((int64_t) (void*) wire_test_logger_panic);
-    dummy_var ^= ((int64_t) (void*) wire_test_caller_call_test0_async);
-    dummy_var ^= ((int64_t) (void*) wire_test_caller_call_test0_sync);
-    dummy_var ^= ((int64_t) (void*) wire_test_caller_call_test1_async);
     dummy_var ^= ((int64_t) (void*) wire_refresh_timeout__method__UnsignedMessageImpl);
     dummy_var ^= ((int64_t) (void*) wire_expire_at__method__UnsignedMessageImpl);
     dummy_var ^= ((int64_t) (void*) wire_hash__method__UnsignedMessageImpl);
     dummy_var ^= ((int64_t) (void*) wire_sign__method__UnsignedMessageImpl);
-    dummy_var ^= ((int64_t) (void*) wire_new__static_method__GqlConnectionDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_new__static_method__JrpcConnectionDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_new__static_method__LedgerConnectionDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_new__static_method__LedgerConnectionImpl);
-    dummy_var ^= ((int64_t) (void*) wire_new__static_method__StorageDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_new__static_method__StorageImpl);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__GqlTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_contract_state__method__GqlTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_full_contract_state__method__GqlTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_accounts_by_code_hash__method__GqlTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_transactions__method__GqlTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_transaction__method__GqlTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_signature_id__method__GqlTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_network_id__method__GqlTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_latest_block__method__GqlTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_block__method__GqlTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_wait_for_next_block__method__GqlTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_contract_state__method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_full_contract_state__method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_accounts_by_code_hash__method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_transactions__method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_transaction__method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_signature_id__method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_network_id__method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_subscribe__static_method__TokenWalletDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_owner__method__TokenWalletDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_address__method__TokenWalletDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_symbol__method__TokenWalletDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_version__method__TokenWalletDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_balance__method__TokenWalletDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_contract_state__method__TokenWalletDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_prepare_transfer__method__TokenWalletDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_refresh__method__TokenWalletDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_preload_transactions__method__TokenWalletDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_handle_block__method__TokenWalletDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_get_token_wallet_details__static_method__TokenWalletDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_get_entries__method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_add_key__method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_add_keys__method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_update_key__method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_export_seed__method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_get_public_keys__method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_encrypt__method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_decrypt__method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_sign__method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_sign_data__method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_sign_data_raw__method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_remove_key__method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_remove_keys__method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_is_password_cached__method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_clear_keystore__method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_reload_keystore__method__KeystoreDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_verify_data__static_method__KeystoreDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__AccountsStorageImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_entries__method__AccountsStorageImpl);
     dummy_var ^= ((int64_t) (void*) wire_add_account__method__AccountsStorageImpl);
@@ -1129,37 +1173,6 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_refresh__method__GenericContractDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_preload_transactions__method__GenericContractDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_handle_block__method__GenericContractDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_new__static_method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_get_entries__method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_add_key__method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_add_keys__method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_update_key__method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_export_seed__method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_get_public_keys__method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_encrypt__method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_decrypt__method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_sign__method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_sign_data__method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_sign_data_raw__method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_remove_key__method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_remove_keys__method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_is_password_cached__method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_clear_keystore__method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_reload_keystore__method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_verify_data__static_method__KeystoreDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_subscribe__static_method__TokenWalletDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_owner__method__TokenWalletDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_address__method__TokenWalletDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_symbol__method__TokenWalletDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_version__method__TokenWalletDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_balance__method__TokenWalletDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_contract_state__method__TokenWalletDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_prepare_transfer__method__TokenWalletDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_refresh__method__TokenWalletDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_preload_transactions__method__TokenWalletDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_handle_block__method__TokenWalletDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_get_token_wallet_details__static_method__TokenWalletDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_subscribe__static_method__TonWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_subscribe_by_address__static_method__TonWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_subscribe_by_existing__static_method__TonWalletDartWrapper);
@@ -1185,25 +1198,12 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_find_existing_wallets__static_method__TonWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_get_existing_wallet_info__static_method__TonWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_get_custodians__static_method__TonWalletDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_new__static_method__GqlTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_contract_state__method__GqlTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_full_contract_state__method__GqlTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_accounts_by_code_hash__method__GqlTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_transactions__method__GqlTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_transaction__method__GqlTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_signature_id__method__GqlTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_network_id__method__GqlTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_latest_block__method__GqlTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_block__method__GqlTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_wait_for_next_block__method__GqlTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_new__static_method__JrpcTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_contract_state__method__JrpcTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_full_contract_state__method__JrpcTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_accounts_by_code_hash__method__JrpcTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_transactions__method__JrpcTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_transaction__method__JrpcTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_signature_id__method__JrpcTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_network_id__method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__JrpcConnectionDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__GqlConnectionDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__LedgerConnectionDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__LedgerConnectionImpl);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__StorageDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__StorageImpl);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__MyClass);
     dummy_var ^= ((int64_t) (void*) wire_my_format__method__MyClass);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__CallerTestClass);

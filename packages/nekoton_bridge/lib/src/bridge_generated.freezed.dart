@@ -2167,8 +2167,7 @@ mixin _$KeySigner {
     required TResult Function() encrypted,
     required TResult Function() derived,
     required TResult Function() ledger,
-    required TResult Function(NativeFunction<Int Function(Pointer<Int>)> field0)
-        stub,
+    required TResult Function(bool field0) stub,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2176,7 +2175,7 @@ mixin _$KeySigner {
     TResult? Function()? encrypted,
     TResult? Function()? derived,
     TResult? Function()? ledger,
-    TResult? Function(NativeFunction<Int Function(Pointer<Int>)> field0)? stub,
+    TResult? Function(bool field0)? stub,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2184,7 +2183,7 @@ mixin _$KeySigner {
     TResult Function()? encrypted,
     TResult Function()? derived,
     TResult Function()? ledger,
-    TResult Function(NativeFunction<Int Function(Pointer<Int>)> field0)? stub,
+    TResult Function(bool field0)? stub,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -2273,8 +2272,7 @@ class _$KeySigner_Encrypted implements KeySigner_Encrypted {
     required TResult Function() encrypted,
     required TResult Function() derived,
     required TResult Function() ledger,
-    required TResult Function(NativeFunction<Int Function(Pointer<Int>)> field0)
-        stub,
+    required TResult Function(bool field0) stub,
   }) {
     return encrypted();
   }
@@ -2285,7 +2283,7 @@ class _$KeySigner_Encrypted implements KeySigner_Encrypted {
     TResult? Function()? encrypted,
     TResult? Function()? derived,
     TResult? Function()? ledger,
-    TResult? Function(NativeFunction<Int Function(Pointer<Int>)> field0)? stub,
+    TResult? Function(bool field0)? stub,
   }) {
     return encrypted?.call();
   }
@@ -2296,7 +2294,7 @@ class _$KeySigner_Encrypted implements KeySigner_Encrypted {
     TResult Function()? encrypted,
     TResult Function()? derived,
     TResult Function()? ledger,
-    TResult Function(NativeFunction<Int Function(Pointer<Int>)> field0)? stub,
+    TResult Function(bool field0)? stub,
     required TResult orElse(),
   }) {
     if (encrypted != null) {
@@ -2388,8 +2386,7 @@ class _$KeySigner_Derived implements KeySigner_Derived {
     required TResult Function() encrypted,
     required TResult Function() derived,
     required TResult Function() ledger,
-    required TResult Function(NativeFunction<Int Function(Pointer<Int>)> field0)
-        stub,
+    required TResult Function(bool field0) stub,
   }) {
     return derived();
   }
@@ -2400,7 +2397,7 @@ class _$KeySigner_Derived implements KeySigner_Derived {
     TResult? Function()? encrypted,
     TResult? Function()? derived,
     TResult? Function()? ledger,
-    TResult? Function(NativeFunction<Int Function(Pointer<Int>)> field0)? stub,
+    TResult? Function(bool field0)? stub,
   }) {
     return derived?.call();
   }
@@ -2411,7 +2408,7 @@ class _$KeySigner_Derived implements KeySigner_Derived {
     TResult Function()? encrypted,
     TResult Function()? derived,
     TResult Function()? ledger,
-    TResult Function(NativeFunction<Int Function(Pointer<Int>)> field0)? stub,
+    TResult Function(bool field0)? stub,
     required TResult orElse(),
   }) {
     if (derived != null) {
@@ -2503,8 +2500,7 @@ class _$KeySigner_Ledger implements KeySigner_Ledger {
     required TResult Function() encrypted,
     required TResult Function() derived,
     required TResult Function() ledger,
-    required TResult Function(NativeFunction<Int Function(Pointer<Int>)> field0)
-        stub,
+    required TResult Function(bool field0) stub,
   }) {
     return ledger();
   }
@@ -2515,7 +2511,7 @@ class _$KeySigner_Ledger implements KeySigner_Ledger {
     TResult? Function()? encrypted,
     TResult? Function()? derived,
     TResult? Function()? ledger,
-    TResult? Function(NativeFunction<Int Function(Pointer<Int>)> field0)? stub,
+    TResult? Function(bool field0)? stub,
   }) {
     return ledger?.call();
   }
@@ -2526,7 +2522,7 @@ class _$KeySigner_Ledger implements KeySigner_Ledger {
     TResult Function()? encrypted,
     TResult Function()? derived,
     TResult Function()? ledger,
-    TResult Function(NativeFunction<Int Function(Pointer<Int>)> field0)? stub,
+    TResult Function(bool field0)? stub,
     required TResult orElse(),
   }) {
     if (ledger != null) {
@@ -2583,7 +2579,7 @@ abstract class _$$KeySigner_StubCopyWith<$Res> {
           _$KeySigner_Stub value, $Res Function(_$KeySigner_Stub) then) =
       __$$KeySigner_StubCopyWithImpl<$Res>;
   @useResult
-  $Res call({NativeFunction<Int Function(Pointer<Int>)> field0});
+  $Res call({bool field0});
 }
 
 /// @nodoc
@@ -2603,7 +2599,7 @@ class __$$KeySigner_StubCopyWithImpl<$Res>
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
-              as NativeFunction<Int Function(Pointer<Int>)>,
+              as bool,
     ));
   }
 }
@@ -2614,7 +2610,7 @@ class _$KeySigner_Stub implements KeySigner_Stub {
   const _$KeySigner_Stub(this.field0);
 
   @override
-  final NativeFunction<Int Function(Pointer<Int>)> field0;
+  final bool field0;
 
   @override
   String toString() {
@@ -2644,8 +2640,7 @@ class _$KeySigner_Stub implements KeySigner_Stub {
     required TResult Function() encrypted,
     required TResult Function() derived,
     required TResult Function() ledger,
-    required TResult Function(NativeFunction<Int Function(Pointer<Int>)> field0)
-        stub,
+    required TResult Function(bool field0) stub,
   }) {
     return stub(field0);
   }
@@ -2656,7 +2651,7 @@ class _$KeySigner_Stub implements KeySigner_Stub {
     TResult? Function()? encrypted,
     TResult? Function()? derived,
     TResult? Function()? ledger,
-    TResult? Function(NativeFunction<Int Function(Pointer<Int>)> field0)? stub,
+    TResult? Function(bool field0)? stub,
   }) {
     return stub?.call(field0);
   }
@@ -2667,7 +2662,7 @@ class _$KeySigner_Stub implements KeySigner_Stub {
     TResult Function()? encrypted,
     TResult Function()? derived,
     TResult Function()? ledger,
-    TResult Function(NativeFunction<Int Function(Pointer<Int>)> field0)? stub,
+    TResult Function(bool field0)? stub,
     required TResult orElse(),
   }) {
     if (stub != null) {
@@ -2715,11 +2710,9 @@ class _$KeySigner_Stub implements KeySigner_Stub {
 }
 
 abstract class KeySigner_Stub implements KeySigner {
-  const factory KeySigner_Stub(
-          final NativeFunction<Int Function(Pointer<Int>)> field0) =
-      _$KeySigner_Stub;
+  const factory KeySigner_Stub(final bool field0) = _$KeySigner_Stub;
 
-  NativeFunction<Int Function(Pointer<Int>)> get field0;
+  bool get field0;
   @JsonKey(ignore: true)
   _$$KeySigner_StubCopyWith<_$KeySigner_Stub> get copyWith =>
       throw _privateConstructorUsedError;

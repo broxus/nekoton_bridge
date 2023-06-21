@@ -48,7 +48,7 @@ fn main() {
     fs::copy(IOS_C_OUTPUT, MACOS_C_OUTPUT).expect("Can't copy frb.h from ios to macos build dir");
 
     // Format the generated Dart code
-    std::process::Command::new("flutter")
+    std::process::Command::new("dart")
         .arg("format")
         .arg("../lib")
         .spawn()

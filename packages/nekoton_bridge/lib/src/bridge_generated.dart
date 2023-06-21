@@ -21,6 +21,18 @@ part 'bridge_generated.freezed.dart';
 
 abstract class NekotonBridge {
   ///----------------------------
+  /// CONTENT OF src/nekoton_wrapper/crypto/crypto_api.rs
+  ///----------------------------
+  /// Check signature by publicKey and data hash
+  Future<bool> verifySignature(
+      {required String publicKey,
+      required String dataHash,
+      required String signature,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta;
+
+  ///----------------------------
   /// CONTENT OF src/nekoton_wrapper/crypto/mnemonic/mnemonic_api.rs
   ///----------------------------
   /// Generate seed phrase by specified mnemonic type
@@ -45,18 +57,6 @@ abstract class NekotonBridge {
       dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kNtDeriveFromPhraseConstMeta;
-
-  ///----------------------------
-  /// CONTENT OF src/nekoton_wrapper/crypto/crypto_api.rs
-  ///----------------------------
-  /// Check signature by publicKey and data hash
-  Future<bool> verifySignature(
-      {required String publicKey,
-      required String dataHash,
-      required String signature,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta;
 
   ///----------------------------
   /// CONTENT OF src/nekoton_wrapper/helpers/abi_api.rs
@@ -257,6 +257,44 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kGetCodeSaltConstMeta;
 
   ///----------------------------
+  /// CONTENT OF src/utils/tests_api.rs
+  ///----------------------------
+  Future<void> testLoggerInfo({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerInfoConstMeta;
+
+  Future<void> testLoggerDebug({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerDebugConstMeta;
+
+  Future<void> testLoggerWarn({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerWarnConstMeta;
+
+  Future<void> testLoggerError({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerErrorConstMeta;
+
+  Future<void> testLoggerPanic({required String string, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerPanicConstMeta;
+
+  Future<DynamicValue> testCallerCallTest0Async(
+      {required String string, required bool needResult, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestCallerCallTest0AsyncConstMeta;
+
+  DynamicValue testCallerCallTest0Sync(
+      {required String string, required bool needResult, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestCallerCallTest0SyncConstMeta;
+
+  Future<DynamicValue> testCallerCallTest1Async(
+      {required String string, required bool needResult, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kTestCallerCallTest1AsyncConstMeta;
+
+  ///----------------------------
   /// CONTENT OF src/utils/api.rs
   ///----------------------------
   /// Init utils
@@ -329,44 +367,6 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kSimpleCallFunc3ConstMeta;
 
-  ///----------------------------
-  /// CONTENT OF src/utils/tests_api.rs
-  ///----------------------------
-  Future<void> testLoggerInfo({required String string, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerInfoConstMeta;
-
-  Future<void> testLoggerDebug({required String string, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerDebugConstMeta;
-
-  Future<void> testLoggerWarn({required String string, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerWarnConstMeta;
-
-  Future<void> testLoggerError({required String string, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerErrorConstMeta;
-
-  Future<void> testLoggerPanic({required String string, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerPanicConstMeta;
-
-  Future<DynamicValue> testCallerCallTest0Async(
-      {required String string, required bool needResult, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestCallerCallTest0AsyncConstMeta;
-
-  DynamicValue testCallerCallTest0Sync(
-      {required String string, required bool needResult, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestCallerCallTest0SyncConstMeta;
-
-  Future<DynamicValue> testCallerCallTest1Async(
-      {required String string, required bool needResult, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kTestCallerCallTest1AsyncConstMeta;
-
   Future<void> refreshTimeoutMethodUnsignedMessageImpl(
       {required UnsignedMessageImpl that, dynamic hint});
 
@@ -395,41 +395,498 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kSignMethodUnsignedMessageImplConstMeta;
 
-  Future<GqlConnectionDartWrapper> newStaticMethodGqlConnectionDartWrapper(
-      {required bool isLocal, required String instanceHash, dynamic hint});
+  Future<GqlTransportImpl> newStaticMethodGqlTransportImpl(
+      {required GqlConnectionDartWrapper gqlConnection, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kNewStaticMethodGqlTransportImplConstMeta;
+
+  /// Get contract state of address and return json-encoded RawContractState or throw error
+  Future<String> getContractStateMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String address, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodGqlConnectionDartWrapperConstMeta;
+      get kGetContractStateMethodGqlTransportImplConstMeta;
 
-  Future<JrpcConnectionDartWrapper> newStaticMethodJrpcConnectionDartWrapper(
-      {required String instanceHash, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodJrpcConnectionDartWrapperConstMeta;
-
-  Future<LedgerConnectionDartWrapper>
-      newStaticMethodLedgerConnectionDartWrapper(
-          {required String instanceHash, dynamic hint});
+  /// Get full contract state of address and return json-encoded FullContractState or throw error
+  Future<String> getFullContractStateMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String address, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodLedgerConnectionDartWrapperConstMeta;
+      get kGetFullContractStateMethodGqlTransportImplConstMeta;
 
-  Future<LedgerConnectionImpl> newStaticMethodLedgerConnectionImpl(
-      {required String instanceHash, dynamic hint});
+  /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
+  Future<String> getAccountsByCodeHashMethodGqlTransportImpl(
+      {required GqlTransportImpl that,
+      required String codeHash,
+      required int limit,
+      String? continuation,
+      dynamic hint});
 
   FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodLedgerConnectionImplConstMeta;
+      get kGetAccountsByCodeHashMethodGqlTransportImplConstMeta;
 
-  Future<StorageDartWrapper> newStaticMethodStorageDartWrapper(
-      {required String instanceHash, dynamic hint});
+  /// Get list of transactions by address.
+  /// Return json-encoded TransactionsList or throw error
+  Future<String> getTransactionsMethodGqlTransportImpl(
+      {required GqlTransportImpl that,
+      required String address,
+      int? fromLt,
+      required int count,
+      dynamic hint});
 
   FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodStorageDartWrapperConstMeta;
+      get kGetTransactionsMethodGqlTransportImplConstMeta;
 
-  Future<StorageImpl> newStaticMethodStorageImpl(
-      {required String instanceHash, dynamic hint});
+  /// Get single transaction by its hash.
+  /// Return json-encoded Transaction or throw error
+  Future<String?> getTransactionMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String hash, dynamic hint});
 
-  FlutterRustBridgeTaskConstMeta get kNewStaticMethodStorageImplConstMeta;
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionMethodGqlTransportImplConstMeta;
+
+  /// Get transport signature id and return it or throw error
+  Future<int?> getSignatureIdMethodGqlTransportImpl(
+      {required GqlTransportImpl that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetSignatureIdMethodGqlTransportImplConstMeta;
+
+  /// Get id of network or throw error
+  Future<int> getNetworkIdMethodGqlTransportImpl(
+      {required GqlTransportImpl that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetNetworkIdMethodGqlTransportImplConstMeta;
+
+  /// Get latest block by address and return it or throw error
+  Future<LatestBlock> getLatestBlockMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String address, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetLatestBlockMethodGqlTransportImplConstMeta;
+
+  /// Get transport block by id and return base64 encoded block or throw error
+  Future<String> getBlockMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String id, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kGetBlockMethodGqlTransportImplConstMeta;
+
+  /// Wait until next block will come to blockchain and return its id or throw error
+  Future<String> waitForNextBlockMethodGqlTransportImpl(
+      {required GqlTransportImpl that,
+      required String currentBlockId,
+      required String address,
+      required int timeout,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kWaitForNextBlockMethodGqlTransportImplConstMeta;
+
+  Future<JrpcTransportImpl> newStaticMethodJrpcTransportImpl(
+      {required JrpcConnectionDartWrapper jrpcConnection, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kNewStaticMethodJrpcTransportImplConstMeta;
+
+  /// Get contract state of address and return json-encoded RawContractState or throw error
+  Future<String> getContractStateMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, required String address, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetContractStateMethodJrpcTransportImplConstMeta;
+
+  /// Get full contract state of address and return json-encoded FullContractState or throw error
+  Future<String> getFullContractStateMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, required String address, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetFullContractStateMethodJrpcTransportImplConstMeta;
+
+  /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
+  Future<String> getAccountsByCodeHashMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String codeHash,
+      required int limit,
+      String? continuation,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetAccountsByCodeHashMethodJrpcTransportImplConstMeta;
+
+  /// Get list of transactions by address.
+  /// Return json-encoded TransactionsList or throw error
+  Future<String> getTransactionsMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String address,
+      int? fromLt,
+      required int count,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionsMethodJrpcTransportImplConstMeta;
+
+  /// Get single transaction by its hash.
+  /// Return json-encoded Transaction or throw error
+  Future<String?> getTransactionMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, required String hash, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionMethodJrpcTransportImplConstMeta;
+
+  /// Get transport signature id and return it or throw error
+  Future<int?> getSignatureIdMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetSignatureIdMethodJrpcTransportImplConstMeta;
+
+  /// Get id of network or throw error
+  Future<int> getNetworkIdMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetNetworkIdMethodJrpcTransportImplConstMeta;
+
+  /// Create TokenWallet by subscribing to its instance.
+  /// owner - address of account that is owner of wallet
+  /// root_token_contract - address of contract in blockchain
+  Future<TokenWalletDartWrapper> subscribeStaticMethodTokenWalletDartWrapper(
+      {required String instanceHash,
+      required String owner,
+      required String rootTokenContract,
+      required ArcTransportBoxTrait transport,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kSubscribeStaticMethodTokenWalletDartWrapperConstMeta;
+
+  /// Get address of owner of wallet.
+  Future<String> ownerMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kOwnerMethodTokenWalletDartWrapperConstMeta;
+
+  /// Get address of wallet.
+  Future<String> addressMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kAddressMethodTokenWalletDartWrapperConstMeta;
+
+  /// Get symbol of contract of wallet.
+  /// Return json-encoded Symbol or throw error
+  Future<String> symbolMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kSymbolMethodTokenWalletDartWrapperConstMeta;
+
+  /// Get json-encoded TokenWalletVersion or throw error.
+  Future<String> versionMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kVersionMethodTokenWalletDartWrapperConstMeta;
+
+  /// Get balance of wallet.
+  /// Return string representation of rust BigUInt
+  Future<String> balanceMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kBalanceMethodTokenWalletDartWrapperConstMeta;
+
+  /// Get json-encoded ContractState or throw error.
+  Future<String> contractStateMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kContractStateMethodTokenWalletDartWrapperConstMeta;
+
+  /// Prepare transferring tokens from this wallet to other.
+  /// destination - address of account that should receive token
+  /// amount - amount of tokens that should be transferred
+  /// notify_receiver - if receiver should be notifier by blockchain
+  /// payload - payload of transfer aka comment
+  /// attached_amount - string representation of rust u64, default 400000000. How many native tokens
+  ///   should be attached to transfer.
+  /// Return json-encoded InternalMessage or throw error.
+  Future<String> prepareTransferMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that,
+      required String destination,
+      required String amount,
+      required bool notifyReceiver,
+      String? attachedAmount,
+      String? payload,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kPrepareTransferMethodTokenWalletDartWrapperConstMeta;
+
+  /// Refresh wallet and update its data.
+  /// Returns true or throw error.
+  Future<bool> refreshMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kRefreshMethodTokenWalletDartWrapperConstMeta;
+
+  /// Preload transactions of wallet.
+  /// from_lt - offset for loading data, string representation of u64
+  /// Returns true or throw error.
+  Future<bool> preloadTransactionsMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that,
+      required String fromLt,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kPreloadTransactionsMethodTokenWalletDartWrapperConstMeta;
+
+  /// Handle block of blockchain.
+  /// block - base64-encoded Block.
+  /// Return true or throw error.
+  Future<bool> handleBlockMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that,
+      required String block,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kHandleBlockMethodTokenWalletDartWrapperConstMeta;
+
+  /// Get details about token wallet by address of wallet
+  /// address - address of wallet
+  /// Return json-encoded list with 2 positions:
+  /// 0: TokenWalletDetails
+  /// 1: RootTokenContractDetails
+  /// or throw error
+  Future<String> getTokenWalletDetailsStaticMethodTokenWalletDartWrapper(
+      {required ArcTransportBoxTrait transport,
+      required String address,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTokenWalletDetailsStaticMethodTokenWalletDartWrapperConstMeta;
+
+  /// Get details about root contract by address of TokenWallet
+  /// Return json-encoded list with 2 positions:
+  /// 0: Address of root contract
+  /// 1: RootTokenContractDetails of root contract
+  /// or throw error.
+  Future<String>
+      getTokenRootDetailsFromTokenWalletStaticMethodTokenWalletDartWrapper(
+          {required ArcTransportBoxTrait transport,
+          required String tokenWalletAddress,
+          dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTokenRootDetailsFromTokenWalletStaticMethodTokenWalletDartWrapperConstMeta;
+
+  /// Create KeyStore or throw error
+  Future<KeystoreDartWrapper> newStaticMethodKeystoreDartWrapper(
+      {required StorageDartWrapper storage,
+      required List<KeySigner> signers,
+      LedgerConnectionDartWrapper? ledgerConnection,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodKeystoreDartWrapperConstMeta;
+
+  /// Get list of json-encoded KeyStoreEntry or throw error
+  Future<String> getEntriesMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetEntriesMethodKeystoreDartWrapperConstMeta;
+
+  /// Insert new key in keystore. Returns json-encoded KeystoreEntry or throw error.
+  /// input - json-encoded action specified for signer eg EncryptedKeyCreateInput or
+  ///   DerivedKeyCreateInput or LedgerKeyCreateInput
+  Future<String> addKeyMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String input,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kAddKeyMethodKeystoreDartWrapperConstMeta;
+
+  /// Method same as add_key but allows add multiple keys at time.
+  /// Returns json-encoded list of KeyStoreEntry or throw error.
+  /// input - json-encoded list of inputs, same as in add_key method
+  Future<String> addKeysMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String input,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kAddKeysMethodKeystoreDartWrapperConstMeta;
+
+  /// Update key data.
+  /// Returns updated json-encoded KeyStoreEntry or throw error.
+  /// input - json-encoded action specified for signer eg EncryptedKeyUpdateParams or
+  ///   DerivedKeyUpdateParams or LedgerUpdateKeyInput
+  Future<String> updateKeyMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String input,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kUpdateKeyMethodKeystoreDartWrapperConstMeta;
+
+  /// Export key and get its seed phrase and mnemonic type.
+  /// THIS METHOD DO NOT WORK for LEDGER.
+  /// Returns json-encoded EncryptedKeyExportSeedOutput or DerivedKeyExportOutput or throw error
+  Future<String> exportSeedMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String input,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kExportSeedMethodKeystoreDartWrapperConstMeta;
+
+  /// Return list of public keys specified for signer or throw error.
+  /// input - json-encoded action specified for signer eg EncryptedKeyGetPublicKeys or
+  ///   DerivedKeyGetPublicKeys or LedgerKeyGetPublicKeys
+  Future<List<String>> getPublicKeysMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String input,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetPublicKeysMethodKeystoreDartWrapperConstMeta;
+
+  /// Encrypt data with specified algorithm and input specified for signer eg EncryptedKeyPassword
+  ///   or DerivedKeyPassword or LedgerSignInput.
+  /// data - base64 encoded data that must be encrypted.
+  /// algorithm - name of algorithm that should be used for encryption, for example ChaCha20Poly1305
+  /// public_keys - list of keys that is used for encryption.
+  ///
+  /// Returns json-encoded list of EncryptedData or throw error.
+  Future<String> encryptMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String data,
+      required List<String> publicKeys,
+      required String algorithm,
+      required String input,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kEncryptMethodKeystoreDartWrapperConstMeta;
+
+  /// Decrypt json-encoded EncryptedData in data.
+  /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
+  ///   LedgerSignInput.
+  /// Returns base64-encoded data or throw error.
+  Future<String> decryptMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String data,
+      required String input,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kDecryptMethodKeystoreDartWrapperConstMeta;
+
+  /// Sign data and return base64-encoded signature or throw error.
+  /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
+  ///   LedgerSignInput.
+  /// signature_id - id of transport
+  /// data - base64-encoded data that should be signed.
+  Future<String> signMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String data,
+      required String input,
+      int? signatureId,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kSignMethodKeystoreDartWrapperConstMeta;
+
+  /// Same method as sign.
+  /// data - base64-encoded string.
+  /// Return SignedData or throw error.
+  Future<SignedData> signDataMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String data,
+      required String input,
+      int? signatureId,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kSignDataMethodKeystoreDartWrapperConstMeta;
+
+  /// Same method as sign.
+  /// data - base64-encoded string.
+  /// Return SignedDataRaw or throw error.
+  Future<SignedDataRaw> signDataRawMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String data,
+      required String input,
+      int? signatureId,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kSignDataRawMethodKeystoreDartWrapperConstMeta;
+
+  /// Remove public key from KeyStore and return json-encoded KeyStoreEntry if it was removed.
+  Future<String?> removeKeyMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required String publicKey,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kRemoveKeyMethodKeystoreDartWrapperConstMeta;
+
+  /// Remove list of public key from KeyStore and return json-encoded list of KeyStoreEntry's
+  /// that were removed or throw error.
+  Future<String> removeKeysMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required List<String> publicKeys,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kRemoveKeysMethodKeystoreDartWrapperConstMeta;
+
+  /// Check if password cached for specified public_key.
+  /// duration - timestamp in milliseconds of expiring key.
+  /// Returns true/false or throw error.
+  Future<bool> isPasswordCachedMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required String publicKey,
+      required int duration,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kIsPasswordCachedMethodKeystoreDartWrapperConstMeta;
+
+  /// Clear KeyStore and remove all entries and all sensitive data.
+  Future<String> clearKeystoreMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kClearKeystoreMethodKeystoreDartWrapperConstMeta;
+
+  /// Try to reload all stored data.
+  Future<String> reloadKeystoreMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kReloadKeystoreMethodKeystoreDartWrapperConstMeta;
+
+  /// Verify if data is valid with specified signers and connection or not.
+  /// Return true/false or throw error.
+  Future<bool> verifyDataStaticMethodKeystoreDartWrapper(
+      {required List<KeySigner> signers,
+      LedgerConnectionDartWrapper? ledgerConnection,
+      required String data,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kVerifyDataStaticMethodKeystoreDartWrapperConstMeta;
 
   /// Create AccountsStorage or throw error
   Future<AccountsStorageImpl> newStaticMethodAccountsStorageImpl(
@@ -662,347 +1119,6 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta
       get kHandleBlockMethodGenericContractDartWrapperConstMeta;
-
-  /// Create KeyStore or throw error
-  Future<KeystoreDartWrapper> newStaticMethodKeystoreDartWrapper(
-      {required StorageDartWrapper storage,
-      required List<KeySigner> signers,
-      LedgerConnectionDartWrapper? ledgerConnection,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodKeystoreDartWrapperConstMeta;
-
-  /// Get list of json-encoded KeyStoreEntry or throw error
-  Future<String> getEntriesMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetEntriesMethodKeystoreDartWrapperConstMeta;
-
-  /// Insert new key in keystore. Returns json-encoded KeystoreEntry or throw error.
-  /// input - json-encoded action specified for signer eg EncryptedKeyCreateInput or
-  ///   DerivedKeyCreateInput or LedgerKeyCreateInput
-  Future<String> addKeyMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kAddKeyMethodKeystoreDartWrapperConstMeta;
-
-  /// Method same as add_key but allows add multiple keys at time.
-  /// Returns json-encoded list of KeyStoreEntry or throw error.
-  /// input - json-encoded list of inputs, same as in add_key method
-  Future<String> addKeysMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kAddKeysMethodKeystoreDartWrapperConstMeta;
-
-  /// Update key data.
-  /// Returns updated json-encoded KeyStoreEntry or throw error.
-  /// input - json-encoded action specified for signer eg EncryptedKeyUpdateParams or
-  ///   DerivedKeyUpdateParams or LedgerUpdateKeyInput
-  Future<String> updateKeyMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kUpdateKeyMethodKeystoreDartWrapperConstMeta;
-
-  /// Export key and get its seed phrase and mnemonic type.
-  /// THIS METHOD DO NOT WORK for LEDGER.
-  /// Returns json-encoded EncryptedKeyExportSeedOutput or DerivedKeyExportOutput or throw error
-  Future<String> exportSeedMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kExportSeedMethodKeystoreDartWrapperConstMeta;
-
-  /// Return list of public keys specified for signer or throw error.
-  /// input - json-encoded action specified for signer eg EncryptedKeyGetPublicKeys or
-  ///   DerivedKeyGetPublicKeys or LedgerKeyGetPublicKeys
-  Future<List<String>> getPublicKeysMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetPublicKeysMethodKeystoreDartWrapperConstMeta;
-
-  /// Encrypt data with specified algorithm and input specified for signer eg EncryptedKeyPassword
-  ///   or DerivedKeyPassword or LedgerSignInput.
-  /// data - base64 encoded data that must be encrypted.
-  /// algorithm - name of algorithm that should be used for encryption, for example ChaCha20Poly1305
-  /// public_keys - list of keys that is used for encryption.
-  ///
-  /// Returns json-encoded list of EncryptedData or throw error.
-  Future<String> encryptMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required List<String> publicKeys,
-      required String algorithm,
-      required String input,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kEncryptMethodKeystoreDartWrapperConstMeta;
-
-  /// Decrypt json-encoded EncryptedData in data.
-  /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
-  ///   LedgerSignInput.
-  /// Returns base64-encoded data or throw error.
-  Future<String> decryptMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required String input,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kDecryptMethodKeystoreDartWrapperConstMeta;
-
-  /// Sign data and return base64-encoded signature or throw error.
-  /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
-  ///   LedgerSignInput.
-  /// signature_id - id of transport
-  /// data - base64-encoded data that should be signed.
-  Future<String> signMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required String input,
-      int? signatureId,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kSignMethodKeystoreDartWrapperConstMeta;
-
-  /// Same method as sign.
-  /// data - base64-encoded string.
-  /// Return SignedData or throw error.
-  Future<SignedData> signDataMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required String input,
-      int? signatureId,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kSignDataMethodKeystoreDartWrapperConstMeta;
-
-  /// Same method as sign.
-  /// data - base64-encoded string.
-  /// Return SignedDataRaw or throw error.
-  Future<SignedDataRaw> signDataRawMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required String input,
-      int? signatureId,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kSignDataRawMethodKeystoreDartWrapperConstMeta;
-
-  /// Remove public key from KeyStore and return json-encoded KeyStoreEntry if it was removed.
-  Future<String?> removeKeyMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required String publicKey,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kRemoveKeyMethodKeystoreDartWrapperConstMeta;
-
-  /// Remove list of public key from KeyStore and return json-encoded list of KeyStoreEntry's
-  /// that were removed or throw error.
-  Future<String> removeKeysMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required List<String> publicKeys,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kRemoveKeysMethodKeystoreDartWrapperConstMeta;
-
-  /// Check if password cached for specified public_key.
-  /// duration - timestamp in milliseconds of expiring key.
-  /// Returns true/false or throw error.
-  Future<bool> isPasswordCachedMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required String publicKey,
-      required int duration,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kIsPasswordCachedMethodKeystoreDartWrapperConstMeta;
-
-  /// Clear KeyStore and remove all entries and all sensitive data.
-  Future<String> clearKeystoreMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kClearKeystoreMethodKeystoreDartWrapperConstMeta;
-
-  /// Try to reload all stored data.
-  Future<String> reloadKeystoreMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kReloadKeystoreMethodKeystoreDartWrapperConstMeta;
-
-  /// Verify if data is valid with specified signers and connection or not.
-  /// Return true/false or throw error.
-  Future<bool> verifyDataStaticMethodKeystoreDartWrapper(
-      {required List<KeySigner> signers,
-      LedgerConnectionDartWrapper? ledgerConnection,
-      required String data,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kVerifyDataStaticMethodKeystoreDartWrapperConstMeta;
-
-  /// Create TokenWallet by subscribing to its instance.
-  /// owner - address of account that is owner of wallet
-  /// root_token_contract - address of contract in blockchain
-  Future<TokenWalletDartWrapper> subscribeStaticMethodTokenWalletDartWrapper(
-      {required String instanceHash,
-      required String owner,
-      required String rootTokenContract,
-      required ArcTransportBoxTrait transport,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kSubscribeStaticMethodTokenWalletDartWrapperConstMeta;
-
-  /// Get address of owner of wallet.
-  Future<String> ownerMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kOwnerMethodTokenWalletDartWrapperConstMeta;
-
-  /// Get address of wallet.
-  Future<String> addressMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kAddressMethodTokenWalletDartWrapperConstMeta;
-
-  /// Get symbol of contract of wallet.
-  /// Return json-encoded Symbol or throw error
-  Future<String> symbolMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kSymbolMethodTokenWalletDartWrapperConstMeta;
-
-  /// Get json-encoded TokenWalletVersion or throw error.
-  Future<String> versionMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kVersionMethodTokenWalletDartWrapperConstMeta;
-
-  /// Get balance of wallet.
-  /// Return string representation of rust BigUInt
-  Future<String> balanceMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kBalanceMethodTokenWalletDartWrapperConstMeta;
-
-  /// Get json-encoded ContractState or throw error.
-  Future<String> contractStateMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kContractStateMethodTokenWalletDartWrapperConstMeta;
-
-  /// Prepare transferring tokens from this wallet to other.
-  /// destination - address of account that should receive token
-  /// amount - amount of tokens that should be transferred
-  /// notify_receiver - if receiver should be notifier by blockchain
-  /// payload - payload of transfer aka comment
-  /// attached_amount - string representation of rust u64, default 400000000. How many native tokens
-  ///   should be attached to transfer.
-  /// Return json-encoded InternalMessage or throw error.
-  Future<String> prepareTransferMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that,
-      required String destination,
-      required String amount,
-      required bool notifyReceiver,
-      String? attachedAmount,
-      String? payload,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kPrepareTransferMethodTokenWalletDartWrapperConstMeta;
-
-  /// Refresh wallet and update its data.
-  /// Returns true or throw error.
-  Future<bool> refreshMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kRefreshMethodTokenWalletDartWrapperConstMeta;
-
-  /// Preload transactions of wallet.
-  /// from_lt - offset for loading data, string representation of u64
-  /// Returns true or throw error.
-  Future<bool> preloadTransactionsMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that,
-      required String fromLt,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kPreloadTransactionsMethodTokenWalletDartWrapperConstMeta;
-
-  /// Handle block of blockchain.
-  /// block - base64-encoded Block.
-  /// Return true or throw error.
-  Future<bool> handleBlockMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that,
-      required String block,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kHandleBlockMethodTokenWalletDartWrapperConstMeta;
-
-  /// Get details about token wallet by address of wallet
-  /// address - address of wallet
-  /// Return json-encoded list with 2 positions:
-  /// 0: TokenWalletDetails
-  /// 1: RootTokenContractDetails
-  /// or throw error
-  Future<String> getTokenWalletDetailsStaticMethodTokenWalletDartWrapper(
-      {required ArcTransportBoxTrait transport,
-      required String address,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetTokenWalletDetailsStaticMethodTokenWalletDartWrapperConstMeta;
-
-  /// Get details about root contract by address of TokenWallet
-  /// Return json-encoded list with 2 positions:
-  /// 0: Address of root contract
-  /// 1: RootTokenContractDetails of root contract
-  /// or throw error.
-  Future<String>
-      getTokenRootDetailsFromTokenWalletStaticMethodTokenWalletDartWrapper(
-          {required ArcTransportBoxTrait transport,
-          required String tokenWalletAddress,
-          dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetTokenRootDetailsFromTokenWalletStaticMethodTokenWalletDartWrapperConstMeta;
 
   /// Create TonWallet by subscribing to its instance by public_key.
   /// wallet_type - is json-encoded WalletType.
@@ -1265,157 +1381,41 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta
       get kGetCustodiansStaticMethodTonWalletDartWrapperConstMeta;
 
-  Future<GqlTransportImpl> newStaticMethodGqlTransportImpl(
-      {required GqlConnectionDartWrapper gqlConnection, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kNewStaticMethodGqlTransportImplConstMeta;
-
-  /// Get contract state of address and return json-encoded RawContractState or throw error
-  Future<String> getContractStateMethodGqlTransportImpl(
-      {required GqlTransportImpl that, required String address, dynamic hint});
+  Future<JrpcConnectionDartWrapper> newStaticMethodJrpcConnectionDartWrapper(
+      {required String instanceHash, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta
-      get kGetContractStateMethodGqlTransportImplConstMeta;
+      get kNewStaticMethodJrpcConnectionDartWrapperConstMeta;
 
-  /// Get full contract state of address and return json-encoded FullContractState or throw error
-  Future<String> getFullContractStateMethodGqlTransportImpl(
-      {required GqlTransportImpl that, required String address, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetFullContractStateMethodGqlTransportImplConstMeta;
-
-  /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
-  Future<String> getAccountsByCodeHashMethodGqlTransportImpl(
-      {required GqlTransportImpl that,
-      required String codeHash,
-      required int limit,
-      String? continuation,
-      dynamic hint});
+  Future<GqlConnectionDartWrapper> newStaticMethodGqlConnectionDartWrapper(
+      {required bool isLocal, required String instanceHash, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta
-      get kGetAccountsByCodeHashMethodGqlTransportImplConstMeta;
+      get kNewStaticMethodGqlConnectionDartWrapperConstMeta;
 
-  /// Get list of transactions by address.
-  /// Return json-encoded TransactionsList or throw error
-  Future<String> getTransactionsMethodGqlTransportImpl(
-      {required GqlTransportImpl that,
-      required String address,
-      int? fromLt,
-      required int count,
-      dynamic hint});
+  Future<LedgerConnectionDartWrapper>
+      newStaticMethodLedgerConnectionDartWrapper(
+          {required String instanceHash, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta
-      get kGetTransactionsMethodGqlTransportImplConstMeta;
+      get kNewStaticMethodLedgerConnectionDartWrapperConstMeta;
 
-  /// Get single transaction by its hash.
-  /// Return json-encoded Transaction or throw error
-  Future<String?> getTransactionMethodGqlTransportImpl(
-      {required GqlTransportImpl that, required String hash, dynamic hint});
+  Future<LedgerConnectionImpl> newStaticMethodLedgerConnectionImpl(
+      {required String instanceHash, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta
-      get kGetTransactionMethodGqlTransportImplConstMeta;
+      get kNewStaticMethodLedgerConnectionImplConstMeta;
 
-  /// Get transport signature id and return it or throw error
-  Future<int?> getSignatureIdMethodGqlTransportImpl(
-      {required GqlTransportImpl that, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetSignatureIdMethodGqlTransportImplConstMeta;
-
-  /// Get id of network or throw error
-  Future<int> getNetworkIdMethodGqlTransportImpl(
-      {required GqlTransportImpl that, dynamic hint});
+  Future<StorageDartWrapper> newStaticMethodStorageDartWrapper(
+      {required String instanceHash, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta
-      get kGetNetworkIdMethodGqlTransportImplConstMeta;
+      get kNewStaticMethodStorageDartWrapperConstMeta;
 
-  /// Get latest block by address and return it or throw error
-  Future<LatestBlock> getLatestBlockMethodGqlTransportImpl(
-      {required GqlTransportImpl that, required String address, dynamic hint});
+  Future<StorageImpl> newStaticMethodStorageImpl(
+      {required String instanceHash, dynamic hint});
 
-  FlutterRustBridgeTaskConstMeta
-      get kGetLatestBlockMethodGqlTransportImplConstMeta;
-
-  /// Get transport block by id and return base64 encoded block or throw error
-  Future<String> getBlockMethodGqlTransportImpl(
-      {required GqlTransportImpl that, required String id, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kGetBlockMethodGqlTransportImplConstMeta;
-
-  /// Wait until next block will come to blockchain and return its id or throw error
-  Future<String> waitForNextBlockMethodGqlTransportImpl(
-      {required GqlTransportImpl that,
-      required String currentBlockId,
-      required String address,
-      required int timeout,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kWaitForNextBlockMethodGqlTransportImplConstMeta;
-
-  Future<JrpcTransportImpl> newStaticMethodJrpcTransportImpl(
-      {required JrpcConnectionDartWrapper jrpcConnection, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kNewStaticMethodJrpcTransportImplConstMeta;
-
-  /// Get contract state of address and return json-encoded RawContractState or throw error
-  Future<String> getContractStateMethodJrpcTransportImpl(
-      {required JrpcTransportImpl that, required String address, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetContractStateMethodJrpcTransportImplConstMeta;
-
-  /// Get full contract state of address and return json-encoded FullContractState or throw error
-  Future<String> getFullContractStateMethodJrpcTransportImpl(
-      {required JrpcTransportImpl that, required String address, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetFullContractStateMethodJrpcTransportImplConstMeta;
-
-  /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
-  Future<String> getAccountsByCodeHashMethodJrpcTransportImpl(
-      {required JrpcTransportImpl that,
-      required String codeHash,
-      required int limit,
-      String? continuation,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetAccountsByCodeHashMethodJrpcTransportImplConstMeta;
-
-  /// Get list of transactions by address.
-  /// Return json-encoded TransactionsList or throw error
-  Future<String> getTransactionsMethodJrpcTransportImpl(
-      {required JrpcTransportImpl that,
-      required String address,
-      int? fromLt,
-      required int count,
-      dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetTransactionsMethodJrpcTransportImplConstMeta;
-
-  /// Get single transaction by its hash.
-  /// Return json-encoded Transaction or throw error
-  Future<String?> getTransactionMethodJrpcTransportImpl(
-      {required JrpcTransportImpl that, required String hash, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetTransactionMethodJrpcTransportImplConstMeta;
-
-  /// Get transport signature id and return it or throw error
-  Future<int?> getSignatureIdMethodJrpcTransportImpl(
-      {required JrpcTransportImpl that, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetSignatureIdMethodJrpcTransportImplConstMeta;
-
-  /// Get id of network or throw error
-  Future<int> getNetworkIdMethodJrpcTransportImpl(
-      {required JrpcTransportImpl that, dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetNetworkIdMethodJrpcTransportImplConstMeta;
+  FlutterRustBridgeTaskConstMeta get kNewStaticMethodStorageImplConstMeta;
 
   Future<MyClass> newStaticMethodMyClass({required int a, dynamic hint});
 
@@ -3192,6 +3192,30 @@ class NekotonBridgeImpl implements NekotonBridge {
   factory NekotonBridgeImpl.wasm(FutureOr<WasmModule> module) =>
       NekotonBridgeImpl(module as ExternalLibrary);
   NekotonBridgeImpl.raw(this._platform);
+  Future<bool> verifySignature(
+      {required String publicKey,
+      required String dataHash,
+      required String signature,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(publicKey);
+    var arg1 = _platform.api2wire_String(dataHash);
+    var arg2 = _platform.api2wire_String(signature);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_verify_signature(port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_bool,
+      constMeta: kVerifySignatureConstMeta,
+      argValues: [publicKey, dataHash, signature],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "verify_signature",
+        argNames: ["publicKey", "dataHash", "signature"],
+      );
+
   Future<GeneratedKeyG> ntGenerateKey(
       {required MnemonicType accountType, dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_mnemonic_type(accountType);
@@ -3247,30 +3271,6 @@ class NekotonBridgeImpl implements NekotonBridge {
       const FlutterRustBridgeTaskConstMeta(
         debugName: "nt_derive_from_phrase",
         argNames: ["phrase", "mnemonicType"],
-      );
-
-  Future<bool> verifySignature(
-      {required String publicKey,
-      required String dataHash,
-      required String signature,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_String(publicKey);
-    var arg1 = _platform.api2wire_String(dataHash);
-    var arg2 = _platform.api2wire_String(signature);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) =>
-          _platform.inner.wire_verify_signature(port_, arg0, arg1, arg2),
-      parseSuccessData: _wire2api_bool,
-      constMeta: kVerifySignatureConstMeta,
-      argValues: [publicKey, dataHash, signature],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "verify_signature",
-        argNames: ["publicKey", "dataHash", "signature"],
       );
 
   Future<bool> checkPublicKey({required String publicKey, dynamic hint}) {
@@ -3851,6 +3851,151 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: ["code"],
       );
 
+  Future<void> testLoggerInfo({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_info(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerInfoConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerInfoConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_info",
+        argNames: ["string"],
+      );
+
+  Future<void> testLoggerDebug({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_debug(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerDebugConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerDebugConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_debug",
+        argNames: ["string"],
+      );
+
+  Future<void> testLoggerWarn({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_warn(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerWarnConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerWarnConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_warn",
+        argNames: ["string"],
+      );
+
+  Future<void> testLoggerError({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_error(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerErrorConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerErrorConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_error",
+        argNames: ["string"],
+      );
+
+  Future<void> testLoggerPanic({required String string, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_test_logger_panic(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kTestLoggerPanicConstMeta,
+      argValues: [string],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestLoggerPanicConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_logger_panic",
+        argNames: ["string"],
+      );
+
+  Future<DynamicValue> testCallerCallTest0Async(
+      {required String string, required bool needResult, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    var arg1 = needResult;
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_test_caller_call_test0_async(port_, arg0, arg1),
+      parseSuccessData: _wire2api_dynamic_value,
+      constMeta: kTestCallerCallTest0AsyncConstMeta,
+      argValues: [string, needResult],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestCallerCallTest0AsyncConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_caller_call_test0_async",
+        argNames: ["string", "needResult"],
+      );
+
+  DynamicValue testCallerCallTest0Sync(
+      {required String string, required bool needResult, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    var arg1 = needResult;
+    return _platform.executeSync(FlutterRustBridgeSyncTask(
+      callFfi: () =>
+          _platform.inner.wire_test_caller_call_test0_sync(arg0, arg1),
+      parseSuccessData: _wire2api_dynamic_value,
+      constMeta: kTestCallerCallTest0SyncConstMeta,
+      argValues: [string, needResult],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestCallerCallTest0SyncConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_caller_call_test0_sync",
+        argNames: ["string", "needResult"],
+      );
+
+  Future<DynamicValue> testCallerCallTest1Async(
+      {required String string, required bool needResult, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(string);
+    var arg1 = needResult;
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_test_caller_call_test1_async(port_, arg0, arg1),
+      parseSuccessData: _wire2api_dynamic_value,
+      constMeta: kTestCallerCallTest1AsyncConstMeta,
+      argValues: [string, needResult],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kTestCallerCallTest1AsyncConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "test_caller_call_test1_async",
+        argNames: ["string", "needResult"],
+      );
+
   Future<void> initLogger(
       {required LogLevel level, required bool mobileLogger, dynamic hint}) {
     var arg0 = api2wire_log_level(level);
@@ -4121,151 +4266,6 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: [],
       );
 
-  Future<void> testLoggerInfo({required String string, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_test_logger_info(port_, arg0),
-      parseSuccessData: _wire2api_unit,
-      constMeta: kTestLoggerInfoConstMeta,
-      argValues: [string],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerInfoConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_logger_info",
-        argNames: ["string"],
-      );
-
-  Future<void> testLoggerDebug({required String string, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_test_logger_debug(port_, arg0),
-      parseSuccessData: _wire2api_unit,
-      constMeta: kTestLoggerDebugConstMeta,
-      argValues: [string],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerDebugConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_logger_debug",
-        argNames: ["string"],
-      );
-
-  Future<void> testLoggerWarn({required String string, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_test_logger_warn(port_, arg0),
-      parseSuccessData: _wire2api_unit,
-      constMeta: kTestLoggerWarnConstMeta,
-      argValues: [string],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerWarnConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_logger_warn",
-        argNames: ["string"],
-      );
-
-  Future<void> testLoggerError({required String string, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_test_logger_error(port_, arg0),
-      parseSuccessData: _wire2api_unit,
-      constMeta: kTestLoggerErrorConstMeta,
-      argValues: [string],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerErrorConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_logger_error",
-        argNames: ["string"],
-      );
-
-  Future<void> testLoggerPanic({required String string, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_test_logger_panic(port_, arg0),
-      parseSuccessData: _wire2api_unit,
-      constMeta: kTestLoggerPanicConstMeta,
-      argValues: [string],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestLoggerPanicConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_logger_panic",
-        argNames: ["string"],
-      );
-
-  Future<DynamicValue> testCallerCallTest0Async(
-      {required String string, required bool needResult, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    var arg1 = needResult;
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) =>
-          _platform.inner.wire_test_caller_call_test0_async(port_, arg0, arg1),
-      parseSuccessData: _wire2api_dynamic_value,
-      constMeta: kTestCallerCallTest0AsyncConstMeta,
-      argValues: [string, needResult],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestCallerCallTest0AsyncConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_caller_call_test0_async",
-        argNames: ["string", "needResult"],
-      );
-
-  DynamicValue testCallerCallTest0Sync(
-      {required String string, required bool needResult, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    var arg1 = needResult;
-    return _platform.executeSync(FlutterRustBridgeSyncTask(
-      callFfi: () =>
-          _platform.inner.wire_test_caller_call_test0_sync(arg0, arg1),
-      parseSuccessData: _wire2api_dynamic_value,
-      constMeta: kTestCallerCallTest0SyncConstMeta,
-      argValues: [string, needResult],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestCallerCallTest0SyncConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_caller_call_test0_sync",
-        argNames: ["string", "needResult"],
-      );
-
-  Future<DynamicValue> testCallerCallTest1Async(
-      {required String string, required bool needResult, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(string);
-    var arg1 = needResult;
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) =>
-          _platform.inner.wire_test_caller_call_test1_async(port_, arg0, arg1),
-      parseSuccessData: _wire2api_dynamic_value,
-      constMeta: kTestCallerCallTest1AsyncConstMeta,
-      argValues: [string, needResult],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kTestCallerCallTest1AsyncConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "test_caller_call_test1_async",
-        argNames: ["string", "needResult"],
-      );
-
   Future<void> refreshTimeoutMethodUnsignedMessageImpl(
       {required UnsignedMessageImpl that, dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_unsigned_message_impl(that);
@@ -4347,126 +4347,1232 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: ["that", "signature"],
       );
 
-  Future<GqlConnectionDartWrapper> newStaticMethodGqlConnectionDartWrapper(
-      {required bool isLocal, required String instanceHash, dynamic hint}) {
-    var arg0 = isLocal;
-    var arg1 = _platform.api2wire_String(instanceHash);
+  Future<GqlTransportImpl> newStaticMethodGqlTransportImpl(
+      {required GqlConnectionDartWrapper gqlConnection, dynamic hint}) {
+    var arg0 = _platform
+        .api2wire_box_autoadd_gql_connection_dart_wrapper(gqlConnection);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
-          .wire_new__static_method__GqlConnectionDartWrapper(port_, arg0, arg1),
-      parseSuccessData: (d) => _wire2api_gql_connection_dart_wrapper(d),
-      constMeta: kNewStaticMethodGqlConnectionDartWrapperConstMeta,
-      argValues: [isLocal, instanceHash],
+          .wire_new__static_method__GqlTransportImpl(port_, arg0),
+      parseSuccessData: (d) => _wire2api_gql_transport_impl(d),
+      constMeta: kNewStaticMethodGqlTransportImplConstMeta,
+      argValues: [gqlConnection],
       hint: hint,
     ));
   }
 
   FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodGqlConnectionDartWrapperConstMeta =>
+      get kNewStaticMethodGqlTransportImplConstMeta =>
           const FlutterRustBridgeTaskConstMeta(
-            debugName: "new__static_method__GqlConnectionDartWrapper",
-            argNames: ["isLocal", "instanceHash"],
+            debugName: "new__static_method__GqlTransportImpl",
+            argNames: ["gqlConnection"],
           );
 
-  Future<JrpcConnectionDartWrapper> newStaticMethodJrpcConnectionDartWrapper(
-      {required String instanceHash, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(instanceHash);
+  Future<String> getContractStateMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String address, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    var arg1 = _platform.api2wire_String(address);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
-          .wire_new__static_method__JrpcConnectionDartWrapper(port_, arg0),
-      parseSuccessData: (d) => _wire2api_jrpc_connection_dart_wrapper(d),
-      constMeta: kNewStaticMethodJrpcConnectionDartWrapperConstMeta,
-      argValues: [instanceHash],
+          .wire_get_contract_state__method__GqlTransportImpl(port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetContractStateMethodGqlTransportImplConstMeta,
+      argValues: [that, address],
       hint: hint,
     ));
   }
 
   FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodJrpcConnectionDartWrapperConstMeta =>
+      get kGetContractStateMethodGqlTransportImplConstMeta =>
           const FlutterRustBridgeTaskConstMeta(
-            debugName: "new__static_method__JrpcConnectionDartWrapper",
-            argNames: ["instanceHash"],
+            debugName: "get_contract_state__method__GqlTransportImpl",
+            argNames: ["that", "address"],
           );
 
-  Future<LedgerConnectionDartWrapper>
-      newStaticMethodLedgerConnectionDartWrapper(
-          {required String instanceHash, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(instanceHash);
+  Future<String> getFullContractStateMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String address, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    var arg1 = _platform.api2wire_String(address);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
-          .wire_new__static_method__LedgerConnectionDartWrapper(port_, arg0),
-      parseSuccessData: (d) => _wire2api_ledger_connection_dart_wrapper(d),
-      constMeta: kNewStaticMethodLedgerConnectionDartWrapperConstMeta,
-      argValues: [instanceHash],
+          .wire_get_full_contract_state__method__GqlTransportImpl(
+              port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetFullContractStateMethodGqlTransportImplConstMeta,
+      argValues: [that, address],
       hint: hint,
     ));
   }
 
   FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodLedgerConnectionDartWrapperConstMeta =>
+      get kGetFullContractStateMethodGqlTransportImplConstMeta =>
           const FlutterRustBridgeTaskConstMeta(
-            debugName: "new__static_method__LedgerConnectionDartWrapper",
-            argNames: ["instanceHash"],
+            debugName: "get_full_contract_state__method__GqlTransportImpl",
+            argNames: ["that", "address"],
           );
 
-  Future<LedgerConnectionImpl> newStaticMethodLedgerConnectionImpl(
-      {required String instanceHash, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(instanceHash);
+  Future<String> getAccountsByCodeHashMethodGqlTransportImpl(
+      {required GqlTransportImpl that,
+      required String codeHash,
+      required int limit,
+      String? continuation,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    var arg1 = _platform.api2wire_String(codeHash);
+    var arg2 = api2wire_u8(limit);
+    var arg3 = _platform.api2wire_opt_String(continuation);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
-          .wire_new__static_method__LedgerConnectionImpl(port_, arg0),
-      parseSuccessData: (d) => _wire2api_ledger_connection_impl(d),
-      constMeta: kNewStaticMethodLedgerConnectionImplConstMeta,
-      argValues: [instanceHash],
+          .wire_get_accounts_by_code_hash__method__GqlTransportImpl(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetAccountsByCodeHashMethodGqlTransportImplConstMeta,
+      argValues: [that, codeHash, limit, continuation],
       hint: hint,
     ));
   }
 
   FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodLedgerConnectionImplConstMeta =>
+      get kGetAccountsByCodeHashMethodGqlTransportImplConstMeta =>
           const FlutterRustBridgeTaskConstMeta(
-            debugName: "new__static_method__LedgerConnectionImpl",
-            argNames: ["instanceHash"],
+            debugName: "get_accounts_by_code_hash__method__GqlTransportImpl",
+            argNames: ["that", "codeHash", "limit", "continuation"],
           );
 
-  Future<StorageDartWrapper> newStaticMethodStorageDartWrapper(
-      {required String instanceHash, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(instanceHash);
+  Future<String> getTransactionsMethodGqlTransportImpl(
+      {required GqlTransportImpl that,
+      required String address,
+      int? fromLt,
+      required int count,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    var arg1 = _platform.api2wire_String(address);
+    var arg2 = _platform.api2wire_opt_box_autoadd_u64(fromLt);
+    var arg3 = api2wire_u8(count);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
-          .wire_new__static_method__StorageDartWrapper(port_, arg0),
-      parseSuccessData: (d) => _wire2api_storage_dart_wrapper(d),
-      constMeta: kNewStaticMethodStorageDartWrapperConstMeta,
-      argValues: [instanceHash],
+          .wire_get_transactions__method__GqlTransportImpl(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetTransactionsMethodGqlTransportImplConstMeta,
+      argValues: [that, address, fromLt, count],
       hint: hint,
     ));
   }
 
   FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodStorageDartWrapperConstMeta =>
+      get kGetTransactionsMethodGqlTransportImplConstMeta =>
           const FlutterRustBridgeTaskConstMeta(
-            debugName: "new__static_method__StorageDartWrapper",
-            argNames: ["instanceHash"],
+            debugName: "get_transactions__method__GqlTransportImpl",
+            argNames: ["that", "address", "fromLt", "count"],
           );
 
-  Future<StorageImpl> newStaticMethodStorageImpl(
-      {required String instanceHash, dynamic hint}) {
-    var arg0 = _platform.api2wire_String(instanceHash);
+  Future<String?> getTransactionMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String hash, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    var arg1 = _platform.api2wire_String(hash);
     return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) =>
-          _platform.inner.wire_new__static_method__StorageImpl(port_, arg0),
-      parseSuccessData: (d) => _wire2api_storage_impl(d),
-      constMeta: kNewStaticMethodStorageImplConstMeta,
-      argValues: [instanceHash],
+      callFfi: (port_) => _platform.inner
+          .wire_get_transaction__method__GqlTransportImpl(port_, arg0, arg1),
+      parseSuccessData: _wire2api_opt_String,
+      constMeta: kGetTransactionMethodGqlTransportImplConstMeta,
+      argValues: [that, hash],
       hint: hint,
     ));
   }
 
-  FlutterRustBridgeTaskConstMeta get kNewStaticMethodStorageImplConstMeta =>
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionMethodGqlTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_transaction__method__GqlTransportImpl",
+            argNames: ["that", "hash"],
+          );
+
+  Future<int?> getSignatureIdMethodGqlTransportImpl(
+      {required GqlTransportImpl that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_signature_id__method__GqlTransportImpl(port_, arg0),
+      parseSuccessData: _wire2api_opt_box_autoadd_i32,
+      constMeta: kGetSignatureIdMethodGqlTransportImplConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetSignatureIdMethodGqlTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_signature_id__method__GqlTransportImpl",
+            argNames: ["that"],
+          );
+
+  Future<int> getNetworkIdMethodGqlTransportImpl(
+      {required GqlTransportImpl that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_network_id__method__GqlTransportImpl(port_, arg0),
+      parseSuccessData: _wire2api_i32,
+      constMeta: kGetNetworkIdMethodGqlTransportImplConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetNetworkIdMethodGqlTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_network_id__method__GqlTransportImpl",
+            argNames: ["that"],
+          );
+
+  Future<LatestBlock> getLatestBlockMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String address, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    var arg1 = _platform.api2wire_String(address);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_latest_block__method__GqlTransportImpl(port_, arg0, arg1),
+      parseSuccessData: _wire2api_latest_block,
+      constMeta: kGetLatestBlockMethodGqlTransportImplConstMeta,
+      argValues: [that, address],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetLatestBlockMethodGqlTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_latest_block__method__GqlTransportImpl",
+            argNames: ["that", "address"],
+          );
+
+  Future<String> getBlockMethodGqlTransportImpl(
+      {required GqlTransportImpl that, required String id, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    var arg1 = _platform.api2wire_String(id);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_block__method__GqlTransportImpl(port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetBlockMethodGqlTransportImplConstMeta,
+      argValues: [that, id],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kGetBlockMethodGqlTransportImplConstMeta =>
       const FlutterRustBridgeTaskConstMeta(
-        debugName: "new__static_method__StorageImpl",
-        argNames: ["instanceHash"],
+        debugName: "get_block__method__GqlTransportImpl",
+        argNames: ["that", "id"],
       );
+
+  Future<String> waitForNextBlockMethodGqlTransportImpl(
+      {required GqlTransportImpl that,
+      required String currentBlockId,
+      required String address,
+      required int timeout,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    var arg1 = _platform.api2wire_String(currentBlockId);
+    var arg2 = _platform.api2wire_String(address);
+    var arg3 = _platform.api2wire_u64(timeout);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_wait_for_next_block__method__GqlTransportImpl(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kWaitForNextBlockMethodGqlTransportImplConstMeta,
+      argValues: [that, currentBlockId, address, timeout],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kWaitForNextBlockMethodGqlTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "wait_for_next_block__method__GqlTransportImpl",
+            argNames: ["that", "currentBlockId", "address", "timeout"],
+          );
+
+  Future<JrpcTransportImpl> newStaticMethodJrpcTransportImpl(
+      {required JrpcConnectionDartWrapper jrpcConnection, dynamic hint}) {
+    var arg0 = _platform
+        .api2wire_box_autoadd_jrpc_connection_dart_wrapper(jrpcConnection);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_new__static_method__JrpcTransportImpl(port_, arg0),
+      parseSuccessData: (d) => _wire2api_jrpc_transport_impl(d),
+      constMeta: kNewStaticMethodJrpcTransportImplConstMeta,
+      argValues: [jrpcConnection],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "new__static_method__JrpcTransportImpl",
+            argNames: ["jrpcConnection"],
+          );
+
+  Future<String> getContractStateMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String address,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = _platform.api2wire_String(address);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_contract_state__method__JrpcTransportImpl(
+              port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetContractStateMethodJrpcTransportImplConstMeta,
+      argValues: [that, address],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetContractStateMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_contract_state__method__JrpcTransportImpl",
+            argNames: ["that", "address"],
+          );
+
+  Future<String> getFullContractStateMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String address,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = _platform.api2wire_String(address);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_full_contract_state__method__JrpcTransportImpl(
+              port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetFullContractStateMethodJrpcTransportImplConstMeta,
+      argValues: [that, address],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetFullContractStateMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_full_contract_state__method__JrpcTransportImpl",
+            argNames: ["that", "address"],
+          );
+
+  Future<String> getAccountsByCodeHashMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String codeHash,
+      required int limit,
+      String? continuation,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = _platform.api2wire_String(codeHash);
+    var arg2 = api2wire_u8(limit);
+    var arg3 = _platform.api2wire_opt_String(continuation);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetAccountsByCodeHashMethodJrpcTransportImplConstMeta,
+      argValues: [that, codeHash, limit, continuation],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetAccountsByCodeHashMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_accounts_by_code_hash__method__JrpcTransportImpl",
+            argNames: ["that", "codeHash", "limit", "continuation"],
+          );
+
+  Future<String> getTransactionsMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String address,
+      int? fromLt,
+      required int count,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = _platform.api2wire_String(address);
+    var arg2 = _platform.api2wire_opt_box_autoadd_u64(fromLt);
+    var arg3 = api2wire_u8(count);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_transactions__method__JrpcTransportImpl(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetTransactionsMethodJrpcTransportImplConstMeta,
+      argValues: [that, address, fromLt, count],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionsMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_transactions__method__JrpcTransportImpl",
+            argNames: ["that", "address", "fromLt", "count"],
+          );
+
+  Future<String?> getTransactionMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, required String hash, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = _platform.api2wire_String(hash);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_transaction__method__JrpcTransportImpl(port_, arg0, arg1),
+      parseSuccessData: _wire2api_opt_String,
+      constMeta: kGetTransactionMethodJrpcTransportImplConstMeta,
+      argValues: [that, hash],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_transaction__method__JrpcTransportImpl",
+            argNames: ["that", "hash"],
+          );
+
+  Future<int?> getSignatureIdMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_signature_id__method__JrpcTransportImpl(port_, arg0),
+      parseSuccessData: _wire2api_opt_box_autoadd_i32,
+      constMeta: kGetSignatureIdMethodJrpcTransportImplConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetSignatureIdMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_signature_id__method__JrpcTransportImpl",
+            argNames: ["that"],
+          );
+
+  Future<int> getNetworkIdMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_network_id__method__JrpcTransportImpl(port_, arg0),
+      parseSuccessData: _wire2api_i32,
+      constMeta: kGetNetworkIdMethodJrpcTransportImplConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetNetworkIdMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_network_id__method__JrpcTransportImpl",
+            argNames: ["that"],
+          );
+
+  Future<TokenWalletDartWrapper> subscribeStaticMethodTokenWalletDartWrapper(
+      {required String instanceHash,
+      required String owner,
+      required String rootTokenContract,
+      required ArcTransportBoxTrait transport,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(instanceHash);
+    var arg1 = _platform.api2wire_String(owner);
+    var arg2 = _platform.api2wire_String(rootTokenContract);
+    var arg3 = _platform.api2wire_ArcTransportBoxTrait(transport);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_subscribe__static_method__TokenWalletDartWrapper(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: (d) => _wire2api_token_wallet_dart_wrapper(d),
+      constMeta: kSubscribeStaticMethodTokenWalletDartWrapperConstMeta,
+      argValues: [instanceHash, owner, rootTokenContract, transport],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kSubscribeStaticMethodTokenWalletDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "subscribe__static_method__TokenWalletDartWrapper",
+            argNames: [
+              "instanceHash",
+              "owner",
+              "rootTokenContract",
+              "transport"
+            ],
+          );
+
+  Future<String> ownerMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_owner__method__TokenWalletDartWrapper(port_, arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kOwnerMethodTokenWalletDartWrapperConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kOwnerMethodTokenWalletDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "owner__method__TokenWalletDartWrapper",
+            argNames: ["that"],
+          );
+
+  Future<String> addressMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_address__method__TokenWalletDartWrapper(port_, arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kAddressMethodTokenWalletDartWrapperConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kAddressMethodTokenWalletDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "address__method__TokenWalletDartWrapper",
+            argNames: ["that"],
+          );
+
+  Future<String> symbolMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_symbol__method__TokenWalletDartWrapper(port_, arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kSymbolMethodTokenWalletDartWrapperConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kSymbolMethodTokenWalletDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "symbol__method__TokenWalletDartWrapper",
+            argNames: ["that"],
+          );
+
+  Future<String> versionMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_version__method__TokenWalletDartWrapper(port_, arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kVersionMethodTokenWalletDartWrapperConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kVersionMethodTokenWalletDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "version__method__TokenWalletDartWrapper",
+            argNames: ["that"],
+          );
+
+  Future<String> balanceMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_balance__method__TokenWalletDartWrapper(port_, arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kBalanceMethodTokenWalletDartWrapperConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kBalanceMethodTokenWalletDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "balance__method__TokenWalletDartWrapper",
+            argNames: ["that"],
+          );
+
+  Future<String> contractStateMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_contract_state__method__TokenWalletDartWrapper(port_, arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kContractStateMethodTokenWalletDartWrapperConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kContractStateMethodTokenWalletDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "contract_state__method__TokenWalletDartWrapper",
+            argNames: ["that"],
+          );
+
+  Future<String> prepareTransferMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that,
+      required String destination,
+      required String amount,
+      required bool notifyReceiver,
+      String? attachedAmount,
+      String? payload,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
+    var arg1 = _platform.api2wire_String(destination);
+    var arg2 = _platform.api2wire_String(amount);
+    var arg3 = notifyReceiver;
+    var arg4 = _platform.api2wire_opt_String(attachedAmount);
+    var arg5 = _platform.api2wire_opt_String(payload);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_prepare_transfer__method__TokenWalletDartWrapper(
+              port_, arg0, arg1, arg2, arg3, arg4, arg5),
+      parseSuccessData: _wire2api_String,
+      constMeta: kPrepareTransferMethodTokenWalletDartWrapperConstMeta,
+      argValues: [
+        that,
+        destination,
+        amount,
+        notifyReceiver,
+        attachedAmount,
+        payload
+      ],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kPrepareTransferMethodTokenWalletDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "prepare_transfer__method__TokenWalletDartWrapper",
+            argNames: [
+              "that",
+              "destination",
+              "amount",
+              "notifyReceiver",
+              "attachedAmount",
+              "payload"
+            ],
+          );
+
+  Future<bool> refreshMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_refresh__method__TokenWalletDartWrapper(port_, arg0),
+      parseSuccessData: _wire2api_bool,
+      constMeta: kRefreshMethodTokenWalletDartWrapperConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kRefreshMethodTokenWalletDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "refresh__method__TokenWalletDartWrapper",
+            argNames: ["that"],
+          );
+
+  Future<bool> preloadTransactionsMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that,
+      required String fromLt,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
+    var arg1 = _platform.api2wire_String(fromLt);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_preload_transactions__method__TokenWalletDartWrapper(
+              port_, arg0, arg1),
+      parseSuccessData: _wire2api_bool,
+      constMeta: kPreloadTransactionsMethodTokenWalletDartWrapperConstMeta,
+      argValues: [that, fromLt],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kPreloadTransactionsMethodTokenWalletDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "preload_transactions__method__TokenWalletDartWrapper",
+            argNames: ["that", "fromLt"],
+          );
+
+  Future<bool> handleBlockMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that,
+      required String block,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
+    var arg1 = _platform.api2wire_String(block);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_handle_block__method__TokenWalletDartWrapper(port_, arg0, arg1),
+      parseSuccessData: _wire2api_bool,
+      constMeta: kHandleBlockMethodTokenWalletDartWrapperConstMeta,
+      argValues: [that, block],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kHandleBlockMethodTokenWalletDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "handle_block__method__TokenWalletDartWrapper",
+            argNames: ["that", "block"],
+          );
+
+  Future<String> getTokenWalletDetailsStaticMethodTokenWalletDartWrapper(
+      {required ArcTransportBoxTrait transport,
+      required String address,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_ArcTransportBoxTrait(transport);
+    var arg1 = _platform.api2wire_String(address);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_token_wallet_details__static_method__TokenWalletDartWrapper(
+              port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta:
+          kGetTokenWalletDetailsStaticMethodTokenWalletDartWrapperConstMeta,
+      argValues: [transport, address],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTokenWalletDetailsStaticMethodTokenWalletDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName:
+                "get_token_wallet_details__static_method__TokenWalletDartWrapper",
+            argNames: ["transport", "address"],
+          );
+
+  Future<String>
+      getTokenRootDetailsFromTokenWalletStaticMethodTokenWalletDartWrapper(
+          {required ArcTransportBoxTrait transport,
+          required String tokenWalletAddress,
+          dynamic hint}) {
+    var arg0 = _platform.api2wire_ArcTransportBoxTrait(transport);
+    var arg1 = _platform.api2wire_String(tokenWalletAddress);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper(
+              port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta:
+          kGetTokenRootDetailsFromTokenWalletStaticMethodTokenWalletDartWrapperConstMeta,
+      argValues: [transport, tokenWalletAddress],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTokenRootDetailsFromTokenWalletStaticMethodTokenWalletDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName:
+                "get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper",
+            argNames: ["transport", "tokenWalletAddress"],
+          );
+
+  Future<KeystoreDartWrapper> newStaticMethodKeystoreDartWrapper(
+      {required StorageDartWrapper storage,
+      required List<KeySigner> signers,
+      LedgerConnectionDartWrapper? ledgerConnection,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_storage_dart_wrapper(storage);
+    var arg1 = _platform.api2wire_list_key_signer(signers);
+    var arg2 =
+        _platform.api2wire_opt_box_autoadd_ledger_connection_dart_wrapper(
+            ledgerConnection);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_new__static_method__KeystoreDartWrapper(
+              port_, arg0, arg1, arg2),
+      parseSuccessData: (d) => _wire2api_keystore_dart_wrapper(d),
+      constMeta: kNewStaticMethodKeystoreDartWrapperConstMeta,
+      argValues: [storage, signers, ledgerConnection],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodKeystoreDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "new__static_method__KeystoreDartWrapper",
+            argNames: ["storage", "signers", "ledgerConnection"],
+          );
+
+  Future<String> getEntriesMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_entries__method__KeystoreDartWrapper(port_, arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetEntriesMethodKeystoreDartWrapperConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetEntriesMethodKeystoreDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_entries__method__KeystoreDartWrapper",
+            argNames: ["that"],
+          );
+
+  Future<String> addKeyMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String input,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
+    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
+    var arg2 = _platform.api2wire_String(input);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_add_key__method__KeystoreDartWrapper(port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_String,
+      constMeta: kAddKeyMethodKeystoreDartWrapperConstMeta,
+      argValues: [that, signer, input],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kAddKeyMethodKeystoreDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "add_key__method__KeystoreDartWrapper",
+            argNames: ["that", "signer", "input"],
+          );
+
+  Future<String> addKeysMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String input,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
+    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
+    var arg2 = _platform.api2wire_String(input);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_add_keys__method__KeystoreDartWrapper(port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_String,
+      constMeta: kAddKeysMethodKeystoreDartWrapperConstMeta,
+      argValues: [that, signer, input],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kAddKeysMethodKeystoreDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "add_keys__method__KeystoreDartWrapper",
+            argNames: ["that", "signer", "input"],
+          );
+
+  Future<String> updateKeyMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String input,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
+    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
+    var arg2 = _platform.api2wire_String(input);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_update_key__method__KeystoreDartWrapper(
+              port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_String,
+      constMeta: kUpdateKeyMethodKeystoreDartWrapperConstMeta,
+      argValues: [that, signer, input],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kUpdateKeyMethodKeystoreDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "update_key__method__KeystoreDartWrapper",
+            argNames: ["that", "signer", "input"],
+          );
+
+  Future<String> exportSeedMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String input,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
+    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
+    var arg2 = _platform.api2wire_String(input);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_export_seed__method__KeystoreDartWrapper(
+              port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_String,
+      constMeta: kExportSeedMethodKeystoreDartWrapperConstMeta,
+      argValues: [that, signer, input],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kExportSeedMethodKeystoreDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "export_seed__method__KeystoreDartWrapper",
+            argNames: ["that", "signer", "input"],
+          );
+
+  Future<List<String>> getPublicKeysMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String input,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
+    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
+    var arg2 = _platform.api2wire_String(input);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_public_keys__method__KeystoreDartWrapper(
+              port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_StringList,
+      constMeta: kGetPublicKeysMethodKeystoreDartWrapperConstMeta,
+      argValues: [that, signer, input],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetPublicKeysMethodKeystoreDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_public_keys__method__KeystoreDartWrapper",
+            argNames: ["that", "signer", "input"],
+          );
+
+  Future<String> encryptMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String data,
+      required List<String> publicKeys,
+      required String algorithm,
+      required String input,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
+    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
+    var arg2 = _platform.api2wire_String(data);
+    var arg3 = _platform.api2wire_StringList(publicKeys);
+    var arg4 = _platform.api2wire_String(algorithm);
+    var arg5 = _platform.api2wire_String(input);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_encrypt__method__KeystoreDartWrapper(
+              port_, arg0, arg1, arg2, arg3, arg4, arg5),
+      parseSuccessData: _wire2api_String,
+      constMeta: kEncryptMethodKeystoreDartWrapperConstMeta,
+      argValues: [that, signer, data, publicKeys, algorithm, input],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kEncryptMethodKeystoreDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "encrypt__method__KeystoreDartWrapper",
+            argNames: [
+              "that",
+              "signer",
+              "data",
+              "publicKeys",
+              "algorithm",
+              "input"
+            ],
+          );
+
+  Future<String> decryptMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String data,
+      required String input,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
+    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
+    var arg2 = _platform.api2wire_String(data);
+    var arg3 = _platform.api2wire_String(input);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_decrypt__method__KeystoreDartWrapper(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kDecryptMethodKeystoreDartWrapperConstMeta,
+      argValues: [that, signer, data, input],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kDecryptMethodKeystoreDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "decrypt__method__KeystoreDartWrapper",
+            argNames: ["that", "signer", "data", "input"],
+          );
+
+  Future<String> signMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String data,
+      required String input,
+      int? signatureId,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
+    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
+    var arg2 = _platform.api2wire_String(data);
+    var arg3 = _platform.api2wire_String(input);
+    var arg4 = _platform.api2wire_opt_box_autoadd_i32(signatureId);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_sign__method__KeystoreDartWrapper(
+              port_, arg0, arg1, arg2, arg3, arg4),
+      parseSuccessData: _wire2api_String,
+      constMeta: kSignMethodKeystoreDartWrapperConstMeta,
+      argValues: [that, signer, data, input, signatureId],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kSignMethodKeystoreDartWrapperConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "sign__method__KeystoreDartWrapper",
+        argNames: ["that", "signer", "data", "input", "signatureId"],
+      );
+
+  Future<SignedData> signDataMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String data,
+      required String input,
+      int? signatureId,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
+    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
+    var arg2 = _platform.api2wire_String(data);
+    var arg3 = _platform.api2wire_String(input);
+    var arg4 = _platform.api2wire_opt_box_autoadd_i32(signatureId);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_sign_data__method__KeystoreDartWrapper(
+              port_, arg0, arg1, arg2, arg3, arg4),
+      parseSuccessData: _wire2api_signed_data,
+      constMeta: kSignDataMethodKeystoreDartWrapperConstMeta,
+      argValues: [that, signer, data, input, signatureId],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kSignDataMethodKeystoreDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "sign_data__method__KeystoreDartWrapper",
+            argNames: ["that", "signer", "data", "input", "signatureId"],
+          );
+
+  Future<SignedDataRaw> signDataRawMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required KeySigner signer,
+      required String data,
+      required String input,
+      int? signatureId,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
+    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
+    var arg2 = _platform.api2wire_String(data);
+    var arg3 = _platform.api2wire_String(input);
+    var arg4 = _platform.api2wire_opt_box_autoadd_i32(signatureId);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_sign_data_raw__method__KeystoreDartWrapper(
+              port_, arg0, arg1, arg2, arg3, arg4),
+      parseSuccessData: _wire2api_signed_data_raw,
+      constMeta: kSignDataRawMethodKeystoreDartWrapperConstMeta,
+      argValues: [that, signer, data, input, signatureId],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kSignDataRawMethodKeystoreDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "sign_data_raw__method__KeystoreDartWrapper",
+            argNames: ["that", "signer", "data", "input", "signatureId"],
+          );
+
+  Future<String?> removeKeyMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required String publicKey,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
+    var arg1 = _platform.api2wire_String(publicKey);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_remove_key__method__KeystoreDartWrapper(port_, arg0, arg1),
+      parseSuccessData: _wire2api_opt_String,
+      constMeta: kRemoveKeyMethodKeystoreDartWrapperConstMeta,
+      argValues: [that, publicKey],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kRemoveKeyMethodKeystoreDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "remove_key__method__KeystoreDartWrapper",
+            argNames: ["that", "publicKey"],
+          );
+
+  Future<String> removeKeysMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required List<String> publicKeys,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
+    var arg1 = _platform.api2wire_StringList(publicKeys);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_remove_keys__method__KeystoreDartWrapper(port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kRemoveKeysMethodKeystoreDartWrapperConstMeta,
+      argValues: [that, publicKeys],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kRemoveKeysMethodKeystoreDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "remove_keys__method__KeystoreDartWrapper",
+            argNames: ["that", "publicKeys"],
+          );
+
+  Future<bool> isPasswordCachedMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that,
+      required String publicKey,
+      required int duration,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
+    var arg1 = _platform.api2wire_String(publicKey);
+    var arg2 = _platform.api2wire_u64(duration);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_is_password_cached__method__KeystoreDartWrapper(
+              port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_bool,
+      constMeta: kIsPasswordCachedMethodKeystoreDartWrapperConstMeta,
+      argValues: [that, publicKey, duration],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kIsPasswordCachedMethodKeystoreDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "is_password_cached__method__KeystoreDartWrapper",
+            argNames: ["that", "publicKey", "duration"],
+          );
+
+  Future<String> clearKeystoreMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_clear_keystore__method__KeystoreDartWrapper(port_, arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kClearKeystoreMethodKeystoreDartWrapperConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kClearKeystoreMethodKeystoreDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "clear_keystore__method__KeystoreDartWrapper",
+            argNames: ["that"],
+          );
+
+  Future<String> reloadKeystoreMethodKeystoreDartWrapper(
+      {required KeystoreDartWrapper that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_reload_keystore__method__KeystoreDartWrapper(port_, arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kReloadKeystoreMethodKeystoreDartWrapperConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kReloadKeystoreMethodKeystoreDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "reload_keystore__method__KeystoreDartWrapper",
+            argNames: ["that"],
+          );
+
+  Future<bool> verifyDataStaticMethodKeystoreDartWrapper(
+      {required List<KeySigner> signers,
+      LedgerConnectionDartWrapper? ledgerConnection,
+      required String data,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_list_key_signer(signers);
+    var arg1 =
+        _platform.api2wire_opt_box_autoadd_ledger_connection_dart_wrapper(
+            ledgerConnection);
+    var arg2 = _platform.api2wire_String(data);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_verify_data__static_method__KeystoreDartWrapper(
+              port_, arg0, arg1, arg2),
+      parseSuccessData: _wire2api_bool,
+      constMeta: kVerifyDataStaticMethodKeystoreDartWrapperConstMeta,
+      argValues: [signers, ledgerConnection, data],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kVerifyDataStaticMethodKeystoreDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "verify_data__static_method__KeystoreDartWrapper",
+            argNames: ["signers", "ledgerConnection", "data"],
+          );
 
   Future<AccountsStorageImpl> newStaticMethodAccountsStorageImpl(
       {required StorageDartWrapper storage, dynamic hint}) {
@@ -5020,797 +6126,6 @@ class NekotonBridgeImpl implements NekotonBridge {
           const FlutterRustBridgeTaskConstMeta(
             debugName: "handle_block__method__GenericContractDartWrapper",
             argNames: ["that", "block"],
-          );
-
-  Future<KeystoreDartWrapper> newStaticMethodKeystoreDartWrapper(
-      {required StorageDartWrapper storage,
-      required List<KeySigner> signers,
-      LedgerConnectionDartWrapper? ledgerConnection,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_storage_dart_wrapper(storage);
-    var arg1 = _platform.api2wire_list_key_signer(signers);
-    var arg2 =
-        _platform.api2wire_opt_box_autoadd_ledger_connection_dart_wrapper(
-            ledgerConnection);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_new__static_method__KeystoreDartWrapper(
-              port_, arg0, arg1, arg2),
-      parseSuccessData: (d) => _wire2api_keystore_dart_wrapper(d),
-      constMeta: kNewStaticMethodKeystoreDartWrapperConstMeta,
-      argValues: [storage, signers, ledgerConnection],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodKeystoreDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "new__static_method__KeystoreDartWrapper",
-            argNames: ["storage", "signers", "ledgerConnection"],
-          );
-
-  Future<String> getEntriesMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_get_entries__method__KeystoreDartWrapper(port_, arg0),
-      parseSuccessData: _wire2api_String,
-      constMeta: kGetEntriesMethodKeystoreDartWrapperConstMeta,
-      argValues: [that],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetEntriesMethodKeystoreDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "get_entries__method__KeystoreDartWrapper",
-            argNames: ["that"],
-          );
-
-  Future<String> addKeyMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
-    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
-    var arg2 = _platform.api2wire_String(input);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_add_key__method__KeystoreDartWrapper(port_, arg0, arg1, arg2),
-      parseSuccessData: _wire2api_String,
-      constMeta: kAddKeyMethodKeystoreDartWrapperConstMeta,
-      argValues: [that, signer, input],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kAddKeyMethodKeystoreDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "add_key__method__KeystoreDartWrapper",
-            argNames: ["that", "signer", "input"],
-          );
-
-  Future<String> addKeysMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
-    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
-    var arg2 = _platform.api2wire_String(input);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_add_keys__method__KeystoreDartWrapper(port_, arg0, arg1, arg2),
-      parseSuccessData: _wire2api_String,
-      constMeta: kAddKeysMethodKeystoreDartWrapperConstMeta,
-      argValues: [that, signer, input],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kAddKeysMethodKeystoreDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "add_keys__method__KeystoreDartWrapper",
-            argNames: ["that", "signer", "input"],
-          );
-
-  Future<String> updateKeyMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
-    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
-    var arg2 = _platform.api2wire_String(input);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_update_key__method__KeystoreDartWrapper(
-              port_, arg0, arg1, arg2),
-      parseSuccessData: _wire2api_String,
-      constMeta: kUpdateKeyMethodKeystoreDartWrapperConstMeta,
-      argValues: [that, signer, input],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kUpdateKeyMethodKeystoreDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "update_key__method__KeystoreDartWrapper",
-            argNames: ["that", "signer", "input"],
-          );
-
-  Future<String> exportSeedMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
-    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
-    var arg2 = _platform.api2wire_String(input);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_export_seed__method__KeystoreDartWrapper(
-              port_, arg0, arg1, arg2),
-      parseSuccessData: _wire2api_String,
-      constMeta: kExportSeedMethodKeystoreDartWrapperConstMeta,
-      argValues: [that, signer, input],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kExportSeedMethodKeystoreDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "export_seed__method__KeystoreDartWrapper",
-            argNames: ["that", "signer", "input"],
-          );
-
-  Future<List<String>> getPublicKeysMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
-    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
-    var arg2 = _platform.api2wire_String(input);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_get_public_keys__method__KeystoreDartWrapper(
-              port_, arg0, arg1, arg2),
-      parseSuccessData: _wire2api_StringList,
-      constMeta: kGetPublicKeysMethodKeystoreDartWrapperConstMeta,
-      argValues: [that, signer, input],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetPublicKeysMethodKeystoreDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "get_public_keys__method__KeystoreDartWrapper",
-            argNames: ["that", "signer", "input"],
-          );
-
-  Future<String> encryptMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required List<String> publicKeys,
-      required String algorithm,
-      required String input,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
-    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
-    var arg2 = _platform.api2wire_String(data);
-    var arg3 = _platform.api2wire_StringList(publicKeys);
-    var arg4 = _platform.api2wire_String(algorithm);
-    var arg5 = _platform.api2wire_String(input);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_encrypt__method__KeystoreDartWrapper(
-              port_, arg0, arg1, arg2, arg3, arg4, arg5),
-      parseSuccessData: _wire2api_String,
-      constMeta: kEncryptMethodKeystoreDartWrapperConstMeta,
-      argValues: [that, signer, data, publicKeys, algorithm, input],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kEncryptMethodKeystoreDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "encrypt__method__KeystoreDartWrapper",
-            argNames: [
-              "that",
-              "signer",
-              "data",
-              "publicKeys",
-              "algorithm",
-              "input"
-            ],
-          );
-
-  Future<String> decryptMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required String input,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
-    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
-    var arg2 = _platform.api2wire_String(data);
-    var arg3 = _platform.api2wire_String(input);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_decrypt__method__KeystoreDartWrapper(
-              port_, arg0, arg1, arg2, arg3),
-      parseSuccessData: _wire2api_String,
-      constMeta: kDecryptMethodKeystoreDartWrapperConstMeta,
-      argValues: [that, signer, data, input],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kDecryptMethodKeystoreDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "decrypt__method__KeystoreDartWrapper",
-            argNames: ["that", "signer", "data", "input"],
-          );
-
-  Future<String> signMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required String input,
-      int? signatureId,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
-    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
-    var arg2 = _platform.api2wire_String(data);
-    var arg3 = _platform.api2wire_String(input);
-    var arg4 = _platform.api2wire_opt_box_autoadd_i32(signatureId);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_sign__method__KeystoreDartWrapper(
-              port_, arg0, arg1, arg2, arg3, arg4),
-      parseSuccessData: _wire2api_String,
-      constMeta: kSignMethodKeystoreDartWrapperConstMeta,
-      argValues: [that, signer, data, input, signatureId],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kSignMethodKeystoreDartWrapperConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "sign__method__KeystoreDartWrapper",
-        argNames: ["that", "signer", "data", "input", "signatureId"],
-      );
-
-  Future<SignedData> signDataMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required String input,
-      int? signatureId,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
-    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
-    var arg2 = _platform.api2wire_String(data);
-    var arg3 = _platform.api2wire_String(input);
-    var arg4 = _platform.api2wire_opt_box_autoadd_i32(signatureId);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_sign_data__method__KeystoreDartWrapper(
-              port_, arg0, arg1, arg2, arg3, arg4),
-      parseSuccessData: _wire2api_signed_data,
-      constMeta: kSignDataMethodKeystoreDartWrapperConstMeta,
-      argValues: [that, signer, data, input, signatureId],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kSignDataMethodKeystoreDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "sign_data__method__KeystoreDartWrapper",
-            argNames: ["that", "signer", "data", "input", "signatureId"],
-          );
-
-  Future<SignedDataRaw> signDataRawMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required String input,
-      int? signatureId,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
-    var arg1 = _platform.api2wire_box_autoadd_key_signer(signer);
-    var arg2 = _platform.api2wire_String(data);
-    var arg3 = _platform.api2wire_String(input);
-    var arg4 = _platform.api2wire_opt_box_autoadd_i32(signatureId);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_sign_data_raw__method__KeystoreDartWrapper(
-              port_, arg0, arg1, arg2, arg3, arg4),
-      parseSuccessData: _wire2api_signed_data_raw,
-      constMeta: kSignDataRawMethodKeystoreDartWrapperConstMeta,
-      argValues: [that, signer, data, input, signatureId],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kSignDataRawMethodKeystoreDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "sign_data_raw__method__KeystoreDartWrapper",
-            argNames: ["that", "signer", "data", "input", "signatureId"],
-          );
-
-  Future<String?> removeKeyMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required String publicKey,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
-    var arg1 = _platform.api2wire_String(publicKey);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_remove_key__method__KeystoreDartWrapper(port_, arg0, arg1),
-      parseSuccessData: _wire2api_opt_String,
-      constMeta: kRemoveKeyMethodKeystoreDartWrapperConstMeta,
-      argValues: [that, publicKey],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kRemoveKeyMethodKeystoreDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "remove_key__method__KeystoreDartWrapper",
-            argNames: ["that", "publicKey"],
-          );
-
-  Future<String> removeKeysMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required List<String> publicKeys,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
-    var arg1 = _platform.api2wire_StringList(publicKeys);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_remove_keys__method__KeystoreDartWrapper(port_, arg0, arg1),
-      parseSuccessData: _wire2api_String,
-      constMeta: kRemoveKeysMethodKeystoreDartWrapperConstMeta,
-      argValues: [that, publicKeys],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kRemoveKeysMethodKeystoreDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "remove_keys__method__KeystoreDartWrapper",
-            argNames: ["that", "publicKeys"],
-          );
-
-  Future<bool> isPasswordCachedMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that,
-      required String publicKey,
-      required int duration,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
-    var arg1 = _platform.api2wire_String(publicKey);
-    var arg2 = _platform.api2wire_u64(duration);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_is_password_cached__method__KeystoreDartWrapper(
-              port_, arg0, arg1, arg2),
-      parseSuccessData: _wire2api_bool,
-      constMeta: kIsPasswordCachedMethodKeystoreDartWrapperConstMeta,
-      argValues: [that, publicKey, duration],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kIsPasswordCachedMethodKeystoreDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "is_password_cached__method__KeystoreDartWrapper",
-            argNames: ["that", "publicKey", "duration"],
-          );
-
-  Future<String> clearKeystoreMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_clear_keystore__method__KeystoreDartWrapper(port_, arg0),
-      parseSuccessData: _wire2api_String,
-      constMeta: kClearKeystoreMethodKeystoreDartWrapperConstMeta,
-      argValues: [that],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kClearKeystoreMethodKeystoreDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "clear_keystore__method__KeystoreDartWrapper",
-            argNames: ["that"],
-          );
-
-  Future<String> reloadKeystoreMethodKeystoreDartWrapper(
-      {required KeystoreDartWrapper that, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_keystore_dart_wrapper(that);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_reload_keystore__method__KeystoreDartWrapper(port_, arg0),
-      parseSuccessData: _wire2api_String,
-      constMeta: kReloadKeystoreMethodKeystoreDartWrapperConstMeta,
-      argValues: [that],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kReloadKeystoreMethodKeystoreDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "reload_keystore__method__KeystoreDartWrapper",
-            argNames: ["that"],
-          );
-
-  Future<bool> verifyDataStaticMethodKeystoreDartWrapper(
-      {required List<KeySigner> signers,
-      LedgerConnectionDartWrapper? ledgerConnection,
-      required String data,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_list_key_signer(signers);
-    var arg1 =
-        _platform.api2wire_opt_box_autoadd_ledger_connection_dart_wrapper(
-            ledgerConnection);
-    var arg2 = _platform.api2wire_String(data);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_verify_data__static_method__KeystoreDartWrapper(
-              port_, arg0, arg1, arg2),
-      parseSuccessData: _wire2api_bool,
-      constMeta: kVerifyDataStaticMethodKeystoreDartWrapperConstMeta,
-      argValues: [signers, ledgerConnection, data],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kVerifyDataStaticMethodKeystoreDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "verify_data__static_method__KeystoreDartWrapper",
-            argNames: ["signers", "ledgerConnection", "data"],
-          );
-
-  Future<TokenWalletDartWrapper> subscribeStaticMethodTokenWalletDartWrapper(
-      {required String instanceHash,
-      required String owner,
-      required String rootTokenContract,
-      required ArcTransportBoxTrait transport,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_String(instanceHash);
-    var arg1 = _platform.api2wire_String(owner);
-    var arg2 = _platform.api2wire_String(rootTokenContract);
-    var arg3 = _platform.api2wire_ArcTransportBoxTrait(transport);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_subscribe__static_method__TokenWalletDartWrapper(
-              port_, arg0, arg1, arg2, arg3),
-      parseSuccessData: (d) => _wire2api_token_wallet_dart_wrapper(d),
-      constMeta: kSubscribeStaticMethodTokenWalletDartWrapperConstMeta,
-      argValues: [instanceHash, owner, rootTokenContract, transport],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kSubscribeStaticMethodTokenWalletDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "subscribe__static_method__TokenWalletDartWrapper",
-            argNames: [
-              "instanceHash",
-              "owner",
-              "rootTokenContract",
-              "transport"
-            ],
-          );
-
-  Future<String> ownerMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_owner__method__TokenWalletDartWrapper(port_, arg0),
-      parseSuccessData: _wire2api_String,
-      constMeta: kOwnerMethodTokenWalletDartWrapperConstMeta,
-      argValues: [that],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kOwnerMethodTokenWalletDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "owner__method__TokenWalletDartWrapper",
-            argNames: ["that"],
-          );
-
-  Future<String> addressMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_address__method__TokenWalletDartWrapper(port_, arg0),
-      parseSuccessData: _wire2api_String,
-      constMeta: kAddressMethodTokenWalletDartWrapperConstMeta,
-      argValues: [that],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kAddressMethodTokenWalletDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "address__method__TokenWalletDartWrapper",
-            argNames: ["that"],
-          );
-
-  Future<String> symbolMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_symbol__method__TokenWalletDartWrapper(port_, arg0),
-      parseSuccessData: _wire2api_String,
-      constMeta: kSymbolMethodTokenWalletDartWrapperConstMeta,
-      argValues: [that],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kSymbolMethodTokenWalletDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "symbol__method__TokenWalletDartWrapper",
-            argNames: ["that"],
-          );
-
-  Future<String> versionMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_version__method__TokenWalletDartWrapper(port_, arg0),
-      parseSuccessData: _wire2api_String,
-      constMeta: kVersionMethodTokenWalletDartWrapperConstMeta,
-      argValues: [that],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kVersionMethodTokenWalletDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "version__method__TokenWalletDartWrapper",
-            argNames: ["that"],
-          );
-
-  Future<String> balanceMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_balance__method__TokenWalletDartWrapper(port_, arg0),
-      parseSuccessData: _wire2api_String,
-      constMeta: kBalanceMethodTokenWalletDartWrapperConstMeta,
-      argValues: [that],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kBalanceMethodTokenWalletDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "balance__method__TokenWalletDartWrapper",
-            argNames: ["that"],
-          );
-
-  Future<String> contractStateMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_contract_state__method__TokenWalletDartWrapper(port_, arg0),
-      parseSuccessData: _wire2api_String,
-      constMeta: kContractStateMethodTokenWalletDartWrapperConstMeta,
-      argValues: [that],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kContractStateMethodTokenWalletDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "contract_state__method__TokenWalletDartWrapper",
-            argNames: ["that"],
-          );
-
-  Future<String> prepareTransferMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that,
-      required String destination,
-      required String amount,
-      required bool notifyReceiver,
-      String? attachedAmount,
-      String? payload,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
-    var arg1 = _platform.api2wire_String(destination);
-    var arg2 = _platform.api2wire_String(amount);
-    var arg3 = notifyReceiver;
-    var arg4 = _platform.api2wire_opt_String(attachedAmount);
-    var arg5 = _platform.api2wire_opt_String(payload);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_prepare_transfer__method__TokenWalletDartWrapper(
-              port_, arg0, arg1, arg2, arg3, arg4, arg5),
-      parseSuccessData: _wire2api_String,
-      constMeta: kPrepareTransferMethodTokenWalletDartWrapperConstMeta,
-      argValues: [
-        that,
-        destination,
-        amount,
-        notifyReceiver,
-        attachedAmount,
-        payload
-      ],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kPrepareTransferMethodTokenWalletDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "prepare_transfer__method__TokenWalletDartWrapper",
-            argNames: [
-              "that",
-              "destination",
-              "amount",
-              "notifyReceiver",
-              "attachedAmount",
-              "payload"
-            ],
-          );
-
-  Future<bool> refreshMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_refresh__method__TokenWalletDartWrapper(port_, arg0),
-      parseSuccessData: _wire2api_bool,
-      constMeta: kRefreshMethodTokenWalletDartWrapperConstMeta,
-      argValues: [that],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kRefreshMethodTokenWalletDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "refresh__method__TokenWalletDartWrapper",
-            argNames: ["that"],
-          );
-
-  Future<bool> preloadTransactionsMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that,
-      required String fromLt,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
-    var arg1 = _platform.api2wire_String(fromLt);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_preload_transactions__method__TokenWalletDartWrapper(
-              port_, arg0, arg1),
-      parseSuccessData: _wire2api_bool,
-      constMeta: kPreloadTransactionsMethodTokenWalletDartWrapperConstMeta,
-      argValues: [that, fromLt],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kPreloadTransactionsMethodTokenWalletDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "preload_transactions__method__TokenWalletDartWrapper",
-            argNames: ["that", "fromLt"],
-          );
-
-  Future<bool> handleBlockMethodTokenWalletDartWrapper(
-      {required TokenWalletDartWrapper that,
-      required String block,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
-    var arg1 = _platform.api2wire_String(block);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_handle_block__method__TokenWalletDartWrapper(port_, arg0, arg1),
-      parseSuccessData: _wire2api_bool,
-      constMeta: kHandleBlockMethodTokenWalletDartWrapperConstMeta,
-      argValues: [that, block],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kHandleBlockMethodTokenWalletDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "handle_block__method__TokenWalletDartWrapper",
-            argNames: ["that", "block"],
-          );
-
-  Future<String> getTokenWalletDetailsStaticMethodTokenWalletDartWrapper(
-      {required ArcTransportBoxTrait transport,
-      required String address,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_ArcTransportBoxTrait(transport);
-    var arg1 = _platform.api2wire_String(address);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_get_token_wallet_details__static_method__TokenWalletDartWrapper(
-              port_, arg0, arg1),
-      parseSuccessData: _wire2api_String,
-      constMeta:
-          kGetTokenWalletDetailsStaticMethodTokenWalletDartWrapperConstMeta,
-      argValues: [transport, address],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetTokenWalletDetailsStaticMethodTokenWalletDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName:
-                "get_token_wallet_details__static_method__TokenWalletDartWrapper",
-            argNames: ["transport", "address"],
-          );
-
-  Future<String>
-      getTokenRootDetailsFromTokenWalletStaticMethodTokenWalletDartWrapper(
-          {required ArcTransportBoxTrait transport,
-          required String tokenWalletAddress,
-          dynamic hint}) {
-    var arg0 = _platform.api2wire_ArcTransportBoxTrait(transport);
-    var arg1 = _platform.api2wire_String(tokenWalletAddress);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper(
-              port_, arg0, arg1),
-      parseSuccessData: _wire2api_String,
-      constMeta:
-          kGetTokenRootDetailsFromTokenWalletStaticMethodTokenWalletDartWrapperConstMeta,
-      argValues: [transport, tokenWalletAddress],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetTokenRootDetailsFromTokenWalletStaticMethodTokenWalletDartWrapperConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName:
-                "get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper",
-            argNames: ["transport", "tokenWalletAddress"],
           );
 
   Future<TonWalletDartWrapper> subscribeStaticMethodTonWalletDartWrapper(
@@ -6443,441 +6758,126 @@ class NekotonBridgeImpl implements NekotonBridge {
             argNames: ["transport", "address"],
           );
 
-  Future<GqlTransportImpl> newStaticMethodGqlTransportImpl(
-      {required GqlConnectionDartWrapper gqlConnection, dynamic hint}) {
-    var arg0 = _platform
-        .api2wire_box_autoadd_gql_connection_dart_wrapper(gqlConnection);
+  Future<JrpcConnectionDartWrapper> newStaticMethodJrpcConnectionDartWrapper(
+      {required String instanceHash, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(instanceHash);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
-          .wire_new__static_method__GqlTransportImpl(port_, arg0),
-      parseSuccessData: (d) => _wire2api_gql_transport_impl(d),
-      constMeta: kNewStaticMethodGqlTransportImplConstMeta,
-      argValues: [gqlConnection],
+          .wire_new__static_method__JrpcConnectionDartWrapper(port_, arg0),
+      parseSuccessData: (d) => _wire2api_jrpc_connection_dart_wrapper(d),
+      constMeta: kNewStaticMethodJrpcConnectionDartWrapperConstMeta,
+      argValues: [instanceHash],
       hint: hint,
     ));
   }
 
   FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodGqlTransportImplConstMeta =>
+      get kNewStaticMethodJrpcConnectionDartWrapperConstMeta =>
           const FlutterRustBridgeTaskConstMeta(
-            debugName: "new__static_method__GqlTransportImpl",
-            argNames: ["gqlConnection"],
+            debugName: "new__static_method__JrpcConnectionDartWrapper",
+            argNames: ["instanceHash"],
           );
 
-  Future<String> getContractStateMethodGqlTransportImpl(
-      {required GqlTransportImpl that, required String address, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
-    var arg1 = _platform.api2wire_String(address);
+  Future<GqlConnectionDartWrapper> newStaticMethodGqlConnectionDartWrapper(
+      {required bool isLocal, required String instanceHash, dynamic hint}) {
+    var arg0 = isLocal;
+    var arg1 = _platform.api2wire_String(instanceHash);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
-          .wire_get_contract_state__method__GqlTransportImpl(port_, arg0, arg1),
-      parseSuccessData: _wire2api_String,
-      constMeta: kGetContractStateMethodGqlTransportImplConstMeta,
-      argValues: [that, address],
+          .wire_new__static_method__GqlConnectionDartWrapper(port_, arg0, arg1),
+      parseSuccessData: (d) => _wire2api_gql_connection_dart_wrapper(d),
+      constMeta: kNewStaticMethodGqlConnectionDartWrapperConstMeta,
+      argValues: [isLocal, instanceHash],
       hint: hint,
     ));
   }
 
   FlutterRustBridgeTaskConstMeta
-      get kGetContractStateMethodGqlTransportImplConstMeta =>
+      get kNewStaticMethodGqlConnectionDartWrapperConstMeta =>
           const FlutterRustBridgeTaskConstMeta(
-            debugName: "get_contract_state__method__GqlTransportImpl",
-            argNames: ["that", "address"],
+            debugName: "new__static_method__GqlConnectionDartWrapper",
+            argNames: ["isLocal", "instanceHash"],
           );
 
-  Future<String> getFullContractStateMethodGqlTransportImpl(
-      {required GqlTransportImpl that, required String address, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
-    var arg1 = _platform.api2wire_String(address);
+  Future<LedgerConnectionDartWrapper>
+      newStaticMethodLedgerConnectionDartWrapper(
+          {required String instanceHash, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(instanceHash);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
-          .wire_get_full_contract_state__method__GqlTransportImpl(
-              port_, arg0, arg1),
-      parseSuccessData: _wire2api_String,
-      constMeta: kGetFullContractStateMethodGqlTransportImplConstMeta,
-      argValues: [that, address],
+          .wire_new__static_method__LedgerConnectionDartWrapper(port_, arg0),
+      parseSuccessData: (d) => _wire2api_ledger_connection_dart_wrapper(d),
+      constMeta: kNewStaticMethodLedgerConnectionDartWrapperConstMeta,
+      argValues: [instanceHash],
       hint: hint,
     ));
   }
 
   FlutterRustBridgeTaskConstMeta
-      get kGetFullContractStateMethodGqlTransportImplConstMeta =>
+      get kNewStaticMethodLedgerConnectionDartWrapperConstMeta =>
           const FlutterRustBridgeTaskConstMeta(
-            debugName: "get_full_contract_state__method__GqlTransportImpl",
-            argNames: ["that", "address"],
+            debugName: "new__static_method__LedgerConnectionDartWrapper",
+            argNames: ["instanceHash"],
           );
 
-  Future<String> getAccountsByCodeHashMethodGqlTransportImpl(
-      {required GqlTransportImpl that,
-      required String codeHash,
-      required int limit,
-      String? continuation,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
-    var arg1 = _platform.api2wire_String(codeHash);
-    var arg2 = api2wire_u8(limit);
-    var arg3 = _platform.api2wire_opt_String(continuation);
+  Future<LedgerConnectionImpl> newStaticMethodLedgerConnectionImpl(
+      {required String instanceHash, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(instanceHash);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
-          .wire_get_accounts_by_code_hash__method__GqlTransportImpl(
-              port_, arg0, arg1, arg2, arg3),
-      parseSuccessData: _wire2api_String,
-      constMeta: kGetAccountsByCodeHashMethodGqlTransportImplConstMeta,
-      argValues: [that, codeHash, limit, continuation],
+          .wire_new__static_method__LedgerConnectionImpl(port_, arg0),
+      parseSuccessData: (d) => _wire2api_ledger_connection_impl(d),
+      constMeta: kNewStaticMethodLedgerConnectionImplConstMeta,
+      argValues: [instanceHash],
       hint: hint,
     ));
   }
 
   FlutterRustBridgeTaskConstMeta
-      get kGetAccountsByCodeHashMethodGqlTransportImplConstMeta =>
+      get kNewStaticMethodLedgerConnectionImplConstMeta =>
           const FlutterRustBridgeTaskConstMeta(
-            debugName: "get_accounts_by_code_hash__method__GqlTransportImpl",
-            argNames: ["that", "codeHash", "limit", "continuation"],
+            debugName: "new__static_method__LedgerConnectionImpl",
+            argNames: ["instanceHash"],
           );
 
-  Future<String> getTransactionsMethodGqlTransportImpl(
-      {required GqlTransportImpl that,
-      required String address,
-      int? fromLt,
-      required int count,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
-    var arg1 = _platform.api2wire_String(address);
-    var arg2 = _platform.api2wire_opt_box_autoadd_u64(fromLt);
-    var arg3 = api2wire_u8(count);
+  Future<StorageDartWrapper> newStaticMethodStorageDartWrapper(
+      {required String instanceHash, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(instanceHash);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
-          .wire_get_transactions__method__GqlTransportImpl(
-              port_, arg0, arg1, arg2, arg3),
-      parseSuccessData: _wire2api_String,
-      constMeta: kGetTransactionsMethodGqlTransportImplConstMeta,
-      argValues: [that, address, fromLt, count],
+          .wire_new__static_method__StorageDartWrapper(port_, arg0),
+      parseSuccessData: (d) => _wire2api_storage_dart_wrapper(d),
+      constMeta: kNewStaticMethodStorageDartWrapperConstMeta,
+      argValues: [instanceHash],
       hint: hint,
     ));
   }
 
   FlutterRustBridgeTaskConstMeta
-      get kGetTransactionsMethodGqlTransportImplConstMeta =>
+      get kNewStaticMethodStorageDartWrapperConstMeta =>
           const FlutterRustBridgeTaskConstMeta(
-            debugName: "get_transactions__method__GqlTransportImpl",
-            argNames: ["that", "address", "fromLt", "count"],
+            debugName: "new__static_method__StorageDartWrapper",
+            argNames: ["instanceHash"],
           );
 
-  Future<String?> getTransactionMethodGqlTransportImpl(
-      {required GqlTransportImpl that, required String hash, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
-    var arg1 = _platform.api2wire_String(hash);
+  Future<StorageImpl> newStaticMethodStorageImpl(
+      {required String instanceHash, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(instanceHash);
     return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_get_transaction__method__GqlTransportImpl(port_, arg0, arg1),
-      parseSuccessData: _wire2api_opt_String,
-      constMeta: kGetTransactionMethodGqlTransportImplConstMeta,
-      argValues: [that, hash],
+      callFfi: (port_) =>
+          _platform.inner.wire_new__static_method__StorageImpl(port_, arg0),
+      parseSuccessData: (d) => _wire2api_storage_impl(d),
+      constMeta: kNewStaticMethodStorageImplConstMeta,
+      argValues: [instanceHash],
       hint: hint,
     ));
   }
 
-  FlutterRustBridgeTaskConstMeta
-      get kGetTransactionMethodGqlTransportImplConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "get_transaction__method__GqlTransportImpl",
-            argNames: ["that", "hash"],
-          );
-
-  Future<int?> getSignatureIdMethodGqlTransportImpl(
-      {required GqlTransportImpl that, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_get_signature_id__method__GqlTransportImpl(port_, arg0),
-      parseSuccessData: _wire2api_opt_box_autoadd_i32,
-      constMeta: kGetSignatureIdMethodGqlTransportImplConstMeta,
-      argValues: [that],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetSignatureIdMethodGqlTransportImplConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "get_signature_id__method__GqlTransportImpl",
-            argNames: ["that"],
-          );
-
-  Future<int> getNetworkIdMethodGqlTransportImpl(
-      {required GqlTransportImpl that, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_get_network_id__method__GqlTransportImpl(port_, arg0),
-      parseSuccessData: _wire2api_i32,
-      constMeta: kGetNetworkIdMethodGqlTransportImplConstMeta,
-      argValues: [that],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetNetworkIdMethodGqlTransportImplConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "get_network_id__method__GqlTransportImpl",
-            argNames: ["that"],
-          );
-
-  Future<LatestBlock> getLatestBlockMethodGqlTransportImpl(
-      {required GqlTransportImpl that, required String address, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
-    var arg1 = _platform.api2wire_String(address);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_get_latest_block__method__GqlTransportImpl(port_, arg0, arg1),
-      parseSuccessData: _wire2api_latest_block,
-      constMeta: kGetLatestBlockMethodGqlTransportImplConstMeta,
-      argValues: [that, address],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetLatestBlockMethodGqlTransportImplConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "get_latest_block__method__GqlTransportImpl",
-            argNames: ["that", "address"],
-          );
-
-  Future<String> getBlockMethodGqlTransportImpl(
-      {required GqlTransportImpl that, required String id, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
-    var arg1 = _platform.api2wire_String(id);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_get_block__method__GqlTransportImpl(port_, arg0, arg1),
-      parseSuccessData: _wire2api_String,
-      constMeta: kGetBlockMethodGqlTransportImplConstMeta,
-      argValues: [that, id],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kGetBlockMethodGqlTransportImplConstMeta =>
+  FlutterRustBridgeTaskConstMeta get kNewStaticMethodStorageImplConstMeta =>
       const FlutterRustBridgeTaskConstMeta(
-        debugName: "get_block__method__GqlTransportImpl",
-        argNames: ["that", "id"],
+        debugName: "new__static_method__StorageImpl",
+        argNames: ["instanceHash"],
       );
-
-  Future<String> waitForNextBlockMethodGqlTransportImpl(
-      {required GqlTransportImpl that,
-      required String currentBlockId,
-      required String address,
-      required int timeout,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
-    var arg1 = _platform.api2wire_String(currentBlockId);
-    var arg2 = _platform.api2wire_String(address);
-    var arg3 = _platform.api2wire_u64(timeout);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_wait_for_next_block__method__GqlTransportImpl(
-              port_, arg0, arg1, arg2, arg3),
-      parseSuccessData: _wire2api_String,
-      constMeta: kWaitForNextBlockMethodGqlTransportImplConstMeta,
-      argValues: [that, currentBlockId, address, timeout],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kWaitForNextBlockMethodGqlTransportImplConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "wait_for_next_block__method__GqlTransportImpl",
-            argNames: ["that", "currentBlockId", "address", "timeout"],
-          );
-
-  Future<JrpcTransportImpl> newStaticMethodJrpcTransportImpl(
-      {required JrpcConnectionDartWrapper jrpcConnection, dynamic hint}) {
-    var arg0 = _platform
-        .api2wire_box_autoadd_jrpc_connection_dart_wrapper(jrpcConnection);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_new__static_method__JrpcTransportImpl(port_, arg0),
-      parseSuccessData: (d) => _wire2api_jrpc_transport_impl(d),
-      constMeta: kNewStaticMethodJrpcTransportImplConstMeta,
-      argValues: [jrpcConnection],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kNewStaticMethodJrpcTransportImplConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "new__static_method__JrpcTransportImpl",
-            argNames: ["jrpcConnection"],
-          );
-
-  Future<String> getContractStateMethodJrpcTransportImpl(
-      {required JrpcTransportImpl that,
-      required String address,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
-    var arg1 = _platform.api2wire_String(address);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_get_contract_state__method__JrpcTransportImpl(
-              port_, arg0, arg1),
-      parseSuccessData: _wire2api_String,
-      constMeta: kGetContractStateMethodJrpcTransportImplConstMeta,
-      argValues: [that, address],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetContractStateMethodJrpcTransportImplConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "get_contract_state__method__JrpcTransportImpl",
-            argNames: ["that", "address"],
-          );
-
-  Future<String> getFullContractStateMethodJrpcTransportImpl(
-      {required JrpcTransportImpl that,
-      required String address,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
-    var arg1 = _platform.api2wire_String(address);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_get_full_contract_state__method__JrpcTransportImpl(
-              port_, arg0, arg1),
-      parseSuccessData: _wire2api_String,
-      constMeta: kGetFullContractStateMethodJrpcTransportImplConstMeta,
-      argValues: [that, address],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetFullContractStateMethodJrpcTransportImplConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "get_full_contract_state__method__JrpcTransportImpl",
-            argNames: ["that", "address"],
-          );
-
-  Future<String> getAccountsByCodeHashMethodJrpcTransportImpl(
-      {required JrpcTransportImpl that,
-      required String codeHash,
-      required int limit,
-      String? continuation,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
-    var arg1 = _platform.api2wire_String(codeHash);
-    var arg2 = api2wire_u8(limit);
-    var arg3 = _platform.api2wire_opt_String(continuation);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
-              port_, arg0, arg1, arg2, arg3),
-      parseSuccessData: _wire2api_String,
-      constMeta: kGetAccountsByCodeHashMethodJrpcTransportImplConstMeta,
-      argValues: [that, codeHash, limit, continuation],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetAccountsByCodeHashMethodJrpcTransportImplConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "get_accounts_by_code_hash__method__JrpcTransportImpl",
-            argNames: ["that", "codeHash", "limit", "continuation"],
-          );
-
-  Future<String> getTransactionsMethodJrpcTransportImpl(
-      {required JrpcTransportImpl that,
-      required String address,
-      int? fromLt,
-      required int count,
-      dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
-    var arg1 = _platform.api2wire_String(address);
-    var arg2 = _platform.api2wire_opt_box_autoadd_u64(fromLt);
-    var arg3 = api2wire_u8(count);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_get_transactions__method__JrpcTransportImpl(
-              port_, arg0, arg1, arg2, arg3),
-      parseSuccessData: _wire2api_String,
-      constMeta: kGetTransactionsMethodJrpcTransportImplConstMeta,
-      argValues: [that, address, fromLt, count],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetTransactionsMethodJrpcTransportImplConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "get_transactions__method__JrpcTransportImpl",
-            argNames: ["that", "address", "fromLt", "count"],
-          );
-
-  Future<String?> getTransactionMethodJrpcTransportImpl(
-      {required JrpcTransportImpl that, required String hash, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
-    var arg1 = _platform.api2wire_String(hash);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_get_transaction__method__JrpcTransportImpl(port_, arg0, arg1),
-      parseSuccessData: _wire2api_opt_String,
-      constMeta: kGetTransactionMethodJrpcTransportImplConstMeta,
-      argValues: [that, hash],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetTransactionMethodJrpcTransportImplConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "get_transaction__method__JrpcTransportImpl",
-            argNames: ["that", "hash"],
-          );
-
-  Future<int?> getSignatureIdMethodJrpcTransportImpl(
-      {required JrpcTransportImpl that, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_get_signature_id__method__JrpcTransportImpl(port_, arg0),
-      parseSuccessData: _wire2api_opt_box_autoadd_i32,
-      constMeta: kGetSignatureIdMethodJrpcTransportImplConstMeta,
-      argValues: [that],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetSignatureIdMethodJrpcTransportImplConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "get_signature_id__method__JrpcTransportImpl",
-            argNames: ["that"],
-          );
-
-  Future<int> getNetworkIdMethodJrpcTransportImpl(
-      {required JrpcTransportImpl that, dynamic hint}) {
-    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner
-          .wire_get_network_id__method__JrpcTransportImpl(port_, arg0),
-      parseSuccessData: _wire2api_i32,
-      constMeta: kGetNetworkIdMethodJrpcTransportImplConstMeta,
-      argValues: [that],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta
-      get kGetNetworkIdMethodJrpcTransportImplConstMeta =>
-          const FlutterRustBridgeTaskConstMeta(
-            debugName: "get_network_id__method__JrpcTransportImpl",
-            argNames: ["that"],
-          );
 
   Future<MyClass> newStaticMethodMyClass({required int a, dynamic hint}) {
     var arg0 = api2wire_i32(a);

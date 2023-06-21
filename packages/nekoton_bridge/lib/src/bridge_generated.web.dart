@@ -487,6 +487,9 @@ external NekotonBridgeWasmModule get wasmModule;
 class NekotonBridgeWasmModule implements WasmModule {
   external Object /* Promise */ call([String? moduleName]);
   external NekotonBridgeWasmModule bind(dynamic thisArg, String moduleName);
+  external dynamic /* void */ wire_verify_signature(NativePortType port_,
+      String public_key, String data_hash, String signature);
+
   external dynamic /* void */ wire_nt_generate_key(
       NativePortType port_, List<dynamic> account_type);
 
@@ -495,9 +498,6 @@ class NekotonBridgeWasmModule implements WasmModule {
 
   external dynamic /* void */ wire_nt_derive_from_phrase(
       NativePortType port_, String phrase, List<dynamic> mnemonic_type);
-
-  external dynamic /* void */ wire_verify_signature(NativePortType port_,
-      String public_key, String data_hash, String signature);
 
   external dynamic /* void */ wire_check_public_key(
       NativePortType port_, String public_key);
@@ -596,6 +596,30 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_get_code_salt(
       NativePortType port_, String code);
 
+  external dynamic /* void */ wire_test_logger_info(
+      NativePortType port_, String string);
+
+  external dynamic /* void */ wire_test_logger_debug(
+      NativePortType port_, String string);
+
+  external dynamic /* void */ wire_test_logger_warn(
+      NativePortType port_, String string);
+
+  external dynamic /* void */ wire_test_logger_error(
+      NativePortType port_, String string);
+
+  external dynamic /* void */ wire_test_logger_panic(
+      NativePortType port_, String string);
+
+  external dynamic /* void */ wire_test_caller_call_test0_async(
+      NativePortType port_, String string, bool need_result);
+
+  external dynamic /* List<dynamic> */ wire_test_caller_call_test0_sync(
+      String string, bool need_result);
+
+  external dynamic /* void */ wire_test_caller_call_test1_async(
+      NativePortType port_, String string, bool need_result);
+
   external dynamic /* void */ wire_init_logger(
       NativePortType port_, int level, bool mobile_logger);
 
@@ -635,30 +659,6 @@ class NekotonBridgeWasmModule implements WasmModule {
 
   external dynamic /* void */ wire_simple_call_func3(NativePortType port_);
 
-  external dynamic /* void */ wire_test_logger_info(
-      NativePortType port_, String string);
-
-  external dynamic /* void */ wire_test_logger_debug(
-      NativePortType port_, String string);
-
-  external dynamic /* void */ wire_test_logger_warn(
-      NativePortType port_, String string);
-
-  external dynamic /* void */ wire_test_logger_error(
-      NativePortType port_, String string);
-
-  external dynamic /* void */ wire_test_logger_panic(
-      NativePortType port_, String string);
-
-  external dynamic /* void */ wire_test_caller_call_test0_async(
-      NativePortType port_, String string, bool need_result);
-
-  external dynamic /* List<dynamic> */ wire_test_caller_call_test0_sync(
-      String string, bool need_result);
-
-  external dynamic /* void */ wire_test_caller_call_test1_async(
-      NativePortType port_, String string, bool need_result);
-
   external dynamic /* void */ wire_refresh_timeout__method__UnsignedMessageImpl(
       NativePortType port_, List<dynamic> that);
 
@@ -671,123 +671,143 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_sign__method__UnsignedMessageImpl(
       NativePortType port_, List<dynamic> that, String signature);
 
-  external dynamic /* void */ wire_new__static_method__GqlConnectionDartWrapper(
-      NativePortType port_, bool is_local, String instance_hash);
+  external dynamic /* void */ wire_new__static_method__GqlTransportImpl(
+      NativePortType port_, List<dynamic> gql_connection);
+
+  external dynamic /* void */ wire_get_contract_state__method__GqlTransportImpl(
+      NativePortType port_, List<dynamic> that, String address);
 
   external dynamic /* void */
-      wire_new__static_method__JrpcConnectionDartWrapper(
-          NativePortType port_, String instance_hash);
+      wire_get_full_contract_state__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that, String address);
 
   external dynamic /* void */
-      wire_new__static_method__LedgerConnectionDartWrapper(
-          NativePortType port_, String instance_hash);
+      wire_get_accounts_by_code_hash__method__GqlTransportImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String code_hash,
+          int limit,
+          String? continuation);
 
-  external dynamic /* void */ wire_new__static_method__LedgerConnectionImpl(
-      NativePortType port_, String instance_hash);
-
-  external dynamic /* void */ wire_new__static_method__StorageDartWrapper(
-      NativePortType port_, String instance_hash);
-
-  external dynamic /* void */ wire_new__static_method__StorageImpl(
-      NativePortType port_, String instance_hash);
-
-  external dynamic /* void */ wire_new__static_method__AccountsStorageImpl(
-      NativePortType port_, List<dynamic> storage);
-
-  external dynamic /* void */ wire_get_entries__method__AccountsStorageImpl(
-      NativePortType port_, List<dynamic> that);
-
-  external dynamic /* void */ wire_add_account__method__AccountsStorageImpl(
-      NativePortType port_, List<dynamic> that, String account);
-
-  external dynamic /* void */ wire_add_accounts__method__AccountsStorageImpl(
-      NativePortType port_, List<dynamic> that, String accounts);
-
-  external dynamic /* void */ wire_rename_account__method__AccountsStorageImpl(
+  external dynamic /* void */ wire_get_transactions__method__GqlTransportImpl(
       NativePortType port_,
       List<dynamic> that,
-      String account_address,
-      String name);
+      String address,
+      Object? from_lt,
+      int count);
 
-  external dynamic /* void */
-      wire_add_token_wallet__method__AccountsStorageImpl(
-          NativePortType port_,
-          List<dynamic> that,
-          String account_address,
-          String network_group,
-          String root_token_contract);
+  external dynamic /* void */ wire_get_transaction__method__GqlTransportImpl(
+      NativePortType port_, List<dynamic> that, String hash);
 
-  external dynamic /* void */
-      wire_remove_token_wallet__method__AccountsStorageImpl(
-          NativePortType port_,
-          List<dynamic> that,
-          String account_address,
-          String network_group,
-          String root_token_contract);
-
-  external dynamic /* void */ wire_remove_account__method__AccountsStorageImpl(
-      NativePortType port_, List<dynamic> that, String account_address);
-
-  external dynamic /* void */ wire_remove_accounts__method__AccountsStorageImpl(
-      NativePortType port_, List<dynamic> that, List<String> account_addresses);
-
-  external dynamic /* void */ wire_clear__method__AccountsStorageImpl(
+  external dynamic /* void */ wire_get_signature_id__method__GqlTransportImpl(
       NativePortType port_, List<dynamic> that);
 
-  external dynamic /* void */ wire_reload__method__AccountsStorageImpl(
+  external dynamic /* void */ wire_get_network_id__method__GqlTransportImpl(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */ wire_get_latest_block__method__GqlTransportImpl(
+      NativePortType port_, List<dynamic> that, String address);
+
+  external dynamic /* void */ wire_get_block__method__GqlTransportImpl(
+      NativePortType port_, List<dynamic> that, String id);
+
+  external dynamic /* void */
+      wire_wait_for_next_block__method__GqlTransportImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String current_block_id,
+          String address,
+          Object timeout);
+
+  external dynamic /* void */ wire_new__static_method__JrpcTransportImpl(
+      NativePortType port_, List<dynamic> jrpc_connection);
+
+  external dynamic /* void */
+      wire_get_contract_state__method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> that, String address);
+
+  external dynamic /* void */
+      wire_get_full_contract_state__method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> that, String address);
+
+  external dynamic /* void */
+      wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String code_hash,
+          int limit,
+          String? continuation);
+
+  external dynamic /* void */ wire_get_transactions__method__JrpcTransportImpl(
+      NativePortType port_,
+      List<dynamic> that,
+      String address,
+      Object? from_lt,
+      int count);
+
+  external dynamic /* void */ wire_get_transaction__method__JrpcTransportImpl(
+      NativePortType port_, List<dynamic> that, String hash);
+
+  external dynamic /* void */ wire_get_signature_id__method__JrpcTransportImpl(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */ wire_get_network_id__method__JrpcTransportImpl(
       NativePortType port_, List<dynamic> that);
 
   external dynamic /* void */
-      wire_verify_data__static_method__AccountsStorageImpl(
-          NativePortType port_, String data);
-
-  external dynamic /* void */
-      wire_subscribe__static_method__GenericContractDartWrapper(
+      wire_subscribe__static_method__TokenWalletDartWrapper(
           NativePortType port_,
           String instance_hash,
-          String address,
-          bool preload_transactions,
+          String owner,
+          String root_token_contract,
           Object transport);
 
-  external dynamic /* void */ wire_address__method__GenericContractDartWrapper(
+  external dynamic /* void */ wire_owner__method__TokenWalletDartWrapper(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */ wire_address__method__TokenWalletDartWrapper(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */ wire_symbol__method__TokenWalletDartWrapper(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */ wire_version__method__TokenWalletDartWrapper(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */ wire_balance__method__TokenWalletDartWrapper(
       NativePortType port_, List<dynamic> that);
 
   external dynamic /* void */
-      wire_contract_state__method__GenericContractDartWrapper(
+      wire_contract_state__method__TokenWalletDartWrapper(
           NativePortType port_, List<dynamic> that);
 
   external dynamic /* void */
-      wire_pending_transactions__method__GenericContractDartWrapper(
-          NativePortType port_, List<dynamic> that);
-
-  external dynamic /* void */
-      wire_polling_method__method__GenericContractDartWrapper(
-          NativePortType port_, List<dynamic> that);
-
-  external dynamic /* void */
-      wire_execute_transaction_locally__method__GenericContractDartWrapper(
+      wire_prepare_transfer__method__TokenWalletDartWrapper(
           NativePortType port_,
           List<dynamic> that,
-          String signed_message,
-          List<dynamic> options);
+          String destination,
+          String amount,
+          bool notify_receiver,
+          String? attached_amount,
+          String? payload);
 
-  external dynamic /* void */
-      wire_estimate_fees__method__GenericContractDartWrapper(
-          NativePortType port_, List<dynamic> that, String signed_message);
-
-  external dynamic /* void */ wire_send__method__GenericContractDartWrapper(
-      NativePortType port_, List<dynamic> that, String signed_message);
-
-  external dynamic /* void */ wire_refresh__method__GenericContractDartWrapper(
+  external dynamic /* void */ wire_refresh__method__TokenWalletDartWrapper(
       NativePortType port_, List<dynamic> that);
 
   external dynamic /* void */
-      wire_preload_transactions__method__GenericContractDartWrapper(
+      wire_preload_transactions__method__TokenWalletDartWrapper(
           NativePortType port_, List<dynamic> that, String from_lt);
 
+  external dynamic /* void */ wire_handle_block__method__TokenWalletDartWrapper(
+      NativePortType port_, List<dynamic> that, String block);
+
   external dynamic /* void */
-      wire_handle_block__method__GenericContractDartWrapper(
-          NativePortType port_, List<dynamic> that, String block);
+      wire_get_token_wallet_details__static_method__TokenWalletDartWrapper(
+          NativePortType port_, Object transport, String address);
+
+  external dynamic /* void */
+      wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper(
+          NativePortType port_, Object transport, String token_wallet_address);
 
   external dynamic /* void */ wire_new__static_method__KeystoreDartWrapper(
       NativePortType port_,
@@ -888,60 +908,103 @@ class NekotonBridgeWasmModule implements WasmModule {
       wire_verify_data__static_method__KeystoreDartWrapper(NativePortType port_,
           List<dynamic> signers, List<dynamic>? ledger_connection, String data);
 
+  external dynamic /* void */ wire_new__static_method__AccountsStorageImpl(
+      NativePortType port_, List<dynamic> storage);
+
+  external dynamic /* void */ wire_get_entries__method__AccountsStorageImpl(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */ wire_add_account__method__AccountsStorageImpl(
+      NativePortType port_, List<dynamic> that, String account);
+
+  external dynamic /* void */ wire_add_accounts__method__AccountsStorageImpl(
+      NativePortType port_, List<dynamic> that, String accounts);
+
+  external dynamic /* void */ wire_rename_account__method__AccountsStorageImpl(
+      NativePortType port_,
+      List<dynamic> that,
+      String account_address,
+      String name);
+
   external dynamic /* void */
-      wire_subscribe__static_method__TokenWalletDartWrapper(
+      wire_add_token_wallet__method__AccountsStorageImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String account_address,
+          String network_group,
+          String root_token_contract);
+
+  external dynamic /* void */
+      wire_remove_token_wallet__method__AccountsStorageImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String account_address,
+          String network_group,
+          String root_token_contract);
+
+  external dynamic /* void */ wire_remove_account__method__AccountsStorageImpl(
+      NativePortType port_, List<dynamic> that, String account_address);
+
+  external dynamic /* void */ wire_remove_accounts__method__AccountsStorageImpl(
+      NativePortType port_, List<dynamic> that, List<String> account_addresses);
+
+  external dynamic /* void */ wire_clear__method__AccountsStorageImpl(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */ wire_reload__method__AccountsStorageImpl(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */
+      wire_verify_data__static_method__AccountsStorageImpl(
+          NativePortType port_, String data);
+
+  external dynamic /* void */
+      wire_subscribe__static_method__GenericContractDartWrapper(
           NativePortType port_,
           String instance_hash,
-          String owner,
-          String root_token_contract,
+          String address,
+          bool preload_transactions,
           Object transport);
 
-  external dynamic /* void */ wire_owner__method__TokenWalletDartWrapper(
-      NativePortType port_, List<dynamic> that);
-
-  external dynamic /* void */ wire_address__method__TokenWalletDartWrapper(
-      NativePortType port_, List<dynamic> that);
-
-  external dynamic /* void */ wire_symbol__method__TokenWalletDartWrapper(
-      NativePortType port_, List<dynamic> that);
-
-  external dynamic /* void */ wire_version__method__TokenWalletDartWrapper(
-      NativePortType port_, List<dynamic> that);
-
-  external dynamic /* void */ wire_balance__method__TokenWalletDartWrapper(
+  external dynamic /* void */ wire_address__method__GenericContractDartWrapper(
       NativePortType port_, List<dynamic> that);
 
   external dynamic /* void */
-      wire_contract_state__method__TokenWalletDartWrapper(
+      wire_contract_state__method__GenericContractDartWrapper(
           NativePortType port_, List<dynamic> that);
 
   external dynamic /* void */
-      wire_prepare_transfer__method__TokenWalletDartWrapper(
+      wire_pending_transactions__method__GenericContractDartWrapper(
+          NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */
+      wire_polling_method__method__GenericContractDartWrapper(
+          NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */
+      wire_execute_transaction_locally__method__GenericContractDartWrapper(
           NativePortType port_,
           List<dynamic> that,
-          String destination,
-          String amount,
-          bool notify_receiver,
-          String? attached_amount,
-          String? payload);
+          String signed_message,
+          List<dynamic> options);
 
-  external dynamic /* void */ wire_refresh__method__TokenWalletDartWrapper(
+  external dynamic /* void */
+      wire_estimate_fees__method__GenericContractDartWrapper(
+          NativePortType port_, List<dynamic> that, String signed_message);
+
+  external dynamic /* void */ wire_send__method__GenericContractDartWrapper(
+      NativePortType port_, List<dynamic> that, String signed_message);
+
+  external dynamic /* void */ wire_refresh__method__GenericContractDartWrapper(
       NativePortType port_, List<dynamic> that);
 
   external dynamic /* void */
-      wire_preload_transactions__method__TokenWalletDartWrapper(
+      wire_preload_transactions__method__GenericContractDartWrapper(
           NativePortType port_, List<dynamic> that, String from_lt);
 
-  external dynamic /* void */ wire_handle_block__method__TokenWalletDartWrapper(
-      NativePortType port_, List<dynamic> that, String block);
-
   external dynamic /* void */
-      wire_get_token_wallet_details__static_method__TokenWalletDartWrapper(
-          NativePortType port_, Object transport, String address);
-
-  external dynamic /* void */
-      wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper(
-          NativePortType port_, Object transport, String token_wallet_address);
+      wire_handle_block__method__GenericContractDartWrapper(
+          NativePortType port_, List<dynamic> that, String block);
 
   external dynamic /* void */
       wire_subscribe__static_method__TonWalletDartWrapper(
@@ -1062,88 +1125,25 @@ class NekotonBridgeWasmModule implements WasmModule {
       wire_get_custodians__static_method__TonWalletDartWrapper(
           NativePortType port_, Object transport, String address);
 
-  external dynamic /* void */ wire_new__static_method__GqlTransportImpl(
-      NativePortType port_, List<dynamic> gql_connection);
+  external dynamic /* void */
+      wire_new__static_method__JrpcConnectionDartWrapper(
+          NativePortType port_, String instance_hash);
 
-  external dynamic /* void */ wire_get_contract_state__method__GqlTransportImpl(
-      NativePortType port_, List<dynamic> that, String address);
+  external dynamic /* void */ wire_new__static_method__GqlConnectionDartWrapper(
+      NativePortType port_, bool is_local, String instance_hash);
 
   external dynamic /* void */
-      wire_get_full_contract_state__method__GqlTransportImpl(
-          NativePortType port_, List<dynamic> that, String address);
+      wire_new__static_method__LedgerConnectionDartWrapper(
+          NativePortType port_, String instance_hash);
 
-  external dynamic /* void */
-      wire_get_accounts_by_code_hash__method__GqlTransportImpl(
-          NativePortType port_,
-          List<dynamic> that,
-          String code_hash,
-          int limit,
-          String? continuation);
+  external dynamic /* void */ wire_new__static_method__LedgerConnectionImpl(
+      NativePortType port_, String instance_hash);
 
-  external dynamic /* void */ wire_get_transactions__method__GqlTransportImpl(
-      NativePortType port_,
-      List<dynamic> that,
-      String address,
-      Object? from_lt,
-      int count);
+  external dynamic /* void */ wire_new__static_method__StorageDartWrapper(
+      NativePortType port_, String instance_hash);
 
-  external dynamic /* void */ wire_get_transaction__method__GqlTransportImpl(
-      NativePortType port_, List<dynamic> that, String hash);
-
-  external dynamic /* void */ wire_get_signature_id__method__GqlTransportImpl(
-      NativePortType port_, List<dynamic> that);
-
-  external dynamic /* void */ wire_get_network_id__method__GqlTransportImpl(
-      NativePortType port_, List<dynamic> that);
-
-  external dynamic /* void */ wire_get_latest_block__method__GqlTransportImpl(
-      NativePortType port_, List<dynamic> that, String address);
-
-  external dynamic /* void */ wire_get_block__method__GqlTransportImpl(
-      NativePortType port_, List<dynamic> that, String id);
-
-  external dynamic /* void */
-      wire_wait_for_next_block__method__GqlTransportImpl(
-          NativePortType port_,
-          List<dynamic> that,
-          String current_block_id,
-          String address,
-          Object timeout);
-
-  external dynamic /* void */ wire_new__static_method__JrpcTransportImpl(
-      NativePortType port_, List<dynamic> jrpc_connection);
-
-  external dynamic /* void */
-      wire_get_contract_state__method__JrpcTransportImpl(
-          NativePortType port_, List<dynamic> that, String address);
-
-  external dynamic /* void */
-      wire_get_full_contract_state__method__JrpcTransportImpl(
-          NativePortType port_, List<dynamic> that, String address);
-
-  external dynamic /* void */
-      wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
-          NativePortType port_,
-          List<dynamic> that,
-          String code_hash,
-          int limit,
-          String? continuation);
-
-  external dynamic /* void */ wire_get_transactions__method__JrpcTransportImpl(
-      NativePortType port_,
-      List<dynamic> that,
-      String address,
-      Object? from_lt,
-      int count);
-
-  external dynamic /* void */ wire_get_transaction__method__JrpcTransportImpl(
-      NativePortType port_, List<dynamic> that, String hash);
-
-  external dynamic /* void */ wire_get_signature_id__method__JrpcTransportImpl(
-      NativePortType port_, List<dynamic> that);
-
-  external dynamic /* void */ wire_get_network_id__method__JrpcTransportImpl(
-      NativePortType port_, List<dynamic> that);
+  external dynamic /* void */ wire_new__static_method__StorageImpl(
+      NativePortType port_, String instance_hash);
 
   external dynamic /* void */ wire_new__static_method__MyClass(
       NativePortType port_, int a);
@@ -1210,6 +1210,10 @@ class NekotonBridgeWire
   NekotonBridgeWire(FutureOr<WasmModule> module)
       : super(WasmModule.cast<NekotonBridgeWasmModule>(module));
 
+  void wire_verify_signature(NativePortType port_, String public_key,
+          String data_hash, String signature) =>
+      wasmModule.wire_verify_signature(port_, public_key, data_hash, signature);
+
   void wire_nt_generate_key(NativePortType port_, List<dynamic> account_type) =>
       wasmModule.wire_nt_generate_key(port_, account_type);
 
@@ -1219,10 +1223,6 @@ class NekotonBridgeWire
   void wire_nt_derive_from_phrase(
           NativePortType port_, String phrase, List<dynamic> mnemonic_type) =>
       wasmModule.wire_nt_derive_from_phrase(port_, phrase, mnemonic_type);
-
-  void wire_verify_signature(NativePortType port_, String public_key,
-          String data_hash, String signature) =>
-      wasmModule.wire_verify_signature(port_, public_key, data_hash, signature);
 
   void wire_check_public_key(NativePortType port_, String public_key) =>
       wasmModule.wire_check_public_key(port_, public_key);
@@ -1338,6 +1338,33 @@ class NekotonBridgeWire
   void wire_get_code_salt(NativePortType port_, String code) =>
       wasmModule.wire_get_code_salt(port_, code);
 
+  void wire_test_logger_info(NativePortType port_, String string) =>
+      wasmModule.wire_test_logger_info(port_, string);
+
+  void wire_test_logger_debug(NativePortType port_, String string) =>
+      wasmModule.wire_test_logger_debug(port_, string);
+
+  void wire_test_logger_warn(NativePortType port_, String string) =>
+      wasmModule.wire_test_logger_warn(port_, string);
+
+  void wire_test_logger_error(NativePortType port_, String string) =>
+      wasmModule.wire_test_logger_error(port_, string);
+
+  void wire_test_logger_panic(NativePortType port_, String string) =>
+      wasmModule.wire_test_logger_panic(port_, string);
+
+  void wire_test_caller_call_test0_async(
+          NativePortType port_, String string, bool need_result) =>
+      wasmModule.wire_test_caller_call_test0_async(port_, string, need_result);
+
+  dynamic /* List<dynamic> */ wire_test_caller_call_test0_sync(
+          String string, bool need_result) =>
+      wasmModule.wire_test_caller_call_test0_sync(string, need_result);
+
+  void wire_test_caller_call_test1_async(
+          NativePortType port_, String string, bool need_result) =>
+      wasmModule.wire_test_caller_call_test1_async(port_, string, need_result);
+
   void wire_init_logger(NativePortType port_, int level, bool mobile_logger) =>
       wasmModule.wire_init_logger(port_, level, mobile_logger);
 
@@ -1384,33 +1411,6 @@ class NekotonBridgeWire
   void wire_simple_call_func3(NativePortType port_) =>
       wasmModule.wire_simple_call_func3(port_);
 
-  void wire_test_logger_info(NativePortType port_, String string) =>
-      wasmModule.wire_test_logger_info(port_, string);
-
-  void wire_test_logger_debug(NativePortType port_, String string) =>
-      wasmModule.wire_test_logger_debug(port_, string);
-
-  void wire_test_logger_warn(NativePortType port_, String string) =>
-      wasmModule.wire_test_logger_warn(port_, string);
-
-  void wire_test_logger_error(NativePortType port_, String string) =>
-      wasmModule.wire_test_logger_error(port_, string);
-
-  void wire_test_logger_panic(NativePortType port_, String string) =>
-      wasmModule.wire_test_logger_panic(port_, string);
-
-  void wire_test_caller_call_test0_async(
-          NativePortType port_, String string, bool need_result) =>
-      wasmModule.wire_test_caller_call_test0_async(port_, string, need_result);
-
-  dynamic /* List<dynamic> */ wire_test_caller_call_test0_sync(
-          String string, bool need_result) =>
-      wasmModule.wire_test_caller_call_test0_sync(string, need_result);
-
-  void wire_test_caller_call_test1_async(
-          NativePortType port_, String string, bool need_result) =>
-      wasmModule.wire_test_caller_call_test1_async(port_, string, need_result);
-
   void wire_refresh_timeout__method__UnsignedMessageImpl(
           NativePortType port_, List<dynamic> that) =>
       wasmModule.wire_refresh_timeout__method__UnsignedMessageImpl(port_, that);
@@ -1427,34 +1427,301 @@ class NekotonBridgeWire
           NativePortType port_, List<dynamic> that, String signature) =>
       wasmModule.wire_sign__method__UnsignedMessageImpl(port_, that, signature);
 
-  void wire_new__static_method__GqlConnectionDartWrapper(
-          NativePortType port_, bool is_local, String instance_hash) =>
-      wasmModule.wire_new__static_method__GqlConnectionDartWrapper(
-          port_, is_local, instance_hash);
+  void wire_new__static_method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> gql_connection) =>
+      wasmModule.wire_new__static_method__GqlTransportImpl(
+          port_, gql_connection);
 
-  void wire_new__static_method__JrpcConnectionDartWrapper(
-          NativePortType port_, String instance_hash) =>
-      wasmModule.wire_new__static_method__JrpcConnectionDartWrapper(
-          port_, instance_hash);
+  void wire_get_contract_state__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that, String address) =>
+      wasmModule.wire_get_contract_state__method__GqlTransportImpl(
+          port_, that, address);
 
-  void wire_new__static_method__LedgerConnectionDartWrapper(
-          NativePortType port_, String instance_hash) =>
-      wasmModule.wire_new__static_method__LedgerConnectionDartWrapper(
-          port_, instance_hash);
+  void wire_get_full_contract_state__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that, String address) =>
+      wasmModule.wire_get_full_contract_state__method__GqlTransportImpl(
+          port_, that, address);
 
-  void wire_new__static_method__LedgerConnectionImpl(
-          NativePortType port_, String instance_hash) =>
-      wasmModule.wire_new__static_method__LedgerConnectionImpl(
-          port_, instance_hash);
+  void wire_get_accounts_by_code_hash__method__GqlTransportImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String code_hash,
+          int limit,
+          String? continuation) =>
+      wasmModule.wire_get_accounts_by_code_hash__method__GqlTransportImpl(
+          port_, that, code_hash, limit, continuation);
 
-  void wire_new__static_method__StorageDartWrapper(
-          NativePortType port_, String instance_hash) =>
-      wasmModule.wire_new__static_method__StorageDartWrapper(
-          port_, instance_hash);
+  void wire_get_transactions__method__GqlTransportImpl(NativePortType port_,
+          List<dynamic> that, String address, Object? from_lt, int count) =>
+      wasmModule.wire_get_transactions__method__GqlTransportImpl(
+          port_, that, address, from_lt, count);
 
-  void wire_new__static_method__StorageImpl(
-          NativePortType port_, String instance_hash) =>
-      wasmModule.wire_new__static_method__StorageImpl(port_, instance_hash);
+  void wire_get_transaction__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that, String hash) =>
+      wasmModule.wire_get_transaction__method__GqlTransportImpl(
+          port_, that, hash);
+
+  void wire_get_signature_id__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_get_signature_id__method__GqlTransportImpl(port_, that);
+
+  void wire_get_network_id__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_get_network_id__method__GqlTransportImpl(port_, that);
+
+  void wire_get_latest_block__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that, String address) =>
+      wasmModule.wire_get_latest_block__method__GqlTransportImpl(
+          port_, that, address);
+
+  void wire_get_block__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that, String id) =>
+      wasmModule.wire_get_block__method__GqlTransportImpl(port_, that, id);
+
+  void wire_wait_for_next_block__method__GqlTransportImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String current_block_id,
+          String address,
+          Object timeout) =>
+      wasmModule.wire_wait_for_next_block__method__GqlTransportImpl(
+          port_, that, current_block_id, address, timeout);
+
+  void wire_new__static_method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> jrpc_connection) =>
+      wasmModule.wire_new__static_method__JrpcTransportImpl(
+          port_, jrpc_connection);
+
+  void wire_get_contract_state__method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> that, String address) =>
+      wasmModule.wire_get_contract_state__method__JrpcTransportImpl(
+          port_, that, address);
+
+  void wire_get_full_contract_state__method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> that, String address) =>
+      wasmModule.wire_get_full_contract_state__method__JrpcTransportImpl(
+          port_, that, address);
+
+  void wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String code_hash,
+          int limit,
+          String? continuation) =>
+      wasmModule.wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
+          port_, that, code_hash, limit, continuation);
+
+  void wire_get_transactions__method__JrpcTransportImpl(NativePortType port_,
+          List<dynamic> that, String address, Object? from_lt, int count) =>
+      wasmModule.wire_get_transactions__method__JrpcTransportImpl(
+          port_, that, address, from_lt, count);
+
+  void wire_get_transaction__method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> that, String hash) =>
+      wasmModule.wire_get_transaction__method__JrpcTransportImpl(
+          port_, that, hash);
+
+  void wire_get_signature_id__method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_get_signature_id__method__JrpcTransportImpl(port_, that);
+
+  void wire_get_network_id__method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_get_network_id__method__JrpcTransportImpl(port_, that);
+
+  void wire_subscribe__static_method__TokenWalletDartWrapper(
+          NativePortType port_,
+          String instance_hash,
+          String owner,
+          String root_token_contract,
+          Object transport) =>
+      wasmModule.wire_subscribe__static_method__TokenWalletDartWrapper(
+          port_, instance_hash, owner, root_token_contract, transport);
+
+  void wire_owner__method__TokenWalletDartWrapper(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_owner__method__TokenWalletDartWrapper(port_, that);
+
+  void wire_address__method__TokenWalletDartWrapper(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_address__method__TokenWalletDartWrapper(port_, that);
+
+  void wire_symbol__method__TokenWalletDartWrapper(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_symbol__method__TokenWalletDartWrapper(port_, that);
+
+  void wire_version__method__TokenWalletDartWrapper(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_version__method__TokenWalletDartWrapper(port_, that);
+
+  void wire_balance__method__TokenWalletDartWrapper(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_balance__method__TokenWalletDartWrapper(port_, that);
+
+  void wire_contract_state__method__TokenWalletDartWrapper(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_contract_state__method__TokenWalletDartWrapper(
+          port_, that);
+
+  void wire_prepare_transfer__method__TokenWalletDartWrapper(
+          NativePortType port_,
+          List<dynamic> that,
+          String destination,
+          String amount,
+          bool notify_receiver,
+          String? attached_amount,
+          String? payload) =>
+      wasmModule.wire_prepare_transfer__method__TokenWalletDartWrapper(port_,
+          that, destination, amount, notify_receiver, attached_amount, payload);
+
+  void wire_refresh__method__TokenWalletDartWrapper(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_refresh__method__TokenWalletDartWrapper(port_, that);
+
+  void wire_preload_transactions__method__TokenWalletDartWrapper(
+          NativePortType port_, List<dynamic> that, String from_lt) =>
+      wasmModule.wire_preload_transactions__method__TokenWalletDartWrapper(
+          port_, that, from_lt);
+
+  void wire_handle_block__method__TokenWalletDartWrapper(
+          NativePortType port_, List<dynamic> that, String block) =>
+      wasmModule.wire_handle_block__method__TokenWalletDartWrapper(
+          port_, that, block);
+
+  void wire_get_token_wallet_details__static_method__TokenWalletDartWrapper(
+          NativePortType port_, Object transport, String address) =>
+      wasmModule
+          .wire_get_token_wallet_details__static_method__TokenWalletDartWrapper(
+              port_, transport, address);
+
+  void wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper(
+          NativePortType port_,
+          Object transport,
+          String token_wallet_address) =>
+      wasmModule
+          .wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper(
+              port_, transport, token_wallet_address);
+
+  void wire_new__static_method__KeystoreDartWrapper(
+          NativePortType port_,
+          List<dynamic> storage,
+          List<dynamic> signers,
+          List<dynamic>? ledger_connection) =>
+      wasmModule.wire_new__static_method__KeystoreDartWrapper(
+          port_, storage, signers, ledger_connection);
+
+  void wire_get_entries__method__KeystoreDartWrapper(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_get_entries__method__KeystoreDartWrapper(port_, that);
+
+  void wire_add_key__method__KeystoreDartWrapper(NativePortType port_,
+          List<dynamic> that, List<dynamic> signer, String input) =>
+      wasmModule.wire_add_key__method__KeystoreDartWrapper(
+          port_, that, signer, input);
+
+  void wire_add_keys__method__KeystoreDartWrapper(NativePortType port_,
+          List<dynamic> that, List<dynamic> signer, String input) =>
+      wasmModule.wire_add_keys__method__KeystoreDartWrapper(
+          port_, that, signer, input);
+
+  void wire_update_key__method__KeystoreDartWrapper(NativePortType port_,
+          List<dynamic> that, List<dynamic> signer, String input) =>
+      wasmModule.wire_update_key__method__KeystoreDartWrapper(
+          port_, that, signer, input);
+
+  void wire_export_seed__method__KeystoreDartWrapper(NativePortType port_,
+          List<dynamic> that, List<dynamic> signer, String input) =>
+      wasmModule.wire_export_seed__method__KeystoreDartWrapper(
+          port_, that, signer, input);
+
+  void wire_get_public_keys__method__KeystoreDartWrapper(NativePortType port_,
+          List<dynamic> that, List<dynamic> signer, String input) =>
+      wasmModule.wire_get_public_keys__method__KeystoreDartWrapper(
+          port_, that, signer, input);
+
+  void wire_encrypt__method__KeystoreDartWrapper(
+          NativePortType port_,
+          List<dynamic> that,
+          List<dynamic> signer,
+          String data,
+          List<String> public_keys,
+          String algorithm,
+          String input) =>
+      wasmModule.wire_encrypt__method__KeystoreDartWrapper(
+          port_, that, signer, data, public_keys, algorithm, input);
+
+  void wire_decrypt__method__KeystoreDartWrapper(
+          NativePortType port_,
+          List<dynamic> that,
+          List<dynamic> signer,
+          String data,
+          String input) =>
+      wasmModule.wire_decrypt__method__KeystoreDartWrapper(
+          port_, that, signer, data, input);
+
+  void wire_sign__method__KeystoreDartWrapper(
+          NativePortType port_,
+          List<dynamic> that,
+          List<dynamic> signer,
+          String data,
+          String input,
+          int? signature_id) =>
+      wasmModule.wire_sign__method__KeystoreDartWrapper(
+          port_, that, signer, data, input, signature_id);
+
+  void wire_sign_data__method__KeystoreDartWrapper(
+          NativePortType port_,
+          List<dynamic> that,
+          List<dynamic> signer,
+          String data,
+          String input,
+          int? signature_id) =>
+      wasmModule.wire_sign_data__method__KeystoreDartWrapper(
+          port_, that, signer, data, input, signature_id);
+
+  void wire_sign_data_raw__method__KeystoreDartWrapper(
+          NativePortType port_,
+          List<dynamic> that,
+          List<dynamic> signer,
+          String data,
+          String input,
+          int? signature_id) =>
+      wasmModule.wire_sign_data_raw__method__KeystoreDartWrapper(
+          port_, that, signer, data, input, signature_id);
+
+  void wire_remove_key__method__KeystoreDartWrapper(
+          NativePortType port_, List<dynamic> that, String public_key) =>
+      wasmModule.wire_remove_key__method__KeystoreDartWrapper(
+          port_, that, public_key);
+
+  void wire_remove_keys__method__KeystoreDartWrapper(
+          NativePortType port_, List<dynamic> that, List<String> public_keys) =>
+      wasmModule.wire_remove_keys__method__KeystoreDartWrapper(
+          port_, that, public_keys);
+
+  void wire_is_password_cached__method__KeystoreDartWrapper(
+          NativePortType port_,
+          List<dynamic> that,
+          String public_key,
+          Object duration) =>
+      wasmModule.wire_is_password_cached__method__KeystoreDartWrapper(
+          port_, that, public_key, duration);
+
+  void wire_clear_keystore__method__KeystoreDartWrapper(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_clear_keystore__method__KeystoreDartWrapper(port_, that);
+
+  void wire_reload_keystore__method__KeystoreDartWrapper(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_reload_keystore__method__KeystoreDartWrapper(port_, that);
+
+  void wire_verify_data__static_method__KeystoreDartWrapper(
+          NativePortType port_,
+          List<dynamic> signers,
+          List<dynamic>? ledger_connection,
+          String data) =>
+      wasmModule.wire_verify_data__static_method__KeystoreDartWrapper(
+          port_, signers, ledger_connection, data);
 
   void wire_new__static_method__AccountsStorageImpl(
           NativePortType port_, List<dynamic> storage) =>
@@ -1580,200 +1847,6 @@ class NekotonBridgeWire
           NativePortType port_, List<dynamic> that, String block) =>
       wasmModule.wire_handle_block__method__GenericContractDartWrapper(
           port_, that, block);
-
-  void wire_new__static_method__KeystoreDartWrapper(
-          NativePortType port_,
-          List<dynamic> storage,
-          List<dynamic> signers,
-          List<dynamic>? ledger_connection) =>
-      wasmModule.wire_new__static_method__KeystoreDartWrapper(
-          port_, storage, signers, ledger_connection);
-
-  void wire_get_entries__method__KeystoreDartWrapper(
-          NativePortType port_, List<dynamic> that) =>
-      wasmModule.wire_get_entries__method__KeystoreDartWrapper(port_, that);
-
-  void wire_add_key__method__KeystoreDartWrapper(NativePortType port_,
-          List<dynamic> that, List<dynamic> signer, String input) =>
-      wasmModule.wire_add_key__method__KeystoreDartWrapper(
-          port_, that, signer, input);
-
-  void wire_add_keys__method__KeystoreDartWrapper(NativePortType port_,
-          List<dynamic> that, List<dynamic> signer, String input) =>
-      wasmModule.wire_add_keys__method__KeystoreDartWrapper(
-          port_, that, signer, input);
-
-  void wire_update_key__method__KeystoreDartWrapper(NativePortType port_,
-          List<dynamic> that, List<dynamic> signer, String input) =>
-      wasmModule.wire_update_key__method__KeystoreDartWrapper(
-          port_, that, signer, input);
-
-  void wire_export_seed__method__KeystoreDartWrapper(NativePortType port_,
-          List<dynamic> that, List<dynamic> signer, String input) =>
-      wasmModule.wire_export_seed__method__KeystoreDartWrapper(
-          port_, that, signer, input);
-
-  void wire_get_public_keys__method__KeystoreDartWrapper(NativePortType port_,
-          List<dynamic> that, List<dynamic> signer, String input) =>
-      wasmModule.wire_get_public_keys__method__KeystoreDartWrapper(
-          port_, that, signer, input);
-
-  void wire_encrypt__method__KeystoreDartWrapper(
-          NativePortType port_,
-          List<dynamic> that,
-          List<dynamic> signer,
-          String data,
-          List<String> public_keys,
-          String algorithm,
-          String input) =>
-      wasmModule.wire_encrypt__method__KeystoreDartWrapper(
-          port_, that, signer, data, public_keys, algorithm, input);
-
-  void wire_decrypt__method__KeystoreDartWrapper(
-          NativePortType port_,
-          List<dynamic> that,
-          List<dynamic> signer,
-          String data,
-          String input) =>
-      wasmModule.wire_decrypt__method__KeystoreDartWrapper(
-          port_, that, signer, data, input);
-
-  void wire_sign__method__KeystoreDartWrapper(
-          NativePortType port_,
-          List<dynamic> that,
-          List<dynamic> signer,
-          String data,
-          String input,
-          int? signature_id) =>
-      wasmModule.wire_sign__method__KeystoreDartWrapper(
-          port_, that, signer, data, input, signature_id);
-
-  void wire_sign_data__method__KeystoreDartWrapper(
-          NativePortType port_,
-          List<dynamic> that,
-          List<dynamic> signer,
-          String data,
-          String input,
-          int? signature_id) =>
-      wasmModule.wire_sign_data__method__KeystoreDartWrapper(
-          port_, that, signer, data, input, signature_id);
-
-  void wire_sign_data_raw__method__KeystoreDartWrapper(
-          NativePortType port_,
-          List<dynamic> that,
-          List<dynamic> signer,
-          String data,
-          String input,
-          int? signature_id) =>
-      wasmModule.wire_sign_data_raw__method__KeystoreDartWrapper(
-          port_, that, signer, data, input, signature_id);
-
-  void wire_remove_key__method__KeystoreDartWrapper(
-          NativePortType port_, List<dynamic> that, String public_key) =>
-      wasmModule.wire_remove_key__method__KeystoreDartWrapper(
-          port_, that, public_key);
-
-  void wire_remove_keys__method__KeystoreDartWrapper(
-          NativePortType port_, List<dynamic> that, List<String> public_keys) =>
-      wasmModule.wire_remove_keys__method__KeystoreDartWrapper(
-          port_, that, public_keys);
-
-  void wire_is_password_cached__method__KeystoreDartWrapper(
-          NativePortType port_,
-          List<dynamic> that,
-          String public_key,
-          Object duration) =>
-      wasmModule.wire_is_password_cached__method__KeystoreDartWrapper(
-          port_, that, public_key, duration);
-
-  void wire_clear_keystore__method__KeystoreDartWrapper(
-          NativePortType port_, List<dynamic> that) =>
-      wasmModule.wire_clear_keystore__method__KeystoreDartWrapper(port_, that);
-
-  void wire_reload_keystore__method__KeystoreDartWrapper(
-          NativePortType port_, List<dynamic> that) =>
-      wasmModule.wire_reload_keystore__method__KeystoreDartWrapper(port_, that);
-
-  void wire_verify_data__static_method__KeystoreDartWrapper(
-          NativePortType port_,
-          List<dynamic> signers,
-          List<dynamic>? ledger_connection,
-          String data) =>
-      wasmModule.wire_verify_data__static_method__KeystoreDartWrapper(
-          port_, signers, ledger_connection, data);
-
-  void wire_subscribe__static_method__TokenWalletDartWrapper(
-          NativePortType port_,
-          String instance_hash,
-          String owner,
-          String root_token_contract,
-          Object transport) =>
-      wasmModule.wire_subscribe__static_method__TokenWalletDartWrapper(
-          port_, instance_hash, owner, root_token_contract, transport);
-
-  void wire_owner__method__TokenWalletDartWrapper(
-          NativePortType port_, List<dynamic> that) =>
-      wasmModule.wire_owner__method__TokenWalletDartWrapper(port_, that);
-
-  void wire_address__method__TokenWalletDartWrapper(
-          NativePortType port_, List<dynamic> that) =>
-      wasmModule.wire_address__method__TokenWalletDartWrapper(port_, that);
-
-  void wire_symbol__method__TokenWalletDartWrapper(
-          NativePortType port_, List<dynamic> that) =>
-      wasmModule.wire_symbol__method__TokenWalletDartWrapper(port_, that);
-
-  void wire_version__method__TokenWalletDartWrapper(
-          NativePortType port_, List<dynamic> that) =>
-      wasmModule.wire_version__method__TokenWalletDartWrapper(port_, that);
-
-  void wire_balance__method__TokenWalletDartWrapper(
-          NativePortType port_, List<dynamic> that) =>
-      wasmModule.wire_balance__method__TokenWalletDartWrapper(port_, that);
-
-  void wire_contract_state__method__TokenWalletDartWrapper(
-          NativePortType port_, List<dynamic> that) =>
-      wasmModule.wire_contract_state__method__TokenWalletDartWrapper(
-          port_, that);
-
-  void wire_prepare_transfer__method__TokenWalletDartWrapper(
-          NativePortType port_,
-          List<dynamic> that,
-          String destination,
-          String amount,
-          bool notify_receiver,
-          String? attached_amount,
-          String? payload) =>
-      wasmModule.wire_prepare_transfer__method__TokenWalletDartWrapper(port_,
-          that, destination, amount, notify_receiver, attached_amount, payload);
-
-  void wire_refresh__method__TokenWalletDartWrapper(
-          NativePortType port_, List<dynamic> that) =>
-      wasmModule.wire_refresh__method__TokenWalletDartWrapper(port_, that);
-
-  void wire_preload_transactions__method__TokenWalletDartWrapper(
-          NativePortType port_, List<dynamic> that, String from_lt) =>
-      wasmModule.wire_preload_transactions__method__TokenWalletDartWrapper(
-          port_, that, from_lt);
-
-  void wire_handle_block__method__TokenWalletDartWrapper(
-          NativePortType port_, List<dynamic> that, String block) =>
-      wasmModule.wire_handle_block__method__TokenWalletDartWrapper(
-          port_, that, block);
-
-  void wire_get_token_wallet_details__static_method__TokenWalletDartWrapper(
-          NativePortType port_, Object transport, String address) =>
-      wasmModule
-          .wire_get_token_wallet_details__static_method__TokenWalletDartWrapper(
-              port_, transport, address);
-
-  void wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper(
-          NativePortType port_,
-          Object transport,
-          String token_wallet_address) =>
-      wasmModule
-          .wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper(
-              port_, transport, token_wallet_address);
 
   void wire_subscribe__static_method__TonWalletDartWrapper(
           NativePortType port_,
@@ -1935,107 +2008,34 @@ class NekotonBridgeWire
       wasmModule.wire_get_custodians__static_method__TonWalletDartWrapper(
           port_, transport, address);
 
-  void wire_new__static_method__GqlTransportImpl(
-          NativePortType port_, List<dynamic> gql_connection) =>
-      wasmModule.wire_new__static_method__GqlTransportImpl(
-          port_, gql_connection);
+  void wire_new__static_method__JrpcConnectionDartWrapper(
+          NativePortType port_, String instance_hash) =>
+      wasmModule.wire_new__static_method__JrpcConnectionDartWrapper(
+          port_, instance_hash);
 
-  void wire_get_contract_state__method__GqlTransportImpl(
-          NativePortType port_, List<dynamic> that, String address) =>
-      wasmModule.wire_get_contract_state__method__GqlTransportImpl(
-          port_, that, address);
+  void wire_new__static_method__GqlConnectionDartWrapper(
+          NativePortType port_, bool is_local, String instance_hash) =>
+      wasmModule.wire_new__static_method__GqlConnectionDartWrapper(
+          port_, is_local, instance_hash);
 
-  void wire_get_full_contract_state__method__GqlTransportImpl(
-          NativePortType port_, List<dynamic> that, String address) =>
-      wasmModule.wire_get_full_contract_state__method__GqlTransportImpl(
-          port_, that, address);
+  void wire_new__static_method__LedgerConnectionDartWrapper(
+          NativePortType port_, String instance_hash) =>
+      wasmModule.wire_new__static_method__LedgerConnectionDartWrapper(
+          port_, instance_hash);
 
-  void wire_get_accounts_by_code_hash__method__GqlTransportImpl(
-          NativePortType port_,
-          List<dynamic> that,
-          String code_hash,
-          int limit,
-          String? continuation) =>
-      wasmModule.wire_get_accounts_by_code_hash__method__GqlTransportImpl(
-          port_, that, code_hash, limit, continuation);
+  void wire_new__static_method__LedgerConnectionImpl(
+          NativePortType port_, String instance_hash) =>
+      wasmModule.wire_new__static_method__LedgerConnectionImpl(
+          port_, instance_hash);
 
-  void wire_get_transactions__method__GqlTransportImpl(NativePortType port_,
-          List<dynamic> that, String address, Object? from_lt, int count) =>
-      wasmModule.wire_get_transactions__method__GqlTransportImpl(
-          port_, that, address, from_lt, count);
+  void wire_new__static_method__StorageDartWrapper(
+          NativePortType port_, String instance_hash) =>
+      wasmModule.wire_new__static_method__StorageDartWrapper(
+          port_, instance_hash);
 
-  void wire_get_transaction__method__GqlTransportImpl(
-          NativePortType port_, List<dynamic> that, String hash) =>
-      wasmModule.wire_get_transaction__method__GqlTransportImpl(
-          port_, that, hash);
-
-  void wire_get_signature_id__method__GqlTransportImpl(
-          NativePortType port_, List<dynamic> that) =>
-      wasmModule.wire_get_signature_id__method__GqlTransportImpl(port_, that);
-
-  void wire_get_network_id__method__GqlTransportImpl(
-          NativePortType port_, List<dynamic> that) =>
-      wasmModule.wire_get_network_id__method__GqlTransportImpl(port_, that);
-
-  void wire_get_latest_block__method__GqlTransportImpl(
-          NativePortType port_, List<dynamic> that, String address) =>
-      wasmModule.wire_get_latest_block__method__GqlTransportImpl(
-          port_, that, address);
-
-  void wire_get_block__method__GqlTransportImpl(
-          NativePortType port_, List<dynamic> that, String id) =>
-      wasmModule.wire_get_block__method__GqlTransportImpl(port_, that, id);
-
-  void wire_wait_for_next_block__method__GqlTransportImpl(
-          NativePortType port_,
-          List<dynamic> that,
-          String current_block_id,
-          String address,
-          Object timeout) =>
-      wasmModule.wire_wait_for_next_block__method__GqlTransportImpl(
-          port_, that, current_block_id, address, timeout);
-
-  void wire_new__static_method__JrpcTransportImpl(
-          NativePortType port_, List<dynamic> jrpc_connection) =>
-      wasmModule.wire_new__static_method__JrpcTransportImpl(
-          port_, jrpc_connection);
-
-  void wire_get_contract_state__method__JrpcTransportImpl(
-          NativePortType port_, List<dynamic> that, String address) =>
-      wasmModule.wire_get_contract_state__method__JrpcTransportImpl(
-          port_, that, address);
-
-  void wire_get_full_contract_state__method__JrpcTransportImpl(
-          NativePortType port_, List<dynamic> that, String address) =>
-      wasmModule.wire_get_full_contract_state__method__JrpcTransportImpl(
-          port_, that, address);
-
-  void wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
-          NativePortType port_,
-          List<dynamic> that,
-          String code_hash,
-          int limit,
-          String? continuation) =>
-      wasmModule.wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
-          port_, that, code_hash, limit, continuation);
-
-  void wire_get_transactions__method__JrpcTransportImpl(NativePortType port_,
-          List<dynamic> that, String address, Object? from_lt, int count) =>
-      wasmModule.wire_get_transactions__method__JrpcTransportImpl(
-          port_, that, address, from_lt, count);
-
-  void wire_get_transaction__method__JrpcTransportImpl(
-          NativePortType port_, List<dynamic> that, String hash) =>
-      wasmModule.wire_get_transaction__method__JrpcTransportImpl(
-          port_, that, hash);
-
-  void wire_get_signature_id__method__JrpcTransportImpl(
-          NativePortType port_, List<dynamic> that) =>
-      wasmModule.wire_get_signature_id__method__JrpcTransportImpl(port_, that);
-
-  void wire_get_network_id__method__JrpcTransportImpl(
-          NativePortType port_, List<dynamic> that) =>
-      wasmModule.wire_get_network_id__method__JrpcTransportImpl(port_, that);
+  void wire_new__static_method__StorageImpl(
+          NativePortType port_, String instance_hash) =>
+      wasmModule.wire_new__static_method__StorageImpl(port_, instance_hash);
 
   void wire_new__static_method__MyClass(NativePortType port_, int a) =>
       wasmModule.wire_new__static_method__MyClass(port_, a);
