@@ -3,8 +3,6 @@
 use flutter_rust_bridge::frb;
 pub use nekoton::crypto::MnemonicType;
 
-use crate::nekoton_wrapper::init_tokio_runtime;
-
 /// -------------------------
 /// Types to generate in dart
 /// -------------------------
@@ -20,8 +18,4 @@ pub enum _MnemonicType {
 pub struct GeneratedKeyG {
     pub words: Vec<String>,
     pub account_type: MnemonicType,
-}
-
-pub fn init_runtime() {
-    init_tokio_runtime();
 }

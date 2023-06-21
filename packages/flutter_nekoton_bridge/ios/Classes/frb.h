@@ -286,8 +286,6 @@ void wire_nt_derive_from_phrase(int64_t port_,
                                 struct wire_uint_8_list *phrase,
                                 struct wire_MnemonicType *mnemonic_type);
 
-void wire_init_runtime(int64_t port_);
-
 void wire_check_public_key(int64_t port_, struct wire_uint_8_list *public_key);
 
 void wire_run_local(int64_t port_,
@@ -412,6 +410,8 @@ void wire_test_caller_call_test1_async(int64_t port_,
 void wire_init_logger(int64_t port_, int32_t level, bool mobile_logger);
 
 void wire_create_log_stream(int64_t port_);
+
+void wire_init_runtime(int64_t port_);
 
 void wire_init_caller(int64_t port_);
 
@@ -1049,7 +1049,6 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_nt_generate_key);
     dummy_var ^= ((int64_t) (void*) wire_nt_get_hints);
     dummy_var ^= ((int64_t) (void*) wire_nt_derive_from_phrase);
-    dummy_var ^= ((int64_t) (void*) wire_init_runtime);
     dummy_var ^= ((int64_t) (void*) wire_check_public_key);
     dummy_var ^= ((int64_t) (void*) wire_run_local);
     dummy_var ^= ((int64_t) (void*) wire_get_expected_address);
@@ -1085,6 +1084,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_test_caller_call_test1_async);
     dummy_var ^= ((int64_t) (void*) wire_init_logger);
     dummy_var ^= ((int64_t) (void*) wire_create_log_stream);
+    dummy_var ^= ((int64_t) (void*) wire_init_runtime);
     dummy_var ^= ((int64_t) (void*) wire_init_caller);
     dummy_var ^= ((int64_t) (void*) wire_call_send_result);
     dummy_var ^= ((int64_t) (void*) wire_simple_log);

@@ -58,10 +58,6 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kNtDeriveFromPhraseConstMeta;
 
-  Future<void> initRuntime({dynamic hint});
-
-  FlutterRustBridgeTaskConstMeta get kInitRuntimeConstMeta;
-
   ///----------------------------
   /// CONTENT OF src/nekoton_wrapper/helpers/abi_api.rs
   ///----------------------------
@@ -311,6 +307,11 @@ abstract class NekotonBridge {
   Stream<LogEntry> createLogStream({dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kCreateLogStreamConstMeta;
+
+  /// Init tokio runtime
+  Future<void> initRuntime({dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kInitRuntimeConstMeta;
 
   /// Init caller
   Stream<DartCallStubRegistred> initCaller({dynamic hint});
@@ -3277,22 +3278,6 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: ["phrase", "mnemonicType"],
       );
 
-  Future<void> initRuntime({dynamic hint}) {
-    return _platform.executeNormal(FlutterRustBridgeTask(
-      callFfi: (port_) => _platform.inner.wire_init_runtime(port_),
-      parseSuccessData: _wire2api_unit,
-      constMeta: kInitRuntimeConstMeta,
-      argValues: [],
-      hint: hint,
-    ));
-  }
-
-  FlutterRustBridgeTaskConstMeta get kInitRuntimeConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
-        debugName: "init_runtime",
-        argNames: [],
-      );
-
   Future<bool> checkPublicKey({required String publicKey, dynamic hint}) {
     var arg0 = _platform.api2wire_String(publicKey);
     return _platform.executeNormal(FlutterRustBridgeTask(
@@ -4048,6 +4033,22 @@ class NekotonBridgeImpl implements NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kCreateLogStreamConstMeta =>
       const FlutterRustBridgeTaskConstMeta(
         debugName: "create_log_stream",
+        argNames: [],
+      );
+
+  Future<void> initRuntime({dynamic hint}) {
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_init_runtime(port_),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kInitRuntimeConstMeta,
+      argValues: [],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kInitRuntimeConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "init_runtime",
         argNames: [],
       );
 

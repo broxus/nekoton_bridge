@@ -499,8 +499,6 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_nt_derive_from_phrase(
       NativePortType port_, String phrase, List<dynamic> mnemonic_type);
 
-  external dynamic /* void */ wire_init_runtime(NativePortType port_);
-
   external dynamic /* void */ wire_check_public_key(
       NativePortType port_, String public_key);
 
@@ -626,6 +624,8 @@ class NekotonBridgeWasmModule implements WasmModule {
       NativePortType port_, int level, bool mobile_logger);
 
   external dynamic /* void */ wire_create_log_stream(NativePortType port_);
+
+  external dynamic /* void */ wire_init_runtime(NativePortType port_);
 
   external dynamic /* void */ wire_init_caller(NativePortType port_);
 
@@ -1226,9 +1226,6 @@ class NekotonBridgeWire
           NativePortType port_, String phrase, List<dynamic> mnemonic_type) =>
       wasmModule.wire_nt_derive_from_phrase(port_, phrase, mnemonic_type);
 
-  void wire_init_runtime(NativePortType port_) =>
-      wasmModule.wire_init_runtime(port_);
-
   void wire_check_public_key(NativePortType port_, String public_key) =>
       wasmModule.wire_check_public_key(port_, public_key);
 
@@ -1375,6 +1372,9 @@ class NekotonBridgeWire
 
   void wire_create_log_stream(NativePortType port_) =>
       wasmModule.wire_create_log_stream(port_);
+
+  void wire_init_runtime(NativePortType port_) =>
+      wasmModule.wire_init_runtime(port_);
 
   void wire_init_caller(NativePortType port_) =>
       wasmModule.wire_init_caller(port_);
