@@ -5,18 +5,18 @@ pub mod helpers;
 pub mod models_api;
 pub mod transport;
 
-use anyhow::Result;
 use anyhow::Context;
-use flutter_rust_bridge::FfiCallMode;
-use flutter_rust_bridge::IntoDart;
-use flutter_rust_bridge::SyncReturn;
+use anyhow::Result;
 use flutter_rust_bridge::handler::Error;
 use flutter_rust_bridge::handler::ErrorHandler;
 use flutter_rust_bridge::handler::Executor;
-use flutter_rust_bridge::WrapInfo;
 use flutter_rust_bridge::rust2dart::Rust2Dart;
 use flutter_rust_bridge::rust2dart::TaskCallback;
 use flutter_rust_bridge::spawn;
+use flutter_rust_bridge::FfiCallMode;
+use flutter_rust_bridge::IntoDart;
+use flutter_rust_bridge::SyncReturn;
+use flutter_rust_bridge::WrapInfo;
 use lazy_static::lazy_static;
 use log::warn;
 use nekoton_utils::SimpleClock;
@@ -29,9 +29,6 @@ use std::sync::Mutex;
 use tokio::runtime::Runtime;
 use ton_block::MsgAddressInt;
 use ton_types::UInt256;
-
-use flutter_rust_bridge::handler::ReportDartErrorHandler;
-use flutter_rust_bridge::handler::SimpleHandler;
 
 lazy_static! {
     pub static ref CLOCK: Arc<SimpleClock> = Arc::new(SimpleClock {});
@@ -112,21 +109,15 @@ impl<EH: ErrorHandler> Executor for MyPoolExecutor<EH> {
     }
 }
 
-
-lazy_static! {
-    static ref FLUTTER_RUST_BRIDGE_HANDLER: SimpleHandler<MyPoolExecutor<ReportDartErrorHandler>, ReportDartErrorHandler> =
-        SimpleHandler::new(
-            MyPoolExecutor::new(ReportDartErrorHandler),
-            ReportDartErrorHandler {}
-        );
-}
-
 pub fn init_tokio_runtime() {
+    warn!("init_tokio_runtime 1");
     let rt = tokio::runtime::Builder::new_multi_thread()
         .enable_all()
         .build()
         .expect("Can't create tokio runtime");
+    warn!("init_tokio_runtime 2");
     RUNTIME.lock().expect("Mutex poisoned").replace(rt);
+    warn!("init_tokio_runtime 3");
 }
 
 #[macro_export]

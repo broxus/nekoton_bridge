@@ -294,9 +294,6 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kTestCallerCallTest1AsyncConstMeta;
 
-  ///----------------------------
-  /// CONTENT OF src/utils/api.rs
-  ///----------------------------
   /// Init utils
   Future<void> initLogger(
       {required LogLevel level, required bool mobileLogger, dynamic hint});
