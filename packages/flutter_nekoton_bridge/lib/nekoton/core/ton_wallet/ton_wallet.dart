@@ -450,6 +450,8 @@ class TonWallet extends RustToDartMirrorInterface {
 
   /// Method that updates all internal data and notify subscribers about it.
   Future<void> _updateData() async {
+    if (avoidCall) return;
+
     _contractState = await getContractState();
     _pendingTransactions = await getPendingTransactions();
     _pollingMethod = await getPollingMethod();

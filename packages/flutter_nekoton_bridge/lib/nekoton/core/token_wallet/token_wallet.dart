@@ -260,6 +260,8 @@ class TokenWallet extends RustToDartMirrorInterface {
 
   /// Method that updates all internal data and notify subscribers about it.
   Future<void> _updateData() async {
+    if (avoidCall) return;
+
     _contractState = await getContractState();
     balance = Fixed.parse(await _getBalance());
 

@@ -38,7 +38,7 @@ pub trait TransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     async fn get_contract_state(&self, address: String) -> anyhow::Result<String>;
 
     /// Get full contract state of address and return json-encoded FullContractState or throw error
-    async fn get_full_contract_state(&self, address: String) -> anyhow::Result<String>;
+    async fn get_full_contract_state(&self, address: String) -> anyhow::Result<Option<String>>;
 
     /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
     async fn get_accounts_by_code_hash(
@@ -87,6 +87,7 @@ pub struct JrpcTransportBox {
 }
 
 impl UnwindSafe for JrpcTransportBox {}
+
 impl RefUnwindSafe for JrpcTransportBox {}
 
 impl JrpcTransportBox {
@@ -120,7 +121,7 @@ impl TransportBoxTrait for JrpcTransportBox {
     }
 
     /// Get full contract state of address and return json-encoded FullContractState or throw error
-    async fn get_full_contract_state(&self, address: String) -> anyhow::Result<String> {
+    async fn get_full_contract_state(&self, address: String) -> anyhow::Result<Option<String>> {
         let address = parse_address(address)?;
 
         let raw_contract_state = self
@@ -157,7 +158,10 @@ impl TransportBoxTrait for JrpcTransportBox {
             RawContractState::NotExists => None,
         };
 
-        serde_json::to_string(&full_contract_state).handle_error()
+        return match full_contract_state {
+            None => Ok(None),
+            Some(state) => Ok(Some(serde_json::to_string(&state).handle_error()?)),
+        };
     }
 
     /// Get list of accounts by code hash. Returns json-encoded AccountsList of addresses of throw error
@@ -306,6 +310,7 @@ pub struct GqlTransportBox {
 }
 
 impl UnwindSafe for GqlTransportBox {}
+
 impl RefUnwindSafe for GqlTransportBox {}
 
 impl GqlTransportBox {
@@ -339,7 +344,7 @@ impl TransportBoxTrait for GqlTransportBox {
     }
 
     /// Get full contract state of address and return json-encoded FullContractState or throw error
-    async fn get_full_contract_state(&self, address: String) -> anyhow::Result<String> {
+    async fn get_full_contract_state(&self, address: String) -> anyhow::Result<Option<String>> {
         let address = parse_address(address)?;
 
         let raw_contract_state = self
@@ -376,7 +381,10 @@ impl TransportBoxTrait for GqlTransportBox {
             RawContractState::NotExists => None,
         };
 
-        serde_json::to_string(&full_contract_state).handle_error()
+        return match full_contract_state {
+            None => Ok(None),
+            Some(state) => Ok(Some(serde_json::to_string(&state).handle_error()?)),
+        };
     }
 
     /// Get list of accounts by code hash. Returns json-encoded AccountsList of addresses of throw error

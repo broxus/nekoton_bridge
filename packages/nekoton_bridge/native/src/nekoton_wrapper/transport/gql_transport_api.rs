@@ -36,7 +36,7 @@ impl GqlTransportImpl {
     }
 
     /// Get full contract state of address and return json-encoded FullContractState or throw error
-    pub fn get_full_contract_state(&self, address: String) -> anyhow::Result<String> {
+    pub fn get_full_contract_state(&self, address: String) -> anyhow::Result<Option<String>> {
         async_run!(self.inner_transport.get_full_contract_state(address).await)
     }
 
