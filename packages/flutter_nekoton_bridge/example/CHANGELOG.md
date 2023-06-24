@@ -1,3 +1,7 @@
+## 1.8.0-dev.12
+
+ - Update a dependency to the latest release.
+
 ## 1.8.0-dev.11
 
  - **REFACTOR**: versioning create PR ([#118](https://github.com/broxus/nekoton_bridge/issues/118)). ([0e605265](https://github.com/broxus/nekoton_bridge/commit/0e605265d9f3abe946df5d39f5ad5cf0a2aeca76))

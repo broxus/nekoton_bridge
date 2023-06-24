@@ -1,3 +1,7 @@
+## 1.8.0-dev.12
+
+ - **FIX**: fix calls after dispose. Fix getting FullContractState ([#132](https://github.com/broxus/nekoton_bridge/issues/132)). ([f8898091](https://github.com/broxus/nekoton_bridge/commit/f88980917a18aae808a951be5c264ff92a83a290))
+
 ## 1.8.0-dev.11
 
  - **REFACTOR**: versioning create PR ([#118](https://github.com/broxus/nekoton_bridge/issues/118)). ([0e605265](https://github.com/broxus/nekoton_bridge/commit/0e605265d9f3abe946df5d39f5ad5cf0a2aeca76))
