@@ -51,6 +51,8 @@ class GqlTransport extends Transport {
   @override
   Future<FullContractState?> getFullContractState(String address) async {
     final res = await transport.getFullContractState(address: address);
+    if (res == null) return null;
+    
     return FullContractState.fromJson(jsonDecode(res));
   }
 
