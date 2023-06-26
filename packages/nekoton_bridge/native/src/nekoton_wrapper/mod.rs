@@ -18,7 +18,6 @@ use flutter_rust_bridge::IntoDart;
 use flutter_rust_bridge::SyncReturn;
 use flutter_rust_bridge::WrapInfo;
 use lazy_static::lazy_static;
-use log::warn;
 use nekoton_utils::SimpleClock;
 use serde::Serialize;
 use std::panic;
