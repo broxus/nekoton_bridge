@@ -4,13 +4,24 @@ use std::collections::HashMap;
 use std::{thread, time};
 
 use flutter_rust_bridge::*;
+use lazy_static::lazy_static;
 use log::*;
 
 use crate::utils::caller;
 use crate::utils::logger;
 use crate::utils::mega_struct;
 
-use crate::nekoton_wrapper::init_tokio_runtime;
+use crate::nekoton_wrapper::{init_tokio_runtime, MyPoolExecutor};
+
+lazy_static! {
+    pub static ref FLUTTER_RUST_BRIDGE_HANDLER: handler::SimpleHandler<
+        MyPoolExecutor<handler::ReportDartErrorHandler>,
+        handler::ReportDartErrorHandler,
+    > = handler::SimpleHandler::new(
+        MyPoolExecutor::new(handler::ReportDartErrorHandler),
+        handler::ReportDartErrorHandler {}
+    );
+}
 
 /// Init utils
 pub fn init_logger(level: logger::LogLevel, mobile_logger: bool) {

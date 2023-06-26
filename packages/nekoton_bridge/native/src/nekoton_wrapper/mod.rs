@@ -6,9 +6,22 @@ pub mod models_api;
 pub mod transport;
 
 use anyhow::Context;
+use anyhow::Result;
+use flutter_rust_bridge::handler::Error;
+use flutter_rust_bridge::handler::ErrorHandler;
+use flutter_rust_bridge::handler::Executor;
+use flutter_rust_bridge::rust2dart::Rust2Dart;
+use flutter_rust_bridge::rust2dart::TaskCallback;
+use flutter_rust_bridge::spawn;
+use flutter_rust_bridge::FfiCallMode;
+use flutter_rust_bridge::IntoDart;
+use flutter_rust_bridge::SyncReturn;
+use flutter_rust_bridge::WrapInfo;
 use lazy_static::lazy_static;
 use nekoton_utils::SimpleClock;
 use serde::Serialize;
+use std::panic;
+use std::panic::UnwindSafe;
 use std::str::FromStr;
 use std::sync::Arc;
 use std::sync::Mutex;
@@ -19,6 +32,78 @@ use ton_types::UInt256;
 lazy_static! {
     pub static ref CLOCK: Arc<SimpleClock> = Arc::new(SimpleClock {});
     pub static ref RUNTIME: Mutex<Option<Runtime>> = Mutex::new(None);
+}
+
+/// The new executor.
+pub struct MyPoolExecutor<EH: ErrorHandler> {
+    error_handler: EH,
+}
+
+impl<EH: ErrorHandler> MyPoolExecutor<EH> {
+    /// Create a new executor
+    pub fn new(error_handler: EH) -> Self {
+        MyPoolExecutor { error_handler }
+    }
+}
+
+// Actually it is copied from default ThreadPoolExecutor implementation
+impl<EH: ErrorHandler> Executor for MyPoolExecutor<EH> {
+    fn execute<TaskFn, TaskRet>(&self, wrap_info: WrapInfo, task: TaskFn)
+    where
+        TaskFn: FnOnce(TaskCallback) -> Result<TaskRet> + Send + UnwindSafe + 'static,
+        TaskRet: IntoDart,
+    {
+        let eh = self.error_handler;
+        let eh2 = self.error_handler;
+
+        let WrapInfo { port, mode, .. } = wrap_info;
+
+        spawn!(|port: Option<MessagePort>| {
+            let port2 = port.as_ref().cloned();
+            let thread_result = panic::catch_unwind(move || {
+                let port2 = port2.expect("(worker) thread");
+                #[allow(clippy::clone_on_copy)]
+                let rust2dart = Rust2Dart::new(port2.clone());
+
+                let ret = task(TaskCallback::new(rust2dart.clone())).map(IntoDart::into_dart);
+
+                match ret {
+                    Ok(result) => {
+                        match mode {
+                            FfiCallMode::Normal => {
+                                rust2dart.success(result);
+                            }
+                            FfiCallMode::Stream => {
+                                // nothing - ignore the return value of a Stream-typed function
+                            }
+                            FfiCallMode::Sync => {
+                                panic!("FfiCallMode::Sync should not call execute, please call execute_sync instead")
+                            }
+                        }
+                    }
+                    Err(error) => {
+                        eh2.handle_error(port2, Error::ResultError(error));
+                    }
+                };
+            });
+
+            if let Err(error) = thread_result {
+                eh.handle_error(port.expect("(worker) eh"), Error::Panic(error));
+            }
+        });
+    }
+
+    fn execute_sync<SyncTaskFn, TaskRet>(
+        &self,
+        _wrap_info: WrapInfo,
+        sync_task: SyncTaskFn,
+    ) -> Result<SyncReturn<TaskRet>>
+    where
+        SyncTaskFn: FnOnce() -> Result<SyncReturn<TaskRet>> + UnwindSafe,
+        TaskRet: IntoDart,
+    {
+        sync_task()
+    }
 }
 
 pub fn init_tokio_runtime() {
