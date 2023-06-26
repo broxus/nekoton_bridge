@@ -54,7 +54,6 @@ impl<EH: ErrorHandler> Executor for MyPoolExecutor<EH> {
         TaskFn: FnOnce(TaskCallback) -> Result<TaskRet> + Send + UnwindSafe + 'static,
         TaskRet: IntoDart,
     {
-        warn!("sir, (worker) execute");
         let eh = self.error_handler;
         let eh2 = self.error_handler;
 
@@ -104,20 +103,16 @@ impl<EH: ErrorHandler> Executor for MyPoolExecutor<EH> {
         SyncTaskFn: FnOnce() -> Result<SyncReturn<TaskRet>> + UnwindSafe,
         TaskRet: IntoDart,
     {
-        warn!("sir, (worker) execute_sync");
         sync_task()
     }
 }
 
 pub fn init_tokio_runtime() {
-    warn!("init_tokio_runtime 1");
     let rt = tokio::runtime::Builder::new_multi_thread()
         .enable_all()
         .build()
         .expect("Can't create tokio runtime");
-    warn!("init_tokio_runtime 2");
     RUNTIME.lock().expect("Mutex poisoned").replace(rt);
-    warn!("init_tokio_runtime 3");
 }
 
 #[macro_export]
