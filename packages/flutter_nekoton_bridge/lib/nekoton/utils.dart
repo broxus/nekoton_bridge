@@ -1,19 +1,33 @@
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-const amountJsonConverter = AmountJsonConverter();
-const addressJsonConverter = AddressJsonConverter();
-
 /// Json converter of amount value from string to Fixed (without currency
 /// identification)
-class AmountJsonConverter extends JsonConverter<Fixed, String> {
-  const AmountJsonConverter();
+const amountJsonConverter = _FixedJsonConverter();
+
+/// Json converter of address value from string to Address
+const addressJsonConverter = _StringJsonConverter();
+
+class _FixedJsonConverter extends JsonConverter<Fixed, String> {
+  const _FixedJsonConverter();
 
   @override
   Fixed fromJson(String json) => Fixed.parse(json);
 
   @override
   String toJson(Fixed object) => object.toString();
+}
+
+class _StringJsonConverter implements JsonConverter<Address, String> {
+  const _StringJsonConverter();
+
+  @override
+  Address fromJson(String json) {
+    return Address(address: json);
+  }
+
+  @override
+  String toJson(Address address) => address.address;
 }
 
 /// Get name of KeySigner, same as in rust side
@@ -26,16 +40,4 @@ extension KeySignerName on KeySigner {
       orElse: () => '',
     );
   }
-}
-
-class AddressJsonConverter implements JsonConverter<Address, String> {
-  const AddressJsonConverter();
-
-  @override
-  Address fromJson(String json) {
-    return Address(address: json);
-  }
-
-  @override
-  String toJson(Address address) => address.address;
 }
