@@ -411,6 +411,8 @@ void wire_init_logger(int64_t port_, int32_t level, bool mobile_logger);
 
 void wire_create_log_stream(int64_t port_);
 
+void wire_init_runtime(int64_t port_);
+
 void wire_init_caller(int64_t port_);
 
 WireSyncReturn wire_call_send_result(struct wire_uint_8_list *id, struct wire_DynamicValue *value);
@@ -1082,6 +1084,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_test_caller_call_test1_async);
     dummy_var ^= ((int64_t) (void*) wire_init_logger);
     dummy_var ^= ((int64_t) (void*) wire_create_log_stream);
+    dummy_var ^= ((int64_t) (void*) wire_init_runtime);
     dummy_var ^= ((int64_t) (void*) wire_init_caller);
     dummy_var ^= ((int64_t) (void*) wire_call_send_result);
     dummy_var ^= ((int64_t) (void*) wire_simple_log);

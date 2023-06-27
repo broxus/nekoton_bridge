@@ -5,6 +5,7 @@ use crate::nekoton_wrapper::HandleError;
 use nekoton_abi::MethodName;
 use std::str::FromStr;
 use ton_block::{Deserializable, MaybeDeserialize};
+use ton_types::SliceData;
 
 pub mod abi_api;
 pub mod models;
@@ -24,16 +25,16 @@ pub fn parse_account_stuff(boc: String) -> anyhow::Result<ton_block::AccountStuf
     let bytes = base64::decode(boc).handle_error()?;
     ton_types::deserialize_tree_of_cells(&mut bytes.as_slice())
         .and_then(|cell| {
-            let slice = &mut cell.into();
+            let mut slice = SliceData::load_cell(cell)?;
             Ok(ton_block::AccountStuff {
-                addr: Deserializable::construct_from(slice)?,
-                storage_stat: Deserializable::construct_from(slice)?,
+                addr: Deserializable::construct_from(&mut slice)?,
+                storage_stat: Deserializable::construct_from(&mut slice)?,
                 storage: ton_block::AccountStorage {
-                    last_trans_lt: Deserializable::construct_from(slice)?,
-                    balance: Deserializable::construct_from(slice)?,
-                    state: Deserializable::construct_from(slice)?,
+                    last_trans_lt: Deserializable::construct_from(&mut slice)?,
+                    balance: Deserializable::construct_from(&mut slice)?,
+                    state: Deserializable::construct_from(&mut slice)?,
                     init_code_hash: if slice.remaining_bits() > 0 {
-                        ton_types::UInt256::read_maybe_from(slice)?
+                        ton_types::UInt256::read_maybe_from(&mut slice)?
                     } else {
                         None
                     },
@@ -77,9 +78,9 @@ pub fn parse_method_name(value: Option<String>) -> anyhow::Result<MethodName> {
 
 /// Parse boc to slice and return its instance or throws error
 pub fn parse_slice(boc: String) -> anyhow::Result<ton_types::SliceData> {
-    let body = base64::decode(boc).handle_error()?;
-    let cell = ton_types::deserialize_tree_of_cells(&mut body.as_slice()).handle_error()?;
-    Ok(cell.into())
+    let body = base64::decode(boc)?;
+    let cell = ton_types::deserialize_tree_of_cells(&mut body.as_slice())?;
+    SliceData::load_cell(cell)
 }
 
 /// Parse params list and returns vector of these instances or throws error

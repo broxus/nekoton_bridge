@@ -20,6 +20,7 @@ use std::borrow::Cow;
 use std::collections::HashMap;
 use std::time::{SystemTime, UNIX_EPOCH};
 use ton_block::{Deserializable, Serializable};
+use ton_types::SliceData;
 
 /// Check if public key is correct.
 /// If no - throws error, if ok - return true
@@ -98,9 +99,14 @@ pub fn get_expected_address(
 
     state_init.data = if let Some(data) = state_init.data.take() {
         Some(
-            insert_state_init_data(&contract_abi, data.into(), &public_key, init_data)
-                .handle_error()?
-                .into_cell(),
+            insert_state_init_data(
+                &contract_abi,
+                SliceData::load_cell(data).expect("Can't load cell"),
+                &public_key,
+                init_data,
+            )
+            .handle_error()?
+            .into_cell(),
         )
     } else {
         None
@@ -189,7 +195,7 @@ pub fn create_external_message_without_signature(
         message.set_state_init(state_init);
     }
 
-    message.set_body(body.into());
+    message.set_body(SliceData::load_builder(body)?);
 
     let signed_message = SignedMessage {
         message,
@@ -354,7 +360,7 @@ pub fn decode_transaction(
     let internal = transaction.in_msg.src.is_some();
 
     let in_msg_body = match transaction.in_msg.body {
-        Some(body) => body.data.into(),
+        Some(body) => SliceData::load_cell(body.data)?,
         None => return Ok(serde_json::Value::Null.to_string()),
     };
 
@@ -377,7 +383,7 @@ pub fn decode_transaction(
             };
 
             Some(match e.body.to_owned() {
-                Some(body) => Ok(body.data.into()),
+                Some(body) => Ok(SliceData::load_cell(body.data).ok()?),
                 None => Err("Expected message body").handle_error(),
             })
         })
@@ -412,7 +418,7 @@ pub fn decode_transaction_events(
             };
 
             Some(match e.body.to_owned() {
-                Some(body) => Ok(body.data.into()),
+                Some(body) => Ok(SliceData::load_cell(body.data).ok()?),
                 None => Err("Expected message body").handle_error(),
             })
         })
@@ -478,9 +484,9 @@ pub fn unpack_from_cell(
     let cell = ton_types::deserialize_tree_of_cells(&mut body.as_slice()).handle_error()?;
     let version = ton_abi::contract::AbiVersion { major: 2, minor: 2 };
 
-    let tokens = nekoton_abi::unpack_from_cell(&params, cell.into(), allow_partial, version)
-        .handle_error()
-        .and_then(|e| nekoton_abi::make_abi_tokens(&e).handle_error())?;
+    let tokens =
+        nekoton_abi::unpack_from_cell(&params, SliceData::load_cell(cell)?, allow_partial, version)
+            .and_then(|e| nekoton_abi::make_abi_tokens(&e))?;
 
     serde_json::to_string(&tokens).handle_error()
 }

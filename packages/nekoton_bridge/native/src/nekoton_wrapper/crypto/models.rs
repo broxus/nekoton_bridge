@@ -56,7 +56,8 @@ impl ToSerializable<SignedMessage> for crypto::SignedMessage {
             .write_to_new_cell()
             .handle_error()
             .unwrap()
-            .into();
+            .into_cell()
+            .expect("failed to create cell from builder");
 
         let hash = cell.repr_hash();
 

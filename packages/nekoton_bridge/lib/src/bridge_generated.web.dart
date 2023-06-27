@@ -625,6 +625,8 @@ class NekotonBridgeWasmModule implements WasmModule {
 
   external dynamic /* void */ wire_create_log_stream(NativePortType port_);
 
+  external dynamic /* void */ wire_init_runtime(NativePortType port_);
+
   external dynamic /* void */ wire_init_caller(NativePortType port_);
 
   external dynamic /* void */ wire_call_send_result(
@@ -1370,6 +1372,9 @@ class NekotonBridgeWire
 
   void wire_create_log_stream(NativePortType port_) =>
       wasmModule.wire_create_log_stream(port_);
+
+  void wire_init_runtime(NativePortType port_) =>
+      wasmModule.wire_init_runtime(port_);
 
   void wire_init_caller(NativePortType port_) =>
       wasmModule.wire_init_caller(port_);

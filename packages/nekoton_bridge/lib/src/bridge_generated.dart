@@ -308,6 +308,11 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kCreateLogStreamConstMeta;
 
+  /// Init tokio runtime
+  Future<void> initRuntime({dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kInitRuntimeConstMeta;
+
   /// Init caller
   Stream<DartCallStubRegistred> initCaller({dynamic hint});
 
@@ -4028,6 +4033,22 @@ class NekotonBridgeImpl implements NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kCreateLogStreamConstMeta =>
       const FlutterRustBridgeTaskConstMeta(
         debugName: "create_log_stream",
+        argNames: [],
+      );
+
+  Future<void> initRuntime({dynamic hint}) {
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_init_runtime(port_),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kInitRuntimeConstMeta,
+      argValues: [],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kInitRuntimeConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "init_runtime",
         argNames: [],
       );
 

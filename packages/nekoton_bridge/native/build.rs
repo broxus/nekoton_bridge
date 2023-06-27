@@ -1,9 +1,9 @@
-use std::env;
-use std::fs;
 use lib_flutter_rust_bridge_codegen::{
     config_parse, frb_codegen, get_symbols_if_no_duplicates, RawOpts,
 };
 use rerun_except::rerun_except;
+use std::env;
+use std::fs;
 
 const RUST_INPUT: &str = "src/merged.rs";
 const DART_OUTPUT: &str = "../lib/src/bridge_generated.dart";
@@ -15,7 +15,6 @@ fn main() {
     // To debug frb uncomment here and in Cargo.toml
     // env::set_var("RUST_LOG", "debug");
     // env_logger::init();
-
 
     // Tell Cargo that if the input Rust code changes, rerun this build script
     rerun_except(&["**/*_api.rs"]).unwrap();
@@ -49,8 +48,11 @@ fn main() {
     fs::copy(IOS_C_OUTPUT, MACOS_C_OUTPUT).expect("Can't copy frb.h from ios to macos build dir");
 
     // Format the generated Dart code
-    _ = std::process::Command::new("flutter")
+    std::process::Command::new("dart")
         .arg("format")
         .arg("../lib")
-        .spawn();
+        .spawn()
+        .unwrap()
+        .wait()
+        .unwrap();
 }
