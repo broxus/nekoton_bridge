@@ -41,7 +41,7 @@ class AccountsStorage {
   }
 
   /// Add new account to storage and return its address or throw error
-  Future<String> addAccount(AccountToAdd account) async {
+  Future<Address> addAccount(AccountToAdd account) async {
     final encoded =
         await accountsStorage.addAccount(account: jsonEncode(account));
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
@@ -50,40 +50,41 @@ class AccountsStorage {
   }
 
   /// Add list of new accounts to storage and return its addresses.
-  Future<List<String>> addAccounts(List<AccountToAdd> account) async {
+  Future<List<Address>> addAccounts(List<AccountToAdd> account) async {
     final encoded =
         await accountsStorage.addAccounts(accounts: jsonEncode(account));
     final decoded = jsonDecode(encoded) as List<dynamic>;
     await _updateData();
     return decoded
-        .map((e) => AssetsList.fromJson(e as Map<String, dynamic>).address)
+        .map((e) =>
+            Address(address: e.fromJson(e as Map<String, dynamic>).address))
         .toList();
   }
 
   /// Add new account to storage and return its instance or throw error
-  Future<void> renameAccount(String accountAddress, String name) async {
+  Future<void> renameAccount(Address address, String name) async {
     await accountsStorage.renameAccount(
-      accountAddress: accountAddress,
+      accountAddress: address.address,
       name: name,
     );
     await _updateData();
   }
 
   /// Add token wallet signature to account (add new token to account aka enable it via slider).
-  /// [accountAddress] - address of account
+  /// [address] - address of account
   /// [networkGroup] - name of network group where this token must be visible, could be found in
   ///   connection info
   /// [rootTokenContract] - address of token in blockchain.
   /// Return updated AssetsList or throw error.
   Future<AssetsList> addTokenWallet({
-    required String accountAddress,
+    required Address address,
     required String networkGroup,
-    required String rootTokenContract,
+    required Address rootTokenContract,
   }) async {
     final encoded = await accountsStorage.addTokenWallet(
-      accountAddress: accountAddress,
+      accountAddress: address.address,
       networkGroup: networkGroup,
-      rootTokenContract: rootTokenContract,
+      rootTokenContract: rootTokenContract.address,
     );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
     await _updateData();
@@ -91,20 +92,20 @@ class AccountsStorage {
   }
 
   /// Remove token wallet signature from account (remove token from account aka disable it via slider).
-  /// [accountAddress] - address of account
+  /// [address] - address of account
   /// [networkGroup] - name of network group where this token must be visible, could be found in
   ///   connection info
   /// [rootTokenContract] - address of token in blockchain.
   /// Return updated AssetsList or throw error.
   Future<AssetsList> removeTokenWallet({
-    required String accountAddress,
+    required Address address,
     required String networkGroup,
-    required String rootTokenContract,
+    required Address rootTokenContract,
   }) async {
     final encoded = await accountsStorage.removeTokenWallet(
-      accountAddress: accountAddress,
+      accountAddress: address.address,
       networkGroup: networkGroup,
-      rootTokenContract: rootTokenContract,
+      rootTokenContract: rootTokenContract.address,
     );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
     await _updateData();
@@ -112,11 +113,11 @@ class AccountsStorage {
   }
 
   /// Remove account from storage and return true if it was removed or false.
-  /// [accountAddress] - address of account
+  /// [address] - address of account
   /// Return if asset was removed or throw error.
-  Future<bool> removeAccount(String accountAddress) async {
+  Future<bool> removeAccount(Address address) async {
     final encoded = await accountsStorage.removeAccount(
-      accountAddress: accountAddress,
+      accountAddress: address.address,
     );
     if (encoded == null) return false;
     await _updateData();
@@ -124,16 +125,16 @@ class AccountsStorage {
   }
 
   /// Remove list of account addresses that were removed from storage.
-  /// [accountAddresses] - list of addresses of accounts.
+  /// [addresses] - list of addresses of accounts.
   /// Return list of addresses that were removed or throw error.
-  Future<List<String>> removeAccounts(List<String> accountAddresses) async {
+  Future<List<Address>> removeAccounts(List<Address> addresses) async {
     final encoded = await accountsStorage.removeAccounts(
-      accountAddresses: accountAddresses,
-    );
+        accountAddresses: addresses.map((address) => address.address).toList());
     final decoded = jsonDecode(encoded) as List<dynamic>;
     await _updateData();
     return decoded
-        .map((e) => AssetsList.fromJson(e as Map<String, dynamic>).address)
+        .map((e) =>
+            Address(address: e.fromJson(e as Map<String, dynamic>).address))
         .toList();
   }
 

@@ -116,7 +116,7 @@ void main() {
       final asset = accountsStorage.accounts.first;
 
       expect(address, asset.address);
-      expect(asset.address.isNotEmpty, isTrue);
+      expect(asset.address.address.isNotEmpty, isTrue);
       expect(asset.publicKey, key);
       expect(asset.tonWallet.contract, const WalletType.everWallet());
       expect(accountsStorage, isNotNull);
@@ -151,7 +151,7 @@ void main() {
       final asset = accountsStorage.accounts.first;
 
       expect(address, asset.address);
-      expect(asset.address.isNotEmpty, isTrue);
+      expect(asset.address.address.isNotEmpty, isTrue);
       expect(asset.publicKey, key);
       expect(asset.tonWallet.contract, const WalletType.everWallet());
       expect(accountsStorage, isNotNull);
@@ -188,7 +188,7 @@ void main() {
       final entries = await accountsStorage.getEntries();
       final asset = entries.first;
 
-      expect(asset.address.isNotEmpty, isTrue);
+      expect(asset.address.address.isNotEmpty, isTrue);
       expect(asset.publicKey, key);
       expect(asset.tonWallet.contract, const WalletType.everWallet());
       expect(accountsStorage, isNotNull);

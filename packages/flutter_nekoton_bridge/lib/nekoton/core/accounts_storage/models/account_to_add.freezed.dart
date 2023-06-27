@@ -24,7 +24,7 @@ mixin _$AccountToAdd {
   String get publicKey => throw _privateConstructorUsedError;
   WalletType get contract => throw _privateConstructorUsedError;
   int get workchain => throw _privateConstructorUsedError;
-  String? get explicitAddress => throw _privateConstructorUsedError;
+  Address? get explicitAddress => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,9 +43,10 @@ abstract class $AccountToAddCopyWith<$Res> {
       String publicKey,
       WalletType contract,
       int workchain,
-      String? explicitAddress});
+      Address? explicitAddress});
 
   $WalletTypeCopyWith<$Res> get contract;
+  $AddressCopyWith<$Res>? get explicitAddress;
 }
 
 /// @nodoc
@@ -87,7 +88,7 @@ class _$AccountToAddCopyWithImpl<$Res, $Val extends AccountToAdd>
       explicitAddress: freezed == explicitAddress
           ? _value.explicitAddress
           : explicitAddress // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Address?,
     ) as $Val);
   }
 
@@ -96,6 +97,18 @@ class _$AccountToAddCopyWithImpl<$Res, $Val extends AccountToAdd>
   $WalletTypeCopyWith<$Res> get contract {
     return $WalletTypeCopyWith<$Res>(_value.contract, (value) {
       return _then(_value.copyWith(contract: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res>? get explicitAddress {
+    if (_value.explicitAddress == null) {
+      return null;
+    }
+
+    return $AddressCopyWith<$Res>(_value.explicitAddress!, (value) {
+      return _then(_value.copyWith(explicitAddress: value) as $Val);
     });
   }
 }
@@ -113,10 +126,12 @@ abstract class _$$_AccountToAddCopyWith<$Res>
       String publicKey,
       WalletType contract,
       int workchain,
-      String? explicitAddress});
+      Address? explicitAddress});
 
   @override
   $WalletTypeCopyWith<$Res> get contract;
+  @override
+  $AddressCopyWith<$Res>? get explicitAddress;
 }
 
 /// @nodoc
@@ -156,7 +171,7 @@ class __$$_AccountToAddCopyWithImpl<$Res>
       explicitAddress: freezed == explicitAddress
           ? _value.explicitAddress
           : explicitAddress // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Address?,
     ));
   }
 }
@@ -183,7 +198,7 @@ class _$_AccountToAdd implements _AccountToAdd {
   @override
   final int workchain;
   @override
-  final String? explicitAddress;
+  final Address? explicitAddress;
 
   @override
   String toString() {
@@ -231,7 +246,7 @@ abstract class _AccountToAdd implements AccountToAdd {
       required final String publicKey,
       required final WalletType contract,
       required final int workchain,
-      final String? explicitAddress}) = _$_AccountToAdd;
+      final Address? explicitAddress}) = _$_AccountToAdd;
 
   factory _AccountToAdd.fromJson(Map<String, dynamic> json) =
       _$_AccountToAdd.fromJson;
@@ -245,7 +260,7 @@ abstract class _AccountToAdd implements AccountToAdd {
   @override
   int get workchain;
   @override
-  String? get explicitAddress;
+  Address? get explicitAddress;
   @override
   @JsonKey(ignore: true)
   _$$_AccountToAddCopyWith<_$_AccountToAdd> get copyWith =>

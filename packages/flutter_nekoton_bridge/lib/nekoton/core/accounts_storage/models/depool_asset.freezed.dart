@@ -20,7 +20,8 @@ DePoolAsset _$DePoolAssetFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DePoolAsset {
-  String get address => throw _privateConstructorUsedError;
+  @addressJsonConverter
+  Address get address => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,9 @@ abstract class $DePoolAssetCopyWith<$Res> {
           DePoolAsset value, $Res Function(DePoolAsset) then) =
       _$DePoolAssetCopyWithImpl<$Res, DePoolAsset>;
   @useResult
-  $Res call({String address});
+  $Res call({@addressJsonConverter Address address});
+
+  $AddressCopyWith<$Res> get address;
 }
 
 /// @nodoc
@@ -56,8 +59,16 @@ class _$DePoolAssetCopyWithImpl<$Res, $Val extends DePoolAsset>
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get address {
+    return $AddressCopyWith<$Res>(_value.address, (value) {
+      return _then(_value.copyWith(address: value) as $Val);
+    });
   }
 }
 
@@ -69,7 +80,10 @@ abstract class _$$_DePoolAssetCopyWith<$Res>
       __$$_DePoolAssetCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String address});
+  $Res call({@addressJsonConverter Address address});
+
+  @override
+  $AddressCopyWith<$Res> get address;
 }
 
 /// @nodoc
@@ -89,7 +103,7 @@ class __$$_DePoolAssetCopyWithImpl<$Res>
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
     ));
   }
 }
@@ -97,13 +111,14 @@ class __$$_DePoolAssetCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_DePoolAsset implements _DePoolAsset {
-  const _$_DePoolAsset({required this.address});
+  const _$_DePoolAsset({@addressJsonConverter required this.address});
 
   factory _$_DePoolAsset.fromJson(Map<String, dynamic> json) =>
       _$$_DePoolAssetFromJson(json);
 
   @override
-  final String address;
+  @addressJsonConverter
+  final Address address;
 
   @override
   String toString() {
@@ -137,13 +152,15 @@ class _$_DePoolAsset implements _DePoolAsset {
 }
 
 abstract class _DePoolAsset implements DePoolAsset {
-  const factory _DePoolAsset({required final String address}) = _$_DePoolAsset;
+  const factory _DePoolAsset(
+      {@addressJsonConverter required final Address address}) = _$_DePoolAsset;
 
   factory _DePoolAsset.fromJson(Map<String, dynamic> json) =
       _$_DePoolAsset.fromJson;
 
   @override
-  String get address;
+  @addressJsonConverter
+  Address get address;
   @override
   @JsonKey(ignore: true)
   _$$_DePoolAssetCopyWith<_$_DePoolAsset> get copyWith =>

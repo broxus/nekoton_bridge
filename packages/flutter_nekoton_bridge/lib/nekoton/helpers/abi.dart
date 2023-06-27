@@ -36,7 +36,7 @@ Future<ExecutionOutput> runLocal({
 
 /// Get address of tvc and contract_abi.
 /// Returns list of [address, state_init] or throws error
-Future<Tuple2<String, String>> getExpectedAddress({
+Future<Tuple2<Address, String>> getExpectedAddress({
   required String tvc,
   required String contractAbi,
   required int workchainId,
@@ -50,7 +50,7 @@ Future<Tuple2<String, String>> getExpectedAddress({
     publicKey: publicKey,
     initData: jsonEncode(initData),
   );
-  return Tuple2(res[0], res[1]);
+  return Tuple2(Address(address: res[0]), res[1]);
 }
 
 /// Returns base64-encoded body that was encoded or throws error
@@ -227,15 +227,16 @@ Future<TokensObject> unpackFromCell({
   ));
 }
 
+// TODO(nesquikm): WTF? Should we use Address here instead of String?
 /// Pack address std smd or throw error
 /// Returns new packed address as string
 Future<String> packStdSmcAddr({
-  required String addr,
+  required Address address,
   required bool base64Url,
   required bool bounceable,
 }) {
   return createLib().packStdSmcAddr(
-    addr: addr,
+    addr: address.address,
     base64Url: base64Url,
     bounceable: bounceable,
   );
@@ -245,18 +246,23 @@ Future<String> unpackStdSmcAddr({
   required String packed,
   required bool base64Url,
 }) {
-  return createLib().unpackStdSmcAddr(packed: packed, base64Url: base64Url);
+  return createLib().unpackStdSmcAddr(
+    packed: packed,
+    base64Url: base64Url,
+  );
 }
 
 /// Return true if address is valid, false otherwise
-Future<bool> validateAddress(String address) {
-  return createLib().validateAddress(address: address);
+Future<bool> validateAddress(Address address) {
+  return createLib().validateAddress(address: address.address);
 }
 
 /// Repack address and return json-encoded MsgAddressInt or throw error
-Future<String> repackAddress(String address) async {
-  return jsonDecode(await createLib().repackAddress(address: address))
-      as String;
+Future<Address> repackAddress(Address address) async {
+  final addressString =
+      jsonDecode(await createLib().repackAddress(address: address.address))
+          as String;
+  return Address(address: addressString);
 }
 
 /// Extract public key from boc and return it or throw error

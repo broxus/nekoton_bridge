@@ -1,3 +1,5 @@
+import 'package:flutter_nekoton_bridge/nekoton/core/models/models_lib.dart';
+import 'package:flutter_nekoton_bridge/nekoton/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/core/token_wallet/models/token_wallet_version.dart';
 
@@ -12,7 +14,7 @@ class RootTokenContractDetails with _$RootTokenContractDetails {
     required String name,
     required String symbol,
     required int decimals,
-    required String ownerAddress,
+    @addressJsonConverter required Address ownerAddress,
     required String totalSupply,
   }) = _RootTokenContractDetails;
 

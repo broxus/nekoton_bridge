@@ -367,8 +367,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onBalanceChangedStream': 2,
               r'onTransactionsFoundStream': 2,
               r'subscribe': 11,
-              r'getTokenWalletDetails': 13,
-              r'getTokenRootDetailsFromTokenWallet': 13
+              r'getTokenWalletDetails': 7,
+              r'getTokenRootDetailsFromTokenWallet': 7
             }),
         r.NonGenericClassMirrorImpl(
             r'TonWallet',
@@ -413,10 +413,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'getPollingMethod': 2,
               r'getUnconfirmedTransactions': 2,
               r'getCustodians': 2,
-              r'prepareDeploy': 16,
-              r'prepareDeployWithMultipleOwners': 17,
-              r'prepareTransfer': 18,
-              r'prepareConfirmTransaction': 19,
+              r'prepareDeploy': 15,
+              r'prepareDeployWithMultipleOwners': 16,
+              r'prepareTransfer': 17,
+              r'prepareConfirmTransaction': 18,
               r'estimateFees': 8,
               r'send': 8,
               r'refresh': 2,
@@ -450,10 +450,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onMessageExpiredStream': 2,
               r'onStateChangedStream': 2,
               r'onTransactionsFoundStream': 2,
-              r'subscribe': 14,
+              r'subscribe': 13,
               r'subscribeByAddress': 7,
-              r'subscribeByExistingWallet': 15,
-              r'findExistingWallets': 20,
+              r'subscribeByExistingWallet': 14,
+              r'findExistingWallets': 19,
               r'getExistingWalletInfo': 7,
               r'getWalletCustodians': 7
             })
@@ -644,11 +644,6 @@ final _data = <r.Reflectable, r.ReflectorData>{
             #attachedAmount,
             #payload
           ]
-        ],
-        const [
-          0,
-          0,
-          const [#transport, #tokenWalletAddress]
         ],
         const [
           0,

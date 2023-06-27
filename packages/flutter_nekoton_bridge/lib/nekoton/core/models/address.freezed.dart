@@ -93,19 +93,14 @@ class __$$_FromStringCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FromString implements _FromString {
-  const _$_FromString({required this.address});
+class _$_FromString extends _FromString {
+  const _$_FromString({required this.address}) : super._();
 
   factory _$_FromString.fromJson(Map<String, dynamic> json) =>
       _$$_FromStringFromJson(json);
 
   @override
   final String address;
-
-  @override
-  String toString() {
-    return 'Address(address: $address)';
-  }
 
   @override
   bool operator ==(dynamic other) {
@@ -133,8 +128,9 @@ class _$_FromString implements _FromString {
   }
 }
 
-abstract class _FromString implements Address {
+abstract class _FromString extends Address {
   const factory _FromString({required final String address}) = _$_FromString;
+  const _FromString._() : super._();
 
   factory _FromString.fromJson(Map<String, dynamic> json) =
       _$_FromString.fromJson;

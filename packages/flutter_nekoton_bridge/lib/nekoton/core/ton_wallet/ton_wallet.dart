@@ -48,7 +48,7 @@ class TonWallet extends RustToDartMirrorInterface {
   /// Description information about wallet that do not change
   late final TonWalletDetails details;
   late final String publicKey;
-  late final String address;
+  late final Address address;
   late final WalletType walletType;
   late final int workchain;
 
@@ -81,7 +81,7 @@ class TonWallet extends RustToDartMirrorInterface {
   /// Create TonWallet by subscribing to its instance by address of wallet.
   static Future<TonWallet> subscribeByAddress({
     required Transport transport,
-    required String address,
+    required Address address,
   }) async {
     final instance = TonWallet._(transport);
 
@@ -89,7 +89,7 @@ class TonWallet extends RustToDartMirrorInterface {
     instance.wallet =
         await lib.subscribeByAddressStaticMethodTonWalletDartWrapper(
       instanceHash: instance.instanceHash,
-      address: address,
+      address: address.address,
       transport: transport.transportBox,
     );
 
@@ -173,7 +173,8 @@ class TonWallet extends RustToDartMirrorInterface {
   Future<int> _getWorkchain() => wallet.workchain();
 
   /// Get address of wallet.
-  Future<String> _getAddress() => wallet.address();
+  Future<Address> _getAddress() async =>
+      Address(address: await wallet.address());
 
   /// Get public key of wallet.
   Future<String> _getPublicKey() => wallet.publicKey();
@@ -262,7 +263,7 @@ class TonWallet extends RustToDartMirrorInterface {
   Future<UnsignedMessage> prepareTransfer({
     required RawContractState contractState,
     required String publicKey,
-    required String destination,
+    required Address destination,
     required Fixed amount,
     required bool bounce,
     String? body,
@@ -271,7 +272,7 @@ class TonWallet extends RustToDartMirrorInterface {
     final message = await wallet.prepareTransfer(
       contractState: jsonEncode(contractState),
       publicKey: publicKey,
-      destination: destination,
+      destination: destination.address,
       amount: amount.toString(),
       bounce: bounce,
       body: body,
@@ -369,12 +370,12 @@ class TonWallet extends RustToDartMirrorInterface {
   /// May throw error.
   static Future<ExistingWalletInfo> getExistingWalletInfo({
     required Transport transport,
-    required String address,
+    required Address address,
   }) async {
     final lib = createLib();
     final encoded =
         await lib.getExistingWalletInfoStaticMethodTonWalletDartWrapper(
-      address: address,
+      address: address.address,
       transport: transport.transportBox,
     );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
@@ -386,11 +387,11 @@ class TonWallet extends RustToDartMirrorInterface {
   /// Return list of public keys or throw error.
   static Future<List<String>> getWalletCustodians({
     required Transport transport,
-    required String address,
+    required Address address,
   }) async {
     final lib = createLib();
     return await lib.getCustodiansStaticMethodTonWalletDartWrapper(
-      address: address,
+      address: address.address,
       transport: transport.transportBox,
     );
   }

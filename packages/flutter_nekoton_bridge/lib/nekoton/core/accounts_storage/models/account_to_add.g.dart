@@ -12,7 +12,9 @@ _$_AccountToAdd _$$_AccountToAddFromJson(Map<String, dynamic> json) =>
       publicKey: json['publicKey'] as String,
       contract: WalletType.fromJson(json['contract'] as Map<String, dynamic>),
       workchain: json['workchain'] as int,
-      explicitAddress: json['explicitAddress'] as String?,
+      explicitAddress: json['explicitAddress'] == null
+          ? null
+          : Address.fromJson(json['explicitAddress'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_AccountToAddToJson(_$_AccountToAdd instance) =>

@@ -1,3 +1,4 @@
+import 'package:flutter_nekoton_bridge/nekoton/core/models/models_lib.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/core/accounts_storage/models/wallet_type.dart';
 
@@ -11,7 +12,7 @@ class AccountToAdd with _$AccountToAdd {
     required String publicKey,
     required WalletType contract,
     required int workchain,
-    String? explicitAddress,
+    Address? explicitAddress,
   }) = _AccountToAdd;
 
   factory AccountToAdd.fromJson(Map<String, dynamic> json) =>

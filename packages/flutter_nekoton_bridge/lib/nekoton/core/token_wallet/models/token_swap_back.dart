@@ -1,3 +1,5 @@
+import 'package:flutter_nekoton_bridge/nekoton/core/models/models_lib.dart';
+import 'package:flutter_nekoton_bridge/nekoton/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'token_swap_back.freezed.dart';
@@ -8,7 +10,7 @@ class TokenSwapBack with _$TokenSwapBack {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory TokenSwapBack({
     required String tokens,
-    required String callbackAddress,
+    @addressJsonConverter required Address callbackAddress,
     required String callbackPayload,
   }) = _TokenSwapBack;
 

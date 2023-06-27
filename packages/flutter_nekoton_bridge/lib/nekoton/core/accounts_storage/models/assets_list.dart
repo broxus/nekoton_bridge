@@ -1,6 +1,5 @@
+import 'package:flutter_nekoton_bridge/nekoton/core/core_lib.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:flutter_nekoton_bridge/nekoton/core/accounts_storage/models/additional_assets.dart';
-import 'package:flutter_nekoton_bridge/nekoton/core/accounts_storage/models/ton_wallet_asset.dart';
 
 part 'assets_list.freezed.dart';
 part 'assets_list.g.dart';
@@ -20,7 +19,7 @@ class AssetsList with _$AssetsList implements Comparable<AssetsList> {
 
   int get workchain => tonWallet.workchain;
 
-  String get address => tonWallet.address;
+  Address get address => tonWallet.address;
 
   String get publicKey => tonWallet.publicKey;
 

@@ -25,7 +25,8 @@ mixin _$RootTokenContractDetails {
   String get name => throw _privateConstructorUsedError;
   String get symbol => throw _privateConstructorUsedError;
   int get decimals => throw _privateConstructorUsedError;
-  String get ownerAddress => throw _privateConstructorUsedError;
+  @addressJsonConverter
+  Address get ownerAddress => throw _privateConstructorUsedError;
   String get totalSupply => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,8 +46,10 @@ abstract class $RootTokenContractDetailsCopyWith<$Res> {
       String name,
       String symbol,
       int decimals,
-      String ownerAddress,
+      @addressJsonConverter Address ownerAddress,
       String totalSupply});
+
+  $AddressCopyWith<$Res> get ownerAddress;
 }
 
 /// @nodoc
@@ -90,12 +93,20 @@ class _$RootTokenContractDetailsCopyWithImpl<$Res,
       ownerAddress: null == ownerAddress
           ? _value.ownerAddress
           : ownerAddress // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       totalSupply: null == totalSupply
           ? _value.totalSupply
           : totalSupply // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get ownerAddress {
+    return $AddressCopyWith<$Res>(_value.ownerAddress, (value) {
+      return _then(_value.copyWith(ownerAddress: value) as $Val);
+    });
   }
 }
 
@@ -113,8 +124,11 @@ abstract class _$$_RootTokenContractDetailsCopyWith<$Res>
       String name,
       String symbol,
       int decimals,
-      String ownerAddress,
+      @addressJsonConverter Address ownerAddress,
       String totalSupply});
+
+  @override
+  $AddressCopyWith<$Res> get ownerAddress;
 }
 
 /// @nodoc
@@ -156,7 +170,7 @@ class __$$_RootTokenContractDetailsCopyWithImpl<$Res>
       ownerAddress: null == ownerAddress
           ? _value.ownerAddress
           : ownerAddress // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       totalSupply: null == totalSupply
           ? _value.totalSupply
           : totalSupply // ignore: cast_nullable_to_non_nullable
@@ -174,7 +188,7 @@ class _$_RootTokenContractDetails implements _RootTokenContractDetails {
       required this.name,
       required this.symbol,
       required this.decimals,
-      required this.ownerAddress,
+      @addressJsonConverter required this.ownerAddress,
       required this.totalSupply});
 
   factory _$_RootTokenContractDetails.fromJson(Map<String, dynamic> json) =>
@@ -189,7 +203,8 @@ class _$_RootTokenContractDetails implements _RootTokenContractDetails {
   @override
   final int decimals;
   @override
-  final String ownerAddress;
+  @addressJsonConverter
+  final Address ownerAddress;
   @override
   final String totalSupply;
 
@@ -240,7 +255,7 @@ abstract class _RootTokenContractDetails implements RootTokenContractDetails {
       required final String name,
       required final String symbol,
       required final int decimals,
-      required final String ownerAddress,
+      @addressJsonConverter required final Address ownerAddress,
       required final String totalSupply}) = _$_RootTokenContractDetails;
 
   factory _RootTokenContractDetails.fromJson(Map<String, dynamic> json) =
@@ -255,7 +270,8 @@ abstract class _RootTokenContractDetails implements RootTokenContractDetails {
   @override
   int get decimals;
   @override
-  String get ownerAddress;
+  @addressJsonConverter
+  Address get ownerAddress;
   @override
   String get totalSupply;
   @override

@@ -451,11 +451,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onStateChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'subscribe': 13,
-              r'subscribeByAddress': 11,
+              r'subscribeByAddress': 4,
               r'subscribeByExistingWallet': 14,
               r'findExistingWallets': 19,
-              r'getExistingWalletInfo': 11,
-              r'getWalletCustodians': 11
+              r'getExistingWalletInfo': 4,
+              r'getWalletCustodians': 4
             })
       ],
       null,
@@ -611,7 +611,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         const [
           0,
           0,
-          const [#transport, #tokenWalletAddress]
+          const [#transport, #address]
         ],
         const [1, 0, null],
         const [

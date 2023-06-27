@@ -4,7 +4,11 @@ part 'public_key.freezed.dart';
 part 'public_key.g.dart';
 
 @freezed
+
+/// Public key of the account
 class PublicKey with _$PublicKey {
+  const PublicKey._();
+
   const factory PublicKey({
     required String publicKey,
   }) = _FromString;
@@ -12,6 +16,10 @@ class PublicKey with _$PublicKey {
   factory PublicKey.fromJson(Map<String, dynamic> json) =>
       _$PublicKeyFromJson(json);
 
+  @override
+  String toString() => publicKey;
+
+  /// Returns the public key in ellipse form
   String toEllipseString() => publicKey.length > 4
       ? '${publicKey.substring(0, 4)}...${publicKey.substring(publicKey.length - 4)}'
       : publicKey;
