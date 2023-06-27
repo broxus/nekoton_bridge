@@ -58,6 +58,20 @@ abstract class RustToDartMirrorInterface {
 
   InstanceMirror? _mirror;
 
+  /// This is a helper field, that allows objects that can invoke Rust-Dart-Rust
+  /// calls to be disposed and avoid errors when rust object was disposed, but
+  /// RustToDartCaller called actions on dart object that then calls rust methods
+  /// on disposed objects.
+  ///
+  /// Typically, this mixin should be used on classes like TonWallet or
+  /// TokenWallet, because they have subscriptions from rust.
+  bool _disposed = false;
+
+  /// If this flag is true, then all calls from dart to rust should be avoided.
+  /// Typically, this method should be used in methods like updateData that makes
+  /// calls to rust.
+  bool get avoidCall => _disposed;
+
   InstanceMirror init() {
     return _mirror ??= initializeMirror();
   }
@@ -65,6 +79,7 @@ abstract class RustToDartMirrorInterface {
   /// Free memory from of class in caller
   @mustCallSuper
   void dispose() {
+    _disposed = true;
     RustToDartCaller.instance.unregisterInstance(this);
   }
 

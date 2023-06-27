@@ -185,6 +185,8 @@ class GenericContract extends RustToDartMirrorInterface {
   /// [block] - base64-encoded Block that could be got from [GqlTransport.getBlock]
   /// May throw error.
   Future<void> handleBlock({required String block}) async {
+    if (avoidCall) return;
+
     await contract.handleBlock(block: block);
     _updateData();
   }
@@ -236,6 +238,8 @@ class GenericContract extends RustToDartMirrorInterface {
 
   /// Method that updates all internal data and notify subscribers about it.
   Future<void> _updateData() async {
+    if (avoidCall) return;
+
     _contractState = await getContractState();
     _pendingTransactions = await getPendingTransactions();
     _pollingMethod = await getPollingMethod();

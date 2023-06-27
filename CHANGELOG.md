@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-06-24
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.8.0-dev.12`](#flutter_nekoton_bridge---v180-dev12)
+ - [`nekoton_bridge` - `v1.8.0-dev.10`](#nekoton_bridge---v180-dev10)
+ - [`flutter_nekoton_bridge_example` - `v1.8.0-dev.12`](#flutter_nekoton_bridge_example---v180-dev12)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.8.0-dev.12`
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.8.0-dev.12`
+
+ - **FIX**: fix calls after dispose. Fix getting FullContractState ([#132](https://github.com/broxus/nekoton_bridge/issues/132)). ([f8898091](https://github.com/broxus/nekoton_bridge/commit/f88980917a18aae808a951be5c264ff92a83a290))
+
+#### `nekoton_bridge` - `v1.8.0-dev.10`
+
+ - **FIX**: fix calls after dispose. Fix getting FullContractState ([#132](https://github.com/broxus/nekoton_bridge/issues/132)). ([f8898091](https://github.com/broxus/nekoton_bridge/commit/f88980917a18aae808a951be5c264ff92a83a290))
+
+
 ## 2023-06-09
 
 ### Changes

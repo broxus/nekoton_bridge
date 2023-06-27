@@ -413,7 +413,7 @@ abstract class NekotonBridge {
       get kGetContractStateMethodGqlTransportImplConstMeta;
 
   /// Get full contract state of address and return json-encoded FullContractState or throw error
-  Future<String> getFullContractStateMethodGqlTransportImpl(
+  Future<String?> getFullContractStateMethodGqlTransportImpl(
       {required GqlTransportImpl that, required String address, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta
@@ -501,7 +501,7 @@ abstract class NekotonBridge {
       get kGetContractStateMethodJrpcTransportImplConstMeta;
 
   /// Get full contract state of address and return json-encoded FullContractState or throw error
-  Future<String> getFullContractStateMethodJrpcTransportImpl(
+  Future<String?> getFullContractStateMethodJrpcTransportImpl(
       {required JrpcTransportImpl that, required String address, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta
@@ -2078,7 +2078,7 @@ class GqlTransportImpl {
       );
 
   /// Get full contract state of address and return json-encoded FullContractState or throw error
-  Future<String> getFullContractState(
+  Future<String?> getFullContractState(
           {required String address, dynamic hint}) =>
       bridge.getFullContractStateMethodGqlTransportImpl(
         that: this,
@@ -2210,7 +2210,7 @@ class JrpcTransportImpl {
       );
 
   /// Get full contract state of address and return json-encoded FullContractState or throw error
-  Future<String> getFullContractState(
+  Future<String?> getFullContractState(
           {required String address, dynamic hint}) =>
       bridge.getFullContractStateMethodJrpcTransportImpl(
         that: this,
@@ -4410,7 +4410,7 @@ class NekotonBridgeImpl implements NekotonBridge {
             argNames: ["that", "address"],
           );
 
-  Future<String> getFullContractStateMethodGqlTransportImpl(
+  Future<String?> getFullContractStateMethodGqlTransportImpl(
       {required GqlTransportImpl that, required String address, dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
     var arg1 = _platform.api2wire_String(address);
@@ -4418,7 +4418,7 @@ class NekotonBridgeImpl implements NekotonBridge {
       callFfi: (port_) => _platform.inner
           .wire_get_full_contract_state__method__GqlTransportImpl(
               port_, arg0, arg1),
-      parseSuccessData: _wire2api_String,
+      parseSuccessData: _wire2api_opt_String,
       constMeta: kGetFullContractStateMethodGqlTransportImplConstMeta,
       argValues: [that, address],
       hint: hint,
@@ -4663,7 +4663,7 @@ class NekotonBridgeImpl implements NekotonBridge {
             argNames: ["that", "address"],
           );
 
-  Future<String> getFullContractStateMethodJrpcTransportImpl(
+  Future<String?> getFullContractStateMethodJrpcTransportImpl(
       {required JrpcTransportImpl that,
       required String address,
       dynamic hint}) {
@@ -4673,7 +4673,7 @@ class NekotonBridgeImpl implements NekotonBridge {
       callFfi: (port_) => _platform.inner
           .wire_get_full_contract_state__method__JrpcTransportImpl(
               port_, arg0, arg1),
-      parseSuccessData: _wire2api_String,
+      parseSuccessData: _wire2api_opt_String,
       constMeta: kGetFullContractStateMethodJrpcTransportImplConstMeta,
       argValues: [that, address],
       hint: hint,
