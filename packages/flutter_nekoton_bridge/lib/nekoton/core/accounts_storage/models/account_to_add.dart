@@ -10,7 +10,7 @@ part 'account_to_add.g.dart';
 class AccountToAdd with _$AccountToAdd {
   const factory AccountToAdd({
     required String name,
-    required String publicKey,
+    @publicKeyJsonConverter required PublicKey publicKey,
     required WalletType contract,
     required int workchain,
     @addressJsonConverter Address? explicitAddress,

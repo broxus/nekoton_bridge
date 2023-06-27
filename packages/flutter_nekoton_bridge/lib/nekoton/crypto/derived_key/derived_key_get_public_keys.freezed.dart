@@ -21,7 +21,8 @@ DerivedKeyGetPublicKeys _$DerivedKeyGetPublicKeysFromJson(
 
 /// @nodoc
 mixin _$DerivedKeyGetPublicKeys {
-  String get masterKey => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get masterKey => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   int get limit => throw _privateConstructorUsedError;
   int get offset => throw _privateConstructorUsedError;
@@ -38,8 +39,13 @@ abstract class $DerivedKeyGetPublicKeysCopyWith<$Res> {
           $Res Function(DerivedKeyGetPublicKeys) then) =
       _$DerivedKeyGetPublicKeysCopyWithImpl<$Res, DerivedKeyGetPublicKeys>;
   @useResult
-  $Res call({String masterKey, Password password, int limit, int offset});
+  $Res call(
+      {@publicKeyJsonConverter PublicKey masterKey,
+      Password password,
+      int limit,
+      int offset});
 
+  $PublicKeyCopyWith<$Res> get masterKey;
   $PasswordCopyWith<$Res> get password;
 }
 
@@ -66,7 +72,7 @@ class _$DerivedKeyGetPublicKeysCopyWithImpl<$Res,
       masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -80,6 +86,14 @@ class _$DerivedKeyGetPublicKeysCopyWithImpl<$Res,
           : offset // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get masterKey {
+    return $PublicKeyCopyWith<$Res>(_value.masterKey, (value) {
+      return _then(_value.copyWith(masterKey: value) as $Val);
+    });
   }
 
   @override
@@ -100,8 +114,14 @@ abstract class _$$_DerivedKeyGetPublicKeysRenameCopyWith<$Res>
       __$$_DerivedKeyGetPublicKeysRenameCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String masterKey, Password password, int limit, int offset});
+  $Res call(
+      {@publicKeyJsonConverter PublicKey masterKey,
+      Password password,
+      int limit,
+      int offset});
 
+  @override
+  $PublicKeyCopyWith<$Res> get masterKey;
   @override
   $PasswordCopyWith<$Res> get password;
 }
@@ -128,7 +148,7 @@ class __$$_DerivedKeyGetPublicKeysRenameCopyWithImpl<$Res>
       masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -151,7 +171,7 @@ class __$$_DerivedKeyGetPublicKeysRenameCopyWithImpl<$Res>
 class _$_DerivedKeyGetPublicKeysRename
     implements _DerivedKeyGetPublicKeysRename {
   const _$_DerivedKeyGetPublicKeysRename(
-      {required this.masterKey,
+      {@publicKeyJsonConverter required this.masterKey,
       required this.password,
       required this.limit,
       required this.offset});
@@ -161,7 +181,8 @@ class _$_DerivedKeyGetPublicKeysRename
       _$$_DerivedKeyGetPublicKeysRenameFromJson(json);
 
   @override
-  final String masterKey;
+  @publicKeyJsonConverter
+  final PublicKey masterKey;
   @override
   final Password password;
   @override
@@ -210,7 +231,7 @@ class _$_DerivedKeyGetPublicKeysRename
 abstract class _DerivedKeyGetPublicKeysRename
     implements DerivedKeyGetPublicKeys {
   const factory _DerivedKeyGetPublicKeysRename(
-      {required final String masterKey,
+      {@publicKeyJsonConverter required final PublicKey masterKey,
       required final Password password,
       required final int limit,
       required final int offset}) = _$_DerivedKeyGetPublicKeysRename;
@@ -219,7 +240,8 @@ abstract class _DerivedKeyGetPublicKeysRename
       _$_DerivedKeyGetPublicKeysRename.fromJson;
 
   @override
-  String get masterKey;
+  @publicKeyJsonConverter
+  PublicKey get masterKey;
   @override
   Password get password;
   @override

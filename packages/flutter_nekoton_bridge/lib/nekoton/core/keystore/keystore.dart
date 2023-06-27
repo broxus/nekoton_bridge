@@ -50,7 +50,7 @@ class KeyStore {
   }
 
   /// Return added public key of added KeyStoreEntry or throw error
-  Future<String> addKey(CreateKeyInput input) async {
+  Future<PublicKey> addKey(CreateKeyInput input) async {
     final encoded = await keystore.addKey(
       signer: input.toSigner(),
       input: jsonEncode(input),
@@ -62,7 +62,7 @@ class KeyStore {
 
   /// Return list of public keys of added KeyStoreEntry or throw error
   /// All [inputs] must contains same signer information.
-  Future<List<String>> addKeys(List<CreateKeyInput> inputs) async {
+  Future<List<PublicKey>> addKeys(List<CreateKeyInput> inputs) async {
     final signers = inputs.map((e) => e.toSigner()).toSet().toList();
     assert(signers.length == 1);
 
@@ -104,12 +104,12 @@ class KeyStore {
   }
 
   /// Return list of public keys specified for signer or throw error.
-  Future<List<String>> getPublicKeys(GetPublicKeys input) async {
+  Future<List<PublicKey>> getPublicKeys(GetPublicKeys input) async {
     final keys = await keystore.getPublicKeys(
       signer: input.toSigner(),
       input: jsonEncode(input),
     );
-    return keys;
+    return keys.map((key) => PublicKey(publicKey: key)).toList();
   }
 
   /// Encrypt data with specified algorithm and input specified for signer.
@@ -117,7 +117,7 @@ class KeyStore {
   /// public_keys - list of keys that is used for encryption.
   Future<List<EncryptedData>> encrypt({
     required String data,
-    required List<String> publicKeys,
+    required List<PublicKey> publicKeys,
     required EncryptionAlgorithm algorithm,
     required SignInput input,
   }) async {
@@ -126,7 +126,7 @@ class KeyStore {
       input: jsonEncode(input),
       data: data,
       algorithm: algorithm.toString(),
-      publicKeys: publicKeys,
+      publicKeys: publicKeys.map((key) => key.publicKey).toList(),
     );
     final decoded = jsonDecode(encoded) as List<dynamic>;
     return decoded
@@ -195,8 +195,8 @@ class KeyStore {
   }
 
   /// Remove public key from KeyStore and return if it was removed.
-  Future<bool> removeKey({required String publicKey}) async {
-    final encoded = await keystore.removeKey(publicKey: publicKey);
+  Future<bool> removeKey({required PublicKey publicKey}) async {
+    final encoded = await keystore.removeKey(publicKey: publicKey.publicKey);
     if (encoded == null) return false;
     await _updateData();
     return true;
@@ -204,10 +204,12 @@ class KeyStore {
 
   /// Remove list of public key from KeyStore and return list public keys
   /// that were removed or throw error.
-  Future<List<String>> removeKeys({
-    required List<String> publicKeys,
+  Future<List<PublicKey>> removeKeys({
+    required List<PublicKey> publicKeys,
   }) async {
-    final encoded = await keystore.removeKeys(publicKeys: publicKeys);
+    final encoded = await keystore.removeKeys(
+      publicKeys: publicKeys.map((publicKey) => publicKey.publicKey).toList(),
+    );
     final decoded = jsonDecode(encoded) as List<dynamic>;
     await _updateData();
     return decoded
@@ -219,11 +221,11 @@ class KeyStore {
   /// [duration] - timestamp in milliseconds of expiring key.
   /// Returns true/false or throw error.
   Future<bool> isPasswordCached({
-    required String publicKey,
+    required PublicKey publicKey,
     required int duration,
   }) async {
     return await keystore.isPasswordCached(
-      publicKey: publicKey,
+      publicKey: publicKey.publicKey,
       duration: duration,
     );
   }

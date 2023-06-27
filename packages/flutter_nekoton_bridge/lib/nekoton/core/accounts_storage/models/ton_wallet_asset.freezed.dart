@@ -22,7 +22,8 @@ TonWalletAsset _$TonWalletAssetFromJson(Map<String, dynamic> json) {
 mixin _$TonWalletAsset {
   @addressJsonConverter
   Address get address => throw _privateConstructorUsedError;
-  String get publicKey => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get publicKey => throw _privateConstructorUsedError;
   WalletType get contract => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,10 +40,11 @@ abstract class $TonWalletAssetCopyWith<$Res> {
   @useResult
   $Res call(
       {@addressJsonConverter Address address,
-      String publicKey,
+      @publicKeyJsonConverter PublicKey publicKey,
       WalletType contract});
 
   $AddressCopyWith<$Res> get address;
+  $PublicKeyCopyWith<$Res> get publicKey;
   $WalletTypeCopyWith<$Res> get contract;
 }
 
@@ -71,7 +73,7 @@ class _$TonWalletAssetCopyWithImpl<$Res, $Val extends TonWalletAsset>
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       contract: null == contract
           ? _value.contract
           : contract // ignore: cast_nullable_to_non_nullable
@@ -84,6 +86,14 @@ class _$TonWalletAssetCopyWithImpl<$Res, $Val extends TonWalletAsset>
   $AddressCopyWith<$Res> get address {
     return $AddressCopyWith<$Res>(_value.address, (value) {
       return _then(_value.copyWith(address: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
+      return _then(_value.copyWith(publicKey: value) as $Val);
     });
   }
 
@@ -106,11 +116,13 @@ abstract class _$$_TonWalletAssetCopyWith<$Res>
   @useResult
   $Res call(
       {@addressJsonConverter Address address,
-      String publicKey,
+      @publicKeyJsonConverter PublicKey publicKey,
       WalletType contract});
 
   @override
   $AddressCopyWith<$Res> get address;
+  @override
+  $PublicKeyCopyWith<$Res> get publicKey;
   @override
   $WalletTypeCopyWith<$Res> get contract;
 }
@@ -138,7 +150,7 @@ class __$$_TonWalletAssetCopyWithImpl<$Res>
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       contract: null == contract
           ? _value.contract
           : contract // ignore: cast_nullable_to_non_nullable
@@ -152,7 +164,7 @@ class __$$_TonWalletAssetCopyWithImpl<$Res>
 class _$_TonWalletAsset extends _TonWalletAsset {
   const _$_TonWalletAsset(
       {@addressJsonConverter required this.address,
-      required this.publicKey,
+      @publicKeyJsonConverter required this.publicKey,
       required this.contract})
       : super._();
 
@@ -163,7 +175,8 @@ class _$_TonWalletAsset extends _TonWalletAsset {
   @addressJsonConverter
   final Address address;
   @override
-  final String publicKey;
+  @publicKeyJsonConverter
+  final PublicKey publicKey;
   @override
   final WalletType contract;
 
@@ -205,7 +218,7 @@ class _$_TonWalletAsset extends _TonWalletAsset {
 abstract class _TonWalletAsset extends TonWalletAsset {
   const factory _TonWalletAsset(
       {@addressJsonConverter required final Address address,
-      required final String publicKey,
+      @publicKeyJsonConverter required final PublicKey publicKey,
       required final WalletType contract}) = _$_TonWalletAsset;
   const _TonWalletAsset._() : super._();
 
@@ -216,7 +229,8 @@ abstract class _TonWalletAsset extends TonWalletAsset {
   @addressJsonConverter
   Address get address;
   @override
-  String get publicKey;
+  @publicKeyJsonConverter
+  PublicKey get publicKey;
   @override
   WalletType get contract;
   @override

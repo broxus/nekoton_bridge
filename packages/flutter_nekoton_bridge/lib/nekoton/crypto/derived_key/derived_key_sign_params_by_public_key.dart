@@ -1,3 +1,5 @@
+import 'package:flutter_nekoton_bridge/nekoton/core/models/models_lib.dart';
+import 'package:flutter_nekoton_bridge/nekoton/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/crypto/password_cache/password.dart';
 
@@ -8,8 +10,8 @@ part 'derived_key_sign_params_by_public_key.g.dart';
 class DerivedKeyPasswordByPublicKey with _$DerivedKeyPasswordByPublicKey {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory DerivedKeyPasswordByPublicKey({
-    required String masterKey,
-    required String publicKey,
+    @publicKeyJsonConverter required PublicKey masterKey,
+    @publicKeyJsonConverter required PublicKey publicKey,
     required Password password,
   }) = _DerivedKeyPasswordByPublicKeyByPublicKey;
 

@@ -10,7 +10,7 @@ part 'existing_wallet_info.g.dart';
 class ExistingWalletInfo with _$ExistingWalletInfo {
   const factory ExistingWalletInfo({
     @addressJsonConverter required Address address,
-    required String publicKey,
+    @publicKeyJsonConverter required PublicKey publicKey,
     required WalletType walletType,
     required ContractState contractState,
   }) = _ExistingWalletInfo;

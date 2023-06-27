@@ -5,9 +5,9 @@ import 'package:tuple/tuple.dart';
 
 /// Check if public key is correct.
 /// Return true or false
-Future<bool> checkPublicKey({required String publicKey}) async {
+Future<bool> checkPublicKey({required PublicKey publicKey}) async {
   try {
-    return await createLib().checkPublicKey(publicKey: publicKey);
+    return await createLib().checkPublicKey(publicKey: publicKey.publicKey);
   } catch (_) {
     return false;
   }
@@ -40,14 +40,14 @@ Future<Tuple2<Address, String>> getExpectedAddress({
   required String tvc,
   required String contractAbi,
   required int workchainId,
-  String? publicKey,
+  PublicKey? publicKey,
   required TokensObject initData,
 }) async {
   final res = await createLib().getExpectedAddress(
     tvc: tvc,
     contractAbi: contractAbi,
     workchainId: workchainId,
-    publicKey: publicKey,
+    publicKey: publicKey?.publicKey,
     initData: jsonEncode(initData),
   );
   return Tuple2(Address(address: res[0]), res[1]);
@@ -93,7 +93,7 @@ Future<UnsignedMessage> createExternalMessage({
   required String method,
   String? stateInit,
   required TokensObject input,
-  required String publicKey,
+  required PublicKey publicKey,
   required int timeout,
 }) async {
   return UnsignedMessage.create(
@@ -102,7 +102,7 @@ Future<UnsignedMessage> createExternalMessage({
       contractAbi: contractAbi,
       method: method,
       input: jsonEncode(input),
-      publicKey: publicKey,
+      publicKey: publicKey.publicKey,
       timeout: timeout,
       stateInit: stateInit,
     ),
@@ -266,8 +266,8 @@ Future<Address> repackAddress(Address address) async {
 }
 
 /// Extract public key from boc and return it or throw error
-Future<String> extractPublicKey(String boc) {
-  return createLib().extractPublicKey(boc: boc);
+Future<PublicKey> extractPublicKey(String boc) async {
+  return PublicKey(publicKey: await createLib().extractPublicKey(boc: boc));
 }
 
 /// Convert code to base64 tvc string and return it or throw error

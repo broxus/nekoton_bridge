@@ -10,7 +10,7 @@ part 'ton_wallet_asset.g.dart';
 class TonWalletAsset with _$TonWalletAsset {
   const factory TonWalletAsset({
     @addressJsonConverter required Address address,
-    required String publicKey,
+    @publicKeyJsonConverter required PublicKey publicKey,
     required WalletType contract,
   }) = _TonWalletAsset;
 

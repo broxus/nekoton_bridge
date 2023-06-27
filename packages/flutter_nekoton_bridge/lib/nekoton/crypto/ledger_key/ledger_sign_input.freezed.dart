@@ -20,7 +20,8 @@ LedgerSignInput _$LedgerSignInputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LedgerSignInput {
-  String get publicKey => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get publicKey => throw _privateConstructorUsedError;
   LedgerSignatureContext? get context => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,8 +36,11 @@ abstract class $LedgerSignInputCopyWith<$Res> {
           LedgerSignInput value, $Res Function(LedgerSignInput) then) =
       _$LedgerSignInputCopyWithImpl<$Res, LedgerSignInput>;
   @useResult
-  $Res call({String publicKey, LedgerSignatureContext? context});
+  $Res call(
+      {@publicKeyJsonConverter PublicKey publicKey,
+      LedgerSignatureContext? context});
 
+  $PublicKeyCopyWith<$Res> get publicKey;
   $LedgerSignatureContextCopyWith<$Res>? get context;
 }
 
@@ -60,12 +64,20 @@ class _$LedgerSignInputCopyWithImpl<$Res, $Val extends LedgerSignInput>
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       context: freezed == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
               as LedgerSignatureContext?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
+      return _then(_value.copyWith(publicKey: value) as $Val);
+    });
   }
 
   @override
@@ -89,8 +101,12 @@ abstract class _$$_LedgerSignInputCopyWith<$Res>
       __$$_LedgerSignInputCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String publicKey, LedgerSignatureContext? context});
+  $Res call(
+      {@publicKeyJsonConverter PublicKey publicKey,
+      LedgerSignatureContext? context});
 
+  @override
+  $PublicKeyCopyWith<$Res> get publicKey;
   @override
   $LedgerSignatureContextCopyWith<$Res>? get context;
 }
@@ -113,7 +129,7 @@ class __$$_LedgerSignInputCopyWithImpl<$Res>
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       context: freezed == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -125,13 +141,15 @@ class __$$_LedgerSignInputCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_LedgerSignInput implements _LedgerSignInput {
-  const _$_LedgerSignInput({required this.publicKey, this.context});
+  const _$_LedgerSignInput(
+      {@publicKeyJsonConverter required this.publicKey, this.context});
 
   factory _$_LedgerSignInput.fromJson(Map<String, dynamic> json) =>
       _$$_LedgerSignInputFromJson(json);
 
   @override
-  final String publicKey;
+  @publicKeyJsonConverter
+  final PublicKey publicKey;
   @override
   final LedgerSignatureContext? context;
 
@@ -170,14 +188,15 @@ class _$_LedgerSignInput implements _LedgerSignInput {
 
 abstract class _LedgerSignInput implements LedgerSignInput {
   const factory _LedgerSignInput(
-      {required final String publicKey,
+      {@publicKeyJsonConverter required final PublicKey publicKey,
       final LedgerSignatureContext? context}) = _$_LedgerSignInput;
 
   factory _LedgerSignInput.fromJson(Map<String, dynamic> json) =
       _$_LedgerSignInput.fromJson;
 
   @override
-  String get publicKey;
+  @publicKeyJsonConverter
+  PublicKey get publicKey;
   @override
   LedgerSignatureContext? get context;
   @override

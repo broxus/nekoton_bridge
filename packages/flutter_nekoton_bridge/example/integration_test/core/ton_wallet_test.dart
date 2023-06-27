@@ -62,8 +62,9 @@ void main() {
   const stEverContractVault = Address(
       address:
           '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68');
-  const publicKey =
-      'ad158ac64c5deff5abd4d5e86a81d954716445c45e31f17a9dfe780f9cef7602';
+  const publicKey = PublicKey(
+      publicKey:
+          'ad158ac64c5deff5abd4d5e86a81d954716445c45e31f17a9dfe780f9cef7602');
   const address = Address(
       address:
           '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2');

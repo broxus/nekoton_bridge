@@ -128,7 +128,9 @@ void main() {
       expect(key, isNotNull);
       expect(
         key,
-        '43c77e697042c96481336afd84a858079d97b3223dcb1228ec70112d89ecbf93',
+        const PublicKey(
+            publicKey:
+                '43c77e697042c96481336afd84a858079d97b3223dcb1228ec70112d89ecbf93'),
       );
       final keysEntry = keystore.keys.first;
       expect(keysEntry.name, inputLabsData.keyName);
@@ -159,7 +161,9 @@ void main() {
       expect(key, isNotNull);
       expect(
         key,
-        '69fb667f274805ca5341afa06c4ba1227c37cd52f3a253f39426d211428fd78b',
+        const PublicKey(
+            publicKey:
+                '69fb667f274805ca5341afa06c4ba1227c37cd52f3a253f39426d211428fd78b'),
       );
       final keysEntry = keystore.keys.first;
       expect(keysEntry.name, addKeyInputLegacy.name);
@@ -192,7 +196,9 @@ void main() {
       expect(key, isNotNull);
       expect(
         key,
-        '43c77e697042c96481336afd84a858079d97b3223dcb1228ec70112d89ecbf93',
+        const PublicKey(
+            publicKey:
+                '43c77e697042c96481336afd84a858079d97b3223dcb1228ec70112d89ecbf93'),
       );
       final keysEntry = keystore.keys.first;
       expect(keysEntry.name, inputLabsData.keyName);

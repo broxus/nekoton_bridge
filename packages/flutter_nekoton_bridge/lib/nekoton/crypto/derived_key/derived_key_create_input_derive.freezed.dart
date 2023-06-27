@@ -22,7 +22,8 @@ DerivedKeyCreateInputDerive _$DerivedKeyCreateInputDeriveFromJson(
 /// @nodoc
 mixin _$DerivedKeyCreateInputDerive {
   String? get keyName => throw _privateConstructorUsedError;
-  String get masterKey => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get masterKey => throw _privateConstructorUsedError;
   int get accountId => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
 
@@ -41,8 +42,12 @@ abstract class $DerivedKeyCreateInputDeriveCopyWith<$Res> {
           DerivedKeyCreateInputDerive>;
   @useResult
   $Res call(
-      {String? keyName, String masterKey, int accountId, Password password});
+      {String? keyName,
+      @publicKeyJsonConverter PublicKey masterKey,
+      int accountId,
+      Password password});
 
+  $PublicKeyCopyWith<$Res> get masterKey;
   $PasswordCopyWith<$Res> get password;
 }
 
@@ -73,7 +78,7 @@ class _$DerivedKeyCreateInputDeriveCopyWithImpl<$Res,
       masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       accountId: null == accountId
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
@@ -83,6 +88,14 @@ class _$DerivedKeyCreateInputDeriveCopyWithImpl<$Res,
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get masterKey {
+    return $PublicKeyCopyWith<$Res>(_value.masterKey, (value) {
+      return _then(_value.copyWith(masterKey: value) as $Val);
+    });
   }
 
   @override
@@ -104,8 +117,13 @@ abstract class _$$_DerivedKeyCreateInputDeriveDeriveCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? keyName, String masterKey, int accountId, Password password});
+      {String? keyName,
+      @publicKeyJsonConverter PublicKey masterKey,
+      int accountId,
+      Password password});
 
+  @override
+  $PublicKeyCopyWith<$Res> get masterKey;
   @override
   $PasswordCopyWith<$Res> get password;
 }
@@ -136,7 +154,7 @@ class __$$_DerivedKeyCreateInputDeriveDeriveCopyWithImpl<$Res>
       masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       accountId: null == accountId
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
@@ -156,7 +174,7 @@ class _$_DerivedKeyCreateInputDeriveDerive
     implements _DerivedKeyCreateInputDeriveDerive {
   const _$_DerivedKeyCreateInputDeriveDerive(
       {this.keyName,
-      required this.masterKey,
+      @publicKeyJsonConverter required this.masterKey,
       required this.accountId,
       required this.password});
 
@@ -167,7 +185,8 @@ class _$_DerivedKeyCreateInputDeriveDerive
   @override
   final String? keyName;
   @override
-  final String masterKey;
+  @publicKeyJsonConverter
+  final PublicKey masterKey;
   @override
   final int accountId;
   @override
@@ -217,7 +236,7 @@ abstract class _DerivedKeyCreateInputDeriveDerive
     implements DerivedKeyCreateInputDerive {
   const factory _DerivedKeyCreateInputDeriveDerive(
       {final String? keyName,
-      required final String masterKey,
+      @publicKeyJsonConverter required final PublicKey masterKey,
       required final int accountId,
       required final Password password}) = _$_DerivedKeyCreateInputDeriveDerive;
 
@@ -228,7 +247,8 @@ abstract class _DerivedKeyCreateInputDeriveDerive
   @override
   String? get keyName;
   @override
-  String get masterKey;
+  @publicKeyJsonConverter
+  PublicKey get masterKey;
   @override
   int get accountId;
   @override

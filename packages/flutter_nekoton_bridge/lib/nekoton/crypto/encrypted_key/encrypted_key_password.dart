@@ -1,3 +1,5 @@
+import 'package:flutter_nekoton_bridge/nekoton/core/models/models_lib.dart';
+import 'package:flutter_nekoton_bridge/nekoton/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/crypto/models/export_key_input.dart';
 import 'package:flutter_nekoton_bridge/nekoton/crypto/models/sign_input.dart';
@@ -12,7 +14,7 @@ class EncryptedKeyPassword
     implements ExportKeyInput, SignInput {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory EncryptedKeyPassword({
-    required String publicKey,
+    @publicKeyJsonConverter required PublicKey publicKey,
     required Password password,
   }) = _EncryptedKeyPassword;
 

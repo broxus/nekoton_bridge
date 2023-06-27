@@ -21,7 +21,7 @@ class AssetsList with _$AssetsList implements Comparable<AssetsList> {
 
   Address get address => tonWallet.address;
 
-  String get publicKey => tonWallet.publicKey;
+  PublicKey get publicKey => tonWallet.publicKey;
 
   @override
   int compareTo(AssetsList other) => address.compareTo(other.address);

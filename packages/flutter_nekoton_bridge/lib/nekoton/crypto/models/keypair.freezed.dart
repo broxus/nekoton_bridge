@@ -20,8 +20,10 @@ Keypair _$KeypairFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Keypair {
-  String get public => throw _privateConstructorUsedError;
-  String get secret => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get public => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get secret => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +35,12 @@ abstract class $KeypairCopyWith<$Res> {
   factory $KeypairCopyWith(Keypair value, $Res Function(Keypair) then) =
       _$KeypairCopyWithImpl<$Res, Keypair>;
   @useResult
-  $Res call({String public, String secret});
+  $Res call(
+      {@publicKeyJsonConverter PublicKey public,
+      @publicKeyJsonConverter PublicKey secret});
+
+  $PublicKeyCopyWith<$Res> get public;
+  $PublicKeyCopyWith<$Res> get secret;
 }
 
 /// @nodoc
@@ -56,12 +63,28 @@ class _$KeypairCopyWithImpl<$Res, $Val extends Keypair>
       public: null == public
           ? _value.public
           : public // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       secret: null == secret
           ? _value.secret
           : secret // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get public {
+    return $PublicKeyCopyWith<$Res>(_value.public, (value) {
+      return _then(_value.copyWith(public: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get secret {
+    return $PublicKeyCopyWith<$Res>(_value.secret, (value) {
+      return _then(_value.copyWith(secret: value) as $Val);
+    });
   }
 }
 
@@ -72,7 +95,14 @@ abstract class _$$_KeypairCopyWith<$Res> implements $KeypairCopyWith<$Res> {
       __$$_KeypairCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String public, String secret});
+  $Res call(
+      {@publicKeyJsonConverter PublicKey public,
+      @publicKeyJsonConverter PublicKey secret});
+
+  @override
+  $PublicKeyCopyWith<$Res> get public;
+  @override
+  $PublicKeyCopyWith<$Res> get secret;
 }
 
 /// @nodoc
@@ -92,11 +122,11 @@ class __$$_KeypairCopyWithImpl<$Res>
       public: null == public
           ? _value.public
           : public // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       secret: null == secret
           ? _value.secret
           : secret // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
     ));
   }
 }
@@ -104,15 +134,19 @@ class __$$_KeypairCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Keypair implements _Keypair {
-  const _$_Keypair({required this.public, required this.secret});
+  const _$_Keypair(
+      {@publicKeyJsonConverter required this.public,
+      @publicKeyJsonConverter required this.secret});
 
   factory _$_Keypair.fromJson(Map<String, dynamic> json) =>
       _$$_KeypairFromJson(json);
 
   @override
-  final String public;
+  @publicKeyJsonConverter
+  final PublicKey public;
   @override
-  final String secret;
+  @publicKeyJsonConverter
+  final PublicKey secret;
 
   @override
   String toString() {
@@ -148,15 +182,17 @@ class _$_Keypair implements _Keypair {
 
 abstract class _Keypair implements Keypair {
   const factory _Keypair(
-      {required final String public,
-      required final String secret}) = _$_Keypair;
+      {@publicKeyJsonConverter required final PublicKey public,
+      @publicKeyJsonConverter required final PublicKey secret}) = _$_Keypair;
 
   factory _Keypair.fromJson(Map<String, dynamic> json) = _$_Keypair.fromJson;
 
   @override
-  String get public;
+  @publicKeyJsonConverter
+  PublicKey get public;
   @override
-  String get secret;
+  @publicKeyJsonConverter
+  PublicKey get secret;
   @override
   @JsonKey(ignore: true)
   _$$_KeypairCopyWith<_$_Keypair> get copyWith =>

@@ -4,7 +4,8 @@ import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/mirrors.dart';
 import 'ledger_connection.reflectable.dart';
 
-typedef LedgerConnectionGetPublicKey = Future<String> Function(int accountId);
+typedef LedgerConnectionGetPublicKey = Future<PublicKey> Function(
+    int accountId);
 
 typedef LedgerConnectionSign = Future<String> Function({
   required int account,
@@ -42,7 +43,7 @@ class LedgerConnection extends RustToDartMirrorInterface {
   }
 
   /// Method to get public key. It's called from rust
-  Future<String> getPublicKey(int accountId) async {
+  Future<PublicKey> getPublicKey(int accountId) async {
     try {
       return await _getPublicKey(accountId);
     } catch (error) {

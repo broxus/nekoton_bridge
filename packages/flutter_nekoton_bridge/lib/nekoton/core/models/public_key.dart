@@ -19,6 +19,9 @@ class PublicKey with _$PublicKey {
   @override
   String toString() => publicKey;
 
+  /// Compares addresses address
+  int compareTo(PublicKey other) => publicKey.compareTo(other.publicKey);
+
   /// Returns the public key in ellipse form
   String toEllipseString() => publicKey.length > 4
       ? '${publicKey.substring(0, 4)}...${publicKey.substring(publicKey.length - 4)}'

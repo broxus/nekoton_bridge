@@ -21,7 +21,8 @@ EncryptedKeyUpdateParamsRename _$EncryptedKeyUpdateParamsRenameFromJson(
 
 /// @nodoc
 mixin _$EncryptedKeyUpdateParamsRename {
-  String get publicKey => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get publicKey => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +39,9 @@ abstract class $EncryptedKeyUpdateParamsRenameCopyWith<$Res> {
       _$EncryptedKeyUpdateParamsRenameCopyWithImpl<$Res,
           EncryptedKeyUpdateParamsRename>;
   @useResult
-  $Res call({String publicKey, String name});
+  $Res call({@publicKeyJsonConverter PublicKey publicKey, String name});
+
+  $PublicKeyCopyWith<$Res> get publicKey;
 }
 
 /// @nodoc
@@ -62,12 +65,20 @@ class _$EncryptedKeyUpdateParamsRenameCopyWithImpl<$Res,
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
+      return _then(_value.copyWith(publicKey: value) as $Val);
+    });
   }
 }
 
@@ -80,7 +91,10 @@ abstract class _$$_EncryptedKeyUpdateParamsRenameRenameCopyWith<$Res>
       __$$_EncryptedKeyUpdateParamsRenameRenameCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String publicKey, String name});
+  $Res call({@publicKeyJsonConverter PublicKey publicKey, String name});
+
+  @override
+  $PublicKeyCopyWith<$Res> get publicKey;
 }
 
 /// @nodoc
@@ -103,7 +117,7 @@ class __$$_EncryptedKeyUpdateParamsRenameRenameCopyWithImpl<$Res>
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -118,14 +132,15 @@ class __$$_EncryptedKeyUpdateParamsRenameRenameCopyWithImpl<$Res>
 class _$_EncryptedKeyUpdateParamsRenameRename
     implements _EncryptedKeyUpdateParamsRenameRename {
   const _$_EncryptedKeyUpdateParamsRenameRename(
-      {required this.publicKey, required this.name});
+      {@publicKeyJsonConverter required this.publicKey, required this.name});
 
   factory _$_EncryptedKeyUpdateParamsRenameRename.fromJson(
           Map<String, dynamic> json) =>
       _$$_EncryptedKeyUpdateParamsRenameRenameFromJson(json);
 
   @override
-  final String publicKey;
+  @publicKeyJsonConverter
+  final PublicKey publicKey;
   @override
   final String name;
 
@@ -167,7 +182,7 @@ class _$_EncryptedKeyUpdateParamsRenameRename
 abstract class _EncryptedKeyUpdateParamsRenameRename
     implements EncryptedKeyUpdateParamsRename {
   const factory _EncryptedKeyUpdateParamsRenameRename(
-      {required final String publicKey,
+      {@publicKeyJsonConverter required final PublicKey publicKey,
       required final String name}) = _$_EncryptedKeyUpdateParamsRenameRename;
 
   factory _EncryptedKeyUpdateParamsRenameRename.fromJson(
@@ -175,7 +190,8 @@ abstract class _EncryptedKeyUpdateParamsRenameRename
       _$_EncryptedKeyUpdateParamsRenameRename.fromJson;
 
   @override
-  String get publicKey;
+  @publicKeyJsonConverter
+  PublicKey get publicKey;
   @override
   String get name;
   @override

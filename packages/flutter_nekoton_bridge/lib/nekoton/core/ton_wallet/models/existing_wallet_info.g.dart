@@ -10,7 +10,7 @@ _$_ExistingWalletInfo _$$_ExistingWalletInfoFromJson(
         Map<String, dynamic> json) =>
     _$_ExistingWalletInfo(
       address: addressJsonConverter.fromJson(json['address'] as String),
-      publicKey: json['publicKey'] as String,
+      publicKey: publicKeyJsonConverter.fromJson(json['publicKey'] as String),
       walletType:
           WalletType.fromJson(json['walletType'] as Map<String, dynamic>),
       contractState:
@@ -21,7 +21,7 @@ Map<String, dynamic> _$$_ExistingWalletInfoToJson(
         _$_ExistingWalletInfo instance) =>
     <String, dynamic>{
       'address': addressJsonConverter.toJson(instance.address),
-      'publicKey': instance.publicKey,
+      'publicKey': publicKeyJsonConverter.toJson(instance.publicKey),
       'walletType': instance.walletType,
       'contractState': instance.contractState,
     };

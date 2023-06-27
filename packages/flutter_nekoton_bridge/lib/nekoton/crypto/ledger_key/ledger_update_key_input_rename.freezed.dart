@@ -21,7 +21,8 @@ LedgerUpdateKeyInputRename _$LedgerUpdateKeyInputRenameFromJson(
 
 /// @nodoc
 mixin _$LedgerUpdateKeyInputRename {
-  String get publicKey => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get publicKey => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +38,9 @@ abstract class $LedgerUpdateKeyInputRenameCopyWith<$Res> {
       _$LedgerUpdateKeyInputRenameCopyWithImpl<$Res,
           LedgerUpdateKeyInputRename>;
   @useResult
-  $Res call({String publicKey, String name});
+  $Res call({@publicKeyJsonConverter PublicKey publicKey, String name});
+
+  $PublicKeyCopyWith<$Res> get publicKey;
 }
 
 /// @nodoc
@@ -61,12 +64,20 @@ class _$LedgerUpdateKeyInputRenameCopyWithImpl<$Res,
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
+      return _then(_value.copyWith(publicKey: value) as $Val);
+    });
   }
 }
 
@@ -79,7 +90,10 @@ abstract class _$$_LedgerUpdateKeyInputRenameRenameCopyWith<$Res>
       __$$_LedgerUpdateKeyInputRenameRenameCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String publicKey, String name});
+  $Res call({@publicKeyJsonConverter PublicKey publicKey, String name});
+
+  @override
+  $PublicKeyCopyWith<$Res> get publicKey;
 }
 
 /// @nodoc
@@ -102,7 +116,7 @@ class __$$_LedgerUpdateKeyInputRenameRenameCopyWithImpl<$Res>
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -117,14 +131,15 @@ class __$$_LedgerUpdateKeyInputRenameRenameCopyWithImpl<$Res>
 class _$_LedgerUpdateKeyInputRenameRename
     implements _LedgerUpdateKeyInputRenameRename {
   const _$_LedgerUpdateKeyInputRenameRename(
-      {required this.publicKey, required this.name});
+      {@publicKeyJsonConverter required this.publicKey, required this.name});
 
   factory _$_LedgerUpdateKeyInputRenameRename.fromJson(
           Map<String, dynamic> json) =>
       _$$_LedgerUpdateKeyInputRenameRenameFromJson(json);
 
   @override
-  final String publicKey;
+  @publicKeyJsonConverter
+  final PublicKey publicKey;
   @override
   final String name;
 
@@ -166,14 +181,15 @@ class _$_LedgerUpdateKeyInputRenameRename
 abstract class _LedgerUpdateKeyInputRenameRename
     implements LedgerUpdateKeyInputRename {
   const factory _LedgerUpdateKeyInputRenameRename(
-      {required final String publicKey,
+      {@publicKeyJsonConverter required final PublicKey publicKey,
       required final String name}) = _$_LedgerUpdateKeyInputRenameRename;
 
   factory _LedgerUpdateKeyInputRenameRename.fromJson(
       Map<String, dynamic> json) = _$_LedgerUpdateKeyInputRenameRename.fromJson;
 
   @override
-  String get publicKey;
+  @publicKeyJsonConverter
+  PublicKey get publicKey;
   @override
   String get name;
   @override

@@ -21,8 +21,10 @@ EncryptedData _$EncryptedDataFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$EncryptedData {
   EncryptionAlgorithm get algorithm => throw _privateConstructorUsedError;
-  String get sourcePublicKey => throw _privateConstructorUsedError;
-  String get recipientPublicKey => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get sourcePublicKey => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get recipientPublicKey => throw _privateConstructorUsedError;
   String get data => throw _privateConstructorUsedError;
   String get nonce => throw _privateConstructorUsedError;
 
@@ -40,10 +42,13 @@ abstract class $EncryptedDataCopyWith<$Res> {
   @useResult
   $Res call(
       {EncryptionAlgorithm algorithm,
-      String sourcePublicKey,
-      String recipientPublicKey,
+      @publicKeyJsonConverter PublicKey sourcePublicKey,
+      @publicKeyJsonConverter PublicKey recipientPublicKey,
       String data,
       String nonce});
+
+  $PublicKeyCopyWith<$Res> get sourcePublicKey;
+  $PublicKeyCopyWith<$Res> get recipientPublicKey;
 }
 
 /// @nodoc
@@ -73,11 +78,11 @@ class _$EncryptedDataCopyWithImpl<$Res, $Val extends EncryptedData>
       sourcePublicKey: null == sourcePublicKey
           ? _value.sourcePublicKey
           : sourcePublicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       recipientPublicKey: null == recipientPublicKey
           ? _value.recipientPublicKey
           : recipientPublicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -87,6 +92,22 @@ class _$EncryptedDataCopyWithImpl<$Res, $Val extends EncryptedData>
           : nonce // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get sourcePublicKey {
+    return $PublicKeyCopyWith<$Res>(_value.sourcePublicKey, (value) {
+      return _then(_value.copyWith(sourcePublicKey: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get recipientPublicKey {
+    return $PublicKeyCopyWith<$Res>(_value.recipientPublicKey, (value) {
+      return _then(_value.copyWith(recipientPublicKey: value) as $Val);
+    });
   }
 }
 
@@ -100,10 +121,15 @@ abstract class _$$_EncryptedDataCopyWith<$Res>
   @useResult
   $Res call(
       {EncryptionAlgorithm algorithm,
-      String sourcePublicKey,
-      String recipientPublicKey,
+      @publicKeyJsonConverter PublicKey sourcePublicKey,
+      @publicKeyJsonConverter PublicKey recipientPublicKey,
       String data,
       String nonce});
+
+  @override
+  $PublicKeyCopyWith<$Res> get sourcePublicKey;
+  @override
+  $PublicKeyCopyWith<$Res> get recipientPublicKey;
 }
 
 /// @nodoc
@@ -131,11 +157,11 @@ class __$$_EncryptedDataCopyWithImpl<$Res>
       sourcePublicKey: null == sourcePublicKey
           ? _value.sourcePublicKey
           : sourcePublicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       recipientPublicKey: null == recipientPublicKey
           ? _value.recipientPublicKey
           : recipientPublicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -153,8 +179,8 @@ class __$$_EncryptedDataCopyWithImpl<$Res>
 class _$_EncryptedData implements _EncryptedData {
   const _$_EncryptedData(
       {required this.algorithm,
-      required this.sourcePublicKey,
-      required this.recipientPublicKey,
+      @publicKeyJsonConverter required this.sourcePublicKey,
+      @publicKeyJsonConverter required this.recipientPublicKey,
       required this.data,
       required this.nonce});
 
@@ -164,9 +190,11 @@ class _$_EncryptedData implements _EncryptedData {
   @override
   final EncryptionAlgorithm algorithm;
   @override
-  final String sourcePublicKey;
+  @publicKeyJsonConverter
+  final PublicKey sourcePublicKey;
   @override
-  final String recipientPublicKey;
+  @publicKeyJsonConverter
+  final PublicKey recipientPublicKey;
   @override
   final String data;
   @override
@@ -214,8 +242,8 @@ class _$_EncryptedData implements _EncryptedData {
 abstract class _EncryptedData implements EncryptedData {
   const factory _EncryptedData(
       {required final EncryptionAlgorithm algorithm,
-      required final String sourcePublicKey,
-      required final String recipientPublicKey,
+      @publicKeyJsonConverter required final PublicKey sourcePublicKey,
+      @publicKeyJsonConverter required final PublicKey recipientPublicKey,
       required final String data,
       required final String nonce}) = _$_EncryptedData;
 
@@ -225,9 +253,11 @@ abstract class _EncryptedData implements EncryptedData {
   @override
   EncryptionAlgorithm get algorithm;
   @override
-  String get sourcePublicKey;
+  @publicKeyJsonConverter
+  PublicKey get sourcePublicKey;
   @override
-  String get recipientPublicKey;
+  @publicKeyJsonConverter
+  PublicKey get recipientPublicKey;
   @override
   String get data;
   @override

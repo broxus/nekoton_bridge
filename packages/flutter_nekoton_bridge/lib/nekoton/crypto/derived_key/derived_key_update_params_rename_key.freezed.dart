@@ -21,8 +21,10 @@ DerivedKeyUpdateParamsRenameKey _$DerivedKeyUpdateParamsRenameKeyFromJson(
 
 /// @nodoc
 mixin _$DerivedKeyUpdateParamsRenameKey {
-  String get masterKey => throw _privateConstructorUsedError;
-  String get publicKey => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get masterKey => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get publicKey => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +41,13 @@ abstract class $DerivedKeyUpdateParamsRenameKeyCopyWith<$Res> {
       _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res,
           DerivedKeyUpdateParamsRenameKey>;
   @useResult
-  $Res call({String masterKey, String publicKey, String name});
+  $Res call(
+      {@publicKeyJsonConverter PublicKey masterKey,
+      @publicKeyJsonConverter PublicKey publicKey,
+      String name});
+
+  $PublicKeyCopyWith<$Res> get masterKey;
+  $PublicKeyCopyWith<$Res> get publicKey;
 }
 
 /// @nodoc
@@ -64,16 +72,32 @@ class _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res,
       masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get masterKey {
+    return $PublicKeyCopyWith<$Res>(_value.masterKey, (value) {
+      return _then(_value.copyWith(masterKey: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
+      return _then(_value.copyWith(publicKey: value) as $Val);
+    });
   }
 }
 
@@ -86,7 +110,15 @@ abstract class _$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWith<$Res>
       __$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String masterKey, String publicKey, String name});
+  $Res call(
+      {@publicKeyJsonConverter PublicKey masterKey,
+      @publicKeyJsonConverter PublicKey publicKey,
+      String name});
+
+  @override
+  $PublicKeyCopyWith<$Res> get masterKey;
+  @override
+  $PublicKeyCopyWith<$Res> get publicKey;
 }
 
 /// @nodoc
@@ -110,11 +142,11 @@ class __$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWithImpl<$Res>
       masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -129,16 +161,20 @@ class __$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWithImpl<$Res>
 class _$_DerivedKeyUpdateParamsRenameKeyRenameKey
     implements _DerivedKeyUpdateParamsRenameKeyRenameKey {
   const _$_DerivedKeyUpdateParamsRenameKeyRenameKey(
-      {required this.masterKey, required this.publicKey, required this.name});
+      {@publicKeyJsonConverter required this.masterKey,
+      @publicKeyJsonConverter required this.publicKey,
+      required this.name});
 
   factory _$_DerivedKeyUpdateParamsRenameKeyRenameKey.fromJson(
           Map<String, dynamic> json) =>
       _$$_DerivedKeyUpdateParamsRenameKeyRenameKeyFromJson(json);
 
   @override
-  final String masterKey;
+  @publicKeyJsonConverter
+  final PublicKey masterKey;
   @override
-  final String publicKey;
+  @publicKeyJsonConverter
+  final PublicKey publicKey;
   @override
   final String name;
 
@@ -182,8 +218,8 @@ class _$_DerivedKeyUpdateParamsRenameKeyRenameKey
 abstract class _DerivedKeyUpdateParamsRenameKeyRenameKey
     implements DerivedKeyUpdateParamsRenameKey {
   const factory _DerivedKeyUpdateParamsRenameKeyRenameKey(
-          {required final String masterKey,
-          required final String publicKey,
+          {@publicKeyJsonConverter required final PublicKey masterKey,
+          @publicKeyJsonConverter required final PublicKey publicKey,
           required final String name}) =
       _$_DerivedKeyUpdateParamsRenameKeyRenameKey;
 
@@ -192,9 +228,11 @@ abstract class _DerivedKeyUpdateParamsRenameKeyRenameKey
       _$_DerivedKeyUpdateParamsRenameKeyRenameKey.fromJson;
 
   @override
-  String get masterKey;
+  @publicKeyJsonConverter
+  PublicKey get masterKey;
   @override
-  String get publicKey;
+  @publicKeyJsonConverter
+  PublicKey get publicKey;
   @override
   String get name;
   @override

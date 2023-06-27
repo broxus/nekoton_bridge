@@ -10,15 +10,17 @@ _$_DerivedKeyUpdateParamsRenameKeyRenameKey
     _$$_DerivedKeyUpdateParamsRenameKeyRenameKeyFromJson(
             Map<String, dynamic> json) =>
         _$_DerivedKeyUpdateParamsRenameKeyRenameKey(
-          masterKey: json['master_key'] as String,
-          publicKey: json['public_key'] as String,
+          masterKey:
+              publicKeyJsonConverter.fromJson(json['master_key'] as String),
+          publicKey:
+              publicKeyJsonConverter.fromJson(json['public_key'] as String),
           name: json['name'] as String,
         );
 
 Map<String, dynamic> _$$_DerivedKeyUpdateParamsRenameKeyRenameKeyToJson(
         _$_DerivedKeyUpdateParamsRenameKeyRenameKey instance) =>
     <String, dynamic>{
-      'master_key': instance.masterKey,
-      'public_key': instance.publicKey,
+      'master_key': publicKeyJsonConverter.toJson(instance.masterKey),
+      'public_key': publicKeyJsonConverter.toJson(instance.publicKey),
       'name': instance.name,
     };
