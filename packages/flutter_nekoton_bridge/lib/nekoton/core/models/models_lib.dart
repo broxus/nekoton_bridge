@@ -21,3 +21,5 @@ export 'transaction_with_data.dart';
 export 'transactions_batch_info.dart';
 export 'transactions_batch_type.dart';
 export 'transactions_list.dart';
+export 'address.dart';
+export 'public_key.dart';
