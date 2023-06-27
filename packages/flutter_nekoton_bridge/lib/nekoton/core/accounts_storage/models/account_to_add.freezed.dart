@@ -24,6 +24,7 @@ mixin _$AccountToAdd {
   String get publicKey => throw _privateConstructorUsedError;
   WalletType get contract => throw _privateConstructorUsedError;
   int get workchain => throw _privateConstructorUsedError;
+  @addressJsonConverter
   Address? get explicitAddress => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,7 +44,7 @@ abstract class $AccountToAddCopyWith<$Res> {
       String publicKey,
       WalletType contract,
       int workchain,
-      Address? explicitAddress});
+      @addressJsonConverter Address? explicitAddress});
 
   $WalletTypeCopyWith<$Res> get contract;
   $AddressCopyWith<$Res>? get explicitAddress;
@@ -126,7 +127,7 @@ abstract class _$$_AccountToAddCopyWith<$Res>
       String publicKey,
       WalletType contract,
       int workchain,
-      Address? explicitAddress});
+      @addressJsonConverter Address? explicitAddress});
 
   @override
   $WalletTypeCopyWith<$Res> get contract;
@@ -184,7 +185,7 @@ class _$_AccountToAdd implements _AccountToAdd {
       required this.publicKey,
       required this.contract,
       required this.workchain,
-      this.explicitAddress});
+      @addressJsonConverter this.explicitAddress});
 
   factory _$_AccountToAdd.fromJson(Map<String, dynamic> json) =>
       _$$_AccountToAddFromJson(json);
@@ -198,6 +199,7 @@ class _$_AccountToAdd implements _AccountToAdd {
   @override
   final int workchain;
   @override
+  @addressJsonConverter
   final Address? explicitAddress;
 
   @override
@@ -246,7 +248,7 @@ abstract class _AccountToAdd implements AccountToAdd {
       required final String publicKey,
       required final WalletType contract,
       required final int workchain,
-      final Address? explicitAddress}) = _$_AccountToAdd;
+      @addressJsonConverter final Address? explicitAddress}) = _$_AccountToAdd;
 
   factory _AccountToAdd.fromJson(Map<String, dynamic> json) =
       _$_AccountToAdd.fromJson;
@@ -260,6 +262,7 @@ abstract class _AccountToAdd implements AccountToAdd {
   @override
   int get workchain;
   @override
+  @addressJsonConverter
   Address? get explicitAddress;
   @override
   @JsonKey(ignore: true)
