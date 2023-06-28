@@ -14,7 +14,7 @@ _$_RenameKey _$$_RenameKeyFromJson(Map<String, dynamic> json) => _$_RenameKey(
 
 Map<String, dynamic> _$$_RenameKeyToJson(_$_RenameKey instance) =>
     <String, dynamic>{
-      'data': instance.data,
+      'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
@@ -27,6 +27,6 @@ _$_ChangePassword _$$_ChangePasswordFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_ChangePasswordToJson(_$_ChangePassword instance) =>
     <String, dynamic>{
-      'data': instance.data,
+      'data': instance.data.toJson(),
       'type': instance.$type,
     };

@@ -17,5 +17,5 @@ Map<String, dynamic> _$$_EncryptedKeyPasswordToJson(
         _$_EncryptedKeyPassword instance) =>
     <String, dynamic>{
       'public_key': publicKeyJsonConverter.toJson(instance.publicKey),
-      'password': instance.password,
+      'password': instance.password.toJson(),
     };

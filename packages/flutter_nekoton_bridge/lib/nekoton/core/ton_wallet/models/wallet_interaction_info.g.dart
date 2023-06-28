@@ -28,7 +28,7 @@ Map<String, dynamic> _$$_WalletInteractionInfoToJson(
   }
 
   writeNotNull('recipient', instance.recipient);
-  writeNotNull('knownPayload', instance.knownPayload);
-  val['method'] = instance.method;
+  writeNotNull('knownPayload', instance.knownPayload?.toJson());
+  val['method'] = instance.method.toJson();
   return val;
 }

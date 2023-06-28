@@ -19,7 +19,7 @@ Map<String, dynamic> _$$_DerivedKeyGetPublicKeysRenameToJson(
         _$_DerivedKeyGetPublicKeysRename instance) =>
     <String, dynamic>{
       'master_key': publicKeyJsonConverter.toJson(instance.masterKey),
-      'password': instance.password,
+      'password': instance.password.toJson(),
       'limit': instance.limit,
       'offset': instance.offset,
     };

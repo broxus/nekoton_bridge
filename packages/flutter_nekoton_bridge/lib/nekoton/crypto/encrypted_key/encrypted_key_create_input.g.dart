@@ -22,5 +22,5 @@ Map<String, dynamic> _$$_EncryptedKeyCreateInputToJson(
       'name': instance.name,
       'phrase': instance.phrase,
       'mnemonicType': mnemonicJsonConverter.toJson(instance.mnemonicType),
-      'password': instance.password,
+      'password': instance.password.toJson(),
     };

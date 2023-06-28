@@ -18,5 +18,5 @@ _$_LedgerSignInput _$$_LedgerSignInputFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_LedgerSignInputToJson(_$_LedgerSignInput instance) =>
     <String, dynamic>{
       'publicKey': publicKeyJsonConverter.toJson(instance.publicKey),
-      'context': instance.context,
+      'context': instance.context?.toJson(),
     };

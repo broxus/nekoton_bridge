@@ -9,7 +9,7 @@ void main() {
     const workchain = 42;
     const explicitAddress = null;
 
-    test('To JSON', skip: true, () {
+    test('To JSON', () {
       const c = AccountToAdd(
         name: name,
         publicKey: publicKey,
@@ -56,7 +56,7 @@ void main() {
     const workchain = 42;
     const explicitAddress = Address(address: '99:vikUtGgouyyFTays');
 
-    test('To JSON', skip: true, () {
+    test('To JSON', () {
       const c = AccountToAdd(
         name: name,
         publicKey: publicKey,

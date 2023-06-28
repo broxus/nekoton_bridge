@@ -17,5 +17,5 @@ Map<String, dynamic> _$$_DerivedKeyExportSeedParamsToJson(
         _$_DerivedKeyExportSeedParams instance) =>
     <String, dynamic>{
       'master_key': publicKeyJsonConverter.toJson(instance.masterKey),
-      'password': instance.password,
+      'password': instance.password.toJson(),
     };

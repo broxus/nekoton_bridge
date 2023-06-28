@@ -15,7 +15,7 @@ _$_ByAccountId _$$_ByAccountIdFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_ByAccountIdToJson(_$_ByAccountId instance) =>
     <String, dynamic>{
-      'data': instance.data,
+      'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
@@ -28,6 +28,6 @@ _$_ByPublicKey _$$_ByPublicKeyFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_ByPublicKeyToJson(_$_ByPublicKey instance) =>
     <String, dynamic>{
-      'data': instance.data,
+      'data': instance.data.toJson(),
       'type': instance.$type,
     };

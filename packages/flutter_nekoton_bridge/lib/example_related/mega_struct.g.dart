@@ -28,6 +28,6 @@ _$_MegaStruct _$$_MegaStructFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_MegaStructToJson(_$_MegaStruct instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'coords': instance.coords,
+      'coords': instance.coords.toJson(),
       'props': instance.props,
     };

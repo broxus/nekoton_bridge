@@ -21,5 +21,5 @@ Map<String, dynamic> _$$_DerivedKeyPasswordByAccountIdByAccountIdToJson(
     <String, dynamic>{
       'master_key': publicKeyJsonConverter.toJson(instance.masterKey),
       'account_id': instance.accountId,
-      'password': instance.password,
+      'password': instance.password.toJson(),
     };

@@ -23,6 +23,6 @@ _$_Multisig _$$_MultisigFromJson(Map<String, dynamic> json) => _$_Multisig(
 
 Map<String, dynamic> _$$_MultisigToJson(_$_Multisig instance) =>
     <String, dynamic>{
-      'data': instance.data,
+      'data': instance.data.toJson(),
       'type': instance.$type,
     };

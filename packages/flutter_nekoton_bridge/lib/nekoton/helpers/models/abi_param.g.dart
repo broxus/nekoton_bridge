@@ -18,5 +18,5 @@ Map<String, dynamic> _$$_AbiParamToJson(_$_AbiParam instance) =>
     <String, dynamic>{
       'name': instance.name,
       'type': instance.type,
-      'components': instance.components,
+      'components': instance.components?.map((e) => e.toJson()).toList(),
     };

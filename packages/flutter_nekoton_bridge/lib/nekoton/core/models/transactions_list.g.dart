@@ -23,7 +23,7 @@ _$_TransactionsList _$$_TransactionsListFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_TransactionsListToJson(_$_TransactionsList instance) {
   final val = <String, dynamic>{
-    'transactions': instance.transactions,
+    'transactions': instance.transactions.map((e) => e.toJson()).toList(),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -32,7 +32,7 @@ Map<String, dynamic> _$$_TransactionsListToJson(_$_TransactionsList instance) {
     }
   }
 
-  writeNotNull('continuation', instance.continuation);
-  val['info'] = instance.info;
+  writeNotNull('continuation', instance.continuation?.toJson());
+  val['info'] = instance.info?.toJson();
   return val;
 }

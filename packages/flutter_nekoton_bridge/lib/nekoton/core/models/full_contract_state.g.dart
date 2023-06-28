@@ -24,8 +24,8 @@ Map<String, dynamic> _$$_FullContractStateToJson(
         _$_FullContractState instance) =>
     <String, dynamic>{
       'balance': amountJsonConverter.toJson(instance.balance),
-      'genTimings': instance.genTimings,
-      'lastTransactionId': instance.lastTransactionId,
+      'genTimings': instance.genTimings.toJson(),
+      'lastTransactionId': instance.lastTransactionId?.toJson(),
       'isDeployed': instance.isDeployed,
       'codeHash': instance.codeHash,
       'boc': instance.boc,

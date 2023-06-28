@@ -20,7 +20,7 @@ Map<String, dynamic> _$$_AccountToAddToJson(_$_AccountToAdd instance) =>
     <String, dynamic>{
       'name': instance.name,
       'publicKey': publicKeyJsonConverter.toJson(instance.publicKey),
-      'contract': instance.contract,
+      'contract': instance.contract.toJson(),
       'workchain': instance.workchain,
       'explicitAddress': _$JsonConverterToJson<String, Address>(
           instance.explicitAddress, addressJsonConverter.toJson),

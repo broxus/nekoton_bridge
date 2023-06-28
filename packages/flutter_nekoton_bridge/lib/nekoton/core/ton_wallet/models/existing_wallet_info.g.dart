@@ -22,6 +22,6 @@ Map<String, dynamic> _$$_ExistingWalletInfoToJson(
     <String, dynamic>{
       'address': addressJsonConverter.toJson(instance.address),
       'publicKey': publicKeyJsonConverter.toJson(instance.publicKey),
-      'walletType': instance.walletType,
-      'contractState': instance.contractState,
+      'walletType': instance.walletType.toJson(),
+      'contractState': instance.contractState.toJson(),
     };

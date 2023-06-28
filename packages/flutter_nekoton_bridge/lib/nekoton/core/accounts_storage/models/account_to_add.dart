@@ -7,7 +7,7 @@ part 'account_to_add.freezed.dart';
 part 'account_to_add.g.dart';
 
 @freezed
-class AccountToAdd with _$AccountToAdd {
+sealed class AccountToAdd with _$AccountToAdd {
   const factory AccountToAdd({
     required final String name,
     @publicKeyJsonConverter required final PublicKey publicKey,

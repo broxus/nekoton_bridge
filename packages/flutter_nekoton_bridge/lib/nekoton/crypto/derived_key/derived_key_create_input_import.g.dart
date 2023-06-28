@@ -19,5 +19,5 @@ Map<String, dynamic> _$$_DerivedKeyCreateInputImportImportToJson(
     <String, dynamic>{
       'key_name': instance.keyName,
       'phrase': instance.phrase,
-      'password': instance.password,
+      'password': instance.password.toJson(),
     };
