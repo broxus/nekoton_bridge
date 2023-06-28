@@ -1,5 +1,4 @@
 import 'package:flutter_nekoton_bridge/nekoton/core/models/models_lib.dart';
-import 'package:flutter_nekoton_bridge/nekoton/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/crypto/models/get_public_keys.dart';
 import 'package:flutter_nekoton_bridge/nekoton/crypto/password_cache/password.dart';
@@ -13,7 +12,7 @@ class DerivedKeyGetPublicKeys
     implements GetPublicKeys {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory DerivedKeyGetPublicKeys({
-    @publicKeyJsonConverter required final PublicKey masterKey,
+    required final PublicKey masterKey,
     required final Password password,
     required final int limit,
     required final int offset,

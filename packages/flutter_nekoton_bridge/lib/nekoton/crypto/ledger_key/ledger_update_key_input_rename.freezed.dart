@@ -21,7 +21,6 @@ LedgerUpdateKeyInputRename _$LedgerUpdateKeyInputRenameFromJson(
 
 /// @nodoc
 mixin _$LedgerUpdateKeyInputRename {
-  @publicKeyJsonConverter
   PublicKey get publicKey => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
@@ -38,7 +37,7 @@ abstract class $LedgerUpdateKeyInputRenameCopyWith<$Res> {
       _$LedgerUpdateKeyInputRenameCopyWithImpl<$Res,
           LedgerUpdateKeyInputRename>;
   @useResult
-  $Res call({@publicKeyJsonConverter PublicKey publicKey, String name});
+  $Res call({PublicKey publicKey, String name});
 
   $PublicKeyCopyWith<$Res> get publicKey;
 }
@@ -90,7 +89,7 @@ abstract class _$$_LedgerUpdateKeyInputRenameRenameCopyWith<$Res>
       __$$_LedgerUpdateKeyInputRenameRenameCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@publicKeyJsonConverter PublicKey publicKey, String name});
+  $Res call({PublicKey publicKey, String name});
 
   @override
   $PublicKeyCopyWith<$Res> get publicKey;
@@ -131,14 +130,13 @@ class __$$_LedgerUpdateKeyInputRenameRenameCopyWithImpl<$Res>
 class _$_LedgerUpdateKeyInputRenameRename
     implements _LedgerUpdateKeyInputRenameRename {
   const _$_LedgerUpdateKeyInputRenameRename(
-      {@publicKeyJsonConverter required this.publicKey, required this.name});
+      {required this.publicKey, required this.name});
 
   factory _$_LedgerUpdateKeyInputRenameRename.fromJson(
           Map<String, dynamic> json) =>
       _$$_LedgerUpdateKeyInputRenameRenameFromJson(json);
 
   @override
-  @publicKeyJsonConverter
   final PublicKey publicKey;
   @override
   final String name;
@@ -181,14 +179,13 @@ class _$_LedgerUpdateKeyInputRenameRename
 abstract class _LedgerUpdateKeyInputRenameRename
     implements LedgerUpdateKeyInputRename {
   const factory _LedgerUpdateKeyInputRenameRename(
-      {@publicKeyJsonConverter required final PublicKey publicKey,
+      {required final PublicKey publicKey,
       required final String name}) = _$_LedgerUpdateKeyInputRenameRename;
 
   factory _LedgerUpdateKeyInputRenameRename.fromJson(
       Map<String, dynamic> json) = _$_LedgerUpdateKeyInputRenameRename.fromJson;
 
   @override
-  @publicKeyJsonConverter
   PublicKey get publicKey;
   @override
   String get name;

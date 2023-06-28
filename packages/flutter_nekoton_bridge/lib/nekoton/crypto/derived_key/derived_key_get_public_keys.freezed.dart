@@ -21,7 +21,6 @@ DerivedKeyGetPublicKeys _$DerivedKeyGetPublicKeysFromJson(
 
 /// @nodoc
 mixin _$DerivedKeyGetPublicKeys {
-  @publicKeyJsonConverter
   PublicKey get masterKey => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   int get limit => throw _privateConstructorUsedError;
@@ -39,11 +38,7 @@ abstract class $DerivedKeyGetPublicKeysCopyWith<$Res> {
           $Res Function(DerivedKeyGetPublicKeys) then) =
       _$DerivedKeyGetPublicKeysCopyWithImpl<$Res, DerivedKeyGetPublicKeys>;
   @useResult
-  $Res call(
-      {@publicKeyJsonConverter PublicKey masterKey,
-      Password password,
-      int limit,
-      int offset});
+  $Res call({PublicKey masterKey, Password password, int limit, int offset});
 
   $PublicKeyCopyWith<$Res> get masterKey;
   $PasswordCopyWith<$Res> get password;
@@ -114,11 +109,7 @@ abstract class _$$_DerivedKeyGetPublicKeysRenameCopyWith<$Res>
       __$$_DerivedKeyGetPublicKeysRenameCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@publicKeyJsonConverter PublicKey masterKey,
-      Password password,
-      int limit,
-      int offset});
+  $Res call({PublicKey masterKey, Password password, int limit, int offset});
 
   @override
   $PublicKeyCopyWith<$Res> get masterKey;
@@ -171,7 +162,7 @@ class __$$_DerivedKeyGetPublicKeysRenameCopyWithImpl<$Res>
 class _$_DerivedKeyGetPublicKeysRename
     implements _DerivedKeyGetPublicKeysRename {
   const _$_DerivedKeyGetPublicKeysRename(
-      {@publicKeyJsonConverter required this.masterKey,
+      {required this.masterKey,
       required this.password,
       required this.limit,
       required this.offset});
@@ -181,7 +172,6 @@ class _$_DerivedKeyGetPublicKeysRename
       _$$_DerivedKeyGetPublicKeysRenameFromJson(json);
 
   @override
-  @publicKeyJsonConverter
   final PublicKey masterKey;
   @override
   final Password password;
@@ -231,7 +221,7 @@ class _$_DerivedKeyGetPublicKeysRename
 abstract class _DerivedKeyGetPublicKeysRename
     implements DerivedKeyGetPublicKeys {
   const factory _DerivedKeyGetPublicKeysRename(
-      {@publicKeyJsonConverter required final PublicKey masterKey,
+      {required final PublicKey masterKey,
       required final Password password,
       required final int limit,
       required final int offset}) = _$_DerivedKeyGetPublicKeysRename;
@@ -240,7 +230,6 @@ abstract class _DerivedKeyGetPublicKeysRename
       _$_DerivedKeyGetPublicKeysRename.fromJson;
 
   @override
-  @publicKeyJsonConverter
   PublicKey get masterKey;
   @override
   Password get password;

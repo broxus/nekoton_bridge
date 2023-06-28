@@ -10,8 +10,7 @@ _$_DerivedKeyPasswordByAccountIdByAccountId
     _$$_DerivedKeyPasswordByAccountIdByAccountIdFromJson(
             Map<String, dynamic> json) =>
         _$_DerivedKeyPasswordByAccountIdByAccountId(
-          masterKey:
-              publicKeyJsonConverter.fromJson(json['master_key'] as String),
+          masterKey: PublicKey.fromJson(json['master_key'] as String),
           accountId: json['account_id'] as int,
           password: Password.fromJson(json['password'] as Map<String, dynamic>),
         );
@@ -19,7 +18,7 @@ _$_DerivedKeyPasswordByAccountIdByAccountId
 Map<String, dynamic> _$$_DerivedKeyPasswordByAccountIdByAccountIdToJson(
         _$_DerivedKeyPasswordByAccountIdByAccountId instance) =>
     <String, dynamic>{
-      'master_key': publicKeyJsonConverter.toJson(instance.masterKey),
+      'master_key': instance.masterKey.toJson(),
       'account_id': instance.accountId,
       'password': instance.password.toJson(),
     };

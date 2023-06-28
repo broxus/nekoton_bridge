@@ -1,5 +1,4 @@
 import 'package:flutter_nekoton_bridge/nekoton/core/models/models_lib.dart';
-import 'package:flutter_nekoton_bridge/nekoton/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/crypto/password_cache/password.dart';
 
@@ -11,7 +10,7 @@ class EncryptedKeyUpdateParamsChangePassword
     with _$EncryptedKeyUpdateParamsChangePassword {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory EncryptedKeyUpdateParamsChangePassword({
-    @publicKeyJsonConverter required final PublicKey publicKey,
+    required final PublicKey publicKey,
     required final Password oldPassword,
     required final Password newPassword,
   }) = _EncryptedKeyUpdateParamsChangePasswordChangePassword;

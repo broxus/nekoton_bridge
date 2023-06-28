@@ -1,9 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'public_key.freezed.dart';
-part 'public_key.g.dart';
 
-@freezed
+@Freezed(fromJson: false, toJson: false)
 
 /// Public key of the account
 class PublicKey with _$PublicKey {
@@ -13,8 +12,9 @@ class PublicKey with _$PublicKey {
     required final String publicKey,
   }) = _FromString;
 
-  factory PublicKey.fromJson(Map<String, dynamic> json) =>
-      _$PublicKeyFromJson(json);
+  factory PublicKey.fromJson(String json) => PublicKey(publicKey: json);
+
+  String toJson() => publicKey;
 
   @override
   String toString() => publicKey;

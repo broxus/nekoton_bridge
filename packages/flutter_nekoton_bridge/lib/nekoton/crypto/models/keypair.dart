@@ -1,5 +1,4 @@
 import 'package:flutter_nekoton_bridge/nekoton/core/models/models_lib.dart';
-import 'package:flutter_nekoton_bridge/nekoton/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'keypair.freezed.dart';
@@ -8,8 +7,8 @@ part 'keypair.g.dart';
 @freezed
 class Keypair with _$Keypair {
   const factory Keypair({
-    @publicKeyJsonConverter required final PublicKey public,
-    @publicKeyJsonConverter required final PublicKey secret,
+    required final PublicKey public,
+    required final PublicKey secret,
   }) = _Keypair;
 
   factory Keypair.fromJson(Map<String, dynamic> json) =>

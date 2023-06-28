@@ -23,7 +23,6 @@ mixin _$Symbol {
   String get name => throw _privateConstructorUsedError;
   String get fullName => throw _privateConstructorUsedError;
   int get decimals => throw _privateConstructorUsedError;
-  @addressJsonConverter
   Address get rootTokenContract => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,10 +36,7 @@ abstract class $SymbolCopyWith<$Res> {
       _$SymbolCopyWithImpl<$Res, Symbol>;
   @useResult
   $Res call(
-      {String name,
-      String fullName,
-      int decimals,
-      @addressJsonConverter Address rootTokenContract});
+      {String name, String fullName, int decimals, Address rootTokenContract});
 
   $AddressCopyWith<$Res> get rootTokenContract;
 }
@@ -99,10 +95,7 @@ abstract class _$$_SymbolCopyWith<$Res> implements $SymbolCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String name,
-      String fullName,
-      int decimals,
-      @addressJsonConverter Address rootTokenContract});
+      {String name, String fullName, int decimals, Address rootTokenContract});
 
   @override
   $AddressCopyWith<$Res> get rootTokenContract;
@@ -151,7 +144,7 @@ class _$_Symbol implements _Symbol {
       {required this.name,
       required this.fullName,
       required this.decimals,
-      @addressJsonConverter required this.rootTokenContract});
+      required this.rootTokenContract});
 
   factory _$_Symbol.fromJson(Map<String, dynamic> json) =>
       _$$_SymbolFromJson(json);
@@ -163,7 +156,6 @@ class _$_Symbol implements _Symbol {
   @override
   final int decimals;
   @override
-  @addressJsonConverter
   final Address rootTokenContract;
 
   @override
@@ -206,11 +198,10 @@ class _$_Symbol implements _Symbol {
 
 abstract class _Symbol implements Symbol {
   const factory _Symbol(
-          {required final String name,
-          required final String fullName,
-          required final int decimals,
-          @addressJsonConverter required final Address rootTokenContract}) =
-      _$_Symbol;
+      {required final String name,
+      required final String fullName,
+      required final int decimals,
+      required final Address rootTokenContract}) = _$_Symbol;
 
   factory _Symbol.fromJson(Map<String, dynamic> json) = _$_Symbol.fromJson;
 
@@ -221,7 +212,6 @@ abstract class _Symbol implements Symbol {
   @override
   int get decimals;
   @override
-  @addressJsonConverter
   Address get rootTokenContract;
   @override
   @JsonKey(ignore: true)

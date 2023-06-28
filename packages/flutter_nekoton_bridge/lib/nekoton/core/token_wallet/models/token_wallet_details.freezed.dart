@@ -20,9 +20,7 @@ TokenWalletDetails _$TokenWalletDetailsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TokenWalletDetails {
-  @addressJsonConverter
   Address get rootAddress => throw _privateConstructorUsedError;
-  @addressJsonConverter
   Address get ownerAddress => throw _privateConstructorUsedError;
   @amountJsonConverter
   Fixed get balance => throw _privateConstructorUsedError;
@@ -40,8 +38,8 @@ abstract class $TokenWalletDetailsCopyWith<$Res> {
       _$TokenWalletDetailsCopyWithImpl<$Res, TokenWalletDetails>;
   @useResult
   $Res call(
-      {@addressJsonConverter Address rootAddress,
-      @addressJsonConverter Address ownerAddress,
+      {Address rootAddress,
+      Address ownerAddress,
       @amountJsonConverter Fixed balance});
 
   $AddressCopyWith<$Res> get rootAddress;
@@ -107,8 +105,8 @@ abstract class _$$_TokenWalletDetailsCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@addressJsonConverter Address rootAddress,
-      @addressJsonConverter Address ownerAddress,
+      {Address rootAddress,
+      Address ownerAddress,
       @amountJsonConverter Fixed balance});
 
   @override
@@ -153,18 +151,16 @@ class __$$_TokenWalletDetailsCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TokenWalletDetails implements _TokenWalletDetails {
   const _$_TokenWalletDetails(
-      {@addressJsonConverter required this.rootAddress,
-      @addressJsonConverter required this.ownerAddress,
+      {required this.rootAddress,
+      required this.ownerAddress,
       @amountJsonConverter required this.balance});
 
   factory _$_TokenWalletDetails.fromJson(Map<String, dynamic> json) =>
       _$$_TokenWalletDetailsFromJson(json);
 
   @override
-  @addressJsonConverter
   final Address rootAddress;
   @override
-  @addressJsonConverter
   final Address ownerAddress;
   @override
   @amountJsonConverter
@@ -209,8 +205,8 @@ class _$_TokenWalletDetails implements _TokenWalletDetails {
 
 abstract class _TokenWalletDetails implements TokenWalletDetails {
   const factory _TokenWalletDetails(
-          {@addressJsonConverter required final Address rootAddress,
-          @addressJsonConverter required final Address ownerAddress,
+          {required final Address rootAddress,
+          required final Address ownerAddress,
           @amountJsonConverter required final Fixed balance}) =
       _$_TokenWalletDetails;
 
@@ -218,10 +214,8 @@ abstract class _TokenWalletDetails implements TokenWalletDetails {
       _$_TokenWalletDetails.fromJson;
 
   @override
-  @addressJsonConverter
   Address get rootAddress;
   @override
-  @addressJsonConverter
   Address get ownerAddress;
   @override
   @amountJsonConverter

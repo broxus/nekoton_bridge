@@ -22,7 +22,6 @@ TokenIncomingTransfer _$TokenIncomingTransferFromJson(
 /// @nodoc
 mixin _$TokenIncomingTransfer {
   String get tokens => throw _privateConstructorUsedError;
-  @addressJsonConverter
   Address get senderAddress => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +36,7 @@ abstract class $TokenIncomingTransferCopyWith<$Res> {
           $Res Function(TokenIncomingTransfer) then) =
       _$TokenIncomingTransferCopyWithImpl<$Res, TokenIncomingTransfer>;
   @useResult
-  $Res call({String tokens, @addressJsonConverter Address senderAddress});
+  $Res call({String tokens, Address senderAddress});
 
   $AddressCopyWith<$Res> get senderAddress;
 }
@@ -88,7 +87,7 @@ abstract class _$$_TokenIncomingTransferCopyWith<$Res>
       __$$_TokenIncomingTransferCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String tokens, @addressJsonConverter Address senderAddress});
+  $Res call({String tokens, Address senderAddress});
 
   @override
   $AddressCopyWith<$Res> get senderAddress;
@@ -125,8 +124,7 @@ class __$$_TokenIncomingTransferCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TokenIncomingTransfer implements _TokenIncomingTransfer {
   const _$_TokenIncomingTransfer(
-      {required this.tokens,
-      @addressJsonConverter required this.senderAddress});
+      {required this.tokens, required this.senderAddress});
 
   factory _$_TokenIncomingTransfer.fromJson(Map<String, dynamic> json) =>
       _$$_TokenIncomingTransferFromJson(json);
@@ -134,7 +132,6 @@ class _$_TokenIncomingTransfer implements _TokenIncomingTransfer {
   @override
   final String tokens;
   @override
-  @addressJsonConverter
   final Address senderAddress;
 
   @override
@@ -173,9 +170,8 @@ class _$_TokenIncomingTransfer implements _TokenIncomingTransfer {
 
 abstract class _TokenIncomingTransfer implements TokenIncomingTransfer {
   const factory _TokenIncomingTransfer(
-          {required final String tokens,
-          @addressJsonConverter required final Address senderAddress}) =
-      _$_TokenIncomingTransfer;
+      {required final String tokens,
+      required final Address senderAddress}) = _$_TokenIncomingTransfer;
 
   factory _TokenIncomingTransfer.fromJson(Map<String, dynamic> json) =
       _$_TokenIncomingTransfer.fromJson;
@@ -183,7 +179,6 @@ abstract class _TokenIncomingTransfer implements TokenIncomingTransfer {
   @override
   String get tokens;
   @override
-  @addressJsonConverter
   Address get senderAddress;
   @override
   @JsonKey(ignore: true)

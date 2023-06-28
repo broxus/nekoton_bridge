@@ -22,9 +22,7 @@ KeyStoreEntry _$KeyStoreEntryFromJson(Map<String, dynamic> json) {
 mixin _$KeyStoreEntry {
   String get signerName => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  @publicKeyJsonConverter
   PublicKey get publicKey => throw _privateConstructorUsedError;
-  @publicKeyJsonConverter
   PublicKey get masterKey => throw _privateConstructorUsedError;
   int get accountId => throw _privateConstructorUsedError;
 
@@ -43,8 +41,8 @@ abstract class $KeyStoreEntryCopyWith<$Res> {
   $Res call(
       {String signerName,
       String name,
-      @publicKeyJsonConverter PublicKey publicKey,
-      @publicKeyJsonConverter PublicKey masterKey,
+      PublicKey publicKey,
+      PublicKey masterKey,
       int accountId});
 
   $PublicKeyCopyWith<$Res> get publicKey;
@@ -122,8 +120,8 @@ abstract class _$$_KeyStoreEntryCopyWith<$Res>
   $Res call(
       {String signerName,
       String name,
-      @publicKeyJsonConverter PublicKey publicKey,
-      @publicKeyJsonConverter PublicKey masterKey,
+      PublicKey publicKey,
+      PublicKey masterKey,
       int accountId});
 
   @override
@@ -181,8 +179,8 @@ class _$_KeyStoreEntry extends _KeyStoreEntry {
   const _$_KeyStoreEntry(
       {required this.signerName,
       required this.name,
-      @publicKeyJsonConverter required this.publicKey,
-      @publicKeyJsonConverter required this.masterKey,
+      required this.publicKey,
+      required this.masterKey,
       required this.accountId})
       : super._();
 
@@ -194,10 +192,8 @@ class _$_KeyStoreEntry extends _KeyStoreEntry {
   @override
   final String name;
   @override
-  @publicKeyJsonConverter
   final PublicKey publicKey;
   @override
-  @publicKeyJsonConverter
   final PublicKey masterKey;
   @override
   final int accountId;
@@ -246,8 +242,8 @@ abstract class _KeyStoreEntry extends KeyStoreEntry {
   const factory _KeyStoreEntry(
       {required final String signerName,
       required final String name,
-      @publicKeyJsonConverter required final PublicKey publicKey,
-      @publicKeyJsonConverter required final PublicKey masterKey,
+      required final PublicKey publicKey,
+      required final PublicKey masterKey,
       required final int accountId}) = _$_KeyStoreEntry;
   const _KeyStoreEntry._() : super._();
 
@@ -259,10 +255,8 @@ abstract class _KeyStoreEntry extends KeyStoreEntry {
   @override
   String get name;
   @override
-  @publicKeyJsonConverter
   PublicKey get publicKey;
   @override
-  @publicKeyJsonConverter
   PublicKey get masterKey;
   @override
   int get accountId;

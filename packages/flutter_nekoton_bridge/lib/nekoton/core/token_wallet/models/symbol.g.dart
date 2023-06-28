@@ -10,14 +10,12 @@ _$_Symbol _$$_SymbolFromJson(Map<String, dynamic> json) => _$_Symbol(
       name: json['name'] as String,
       fullName: json['fullName'] as String,
       decimals: json['decimals'] as int,
-      rootTokenContract:
-          addressJsonConverter.fromJson(json['rootTokenContract'] as String),
+      rootTokenContract: Address.fromJson(json['rootTokenContract'] as String),
     );
 
 Map<String, dynamic> _$$_SymbolToJson(_$_Symbol instance) => <String, dynamic>{
       'name': instance.name,
       'fullName': instance.fullName,
       'decimals': instance.decimals,
-      'rootTokenContract':
-          addressJsonConverter.toJson(instance.rootTokenContract),
+      'rootTokenContract': instance.rootTokenContract.toJson(),
     };

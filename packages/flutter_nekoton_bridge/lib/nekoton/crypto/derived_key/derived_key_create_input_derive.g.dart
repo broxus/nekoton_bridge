@@ -10,8 +10,7 @@ _$_DerivedKeyCreateInputDeriveDerive
     _$$_DerivedKeyCreateInputDeriveDeriveFromJson(Map<String, dynamic> json) =>
         _$_DerivedKeyCreateInputDeriveDerive(
           keyName: json['key_name'] as String?,
-          masterKey:
-              publicKeyJsonConverter.fromJson(json['master_key'] as String),
+          masterKey: PublicKey.fromJson(json['master_key'] as String),
           accountId: json['account_id'] as int,
           password: Password.fromJson(json['password'] as Map<String, dynamic>),
         );
@@ -20,7 +19,7 @@ Map<String, dynamic> _$$_DerivedKeyCreateInputDeriveDeriveToJson(
         _$_DerivedKeyCreateInputDeriveDerive instance) =>
     <String, dynamic>{
       'key_name': instance.keyName,
-      'master_key': publicKeyJsonConverter.toJson(instance.masterKey),
+      'master_key': instance.masterKey.toJson(),
       'account_id': instance.accountId,
       'password': instance.password.toJson(),
     };

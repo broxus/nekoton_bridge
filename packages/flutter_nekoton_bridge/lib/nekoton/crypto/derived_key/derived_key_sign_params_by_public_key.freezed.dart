@@ -21,9 +21,7 @@ DerivedKeyPasswordByPublicKey _$DerivedKeyPasswordByPublicKeyFromJson(
 
 /// @nodoc
 mixin _$DerivedKeyPasswordByPublicKey {
-  @publicKeyJsonConverter
   PublicKey get masterKey => throw _privateConstructorUsedError;
-  @publicKeyJsonConverter
   PublicKey get publicKey => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
 
@@ -41,10 +39,7 @@ abstract class $DerivedKeyPasswordByPublicKeyCopyWith<$Res> {
       _$DerivedKeyPasswordByPublicKeyCopyWithImpl<$Res,
           DerivedKeyPasswordByPublicKey>;
   @useResult
-  $Res call(
-      {@publicKeyJsonConverter PublicKey masterKey,
-      @publicKeyJsonConverter PublicKey publicKey,
-      Password password});
+  $Res call({PublicKey masterKey, PublicKey publicKey, Password password});
 
   $PublicKeyCopyWith<$Res> get masterKey;
   $PublicKeyCopyWith<$Res> get publicKey;
@@ -119,10 +114,7 @@ abstract class _$$_DerivedKeyPasswordByPublicKeyByPublicKeyCopyWith<$Res>
       __$$_DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@publicKeyJsonConverter PublicKey masterKey,
-      @publicKeyJsonConverter PublicKey publicKey,
-      Password password});
+  $Res call({PublicKey masterKey, PublicKey publicKey, Password password});
 
   @override
   $PublicKeyCopyWith<$Res> get masterKey;
@@ -172,8 +164,8 @@ class __$$_DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl<$Res>
 class _$_DerivedKeyPasswordByPublicKeyByPublicKey
     implements _DerivedKeyPasswordByPublicKeyByPublicKey {
   const _$_DerivedKeyPasswordByPublicKeyByPublicKey(
-      {@publicKeyJsonConverter required this.masterKey,
-      @publicKeyJsonConverter required this.publicKey,
+      {required this.masterKey,
+      required this.publicKey,
       required this.password});
 
   factory _$_DerivedKeyPasswordByPublicKeyByPublicKey.fromJson(
@@ -181,10 +173,8 @@ class _$_DerivedKeyPasswordByPublicKeyByPublicKey
       _$$_DerivedKeyPasswordByPublicKeyByPublicKeyFromJson(json);
 
   @override
-  @publicKeyJsonConverter
   final PublicKey masterKey;
   @override
-  @publicKeyJsonConverter
   final PublicKey publicKey;
   @override
   final Password password;
@@ -230,8 +220,8 @@ class _$_DerivedKeyPasswordByPublicKeyByPublicKey
 abstract class _DerivedKeyPasswordByPublicKeyByPublicKey
     implements DerivedKeyPasswordByPublicKey {
   const factory _DerivedKeyPasswordByPublicKeyByPublicKey(
-          {@publicKeyJsonConverter required final PublicKey masterKey,
-          @publicKeyJsonConverter required final PublicKey publicKey,
+          {required final PublicKey masterKey,
+          required final PublicKey publicKey,
           required final Password password}) =
       _$_DerivedKeyPasswordByPublicKeyByPublicKey;
 
@@ -240,10 +230,8 @@ abstract class _DerivedKeyPasswordByPublicKeyByPublicKey
       _$_DerivedKeyPasswordByPublicKeyByPublicKey.fromJson;
 
   @override
-  @publicKeyJsonConverter
   PublicKey get masterKey;
   @override
-  @publicKeyJsonConverter
   PublicKey get publicKey;
   @override
   Password get password;

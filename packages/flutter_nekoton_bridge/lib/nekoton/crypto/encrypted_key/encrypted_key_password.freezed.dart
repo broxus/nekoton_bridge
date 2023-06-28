@@ -20,7 +20,6 @@ EncryptedKeyPassword _$EncryptedKeyPasswordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EncryptedKeyPassword {
-  @publicKeyJsonConverter
   PublicKey get publicKey => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
 
@@ -36,7 +35,7 @@ abstract class $EncryptedKeyPasswordCopyWith<$Res> {
           $Res Function(EncryptedKeyPassword) then) =
       _$EncryptedKeyPasswordCopyWithImpl<$Res, EncryptedKeyPassword>;
   @useResult
-  $Res call({@publicKeyJsonConverter PublicKey publicKey, Password password});
+  $Res call({PublicKey publicKey, Password password});
 
   $PublicKeyCopyWith<$Res> get publicKey;
   $PasswordCopyWith<$Res> get password;
@@ -96,7 +95,7 @@ abstract class _$$_EncryptedKeyPasswordCopyWith<$Res>
       __$$_EncryptedKeyPasswordCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@publicKeyJsonConverter PublicKey publicKey, Password password});
+  $Res call({PublicKey publicKey, Password password});
 
   @override
   $PublicKeyCopyWith<$Res> get publicKey;
@@ -136,14 +135,12 @@ class __$$_EncryptedKeyPasswordCopyWithImpl<$Res>
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$_EncryptedKeyPassword implements _EncryptedKeyPassword {
   const _$_EncryptedKeyPassword(
-      {@publicKeyJsonConverter required this.publicKey,
-      required this.password});
+      {required this.publicKey, required this.password});
 
   factory _$_EncryptedKeyPassword.fromJson(Map<String, dynamic> json) =>
       _$$_EncryptedKeyPasswordFromJson(json);
 
   @override
-  @publicKeyJsonConverter
   final PublicKey publicKey;
   @override
   final Password password;
@@ -185,14 +182,13 @@ class _$_EncryptedKeyPassword implements _EncryptedKeyPassword {
 
 abstract class _EncryptedKeyPassword implements EncryptedKeyPassword {
   const factory _EncryptedKeyPassword(
-      {@publicKeyJsonConverter required final PublicKey publicKey,
+      {required final PublicKey publicKey,
       required final Password password}) = _$_EncryptedKeyPassword;
 
   factory _EncryptedKeyPassword.fromJson(Map<String, dynamic> json) =
       _$_EncryptedKeyPassword.fromJson;
 
   @override
-  @publicKeyJsonConverter
   PublicKey get publicKey;
   @override
   Password get password;

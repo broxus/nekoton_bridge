@@ -1,5 +1,4 @@
 import 'package:flutter_nekoton_bridge/nekoton/core/models/models_lib.dart';
-import 'package:flutter_nekoton_bridge/nekoton/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'symbol.freezed.dart';
@@ -11,7 +10,7 @@ class Symbol with _$Symbol {
     required final String name,
     required final String fullName,
     required final int decimals,
-    @addressJsonConverter required final Address rootTokenContract,
+    required final Address rootTokenContract,
   }) = _Symbol;
 
   factory Symbol.fromJson(Map<String, dynamic> json) => _$SymbolFromJson(json);

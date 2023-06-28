@@ -21,7 +21,6 @@ EncryptedKeyUpdateParamsRename _$EncryptedKeyUpdateParamsRenameFromJson(
 
 /// @nodoc
 mixin _$EncryptedKeyUpdateParamsRename {
-  @publicKeyJsonConverter
   PublicKey get publicKey => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
@@ -39,7 +38,7 @@ abstract class $EncryptedKeyUpdateParamsRenameCopyWith<$Res> {
       _$EncryptedKeyUpdateParamsRenameCopyWithImpl<$Res,
           EncryptedKeyUpdateParamsRename>;
   @useResult
-  $Res call({@publicKeyJsonConverter PublicKey publicKey, String name});
+  $Res call({PublicKey publicKey, String name});
 
   $PublicKeyCopyWith<$Res> get publicKey;
 }
@@ -91,7 +90,7 @@ abstract class _$$_EncryptedKeyUpdateParamsRenameRenameCopyWith<$Res>
       __$$_EncryptedKeyUpdateParamsRenameRenameCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@publicKeyJsonConverter PublicKey publicKey, String name});
+  $Res call({PublicKey publicKey, String name});
 
   @override
   $PublicKeyCopyWith<$Res> get publicKey;
@@ -132,14 +131,13 @@ class __$$_EncryptedKeyUpdateParamsRenameRenameCopyWithImpl<$Res>
 class _$_EncryptedKeyUpdateParamsRenameRename
     implements _EncryptedKeyUpdateParamsRenameRename {
   const _$_EncryptedKeyUpdateParamsRenameRename(
-      {@publicKeyJsonConverter required this.publicKey, required this.name});
+      {required this.publicKey, required this.name});
 
   factory _$_EncryptedKeyUpdateParamsRenameRename.fromJson(
           Map<String, dynamic> json) =>
       _$$_EncryptedKeyUpdateParamsRenameRenameFromJson(json);
 
   @override
-  @publicKeyJsonConverter
   final PublicKey publicKey;
   @override
   final String name;
@@ -182,7 +180,7 @@ class _$_EncryptedKeyUpdateParamsRenameRename
 abstract class _EncryptedKeyUpdateParamsRenameRename
     implements EncryptedKeyUpdateParamsRename {
   const factory _EncryptedKeyUpdateParamsRenameRename(
-      {@publicKeyJsonConverter required final PublicKey publicKey,
+      {required final PublicKey publicKey,
       required final String name}) = _$_EncryptedKeyUpdateParamsRenameRename;
 
   factory _EncryptedKeyUpdateParamsRenameRename.fromJson(
@@ -190,7 +188,6 @@ abstract class _EncryptedKeyUpdateParamsRenameRename
       _$_EncryptedKeyUpdateParamsRenameRename.fromJson;
 
   @override
-  @publicKeyJsonConverter
   PublicKey get publicKey;
   @override
   String get name;

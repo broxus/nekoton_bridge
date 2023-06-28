@@ -20,9 +20,7 @@ TonWalletAsset _$TonWalletAssetFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TonWalletAsset {
-  @addressJsonConverter
   Address get address => throw _privateConstructorUsedError;
-  @publicKeyJsonConverter
   PublicKey get publicKey => throw _privateConstructorUsedError;
   WalletType get contract => throw _privateConstructorUsedError;
 
@@ -38,10 +36,7 @@ abstract class $TonWalletAssetCopyWith<$Res> {
           TonWalletAsset value, $Res Function(TonWalletAsset) then) =
       _$TonWalletAssetCopyWithImpl<$Res, TonWalletAsset>;
   @useResult
-  $Res call(
-      {@addressJsonConverter Address address,
-      @publicKeyJsonConverter PublicKey publicKey,
-      WalletType contract});
+  $Res call({Address address, PublicKey publicKey, WalletType contract});
 
   $AddressCopyWith<$Res> get address;
   $PublicKeyCopyWith<$Res> get publicKey;
@@ -114,10 +109,7 @@ abstract class _$$_TonWalletAssetCopyWith<$Res>
       __$$_TonWalletAssetCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@addressJsonConverter Address address,
-      @publicKeyJsonConverter PublicKey publicKey,
-      WalletType contract});
+  $Res call({Address address, PublicKey publicKey, WalletType contract});
 
   @override
   $AddressCopyWith<$Res> get address;
@@ -163,19 +155,15 @@ class __$$_TonWalletAssetCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TonWalletAsset extends _TonWalletAsset {
   const _$_TonWalletAsset(
-      {@addressJsonConverter required this.address,
-      @publicKeyJsonConverter required this.publicKey,
-      required this.contract})
+      {required this.address, required this.publicKey, required this.contract})
       : super._();
 
   factory _$_TonWalletAsset.fromJson(Map<String, dynamic> json) =>
       _$$_TonWalletAssetFromJson(json);
 
   @override
-  @addressJsonConverter
   final Address address;
   @override
-  @publicKeyJsonConverter
   final PublicKey publicKey;
   @override
   final WalletType contract;
@@ -217,8 +205,8 @@ class _$_TonWalletAsset extends _TonWalletAsset {
 
 abstract class _TonWalletAsset extends TonWalletAsset {
   const factory _TonWalletAsset(
-      {@addressJsonConverter required final Address address,
-      @publicKeyJsonConverter required final PublicKey publicKey,
+      {required final Address address,
+      required final PublicKey publicKey,
       required final WalletType contract}) = _$_TonWalletAsset;
   const _TonWalletAsset._() : super._();
 
@@ -226,10 +214,8 @@ abstract class _TonWalletAsset extends TonWalletAsset {
       _$_TonWalletAsset.fromJson;
 
   @override
-  @addressJsonConverter
   Address get address;
   @override
-  @publicKeyJsonConverter
   PublicKey get publicKey;
   @override
   WalletType get contract;

@@ -1,5 +1,4 @@
 import 'package:flutter_nekoton_bridge/nekoton/core/models/models_lib.dart';
-import 'package:flutter_nekoton_bridge/nekoton/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'token_incoming_transfer.freezed.dart';
@@ -9,7 +8,7 @@ part 'token_incoming_transfer.g.dart';
 class TokenIncomingTransfer with _$TokenIncomingTransfer {
   const factory TokenIncomingTransfer({
     required final String tokens,
-    @addressJsonConverter required final Address senderAddress,
+    required final Address senderAddress,
   }) = _TokenIncomingTransfer;
 
   factory TokenIncomingTransfer.fromJson(Map<String, dynamic> json) =>

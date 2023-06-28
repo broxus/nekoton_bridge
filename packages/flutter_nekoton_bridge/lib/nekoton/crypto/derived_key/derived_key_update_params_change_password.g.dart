@@ -10,8 +10,7 @@ _$_DerivedKeyUpdateParamsChangePasswordChangePassword
     _$$_DerivedKeyUpdateParamsChangePasswordChangePasswordFromJson(
             Map<String, dynamic> json) =>
         _$_DerivedKeyUpdateParamsChangePasswordChangePassword(
-          masterKey:
-              publicKeyJsonConverter.fromJson(json['master_key'] as String),
+          masterKey: PublicKey.fromJson(json['master_key'] as String),
           oldPassword:
               Password.fromJson(json['old_password'] as Map<String, dynamic>),
           newPassword:
@@ -22,7 +21,7 @@ Map<String, dynamic>
     _$$_DerivedKeyUpdateParamsChangePasswordChangePasswordToJson(
             _$_DerivedKeyUpdateParamsChangePasswordChangePassword instance) =>
         <String, dynamic>{
-          'master_key': publicKeyJsonConverter.toJson(instance.masterKey),
+          'master_key': instance.masterKey.toJson(),
           'old_password': instance.oldPassword.toJson(),
           'new_password': instance.newPassword.toJson(),
         };

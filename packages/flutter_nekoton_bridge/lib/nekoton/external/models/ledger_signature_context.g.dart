@@ -12,7 +12,7 @@ _$_LedgerSignatureContext _$$_LedgerSignatureContextFromJson(
       decimals: json['decimals'] as int,
       asset: json['asset'] as String,
       amount: amountJsonConverter.fromJson(json['amount'] as String),
-      address: addressJsonConverter.fromJson(json['address'] as String),
+      address: Address.fromJson(json['address'] as String),
     );
 
 Map<String, dynamic> _$$_LedgerSignatureContextToJson(
@@ -21,5 +21,5 @@ Map<String, dynamic> _$$_LedgerSignatureContextToJson(
       'decimals': instance.decimals,
       'asset': instance.asset,
       'amount': amountJsonConverter.toJson(instance.amount),
-      'address': addressJsonConverter.toJson(instance.address),
+      'address': instance.address.toJson(),
     };

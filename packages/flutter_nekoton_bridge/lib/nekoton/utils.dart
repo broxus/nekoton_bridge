@@ -5,12 +5,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 /// identification)
 const amountJsonConverter = _FixedJsonConverter();
 
-/// Json converter of address value from string to Address
-const addressJsonConverter = _AddressJsonConverter();
-
-/// Json converter of publi ckey value from string to Address
-const publicKeyJsonConverter = _PublicKeyJsonConverter();
-
 class _FixedJsonConverter extends JsonConverter<Fixed, String> {
   const _FixedJsonConverter();
 
@@ -19,30 +13,6 @@ class _FixedJsonConverter extends JsonConverter<Fixed, String> {
 
   @override
   String toJson(Fixed object) => object.toString();
-}
-
-class _AddressJsonConverter implements JsonConverter<Address, String> {
-  const _AddressJsonConverter();
-
-  @override
-  Address fromJson(String json) {
-    return Address(address: json);
-  }
-
-  @override
-  String toJson(Address address) => address.address;
-}
-
-class _PublicKeyJsonConverter implements JsonConverter<PublicKey, String> {
-  const _PublicKeyJsonConverter();
-
-  @override
-  PublicKey fromJson(String json) {
-    return PublicKey(publicKey: json);
-  }
-
-  @override
-  String toJson(PublicKey publicKey) => publicKey.publicKey;
 }
 
 /// Get name of KeySigner, same as in rust side

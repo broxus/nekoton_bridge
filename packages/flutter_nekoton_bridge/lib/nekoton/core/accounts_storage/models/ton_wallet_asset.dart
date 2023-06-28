@@ -1,5 +1,4 @@
 import 'package:flutter_nekoton_bridge/nekoton/core/core_lib.dart';
-import 'package:flutter_nekoton_bridge/nekoton/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'ton_wallet_asset.freezed.dart';
@@ -9,8 +8,8 @@ part 'ton_wallet_asset.g.dart';
 @freezed
 class TonWalletAsset with _$TonWalletAsset {
   const factory TonWalletAsset({
-    @addressJsonConverter required final Address address,
-    @publicKeyJsonConverter required final PublicKey publicKey,
+    required final Address address,
+    required final PublicKey publicKey,
     required WalletType contract,
   }) = _TonWalletAsset;
 

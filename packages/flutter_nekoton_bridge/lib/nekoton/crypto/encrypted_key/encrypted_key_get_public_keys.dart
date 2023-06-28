@@ -1,5 +1,4 @@
 import 'package:flutter_nekoton_bridge/nekoton/core/models/models_lib.dart';
-import 'package:flutter_nekoton_bridge/nekoton/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/crypto/models/get_public_keys.dart';
 
@@ -12,7 +11,7 @@ class EncryptedKeyGetPublicKeys
     implements GetPublicKeys {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory EncryptedKeyGetPublicKeys({
-    @publicKeyJsonConverter required final PublicKey publicKey,
+    required final PublicKey publicKey,
   }) = _EncryptedKeyGetPublicKeysRename;
 
   factory EncryptedKeyGetPublicKeys.fromJson(Map<String, dynamic> json) =>

@@ -14,15 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-PublicKey _$PublicKeyFromJson(Map<String, dynamic> json) {
-  return _FromString.fromJson(json);
-}
-
 /// @nodoc
 mixin _$PublicKey {
   String get publicKey => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PublicKeyCopyWith<PublicKey> get copyWith =>
       throw _privateConstructorUsedError;
@@ -94,12 +89,9 @@ class __$$_FromStringCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_FromString extends _FromString {
   const _$_FromString({required this.publicKey}) : super._();
-
-  factory _$_FromString.fromJson(Map<String, dynamic> json) =>
-      _$$_FromStringFromJson(json);
 
   @override
   final String publicKey;
@@ -113,7 +105,6 @@ class _$_FromString extends _FromString {
                 other.publicKey == publicKey));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, publicKey);
 
@@ -122,21 +113,11 @@ class _$_FromString extends _FromString {
   @pragma('vm:prefer-inline')
   _$$_FromStringCopyWith<_$_FromString> get copyWith =>
       __$$_FromStringCopyWithImpl<_$_FromString>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_FromStringToJson(
-      this,
-    );
-  }
 }
 
 abstract class _FromString extends PublicKey {
   const factory _FromString({required final String publicKey}) = _$_FromString;
   const _FromString._() : super._();
-
-  factory _FromString.fromJson(Map<String, dynamic> json) =
-      _$_FromString.fromJson;
 
   @override
   String get publicKey;

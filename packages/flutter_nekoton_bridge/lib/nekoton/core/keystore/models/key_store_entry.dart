@@ -11,8 +11,8 @@ class KeyStoreEntry with _$KeyStoreEntry implements Comparable<KeyStoreEntry> {
   const factory KeyStoreEntry({
     required final String signerName,
     required final String name,
-    @publicKeyJsonConverter required final PublicKey publicKey,
-    @publicKeyJsonConverter required final PublicKey masterKey,
+    required final PublicKey publicKey,
+    required final PublicKey masterKey,
     required int accountId,
   }) = _KeyStoreEntry;
 

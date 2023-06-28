@@ -9,10 +9,9 @@ part of 'encrypted_data.dart';
 _$_EncryptedData _$$_EncryptedDataFromJson(Map<String, dynamic> json) =>
     _$_EncryptedData(
       algorithm: $enumDecode(_$EncryptionAlgorithmEnumMap, json['algorithm']),
-      sourcePublicKey:
-          publicKeyJsonConverter.fromJson(json['sourcePublicKey'] as String),
+      sourcePublicKey: PublicKey.fromJson(json['sourcePublicKey'] as String),
       recipientPublicKey:
-          publicKeyJsonConverter.fromJson(json['recipientPublicKey'] as String),
+          PublicKey.fromJson(json['recipientPublicKey'] as String),
       data: json['data'] as String,
       nonce: json['nonce'] as String,
     );
@@ -20,10 +19,8 @@ _$_EncryptedData _$$_EncryptedDataFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_EncryptedDataToJson(_$_EncryptedData instance) =>
     <String, dynamic>{
       'algorithm': _$EncryptionAlgorithmEnumMap[instance.algorithm]!,
-      'sourcePublicKey':
-          publicKeyJsonConverter.toJson(instance.sourcePublicKey),
-      'recipientPublicKey':
-          publicKeyJsonConverter.toJson(instance.recipientPublicKey),
+      'sourcePublicKey': instance.sourcePublicKey.toJson(),
+      'recipientPublicKey': instance.recipientPublicKey.toJson(),
       'data': instance.data,
       'nonce': instance.nonce,
     };

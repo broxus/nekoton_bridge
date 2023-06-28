@@ -8,7 +8,7 @@ part of 'ledger_sign_input.dart';
 
 _$_LedgerSignInput _$$_LedgerSignInputFromJson(Map<String, dynamic> json) =>
     _$_LedgerSignInput(
-      publicKey: publicKeyJsonConverter.fromJson(json['publicKey'] as String),
+      publicKey: PublicKey.fromJson(json['publicKey'] as String),
       context: json['context'] == null
           ? null
           : LedgerSignatureContext.fromJson(
@@ -17,6 +17,6 @@ _$_LedgerSignInput _$$_LedgerSignInputFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_LedgerSignInputToJson(_$_LedgerSignInput instance) =>
     <String, dynamic>{
-      'publicKey': publicKeyJsonConverter.toJson(instance.publicKey),
+      'publicKey': instance.publicKey.toJson(),
       'context': instance.context?.toJson(),
     };

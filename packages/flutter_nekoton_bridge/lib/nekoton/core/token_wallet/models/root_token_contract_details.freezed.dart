@@ -25,7 +25,6 @@ mixin _$RootTokenContractDetails {
   String get name => throw _privateConstructorUsedError;
   String get symbol => throw _privateConstructorUsedError;
   int get decimals => throw _privateConstructorUsedError;
-  @addressJsonConverter
   Address get ownerAddress => throw _privateConstructorUsedError;
   String get totalSupply => throw _privateConstructorUsedError;
 
@@ -46,7 +45,7 @@ abstract class $RootTokenContractDetailsCopyWith<$Res> {
       String name,
       String symbol,
       int decimals,
-      @addressJsonConverter Address ownerAddress,
+      Address ownerAddress,
       String totalSupply});
 
   $AddressCopyWith<$Res> get ownerAddress;
@@ -124,7 +123,7 @@ abstract class _$$_RootTokenContractDetailsCopyWith<$Res>
       String name,
       String symbol,
       int decimals,
-      @addressJsonConverter Address ownerAddress,
+      Address ownerAddress,
       String totalSupply});
 
   @override
@@ -188,7 +187,7 @@ class _$_RootTokenContractDetails implements _RootTokenContractDetails {
       required this.name,
       required this.symbol,
       required this.decimals,
-      @addressJsonConverter required this.ownerAddress,
+      required this.ownerAddress,
       required this.totalSupply});
 
   factory _$_RootTokenContractDetails.fromJson(Map<String, dynamic> json) =>
@@ -203,7 +202,6 @@ class _$_RootTokenContractDetails implements _RootTokenContractDetails {
   @override
   final int decimals;
   @override
-  @addressJsonConverter
   final Address ownerAddress;
   @override
   final String totalSupply;
@@ -255,7 +253,7 @@ abstract class _RootTokenContractDetails implements RootTokenContractDetails {
       required final String name,
       required final String symbol,
       required final int decimals,
-      @addressJsonConverter required final Address ownerAddress,
+      required final Address ownerAddress,
       required final String totalSupply}) = _$_RootTokenContractDetails;
 
   factory _RootTokenContractDetails.fromJson(Map<String, dynamic> json) =
@@ -270,7 +268,6 @@ abstract class _RootTokenContractDetails implements RootTokenContractDetails {
   @override
   int get decimals;
   @override
-  @addressJsonConverter
   Address get ownerAddress;
   @override
   String get totalSupply;

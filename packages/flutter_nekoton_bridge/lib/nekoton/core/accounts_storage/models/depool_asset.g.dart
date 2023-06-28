@@ -8,10 +8,10 @@ part of 'depool_asset.dart';
 
 _$_DePoolAsset _$$_DePoolAssetFromJson(Map<String, dynamic> json) =>
     _$_DePoolAsset(
-      address: addressJsonConverter.fromJson(json['address'] as String),
+      address: Address.fromJson(json['address'] as String),
     );
 
 Map<String, dynamic> _$$_DePoolAssetToJson(_$_DePoolAsset instance) =>
     <String, dynamic>{
-      'address': addressJsonConverter.toJson(instance.address),
+      'address': instance.address.toJson(),
     };
