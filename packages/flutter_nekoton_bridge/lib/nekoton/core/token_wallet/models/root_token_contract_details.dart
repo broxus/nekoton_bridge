@@ -10,12 +10,12 @@ part 'root_token_contract_details.g.dart';
 class RootTokenContractDetails with _$RootTokenContractDetails {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory RootTokenContractDetails({
-    required TokenWalletVersion version,
-    required String name,
-    required String symbol,
-    required int decimals,
-    @addressJsonConverter required Address ownerAddress,
-    required String totalSupply,
+    required final TokenWalletVersion version,
+    required final String name,
+    required final String symbol,
+    required final int decimals,
+    @addressJsonConverter required final Address ownerAddress,
+    required final String totalSupply,
   }) = _RootTokenContractDetails;
 
   factory RootTokenContractDetails.fromJson(Map<String, dynamic> json) =>

@@ -9,8 +9,8 @@ part 'ledger_update_key_input_rename.g.dart';
 class LedgerUpdateKeyInputRename with _$LedgerUpdateKeyInputRename {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory LedgerUpdateKeyInputRename({
-    @publicKeyJsonConverter required PublicKey publicKey,
-    required String name,
+    @publicKeyJsonConverter required final PublicKey publicKey,
+    required final String name,
   }) = _LedgerUpdateKeyInputRenameRename;
 
   factory LedgerUpdateKeyInputRename.fromJson(Map<String, dynamic> json) =>

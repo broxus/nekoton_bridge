@@ -8,14 +8,14 @@ part 'message.g.dart';
 @freezed
 class Message with _$Message {
   const factory Message({
-    required String hash,
-    String? src,
-    String? dst,
-    @amountJsonConverter required Fixed value,
-    required bool bounce,
-    required bool bounced,
-    String? body,
-    String? bodyHash,
+    required final String hash,
+    final String? src,
+    final String? dst,
+    @amountJsonConverter required final Fixed value,
+    required final bool bounce,
+    required final bool bounced,
+    final String? body,
+    final String? bodyHash,
   }) = _Message;
 
   factory Message.fromJson(Map<String, dynamic> json) =>

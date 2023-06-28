@@ -9,10 +9,10 @@ part 'key_store_entry.g.dart';
 class KeyStoreEntry with _$KeyStoreEntry implements Comparable<KeyStoreEntry> {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory KeyStoreEntry({
-    required String signerName,
-    required String name,
-    @publicKeyJsonConverter required PublicKey publicKey,
-    @publicKeyJsonConverter required PublicKey masterKey,
+    required final String signerName,
+    required final String name,
+    @publicKeyJsonConverter required final PublicKey publicKey,
+    @publicKeyJsonConverter required final PublicKey masterKey,
     required int accountId,
   }) = _KeyStoreEntry;
 

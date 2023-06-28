@@ -8,11 +8,11 @@ part 'contract_state.g.dart';
 @freezed
 class ContractState with _$ContractState {
   const factory ContractState({
-    @amountJsonConverter required Fixed balance,
-    required GenTimings genTimings,
-    LastTransactionId? lastTransactionId,
-    required bool isDeployed,
-    String? codeHash,
+    @amountJsonConverter required final Fixed balance,
+    required final GenTimings genTimings,
+    final LastTransactionId? lastTransactionId,
+    required final bool isDeployed,
+    final String? codeHash,
   }) = _ContractState;
 
   factory ContractState.fromJson(Map<String, dynamic> json) =>

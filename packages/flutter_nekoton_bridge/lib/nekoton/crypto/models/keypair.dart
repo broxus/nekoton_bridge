@@ -8,8 +8,8 @@ part 'keypair.g.dart';
 @freezed
 class Keypair with _$Keypair {
   const factory Keypair({
-    @publicKeyJsonConverter required PublicKey public,
-    @publicKeyJsonConverter required PublicKey secret,
+    @publicKeyJsonConverter required final PublicKey public,
+    @publicKeyJsonConverter required final PublicKey secret,
   }) = _Keypair;
 
   factory Keypair.fromJson(Map<String, dynamic> json) =>

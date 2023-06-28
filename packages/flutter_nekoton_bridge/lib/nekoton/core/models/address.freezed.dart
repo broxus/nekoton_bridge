@@ -102,6 +102,18 @@ class _$_FromString extends _FromString {
   @override
   final String address;
 
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FromString &&
+            (identical(other.address, address) || other.address == address));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, address);
+
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')

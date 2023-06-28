@@ -9,8 +9,8 @@ part 'encrypted_key_update_params_rename.g.dart';
 class EncryptedKeyUpdateParamsRename with _$EncryptedKeyUpdateParamsRename {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory EncryptedKeyUpdateParamsRename({
-    @publicKeyJsonConverter required PublicKey publicKey,
-    required String name,
+    @publicKeyJsonConverter required final PublicKey publicKey,
+    required final String name,
   }) = _EncryptedKeyUpdateParamsRenameRename;
 
   factory EncryptedKeyUpdateParamsRename.fromJson(Map<String, dynamic> json) =>

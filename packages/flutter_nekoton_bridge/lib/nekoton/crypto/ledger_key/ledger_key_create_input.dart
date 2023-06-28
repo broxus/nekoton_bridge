@@ -9,8 +9,8 @@ class LedgerKeyCreateInput
     with _$LedgerKeyCreateInput
     implements CreateKeyInput {
   const factory LedgerKeyCreateInput({
-    String? name,
-    required int accountId,
+    final String? name,
+    required final int accountId,
   }) = _LedgerKeyCreateInput;
 
   factory LedgerKeyCreateInput.fromJson(Map<String, dynamic> json) =>

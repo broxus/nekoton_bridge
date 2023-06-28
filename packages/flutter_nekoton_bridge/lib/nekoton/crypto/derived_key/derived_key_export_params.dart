@@ -13,8 +13,8 @@ class DerivedKeyExportSeedParams
     implements ExportKeyInput {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory DerivedKeyExportSeedParams({
-    @publicKeyJsonConverter required PublicKey masterKey,
-    required Password password,
+    @publicKeyJsonConverter required final PublicKey masterKey,
+    required final Password password,
   }) = _DerivedKeyExportSeedParams;
 
   factory DerivedKeyExportSeedParams.fromJson(Map<String, dynamic> json) =>

@@ -10,9 +10,9 @@ part 'derived_key_sign_params_by_public_key.g.dart';
 class DerivedKeyPasswordByPublicKey with _$DerivedKeyPasswordByPublicKey {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory DerivedKeyPasswordByPublicKey({
-    @publicKeyJsonConverter required PublicKey masterKey,
-    @publicKeyJsonConverter required PublicKey publicKey,
-    required Password password,
+    @publicKeyJsonConverter required final PublicKey masterKey,
+    @publicKeyJsonConverter required final PublicKey publicKey,
+    required final Password password,
   }) = _DerivedKeyPasswordByPublicKeyByPublicKey;
 
   factory DerivedKeyPasswordByPublicKey.fromJson(Map<String, dynamic> json) =>

@@ -8,9 +8,9 @@ part 'wallet_interaction_info.g.dart';
 @freezed
 class WalletInteractionInfo with _$WalletInteractionInfo {
   const factory WalletInteractionInfo({
-    @JsonKey(includeIfNull: false) String? recipient,
-    @JsonKey(includeIfNull: false) KnownPayload? knownPayload,
-    required WalletInteractionMethod method,
+    @JsonKey(includeIfNull: false) final String? recipient,
+    @JsonKey(includeIfNull: false) final KnownPayload? knownPayload,
+    required final WalletInteractionMethod method,
   }) = _WalletInteractionInfo;
 
   factory WalletInteractionInfo.fromJson(Map<String, dynamic> json) =>

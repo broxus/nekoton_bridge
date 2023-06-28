@@ -6,8 +6,8 @@ part 'subscription_handler_message.g.dart';
 @freezed
 class SubscriptionHandlerMessage with _$SubscriptionHandlerMessage {
   const factory SubscriptionHandlerMessage({
-    required String event,
-    required String payload,
+    required final String event,
+    required final String payload,
   }) = _SubscriptionHandlerMessage;
 
   factory SubscriptionHandlerMessage.fromJson(Map<String, dynamic> json) =>

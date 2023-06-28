@@ -9,9 +9,9 @@ part 'transactions_list.g.dart';
 @freezed
 class TransactionsList with _$TransactionsList {
   const factory TransactionsList({
-    required List<Transaction> transactions,
-    @JsonKey(includeIfNull: false) TransactionId? continuation,
-    TransactionsBatchInfo? info,
+    required final List<Transaction> transactions,
+    @JsonKey(includeIfNull: false) final TransactionId? continuation,
+    final TransactionsBatchInfo? info,
   }) = _TransactionsList;
 
   factory TransactionsList.fromJson(Map<String, dynamic> json) =>

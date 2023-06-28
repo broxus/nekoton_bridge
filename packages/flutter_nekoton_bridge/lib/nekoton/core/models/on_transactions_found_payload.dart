@@ -13,8 +13,8 @@ class OnTransactionsFoundPayload with _$OnTransactionsFoundPayload {
     explicitToJson: true,
   )
   const factory OnTransactionsFoundPayload({
-    required List<Transaction> transactions,
-    required TransactionsBatchInfo batchInfo,
+    required final List<Transaction> transactions,
+    required final TransactionsBatchInfo batchInfo,
   }) = _OnTransactionsFoundPayload;
 
   factory OnTransactionsFoundPayload.fromJson(Map<String, dynamic> json) =>

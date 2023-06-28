@@ -8,9 +8,9 @@ part 'token_wallet_details.g.dart';
 @freezed
 class TokenWalletDetails with _$TokenWalletDetails {
   const factory TokenWalletDetails({
-    @addressJsonConverter required Address rootAddress,
-    @addressJsonConverter required Address ownerAddress,
-    @amountJsonConverter required Fixed balance,
+    @addressJsonConverter required final Address rootAddress,
+    @addressJsonConverter required final Address ownerAddress,
+    @amountJsonConverter required final Fixed balance,
   }) = _TokenWalletDetails;
 
   factory TokenWalletDetails.fromJson(Map<String, dynamic> json) =>

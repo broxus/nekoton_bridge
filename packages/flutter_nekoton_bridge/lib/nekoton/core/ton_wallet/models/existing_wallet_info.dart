@@ -9,10 +9,10 @@ part 'existing_wallet_info.g.dart';
 @freezed
 class ExistingWalletInfo with _$ExistingWalletInfo {
   const factory ExistingWalletInfo({
-    @addressJsonConverter required Address address,
-    @publicKeyJsonConverter required PublicKey publicKey,
-    required WalletType walletType,
-    required ContractState contractState,
+    @addressJsonConverter required final Address address,
+    @publicKeyJsonConverter required final PublicKey publicKey,
+    required final WalletType walletType,
+    required final ContractState contractState,
   }) = _ExistingWalletInfo;
 
   factory ExistingWalletInfo.fromJson(Map<String, dynamic> json) =>

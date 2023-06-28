@@ -9,11 +9,11 @@ part 'encrypted_data.g.dart';
 @freezed
 class EncryptedData with _$EncryptedData {
   const factory EncryptedData({
-    required EncryptionAlgorithm algorithm,
-    @publicKeyJsonConverter required PublicKey sourcePublicKey,
-    @publicKeyJsonConverter required PublicKey recipientPublicKey,
-    required String data,
-    required String nonce,
+    required final EncryptionAlgorithm algorithm,
+    @publicKeyJsonConverter required final PublicKey sourcePublicKey,
+    @publicKeyJsonConverter required final PublicKey recipientPublicKey,
+    required final String data,
+    required final String nonce,
   }) = _EncryptedData;
 
   factory EncryptedData.fromJson(Map<String, dynamic> json) =>

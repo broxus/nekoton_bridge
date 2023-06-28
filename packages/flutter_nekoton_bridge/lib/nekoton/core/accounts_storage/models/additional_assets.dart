@@ -9,8 +9,8 @@ part 'additional_assets.g.dart';
 class AdditionalAssets with _$AdditionalAssets {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory AdditionalAssets({
-    required List<TokenWalletAsset> tokenWallets,
-    required List<DePoolAsset> depools,
+    required final List<TokenWalletAsset> tokenWallets,
+    required final List<DePoolAsset> depools,
   }) = _AdditionalAssets;
 
   factory AdditionalAssets.fromJson(Map<String, dynamic> json) =>

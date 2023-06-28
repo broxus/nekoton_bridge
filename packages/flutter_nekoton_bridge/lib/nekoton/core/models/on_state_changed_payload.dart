@@ -12,7 +12,7 @@ class OnStateChangedPayload with _$OnStateChangedPayload {
     explicitToJson: true,
   )
   const factory OnStateChangedPayload({
-    required ContractState newState,
+    required final ContractState newState,
   }) = _OnStateChangedPayload;
 
   factory OnStateChangedPayload.fromJson(Map<String, dynamic> json) =>

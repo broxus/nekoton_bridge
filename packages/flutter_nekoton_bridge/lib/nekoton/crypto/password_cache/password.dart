@@ -6,7 +6,7 @@ part 'password.g.dart';
 
 @Freezed(unionKey: 'type', unionValueCase: FreezedUnionCase.snake)
 class Password with _$Password {
-  const factory Password.explicit(PasswordExplicit data) = _Explicit;
+  const factory Password.explicit(final PasswordExplicit data) = _Explicit;
 
   const factory Password.fromCache() = _FromCache;
 

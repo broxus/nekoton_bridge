@@ -7,8 +7,8 @@ part 'decoded_input.g.dart';
 @freezed
 class DecodedInput with _$DecodedInput {
   const factory DecodedInput({
-    required String method,
-    required TokensObject input,
+    required final String method,
+    required final TokensObject input,
   }) = _DecodedInput;
 
   factory DecodedInput.fromJson(Map<String, dynamic> json) =>

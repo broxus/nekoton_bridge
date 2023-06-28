@@ -7,7 +7,7 @@ part 'token_wallet_asset.g.dart';
 class TokenWalletAsset with _$TokenWalletAsset {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory TokenWalletAsset({
-    required String rootTokenContract,
+    required final String rootTokenContract,
   }) = _TokenWalletAsset;
 
   factory TokenWalletAsset.fromJson(Map<String, dynamic> json) =>

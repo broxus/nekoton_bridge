@@ -9,8 +9,8 @@ part 'ton_wallet_asset.g.dart';
 @freezed
 class TonWalletAsset with _$TonWalletAsset {
   const factory TonWalletAsset({
-    @addressJsonConverter required Address address,
-    @publicKeyJsonConverter required PublicKey publicKey,
+    @addressJsonConverter required final Address address,
+    @publicKeyJsonConverter required final PublicKey publicKey,
     required WalletType contract,
   }) = _TonWalletAsset;
 

@@ -14,8 +14,8 @@ class EncryptedKeyPassword
     implements ExportKeyInput, SignInput {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory EncryptedKeyPassword({
-    @publicKeyJsonConverter required PublicKey publicKey,
-    required Password password,
+    @publicKeyJsonConverter required final PublicKey publicKey,
+    required final Password password,
   }) = _EncryptedKeyPassword;
 
   factory EncryptedKeyPassword.fromJson(Map<String, dynamic> json) =>

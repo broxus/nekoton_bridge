@@ -6,8 +6,8 @@ part 'last_transaction_id.g.dart';
 @freezed
 class LastTransactionId with _$LastTransactionId {
   const factory LastTransactionId({
-    required bool isExact,
-    required String lt,
+    required final bool isExact,
+    required final String lt,
     @JsonKey(includeIfNull: false) String? hash,
   }) = _LastTransactionId;
 

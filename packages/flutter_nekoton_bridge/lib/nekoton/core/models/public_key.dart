@@ -10,7 +10,7 @@ class PublicKey with _$PublicKey {
   const PublicKey._();
 
   const factory PublicKey({
-    required String publicKey,
+    required final String publicKey,
   }) = _FromString;
 
   factory PublicKey.fromJson(Map<String, dynamic> json) =>
@@ -26,13 +26,4 @@ class PublicKey with _$PublicKey {
   String toEllipseString() => publicKey.length > 4
       ? '${publicKey.substring(0, 4)}...${publicKey.substring(publicKey.length - 4)}'
       : publicKey;
-
-  @override
-  int get hashCode => publicKey.hashCode;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is PublicKey && publicKey == other.publicKey);
-  }
 }

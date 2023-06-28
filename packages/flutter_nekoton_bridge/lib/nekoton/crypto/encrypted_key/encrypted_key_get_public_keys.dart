@@ -12,7 +12,7 @@ class EncryptedKeyGetPublicKeys
     implements GetPublicKeys {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory EncryptedKeyGetPublicKeys({
-    @publicKeyJsonConverter required PublicKey publicKey,
+    @publicKeyJsonConverter required final PublicKey publicKey,
   }) = _EncryptedKeyGetPublicKeysRename;
 
   factory EncryptedKeyGetPublicKeys.fromJson(Map<String, dynamic> json) =>

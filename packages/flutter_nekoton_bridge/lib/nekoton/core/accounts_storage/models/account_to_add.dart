@@ -9,11 +9,11 @@ part 'account_to_add.g.dart';
 @freezed
 class AccountToAdd with _$AccountToAdd {
   const factory AccountToAdd({
-    required String name,
-    @publicKeyJsonConverter required PublicKey publicKey,
-    required WalletType contract,
-    required int workchain,
-    @addressJsonConverter Address? explicitAddress,
+    required final String name,
+    @publicKeyJsonConverter required final PublicKey publicKey,
+    required final WalletType contract,
+    required final int workchain,
+    @addressJsonConverter final Address? explicitAddress,
   }) = _AccountToAdd;
 
   factory AccountToAdd.fromJson(Map<String, dynamic> json) =>

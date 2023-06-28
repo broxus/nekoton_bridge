@@ -11,9 +11,9 @@ class DerivedKeyUpdateParamsChangePassword
     with _$DerivedKeyUpdateParamsChangePassword {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory DerivedKeyUpdateParamsChangePassword({
-    @publicKeyJsonConverter required PublicKey masterKey,
-    required Password oldPassword,
-    required Password newPassword,
+    @publicKeyJsonConverter required final PublicKey masterKey,
+    required final Password oldPassword,
+    required final Password newPassword,
   }) = _DerivedKeyUpdateParamsChangePasswordChangePassword;
 
   factory DerivedKeyUpdateParamsChangePassword.fromJson(

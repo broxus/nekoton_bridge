@@ -10,10 +10,10 @@ part 'derived_key_create_input_derive.g.dart';
 class DerivedKeyCreateInputDerive with _$DerivedKeyCreateInputDerive {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory DerivedKeyCreateInputDerive({
-    String? keyName,
-    @publicKeyJsonConverter required PublicKey masterKey,
-    required int accountId,
-    required Password password,
+    final String? keyName,
+    @publicKeyJsonConverter required final PublicKey masterKey,
+    required final int accountId,
+    required final Password password,
   }) = _DerivedKeyCreateInputDeriveDerive;
 
   factory DerivedKeyCreateInputDerive.fromJson(Map<String, dynamic> json) =>

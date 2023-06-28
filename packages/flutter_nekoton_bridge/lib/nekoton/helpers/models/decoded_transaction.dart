@@ -7,9 +7,9 @@ part 'decoded_transaction.g.dart';
 @freezed
 class DecodedTransaction with _$DecodedTransaction {
   const factory DecodedTransaction({
-    required String method,
-    required TokensObject input,
-    required TokensObject output,
+    required final String method,
+    required final TokensObject input,
+    required final TokensObject output,
   }) = _DecodedTransaction;
 
   factory DecodedTransaction.fromJson(Map<String, dynamic> json) =>

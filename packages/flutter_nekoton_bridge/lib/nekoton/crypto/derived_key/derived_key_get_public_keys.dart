@@ -13,10 +13,10 @@ class DerivedKeyGetPublicKeys
     implements GetPublicKeys {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory DerivedKeyGetPublicKeys({
-    @publicKeyJsonConverter required PublicKey masterKey,
-    required Password password,
-    required int limit,
-    required int offset,
+    @publicKeyJsonConverter required final PublicKey masterKey,
+    required final Password password,
+    required final int limit,
+    required final int offset,
   }) = _DerivedKeyGetPublicKeysRename;
 
   factory DerivedKeyGetPublicKeys.fromJson(Map<String, dynamic> json) =>

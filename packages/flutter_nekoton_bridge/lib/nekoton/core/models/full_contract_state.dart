@@ -8,12 +8,12 @@ part 'full_contract_state.g.dart';
 @freezed
 class FullContractState with _$FullContractState {
   const factory FullContractState({
-    @amountJsonConverter required Fixed balance,
-    required GenTimings genTimings,
-    LastTransactionId? lastTransactionId,
-    required bool isDeployed,
-    String? codeHash,
-    required String boc,
+    @amountJsonConverter required final Fixed balance,
+    required final GenTimings genTimings,
+    final LastTransactionId? lastTransactionId,
+    required final bool isDeployed,
+    final String? codeHash,
+    required final String boc,
   }) = _FullContractState;
 
   factory FullContractState.fromJson(Map<String, dynamic> json) =>

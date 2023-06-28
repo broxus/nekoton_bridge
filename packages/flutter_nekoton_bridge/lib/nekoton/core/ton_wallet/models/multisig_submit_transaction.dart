@@ -8,13 +8,13 @@ part 'multisig_submit_transaction.g.dart';
 @freezed
 class MultisigSubmitTransaction with _$MultisigSubmitTransaction {
   const factory MultisigSubmitTransaction({
-    required String custodian,
-    required String dest,
-    @amountJsonConverter required Fixed value,
-    required bool bounce,
-    required bool allBalance,
-    required String payload,
-    required String transId,
+    required final String custodian,
+    required final String dest,
+    @amountJsonConverter required final Fixed value,
+    required final bool bounce,
+    required final bool allBalance,
+    required final String payload,
+    required final String transId,
   }) = _MultisigSubmitTransaction;
 
   factory MultisigSubmitTransaction.fromJson(Map<String, dynamic> json) =>

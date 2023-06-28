@@ -6,8 +6,8 @@ part 'transaction_id.g.dart';
 @freezed
 class TransactionId with _$TransactionId {
   const factory TransactionId({
-    required String lt,
-    required String hash,
+    required final String lt,
+    required final String hash,
   }) = _TransactionId;
 
   factory TransactionId.fromJson(Map<String, dynamic> json) =>

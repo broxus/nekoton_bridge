@@ -10,8 +10,8 @@ part 'ledger_sign_input.g.dart';
 @freezed
 class LedgerSignInput with _$LedgerSignInput implements SignInput {
   const factory LedgerSignInput({
-    @publicKeyJsonConverter required PublicKey publicKey,
-    LedgerSignatureContext? context,
+    @publicKeyJsonConverter required final PublicKey publicKey,
+    final LedgerSignatureContext? context,
   }) = _LedgerSignInput;
 
   factory LedgerSignInput.fromJson(Map<String, dynamic> json) =>

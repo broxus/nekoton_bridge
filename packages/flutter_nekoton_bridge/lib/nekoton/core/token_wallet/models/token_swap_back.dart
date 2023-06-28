@@ -9,9 +9,9 @@ part 'token_swap_back.g.dart';
 class TokenSwapBack with _$TokenSwapBack {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory TokenSwapBack({
-    required String tokens,
-    @addressJsonConverter required Address callbackAddress,
-    required String callbackPayload,
+    required final String tokens,
+    @addressJsonConverter required final Address callbackAddress,
+    required final String callbackPayload,
   }) = _TokenSwapBack;
 
   factory TokenSwapBack.fromJson(Map<String, dynamic> json) =>

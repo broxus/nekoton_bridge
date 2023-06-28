@@ -10,8 +10,8 @@ class EncryptedKeyExportSeedOutput
     with _$EncryptedKeyExportSeedOutput
     implements ExportKeyOutput {
   factory EncryptedKeyExportSeedOutput({
-    required String phrase,
-    @mnemonicJsonConverter required MnemonicType mnemonicType,
+    required final String phrase,
+    @mnemonicJsonConverter required final MnemonicType mnemonicType,
   }) = _EncryptedKeyExportSeedOutput;
 
   factory EncryptedKeyExportSeedOutput.fromJson(Map<String, dynamic> json) =>

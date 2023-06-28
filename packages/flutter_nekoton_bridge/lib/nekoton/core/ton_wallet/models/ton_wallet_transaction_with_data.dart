@@ -11,8 +11,8 @@ class TonWalletTransactionWithData
     with _$TonWalletTransactionWithData
     implements Comparable<TonWalletTransactionWithData> {
   const factory TonWalletTransactionWithData({
-    required Transaction transaction,
-    TransactionAdditionalInfo? data,
+    required final Transaction transaction,
+    final TransactionAdditionalInfo? data,
   }) = _TonWalletTransactionWithData;
 
   factory TonWalletTransactionWithData.fromJson(Map<String, dynamic> json) =>

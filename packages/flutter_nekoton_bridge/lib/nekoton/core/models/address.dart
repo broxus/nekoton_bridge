@@ -10,7 +10,7 @@ class Address with _$Address {
   const Address._();
 
   const factory Address({
-    required String address,
+    required final String address,
   }) = _FromString;
 
   factory Address.fromJson(Map<String, dynamic> json) =>
@@ -29,13 +29,4 @@ class Address with _$Address {
 
   /// Returns workchain id
   int get workchain => int.parse(address.split(':').first);
-
-  @override
-  int get hashCode => address.hashCode;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is Address && address == other.address);
-  }
 }
