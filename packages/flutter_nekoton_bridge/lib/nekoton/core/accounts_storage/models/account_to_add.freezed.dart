@@ -21,10 +21,12 @@ AccountToAdd _$AccountToAddFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AccountToAdd {
   String get name => throw _privateConstructorUsedError;
-  String get publicKey => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get publicKey => throw _privateConstructorUsedError;
   WalletType get contract => throw _privateConstructorUsedError;
   int get workchain => throw _privateConstructorUsedError;
-  String? get explicitAddress => throw _privateConstructorUsedError;
+  @addressJsonConverter
+  Address? get explicitAddress => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,12 +42,14 @@ abstract class $AccountToAddCopyWith<$Res> {
   @useResult
   $Res call(
       {String name,
-      String publicKey,
+      @publicKeyJsonConverter PublicKey publicKey,
       WalletType contract,
       int workchain,
-      String? explicitAddress});
+      @addressJsonConverter Address? explicitAddress});
 
+  $PublicKeyCopyWith<$Res> get publicKey;
   $WalletTypeCopyWith<$Res> get contract;
+  $AddressCopyWith<$Res>? get explicitAddress;
 }
 
 /// @nodoc
@@ -75,7 +79,7 @@ class _$AccountToAddCopyWithImpl<$Res, $Val extends AccountToAdd>
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       contract: null == contract
           ? _value.contract
           : contract // ignore: cast_nullable_to_non_nullable
@@ -87,8 +91,16 @@ class _$AccountToAddCopyWithImpl<$Res, $Val extends AccountToAdd>
       explicitAddress: freezed == explicitAddress
           ? _value.explicitAddress
           : explicitAddress // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Address?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
+      return _then(_value.copyWith(publicKey: value) as $Val);
+    });
   }
 
   @override
@@ -96,6 +108,18 @@ class _$AccountToAddCopyWithImpl<$Res, $Val extends AccountToAdd>
   $WalletTypeCopyWith<$Res> get contract {
     return $WalletTypeCopyWith<$Res>(_value.contract, (value) {
       return _then(_value.copyWith(contract: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res>? get explicitAddress {
+    if (_value.explicitAddress == null) {
+      return null;
+    }
+
+    return $AddressCopyWith<$Res>(_value.explicitAddress!, (value) {
+      return _then(_value.copyWith(explicitAddress: value) as $Val);
     });
   }
 }
@@ -110,13 +134,17 @@ abstract class _$$_AccountToAddCopyWith<$Res>
   @useResult
   $Res call(
       {String name,
-      String publicKey,
+      @publicKeyJsonConverter PublicKey publicKey,
       WalletType contract,
       int workchain,
-      String? explicitAddress});
+      @addressJsonConverter Address? explicitAddress});
 
   @override
+  $PublicKeyCopyWith<$Res> get publicKey;
+  @override
   $WalletTypeCopyWith<$Res> get contract;
+  @override
+  $AddressCopyWith<$Res>? get explicitAddress;
 }
 
 /// @nodoc
@@ -144,7 +172,7 @@ class __$$_AccountToAddCopyWithImpl<$Res>
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       contract: null == contract
           ? _value.contract
           : contract // ignore: cast_nullable_to_non_nullable
@@ -156,7 +184,7 @@ class __$$_AccountToAddCopyWithImpl<$Res>
       explicitAddress: freezed == explicitAddress
           ? _value.explicitAddress
           : explicitAddress // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Address?,
     ));
   }
 }
@@ -166,10 +194,10 @@ class __$$_AccountToAddCopyWithImpl<$Res>
 class _$_AccountToAdd implements _AccountToAdd {
   const _$_AccountToAdd(
       {required this.name,
-      required this.publicKey,
+      @publicKeyJsonConverter required this.publicKey,
       required this.contract,
       required this.workchain,
-      this.explicitAddress});
+      @addressJsonConverter this.explicitAddress});
 
   factory _$_AccountToAdd.fromJson(Map<String, dynamic> json) =>
       _$$_AccountToAddFromJson(json);
@@ -177,13 +205,15 @@ class _$_AccountToAdd implements _AccountToAdd {
   @override
   final String name;
   @override
-  final String publicKey;
+  @publicKeyJsonConverter
+  final PublicKey publicKey;
   @override
   final WalletType contract;
   @override
   final int workchain;
   @override
-  final String? explicitAddress;
+  @addressJsonConverter
+  final Address? explicitAddress;
 
   @override
   String toString() {
@@ -228,10 +258,10 @@ class _$_AccountToAdd implements _AccountToAdd {
 abstract class _AccountToAdd implements AccountToAdd {
   const factory _AccountToAdd(
       {required final String name,
-      required final String publicKey,
+      @publicKeyJsonConverter required final PublicKey publicKey,
       required final WalletType contract,
       required final int workchain,
-      final String? explicitAddress}) = _$_AccountToAdd;
+      @addressJsonConverter final Address? explicitAddress}) = _$_AccountToAdd;
 
   factory _AccountToAdd.fromJson(Map<String, dynamic> json) =
       _$_AccountToAdd.fromJson;
@@ -239,13 +269,15 @@ abstract class _AccountToAdd implements AccountToAdd {
   @override
   String get name;
   @override
-  String get publicKey;
+  @publicKeyJsonConverter
+  PublicKey get publicKey;
   @override
   WalletType get contract;
   @override
   int get workchain;
   @override
-  String? get explicitAddress;
+  @addressJsonConverter
+  Address? get explicitAddress;
   @override
   @JsonKey(ignore: true)
   _$$_AccountToAddCopyWith<_$_AccountToAdd> get copyWith =>

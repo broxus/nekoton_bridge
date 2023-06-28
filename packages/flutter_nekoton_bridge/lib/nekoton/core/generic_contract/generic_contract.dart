@@ -43,7 +43,7 @@ class GenericContract extends RustToDartMirrorInterface {
   final _fieldsUpdateController = StreamController<void>.broadcast();
 
   /// Description information about contract that do not change
-  late final String address;
+  late final Address address;
 
   GenericContract._(this.transport);
 
@@ -52,7 +52,7 @@ class GenericContract extends RustToDartMirrorInterface {
   /// [preloadTransactions] - if transactions must be loaded during creation
   static Future<GenericContract> subscribe({
     required Transport transport,
-    required String address,
+    required Address address,
     required bool preloadTransactions,
   }) async {
     final instance = GenericContract._(transport);
@@ -62,7 +62,7 @@ class GenericContract extends RustToDartMirrorInterface {
         await lib.subscribeStaticMethodGenericContractDartWrapper(
       instanceHash: instance.instanceHash,
       transport: transport.transportBox,
-      address: address,
+      address: address.address,
       preloadTransactions: preloadTransactions,
     );
 
@@ -111,7 +111,8 @@ class GenericContract extends RustToDartMirrorInterface {
       get onTransactionsFoundStream => _onTransactionsFoundController.stream;
 
   /// Get address of contract.
-  Future<String> _getAddress() => contract.address();
+  Future<Address> _getAddress() async =>
+      Address(address: await contract.address());
 
   /// Get ContractState or throw error.
   Future<ContractState> getContractState() async {

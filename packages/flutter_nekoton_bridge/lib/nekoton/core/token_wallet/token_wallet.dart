@@ -39,8 +39,8 @@ class TokenWallet extends RustToDartMirrorInterface {
   final _fieldsUpdateController = StreamController<void>.broadcast();
 
   /// Description information about wallet that do not change
-  late final String address;
-  late final String owner;
+  late final Address address;
+  late final Address owner;
   late final Symbol symbol;
   late final TokenWalletVersion version;
 
@@ -51,8 +51,8 @@ class TokenWallet extends RustToDartMirrorInterface {
   /// [rootTokenContract] - address of contract in blockchain
   static Future<TokenWallet> subscribe({
     required Transport transport,
-    required String owner,
-    required String rootTokenContract,
+    required Address owner,
+    required Address rootTokenContract,
   }) async {
     final instance = TokenWallet._(transport);
 
@@ -60,8 +60,8 @@ class TokenWallet extends RustToDartMirrorInterface {
     instance.wallet = await lib.subscribeStaticMethodTokenWalletDartWrapper(
       instanceHash: instance.instanceHash,
       transport: transport.transportBox,
-      rootTokenContract: rootTokenContract,
-      owner: owner,
+      rootTokenContract: rootTokenContract.address,
+      owner: owner.address,
     );
 
     await instance._initInstance();
@@ -102,10 +102,11 @@ class TokenWallet extends RustToDartMirrorInterface {
       _onTransactionsFoundController.stream;
 
   /// Get address of owner of wallet.
-  Future<String> _getOwner() => wallet.owner();
+  Future<Address> _getOwner() async => Address(address: await wallet.owner());
 
   /// Get address of wallet.
-  Future<String> _getAddress() => wallet.address();
+  Future<Address> _getAddress() async =>
+      Address(address: await wallet.address());
 
   /// Get Symbol of contract of wallet.
   /// May throw error
@@ -142,14 +143,14 @@ class TokenWallet extends RustToDartMirrorInterface {
   ///   How many native tokens should be attached to transfer.
   /// Returns InternalMessage or throw error.
   Future<InternalMessage> prepareTransfer({
-    required String destination,
+    required Address destination,
     required Fixed amount,
     bool notifyReceiver = false,
     Fixed? attachedAmount,
     String? payload,
   }) async {
     final encoded = await wallet.prepareTransfer(
-      destination: destination,
+      destination: destination.address,
       amount: amount.toString(),
       notifyReceiver: notifyReceiver,
       attachedAmount: attachedAmount?.toString(),
@@ -184,19 +185,19 @@ class TokenWallet extends RustToDartMirrorInterface {
   }
 
   /// Get details about token wallet by address of wallet
-  /// [tokenWalletAddress] - address of wallet
+  /// [address] - address of wallet
   /// 0: TokenWalletDetails
   /// 1: RootTokenContractDetails
   /// or throw error
   static Future<Tuple2<TokenWalletDetails, RootTokenContractDetails>>
       getTokenWalletDetails({
     required Transport transport,
-    required String tokenWalletAddress,
+    required Address address,
   }) async {
     final lib = createLib();
     final encoded =
         await lib.getTokenWalletDetailsStaticMethodTokenWalletDartWrapper(
-      address: tokenWalletAddress,
+      address: address.address,
       transport: transport.transportBox,
     );
     final decoded = jsonDecode(encoded) as List<dynamic>;
@@ -210,20 +211,20 @@ class TokenWallet extends RustToDartMirrorInterface {
   /// 0: Address of root contract
   /// 1: RootTokenContractDetails of root contract
   /// or throw error.
-  static Future<Tuple2<String, RootTokenContractDetails>>
+  static Future<Tuple2<Address, RootTokenContractDetails>>
       getTokenRootDetailsFromTokenWallet({
     required Transport transport,
-    required String tokenWalletAddress,
+    required Address address,
   }) async {
     final lib = createLib();
     final encoded = await lib
         .getTokenRootDetailsFromTokenWalletStaticMethodTokenWalletDartWrapper(
-      tokenWalletAddress: tokenWalletAddress,
+      tokenWalletAddress: address.address,
       transport: transport.transportBox,
     );
     final decoded = jsonDecode(encoded) as List<dynamic>;
     return Tuple2(
-      decoded.first as String,
+      Address(address: (decoded.first as String)),
       RootTokenContractDetails.fromJson(decoded.last as Map<String, dynamic>),
     );
   }

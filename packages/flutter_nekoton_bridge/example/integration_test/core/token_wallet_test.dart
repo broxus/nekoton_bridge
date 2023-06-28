@@ -29,10 +29,12 @@ void main() {
   const networkGroup = 'mainnet';
   const endpoint = 'https://jrpc.everwallet.net/rpc';
 
-  const stEverRootContract =
-      '0:6d42d0bc4a6568120ea88bf642edb653d727cfbd35868c47877532de128e71f2';
-  const address =
-      '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2';
+  const stEverRootContract = Address(
+      address:
+          '0:6d42d0bc4a6568120ea88bf642edb653d727cfbd35868c47877532de128e71f2');
+  const address = Address(
+      address:
+          '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2');
 
   const jrpcSettings = JrpcNetworkSettings(endpoint: endpoint);
   late JrpcTransport transport;
@@ -75,7 +77,9 @@ void main() {
       expect(wallet.owner, address);
       expect(
         wallet.address,
-        '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01',
+        const Address(
+            address:
+                '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
       );
       expect(wallet.contractState.balance, Fixed.parse('61294235'));
       expect(wallet.symbol.decimals, 9);
@@ -116,8 +120,9 @@ void main() {
 
       final details = await TokenWallet.getTokenWalletDetails(
         transport: transport,
-        tokenWalletAddress:
-            '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01',
+        address: const Address(
+            address:
+                '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
       );
 
       expect(details.item1.balance, Fixed.parse('0'));
@@ -125,7 +130,9 @@ void main() {
       expect(details.item1.rootAddress, stEverRootContract);
       expect(
         details.item2.ownerAddress,
-        '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68',
+        const Address(
+            address:
+                '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68'),
       );
       expect(details.item2.version, TokenWalletVersion.tip3);
       expect(details.item2.symbol, 'STEVER');
@@ -137,14 +144,17 @@ void main() {
 
       final details = await TokenWallet.getTokenRootDetailsFromTokenWallet(
         transport: transport,
-        tokenWalletAddress:
-            '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01',
+        address: const Address(
+            address:
+                '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
       );
 
       expect(details.item1, stEverRootContract);
       expect(
         details.item2.ownerAddress,
-        '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68',
+        const Address(
+            address:
+                '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68'),
       );
       expect(details.item2.version, TokenWalletVersion.tip3);
       expect(details.item2.symbol, 'STEVER');

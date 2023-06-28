@@ -9,13 +9,14 @@ part of 'ledger_update_key_input_rename.dart';
 _$_LedgerUpdateKeyInputRenameRename
     _$$_LedgerUpdateKeyInputRenameRenameFromJson(Map<String, dynamic> json) =>
         _$_LedgerUpdateKeyInputRenameRename(
-          publicKey: json['public_key'] as String,
+          publicKey:
+              publicKeyJsonConverter.fromJson(json['public_key'] as String),
           name: json['name'] as String,
         );
 
 Map<String, dynamic> _$$_LedgerUpdateKeyInputRenameRenameToJson(
         _$_LedgerUpdateKeyInputRenameRename instance) =>
     <String, dynamic>{
-      'public_key': instance.publicKey,
+      'public_key': publicKeyJsonConverter.toJson(instance.publicKey),
       'name': instance.name,
     };

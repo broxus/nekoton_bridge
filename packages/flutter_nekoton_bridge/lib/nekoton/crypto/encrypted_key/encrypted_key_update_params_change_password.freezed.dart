@@ -22,7 +22,8 @@ EncryptedKeyUpdateParamsChangePassword
 
 /// @nodoc
 mixin _$EncryptedKeyUpdateParamsChangePassword {
-  String get publicKey => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get publicKey => throw _privateConstructorUsedError;
   Password get oldPassword => throw _privateConstructorUsedError;
   Password get newPassword => throw _privateConstructorUsedError;
 
@@ -41,8 +42,12 @@ abstract class $EncryptedKeyUpdateParamsChangePasswordCopyWith<$Res> {
       _$EncryptedKeyUpdateParamsChangePasswordCopyWithImpl<$Res,
           EncryptedKeyUpdateParamsChangePassword>;
   @useResult
-  $Res call({String publicKey, Password oldPassword, Password newPassword});
+  $Res call(
+      {@publicKeyJsonConverter PublicKey publicKey,
+      Password oldPassword,
+      Password newPassword});
 
+  $PublicKeyCopyWith<$Res> get publicKey;
   $PasswordCopyWith<$Res> get oldPassword;
   $PasswordCopyWith<$Res> get newPassword;
 }
@@ -69,7 +74,7 @@ class _$EncryptedKeyUpdateParamsChangePasswordCopyWithImpl<$Res,
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       oldPassword: null == oldPassword
           ? _value.oldPassword
           : oldPassword // ignore: cast_nullable_to_non_nullable
@@ -79,6 +84,14 @@ class _$EncryptedKeyUpdateParamsChangePasswordCopyWithImpl<$Res,
           : newPassword // ignore: cast_nullable_to_non_nullable
               as Password,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
+      return _then(_value.copyWith(publicKey: value) as $Val);
+    });
   }
 
   @override
@@ -109,8 +122,13 @@ abstract class _$$_EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWith<
           $Res>;
   @override
   @useResult
-  $Res call({String publicKey, Password oldPassword, Password newPassword});
+  $Res call(
+      {@publicKeyJsonConverter PublicKey publicKey,
+      Password oldPassword,
+      Password newPassword});
 
+  @override
+  $PublicKeyCopyWith<$Res> get publicKey;
   @override
   $PasswordCopyWith<$Res> get oldPassword;
   @override
@@ -141,7 +159,7 @@ class __$$_EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWithImpl<
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       oldPassword: null == oldPassword
           ? _value.oldPassword
           : oldPassword // ignore: cast_nullable_to_non_nullable
@@ -160,7 +178,7 @@ class __$$_EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWithImpl<
 class _$_EncryptedKeyUpdateParamsChangePasswordChangePassword
     implements _EncryptedKeyUpdateParamsChangePasswordChangePassword {
   const _$_EncryptedKeyUpdateParamsChangePasswordChangePassword(
-      {required this.publicKey,
+      {@publicKeyJsonConverter required this.publicKey,
       required this.oldPassword,
       required this.newPassword});
 
@@ -169,7 +187,8 @@ class _$_EncryptedKeyUpdateParamsChangePasswordChangePassword
       _$$_EncryptedKeyUpdateParamsChangePasswordChangePasswordFromJson(json);
 
   @override
-  final String publicKey;
+  @publicKeyJsonConverter
+  final PublicKey publicKey;
   @override
   final Password oldPassword;
   @override
@@ -219,7 +238,7 @@ class _$_EncryptedKeyUpdateParamsChangePasswordChangePassword
 abstract class _EncryptedKeyUpdateParamsChangePasswordChangePassword
     implements EncryptedKeyUpdateParamsChangePassword {
   const factory _EncryptedKeyUpdateParamsChangePasswordChangePassword(
-          {required final String publicKey,
+          {@publicKeyJsonConverter required final PublicKey publicKey,
           required final Password oldPassword,
           required final Password newPassword}) =
       _$_EncryptedKeyUpdateParamsChangePasswordChangePassword;
@@ -229,7 +248,8 @@ abstract class _EncryptedKeyUpdateParamsChangePasswordChangePassword
       _$_EncryptedKeyUpdateParamsChangePasswordChangePassword.fromJson;
 
   @override
-  String get publicKey;
+  @publicKeyJsonConverter
+  PublicKey get publicKey;
   @override
   Password get oldPassword;
   @override

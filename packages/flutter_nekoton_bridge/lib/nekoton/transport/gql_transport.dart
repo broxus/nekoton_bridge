@@ -43,14 +43,14 @@ class GqlTransport extends Transport {
   }
 
   @override
-  Future<RawContractState> getContractState(String address) async {
-    final res = await transport.getContractState(address: address);
+  Future<RawContractState> getContractState(Address address) async {
+    final res = await transport.getContractState(address: address.address);
     return RawContractState.fromJson(jsonDecode(res));
   }
 
   @override
-  Future<FullContractState?> getFullContractState(String address) async {
-    final res = await transport.getFullContractState(address: address);
+  Future<FullContractState?> getFullContractState(Address address) async {
+    final res = await transport.getFullContractState(address: address.address);
     if (res == null) return null;
 
     return FullContractState.fromJson(jsonDecode(res));
@@ -73,12 +73,12 @@ class GqlTransport extends Transport {
 
   @override
   Future<TransactionsList> getTransactions({
-    required String address,
+    required Address address,
     required int count,
     int? fromLt,
   }) async {
     final res = await transport.getTransactions(
-      address: address,
+      address: address.address,
       count: count,
       fromLt: fromLt,
     );
@@ -86,8 +86,8 @@ class GqlTransport extends Transport {
   }
 
   /// Get latest block by address and return it or throw error
-  Future<LatestBlock> getLatestBlock({required String address}) =>
-      transport.getLatestBlock(address: address);
+  Future<LatestBlock> getLatestBlock({required Address address}) =>
+      transport.getLatestBlock(address: address.address);
 
   /// Get transport block by id and return base64 encoded block or throw error
   Future<String> getBlock({required String id}) => transport.getBlock(id: id);
@@ -95,12 +95,12 @@ class GqlTransport extends Transport {
   /// Wait until next block will come to blockchain and return its id or throw error
   Future<String> waitForNextBlock({
     required String currentBlockId,
-    required String address,
+    required Address address,
     required int timeout,
   }) =>
       transport.waitForNextBlock(
         currentBlockId: currentBlockId,
-        address: address,
+        address: address.address,
         timeout: timeout,
       );
 

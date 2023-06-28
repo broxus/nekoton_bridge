@@ -11,7 +11,7 @@ class LedgerSignatureContext with _$LedgerSignatureContext {
     required int decimals,
     required String asset,
     @amountJsonConverter required Fixed amount,
-    required String address,
+    @addressJsonConverter required Address address,
   }) = _LedgerSignatureContext;
 
   factory LedgerSignatureContext.fromJson(Map<String, dynamic> json) =>

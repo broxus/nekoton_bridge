@@ -20,8 +20,10 @@ ExistingWalletInfo _$ExistingWalletInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ExistingWalletInfo {
-  String get address => throw _privateConstructorUsedError;
-  String get publicKey => throw _privateConstructorUsedError;
+  @addressJsonConverter
+  Address get address => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get publicKey => throw _privateConstructorUsedError;
   WalletType get walletType => throw _privateConstructorUsedError;
   ContractState get contractState => throw _privateConstructorUsedError;
 
@@ -38,11 +40,13 @@ abstract class $ExistingWalletInfoCopyWith<$Res> {
       _$ExistingWalletInfoCopyWithImpl<$Res, ExistingWalletInfo>;
   @useResult
   $Res call(
-      {String address,
-      String publicKey,
+      {@addressJsonConverter Address address,
+      @publicKeyJsonConverter PublicKey publicKey,
       WalletType walletType,
       ContractState contractState});
 
+  $AddressCopyWith<$Res> get address;
+  $PublicKeyCopyWith<$Res> get publicKey;
   $WalletTypeCopyWith<$Res> get walletType;
   $ContractStateCopyWith<$Res> get contractState;
 }
@@ -69,11 +73,11 @@ class _$ExistingWalletInfoCopyWithImpl<$Res, $Val extends ExistingWalletInfo>
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       walletType: null == walletType
           ? _value.walletType
           : walletType // ignore: cast_nullable_to_non_nullable
@@ -83,6 +87,22 @@ class _$ExistingWalletInfoCopyWithImpl<$Res, $Val extends ExistingWalletInfo>
           : contractState // ignore: cast_nullable_to_non_nullable
               as ContractState,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get address {
+    return $AddressCopyWith<$Res>(_value.address, (value) {
+      return _then(_value.copyWith(address: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
+      return _then(_value.copyWith(publicKey: value) as $Val);
+    });
   }
 
   @override
@@ -111,11 +131,15 @@ abstract class _$$_ExistingWalletInfoCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String address,
-      String publicKey,
+      {@addressJsonConverter Address address,
+      @publicKeyJsonConverter PublicKey publicKey,
       WalletType walletType,
       ContractState contractState});
 
+  @override
+  $AddressCopyWith<$Res> get address;
+  @override
+  $PublicKeyCopyWith<$Res> get publicKey;
   @override
   $WalletTypeCopyWith<$Res> get walletType;
   @override
@@ -142,11 +166,11 @@ class __$$_ExistingWalletInfoCopyWithImpl<$Res>
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       walletType: null == walletType
           ? _value.walletType
           : walletType // ignore: cast_nullable_to_non_nullable
@@ -163,8 +187,8 @@ class __$$_ExistingWalletInfoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ExistingWalletInfo implements _ExistingWalletInfo {
   const _$_ExistingWalletInfo(
-      {required this.address,
-      required this.publicKey,
+      {@addressJsonConverter required this.address,
+      @publicKeyJsonConverter required this.publicKey,
       required this.walletType,
       required this.contractState});
 
@@ -172,9 +196,11 @@ class _$_ExistingWalletInfo implements _ExistingWalletInfo {
       _$$_ExistingWalletInfoFromJson(json);
 
   @override
-  final String address;
+  @addressJsonConverter
+  final Address address;
   @override
-  final String publicKey;
+  @publicKeyJsonConverter
+  final PublicKey publicKey;
   @override
   final WalletType walletType;
   @override
@@ -221,8 +247,8 @@ class _$_ExistingWalletInfo implements _ExistingWalletInfo {
 
 abstract class _ExistingWalletInfo implements ExistingWalletInfo {
   const factory _ExistingWalletInfo(
-      {required final String address,
-      required final String publicKey,
+      {@addressJsonConverter required final Address address,
+      @publicKeyJsonConverter required final PublicKey publicKey,
       required final WalletType walletType,
       required final ContractState contractState}) = _$_ExistingWalletInfo;
 
@@ -230,9 +256,11 @@ abstract class _ExistingWalletInfo implements ExistingWalletInfo {
       _$_ExistingWalletInfo.fromJson;
 
   @override
-  String get address;
+  @addressJsonConverter
+  Address get address;
   @override
-  String get publicKey;
+  @publicKeyJsonConverter
+  PublicKey get publicKey;
   @override
   WalletType get walletType;
   @override

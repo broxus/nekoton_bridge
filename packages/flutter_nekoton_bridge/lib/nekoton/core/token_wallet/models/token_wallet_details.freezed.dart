@@ -20,8 +20,10 @@ TokenWalletDetails _$TokenWalletDetailsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TokenWalletDetails {
-  String get rootAddress => throw _privateConstructorUsedError;
-  String get ownerAddress => throw _privateConstructorUsedError;
+  @addressJsonConverter
+  Address get rootAddress => throw _privateConstructorUsedError;
+  @addressJsonConverter
+  Address get ownerAddress => throw _privateConstructorUsedError;
   @amountJsonConverter
   Fixed get balance => throw _privateConstructorUsedError;
 
@@ -38,9 +40,12 @@ abstract class $TokenWalletDetailsCopyWith<$Res> {
       _$TokenWalletDetailsCopyWithImpl<$Res, TokenWalletDetails>;
   @useResult
   $Res call(
-      {String rootAddress,
-      String ownerAddress,
+      {@addressJsonConverter Address rootAddress,
+      @addressJsonConverter Address ownerAddress,
       @amountJsonConverter Fixed balance});
+
+  $AddressCopyWith<$Res> get rootAddress;
+  $AddressCopyWith<$Res> get ownerAddress;
 }
 
 /// @nodoc
@@ -64,16 +69,32 @@ class _$TokenWalletDetailsCopyWithImpl<$Res, $Val extends TokenWalletDetails>
       rootAddress: null == rootAddress
           ? _value.rootAddress
           : rootAddress // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       ownerAddress: null == ownerAddress
           ? _value.ownerAddress
           : ownerAddress // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
               as Fixed,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get rootAddress {
+    return $AddressCopyWith<$Res>(_value.rootAddress, (value) {
+      return _then(_value.copyWith(rootAddress: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get ownerAddress {
+    return $AddressCopyWith<$Res>(_value.ownerAddress, (value) {
+      return _then(_value.copyWith(ownerAddress: value) as $Val);
+    });
   }
 }
 
@@ -86,9 +107,14 @@ abstract class _$$_TokenWalletDetailsCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String rootAddress,
-      String ownerAddress,
+      {@addressJsonConverter Address rootAddress,
+      @addressJsonConverter Address ownerAddress,
       @amountJsonConverter Fixed balance});
+
+  @override
+  $AddressCopyWith<$Res> get rootAddress;
+  @override
+  $AddressCopyWith<$Res> get ownerAddress;
 }
 
 /// @nodoc
@@ -110,11 +136,11 @@ class __$$_TokenWalletDetailsCopyWithImpl<$Res>
       rootAddress: null == rootAddress
           ? _value.rootAddress
           : rootAddress // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       ownerAddress: null == ownerAddress
           ? _value.ownerAddress
           : ownerAddress // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
@@ -127,17 +153,19 @@ class __$$_TokenWalletDetailsCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TokenWalletDetails implements _TokenWalletDetails {
   const _$_TokenWalletDetails(
-      {required this.rootAddress,
-      required this.ownerAddress,
+      {@addressJsonConverter required this.rootAddress,
+      @addressJsonConverter required this.ownerAddress,
       @amountJsonConverter required this.balance});
 
   factory _$_TokenWalletDetails.fromJson(Map<String, dynamic> json) =>
       _$$_TokenWalletDetailsFromJson(json);
 
   @override
-  final String rootAddress;
+  @addressJsonConverter
+  final Address rootAddress;
   @override
-  final String ownerAddress;
+  @addressJsonConverter
+  final Address ownerAddress;
   @override
   @amountJsonConverter
   final Fixed balance;
@@ -181,8 +209,8 @@ class _$_TokenWalletDetails implements _TokenWalletDetails {
 
 abstract class _TokenWalletDetails implements TokenWalletDetails {
   const factory _TokenWalletDetails(
-          {required final String rootAddress,
-          required final String ownerAddress,
+          {@addressJsonConverter required final Address rootAddress,
+          @addressJsonConverter required final Address ownerAddress,
           @amountJsonConverter required final Fixed balance}) =
       _$_TokenWalletDetails;
 
@@ -190,9 +218,11 @@ abstract class _TokenWalletDetails implements TokenWalletDetails {
       _$_TokenWalletDetails.fromJson;
 
   @override
-  String get rootAddress;
+  @addressJsonConverter
+  Address get rootAddress;
   @override
-  String get ownerAddress;
+  @addressJsonConverter
+  Address get ownerAddress;
   @override
   @amountJsonConverter
   Fixed get balance;

@@ -43,14 +43,14 @@ class JrpcTransport extends Transport {
   }
 
   @override
-  Future<RawContractState> getContractState(String address) async {
-    final res = await transport.getContractState(address: address);
+  Future<RawContractState> getContractState(Address address) async {
+    final res = await transport.getContractState(address: address.address);
     return RawContractState.fromJson(jsonDecode(res));
   }
 
   @override
-  Future<FullContractState?> getFullContractState(String address) async {
-    final res = await transport.getFullContractState(address: address);
+  Future<FullContractState?> getFullContractState(Address address) async {
+    final res = await transport.getFullContractState(address: address.address);
     if (res == null) return null;
 
     return FullContractState.fromJson(jsonDecode(res));
@@ -73,12 +73,12 @@ class JrpcTransport extends Transport {
 
   @override
   Future<TransactionsList> getTransactions({
-    required String address,
+    required Address address,
     required int count,
     int? fromLt,
   }) async {
     final res = await transport.getTransactions(
-      address: address,
+      address: address.address,
       count: count,
       fromLt: fromLt,
     );

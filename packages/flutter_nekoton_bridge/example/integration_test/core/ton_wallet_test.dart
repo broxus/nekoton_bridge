@@ -59,12 +59,15 @@ void main() {
   const networkGroup = 'mainnet';
   const endpoint = 'https://jrpc.everwallet.net/rpc';
 
-  const stEverContractVault =
-      '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68';
-  const publicKey =
-      'ad158ac64c5deff5abd4d5e86a81d954716445c45e31f17a9dfe780f9cef7602';
-  const address =
-      '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2';
+  const stEverContractVault = Address(
+      address:
+          '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68');
+  const publicKey = PublicKey(
+      publicKey:
+          'ad158ac64c5deff5abd4d5e86a81d954716445c45e31f17a9dfe780f9cef7602');
+  const address = Address(
+      address:
+          '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2');
   const workchainId = 0;
   const walletType = WalletType.walletV3();
   const expiration = Expiration.timeout(60);
@@ -303,8 +306,9 @@ void main() {
       );
       final custodians2 = await TonWallet.getWalletCustodians(
         transport: transport,
-        address:
-            '0:91b689ad990660249eb00140577e6a98d70043ccaa7f63acfc0436336bdbd80f',
+        address: const Address(
+            address:
+                '0:91b689ad990660249eb00140577e6a98d70043ccaa7f63acfc0436336bdbd80f'),
       );
 
       /// For not multisig wallet custodians contains public key of wallet

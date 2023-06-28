@@ -5,9 +5,9 @@ import 'package:tuple/tuple.dart';
 
 /// Check if public key is correct.
 /// Return true or false
-Future<bool> checkPublicKey({required String publicKey}) async {
+Future<bool> checkPublicKey({required PublicKey publicKey}) async {
   try {
-    return await createLib().checkPublicKey(publicKey: publicKey);
+    return await createLib().checkPublicKey(publicKey: publicKey.publicKey);
   } catch (_) {
     return false;
   }
@@ -36,21 +36,21 @@ Future<ExecutionOutput> runLocal({
 
 /// Get address of tvc and contract_abi.
 /// Returns list of [address, state_init] or throws error
-Future<Tuple2<String, String>> getExpectedAddress({
+Future<Tuple2<Address, String>> getExpectedAddress({
   required String tvc,
   required String contractAbi,
   required int workchainId,
-  String? publicKey,
+  PublicKey? publicKey,
   required TokensObject initData,
 }) async {
   final res = await createLib().getExpectedAddress(
     tvc: tvc,
     contractAbi: contractAbi,
     workchainId: workchainId,
-    publicKey: publicKey,
+    publicKey: publicKey?.publicKey,
     initData: jsonEncode(initData),
   );
-  return Tuple2(res[0], res[1]);
+  return Tuple2(Address(address: res[0]), res[1]);
 }
 
 /// Returns base64-encoded body that was encoded or throws error
@@ -93,7 +93,7 @@ Future<UnsignedMessage> createExternalMessage({
   required String method,
   String? stateInit,
   required TokensObject input,
-  required String publicKey,
+  required PublicKey publicKey,
   required int timeout,
 }) async {
   return UnsignedMessage.create(
@@ -102,7 +102,7 @@ Future<UnsignedMessage> createExternalMessage({
       contractAbi: contractAbi,
       method: method,
       input: jsonEncode(input),
-      publicKey: publicKey,
+      publicKey: publicKey.publicKey,
       timeout: timeout,
       stateInit: stateInit,
     ),
@@ -227,15 +227,16 @@ Future<TokensObject> unpackFromCell({
   ));
 }
 
+// TODO(nesquikm): WTF? Should we use Address here instead of String?
 /// Pack address std smd or throw error
 /// Returns new packed address as string
 Future<String> packStdSmcAddr({
-  required String addr,
+  required Address address,
   required bool base64Url,
   required bool bounceable,
 }) {
   return createLib().packStdSmcAddr(
-    addr: addr,
+    addr: address.address,
     base64Url: base64Url,
     bounceable: bounceable,
   );
@@ -245,23 +246,28 @@ Future<String> unpackStdSmcAddr({
   required String packed,
   required bool base64Url,
 }) {
-  return createLib().unpackStdSmcAddr(packed: packed, base64Url: base64Url);
+  return createLib().unpackStdSmcAddr(
+    packed: packed,
+    base64Url: base64Url,
+  );
 }
 
 /// Return true if address is valid, false otherwise
-Future<bool> validateAddress(String address) {
-  return createLib().validateAddress(address: address);
+Future<bool> validateAddress(Address address) {
+  return createLib().validateAddress(address: address.address);
 }
 
 /// Repack address and return json-encoded MsgAddressInt or throw error
-Future<String> repackAddress(String address) async {
-  return jsonDecode(await createLib().repackAddress(address: address))
-      as String;
+Future<Address> repackAddress(Address address) async {
+  final addressString =
+      jsonDecode(await createLib().repackAddress(address: address.address))
+          as String;
+  return Address(address: addressString);
 }
 
 /// Extract public key from boc and return it or throw error
-Future<String> extractPublicKey(String boc) {
-  return createLib().extractPublicKey(boc: boc);
+Future<PublicKey> extractPublicKey(String boc) async {
+  return PublicKey(publicKey: await createLib().extractPublicKey(boc: boc));
 }
 
 /// Convert code to base64 tvc string and return it or throw error

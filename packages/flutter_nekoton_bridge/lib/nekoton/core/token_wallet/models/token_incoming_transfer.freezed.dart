@@ -22,7 +22,8 @@ TokenIncomingTransfer _$TokenIncomingTransferFromJson(
 /// @nodoc
 mixin _$TokenIncomingTransfer {
   String get tokens => throw _privateConstructorUsedError;
-  String get senderAddress => throw _privateConstructorUsedError;
+  @addressJsonConverter
+  Address get senderAddress => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,9 @@ abstract class $TokenIncomingTransferCopyWith<$Res> {
           $Res Function(TokenIncomingTransfer) then) =
       _$TokenIncomingTransferCopyWithImpl<$Res, TokenIncomingTransfer>;
   @useResult
-  $Res call({String tokens, String senderAddress});
+  $Res call({String tokens, @addressJsonConverter Address senderAddress});
+
+  $AddressCopyWith<$Res> get senderAddress;
 }
 
 /// @nodoc
@@ -64,8 +67,16 @@ class _$TokenIncomingTransferCopyWithImpl<$Res,
       senderAddress: null == senderAddress
           ? _value.senderAddress
           : senderAddress // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get senderAddress {
+    return $AddressCopyWith<$Res>(_value.senderAddress, (value) {
+      return _then(_value.copyWith(senderAddress: value) as $Val);
+    });
   }
 }
 
@@ -77,7 +88,10 @@ abstract class _$$_TokenIncomingTransferCopyWith<$Res>
       __$$_TokenIncomingTransferCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String tokens, String senderAddress});
+  $Res call({String tokens, @addressJsonConverter Address senderAddress});
+
+  @override
+  $AddressCopyWith<$Res> get senderAddress;
 }
 
 /// @nodoc
@@ -102,7 +116,7 @@ class __$$_TokenIncomingTransferCopyWithImpl<$Res>
       senderAddress: null == senderAddress
           ? _value.senderAddress
           : senderAddress // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
     ));
   }
 }
@@ -111,7 +125,8 @@ class __$$_TokenIncomingTransferCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TokenIncomingTransfer implements _TokenIncomingTransfer {
   const _$_TokenIncomingTransfer(
-      {required this.tokens, required this.senderAddress});
+      {required this.tokens,
+      @addressJsonConverter required this.senderAddress});
 
   factory _$_TokenIncomingTransfer.fromJson(Map<String, dynamic> json) =>
       _$$_TokenIncomingTransferFromJson(json);
@@ -119,7 +134,8 @@ class _$_TokenIncomingTransfer implements _TokenIncomingTransfer {
   @override
   final String tokens;
   @override
-  final String senderAddress;
+  @addressJsonConverter
+  final Address senderAddress;
 
   @override
   String toString() {
@@ -157,8 +173,9 @@ class _$_TokenIncomingTransfer implements _TokenIncomingTransfer {
 
 abstract class _TokenIncomingTransfer implements TokenIncomingTransfer {
   const factory _TokenIncomingTransfer(
-      {required final String tokens,
-      required final String senderAddress}) = _$_TokenIncomingTransfer;
+          {required final String tokens,
+          @addressJsonConverter required final Address senderAddress}) =
+      _$_TokenIncomingTransfer;
 
   factory _TokenIncomingTransfer.fromJson(Map<String, dynamic> json) =
       _$_TokenIncomingTransfer.fromJson;
@@ -166,7 +183,8 @@ abstract class _TokenIncomingTransfer implements TokenIncomingTransfer {
   @override
   String get tokens;
   @override
-  String get senderAddress;
+  @addressJsonConverter
+  Address get senderAddress;
   @override
   @JsonKey(ignore: true)
   _$$_TokenIncomingTransferCopyWith<_$_TokenIncomingTransfer> get copyWith =>

@@ -11,10 +11,10 @@ abstract class Transport {
   TransportType get type;
 
   /// Get contract state of address and return RawContractState or throw error
-  Future<RawContractState> getContractState(String address);
+  Future<RawContractState> getContractState(Address address);
 
   /// Get full contract state of address and return FullContractState or throw error
-  Future<FullContractState?> getFullContractState(String address);
+  Future<FullContractState?> getFullContractState(Address address);
 
   /// Get list of accounts by code hash. Returns AccountsList or throw error
   Future<AccountsList> getAccountsByCodeHash({
@@ -26,7 +26,7 @@ abstract class Transport {
   /// Get list of transactions by address.
   /// Return TransactionsList or throw error
   Future<TransactionsList> getTransactions({
-    required String address,
+    required Address address,
     required int count,
     int? fromLt,
   });

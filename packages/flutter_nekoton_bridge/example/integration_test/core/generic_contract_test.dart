@@ -29,8 +29,9 @@ void main() {
   const networkGroup = 'mainnet';
   const endpoint = 'https://jrpc.everwallet.net/rpc';
 
-  const address =
-      '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2';
+  const address = Address(
+      address:
+          '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2');
 
   const jrpcSettings = JrpcNetworkSettings(endpoint: endpoint);
   late JrpcTransport transport;

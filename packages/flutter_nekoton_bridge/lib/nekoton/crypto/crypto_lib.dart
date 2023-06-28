@@ -11,12 +11,12 @@ export 'password_cache/password_cache_lib.dart';
 
 /// Check signature by publicKey and data hash
 Future<bool> verifySignature({
-  required String publicKey,
+  required PublicKey publicKey,
   required String dataHash,
   required String signature,
 }) {
   return createLib().verifySignature(
-    publicKey: publicKey,
+    publicKey: publicKey.publicKey,
     dataHash: dataHash,
     signature: signature,
   );

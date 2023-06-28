@@ -9,8 +9,8 @@ part of 'existing_wallet_info.dart';
 _$_ExistingWalletInfo _$$_ExistingWalletInfoFromJson(
         Map<String, dynamic> json) =>
     _$_ExistingWalletInfo(
-      address: json['address'] as String,
-      publicKey: json['publicKey'] as String,
+      address: addressJsonConverter.fromJson(json['address'] as String),
+      publicKey: publicKeyJsonConverter.fromJson(json['publicKey'] as String),
       walletType:
           WalletType.fromJson(json['walletType'] as Map<String, dynamic>),
       contractState:
@@ -20,8 +20,8 @@ _$_ExistingWalletInfo _$$_ExistingWalletInfoFromJson(
 Map<String, dynamic> _$$_ExistingWalletInfoToJson(
         _$_ExistingWalletInfo instance) =>
     <String, dynamic>{
-      'address': instance.address,
-      'publicKey': instance.publicKey,
+      'address': addressJsonConverter.toJson(instance.address),
+      'publicKey': publicKeyJsonConverter.toJson(instance.publicKey),
       'walletType': instance.walletType,
       'contractState': instance.contractState,
     };

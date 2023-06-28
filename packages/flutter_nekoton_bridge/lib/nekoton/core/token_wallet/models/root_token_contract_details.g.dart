@@ -13,7 +13,8 @@ _$_RootTokenContractDetails _$$_RootTokenContractDetailsFromJson(
       name: json['name'] as String,
       symbol: json['symbol'] as String,
       decimals: json['decimals'] as int,
-      ownerAddress: json['owner_address'] as String,
+      ownerAddress:
+          addressJsonConverter.fromJson(json['owner_address'] as String),
       totalSupply: json['total_supply'] as String,
     );
 
@@ -24,7 +25,7 @@ Map<String, dynamic> _$$_RootTokenContractDetailsToJson(
       'name': instance.name,
       'symbol': instance.symbol,
       'decimals': instance.decimals,
-      'owner_address': instance.ownerAddress,
+      'owner_address': addressJsonConverter.toJson(instance.ownerAddress),
       'total_supply': instance.totalSupply,
     };
 

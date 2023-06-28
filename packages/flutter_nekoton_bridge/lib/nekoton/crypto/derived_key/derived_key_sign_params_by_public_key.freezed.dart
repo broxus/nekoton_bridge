@@ -21,8 +21,10 @@ DerivedKeyPasswordByPublicKey _$DerivedKeyPasswordByPublicKeyFromJson(
 
 /// @nodoc
 mixin _$DerivedKeyPasswordByPublicKey {
-  String get masterKey => throw _privateConstructorUsedError;
-  String get publicKey => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get masterKey => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get publicKey => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,8 +41,13 @@ abstract class $DerivedKeyPasswordByPublicKeyCopyWith<$Res> {
       _$DerivedKeyPasswordByPublicKeyCopyWithImpl<$Res,
           DerivedKeyPasswordByPublicKey>;
   @useResult
-  $Res call({String masterKey, String publicKey, Password password});
+  $Res call(
+      {@publicKeyJsonConverter PublicKey masterKey,
+      @publicKeyJsonConverter PublicKey publicKey,
+      Password password});
 
+  $PublicKeyCopyWith<$Res> get masterKey;
+  $PublicKeyCopyWith<$Res> get publicKey;
   $PasswordCopyWith<$Res> get password;
 }
 
@@ -66,16 +73,32 @@ class _$DerivedKeyPasswordByPublicKeyCopyWithImpl<$Res,
       masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get masterKey {
+    return $PublicKeyCopyWith<$Res>(_value.masterKey, (value) {
+      return _then(_value.copyWith(masterKey: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
+      return _then(_value.copyWith(publicKey: value) as $Val);
+    });
   }
 
   @override
@@ -96,8 +119,15 @@ abstract class _$$_DerivedKeyPasswordByPublicKeyByPublicKeyCopyWith<$Res>
       __$$_DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String masterKey, String publicKey, Password password});
+  $Res call(
+      {@publicKeyJsonConverter PublicKey masterKey,
+      @publicKeyJsonConverter PublicKey publicKey,
+      Password password});
 
+  @override
+  $PublicKeyCopyWith<$Res> get masterKey;
+  @override
+  $PublicKeyCopyWith<$Res> get publicKey;
   @override
   $PasswordCopyWith<$Res> get password;
 }
@@ -123,11 +153,11 @@ class __$$_DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl<$Res>
       masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -142,8 +172,8 @@ class __$$_DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl<$Res>
 class _$_DerivedKeyPasswordByPublicKeyByPublicKey
     implements _DerivedKeyPasswordByPublicKeyByPublicKey {
   const _$_DerivedKeyPasswordByPublicKeyByPublicKey(
-      {required this.masterKey,
-      required this.publicKey,
+      {@publicKeyJsonConverter required this.masterKey,
+      @publicKeyJsonConverter required this.publicKey,
       required this.password});
 
   factory _$_DerivedKeyPasswordByPublicKeyByPublicKey.fromJson(
@@ -151,9 +181,11 @@ class _$_DerivedKeyPasswordByPublicKeyByPublicKey
       _$$_DerivedKeyPasswordByPublicKeyByPublicKeyFromJson(json);
 
   @override
-  final String masterKey;
+  @publicKeyJsonConverter
+  final PublicKey masterKey;
   @override
-  final String publicKey;
+  @publicKeyJsonConverter
+  final PublicKey publicKey;
   @override
   final Password password;
 
@@ -198,8 +230,8 @@ class _$_DerivedKeyPasswordByPublicKeyByPublicKey
 abstract class _DerivedKeyPasswordByPublicKeyByPublicKey
     implements DerivedKeyPasswordByPublicKey {
   const factory _DerivedKeyPasswordByPublicKeyByPublicKey(
-          {required final String masterKey,
-          required final String publicKey,
+          {@publicKeyJsonConverter required final PublicKey masterKey,
+          @publicKeyJsonConverter required final PublicKey publicKey,
           required final Password password}) =
       _$_DerivedKeyPasswordByPublicKeyByPublicKey;
 
@@ -208,9 +240,11 @@ abstract class _DerivedKeyPasswordByPublicKeyByPublicKey
       _$_DerivedKeyPasswordByPublicKeyByPublicKey.fromJson;
 
   @override
-  String get masterKey;
+  @publicKeyJsonConverter
+  PublicKey get masterKey;
   @override
-  String get publicKey;
+  @publicKeyJsonConverter
+  PublicKey get publicKey;
   @override
   Password get password;
   @override

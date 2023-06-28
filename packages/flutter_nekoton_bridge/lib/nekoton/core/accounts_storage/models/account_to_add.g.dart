@@ -9,17 +9,31 @@ part of 'account_to_add.dart';
 _$_AccountToAdd _$$_AccountToAddFromJson(Map<String, dynamic> json) =>
     _$_AccountToAdd(
       name: json['name'] as String,
-      publicKey: json['publicKey'] as String,
+      publicKey: publicKeyJsonConverter.fromJson(json['publicKey'] as String),
       contract: WalletType.fromJson(json['contract'] as Map<String, dynamic>),
       workchain: json['workchain'] as int,
-      explicitAddress: json['explicitAddress'] as String?,
+      explicitAddress: _$JsonConverterFromJson<String, Address>(
+          json['explicitAddress'], addressJsonConverter.fromJson),
     );
 
 Map<String, dynamic> _$$_AccountToAddToJson(_$_AccountToAdd instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'publicKey': instance.publicKey,
+      'publicKey': publicKeyJsonConverter.toJson(instance.publicKey),
       'contract': instance.contract,
       'workchain': instance.workchain,
-      'explicitAddress': instance.explicitAddress,
+      'explicitAddress': _$JsonConverterToJson<String, Address>(
+          instance.explicitAddress, addressJsonConverter.toJson),
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

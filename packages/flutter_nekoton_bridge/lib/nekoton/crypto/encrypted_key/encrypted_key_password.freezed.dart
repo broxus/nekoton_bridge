@@ -20,7 +20,8 @@ EncryptedKeyPassword _$EncryptedKeyPasswordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EncryptedKeyPassword {
-  String get publicKey => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get publicKey => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,8 +36,9 @@ abstract class $EncryptedKeyPasswordCopyWith<$Res> {
           $Res Function(EncryptedKeyPassword) then) =
       _$EncryptedKeyPasswordCopyWithImpl<$Res, EncryptedKeyPassword>;
   @useResult
-  $Res call({String publicKey, Password password});
+  $Res call({@publicKeyJsonConverter PublicKey publicKey, Password password});
 
+  $PublicKeyCopyWith<$Res> get publicKey;
   $PasswordCopyWith<$Res> get password;
 }
 
@@ -61,12 +63,20 @@ class _$EncryptedKeyPasswordCopyWithImpl<$Res,
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
+      return _then(_value.copyWith(publicKey: value) as $Val);
+    });
   }
 
   @override
@@ -86,8 +96,10 @@ abstract class _$$_EncryptedKeyPasswordCopyWith<$Res>
       __$$_EncryptedKeyPasswordCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String publicKey, Password password});
+  $Res call({@publicKeyJsonConverter PublicKey publicKey, Password password});
 
+  @override
+  $PublicKeyCopyWith<$Res> get publicKey;
   @override
   $PasswordCopyWith<$Res> get password;
 }
@@ -110,7 +122,7 @@ class __$$_EncryptedKeyPasswordCopyWithImpl<$Res>
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -124,13 +136,15 @@ class __$$_EncryptedKeyPasswordCopyWithImpl<$Res>
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$_EncryptedKeyPassword implements _EncryptedKeyPassword {
   const _$_EncryptedKeyPassword(
-      {required this.publicKey, required this.password});
+      {@publicKeyJsonConverter required this.publicKey,
+      required this.password});
 
   factory _$_EncryptedKeyPassword.fromJson(Map<String, dynamic> json) =>
       _$$_EncryptedKeyPasswordFromJson(json);
 
   @override
-  final String publicKey;
+  @publicKeyJsonConverter
+  final PublicKey publicKey;
   @override
   final Password password;
 
@@ -171,14 +185,15 @@ class _$_EncryptedKeyPassword implements _EncryptedKeyPassword {
 
 abstract class _EncryptedKeyPassword implements EncryptedKeyPassword {
   const factory _EncryptedKeyPassword(
-      {required final String publicKey,
+      {@publicKeyJsonConverter required final PublicKey publicKey,
       required final Password password}) = _$_EncryptedKeyPassword;
 
   factory _EncryptedKeyPassword.fromJson(Map<String, dynamic> json) =
       _$_EncryptedKeyPassword.fromJson;
 
   @override
-  String get publicKey;
+  @publicKeyJsonConverter
+  PublicKey get publicKey;
   @override
   Password get password;
   @override

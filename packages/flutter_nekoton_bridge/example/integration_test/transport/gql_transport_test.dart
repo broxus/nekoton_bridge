@@ -42,8 +42,9 @@ void main() {
   const defaultEndpointSelectionRetryCount = 5;
 
   /// System account address
-  const accountAddress =
-      '-1:0000000000000000000000000000000000000000000000000000000000000000';
+  const accountAddress = Address(
+      address:
+          '-1:0000000000000000000000000000000000000000000000000000000000000000');
   const accountTransaction =
       'd0a278d82e699a63adeaede7e602ff6da8168c333ceb4f2344f42cb739c28940';
 

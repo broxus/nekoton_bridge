@@ -454,8 +454,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onBalanceChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'subscribe': 19,
-              r'getTokenWalletDetails': 21,
-              r'getTokenRootDetailsFromTokenWallet': 21
+              r'getTokenWalletDetails': 1,
+              r'getTokenRootDetailsFromTokenWallet': 1
             })
       ],
       null,
@@ -696,11 +696,6 @@ final _data = <r.Reflectable, r.ReflectorData>{
             #attachedAmount,
             #payload
           ]
-        ],
-        const [
-          0,
-          0,
-          const [#transport, #tokenWalletAddress]
         ]
       ])
 };

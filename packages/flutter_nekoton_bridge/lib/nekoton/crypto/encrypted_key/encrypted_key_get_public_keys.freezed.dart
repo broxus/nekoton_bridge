@@ -21,7 +21,8 @@ EncryptedKeyGetPublicKeys _$EncryptedKeyGetPublicKeysFromJson(
 
 /// @nodoc
 mixin _$EncryptedKeyGetPublicKeys {
-  String get publicKey => throw _privateConstructorUsedError;
+  @publicKeyJsonConverter
+  PublicKey get publicKey => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,9 @@ abstract class $EncryptedKeyGetPublicKeysCopyWith<$Res> {
           $Res Function(EncryptedKeyGetPublicKeys) then) =
       _$EncryptedKeyGetPublicKeysCopyWithImpl<$Res, EncryptedKeyGetPublicKeys>;
   @useResult
-  $Res call({String publicKey});
+  $Res call({@publicKeyJsonConverter PublicKey publicKey});
+
+  $PublicKeyCopyWith<$Res> get publicKey;
 }
 
 /// @nodoc
@@ -58,8 +61,16 @@ class _$EncryptedKeyGetPublicKeysCopyWithImpl<$Res,
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
+      return _then(_value.copyWith(publicKey: value) as $Val);
+    });
   }
 }
 
@@ -72,7 +83,10 @@ abstract class _$$_EncryptedKeyGetPublicKeysRenameCopyWith<$Res>
       __$$_EncryptedKeyGetPublicKeysRenameCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String publicKey});
+  $Res call({@publicKeyJsonConverter PublicKey publicKey});
+
+  @override
+  $PublicKeyCopyWith<$Res> get publicKey;
 }
 
 /// @nodoc
@@ -94,7 +108,7 @@ class __$$_EncryptedKeyGetPublicKeysRenameCopyWithImpl<$Res>
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
     ));
   }
 }
@@ -104,14 +118,16 @@ class __$$_EncryptedKeyGetPublicKeysRenameCopyWithImpl<$Res>
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$_EncryptedKeyGetPublicKeysRename
     implements _EncryptedKeyGetPublicKeysRename {
-  const _$_EncryptedKeyGetPublicKeysRename({required this.publicKey});
+  const _$_EncryptedKeyGetPublicKeysRename(
+      {@publicKeyJsonConverter required this.publicKey});
 
   factory _$_EncryptedKeyGetPublicKeysRename.fromJson(
           Map<String, dynamic> json) =>
       _$$_EncryptedKeyGetPublicKeysRenameFromJson(json);
 
   @override
-  final String publicKey;
+  @publicKeyJsonConverter
+  final PublicKey publicKey;
 
   @override
   String toString() {
@@ -150,13 +166,15 @@ class _$_EncryptedKeyGetPublicKeysRename
 abstract class _EncryptedKeyGetPublicKeysRename
     implements EncryptedKeyGetPublicKeys {
   const factory _EncryptedKeyGetPublicKeysRename(
-      {required final String publicKey}) = _$_EncryptedKeyGetPublicKeysRename;
+          {@publicKeyJsonConverter required final PublicKey publicKey}) =
+      _$_EncryptedKeyGetPublicKeysRename;
 
   factory _EncryptedKeyGetPublicKeysRename.fromJson(Map<String, dynamic> json) =
       _$_EncryptedKeyGetPublicKeysRename.fromJson;
 
   @override
-  String get publicKey;
+  @publicKeyJsonConverter
+  PublicKey get publicKey;
   @override
   @JsonKey(ignore: true)
   _$$_EncryptedKeyGetPublicKeysRenameCopyWith<
