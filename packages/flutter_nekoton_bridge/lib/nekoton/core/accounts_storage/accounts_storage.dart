@@ -132,8 +132,7 @@ class AccountsStorage {
     final decoded = jsonDecode(encoded) as List<dynamic>;
     await _updateData();
     return decoded
-        .map((e) =>
-            Address(address: e.fromJson(e as Map<String, dynamic>).address))
+        .map((e) => AssetsList.fromJson(e as Map<String, dynamic>).address)
         .toList();
   }
 

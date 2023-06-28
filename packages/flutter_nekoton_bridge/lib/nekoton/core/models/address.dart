@@ -29,4 +29,13 @@ class Address with _$Address {
 
   /// Returns workchain id
   int get workchain => int.parse(address.split(':').first);
+
+  @override
+  int get hashCode => address.hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is Address && address == other.address);
+  }
 }
