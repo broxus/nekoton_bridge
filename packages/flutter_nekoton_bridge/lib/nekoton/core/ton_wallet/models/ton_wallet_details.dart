@@ -8,12 +8,12 @@ part 'ton_wallet_details.g.dart';
 class TonWalletDetails with _$TonWalletDetails {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory TonWalletDetails({
-    required bool requiresSeparateDeploy,
-    @amountJsonConverter required Fixed minAmount,
-    required bool supportsPayload,
-    required bool supportsMultipleOwners,
-    required int expirationTime,
-    required int? requiredConfirmations,
+    required final bool requiresSeparateDeploy,
+    @amountJsonConverter required final Fixed minAmount,
+    required final bool supportsPayload,
+    required final bool supportsMultipleOwners,
+    required final int expirationTime,
+    required final int? requiredConfirmations,
   }) = _TonWalletDetails;
 
   factory TonWalletDetails.fromJson(Map<String, dynamic> json) =>

@@ -20,7 +20,6 @@ LedgerSignInput _$LedgerSignInputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LedgerSignInput {
-  @publicKeyJsonConverter
   PublicKey get publicKey => throw _privateConstructorUsedError;
   LedgerSignatureContext? get context => throw _privateConstructorUsedError;
 
@@ -36,9 +35,7 @@ abstract class $LedgerSignInputCopyWith<$Res> {
           LedgerSignInput value, $Res Function(LedgerSignInput) then) =
       _$LedgerSignInputCopyWithImpl<$Res, LedgerSignInput>;
   @useResult
-  $Res call(
-      {@publicKeyJsonConverter PublicKey publicKey,
-      LedgerSignatureContext? context});
+  $Res call({PublicKey publicKey, LedgerSignatureContext? context});
 
   $PublicKeyCopyWith<$Res> get publicKey;
   $LedgerSignatureContextCopyWith<$Res>? get context;
@@ -101,9 +98,7 @@ abstract class _$$_LedgerSignInputCopyWith<$Res>
       __$$_LedgerSignInputCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@publicKeyJsonConverter PublicKey publicKey,
-      LedgerSignatureContext? context});
+  $Res call({PublicKey publicKey, LedgerSignatureContext? context});
 
   @override
   $PublicKeyCopyWith<$Res> get publicKey;
@@ -141,14 +136,12 @@ class __$$_LedgerSignInputCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_LedgerSignInput implements _LedgerSignInput {
-  const _$_LedgerSignInput(
-      {@publicKeyJsonConverter required this.publicKey, this.context});
+  const _$_LedgerSignInput({required this.publicKey, this.context});
 
   factory _$_LedgerSignInput.fromJson(Map<String, dynamic> json) =>
       _$$_LedgerSignInputFromJson(json);
 
   @override
-  @publicKeyJsonConverter
   final PublicKey publicKey;
   @override
   final LedgerSignatureContext? context;
@@ -188,14 +181,13 @@ class _$_LedgerSignInput implements _LedgerSignInput {
 
 abstract class _LedgerSignInput implements LedgerSignInput {
   const factory _LedgerSignInput(
-      {@publicKeyJsonConverter required final PublicKey publicKey,
+      {required final PublicKey publicKey,
       final LedgerSignatureContext? context}) = _$_LedgerSignInput;
 
   factory _LedgerSignInput.fromJson(Map<String, dynamic> json) =
       _$_LedgerSignInput.fromJson;
 
   @override
-  @publicKeyJsonConverter
   PublicKey get publicKey;
   @override
   LedgerSignatureContext? get context;

@@ -8,9 +8,9 @@ part 'existing_contract.g.dart';
 @freezed
 class ExistingContract with _$ExistingContract {
   const factory ExistingContract({
-    required String account,
-    required GenTimings timings,
-    required LastTransactionId lastTransactionId,
+    required final String account,
+    required final GenTimings timings,
+    required final LastTransactionId lastTransactionId,
   }) = _ExistingContract;
 
   factory ExistingContract.fromJson(Map<String, dynamic> json) =>

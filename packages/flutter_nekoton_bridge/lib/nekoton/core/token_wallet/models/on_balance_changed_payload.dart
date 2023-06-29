@@ -7,7 +7,7 @@ part 'on_balance_changed_payload.g.dart';
 @freezed
 class OnBalanceChangedPayload with _$OnBalanceChangedPayload {
   const factory OnBalanceChangedPayload({
-    @amountJsonConverter required Fixed balance,
+    @amountJsonConverter required final Fixed balance,
   }) = _OnBalanceChangedPayload;
 
   factory OnBalanceChangedPayload.fromJson(Map<String, dynamic> json) =>

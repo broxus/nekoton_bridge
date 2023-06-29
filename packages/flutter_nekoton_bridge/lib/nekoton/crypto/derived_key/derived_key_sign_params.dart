@@ -9,10 +9,10 @@ part 'derived_key_sign_params.g.dart';
 @Freezed(unionKey: 'type', unionValueCase: FreezedUnionCase.snake)
 class DerivedKeyPassword with _$DerivedKeyPassword implements SignInput {
   const factory DerivedKeyPassword.byAccountId(
-      DerivedKeyPasswordByAccountId data) = _ByAccountId;
+      final DerivedKeyPasswordByAccountId data) = _ByAccountId;
 
   const factory DerivedKeyPassword.byPublicKey(
-      DerivedKeyPasswordByPublicKey data) = _ByPublicKey;
+      final DerivedKeyPasswordByPublicKey data) = _ByPublicKey;
 
   factory DerivedKeyPassword.fromJson(Map<String, dynamic> json) =>
       _$DerivedKeyPasswordFromJson(json);

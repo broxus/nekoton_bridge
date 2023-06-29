@@ -20,7 +20,7 @@ TokenWalletAsset _$TokenWalletAssetFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TokenWalletAsset {
-  String get rootTokenContract => throw _privateConstructorUsedError;
+  Address get rootTokenContract => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,9 @@ abstract class $TokenWalletAssetCopyWith<$Res> {
           TokenWalletAsset value, $Res Function(TokenWalletAsset) then) =
       _$TokenWalletAssetCopyWithImpl<$Res, TokenWalletAsset>;
   @useResult
-  $Res call({String rootTokenContract});
+  $Res call({Address rootTokenContract});
+
+  $AddressCopyWith<$Res> get rootTokenContract;
 }
 
 /// @nodoc
@@ -56,8 +58,16 @@ class _$TokenWalletAssetCopyWithImpl<$Res, $Val extends TokenWalletAsset>
       rootTokenContract: null == rootTokenContract
           ? _value.rootTokenContract
           : rootTokenContract // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get rootTokenContract {
+    return $AddressCopyWith<$Res>(_value.rootTokenContract, (value) {
+      return _then(_value.copyWith(rootTokenContract: value) as $Val);
+    });
   }
 }
 
@@ -69,7 +79,10 @@ abstract class _$$_TokenWalletAssetCopyWith<$Res>
       __$$_TokenWalletAssetCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String rootTokenContract});
+  $Res call({Address rootTokenContract});
+
+  @override
+  $AddressCopyWith<$Res> get rootTokenContract;
 }
 
 /// @nodoc
@@ -89,7 +102,7 @@ class __$$_TokenWalletAssetCopyWithImpl<$Res>
       rootTokenContract: null == rootTokenContract
           ? _value.rootTokenContract
           : rootTokenContract // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
     ));
   }
 }
@@ -104,7 +117,7 @@ class _$_TokenWalletAsset implements _TokenWalletAsset {
       _$$_TokenWalletAssetFromJson(json);
 
   @override
-  final String rootTokenContract;
+  final Address rootTokenContract;
 
   @override
   String toString() {
@@ -139,14 +152,14 @@ class _$_TokenWalletAsset implements _TokenWalletAsset {
 }
 
 abstract class _TokenWalletAsset implements TokenWalletAsset {
-  const factory _TokenWalletAsset({required final String rootTokenContract}) =
+  const factory _TokenWalletAsset({required final Address rootTokenContract}) =
       _$_TokenWalletAsset;
 
   factory _TokenWalletAsset.fromJson(Map<String, dynamic> json) =
       _$_TokenWalletAsset.fromJson;
 
   @override
-  String get rootTokenContract;
+  Address get rootTokenContract;
   @override
   @JsonKey(ignore: true)
   _$$_TokenWalletAssetCopyWith<_$_TokenWalletAsset> get copyWith =>

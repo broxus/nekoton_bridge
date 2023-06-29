@@ -27,7 +27,7 @@ _$_TokenOutgoingTransfer _$$_TokenOutgoingTransferFromJson(
 Map<String, dynamic> _$$_TokenOutgoingTransferToJson(
         _$_TokenOutgoingTransfer instance) =>
     <String, dynamic>{
-      'data': instance.data,
+      'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
@@ -39,6 +39,6 @@ _$_TokenSwapBack _$$_TokenSwapBackFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_TokenSwapBackToJson(_$_TokenSwapBack instance) =>
     <String, dynamic>{
-      'data': instance.data,
+      'data': instance.data.toJson(),
       'type': instance.$type,
     };

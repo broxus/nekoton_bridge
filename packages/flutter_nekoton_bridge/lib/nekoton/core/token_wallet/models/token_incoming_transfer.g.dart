@@ -10,13 +10,12 @@ _$_TokenIncomingTransfer _$$_TokenIncomingTransferFromJson(
         Map<String, dynamic> json) =>
     _$_TokenIncomingTransfer(
       tokens: json['tokens'] as String,
-      senderAddress:
-          addressJsonConverter.fromJson(json['senderAddress'] as String),
+      senderAddress: Address.fromJson(json['senderAddress'] as String),
     );
 
 Map<String, dynamic> _$$_TokenIncomingTransferToJson(
         _$_TokenIncomingTransfer instance) =>
     <String, dynamic>{
       'tokens': instance.tokens,
-      'senderAddress': addressJsonConverter.toJson(instance.senderAddress),
+      'senderAddress': instance.senderAddress.toJson(),
     };

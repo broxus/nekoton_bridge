@@ -21,6 +21,6 @@ _$_Exists _$$_ExistsFromJson(Map<String, dynamic> json) => _$_Exists(
     );
 
 Map<String, dynamic> _$$_ExistsToJson(_$_Exists instance) => <String, dynamic>{
-      'data': instance.data,
+      'data': instance.data.toJson(),
       'type': instance.$type,
     };

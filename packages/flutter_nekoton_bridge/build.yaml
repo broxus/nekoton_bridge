@@ -6,6 +6,9 @@ targets:
       - pubspec.*
       - $package$
     builders:
+      json_serializable:
+          options:
+            explicit_to_json: true
       reflectable:
         generate_for:
           - lib/example_related/caller_wrapper.dart

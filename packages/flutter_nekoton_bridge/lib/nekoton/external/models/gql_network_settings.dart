@@ -6,11 +6,11 @@ part 'gql_network_settings.g.dart';
 @freezed
 class GqlNetworkSettings with _$GqlNetworkSettings {
   const factory GqlNetworkSettings({
-    required List<String> endpoints,
-    required int latencyDetectionInterval,
-    required int maxLatency,
-    required int endpointSelectionRetryCount,
-    required bool local,
+    required final List<String> endpoints,
+    required final int latencyDetectionInterval,
+    required final int maxLatency,
+    required final int endpointSelectionRetryCount,
+    required final bool local,
   }) = _GqlNetworkSettings;
 
   factory GqlNetworkSettings.fromJson(Map<String, dynamic> json) =>

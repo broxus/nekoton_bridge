@@ -20,6 +20,7 @@ _$_AssetsList _$$_AssetsListFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_AssetsListToJson(_$_AssetsList instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'tonWallet': instance.tonWallet,
-      'additionalAssets': instance.additionalAssets,
+      'tonWallet': instance.tonWallet.toJson(),
+      'additionalAssets':
+          instance.additionalAssets.map((k, e) => MapEntry(k, e.toJson())),
     };

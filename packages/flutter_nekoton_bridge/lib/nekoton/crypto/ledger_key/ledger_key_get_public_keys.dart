@@ -9,8 +9,8 @@ class LedgerKeyGetPublicKeys
     with _$LedgerKeyGetPublicKeys
     implements GetPublicKeys {
   const factory LedgerKeyGetPublicKeys({
-    required int offset,
-    required int limit,
+    required final int offset,
+    required final int limit,
   }) = _LedgerKeyGetPublicKeysRename;
 
   factory LedgerKeyGetPublicKeys.fromJson(Map<String, dynamic> json) =>

@@ -6,12 +6,12 @@ part 'connection_data.freezed.dart';
 @freezed
 class ConnectionData with _$ConnectionData {
   const factory ConnectionData({
-    required String name,
-    required int networkId,
-    required String group,
-    required TransportType type,
-    required List<String> endpoints,
-    required int timeout,
-    required bool local,
+    required final String name,
+    required final int networkId,
+    required final String group,
+    required final TransportType type,
+    required final List<String> endpoints,
+    required final int timeout,
+    required final bool local,
   }) = _ConnectionData;
 }

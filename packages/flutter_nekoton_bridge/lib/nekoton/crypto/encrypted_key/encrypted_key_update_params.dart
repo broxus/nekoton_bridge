@@ -11,10 +11,10 @@ class EncryptedKeyUpdateParams
     with _$EncryptedKeyUpdateParams
     implements UpdateKeyInput {
   const factory EncryptedKeyUpdateParams.rename(
-      EncryptedKeyUpdateParamsRename data) = _Rename;
+      final EncryptedKeyUpdateParamsRename data) = _Rename;
 
   const factory EncryptedKeyUpdateParams.changePassword(
-    EncryptedKeyUpdateParamsChangePassword data,
+    final EncryptedKeyUpdateParamsChangePassword data,
   ) = _ChangePassword;
 
   factory EncryptedKeyUpdateParams.fromJson(Map<String, dynamic> json) =>

@@ -7,8 +7,8 @@ part 'token_outgoing_transfer.g.dart';
 @freezed
 class TokenOutgoingTransfer with _$TokenOutgoingTransfer {
   const factory TokenOutgoingTransfer({
-    required TransferRecipient to,
-    required String tokens,
+    required final TransferRecipient to,
+    required final String tokens,
   }) = _TokenOutgoingTransfer;
 
   factory TokenOutgoingTransfer.fromJson(Map<String, dynamic> json) =>

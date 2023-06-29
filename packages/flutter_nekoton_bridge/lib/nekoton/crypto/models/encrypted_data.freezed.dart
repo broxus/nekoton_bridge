@@ -21,9 +21,7 @@ EncryptedData _$EncryptedDataFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$EncryptedData {
   EncryptionAlgorithm get algorithm => throw _privateConstructorUsedError;
-  @publicKeyJsonConverter
   PublicKey get sourcePublicKey => throw _privateConstructorUsedError;
-  @publicKeyJsonConverter
   PublicKey get recipientPublicKey => throw _privateConstructorUsedError;
   String get data => throw _privateConstructorUsedError;
   String get nonce => throw _privateConstructorUsedError;
@@ -42,8 +40,8 @@ abstract class $EncryptedDataCopyWith<$Res> {
   @useResult
   $Res call(
       {EncryptionAlgorithm algorithm,
-      @publicKeyJsonConverter PublicKey sourcePublicKey,
-      @publicKeyJsonConverter PublicKey recipientPublicKey,
+      PublicKey sourcePublicKey,
+      PublicKey recipientPublicKey,
       String data,
       String nonce});
 
@@ -121,8 +119,8 @@ abstract class _$$_EncryptedDataCopyWith<$Res>
   @useResult
   $Res call(
       {EncryptionAlgorithm algorithm,
-      @publicKeyJsonConverter PublicKey sourcePublicKey,
-      @publicKeyJsonConverter PublicKey recipientPublicKey,
+      PublicKey sourcePublicKey,
+      PublicKey recipientPublicKey,
       String data,
       String nonce});
 
@@ -179,8 +177,8 @@ class __$$_EncryptedDataCopyWithImpl<$Res>
 class _$_EncryptedData implements _EncryptedData {
   const _$_EncryptedData(
       {required this.algorithm,
-      @publicKeyJsonConverter required this.sourcePublicKey,
-      @publicKeyJsonConverter required this.recipientPublicKey,
+      required this.sourcePublicKey,
+      required this.recipientPublicKey,
       required this.data,
       required this.nonce});
 
@@ -190,10 +188,8 @@ class _$_EncryptedData implements _EncryptedData {
   @override
   final EncryptionAlgorithm algorithm;
   @override
-  @publicKeyJsonConverter
   final PublicKey sourcePublicKey;
   @override
-  @publicKeyJsonConverter
   final PublicKey recipientPublicKey;
   @override
   final String data;
@@ -242,8 +238,8 @@ class _$_EncryptedData implements _EncryptedData {
 abstract class _EncryptedData implements EncryptedData {
   const factory _EncryptedData(
       {required final EncryptionAlgorithm algorithm,
-      @publicKeyJsonConverter required final PublicKey sourcePublicKey,
-      @publicKeyJsonConverter required final PublicKey recipientPublicKey,
+      required final PublicKey sourcePublicKey,
+      required final PublicKey recipientPublicKey,
       required final String data,
       required final String nonce}) = _$_EncryptedData;
 
@@ -253,10 +249,8 @@ abstract class _EncryptedData implements EncryptedData {
   @override
   EncryptionAlgorithm get algorithm;
   @override
-  @publicKeyJsonConverter
   PublicKey get sourcePublicKey;
   @override
-  @publicKeyJsonConverter
   PublicKey get recipientPublicKey;
   @override
   String get data;

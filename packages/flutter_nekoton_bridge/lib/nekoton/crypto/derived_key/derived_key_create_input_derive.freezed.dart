@@ -22,7 +22,6 @@ DerivedKeyCreateInputDerive _$DerivedKeyCreateInputDeriveFromJson(
 /// @nodoc
 mixin _$DerivedKeyCreateInputDerive {
   String? get keyName => throw _privateConstructorUsedError;
-  @publicKeyJsonConverter
   PublicKey get masterKey => throw _privateConstructorUsedError;
   int get accountId => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
@@ -42,10 +41,7 @@ abstract class $DerivedKeyCreateInputDeriveCopyWith<$Res> {
           DerivedKeyCreateInputDerive>;
   @useResult
   $Res call(
-      {String? keyName,
-      @publicKeyJsonConverter PublicKey masterKey,
-      int accountId,
-      Password password});
+      {String? keyName, PublicKey masterKey, int accountId, Password password});
 
   $PublicKeyCopyWith<$Res> get masterKey;
   $PasswordCopyWith<$Res> get password;
@@ -117,10 +113,7 @@ abstract class _$$_DerivedKeyCreateInputDeriveDeriveCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? keyName,
-      @publicKeyJsonConverter PublicKey masterKey,
-      int accountId,
-      Password password});
+      {String? keyName, PublicKey masterKey, int accountId, Password password});
 
   @override
   $PublicKeyCopyWith<$Res> get masterKey;
@@ -174,7 +167,7 @@ class _$_DerivedKeyCreateInputDeriveDerive
     implements _DerivedKeyCreateInputDeriveDerive {
   const _$_DerivedKeyCreateInputDeriveDerive(
       {this.keyName,
-      @publicKeyJsonConverter required this.masterKey,
+      required this.masterKey,
       required this.accountId,
       required this.password});
 
@@ -185,7 +178,6 @@ class _$_DerivedKeyCreateInputDeriveDerive
   @override
   final String? keyName;
   @override
-  @publicKeyJsonConverter
   final PublicKey masterKey;
   @override
   final int accountId;
@@ -236,7 +228,7 @@ abstract class _DerivedKeyCreateInputDeriveDerive
     implements DerivedKeyCreateInputDerive {
   const factory _DerivedKeyCreateInputDeriveDerive(
       {final String? keyName,
-      @publicKeyJsonConverter required final PublicKey masterKey,
+      required final PublicKey masterKey,
       required final int accountId,
       required final Password password}) = _$_DerivedKeyCreateInputDeriveDerive;
 
@@ -247,7 +239,6 @@ abstract class _DerivedKeyCreateInputDeriveDerive
   @override
   String? get keyName;
   @override
-  @publicKeyJsonConverter
   PublicKey get masterKey;
   @override
   int get accountId;

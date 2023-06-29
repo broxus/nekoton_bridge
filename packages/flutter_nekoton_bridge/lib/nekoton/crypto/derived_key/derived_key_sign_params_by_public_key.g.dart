@@ -10,17 +10,15 @@ _$_DerivedKeyPasswordByPublicKeyByPublicKey
     _$$_DerivedKeyPasswordByPublicKeyByPublicKeyFromJson(
             Map<String, dynamic> json) =>
         _$_DerivedKeyPasswordByPublicKeyByPublicKey(
-          masterKey:
-              publicKeyJsonConverter.fromJson(json['master_key'] as String),
-          publicKey:
-              publicKeyJsonConverter.fromJson(json['public_key'] as String),
+          masterKey: PublicKey.fromJson(json['master_key'] as String),
+          publicKey: PublicKey.fromJson(json['public_key'] as String),
           password: Password.fromJson(json['password'] as Map<String, dynamic>),
         );
 
 Map<String, dynamic> _$$_DerivedKeyPasswordByPublicKeyByPublicKeyToJson(
         _$_DerivedKeyPasswordByPublicKeyByPublicKey instance) =>
     <String, dynamic>{
-      'master_key': publicKeyJsonConverter.toJson(instance.masterKey),
-      'public_key': publicKeyJsonConverter.toJson(instance.publicKey),
-      'password': instance.password,
+      'master_key': instance.masterKey.toJson(),
+      'public_key': instance.publicKey.toJson(),
+      'password': instance.password.toJson(),
     };

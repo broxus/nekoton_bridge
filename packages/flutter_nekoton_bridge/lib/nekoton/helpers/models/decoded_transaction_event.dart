@@ -8,8 +8,8 @@ part 'decoded_transaction_event.g.dart';
 @freezed
 class DecodedTransactionEvent with _$DecodedTransactionEvent {
   const factory DecodedTransactionEvent({
-    required String event,
-    required TokensObject data,
+    required final String event,
+    required final TokensObject data,
   }) = _DecodedTransactionEvent;
 
   factory DecodedTransactionEvent.fromJson(Map<String, dynamic> json) =>

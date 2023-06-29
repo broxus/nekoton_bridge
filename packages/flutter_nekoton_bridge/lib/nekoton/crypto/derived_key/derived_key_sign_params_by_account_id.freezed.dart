@@ -21,7 +21,6 @@ DerivedKeyPasswordByAccountId _$DerivedKeyPasswordByAccountIdFromJson(
 
 /// @nodoc
 mixin _$DerivedKeyPasswordByAccountId {
-  @publicKeyJsonConverter
   PublicKey get masterKey => throw _privateConstructorUsedError;
   int get accountId => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
@@ -40,10 +39,7 @@ abstract class $DerivedKeyPasswordByAccountIdCopyWith<$Res> {
       _$DerivedKeyPasswordByAccountIdCopyWithImpl<$Res,
           DerivedKeyPasswordByAccountId>;
   @useResult
-  $Res call(
-      {@publicKeyJsonConverter PublicKey masterKey,
-      int accountId,
-      Password password});
+  $Res call({PublicKey masterKey, int accountId, Password password});
 
   $PublicKeyCopyWith<$Res> get masterKey;
   $PasswordCopyWith<$Res> get password;
@@ -109,10 +105,7 @@ abstract class _$$_DerivedKeyPasswordByAccountIdByAccountIdCopyWith<$Res>
       __$$_DerivedKeyPasswordByAccountIdByAccountIdCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@publicKeyJsonConverter PublicKey masterKey,
-      int accountId,
-      Password password});
+  $Res call({PublicKey masterKey, int accountId, Password password});
 
   @override
   $PublicKeyCopyWith<$Res> get masterKey;
@@ -160,7 +153,7 @@ class __$$_DerivedKeyPasswordByAccountIdByAccountIdCopyWithImpl<$Res>
 class _$_DerivedKeyPasswordByAccountIdByAccountId
     implements _DerivedKeyPasswordByAccountIdByAccountId {
   const _$_DerivedKeyPasswordByAccountIdByAccountId(
-      {@publicKeyJsonConverter required this.masterKey,
+      {required this.masterKey,
       required this.accountId,
       required this.password});
 
@@ -169,7 +162,6 @@ class _$_DerivedKeyPasswordByAccountIdByAccountId
       _$$_DerivedKeyPasswordByAccountIdByAccountIdFromJson(json);
 
   @override
-  @publicKeyJsonConverter
   final PublicKey masterKey;
   @override
   final int accountId;
@@ -217,7 +209,7 @@ class _$_DerivedKeyPasswordByAccountIdByAccountId
 abstract class _DerivedKeyPasswordByAccountIdByAccountId
     implements DerivedKeyPasswordByAccountId {
   const factory _DerivedKeyPasswordByAccountIdByAccountId(
-          {@publicKeyJsonConverter required final PublicKey masterKey,
+          {required final PublicKey masterKey,
           required final int accountId,
           required final Password password}) =
       _$_DerivedKeyPasswordByAccountIdByAccountId;
@@ -227,7 +219,6 @@ abstract class _DerivedKeyPasswordByAccountIdByAccountId
       _$_DerivedKeyPasswordByAccountIdByAccountId.fromJson;
 
   @override
-  @publicKeyJsonConverter
   PublicKey get masterKey;
   @override
   int get accountId;

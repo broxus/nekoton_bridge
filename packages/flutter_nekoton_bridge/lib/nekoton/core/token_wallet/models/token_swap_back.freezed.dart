@@ -21,7 +21,6 @@ TokenSwapBack _$TokenSwapBackFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$TokenSwapBack {
   String get tokens => throw _privateConstructorUsedError;
-  @addressJsonConverter
   Address get callbackAddress => throw _privateConstructorUsedError;
   String get callbackPayload => throw _privateConstructorUsedError;
 
@@ -37,10 +36,7 @@ abstract class $TokenSwapBackCopyWith<$Res> {
           TokenSwapBack value, $Res Function(TokenSwapBack) then) =
       _$TokenSwapBackCopyWithImpl<$Res, TokenSwapBack>;
   @useResult
-  $Res call(
-      {String tokens,
-      @addressJsonConverter Address callbackAddress,
-      String callbackPayload});
+  $Res call({String tokens, Address callbackAddress, String callbackPayload});
 
   $AddressCopyWith<$Res> get callbackAddress;
 }
@@ -95,10 +91,7 @@ abstract class _$$_TokenSwapBackCopyWith<$Res>
       __$$_TokenSwapBackCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String tokens,
-      @addressJsonConverter Address callbackAddress,
-      String callbackPayload});
+  $Res call({String tokens, Address callbackAddress, String callbackPayload});
 
   @override
   $AddressCopyWith<$Res> get callbackAddress;
@@ -142,7 +135,7 @@ class __$$_TokenSwapBackCopyWithImpl<$Res>
 class _$_TokenSwapBack implements _TokenSwapBack {
   const _$_TokenSwapBack(
       {required this.tokens,
-      @addressJsonConverter required this.callbackAddress,
+      required this.callbackAddress,
       required this.callbackPayload});
 
   factory _$_TokenSwapBack.fromJson(Map<String, dynamic> json) =>
@@ -151,7 +144,6 @@ class _$_TokenSwapBack implements _TokenSwapBack {
   @override
   final String tokens;
   @override
-  @addressJsonConverter
   final Address callbackAddress;
   @override
   final String callbackPayload;
@@ -195,7 +187,7 @@ class _$_TokenSwapBack implements _TokenSwapBack {
 abstract class _TokenSwapBack implements TokenSwapBack {
   const factory _TokenSwapBack(
       {required final String tokens,
-      @addressJsonConverter required final Address callbackAddress,
+      required final Address callbackAddress,
       required final String callbackPayload}) = _$_TokenSwapBack;
 
   factory _TokenSwapBack.fromJson(Map<String, dynamic> json) =
@@ -204,7 +196,6 @@ abstract class _TokenSwapBack implements TokenSwapBack {
   @override
   String get tokens;
   @override
-  @addressJsonConverter
   Address get callbackAddress;
   @override
   String get callbackPayload;

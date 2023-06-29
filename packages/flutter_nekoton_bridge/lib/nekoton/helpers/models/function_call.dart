@@ -8,9 +8,9 @@ part 'function_call.g.dart';
 @freezed
 class FunctionCall with _$FunctionCall {
   const factory FunctionCall({
-    required String abi,
-    required String method,
-    required TokensObject params,
+    required final String abi,
+    required final String method,
+    required final TokensObject params,
   }) = _FunctionCall;
 
   factory FunctionCall.fromJson(Map<String, dynamic> json) =>

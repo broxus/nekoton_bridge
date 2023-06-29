@@ -5,7 +5,7 @@ part 'password_cache_behavior.g.dart';
 
 @Freezed(unionKey: 'type')
 class PasswordCacheBehavior with _$PasswordCacheBehavior {
-  const factory PasswordCacheBehavior.store(int data) = _Store;
+  const factory PasswordCacheBehavior.store(final int data) = _Store;
 
   const factory PasswordCacheBehavior.remove() = _Remove;
 

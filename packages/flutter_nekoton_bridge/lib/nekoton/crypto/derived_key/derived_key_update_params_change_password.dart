@@ -1,5 +1,4 @@
 import 'package:flutter_nekoton_bridge/nekoton/core/models/models_lib.dart';
-import 'package:flutter_nekoton_bridge/nekoton/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/crypto/password_cache/password.dart';
 
@@ -11,9 +10,9 @@ class DerivedKeyUpdateParamsChangePassword
     with _$DerivedKeyUpdateParamsChangePassword {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory DerivedKeyUpdateParamsChangePassword({
-    @publicKeyJsonConverter required PublicKey masterKey,
-    required Password oldPassword,
-    required Password newPassword,
+    required final PublicKey masterKey,
+    required final Password oldPassword,
+    required final Password newPassword,
   }) = _DerivedKeyUpdateParamsChangePasswordChangePassword;
 
   factory DerivedKeyUpdateParamsChangePassword.fromJson(

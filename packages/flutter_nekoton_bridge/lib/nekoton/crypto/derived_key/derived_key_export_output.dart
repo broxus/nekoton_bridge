@@ -9,7 +9,7 @@ class DerivedKeyExportOutput
     with _$DerivedKeyExportOutput
     implements ExportKeyOutput {
   const factory DerivedKeyExportOutput({
-    required String phrase,
+    required final String phrase,
   }) = _DerivedKeyExportOutput;
 
   factory DerivedKeyExportOutput.fromJson(Map<String, dynamic> json) =>

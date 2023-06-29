@@ -11,10 +11,10 @@ class DerivedKeyUpdateParams
     with _$DerivedKeyUpdateParams
     implements UpdateKeyInput {
   const factory DerivedKeyUpdateParams.renameKey(
-      DerivedKeyUpdateParamsRenameKey data) = _RenameKey;
+      final DerivedKeyUpdateParamsRenameKey data) = _RenameKey;
 
   const factory DerivedKeyUpdateParams.changePassword(
-      DerivedKeyUpdateParamsChangePassword data) = _ChangePassword;
+      final DerivedKeyUpdateParamsChangePassword data) = _ChangePassword;
 
   factory DerivedKeyUpdateParams.fromJson(Map<String, dynamic> json) =>
       _$DerivedKeyUpdateParamsFromJson(json);

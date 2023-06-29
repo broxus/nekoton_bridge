@@ -5,8 +5,8 @@ part 'wallet_type.freezed.dart';
 part 'wallet_type.g.dart';
 
 @Freezed(unionKey: 'type')
-class WalletType with _$WalletType {
-  const factory WalletType.multisig(MultisigType data) = _Multisig;
+sealed class WalletType with _$WalletType {
+  const factory WalletType.multisig(final MultisigType data) = _Multisig;
 
   const factory WalletType.walletV3() = _WalletV3;
 

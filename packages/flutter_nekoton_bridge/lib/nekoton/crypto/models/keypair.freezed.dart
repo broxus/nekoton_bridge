@@ -20,9 +20,7 @@ Keypair _$KeypairFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Keypair {
-  @publicKeyJsonConverter
   PublicKey get public => throw _privateConstructorUsedError;
-  @publicKeyJsonConverter
   PublicKey get secret => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,9 +33,7 @@ abstract class $KeypairCopyWith<$Res> {
   factory $KeypairCopyWith(Keypair value, $Res Function(Keypair) then) =
       _$KeypairCopyWithImpl<$Res, Keypair>;
   @useResult
-  $Res call(
-      {@publicKeyJsonConverter PublicKey public,
-      @publicKeyJsonConverter PublicKey secret});
+  $Res call({PublicKey public, PublicKey secret});
 
   $PublicKeyCopyWith<$Res> get public;
   $PublicKeyCopyWith<$Res> get secret;
@@ -95,9 +91,7 @@ abstract class _$$_KeypairCopyWith<$Res> implements $KeypairCopyWith<$Res> {
       __$$_KeypairCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@publicKeyJsonConverter PublicKey public,
-      @publicKeyJsonConverter PublicKey secret});
+  $Res call({PublicKey public, PublicKey secret});
 
   @override
   $PublicKeyCopyWith<$Res> get public;
@@ -134,18 +128,14 @@ class __$$_KeypairCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Keypair implements _Keypair {
-  const _$_Keypair(
-      {@publicKeyJsonConverter required this.public,
-      @publicKeyJsonConverter required this.secret});
+  const _$_Keypair({required this.public, required this.secret});
 
   factory _$_Keypair.fromJson(Map<String, dynamic> json) =>
       _$$_KeypairFromJson(json);
 
   @override
-  @publicKeyJsonConverter
   final PublicKey public;
   @override
-  @publicKeyJsonConverter
   final PublicKey secret;
 
   @override
@@ -182,16 +172,14 @@ class _$_Keypair implements _Keypair {
 
 abstract class _Keypair implements Keypair {
   const factory _Keypair(
-      {@publicKeyJsonConverter required final PublicKey public,
-      @publicKeyJsonConverter required final PublicKey secret}) = _$_Keypair;
+      {required final PublicKey public,
+      required final PublicKey secret}) = _$_Keypair;
 
   factory _Keypair.fromJson(Map<String, dynamic> json) = _$_Keypair.fromJson;
 
   @override
-  @publicKeyJsonConverter
   PublicKey get public;
   @override
-  @publicKeyJsonConverter
   PublicKey get secret;
   @override
   @JsonKey(ignore: true)

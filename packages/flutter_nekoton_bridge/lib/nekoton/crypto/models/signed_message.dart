@@ -6,9 +6,9 @@ part 'signed_message.g.dart';
 @freezed
 class SignedMessage with _$SignedMessage {
   const factory SignedMessage({
-    required String hash,
-    required int expireAt,
-    required String boc,
+    required final String hash,
+    required final int expireAt,
+    required final String boc,
   }) = _SignedMessage;
 
   factory SignedMessage.fromJson(Map<String, dynamic> json) =>

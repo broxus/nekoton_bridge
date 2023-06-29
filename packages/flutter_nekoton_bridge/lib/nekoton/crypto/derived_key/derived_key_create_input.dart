@@ -13,12 +13,12 @@ class DerivedKeyCreateInput
     with _$DerivedKeyCreateInput
     implements CreateKeyInput {
   /// Create new labs key
-  const factory DerivedKeyCreateInput.import(DerivedKeyCreateInputImport data) =
-      _Import;
+  const factory DerivedKeyCreateInput.import(
+      final DerivedKeyCreateInputImport data) = _Import;
 
   /// Derive key from masterKey
-  const factory DerivedKeyCreateInput.derive(DerivedKeyCreateInputDerive data) =
-      _Derive;
+  const factory DerivedKeyCreateInput.derive(
+      final DerivedKeyCreateInputDerive data) = _Derive;
 
   factory DerivedKeyCreateInput.fromJson(Map<String, dynamic> json) =>
       _$DerivedKeyCreateInputFromJson(json);

@@ -10,8 +10,7 @@ _$_EncryptedKeyUpdateParamsChangePasswordChangePassword
     _$$_EncryptedKeyUpdateParamsChangePasswordChangePasswordFromJson(
             Map<String, dynamic> json) =>
         _$_EncryptedKeyUpdateParamsChangePasswordChangePassword(
-          publicKey:
-              publicKeyJsonConverter.fromJson(json['public_key'] as String),
+          publicKey: PublicKey.fromJson(json['public_key'] as String),
           oldPassword:
               Password.fromJson(json['old_password'] as Map<String, dynamic>),
           newPassword:
@@ -22,7 +21,7 @@ Map<String, dynamic>
     _$$_EncryptedKeyUpdateParamsChangePasswordChangePasswordToJson(
             _$_EncryptedKeyUpdateParamsChangePasswordChangePassword instance) =>
         <String, dynamic>{
-          'public_key': publicKeyJsonConverter.toJson(instance.publicKey),
-          'old_password': instance.oldPassword,
-          'new_password': instance.newPassword,
+          'public_key': instance.publicKey.toJson(),
+          'old_password': instance.oldPassword.toJson(),
+          'new_password': instance.newPassword.toJson(),
         };

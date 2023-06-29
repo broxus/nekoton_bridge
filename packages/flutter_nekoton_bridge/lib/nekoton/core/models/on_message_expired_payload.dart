@@ -12,7 +12,7 @@ class OnMessageExpiredPayload with _$OnMessageExpiredPayload {
     explicitToJson: true,
   )
   const factory OnMessageExpiredPayload({
-    required PendingTransaction pendingTransaction,
+    required final PendingTransaction pendingTransaction,
   }) = _OnMessageExpiredPayload;
 
   factory OnMessageExpiredPayload.fromJson(Map<String, dynamic> json) =>

@@ -10,14 +10,13 @@ _$_EncryptedKeyUpdateParamsRenameRename
     _$$_EncryptedKeyUpdateParamsRenameRenameFromJson(
             Map<String, dynamic> json) =>
         _$_EncryptedKeyUpdateParamsRenameRename(
-          publicKey:
-              publicKeyJsonConverter.fromJson(json['public_key'] as String),
+          publicKey: PublicKey.fromJson(json['public_key'] as String),
           name: json['name'] as String,
         );
 
 Map<String, dynamic> _$$_EncryptedKeyUpdateParamsRenameRenameToJson(
         _$_EncryptedKeyUpdateParamsRenameRename instance) =>
     <String, dynamic>{
-      'public_key': publicKeyJsonConverter.toJson(instance.publicKey),
+      'public_key': instance.publicKey.toJson(),
       'name': instance.name,
     };

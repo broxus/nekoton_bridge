@@ -21,7 +21,6 @@ DerivedKeyExportSeedParams _$DerivedKeyExportSeedParamsFromJson(
 
 /// @nodoc
 mixin _$DerivedKeyExportSeedParams {
-  @publicKeyJsonConverter
   PublicKey get masterKey => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
 
@@ -38,7 +37,7 @@ abstract class $DerivedKeyExportSeedParamsCopyWith<$Res> {
       _$DerivedKeyExportSeedParamsCopyWithImpl<$Res,
           DerivedKeyExportSeedParams>;
   @useResult
-  $Res call({@publicKeyJsonConverter PublicKey masterKey, Password password});
+  $Res call({PublicKey masterKey, Password password});
 
   $PublicKeyCopyWith<$Res> get masterKey;
   $PasswordCopyWith<$Res> get password;
@@ -99,7 +98,7 @@ abstract class _$$_DerivedKeyExportSeedParamsCopyWith<$Res>
       __$$_DerivedKeyExportSeedParamsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@publicKeyJsonConverter PublicKey masterKey, Password password});
+  $Res call({PublicKey masterKey, Password password});
 
   @override
   $PublicKeyCopyWith<$Res> get masterKey;
@@ -141,14 +140,12 @@ class __$$_DerivedKeyExportSeedParamsCopyWithImpl<$Res>
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$_DerivedKeyExportSeedParams implements _DerivedKeyExportSeedParams {
   const _$_DerivedKeyExportSeedParams(
-      {@publicKeyJsonConverter required this.masterKey,
-      required this.password});
+      {required this.masterKey, required this.password});
 
   factory _$_DerivedKeyExportSeedParams.fromJson(Map<String, dynamic> json) =>
       _$$_DerivedKeyExportSeedParamsFromJson(json);
 
   @override
-  @publicKeyJsonConverter
   final PublicKey masterKey;
   @override
   final Password password;
@@ -191,14 +188,13 @@ class _$_DerivedKeyExportSeedParams implements _DerivedKeyExportSeedParams {
 abstract class _DerivedKeyExportSeedParams
     implements DerivedKeyExportSeedParams {
   const factory _DerivedKeyExportSeedParams(
-      {@publicKeyJsonConverter required final PublicKey masterKey,
+      {required final PublicKey masterKey,
       required final Password password}) = _$_DerivedKeyExportSeedParams;
 
   factory _DerivedKeyExportSeedParams.fromJson(Map<String, dynamic> json) =
       _$_DerivedKeyExportSeedParams.fromJson;
 
   @override
-  @publicKeyJsonConverter
   PublicKey get masterKey;
   @override
   Password get password;

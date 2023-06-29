@@ -13,8 +13,8 @@ class OnMessageSentPayload with _$OnMessageSentPayload {
     explicitToJson: true,
   )
   const factory OnMessageSentPayload({
-    required PendingTransaction pendingTransaction,
-    Transaction? transaction,
+    required final PendingTransaction pendingTransaction,
+    final Transaction? transaction,
   }) = _OnMessageSentPayload;
 
   factory OnMessageSentPayload.fromJson(Map<String, dynamic> json) =>

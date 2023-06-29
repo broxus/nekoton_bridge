@@ -21,7 +21,6 @@ EncryptedKeyGetPublicKeys _$EncryptedKeyGetPublicKeysFromJson(
 
 /// @nodoc
 mixin _$EncryptedKeyGetPublicKeys {
-  @publicKeyJsonConverter
   PublicKey get publicKey => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +35,7 @@ abstract class $EncryptedKeyGetPublicKeysCopyWith<$Res> {
           $Res Function(EncryptedKeyGetPublicKeys) then) =
       _$EncryptedKeyGetPublicKeysCopyWithImpl<$Res, EncryptedKeyGetPublicKeys>;
   @useResult
-  $Res call({@publicKeyJsonConverter PublicKey publicKey});
+  $Res call({PublicKey publicKey});
 
   $PublicKeyCopyWith<$Res> get publicKey;
 }
@@ -83,7 +82,7 @@ abstract class _$$_EncryptedKeyGetPublicKeysRenameCopyWith<$Res>
       __$$_EncryptedKeyGetPublicKeysRenameCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@publicKeyJsonConverter PublicKey publicKey});
+  $Res call({PublicKey publicKey});
 
   @override
   $PublicKeyCopyWith<$Res> get publicKey;
@@ -118,15 +117,13 @@ class __$$_EncryptedKeyGetPublicKeysRenameCopyWithImpl<$Res>
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$_EncryptedKeyGetPublicKeysRename
     implements _EncryptedKeyGetPublicKeysRename {
-  const _$_EncryptedKeyGetPublicKeysRename(
-      {@publicKeyJsonConverter required this.publicKey});
+  const _$_EncryptedKeyGetPublicKeysRename({required this.publicKey});
 
   factory _$_EncryptedKeyGetPublicKeysRename.fromJson(
           Map<String, dynamic> json) =>
       _$$_EncryptedKeyGetPublicKeysRenameFromJson(json);
 
   @override
-  @publicKeyJsonConverter
   final PublicKey publicKey;
 
   @override
@@ -166,14 +163,13 @@ class _$_EncryptedKeyGetPublicKeysRename
 abstract class _EncryptedKeyGetPublicKeysRename
     implements EncryptedKeyGetPublicKeys {
   const factory _EncryptedKeyGetPublicKeysRename(
-          {@publicKeyJsonConverter required final PublicKey publicKey}) =
+          {required final PublicKey publicKey}) =
       _$_EncryptedKeyGetPublicKeysRename;
 
   factory _EncryptedKeyGetPublicKeysRename.fromJson(Map<String, dynamic> json) =
       _$_EncryptedKeyGetPublicKeysRename.fromJson;
 
   @override
-  @publicKeyJsonConverter
   PublicKey get publicKey;
   @override
   @JsonKey(ignore: true)

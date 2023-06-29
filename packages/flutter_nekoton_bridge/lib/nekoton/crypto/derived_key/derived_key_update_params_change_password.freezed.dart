@@ -21,7 +21,6 @@ DerivedKeyUpdateParamsChangePassword
 
 /// @nodoc
 mixin _$DerivedKeyUpdateParamsChangePassword {
-  @publicKeyJsonConverter
   PublicKey get masterKey => throw _privateConstructorUsedError;
   Password get oldPassword => throw _privateConstructorUsedError;
   Password get newPassword => throw _privateConstructorUsedError;
@@ -41,10 +40,7 @@ abstract class $DerivedKeyUpdateParamsChangePasswordCopyWith<$Res> {
       _$DerivedKeyUpdateParamsChangePasswordCopyWithImpl<$Res,
           DerivedKeyUpdateParamsChangePassword>;
   @useResult
-  $Res call(
-      {@publicKeyJsonConverter PublicKey masterKey,
-      Password oldPassword,
-      Password newPassword});
+  $Res call({PublicKey masterKey, Password oldPassword, Password newPassword});
 
   $PublicKeyCopyWith<$Res> get masterKey;
   $PasswordCopyWith<$Res> get oldPassword;
@@ -120,10 +116,7 @@ abstract class _$$_DerivedKeyUpdateParamsChangePasswordChangePasswordCopyWith<
       __$$_DerivedKeyUpdateParamsChangePasswordChangePasswordCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@publicKeyJsonConverter PublicKey masterKey,
-      Password oldPassword,
-      Password newPassword});
+  $Res call({PublicKey masterKey, Password oldPassword, Password newPassword});
 
   @override
   $PublicKeyCopyWith<$Res> get masterKey;
@@ -175,7 +168,7 @@ class __$$_DerivedKeyUpdateParamsChangePasswordChangePasswordCopyWithImpl<$Res>
 class _$_DerivedKeyUpdateParamsChangePasswordChangePassword
     implements _DerivedKeyUpdateParamsChangePasswordChangePassword {
   const _$_DerivedKeyUpdateParamsChangePasswordChangePassword(
-      {@publicKeyJsonConverter required this.masterKey,
+      {required this.masterKey,
       required this.oldPassword,
       required this.newPassword});
 
@@ -184,7 +177,6 @@ class _$_DerivedKeyUpdateParamsChangePasswordChangePassword
       _$$_DerivedKeyUpdateParamsChangePasswordChangePasswordFromJson(json);
 
   @override
-  @publicKeyJsonConverter
   final PublicKey masterKey;
   @override
   final Password oldPassword;
@@ -235,7 +227,7 @@ class _$_DerivedKeyUpdateParamsChangePasswordChangePassword
 abstract class _DerivedKeyUpdateParamsChangePasswordChangePassword
     implements DerivedKeyUpdateParamsChangePassword {
   const factory _DerivedKeyUpdateParamsChangePasswordChangePassword(
-          {@publicKeyJsonConverter required final PublicKey masterKey,
+          {required final PublicKey masterKey,
           required final Password oldPassword,
           required final Password newPassword}) =
       _$_DerivedKeyUpdateParamsChangePasswordChangePassword;
@@ -245,7 +237,6 @@ abstract class _DerivedKeyUpdateParamsChangePasswordChangePassword
       _$_DerivedKeyUpdateParamsChangePasswordChangePassword.fromJson;
 
   @override
-  @publicKeyJsonConverter
   PublicKey get masterKey;
   @override
   Password get oldPassword;

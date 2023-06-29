@@ -22,7 +22,6 @@ EncryptedKeyUpdateParamsChangePassword
 
 /// @nodoc
 mixin _$EncryptedKeyUpdateParamsChangePassword {
-  @publicKeyJsonConverter
   PublicKey get publicKey => throw _privateConstructorUsedError;
   Password get oldPassword => throw _privateConstructorUsedError;
   Password get newPassword => throw _privateConstructorUsedError;
@@ -42,10 +41,7 @@ abstract class $EncryptedKeyUpdateParamsChangePasswordCopyWith<$Res> {
       _$EncryptedKeyUpdateParamsChangePasswordCopyWithImpl<$Res,
           EncryptedKeyUpdateParamsChangePassword>;
   @useResult
-  $Res call(
-      {@publicKeyJsonConverter PublicKey publicKey,
-      Password oldPassword,
-      Password newPassword});
+  $Res call({PublicKey publicKey, Password oldPassword, Password newPassword});
 
   $PublicKeyCopyWith<$Res> get publicKey;
   $PasswordCopyWith<$Res> get oldPassword;
@@ -122,10 +118,7 @@ abstract class _$$_EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWith<
           $Res>;
   @override
   @useResult
-  $Res call(
-      {@publicKeyJsonConverter PublicKey publicKey,
-      Password oldPassword,
-      Password newPassword});
+  $Res call({PublicKey publicKey, Password oldPassword, Password newPassword});
 
   @override
   $PublicKeyCopyWith<$Res> get publicKey;
@@ -178,7 +171,7 @@ class __$$_EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWithImpl<
 class _$_EncryptedKeyUpdateParamsChangePasswordChangePassword
     implements _EncryptedKeyUpdateParamsChangePasswordChangePassword {
   const _$_EncryptedKeyUpdateParamsChangePasswordChangePassword(
-      {@publicKeyJsonConverter required this.publicKey,
+      {required this.publicKey,
       required this.oldPassword,
       required this.newPassword});
 
@@ -187,7 +180,6 @@ class _$_EncryptedKeyUpdateParamsChangePasswordChangePassword
       _$$_EncryptedKeyUpdateParamsChangePasswordChangePasswordFromJson(json);
 
   @override
-  @publicKeyJsonConverter
   final PublicKey publicKey;
   @override
   final Password oldPassword;
@@ -238,7 +230,7 @@ class _$_EncryptedKeyUpdateParamsChangePasswordChangePassword
 abstract class _EncryptedKeyUpdateParamsChangePasswordChangePassword
     implements EncryptedKeyUpdateParamsChangePassword {
   const factory _EncryptedKeyUpdateParamsChangePasswordChangePassword(
-          {@publicKeyJsonConverter required final PublicKey publicKey,
+          {required final PublicKey publicKey,
           required final Password oldPassword,
           required final Password newPassword}) =
       _$_EncryptedKeyUpdateParamsChangePasswordChangePassword;
@@ -248,7 +240,6 @@ abstract class _EncryptedKeyUpdateParamsChangePasswordChangePassword
       _$_EncryptedKeyUpdateParamsChangePasswordChangePassword.fromJson;
 
   @override
-  @publicKeyJsonConverter
   PublicKey get publicKey;
   @override
   Password get oldPassword;

@@ -21,11 +21,9 @@ AccountToAdd _$AccountToAddFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AccountToAdd {
   String get name => throw _privateConstructorUsedError;
-  @publicKeyJsonConverter
   PublicKey get publicKey => throw _privateConstructorUsedError;
   WalletType get contract => throw _privateConstructorUsedError;
   int get workchain => throw _privateConstructorUsedError;
-  @addressJsonConverter
   Address? get explicitAddress => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,10 +40,10 @@ abstract class $AccountToAddCopyWith<$Res> {
   @useResult
   $Res call(
       {String name,
-      @publicKeyJsonConverter PublicKey publicKey,
+      PublicKey publicKey,
       WalletType contract,
       int workchain,
-      @addressJsonConverter Address? explicitAddress});
+      Address? explicitAddress});
 
   $PublicKeyCopyWith<$Res> get publicKey;
   $WalletTypeCopyWith<$Res> get contract;
@@ -134,10 +132,10 @@ abstract class _$$_AccountToAddCopyWith<$Res>
   @useResult
   $Res call(
       {String name,
-      @publicKeyJsonConverter PublicKey publicKey,
+      PublicKey publicKey,
       WalletType contract,
       int workchain,
-      @addressJsonConverter Address? explicitAddress});
+      Address? explicitAddress});
 
   @override
   $PublicKeyCopyWith<$Res> get publicKey;
@@ -194,10 +192,10 @@ class __$$_AccountToAddCopyWithImpl<$Res>
 class _$_AccountToAdd implements _AccountToAdd {
   const _$_AccountToAdd(
       {required this.name,
-      @publicKeyJsonConverter required this.publicKey,
+      required this.publicKey,
       required this.contract,
       required this.workchain,
-      @addressJsonConverter this.explicitAddress});
+      this.explicitAddress});
 
   factory _$_AccountToAdd.fromJson(Map<String, dynamic> json) =>
       _$$_AccountToAddFromJson(json);
@@ -205,14 +203,12 @@ class _$_AccountToAdd implements _AccountToAdd {
   @override
   final String name;
   @override
-  @publicKeyJsonConverter
   final PublicKey publicKey;
   @override
   final WalletType contract;
   @override
   final int workchain;
   @override
-  @addressJsonConverter
   final Address? explicitAddress;
 
   @override
@@ -258,10 +254,10 @@ class _$_AccountToAdd implements _AccountToAdd {
 abstract class _AccountToAdd implements AccountToAdd {
   const factory _AccountToAdd(
       {required final String name,
-      @publicKeyJsonConverter required final PublicKey publicKey,
+      required final PublicKey publicKey,
       required final WalletType contract,
       required final int workchain,
-      @addressJsonConverter final Address? explicitAddress}) = _$_AccountToAdd;
+      final Address? explicitAddress}) = _$_AccountToAdd;
 
   factory _AccountToAdd.fromJson(Map<String, dynamic> json) =
       _$_AccountToAdd.fromJson;
@@ -269,14 +265,12 @@ abstract class _AccountToAdd implements AccountToAdd {
   @override
   String get name;
   @override
-  @publicKeyJsonConverter
   PublicKey get publicKey;
   @override
   WalletType get contract;
   @override
   int get workchain;
   @override
-  @addressJsonConverter
   Address? get explicitAddress;
   @override
   @JsonKey(ignore: true)

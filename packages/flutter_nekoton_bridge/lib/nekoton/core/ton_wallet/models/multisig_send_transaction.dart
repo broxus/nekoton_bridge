@@ -8,11 +8,11 @@ part 'multisig_send_transaction.g.dart';
 @freezed
 class MultisigSendTransaction with _$MultisigSendTransaction {
   const factory MultisigSendTransaction({
-    required String dest,
-    @amountJsonConverter required Fixed value,
-    required bool bounce,
-    required int flags,
-    required String payload,
+    required final String dest,
+    @amountJsonConverter required final Fixed value,
+    required final bool bounce,
+    required final int flags,
+    required final String payload,
   }) = _MultisigSendTransaction;
 
   factory MultisigSendTransaction.fromJson(Map<String, dynamic> json) =>

@@ -7,9 +7,9 @@ part 'assets_list.g.dart';
 @freezed
 class AssetsList with _$AssetsList implements Comparable<AssetsList> {
   const factory AssetsList({
-    required String name,
-    required TonWalletAsset tonWallet,
-    required Map<String, AdditionalAssets> additionalAssets,
+    required final String name,
+    required final TonWalletAsset tonWallet,
+    required final Map<String, AdditionalAssets> additionalAssets,
   }) = _AssetsList;
 
   factory AssetsList.fromJson(Map<String, dynamic> json) =>

@@ -11,8 +11,8 @@ class TransactionWithData<T>
     with _$TransactionWithData<T>
     implements Comparable<TransactionWithData<T>> {
   const factory TransactionWithData({
-    required Transaction transaction,
-    T? data,
+    required final Transaction transaction,
+    final T? data,
   }) = _TransactionWithData<T>;
 
   const TransactionWithData._();

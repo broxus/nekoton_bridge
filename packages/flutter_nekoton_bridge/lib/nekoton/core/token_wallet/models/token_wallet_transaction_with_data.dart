@@ -11,8 +11,8 @@ class TokenWalletTransactionWithData
     with _$TokenWalletTransactionWithData
     implements Comparable<TokenWalletTransactionWithData> {
   const factory TokenWalletTransactionWithData({
-    required Transaction transaction,
-    TokenWalletTransaction? data,
+    required final Transaction transaction,
+    final TokenWalletTransaction? data,
   }) = _TokenWalletTransactionWithData;
 
   factory TokenWalletTransactionWithData.fromJson(Map<String, dynamic> json) =>

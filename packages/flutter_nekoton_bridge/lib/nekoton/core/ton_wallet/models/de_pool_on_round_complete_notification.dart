@@ -7,13 +7,13 @@ part 'de_pool_on_round_complete_notification.g.dart';
 class DePoolOnRoundCompleteNotification
     with _$DePoolOnRoundCompleteNotification {
   const factory DePoolOnRoundCompleteNotification({
-    required String roundId,
-    required String reward,
-    required String ordinaryStake,
-    required String vestingStake,
-    required String lockStake,
-    required bool reinvest,
-    required int reason,
+    required final String roundId,
+    required final String reward,
+    required final String ordinaryStake,
+    required final String vestingStake,
+    required final String lockStake,
+    required final bool reinvest,
+    required final int reason,
   }) = _DePoolOnRoundCompleteNotification;
 
   factory DePoolOnRoundCompleteNotification.fromJson(

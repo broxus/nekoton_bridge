@@ -6,7 +6,7 @@ part 'jrpc_network_settings.g.dart';
 @freezed
 class JrpcNetworkSettings with _$JrpcNetworkSettings {
   const factory JrpcNetworkSettings({
-    required String endpoint,
+    required final String endpoint,
   }) = _JrpcNetworkSettings;
 
   factory JrpcNetworkSettings.fromJson(Map<String, dynamic> json) =>

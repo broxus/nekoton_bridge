@@ -8,17 +8,17 @@ part 'multisig_pending_transaction.g.dart';
 class MultisigPendingTransaction with _$MultisigPendingTransaction {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory MultisigPendingTransaction({
-    required String id,
-    required List<String> confirmations,
-    required int signsRequired,
-    required int signsReceived,
-    required String creator,
-    required int index,
-    required String dest,
-    @amountJsonConverter required Fixed value,
-    required int sendFlags,
-    required String payload,
-    required bool bounce,
+    required final String id,
+    required final List<String> confirmations,
+    required final int signsRequired,
+    required final int signsReceived,
+    required final String creator,
+    required final int index,
+    required final String dest,
+    @amountJsonConverter required final Fixed value,
+    required final int sendFlags,
+    required final String payload,
+    required final bool bounce,
   }) = _MultisigPendingTransaction;
 
   factory MultisigPendingTransaction.fromJson(Map<String, dynamic> json) =>

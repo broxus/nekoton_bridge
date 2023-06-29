@@ -8,9 +8,9 @@ part 'derived_key_create_input_import.g.dart';
 class DerivedKeyCreateInputImport with _$DerivedKeyCreateInputImport {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory DerivedKeyCreateInputImport({
-    String? keyName,
-    required String phrase,
-    required Password password,
+    final String? keyName,
+    required final String phrase,
+    required final Password password,
   }) = _DerivedKeyCreateInputImportImport;
 
   factory DerivedKeyCreateInputImport.fromJson(Map<String, dynamic> json) =>

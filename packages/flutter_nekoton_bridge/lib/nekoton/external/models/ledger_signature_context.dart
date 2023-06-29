@@ -8,10 +8,10 @@ part 'ledger_signature_context.g.dart';
 @freezed
 class LedgerSignatureContext with _$LedgerSignatureContext {
   const factory LedgerSignatureContext({
-    required int decimals,
-    required String asset,
+    required final int decimals,
+    required final String asset,
     @amountJsonConverter required Fixed amount,
-    @addressJsonConverter required Address address,
+    required Address address,
   }) = _LedgerSignatureContext;
 
   factory LedgerSignatureContext.fromJson(Map<String, dynamic> json) =>

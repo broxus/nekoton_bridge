@@ -7,8 +7,8 @@ part 'execution_output.g.dart';
 @freezed
 class ExecutionOutput with _$ExecutionOutput {
   const factory ExecutionOutput({
-    @JsonKey(includeIfNull: false) TokensObject? output,
-    required int code,
+    @JsonKey(includeIfNull: false) final TokensObject? output,
+    required final int code,
   }) = _ExecutionOutput;
 
   factory ExecutionOutput.fromJson(Map<String, dynamic> json) =>

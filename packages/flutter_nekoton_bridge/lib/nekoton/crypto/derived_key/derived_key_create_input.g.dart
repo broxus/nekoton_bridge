@@ -13,7 +13,7 @@ _$_Import _$$_ImportFromJson(Map<String, dynamic> json) => _$_Import(
     );
 
 Map<String, dynamic> _$$_ImportToJson(_$_Import instance) => <String, dynamic>{
-      'data': instance.data,
+      'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
@@ -24,6 +24,6 @@ _$_Derive _$$_DeriveFromJson(Map<String, dynamic> json) => _$_Derive(
     );
 
 Map<String, dynamic> _$$_DeriveToJson(_$_Derive instance) => <String, dynamic>{
-      'data': instance.data,
+      'data': instance.data.toJson(),
       'type': instance.$type,
     };

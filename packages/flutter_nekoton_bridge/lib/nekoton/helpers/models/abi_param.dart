@@ -6,8 +6,8 @@ part 'abi_param.g.dart';
 @freezed
 class AbiParam with _$AbiParam {
   const factory AbiParam({
-    required String name,
-    required String type,
+    required final String name,
+    required final String type,
     List<AbiParam>? components,
   }) = _AbiParam;
 

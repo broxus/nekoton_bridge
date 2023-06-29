@@ -1,20 +1,20 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'address.freezed.dart';
-part 'address.g.dart';
 
-@freezed
+@Freezed(fromJson: false, toJson: false)
 
 /// Blockchain address
 class Address with _$Address {
   const Address._();
 
   const factory Address({
-    required String address,
+    required final String address,
   }) = _FromString;
 
-  factory Address.fromJson(Map<String, dynamic> json) =>
-      _$AddressFromJson(json);
+  factory Address.fromJson(String json) => Address(address: json);
+
+  String toJson() => address;
 
   /// Returns address in ellipse form
   String toEllipseString() => address.length > 6
@@ -29,13 +29,4 @@ class Address with _$Address {
 
   /// Returns workchain id
   int get workchain => int.parse(address.split(':').first);
-
-  @override
-  int get hashCode => address.hashCode;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is Address && address == other.address);
-  }
 }
