@@ -1,3 +1,7 @@
+## 1.8.0-dev.11
+
+ - **FEAT**: restart rust runtime, update nekoton, fix formatter ([#130](https://github.com/broxus/nekoton_bridge/issues/130)). ([972b5def](https://github.com/broxus/nekoton_bridge/commit/972b5def0fd74894ae9661bc10b568e275abb9bf))
+
 ## 1.8.0-dev.10
 
  - **FIX**: fix calls after dispose. Fix getting FullContractState ([#132](https://github.com/broxus/nekoton_bridge/issues/132)). ([f8898091](https://github.com/broxus/nekoton_bridge/commit/f88980917a18aae808a951be5c264ff92a83a290))
