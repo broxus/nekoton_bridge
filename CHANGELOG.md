@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-06-29
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.8.0-dev.13`](#flutter_nekoton_bridge---v180-dev13)
+ - [`flutter_nekoton_bridge_example` - `v1.8.0-dev.13`](#flutter_nekoton_bridge_example---v180-dev13)
+ - [`nekoton_bridge` - `v1.8.0-dev.11`](#nekoton_bridge---v180-dev11)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.8.0-dev.13`
+
+ - **REFACTOR**: add address and public key data classes ([#136](https://github.com/broxus/nekoton_bridge/issues/136)). ([10e8f924](https://github.com/broxus/nekoton_bridge/commit/10e8f924519439c8924557020ed25fa86a98b115))
+ - **FIX**: use freezed-generated methods ([#137](https://github.com/broxus/nekoton_bridge/issues/137)). ([d653392b](https://github.com/broxus/nekoton_bridge/commit/d653392b4dc35a8f2b12bd2777cadf76e28a28df))
+ - **FIX**: amount in test (will be refactored in future) ([#135](https://github.com/broxus/nekoton_bridge/issues/135)). ([29b60d41](https://github.com/broxus/nekoton_bridge/commit/29b60d41a8969f9ff4022206910616b5c24959e8))
+ - **FEAT**: restart rust runtime, update nekoton, fix formatter ([#130](https://github.com/broxus/nekoton_bridge/issues/130)). ([972b5def](https://github.com/broxus/nekoton_bridge/commit/972b5def0fd74894ae9661bc10b568e275abb9bf))
+
+#### `flutter_nekoton_bridge_example` - `v1.8.0-dev.13`
+
+ - **REFACTOR**: add address and public key data classes ([#136](https://github.com/broxus/nekoton_bridge/issues/136)). ([10e8f924](https://github.com/broxus/nekoton_bridge/commit/10e8f924519439c8924557020ed25fa86a98b115))
+ - **FIX**: amount in test (will be refactored in future) ([#135](https://github.com/broxus/nekoton_bridge/issues/135)). ([29b60d41](https://github.com/broxus/nekoton_bridge/commit/29b60d41a8969f9ff4022206910616b5c24959e8))
+ - **FEAT**: restart rust runtime, update nekoton, fix formatter ([#130](https://github.com/broxus/nekoton_bridge/issues/130)). ([972b5def](https://github.com/broxus/nekoton_bridge/commit/972b5def0fd74894ae9661bc10b568e275abb9bf))
+
+#### `nekoton_bridge` - `v1.8.0-dev.11`
+
+ - **FEAT**: restart rust runtime, update nekoton, fix formatter ([#130](https://github.com/broxus/nekoton_bridge/issues/130)). ([972b5def](https://github.com/broxus/nekoton_bridge/commit/972b5def0fd74894ae9661bc10b568e275abb9bf))
+
+
 ## 2023-06-24
 
 ### Changes
