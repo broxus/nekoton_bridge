@@ -55,27 +55,24 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: platform-build/*
-# TODO: Publish to pub.dev
-# publish_pub_release:
-#   needs: publish_github_release
-#   runs-on: ubuntu-latest
 
-#   steps:
-#     - uses: actions/checkout@v3
-#     - uses: subosito/flutter-action@v2
-#        with:
-#          flutter-version: '3.10.2'
-#          channel: 'stable'
-#          cache: true
-#          cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
-#     - uses: bluefireteam/melos-action@v2
-#     - name: Setup pub.dev credentials
-#       run: |
-#         mkdir -p $HOME/.config/dart
-#         cat << EOF > $HOME/.config/dart/pub-credentials.json
-#         ${{ secrets.PUB_CRED_JSON }}
-#         EOF
-#    - name: Dry-run publish to pub.dev
-#      run: melos publish -y --dry-run
-#    - name: Publish to pub.dev
-#      run: melos publish -y --no-dry-run
+  publish_pub_release:
+    needs: publish_github_release
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # This is required for authentication using OIDC
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.10.2'
+          channel: 'stable'
+          cache: true
+          cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
+      - uses: bluefireteam/melos-action@v2
+      - name: Dry-run publish to pub.dev
+        run: melos publish -y --dry-run
+      - name: Publish to pub.dev
+        run: melos publish -y --no-dry-run
