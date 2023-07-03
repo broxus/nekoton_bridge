@@ -75,5 +75,29 @@ void main() {
       expect(contract.contractState.balance, isNot(Fixed.parse('0')));
       expect(contract.contractState.isDeployed, isTrue);
     });
+
+    testWidgets('GenericContract refresh', (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      final contract = await GenericContract.subscribe(
+        transport: transport,
+        address: address,
+        preloadTransactions: true,
+      );
+
+      expect(contract, isNotNull);
+      expect(contract.address, address);
+      expect(contract.contractState.balance, isNot(Fixed.parse('0')));
+      expect(contract.contractState.isDeployed, isTrue);
+
+      final fut = expectLater(contract.fieldUpdatesStream, emits(null));
+      await contract.refresh();
+      await fut;
+
+      expect(contract, isNotNull);
+      expect(contract.address, address);
+      expect(contract.contractState.balance, isNot(Fixed.parse('0')));
+      expect(contract.contractState.isDeployed, isTrue);
+    });
   });
 }
