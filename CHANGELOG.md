@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-07-03
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.8.0-dev.14`](#flutter_nekoton_bridge---v180-dev14)
+ - [`flutter_nekoton_bridge_example` - `v1.8.0-dev.14`](#flutter_nekoton_bridge_example---v180-dev14)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.8.0-dev.14`
+
+ - **FIX**: refreshing wallet ([#141](https://github.com/broxus/nekoton_bridge/issues/141)). ([21300c6a](https://github.com/broxus/nekoton_bridge/commit/21300c6a674d23f354d610ae789a4e0284dd3a0a))
+
+#### `flutter_nekoton_bridge_example` - `v1.8.0-dev.14`
+
+ - **FIX**: refreshing wallet ([#141](https://github.com/broxus/nekoton_bridge/issues/141)). ([21300c6a](https://github.com/broxus/nekoton_bridge/commit/21300c6a674d23f354d610ae789a4e0284dd3a0a))
+
+
 ## 2023-06-29
 
 ### Changes

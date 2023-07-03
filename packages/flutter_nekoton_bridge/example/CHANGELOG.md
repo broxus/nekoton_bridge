@@ -1,3 +1,7 @@
+## 1.8.0-dev.14
+
+ - **FIX**: refreshing wallet ([#141](https://github.com/broxus/nekoton_bridge/issues/141)). ([21300c6a](https://github.com/broxus/nekoton_bridge/commit/21300c6a674d23f354d610ae789a4e0284dd3a0a))
+
 ## 1.8.0-dev.13
 
  - **REFACTOR**: add address and public key data classes ([#136](https://github.com/broxus/nekoton_bridge/issues/136)). ([10e8f924](https://github.com/broxus/nekoton_bridge/commit/10e8f924519439c8924557020ed25fa86a98b115))
