@@ -92,10 +92,14 @@ class TokenWallet extends RustToDartMirrorInterface {
   Stream<void> get fieldUpdatesStream => _fieldsUpdateController.stream;
 
   /// Stream that emits data when balance of wallet changes
+  ///
+  /// To update data of this stream, wallet must be refreshed via [refresh].
   Stream<Fixed> get onBalanceChangedStream =>
       _onBalanceChangedController.stream;
 
   /// Stream that emits data when transactions of wallet founds
+  ///
+  /// To update data of this stream, wallet must be refreshed via [refresh].
   Stream<
       Tuple2<List<TransactionWithData<TokenWalletTransaction?>>,
           TransactionsBatchInfo>> get onTransactionsFoundStream =>
@@ -157,15 +161,30 @@ class TokenWallet extends RustToDartMirrorInterface {
       payload: payload,
     );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
-    _updateData();
+    await _updateData();
     return InternalMessage.fromJson(decoded);
   }
 
+  /// Helper flag that allows users avoid multiple refreshes if network is slow
+  /// and their polling method do not support correct updating.
+  bool _isRefreshing = false;
+
   /// Refresh wallet and update its data.
+  ///
+  /// This is a polling method, that sends requests to blockchain over network,
+  /// so it's a good practice to call this method with delay at least 10seconds.
+  ///
   /// May throw error.
   Future<void> refresh() async {
-    await wallet.refresh();
-    _updateData();
+    if (_isRefreshing) return;
+
+    try {
+      _isRefreshing = true;
+      await wallet.refresh();
+      await _updateData();
+    } finally {
+      _isRefreshing = false;
+    }
   }
 
   /// Preload transactions of wallet.
@@ -173,7 +192,7 @@ class TokenWallet extends RustToDartMirrorInterface {
   /// May throw error.
   Future<void> preloadTransactions({required String fromLt}) async {
     await wallet.preloadTransactions(fromLt: fromLt);
-    _updateData();
+    await _updateData();
   }
 
   /// Handle block of blockchain.
@@ -181,7 +200,7 @@ class TokenWallet extends RustToDartMirrorInterface {
   /// May throw error.
   Future<void> handleBlock({required String block}) async {
     await wallet.handleBlock(block: block);
-    _updateData();
+    await _updateData();
   }
 
   /// Get details about token wallet by address of wallet
@@ -260,6 +279,9 @@ class TokenWallet extends RustToDartMirrorInterface {
   }
 
   /// Method that updates all internal data and notify subscribers about it.
+  ///
+  /// !!! This method should be awaited in any internal calls, otherwise
+  /// dispose method after any other method will lead to `Use after free` error.
   Future<void> _updateData() async {
     if (avoidCall) return;
 

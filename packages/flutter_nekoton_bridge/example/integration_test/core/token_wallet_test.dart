@@ -159,5 +159,47 @@ void main() {
       expect(details.item2.version, TokenWalletVersion.tip3);
       expect(details.item2.symbol, 'STEVER');
     });
+
+    testWidgets('TokenWallet refresh', (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      final wallet = await TokenWallet.subscribe(
+        transport: transport,
+        owner: address,
+        rootTokenContract: stEverRootContract,
+      );
+
+      expect(wallet, isNotNull);
+      expect(wallet.owner, address);
+      expect(
+        wallet.address,
+        const Address(
+            address:
+                '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
+      );
+      expect(wallet.contractState.balance, Fixed.parse('61294235'));
+      expect(wallet.symbol.decimals, 9);
+      expect(wallet.symbol.rootTokenContract, stEverRootContract);
+      expect(wallet.symbol.name, 'STEVER');
+      expect(wallet.version, TokenWalletVersion.tip3);
+
+      final fut = expectLater(wallet.fieldUpdatesStream, emits(null));
+      await wallet.refresh();
+      await fut;
+
+      expect(wallet, isNotNull);
+      expect(wallet.owner, address);
+      expect(
+        wallet.address,
+        const Address(
+            address:
+                '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
+      );
+      expect(wallet.contractState.balance, Fixed.parse('61294235'));
+      expect(wallet.symbol.decimals, 9);
+      expect(wallet.symbol.rootTokenContract, stEverRootContract);
+      expect(wallet.symbol.name, 'STEVER');
+      expect(wallet.version, TokenWalletVersion.tip3);
+    });
   });
 }

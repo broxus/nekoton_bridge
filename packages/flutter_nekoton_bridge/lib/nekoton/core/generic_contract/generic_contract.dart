@@ -95,18 +95,26 @@ class GenericContract extends RustToDartMirrorInterface {
   Stream<void> get fieldUpdatesStream => _fieldsUpdateController.stream;
 
   /// Stream that emits data when blockchain founds new transaction
+  ///
+  /// To update data of this stream, contract must be refreshed via [refresh].
   Stream<Tuple2<PendingTransaction, Transaction?>> get onMessageSentStream =>
       _onMessageSentController.stream;
 
   /// Stream that emits data when expired message come to contract
+  ///
+  /// To update data of this stream, contract must be refreshed via [refresh].
   Stream<PendingTransaction> get onMessageExpiredStream =>
       _onMessageExpiredController.stream;
 
   /// Stream that emits data when state of contract changes
+  ///
+  /// To update data of this stream, contract must be refreshed via [refresh].
   Stream<ContractState> get onStateChangedStream =>
       _onStateChangedController.stream;
 
   /// Stream that emits data when transactions of contract founds
+  ///
+  /// To update data of this stream, contract must be refreshed via [refresh].
   Stream<Tuple2<List<Transaction>, TransactionsBatchInfo>>
       get onTransactionsFoundStream => _onTransactionsFoundController.stream;
 
@@ -163,15 +171,30 @@ class GenericContract extends RustToDartMirrorInterface {
     final encoded =
         await contract.send(signedMessage: jsonEncode(signedMessage));
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
-    _updateData();
+    await _updateData();
     return PendingTransaction.fromJson(decoded);
   }
 
+  /// Helper flag that allows users avoid multiple refreshes if network is slow
+  /// and their polling method do not support correct updating.
+  bool _isRefreshing = false;
+
   /// Refresh contract and update its data.
+  ///
+  /// This is a polling method, that sends requests to blockchain over network,
+  /// so it's a good practice to call this method with delay at least 10seconds.
+  ///
   /// May throw error.
   Future<void> refresh() async {
-    await contract.refresh();
-    _updateData();
+    if (_isRefreshing) return;
+
+    try {
+      _isRefreshing = true;
+      await contract.refresh();
+      await _updateData();
+    } finally {
+      _isRefreshing = false;
+    }
   }
 
   /// Preload transactions of contract.
@@ -179,7 +202,7 @@ class GenericContract extends RustToDartMirrorInterface {
   /// May throw error.
   Future<void> preloadTransactions({required String fromLt}) async {
     await contract.preloadTransactions(fromLt: fromLt);
-    _updateData();
+    await _updateData();
   }
 
   /// Handle block of blockchain.
@@ -189,7 +212,7 @@ class GenericContract extends RustToDartMirrorInterface {
     if (avoidCall) return;
 
     await contract.handleBlock(block: block);
-    _updateData();
+    await _updateData();
   }
 
   /// Calls from rust side when message has been sent to blockchain
@@ -238,6 +261,9 @@ class GenericContract extends RustToDartMirrorInterface {
   }
 
   /// Method that updates all internal data and notify subscribers about it.
+  ///
+  /// !!! This method should be awaited in any internal calls, otherwise
+  /// dispose method after any other method will lead to `Use after free` error.
   Future<void> _updateData() async {
     if (avoidCall) return;
 
