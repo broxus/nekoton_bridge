@@ -315,5 +315,32 @@ void main() {
       expect(custodians1, [publicKey]);
       expect(custodians2.length, 3);
     });
+
+    testWidgets('TonWallet refresh', (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      final wallet = await TonWallet.subscribe(
+        transport: transport,
+        workchainId: workchainId,
+        publicKey: publicKey,
+        walletType: walletType,
+      );
+
+      expect(wallet, isNotNull);
+      expect(wallet.address, address);
+      expect(wallet.publicKey, publicKey);
+      expect(wallet.walletType, walletType);
+      expect(wallet.workchain, 0);
+
+      final fut = expectLater(wallet.fieldUpdatesStream, emits(null));
+      await wallet.refresh();
+      await fut;
+
+      expect(wallet, isNotNull);
+      expect(wallet.address, address);
+      expect(wallet.publicKey, publicKey);
+      expect(wallet.walletType, walletType);
+      expect(wallet.workchain, 0);
+    });
   });
 }
