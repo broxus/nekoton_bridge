@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -99,5 +101,39 @@ void main() {
       expect(contract.contractState.balance, isNot(Fixed.parse('0')));
       expect(contract.contractState.isDeployed, isTrue);
     });
+
+    testWidgets(
+      'GenericContract subscribing new instance after disposing old one',
+      (WidgetTester tester) async {
+        await tester.pumpAndSettleWithTimeout();
+
+        for (var i = 0; i < 10; i++) {
+          final completer = Completer<void>();
+
+          // if contract will not create instance for 5 seconds, then some bug here
+          final delaying = Future.delayed(const Duration(seconds: 5), () {
+            if (!completer.isCompleted) {
+              throw Exception('Resubscribe timeout at $i iteration');
+            }
+          });
+
+          final contract = await GenericContract.subscribe(
+            transport: transport,
+            address: address,
+            preloadTransactions: true,
+          );
+
+          expect(contract, isNotNull);
+          expect(contract.address, address);
+          expect(contract.contractState.balance, isNot(Fixed.parse('0')));
+          expect(contract.contractState.isDeployed, isTrue);
+
+          contract.dispose();
+          completer.complete();
+
+          await delaying;
+        }
+      },
+    );
   });
 }

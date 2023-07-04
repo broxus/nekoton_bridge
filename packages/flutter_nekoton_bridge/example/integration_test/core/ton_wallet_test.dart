@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -342,5 +344,40 @@ void main() {
       expect(wallet.walletType, walletType);
       expect(wallet.workchain, 0);
     });
+
+    testWidgets(
+      'TonWallet subscribing new instance after disposing old one',
+      (WidgetTester tester) async {
+        await tester.pumpAndSettleWithTimeout();
+
+        for (var i = 0; i < 10; i++) {
+          final completer = Completer<void>();
+
+          // if wallet will not create instance for 5 seconds, then some bug here
+          final delaying = Future.delayed(const Duration(seconds: 5), () {
+            if (!completer.isCompleted) {
+              throw Exception('Resubscribe timeout at $i iteration');
+            }
+          });
+
+          final wallet = await TonWallet.subscribe(
+            transport: transport,
+            workchainId: workchainId,
+            publicKey: publicKey,
+            walletType: walletType,
+          );
+
+          expect(wallet, isNotNull);
+          expect(wallet.address, address);
+          expect(wallet.publicKey, publicKey);
+          expect(wallet.walletType, walletType);
+          expect(wallet.workchain, 0);
+
+          wallet.dispose();
+          completer.complete();
+          await delaying;
+        }
+      },
+    );
   });
 }

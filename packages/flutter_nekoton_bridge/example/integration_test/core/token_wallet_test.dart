@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -201,5 +203,48 @@ void main() {
       expect(wallet.symbol.name, 'STEVER');
       expect(wallet.version, TokenWalletVersion.tip3);
     });
+
+    testWidgets(
+      'TokenWallet subscribing new instance after disposing old one',
+      (WidgetTester tester) async {
+        await tester.pumpAndSettleWithTimeout();
+
+        for (var i = 0; i < 10; i++) {
+          final completer = Completer<void>();
+
+          // if wallet will not create instance for 5 seconds, then some bug here
+          final delaying = Future.delayed(const Duration(seconds: 5), () {
+            if (!completer.isCompleted) {
+              throw Exception('Resubscribe timeout at $i iteration');
+            }
+          });
+
+          final wallet = await TokenWallet.subscribe(
+            transport: transport,
+            owner: address,
+            rootTokenContract: stEverRootContract,
+          );
+
+          expect(wallet, isNotNull);
+          expect(wallet.owner, address);
+          expect(
+            wallet.address,
+            const Address(
+                address:
+                    '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
+          );
+          expect(wallet.contractState.balance, Fixed.parse('61294235'));
+          expect(wallet.symbol.decimals, 9);
+          expect(wallet.symbol.rootTokenContract, stEverRootContract);
+          expect(wallet.symbol.name, 'STEVER');
+          expect(wallet.version, TokenWalletVersion.tip3);
+
+          wallet.dispose();
+
+          completer.complete();
+          await delaying;
+        }
+      },
+    );
   });
 }
