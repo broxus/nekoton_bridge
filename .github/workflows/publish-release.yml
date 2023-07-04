@@ -3,7 +3,8 @@ name: Publish Release(s)
 on:
   push:
     tags:
-      - "*"
+      - 'nekoton_bridge-v*'
+      - 'flutter_nekoton_bridge-v*'
 
 env:
   CARGO_INCREMENTAL: "1"
