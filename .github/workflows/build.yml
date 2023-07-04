@@ -13,6 +13,9 @@ env:
   CARGO_INCREMENTAL: "1"
 
 jobs:
+  semantic_pull_request:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
+
   # General build, check, and test steps
   build_and_test:
     runs-on: macos-latest
