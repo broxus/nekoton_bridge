@@ -482,15 +482,21 @@ class TonWallet extends RustToDartMirrorInterface {
 
   /// Method that updates all internal data and notify subscribers about it.
   ///
-  /// !!! This method should be awaited in any internal calls, otherwise
-  /// dispose method after any other method will lead to `Use after free` error.
+  /// This method should be awaited in internal calls to be sure, that dart
+  /// instance gets updates in a good way.
+  ///
+  /// This shitty repeated avoidCall needs to avoid `Use after free` when
+  /// method calls after dispose.
   Future<void> _updateData() async {
     if (avoidCall) return;
-
     _contractState = await getContractState();
+    if (avoidCall) return;
     _pendingTransactions = await getPendingTransactions();
+    if (avoidCall) return;
     _pollingMethod = await getPollingMethod();
+    if (avoidCall) return;
     _unconfirmedTransactions = await getUnconfirmedTransactions();
+    if (avoidCall) return;
     _custodians = await getCustodians();
 
     _fieldsUpdateController.add(null);
