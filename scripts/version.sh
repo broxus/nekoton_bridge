@@ -16,4 +16,7 @@ do
     rm packages/flutter_nekoton_bridge/$CMAKE_PLATFORM/*.bak
 done
 
+# Copy readme
+cp -f README.md packages/flutter_nekoton_bridge/README.md
+
 git add packages/flutter_nekoton_bridge/
