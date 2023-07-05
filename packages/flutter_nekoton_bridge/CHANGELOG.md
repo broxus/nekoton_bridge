@@ -1,3 +1,8 @@
+## 1.8.0-dev.15
+
+ - **FIX**: updating data after dispose ([#145](https://github.com/broxus/nekoton_bridge/issues/145)). ([09bc1c9f](https://github.com/broxus/nekoton_bridge/commit/09bc1c9fdaa7af3ec8db86e174a01daeb742bf46))
+ - **FEAT**: add tests for multi-subscribing ([#144](https://github.com/broxus/nekoton_bridge/issues/144)). ([2ae07a99](https://github.com/broxus/nekoton_bridge/commit/2ae07a99a00ad8e2c0c5b3f2a2bff70b6415f0b0))
+
 ## 1.8.0-dev.14
 
  - **FIX**: refreshing wallet ([#141](https://github.com/broxus/nekoton_bridge/issues/141)). ([21300c6a](https://github.com/broxus/nekoton_bridge/commit/21300c6a674d23f354d610ae789a4e0284dd3a0a))
