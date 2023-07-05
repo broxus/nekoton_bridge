@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-07-05
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.8.0-dev.15`](#flutter_nekoton_bridge---v180-dev15)
+ - [`flutter_nekoton_bridge_example` - `v1.8.0-dev.15`](#flutter_nekoton_bridge_example---v180-dev15)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.8.0-dev.15`
+
+ - **FIX**: updating data after dispose ([#145](https://github.com/broxus/nekoton_bridge/issues/145)). ([09bc1c9f](https://github.com/broxus/nekoton_bridge/commit/09bc1c9fdaa7af3ec8db86e174a01daeb742bf46))
+ - **FEAT**: add tests for multi-subscribing ([#144](https://github.com/broxus/nekoton_bridge/issues/144)). ([2ae07a99](https://github.com/broxus/nekoton_bridge/commit/2ae07a99a00ad8e2c0c5b3f2a2bff70b6415f0b0))
+
+#### `flutter_nekoton_bridge_example` - `v1.8.0-dev.15`
+
+ - **FEAT**: add tests for multi-subscribing ([#144](https://github.com/broxus/nekoton_bridge/issues/144)). ([2ae07a99](https://github.com/broxus/nekoton_bridge/commit/2ae07a99a00ad8e2c0c5b3f2a2bff70b6415f0b0))
+
+
 ## 2023-07-03
 
 ### Changes

@@ -1,3 +1,7 @@
+## 1.8.0-dev.15
+
+ - **FEAT**: add tests for multi-subscribing ([#144](https://github.com/broxus/nekoton_bridge/issues/144)). ([2ae07a99](https://github.com/broxus/nekoton_bridge/commit/2ae07a99a00ad8e2c0c5b3f2a2bff70b6415f0b0))
+
 ## 1.8.0-dev.14
 
  - **FIX**: refreshing wallet ([#141](https://github.com/broxus/nekoton_bridge/issues/141)). ([21300c6a](https://github.com/broxus/nekoton_bridge/commit/21300c6a674d23f354d610ae789a4e0284dd3a0a))
