@@ -1,3 +1,7 @@
+## 1.8.1
+
+ - **FIX**: base64 string encoding ([#149](https://github.com/broxus/nekoton_bridge/issues/149)). ([d823283c](https://github.com/broxus/nekoton_bridge/commit/d823283c26dfd61229f2f3bf847af95a0dce104e))
+
 ## 1.8.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.

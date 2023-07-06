@@ -15,6 +15,36 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`nekoton_bridge` - `v1.8.1`](#nekoton_bridge---v181)
+ - [`flutter_nekoton_bridge` - `v1.8.1`](#flutter_nekoton_bridge---v181)
+ - [`flutter_nekoton_bridge_example` - `v1.8.1`](#flutter_nekoton_bridge_example---v181)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge` - `v1.8.1`
+ - `flutter_nekoton_bridge_example` - `v1.8.1`
+
+---
+
+#### `nekoton_bridge` - `v1.8.1`
+
+ - **FIX**: base64 string encoding ([#149](https://github.com/broxus/nekoton_bridge/issues/149)). ([d823283c](https://github.com/broxus/nekoton_bridge/commit/d823283c26dfd61229f2f3bf847af95a0dce104e))
+
+
+## 2023-07-06
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v1.8.0`](#flutter_nekoton_bridge---v180)
  - [`flutter_nekoton_bridge_example` - `v1.8.0`](#flutter_nekoton_bridge_example---v180)
  - [`nekoton_bridge` - `v1.8.0`](#nekoton_bridge---v180)
