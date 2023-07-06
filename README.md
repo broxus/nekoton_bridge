@@ -1,5 +1,6 @@
 # Nekoton bridge for flutter
 
+[![License: AGPLv3][license_badge]][license_link]
 [![Build & Test](https://github.com/broxus/nekoton_bridge/actions/workflows/build.yml/badge.svg)](https://github.com/broxus/nekoton_bridge/actions/workflows/build.yml)
 
 This package based on [flutter_rust_bridge](https://cjycode.com/flutter_rust_bridge) generator.
@@ -8,14 +9,11 @@ This package based on [flutter_rust_bridge](https://cjycode.com/flutter_rust_bri
 
 ### Installation ⚙️
 
-At this moment we don't publish this package to pub.dev, so you should add it to your pubspec.yaml manually as git dependency.:
+Add [flutter_nekoton_bridge][pubdev_link] to your `pubspec.yaml`:
 
 ```yaml
+dependencies:
   flutter_nekoton_bridge:
-    git:
-      url: https://github.com/broxus/nekoton_bridge.git
-      ref: flutter_nekoton_bridge-v1.8.0-dev.9
-      path: packages/flutter_nekoton_bridge
 ```
 
 ### Logger 🪵
@@ -258,3 +256,6 @@ and you will see duplicate. Better to put it inside other files of module and im
 7) If you have problems with implementing `dyn AnyTrait` of nekoton, then you need to make a hack with
    self-wrapped trait with implemented `UnwindSafe + RefUnwindSafe`, see `UnsignedMessageBoxTrait`
 
+[license_badge]: https://img.shields.io/badge/license-AGPLv3-blue.svg
+[license_link]: https://opensource.org/license/agpl-v3/
+[pubdev_link]: https://pub.dev/packages/flutter_nekoton_bridge
