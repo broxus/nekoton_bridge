@@ -3,7 +3,6 @@ name: Publish Release(s)
 on:
   push:
     tags:
-      - 'nekoton_bridge-v*'
       - 'flutter_nekoton_bridge-v*'
 
 env:
@@ -74,6 +73,6 @@ jobs:
           cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
       - uses: bluefireteam/melos-action@v2
       - name: Dry-run publish to pub.dev
-        run: melos publish -y --dry-run
+        run: melos publish -y --dry-run --scope="flutter_nekoton_bridge"
       - name: Publish to pub.dev
-        run: melos publish -y --no-dry-run
+        run: melos publish -y --no-dry-run --scope="flutter_nekoton_bridge"
