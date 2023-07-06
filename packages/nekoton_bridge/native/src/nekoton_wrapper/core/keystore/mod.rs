@@ -501,9 +501,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
             }
         };
 
-        let data = base64::encode(data);
-
-        serde_json::to_string(&data).handle_error()
+        Ok(base64::encode(data))
     }
 
     /// Sign data and return base64-encoded signature or throw error.
