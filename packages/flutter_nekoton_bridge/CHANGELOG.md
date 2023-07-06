@@ -1,3 +1,7 @@
+## 1.8.0
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
 ## 1.8.0-dev.15
 
  - **FIX**: updating data after dispose ([#145](https://github.com/broxus/nekoton_bridge/issues/145)). ([09bc1c9f](https://github.com/broxus/nekoton_bridge/commit/09bc1c9fdaa7af3ec8db86e174a01daeb742bf46))
