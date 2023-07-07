@@ -1,3 +1,7 @@
+## 1.8.2
+
+ - **FIX**: nekoton_block venom feature ([#152](https://github.com/broxus/nekoton_bridge/issues/152)). ([c0001495](https://github.com/broxus/nekoton_bridge/commit/c00014955458db47a5bd2dc9345e3a91219ebec7))
+
 ## 1.8.1
 
  - **FIX**: base64 string encoding ([#149](https://github.com/broxus/nekoton_bridge/issues/149)). ([d823283c](https://github.com/broxus/nekoton_bridge/commit/d823283c26dfd61229f2f3bf847af95a0dce104e))
