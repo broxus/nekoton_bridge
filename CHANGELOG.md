@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-07-07
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.8.2`](#flutter_nekoton_bridge---v182)
+ - [`flutter_nekoton_bridge_example` - `v1.8.2`](#flutter_nekoton_bridge_example---v182)
+ - [`nekoton_bridge` - `v1.8.2`](#nekoton_bridge---v182)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.8.2`
+
+ - **FIX**: nekoton_block venom feature ([#152](https://github.com/broxus/nekoton_bridge/issues/152)). ([c0001495](https://github.com/broxus/nekoton_bridge/commit/c00014955458db47a5bd2dc9345e3a91219ebec7))
+
+#### `flutter_nekoton_bridge_example` - `v1.8.2`
+
+ - **FIX**: nekoton_block venom feature ([#152](https://github.com/broxus/nekoton_bridge/issues/152)). ([c0001495](https://github.com/broxus/nekoton_bridge/commit/c00014955458db47a5bd2dc9345e3a91219ebec7))
+
+#### `nekoton_bridge` - `v1.8.2`
+
+ - **FIX**: nekoton_block venom feature ([#152](https://github.com/broxus/nekoton_bridge/issues/152)). ([c0001495](https://github.com/broxus/nekoton_bridge/commit/c00014955458db47a5bd2dc9345e3a91219ebec7))
+
+
 ## 2023-07-06
 
 ### Changes
