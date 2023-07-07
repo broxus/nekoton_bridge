@@ -30,7 +30,7 @@ nekoton = { git = "https://github.com/broxus/nekoton.git", features = [
 nekoton-abi = { git = "https://github.com/broxus/nekoton.git", rev = "2adcf367ac8d2c6ab04ad35a8bc345b1f9c0d634" }
 nekoton-utils = { git = "https://github.com/broxus/nekoton.git", rev = "2adcf367ac8d2c6ab04ad35a8bc345b1f9c0d634" }
 ton_abi = { git = "https://github.com/broxus/ton-labs-abi" }
-ton_block = { git = "https://github.com/broxus/ton-labs-block.git" }
+ton_block = { git = "https://github.com/broxus/ton-labs-block.git", features = ["venom"] }
 ton_types = { git = "https://github.com/broxus/ton-labs-types.git" }
 
 base64 = "0.13"

@@ -86,6 +86,27 @@ void main() {
       expect(signature, isNull);
     });
 
+    testWidgets('JrpcTransport getSignatureId venom ',
+        (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      await initRustToDartCaller();
+      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/rpc';
+
+      final connection = await JrpcConnection.create(
+        post: postTransportData,
+        settings: const JrpcNetworkSettings(endpoint: venomEndpoint),
+        name: 'Testnet Venom',
+        group: 'testnet',
+        networkId: 1010,
+      );
+      final transport = await JrpcTransport.create(jrpcConnection: connection);
+
+      final signature = await transport.getSignatureId();
+
+      expect(signature, 1000);
+    });
+
     testWidgets('JrpcTransport getTransactions ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
@@ -226,6 +247,24 @@ void main() {
       final transport = await JrpcTransport.create(jrpcConnection: connection);
       final id = await transport.getNetworkId();
       expect(id, 42);
+    });
+
+    testWidgets('JrpcTransport getNetworkId venom ',
+        (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+      await initRustToDartCaller();
+      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/rpc';
+
+      final connection = await JrpcConnection.create(
+        post: postTransportData,
+        settings: const JrpcNetworkSettings(endpoint: venomEndpoint),
+        name: 'Testnet Venom',
+        group: 'testnet',
+        networkId: 1010,
+      );
+      final transport = await JrpcTransport.create(jrpcConnection: connection);
+      final id = await transport.getNetworkId();
+      expect(id, 1000);
     });
   });
 }
