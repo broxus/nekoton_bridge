@@ -5,7 +5,7 @@ part 'on_balance_changed_payload.freezed.dart';
 part 'on_balance_changed_payload.g.dart';
 
 @freezed
-class OnBalanceChangedPayload with _$OnBalanceChangedPayload {
+sealed class OnBalanceChangedPayload with _$OnBalanceChangedPayload {
   const factory OnBalanceChangedPayload({
     @amountJsonConverter required final Fixed balance,
   }) = _OnBalanceChangedPayload;

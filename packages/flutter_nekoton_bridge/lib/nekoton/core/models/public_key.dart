@@ -5,7 +5,7 @@ part 'public_key.freezed.dart';
 @Freezed(fromJson: false, toJson: false)
 
 /// Public key of the account
-class PublicKey with _$PublicKey {
+sealed class PublicKey with _$PublicKey {
   const PublicKey._();
 
   const factory PublicKey({

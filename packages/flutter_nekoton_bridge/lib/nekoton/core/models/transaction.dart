@@ -8,7 +8,7 @@ part 'transaction.freezed.dart';
 part 'transaction.g.dart';
 
 @freezed
-class Transaction with _$Transaction implements Comparable<Transaction> {
+sealed class Transaction with _$Transaction implements Comparable<Transaction> {
   const factory Transaction({
     required final TransactionId id,
     final TransactionId? prevTransactionId,

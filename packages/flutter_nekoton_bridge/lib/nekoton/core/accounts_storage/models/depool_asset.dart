@@ -5,7 +5,7 @@ part 'depool_asset.freezed.dart';
 part 'depool_asset.g.dart';
 
 @freezed
-class DePoolAsset with _$DePoolAsset {
+sealed class DePoolAsset with _$DePoolAsset {
   const factory DePoolAsset({
     required final Address address,
   }) = _DePoolAsset;

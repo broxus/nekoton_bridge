@@ -6,7 +6,7 @@ part 'existing_contract.freezed.dart';
 part 'existing_contract.g.dart';
 
 @freezed
-class ExistingContract with _$ExistingContract {
+sealed class ExistingContract with _$ExistingContract {
   const factory ExistingContract({
     required final String account,
     required final GenTimings timings,

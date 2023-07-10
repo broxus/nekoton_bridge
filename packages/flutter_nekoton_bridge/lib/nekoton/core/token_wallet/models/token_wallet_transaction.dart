@@ -7,7 +7,7 @@ part 'token_wallet_transaction.freezed.dart';
 part 'token_wallet_transaction.g.dart';
 
 @Freezed(unionKey: 'type', unionValueCase: FreezedUnionCase.snake)
-class TokenWalletTransaction with _$TokenWalletTransaction {
+sealed class TokenWalletTransaction with _$TokenWalletTransaction {
   const factory TokenWalletTransaction.incomingTransfer(
       final TokenIncomingTransfer data) = _IncomingTransfer;
 

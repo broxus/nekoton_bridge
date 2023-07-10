@@ -6,7 +6,7 @@ part 'encrypted_key_get_public_keys.freezed.dart';
 part 'encrypted_key_get_public_keys.g.dart';
 
 @freezed
-class EncryptedKeyGetPublicKeys
+sealed class EncryptedKeyGetPublicKeys
     with _$EncryptedKeyGetPublicKeys
     implements GetPublicKeys {
   @JsonSerializable(fieldRename: FieldRename.snake)

@@ -5,7 +5,7 @@ part 'ton_wallet_details.freezed.dart';
 part 'ton_wallet_details.g.dart';
 
 @freezed
-class TonWalletDetails with _$TonWalletDetails {
+sealed class TonWalletDetails with _$TonWalletDetails {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory TonWalletDetails({
     required final bool requiresSeparateDeploy,

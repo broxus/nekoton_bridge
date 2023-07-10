@@ -5,7 +5,7 @@ part 'decoded_transaction.freezed.dart';
 part 'decoded_transaction.g.dart';
 
 @freezed
-class DecodedTransaction with _$DecodedTransaction {
+sealed class DecodedTransaction with _$DecodedTransaction {
   const factory DecodedTransaction({
     required final String method,
     required final TokensObject input,

@@ -8,7 +8,7 @@ part 'transaction_additional_info.freezed.dart';
 part 'transaction_additional_info.g.dart';
 
 @Freezed(unionKey: 'type', unionValueCase: FreezedUnionCase.snake)
-class TransactionAdditionalInfo with _$TransactionAdditionalInfo {
+sealed class TransactionAdditionalInfo with _$TransactionAdditionalInfo {
   const factory TransactionAdditionalInfo.comment(final String data) = _Comment;
 
   const factory TransactionAdditionalInfo.dePoolOnRoundComplete(

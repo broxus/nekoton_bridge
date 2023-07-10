@@ -1870,7 +1870,7 @@ class DynamicNamedValue {
 }
 
 @freezed
-class DynamicValue with _$DynamicValue {
+sealed class DynamicValue with _$DynamicValue {
   const factory DynamicValue.u16(
     int field0,
   ) = DynamicValue_U16;
@@ -2266,7 +2266,7 @@ class JrpcTransportImpl {
 }
 
 @freezed
-class KeySigner with _$KeySigner {
+sealed class KeySigner with _$KeySigner {
   const factory KeySigner.encrypted() = KeySigner_Encrypted;
   const factory KeySigner.derived() = KeySigner_Derived;
   const factory KeySigner.ledger() = KeySigner_Ledger;
@@ -2588,7 +2588,7 @@ enum LogLevel {
 }
 
 @freezed
-class MnemonicType with _$MnemonicType {
+sealed class MnemonicType with _$MnemonicType {
   const factory MnemonicType.legacy() = MnemonicType_Legacy;
   const factory MnemonicType.labs(
     int field0,

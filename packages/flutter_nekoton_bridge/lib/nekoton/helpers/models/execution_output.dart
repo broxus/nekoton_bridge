@@ -5,7 +5,7 @@ part 'execution_output.freezed.dart';
 part 'execution_output.g.dart';
 
 @freezed
-class ExecutionOutput with _$ExecutionOutput {
+sealed class ExecutionOutput with _$ExecutionOutput {
   const factory ExecutionOutput({
     @JsonKey(includeIfNull: false) final TokensObject? output,
     required final int code,

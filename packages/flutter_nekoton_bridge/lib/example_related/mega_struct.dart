@@ -8,7 +8,7 @@ part 'mega_struct.g.dart';
 // TODO: remove this class as it is a non-integration test related thing
 
 @freezed
-class Coords with _$Coords {
+sealed class Coords with _$Coords {
   const factory Coords({
     required double x,
     required double y,
@@ -19,7 +19,7 @@ class Coords with _$Coords {
 }
 
 @freezed
-class MegaStruct with _$MegaStruct {
+sealed class MegaStruct with _$MegaStruct {
   const factory MegaStruct({
     required String name,
     required Coords coords,

@@ -7,7 +7,7 @@ part 'derived_key_update_params.freezed.dart';
 part 'derived_key_update_params.g.dart';
 
 @Freezed(unionKey: 'type', unionValueCase: FreezedUnionCase.snake)
-class DerivedKeyUpdateParams
+sealed class DerivedKeyUpdateParams
     with _$DerivedKeyUpdateParams
     implements UpdateKeyInput {
   const factory DerivedKeyUpdateParams.renameKey(

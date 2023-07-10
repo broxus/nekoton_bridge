@@ -5,7 +5,7 @@ part 'expiration.freezed.dart';
 part 'expiration.g.dart';
 
 @Freezed(unionKey: 'type')
-class Expiration with _$Expiration {
+sealed class Expiration with _$Expiration {
   const factory Expiration.never() = _Never;
 
   /// In seconds

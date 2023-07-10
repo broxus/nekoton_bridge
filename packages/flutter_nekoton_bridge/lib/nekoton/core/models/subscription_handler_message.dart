@@ -4,7 +4,7 @@ part 'subscription_handler_message.freezed.dart';
 part 'subscription_handler_message.g.dart';
 
 @freezed
-class SubscriptionHandlerMessage with _$SubscriptionHandlerMessage {
+sealed class SubscriptionHandlerMessage with _$SubscriptionHandlerMessage {
   const factory SubscriptionHandlerMessage({
     required final String event,
     required final String payload,

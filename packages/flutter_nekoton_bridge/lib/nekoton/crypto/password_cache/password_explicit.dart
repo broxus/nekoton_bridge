@@ -5,7 +5,7 @@ part 'password_explicit.freezed.dart';
 part 'password_explicit.g.dart';
 
 @freezed
-class PasswordExplicit with _$PasswordExplicit {
+sealed class PasswordExplicit with _$PasswordExplicit {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory PasswordExplicit({
     required final String password,

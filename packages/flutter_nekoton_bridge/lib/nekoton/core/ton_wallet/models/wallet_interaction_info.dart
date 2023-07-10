@@ -6,7 +6,7 @@ part 'wallet_interaction_info.freezed.dart';
 part 'wallet_interaction_info.g.dart';
 
 @freezed
-class WalletInteractionInfo with _$WalletInteractionInfo {
+sealed class WalletInteractionInfo with _$WalletInteractionInfo {
   const factory WalletInteractionInfo({
     @JsonKey(includeIfNull: false) final String? recipient,
     @JsonKey(includeIfNull: false) final KnownPayload? knownPayload,

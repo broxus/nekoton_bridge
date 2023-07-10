@@ -6,7 +6,7 @@ part 'derived_key_update_params_change_password.freezed.dart';
 part 'derived_key_update_params_change_password.g.dart';
 
 @freezed
-class DerivedKeyUpdateParamsChangePassword
+sealed class DerivedKeyUpdateParamsChangePassword
     with _$DerivedKeyUpdateParamsChangePassword {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory DerivedKeyUpdateParamsChangePassword({

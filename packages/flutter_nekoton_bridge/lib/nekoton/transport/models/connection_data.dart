@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'connection_data.freezed.dart';
 
 @freezed
-class ConnectionData with _$ConnectionData {
+sealed class ConnectionData with _$ConnectionData {
   const factory ConnectionData({
     required final String name,
     required final int networkId,

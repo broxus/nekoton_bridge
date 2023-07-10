@@ -7,7 +7,7 @@ part 'ledger_sign_input.freezed.dart';
 part 'ledger_sign_input.g.dart';
 
 @freezed
-class LedgerSignInput with _$LedgerSignInput implements SignInput {
+sealed class LedgerSignInput with _$LedgerSignInput implements SignInput {
   const factory LedgerSignInput({
     required final PublicKey publicKey,
     final LedgerSignatureContext? context,

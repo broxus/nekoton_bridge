@@ -4,7 +4,7 @@ part 'de_pool_on_round_complete_notification.freezed.dart';
 part 'de_pool_on_round_complete_notification.g.dart';
 
 @freezed
-class DePoolOnRoundCompleteNotification
+sealed class DePoolOnRoundCompleteNotification
     with _$DePoolOnRoundCompleteNotification {
   const factory DePoolOnRoundCompleteNotification({
     required final String roundId,

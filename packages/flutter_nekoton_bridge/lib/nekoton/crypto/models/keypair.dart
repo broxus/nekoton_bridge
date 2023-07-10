@@ -5,7 +5,7 @@ part 'keypair.freezed.dart';
 part 'keypair.g.dart';
 
 @freezed
-class Keypair with _$Keypair {
+sealed class Keypair with _$Keypair {
   const factory Keypair({
     required final PublicKey public,
     required final PublicKey secret,

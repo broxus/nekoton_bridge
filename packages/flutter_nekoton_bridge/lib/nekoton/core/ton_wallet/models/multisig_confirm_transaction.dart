@@ -4,7 +4,7 @@ part 'multisig_confirm_transaction.freezed.dart';
 part 'multisig_confirm_transaction.g.dart';
 
 @freezed
-class MultisigConfirmTransaction with _$MultisigConfirmTransaction {
+sealed class MultisigConfirmTransaction with _$MultisigConfirmTransaction {
   const factory MultisigConfirmTransaction({
     required final String custodian,
     required final String transactionId,

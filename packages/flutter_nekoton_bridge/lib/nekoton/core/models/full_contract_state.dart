@@ -6,7 +6,7 @@ part 'full_contract_state.freezed.dart';
 part 'full_contract_state.g.dart';
 
 @freezed
-class FullContractState with _$FullContractState {
+sealed class FullContractState with _$FullContractState {
   const factory FullContractState({
     @amountJsonConverter required final Fixed balance,
     required final GenTimings genTimings,

@@ -9,7 +9,7 @@ part 'derived_key_create_input.g.dart';
 
 /// Input for creating labs key
 @Freezed(unionKey: 'type')
-class DerivedKeyCreateInput
+sealed class DerivedKeyCreateInput
     with _$DerivedKeyCreateInput
     implements CreateKeyInput {
   /// Create new labs key

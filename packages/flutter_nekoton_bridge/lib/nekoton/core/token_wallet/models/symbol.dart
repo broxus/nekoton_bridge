@@ -5,7 +5,7 @@ part 'symbol.freezed.dart';
 part 'symbol.g.dart';
 
 @freezed
-class Symbol with _$Symbol {
+sealed class Symbol with _$Symbol {
   const factory Symbol({
     required final String name,
     required final String fullName,

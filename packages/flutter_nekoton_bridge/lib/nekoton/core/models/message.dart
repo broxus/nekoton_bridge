@@ -6,7 +6,7 @@ part 'message.freezed.dart';
 part 'message.g.dart';
 
 @freezed
-class Message with _$Message {
+sealed class Message with _$Message {
   const factory Message({
     required final String hash,
     final String? src,

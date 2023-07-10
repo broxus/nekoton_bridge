@@ -7,7 +7,7 @@ part 'multisig_transaction.freezed.dart';
 part 'multisig_transaction.g.dart';
 
 @Freezed(unionKey: 'type')
-class MultisigTransaction with _$MultisigTransaction {
+sealed class MultisigTransaction with _$MultisigTransaction {
   const factory MultisigTransaction.send(final MultisigSendTransaction data) =
       _Send;
 

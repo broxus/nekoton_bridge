@@ -6,7 +6,7 @@ part 'additional_assets.freezed.dart';
 part 'additional_assets.g.dart';
 
 @freezed
-class AdditionalAssets with _$AdditionalAssets {
+sealed class AdditionalAssets with _$AdditionalAssets {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory AdditionalAssets({
     required final List<TokenWalletAsset> tokenWallets,

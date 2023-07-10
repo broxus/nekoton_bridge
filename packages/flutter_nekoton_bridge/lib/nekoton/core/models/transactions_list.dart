@@ -7,7 +7,7 @@ part 'transactions_list.freezed.dart';
 part 'transactions_list.g.dart';
 
 @freezed
-class TransactionsList with _$TransactionsList {
+sealed class TransactionsList with _$TransactionsList {
   const factory TransactionsList({
     required final List<Transaction> transactions,
     @JsonKey(includeIfNull: false) final TransactionId? continuation,

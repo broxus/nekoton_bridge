@@ -5,7 +5,7 @@ part 'address.freezed.dart';
 @Freezed(fromJson: false, toJson: false)
 
 /// Blockchain address
-class Address with _$Address {
+sealed class Address with _$Address {
   const Address._();
 
   const factory Address({
