@@ -21,7 +21,10 @@ AssetsList _$AssetsListFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AssetsList {
   String get name => throw _privateConstructorUsedError;
-  TonWalletAsset get tonWallet => throw _privateConstructorUsedError;
+  TonWalletAsset get tonWallet =>
+      throw _privateConstructorUsedError; // List of Token assets that are owned by this wallet.
+// key - should be <Transport.group>, value - list of tokens.
+// key will be specified from <AccountsStorage.addTokenWallet> method
   Map<String, AdditionalAssets> get additionalAssets =>
       throw _privateConstructorUsedError;
 
@@ -153,7 +156,13 @@ class _$_AssetsList extends _AssetsList {
   final String name;
   @override
   final TonWalletAsset tonWallet;
+// List of Token assets that are owned by this wallet.
+// key - should be <Transport.group>, value - list of tokens.
+// key will be specified from <AccountsStorage.addTokenWallet> method
   final Map<String, AdditionalAssets> _additionalAssets;
+// List of Token assets that are owned by this wallet.
+// key - should be <Transport.group>, value - list of tokens.
+// key will be specified from <AccountsStorage.addTokenWallet> method
   @override
   Map<String, AdditionalAssets> get additionalAssets {
     if (_additionalAssets is EqualUnmodifiableMapView) return _additionalAssets;
@@ -212,7 +221,9 @@ abstract class _AssetsList extends AssetsList {
   String get name;
   @override
   TonWalletAsset get tonWallet;
-  @override
+  @override // List of Token assets that are owned by this wallet.
+// key - should be <Transport.group>, value - list of tokens.
+// key will be specified from <AccountsStorage.addTokenWallet> method
   Map<String, AdditionalAssets> get additionalAssets;
   @override
   @JsonKey(ignore: true)
