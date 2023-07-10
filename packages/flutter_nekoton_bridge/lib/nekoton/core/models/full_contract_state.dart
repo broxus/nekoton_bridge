@@ -10,10 +10,8 @@ class FullContractState with _$FullContractState {
   const factory FullContractState({
     @amountJsonConverter required final Fixed balance,
     required final GenTimings genTimings,
-    final LastTransactionId? lastTransactionId,
-    required final bool isDeployed,
+    required final bool isDeployed, required final String boc, final LastTransactionId? lastTransactionId,
     final String? codeHash,
-    required final String boc,
   }) = _FullContractState;
 
   factory FullContractState.fromJson(Map<String, dynamic> json) =>

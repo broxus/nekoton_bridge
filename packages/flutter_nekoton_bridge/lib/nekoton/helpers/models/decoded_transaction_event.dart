@@ -1,6 +1,5 @@
+import 'package:flutter_nekoton_bridge/nekoton/helpers/models/tokens_object.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import 'tokens_object.dart';
 
 part 'decoded_transaction_event.freezed.dart';
 part 'decoded_transaction_event.g.dart';

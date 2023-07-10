@@ -4,13 +4,13 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
 /// Wrapper above nekoton's UnsignedMessage
 class UnsignedMessage {
+
+  UnsignedMessage._(this.message);
   late UnsignedMessageImpl message;
 
   /// Values that do not change
   late String hash;
   late int expireAt;
-
-  UnsignedMessage._(this.message);
 
   /// Create wrapper for nekoton's UnsignedMessage with suitable returns values
   /// of some methods.

@@ -1,2 +1,4 @@
-include: ../flutter_nekoton_bridge/analysis_options.yaml
-
+include: package:broxus_flutter_analysis/analysis_options.yaml
+analyzer:
+  exclude:
+    - '**.reflectable.dart'

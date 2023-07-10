@@ -8,11 +8,7 @@ part 'internal_message.g.dart';
 @freezed
 class InternalMessage with _$InternalMessage {
   factory InternalMessage({
-    final String? source,
-    required final String destination,
-    @amountJsonConverter required final Fixed amount,
-    required final bool bounce,
-    required final String body,
+    required final String destination, @amountJsonConverter required final Fixed amount, required final bool bounce, required final String body, final String? source,
   }) = _InternalMessage;
 
   factory InternalMessage.fromJson(Map<String, dynamic> json) =>

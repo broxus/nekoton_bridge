@@ -3,9 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:integration_test/integration_test.dart';
-
 import 'package:http/http.dart' as http;
+import 'package:integration_test/integration_test.dart';
 
 import '../timeout_utils.dart';
 
@@ -33,17 +32,17 @@ void main() {
 
   const stEverRootContract = Address(
       address:
-          '0:6d42d0bc4a6568120ea88bf642edb653d727cfbd35868c47877532de128e71f2');
+          '0:6d42d0bc4a6568120ea88bf642edb653d727cfbd35868c47877532de128e71f2',);
   const address = Address(
       address:
-          '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2');
+          '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2',);
 
   const jrpcSettings = JrpcNetworkSettings(endpoint: endpoint);
   late JrpcTransport transport;
 
   setUp(() async {
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
-    setupLogger(
+    await setupLogger(
       level: LogLevel.Trace,
       mobileLogger: false,
       logHandler: (logEntry) => debugPrint(
@@ -81,7 +80,7 @@ void main() {
         wallet.address,
         const Address(
             address:
-                '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
+                '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01',),
       );
       expect(wallet.contractState.balance, Fixed.parse('61294235'));
       expect(wallet.symbol.decimals, 9);
@@ -124,7 +123,7 @@ void main() {
         transport: transport,
         address: const Address(
             address:
-                '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
+                '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01',),
       );
 
       expect(details.item1.balance, Fixed.parse('0'));
@@ -134,7 +133,7 @@ void main() {
         details.item2.ownerAddress,
         const Address(
             address:
-                '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68'),
+                '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68',),
       );
       expect(details.item2.version, TokenWalletVersion.tip3);
       expect(details.item2.symbol, 'STEVER');
@@ -148,7 +147,7 @@ void main() {
         transport: transport,
         address: const Address(
             address:
-                '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
+                '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01',),
       );
 
       expect(details.item1, stEverRootContract);
@@ -156,7 +155,7 @@ void main() {
         details.item2.ownerAddress,
         const Address(
             address:
-                '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68'),
+                '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68',),
       );
       expect(details.item2.version, TokenWalletVersion.tip3);
       expect(details.item2.symbol, 'STEVER');
@@ -177,7 +176,7 @@ void main() {
         wallet.address,
         const Address(
             address:
-                '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
+                '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01',),
       );
       expect(wallet.contractState.balance, Fixed.parse('61294235'));
       expect(wallet.symbol.decimals, 9);
@@ -195,7 +194,7 @@ void main() {
         wallet.address,
         const Address(
             address:
-                '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
+                '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01',),
       );
       expect(wallet.contractState.balance, Fixed.parse('61294235'));
       expect(wallet.symbol.decimals, 9);
@@ -231,7 +230,7 @@ void main() {
             wallet.address,
             const Address(
                 address:
-                    '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
+                    '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01',),
           );
           expect(wallet.contractState.balance, Fixed.parse('61294235'));
           expect(wallet.symbol.decimals, 9);

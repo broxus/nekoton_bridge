@@ -1,6 +1,6 @@
 import 'package:flutter_nekoton_bridge/nekoton/core/models/models_lib.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/crypto/models/encryption_algorithm.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'encrypted_data.freezed.dart';
 part 'encrypted_data.g.dart';

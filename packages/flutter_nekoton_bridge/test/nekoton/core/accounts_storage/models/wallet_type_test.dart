@@ -33,7 +33,7 @@ void main() {
       );
       expect(
         WalletType.fromJson(
-            {'data': 'SafeMultisigWallet24h', 'type': 'multisig'}),
+            {'data': 'SafeMultisigWallet24h', 'type': 'multisig'},),
         const WalletType.multisig(MultisigType.safeMultisigWallet24h),
       );
       expect(

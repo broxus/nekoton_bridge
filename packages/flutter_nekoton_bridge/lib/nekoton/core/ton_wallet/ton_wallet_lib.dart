@@ -1,4 +1,3 @@
-export 'ton_wallet.dart' hide main;
 export 'models/de_pool_on_round_complete_notification.dart';
 export 'models/de_pool_receive_answer_notification.dart';
 export 'models/existing_wallet_info.dart';
@@ -14,3 +13,4 @@ export 'models/ton_wallet_transaction_with_data.dart';
 export 'models/transaction_additional_info.dart';
 export 'models/wallet_interaction_info.dart';
 export 'models/wallet_interaction_method.dart';
+export 'ton_wallet.dart' hide main;

@@ -1,8 +1,7 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/core/accounts_storage/models/multisig_type.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'wallet_type.freezed.dart';
-
 part 'wallet_type.g.dart';
 
 @Freezed(unionKey: 'type')

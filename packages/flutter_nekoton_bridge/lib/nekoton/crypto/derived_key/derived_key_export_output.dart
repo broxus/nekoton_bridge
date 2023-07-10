@@ -1,5 +1,5 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/crypto/models/export_key_output.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'derived_key_export_output.freezed.dart';
 part 'derived_key_export_output.g.dart';

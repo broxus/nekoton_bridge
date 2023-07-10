@@ -9,8 +9,7 @@ class PendingTransaction
     implements Comparable<PendingTransaction> {
   const factory PendingTransaction({
     required final String messageHash,
-    final String? src,
-    required final int expireAt,
+    required final int expireAt, final String? src,
   }) = _PendingTransaction;
 
   factory PendingTransaction.fromJson(Map<String, dynamic> json) =>

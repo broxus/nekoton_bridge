@@ -3,9 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:integration_test/integration_test.dart';
-
 import 'package:http/http.dart' as http;
+import 'package:integration_test/integration_test.dart';
 
 import '../timeout_utils.dart';
 
@@ -63,13 +62,13 @@ void main() {
 
   const stEverContractVault = Address(
       address:
-          '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68');
+          '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68',);
   const publicKey = PublicKey(
       publicKey:
-          'ad158ac64c5deff5abd4d5e86a81d954716445c45e31f17a9dfe780f9cef7602');
+          'ad158ac64c5deff5abd4d5e86a81d954716445c45e31f17a9dfe780f9cef7602',);
   const address = Address(
       address:
-          '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2');
+          '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2',);
   const workchainId = 0;
   const walletType = WalletType.walletV3();
   const expiration = Expiration.timeout(60);
@@ -79,7 +78,7 @@ void main() {
 
   setUp(() async {
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
-    setupLogger(
+    await setupLogger(
       level: LogLevel.Trace,
       mobileLogger: false,
       logHandler: (logEntry) => debugPrint(
@@ -310,7 +309,7 @@ void main() {
         transport: transport,
         address: const Address(
             address:
-                '0:91b689ad990660249eb00140577e6a98d70043ccaa7f63acfc0436336bdbd80f'),
+                '0:91b689ad990660249eb00140577e6a98d70043ccaa7f63acfc0436336bdbd80f',),
       );
 
       /// For not multisig wallet custodians contains public key of wallet

@@ -160,7 +160,7 @@ void main() {
       final cryptoCrate = nekotonCrate.subModules['crypto']!;
       expect(cryptoCrate.subModules.length, 0);
       expect(cryptoCrate.directImports,
-          {'dict', 'derive_from_phrase', 'generate_key'});
+          {'dict', 'derive_from_phrase', 'generate_key'},);
       expect(cryptoCrate.moduleName, 'crypto');
     });
 

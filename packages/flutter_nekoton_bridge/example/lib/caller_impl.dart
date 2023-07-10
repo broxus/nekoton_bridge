@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_nekoton_bridge/example_related/mega_struct.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart'
     as flutter_nekoton_bridge;
-import 'package:flutter_nekoton_bridge/example_related/mega_struct.dart';
 
 class CallerImpl extends flutter_nekoton_bridge.AbstractCaller {
   // TODO: remove all non-integration test related things FROM here
   @override
   String func0(String string, int i, double d,
-      {required int arg0, required double arg1}) {
+      {required int arg0, required double arg1,}) {
     debugPrint('Call: func0: $string $i $d $arg0 $arg1');
 
     return 'Return: Call: func0: $string $i $d $arg0 $arg1';
@@ -37,9 +37,9 @@ class CallerImpl extends flutter_nekoton_bridge.AbstractCaller {
         props: {
           ...megaStruct.props,
           ...{'KeyFromDart': 'ValFromDart'},
-        });
+        },);
     return flutter_nekoton_bridge.DynamicValueConvert.megaStruct(
-        toSendDynamicValue);
+        toSendDynamicValue,);
   }
   // TODO: remove all non-integration test related things TO here
 

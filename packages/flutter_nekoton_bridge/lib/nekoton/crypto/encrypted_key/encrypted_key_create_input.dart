@@ -11,10 +11,7 @@ class EncryptedKeyCreateInput
     with _$EncryptedKeyCreateInput
     implements CreateKeyInput {
   factory EncryptedKeyCreateInput({
-    final String? name,
-    required final String phrase,
-    @mnemonicJsonConverter required final MnemonicType mnemonicType,
-    required final Password password,
+    required final String phrase, @mnemonicJsonConverter required final MnemonicType mnemonicType, required final Password password, final String? name,
   }) = _EncryptedKeyCreateInput;
 
   factory EncryptedKeyCreateInput.fromJson(Map<String, dynamic> json) =>

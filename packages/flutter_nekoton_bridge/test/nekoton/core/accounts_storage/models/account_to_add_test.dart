@@ -15,7 +15,6 @@ void main() {
         publicKey: publicKey,
         contract: contract,
         workchain: workchain,
-        explicitAddress: explicitAddress,
       );
 
       expect(c.toJson(), {
@@ -33,7 +32,6 @@ void main() {
         publicKey: publicKey,
         contract: contract,
         workchain: workchain,
-        explicitAddress: explicitAddress,
       );
 
       expect(

@@ -1,7 +1,7 @@
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:flutter_nekoton_bridge/nekoton/external/storage.reflectable.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/mirrors.dart';
-import 'storage.reflectable.dart';
 
 typedef StorageGet = Future<String?> Function(String key);
 
@@ -21,13 +21,6 @@ typedef StorageRemoveUnchecked = void Function(String key);
 
 @reflector
 class Storage extends RustToDartMirrorInterface {
-  late StorageDartWrapper storage;
-
-  final StorageGet _get;
-  final StorageSet _set;
-  final StorageSetUnchecked _setUnchecked;
-  final StorageRemove _remove;
-  final StorageRemoveUnchecked _removeUnchecked;
 
   Storage._(
     this._get,
@@ -36,6 +29,13 @@ class Storage extends RustToDartMirrorInterface {
     this._remove,
     this._removeUnchecked,
   );
+  late StorageDartWrapper storage;
+
+  final StorageGet _get;
+  final StorageSet _set;
+  final StorageSetUnchecked _setUnchecked;
+  final StorageRemove _remove;
+  final StorageRemoveUnchecked _removeUnchecked;
 
   static Future<Storage> create({
     required StorageGet get,

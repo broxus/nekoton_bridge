@@ -1,4 +1,3 @@
-export 'token_wallet.dart' hide main;
 export 'models/on_balance_changed_payload.dart';
 export 'models/root_token_contract_details.dart';
 export 'models/symbol.dart';
@@ -10,3 +9,4 @@ export 'models/token_wallet_transaction.dart';
 export 'models/token_wallet_transaction_with_data.dart';
 export 'models/token_wallet_version.dart';
 export 'models/transfer_recipient.dart';
+export 'token_wallet.dart' hide main;

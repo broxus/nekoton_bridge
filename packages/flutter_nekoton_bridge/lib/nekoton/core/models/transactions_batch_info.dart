@@ -1,5 +1,5 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/core/models/transactions_batch_type.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'transactions_batch_info.freezed.dart';
 part 'transactions_batch_info.g.dart';

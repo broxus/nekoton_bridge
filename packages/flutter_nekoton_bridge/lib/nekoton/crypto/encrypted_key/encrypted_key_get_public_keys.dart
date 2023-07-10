@@ -1,6 +1,6 @@
 import 'package:flutter_nekoton_bridge/nekoton/core/models/models_lib.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/crypto/models/get_public_keys.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'encrypted_key_get_public_keys.freezed.dart';
 part 'encrypted_key_get_public_keys.g.dart';

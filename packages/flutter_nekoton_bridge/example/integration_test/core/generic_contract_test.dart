@@ -3,9 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:integration_test/integration_test.dart';
-
 import 'package:http/http.dart' as http;
+import 'package:integration_test/integration_test.dart';
 
 import '../timeout_utils.dart';
 
@@ -33,14 +32,14 @@ void main() {
 
   const address = Address(
       address:
-          '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2');
+          '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2',);
 
   const jrpcSettings = JrpcNetworkSettings(endpoint: endpoint);
   late JrpcTransport transport;
 
   setUp(() async {
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
-    setupLogger(
+    await setupLogger(
       level: LogLevel.Trace,
       mobileLogger: false,
       logHandler: (logEntry) => debugPrint(

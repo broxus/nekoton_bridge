@@ -1,11 +1,12 @@
 import 'dart:async';
+
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:flutter_nekoton_bridge/nekoton/external/ledger_connection.reflectable.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/mirrors.dart';
-import 'ledger_connection.reflectable.dart';
 
 typedef LedgerConnectionGetPublicKey = Future<PublicKey> Function(
-    int accountId);
+    int accountId,);
 
 typedef LedgerConnectionSign = Future<String> Function({
   required int account,
@@ -16,17 +17,17 @@ typedef LedgerConnectionSign = Future<String> Function({
 
 @reflector
 class LedgerConnection extends RustToDartMirrorInterface {
+
+  LedgerConnection._(
+    this._getPublicKey,
+    this._connectionSign,
+  );
   late LedgerConnectionDartWrapper connection;
 
   final LedgerConnectionGetPublicKey _getPublicKey;
 
   // ignore: unused_field
   final LedgerConnectionSign _connectionSign;
-
-  LedgerConnection._(
-    this._getPublicKey,
-    this._connectionSign,
-  );
 
   static Future<LedgerConnection> create({
     required LedgerConnectionGetPublicKey getPublicKey,

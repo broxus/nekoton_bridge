@@ -1,15 +1,15 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_nekoton_bridge/example_related/caller_wrapper.reflectable.dart';
+import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/reflectable.dart';
-import '../flutter_nekoton_bridge.dart';
-import 'caller_wrapper.reflectable.dart';
 
 @reflector
 class CallerWrapper extends RustToDartMirrorInterface {
-  final AbstractCaller caller;
 
   /// Override
   CallerWrapper(this.caller) : super('0');
+  final AbstractCaller caller;
 
   // TODO: remove all non-integration test related things FROM here
   String func0(

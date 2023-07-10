@@ -60,7 +60,7 @@ void main() {
   setUp(() async {
     storageMethods = MockedStorageMethods();
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
-    setupLogger(
+    await setupLogger(
       level: LogLevel.Trace,
       mobileLogger: false,
       logHandler: (logEntry) => debugPrint(

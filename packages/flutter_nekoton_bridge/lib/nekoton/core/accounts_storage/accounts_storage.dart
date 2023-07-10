@@ -5,12 +5,12 @@ import 'package:rxdart/rxdart.dart';
 
 /// Implementations of nekoton's AccountsStorage
 class AccountsStorage {
+
+  AccountsStorage._(this.storage);
   final Storage storage;
   late AccountsStorageImpl accountsStorage;
 
   final _accountsSubject = BehaviorSubject<List<AssetsList>>();
-
-  AccountsStorage._(this.storage);
 
   static Future<AccountsStorage> create({required Storage storage}) async {
     final instance = AccountsStorage._(storage);
@@ -128,7 +128,7 @@ class AccountsStorage {
   /// Return list of addresses that were removed or throw error.
   Future<List<Address>> removeAccounts(List<Address> addresses) async {
     final encoded = await accountsStorage.removeAccounts(
-        accountAddresses: addresses.map((address) => address.address).toList());
+        accountAddresses: addresses.map((address) => address.address).toList(),);
     final decoded = jsonDecode(encoded) as List<dynamic>;
     await _updateData();
     return decoded

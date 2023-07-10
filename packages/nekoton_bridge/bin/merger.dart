@@ -92,7 +92,7 @@ void main() async {
 void parseSingleImport(String importFull, Map<String, ModuleHierarchy> crates) {
   final importStr = importFull.replaceAll(RegExp('.*use '), '');
   parseImports(importStr, crates,
-      isRoot: true, isRootPublic: importFull.startsWith('pub'));
+      isRoot: true, isRootPublic: importFull.startsWith('pub'),);
 }
 
 /// Convert resulted [hierarchy] to single string with all nested sub-modules.
@@ -219,6 +219,8 @@ void parseImports(
 /// Example hierarchy:
 /// crate::nekoton_wrapper::{SomeImport}
 class ModuleHierarchy {
+
+  ModuleHierarchy({required this.moduleName, required this.isRoot});
   /// Name of module, same as key of [subModules] of above level.
   ///
   /// It's `crate` or `nekoton_wrapper` from example
@@ -242,6 +244,4 @@ class ModuleHierarchy {
 
   /// If root of crate was used as `pub use`
   bool isRootPublic = false;
-
-  ModuleHierarchy({required this.moduleName, required this.isRoot});
 }

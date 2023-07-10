@@ -1,15 +1,13 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_nekoton_bridge/example_related/caller_test_class_wrapper.dart';
-import 'dart:async';
-
-import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart'
-    as flutter_nekoton_bridge;
-
 import 'package:flutter_nekoton_bridge/example_related/caller_wrapper.dart'
     as caller;
-import 'caller_impl.dart';
+import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart'
+    as flutter_nekoton_bridge;
+import 'package:flutter_nekoton_bridge_example/caller_impl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,115 +43,115 @@ class _MyAppState extends State<MyApp> {
 
   // TODO: remove all non-integration test related things FROM here
 
-  void _onPressed() async {
+  Future<void> _onPressed() async {
     fromMyClass = await flutter_nekoton_bridge.queryMyClass();
     setState(() {});
   }
 
-  void _onPressedLog() async {
+  Future<void> _onPressedLog() async {
     debugPrint('Log!');
-    flutter_nekoton_bridge.simpleLog();
+    await flutter_nekoton_bridge.simpleLog();
   }
 
-  void _onPressedPanic() async {
+  Future<void> _onPressedPanic() async {
     debugPrint('Panic!');
-    flutter_nekoton_bridge.simplePanic();
+    await flutter_nekoton_bridge.simplePanic();
   }
 
   /// Cached instance
   /// ignore: unused_field
   caller.CallerWrapper? _caller;
 
-  void _onPressedInitDartCaller() async {
-    flutter_nekoton_bridge.initRustToDartCaller();
+  Future<void> _onPressedInitDartCaller() async {
+    await flutter_nekoton_bridge.initRustToDartCaller();
     _caller = flutter_nekoton_bridge.initCallerWrapper(CallerImpl());
   }
 
   List<CallerTestClassWrapper> testCallers = [];
 
-  void _onPressedAddTestCaller() async {
+  Future<void> _onPressedAddTestCaller() async {
     testCallers.add(await flutter_nekoton_bridge
-        .initCallerTestClassWrapper(Random().nextInt(1000)));
+        .initCallerTestClassWrapper(Random().nextInt(1000)),);
     setState(() {});
   }
 
   void _onPressedTriggerTestCallers() {
-    for (var c in testCallers) {
+    for (final c in testCallers) {
       c.caller.callSomeFunc();
     }
   }
 
-  void _onPressedDartCallFunc0(bool needResult) async {
-    flutter_nekoton_bridge.simpleCallFunc0(needResult: needResult);
+  Future<void> _onPressedDartCallFunc0(bool needResult) async {
+    await flutter_nekoton_bridge.simpleCallFunc0(needResult: needResult);
   }
 
-  void _onPressedDartCallFunc1(bool needResult) async {
-    flutter_nekoton_bridge.simpleCallFunc1(needResult: needResult);
+  Future<void> _onPressedDartCallFunc1(bool needResult) async {
+    await flutter_nekoton_bridge.simpleCallFunc1(needResult: needResult);
   }
 
-  void _onPressedDartCallFunc2() async {
-    flutter_nekoton_bridge.simpleCallFunc2();
+  Future<void> _onPressedDartCallFunc2() async {
+    await flutter_nekoton_bridge.simpleCallFunc2();
   }
 
-  void _onPressedDartCallFunc3() async {
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
+  Future<void> _onPressedDartCallFunc3() async {
+    await flutter_nekoton_bridge.simpleCallFunc3();
+    await flutter_nekoton_bridge.simpleCallFunc3();
+    await flutter_nekoton_bridge.simpleCallFunc3();
+    await flutter_nekoton_bridge.simpleCallFunc3();
+    await flutter_nekoton_bridge.simpleCallFunc3();
+    await flutter_nekoton_bridge.simpleCallFunc3();
+    await flutter_nekoton_bridge.simpleCallFunc3();
+    await flutter_nekoton_bridge.simpleCallFunc3();
+    await flutter_nekoton_bridge.simpleCallFunc3();
+    await flutter_nekoton_bridge.simpleCallFunc3();
+    await flutter_nekoton_bridge.simpleCallFunc3();
+    await flutter_nekoton_bridge.simpleCallFunc3();
   }
 
   // TODO: remove all non-integration test related things TO here
 
   // These buttons (with *Test* callbacks) SHOULD NOT be removed
   // or altered because it used in integration tests
-  void _onPressedTestInfo() async {
-    flutter_nekoton_bridge.testLoggerInfo('test logger: info');
+  Future<void> _onPressedTestInfo() async {
+    await flutter_nekoton_bridge.testLoggerInfo('test logger: info');
   }
 
-  void _onPressedTestDebug() async {
-    flutter_nekoton_bridge.testLoggerDebug('test logger: debug');
+  Future<void> _onPressedTestDebug() async {
+    await flutter_nekoton_bridge.testLoggerDebug('test logger: debug');
   }
 
-  void _onPressedTestWarn() async {
-    flutter_nekoton_bridge.testLoggerWarn('test logger: warn');
+  Future<void> _onPressedTestWarn() async {
+    await flutter_nekoton_bridge.testLoggerWarn('test logger: warn');
   }
 
-  void _onPressedTestError() async {
-    flutter_nekoton_bridge.testLoggerError('test logger: error');
+  Future<void> _onPressedTestError() async {
+    await flutter_nekoton_bridge.testLoggerError('test logger: error');
   }
 
-  void _onPressedTestPanic() async {
-    flutter_nekoton_bridge.testLoggerPanic('test logger: panic');
+  Future<void> _onPressedTestPanic() async {
+    await flutter_nekoton_bridge.testLoggerPanic('test logger: panic');
   }
 
-  void _testCallerCallTest0Async(bool needResult) async {
+  Future<void> _testCallerCallTest0Async(bool needResult) async {
     final result = await flutter_nekoton_bridge.testCallerCallTest0Async(
-        'testCallerCallTest0Async $needResult', needResult);
+        'testCallerCallTest0Async $needResult', needResult,);
     debugPrint('result ${result.toDynamic()}');
   }
 
-  void _testCallerCallTest0Sync(bool needResult) async {
+  Future<void> _testCallerCallTest0Sync(bool needResult) async {
     final result = await flutter_nekoton_bridge.testCallerCallTest0Sync(
-        'testCallerCallTest0Sync $needResult', needResult);
+        'testCallerCallTest0Sync $needResult', needResult,);
     debugPrint('result ${result.toDynamic()}');
   }
 
-  void _testCallerCallTest1Async(bool needResult) async {
+  Future<void> _testCallerCallTest1Async(bool needResult) async {
     final futures = <Future<flutter_nekoton_bridge.DynamicValue>>[];
-    for (int i = 0; i < 7; i++) {
+    for (var i = 0; i < 7; i++) {
       futures.add(flutter_nekoton_bridge.testCallerCallTest1Async(
-          'testCallerCallTest1Async $needResult', needResult));
+          'testCallerCallTest1Async $needResult', needResult,),);
     }
     final results = await Future.wait(futures);
-    for (var result in results) {
+    for (final result in results) {
       debugPrint('result ${result.toDynamic()}');
     }
   }
@@ -181,23 +179,23 @@ class _MyAppState extends State<MyApp> {
                     // These buttons (with *Test* callbacks) SHOULD NOT be removed
                     // or altered because it used in integration tests
                     TextButton(
-                      onPressed: () => _onPressedTestInfo(),
+                      onPressed: _onPressedTestInfo,
                       child: const Text('i'),
                     ),
                     TextButton(
-                      onPressed: () => _onPressedTestDebug(),
+                      onPressed: _onPressedTestDebug,
                       child: const Text('d'),
                     ),
                     TextButton(
-                      onPressed: () => _onPressedTestWarn(),
+                      onPressed: _onPressedTestWarn,
                       child: const Text('w'),
                     ),
                     TextButton(
-                      onPressed: () => _onPressedTestError(),
+                      onPressed: _onPressedTestError,
                       child: const Text('e'),
                     ),
                     TextButton(
-                      onPressed: () => _onPressedTestPanic(),
+                      onPressed: _onPressedTestPanic,
                       child: const Text('p'),
                     ),
                   ],
@@ -286,19 +284,19 @@ class _MyAppState extends State<MyApp> {
                   child: const Text('CallFunc1 WITHOUT result'),
                 ),
                 TextButton(
-                  onPressed: () => _onPressedDartCallFunc2(),
+                  onPressed: _onPressedDartCallFunc2,
                   child: const Text('CallFunc2'),
                 ),
                 TextButton(
-                  onPressed: () => _onPressedAddTestCaller(),
+                  onPressed: _onPressedAddTestCaller,
                   child: const Text('Add test caller'),
                 ),
                 TextButton(
-                  onPressed: () => _onPressedTriggerTestCallers(),
+                  onPressed: _onPressedTriggerTestCallers,
                   child: const Text('Trigger test callers'),
                 ),
                 TextButton(
-                  onPressed: () => _onPressedDartCallFunc3(),
+                  onPressed: _onPressedDartCallFunc3,
                   child: const Text('CallFunc3'),
                 ),
                 // TODO: remove all non-integration test related things TO here

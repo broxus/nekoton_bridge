@@ -23,11 +23,14 @@ dependencies:
   uuid: ^3.0.7
   tuple: ^2.0.1
 dev_dependencies:
+  broxus_flutter_analysis:
+    git:
+      url: https://github.com/broxus/flutter_templates.git
+      ref: broxus_flutter_analysis-v1.0.0
   ffi: ^2.0.2
   ffigen: ^8.0.2
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
   integration_test:
     sdk: flutter
   build_runner: ^2.3.3

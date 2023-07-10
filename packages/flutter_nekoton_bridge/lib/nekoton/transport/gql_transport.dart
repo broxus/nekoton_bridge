@@ -4,10 +4,10 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
 /// Implementation of jrpc transport
 class GqlTransport extends Transport {
-  final GqlConnection gqlConnection;
-  late GqlTransportImpl transport;
 
   GqlTransport._(this.gqlConnection);
+  final GqlConnection gqlConnection;
+  late GqlTransportImpl transport;
 
   static Future<GqlTransport> create({
     required GqlConnection gqlConnection,

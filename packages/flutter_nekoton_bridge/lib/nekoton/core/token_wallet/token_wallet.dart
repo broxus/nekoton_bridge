@@ -2,11 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:flutter_nekoton_bridge/nekoton/core/token_wallet/token_wallet.reflectable.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/mirrors.dart';
 import 'package:tuple/tuple.dart';
-
-import 'token_wallet.reflectable.dart';
 
 /// Implementation of nekoton's TonWallet.
 ///
@@ -17,6 +16,8 @@ import 'token_wallet.reflectable.dart';
 /// [onStateChangedStream] changes internal state, so it will lead updating data.
 @reflector
 class TokenWallet extends RustToDartMirrorInterface {
+
+  TokenWallet._(this.transport);
   late TokenWalletDartWrapper wallet;
   final Transport transport;
 
@@ -43,8 +44,6 @@ class TokenWallet extends RustToDartMirrorInterface {
   late final Address owner;
   late final Symbol symbol;
   late final TokenWalletVersion version;
-
-  TokenWallet._(this.transport);
 
   /// Create TokenWallet by subscribing to its instance.
   /// [owner] - address of account that is owner of wallet
@@ -243,7 +242,7 @@ class TokenWallet extends RustToDartMirrorInterface {
     );
     final decoded = jsonDecode(encoded) as List<dynamic>;
     return Tuple2(
-      Address(address: (decoded.first as String)),
+      Address(address: decoded.first as String),
       RootTokenContractDetails.fromJson(decoded.last as Map<String, dynamic>),
     );
   }

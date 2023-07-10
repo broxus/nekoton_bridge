@@ -40,8 +40,7 @@ Future<Tuple2<Address, String>> getExpectedAddress({
   required String tvc,
   required String contractAbi,
   required int workchainId,
-  PublicKey? publicKey,
-  required TokensObject initData,
+  required TokensObject initData, PublicKey? publicKey,
 }) async {
   final res = await createLib().getExpectedAddress(
     tvc: tvc,
@@ -71,9 +70,7 @@ Future<SignedMessage> createExternalMessageWithoutSignature({
   required String dst,
   required String contractAbi,
   required String method,
-  String? stateInit,
-  required TokensObject input,
-  required int timeout,
+  required TokensObject input, required int timeout, String? stateInit,
 }) async {
   final res = await createLib().createExternalMessageWithoutSignature(
     dst: dst,
@@ -91,10 +88,7 @@ Future<UnsignedMessage> createExternalMessage({
   required String dst,
   required String contractAbi,
   required String method,
-  String? stateInit,
-  required TokensObject input,
-  required PublicKey publicKey,
-  required int timeout,
+  required TokensObject input, required PublicKey publicKey, required int timeout, String? stateInit,
 }) async {
   return UnsignedMessage.create(
     message: await createLib().createExternalMessage(
@@ -121,8 +115,7 @@ Future<KnownPayload?> parseKnownPayload(String payload) async {
 Future<DecodedInput?> decodeInput({
   required String messageBody,
   required String contractAbi,
-  MethodName? method,
-  required bool internal,
+  required bool internal, MethodName? method,
 }) async {
   final res = await createLib().decodeInput(
     messageBody: messageBody,
@@ -195,7 +188,7 @@ Future<List<DecodedEvent>> decodeTransactionEvents({
   final decoded = jsonDecode(res);
   final json = decoded as List<dynamic>;
   final list = json.cast<Map<String, dynamic>>();
-  return list.map((e) => DecodedEvent.fromJson(e)).toList();
+  return list.map(DecodedEvent.fromJson).toList();
 }
 
 /// Returns hash of decoded boc or throws error
@@ -224,7 +217,7 @@ Future<TokensObject> unpackFromCell({
     params: jsonEncode(params),
     boc: boc,
     allowPartial: allowPartial,
-  ));
+  ),);
 }
 
 // TODO(nesquikm): WTF? Should we use Address here instead of String?
