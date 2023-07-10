@@ -16,7 +16,8 @@ import 'generic_contract.reflectable.dart';
 /// or [onTransactionsFoundStream].
 /// [onStateChangedStream] changes internal state, so it will lead updating data.
 @reflector
-class GenericContract extends RustToDartMirrorInterface {
+class GenericContract extends RustToDartMirrorInterface
+    implements RefreshingInterface {
   late GenericContractDartWrapper contract;
   final Transport transport;
 
@@ -185,6 +186,7 @@ class GenericContract extends RustToDartMirrorInterface {
   /// so it's a good practice to call this method with delay at least 10seconds.
   ///
   /// May throw error.
+  @override
   Future<void> refresh() async {
     if (_isRefreshing) return;
 
@@ -196,6 +198,9 @@ class GenericContract extends RustToDartMirrorInterface {
       _isRefreshing = false;
     }
   }
+
+  @override
+  String get refreshDescription => 'GenericContract: ${address.address}';
 
   /// Preload transactions of contract.
   /// [fromLt] - offset for loading data, string representation of u64

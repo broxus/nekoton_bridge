@@ -91,6 +91,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onMessageExpiredStream': 0,
               r'onStateChangedStream': 0,
               r'onTransactionsFoundStream': 0,
+              r'refreshDescription': 0,
               r'subscribe': 0
             }),
         r.NonGenericClassMirrorImpl(
@@ -366,6 +367,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'fieldUpdatesStream': 0,
               r'onBalanceChangedStream': 0,
               r'onTransactionsFoundStream': 0,
+              r'refreshDescription': 0,
               r'subscribe': 10,
               r'getTokenWalletDetails': 0,
               r'getTokenRootDetailsFromTokenWallet': 0
@@ -450,6 +452,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onMessageExpiredStream': 0,
               r'onStateChangedStream': 0,
               r'onTransactionsFoundStream': 0,
+              r'refreshDescription': 0,
               r'subscribe': 12,
               r'subscribeByAddress': 0,
               r'subscribeByExistingWallet': 13,
@@ -517,6 +520,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
             instance.onStateChangedStream,
         r'onTransactionsFoundStream': (dynamic instance) =>
             instance.onTransactionsFoundStream,
+        r'refreshDescription': (dynamic instance) =>
+            instance.refreshDescription,
         r'request': (dynamic instance) => instance.request,
         r'caller': (dynamic instance) => instance.caller,
         r'func0': (dynamic instance) => instance.func0,

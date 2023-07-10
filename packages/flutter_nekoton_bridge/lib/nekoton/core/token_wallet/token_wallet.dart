@@ -16,7 +16,8 @@ import 'token_wallet.reflectable.dart';
 /// or [onTransactionsFoundStream].
 /// [onStateChangedStream] changes internal state, so it will lead updating data.
 @reflector
-class TokenWallet extends RustToDartMirrorInterface {
+class TokenWallet extends RustToDartMirrorInterface
+    implements RefreshingInterface {
   late TokenWalletDartWrapper wallet;
   final Transport transport;
 
@@ -175,6 +176,7 @@ class TokenWallet extends RustToDartMirrorInterface {
   /// so it's a good practice to call this method with delay at least 10seconds.
   ///
   /// May throw error.
+  @override
   Future<void> refresh() async {
     if (_isRefreshing) return;
 
@@ -186,6 +188,9 @@ class TokenWallet extends RustToDartMirrorInterface {
       _isRefreshing = false;
     }
   }
+
+  @override
+  String get refreshDescription => 'TokenWallet: ${address.address}';
 
   /// Preload transactions of wallet.
   /// [fromLt] - offset for loading data, string representation of u64
