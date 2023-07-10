@@ -2,11 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:flutter_nekoton_bridge/nekoton/core/ton_wallet/ton_wallet.reflectable.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/mirrors.dart';
 import 'package:tuple/tuple.dart';
-
-import 'ton_wallet.reflectable.dart';
 
 /// Implementation of nekoton's TonWallet.
 ///
@@ -17,6 +16,8 @@ import 'ton_wallet.reflectable.dart';
 /// [onStateChangedStream] changes internal state, so it will lead updating data.
 @reflector
 class TonWallet extends RustToDartMirrorInterface {
+
+  TonWallet._(this.transport);
   late TonWalletDartWrapper wallet;
   final Transport transport;
 
@@ -51,8 +52,6 @@ class TonWallet extends RustToDartMirrorInterface {
   late final Address address;
   late final WalletType walletType;
   late final int workchain;
-
-  TonWallet._(this.transport);
 
   /// Create TonWallet by subscribing to its instance by public_key.
   /// publicKey - is string representation of key
@@ -277,8 +276,7 @@ class TonWallet extends RustToDartMirrorInterface {
     required Address destination,
     required Fixed amount,
     required bool bounce,
-    String? body,
-    required Expiration expiration,
+    required Expiration expiration, String? body,
   }) async {
     final message = await wallet.prepareTransfer(
       contractState: jsonEncode(contractState),
@@ -470,7 +468,7 @@ class TonWallet extends RustToDartMirrorInterface {
             e,
             (json) => json != null
                 ? TransactionAdditionalInfo.fromJson(
-                    json as Map<String, dynamic>)
+                    json as Map<String, dynamic>,)
                 : null,
           ),
         )

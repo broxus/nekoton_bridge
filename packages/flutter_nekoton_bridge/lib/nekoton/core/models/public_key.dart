@@ -6,11 +6,11 @@ part 'public_key.freezed.dart';
 
 /// Public key of the account
 class PublicKey with _$PublicKey {
-  const PublicKey._();
 
   const factory PublicKey({
     required final String publicKey,
   }) = _FromString;
+  const PublicKey._();
 
   factory PublicKey.fromJson(String json) => PublicKey(publicKey: json);
 

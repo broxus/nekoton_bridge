@@ -9,11 +9,8 @@ part 'message.g.dart';
 class Message with _$Message {
   const factory Message({
     required final String hash,
-    final String? src,
+    @amountJsonConverter required final Fixed value, required final bool bounce, required final bool bounced, final String? src,
     final String? dst,
-    @amountJsonConverter required final Fixed value,
-    required final bool bounce,
-    required final bool bounced,
     final String? body,
     final String? bodyHash,
   }) = _Message;

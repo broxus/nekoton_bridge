@@ -1,8 +1,7 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/core/models/transaction.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'transaction_with_data.freezed.dart';
-
 part 'transaction_with_data.g.dart';
 
 @freezed

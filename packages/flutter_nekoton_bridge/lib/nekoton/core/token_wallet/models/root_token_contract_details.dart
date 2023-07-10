@@ -1,6 +1,6 @@
 import 'package:flutter_nekoton_bridge/nekoton/core/models/models_lib.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/core/token_wallet/models/token_wallet_version.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'root_token_contract_details.freezed.dart';
 part 'root_token_contract_details.g.dart';

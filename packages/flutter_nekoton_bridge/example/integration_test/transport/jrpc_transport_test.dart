@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:integration_test/integration_test.dart';
 import 'package:http/http.dart' as http;
+import 'package:integration_test/integration_test.dart';
 
 import '../timeout_utils.dart';
 
@@ -31,7 +31,7 @@ void main() {
   /// System account address
   const accountAddress = Address(
       address:
-          '-1:0000000000000000000000000000000000000000000000000000000000000000');
+          '-1:0000000000000000000000000000000000000000000000000000000000000000',);
   const accountTransaction =
       'd0a278d82e699a63adeaede7e602ff6da8168c333ceb4f2344f42cb739c28940';
 
@@ -172,17 +172,17 @@ void main() {
       );
       expect(
         await transport.getTransaction(
-            'f90074116294f0a4295d7ab368af8a1cc75654aad557d3ffd6edb7e8b2020c39'),
+            'f90074116294f0a4295d7ab368af8a1cc75654aad557d3ffd6edb7e8b2020c39',),
         isNotNull,
       );
       expect(
         await transport.getTransaction(
-            '74773423c867ce433d39612f8c14c49e835500263ced3e045ca560c4383ea6fc'),
+            '74773423c867ce433d39612f8c14c49e835500263ced3e045ca560c4383ea6fc',),
         isNotNull,
       );
       expect(
         await transport.getTransaction(
-            '5c229b34601836743083acf9fd87f164039b75ac7b513b756a06da0e7051fffd'),
+            '5c229b34601836743083acf9fd87f164039b75ac7b513b756a06da0e7051fffd',),
         isNotNull,
       );
     });

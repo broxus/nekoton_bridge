@@ -1,35 +1,32 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:flutter_nekoton_bridge/dynamic_value.dart';
+import 'package:flutter_nekoton_bridge/example_related/example_related_lib.dart';
+import 'package:flutter_nekoton_bridge/log_entry.dart';
+import 'package:flutter_nekoton_bridge/rust_to_dart/rust_to_dart_caller.dart';
 import 'package:nekoton_bridge/nekoton_bridge.dart';
-export 'package:nekoton_bridge/nekoton_bridge.dart';
-import 'dynamic_value.dart';
-export 'dynamic_value.dart';
-import 'log_entry.dart';
 
-import 'rust_to_dart/rust_to_dart_caller.dart';
-export 'rust_to_dart/rust_to_dart_caller.dart';
-
-import 'example_related/example_related_lib.dart';
-export 'example_related/example_related_lib.dart';
-
-export 'tests_related/tests_related_lib.dart';
-
-export 'nekoton/nekoton_lib.dart';
-export 'package:money2_improver/money2_improver.dart';
 export 'package:money2/money2.dart';
+export 'package:money2_improver/money2_improver.dart';
+export 'package:nekoton_bridge/nekoton_bridge.dart';
+
+export 'dynamic_value.dart';
+export 'example_related/example_related_lib.dart';
+export 'nekoton/nekoton_lib.dart';
+export 'rust_to_dart/rust_to_dart_caller.dart';
+export 'tests_related/tests_related_lib.dart';
 
 void Function(LogEntry logEntry)? _logHandler;
 const String _tag = 'flutter_nekoton_bridge';
 
 /// Init logger
 Future<void> setupLogger({
-  LogLevel level = LogLevel.Warn,
+  required void Function(LogEntry logEntry) logHandler, LogLevel level = LogLevel.Warn,
   bool mobileLogger = true,
-  required void Function(LogEntry logEntry) logHandler,
 }) async {
   _logHandler = logHandler;
-  var lib = createLib();
+  final lib = createLib();
   await lib.initLogger(level: level, mobileLogger: mobileLogger);
   lib.createLogStream().listen(logHandler);
 }
@@ -53,9 +50,9 @@ Future<void> registerRustToDartCaller(RustToDartCaller rustToDartCaller) async {
   }
   _caller = lib.initCaller()
     ..listen((stubRegistred) async {
-      var id = stubRegistred.id;
-      var stub = stubRegistred.stub;
-      var objectHash = stub.instanceHash;
+      final id = stubRegistred.id;
+      final stub = stubRegistred.stub;
+      final objectHash = stub.instanceHash;
 
       final positionalArguments = stub.args.map((e) => e.toDynamic()).toList();
       final namedArguments = stub.namedArgs.fold(
@@ -65,7 +62,7 @@ Future<void> registerRustToDartCaller(RustToDartCaller rustToDartCaller) async {
                 ...{
                   Symbol(element.name): element.value?.toDynamic(),
                 }
-              });
+              },);
 
       try {
         final result = rustToDartCaller.invoke(
@@ -180,22 +177,22 @@ Future<CallerTestClassWrapper> initCallerTestClassWrapper(int value) async {
 // TODO: remove all non-integration test related things FROM here
 
 Future<void> simpleLog() async {
-  var lib = createLib();
-  lib.simpleLog(string: 'From dart: ${DateTime.now().toIso8601String()}');
+  final lib = createLib();
+  await lib.simpleLog(string: 'From dart: ${DateTime.now().toIso8601String()}');
 }
 
 Future<void> simplePanic() async {
-  var lib = createLib();
-  lib.simplePanic();
+  final lib = createLib();
+  await lib.simplePanic();
 }
 
 Future<int> simpleAdder(int a, int b) {
-  var lib = createLib();
+  final lib = createLib();
   return lib.simpleAdder(a: a, b: b);
 }
 
 int simpleAdderSync(int a, int b) {
-  var lib = createLib();
+  final lib = createLib();
   return lib.simpleAdderSync(a: a, b: b);
 }
 
@@ -213,19 +210,19 @@ Future<String> queryMyClass() async {
 }
 
 Future<void> simpleCallFunc0({required bool needResult}) async {
-  createLib().simpleCallFunc0(needResult: needResult);
+  await createLib().simpleCallFunc0(needResult: needResult);
 }
 
 Future<void> simpleCallFunc1({required bool needResult}) async {
-  createLib().simpleCallFunc1(needResult: needResult);
+  await createLib().simpleCallFunc1(needResult: needResult);
 }
 
 Future<void> simpleCallFunc2() async {
-  createLib().simpleCallFunc2();
+  await createLib().simpleCallFunc2();
 }
 
 Future<void> simpleCallFunc3() async {
-  createLib().simpleCallFunc3();
+  await createLib().simpleCallFunc3();
 }
 
 // TODO: remove all non-integration test related things TO here

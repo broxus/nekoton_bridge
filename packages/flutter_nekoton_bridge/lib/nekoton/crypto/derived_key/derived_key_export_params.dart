@@ -1,7 +1,7 @@
 import 'package:flutter_nekoton_bridge/nekoton/core/models/models_lib.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/crypto/models/export_key_input.dart';
 import 'package:flutter_nekoton_bridge/nekoton/crypto/password_cache/password.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'derived_key_export_params.freezed.dart';
 part 'derived_key_export_params.g.dart';

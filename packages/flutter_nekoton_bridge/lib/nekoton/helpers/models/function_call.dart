@@ -1,8 +1,7 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/helpers/models/tokens_object.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'function_call.freezed.dart';
-
 part 'function_call.g.dart';
 
 @freezed

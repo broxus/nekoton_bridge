@@ -19,7 +19,7 @@ extension DynamicValueConvert on DynamicValue {
 
     if (this is DynamicValue_MegaStruct) {
       return MegaStruct.fromJson(
-          json.decode((this as DynamicValue_MegaStruct).field0));
+          json.decode((this as DynamicValue_MegaStruct).field0),);
     }
 
     if (this is DynamicValue_None) return null;

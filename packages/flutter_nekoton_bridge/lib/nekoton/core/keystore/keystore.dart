@@ -8,12 +8,12 @@ import 'package:rxdart/rxdart.dart';
 /// signer - is one of strings to identify type of key (ENCRYPTED_KEY_SIGNER_NAME,
 ///   DERIVED_KEY_SIGNER_NAME or LEDGER_KEY_SIGNER_NAME)
 class KeyStore {
+
+  KeyStore._(this.storage);
   final Storage storage;
   late KeystoreDartWrapper keystore;
 
   final _keysSubject = BehaviorSubject<List<KeyStoreEntry>>();
-
-  KeyStore._(this.storage);
 
   static Future<KeyStore> create({
     required Storage storage,

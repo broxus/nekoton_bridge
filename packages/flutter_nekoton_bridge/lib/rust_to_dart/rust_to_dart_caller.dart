@@ -4,9 +4,9 @@ import 'package:uuid/uuid.dart';
 
 /// Class that is used to unify calls from rust to dart for any types and count of instances.
 class RustToDartCaller {
-  static RustToDartCaller instance = RustToDartCaller._();
 
   RustToDartCaller._();
+  static RustToDartCaller instance = RustToDartCaller._();
 
   /// Key - is unique hash that could be used to identify any object instance.
   final instances = <String, RustToDartMirrorInterface>{};

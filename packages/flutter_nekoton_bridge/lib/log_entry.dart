@@ -1,4 +1,4 @@
-import 'flutter_nekoton_bridge.dart';
+import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
 extension LogEntryCreate on LogEntry {
   static LogEntry create({

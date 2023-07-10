@@ -1,5 +1,5 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/core/token_wallet/models/transfer_recipient.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'token_outgoing_transfer.freezed.dart';
 part 'token_outgoing_transfer.g.dart';

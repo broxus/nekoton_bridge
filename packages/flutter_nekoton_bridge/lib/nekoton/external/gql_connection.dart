@@ -3,9 +3,9 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:flutter_nekoton_bridge/nekoton/external/gql_connection.reflectable.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/mirrors.dart';
-import 'gql_connection.reflectable.dart';
 
 typedef GqlConnectionPost = Future<String> Function({
   required String endpoint,
@@ -17,6 +17,15 @@ typedef GqlConnectionGet = Future<String> Function(String endpoint);
 
 @reflector
 class GqlConnection extends RustToDartMirrorInterface {
+
+  GqlConnection._(
+    this._post,
+    this._get,
+    this._settings,
+    this._name,
+    this._group,
+    this._networkId,
+  );
   late GqlConnectionDartWrapper connection;
 
   final GqlConnectionPost _post;
@@ -30,15 +39,6 @@ class GqlConnection extends RustToDartMirrorInterface {
   final type = TransportType.gql;
 
   String? _cachedEndpoint;
-
-  GqlConnection._(
-    this._post,
-    this._get,
-    this._settings,
-    this._name,
-    this._group,
-    this._networkId,
-  );
 
   static Future<GqlConnection> create({
     required GqlConnectionPost post,
@@ -111,7 +111,7 @@ class GqlConnection extends RustToDartMirrorInterface {
         var checkedEndpoints = 0;
 
         for (final e in _settings.endpoints) {
-          _checkLatency(e).whenComplete(() {
+          await _checkLatency(e).whenComplete(() {
             checkedEndpoints++;
           }).then((v) {
             if (!completer.isCompleted) completer.complete(e);

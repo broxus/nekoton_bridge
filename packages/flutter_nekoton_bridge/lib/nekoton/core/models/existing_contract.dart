@@ -1,6 +1,6 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/core/models/gen_timings.dart';
 import 'package:flutter_nekoton_bridge/nekoton/core/models/last_transaction_id.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'existing_contract.freezed.dart';
 part 'existing_contract.g.dart';

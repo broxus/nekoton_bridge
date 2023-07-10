@@ -4,10 +4,10 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
 /// Implementation of jrpc transport
 class JrpcTransport extends Transport {
-  final JrpcConnection jrpcConnection;
-  late JrpcTransportImpl transport;
 
   JrpcTransport._(this.jrpcConnection);
+  final JrpcConnection jrpcConnection;
+  late JrpcTransportImpl transport;
 
   static Future<JrpcTransport> create({
     required JrpcConnection jrpcConnection,

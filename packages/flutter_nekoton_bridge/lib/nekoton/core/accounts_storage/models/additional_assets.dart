@@ -1,6 +1,6 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/core/accounts_storage/models/depool_asset.dart';
 import 'package:flutter_nekoton_bridge/nekoton/core/accounts_storage/models/token_wallet_asset.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'additional_assets.freezed.dart';
 part 'additional_assets.g.dart';

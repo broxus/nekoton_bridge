@@ -76,7 +76,7 @@ void main() {
   setUp(() async {
     storageMethods = MockedStorageMethods();
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
-    setupLogger(
+    await setupLogger(
       level: LogLevel.Trace,
       mobileLogger: false,
       logHandler: (logEntry) => debugPrint(
@@ -130,7 +130,7 @@ void main() {
         key,
         const PublicKey(
             publicKey:
-                '43c77e697042c96481336afd84a858079d97b3223dcb1228ec70112d89ecbf93'),
+                '43c77e697042c96481336afd84a858079d97b3223dcb1228ec70112d89ecbf93',),
       );
       final keysEntry = keystore.keys.first;
       expect(keysEntry.name, inputLabsData.keyName);
@@ -163,7 +163,7 @@ void main() {
         key,
         const PublicKey(
             publicKey:
-                '69fb667f274805ca5341afa06c4ba1227c37cd52f3a253f39426d211428fd78b'),
+                '69fb667f274805ca5341afa06c4ba1227c37cd52f3a253f39426d211428fd78b',),
       );
       final keysEntry = keystore.keys.first;
       expect(keysEntry.name, addKeyInputLegacy.name);
@@ -198,7 +198,7 @@ void main() {
         key,
         const PublicKey(
             publicKey:
-                '43c77e697042c96481336afd84a858079d97b3223dcb1228ec70112d89ecbf93'),
+                '43c77e697042c96481336afd84a858079d97b3223dcb1228ec70112d89ecbf93',),
       );
       final keysEntry = keystore.keys.first;
       expect(keysEntry.name, inputLabsData.keyName);
@@ -341,7 +341,7 @@ void main() {
       final exported = (await keystore.exportSeed(DerivedKeyExportSeedParams(
         password: inputLabsData.password,
         masterKey: key,
-      ))) as DerivedKeyExportOutput;
+      ),)) as DerivedKeyExportOutput;
 
       expect(exported.phrase, inputLabsData.phrase);
     });
@@ -368,7 +368,7 @@ void main() {
         password: inputLabsData.password,
         offset: 0,
         limit: 5,
-      ));
+      ),);
 
       expect(keys.length, 5);
       expect(keys[0], key);
@@ -397,7 +397,7 @@ void main() {
           publicKey: key,
           masterKey: key,
         ),
-      ));
+      ),);
       final entry = (await keystore.getEntries()).first;
 
       expect(entry.name, 'Renamed');

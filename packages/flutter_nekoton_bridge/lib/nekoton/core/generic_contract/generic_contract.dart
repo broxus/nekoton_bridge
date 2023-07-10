@@ -2,11 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:flutter_nekoton_bridge/nekoton/core/generic_contract/generic_contract.reflectable.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/mirrors.dart';
 import 'package:tuple/tuple.dart';
-
-import 'generic_contract.reflectable.dart';
 
 /// Implementation of nekoton's GenericContract.
 ///
@@ -17,6 +16,8 @@ import 'generic_contract.reflectable.dart';
 /// [onStateChangedStream] changes internal state, so it will lead updating data.
 @reflector
 class GenericContract extends RustToDartMirrorInterface {
+
+  GenericContract._(this.transport);
   late GenericContractDartWrapper contract;
   final Transport transport;
 
@@ -44,8 +45,6 @@ class GenericContract extends RustToDartMirrorInterface {
 
   /// Description information about contract that do not change
   late final Address address;
-
-  GenericContract._(this.transport);
 
   /// Create GenericContract by subscribing to its instance.
   /// [address] - address of contract
@@ -253,7 +252,7 @@ class GenericContract extends RustToDartMirrorInterface {
     final transactionsJson = json.first as List<dynamic>;
     final transactions = transactionsJson
         .cast<Map<String, dynamic>>()
-        .map((e) => Transaction.fromJson(e))
+        .map(Transaction.fromJson)
         .toList();
     final batchInfoJson = json.last as Map<String, dynamic>;
     final batchInfo = TransactionsBatchInfo.fromJson(batchInfoJson);

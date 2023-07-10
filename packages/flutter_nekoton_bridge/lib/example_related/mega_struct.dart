@@ -1,8 +1,7 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'mega_struct.freezed.dart';
-
 part 'mega_struct.g.dart';
 
 // TODO: remove this class as it is a non-integration test related thing

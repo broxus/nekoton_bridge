@@ -6,11 +6,11 @@ part 'address.freezed.dart';
 
 /// Blockchain address
 class Address with _$Address {
-  const Address._();
 
   const factory Address({
     required final String address,
   }) = _FromString;
+  const Address._();
 
   factory Address.fromJson(String json) => Address(address: json);
 

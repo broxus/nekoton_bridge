@@ -1,8 +1,9 @@
 import 'dart:async';
+
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:flutter_nekoton_bridge/nekoton/external/jrpc_connection.reflectable.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/mirrors.dart';
-import 'jrpc_connection.reflectable.dart';
 
 typedef JrpcConnectionPost = Future<String> Function({
   required String endpoint,
@@ -12,6 +13,14 @@ typedef JrpcConnectionPost = Future<String> Function({
 
 @reflector
 class JrpcConnection extends RustToDartMirrorInterface {
+
+  JrpcConnection._(
+    this._post,
+    this._settings,
+    this._name,
+    this._group,
+    this._networkId,
+  );
   late JrpcConnectionDartWrapper connection;
 
   final JrpcConnectionPost _post;
@@ -22,14 +31,6 @@ class JrpcConnection extends RustToDartMirrorInterface {
   final JrpcNetworkSettings _settings;
 
   final type = TransportType.gql;
-
-  JrpcConnection._(
-    this._post,
-    this._settings,
-    this._name,
-    this._group,
-    this._networkId,
-  );
 
   static Future<JrpcConnection> create({
     required JrpcConnectionPost post,

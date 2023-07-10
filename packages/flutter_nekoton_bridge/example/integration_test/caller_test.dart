@@ -11,12 +11,12 @@ void main() {
   group('caller test', () {
     testWidgets('async and sync call without and with result',
         (WidgetTester tester) async {
-      final List<String> log = <String>[];
+      final log = <String>[];
 
       app.main();
       await tester.pumpAndSettleWithTimeout();
 
-      final DebugPrintCallback originalDebugPrint = debugPrint;
+      final originalDebugPrint = debugPrint;
 
       // We can't move this init to setUp() because it should be after app init
       debugPrint = (String? s, {int? wrapWidth}) {
@@ -37,7 +37,7 @@ void main() {
       expect(
           log,
           contains(contains(
-              'test_caller_call_test0_async testCallerCallTest0Async false')));
+              'test_caller_call_test0_async testCallerCallTest0Async false',),),);
       expect(log[1], contains('result null'));
       log.clear();
 
@@ -48,7 +48,7 @@ void main() {
       expect(
           log,
           contains(contains(
-              'test_caller_call_test0_async testCallerCallTest0Async true')));
+              'test_caller_call_test0_async testCallerCallTest0Async true',),),);
       expect(log[1], contains('result testCallerCallTest0Async true'));
       log.clear();
 
@@ -59,7 +59,7 @@ void main() {
       expect(
           log,
           contains(contains(
-              'test_caller_call_test0_sync testCallerCallTest0Sync false')));
+              'test_caller_call_test0_sync testCallerCallTest0Sync false',),),);
       expect(log, contains('result null'));
       log.clear();
 
@@ -69,12 +69,12 @@ void main() {
 // TODO: This test always fails on github and I don't know how to fix it.
     testWidgets('async mulptiple parallel execution', skip: true,
         (WidgetTester tester) async {
-      final List<String> log = <String>[];
+      final log = <String>[];
 
       app.main();
       await tester.pumpAndSettleWithTimeout();
 
-      final DebugPrintCallback originalDebugPrint = debugPrint;
+      final originalDebugPrint = debugPrint;
 
       // We can't move this init to setUp() because it should be after app init
       debugPrint = (String? s, {int? wrapWidth}) {
@@ -92,9 +92,9 @@ void main() {
       await tester.tap(find.text('Test1AsyncResult'));
       await tester.pumpAndSettleWithTimeout(const Duration(seconds: 2));
       expect(log, hasLength(14),
-          reason: 'failed log entry count, found ${log.length}, should be 14');
-      count(String substring) => log.fold(
-          0, (count, string) => count += string.contains(substring) ? 1 : 0);
+          reason: 'failed log entry count, found ${log.length}, should be 14',);
+      int count(String substring) => log.fold(
+          0, (count, string) => count += string.contains(substring) ? 1 : 0,);
 
       expect(
         count('test_caller_call_test1_async testCallerCallTest1Async true'),

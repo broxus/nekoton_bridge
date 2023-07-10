@@ -10,12 +10,12 @@ void main() {
 
   group('logger test', () {
     testWidgets('info, debug, warn, error', (WidgetTester tester) async {
-      final List<String> log = <String>[];
+      final log = <String>[];
 
       app.main();
       await tester.pumpAndSettleWithTimeout();
 
-      final DebugPrintCallback originalDebugPrint = debugPrint;
+      final originalDebugPrint = debugPrint;
 
       // We can't move this init to setUp() because it should be after app init
       debugPrint = (String? s, {int? wrapWidth}) {
@@ -61,12 +61,12 @@ void main() {
 // additional errors that it could not handle. Typically, this is caused by using expect() before restoring
 // FlutterError.onError.
     testWidgets('panic', skip: true, (WidgetTester tester) async {
-      final List<String> log = <String>[];
+      final log = <String>[];
 
       app.main();
       await tester.pumpAndSettleWithTimeout();
 
-      final DebugPrintCallback originalDebugPrint = debugPrint;
+      final originalDebugPrint = debugPrint;
 
       // We can't move this init to setUp() because it should be after app init
       debugPrint = (String? s, {int? wrapWidth}) {
@@ -76,7 +76,7 @@ void main() {
 
       expect(log, isEmpty);
 
-      final FlutterExceptionHandler? originalOnError = FlutterError.onError;
+      final originalOnError = FlutterError.onError;
       FlutterError.onError = (details) {};
 
       await tester.tap(find.text('p'));

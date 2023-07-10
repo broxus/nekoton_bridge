@@ -10,8 +10,7 @@ class ContractState with _$ContractState {
   const factory ContractState({
     @amountJsonConverter required final Fixed balance,
     required final GenTimings genTimings,
-    final LastTransactionId? lastTransactionId,
-    required final bool isDeployed,
+    required final bool isDeployed, final LastTransactionId? lastTransactionId,
     final String? codeHash,
   }) = _ContractState;
 
