@@ -9,6 +9,9 @@ class AssetsList with _$AssetsList implements Comparable<AssetsList> {
   const factory AssetsList({
     required final String name,
     required final TonWalletAsset tonWallet,
+    // List of Token assets that are owned by this wallet.
+    // key - should be <Transport.group>, value - list of tokens.
+    // key will be specified from <AccountsStorage.addTokenWallet> method
     required final Map<String, AdditionalAssets> additionalAssets,
   }) = _AssetsList;
 
