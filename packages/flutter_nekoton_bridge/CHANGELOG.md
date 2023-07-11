@@ -1,3 +1,8 @@
+## 1.9.0
+
+ - **FIX**: sealed freezed ([#156](https://github.com/broxus/nekoton_bridge/issues/156)). ([2a37d2d0](https://github.com/broxus/nekoton_bridge/commit/2a37d2d053b0e1114ffd2f1873f0028a3a92ad09))
+ - **FEAT**: add refresing interface ([#154](https://github.com/broxus/nekoton_bridge/issues/154)). ([79d14980](https://github.com/broxus/nekoton_bridge/commit/79d14980dbaf6bef79fc76224b6a1df447a2509e))
+
 ## 1.8.2
 
  - **FIX**: nekoton_block venom feature ([#152](https://github.com/broxus/nekoton_bridge/issues/152)). ([c0001495](https://github.com/broxus/nekoton_bridge/commit/c00014955458db47a5bd2dc9345e3a91219ebec7))

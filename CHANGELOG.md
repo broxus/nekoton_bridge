@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-07-11
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.9.0`](#flutter_nekoton_bridge---v190)
+ - [`nekoton_bridge` - `v1.8.3`](#nekoton_bridge---v183)
+ - [`flutter_nekoton_bridge_example` - `v1.8.3`](#flutter_nekoton_bridge_example---v183)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.8.3`
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.9.0`
+
+ - **FIX**: sealed freezed ([#156](https://github.com/broxus/nekoton_bridge/issues/156)). ([2a37d2d0](https://github.com/broxus/nekoton_bridge/commit/2a37d2d053b0e1114ffd2f1873f0028a3a92ad09))
+ - **FEAT**: add refresing interface ([#154](https://github.com/broxus/nekoton_bridge/issues/154)). ([79d14980](https://github.com/broxus/nekoton_bridge/commit/79d14980dbaf6bef79fc76224b6a1df447a2509e))
+
+#### `nekoton_bridge` - `v1.8.3`
+
+ - **FIX**: sealed freezed ([#156](https://github.com/broxus/nekoton_bridge/issues/156)). ([2a37d2d0](https://github.com/broxus/nekoton_bridge/commit/2a37d2d053b0e1114ffd2f1873f0028a3a92ad09))
+
+
 ## 2023-07-07
 
 ### Changes
