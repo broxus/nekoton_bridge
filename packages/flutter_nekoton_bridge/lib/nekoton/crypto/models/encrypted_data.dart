@@ -6,7 +6,7 @@ part 'encrypted_data.freezed.dart';
 part 'encrypted_data.g.dart';
 
 @freezed
-class EncryptedData with _$EncryptedData {
+sealed class EncryptedData with _$EncryptedData {
   const factory EncryptedData({
     required final EncryptionAlgorithm algorithm,
     required final PublicKey sourcePublicKey,

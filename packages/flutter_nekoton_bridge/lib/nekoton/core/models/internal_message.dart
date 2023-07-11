@@ -6,7 +6,7 @@ part 'internal_message.freezed.dart';
 part 'internal_message.g.dart';
 
 @freezed
-class InternalMessage with _$InternalMessage {
+sealed class InternalMessage with _$InternalMessage {
   factory InternalMessage({
     final String? source,
     required final String destination,

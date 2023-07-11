@@ -5,7 +5,7 @@ part 'decoded_output.freezed.dart';
 part 'decoded_output.g.dart';
 
 @freezed
-class DecodedOutput with _$DecodedOutput {
+sealed class DecodedOutput with _$DecodedOutput {
   const factory DecodedOutput({
     required final String method,
     required final TokensObject output,

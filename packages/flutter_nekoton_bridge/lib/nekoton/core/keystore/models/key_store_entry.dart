@@ -6,7 +6,9 @@ part 'key_store_entry.freezed.dart';
 part 'key_store_entry.g.dart';
 
 @freezed
-class KeyStoreEntry with _$KeyStoreEntry implements Comparable<KeyStoreEntry> {
+sealed class KeyStoreEntry
+    with _$KeyStoreEntry
+    implements Comparable<KeyStoreEntry> {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory KeyStoreEntry({
     required final String signerName,

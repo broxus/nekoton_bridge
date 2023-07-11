@@ -7,7 +7,7 @@ part 'encrypted_key_update_params.freezed.dart';
 part 'encrypted_key_update_params.g.dart';
 
 @Freezed(unionKey: 'type', unionValueCase: FreezedUnionCase.snake)
-class EncryptedKeyUpdateParams
+sealed class EncryptedKeyUpdateParams
     with _$EncryptedKeyUpdateParams
     implements UpdateKeyInput {
   const factory EncryptedKeyUpdateParams.rename(

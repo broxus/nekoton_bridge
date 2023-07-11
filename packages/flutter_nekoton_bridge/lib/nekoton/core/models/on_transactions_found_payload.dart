@@ -7,7 +7,7 @@ part 'on_transactions_found_payload.freezed.dart';
 part 'on_transactions_found_payload.g.dart';
 
 @freezed
-class OnTransactionsFoundPayload with _$OnTransactionsFoundPayload {
+sealed class OnTransactionsFoundPayload with _$OnTransactionsFoundPayload {
   @JsonSerializable(
     fieldRename: FieldRename.snake,
     explicitToJson: true,

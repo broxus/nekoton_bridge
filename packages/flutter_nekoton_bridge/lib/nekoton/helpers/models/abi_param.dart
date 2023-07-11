@@ -4,7 +4,7 @@ part 'abi_param.freezed.dart';
 part 'abi_param.g.dart';
 
 @freezed
-class AbiParam with _$AbiParam {
+sealed class AbiParam with _$AbiParam {
   const factory AbiParam({
     required final String name,
     required final String type,

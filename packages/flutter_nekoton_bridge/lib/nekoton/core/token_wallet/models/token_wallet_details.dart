@@ -6,7 +6,7 @@ part 'token_wallet_details.freezed.dart';
 part 'token_wallet_details.g.dart';
 
 @freezed
-class TokenWalletDetails with _$TokenWalletDetails {
+sealed class TokenWalletDetails with _$TokenWalletDetails {
   const factory TokenWalletDetails({
     required final Address rootAddress,
     required final Address ownerAddress,

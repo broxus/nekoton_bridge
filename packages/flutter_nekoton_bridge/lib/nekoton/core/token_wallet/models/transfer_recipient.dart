@@ -4,7 +4,7 @@ part 'transfer_recipient.freezed.dart';
 part 'transfer_recipient.g.dart';
 
 @Freezed(unionKey: 'type')
-class TransferRecipient with _$TransferRecipient {
+sealed class TransferRecipient with _$TransferRecipient {
   const factory TransferRecipient.ownerWallet(final String data) = _OwnerWallet;
 
   const factory TransferRecipient.tokenWallet(final String data) = _TokenWallet;

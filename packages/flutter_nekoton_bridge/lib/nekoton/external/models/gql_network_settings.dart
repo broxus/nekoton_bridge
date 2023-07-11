@@ -4,7 +4,7 @@ part 'gql_network_settings.freezed.dart';
 part 'gql_network_settings.g.dart';
 
 @freezed
-class GqlNetworkSettings with _$GqlNetworkSettings {
+sealed class GqlNetworkSettings with _$GqlNetworkSettings {
   const factory GqlNetworkSettings({
     required final List<String> endpoints,
     required final int latencyDetectionInterval,

@@ -6,7 +6,7 @@ part 'ton_wallet_asset.freezed.dart';
 part 'ton_wallet_asset.g.dart';
 
 @freezed
-class TonWalletAsset with _$TonWalletAsset {
+sealed class TonWalletAsset with _$TonWalletAsset {
   const factory TonWalletAsset({
     required final Address address,
     required final PublicKey publicKey,

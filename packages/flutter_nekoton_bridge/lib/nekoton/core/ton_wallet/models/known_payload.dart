@@ -6,7 +6,7 @@ part 'known_payload.freezed.dart';
 part 'known_payload.g.dart';
 
 @Freezed(unionKey: 'type', unionValueCase: FreezedUnionCase.snake)
-class KnownPayload with _$KnownPayload {
+sealed class KnownPayload with _$KnownPayload {
   const factory KnownPayload.comment(final String data) = _Comment;
 
   const factory KnownPayload.tokenOutgoingTransfer(

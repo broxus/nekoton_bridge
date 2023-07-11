@@ -4,7 +4,7 @@ part 'accounts_list.freezed.dart';
 part 'accounts_list.g.dart';
 
 @freezed
-class AccountsList with _$AccountsList {
+sealed class AccountsList with _$AccountsList {
   const factory AccountsList({
     required final List<String> accounts,
     @JsonKey(includeIfNull: false) final String? continuation,

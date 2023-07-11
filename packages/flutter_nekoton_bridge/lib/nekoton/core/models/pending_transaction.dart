@@ -4,7 +4,7 @@ part 'pending_transaction.freezed.dart';
 part 'pending_transaction.g.dart';
 
 @freezed
-class PendingTransaction
+sealed class PendingTransaction
     with _$PendingTransaction
     implements Comparable<PendingTransaction> {
   const factory PendingTransaction({

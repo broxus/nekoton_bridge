@@ -5,7 +5,7 @@ part 'assets_list.freezed.dart';
 part 'assets_list.g.dart';
 
 @freezed
-class AssetsList with _$AssetsList implements Comparable<AssetsList> {
+sealed class AssetsList with _$AssetsList implements Comparable<AssetsList> {
   const factory AssetsList({
     required final String name,
     required final TonWalletAsset tonWallet,

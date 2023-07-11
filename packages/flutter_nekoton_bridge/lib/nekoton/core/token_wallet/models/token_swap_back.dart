@@ -5,7 +5,7 @@ part 'token_swap_back.freezed.dart';
 part 'token_swap_back.g.dart';
 
 @freezed
-class TokenSwapBack with _$TokenSwapBack {
+sealed class TokenSwapBack with _$TokenSwapBack {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory TokenSwapBack({
     required final String tokens,

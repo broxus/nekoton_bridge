@@ -6,7 +6,7 @@ part 'multisig_submit_transaction.freezed.dart';
 part 'multisig_submit_transaction.g.dart';
 
 @freezed
-class MultisigSubmitTransaction with _$MultisigSubmitTransaction {
+sealed class MultisigSubmitTransaction with _$MultisigSubmitTransaction {
   const factory MultisigSubmitTransaction({
     required final String custodian,
     required final String dest,

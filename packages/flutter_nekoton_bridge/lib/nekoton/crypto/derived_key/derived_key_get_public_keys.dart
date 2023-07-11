@@ -7,7 +7,7 @@ part 'derived_key_get_public_keys.freezed.dart';
 part 'derived_key_get_public_keys.g.dart';
 
 @freezed
-class DerivedKeyGetPublicKeys
+sealed class DerivedKeyGetPublicKeys
     with _$DerivedKeyGetPublicKeys
     implements GetPublicKeys {
   @JsonSerializable(fieldRename: FieldRename.snake)

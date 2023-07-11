@@ -4,7 +4,7 @@ part 'transaction_id.freezed.dart';
 part 'transaction_id.g.dart';
 
 @freezed
-class TransactionId with _$TransactionId {
+sealed class TransactionId with _$TransactionId {
   const factory TransactionId({
     required final String lt,
     required final String hash,

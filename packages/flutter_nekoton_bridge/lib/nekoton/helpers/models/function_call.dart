@@ -6,7 +6,7 @@ part 'function_call.freezed.dart';
 part 'function_call.g.dart';
 
 @freezed
-class FunctionCall with _$FunctionCall {
+sealed class FunctionCall with _$FunctionCall {
   const factory FunctionCall({
     required final String abi,
     required final String method,

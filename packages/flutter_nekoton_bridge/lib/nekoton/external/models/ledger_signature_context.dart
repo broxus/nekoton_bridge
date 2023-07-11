@@ -6,7 +6,7 @@ part 'ledger_signature_context.freezed.dart';
 part 'ledger_signature_context.g.dart';
 
 @freezed
-class LedgerSignatureContext with _$LedgerSignatureContext {
+sealed class LedgerSignatureContext with _$LedgerSignatureContext {
   const factory LedgerSignatureContext({
     required final int decimals,
     required final String asset,
