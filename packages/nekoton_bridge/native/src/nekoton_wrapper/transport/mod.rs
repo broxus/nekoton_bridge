@@ -74,6 +74,7 @@ pub trait TransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     async fn get_block(&self, id: String) -> anyhow::Result<String>;
 
     /// Wait until next block will come to blockchain and return its id or throw error
+    /// timeout - in milliseconds
     async fn wait_for_next_block(
         &self,
         current_block_id: String,
@@ -529,6 +530,7 @@ impl TransportBoxTrait for GqlTransportBox {
     }
 
     /// Wait until next block will come to blockchain and return its id or throw error
+    /// timeout - in milliseconds
     async fn wait_for_next_block(
         &self,
         current_block_id: String,

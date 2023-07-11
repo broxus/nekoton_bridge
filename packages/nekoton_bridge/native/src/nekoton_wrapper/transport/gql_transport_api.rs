@@ -96,6 +96,7 @@ impl GqlTransportImpl {
     }
 
     /// Wait until next block will come to blockchain and return its id or throw error
+    /// timeout - in milliseconds
     pub fn wait_for_next_block(
         &self,
         current_block_id: String,
