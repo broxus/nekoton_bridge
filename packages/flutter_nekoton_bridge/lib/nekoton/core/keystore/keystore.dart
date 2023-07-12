@@ -222,11 +222,11 @@ class KeyStore {
   /// Returns true/false or throw error.
   Future<bool> isPasswordCached({
     required PublicKey publicKey,
-    required int duration,
+    required Duration duration,
   }) async {
     return await keystore.isPasswordCached(
       publicKey: publicKey.publicKey,
-      duration: duration,
+      duration: duration.inMilliseconds,
     );
   }
 

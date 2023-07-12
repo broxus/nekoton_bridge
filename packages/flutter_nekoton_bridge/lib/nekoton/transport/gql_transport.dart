@@ -96,12 +96,12 @@ class GqlTransport extends Transport {
   Future<String> waitForNextBlock({
     required String currentBlockId,
     required Address address,
-    required int timeout,
+    required Duration timeout,
   }) =>
       transport.waitForNextBlock(
         currentBlockId: currentBlockId,
         address: address.address,
-        timeout: timeout,
+        timeout: timeout.inMilliseconds,
       );
 
   @override

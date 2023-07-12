@@ -22,7 +22,8 @@ PendingTransaction _$PendingTransactionFromJson(Map<String, dynamic> json) {
 mixin _$PendingTransaction {
   String get messageHash => throw _privateConstructorUsedError;
   String? get src => throw _privateConstructorUsedError;
-  int get expireAt => throw _privateConstructorUsedError;
+  @dateSecondsSinceEpochJsonConverter
+  DateTime get expireAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,10 @@ abstract class $PendingTransactionCopyWith<$Res> {
           PendingTransaction value, $Res Function(PendingTransaction) then) =
       _$PendingTransactionCopyWithImpl<$Res, PendingTransaction>;
   @useResult
-  $Res call({String messageHash, String? src, int expireAt});
+  $Res call(
+      {String messageHash,
+      String? src,
+      @dateSecondsSinceEpochJsonConverter DateTime expireAt});
 }
 
 /// @nodoc
@@ -68,7 +72,7 @@ class _$PendingTransactionCopyWithImpl<$Res, $Val extends PendingTransaction>
       expireAt: null == expireAt
           ? _value.expireAt
           : expireAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as DateTime,
     ) as $Val);
   }
 }
@@ -81,7 +85,10 @@ abstract class _$$_PendingTransactionCopyWith<$Res>
       __$$_PendingTransactionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String messageHash, String? src, int expireAt});
+  $Res call(
+      {String messageHash,
+      String? src,
+      @dateSecondsSinceEpochJsonConverter DateTime expireAt});
 }
 
 /// @nodoc
@@ -111,7 +118,7 @@ class __$$_PendingTransactionCopyWithImpl<$Res>
       expireAt: null == expireAt
           ? _value.expireAt
           : expireAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as DateTime,
     ));
   }
 }
@@ -120,7 +127,9 @@ class __$$_PendingTransactionCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PendingTransaction extends _PendingTransaction {
   const _$_PendingTransaction(
-      {required this.messageHash, this.src, required this.expireAt})
+      {required this.messageHash,
+      this.src,
+      @dateSecondsSinceEpochJsonConverter required this.expireAt})
       : super._();
 
   factory _$_PendingTransaction.fromJson(Map<String, dynamic> json) =>
@@ -131,7 +140,8 @@ class _$_PendingTransaction extends _PendingTransaction {
   @override
   final String? src;
   @override
-  final int expireAt;
+  @dateSecondsSinceEpochJsonConverter
+  final DateTime expireAt;
 
   @override
   String toString() {
@@ -173,7 +183,8 @@ abstract class _PendingTransaction extends PendingTransaction {
   const factory _PendingTransaction(
       {required final String messageHash,
       final String? src,
-      required final int expireAt}) = _$_PendingTransaction;
+      @dateSecondsSinceEpochJsonConverter
+      required final DateTime expireAt}) = _$_PendingTransaction;
   const _PendingTransaction._() : super._();
 
   factory _PendingTransaction.fromJson(Map<String, dynamic> json) =
@@ -184,7 +195,8 @@ abstract class _PendingTransaction extends PendingTransaction {
   @override
   String? get src;
   @override
-  int get expireAt;
+  @dateSecondsSinceEpochJsonConverter
+  DateTime get expireAt;
   @override
   @JsonKey(ignore: true)
   _$$_PendingTransactionCopyWith<_$_PendingTransaction> get copyWith =>

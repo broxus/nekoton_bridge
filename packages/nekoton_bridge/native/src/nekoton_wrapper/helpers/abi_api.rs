@@ -147,6 +147,7 @@ pub fn encode_internal_input(
 }
 
 /// Returns json-encoded SignedMessage from nekoton or throws error
+/// timeout - milliseconds
 pub fn create_external_message_without_signature(
     dst: String,
     contract_abi: String,
@@ -206,6 +207,7 @@ pub fn create_external_message_without_signature(
 }
 
 /// Create external unsigned message that can be listened and handled or throws error
+/// timeout - milliseconds
 pub fn create_external_message(
     dst: String,
     contract_abi: String,

@@ -8,7 +8,7 @@ class UnsignedMessage {
 
   /// Values that do not change
   late String hash;
-  late int expireAt;
+  late DateTime expireAt;
 
   UnsignedMessage._(this.message);
 
@@ -20,7 +20,8 @@ class UnsignedMessage {
     final instance = UnsignedMessage._(message);
 
     instance.hash = await message.hash();
-    instance.expireAt = await message.expireAt();
+    instance.expireAt =
+        dateSecondsSinceEpochJsonConverter.fromJson(await message.expireAt());
 
     return instance;
   }

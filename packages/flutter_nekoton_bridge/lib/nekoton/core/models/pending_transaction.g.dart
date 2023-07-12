@@ -11,7 +11,8 @@ _$_PendingTransaction _$$_PendingTransactionFromJson(
     _$_PendingTransaction(
       messageHash: json['messageHash'] as String,
       src: json['src'] as String?,
-      expireAt: json['expireAt'] as int,
+      expireAt:
+          dateSecondsSinceEpochJsonConverter.fromJson(json['expireAt'] as int),
     );
 
 Map<String, dynamic> _$$_PendingTransactionToJson(
@@ -19,5 +20,5 @@ Map<String, dynamic> _$$_PendingTransactionToJson(
     <String, dynamic>{
       'messageHash': instance.messageHash,
       'src': instance.src,
-      'expireAt': instance.expireAt,
+      'expireAt': dateSecondsSinceEpochJsonConverter.toJson(instance.expireAt),
     };

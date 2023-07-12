@@ -478,6 +478,7 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kGetBlockMethodGqlTransportImplConstMeta;
 
   /// Wait until next block will come to blockchain and return its id or throw error
+  /// timeout - in milliseconds
   Future<String> waitForNextBlockMethodGqlTransportImpl(
       {required GqlTransportImpl that,
       required String currentBlockId,
@@ -1870,7 +1871,7 @@ class DynamicNamedValue {
 }
 
 @freezed
-sealed class DynamicValue with _$DynamicValue {
+class DynamicValue with _$DynamicValue {
   const factory DynamicValue.u16(
     int field0,
   ) = DynamicValue_U16;
@@ -2147,6 +2148,7 @@ class GqlTransportImpl {
       );
 
   /// Wait until next block will come to blockchain and return its id or throw error
+  /// timeout - in milliseconds
   Future<String> waitForNextBlock(
           {required String currentBlockId,
           required String address,
@@ -2266,7 +2268,7 @@ class JrpcTransportImpl {
 }
 
 @freezed
-sealed class KeySigner with _$KeySigner {
+class KeySigner with _$KeySigner {
   const factory KeySigner.encrypted() = KeySigner_Encrypted;
   const factory KeySigner.derived() = KeySigner_Derived;
   const factory KeySigner.ledger() = KeySigner_Ledger;
@@ -2588,7 +2590,7 @@ enum LogLevel {
 }
 
 @freezed
-sealed class MnemonicType with _$MnemonicType {
+class MnemonicType with _$MnemonicType {
   const factory MnemonicType.legacy() = MnemonicType_Legacy;
   const factory MnemonicType.labs(
     int field0,

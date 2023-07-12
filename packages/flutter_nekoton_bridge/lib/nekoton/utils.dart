@@ -8,6 +8,10 @@ const amountJsonConverter = _FixedJsonConverter();
 /// Json converter of Uri value from string to Uri
 const uriJsonConverter = _UriJsonConverter();
 
+/// Json converter for date time from secondsSinceEpoch (typically used for
+/// fields such as expireAt)
+const dateSecondsSinceEpochJsonConverter = _DateTimeJsonConverter();
+
 class _FixedJsonConverter extends JsonConverter<Fixed, String> {
   const _FixedJsonConverter();
 
@@ -26,6 +30,17 @@ class _UriJsonConverter extends JsonConverter<Uri, String> {
 
   @override
   String toJson(Uri object) => object.toString();
+}
+
+class _DateTimeJsonConverter extends JsonConverter<DateTime, int> {
+  const _DateTimeJsonConverter();
+
+  @override
+  DateTime fromJson(int json) =>
+      DateTime.fromMillisecondsSinceEpoch(json * 1000, isUtc: true);
+
+  @override
+  int toJson(DateTime object) => object.millisecondsSinceEpoch ~/ 1000;
 }
 
 /// Get name of KeySigner, same as in rust side

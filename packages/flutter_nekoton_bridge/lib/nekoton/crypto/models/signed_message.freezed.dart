@@ -21,7 +21,8 @@ SignedMessage _$SignedMessageFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SignedMessage {
   String get hash => throw _privateConstructorUsedError;
-  int get expireAt => throw _privateConstructorUsedError;
+  @dateSecondsSinceEpochJsonConverter
+  DateTime get expireAt => throw _privateConstructorUsedError;
   String get boc => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +37,10 @@ abstract class $SignedMessageCopyWith<$Res> {
           SignedMessage value, $Res Function(SignedMessage) then) =
       _$SignedMessageCopyWithImpl<$Res, SignedMessage>;
   @useResult
-  $Res call({String hash, int expireAt, String boc});
+  $Res call(
+      {String hash,
+      @dateSecondsSinceEpochJsonConverter DateTime expireAt,
+      String boc});
 }
 
 /// @nodoc
@@ -64,7 +68,7 @@ class _$SignedMessageCopyWithImpl<$Res, $Val extends SignedMessage>
       expireAt: null == expireAt
           ? _value.expireAt
           : expireAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as DateTime,
       boc: null == boc
           ? _value.boc
           : boc // ignore: cast_nullable_to_non_nullable
@@ -81,7 +85,10 @@ abstract class _$$_SignedMessageCopyWith<$Res>
       __$$_SignedMessageCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String hash, int expireAt, String boc});
+  $Res call(
+      {String hash,
+      @dateSecondsSinceEpochJsonConverter DateTime expireAt,
+      String boc});
 }
 
 /// @nodoc
@@ -107,7 +114,7 @@ class __$$_SignedMessageCopyWithImpl<$Res>
       expireAt: null == expireAt
           ? _value.expireAt
           : expireAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as DateTime,
       boc: null == boc
           ? _value.boc
           : boc // ignore: cast_nullable_to_non_nullable
@@ -120,7 +127,9 @@ class __$$_SignedMessageCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SignedMessage implements _SignedMessage {
   const _$_SignedMessage(
-      {required this.hash, required this.expireAt, required this.boc});
+      {required this.hash,
+      @dateSecondsSinceEpochJsonConverter required this.expireAt,
+      required this.boc});
 
   factory _$_SignedMessage.fromJson(Map<String, dynamic> json) =>
       _$$_SignedMessageFromJson(json);
@@ -128,7 +137,8 @@ class _$_SignedMessage implements _SignedMessage {
   @override
   final String hash;
   @override
-  final int expireAt;
+  @dateSecondsSinceEpochJsonConverter
+  final DateTime expireAt;
   @override
   final String boc;
 
@@ -169,7 +179,7 @@ class _$_SignedMessage implements _SignedMessage {
 abstract class _SignedMessage implements SignedMessage {
   const factory _SignedMessage(
       {required final String hash,
-      required final int expireAt,
+      @dateSecondsSinceEpochJsonConverter required final DateTime expireAt,
       required final String boc}) = _$_SignedMessage;
 
   factory _SignedMessage.fromJson(Map<String, dynamic> json) =
@@ -178,7 +188,8 @@ abstract class _SignedMessage implements SignedMessage {
   @override
   String get hash;
   @override
-  int get expireAt;
+  @dateSecondsSinceEpochJsonConverter
+  DateTime get expireAt;
   @override
   String get boc;
   @override

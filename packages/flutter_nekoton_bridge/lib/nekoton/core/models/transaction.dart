@@ -1,7 +1,5 @@
+import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:flutter_nekoton_bridge/nekoton/core/models/account_status.dart';
-import 'package:flutter_nekoton_bridge/nekoton/core/models/message.dart';
-import 'package:flutter_nekoton_bridge/nekoton/core/models/transaction_id.dart';
 
 part 'transaction.freezed.dart';
 
@@ -12,13 +10,13 @@ sealed class Transaction with _$Transaction implements Comparable<Transaction> {
   const factory Transaction({
     required final TransactionId id,
     final TransactionId? prevTransactionId,
-    required final int createdAt,
+    @dateSecondsSinceEpochJsonConverter required final DateTime createdAt,
     required final bool aborted,
     @JsonKey(includeIfNull: false) final int? exitCode,
     @JsonKey(includeIfNull: false) final int? resultCode,
     required final AccountStatus origStatus,
     required final AccountStatus endStatus,
-    required final String totalFees,
+    @amountJsonConverter required final Fixed totalFees,
     required final Message inMessage,
     required final List<Message> outMessages,
   }) = _Transaction;
