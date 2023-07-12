@@ -31,7 +31,8 @@ mixin _$Transaction {
   int? get resultCode => throw _privateConstructorUsedError;
   AccountStatus get origStatus => throw _privateConstructorUsedError;
   AccountStatus get endStatus => throw _privateConstructorUsedError;
-  String get totalFees => throw _privateConstructorUsedError;
+  @amountJsonConverter
+  Fixed get totalFees => throw _privateConstructorUsedError;
   Message get inMessage => throw _privateConstructorUsedError;
   List<Message> get outMessages => throw _privateConstructorUsedError;
 
@@ -56,7 +57,7 @@ abstract class $TransactionCopyWith<$Res> {
       @JsonKey(includeIfNull: false) int? resultCode,
       AccountStatus origStatus,
       AccountStatus endStatus,
-      String totalFees,
+      @amountJsonConverter Fixed totalFees,
       Message inMessage,
       List<Message> outMessages});
 
@@ -126,7 +127,7 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
       totalFees: null == totalFees
           ? _value.totalFees
           : totalFees // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
       inMessage: null == inMessage
           ? _value.inMessage
           : inMessage // ignore: cast_nullable_to_non_nullable
@@ -184,7 +185,7 @@ abstract class _$$_TransactionCopyWith<$Res>
       @JsonKey(includeIfNull: false) int? resultCode,
       AccountStatus origStatus,
       AccountStatus endStatus,
-      String totalFees,
+      @amountJsonConverter Fixed totalFees,
       Message inMessage,
       List<Message> outMessages});
 
@@ -255,7 +256,7 @@ class __$$_TransactionCopyWithImpl<$Res>
       totalFees: null == totalFees
           ? _value.totalFees
           : totalFees // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
       inMessage: null == inMessage
           ? _value.inMessage
           : inMessage // ignore: cast_nullable_to_non_nullable
@@ -280,7 +281,7 @@ class _$_Transaction extends _Transaction {
       @JsonKey(includeIfNull: false) this.resultCode,
       required this.origStatus,
       required this.endStatus,
-      required this.totalFees,
+      @amountJsonConverter required this.totalFees,
       required this.inMessage,
       required final List<Message> outMessages})
       : _outMessages = outMessages,
@@ -309,7 +310,8 @@ class _$_Transaction extends _Transaction {
   @override
   final AccountStatus endStatus;
   @override
-  final String totalFees;
+  @amountJsonConverter
+  final Fixed totalFees;
   @override
   final Message inMessage;
   final List<Message> _outMessages;
@@ -392,7 +394,7 @@ abstract class _Transaction extends Transaction {
       @JsonKey(includeIfNull: false) final int? resultCode,
       required final AccountStatus origStatus,
       required final AccountStatus endStatus,
-      required final String totalFees,
+      @amountJsonConverter required final Fixed totalFees,
       required final Message inMessage,
       required final List<Message> outMessages}) = _$_Transaction;
   const _Transaction._() : super._();
@@ -420,7 +422,8 @@ abstract class _Transaction extends Transaction {
   @override
   AccountStatus get endStatus;
   @override
-  String get totalFees;
+  @amountJsonConverter
+  Fixed get totalFees;
   @override
   Message get inMessage;
   @override

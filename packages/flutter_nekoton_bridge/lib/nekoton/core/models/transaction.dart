@@ -16,7 +16,7 @@ sealed class Transaction with _$Transaction implements Comparable<Transaction> {
     @JsonKey(includeIfNull: false) final int? resultCode,
     required final AccountStatus origStatus,
     required final AccountStatus endStatus,
-    required final String totalFees,
+    @amountJsonConverter required final Fixed totalFees,
     required final Message inMessage,
     required final List<Message> outMessages,
   }) = _Transaction;
