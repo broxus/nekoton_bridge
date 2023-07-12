@@ -55,6 +55,7 @@ impl UnsignedMessageImpl {
     }
 
     /// Return current expiration timestamp of UnsignedMessage
+    /// Returns secondsSinceEpoch
     pub fn expire_at(&self) -> u32 {
         self.inner_message.expire_at()
     }

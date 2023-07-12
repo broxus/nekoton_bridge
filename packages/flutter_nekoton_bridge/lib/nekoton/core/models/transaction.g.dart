@@ -13,13 +13,14 @@ _$_Transaction _$$_TransactionFromJson(Map<String, dynamic> json) =>
           ? null
           : TransactionId.fromJson(
               json['prevTransactionId'] as Map<String, dynamic>),
-      createdAt: json['createdAt'] as int,
+      createdAt:
+          dateSecondsSinceEpochJsonConverter.fromJson(json['createdAt'] as int),
       aborted: json['aborted'] as bool,
       exitCode: json['exitCode'] as int?,
       resultCode: json['resultCode'] as int?,
       origStatus: $enumDecode(_$AccountStatusEnumMap, json['origStatus']),
       endStatus: $enumDecode(_$AccountStatusEnumMap, json['endStatus']),
-      totalFees: json['totalFees'] as String,
+      totalFees: amountJsonConverter.fromJson(json['totalFees'] as String),
       inMessage: Message.fromJson(json['inMessage'] as Map<String, dynamic>),
       outMessages: (json['outMessages'] as List<dynamic>)
           .map((e) => Message.fromJson(e as Map<String, dynamic>))
@@ -30,7 +31,7 @@ Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) {
   final val = <String, dynamic>{
     'id': instance.id.toJson(),
     'prevTransactionId': instance.prevTransactionId?.toJson(),
-    'createdAt': instance.createdAt,
+    'createdAt': dateSecondsSinceEpochJsonConverter.toJson(instance.createdAt),
     'aborted': instance.aborted,
   };
 
@@ -44,7 +45,7 @@ Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) {
   writeNotNull('resultCode', instance.resultCode);
   val['origStatus'] = _$AccountStatusEnumMap[instance.origStatus]!;
   val['endStatus'] = _$AccountStatusEnumMap[instance.endStatus]!;
-  val['totalFees'] = instance.totalFees;
+  val['totalFees'] = amountJsonConverter.toJson(instance.totalFees);
   val['inMessage'] = instance.inMessage.toJson();
   val['outMessages'] = instance.outMessages.map((e) => e.toJson()).toList();
   return val;

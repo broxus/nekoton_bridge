@@ -22,7 +22,8 @@ Transaction _$TransactionFromJson(Map<String, dynamic> json) {
 mixin _$Transaction {
   TransactionId get id => throw _privateConstructorUsedError;
   TransactionId? get prevTransactionId => throw _privateConstructorUsedError;
-  int get createdAt => throw _privateConstructorUsedError;
+  @dateSecondsSinceEpochJsonConverter
+  DateTime get createdAt => throw _privateConstructorUsedError;
   bool get aborted => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
   int? get exitCode => throw _privateConstructorUsedError;
@@ -30,7 +31,8 @@ mixin _$Transaction {
   int? get resultCode => throw _privateConstructorUsedError;
   AccountStatus get origStatus => throw _privateConstructorUsedError;
   AccountStatus get endStatus => throw _privateConstructorUsedError;
-  String get totalFees => throw _privateConstructorUsedError;
+  @amountJsonConverter
+  Fixed get totalFees => throw _privateConstructorUsedError;
   Message get inMessage => throw _privateConstructorUsedError;
   List<Message> get outMessages => throw _privateConstructorUsedError;
 
@@ -49,13 +51,13 @@ abstract class $TransactionCopyWith<$Res> {
   $Res call(
       {TransactionId id,
       TransactionId? prevTransactionId,
-      int createdAt,
+      @dateSecondsSinceEpochJsonConverter DateTime createdAt,
       bool aborted,
       @JsonKey(includeIfNull: false) int? exitCode,
       @JsonKey(includeIfNull: false) int? resultCode,
       AccountStatus origStatus,
       AccountStatus endStatus,
-      String totalFees,
+      @amountJsonConverter Fixed totalFees,
       Message inMessage,
       List<Message> outMessages});
 
@@ -101,7 +103,7 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as DateTime,
       aborted: null == aborted
           ? _value.aborted
           : aborted // ignore: cast_nullable_to_non_nullable
@@ -125,7 +127,7 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
       totalFees: null == totalFees
           ? _value.totalFees
           : totalFees // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
       inMessage: null == inMessage
           ? _value.inMessage
           : inMessage // ignore: cast_nullable_to_non_nullable
@@ -177,13 +179,13 @@ abstract class _$$_TransactionCopyWith<$Res>
   $Res call(
       {TransactionId id,
       TransactionId? prevTransactionId,
-      int createdAt,
+      @dateSecondsSinceEpochJsonConverter DateTime createdAt,
       bool aborted,
       @JsonKey(includeIfNull: false) int? exitCode,
       @JsonKey(includeIfNull: false) int? resultCode,
       AccountStatus origStatus,
       AccountStatus endStatus,
-      String totalFees,
+      @amountJsonConverter Fixed totalFees,
       Message inMessage,
       List<Message> outMessages});
 
@@ -230,7 +232,7 @@ class __$$_TransactionCopyWithImpl<$Res>
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as DateTime,
       aborted: null == aborted
           ? _value.aborted
           : aborted // ignore: cast_nullable_to_non_nullable
@@ -254,7 +256,7 @@ class __$$_TransactionCopyWithImpl<$Res>
       totalFees: null == totalFees
           ? _value.totalFees
           : totalFees // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
       inMessage: null == inMessage
           ? _value.inMessage
           : inMessage // ignore: cast_nullable_to_non_nullable
@@ -273,13 +275,13 @@ class _$_Transaction extends _Transaction {
   const _$_Transaction(
       {required this.id,
       this.prevTransactionId,
-      required this.createdAt,
+      @dateSecondsSinceEpochJsonConverter required this.createdAt,
       required this.aborted,
       @JsonKey(includeIfNull: false) this.exitCode,
       @JsonKey(includeIfNull: false) this.resultCode,
       required this.origStatus,
       required this.endStatus,
-      required this.totalFees,
+      @amountJsonConverter required this.totalFees,
       required this.inMessage,
       required final List<Message> outMessages})
       : _outMessages = outMessages,
@@ -293,7 +295,8 @@ class _$_Transaction extends _Transaction {
   @override
   final TransactionId? prevTransactionId;
   @override
-  final int createdAt;
+  @dateSecondsSinceEpochJsonConverter
+  final DateTime createdAt;
   @override
   final bool aborted;
   @override
@@ -307,7 +310,8 @@ class _$_Transaction extends _Transaction {
   @override
   final AccountStatus endStatus;
   @override
-  final String totalFees;
+  @amountJsonConverter
+  final Fixed totalFees;
   @override
   final Message inMessage;
   final List<Message> _outMessages;
@@ -384,13 +388,13 @@ abstract class _Transaction extends Transaction {
   const factory _Transaction(
       {required final TransactionId id,
       final TransactionId? prevTransactionId,
-      required final int createdAt,
+      @dateSecondsSinceEpochJsonConverter required final DateTime createdAt,
       required final bool aborted,
       @JsonKey(includeIfNull: false) final int? exitCode,
       @JsonKey(includeIfNull: false) final int? resultCode,
       required final AccountStatus origStatus,
       required final AccountStatus endStatus,
-      required final String totalFees,
+      @amountJsonConverter required final Fixed totalFees,
       required final Message inMessage,
       required final List<Message> outMessages}) = _$_Transaction;
   const _Transaction._() : super._();
@@ -403,7 +407,8 @@ abstract class _Transaction extends Transaction {
   @override
   TransactionId? get prevTransactionId;
   @override
-  int get createdAt;
+  @dateSecondsSinceEpochJsonConverter
+  DateTime get createdAt;
   @override
   bool get aborted;
   @override
@@ -417,7 +422,8 @@ abstract class _Transaction extends Transaction {
   @override
   AccountStatus get endStatus;
   @override
-  String get totalFees;
+  @amountJsonConverter
+  Fixed get totalFees;
   @override
   Message get inMessage;
   @override
