@@ -44,6 +44,7 @@ impl ToString for KeySigner {
 pub struct SignedMessage {
     #[serde(with = "serde_uint256")]
     pub hash: UInt256,
+    // secondsSinceEpoch
     pub expire_at: u32,
     #[serde(with = "serde_message")]
     pub boc: ton_block::Message,
@@ -109,7 +110,7 @@ pub trait UnsignedMessageBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     /// Adjust expiration timestamp from now
     fn refresh_timeout(&self);
 
-    /// Current expiration timestamp
+    /// Current expiration timestamp as secondsSinceEpoch
     fn expire_at(&self) -> u32;
 
     /// Message body hash
@@ -147,6 +148,7 @@ impl UnsignedMessageBoxTrait for UnsignedMessageBox {
     }
 
     /// Return current expiration timestamp of UnsignedMessage
+    /// Returns secondsSinceEpoch
     fn expire_at(&self) -> u32 {
         self.inner_message.expire_at()
     }

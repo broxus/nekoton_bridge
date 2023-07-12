@@ -5,6 +5,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 /// identification)
 const amountJsonConverter = _FixedJsonConverter();
 
+/// Json converter for date time from secondsSinceEpoch (typically used for
+/// fields such as expireAt)
+const dateSecondsSinceEpochJsonConverter = _DateTimeJsonConverter();
+
 class _FixedJsonConverter extends JsonConverter<Fixed, String> {
   const _FixedJsonConverter();
 
@@ -13,6 +17,17 @@ class _FixedJsonConverter extends JsonConverter<Fixed, String> {
 
   @override
   String toJson(Fixed object) => object.toString();
+}
+
+class _DateTimeJsonConverter extends JsonConverter<DateTime, int> {
+  const _DateTimeJsonConverter();
+
+  @override
+  DateTime fromJson(int json) =>
+      DateTime.fromMillisecondsSinceEpoch(json * 1000);
+
+  @override
+  int toJson(DateTime object) => object.millisecondsSinceEpoch ~/ 1000;
 }
 
 /// Get name of KeySigner, same as in rust side
