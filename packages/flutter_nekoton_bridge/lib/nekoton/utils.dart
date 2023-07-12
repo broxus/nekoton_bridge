@@ -5,6 +5,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 /// identification)
 const amountJsonConverter = _FixedJsonConverter();
 
+/// Json converter of Uri value from string to Uri
+const uriJsonConverter = _UriJsonConverter();
+
 class _FixedJsonConverter extends JsonConverter<Fixed, String> {
   const _FixedJsonConverter();
 
@@ -13,6 +16,16 @@ class _FixedJsonConverter extends JsonConverter<Fixed, String> {
 
   @override
   String toJson(Fixed object) => object.toString();
+}
+
+class _UriJsonConverter extends JsonConverter<Uri, String> {
+  const _UriJsonConverter();
+
+  @override
+  Uri fromJson(String json) => Uri.parse(json);
+
+  @override
+  String toJson(Uri object) => object.toString();
 }
 
 /// Get name of KeySigner, same as in rust side
