@@ -5,6 +5,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 /// identification)
 const amountJsonConverter = _FixedJsonConverter();
 
+/// Json converter of Uri value from string to Uri
+const uriJsonConverter = _UriJsonConverter();
+
 /// Json converter for date time from secondsSinceEpoch (typically used for
 /// fields such as expireAt)
 const dateSecondsSinceEpochJsonConverter = _DateTimeJsonConverter();
@@ -17,6 +20,16 @@ class _FixedJsonConverter extends JsonConverter<Fixed, String> {
 
   @override
   String toJson(Fixed object) => object.toString();
+}
+
+class _UriJsonConverter extends JsonConverter<Uri, String> {
+  const _UriJsonConverter();
+
+  @override
+  Uri fromJson(String json) => Uri.parse(json);
+
+  @override
+  String toJson(Uri object) => object.toString();
 }
 
 class _DateTimeJsonConverter extends JsonConverter<DateTime, int> {
