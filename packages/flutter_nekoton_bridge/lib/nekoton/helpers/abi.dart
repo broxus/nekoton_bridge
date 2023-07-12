@@ -73,14 +73,14 @@ Future<SignedMessage> createExternalMessageWithoutSignature({
   required String method,
   String? stateInit,
   required TokensObject input,
-  required int timeout,
+  required Duration timeout,
 }) async {
   final res = await createLib().createExternalMessageWithoutSignature(
     dst: dst,
     contractAbi: contractAbi,
     method: method,
     input: jsonEncode(input),
-    timeout: timeout,
+    timeout: timeout.inMilliseconds,
     stateInit: stateInit,
   );
   return SignedMessage.fromJson(jsonDecode(res));
@@ -94,7 +94,7 @@ Future<UnsignedMessage> createExternalMessage({
   String? stateInit,
   required TokensObject input,
   required PublicKey publicKey,
-  required int timeout,
+  required Duration timeout,
 }) async {
   return UnsignedMessage.create(
     message: await createLib().createExternalMessage(
@@ -103,7 +103,7 @@ Future<UnsignedMessage> createExternalMessage({
       method: method,
       input: jsonEncode(input),
       publicKey: publicKey.publicKey,
-      timeout: timeout,
+      timeout: timeout.inMilliseconds,
       stateInit: stateInit,
     ),
   );

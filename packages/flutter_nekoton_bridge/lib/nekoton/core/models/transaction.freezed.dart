@@ -22,7 +22,8 @@ Transaction _$TransactionFromJson(Map<String, dynamic> json) {
 mixin _$Transaction {
   TransactionId get id => throw _privateConstructorUsedError;
   TransactionId? get prevTransactionId => throw _privateConstructorUsedError;
-  int get createdAt => throw _privateConstructorUsedError;
+  @dateSecondsSinceEpochJsonConverter
+  DateTime get createdAt => throw _privateConstructorUsedError;
   bool get aborted => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
   int? get exitCode => throw _privateConstructorUsedError;
@@ -49,7 +50,7 @@ abstract class $TransactionCopyWith<$Res> {
   $Res call(
       {TransactionId id,
       TransactionId? prevTransactionId,
-      int createdAt,
+      @dateSecondsSinceEpochJsonConverter DateTime createdAt,
       bool aborted,
       @JsonKey(includeIfNull: false) int? exitCode,
       @JsonKey(includeIfNull: false) int? resultCode,
@@ -101,7 +102,7 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as DateTime,
       aborted: null == aborted
           ? _value.aborted
           : aborted // ignore: cast_nullable_to_non_nullable
@@ -177,7 +178,7 @@ abstract class _$$_TransactionCopyWith<$Res>
   $Res call(
       {TransactionId id,
       TransactionId? prevTransactionId,
-      int createdAt,
+      @dateSecondsSinceEpochJsonConverter DateTime createdAt,
       bool aborted,
       @JsonKey(includeIfNull: false) int? exitCode,
       @JsonKey(includeIfNull: false) int? resultCode,
@@ -230,7 +231,7 @@ class __$$_TransactionCopyWithImpl<$Res>
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as DateTime,
       aborted: null == aborted
           ? _value.aborted
           : aborted // ignore: cast_nullable_to_non_nullable
@@ -273,7 +274,7 @@ class _$_Transaction extends _Transaction {
   const _$_Transaction(
       {required this.id,
       this.prevTransactionId,
-      required this.createdAt,
+      @dateSecondsSinceEpochJsonConverter required this.createdAt,
       required this.aborted,
       @JsonKey(includeIfNull: false) this.exitCode,
       @JsonKey(includeIfNull: false) this.resultCode,
@@ -293,7 +294,8 @@ class _$_Transaction extends _Transaction {
   @override
   final TransactionId? prevTransactionId;
   @override
-  final int createdAt;
+  @dateSecondsSinceEpochJsonConverter
+  final DateTime createdAt;
   @override
   final bool aborted;
   @override
@@ -384,7 +386,7 @@ abstract class _Transaction extends Transaction {
   const factory _Transaction(
       {required final TransactionId id,
       final TransactionId? prevTransactionId,
-      required final int createdAt,
+      @dateSecondsSinceEpochJsonConverter required final DateTime createdAt,
       required final bool aborted,
       @JsonKey(includeIfNull: false) final int? exitCode,
       @JsonKey(includeIfNull: false) final int? resultCode,
@@ -403,7 +405,8 @@ abstract class _Transaction extends Transaction {
   @override
   TransactionId? get prevTransactionId;
   @override
-  int get createdAt;
+  @dateSecondsSinceEpochJsonConverter
+  DateTime get createdAt;
   @override
   bool get aborted;
   @override

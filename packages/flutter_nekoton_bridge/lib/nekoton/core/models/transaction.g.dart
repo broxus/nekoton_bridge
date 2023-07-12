@@ -13,7 +13,8 @@ _$_Transaction _$$_TransactionFromJson(Map<String, dynamic> json) =>
           ? null
           : TransactionId.fromJson(
               json['prevTransactionId'] as Map<String, dynamic>),
-      createdAt: json['createdAt'] as int,
+      createdAt:
+          dateSecondsSinceEpochJsonConverter.fromJson(json['createdAt'] as int),
       aborted: json['aborted'] as bool,
       exitCode: json['exitCode'] as int?,
       resultCode: json['resultCode'] as int?,
@@ -30,7 +31,7 @@ Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) {
   final val = <String, dynamic>{
     'id': instance.id.toJson(),
     'prevTransactionId': instance.prevTransactionId?.toJson(),
-    'createdAt': instance.createdAt,
+    'createdAt': dateSecondsSinceEpochJsonConverter.toJson(instance.createdAt),
     'aborted': instance.aborted,
   };
 
