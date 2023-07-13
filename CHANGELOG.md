@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-07-12
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.10.0`](#flutter_nekoton_bridge---v1100)
+ - [`nekoton_bridge` - `v1.8.4`](#nekoton_bridge---v184)
+ - [`flutter_nekoton_bridge_example` - `v1.8.4`](#flutter_nekoton_bridge_example---v184)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.8.4`
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.10.0`
+
+ - **FIX**: transport timeout ([#158](https://github.com/broxus/nekoton_bridge/issues/158)). ([c90981ca](https://github.com/broxus/nekoton_bridge/commit/c90981ca4ce9a5ac507290ef0c54d08cf3ff081c))
+ - **FEAT**: add uri converter ([#159](https://github.com/broxus/nekoton_bridge/issues/159)). ([a0946942](https://github.com/broxus/nekoton_bridge/commit/a09469422c6efb3938b4f7f551498608d79e9ec0))
+
+#### `nekoton_bridge` - `v1.8.4`
+
+ - **FIX**: transport timeout ([#158](https://github.com/broxus/nekoton_bridge/issues/158)). ([c90981ca](https://github.com/broxus/nekoton_bridge/commit/c90981ca4ce9a5ac507290ef0c54d08cf3ff081c))
+
+
 ## 2023-07-11
 
 ### Changes

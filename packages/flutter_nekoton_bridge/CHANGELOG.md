@@ -1,3 +1,8 @@
+## 1.10.0
+
+ - **FIX**: transport timeout ([#158](https://github.com/broxus/nekoton_bridge/issues/158)). ([c90981ca](https://github.com/broxus/nekoton_bridge/commit/c90981ca4ce9a5ac507290ef0c54d08cf3ff081c))
+ - **FEAT**: add uri converter ([#159](https://github.com/broxus/nekoton_bridge/issues/159)). ([a0946942](https://github.com/broxus/nekoton_bridge/commit/a09469422c6efb3938b4f7f551498608d79e9ec0))
+
 ## 1.9.0
 
  - **FIX**: sealed freezed ([#156](https://github.com/broxus/nekoton_bridge/issues/156)). ([2a37d2d0](https://github.com/broxus/nekoton_bridge/commit/2a37d2d053b0e1114ffd2f1873f0028a3a92ad09))
