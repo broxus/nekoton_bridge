@@ -8,7 +8,7 @@ part 'multisig_send_transaction.g.dart';
 @freezed
 sealed class MultisigSendTransaction with _$MultisigSendTransaction {
   const factory MultisigSendTransaction({
-    required final String dest,
+    required final Address dest,
     @amountJsonConverter required final Fixed value,
     required final bool bounce,
     required final int flags,

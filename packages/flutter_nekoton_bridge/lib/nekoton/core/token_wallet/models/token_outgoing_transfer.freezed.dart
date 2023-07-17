@@ -22,7 +22,8 @@ TokenOutgoingTransfer _$TokenOutgoingTransferFromJson(
 /// @nodoc
 mixin _$TokenOutgoingTransfer {
   TransferRecipient get to => throw _privateConstructorUsedError;
-  String get tokens => throw _privateConstructorUsedError;
+  @amountJsonConverter
+  Fixed get tokens => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,7 @@ abstract class $TokenOutgoingTransferCopyWith<$Res> {
           $Res Function(TokenOutgoingTransfer) then) =
       _$TokenOutgoingTransferCopyWithImpl<$Res, TokenOutgoingTransfer>;
   @useResult
-  $Res call({TransferRecipient to, String tokens});
+  $Res call({TransferRecipient to, @amountJsonConverter Fixed tokens});
 
   $TransferRecipientCopyWith<$Res> get to;
 }
@@ -66,7 +67,7 @@ class _$TokenOutgoingTransferCopyWithImpl<$Res,
       tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
     ) as $Val);
   }
 
@@ -87,7 +88,7 @@ abstract class _$$_TokenOutgoingTransferCopyWith<$Res>
       __$$_TokenOutgoingTransferCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({TransferRecipient to, String tokens});
+  $Res call({TransferRecipient to, @amountJsonConverter Fixed tokens});
 
   @override
   $TransferRecipientCopyWith<$Res> get to;
@@ -115,7 +116,7 @@ class __$$_TokenOutgoingTransferCopyWithImpl<$Res>
       tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
     ));
   }
 }
@@ -123,7 +124,8 @@ class __$$_TokenOutgoingTransferCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_TokenOutgoingTransfer implements _TokenOutgoingTransfer {
-  const _$_TokenOutgoingTransfer({required this.to, required this.tokens});
+  const _$_TokenOutgoingTransfer(
+      {required this.to, @amountJsonConverter required this.tokens});
 
   factory _$_TokenOutgoingTransfer.fromJson(Map<String, dynamic> json) =>
       _$$_TokenOutgoingTransferFromJson(json);
@@ -131,7 +133,8 @@ class _$_TokenOutgoingTransfer implements _TokenOutgoingTransfer {
   @override
   final TransferRecipient to;
   @override
-  final String tokens;
+  @amountJsonConverter
+  final Fixed tokens;
 
   @override
   String toString() {
@@ -168,8 +171,9 @@ class _$_TokenOutgoingTransfer implements _TokenOutgoingTransfer {
 
 abstract class _TokenOutgoingTransfer implements TokenOutgoingTransfer {
   const factory _TokenOutgoingTransfer(
-      {required final TransferRecipient to,
-      required final String tokens}) = _$_TokenOutgoingTransfer;
+          {required final TransferRecipient to,
+          @amountJsonConverter required final Fixed tokens}) =
+      _$_TokenOutgoingTransfer;
 
   factory _TokenOutgoingTransfer.fromJson(Map<String, dynamic> json) =
       _$_TokenOutgoingTransfer.fromJson;
@@ -177,7 +181,8 @@ abstract class _TokenOutgoingTransfer implements TokenOutgoingTransfer {
   @override
   TransferRecipient get to;
   @override
-  String get tokens;
+  @amountJsonConverter
+  Fixed get tokens;
   @override
   @JsonKey(ignore: true)
   _$$_TokenOutgoingTransferCopyWith<_$_TokenOutgoingTransfer> get copyWith =>

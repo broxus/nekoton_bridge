@@ -8,8 +8,8 @@ part 'multisig_submit_transaction.g.dart';
 @freezed
 sealed class MultisigSubmitTransaction with _$MultisigSubmitTransaction {
   const factory MultisigSubmitTransaction({
-    required final String custodian,
-    required final String dest,
+    required final PublicKey custodian,
+    required final Address dest,
     @amountJsonConverter required final Fixed value,
     required final bool bounce,
     required final bool allBalance,

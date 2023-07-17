@@ -21,7 +21,7 @@ PendingTransaction _$PendingTransactionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PendingTransaction {
   String get messageHash => throw _privateConstructorUsedError;
-  String? get src => throw _privateConstructorUsedError;
+  Address? get src => throw _privateConstructorUsedError;
   @dateSecondsSinceEpochJsonConverter
   DateTime get expireAt => throw _privateConstructorUsedError;
 
@@ -39,8 +39,10 @@ abstract class $PendingTransactionCopyWith<$Res> {
   @useResult
   $Res call(
       {String messageHash,
-      String? src,
+      Address? src,
       @dateSecondsSinceEpochJsonConverter DateTime expireAt});
+
+  $AddressCopyWith<$Res>? get src;
 }
 
 /// @nodoc
@@ -68,12 +70,24 @@ class _$PendingTransactionCopyWithImpl<$Res, $Val extends PendingTransaction>
       src: freezed == src
           ? _value.src
           : src // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Address?,
       expireAt: null == expireAt
           ? _value.expireAt
           : expireAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res>? get src {
+    if (_value.src == null) {
+      return null;
+    }
+
+    return $AddressCopyWith<$Res>(_value.src!, (value) {
+      return _then(_value.copyWith(src: value) as $Val);
+    });
   }
 }
 
@@ -87,8 +101,11 @@ abstract class _$$_PendingTransactionCopyWith<$Res>
   @useResult
   $Res call(
       {String messageHash,
-      String? src,
+      Address? src,
       @dateSecondsSinceEpochJsonConverter DateTime expireAt});
+
+  @override
+  $AddressCopyWith<$Res>? get src;
 }
 
 /// @nodoc
@@ -114,7 +131,7 @@ class __$$_PendingTransactionCopyWithImpl<$Res>
       src: freezed == src
           ? _value.src
           : src // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Address?,
       expireAt: null == expireAt
           ? _value.expireAt
           : expireAt // ignore: cast_nullable_to_non_nullable
@@ -138,7 +155,7 @@ class _$_PendingTransaction extends _PendingTransaction {
   @override
   final String messageHash;
   @override
-  final String? src;
+  final Address? src;
   @override
   @dateSecondsSinceEpochJsonConverter
   final DateTime expireAt;
@@ -182,7 +199,7 @@ class _$_PendingTransaction extends _PendingTransaction {
 abstract class _PendingTransaction extends PendingTransaction {
   const factory _PendingTransaction(
       {required final String messageHash,
-      final String? src,
+      final Address? src,
       @dateSecondsSinceEpochJsonConverter
       required final DateTime expireAt}) = _$_PendingTransaction;
   const _PendingTransaction._() : super._();
@@ -193,7 +210,7 @@ abstract class _PendingTransaction extends PendingTransaction {
   @override
   String get messageHash;
   @override
-  String? get src;
+  Address? get src;
   @override
   @dateSecondsSinceEpochJsonConverter
   DateTime get expireAt;

@@ -9,8 +9,8 @@ part of 'multisig_submit_transaction.dart';
 _$_MultisigSubmitTransaction _$$_MultisigSubmitTransactionFromJson(
         Map<String, dynamic> json) =>
     _$_MultisigSubmitTransaction(
-      custodian: json['custodian'] as String,
-      dest: json['dest'] as String,
+      custodian: PublicKey.fromJson(json['custodian'] as String),
+      dest: Address.fromJson(json['dest'] as String),
       value: amountJsonConverter.fromJson(json['value'] as String),
       bounce: json['bounce'] as bool,
       allBalance: json['allBalance'] as bool,
@@ -21,8 +21,8 @@ _$_MultisigSubmitTransaction _$$_MultisigSubmitTransactionFromJson(
 Map<String, dynamic> _$$_MultisigSubmitTransactionToJson(
         _$_MultisigSubmitTransaction instance) =>
     <String, dynamic>{
-      'custodian': instance.custodian,
-      'dest': instance.dest,
+      'custodian': instance.custodian.toJson(),
+      'dest': instance.dest.toJson(),
       'value': amountJsonConverter.toJson(instance.value),
       'bounce': instance.bounce,
       'allBalance': instance.allBalance,

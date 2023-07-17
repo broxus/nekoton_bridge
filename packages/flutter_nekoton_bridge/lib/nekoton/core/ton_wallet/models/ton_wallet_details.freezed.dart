@@ -24,7 +24,8 @@ mixin _$TonWalletDetails {
   @amountJsonConverter
   Fixed get minAmount => throw _privateConstructorUsedError;
   bool get supportsPayload => throw _privateConstructorUsedError;
-  bool get supportsMultipleOwners => throw _privateConstructorUsedError;
+  bool get supportsMultipleOwners =>
+      throw _privateConstructorUsedError; // expirationTime in seconds
   int get expirationTime => throw _privateConstructorUsedError;
   int? get requiredConfirmations => throw _privateConstructorUsedError;
 
@@ -186,6 +187,7 @@ class _$_TonWalletDetails implements _TonWalletDetails {
   final bool supportsPayload;
   @override
   final bool supportsMultipleOwners;
+// expirationTime in seconds
   @override
   final int expirationTime;
   @override
@@ -261,7 +263,7 @@ abstract class _TonWalletDetails implements TonWalletDetails {
   bool get supportsPayload;
   @override
   bool get supportsMultipleOwners;
-  @override
+  @override // expirationTime in seconds
   int get expirationTime;
   @override
   int? get requiredConfirmations;

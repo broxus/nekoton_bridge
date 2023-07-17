@@ -22,12 +22,12 @@ MultisigPendingTransaction _$MultisigPendingTransactionFromJson(
 /// @nodoc
 mixin _$MultisigPendingTransaction {
   String get id => throw _privateConstructorUsedError;
-  List<String> get confirmations => throw _privateConstructorUsedError;
+  List<PublicKey> get confirmations => throw _privateConstructorUsedError;
   int get signsRequired => throw _privateConstructorUsedError;
   int get signsReceived => throw _privateConstructorUsedError;
-  String get creator => throw _privateConstructorUsedError;
+  PublicKey get creator => throw _privateConstructorUsedError;
   int get index => throw _privateConstructorUsedError;
-  String get dest => throw _privateConstructorUsedError;
+  Address get dest => throw _privateConstructorUsedError;
   @amountJsonConverter
   Fixed get value => throw _privateConstructorUsedError;
   int get sendFlags => throw _privateConstructorUsedError;
@@ -49,16 +49,19 @@ abstract class $MultisigPendingTransactionCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      List<String> confirmations,
+      List<PublicKey> confirmations,
       int signsRequired,
       int signsReceived,
-      String creator,
+      PublicKey creator,
       int index,
-      String dest,
+      Address dest,
       @amountJsonConverter Fixed value,
       int sendFlags,
       String payload,
       bool bounce});
+
+  $PublicKeyCopyWith<$Res> get creator;
+  $AddressCopyWith<$Res> get dest;
 }
 
 /// @nodoc
@@ -95,7 +98,7 @@ class _$MultisigPendingTransactionCopyWithImpl<$Res,
       confirmations: null == confirmations
           ? _value.confirmations
           : confirmations // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<PublicKey>,
       signsRequired: null == signsRequired
           ? _value.signsRequired
           : signsRequired // ignore: cast_nullable_to_non_nullable
@@ -107,7 +110,7 @@ class _$MultisigPendingTransactionCopyWithImpl<$Res,
       creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -115,7 +118,7 @@ class _$MultisigPendingTransactionCopyWithImpl<$Res,
       dest: null == dest
           ? _value.dest
           : dest // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -134,6 +137,22 @@ class _$MultisigPendingTransactionCopyWithImpl<$Res,
               as bool,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get creator {
+    return $PublicKeyCopyWith<$Res>(_value.creator, (value) {
+      return _then(_value.copyWith(creator: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get dest {
+    return $AddressCopyWith<$Res>(_value.dest, (value) {
+      return _then(_value.copyWith(dest: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -147,16 +166,21 @@ abstract class _$$_MultisigPendingTransactionCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      List<String> confirmations,
+      List<PublicKey> confirmations,
       int signsRequired,
       int signsReceived,
-      String creator,
+      PublicKey creator,
       int index,
-      String dest,
+      Address dest,
       @amountJsonConverter Fixed value,
       int sendFlags,
       String payload,
       bool bounce});
+
+  @override
+  $PublicKeyCopyWith<$Res> get creator;
+  @override
+  $AddressCopyWith<$Res> get dest;
 }
 
 /// @nodoc
@@ -192,7 +216,7 @@ class __$$_MultisigPendingTransactionCopyWithImpl<$Res>
       confirmations: null == confirmations
           ? _value._confirmations
           : confirmations // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<PublicKey>,
       signsRequired: null == signsRequired
           ? _value.signsRequired
           : signsRequired // ignore: cast_nullable_to_non_nullable
@@ -204,7 +228,7 @@ class __$$_MultisigPendingTransactionCopyWithImpl<$Res>
       creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -212,7 +236,7 @@ class __$$_MultisigPendingTransactionCopyWithImpl<$Res>
       dest: null == dest
           ? _value.dest
           : dest // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -239,7 +263,7 @@ class __$$_MultisigPendingTransactionCopyWithImpl<$Res>
 class _$_MultisigPendingTransaction implements _MultisigPendingTransaction {
   const _$_MultisigPendingTransaction(
       {required this.id,
-      required final List<String> confirmations,
+      required final List<PublicKey> confirmations,
       required this.signsRequired,
       required this.signsReceived,
       required this.creator,
@@ -256,9 +280,9 @@ class _$_MultisigPendingTransaction implements _MultisigPendingTransaction {
 
   @override
   final String id;
-  final List<String> _confirmations;
+  final List<PublicKey> _confirmations;
   @override
-  List<String> get confirmations {
+  List<PublicKey> get confirmations {
     if (_confirmations is EqualUnmodifiableListView) return _confirmations;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_confirmations);
@@ -269,11 +293,11 @@ class _$_MultisigPendingTransaction implements _MultisigPendingTransaction {
   @override
   final int signsReceived;
   @override
-  final String creator;
+  final PublicKey creator;
   @override
   final int index;
   @override
-  final String dest;
+  final Address dest;
   @override
   @amountJsonConverter
   final Fixed value;
@@ -346,12 +370,12 @@ abstract class _MultisigPendingTransaction
     implements MultisigPendingTransaction {
   const factory _MultisigPendingTransaction(
       {required final String id,
-      required final List<String> confirmations,
+      required final List<PublicKey> confirmations,
       required final int signsRequired,
       required final int signsReceived,
-      required final String creator,
+      required final PublicKey creator,
       required final int index,
-      required final String dest,
+      required final Address dest,
       @amountJsonConverter required final Fixed value,
       required final int sendFlags,
       required final String payload,
@@ -363,17 +387,17 @@ abstract class _MultisigPendingTransaction
   @override
   String get id;
   @override
-  List<String> get confirmations;
+  List<PublicKey> get confirmations;
   @override
   int get signsRequired;
   @override
   int get signsReceived;
   @override
-  String get creator;
+  PublicKey get creator;
   @override
   int get index;
   @override
-  String get dest;
+  Address get dest;
   @override
   @amountJsonConverter
   Fixed get value;
