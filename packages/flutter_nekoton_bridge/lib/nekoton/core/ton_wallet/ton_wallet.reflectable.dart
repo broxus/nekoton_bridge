@@ -449,11 +449,15 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'owner=': 11,
               r'symbol': 0,
               r'symbol=': 11,
+              r'currency': 0,
+              r'currency=': 11,
               r'version': 0,
               r'version=': 11,
+              r'moneyBalance': 0,
               r'contractState': 0,
               r'fieldUpdatesStream': 0,
               r'onBalanceChangedStream': 0,
+              r'onMoneyBalanceChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'refreshDescription': 0,
               r'subscribe': 19,
@@ -563,9 +567,13 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'balance': (dynamic instance) => instance.balance,
         r'owner': (dynamic instance) => instance.owner,
         r'symbol': (dynamic instance) => instance.symbol,
+        r'currency': (dynamic instance) => instance.currency,
         r'version': (dynamic instance) => instance.version,
+        r'moneyBalance': (dynamic instance) => instance.moneyBalance,
         r'onBalanceChangedStream': (dynamic instance) =>
-            instance.onBalanceChangedStream
+            instance.onBalanceChangedStream,
+        r'onMoneyBalanceChangedStream': (dynamic instance) =>
+            instance.onMoneyBalanceChangedStream
       },
       {
         r'wallet=': (dynamic instance, value) => instance.wallet = value,
@@ -583,6 +591,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'balance=': (dynamic instance, value) => instance.balance = value,
         r'owner=': (dynamic instance, value) => instance.owner = value,
         r'symbol=': (dynamic instance, value) => instance.symbol = value,
+        r'currency=': (dynamic instance, value) => instance.currency = value,
         r'version=': (dynamic instance, value) => instance.version = value
       },
       null,

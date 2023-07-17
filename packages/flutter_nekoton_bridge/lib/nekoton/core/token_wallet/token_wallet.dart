@@ -26,6 +26,7 @@ class TokenWallet extends RustToDartMirrorInterface
 
   /// Controllers that contains data that emits from rust.
   final _onBalanceChangedController = StreamController<Fixed>.broadcast();
+  final _onMoneyBalanceChangedController = StreamController<Money>.broadcast();
   final _onTransactionsFoundController = StreamController<
       Tuple2<List<TransactionWithData<TokenWalletTransaction?>>,
           TransactionsBatchInfo>>.broadcast();
@@ -35,6 +36,7 @@ class TokenWallet extends RustToDartMirrorInterface
   /// event that can change internal state of wallet.
   late ContractState _contractState;
   late Fixed balance;
+  Money get moneyBalance => Money.fromFixedWithCurrency(balance, currency);
 
   /// Triggers subscribers when [_updateData] completes
   final _fieldsUpdateController = StreamController<void>.broadcast();
@@ -43,6 +45,7 @@ class TokenWallet extends RustToDartMirrorInterface
   late final Address address;
   late final Address owner;
   late final Symbol symbol;
+  late final Currency currency;
   late final TokenWalletVersion version;
 
   TokenWallet._(this.transport);
@@ -79,6 +82,8 @@ class TokenWallet extends RustToDartMirrorInterface
       symbol = await _getSymbol();
       version = await _getVersion();
 
+      currency = _getCurrency();
+
       await _updateData();
       _isInitialized = true;
     } catch (_) {
@@ -97,6 +102,12 @@ class TokenWallet extends RustToDartMirrorInterface
   /// To update data of this stream, wallet must be refreshed via [refresh].
   Stream<Fixed> get onBalanceChangedStream =>
       _onBalanceChangedController.stream;
+
+  /// Stream that emits data when balance in Money of wallet changes
+  ///
+  /// To update data of this stream, wallet must be refreshed via [refresh].
+  Stream<Money> get onMoneyBalanceChangedStream =>
+      _onMoneyBalanceChangedController.stream;
 
   /// Stream that emits data when transactions of wallet founds
   ///
@@ -259,6 +270,7 @@ class TokenWallet extends RustToDartMirrorInterface
 
     /// For some strange reason, rust calls this method before creation completes
     if (!_isInitialized) return;
+
     _updateData();
   }
 
@@ -296,13 +308,30 @@ class TokenWallet extends RustToDartMirrorInterface
     if (avoidCall) return;
     balance = Fixed.parse(await _getBalance());
 
+    // Initialization is completed, so we have Currency already created
+    _onMoneyBalanceChangedController.add(moneyBalance);
+
     _fieldsUpdateController.add(null);
+  }
+
+  Currency _getCurrency() {
+    final patternDigits =
+        symbol.decimals > 0 ? '0.${'#' * symbol.decimals}' : '0';
+    final currency = Currency.create(
+      symbol.name,
+      symbol.decimals,
+      pattern: '$patternDigits S',
+    );
+    Currencies().register(currency);
+
+    return currency;
   }
 
   @override
   void dispose() {
     wallet.innerWallet.dispose();
     _onBalanceChangedController.close();
+    _onMoneyBalanceChangedController.close();
     _onTransactionsFoundController.close();
     super.dispose();
   }

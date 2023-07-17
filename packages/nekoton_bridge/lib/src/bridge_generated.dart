@@ -103,6 +103,7 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kEncodeInternalInputConstMeta;
 
   /// Returns json-encoded SignedMessage from nekoton or throws error
+  /// timeout - milliseconds
   Future<String> createExternalMessageWithoutSignature(
       {required String dst,
       required String contractAbi,
@@ -116,6 +117,7 @@ abstract class NekotonBridge {
       get kCreateExternalMessageWithoutSignatureConstMeta;
 
   /// Create external unsigned message that can be listened and handled or throws error
+  /// timeout - milliseconds
   Future<UnsignedMessageImpl> createExternalMessage(
       {required String dst,
       required String contractAbi,
@@ -379,6 +381,7 @@ abstract class NekotonBridge {
       get kRefreshTimeoutMethodUnsignedMessageImplConstMeta;
 
   /// Return current expiration timestamp of UnsignedMessage
+  /// Returns secondsSinceEpoch
   Future<int> expireAtMethodUnsignedMessageImpl(
       {required UnsignedMessageImpl that, dynamic hint});
 
@@ -3171,6 +3174,7 @@ class UnsignedMessageImpl {
       );
 
   /// Return current expiration timestamp of UnsignedMessage
+  /// Returns secondsSinceEpoch
   Future<int> expireAt({dynamic hint}) =>
       bridge.expireAtMethodUnsignedMessageImpl(
         that: this,
