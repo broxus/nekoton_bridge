@@ -271,8 +271,6 @@ class TokenWallet extends RustToDartMirrorInterface
     /// For some strange reason, rust calls this method before creation completes
     if (!_isInitialized) return;
 
-    // Initialization is completed, so we have Currency already created
-    _onMoneyBalanceChangedController.add(moneyBalance);
     _updateData();
   }
 
@@ -309,6 +307,9 @@ class TokenWallet extends RustToDartMirrorInterface
     _contractState = await getContractState();
     if (avoidCall) return;
     balance = Fixed.parse(await _getBalance());
+
+    // Initialization is completed, so we have Currency already created
+    _onMoneyBalanceChangedController.add(moneyBalance);
 
     _fieldsUpdateController.add(null);
   }
