@@ -89,11 +89,15 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'owner=': 5,
               r'symbol': 0,
               r'symbol=': 5,
+              r'currency': 0,
+              r'currency=': 5,
               r'version': 0,
               r'version=': 5,
+              r'moneyBalance': 0,
               r'contractState': 0,
               r'fieldUpdatesStream': 0,
               r'onBalanceChangedStream': 0,
+              r'onMoneyBalanceChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'refreshDescription': 0,
               r'subscribe': 0,
@@ -501,12 +505,16 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'address': (dynamic instance) => instance.address,
         r'owner': (dynamic instance) => instance.owner,
         r'symbol': (dynamic instance) => instance.symbol,
+        r'currency': (dynamic instance) => instance.currency,
         r'version': (dynamic instance) => instance.version,
+        r'moneyBalance': (dynamic instance) => instance.moneyBalance,
         r'contractState': (dynamic instance) => instance.contractState,
         r'fieldUpdatesStream': (dynamic instance) =>
             instance.fieldUpdatesStream,
         r'onBalanceChangedStream': (dynamic instance) =>
             instance.onBalanceChangedStream,
+        r'onMoneyBalanceChangedStream': (dynamic instance) =>
+            instance.onMoneyBalanceChangedStream,
         r'onTransactionsFoundStream': (dynamic instance) =>
             instance.onTransactionsFoundStream,
         r'refreshDescription': (dynamic instance) =>
@@ -573,6 +581,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'address=': (dynamic instance, value) => instance.address = value,
         r'owner=': (dynamic instance, value) => instance.owner = value,
         r'symbol=': (dynamic instance, value) => instance.symbol = value,
+        r'currency=': (dynamic instance, value) => instance.currency = value,
         r'version=': (dynamic instance, value) => instance.version = value,
         r'caller=': (dynamic instance, value) => instance.caller = value,
         r'connection=': (dynamic instance, value) =>

@@ -246,5 +246,24 @@ void main() {
         }
       },
     );
+
+    testWidgets(
+      'TokenWallet Currency creation',
+      (WidgetTester tester) async {
+        await tester.pumpAndSettleWithTimeout();
+
+        final wallet = await TokenWallet.subscribe(
+          transport: transport,
+          owner: address,
+          rootTokenContract: stEverRootContract,
+        );
+
+        expect(wallet.symbol.name, 'STEVER');
+        expect(wallet.currency.code, 'STEVER');
+        expect(Currencies().find('STEVER'), isNotNull);
+
+        expect(wallet.moneyBalance.currency.code, 'STEVER');
+      },
+    );
   });
 }
