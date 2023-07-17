@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-07-17
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.11.0`](#flutter_nekoton_bridge---v1110)
+ - [`flutter_nekoton_bridge_example` - `v1.9.0`](#flutter_nekoton_bridge_example---v190)
+ - [`nekoton_bridge` - `v1.9.0`](#nekoton_bridge---v190)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.11.0`
+
+ - **FEAT**: add Currency and Money to TokenWallet ([#162](https://github.com/broxus/nekoton_bridge/issues/162)). ([4b13f6bc](https://github.com/broxus/nekoton_bridge/commit/4b13f6bc10f3e41882a1ed19f69df93f3f28dfa0))
+
+#### `flutter_nekoton_bridge_example` - `v1.9.0`
+
+ - **FEAT**: add Currency and Money to TokenWallet ([#162](https://github.com/broxus/nekoton_bridge/issues/162)). ([4b13f6bc](https://github.com/broxus/nekoton_bridge/commit/4b13f6bc10f3e41882a1ed19f69df93f3f28dfa0))
+
+#### `nekoton_bridge` - `v1.9.0`
+
+ - **FEAT**: add Currency and Money to TokenWallet ([#162](https://github.com/broxus/nekoton_bridge/issues/162)). ([4b13f6bc](https://github.com/broxus/nekoton_bridge/commit/4b13f6bc10f3e41882a1ed19f69df93f3f28dfa0))
+
+
 ## 2023-07-12
 
 ### Changes
