@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-07-18
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.12.0`](#flutter_nekoton_bridge---v1120)
+ - [`flutter_nekoton_bridge_example` - `v1.9.1`](#flutter_nekoton_bridge_example---v191)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.9.1`
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.12.0`
+
+ - **FEAT**: update more freezed fields ([#164](https://github.com/broxus/nekoton_bridge/issues/164)). ([b9434994](https://github.com/broxus/nekoton_bridge/commit/b9434994522bd85ed39bfbd2da6bca37147156ad))
+
+
 ## 2023-07-17
 
 ### Changes

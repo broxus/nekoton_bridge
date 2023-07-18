@@ -1,3 +1,7 @@
+## 1.12.0
+
+ - **FEAT**: update more freezed fields ([#164](https://github.com/broxus/nekoton_bridge/issues/164)). ([b9434994](https://github.com/broxus/nekoton_bridge/commit/b9434994522bd85ed39bfbd2da6bca37147156ad))
+
 ## 1.11.0
 
  - **FEAT**: add Currency and Money to TokenWallet ([#162](https://github.com/broxus/nekoton_bridge/issues/162)). ([4b13f6bc](https://github.com/broxus/nekoton_bridge/commit/4b13f6bc10f3e41882a1ed19f69df93f3f28dfa0))

@@ -1,3 +1,7 @@
+## 1.9.1
+
+ - Update a dependency to the latest release.
+
 ## 1.9.0
 
  - **FEAT**: add Currency and Money to TokenWallet ([#162](https://github.com/broxus/nekoton_bridge/issues/162)). ([4b13f6bc](https://github.com/broxus/nekoton_bridge/commit/4b13f6bc10f3e41882a1ed19f69df93f3f28dfa0))
