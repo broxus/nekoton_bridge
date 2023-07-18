@@ -29,23 +29,23 @@ TransferRecipient _$TransferRecipientFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TransferRecipient {
-  String get data => throw _privateConstructorUsedError;
+  Address get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String data) ownerWallet,
-    required TResult Function(String data) tokenWallet,
+    required TResult Function(Address data) ownerWallet,
+    required TResult Function(Address data) tokenWallet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String data)? ownerWallet,
-    TResult? Function(String data)? tokenWallet,
+    TResult? Function(Address data)? ownerWallet,
+    TResult? Function(Address data)? tokenWallet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String data)? ownerWallet,
-    TResult Function(String data)? tokenWallet,
+    TResult Function(Address data)? ownerWallet,
+    TResult Function(Address data)? tokenWallet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -80,7 +80,9 @@ abstract class $TransferRecipientCopyWith<$Res> {
           TransferRecipient value, $Res Function(TransferRecipient) then) =
       _$TransferRecipientCopyWithImpl<$Res, TransferRecipient>;
   @useResult
-  $Res call({String data});
+  $Res call({Address data});
+
+  $AddressCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -102,8 +104,16 @@ class _$TransferRecipientCopyWithImpl<$Res, $Val extends TransferRecipient>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get data {
+    return $AddressCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value) as $Val);
+    });
   }
 }
 
@@ -115,7 +125,10 @@ abstract class _$$_OwnerWalletCopyWith<$Res>
       __$$_OwnerWalletCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String data});
+  $Res call({Address data});
+
+  @override
+  $AddressCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -135,7 +148,7 @@ class __$$_OwnerWalletCopyWithImpl<$Res>
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
     ));
   }
 }
@@ -150,7 +163,7 @@ class _$_OwnerWallet implements _OwnerWallet {
       _$$_OwnerWalletFromJson(json);
 
   @override
-  final String data;
+  final Address data;
 
   @JsonKey(name: 'type')
   final String $type;
@@ -181,8 +194,8 @@ class _$_OwnerWallet implements _OwnerWallet {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String data) ownerWallet,
-    required TResult Function(String data) tokenWallet,
+    required TResult Function(Address data) ownerWallet,
+    required TResult Function(Address data) tokenWallet,
   }) {
     return ownerWallet(data);
   }
@@ -190,8 +203,8 @@ class _$_OwnerWallet implements _OwnerWallet {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String data)? ownerWallet,
-    TResult? Function(String data)? tokenWallet,
+    TResult? Function(Address data)? ownerWallet,
+    TResult? Function(Address data)? tokenWallet,
   }) {
     return ownerWallet?.call(data);
   }
@@ -199,8 +212,8 @@ class _$_OwnerWallet implements _OwnerWallet {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String data)? ownerWallet,
-    TResult Function(String data)? tokenWallet,
+    TResult Function(Address data)? ownerWallet,
+    TResult Function(Address data)? tokenWallet,
     required TResult orElse(),
   }) {
     if (ownerWallet != null) {
@@ -249,13 +262,13 @@ class _$_OwnerWallet implements _OwnerWallet {
 }
 
 abstract class _OwnerWallet implements TransferRecipient {
-  const factory _OwnerWallet(final String data) = _$_OwnerWallet;
+  const factory _OwnerWallet(final Address data) = _$_OwnerWallet;
 
   factory _OwnerWallet.fromJson(Map<String, dynamic> json) =
       _$_OwnerWallet.fromJson;
 
   @override
-  String get data;
+  Address get data;
   @override
   @JsonKey(ignore: true)
   _$$_OwnerWalletCopyWith<_$_OwnerWallet> get copyWith =>
@@ -270,7 +283,10 @@ abstract class _$$_TokenWalletCopyWith<$Res>
       __$$_TokenWalletCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String data});
+  $Res call({Address data});
+
+  @override
+  $AddressCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -290,7 +306,7 @@ class __$$_TokenWalletCopyWithImpl<$Res>
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
     ));
   }
 }
@@ -305,7 +321,7 @@ class _$_TokenWallet implements _TokenWallet {
       _$$_TokenWalletFromJson(json);
 
   @override
-  final String data;
+  final Address data;
 
   @JsonKey(name: 'type')
   final String $type;
@@ -336,8 +352,8 @@ class _$_TokenWallet implements _TokenWallet {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String data) ownerWallet,
-    required TResult Function(String data) tokenWallet,
+    required TResult Function(Address data) ownerWallet,
+    required TResult Function(Address data) tokenWallet,
   }) {
     return tokenWallet(data);
   }
@@ -345,8 +361,8 @@ class _$_TokenWallet implements _TokenWallet {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String data)? ownerWallet,
-    TResult? Function(String data)? tokenWallet,
+    TResult? Function(Address data)? ownerWallet,
+    TResult? Function(Address data)? tokenWallet,
   }) {
     return tokenWallet?.call(data);
   }
@@ -354,8 +370,8 @@ class _$_TokenWallet implements _TokenWallet {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String data)? ownerWallet,
-    TResult Function(String data)? tokenWallet,
+    TResult Function(Address data)? ownerWallet,
+    TResult Function(Address data)? tokenWallet,
     required TResult orElse(),
   }) {
     if (tokenWallet != null) {
@@ -404,13 +420,13 @@ class _$_TokenWallet implements _TokenWallet {
 }
 
 abstract class _TokenWallet implements TransferRecipient {
-  const factory _TokenWallet(final String data) = _$_TokenWallet;
+  const factory _TokenWallet(final Address data) = _$_TokenWallet;
 
   factory _TokenWallet.fromJson(Map<String, dynamic> json) =
       _$_TokenWallet.fromJson;
 
   @override
-  String get data;
+  Address get data;
   @override
   @JsonKey(ignore: true)
   _$$_TokenWalletCopyWith<_$_TokenWallet> get copyWith =>

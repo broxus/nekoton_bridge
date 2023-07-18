@@ -21,8 +21,8 @@ MultisigSubmitTransaction _$MultisigSubmitTransactionFromJson(
 
 /// @nodoc
 mixin _$MultisigSubmitTransaction {
-  String get custodian => throw _privateConstructorUsedError;
-  String get dest => throw _privateConstructorUsedError;
+  PublicKey get custodian => throw _privateConstructorUsedError;
+  Address get dest => throw _privateConstructorUsedError;
   @amountJsonConverter
   Fixed get value => throw _privateConstructorUsedError;
   bool get bounce => throw _privateConstructorUsedError;
@@ -43,13 +43,16 @@ abstract class $MultisigSubmitTransactionCopyWith<$Res> {
       _$MultisigSubmitTransactionCopyWithImpl<$Res, MultisigSubmitTransaction>;
   @useResult
   $Res call(
-      {String custodian,
-      String dest,
+      {PublicKey custodian,
+      Address dest,
       @amountJsonConverter Fixed value,
       bool bounce,
       bool allBalance,
       String payload,
       String transId});
+
+  $PublicKeyCopyWith<$Res> get custodian;
+  $AddressCopyWith<$Res> get dest;
 }
 
 /// @nodoc
@@ -78,11 +81,11 @@ class _$MultisigSubmitTransactionCopyWithImpl<$Res,
       custodian: null == custodian
           ? _value.custodian
           : custodian // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       dest: null == dest
           ? _value.dest
           : dest // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -105,6 +108,22 @@ class _$MultisigSubmitTransactionCopyWithImpl<$Res,
               as String,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get custodian {
+    return $PublicKeyCopyWith<$Res>(_value.custodian, (value) {
+      return _then(_value.copyWith(custodian: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get dest {
+    return $AddressCopyWith<$Res>(_value.dest, (value) {
+      return _then(_value.copyWith(dest: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -117,13 +136,18 @@ abstract class _$$_MultisigSubmitTransactionCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String custodian,
-      String dest,
+      {PublicKey custodian,
+      Address dest,
       @amountJsonConverter Fixed value,
       bool bounce,
       bool allBalance,
       String payload,
       String transId});
+
+  @override
+  $PublicKeyCopyWith<$Res> get custodian;
+  @override
+  $AddressCopyWith<$Res> get dest;
 }
 
 /// @nodoc
@@ -151,11 +175,11 @@ class __$$_MultisigSubmitTransactionCopyWithImpl<$Res>
       custodian: null == custodian
           ? _value.custodian
           : custodian // ignore: cast_nullable_to_non_nullable
-              as String,
+              as PublicKey,
       dest: null == dest
           ? _value.dest
           : dest // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -196,9 +220,9 @@ class _$_MultisigSubmitTransaction implements _MultisigSubmitTransaction {
       _$$_MultisigSubmitTransactionFromJson(json);
 
   @override
-  final String custodian;
+  final PublicKey custodian;
   @override
-  final String dest;
+  final Address dest;
   @override
   @amountJsonConverter
   final Fixed value;
@@ -254,8 +278,8 @@ class _$_MultisigSubmitTransaction implements _MultisigSubmitTransaction {
 
 abstract class _MultisigSubmitTransaction implements MultisigSubmitTransaction {
   const factory _MultisigSubmitTransaction(
-      {required final String custodian,
-      required final String dest,
+      {required final PublicKey custodian,
+      required final Address dest,
       @amountJsonConverter required final Fixed value,
       required final bool bounce,
       required final bool allBalance,
@@ -266,9 +290,9 @@ abstract class _MultisigSubmitTransaction implements MultisigSubmitTransaction {
       _$_MultisigSubmitTransaction.fromJson;
 
   @override
-  String get custodian;
+  PublicKey get custodian;
   @override
-  String get dest;
+  Address get dest;
   @override
   @amountJsonConverter
   Fixed get value;

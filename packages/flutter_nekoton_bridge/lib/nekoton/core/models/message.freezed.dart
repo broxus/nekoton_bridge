@@ -21,8 +21,8 @@ Message _$MessageFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Message {
   String get hash => throw _privateConstructorUsedError;
-  String? get src => throw _privateConstructorUsedError;
-  String? get dst => throw _privateConstructorUsedError;
+  Address? get src => throw _privateConstructorUsedError;
+  Address? get dst => throw _privateConstructorUsedError;
   @amountJsonConverter
   Fixed get value => throw _privateConstructorUsedError;
   bool get bounce => throw _privateConstructorUsedError;
@@ -42,13 +42,16 @@ abstract class $MessageCopyWith<$Res> {
   @useResult
   $Res call(
       {String hash,
-      String? src,
-      String? dst,
+      Address? src,
+      Address? dst,
       @amountJsonConverter Fixed value,
       bool bounce,
       bool bounced,
       String? body,
       String? bodyHash});
+
+  $AddressCopyWith<$Res>? get src;
+  $AddressCopyWith<$Res>? get dst;
 }
 
 /// @nodoc
@@ -81,11 +84,11 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
       src: freezed == src
           ? _value.src
           : src // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Address?,
       dst: freezed == dst
           ? _value.dst
           : dst // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Address?,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -108,6 +111,30 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
               as String?,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res>? get src {
+    if (_value.src == null) {
+      return null;
+    }
+
+    return $AddressCopyWith<$Res>(_value.src!, (value) {
+      return _then(_value.copyWith(src: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res>? get dst {
+    if (_value.dst == null) {
+      return null;
+    }
+
+    return $AddressCopyWith<$Res>(_value.dst!, (value) {
+      return _then(_value.copyWith(dst: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -119,13 +146,18 @@ abstract class _$$_MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
   @useResult
   $Res call(
       {String hash,
-      String? src,
-      String? dst,
+      Address? src,
+      Address? dst,
       @amountJsonConverter Fixed value,
       bool bounce,
       bool bounced,
       String? body,
       String? bodyHash});
+
+  @override
+  $AddressCopyWith<$Res>? get src;
+  @override
+  $AddressCopyWith<$Res>? get dst;
 }
 
 /// @nodoc
@@ -155,11 +187,11 @@ class __$$_MessageCopyWithImpl<$Res>
       src: freezed == src
           ? _value.src
           : src // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Address?,
       dst: freezed == dst
           ? _value.dst
           : dst // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Address?,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -203,9 +235,9 @@ class _$_Message implements _Message {
   @override
   final String hash;
   @override
-  final String? src;
+  final Address? src;
   @override
-  final String? dst;
+  final Address? dst;
   @override
   @amountJsonConverter
   final Fixed value;
@@ -261,8 +293,8 @@ class _$_Message implements _Message {
 abstract class _Message implements Message {
   const factory _Message(
       {required final String hash,
-      final String? src,
-      final String? dst,
+      final Address? src,
+      final Address? dst,
       @amountJsonConverter required final Fixed value,
       required final bool bounce,
       required final bool bounced,
@@ -274,9 +306,9 @@ abstract class _Message implements Message {
   @override
   String get hash;
   @override
-  String? get src;
+  Address? get src;
   @override
-  String? get dst;
+  Address? get dst;
   @override
   @amountJsonConverter
   Fixed get value;

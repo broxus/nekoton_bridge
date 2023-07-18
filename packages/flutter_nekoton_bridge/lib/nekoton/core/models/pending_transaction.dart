@@ -11,7 +11,7 @@ sealed class PendingTransaction
     implements Comparable<PendingTransaction> {
   const factory PendingTransaction({
     required final String messageHash,
-    final String? src,
+    final Address? src,
     @dateSecondsSinceEpochJsonConverter required final DateTime expireAt,
   }) = _PendingTransaction;
 

@@ -475,7 +475,8 @@ class TonWallet extends RustToDartMirrorInterface
             e,
             (json) => json != null
                 ? TransactionAdditionalInfo.fromJson(
-                    json as Map<String, dynamic>)
+                    json as Map<String, dynamic>,
+                  )
                 : null,
           ),
         )

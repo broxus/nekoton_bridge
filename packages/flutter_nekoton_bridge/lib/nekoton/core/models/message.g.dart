@@ -8,8 +8,8 @@ part of 'message.dart';
 
 _$_Message _$$_MessageFromJson(Map<String, dynamic> json) => _$_Message(
       hash: json['hash'] as String,
-      src: json['src'] as String?,
-      dst: json['dst'] as String?,
+      src: json['src'] == null ? null : Address.fromJson(json['src'] as String),
+      dst: json['dst'] == null ? null : Address.fromJson(json['dst'] as String),
       value: amountJsonConverter.fromJson(json['value'] as String),
       bounce: json['bounce'] as bool,
       bounced: json['bounced'] as bool,
@@ -20,8 +20,8 @@ _$_Message _$$_MessageFromJson(Map<String, dynamic> json) => _$_Message(
 Map<String, dynamic> _$$_MessageToJson(_$_Message instance) =>
     <String, dynamic>{
       'hash': instance.hash,
-      'src': instance.src,
-      'dst': instance.dst,
+      'src': instance.src?.toJson(),
+      'dst': instance.dst?.toJson(),
       'value': amountJsonConverter.toJson(instance.value),
       'bounce': instance.bounce,
       'bounced': instance.bounced,

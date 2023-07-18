@@ -22,7 +22,8 @@ DePoolOnRoundCompleteNotification _$DePoolOnRoundCompleteNotificationFromJson(
 /// @nodoc
 mixin _$DePoolOnRoundCompleteNotification {
   String get roundId => throw _privateConstructorUsedError;
-  String get reward => throw _privateConstructorUsedError;
+  @amountJsonConverter
+  Fixed get reward => throw _privateConstructorUsedError;
   String get ordinaryStake => throw _privateConstructorUsedError;
   String get vestingStake => throw _privateConstructorUsedError;
   String get lockStake => throw _privateConstructorUsedError;
@@ -45,7 +46,7 @@ abstract class $DePoolOnRoundCompleteNotificationCopyWith<$Res> {
   @useResult
   $Res call(
       {String roundId,
-      String reward,
+      @amountJsonConverter Fixed reward,
       String ordinaryStake,
       String vestingStake,
       String lockStake,
@@ -83,7 +84,7 @@ class _$DePoolOnRoundCompleteNotificationCopyWithImpl<$Res,
       reward: null == reward
           ? _value.reward
           : reward // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
       ordinaryStake: null == ordinaryStake
           ? _value.ordinaryStake
           : ordinaryStake // ignore: cast_nullable_to_non_nullable
@@ -119,7 +120,7 @@ abstract class _$$_DePoolOnRoundCompleteNotificationCopyWith<$Res>
   @useResult
   $Res call(
       {String roundId,
-      String reward,
+      @amountJsonConverter Fixed reward,
       String ordinaryStake,
       String vestingStake,
       String lockStake,
@@ -156,7 +157,7 @@ class __$$_DePoolOnRoundCompleteNotificationCopyWithImpl<$Res>
       reward: null == reward
           ? _value.reward
           : reward // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
       ordinaryStake: null == ordinaryStake
           ? _value.ordinaryStake
           : ordinaryStake // ignore: cast_nullable_to_non_nullable
@@ -187,7 +188,7 @@ class _$_DePoolOnRoundCompleteNotification
     implements _DePoolOnRoundCompleteNotification {
   const _$_DePoolOnRoundCompleteNotification(
       {required this.roundId,
-      required this.reward,
+      @amountJsonConverter required this.reward,
       required this.ordinaryStake,
       required this.vestingStake,
       required this.lockStake,
@@ -201,7 +202,8 @@ class _$_DePoolOnRoundCompleteNotification
   @override
   final String roundId;
   @override
-  final String reward;
+  @amountJsonConverter
+  final Fixed reward;
   @override
   final String ordinaryStake;
   @override
@@ -261,7 +263,7 @@ abstract class _DePoolOnRoundCompleteNotification
     implements DePoolOnRoundCompleteNotification {
   const factory _DePoolOnRoundCompleteNotification(
       {required final String roundId,
-      required final String reward,
+      @amountJsonConverter required final Fixed reward,
       required final String ordinaryStake,
       required final String vestingStake,
       required final String lockStake,
@@ -275,7 +277,8 @@ abstract class _DePoolOnRoundCompleteNotification
   @override
   String get roundId;
   @override
-  String get reward;
+  @amountJsonConverter
+  Fixed get reward;
   @override
   String get ordinaryStake;
   @override

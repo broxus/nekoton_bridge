@@ -22,7 +22,8 @@ WalletInteractionInfo _$WalletInteractionInfoFromJson(
 /// @nodoc
 mixin _$WalletInteractionInfo {
   @JsonKey(includeIfNull: false)
-  String? get recipient => throw _privateConstructorUsedError;
+  @amountJsonConverter
+  Address? get recipient => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
   KnownPayload? get knownPayload => throw _privateConstructorUsedError;
   WalletInteractionMethod get method => throw _privateConstructorUsedError;
@@ -40,10 +41,11 @@ abstract class $WalletInteractionInfoCopyWith<$Res> {
       _$WalletInteractionInfoCopyWithImpl<$Res, WalletInteractionInfo>;
   @useResult
   $Res call(
-      {@JsonKey(includeIfNull: false) String? recipient,
+      {@JsonKey(includeIfNull: false) @amountJsonConverter Address? recipient,
       @JsonKey(includeIfNull: false) KnownPayload? knownPayload,
       WalletInteractionMethod method});
 
+  $AddressCopyWith<$Res>? get recipient;
   $KnownPayloadCopyWith<$Res>? get knownPayload;
   $WalletInteractionMethodCopyWith<$Res> get method;
 }
@@ -70,7 +72,7 @@ class _$WalletInteractionInfoCopyWithImpl<$Res,
       recipient: freezed == recipient
           ? _value.recipient
           : recipient // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Address?,
       knownPayload: freezed == knownPayload
           ? _value.knownPayload
           : knownPayload // ignore: cast_nullable_to_non_nullable
@@ -80,6 +82,18 @@ class _$WalletInteractionInfoCopyWithImpl<$Res,
           : method // ignore: cast_nullable_to_non_nullable
               as WalletInteractionMethod,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res>? get recipient {
+    if (_value.recipient == null) {
+      return null;
+    }
+
+    return $AddressCopyWith<$Res>(_value.recipient!, (value) {
+      return _then(_value.copyWith(recipient: value) as $Val);
+    });
   }
 
   @override
@@ -112,10 +126,12 @@ abstract class _$$_WalletInteractionInfoCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(includeIfNull: false) String? recipient,
+      {@JsonKey(includeIfNull: false) @amountJsonConverter Address? recipient,
       @JsonKey(includeIfNull: false) KnownPayload? knownPayload,
       WalletInteractionMethod method});
 
+  @override
+  $AddressCopyWith<$Res>? get recipient;
   @override
   $KnownPayloadCopyWith<$Res>? get knownPayload;
   @override
@@ -141,7 +157,7 @@ class __$$_WalletInteractionInfoCopyWithImpl<$Res>
       recipient: freezed == recipient
           ? _value.recipient
           : recipient // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Address?,
       knownPayload: freezed == knownPayload
           ? _value.knownPayload
           : knownPayload // ignore: cast_nullable_to_non_nullable
@@ -158,7 +174,7 @@ class __$$_WalletInteractionInfoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_WalletInteractionInfo implements _WalletInteractionInfo {
   const _$_WalletInteractionInfo(
-      {@JsonKey(includeIfNull: false) this.recipient,
+      {@JsonKey(includeIfNull: false) @amountJsonConverter this.recipient,
       @JsonKey(includeIfNull: false) this.knownPayload,
       required this.method});
 
@@ -167,7 +183,8 @@ class _$_WalletInteractionInfo implements _WalletInteractionInfo {
 
   @override
   @JsonKey(includeIfNull: false)
-  final String? recipient;
+  @amountJsonConverter
+  final Address? recipient;
   @override
   @JsonKey(includeIfNull: false)
   final KnownPayload? knownPayload;
@@ -212,7 +229,9 @@ class _$_WalletInteractionInfo implements _WalletInteractionInfo {
 
 abstract class _WalletInteractionInfo implements WalletInteractionInfo {
   const factory _WalletInteractionInfo(
-          {@JsonKey(includeIfNull: false) final String? recipient,
+          {@JsonKey(includeIfNull: false)
+          @amountJsonConverter
+          final Address? recipient,
           @JsonKey(includeIfNull: false) final KnownPayload? knownPayload,
           required final WalletInteractionMethod method}) =
       _$_WalletInteractionInfo;
@@ -222,7 +241,8 @@ abstract class _WalletInteractionInfo implements WalletInteractionInfo {
 
   @override
   @JsonKey(includeIfNull: false)
-  String? get recipient;
+  @amountJsonConverter
+  Address? get recipient;
   @override
   @JsonKey(includeIfNull: false)
   KnownPayload? get knownPayload;

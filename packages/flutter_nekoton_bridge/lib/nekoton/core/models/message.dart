@@ -9,8 +9,8 @@ part 'message.g.dart';
 sealed class Message with _$Message {
   const factory Message({
     required final String hash,
-    final String? src,
-    final String? dst,
+    final Address? src,
+    final Address? dst,
     @amountJsonConverter required final Fixed value,
     required final bool bounce,
     required final bool bounced,

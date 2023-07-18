@@ -9,7 +9,7 @@ part of 'multisig_send_transaction.dart';
 _$_MultisigSendTransaction _$$_MultisigSendTransactionFromJson(
         Map<String, dynamic> json) =>
     _$_MultisigSendTransaction(
-      dest: json['dest'] as String,
+      dest: Address.fromJson(json['dest'] as String),
       value: amountJsonConverter.fromJson(json['value'] as String),
       bounce: json['bounce'] as bool,
       flags: json['flags'] as int,
@@ -19,7 +19,7 @@ _$_MultisigSendTransaction _$$_MultisigSendTransactionFromJson(
 Map<String, dynamic> _$$_MultisigSendTransactionToJson(
         _$_MultisigSendTransaction instance) =>
     <String, dynamic>{
-      'dest': instance.dest,
+      'dest': instance.dest.toJson(),
       'value': amountJsonConverter.toJson(instance.value),
       'bounce': instance.bounce,
       'flags': instance.flags,

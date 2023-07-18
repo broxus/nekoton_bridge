@@ -9,7 +9,9 @@ part of 'wallet_interaction_info.dart';
 _$_WalletInteractionInfo _$$_WalletInteractionInfoFromJson(
         Map<String, dynamic> json) =>
     _$_WalletInteractionInfo(
-      recipient: json['recipient'] as String?,
+      recipient: json['recipient'] == null
+          ? null
+          : Address.fromJson(json['recipient'] as String),
       knownPayload: json['knownPayload'] == null
           ? null
           : KnownPayload.fromJson(json['knownPayload'] as Map<String, dynamic>),
@@ -27,7 +29,7 @@ Map<String, dynamic> _$$_WalletInteractionInfoToJson(
     }
   }
 
-  writeNotNull('recipient', instance.recipient);
+  writeNotNull('recipient', instance.recipient?.toJson());
   writeNotNull('knownPayload', instance.knownPayload?.toJson());
   val['method'] = instance.method.toJson();
   return val;

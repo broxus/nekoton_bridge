@@ -4,6 +4,7 @@ import 'package:flutter_nekoton_bridge/nekoton/core/ton_wallet/models/multisig_s
 import 'package:flutter_nekoton_bridge/nekoton/core/ton_wallet/models/multisig_submit_transaction.dart';
 
 part 'multisig_transaction.freezed.dart';
+
 part 'multisig_transaction.g.dart';
 
 @Freezed(unionKey: 'type')
@@ -12,10 +13,12 @@ sealed class MultisigTransaction with _$MultisigTransaction {
       _Send;
 
   const factory MultisigTransaction.submit(
-      final MultisigSubmitTransaction data) = _Submit;
+    final MultisigSubmitTransaction data,
+  ) = _Submit;
 
   const factory MultisigTransaction.confirm(
-      final MultisigConfirmTransaction data) = _Confirm;
+    final MultisigConfirmTransaction data,
+  ) = _Confirm;
 
   factory MultisigTransaction.fromJson(Map<String, dynamic> json) =>
       _$MultisigTransactionFromJson(json);

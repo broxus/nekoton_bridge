@@ -42,35 +42,35 @@ Map<String, dynamic> _$$_SwapBackToJson(_$_SwapBack instance) =>
     };
 
 _$_Accept _$$_AcceptFromJson(Map<String, dynamic> json) => _$_Accept(
-      json['data'] as String,
+      amountJsonConverter.fromJson(json['data'] as String),
       $type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$$_AcceptToJson(_$_Accept instance) => <String, dynamic>{
-      'data': instance.data,
+      'data': amountJsonConverter.toJson(instance.data),
       'type': instance.$type,
     };
 
 _$_TransferBounced _$$_TransferBouncedFromJson(Map<String, dynamic> json) =>
     _$_TransferBounced(
-      json['data'] as String,
+      amountJsonConverter.fromJson(json['data'] as String),
       $type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$$_TransferBouncedToJson(_$_TransferBounced instance) =>
     <String, dynamic>{
-      'data': instance.data,
+      'data': amountJsonConverter.toJson(instance.data),
       'type': instance.$type,
     };
 
 _$_SwapBackBounced _$$_SwapBackBouncedFromJson(Map<String, dynamic> json) =>
     _$_SwapBackBounced(
-      json['data'] as String,
+      amountJsonConverter.fromJson(json['data'] as String),
       $type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$$_SwapBackBouncedToJson(_$_SwapBackBounced instance) =>
     <String, dynamic>{
-      'data': instance.data,
+      'data': amountJsonConverter.toJson(instance.data),
       'type': instance.$type,
     };

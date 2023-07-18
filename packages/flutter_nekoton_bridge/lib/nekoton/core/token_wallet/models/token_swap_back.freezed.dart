@@ -20,7 +20,8 @@ TokenSwapBack _$TokenSwapBackFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TokenSwapBack {
-  String get tokens => throw _privateConstructorUsedError;
+  @amountJsonConverter
+  Fixed get tokens => throw _privateConstructorUsedError;
   Address get callbackAddress => throw _privateConstructorUsedError;
   String get callbackPayload => throw _privateConstructorUsedError;
 
@@ -36,7 +37,10 @@ abstract class $TokenSwapBackCopyWith<$Res> {
           TokenSwapBack value, $Res Function(TokenSwapBack) then) =
       _$TokenSwapBackCopyWithImpl<$Res, TokenSwapBack>;
   @useResult
-  $Res call({String tokens, Address callbackAddress, String callbackPayload});
+  $Res call(
+      {@amountJsonConverter Fixed tokens,
+      Address callbackAddress,
+      String callbackPayload});
 
   $AddressCopyWith<$Res> get callbackAddress;
 }
@@ -62,7 +66,7 @@ class _$TokenSwapBackCopyWithImpl<$Res, $Val extends TokenSwapBack>
       tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
       callbackAddress: null == callbackAddress
           ? _value.callbackAddress
           : callbackAddress // ignore: cast_nullable_to_non_nullable
@@ -91,7 +95,10 @@ abstract class _$$_TokenSwapBackCopyWith<$Res>
       __$$_TokenSwapBackCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String tokens, Address callbackAddress, String callbackPayload});
+  $Res call(
+      {@amountJsonConverter Fixed tokens,
+      Address callbackAddress,
+      String callbackPayload});
 
   @override
   $AddressCopyWith<$Res> get callbackAddress;
@@ -116,7 +123,7 @@ class __$$_TokenSwapBackCopyWithImpl<$Res>
       tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fixed,
       callbackAddress: null == callbackAddress
           ? _value.callbackAddress
           : callbackAddress // ignore: cast_nullable_to_non_nullable
@@ -134,7 +141,7 @@ class __$$_TokenSwapBackCopyWithImpl<$Res>
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$_TokenSwapBack implements _TokenSwapBack {
   const _$_TokenSwapBack(
-      {required this.tokens,
+      {@amountJsonConverter required this.tokens,
       required this.callbackAddress,
       required this.callbackPayload});
 
@@ -142,7 +149,8 @@ class _$_TokenSwapBack implements _TokenSwapBack {
       _$$_TokenSwapBackFromJson(json);
 
   @override
-  final String tokens;
+  @amountJsonConverter
+  final Fixed tokens;
   @override
   final Address callbackAddress;
   @override
@@ -186,7 +194,7 @@ class _$_TokenSwapBack implements _TokenSwapBack {
 
 abstract class _TokenSwapBack implements TokenSwapBack {
   const factory _TokenSwapBack(
-      {required final String tokens,
+      {@amountJsonConverter required final Fixed tokens,
       required final Address callbackAddress,
       required final String callbackPayload}) = _$_TokenSwapBack;
 
@@ -194,7 +202,8 @@ abstract class _TokenSwapBack implements TokenSwapBack {
       _$_TokenSwapBack.fromJson;
 
   @override
-  String get tokens;
+  @amountJsonConverter
+  Fixed get tokens;
   @override
   Address get callbackAddress;
   @override
