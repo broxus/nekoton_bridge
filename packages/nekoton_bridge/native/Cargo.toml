@@ -7,7 +7,7 @@ edition = "2018"
 crate-type = ["staticlib", "cdylib"]
 
 [build-dependencies]
-flutter_rust_bridge_codegen = "1.78.*"
+flutter_rust_bridge_codegen = "1.79.*"
 rerun_except = "1.0.0"
 # To debug frb uncomment here and in build.rs
 #env_logger = "0.9"
