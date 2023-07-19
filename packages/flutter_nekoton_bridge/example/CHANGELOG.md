@@ -1,3 +1,7 @@
+## 1.10.0
+
+ - **FEAT**: update currency registration ([#168](https://github.com/broxus/nekoton_bridge/issues/168)). ([8623c385](https://github.com/broxus/nekoton_bridge/commit/8623c3855fc87a19f0c60e77e53adfecbaeac2b3))
+
 ## 1.9.1
 
  - Update a dependency to the latest release.
