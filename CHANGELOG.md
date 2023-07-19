@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-07-19
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.13.0`](#flutter_nekoton_bridge---v1130)
+ - [`flutter_nekoton_bridge_example` - `v1.10.0`](#flutter_nekoton_bridge_example---v1100)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.13.0`
+
+ - **FEAT**: update currency registration ([#168](https://github.com/broxus/nekoton_bridge/issues/168)). ([8623c385](https://github.com/broxus/nekoton_bridge/commit/8623c3855fc87a19f0c60e77e53adfecbaeac2b3))
+
+#### `flutter_nekoton_bridge_example` - `v1.10.0`
+
+ - **FEAT**: update currency registration ([#168](https://github.com/broxus/nekoton_bridge/issues/168)). ([8623c385](https://github.com/broxus/nekoton_bridge/commit/8623c3855fc87a19f0c60e77e53adfecbaeac2b3))
+
+
 ## 2023-07-18
 
 ### Changes

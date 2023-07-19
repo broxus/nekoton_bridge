@@ -1,3 +1,7 @@
+## 1.13.0
+
+ - **FEAT**: update currency registration ([#168](https://github.com/broxus/nekoton_bridge/issues/168)). ([8623c385](https://github.com/broxus/nekoton_bridge/commit/8623c3855fc87a19f0c60e77e53adfecbaeac2b3))
+
 ## 1.12.0
 
  - **FEAT**: update more freezed fields ([#164](https://github.com/broxus/nekoton_bridge/issues/164)). ([b9434994](https://github.com/broxus/nekoton_bridge/commit/b9434994522bd85ed39bfbd2da6bca37147156ad))
