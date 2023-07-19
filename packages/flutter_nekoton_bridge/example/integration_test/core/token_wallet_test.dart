@@ -260,6 +260,7 @@ void main() {
 
         expect(wallet.symbol.name, 'STEVER');
         expect(wallet.currency.code, 'STEVER');
+        expect(wallet.currency.symbol, 'STEVER');
         expect(Currencies().find('STEVER'), isNotNull);
 
         expect(wallet.moneyBalance.currency.code, 'STEVER');
