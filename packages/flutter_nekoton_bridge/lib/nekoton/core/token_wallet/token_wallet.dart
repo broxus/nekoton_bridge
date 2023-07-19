@@ -36,6 +36,7 @@ class TokenWallet extends RustToDartMirrorInterface
   /// event that can change internal state of wallet.
   late ContractState _contractState;
   late Fixed balance;
+
   Money get moneyBalance => Money.fromFixedWithCurrency(balance, currency);
 
   /// Triggers subscribers when [_updateData] completes
@@ -320,7 +321,8 @@ class TokenWallet extends RustToDartMirrorInterface
     final currency = Currency.create(
       symbol.name,
       symbol.decimals,
-      pattern: '$patternDigits S',
+      symbol: symbol.name,
+      pattern: patternDigits,
     );
     Currencies().register(currency);
 
