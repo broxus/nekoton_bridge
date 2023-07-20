@@ -24,7 +24,7 @@ mixin _$LedgerSignatureContext {
   int get decimals => throw _privateConstructorUsedError;
   String get asset => throw _privateConstructorUsedError;
   @amountJsonConverter
-  Fixed get amount => throw _privateConstructorUsedError;
+  BigInt get amount => throw _privateConstructorUsedError;
   Address get address => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $LedgerSignatureContextCopyWith<$Res> {
   $Res call(
       {int decimals,
       String asset,
-      @amountJsonConverter Fixed amount,
+      @amountJsonConverter BigInt amount,
       Address address});
 
   $AddressCopyWith<$Res> get address;
@@ -79,7 +79,7 @@ class _$LedgerSignatureContextCopyWithImpl<$Res,
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -107,7 +107,7 @@ abstract class _$$_LedgerSignatureContextCopyWith<$Res>
   $Res call(
       {int decimals,
       String asset,
-      @amountJsonConverter Fixed amount,
+      @amountJsonConverter BigInt amount,
       Address address});
 
   @override
@@ -143,7 +143,7 @@ class __$$_LedgerSignatureContextCopyWithImpl<$Res>
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -170,7 +170,7 @@ class _$_LedgerSignatureContext implements _LedgerSignatureContext {
   final String asset;
   @override
   @amountJsonConverter
-  final Fixed amount;
+  final BigInt amount;
   @override
   final Address address;
 
@@ -215,7 +215,7 @@ abstract class _LedgerSignatureContext implements LedgerSignatureContext {
   const factory _LedgerSignatureContext(
       {required final int decimals,
       required final String asset,
-      @amountJsonConverter required final Fixed amount,
+      @amountJsonConverter required final BigInt amount,
       required final Address address}) = _$_LedgerSignatureContext;
 
   factory _LedgerSignatureContext.fromJson(Map<String, dynamic> json) =
@@ -227,7 +227,7 @@ abstract class _LedgerSignatureContext implements LedgerSignatureContext {
   String get asset;
   @override
   @amountJsonConverter
-  Fixed get amount;
+  BigInt get amount;
   @override
   Address get address;
   @override

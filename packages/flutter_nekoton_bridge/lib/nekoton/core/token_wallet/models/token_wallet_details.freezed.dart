@@ -23,7 +23,7 @@ mixin _$TokenWalletDetails {
   Address get rootAddress => throw _privateConstructorUsedError;
   Address get ownerAddress => throw _privateConstructorUsedError;
   @amountJsonConverter
-  Fixed get balance => throw _privateConstructorUsedError;
+  BigInt get balance => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,7 +40,7 @@ abstract class $TokenWalletDetailsCopyWith<$Res> {
   $Res call(
       {Address rootAddress,
       Address ownerAddress,
-      @amountJsonConverter Fixed balance});
+      @amountJsonConverter BigInt balance});
 
   $AddressCopyWith<$Res> get rootAddress;
   $AddressCopyWith<$Res> get ownerAddress;
@@ -75,7 +75,7 @@ class _$TokenWalletDetailsCopyWithImpl<$Res, $Val extends TokenWalletDetails>
       balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
     ) as $Val);
   }
 
@@ -107,7 +107,7 @@ abstract class _$$_TokenWalletDetailsCopyWith<$Res>
   $Res call(
       {Address rootAddress,
       Address ownerAddress,
-      @amountJsonConverter Fixed balance});
+      @amountJsonConverter BigInt balance});
 
   @override
   $AddressCopyWith<$Res> get rootAddress;
@@ -142,7 +142,7 @@ class __$$_TokenWalletDetailsCopyWithImpl<$Res>
       balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
     ));
   }
 }
@@ -164,7 +164,7 @@ class _$_TokenWalletDetails implements _TokenWalletDetails {
   final Address ownerAddress;
   @override
   @amountJsonConverter
-  final Fixed balance;
+  final BigInt balance;
 
   @override
   String toString() {
@@ -207,7 +207,7 @@ abstract class _TokenWalletDetails implements TokenWalletDetails {
   const factory _TokenWalletDetails(
           {required final Address rootAddress,
           required final Address ownerAddress,
-          @amountJsonConverter required final Fixed balance}) =
+          @amountJsonConverter required final BigInt balance}) =
       _$_TokenWalletDetails;
 
   factory _TokenWalletDetails.fromJson(Map<String, dynamic> json) =
@@ -219,7 +219,7 @@ abstract class _TokenWalletDetails implements TokenWalletDetails {
   Address get ownerAddress;
   @override
   @amountJsonConverter
-  Fixed get balance;
+  BigInt get balance;
   @override
   @JsonKey(ignore: true)
   _$$_TokenWalletDetailsCopyWith<_$_TokenWalletDetails> get copyWith =>

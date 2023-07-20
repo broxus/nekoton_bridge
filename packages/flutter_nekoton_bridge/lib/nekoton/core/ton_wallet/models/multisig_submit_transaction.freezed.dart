@@ -24,7 +24,7 @@ mixin _$MultisigSubmitTransaction {
   PublicKey get custodian => throw _privateConstructorUsedError;
   Address get dest => throw _privateConstructorUsedError;
   @amountJsonConverter
-  Fixed get value => throw _privateConstructorUsedError;
+  BigInt get value => throw _privateConstructorUsedError;
   bool get bounce => throw _privateConstructorUsedError;
   bool get allBalance => throw _privateConstructorUsedError;
   String get payload => throw _privateConstructorUsedError;
@@ -45,7 +45,7 @@ abstract class $MultisigSubmitTransactionCopyWith<$Res> {
   $Res call(
       {PublicKey custodian,
       Address dest,
-      @amountJsonConverter Fixed value,
+      @amountJsonConverter BigInt value,
       bool bounce,
       bool allBalance,
       String payload,
@@ -89,7 +89,7 @@ class _$MultisigSubmitTransactionCopyWithImpl<$Res,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
@@ -138,7 +138,7 @@ abstract class _$$_MultisigSubmitTransactionCopyWith<$Res>
   $Res call(
       {PublicKey custodian,
       Address dest,
-      @amountJsonConverter Fixed value,
+      @amountJsonConverter BigInt value,
       bool bounce,
       bool allBalance,
       String payload,
@@ -183,7 +183,7 @@ class __$$_MultisigSubmitTransactionCopyWithImpl<$Res>
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
@@ -225,7 +225,7 @@ class _$_MultisigSubmitTransaction implements _MultisigSubmitTransaction {
   final Address dest;
   @override
   @amountJsonConverter
-  final Fixed value;
+  final BigInt value;
   @override
   final bool bounce;
   @override
@@ -280,7 +280,7 @@ abstract class _MultisigSubmitTransaction implements MultisigSubmitTransaction {
   const factory _MultisigSubmitTransaction(
       {required final PublicKey custodian,
       required final Address dest,
-      @amountJsonConverter required final Fixed value,
+      @amountJsonConverter required final BigInt value,
       required final bool bounce,
       required final bool allBalance,
       required final String payload,
@@ -295,7 +295,7 @@ abstract class _MultisigSubmitTransaction implements MultisigSubmitTransaction {
   Address get dest;
   @override
   @amountJsonConverter
-  Fixed get value;
+  BigInt get value;
   @override
   bool get bounce;
   @override

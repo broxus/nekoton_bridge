@@ -9,7 +9,7 @@ part 'token_outgoing_transfer.g.dart';
 sealed class TokenOutgoingTransfer with _$TokenOutgoingTransfer {
   const factory TokenOutgoingTransfer({
     required final TransferRecipient to,
-    @amountJsonConverter required final Fixed tokens,
+    @amountJsonConverter required final BigInt tokens,
   }) = _TokenOutgoingTransfer;
 
   factory TokenOutgoingTransfer.fromJson(Map<String, dynamic> json) =>

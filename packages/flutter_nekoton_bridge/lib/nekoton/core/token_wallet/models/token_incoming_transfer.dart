@@ -8,7 +8,7 @@ part 'token_incoming_transfer.g.dart';
 @freezed
 sealed class TokenIncomingTransfer with _$TokenIncomingTransfer {
   const factory TokenIncomingTransfer({
-    @amountJsonConverter required final Fixed tokens,
+    @amountJsonConverter required final BigInt tokens,
     required final Address senderAddress,
   }) = _TokenIncomingTransfer;
 

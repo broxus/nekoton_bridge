@@ -23,7 +23,7 @@ TokenOutgoingTransfer _$TokenOutgoingTransferFromJson(
 mixin _$TokenOutgoingTransfer {
   TransferRecipient get to => throw _privateConstructorUsedError;
   @amountJsonConverter
-  Fixed get tokens => throw _privateConstructorUsedError;
+  BigInt get tokens => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,7 @@ abstract class $TokenOutgoingTransferCopyWith<$Res> {
           $Res Function(TokenOutgoingTransfer) then) =
       _$TokenOutgoingTransferCopyWithImpl<$Res, TokenOutgoingTransfer>;
   @useResult
-  $Res call({TransferRecipient to, @amountJsonConverter Fixed tokens});
+  $Res call({TransferRecipient to, @amountJsonConverter BigInt tokens});
 
   $TransferRecipientCopyWith<$Res> get to;
 }
@@ -67,7 +67,7 @@ class _$TokenOutgoingTransferCopyWithImpl<$Res,
       tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
     ) as $Val);
   }
 
@@ -88,7 +88,7 @@ abstract class _$$_TokenOutgoingTransferCopyWith<$Res>
       __$$_TokenOutgoingTransferCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({TransferRecipient to, @amountJsonConverter Fixed tokens});
+  $Res call({TransferRecipient to, @amountJsonConverter BigInt tokens});
 
   @override
   $TransferRecipientCopyWith<$Res> get to;
@@ -116,7 +116,7 @@ class __$$_TokenOutgoingTransferCopyWithImpl<$Res>
       tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
     ));
   }
 }
@@ -134,7 +134,7 @@ class _$_TokenOutgoingTransfer implements _TokenOutgoingTransfer {
   final TransferRecipient to;
   @override
   @amountJsonConverter
-  final Fixed tokens;
+  final BigInt tokens;
 
   @override
   String toString() {
@@ -172,7 +172,7 @@ class _$_TokenOutgoingTransfer implements _TokenOutgoingTransfer {
 abstract class _TokenOutgoingTransfer implements TokenOutgoingTransfer {
   const factory _TokenOutgoingTransfer(
           {required final TransferRecipient to,
-          @amountJsonConverter required final Fixed tokens}) =
+          @amountJsonConverter required final BigInt tokens}) =
       _$_TokenOutgoingTransfer;
 
   factory _TokenOutgoingTransfer.fromJson(Map<String, dynamic> json) =
@@ -182,7 +182,7 @@ abstract class _TokenOutgoingTransfer implements TokenOutgoingTransfer {
   TransferRecipient get to;
   @override
   @amountJsonConverter
-  Fixed get tokens;
+  BigInt get tokens;
   @override
   @JsonKey(ignore: true)
   _$$_TokenOutgoingTransferCopyWith<_$_TokenOutgoingTransfer> get copyWith =>

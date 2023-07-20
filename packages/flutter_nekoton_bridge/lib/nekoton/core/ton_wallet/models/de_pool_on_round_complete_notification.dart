@@ -9,7 +9,7 @@ sealed class DePoolOnRoundCompleteNotification
     with _$DePoolOnRoundCompleteNotification {
   const factory DePoolOnRoundCompleteNotification({
     required final String roundId,
-    @amountJsonConverter required final Fixed reward,
+    @amountJsonConverter required final BigInt reward,
     required final String ordinaryStake,
     required final String vestingStake,
     required final String lockStake,

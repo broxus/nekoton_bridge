@@ -10,7 +10,7 @@ sealed class TonWalletDetails with _$TonWalletDetails {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory TonWalletDetails({
     required final bool requiresSeparateDeploy,
-    @amountJsonConverter required final Fixed minAmount,
+    @amountJsonConverter required final BigInt minAmount,
     required final bool supportsPayload,
     required final bool supportsMultipleOwners,
     // expirationTime in seconds

@@ -22,7 +22,7 @@ TonWalletDetails _$TonWalletDetailsFromJson(Map<String, dynamic> json) {
 mixin _$TonWalletDetails {
   bool get requiresSeparateDeploy => throw _privateConstructorUsedError;
   @amountJsonConverter
-  Fixed get minAmount => throw _privateConstructorUsedError;
+  BigInt get minAmount => throw _privateConstructorUsedError;
   bool get supportsPayload => throw _privateConstructorUsedError;
   bool get supportsMultipleOwners =>
       throw _privateConstructorUsedError; // expirationTime in seconds
@@ -43,7 +43,7 @@ abstract class $TonWalletDetailsCopyWith<$Res> {
   @useResult
   $Res call(
       {bool requiresSeparateDeploy,
-      @amountJsonConverter Fixed minAmount,
+      @amountJsonConverter BigInt minAmount,
       bool supportsPayload,
       bool supportsMultipleOwners,
       int expirationTime,
@@ -78,7 +78,7 @@ class _$TonWalletDetailsCopyWithImpl<$Res, $Val extends TonWalletDetails>
       minAmount: null == minAmount
           ? _value.minAmount
           : minAmount // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       supportsPayload: null == supportsPayload
           ? _value.supportsPayload
           : supportsPayload // ignore: cast_nullable_to_non_nullable
@@ -109,7 +109,7 @@ abstract class _$$_TonWalletDetailsCopyWith<$Res>
   @useResult
   $Res call(
       {bool requiresSeparateDeploy,
-      @amountJsonConverter Fixed minAmount,
+      @amountJsonConverter BigInt minAmount,
       bool supportsPayload,
       bool supportsMultipleOwners,
       int expirationTime,
@@ -142,7 +142,7 @@ class __$$_TonWalletDetailsCopyWithImpl<$Res>
       minAmount: null == minAmount
           ? _value.minAmount
           : minAmount // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       supportsPayload: null == supportsPayload
           ? _value.supportsPayload
           : supportsPayload // ignore: cast_nullable_to_non_nullable
@@ -182,7 +182,7 @@ class _$_TonWalletDetails implements _TonWalletDetails {
   final bool requiresSeparateDeploy;
   @override
   @amountJsonConverter
-  final Fixed minAmount;
+  final BigInt minAmount;
   @override
   final bool supportsPayload;
   @override
@@ -245,7 +245,7 @@ class _$_TonWalletDetails implements _TonWalletDetails {
 abstract class _TonWalletDetails implements TonWalletDetails {
   const factory _TonWalletDetails(
       {required final bool requiresSeparateDeploy,
-      @amountJsonConverter required final Fixed minAmount,
+      @amountJsonConverter required final BigInt minAmount,
       required final bool supportsPayload,
       required final bool supportsMultipleOwners,
       required final int expirationTime,
@@ -258,7 +258,7 @@ abstract class _TonWalletDetails implements TonWalletDetails {
   bool get requiresSeparateDeploy;
   @override
   @amountJsonConverter
-  Fixed get minAmount;
+  BigInt get minAmount;
   @override
   bool get supportsPayload;
   @override

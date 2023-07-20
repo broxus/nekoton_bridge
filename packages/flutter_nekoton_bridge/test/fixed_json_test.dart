@@ -2,12 +2,12 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('fixed json test', () {
+  test('BigInt json test', () {
     // 1 ever
     const encoded = '1000000000';
-    expect(Fixed.parse(encoded), Fixed.fromInt(1000000000, scale: 0));
+    expect(BigInt.parse(encoded), BigInt.from(1000000000));
 
-    expect(Fixed.fromInt(1000000000, scale: 0).toString(), encoded);
+    expect(BigInt.from(1000000000).toString(), encoded);
   });
 
   test('amountJsonConverter', () {
@@ -15,11 +15,11 @@ void main() {
     const encoded = '1000000000';
     expect(
       amountJsonConverter.fromJson(encoded),
-      Fixed.fromInt(1000000000, scale: 0),
+      BigInt.from(1000000000),
     );
 
     expect(
-      amountJsonConverter.toJson(Fixed.fromInt(1000000000, scale: 0)),
+      amountJsonConverter.toJson(BigInt.from(1000000000)),
       encoded,
     );
   });

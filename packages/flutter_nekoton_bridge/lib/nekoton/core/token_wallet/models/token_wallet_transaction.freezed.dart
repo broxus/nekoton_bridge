@@ -44,9 +44,9 @@ mixin _$TokenWalletTransaction {
     required TResult Function(TokenIncomingTransfer data) incomingTransfer,
     required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
     required TResult Function(TokenSwapBack data) swapBack,
-    required TResult Function(@amountJsonConverter Fixed data) accept,
-    required TResult Function(@amountJsonConverter Fixed data) transferBounced,
-    required TResult Function(@amountJsonConverter Fixed data) swapBackBounced,
+    required TResult Function(@amountJsonConverter BigInt data) accept,
+    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
+    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,9 +54,9 @@ mixin _$TokenWalletTransaction {
     TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult? Function(TokenSwapBack data)? swapBack,
-    TResult? Function(@amountJsonConverter Fixed data)? accept,
-    TResult? Function(@amountJsonConverter Fixed data)? transferBounced,
-    TResult? Function(@amountJsonConverter Fixed data)? swapBackBounced,
+    TResult? Function(@amountJsonConverter BigInt data)? accept,
+    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,9 +64,9 @@ mixin _$TokenWalletTransaction {
     TResult Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(@amountJsonConverter Fixed data)? accept,
-    TResult Function(@amountJsonConverter Fixed data)? transferBounced,
-    TResult Function(@amountJsonConverter Fixed data)? swapBackBounced,
+    TResult Function(@amountJsonConverter BigInt data)? accept,
+    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -208,9 +208,9 @@ class _$_IncomingTransfer implements _IncomingTransfer {
     required TResult Function(TokenIncomingTransfer data) incomingTransfer,
     required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
     required TResult Function(TokenSwapBack data) swapBack,
-    required TResult Function(@amountJsonConverter Fixed data) accept,
-    required TResult Function(@amountJsonConverter Fixed data) transferBounced,
-    required TResult Function(@amountJsonConverter Fixed data) swapBackBounced,
+    required TResult Function(@amountJsonConverter BigInt data) accept,
+    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
+    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
   }) {
     return incomingTransfer(data);
   }
@@ -221,9 +221,9 @@ class _$_IncomingTransfer implements _IncomingTransfer {
     TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult? Function(TokenSwapBack data)? swapBack,
-    TResult? Function(@amountJsonConverter Fixed data)? accept,
-    TResult? Function(@amountJsonConverter Fixed data)? transferBounced,
-    TResult? Function(@amountJsonConverter Fixed data)? swapBackBounced,
+    TResult? Function(@amountJsonConverter BigInt data)? accept,
+    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
   }) {
     return incomingTransfer?.call(data);
   }
@@ -234,9 +234,9 @@ class _$_IncomingTransfer implements _IncomingTransfer {
     TResult Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(@amountJsonConverter Fixed data)? accept,
-    TResult Function(@amountJsonConverter Fixed data)? transferBounced,
-    TResult Function(@amountJsonConverter Fixed data)? swapBackBounced,
+    TResult Function(@amountJsonConverter BigInt data)? accept,
+    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
     required TResult orElse(),
   }) {
     if (incomingTransfer != null) {
@@ -395,9 +395,9 @@ class _$_OutgoingTransfer implements _OutgoingTransfer {
     required TResult Function(TokenIncomingTransfer data) incomingTransfer,
     required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
     required TResult Function(TokenSwapBack data) swapBack,
-    required TResult Function(@amountJsonConverter Fixed data) accept,
-    required TResult Function(@amountJsonConverter Fixed data) transferBounced,
-    required TResult Function(@amountJsonConverter Fixed data) swapBackBounced,
+    required TResult Function(@amountJsonConverter BigInt data) accept,
+    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
+    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
   }) {
     return outgoingTransfer(data);
   }
@@ -408,9 +408,9 @@ class _$_OutgoingTransfer implements _OutgoingTransfer {
     TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult? Function(TokenSwapBack data)? swapBack,
-    TResult? Function(@amountJsonConverter Fixed data)? accept,
-    TResult? Function(@amountJsonConverter Fixed data)? transferBounced,
-    TResult? Function(@amountJsonConverter Fixed data)? swapBackBounced,
+    TResult? Function(@amountJsonConverter BigInt data)? accept,
+    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
   }) {
     return outgoingTransfer?.call(data);
   }
@@ -421,9 +421,9 @@ class _$_OutgoingTransfer implements _OutgoingTransfer {
     TResult Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(@amountJsonConverter Fixed data)? accept,
-    TResult Function(@amountJsonConverter Fixed data)? transferBounced,
-    TResult Function(@amountJsonConverter Fixed data)? swapBackBounced,
+    TResult Function(@amountJsonConverter BigInt data)? accept,
+    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
     required TResult orElse(),
   }) {
     if (outgoingTransfer != null) {
@@ -582,9 +582,9 @@ class _$_SwapBack implements _SwapBack {
     required TResult Function(TokenIncomingTransfer data) incomingTransfer,
     required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
     required TResult Function(TokenSwapBack data) swapBack,
-    required TResult Function(@amountJsonConverter Fixed data) accept,
-    required TResult Function(@amountJsonConverter Fixed data) transferBounced,
-    required TResult Function(@amountJsonConverter Fixed data) swapBackBounced,
+    required TResult Function(@amountJsonConverter BigInt data) accept,
+    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
+    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
   }) {
     return swapBack(data);
   }
@@ -595,9 +595,9 @@ class _$_SwapBack implements _SwapBack {
     TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult? Function(TokenSwapBack data)? swapBack,
-    TResult? Function(@amountJsonConverter Fixed data)? accept,
-    TResult? Function(@amountJsonConverter Fixed data)? transferBounced,
-    TResult? Function(@amountJsonConverter Fixed data)? swapBackBounced,
+    TResult? Function(@amountJsonConverter BigInt data)? accept,
+    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
   }) {
     return swapBack?.call(data);
   }
@@ -608,9 +608,9 @@ class _$_SwapBack implements _SwapBack {
     TResult Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(@amountJsonConverter Fixed data)? accept,
-    TResult Function(@amountJsonConverter Fixed data)? transferBounced,
-    TResult Function(@amountJsonConverter Fixed data)? swapBackBounced,
+    TResult Function(@amountJsonConverter BigInt data)? accept,
+    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
     required TResult orElse(),
   }) {
     if (swapBack != null) {
@@ -687,7 +687,7 @@ abstract class _$$_AcceptCopyWith<$Res> {
   factory _$$_AcceptCopyWith(_$_Accept value, $Res Function(_$_Accept) then) =
       __$$_AcceptCopyWithImpl<$Res>;
   @useResult
-  $Res call({@amountJsonConverter Fixed data});
+  $Res call({@amountJsonConverter BigInt data});
 }
 
 /// @nodoc
@@ -706,7 +706,7 @@ class __$$_AcceptCopyWithImpl<$Res>
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
     ));
   }
 }
@@ -722,7 +722,7 @@ class _$_Accept implements _Accept {
 
   @override
   @amountJsonConverter
-  final Fixed data;
+  final BigInt data;
 
   @JsonKey(name: 'type')
   final String $type;
@@ -756,9 +756,9 @@ class _$_Accept implements _Accept {
     required TResult Function(TokenIncomingTransfer data) incomingTransfer,
     required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
     required TResult Function(TokenSwapBack data) swapBack,
-    required TResult Function(@amountJsonConverter Fixed data) accept,
-    required TResult Function(@amountJsonConverter Fixed data) transferBounced,
-    required TResult Function(@amountJsonConverter Fixed data) swapBackBounced,
+    required TResult Function(@amountJsonConverter BigInt data) accept,
+    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
+    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
   }) {
     return accept(data);
   }
@@ -769,9 +769,9 @@ class _$_Accept implements _Accept {
     TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult? Function(TokenSwapBack data)? swapBack,
-    TResult? Function(@amountJsonConverter Fixed data)? accept,
-    TResult? Function(@amountJsonConverter Fixed data)? transferBounced,
-    TResult? Function(@amountJsonConverter Fixed data)? swapBackBounced,
+    TResult? Function(@amountJsonConverter BigInt data)? accept,
+    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
   }) {
     return accept?.call(data);
   }
@@ -782,9 +782,9 @@ class _$_Accept implements _Accept {
     TResult Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(@amountJsonConverter Fixed data)? accept,
-    TResult Function(@amountJsonConverter Fixed data)? transferBounced,
-    TResult Function(@amountJsonConverter Fixed data)? swapBackBounced,
+    TResult Function(@amountJsonConverter BigInt data)? accept,
+    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
     required TResult orElse(),
   }) {
     if (accept != null) {
@@ -845,13 +845,13 @@ class _$_Accept implements _Accept {
 }
 
 abstract class _Accept implements TokenWalletTransaction {
-  const factory _Accept(@amountJsonConverter final Fixed data) = _$_Accept;
+  const factory _Accept(@amountJsonConverter final BigInt data) = _$_Accept;
 
   factory _Accept.fromJson(Map<String, dynamic> json) = _$_Accept.fromJson;
 
   @override
   @amountJsonConverter
-  Fixed get data;
+  BigInt get data;
   @JsonKey(ignore: true)
   _$$_AcceptCopyWith<_$_Accept> get copyWith =>
       throw _privateConstructorUsedError;
@@ -863,7 +863,7 @@ abstract class _$$_TransferBouncedCopyWith<$Res> {
           _$_TransferBounced value, $Res Function(_$_TransferBounced) then) =
       __$$_TransferBouncedCopyWithImpl<$Res>;
   @useResult
-  $Res call({@amountJsonConverter Fixed data});
+  $Res call({@amountJsonConverter BigInt data});
 }
 
 /// @nodoc
@@ -883,7 +883,7 @@ class __$$_TransferBouncedCopyWithImpl<$Res>
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
     ));
   }
 }
@@ -900,7 +900,7 @@ class _$_TransferBounced implements _TransferBounced {
 
   @override
   @amountJsonConverter
-  final Fixed data;
+  final BigInt data;
 
   @JsonKey(name: 'type')
   final String $type;
@@ -934,9 +934,9 @@ class _$_TransferBounced implements _TransferBounced {
     required TResult Function(TokenIncomingTransfer data) incomingTransfer,
     required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
     required TResult Function(TokenSwapBack data) swapBack,
-    required TResult Function(@amountJsonConverter Fixed data) accept,
-    required TResult Function(@amountJsonConverter Fixed data) transferBounced,
-    required TResult Function(@amountJsonConverter Fixed data) swapBackBounced,
+    required TResult Function(@amountJsonConverter BigInt data) accept,
+    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
+    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
   }) {
     return transferBounced(data);
   }
@@ -947,9 +947,9 @@ class _$_TransferBounced implements _TransferBounced {
     TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult? Function(TokenSwapBack data)? swapBack,
-    TResult? Function(@amountJsonConverter Fixed data)? accept,
-    TResult? Function(@amountJsonConverter Fixed data)? transferBounced,
-    TResult? Function(@amountJsonConverter Fixed data)? swapBackBounced,
+    TResult? Function(@amountJsonConverter BigInt data)? accept,
+    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
   }) {
     return transferBounced?.call(data);
   }
@@ -960,9 +960,9 @@ class _$_TransferBounced implements _TransferBounced {
     TResult Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(@amountJsonConverter Fixed data)? accept,
-    TResult Function(@amountJsonConverter Fixed data)? transferBounced,
-    TResult Function(@amountJsonConverter Fixed data)? swapBackBounced,
+    TResult Function(@amountJsonConverter BigInt data)? accept,
+    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
     required TResult orElse(),
   }) {
     if (transferBounced != null) {
@@ -1023,7 +1023,7 @@ class _$_TransferBounced implements _TransferBounced {
 }
 
 abstract class _TransferBounced implements TokenWalletTransaction {
-  const factory _TransferBounced(@amountJsonConverter final Fixed data) =
+  const factory _TransferBounced(@amountJsonConverter final BigInt data) =
       _$_TransferBounced;
 
   factory _TransferBounced.fromJson(Map<String, dynamic> json) =
@@ -1031,7 +1031,7 @@ abstract class _TransferBounced implements TokenWalletTransaction {
 
   @override
   @amountJsonConverter
-  Fixed get data;
+  BigInt get data;
   @JsonKey(ignore: true)
   _$$_TransferBouncedCopyWith<_$_TransferBounced> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1043,7 +1043,7 @@ abstract class _$$_SwapBackBouncedCopyWith<$Res> {
           _$_SwapBackBounced value, $Res Function(_$_SwapBackBounced) then) =
       __$$_SwapBackBouncedCopyWithImpl<$Res>;
   @useResult
-  $Res call({@amountJsonConverter Fixed data});
+  $Res call({@amountJsonConverter BigInt data});
 }
 
 /// @nodoc
@@ -1063,7 +1063,7 @@ class __$$_SwapBackBouncedCopyWithImpl<$Res>
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
     ));
   }
 }
@@ -1080,7 +1080,7 @@ class _$_SwapBackBounced implements _SwapBackBounced {
 
   @override
   @amountJsonConverter
-  final Fixed data;
+  final BigInt data;
 
   @JsonKey(name: 'type')
   final String $type;
@@ -1114,9 +1114,9 @@ class _$_SwapBackBounced implements _SwapBackBounced {
     required TResult Function(TokenIncomingTransfer data) incomingTransfer,
     required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
     required TResult Function(TokenSwapBack data) swapBack,
-    required TResult Function(@amountJsonConverter Fixed data) accept,
-    required TResult Function(@amountJsonConverter Fixed data) transferBounced,
-    required TResult Function(@amountJsonConverter Fixed data) swapBackBounced,
+    required TResult Function(@amountJsonConverter BigInt data) accept,
+    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
+    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
   }) {
     return swapBackBounced(data);
   }
@@ -1127,9 +1127,9 @@ class _$_SwapBackBounced implements _SwapBackBounced {
     TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult? Function(TokenSwapBack data)? swapBack,
-    TResult? Function(@amountJsonConverter Fixed data)? accept,
-    TResult? Function(@amountJsonConverter Fixed data)? transferBounced,
-    TResult? Function(@amountJsonConverter Fixed data)? swapBackBounced,
+    TResult? Function(@amountJsonConverter BigInt data)? accept,
+    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
   }) {
     return swapBackBounced?.call(data);
   }
@@ -1140,9 +1140,9 @@ class _$_SwapBackBounced implements _SwapBackBounced {
     TResult Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(@amountJsonConverter Fixed data)? accept,
-    TResult Function(@amountJsonConverter Fixed data)? transferBounced,
-    TResult Function(@amountJsonConverter Fixed data)? swapBackBounced,
+    TResult Function(@amountJsonConverter BigInt data)? accept,
+    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
     required TResult orElse(),
   }) {
     if (swapBackBounced != null) {
@@ -1203,7 +1203,7 @@ class _$_SwapBackBounced implements _SwapBackBounced {
 }
 
 abstract class _SwapBackBounced implements TokenWalletTransaction {
-  const factory _SwapBackBounced(@amountJsonConverter final Fixed data) =
+  const factory _SwapBackBounced(@amountJsonConverter final BigInt data) =
       _$_SwapBackBounced;
 
   factory _SwapBackBounced.fromJson(Map<String, dynamic> json) =
@@ -1211,7 +1211,7 @@ abstract class _SwapBackBounced implements TokenWalletTransaction {
 
   @override
   @amountJsonConverter
-  Fixed get data;
+  BigInt get data;
   @JsonKey(ignore: true)
   _$$_SwapBackBouncedCopyWith<_$_SwapBackBounced> get copyWith =>
       throw _privateConstructorUsedError;

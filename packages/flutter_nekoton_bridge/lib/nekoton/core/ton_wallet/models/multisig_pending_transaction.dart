@@ -16,7 +16,7 @@ sealed class MultisigPendingTransaction with _$MultisigPendingTransaction {
     required final PublicKey creator,
     required final int index,
     required final Address dest,
-    @amountJsonConverter required final Fixed value,
+    @amountJsonConverter required final BigInt value,
     required final int sendFlags,
     required final String payload,
     required final bool bounce,

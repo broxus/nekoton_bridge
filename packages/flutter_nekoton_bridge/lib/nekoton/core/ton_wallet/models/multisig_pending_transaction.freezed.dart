@@ -29,7 +29,7 @@ mixin _$MultisigPendingTransaction {
   int get index => throw _privateConstructorUsedError;
   Address get dest => throw _privateConstructorUsedError;
   @amountJsonConverter
-  Fixed get value => throw _privateConstructorUsedError;
+  BigInt get value => throw _privateConstructorUsedError;
   int get sendFlags => throw _privateConstructorUsedError;
   String get payload => throw _privateConstructorUsedError;
   bool get bounce => throw _privateConstructorUsedError;
@@ -55,7 +55,7 @@ abstract class $MultisigPendingTransactionCopyWith<$Res> {
       PublicKey creator,
       int index,
       Address dest,
-      @amountJsonConverter Fixed value,
+      @amountJsonConverter BigInt value,
       int sendFlags,
       String payload,
       bool bounce});
@@ -122,7 +122,7 @@ class _$MultisigPendingTransactionCopyWithImpl<$Res,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       sendFlags: null == sendFlags
           ? _value.sendFlags
           : sendFlags // ignore: cast_nullable_to_non_nullable
@@ -172,7 +172,7 @@ abstract class _$$_MultisigPendingTransactionCopyWith<$Res>
       PublicKey creator,
       int index,
       Address dest,
-      @amountJsonConverter Fixed value,
+      @amountJsonConverter BigInt value,
       int sendFlags,
       String payload,
       bool bounce});
@@ -240,7 +240,7 @@ class __$$_MultisigPendingTransactionCopyWithImpl<$Res>
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       sendFlags: null == sendFlags
           ? _value.sendFlags
           : sendFlags // ignore: cast_nullable_to_non_nullable
@@ -300,7 +300,7 @@ class _$_MultisigPendingTransaction implements _MultisigPendingTransaction {
   final Address dest;
   @override
   @amountJsonConverter
-  final Fixed value;
+  final BigInt value;
   @override
   final int sendFlags;
   @override
@@ -376,7 +376,7 @@ abstract class _MultisigPendingTransaction
       required final PublicKey creator,
       required final int index,
       required final Address dest,
-      @amountJsonConverter required final Fixed value,
+      @amountJsonConverter required final BigInt value,
       required final int sendFlags,
       required final String payload,
       required final bool bounce}) = _$_MultisigPendingTransaction;
@@ -400,7 +400,7 @@ abstract class _MultisigPendingTransaction
   Address get dest;
   @override
   @amountJsonConverter
-  Fixed get value;
+  BigInt get value;
   @override
   int get sendFlags;
   @override

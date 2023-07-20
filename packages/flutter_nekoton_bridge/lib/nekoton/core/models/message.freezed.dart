@@ -24,7 +24,7 @@ mixin _$Message {
   Address? get src => throw _privateConstructorUsedError;
   Address? get dst => throw _privateConstructorUsedError;
   @amountJsonConverter
-  Fixed get value => throw _privateConstructorUsedError;
+  BigInt get value => throw _privateConstructorUsedError;
   bool get bounce => throw _privateConstructorUsedError;
   bool get bounced => throw _privateConstructorUsedError;
   String? get body => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $MessageCopyWith<$Res> {
       {String hash,
       Address? src,
       Address? dst,
-      @amountJsonConverter Fixed value,
+      @amountJsonConverter BigInt value,
       bool bounce,
       bool bounced,
       String? body,
@@ -92,7 +92,7 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
@@ -148,7 +148,7 @@ abstract class _$$_MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
       {String hash,
       Address? src,
       Address? dst,
-      @amountJsonConverter Fixed value,
+      @amountJsonConverter BigInt value,
       bool bounce,
       bool bounced,
       String? body,
@@ -195,7 +195,7 @@ class __$$_MessageCopyWithImpl<$Res>
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
@@ -240,7 +240,7 @@ class _$_Message implements _Message {
   final Address? dst;
   @override
   @amountJsonConverter
-  final Fixed value;
+  final BigInt value;
   @override
   final bool bounce;
   @override
@@ -295,7 +295,7 @@ abstract class _Message implements Message {
       {required final String hash,
       final Address? src,
       final Address? dst,
-      @amountJsonConverter required final Fixed value,
+      @amountJsonConverter required final BigInt value,
       required final bool bounce,
       required final bool bounced,
       final String? body,
@@ -311,7 +311,7 @@ abstract class _Message implements Message {
   Address? get dst;
   @override
   @amountJsonConverter
-  Fixed get value;
+  BigInt get value;
   @override
   bool get bounce;
   @override
