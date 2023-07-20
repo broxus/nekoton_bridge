@@ -80,7 +80,9 @@ It's a good idea to check how we do it in Sparx wallet in [NekotonRepository](ht
 
 #### Fixed point numbers 🔝
 
-We used [Fixed](https://pub.dev/packages/fixed) package for all fixed point calculations. So, you should use it too.
+We don't used [Fixed](https://pub.dev/packages/fixed) package in this package because in the most cases we don't have scale digits in our amounts ¯\_(ツ)_/¯.
+
+But! We highly recommend to use it package for fixed point numbers in your app because you have to have scale digits in your amounts for correct calculations and representation. So, tt's a good idea to use it in your app!
 
 Fixed allows you to store and manipulate fixed point numbers. Fixed point numbers are numbers that have a fixed number of digits after the decimal point. You shouldn't use floating point numbers for financial calculations because they are not precise enough. Using strings 🩼 for storing fixed point is also not a good idea because it's not efficient and can produce bugs due to decimal separator difference (, or .) and can't be used in calculations. Fixed point numbers are precise and can be used for financial calculations.
 
