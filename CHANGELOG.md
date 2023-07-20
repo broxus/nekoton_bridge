@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-07-20
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.13.1`](#flutter_nekoton_bridge---v1131)
+ - [`flutter_nekoton_bridge_example` - `v1.10.1`](#flutter_nekoton_bridge_example---v1101)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.13.1`
+
+ - **FIX**: replace Fixed to BigInt ([#170](https://github.com/broxus/nekoton_bridge/issues/170)). ([cd51777d](https://github.com/broxus/nekoton_bridge/commit/cd51777d13c83a57dbaf4113df146b2feb5e7e0f))
+
+#### `flutter_nekoton_bridge_example` - `v1.10.1`
+
+ - **FIX**: replace Fixed to BigInt ([#170](https://github.com/broxus/nekoton_bridge/issues/170)). ([cd51777d](https://github.com/broxus/nekoton_bridge/commit/cd51777d13c83a57dbaf4113df146b2feb5e7e0f))
+
+
 ## 2023-07-19
 
 ### Changes

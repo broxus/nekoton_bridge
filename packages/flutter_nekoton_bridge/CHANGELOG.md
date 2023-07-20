@@ -1,3 +1,7 @@
+## 1.13.1
+
+ - **FIX**: replace Fixed to BigInt ([#170](https://github.com/broxus/nekoton_bridge/issues/170)). ([cd51777d](https://github.com/broxus/nekoton_bridge/commit/cd51777d13c83a57dbaf4113df146b2feb5e7e0f))
+
 ## 1.13.0
 
  - **FEAT**: update currency registration ([#168](https://github.com/broxus/nekoton_bridge/issues/168)). ([8623c385](https://github.com/broxus/nekoton_bridge/commit/8623c3855fc87a19f0c60e77e53adfecbaeac2b3))
