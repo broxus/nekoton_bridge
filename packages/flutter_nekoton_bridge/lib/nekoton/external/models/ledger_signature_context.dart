@@ -10,7 +10,7 @@ sealed class LedgerSignatureContext with _$LedgerSignatureContext {
   const factory LedgerSignatureContext({
     required final int decimals,
     required final String asset,
-    @amountJsonConverter required Fixed amount,
+    @amountJsonConverter required BigInt amount,
     required Address address,
   }) = _LedgerSignatureContext;
 

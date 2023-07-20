@@ -21,7 +21,7 @@ ContractState _$ContractStateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ContractState {
   @amountJsonConverter
-  Fixed get balance => throw _privateConstructorUsedError;
+  BigInt get balance => throw _privateConstructorUsedError;
   GenTimings get genTimings => throw _privateConstructorUsedError;
   LastTransactionId? get lastTransactionId =>
       throw _privateConstructorUsedError;
@@ -41,7 +41,7 @@ abstract class $ContractStateCopyWith<$Res> {
       _$ContractStateCopyWithImpl<$Res, ContractState>;
   @useResult
   $Res call(
-      {@amountJsonConverter Fixed balance,
+      {@amountJsonConverter BigInt balance,
       GenTimings genTimings,
       LastTransactionId? lastTransactionId,
       bool isDeployed,
@@ -74,7 +74,7 @@ class _$ContractStateCopyWithImpl<$Res, $Val extends ContractState>
       balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       genTimings: null == genTimings
           ? _value.genTimings
           : genTimings // ignore: cast_nullable_to_non_nullable
@@ -124,7 +124,7 @@ abstract class _$$_ContractStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@amountJsonConverter Fixed balance,
+      {@amountJsonConverter BigInt balance,
       GenTimings genTimings,
       LastTransactionId? lastTransactionId,
       bool isDeployed,
@@ -157,7 +157,7 @@ class __$$_ContractStateCopyWithImpl<$Res>
       balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       genTimings: null == genTimings
           ? _value.genTimings
           : genTimings // ignore: cast_nullable_to_non_nullable
@@ -193,7 +193,7 @@ class _$_ContractState implements _ContractState {
 
   @override
   @amountJsonConverter
-  final Fixed balance;
+  final BigInt balance;
   @override
   final GenTimings genTimings;
   @override
@@ -245,7 +245,7 @@ class _$_ContractState implements _ContractState {
 
 abstract class _ContractState implements ContractState {
   const factory _ContractState(
-      {@amountJsonConverter required final Fixed balance,
+      {@amountJsonConverter required final BigInt balance,
       required final GenTimings genTimings,
       final LastTransactionId? lastTransactionId,
       required final bool isDeployed,
@@ -256,7 +256,7 @@ abstract class _ContractState implements ContractState {
 
   @override
   @amountJsonConverter
-  Fixed get balance;
+  BigInt get balance;
   @override
   GenTimings get genTimings;
   @override

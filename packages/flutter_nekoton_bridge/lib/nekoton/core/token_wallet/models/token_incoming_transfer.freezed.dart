@@ -22,7 +22,7 @@ TokenIncomingTransfer _$TokenIncomingTransferFromJson(
 /// @nodoc
 mixin _$TokenIncomingTransfer {
   @amountJsonConverter
-  Fixed get tokens => throw _privateConstructorUsedError;
+  BigInt get tokens => throw _privateConstructorUsedError;
   Address get senderAddress => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $TokenIncomingTransferCopyWith<$Res> {
           $Res Function(TokenIncomingTransfer) then) =
       _$TokenIncomingTransferCopyWithImpl<$Res, TokenIncomingTransfer>;
   @useResult
-  $Res call({@amountJsonConverter Fixed tokens, Address senderAddress});
+  $Res call({@amountJsonConverter BigInt tokens, Address senderAddress});
 
   $AddressCopyWith<$Res> get senderAddress;
 }
@@ -63,7 +63,7 @@ class _$TokenIncomingTransferCopyWithImpl<$Res,
       tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       senderAddress: null == senderAddress
           ? _value.senderAddress
           : senderAddress // ignore: cast_nullable_to_non_nullable
@@ -88,7 +88,7 @@ abstract class _$$_TokenIncomingTransferCopyWith<$Res>
       __$$_TokenIncomingTransferCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@amountJsonConverter Fixed tokens, Address senderAddress});
+  $Res call({@amountJsonConverter BigInt tokens, Address senderAddress});
 
   @override
   $AddressCopyWith<$Res> get senderAddress;
@@ -112,7 +112,7 @@ class __$$_TokenIncomingTransferCopyWithImpl<$Res>
       tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       senderAddress: null == senderAddress
           ? _value.senderAddress
           : senderAddress // ignore: cast_nullable_to_non_nullable
@@ -132,7 +132,7 @@ class _$_TokenIncomingTransfer implements _TokenIncomingTransfer {
 
   @override
   @amountJsonConverter
-  final Fixed tokens;
+  final BigInt tokens;
   @override
   final Address senderAddress;
 
@@ -172,7 +172,7 @@ class _$_TokenIncomingTransfer implements _TokenIncomingTransfer {
 
 abstract class _TokenIncomingTransfer implements TokenIncomingTransfer {
   const factory _TokenIncomingTransfer(
-      {@amountJsonConverter required final Fixed tokens,
+      {@amountJsonConverter required final BigInt tokens,
       required final Address senderAddress}) = _$_TokenIncomingTransfer;
 
   factory _TokenIncomingTransfer.fromJson(Map<String, dynamic> json) =
@@ -180,7 +180,7 @@ abstract class _TokenIncomingTransfer implements TokenIncomingTransfer {
 
   @override
   @amountJsonConverter
-  Fixed get tokens;
+  BigInt get tokens;
   @override
   Address get senderAddress;
   @override

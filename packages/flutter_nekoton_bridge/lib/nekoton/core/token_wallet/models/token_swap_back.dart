@@ -9,7 +9,7 @@ part 'token_swap_back.g.dart';
 sealed class TokenSwapBack with _$TokenSwapBack {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory TokenSwapBack({
-    @amountJsonConverter required final Fixed tokens,
+    @amountJsonConverter required final BigInt tokens,
     required final Address callbackAddress,
     required final String callbackPayload,
   }) = _TokenSwapBack;

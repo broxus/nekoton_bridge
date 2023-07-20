@@ -1,9 +1,9 @@
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-/// Json converter of amount value from string to Fixed (without currency
+/// Json converter of amount value from string to BigInt (without currency
 /// identification)
-const amountJsonConverter = _FixedJsonConverter();
+const amountJsonConverter = _BigIntJsonConverter();
 
 /// Json converter of Uri value from string to Uri
 const uriJsonConverter = _UriJsonConverter();
@@ -12,14 +12,16 @@ const uriJsonConverter = _UriJsonConverter();
 /// fields such as expireAt)
 const dateSecondsSinceEpochJsonConverter = _DateTimeJsonConverter();
 
-class _FixedJsonConverter extends JsonConverter<Fixed, String> {
-  const _FixedJsonConverter();
+/// We are using BigInt instead of Fixed, because Fixed do not apply scale
+/// factor when converting to Money via Money.fromFixedWithCurrency.
+class _BigIntJsonConverter extends JsonConverter<BigInt, String> {
+  const _BigIntJsonConverter();
 
   @override
-  Fixed fromJson(String json) => Fixed.parse(json);
+  BigInt fromJson(String json) => BigInt.parse(json);
 
   @override
-  String toJson(Fixed object) => object.toString();
+  String toJson(BigInt object) => object.toString();
 }
 
 class _UriJsonConverter extends JsonConverter<Uri, String> {

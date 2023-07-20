@@ -276,7 +276,7 @@ class TonWallet extends RustToDartMirrorInterface
     required RawContractState contractState,
     required PublicKey publicKey,
     required Address destination,
-    required Fixed amount,
+    required BigInt amount,
     required bool bounce,
     String? body,
     required Expiration expiration,
@@ -315,12 +315,12 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// Calculate fees for transaction.
   /// Returns representation of u128 or throw error.
-  Future<Fixed> estimateFees({
+  Future<BigInt> estimateFees({
     required SignedMessage signedMessage,
   }) async {
     final fee =
         await wallet.estimateFees(signedMessage: jsonEncode(signedMessage));
-    return Fixed.parse(fee);
+    return BigInt.parse(fee);
   }
 
   /// Send message to blockchain and receive transaction of send.

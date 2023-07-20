@@ -21,7 +21,7 @@ TokenSwapBack _$TokenSwapBackFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$TokenSwapBack {
   @amountJsonConverter
-  Fixed get tokens => throw _privateConstructorUsedError;
+  BigInt get tokens => throw _privateConstructorUsedError;
   Address get callbackAddress => throw _privateConstructorUsedError;
   String get callbackPayload => throw _privateConstructorUsedError;
 
@@ -38,7 +38,7 @@ abstract class $TokenSwapBackCopyWith<$Res> {
       _$TokenSwapBackCopyWithImpl<$Res, TokenSwapBack>;
   @useResult
   $Res call(
-      {@amountJsonConverter Fixed tokens,
+      {@amountJsonConverter BigInt tokens,
       Address callbackAddress,
       String callbackPayload});
 
@@ -66,7 +66,7 @@ class _$TokenSwapBackCopyWithImpl<$Res, $Val extends TokenSwapBack>
       tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       callbackAddress: null == callbackAddress
           ? _value.callbackAddress
           : callbackAddress // ignore: cast_nullable_to_non_nullable
@@ -96,7 +96,7 @@ abstract class _$$_TokenSwapBackCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@amountJsonConverter Fixed tokens,
+      {@amountJsonConverter BigInt tokens,
       Address callbackAddress,
       String callbackPayload});
 
@@ -123,7 +123,7 @@ class __$$_TokenSwapBackCopyWithImpl<$Res>
       tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       callbackAddress: null == callbackAddress
           ? _value.callbackAddress
           : callbackAddress // ignore: cast_nullable_to_non_nullable
@@ -150,7 +150,7 @@ class _$_TokenSwapBack implements _TokenSwapBack {
 
   @override
   @amountJsonConverter
-  final Fixed tokens;
+  final BigInt tokens;
   @override
   final Address callbackAddress;
   @override
@@ -194,7 +194,7 @@ class _$_TokenSwapBack implements _TokenSwapBack {
 
 abstract class _TokenSwapBack implements TokenSwapBack {
   const factory _TokenSwapBack(
-      {@amountJsonConverter required final Fixed tokens,
+      {@amountJsonConverter required final BigInt tokens,
       required final Address callbackAddress,
       required final String callbackPayload}) = _$_TokenSwapBack;
 
@@ -203,7 +203,7 @@ abstract class _TokenSwapBack implements TokenSwapBack {
 
   @override
   @amountJsonConverter
-  Fixed get tokens;
+  BigInt get tokens;
   @override
   Address get callbackAddress;
   @override

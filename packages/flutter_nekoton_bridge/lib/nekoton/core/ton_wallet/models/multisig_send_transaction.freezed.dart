@@ -23,7 +23,7 @@ MultisigSendTransaction _$MultisigSendTransactionFromJson(
 mixin _$MultisigSendTransaction {
   Address get dest => throw _privateConstructorUsedError;
   @amountJsonConverter
-  Fixed get value => throw _privateConstructorUsedError;
+  BigInt get value => throw _privateConstructorUsedError;
   bool get bounce => throw _privateConstructorUsedError;
   int get flags => throw _privateConstructorUsedError;
   String get payload => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $MultisigSendTransactionCopyWith<$Res> {
   @useResult
   $Res call(
       {Address dest,
-      @amountJsonConverter Fixed value,
+      @amountJsonConverter BigInt value,
       bool bounce,
       int flags,
       String payload});
@@ -78,7 +78,7 @@ class _$MultisigSendTransactionCopyWithImpl<$Res,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
@@ -113,7 +113,7 @@ abstract class _$$_MultisigSendTransactionCopyWith<$Res>
   @useResult
   $Res call(
       {Address dest,
-      @amountJsonConverter Fixed value,
+      @amountJsonConverter BigInt value,
       bool bounce,
       int flags,
       String payload});
@@ -148,7 +148,7 @@ class __$$_MultisigSendTransactionCopyWithImpl<$Res>
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as Fixed,
+              as BigInt,
       bounce: null == bounce
           ? _value.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
@@ -182,7 +182,7 @@ class _$_MultisigSendTransaction implements _MultisigSendTransaction {
   final Address dest;
   @override
   @amountJsonConverter
-  final Fixed value;
+  final BigInt value;
   @override
   final bool bounce;
   @override
@@ -231,7 +231,7 @@ class _$_MultisigSendTransaction implements _MultisigSendTransaction {
 abstract class _MultisigSendTransaction implements MultisigSendTransaction {
   const factory _MultisigSendTransaction(
       {required final Address dest,
-      @amountJsonConverter required final Fixed value,
+      @amountJsonConverter required final BigInt value,
       required final bool bounce,
       required final int flags,
       required final String payload}) = _$_MultisigSendTransaction;
@@ -243,7 +243,7 @@ abstract class _MultisigSendTransaction implements MultisigSendTransaction {
   Address get dest;
   @override
   @amountJsonConverter
-  Fixed get value;
+  BigInt get value;
   @override
   bool get bounce;
   @override

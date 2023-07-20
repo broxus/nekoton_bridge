@@ -74,7 +74,7 @@ void main() {
 
       expect(contract, isNotNull);
       expect(contract.address, address);
-      expect(contract.contractState.balance, isNot(Fixed.parse('0')));
+      expect(contract.contractState.balance, isNot(BigInt.parse('0')));
       expect(contract.contractState.isDeployed, isTrue);
     });
 
@@ -89,7 +89,7 @@ void main() {
 
       expect(contract, isNotNull);
       expect(contract.address, address);
-      expect(contract.contractState.balance, isNot(Fixed.parse('0')));
+      expect(contract.contractState.balance, isNot(BigInt.parse('0')));
       expect(contract.contractState.isDeployed, isTrue);
 
       final fut = expectLater(contract.fieldUpdatesStream, emits(null));
@@ -98,7 +98,7 @@ void main() {
 
       expect(contract, isNotNull);
       expect(contract.address, address);
-      expect(contract.contractState.balance, isNot(Fixed.parse('0')));
+      expect(contract.contractState.balance, isNot(BigInt.parse('0')));
       expect(contract.contractState.isDeployed, isTrue);
     });
 
@@ -125,7 +125,7 @@ void main() {
 
           expect(contract, isNotNull);
           expect(contract.address, address);
-          expect(contract.contractState.balance, isNot(Fixed.parse('0')));
+          expect(contract.contractState.balance, isNot(BigInt.parse('0')));
           expect(contract.contractState.isDeployed, isTrue);
 
           contract.dispose();
