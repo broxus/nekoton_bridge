@@ -1,3 +1,7 @@
+## 1.10.0
+
+ - **FEAT**: allow mocking bridge ([#172](https://github.com/broxus/nekoton_bridge/issues/172)). ([694cae99](https://github.com/broxus/nekoton_bridge/commit/694cae99342888c996d9e896dbc2f93d8c641e90))
+
 ## 1.9.0
 
  - **FEAT**: add Currency and Money to TokenWallet ([#162](https://github.com/broxus/nekoton_bridge/issues/162)). ([4b13f6bc](https://github.com/broxus/nekoton_bridge/commit/4b13f6bc10f3e41882a1ed19f69df93f3f28dfa0))

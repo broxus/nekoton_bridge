@@ -1,3 +1,7 @@
+## 1.14.0
+
+ - **FEAT**: allow mocking bridge ([#172](https://github.com/broxus/nekoton_bridge/issues/172)). ([694cae99](https://github.com/broxus/nekoton_bridge/commit/694cae99342888c996d9e896dbc2f93d8c641e90))
+
 ## 1.13.1
 
  - **FIX**: replace Fixed to BigInt ([#170](https://github.com/broxus/nekoton_bridge/issues/170)). ([cd51777d](https://github.com/broxus/nekoton_bridge/commit/cd51777d13c83a57dbaf4113df146b2feb5e7e0f))
