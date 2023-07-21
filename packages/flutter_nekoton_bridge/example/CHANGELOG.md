@@ -1,3 +1,7 @@
+## 1.10.2
+
+ - Update a dependency to the latest release.
+
 ## 1.10.1
 
  - **FIX**: replace Fixed to BigInt ([#170](https://github.com/broxus/nekoton_bridge/issues/170)). ([cd51777d](https://github.com/broxus/nekoton_bridge/commit/cd51777d13c83a57dbaf4113df146b2feb5e7e0f))
