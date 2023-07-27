@@ -83,8 +83,9 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'transport': 0,
               r'balance': 0,
               r'balance=': 5,
-              r'address': 0,
-              r'address=': 5,
+              r'rootTokenContract': 0,
+              r'tokenAddress': 0,
+              r'tokenAddress=': 5,
               r'owner': 0,
               r'owner=': 5,
               r'symbol': 0,
@@ -502,7 +503,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'wallet': (dynamic instance) => instance.wallet,
         r'transport': (dynamic instance) => instance.transport,
         r'balance': (dynamic instance) => instance.balance,
-        r'address': (dynamic instance) => instance.address,
+        r'rootTokenContract': (dynamic instance) => instance.rootTokenContract,
+        r'tokenAddress': (dynamic instance) => instance.tokenAddress,
         r'owner': (dynamic instance) => instance.owner,
         r'symbol': (dynamic instance) => instance.symbol,
         r'currency': (dynamic instance) => instance.currency,
@@ -550,6 +552,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'onMessageExpired': (dynamic instance) => instance.onMessageExpired,
         r'onStateChanged': (dynamic instance) => instance.onStateChanged,
         r'contract': (dynamic instance) => instance.contract,
+        r'address': (dynamic instance) => instance.address,
         r'pendingTransactions': (dynamic instance) =>
             instance.pendingTransactions,
         r'pollingMethod': (dynamic instance) => instance.pollingMethod,
@@ -578,7 +581,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
       {
         r'wallet=': (dynamic instance, value) => instance.wallet = value,
         r'balance=': (dynamic instance, value) => instance.balance = value,
-        r'address=': (dynamic instance, value) => instance.address = value,
+        r'tokenAddress=': (dynamic instance, value) =>
+            instance.tokenAddress = value,
         r'owner=': (dynamic instance, value) => instance.owner = value,
         r'symbol=': (dynamic instance, value) => instance.symbol = value,
         r'currency=': (dynamic instance, value) => instance.currency = value,
@@ -588,6 +592,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
             instance.connection = value,
         r'storage=': (dynamic instance, value) => instance.storage = value,
         r'contract=': (dynamic instance, value) => instance.contract = value,
+        r'address=': (dynamic instance, value) => instance.address = value,
         r'details=': (dynamic instance, value) => instance.details = value,
         r'publicKey=': (dynamic instance, value) => instance.publicKey = value,
         r'walletType=': (dynamic instance, value) =>

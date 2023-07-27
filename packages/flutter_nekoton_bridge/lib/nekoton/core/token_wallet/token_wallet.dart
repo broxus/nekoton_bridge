@@ -43,13 +43,23 @@ class TokenWallet extends RustToDartMirrorInterface
   final _fieldsUpdateController = StreamController<void>.broadcast();
 
   /// Description information about wallet that do not change
-  late final Address address;
+
+  /// Address of contract for token that is used to subscribe and identify wallet
+  final Address rootTokenContract;
+
+  /// Address of token that was extracted from [owner] and [rootTokenContract].
+  /// Typically, this address is used to receive tokens.
+  late final Address tokenAddress;
+
+  /// Address of account, that this token wallet linked to. This address is the
+  /// same as address of TonWallet for this account.
   late final Address owner;
+
   late final Symbol symbol;
   late final Currency currency;
   late final TokenWalletVersion version;
 
-  TokenWallet._(this.transport);
+  TokenWallet._(this.transport, this.rootTokenContract);
 
   /// Create TokenWallet by subscribing to its instance.
   /// [owner] - address of account that is owner of wallet
@@ -59,7 +69,7 @@ class TokenWallet extends RustToDartMirrorInterface
     required Address owner,
     required Address rootTokenContract,
   }) async {
-    final instance = TokenWallet._(transport);
+    final instance = TokenWallet._(transport, rootTokenContract);
 
     final lib = createLib();
     instance.wallet = await lib.subscribeStaticMethodTokenWalletDartWrapper(
@@ -78,7 +88,7 @@ class TokenWallet extends RustToDartMirrorInterface
   /// wallet and rethrow error;
   Future<void> _initInstance() async {
     try {
-      address = await _getAddress();
+      tokenAddress = await _getAddress();
       owner = await _getOwner();
       symbol = await _getSymbol();
       version = await _getVersion();
@@ -202,7 +212,8 @@ class TokenWallet extends RustToDartMirrorInterface
   }
 
   @override
-  String get refreshDescription => 'TokenWallet: ${address.address}';
+  String get refreshDescription =>
+      'TokenWallet: (Owner: $owner, RootContract: $rootTokenContract, TokenAddress: $tokenAddress)';
 
   /// Preload transactions of wallet.
   /// [fromLt] - offset for loading data, string representation of u64
