@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/mirrors.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:tuple/tuple.dart';
 
 import 'ton_wallet.reflectable.dart';
@@ -26,13 +27,12 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// Controllers that contains data that emits from rust.
   final _onMessageSentController =
-      StreamController<Tuple2<PendingTransaction, Transaction?>>.broadcast();
-  final _onMessageExpiredController =
-      StreamController<PendingTransaction>.broadcast();
-  final _onStateChangedController = StreamController<ContractState>.broadcast();
-  final _onTransactionsFoundController = StreamController<
+      BehaviorSubject<Tuple2<PendingTransaction, Transaction?>>();
+  final _onMessageExpiredController = BehaviorSubject<PendingTransaction>();
+  final _onStateChangedController = BehaviorSubject<ContractState>();
+  final _onTransactionsFoundController = BehaviorSubject<
       Tuple2<List<TransactionWithData<TransactionAdditionalInfo?>>,
-          TransactionsBatchInfo>>.broadcast();
+          TransactionsBatchInfo>>();
 
   /// Description information about wallet that could be changed and updated
   /// during [_updateData]. It means, that fields could be changed after any
@@ -44,7 +44,7 @@ class TonWallet extends RustToDartMirrorInterface
   late List<PublicKey>? _custodians;
 
   /// Triggers subscribers when [_updateData] completes
-  final _fieldsUpdateController = StreamController<void>.broadcast();
+  final _fieldsUpdateController = BehaviorSubject<void>();
 
   /// Description information about wallet that do not change
   late final TonWalletDetails details;
