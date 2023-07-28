@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/mirrors.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:tuple/tuple.dart';
 
 import 'generic_contract.reflectable.dart';
@@ -26,12 +27,11 @@ class GenericContract extends RustToDartMirrorInterface
 
   /// Controllers that contains data that emits from rust.
   final _onMessageSentController =
-      StreamController<Tuple2<PendingTransaction, Transaction?>>.broadcast();
-  final _onMessageExpiredController =
-      StreamController<PendingTransaction>.broadcast();
-  final _onStateChangedController = StreamController<ContractState>.broadcast();
-  final _onTransactionsFoundController = StreamController<
-      Tuple2<List<Transaction>, TransactionsBatchInfo>>.broadcast();
+      BehaviorSubject<Tuple2<PendingTransaction, Transaction?>>();
+  final _onMessageExpiredController = BehaviorSubject<PendingTransaction>();
+  final _onStateChangedController = BehaviorSubject<ContractState>();
+  final _onTransactionsFoundController =
+      BehaviorSubject<Tuple2<List<Transaction>, TransactionsBatchInfo>>();
 
   /// Description information about contract that could be changed and updated
   /// during [_updateData]. It means, that fields could be changed after any
@@ -41,7 +41,7 @@ class GenericContract extends RustToDartMirrorInterface
   late PollingMethod _pollingMethod;
 
   /// Triggers subscribers when [_updateData] completes
-  final _fieldsUpdateController = StreamController<void>.broadcast();
+  final _fieldsUpdateController = BehaviorSubject<void>();
 
   /// Description information about contract that do not change
   late final Address address;
