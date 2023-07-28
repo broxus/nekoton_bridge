@@ -1,3 +1,7 @@
+## 1.11.1
+
+ - Update a dependency to the latest release.
+
 ## 1.11.0
 
  - **FEAT**: update token wallet ([#175](https://github.com/broxus/nekoton_bridge/issues/175)). ([ba14b82a](https://github.com/broxus/nekoton_bridge/commit/ba14b82aa0b74ba2d2168f5f47344a25d53a0486))

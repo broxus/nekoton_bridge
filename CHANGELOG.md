@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-07-28
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.16.0`](#flutter_nekoton_bridge---v1160)
+ - [`flutter_nekoton_bridge_example` - `v1.11.1`](#flutter_nekoton_bridge_example---v1111)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.11.1`
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.16.0`
+
+ - **FEAT**: replace StreamController to BehaviorSubject ([#177](https://github.com/broxus/nekoton_bridge/issues/177)). ([718662ea](https://github.com/broxus/nekoton_bridge/commit/718662ea8e6158fdd1b27cde3c85993764f6de90))
+
+
 ## 2023-07-27
 
 ### Changes
