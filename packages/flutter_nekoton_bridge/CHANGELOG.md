@@ -1,3 +1,7 @@
+## 1.16.0
+
+ - **FEAT**: replace StreamController to BehaviorSubject ([#177](https://github.com/broxus/nekoton_bridge/issues/177)). ([718662ea](https://github.com/broxus/nekoton_bridge/commit/718662ea8e6158fdd1b27cde3c85993764f6de90))
+
 ## 1.15.0
 
  - **FEAT**: update token wallet ([#175](https://github.com/broxus/nekoton_bridge/issues/175)). ([ba14b82a](https://github.com/broxus/nekoton_bridge/commit/ba14b82aa0b74ba2d2168f5f47344a25d53a0486))
