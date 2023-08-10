@@ -1,3 +1,7 @@
+## 1.17.0
+
+ - **FEAT**: replace string to bigint ([#182](https://github.com/broxus/nekoton_bridge/issues/182)). ([a87d238c](https://github.com/broxus/nekoton_bridge/commit/a87d238ccd60d04db094e2fc95e095247e78ab4c))
+
 ## 1.16.0
 
  - **FEAT**: replace StreamController to BehaviorSubject ([#177](https://github.com/broxus/nekoton_bridge/issues/177)). ([718662ea](https://github.com/broxus/nekoton_bridge/commit/718662ea8e6158fdd1b27cde3c85993764f6de90))
