@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-08-10
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.17.0`](#flutter_nekoton_bridge---v1170)
+ - [`flutter_nekoton_bridge_example` - `v1.11.2`](#flutter_nekoton_bridge_example---v1112)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.11.2`
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.17.0`
+
+ - **FEAT**: replace string to bigint ([#182](https://github.com/broxus/nekoton_bridge/issues/182)). ([a87d238c](https://github.com/broxus/nekoton_bridge/commit/a87d238ccd60d04db094e2fc95e095247e78ab4c))
+
+
 ## 2023-07-28
 
 ### Changes
