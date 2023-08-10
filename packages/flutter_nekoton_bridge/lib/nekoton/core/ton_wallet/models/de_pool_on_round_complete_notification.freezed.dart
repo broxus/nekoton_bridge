@@ -24,9 +24,12 @@ mixin _$DePoolOnRoundCompleteNotification {
   String get roundId => throw _privateConstructorUsedError;
   @amountJsonConverter
   BigInt get reward => throw _privateConstructorUsedError;
-  String get ordinaryStake => throw _privateConstructorUsedError;
-  String get vestingStake => throw _privateConstructorUsedError;
-  String get lockStake => throw _privateConstructorUsedError;
+  @amountJsonConverter
+  BigInt get ordinaryStake => throw _privateConstructorUsedError;
+  @amountJsonConverter
+  BigInt get vestingStake => throw _privateConstructorUsedError;
+  @amountJsonConverter
+  BigInt get lockStake => throw _privateConstructorUsedError;
   bool get reinvest => throw _privateConstructorUsedError;
   int get reason => throw _privateConstructorUsedError;
 
@@ -47,9 +50,9 @@ abstract class $DePoolOnRoundCompleteNotificationCopyWith<$Res> {
   $Res call(
       {String roundId,
       @amountJsonConverter BigInt reward,
-      String ordinaryStake,
-      String vestingStake,
-      String lockStake,
+      @amountJsonConverter BigInt ordinaryStake,
+      @amountJsonConverter BigInt vestingStake,
+      @amountJsonConverter BigInt lockStake,
       bool reinvest,
       int reason});
 }
@@ -88,15 +91,15 @@ class _$DePoolOnRoundCompleteNotificationCopyWithImpl<$Res,
       ordinaryStake: null == ordinaryStake
           ? _value.ordinaryStake
           : ordinaryStake // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       vestingStake: null == vestingStake
           ? _value.vestingStake
           : vestingStake // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       lockStake: null == lockStake
           ? _value.lockStake
           : lockStake // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       reinvest: null == reinvest
           ? _value.reinvest
           : reinvest // ignore: cast_nullable_to_non_nullable
@@ -121,9 +124,9 @@ abstract class _$$_DePoolOnRoundCompleteNotificationCopyWith<$Res>
   $Res call(
       {String roundId,
       @amountJsonConverter BigInt reward,
-      String ordinaryStake,
-      String vestingStake,
-      String lockStake,
+      @amountJsonConverter BigInt ordinaryStake,
+      @amountJsonConverter BigInt vestingStake,
+      @amountJsonConverter BigInt lockStake,
       bool reinvest,
       int reason});
 }
@@ -161,15 +164,15 @@ class __$$_DePoolOnRoundCompleteNotificationCopyWithImpl<$Res>
       ordinaryStake: null == ordinaryStake
           ? _value.ordinaryStake
           : ordinaryStake // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       vestingStake: null == vestingStake
           ? _value.vestingStake
           : vestingStake // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       lockStake: null == lockStake
           ? _value.lockStake
           : lockStake // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       reinvest: null == reinvest
           ? _value.reinvest
           : reinvest // ignore: cast_nullable_to_non_nullable
@@ -189,9 +192,9 @@ class _$_DePoolOnRoundCompleteNotification
   const _$_DePoolOnRoundCompleteNotification(
       {required this.roundId,
       @amountJsonConverter required this.reward,
-      required this.ordinaryStake,
-      required this.vestingStake,
-      required this.lockStake,
+      @amountJsonConverter required this.ordinaryStake,
+      @amountJsonConverter required this.vestingStake,
+      @amountJsonConverter required this.lockStake,
       required this.reinvest,
       required this.reason});
 
@@ -205,11 +208,14 @@ class _$_DePoolOnRoundCompleteNotification
   @amountJsonConverter
   final BigInt reward;
   @override
-  final String ordinaryStake;
+  @amountJsonConverter
+  final BigInt ordinaryStake;
   @override
-  final String vestingStake;
+  @amountJsonConverter
+  final BigInt vestingStake;
   @override
-  final String lockStake;
+  @amountJsonConverter
+  final BigInt lockStake;
   @override
   final bool reinvest;
   @override
@@ -264,9 +270,9 @@ abstract class _DePoolOnRoundCompleteNotification
   const factory _DePoolOnRoundCompleteNotification(
       {required final String roundId,
       @amountJsonConverter required final BigInt reward,
-      required final String ordinaryStake,
-      required final String vestingStake,
-      required final String lockStake,
+      @amountJsonConverter required final BigInt ordinaryStake,
+      @amountJsonConverter required final BigInt vestingStake,
+      @amountJsonConverter required final BigInt lockStake,
       required final bool reinvest,
       required final int reason}) = _$_DePoolOnRoundCompleteNotification;
 
@@ -280,11 +286,14 @@ abstract class _DePoolOnRoundCompleteNotification
   @amountJsonConverter
   BigInt get reward;
   @override
-  String get ordinaryStake;
+  @amountJsonConverter
+  BigInt get ordinaryStake;
   @override
-  String get vestingStake;
+  @amountJsonConverter
+  BigInt get vestingStake;
   @override
-  String get lockStake;
+  @amountJsonConverter
+  BigInt get lockStake;
   @override
   bool get reinvest;
   @override
