@@ -214,7 +214,7 @@ class TokenWallet extends RustToDartMirrorInterface
 
   @override
   String get refreshDescription =>
-      'TokenWallet: (Owner: $owner, RootContract: $rootTokenContract, TokenAddress: $tokenAddress)';
+      'TokenWallet ${symbol.name}: (Owner: $owner, RootContract: $rootTokenContract, TokenAddress: $tokenAddress)';
 
   /// Preload transactions of wallet.
   /// [fromLt] - offset for loading data, string representation of u64
