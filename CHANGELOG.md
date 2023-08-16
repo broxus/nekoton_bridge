@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-08-16
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`nekoton_bridge` - `v1.11.0`](#nekoton_bridge---v1110)
+ - [`flutter_nekoton_bridge` - `v1.17.1`](#flutter_nekoton_bridge---v1171)
+ - [`flutter_nekoton_bridge_example` - `v1.11.3`](#flutter_nekoton_bridge_example---v1113)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge` - `v1.17.1`
+ - `flutter_nekoton_bridge_example` - `v1.11.3`
+
+---
+
+#### `nekoton_bridge` - `v1.11.0`
+
+ - **FEAT**: add providing FfiException above ([#188](https://github.com/broxus/nekoton_bridge/issues/188)). ([3bee1665](https://github.com/broxus/nekoton_bridge/commit/3bee16658bd5c5ca11b82ae7a322c4530c2282f8))
+
+
 ## 2023-08-10
 
 ### Changes
