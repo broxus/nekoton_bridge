@@ -1,3 +1,7 @@
+## 1.17.1
+
+ - Update a dependency to the latest release.
+
 ## 1.17.0
 
  - **FEAT**: replace string to bigint ([#182](https://github.com/broxus/nekoton_bridge/issues/182)). ([a87d238c](https://github.com/broxus/nekoton_bridge/commit/a87d238ccd60d04db094e2fc95e095247e78ab4c))

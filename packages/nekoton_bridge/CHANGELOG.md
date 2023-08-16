@@ -1,3 +1,7 @@
+## 1.11.0
+
+ - **FEAT**: add providing FfiException above ([#188](https://github.com/broxus/nekoton_bridge/issues/188)). ([3bee1665](https://github.com/broxus/nekoton_bridge/commit/3bee16658bd5c5ca11b82ae7a322c4530c2282f8))
+
 ## 1.10.0
 
  - **FEAT**: allow mocking bridge ([#172](https://github.com/broxus/nekoton_bridge/issues/172)). ([694cae99](https://github.com/broxus/nekoton_bridge/commit/694cae99342888c996d9e896dbc2f93d8c641e90))
