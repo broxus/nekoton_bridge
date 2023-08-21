@@ -8,8 +8,8 @@ part 'internal_message.g.dart';
 @freezed
 sealed class InternalMessage with _$InternalMessage {
   factory InternalMessage({
-    final String? source,
-    required final String destination,
+    final Address? source,
+    required final Address destination,
     @amountJsonConverter required final BigInt amount,
     required final bool bounce,
     required final String body,
