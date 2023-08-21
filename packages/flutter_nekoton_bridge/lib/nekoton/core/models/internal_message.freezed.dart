@@ -20,8 +20,8 @@ InternalMessage _$InternalMessageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$InternalMessage {
-  String? get source => throw _privateConstructorUsedError;
-  String get destination => throw _privateConstructorUsedError;
+  Address? get source => throw _privateConstructorUsedError;
+  Address get destination => throw _privateConstructorUsedError;
   @amountJsonConverter
   BigInt get amount => throw _privateConstructorUsedError;
   bool get bounce => throw _privateConstructorUsedError;
@@ -40,11 +40,14 @@ abstract class $InternalMessageCopyWith<$Res> {
       _$InternalMessageCopyWithImpl<$Res, InternalMessage>;
   @useResult
   $Res call(
-      {String? source,
-      String destination,
+      {Address? source,
+      Address destination,
       @amountJsonConverter BigInt amount,
       bool bounce,
       String body});
+
+  $AddressCopyWith<$Res>? get source;
+  $AddressCopyWith<$Res> get destination;
 }
 
 /// @nodoc
@@ -70,11 +73,11 @@ class _$InternalMessageCopyWithImpl<$Res, $Val extends InternalMessage>
       source: freezed == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Address?,
       destination: null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -89,6 +92,26 @@ class _$InternalMessageCopyWithImpl<$Res, $Val extends InternalMessage>
               as String,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res>? get source {
+    if (_value.source == null) {
+      return null;
+    }
+
+    return $AddressCopyWith<$Res>(_value.source!, (value) {
+      return _then(_value.copyWith(source: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get destination {
+    return $AddressCopyWith<$Res>(_value.destination, (value) {
+      return _then(_value.copyWith(destination: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -100,11 +123,16 @@ abstract class _$$_InternalMessageCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? source,
-      String destination,
+      {Address? source,
+      Address destination,
       @amountJsonConverter BigInt amount,
       bool bounce,
       String body});
+
+  @override
+  $AddressCopyWith<$Res>? get source;
+  @override
+  $AddressCopyWith<$Res> get destination;
 }
 
 /// @nodoc
@@ -128,11 +156,11 @@ class __$$_InternalMessageCopyWithImpl<$Res>
       source: freezed == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Address?,
       destination: null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -163,9 +191,9 @@ class _$_InternalMessage implements _InternalMessage {
       _$$_InternalMessageFromJson(json);
 
   @override
-  final String? source;
+  final Address? source;
   @override
-  final String destination;
+  final Address destination;
   @override
   @amountJsonConverter
   final BigInt amount;
@@ -213,8 +241,8 @@ class _$_InternalMessage implements _InternalMessage {
 
 abstract class _InternalMessage implements InternalMessage {
   factory _InternalMessage(
-      {final String? source,
-      required final String destination,
+      {final Address? source,
+      required final Address destination,
       @amountJsonConverter required final BigInt amount,
       required final bool bounce,
       required final String body}) = _$_InternalMessage;
@@ -223,9 +251,9 @@ abstract class _InternalMessage implements InternalMessage {
       _$_InternalMessage.fromJson;
 
   @override
-  String? get source;
+  Address? get source;
   @override
-  String get destination;
+  Address get destination;
   @override
   @amountJsonConverter
   BigInt get amount;
