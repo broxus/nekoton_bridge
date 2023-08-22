@@ -1,3 +1,7 @@
+## 1.11.1
+
+ - **FIX**: another dummy. ([a002a1da](https://github.com/broxus/nekoton_bridge/commit/a002a1dae4180bb1aeddfe848cbe99098d6afe6e))
+
 ## 1.11.0
 
  - **FEAT**: add providing FfiException above ([#188](https://github.com/broxus/nekoton_bridge/issues/188)). ([3bee1665](https://github.com/broxus/nekoton_bridge/commit/3bee16658bd5c5ca11b82ae7a322c4530c2282f8))
