@@ -6,7 +6,7 @@ repository: https://github.com/broxus/nekoton_bridge.git
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
-  flutter: ">=3.10.2"
+  flutter: ">=3.13.0"
 
 dependencies:
   flutter:
@@ -30,9 +30,9 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   integration_test:
     sdk: flutter
-  mocktail: ^0.3.0
+  mocktail: ^1.0.0
   build_runner: ^2.3.3
-  freezed: ^2.3.2
+  freezed: ^2.4.1
   json_serializable: ^6.6.1
 
 # For information on the generic Dart part of this file, see the

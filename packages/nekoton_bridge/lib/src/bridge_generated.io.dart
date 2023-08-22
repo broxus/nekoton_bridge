@@ -1733,9 +1733,9 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   }
 
   late final _wire_init_loggerPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(
-              ffi.Int64, ffi.Int32, ffi.Bool)>>('wire_init_logger');
+          ffi
+          .NativeFunction<ffi.Void Function(ffi.Int64, ffi.Int32, ffi.Bool)>>(
+      'wire_init_logger');
   late final _wire_init_logger =
       _wire_init_loggerPtr.asFunction<void Function(int, int, bool)>();
 
@@ -1859,9 +1859,9 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   }
 
   late final _wire_simple_adderPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(
-              ffi.Int64, ffi.Int32, ffi.Int32)>>('wire_simple_adder');
+          ffi
+          .NativeFunction<ffi.Void Function(ffi.Int64, ffi.Int32, ffi.Int32)>>(
+      'wire_simple_adder');
   late final _wire_simple_adder =
       _wire_simple_adderPtr.asFunction<void Function(int, int, int)>();
 
@@ -2147,7 +2147,8 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
 
   late final _wire_get_accounts_by_code_hash__method__GqlTransportImplPtr =
       _lookup<
-              ffi.NativeFunction<
+              ffi
+              .NativeFunction<
                   ffi.Void Function(
                       ffi.Int64,
                       ffi.Pointer<wire_GqlTransportImpl>,
@@ -4529,7 +4530,8 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
 
   late final _wire_get_custodians__static_method__TonWalletDartWrapperPtr =
       _lookup<
-              ffi.NativeFunction<
+              ffi
+              .NativeFunction<
                   ffi.Void Function(ffi.Int64, wire_ArcTransportBoxTrait,
                       ffi.Pointer<wire_uint_8_list>)>>(
           'wire_get_custodians__static_method__TonWalletDartWrapper');
@@ -5044,9 +5046,9 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   }
 
   late final _new_box_autoadd_token_wallet_dart_wrapper_0Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<wire_TokenWalletDartWrapper>
-              Function()>>('new_box_autoadd_token_wallet_dart_wrapper_0');
+          ffi
+          .NativeFunction<ffi.Pointer<wire_TokenWalletDartWrapper> Function()>>(
+      'new_box_autoadd_token_wallet_dart_wrapper_0');
   late final _new_box_autoadd_token_wallet_dart_wrapper_0 =
       _new_box_autoadd_token_wallet_dart_wrapper_0Ptr
           .asFunction<ffi.Pointer<wire_TokenWalletDartWrapper> Function()>();
@@ -5057,9 +5059,9 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   }
 
   late final _new_box_autoadd_ton_wallet_dart_wrapper_0Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<wire_TonWalletDartWrapper>
-              Function()>>('new_box_autoadd_ton_wallet_dart_wrapper_0');
+          ffi
+          .NativeFunction<ffi.Pointer<wire_TonWalletDartWrapper> Function()>>(
+      'new_box_autoadd_ton_wallet_dart_wrapper_0');
   late final _new_box_autoadd_ton_wallet_dart_wrapper_0 =
       _new_box_autoadd_ton_wallet_dart_wrapper_0Ptr
           .asFunction<ffi.Pointer<wire_TonWalletDartWrapper> Function()>();
@@ -5158,9 +5160,9 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   }
 
   late final _new_uint_8_list_0Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<wire_uint_8_list> Function(
-              ffi.Int32)>>('new_uint_8_list_0');
+          ffi
+          .NativeFunction<ffi.Pointer<wire_uint_8_list> Function(ffi.Int32)>>(
+      'new_uint_8_list_0');
   late final _new_uint_8_list_0 = _new_uint_8_list_0Ptr
       .asFunction<ffi.Pointer<wire_uint_8_list> Function(int)>();
 
