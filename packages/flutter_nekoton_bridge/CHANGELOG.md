@@ -1,3 +1,7 @@
+## 1.18.1
+
+ - Update a dependency to the latest release.
+
 ## 1.18.0
 
  - **FEAT**: fix address type ([#190](https://github.com/broxus/nekoton_bridge/issues/190)). ([ed260689](https://github.com/broxus/nekoton_bridge/commit/ed26068978293a0d9b6aa8f4457043f3bf2703c4))
