@@ -28,7 +28,7 @@ void main() {
   const name = 'Mainnet (GQL)';
   const networkId = 1;
   const networkGroup = 'mainnet';
-  const endpoint = 'https://jrpc.everwallet.net/rpc';
+  const endpoint = 'https://jrpc.everwallet.net/proto';
 
   /// System account address
   const accountAddress = Address(
@@ -53,8 +53,8 @@ void main() {
   });
 
   // TODO(nesquikm): it's not clear which test is causing flaky behavior
-  group('JrpcTransport tests', () {
-    testWidgets('Create JrpcTransport', (WidgetTester tester) async {
+  group('ProtoTransport tests', () {
+    testWidgets('Create ProtoTransport', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final connection = await ProtoConnection.create(
@@ -70,7 +70,7 @@ void main() {
       expect(transport.transport, isNotNull);
     });
 
-    testWidgets('JrpcTransport getSignatureId ', (WidgetTester tester) async {
+    testWidgets('ProtoTransport getSignatureId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -90,12 +90,12 @@ void main() {
       expect(signature, isNull);
     });
 
-    testWidgets('JrpcTransport getSignatureId venom ',
+    testWidgets('ProtoTransport getSignatureId venom ',
         (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
-      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/rpc';
+      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/proto';
 
       final connection = await ProtoConnection.create(
         post: postTransportData,
@@ -112,7 +112,7 @@ void main() {
       expect(signature, 1000);
     });
 
-    testWidgets('JrpcTransport getTransactions ', (WidgetTester tester) async {
+    testWidgets('ProtoTransport getTransactions ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -135,7 +135,7 @@ void main() {
       expect(transactions.transactions.length, 10);
     });
 
-    testWidgets('JrpcTransport getTransaction ', (WidgetTester tester) async {
+    testWidgets('ProtoTransport getTransaction ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -159,7 +159,7 @@ void main() {
       expect(transaction.outMessages.length, 0);
     });
 
-    testWidgets('JrpcTransport multiple calls ', (WidgetTester tester) async {
+    testWidgets('ProtoTransport multiple calls ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -195,7 +195,8 @@ void main() {
       );
     });
 
-    testWidgets('JrpcTransport getContractState ', (WidgetTester tester) async {
+    testWidgets('ProtoTransport getContractState ',
+        (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -219,7 +220,7 @@ void main() {
       );
     });
 
-    testWidgets('JrpcTransport getFullContractState ', (
+    testWidgets('ProtoTransport getFullContractState ', (
       WidgetTester tester,
     ) async {
       await tester.pumpAndSettleWithTimeout();
@@ -243,7 +244,7 @@ void main() {
       expect(state.isDeployed, true);
     });
 
-    testWidgets('JrpcTransport getNetworkId ', (WidgetTester tester) async {
+    testWidgets('ProtoTransport getNetworkId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
@@ -260,11 +261,11 @@ void main() {
       expect(id, 42);
     });
 
-    testWidgets('JrpcTransport getNetworkId venom ',
+    testWidgets('ProtoTransport getNetworkId venom ',
         (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
-      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/rpc';
+      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/proto';
 
       final connection = await ProtoConnection.create(
         post: postTransportData,

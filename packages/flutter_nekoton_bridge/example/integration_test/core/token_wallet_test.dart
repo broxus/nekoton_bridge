@@ -30,7 +30,7 @@ void main() {
   const name = 'Mainnet (GQL)';
   const networkId = 1;
   const networkGroup = 'mainnet';
-  const endpoint = 'https://jrpc.everwallet.net/rpc';
+  const endpoint = 'https://jrpc.everwallet.net/proto';
 
   const stEverRootContract = Address(
       address:
