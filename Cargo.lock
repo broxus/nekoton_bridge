@@ -39,6 +39,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "ahash"
+version = "0.8.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2c99f64d1e06488f620f932677e24bc6e2897582980441ae90a671415bd7ec2f"
+dependencies = [
+ "cfg-if",
+ "getrandom",
+ "once_cell",
+ "version_check",
+]
+
+[[package]]
 name = "aho-corasick"
 version = "0.7.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -490,12 +502,6 @@ dependencies = [
 
 [[package]]
 name = "convert_case"
-version = "0.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6245d59a3e82a7fc217c5828a6692dbc6dfb63a0c8c90495621f7b9d79704a0e"
-
-[[package]]
-name = "convert_case"
 version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fb4a24b1aaf0fd0ce8b45161144d6f42cd91677fd5940fd431183eb023b3a2b8"
@@ -602,7 +608,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "907076dfda823b0b36d2a1bb5f90c96660a5bbcd7729e10727f07858f22c4edc"
 dependencies = [
  "cfg-if",
- "hashbrown",
+ "hashbrown 0.12.3",
  "lock_api",
  "once_cell",
  "parking_lot_core",
@@ -616,19 +622,6 @@ checksum = "082a24a9967533dc5d743c602157637116fc1b52806d694a5a45e6f32567fcdd"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 1.0.109",
-]
-
-[[package]]
-name = "derive_more"
-version = "0.99.17"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4fb810d30a7c1953f91334de7244731fc3f3c10d7fe163338a35b9f640960321"
-dependencies = [
- "convert_case 0.4.0",
- "proc-macro2",
- "quote",
- "rustc_version",
  "syn 1.0.109",
 ]
 
@@ -810,7 +803,7 @@ dependencies = [
  "cbindgen",
  "chrono",
  "clap 4.3.5",
- "convert_case 0.5.0",
+ "convert_case",
  "delegate",
  "enum-iterator",
  "enum_dispatch",
@@ -926,8 +919,14 @@ version = "0.12.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8a9ee70c43aaf417c914396645a0fa852624801b24ebb7ae78fe8272889ac888"
 dependencies = [
- "ahash",
+ "ahash 0.7.6",
 ]
+
+[[package]]
+name = "hashbrown"
+version = "0.13.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "43a3c133739dddd0d2990f9a4bdf8eb4b21ef50e4851ca85ab661199821d510e"
 
 [[package]]
 name = "heck"
@@ -1043,7 +1042,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bd070e393353796e801d209ad339e89596eb4c8d430d18ede6a1cced8fafbd99"
 dependencies = [
  "autocfg",
- "hashbrown",
+ "hashbrown 0.12.3",
 ]
 
 [[package]]
@@ -1214,7 +1213,7 @@ version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b6e8aaa3f231bb4bd57b84b2d5dc3ae7f350265df8aa96492e0bc394a1571909"
 dependencies = [
- "hashbrown",
+ "hashbrown 0.12.3",
 ]
 
 [[package]]
@@ -1251,8 +1250,8 @@ dependencies = [
 
 [[package]]
 name = "nekoton"
-version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git?rev=2adcf367ac8d2c6ab04ad35a8bc345b1f9c0d634#2adcf367ac8d2c6ab04ad35a8bc345b1f9c0d634"
+version = "0.13.1"
+source = "git+https://github.com/broxus/nekoton.git?rev=d70dd09d4d482987541f1816fd3bce970710178c#d70dd09d4d482987541f1816fd3bce970710178c"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -1271,11 +1270,13 @@ dependencies = [
  "lru",
  "nekoton-abi",
  "nekoton-contracts",
+ "nekoton-proto",
  "nekoton-utils",
  "num-bigint",
  "once_cell",
  "parking_lot",
  "pbkdf2",
+ "quick_cache",
  "rand",
  "secstr",
  "serde",
@@ -1284,7 +1285,6 @@ dependencies = [
  "thiserror",
  "tiny-bip39",
  "tiny-hderive",
- "tiny-jsonrpc",
  "tokio",
  "ton_abi",
  "ton_block",
@@ -1296,7 +1296,7 @@ dependencies = [
 [[package]]
 name = "nekoton-abi"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git?rev=2adcf367ac8d2c6ab04ad35a8bc345b1f9c0d634#2adcf367ac8d2c6ab04ad35a8bc345b1f9c0d634"
+source = "git+https://github.com/broxus/nekoton.git?rev=d70dd09d4d482987541f1816fd3bce970710178c#d70dd09d4d482987541f1816fd3bce970710178c"
 dependencies = [
  "anyhow",
  "base64",
@@ -1323,7 +1323,7 @@ dependencies = [
 [[package]]
 name = "nekoton-contracts"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git?rev=2adcf367ac8d2c6ab04ad35a8bc345b1f9c0d634#2adcf367ac8d2c6ab04ad35a8bc345b1f9c0d634"
+source = "git+https://github.com/broxus/nekoton.git?rev=d70dd09d4d482987541f1816fd3bce970710178c#d70dd09d4d482987541f1816fd3bce970710178c"
 dependencies = [
  "anyhow",
  "nekoton-abi",
@@ -1337,7 +1337,7 @@ dependencies = [
 [[package]]
 name = "nekoton-derive"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git?rev=2adcf367ac8d2c6ab04ad35a8bc345b1f9c0d634#2adcf367ac8d2c6ab04ad35a8bc345b1f9c0d634"
+source = "git+https://github.com/broxus/nekoton.git?rev=d70dd09d4d482987541f1816fd3bce970710178c#d70dd09d4d482987541f1816fd3bce970710178c"
 dependencies = [
  "either",
  "proc-macro2",
@@ -1346,9 +1346,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "nekoton-proto"
+version = "0.1.0"
+source = "git+https://github.com/broxus/nekoton.git?rev=d70dd09d4d482987541f1816fd3bce970710178c#d70dd09d4d482987541f1816fd3bce970710178c"
+dependencies = [
+ "anyhow",
+ "nekoton-abi",
+ "prost",
+ "ton_block",
+ "ton_types",
+]
+
+[[package]]
 name = "nekoton-utils"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git?rev=2adcf367ac8d2c6ab04ad35a8bc345b1f9c0d634#2adcf367ac8d2c6ab04ad35a8bc345b1f9c0d634"
+source = "git+https://github.com/broxus/nekoton.git?rev=d70dd09d4d482987541f1816fd3bce970710178c#d70dd09d4d482987541f1816fd3bce970710178c"
 dependencies = [
  "anyhow",
  "base64",
@@ -1638,6 +1650,40 @@ dependencies = [
 ]
 
 [[package]]
+name = "prost"
+version = "0.11.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0b82eaa1d779e9a4bc1c3217db8ffbeabaae1dca241bf70183242128d48681cd"
+dependencies = [
+ "bytes",
+ "prost-derive",
+]
+
+[[package]]
+name = "prost-derive"
+version = "0.11.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e5d2d8d10f3c6ded6da8b05b5fb3b8a5082514344d56c9f871412d29b4e075b4"
+dependencies = [
+ "anyhow",
+ "itertools",
+ "proc-macro2",
+ "quote",
+ "syn 1.0.109",
+]
+
+[[package]]
+name = "quick_cache"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5253a3a0d56548d5b0be25414171dc780cc6870727746d05bd2bde352eee96c5"
+dependencies = [
+ "ahash 0.8.3",
+ "hashbrown 0.13.2",
+ "parking_lot",
+]
+
+[[package]]
 name = "quote"
 version = "1.0.28"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1722,15 +1768,6 @@ name = "rustc-hash"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "08d43f7aa6b08d49f382cde6a7982047c3426db949b1424bc4b7ec9ae12c6ce2"
-
-[[package]]
-name = "rustc_version"
-version = "0.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bfa0f585226d2e68097d4f95d113b15b83a82e819ab25717ec0590d9584ef366"
-dependencies = [
- "semver",
-]
 
 [[package]]
 name = "rustix"
@@ -2087,19 +2124,6 @@ dependencies = [
  "libsecp256k1",
  "memzero",
  "sha2",
-]
-
-[[package]]
-name = "tiny-jsonrpc"
-version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "188386153834d944dcb96dd9586133c3cc0899570c7418401e4b69e19034ec5d"
-dependencies = [
- "anyhow",
- "derive_more",
- "serde",
- "serde_json",
- "thiserror",
 ]
 
 [[package]]

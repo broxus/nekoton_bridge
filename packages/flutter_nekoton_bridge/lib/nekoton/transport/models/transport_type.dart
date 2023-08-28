@@ -4,7 +4,7 @@ part 'transport_type.g.dart';
 
 @JsonEnum(alwaysCreate: true)
 enum TransportType {
-  jrpc,
+  proto,
   gql;
 
   @override

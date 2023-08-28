@@ -2,7 +2,6 @@
 // https://github.com/dart-lang/reflectable.
 
 import 'dart:core';
-import 'jrpc_connection.dart' as prefix1;
 import 'package:flutter_nekoton_bridge/example_related/caller_test_class_wrapper.dart'
     as prefix2;
 import 'package:flutter_nekoton_bridge/example_related/caller_wrapper.dart'
@@ -20,6 +19,7 @@ import 'package:flutter_nekoton_bridge/nekoton/external/ledger_connection.dart'
 import 'package:flutter_nekoton_bridge/nekoton/external/storage.dart'
     as prefix6;
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart' as prefix0;
+import 'proto_connection.dart' as prefix1;
 
 // ignore_for_file: camel_case_types
 // ignore_for_file: implementation_imports
@@ -38,8 +38,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
   const prefix0.Reflector(): r.ReflectorData(
       <m.TypeMirror>[
         r.NonGenericClassMirrorImpl(
-            r'JrpcConnection',
-            r'.JrpcConnection',
+            r'ProtoConnection',
+            r'.ProtoConnection',
             134217735,
             0,
             const prefix0.Reflector(),
@@ -47,7 +47,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
             null,
             null,
             -1,
-            {r'create': () => prefix1.JrpcConnection.create},
+            {r'create': () => prefix1.ProtoConnection.create},
             {},
             {},
             -1,
@@ -469,7 +469,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
       null,
       null,
       <Type>[
-        prefix1.JrpcConnection,
+        prefix1.ProtoConnection,
         prefix2.CallerTestClassWrapper,
         prefix3.CallerWrapper,
         prefix4.GqlConnection,

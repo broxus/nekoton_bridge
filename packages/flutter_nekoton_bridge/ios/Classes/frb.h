@@ -66,6 +66,10 @@ typedef struct wire_DynamicValue_String {
   struct wire_uint_8_list *field0;
 } wire_DynamicValue_String;
 
+typedef struct wire_DynamicValue_VecU8 {
+  struct wire_uint_8_list *field0;
+} wire_DynamicValue_VecU8;
+
 typedef struct wire_DynamicValue_MegaStruct {
   struct wire_uint_8_list *field0;
 } wire_DynamicValue_MegaStruct;
@@ -87,6 +91,7 @@ typedef union DynamicValueKind {
   struct wire_DynamicValue_F32 *F32;
   struct wire_DynamicValue_F64 *F64;
   struct wire_DynamicValue_String *String;
+  struct wire_DynamicValue_VecU8 *VecU8;
   struct wire_DynamicValue_MegaStruct *MegaStruct;
   struct wire_DynamicValue_Error *Error;
   struct wire_DynamicValue_None *None;
@@ -143,17 +148,17 @@ typedef struct wire_GqlTransportImpl {
   struct wire_ArcTransportBoxTrait inner_transport;
 } wire_GqlTransportImpl;
 
-typedef struct wire_ArcJrpcConnectionBoxTrait {
+typedef struct wire_ArcProtoConnectionBoxTrait {
   const void *ptr;
-} wire_ArcJrpcConnectionBoxTrait;
+} wire_ArcProtoConnectionBoxTrait;
 
-typedef struct wire_JrpcConnectionDartWrapper {
-  struct wire_ArcJrpcConnectionBoxTrait inner_connection;
-} wire_JrpcConnectionDartWrapper;
+typedef struct wire_ProtoConnectionDartWrapper {
+  struct wire_ArcProtoConnectionBoxTrait inner_connection;
+} wire_ProtoConnectionDartWrapper;
 
-typedef struct wire_JrpcTransportImpl {
+typedef struct wire_ProtoTransportImpl {
   struct wire_ArcTransportBoxTrait inner_transport;
-} wire_JrpcTransportImpl;
+} wire_ProtoTransportImpl;
 
 typedef struct wire_ArcTokenWalletBoxTrait {
   const void *ptr;
@@ -500,38 +505,38 @@ void wire_wait_for_next_block__method__GqlTransportImpl(int64_t port_,
                                                         struct wire_uint_8_list *address,
                                                         uint64_t timeout);
 
-void wire_new__static_method__JrpcTransportImpl(int64_t port_,
-                                                struct wire_JrpcConnectionDartWrapper *jrpc_connection);
+void wire_new__static_method__ProtoTransportImpl(int64_t port_,
+                                                 struct wire_ProtoConnectionDartWrapper *proto_connection);
 
-void wire_get_contract_state__method__JrpcTransportImpl(int64_t port_,
-                                                        struct wire_JrpcTransportImpl *that,
-                                                        struct wire_uint_8_list *address);
+void wire_get_contract_state__method__ProtoTransportImpl(int64_t port_,
+                                                         struct wire_ProtoTransportImpl *that,
+                                                         struct wire_uint_8_list *address);
 
-void wire_get_full_contract_state__method__JrpcTransportImpl(int64_t port_,
-                                                             struct wire_JrpcTransportImpl *that,
-                                                             struct wire_uint_8_list *address);
+void wire_get_full_contract_state__method__ProtoTransportImpl(int64_t port_,
+                                                              struct wire_ProtoTransportImpl *that,
+                                                              struct wire_uint_8_list *address);
 
-void wire_get_accounts_by_code_hash__method__JrpcTransportImpl(int64_t port_,
-                                                               struct wire_JrpcTransportImpl *that,
-                                                               struct wire_uint_8_list *code_hash,
-                                                               uint8_t limit,
-                                                               struct wire_uint_8_list *continuation);
+void wire_get_accounts_by_code_hash__method__ProtoTransportImpl(int64_t port_,
+                                                                struct wire_ProtoTransportImpl *that,
+                                                                struct wire_uint_8_list *code_hash,
+                                                                uint8_t limit,
+                                                                struct wire_uint_8_list *continuation);
 
-void wire_get_transactions__method__JrpcTransportImpl(int64_t port_,
-                                                      struct wire_JrpcTransportImpl *that,
-                                                      struct wire_uint_8_list *address,
-                                                      uint64_t *from_lt,
-                                                      uint8_t count);
+void wire_get_transactions__method__ProtoTransportImpl(int64_t port_,
+                                                       struct wire_ProtoTransportImpl *that,
+                                                       struct wire_uint_8_list *address,
+                                                       uint64_t *from_lt,
+                                                       uint8_t count);
 
-void wire_get_transaction__method__JrpcTransportImpl(int64_t port_,
-                                                     struct wire_JrpcTransportImpl *that,
-                                                     struct wire_uint_8_list *hash);
+void wire_get_transaction__method__ProtoTransportImpl(int64_t port_,
+                                                      struct wire_ProtoTransportImpl *that,
+                                                      struct wire_uint_8_list *hash);
 
-void wire_get_signature_id__method__JrpcTransportImpl(int64_t port_,
-                                                      struct wire_JrpcTransportImpl *that);
+void wire_get_signature_id__method__ProtoTransportImpl(int64_t port_,
+                                                       struct wire_ProtoTransportImpl *that);
 
-void wire_get_network_id__method__JrpcTransportImpl(int64_t port_,
-                                                    struct wire_JrpcTransportImpl *that);
+void wire_get_network_id__method__ProtoTransportImpl(int64_t port_,
+                                                     struct wire_ProtoTransportImpl *that);
 
 void wire_subscribe__static_method__TokenWalletDartWrapper(int64_t port_,
                                                            struct wire_uint_8_list *instance_hash,
@@ -871,12 +876,12 @@ void wire_get_custodians__static_method__TonWalletDartWrapper(int64_t port_,
                                                               struct wire_ArcTransportBoxTrait transport,
                                                               struct wire_uint_8_list *address);
 
-void wire_new__static_method__JrpcConnectionDartWrapper(int64_t port_,
-                                                        struct wire_uint_8_list *instance_hash);
-
 void wire_new__static_method__GqlConnectionDartWrapper(int64_t port_,
                                                        bool is_local,
                                                        struct wire_uint_8_list *instance_hash);
+
+void wire_new__static_method__ProtoConnectionDartWrapper(int64_t port_,
+                                                         struct wire_uint_8_list *instance_hash);
 
 void wire_new__static_method__LedgerConnectionDartWrapper(int64_t port_,
                                                           struct wire_uint_8_list *instance_hash);
@@ -905,11 +910,11 @@ struct wire_ArcGenericContractBoxTrait new_ArcGenericContractBoxTrait(void);
 
 struct wire_ArcGqlConnectionBoxTrait new_ArcGqlConnectionBoxTrait(void);
 
-struct wire_ArcJrpcConnectionBoxTrait new_ArcJrpcConnectionBoxTrait(void);
-
 struct wire_ArcKeyStoreApiBoxTrait new_ArcKeyStoreApiBoxTrait(void);
 
 struct wire_ArcLedgerConnectionBoxTrait new_ArcLedgerConnectionBoxTrait(void);
+
+struct wire_ArcProtoConnectionBoxTrait new_ArcProtoConnectionBoxTrait(void);
 
 struct wire_ArcStorageBoxTrait new_ArcStorageBoxTrait(void);
 
@@ -939,10 +944,6 @@ struct wire_GqlTransportImpl *new_box_autoadd_gql_transport_impl_0(void);
 
 int32_t *new_box_autoadd_i32_0(int32_t value);
 
-struct wire_JrpcConnectionDartWrapper *new_box_autoadd_jrpc_connection_dart_wrapper_0(void);
-
-struct wire_JrpcTransportImpl *new_box_autoadd_jrpc_transport_impl_0(void);
-
 struct wire_KeySigner *new_box_autoadd_key_signer_0(void);
 
 struct wire_KeystoreDartWrapper *new_box_autoadd_keystore_dart_wrapper_0(void);
@@ -952,6 +953,10 @@ struct wire_LedgerConnectionDartWrapper *new_box_autoadd_ledger_connection_dart_
 struct wire_MnemonicType *new_box_autoadd_mnemonic_type_0(void);
 
 struct wire_MyClass *new_box_autoadd_my_class_0(void);
+
+struct wire_ProtoConnectionDartWrapper *new_box_autoadd_proto_connection_dart_wrapper_0(void);
+
+struct wire_ProtoTransportImpl *new_box_autoadd_proto_transport_impl_0(void);
 
 struct wire_StorageDartWrapper *new_box_autoadd_storage_dart_wrapper_0(void);
 
@@ -985,10 +990,6 @@ void drop_opaque_ArcGqlConnectionBoxTrait(const void *ptr);
 
 const void *share_opaque_ArcGqlConnectionBoxTrait(const void *ptr);
 
-void drop_opaque_ArcJrpcConnectionBoxTrait(const void *ptr);
-
-const void *share_opaque_ArcJrpcConnectionBoxTrait(const void *ptr);
-
 void drop_opaque_ArcKeyStoreApiBoxTrait(const void *ptr);
 
 const void *share_opaque_ArcKeyStoreApiBoxTrait(const void *ptr);
@@ -996,6 +997,10 @@ const void *share_opaque_ArcKeyStoreApiBoxTrait(const void *ptr);
 void drop_opaque_ArcLedgerConnectionBoxTrait(const void *ptr);
 
 const void *share_opaque_ArcLedgerConnectionBoxTrait(const void *ptr);
+
+void drop_opaque_ArcProtoConnectionBoxTrait(const void *ptr);
+
+const void *share_opaque_ArcProtoConnectionBoxTrait(const void *ptr);
 
 void drop_opaque_ArcStorageBoxTrait(const void *ptr);
 
@@ -1032,6 +1037,8 @@ union DynamicValueKind *inflate_DynamicValue_F32(void);
 union DynamicValueKind *inflate_DynamicValue_F64(void);
 
 union DynamicValueKind *inflate_DynamicValue_String(void);
+
+union DynamicValueKind *inflate_DynamicValue_VecU8(void);
 
 union DynamicValueKind *inflate_DynamicValue_MegaStruct(void);
 
@@ -1114,14 +1121,14 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_get_latest_block__method__GqlTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_block__method__GqlTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_wait_for_next_block__method__GqlTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_new__static_method__JrpcTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_contract_state__method__JrpcTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_full_contract_state__method__JrpcTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_accounts_by_code_hash__method__JrpcTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_transactions__method__JrpcTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_transaction__method__JrpcTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_signature_id__method__JrpcTransportImpl);
-    dummy_var ^= ((int64_t) (void*) wire_get_network_id__method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__ProtoTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_contract_state__method__ProtoTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_full_contract_state__method__ProtoTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_accounts_by_code_hash__method__ProtoTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_transactions__method__ProtoTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_transaction__method__ProtoTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_signature_id__method__ProtoTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_network_id__method__ProtoTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_subscribe__static_method__TokenWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_owner__method__TokenWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_address__method__TokenWalletDartWrapper);
@@ -1201,8 +1208,8 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_find_existing_wallets__static_method__TonWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_get_existing_wallet_info__static_method__TonWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_get_custodians__static_method__TonWalletDartWrapper);
-    dummy_var ^= ((int64_t) (void*) wire_new__static_method__JrpcConnectionDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__GqlConnectionDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__ProtoConnectionDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__LedgerConnectionDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__LedgerConnectionImpl);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__StorageDartWrapper);
@@ -1214,9 +1221,9 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) new_ArcAccountsStorageBoxTrait);
     dummy_var ^= ((int64_t) (void*) new_ArcGenericContractBoxTrait);
     dummy_var ^= ((int64_t) (void*) new_ArcGqlConnectionBoxTrait);
-    dummy_var ^= ((int64_t) (void*) new_ArcJrpcConnectionBoxTrait);
     dummy_var ^= ((int64_t) (void*) new_ArcKeyStoreApiBoxTrait);
     dummy_var ^= ((int64_t) (void*) new_ArcLedgerConnectionBoxTrait);
+    dummy_var ^= ((int64_t) (void*) new_ArcProtoConnectionBoxTrait);
     dummy_var ^= ((int64_t) (void*) new_ArcStorageBoxTrait);
     dummy_var ^= ((int64_t) (void*) new_ArcTokenWalletBoxTrait);
     dummy_var ^= ((int64_t) (void*) new_ArcTonWalletBoxTrait);
@@ -1231,13 +1238,13 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_gql_connection_dart_wrapper_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_gql_transport_impl_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_i32_0);
-    dummy_var ^= ((int64_t) (void*) new_box_autoadd_jrpc_connection_dart_wrapper_0);
-    dummy_var ^= ((int64_t) (void*) new_box_autoadd_jrpc_transport_impl_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_key_signer_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_keystore_dart_wrapper_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_ledger_connection_dart_wrapper_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_mnemonic_type_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_my_class_0);
+    dummy_var ^= ((int64_t) (void*) new_box_autoadd_proto_connection_dart_wrapper_0);
+    dummy_var ^= ((int64_t) (void*) new_box_autoadd_proto_transport_impl_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_storage_dart_wrapper_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_token_wallet_dart_wrapper_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_ton_wallet_dart_wrapper_0);
@@ -1254,12 +1261,12 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) share_opaque_ArcGenericContractBoxTrait);
     dummy_var ^= ((int64_t) (void*) drop_opaque_ArcGqlConnectionBoxTrait);
     dummy_var ^= ((int64_t) (void*) share_opaque_ArcGqlConnectionBoxTrait);
-    dummy_var ^= ((int64_t) (void*) drop_opaque_ArcJrpcConnectionBoxTrait);
-    dummy_var ^= ((int64_t) (void*) share_opaque_ArcJrpcConnectionBoxTrait);
     dummy_var ^= ((int64_t) (void*) drop_opaque_ArcKeyStoreApiBoxTrait);
     dummy_var ^= ((int64_t) (void*) share_opaque_ArcKeyStoreApiBoxTrait);
     dummy_var ^= ((int64_t) (void*) drop_opaque_ArcLedgerConnectionBoxTrait);
     dummy_var ^= ((int64_t) (void*) share_opaque_ArcLedgerConnectionBoxTrait);
+    dummy_var ^= ((int64_t) (void*) drop_opaque_ArcProtoConnectionBoxTrait);
+    dummy_var ^= ((int64_t) (void*) share_opaque_ArcProtoConnectionBoxTrait);
     dummy_var ^= ((int64_t) (void*) drop_opaque_ArcStorageBoxTrait);
     dummy_var ^= ((int64_t) (void*) share_opaque_ArcStorageBoxTrait);
     dummy_var ^= ((int64_t) (void*) drop_opaque_ArcTokenWalletBoxTrait);
@@ -1278,6 +1285,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_F32);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_F64);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_String);
+    dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_VecU8);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_MegaStruct);
     dummy_var ^= ((int64_t) (void*) inflate_DynamicValue_Error);
     dummy_var ^= ((int64_t) (void*) inflate_KeySigner_Stub);

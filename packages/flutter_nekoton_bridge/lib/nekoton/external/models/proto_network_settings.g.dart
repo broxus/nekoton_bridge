@@ -1,19 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'jrpc_network_settings.dart';
+part of 'proto_network_settings.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_JrpcNetworkSettings _$$_JrpcNetworkSettingsFromJson(
+_$_ProtoNetworkSettings _$$_ProtoNetworkSettingsFromJson(
         Map<String, dynamic> json) =>
-    _$_JrpcNetworkSettings(
+    _$_ProtoNetworkSettings(
       endpoint: json['endpoint'] as String,
     );
 
-Map<String, dynamic> _$$_JrpcNetworkSettingsToJson(
-        _$_JrpcNetworkSettings instance) =>
+Map<String, dynamic> _$$_ProtoNetworkSettingsToJson(
+        _$_ProtoNetworkSettings instance) =>
     <String, dynamic>{
       'endpoint': instance.endpoint,
     };

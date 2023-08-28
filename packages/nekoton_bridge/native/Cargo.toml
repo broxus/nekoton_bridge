@@ -25,10 +25,10 @@ log = { version = "0.4.17", features = ["kv_unstable"] }
 log-panics = { version = "2.1.0", features = ["with-backtrace"] }
 nekoton = { git = "https://github.com/broxus/nekoton.git", features = [
     "gql_transport",
-    "jrpc_transport",
-], rev = "2adcf367ac8d2c6ab04ad35a8bc345b1f9c0d634" }
-nekoton-abi = { git = "https://github.com/broxus/nekoton.git", rev = "2adcf367ac8d2c6ab04ad35a8bc345b1f9c0d634" }
-nekoton-utils = { git = "https://github.com/broxus/nekoton.git", rev = "2adcf367ac8d2c6ab04ad35a8bc345b1f9c0d634" }
+    "proto_transport",
+], rev = "d70dd09d4d482987541f1816fd3bce970710178c" }
+nekoton-abi = { git = "https://github.com/broxus/nekoton.git", rev = "d70dd09d4d482987541f1816fd3bce970710178c" }
+nekoton-utils = { git = "https://github.com/broxus/nekoton.git", rev = "d70dd09d4d482987541f1816fd3bce970710178c" }
 ton_abi = { git = "https://github.com/broxus/ton-labs-abi" }
 ton_block = { git = "https://github.com/broxus/ton-labs-block.git", features = ["venom"] }
 ton_types = { git = "https://github.com/broxus/ton-labs-types.git" }
