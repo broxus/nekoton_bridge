@@ -31,7 +31,7 @@ jobs:
           version: "15"
       - uses: actions-rs/toolchain@v1
         with:
-          toolchain: stable
+          toolchain: 1.71.1
       - name: Set up cargo cache
         uses: actions/cache@v3
         continue-on-error: false

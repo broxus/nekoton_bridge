@@ -32,7 +32,7 @@ jobs:
       - uses: bluefireteam/melos-action@v2
       - uses: actions-rs/toolchain@v1
         with:
-          toolchain: stable
+          toolchain: 1.71.1
           components: rustfmt, clippy
       - name: Set up cargo cache
         uses: actions/cache@v3
@@ -224,7 +224,7 @@ jobs:
       - uses: bluefireteam/melos-action@v2
       - uses: actions-rs/toolchain@v1
         with:
-          toolchain: stable
+          toolchain: 1.71.1
       - name: Set up cargo cache
         uses: actions/cache@v3
         continue-on-error: false
@@ -275,7 +275,7 @@ jobs:
       - uses: bluefireteam/melos-action@v2
       - uses: actions-rs/toolchain@v1
         with:
-          toolchain: stable
+          toolchain: 1.71.1
       - name: Set up cargo cache
         uses: actions/cache@v3
         continue-on-error: false
