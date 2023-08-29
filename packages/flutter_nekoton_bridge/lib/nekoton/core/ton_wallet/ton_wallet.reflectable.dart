@@ -12,10 +12,10 @@ import 'package:flutter_nekoton_bridge/nekoton/core/token_wallet/token_wallet.da
     as prefix9;
 import 'package:flutter_nekoton_bridge/nekoton/external/gql_connection.dart'
     as prefix4;
-import 'package:flutter_nekoton_bridge/nekoton/external/jrpc_connection.dart'
-    as prefix5;
 import 'package:flutter_nekoton_bridge/nekoton/external/ledger_connection.dart'
     as prefix6;
+import 'package:flutter_nekoton_bridge/nekoton/external/proto_connection.dart'
+    as prefix5;
 import 'package:flutter_nekoton_bridge/nekoton/external/storage.dart'
     as prefix7;
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart' as prefix0;
@@ -234,8 +234,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'create': 13
             }),
         r.NonGenericClassMirrorImpl(
-            r'JrpcConnection',
-            r'.JrpcConnection',
+            r'ProtoConnection',
+            r'.ProtoConnection',
             134217735,
             4,
             const prefix0.Reflector(),
@@ -243,7 +243,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
             null,
             null,
             -1,
-            {r'create': () => prefix5.JrpcConnection.create},
+            {r'create': () => prefix5.ProtoConnection.create},
             {},
             {},
             -1,
@@ -473,7 +473,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         prefix2.CallerTestClassWrapper,
         prefix3.CallerWrapper,
         prefix4.GqlConnection,
-        prefix5.JrpcConnection,
+        prefix5.ProtoConnection,
         prefix6.LedgerConnection,
         prefix7.Storage,
         prefix8.GenericContract,

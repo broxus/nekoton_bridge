@@ -356,7 +356,7 @@ impl TonWalletBoxTrait for TonWalletBox {
             .handle_error()?;
 
         let current_state = match contract_state {
-            nekoton::transport::models::RawContractState::NotExists => {
+            nekoton::transport::models::RawContractState::NotExists { timings } => {
                 return Err("Not exists").handle_error();
             }
             nekoton::transport::models::RawContractState::Exists(contract) => contract.account,
@@ -417,7 +417,7 @@ impl TonWalletBoxTrait for TonWalletBox {
             .handle_error()?;
 
         let current_state = match contract_state {
-            nekoton::transport::models::RawContractState::NotExists => {
+            nekoton::transport::models::RawContractState::NotExists { timings } => {
                 return Err("Not exists").handle_error();
             }
             nekoton::transport::models::RawContractState::Exists(contract) => contract.account,
@@ -562,7 +562,7 @@ pub async fn ton_wallet_get_existing_wallet_info(
 
     let existing_contract = match raw_contract_state {
         nekoton::transport::models::RawContractState::Exists(state) => state,
-        nekoton::transport::models::RawContractState::NotExists => {
+        nekoton::transport::models::RawContractState::NotExists { timings } => {
             return Err("Account not exists").handle_error();
         }
     };
@@ -594,7 +594,7 @@ pub async fn ton_wallet_get_custodians(
 
     let existing_contract = match raw_contract_state {
         nekoton::transport::models::RawContractState::Exists(state) => state,
-        nekoton::transport::models::RawContractState::NotExists => {
+        nekoton::transport::models::RawContractState::NotExists { timings } => {
             return Err("Account not exists").handle_error();
         }
     };

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
@@ -9,18 +10,18 @@ import 'package:http/http.dart' as http;
 
 import '../timeout_utils.dart';
 
-Future<String> postTransportData({
+Future<Uint8List> postTransportData({
   required String endpoint,
   required Map<String, String> headers,
-  required String data,
+  required Uint8List dataBytes,
 }) async {
   final response = await http.post(
     Uri.parse(endpoint),
     headers: headers,
-    body: data,
+    body: dataBytes,
   );
 
-  return response.body;
+  return response.bodyBytes;
 }
 
 void main() {
@@ -29,7 +30,7 @@ void main() {
   const name = 'Mainnet (GQL)';
   const networkId = 1;
   const networkGroup = 'mainnet';
-  const endpoint = 'https://jrpc.everwallet.net/rpc';
+  const endpoint = 'https://jrpc.everwallet.net/proto';
 
   const stEverRootContract = Address(
       address:
@@ -38,8 +39,8 @@ void main() {
       address:
           '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2');
 
-  const jrpcSettings = JrpcNetworkSettings(endpoint: endpoint);
-  late JrpcTransport transport;
+  const jrpcSettings = ProtoNetworkSettings(endpoint: endpoint);
+  late ProtoTransport transport;
 
   setUp(() async {
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
@@ -55,14 +56,14 @@ void main() {
 
     await initRustToDartCaller();
 
-    final connection = await JrpcConnection.create(
+    final connection = await ProtoConnection.create(
       post: postTransportData,
       settings: jrpcSettings,
       name: name,
       group: networkGroup,
       networkId: networkId,
     );
-    transport = await JrpcTransport.create(jrpcConnection: connection);
+    transport = await ProtoTransport.create(protoConnection: connection);
   });
 
   group('TokenWallet test', () {

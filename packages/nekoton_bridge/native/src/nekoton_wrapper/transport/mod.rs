@@ -7,10 +7,10 @@ use crate::nekoton_wrapper::{parse_address, parse_hash, HandleError};
 use async_trait::async_trait;
 use flutter_rust_bridge::RustOpaque;
 use nekoton::core::models::{Transaction, TransactionsBatchInfo, TransactionsBatchType};
-use nekoton::external::{GqlConnection, JrpcConnection};
+use nekoton::external::{GqlConnection, ProtoConnection};
 use nekoton::transport::gql::LatestBlock;
 use nekoton::transport::models::RawContractState;
-use nekoton::transport::{gql::GqlTransport, jrpc::JrpcTransport, Transport};
+use nekoton::transport::{gql::GqlTransport, proto::ProtoTransport, Transport};
 use nekoton_abi::TransactionId;
 use nekoton_utils::SimpleClock;
 use std::convert::TryFrom;
@@ -20,13 +20,13 @@ use std::time::Duration;
 use ton_block::Serializable;
 
 pub mod gql_transport_api;
-pub mod jrpc_transport_api;
 pub mod models;
+pub mod proto_transport_api;
 
-/// This is a fucking hack that allows using nekoton::JrpcTransport or nekoton::GqlTransport in dart classes.
-/// This is a trait-wrapper above real JrpcTransport or GqlTransport with UnwindSafe + RefUnwindSafe.
+/// This is a fucking hack that allows using nekoton::ProtoTransport or nekoton::GqlTransport in dart classes.
+/// This is a trait-wrapper above real ProtoTransport or GqlTransport with UnwindSafe + RefUnwindSafe.
 ///
-/// This class is a unification above jrpc or gql to allow re-use this trait as a single transport
+/// This class is a unification above proto or gql to allow re-use this trait as a single transport
 /// without any differences for TonWallet or TokenWallet.
 /// This allows using RustOpaque<Arc<dyn TransportBoxTrait>> in rust side to accept data from dart side.
 #[async_trait]
@@ -83,26 +83,26 @@ pub trait TransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     ) -> anyhow::Result<String>;
 }
 
-pub struct JrpcTransportBox {
-    inner_transport: Arc<JrpcTransport>,
+pub struct ProtoTransportBox {
+    inner_transport: Arc<ProtoTransport>,
 }
 
-impl UnwindSafe for JrpcTransportBox {}
+impl UnwindSafe for ProtoTransportBox {}
 
-impl RefUnwindSafe for JrpcTransportBox {}
+impl RefUnwindSafe for ProtoTransportBox {}
 
-impl JrpcTransportBox {
+impl ProtoTransportBox {
     pub fn create(
-        jrpc_connection: Arc<dyn JrpcConnection>,
+        proto_connection: Arc<dyn ProtoConnection>,
     ) -> RustOpaque<Arc<dyn TransportBoxTrait>> {
         RustOpaque::new(Arc::new(Self {
-            inner_transport: Arc::new(JrpcTransport::new(jrpc_connection)),
+            inner_transport: Arc::new(ProtoTransport::new(proto_connection)),
         }))
     }
 }
 
 #[async_trait]
-impl TransportBoxTrait for JrpcTransportBox {
+impl TransportBoxTrait for ProtoTransportBox {
     /// Get nekoton's transport. For rust side only
     fn get_transport(&self) -> Arc<dyn Transport> {
         self.inner_transport.clone()
@@ -156,7 +156,7 @@ impl TransportBoxTrait for JrpcTransportBox {
                     boc,
                 })
             }
-            RawContractState::NotExists => None,
+            RawContractState::NotExists { timings } => None,
         };
 
         return match full_contract_state {
@@ -279,21 +279,21 @@ impl TransportBoxTrait for JrpcTransportBox {
         Ok(id.global_id)
     }
 
-    /// Not used in jrpc
+    /// Not used in proto
     async fn get_latest_block(&self, address: String) -> anyhow::Result<LatestBlock> {
         Err(anyhow::Error::msg(
-            "get_latest_block not implemented for JrpcTransportBox",
+            "get_latest_block not implemented for ProtoTransportBox",
         ))
     }
 
-    /// Not used in jrpc
+    /// Not used in proto
     async fn get_block(&self, id: String) -> anyhow::Result<String> {
         Err(anyhow::Error::msg(
-            "get_block not implemented for JrpcTransportBox",
+            "get_block not implemented for ProtoTransportBox",
         ))
     }
 
-    /// Not used in jrpc
+    /// Not used in proto
     async fn wait_for_next_block(
         &self,
         current_block_id: String,
@@ -301,7 +301,7 @@ impl TransportBoxTrait for JrpcTransportBox {
         timeout: u64,
     ) -> anyhow::Result<String> {
         Err(anyhow::Error::msg(
-            "wait_for_next_block not implemented for JrpcTransportBox",
+            "wait_for_next_block not implemented for ProtoTransportBox",
         ))
     }
 }
@@ -379,7 +379,7 @@ impl TransportBoxTrait for GqlTransportBox {
                     boc,
                 })
             }
-            RawContractState::NotExists => None,
+            RawContractState::NotExists { timings } => None,
         };
 
         return match full_contract_state {

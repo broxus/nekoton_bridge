@@ -16,6 +16,9 @@ extension DynamicValueConvert on DynamicValue {
     if (this is DynamicValue_String) {
       return (this as DynamicValue_String).field0;
     }
+    if (this is DynamicValue_VecU8) {
+      return (this as DynamicValue_VecU8).field0;
+    }
 
     if (this is DynamicValue_MegaStruct) {
       return MegaStruct.fromJson(

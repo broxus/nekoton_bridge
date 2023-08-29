@@ -7,6 +7,6 @@ part of 'transport_type.dart';
 // **************************************************************************
 
 const _$TransportTypeEnumMap = {
-  TransportType.jrpc: 'jrpc',
+  TransportType.proto: 'proto',
   TransportType.gql: 'gql',
 };

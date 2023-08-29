@@ -1,7 +1,7 @@
 #![allow(unused_variables, dead_code)]
 
 pub use nekoton::external::GqlConnection;
-use nekoton::external::{JrpcConnection, LedgerConnection};
+use nekoton::external::{LedgerConnection, ProtoConnection};
 use std::panic::{RefUnwindSafe, UnwindSafe};
 use std::sync::Arc;
 
@@ -30,25 +30,25 @@ impl GqlConnectionBoxTrait for GqlConnectionBox {
 }
 
 /// This wrapper need to avoid frb errors related to UnwindSafe + RefUnwindSafe
-pub trait JrpcConnectionBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
-    fn get_connection(&self) -> Arc<dyn JrpcConnection>;
+pub trait ProtoConnectionBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
+    fn get_connection(&self) -> Arc<dyn ProtoConnection>;
 }
 
-pub struct JrpcConnectionBox {
-    inner_connection: Arc<dyn JrpcConnection>,
+pub struct ProtoConnectionBox {
+    inner_connection: Arc<dyn ProtoConnection>,
 }
 
-impl UnwindSafe for JrpcConnectionBox {}
-impl RefUnwindSafe for JrpcConnectionBox {}
+impl UnwindSafe for ProtoConnectionBox {}
+impl RefUnwindSafe for ProtoConnectionBox {}
 
-impl JrpcConnectionBox {
-    pub fn create(inner_connection: Arc<dyn JrpcConnection>) -> Arc<dyn JrpcConnectionBoxTrait> {
+impl ProtoConnectionBox {
+    pub fn create(inner_connection: Arc<dyn ProtoConnection>) -> Arc<dyn ProtoConnectionBoxTrait> {
         Arc::new(Self { inner_connection })
     }
 }
 
-impl JrpcConnectionBoxTrait for JrpcConnectionBox {
-    fn get_connection(&self) -> Arc<dyn JrpcConnection> {
+impl ProtoConnectionBoxTrait for ProtoConnectionBox {
+    fn get_connection(&self) -> Arc<dyn ProtoConnection> {
         self.inner_connection.clone()
     }
 }

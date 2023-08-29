@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math';
+import 'dart:typed_data';
 
 import 'package:nekoton_bridge/nekoton_bridge.dart';
 export 'package:nekoton_bridge/nekoton_bridge.dart';
@@ -115,6 +116,12 @@ Future<void> registerRustToDartCaller(RustToDartCaller rustToDartCaller) async {
           return;
         } else if (result is Future<ErrorCode>) {
           lib.callSendResult(id: id, value: DynamicValue.error(await result));
+          return;
+        } else if (result is Uint8List) {
+          lib.callSendResult(id: id, value: DynamicValue.vecU8(result));
+          return;
+        } else if (result is Future<Uint8List>) {
+          lib.callSendResult(id: id, value: DynamicValue.vecU8(await result));
           return;
         } else if (result == null) {
           lib.callSendResult(id: id, value: const DynamicValue.none());

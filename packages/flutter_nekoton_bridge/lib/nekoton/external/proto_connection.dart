@@ -1,29 +1,32 @@
 import 'dart:async';
+import 'dart:typed_data';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/mirrors.dart';
-import 'jrpc_connection.reflectable.dart';
+import 'proto_connection.reflectable.dart';
 
-typedef JrpcConnectionPost = Future<String> Function({
+/// Callback to make post requrest in proto connection.
+/// Must return bytes.
+typedef ProtoConnectionPost = Future<Uint8List> Function({
   required String endpoint,
   required Map<String, String> headers,
-  required String data,
+  required Uint8List dataBytes,
 });
 
 @reflector
-class JrpcConnection extends RustToDartMirrorInterface {
-  late JrpcConnectionDartWrapper connection;
+class ProtoConnection extends RustToDartMirrorInterface {
+  late ProtoConnectionDartWrapper connection;
 
-  final JrpcConnectionPost _post;
+  final ProtoConnectionPost _post;
 
   final String _name;
   final int _networkId;
   final String _group;
-  final JrpcNetworkSettings _settings;
+  final ProtoNetworkSettings _settings;
 
-  final type = TransportType.gql;
+  final type = TransportType.proto;
 
-  JrpcConnection._(
+  ProtoConnection._(
     this._post,
     this._settings,
     this._name,
@@ -31,17 +34,17 @@ class JrpcConnection extends RustToDartMirrorInterface {
     this._networkId,
   );
 
-  static Future<JrpcConnection> create({
-    required JrpcConnectionPost post,
-    required JrpcNetworkSettings settings,
+  static Future<ProtoConnection> create({
+    required ProtoConnectionPost post,
+    required ProtoNetworkSettings settings,
     required String name,
     required String group,
     required int networkId,
   }) async {
-    final instance = JrpcConnection._(post, settings, name, group, networkId);
+    final instance = ProtoConnection._(post, settings, name, group, networkId);
 
     final lib = createLib();
-    instance.connection = await lib.newStaticMethodJrpcConnectionDartWrapper(
+    instance.connection = await lib.newStaticMethodProtoConnectionDartWrapper(
       instanceHash: instance.instanceHash,
     );
 
@@ -55,14 +58,14 @@ class JrpcConnection extends RustToDartMirrorInterface {
   String get group => _group;
 
   /// Method to make post request. It's called from rust
-  Future<String> post(String requestData) async {
+  Future<Uint8List> post(Uint8List requestData) async {
     try {
       return await _post(
         endpoint: _settings.endpoint,
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'x-protobuf',
         },
-        data: requestData,
+        dataBytes: requestData,
       );
     } catch (error) {
       throw ErrorCode.Network;

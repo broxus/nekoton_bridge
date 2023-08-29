@@ -209,7 +209,7 @@ void main() {
 
       expect(state, isNotNull);
       expect(
-        state.when(notExists: () => null, exists: (e) => e),
+        state.when(notExists: (_) => null, exists: (e) => e),
         isNotNull,
       );
     });

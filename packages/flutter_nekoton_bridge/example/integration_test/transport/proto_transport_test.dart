@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -6,18 +8,18 @@ import 'package:http/http.dart' as http;
 
 import '../timeout_utils.dart';
 
-Future<String> postTransportData({
+Future<Uint8List> postTransportData({
   required String endpoint,
   required Map<String, String> headers,
-  required String data,
+  required Uint8List dataBytes,
 }) async {
   final response = await http.post(
     Uri.parse(endpoint),
     headers: headers,
-    body: data,
+    body: dataBytes,
   );
 
-  return response.body;
+  return response.bodyBytes;
 }
 
 void main() {
@@ -26,7 +28,7 @@ void main() {
   const name = 'Mainnet (GQL)';
   const networkId = 1;
   const networkGroup = 'mainnet';
-  const endpoint = 'https://jrpc.everwallet.net/rpc';
+  const endpoint = 'https://jrpc.everwallet.net/proto';
 
   /// System account address
   const accountAddress = Address(
@@ -35,7 +37,7 @@ void main() {
   const accountTransaction =
       'd0a278d82e699a63adeaede7e602ff6da8168c333ceb4f2344f42cb739c28940';
 
-  const jrpcSettings = JrpcNetworkSettings(endpoint: endpoint);
+  const protoSettings = ProtoNetworkSettings(endpoint: endpoint);
 
   setUp(() {
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
@@ -51,75 +53,79 @@ void main() {
   });
 
   // TODO(nesquikm): it's not clear which test is causing flaky behavior
-  group('JrpcTransport tests', () {
-    testWidgets('Create JrpcTransport', (WidgetTester tester) async {
+  group('ProtoTransport tests', () {
+    testWidgets('Create ProtoTransport', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final connection = await JrpcConnection.create(
+      final connection = await ProtoConnection.create(
         post: postTransportData,
-        settings: jrpcSettings,
+        settings: protoSettings,
         name: name,
         group: networkGroup,
         networkId: networkId,
       );
-      final transport = await JrpcTransport.create(jrpcConnection: connection);
+      final transport =
+          await ProtoTransport.create(protoConnection: connection);
 
       expect(transport.transport, isNotNull);
     });
 
-    testWidgets('JrpcTransport getSignatureId ', (WidgetTester tester) async {
+    testWidgets('ProtoTransport getSignatureId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = await ProtoConnection.create(
         post: postTransportData,
-        settings: jrpcSettings,
+        settings: protoSettings,
         name: name,
         group: networkGroup,
         networkId: networkId,
       );
-      final transport = await JrpcTransport.create(jrpcConnection: connection);
+      final transport =
+          await ProtoTransport.create(protoConnection: connection);
 
       final signature = await transport.getSignatureId();
 
       expect(signature, isNull);
     });
 
-    testWidgets('JrpcTransport getSignatureId venom ',
+    testWidgets('ProtoTransport getSignatureId venom ',
         (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
-      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/rpc';
+      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/proto';
 
-      final connection = await JrpcConnection.create(
+      final connection = await ProtoConnection.create(
         post: postTransportData,
-        settings: const JrpcNetworkSettings(endpoint: venomEndpoint),
+        settings: const ProtoNetworkSettings(endpoint: venomEndpoint),
         name: 'Testnet Venom',
         group: 'testnet',
         networkId: 1010,
       );
-      final transport = await JrpcTransport.create(jrpcConnection: connection);
+      final transport =
+          await ProtoTransport.create(protoConnection: connection);
 
       final signature = await transport.getSignatureId();
 
       expect(signature, 1000);
     });
 
-    testWidgets('JrpcTransport getTransactions ', (WidgetTester tester) async {
+    testWidgets('ProtoTransport getTransactions ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = await ProtoConnection.create(
         post: postTransportData,
-        settings: jrpcSettings,
+        settings: protoSettings,
         name: name,
         group: networkGroup,
         networkId: networkId,
       );
-      final transport = await JrpcTransport.create(jrpcConnection: connection);
+      final transport =
+          await ProtoTransport.create(protoConnection: connection);
 
       final transactions = await transport.getTransactions(
         address: accountAddress,
@@ -129,19 +135,20 @@ void main() {
       expect(transactions.transactions.length, 10);
     });
 
-    testWidgets('JrpcTransport getTransaction ', (WidgetTester tester) async {
+    testWidgets('ProtoTransport getTransaction ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = await ProtoConnection.create(
         post: postTransportData,
-        settings: jrpcSettings,
+        settings: protoSettings,
         name: name,
         group: networkGroup,
         networkId: networkId,
       );
-      final transport = await JrpcTransport.create(jrpcConnection: connection);
+      final transport =
+          await ProtoTransport.create(protoConnection: connection);
 
       final transaction = await transport.getTransaction(accountTransaction);
 
@@ -152,19 +159,20 @@ void main() {
       expect(transaction.outMessages.length, 0);
     });
 
-    testWidgets('JrpcTransport multiple calls ', (WidgetTester tester) async {
+    testWidgets('ProtoTransport multiple calls ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = await ProtoConnection.create(
         post: postTransportData,
-        settings: jrpcSettings,
+        settings: protoSettings,
         name: name,
         group: networkGroup,
         networkId: networkId,
       );
-      final transport = await JrpcTransport.create(jrpcConnection: connection);
+      final transport =
+          await ProtoTransport.create(protoConnection: connection);
 
       expect(
         await transport.getTransaction(accountTransaction),
@@ -187,44 +195,47 @@ void main() {
       );
     });
 
-    testWidgets('JrpcTransport getContractState ', (WidgetTester tester) async {
+    testWidgets('ProtoTransport getContractState ',
+        (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = await ProtoConnection.create(
         post: postTransportData,
-        settings: jrpcSettings,
+        settings: protoSettings,
         name: name,
         group: networkGroup,
         networkId: networkId,
       );
-      final transport = await JrpcTransport.create(jrpcConnection: connection);
+      final transport =
+          await ProtoTransport.create(protoConnection: connection);
 
       final state = await transport.getContractState(accountAddress);
 
       expect(state, isNotNull);
       expect(
-        state.when(notExists: () => null, exists: (e) => e),
+        state.when(notExists: (_) => null, exists: (e) => e),
         isNotNull,
       );
     });
 
-    testWidgets('JrpcTransport getFullContractState ', (
+    testWidgets('ProtoTransport getFullContractState ', (
       WidgetTester tester,
     ) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = await ProtoConnection.create(
         post: postTransportData,
-        settings: jrpcSettings,
+        settings: protoSettings,
         name: name,
         group: networkGroup,
         networkId: networkId,
       );
-      final transport = await JrpcTransport.create(jrpcConnection: connection);
+      final transport =
+          await ProtoTransport.create(protoConnection: connection);
 
       final state = await transport.getFullContractState(accountAddress);
 
@@ -233,36 +244,38 @@ void main() {
       expect(state.isDeployed, true);
     });
 
-    testWidgets('JrpcTransport getNetworkId ', (WidgetTester tester) async {
+    testWidgets('ProtoTransport getNetworkId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = await ProtoConnection.create(
         post: postTransportData,
-        settings: jrpcSettings,
+        settings: protoSettings,
         name: name,
         group: networkGroup,
         networkId: networkId,
       );
-      final transport = await JrpcTransport.create(jrpcConnection: connection);
+      final transport =
+          await ProtoTransport.create(protoConnection: connection);
       final id = await transport.getNetworkId();
       expect(id, 42);
     });
 
-    testWidgets('JrpcTransport getNetworkId venom ',
+    testWidgets('ProtoTransport getNetworkId venom ',
         (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
-      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/rpc';
+      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/proto';
 
-      final connection = await JrpcConnection.create(
+      final connection = await ProtoConnection.create(
         post: postTransportData,
-        settings: const JrpcNetworkSettings(endpoint: venomEndpoint),
+        settings: const ProtoNetworkSettings(endpoint: venomEndpoint),
         name: 'Testnet Venom',
         group: 'testnet',
         networkId: 1010,
       );
-      final transport = await JrpcTransport.create(jrpcConnection: connection);
+      final transport =
+          await ProtoTransport.create(protoConnection: connection);
       final id = await transport.getNetworkId();
       expect(id, 1000);
     });

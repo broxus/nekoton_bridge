@@ -2,21 +2,21 @@ import 'dart:convert';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
-/// Implementation of jrpc transport
-class JrpcTransport extends Transport {
-  final JrpcConnection jrpcConnection;
-  late JrpcTransportImpl transport;
+/// Implementation of proto transport
+class ProtoTransport extends Transport {
+  final ProtoConnection protoConnection;
+  late ProtoTransportImpl transport;
 
-  JrpcTransport._(this.jrpcConnection);
+  ProtoTransport._(this.protoConnection);
 
-  static Future<JrpcTransport> create({
-    required JrpcConnection jrpcConnection,
+  static Future<ProtoTransport> create({
+    required ProtoConnection protoConnection,
   }) async {
-    final instance = JrpcTransport._(jrpcConnection);
+    final instance = ProtoTransport._(protoConnection);
 
     final lib = createLib();
-    instance.transport = await lib.newStaticMethodJrpcTransportImpl(
-      jrpcConnection: jrpcConnection.connection,
+    instance.transport = await lib.newStaticMethodProtoTransportImpl(
+      protoConnection: protoConnection.connection,
     );
 
     return instance;
@@ -25,7 +25,7 @@ class JrpcTransport extends Transport {
   @override
   void dispose() {
     transport.innerTransport.dispose();
-    jrpcConnection.dispose();
+    protoConnection.dispose();
   }
 
   @override
@@ -86,16 +86,16 @@ class JrpcTransport extends Transport {
   }
 
   @override
-  String get group => jrpcConnection.group;
+  String get group => protoConnection.group;
 
   @override
-  String get name => jrpcConnection.name;
+  String get name => protoConnection.name;
 
   @override
-  int get networkId => jrpcConnection.networkId;
+  int get networkId => protoConnection.networkId;
 
   @override
-  TransportType get type => jrpcConnection.type;
+  TransportType get type => protoConnection.type;
 
   @override
   ArcTransportBoxTrait get transportBox => transport.innerTransport;

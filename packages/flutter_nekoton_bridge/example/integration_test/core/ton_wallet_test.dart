@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
@@ -39,18 +40,18 @@ class MockedStorageMethods {
   }
 }
 
-Future<String> postTransportData({
+Future<Uint8List> postTransportData({
   required String endpoint,
   required Map<String, String> headers,
-  required String data,
+  required Uint8List dataBytes,
 }) async {
   final response = await http.post(
     Uri.parse(endpoint),
     headers: headers,
-    body: data,
+    body: dataBytes,
   );
 
-  return response.body;
+  return response.bodyBytes;
 }
 
 void main() {
@@ -59,7 +60,7 @@ void main() {
   const name = 'Mainnet (GQL)';
   const networkId = 1;
   const networkGroup = 'mainnet';
-  const endpoint = 'https://jrpc.everwallet.net/rpc';
+  const endpoint = 'https://jrpc.everwallet.net/proto';
 
   const stEverContractVault = Address(
       address:
@@ -74,8 +75,8 @@ void main() {
   const walletType = WalletType.walletV3();
   const expiration = Expiration.timeout(60);
 
-  const jrpcSettings = JrpcNetworkSettings(endpoint: endpoint);
-  late JrpcTransport transport;
+  const jrpcSettings = ProtoNetworkSettings(endpoint: endpoint);
+  late ProtoTransport transport;
 
   setUp(() async {
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
@@ -91,14 +92,14 @@ void main() {
 
     await initRustToDartCaller();
 
-    final connection = await JrpcConnection.create(
+    final connection = await ProtoConnection.create(
       post: postTransportData,
       settings: jrpcSettings,
       name: name,
       group: networkGroup,
       networkId: networkId,
     );
-    transport = await JrpcTransport.create(jrpcConnection: connection);
+    transport = await ProtoTransport.create(protoConnection: connection);
   });
 
   // TODO(nesquikm): it's not clear which test is causing flaky behavior

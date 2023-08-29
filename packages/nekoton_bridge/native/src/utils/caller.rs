@@ -45,6 +45,8 @@ pub enum DynamicValue {
 
     String(String),
 
+    VecU8(Vec<u8>),
+
     MegaStruct(String),
 
     Error(ErrorCode),
@@ -55,6 +57,14 @@ pub enum DynamicValue {
 
 /// Hand-written converters for structures
 impl DynamicValue {
+    pub fn as_vec_u8(&self) -> anyhow::Result<Vec<u8>> {
+        match self {
+            DynamicValue::VecU8(data) => anyhow::Result::Ok(data.clone()),
+            DynamicValue::Error(e) => anyhow::Result::Err(anyhow::Error::new(e.clone())),
+            _ => panic!("Can't convert DynamicValue to String {:?}", &self),
+        }
+    }
+
     pub fn as_string(&self) -> anyhow::Result<String> {
         match self {
             DynamicValue::String(string) => anyhow::Result::Ok(string.clone()),

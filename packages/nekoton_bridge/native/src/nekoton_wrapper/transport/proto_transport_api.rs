@@ -1,22 +1,22 @@
 #![allow(unused_variables, dead_code)]
 
 use crate::async_run;
-use crate::nekoton_wrapper::external::jrpc_connection_api::JrpcConnectionDartWrapper;
-use crate::nekoton_wrapper::transport::{JrpcTransportBox, TransportBoxTrait};
+use crate::nekoton_wrapper::external::proto_connection_api::ProtoConnectionDartWrapper;
+use crate::nekoton_wrapper::transport::{ProtoTransportBox, TransportBoxTrait};
 use flutter_rust_bridge::RustOpaque;
 use std::sync::Arc;
 
-/// Wrapper structure above JrpcTransport that provides interface to communicate with it
+/// Wrapper structure above ProtoTransport that provides interface to communicate with it
 /// via TransportBoxTrait.
-pub struct JrpcTransportImpl {
+pub struct ProtoTransportImpl {
     pub inner_transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
 }
 
-impl JrpcTransportImpl {
-    pub fn new(jrpc_connection: JrpcConnectionDartWrapper) -> JrpcTransportImpl {
+impl ProtoTransportImpl {
+    pub fn new(proto_connection: ProtoConnectionDartWrapper) -> ProtoTransportImpl {
         Self {
-            inner_transport: JrpcTransportBox::create(
-                jrpc_connection.get_connection().get_connection(),
+            inner_transport: ProtoTransportBox::create(
+                proto_connection.get_connection().get_connection(),
             ),
         }
     }
