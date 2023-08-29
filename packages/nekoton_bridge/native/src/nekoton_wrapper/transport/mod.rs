@@ -20,8 +20,8 @@ use std::time::Duration;
 use ton_block::Serializable;
 
 pub mod gql_transport_api;
-pub mod proto_transport_api;
 pub mod models;
+pub mod proto_transport_api;
 
 /// This is a fucking hack that allows using nekoton::ProtoTransport or nekoton::GqlTransport in dart classes.
 /// This is a trait-wrapper above real ProtoTransport or GqlTransport with UnwindSafe + RefUnwindSafe.

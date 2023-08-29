@@ -1,7 +1,7 @@
 #![allow(unused_variables, dead_code)]
 
 pub use nekoton::external::GqlConnection;
-use nekoton::external::{ProtoConnection, LedgerConnection};
+use nekoton::external::{LedgerConnection, ProtoConnection};
 use std::panic::{RefUnwindSafe, UnwindSafe};
 use std::sync::Arc;
 
