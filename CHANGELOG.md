@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-08-29
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.19.0`](#flutter_nekoton_bridge---v1190)
+ - [`flutter_nekoton_bridge_example` - `v1.12.0`](#flutter_nekoton_bridge_example---v1120)
+ - [`nekoton_bridge` - `v1.12.0`](#nekoton_bridge---v1120)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.19.0`
+
+ - **FEAT**: update nekoton add proto transport ([#198](https://github.com/broxus/nekoton_bridge/issues/198)). ([edf97c3a](https://github.com/broxus/nekoton_bridge/commit/edf97c3a9d92a664a64c21057fa0b02361bfe847))
+ - **FEAT**: nope (empty commit for melos) ([#194](https://github.com/broxus/nekoton_bridge/issues/194)). ([b50dbf49](https://github.com/broxus/nekoton_bridge/commit/b50dbf491167cd8c51d27aff7767c42bb68e4132))
+
+#### `flutter_nekoton_bridge_example` - `v1.12.0`
+
+ - **FEAT**: update nekoton add proto transport ([#198](https://github.com/broxus/nekoton_bridge/issues/198)). ([edf97c3a](https://github.com/broxus/nekoton_bridge/commit/edf97c3a9d92a664a64c21057fa0b02361bfe847))
+ - **FEAT**: nope (empty commit for melos) ([#194](https://github.com/broxus/nekoton_bridge/issues/194)). ([b50dbf49](https://github.com/broxus/nekoton_bridge/commit/b50dbf491167cd8c51d27aff7767c42bb68e4132))
+
+#### `nekoton_bridge` - `v1.12.0`
+
+ - **FIX**: another dummy. ([a002a1da](https://github.com/broxus/nekoton_bridge/commit/a002a1dae4180bb1aeddfe848cbe99098d6afe6e))
+ - **FEAT**: update nekoton add proto transport ([#198](https://github.com/broxus/nekoton_bridge/issues/198)). ([edf97c3a](https://github.com/broxus/nekoton_bridge/commit/edf97c3a9d92a664a64c21057fa0b02361bfe847))
+ - **FEAT**: nope (empty commit for melos) ([#194](https://github.com/broxus/nekoton_bridge/issues/194)). ([b50dbf49](https://github.com/broxus/nekoton_bridge/commit/b50dbf491167cd8c51d27aff7767c42bb68e4132))
+
+
 ## 2023-08-22
 
 ### Changes

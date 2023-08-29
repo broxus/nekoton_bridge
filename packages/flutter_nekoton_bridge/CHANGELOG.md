@@ -1,3 +1,8 @@
+## 1.19.0
+
+ - **FEAT**: update nekoton add proto transport ([#198](https://github.com/broxus/nekoton_bridge/issues/198)). ([edf97c3a](https://github.com/broxus/nekoton_bridge/commit/edf97c3a9d92a664a64c21057fa0b02361bfe847))
+ - **FEAT**: nope (empty commit for melos) ([#194](https://github.com/broxus/nekoton_bridge/issues/194)). ([b50dbf49](https://github.com/broxus/nekoton_bridge/commit/b50dbf491167cd8c51d27aff7767c42bb68e4132))
+
 ## 1.18.1
 
  - Update a dependency to the latest release.

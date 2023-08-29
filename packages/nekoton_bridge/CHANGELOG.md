@@ -1,3 +1,9 @@
+## 1.12.0
+
+ - **FIX**: another dummy. ([a002a1da](https://github.com/broxus/nekoton_bridge/commit/a002a1dae4180bb1aeddfe848cbe99098d6afe6e))
+ - **FEAT**: update nekoton add proto transport ([#198](https://github.com/broxus/nekoton_bridge/issues/198)). ([edf97c3a](https://github.com/broxus/nekoton_bridge/commit/edf97c3a9d92a664a64c21057fa0b02361bfe847))
+ - **FEAT**: nope (empty commit for melos) ([#194](https://github.com/broxus/nekoton_bridge/issues/194)). ([b50dbf49](https://github.com/broxus/nekoton_bridge/commit/b50dbf491167cd8c51d27aff7767c42bb68e4132))
+
 ## 1.11.1
 
  - **FIX**: another dummy. ([a002a1da](https://github.com/broxus/nekoton_bridge/commit/a002a1dae4180bb1aeddfe848cbe99098d6afe6e))
