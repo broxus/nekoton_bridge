@@ -180,7 +180,7 @@ void main() {
       expect(raw.hash, hash);
       expect(transaction.id.hash, childHash);
       expect(transaction.aborted, false);
-      expect(transaction.inMessage.value, BigInt.parse('091000000'));
+      expect(transaction.inMessage.value, BigInt.parse('910000000'));
       expect(transaction.outMessages.length, 0);
     });
 
