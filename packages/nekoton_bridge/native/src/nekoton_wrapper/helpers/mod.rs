@@ -4,7 +4,7 @@ use crate::nekoton_wrapper::helpers::models::AbiParam;
 use crate::nekoton_wrapper::HandleError;
 use nekoton_abi::MethodName;
 use std::str::FromStr;
-use ton_block::{Deserializable, MaybeDeserialize};
+use ton_block::{Deserializable, MaybeDeserialize, Serializable};
 use ton_types::SliceData;
 
 pub mod abi_api;
@@ -204,3 +204,21 @@ pub fn parse_param_type(kind: &str) -> anyhow::Result<ton_abi::ParamType, AbiErr
 
     Ok(result)
 }
+
+/// Returns tvc as base64
+pub fn make_boc(data: &ton_types::Cell) -> anyhow::Result<String> {
+    ton_types::serialize_toc(data)
+        .handle_error()
+        .map(base64::encode)
+}
+
+/// Returns [tvc, hash]
+pub fn serialize_into_boc_with_hash(data: &dyn Serializable) -> anyhow::Result<Vec<String>> {
+    let cell = data.serialize().handle_error()?;
+    Ok([make_boc(&cell)?, cell.repr_hash().to_hex_string()].to_vec())
+}
+
+pub fn serialize_state_init_data_key(key: u64) -> anyhow::Result<ton_types::SliceData> {
+    key.serialize().and_then(ton_types::SliceData::load_cell)
+}
+

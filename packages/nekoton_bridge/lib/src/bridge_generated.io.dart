@@ -1584,6 +1584,96 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_get_code_salt = _wire_get_code_saltPtr
       .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
 
+  void wire_execute_local(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> config,
+    ffi.Pointer<wire_uint_8_list> account,
+    ffi.Pointer<wire_uint_8_list> message,
+    int utime,
+    bool disable_signature_check,
+    ffi.Pointer<wire_uint_8_list> overwrite_balance,
+    ffi.Pointer<ffi.Int32> global_id,
+  ) {
+    return _wire_execute_local(
+      port_,
+      config,
+      account,
+      message,
+      utime,
+      disable_signature_check,
+      overwrite_balance,
+      global_id,
+    );
+  }
+
+  late final _wire_execute_localPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Uint32,
+              ffi.Bool,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<ffi.Int32>)>>('wire_execute_local');
+  late final _wire_execute_local = _wire_execute_localPtr.asFunction<
+      void Function(
+          int,
+          ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>,
+          int,
+          bool,
+          ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<ffi.Int32>)>();
+
+  void wire_unpack_init_data(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> contract_abi,
+    ffi.Pointer<wire_uint_8_list> data,
+  ) {
+    return _wire_unpack_init_data(
+      port_,
+      contract_abi,
+      data,
+    );
+  }
+
+  late final _wire_unpack_init_dataPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_unpack_init_data');
+  late final _wire_unpack_init_data = _wire_unpack_init_dataPtr.asFunction<
+      void Function(
+          int, ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_unpack_contract_fields(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> contract_abi,
+    ffi.Pointer<wire_uint_8_list> boc,
+    bool allow_partial,
+  ) {
+    return _wire_unpack_contract_fields(
+      port_,
+      contract_abi,
+      boc,
+      allow_partial,
+    );
+  }
+
+  late final _wire_unpack_contract_fieldsPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Bool)>>('wire_unpack_contract_fields');
+  late final _wire_unpack_contract_fields =
+      _wire_unpack_contract_fieldsPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>, bool)>();
+
   void wire_test_logger_info(
     int port_,
     ffi.Pointer<wire_uint_8_list> string,
@@ -2176,7 +2266,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     int port_,
     ffi.Pointer<wire_GqlTransportImpl> that,
     ffi.Pointer<wire_uint_8_list> address,
-    ffi.Pointer<ffi.Uint64> from_lt,
+    ffi.Pointer<wire_uint_8_list> from_lt,
     int count,
   ) {
     return _wire_get_transactions__method__GqlTransportImpl(
@@ -2194,12 +2284,16 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Int64,
               ffi.Pointer<wire_GqlTransportImpl>,
               ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<ffi.Uint64>,
+              ffi.Pointer<wire_uint_8_list>,
               ffi.Uint8)>>('wire_get_transactions__method__GqlTransportImpl');
   late final _wire_get_transactions__method__GqlTransportImpl =
       _wire_get_transactions__method__GqlTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_GqlTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>, ffi.Pointer<ffi.Uint64>, int)>();
+          void Function(
+              int,
+              ffi.Pointer<wire_GqlTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              int)>();
 
   void wire_get_transaction__method__GqlTransportImpl(
     int port_,
@@ -2223,6 +2317,28 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           void Function(int, ffi.Pointer<wire_GqlTransportImpl>,
               ffi.Pointer<wire_uint_8_list>)>();
 
+  void wire_get_dst_transaction__method__GqlTransportImpl(
+    int port_,
+    ffi.Pointer<wire_GqlTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> message_hash,
+  ) {
+    return _wire_get_dst_transaction__method__GqlTransportImpl(
+      port_,
+      that,
+      message_hash,
+    );
+  }
+
+  late final _wire_get_dst_transaction__method__GqlTransportImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_GqlTransportImpl>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_get_dst_transaction__method__GqlTransportImpl');
+  late final _wire_get_dst_transaction__method__GqlTransportImpl =
+      _wire_get_dst_transaction__method__GqlTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_GqlTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
   void wire_get_signature_id__method__GqlTransportImpl(
     int port_,
     ffi.Pointer<wire_GqlTransportImpl> that,
@@ -2241,6 +2357,27 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_get_signature_id__method__GqlTransportImpl =
       _wire_get_signature_id__method__GqlTransportImplPtr
           .asFunction<void Function(int, ffi.Pointer<wire_GqlTransportImpl>)>();
+
+  void wire_get_blockchain_config__method__GqlTransportImpl(
+    int port_,
+    ffi.Pointer<wire_GqlTransportImpl> that,
+    bool force,
+  ) {
+    return _wire_get_blockchain_config__method__GqlTransportImpl(
+      port_,
+      that,
+      force,
+    );
+  }
+
+  late final _wire_get_blockchain_config__method__GqlTransportImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_GqlTransportImpl>, ffi.Bool)>>(
+      'wire_get_blockchain_config__method__GqlTransportImpl');
+  late final _wire_get_blockchain_config__method__GqlTransportImpl =
+      _wire_get_blockchain_config__method__GqlTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_GqlTransportImpl>, bool)>();
 
   void wire_get_network_id__method__GqlTransportImpl(
     int port_,
@@ -2445,7 +2582,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     int port_,
     ffi.Pointer<wire_ProtoTransportImpl> that,
     ffi.Pointer<wire_uint_8_list> address,
-    ffi.Pointer<ffi.Uint64> from_lt,
+    ffi.Pointer<wire_uint_8_list> from_lt,
     int count,
   ) {
     return _wire_get_transactions__method__ProtoTransportImpl(
@@ -2463,12 +2600,16 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Int64,
               ffi.Pointer<wire_ProtoTransportImpl>,
               ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<ffi.Uint64>,
+              ffi.Pointer<wire_uint_8_list>,
               ffi.Uint8)>>('wire_get_transactions__method__ProtoTransportImpl');
   late final _wire_get_transactions__method__ProtoTransportImpl =
       _wire_get_transactions__method__ProtoTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_ProtoTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>, ffi.Pointer<ffi.Uint64>, int)>();
+          void Function(
+              int,
+              ffi.Pointer<wire_ProtoTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              int)>();
 
   void wire_get_transaction__method__ProtoTransportImpl(
     int port_,
@@ -2492,6 +2633,28 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           void Function(int, ffi.Pointer<wire_ProtoTransportImpl>,
               ffi.Pointer<wire_uint_8_list>)>();
 
+  void wire_get_dst_transaction__method__ProtoTransportImpl(
+    int port_,
+    ffi.Pointer<wire_ProtoTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> message_hash,
+  ) {
+    return _wire_get_dst_transaction__method__ProtoTransportImpl(
+      port_,
+      that,
+      message_hash,
+    );
+  }
+
+  late final _wire_get_dst_transaction__method__ProtoTransportImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_ProtoTransportImpl>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_get_dst_transaction__method__ProtoTransportImpl');
+  late final _wire_get_dst_transaction__method__ProtoTransportImpl =
+      _wire_get_dst_transaction__method__ProtoTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_ProtoTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
   void wire_get_signature_id__method__ProtoTransportImpl(
     int port_,
     ffi.Pointer<wire_ProtoTransportImpl> that,
@@ -2510,6 +2673,28 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_get_signature_id__method__ProtoTransportImpl =
       _wire_get_signature_id__method__ProtoTransportImplPtr.asFunction<
           void Function(int, ffi.Pointer<wire_ProtoTransportImpl>)>();
+
+  void wire_get_blockchain_config__method__ProtoTransportImpl(
+    int port_,
+    ffi.Pointer<wire_ProtoTransportImpl> that,
+    bool force,
+  ) {
+    return _wire_get_blockchain_config__method__ProtoTransportImpl(
+      port_,
+      that,
+      force,
+    );
+  }
+
+  late final _wire_get_blockchain_config__method__ProtoTransportImplPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Int64,
+                      ffi.Pointer<wire_ProtoTransportImpl>, ffi.Bool)>>(
+          'wire_get_blockchain_config__method__ProtoTransportImpl');
+  late final _wire_get_blockchain_config__method__ProtoTransportImpl =
+      _wire_get_blockchain_config__method__ProtoTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_ProtoTransportImpl>, bool)>();
 
   void wire_get_network_id__method__ProtoTransportImpl(
     int port_,

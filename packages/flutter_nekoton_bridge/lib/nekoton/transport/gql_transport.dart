@@ -57,6 +57,24 @@ class GqlTransport extends Transport {
   }
 
   @override
+  Future<Map<String, dynamic>?> getContractFields({
+    required Address address,
+    required String contractAbi,
+    FullContractState? cachedState,
+  }) async {
+    final state = cachedState ?? await getFullContractState(address);
+    if (state == null) {
+      throw Exception('Contract state not found');
+    }
+
+    return unpackContractFields(
+      contractAbi: contractAbi,
+      boc: state.boc,
+      allowPartial: true,
+    );
+  }
+
+  @override
   Future<int?> getSignatureId() {
     return transport.getSignatureId();
   }
@@ -75,7 +93,7 @@ class GqlTransport extends Transport {
   Future<TransactionsList> getTransactions({
     required Address address,
     required int count,
-    int? fromLt,
+    String? fromLt,
   }) async {
     final res = await transport.getTransactions(
       address: address.address,
@@ -83,6 +101,13 @@ class GqlTransport extends Transport {
       fromLt: fromLt,
     );
     return TransactionsList.fromJson(jsonDecode(res));
+  }
+
+  @override
+  Future<RawTransaction?> getDstTransaction(String messageHash) async {
+    final res = await transport.getDstTransaction(messageHash: messageHash);
+
+    return res == null ? null : RawTransaction.fromJson(jsonDecode(res));
   }
 
   /// Get latest block by address and return it or throw error
@@ -103,6 +128,13 @@ class GqlTransport extends Transport {
         address: address.address,
         timeout: timeout.inMilliseconds,
       );
+
+  @override
+  Future<BlockchainConfig> getBlockchainConfig({bool force = true}) async {
+    final config = await transport.getBlockchainConfig(force: force);
+
+    return BlockchainConfig.fromJson(jsonDecode(config));
+  }
 
   @override
   String get group => gqlConnection.group;

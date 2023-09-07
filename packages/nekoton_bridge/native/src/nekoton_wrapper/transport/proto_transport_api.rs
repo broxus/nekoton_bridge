@@ -50,7 +50,7 @@ impl ProtoTransportImpl {
     pub fn get_transactions(
         &self,
         address: String,
-        from_lt: Option<u64>,
+        from_lt: Option<String>,
         count: u8,
     ) -> anyhow::Result<String> {
         async_run!(
@@ -66,9 +66,21 @@ impl ProtoTransportImpl {
         async_run!(self.inner_transport.get_transaction(hash).await)
     }
 
+    /// Call get_dst_transaction of nekoton's transport and
+    /// return option json-encoded RawTransaction or throw error
+    pub fn get_dst_transaction(&self, message_hash: String) -> anyhow::Result<Option<String>> {
+        async_run!(self.inner_transport.get_dst_transaction(message_hash).await)
+    }
+
     /// Get transport signature id and return it or throw error
     pub fn get_signature_id(&self) -> anyhow::Result<Option<i32>> {
         async_run!(self.inner_transport.get_signature_id().await)
+    }
+
+    /// Get config of transport.
+    /// Returns json-encoded BlockchainConfigDef or throw error
+    pub fn get_blockchain_config(&self, force: bool) -> anyhow::Result<String> {
+        async_run!(self.inner_transport.get_blockchain_config(force).await)
     }
 
     /// Get id of network or throw error

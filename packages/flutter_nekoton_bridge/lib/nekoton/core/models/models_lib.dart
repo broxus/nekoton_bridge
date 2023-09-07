@@ -1,5 +1,6 @@
 export 'account_status.dart';
 export 'accounts_list.dart';
+export 'blockchain_config.dart';
 export 'contract_state.dart';
 export 'existing_contract.dart';
 export 'expiration.dart';
@@ -14,6 +15,7 @@ export 'on_state_changed_payload.dart';
 export 'on_transactions_found_payload.dart';
 export 'pending_transaction.dart';
 export 'raw_contract_state.dart';
+export 'raw_transaction.dart';
 export 'subscription_handler_message.dart';
 export 'transaction.dart';
 export 'transaction_id.dart';

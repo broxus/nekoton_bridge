@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
-import 'package:tuple/tuple.dart';
 
 /// Check if public key is correct.
 /// Return true or false
@@ -21,14 +20,14 @@ Future<ExecutionOutput> runLocal({
   required String accountStuffBoc,
   required String contractAbi,
   required String method,
-  required String input,
+  required Map<String, dynamic> input,
   required bool responsible,
 }) async {
   final res = await createLib().runLocal(
     accountStuffBoc: accountStuffBoc,
     contractAbi: contractAbi,
     method: method,
-    input: input,
+    input: jsonEncode(input),
     responsible: responsible,
   );
   return ExecutionOutput.fromJson(jsonDecode(res));
@@ -36,7 +35,7 @@ Future<ExecutionOutput> runLocal({
 
 /// Get address of tvc and contract_abi.
 /// Returns list of [address, state_init] or throws error
-Future<Tuple2<Address, String>> getExpectedAddress({
+Future<(Address, String)> getExpectedAddress({
   required String tvc,
   required String contractAbi,
   required int workchainId,
@@ -50,7 +49,7 @@ Future<Tuple2<Address, String>> getExpectedAddress({
     publicKey: publicKey?.publicKey,
     initData: jsonEncode(initData),
   );
-  return Tuple2(Address(address: res[0]), res[1]);
+  return (Address(address: res[0]), res[1]);
 }
 
 /// Returns base64-encoded body that was encoded or throws error
@@ -203,15 +202,17 @@ Future<String> getBocHash(String boc) {
   return createLib().getBocHash(boc: boc);
 }
 
-/// Return base64 encoded bytes of tokens or throws error
-Future<String> packIntoCell({
+/// Return (base64 tvc, hash) or throws error
+Future<(String, String)> packIntoCell({
   required List<AbiParam> params,
   required TokensObject tokens,
-}) {
-  return createLib().packIntoCell(
+}) async {
+  final data = await createLib().packIntoCell(
     params: jsonEncode(params),
     tokens: jsonEncode(tokens),
   );
+
+  return (data[0], data[1]);
 }
 
 /// Parse list of params and return json-encoded Tokens or throws error
@@ -227,7 +228,6 @@ Future<TokensObject> unpackFromCell({
   ));
 }
 
-// TODO(nesquikm): WTF? Should we use Address here instead of String?
 /// Pack address std smd or throw error
 /// Returns new packed address as string
 Future<String> packStdSmcAddr({
@@ -270,35 +270,117 @@ Future<PublicKey> extractPublicKey(String boc) async {
   return PublicKey(publicKey: await createLib().extractPublicKey(boc: boc));
 }
 
-/// Convert code to base64 tvc string and return it or throw error
-Future<String> codeToTvc(String code) {
-  return createLib().codeToTvc(code: code);
+/// Convert code to base64 tvc string and return (tvc, hash) or throw error
+Future<(String, String)> codeToTvc(String code) async {
+  final data = await createLib().codeToTvc(code: code);
+
+  return (data[0], data[1]);
 }
 
-/// Merge code and data to tvc base64 string and return it or throw error
-Future<String> mergeTvc({
+/// Merge code and data to tvc base64 string and return (tvc, hash)
+/// or throw error
+Future<(String, String)> mergeTvc({
   required String code,
   required String data,
-}) {
-  return createLib().mergeTvc(code: code, data: data);
+}) async {
+  final res = await createLib().mergeTvc(code: code, data: data);
+
+  return (res[0], res[1]);
 }
 
 /// Split base64 tvc string into data and code.
-/// Return Tuple2[data, code] or throw error
-Future<Tuple2<String?, String?>> splitTvc(String tvc) async {
+/// Return (data, code) or throw error
+Future<(String?, String?)> splitTvc(String tvc) async {
   final res = await createLib().splitTvc(tvc: tvc);
-  return Tuple2(res[0], res[1]);
+  return (res[0], res[1]);
 }
 
-/// Set salt to code and return base64-encoded string or throw error
-Future<String> setCodeSalt({
+/// Set salt to code and return (tvc, hash) or throw error
+Future<(String, String)> setCodeSalt({
   required String code,
   required String salt,
-}) {
-  return createLib().setCodeSalt(code: code, salt: salt);
+}) async {
+  final data = await createLib().setCodeSalt(code: code, salt: salt);
+
+  return (data[0], data[1]);
 }
 
 /// Get salt from code if possible and return base64-encoded salt or throw error
 Future<String?> getCodeSalt(String code) {
   return createLib().getCodeSalt(code: code);
+}
+
+/// None code-related exception that means that [executeLocal] finished with
+/// specified [errorCode].
+class ExecuteLocalException implements Exception {
+  const ExecuteLocalException(this.errorCode);
+
+  final String errorCode;
+}
+
+/// Run contract locally.
+/// [config] - value from [Transport.getBlockchainConfig]
+///
+/// Returns [boc, transaction] if everything is ok or
+/// throws [ExecuteLocalException] if transaction failed, this is not
+///   code-related problem.
+/// or throws error
+Future<(String, Transaction)> executeLocal({
+  required String config,
+  required String account,
+  required String message,
+  required DateTime utime,
+  required bool disableSignatureCheck,
+  BigInt? overwriteBalance,
+  int? globalId,
+}) async {
+  final result = await createLib().executeLocal(
+    account: account,
+    message: message,
+    utime: utime.millisecondsSinceEpoch,
+    globalId: globalId,
+    config: config,
+    overwriteBalance: overwriteBalance?.toString(),
+    disableSignatureCheck: disableSignatureCheck,
+  );
+  if (result.length == 1) {
+    throw ExecuteLocalException(result[0]);
+  }
+
+  return (result[0], Transaction.fromJson(jsonDecode(result[1])));
+}
+
+/// Unpack data from [contractAbi].
+///Returns optional public key and json-encoded Map<String, Token>
+///or throws error.
+Future<(PublicKey?, Map<String, dynamic>)> unpackInitData({
+  required String contractAbi,
+  required String data,
+}) async {
+  final result = await createLib().unpackInitData(
+    contractAbi: contractAbi,
+    data: data,
+  );
+
+  return (
+    result[0] == null ? null : PublicKey(publicKey: result[0]!),
+    jsonDecode(result[1]!) as Map<String, dynamic>,
+  );
+}
+
+/// Unpack contract fields.
+/// Returns optional json-encoded Map<String, Token> or throw error
+Future<Map<String, dynamic>?> unpackContractFields({
+  required String contractAbi,
+  required String boc,
+  required bool allowPartial,
+}) async {
+  final result = await createLib().unpackContractFields(
+    contractAbi: contractAbi,
+    boc: boc,
+    allowPartial: allowPartial,
+  );
+  if (result == null) return null;
+
+  return jsonDecode(result) as Map<String, dynamic>;
 }

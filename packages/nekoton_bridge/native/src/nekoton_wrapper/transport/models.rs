@@ -3,9 +3,10 @@ use nekoton::{
     transport::models::{ExistingContract, RawContractState},
 };
 use nekoton_abi::{GenTimings, LastTransactionId, TransactionId};
-use nekoton_utils::{serde_optional_address, serde_vec_address};
+use nekoton_utils::{serde_hex_array, serde_optional_address, serde_ton_block, serde_vec_address};
 use serde::{Deserialize, Serialize};
-use ton_block::MsgAddressInt;
+use ton_block::{MsgAddressInt, ConfigParams};
+use ton_types::UInt256;
 
 #[derive(Serialize, Deserialize)]
 pub struct RawContractStateHelper(#[serde(with = "RawContractStateDef")] pub RawContractState);
@@ -51,4 +52,21 @@ pub struct AccountsList {
         skip_serializing_if = "Option::is_none"
     )]
     pub continuation: Option<MsgAddressInt>,
+}
+
+#[derive(Serialize)]
+pub struct RawTransactionDef {
+    #[serde(with = "serde_hex_array")]
+    pub hash: UInt256,
+    pub data: Transaction,
+}
+
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct BlockchainConfigDef {
+    pub capabilities: u64,
+    pub global_version: u32,
+    pub global_id: i32,
+    #[serde(with = "serde_ton_block")]
+    pub config: ConfigParams,
 }

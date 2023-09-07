@@ -1408,6 +1408,7 @@ dependencies = [
  "tokio",
  "ton_abi",
  "ton_block",
+ "ton_executor",
  "ton_types",
  "uuid",
 ]
@@ -2227,7 +2228,7 @@ dependencies = [
 [[package]]
 name = "ton_executor"
 version = "1.15.54"
-source = "git+https://github.com/broxus/ton-labs-executor.git#01f7a017c25fed1413863c2dac570553fa000bdd"
+source = "git+https://github.com/broxus/ton-labs-executor#01f7a017c25fed1413863c2dac570553fa000bdd"
 dependencies = [
  "anyhow",
  "log",

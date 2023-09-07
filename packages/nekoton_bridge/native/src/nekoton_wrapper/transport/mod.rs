@@ -1,5 +1,6 @@
 #![allow(unused_variables, dead_code)]
 
+use crate::clock;
 use crate::nekoton_wrapper::transport::models::{
     AccountsList, FullContractState, RawContractStateHelper, TransactionsList,
 };
@@ -18,6 +19,8 @@ use std::panic::{RefUnwindSafe, UnwindSafe};
 use std::sync::Arc;
 use std::time::Duration;
 use ton_block::Serializable;
+
+use self::models::{BlockchainConfigDef, RawTransactionDef};
 
 pub mod gql_transport_api;
 pub mod models;
@@ -53,7 +56,7 @@ pub trait TransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     async fn get_transactions(
         &self,
         address: String,
-        from_lt: Option<u64>,
+        from_lt: Option<String>,
         count: u8,
     ) -> anyhow::Result<String>;
 
@@ -61,8 +64,16 @@ pub trait TransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     /// Return json-encoded Transaction or throw error
     async fn get_transaction(&self, id: String) -> anyhow::Result<Option<String>>;
 
+    /// Call get_dst_transaction of nekoton's transport and
+    /// return option json-encoded RawTransaction or throw error
+    async fn get_dst_transaction(&self, message_hash: String) -> anyhow::Result<Option<String>>;
+
     /// Get transport signature id and return it or throw error
     async fn get_signature_id(&self) -> anyhow::Result<Option<i32>>;
+
+    /// Get config of transport.
+    /// Returns json-encoded BlockchainConfig or throw error
+    async fn get_blockchain_config(&self, force: bool) -> anyhow::Result<String>;
 
     /// Get id of network or throw error
     async fn get_network_id(&self) -> anyhow::Result<i32>;
@@ -194,12 +205,14 @@ impl TransportBoxTrait for ProtoTransportBox {
     async fn get_transactions(
         &self,
         address: String,
-        from_lt: Option<u64>,
+        from_lt: Option<String>,
         count: u8,
     ) -> anyhow::Result<String> {
         let address = parse_address(address)?;
-
-        let from_lt = from_lt.unwrap_or(u64::MAX);
+        let from_lt = match from_lt {
+            None => u64::MAX,
+            Some(amount) => amount.parse::<u64>().handle_error()?,
+        };
 
         let raw_transactions = self
             .inner_transport
@@ -258,6 +271,28 @@ impl TransportBoxTrait for ProtoTransportBox {
         }
     }
 
+    /// Call get_dst_transaction of nekoton's transport and
+    /// return option json-encoded RawTransaction or throw error
+    async fn get_dst_transaction(&self, message_hash: String) -> anyhow::Result<Option<String>> {
+        let hash = parse_hash(message_hash)?;
+        let transaction = self
+            .inner_transport
+            .get_dst_transaction(&hash)
+            .await
+            .handle_error()?;
+
+        match transaction {
+            None => Ok(None),
+            Some(t) => {
+                let trans = RawTransactionDef {
+                    hash: t.hash,
+                    data: Transaction::try_from((t.hash, t.data))?,
+                };
+                Ok(Some(serde_json::to_string(&trans).handle_error()?))
+            }
+        }
+    }
+
     /// Get transport signature id and return it or throw error
     async fn get_signature_id(&self) -> anyhow::Result<Option<i32>> {
         let id = self
@@ -267,6 +302,24 @@ impl TransportBoxTrait for ProtoTransportBox {
             .handle_error()?
             .signature_id();
         Ok(id)
+    }
+
+    /// Get config of transport.
+    /// Returns json-encoded BlockchainConfigDef or throw error
+    async fn get_blockchain_config(&self, force: bool) -> anyhow::Result<String> {
+        let config: ton_executor::BlockchainConfig = self
+            .inner_transport
+            .get_blockchain_config(clock!().as_ref(), force)
+            .await
+            .handle_error()?;
+
+        let result: BlockchainConfigDef = BlockchainConfigDef {
+            capabilities: config.capabilites(),
+            global_version: config.global_version(),
+            global_id: config.global_id(),
+            config: config.raw_config().clone(),
+        };
+        serde_json::to_string(&result).handle_error()
     }
 
     /// Get id of network or throw error
@@ -417,12 +470,15 @@ impl TransportBoxTrait for GqlTransportBox {
     async fn get_transactions(
         &self,
         address: String,
-        from_lt: Option<u64>,
+        from_lt: Option<String>,
         count: u8,
     ) -> anyhow::Result<String> {
         let address = parse_address(address)?;
 
-        let from_lt = from_lt.unwrap_or(u64::MAX);
+        let from_lt = match from_lt {
+            None => u64::MAX,
+            Some(amount) => amount.parse::<u64>().handle_error()?,
+        };
 
         let raw_transactions = self
             .inner_transport
@@ -480,6 +536,28 @@ impl TransportBoxTrait for GqlTransportBox {
         }
     }
 
+    /// Call get_dst_transaction of nekoton's transport and
+    /// return option json-encoded RawTransaction or throw error
+    async fn get_dst_transaction(&self, message_hash: String) -> anyhow::Result<Option<String>> {
+        let hash = parse_hash(message_hash)?;
+        let transaction = self
+            .inner_transport
+            .get_dst_transaction(&hash)
+            .await
+            .handle_error()?;
+
+        match transaction {
+            None => Ok(None),
+            Some(t) => {
+                let trans = RawTransactionDef {
+                    hash: t.hash,
+                    data: Transaction::try_from((t.hash, t.data))?,
+                };
+                Ok(Some(serde_json::to_string(&trans).handle_error()?))
+            }
+        }
+    }
+
     /// Get transport signature id and return it or throw error
     async fn get_signature_id(&self) -> anyhow::Result<Option<i32>> {
         let id = self
@@ -489,6 +567,24 @@ impl TransportBoxTrait for GqlTransportBox {
             .handle_error()?
             .signature_id();
         Ok(id)
+    }
+
+    /// Get config of transport.
+    /// Returns json-encoded BlockchainConfigDef or throw error
+    async fn get_blockchain_config(&self, force: bool) -> anyhow::Result<String> {
+        let config: ton_executor::BlockchainConfig = self
+            .inner_transport
+            .get_blockchain_config(clock!().as_ref(), force)
+            .await
+            .handle_error()?;
+
+        let result: BlockchainConfigDef = BlockchainConfigDef {
+            capabilities: config.capabilites(),
+            global_version: config.global_version(),
+            global_id: config.global_id(),
+            config: config.raw_config().clone(),
+        };
+        serde_json::to_string(&result).handle_error()
     }
 
     /// Get id of network or throw error
