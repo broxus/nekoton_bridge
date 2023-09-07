@@ -733,7 +733,6 @@ pub fn unpack_init_data(contract_abi: String, data: String) -> anyhow::Result<Ve
     ])
 }
 
-
 /// Unpack contract fields.
 /// Returns optional json-encoded Map<String, Token> or throw error
 pub fn unpack_contract_fields(

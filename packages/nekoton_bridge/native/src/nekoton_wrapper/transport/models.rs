@@ -5,7 +5,7 @@ use nekoton::{
 use nekoton_abi::{GenTimings, LastTransactionId, TransactionId};
 use nekoton_utils::{serde_hex_array, serde_optional_address, serde_ton_block, serde_vec_address};
 use serde::{Deserialize, Serialize};
-use ton_block::{MsgAddressInt, ConfigParams};
+use ton_block::{ConfigParams, MsgAddressInt};
 use ton_types::UInt256;
 
 #[derive(Serialize, Deserialize)]

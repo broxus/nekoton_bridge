@@ -221,4 +221,3 @@ pub fn serialize_into_boc_with_hash(data: &dyn Serializable) -> anyhow::Result<V
 pub fn serialize_state_init_data_key(key: u64) -> anyhow::Result<ton_types::SliceData> {
     key.serialize().and_then(ton_types::SliceData::load_cell)
 }
-
