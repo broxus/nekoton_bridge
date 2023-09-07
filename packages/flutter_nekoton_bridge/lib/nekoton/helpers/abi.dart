@@ -351,8 +351,8 @@ Future<(String, Transaction)> executeLocal({
 }
 
 /// Unpack data from [contractAbi].
-///Returns optional public key and json-encoded Map<String, Token>
-///or throws error.
+/// Returns optional public key and json-encoded Map<String, Token>
+/// or throws error.
 Future<(PublicKey?, Map<String, dynamic>)> unpackInitData({
   required String contractAbi,
   required String data,

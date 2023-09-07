@@ -285,7 +285,7 @@ impl TransportBoxTrait for ProtoTransportBox {
             None => Ok(None),
             Some(t) => {
                 let trans = RawTransactionDef {
-                    hash: t.hash,
+                    hash: hash,
                     data: Transaction::try_from((t.hash, t.data))?,
                 };
                 Ok(Some(serde_json::to_string(&trans).handle_error()?))
@@ -550,7 +550,7 @@ impl TransportBoxTrait for GqlTransportBox {
             None => Ok(None),
             Some(t) => {
                 let trans = RawTransactionDef {
-                    hash: t.hash,
+                    hash: hash,
                     data: Transaction::try_from((t.hash, t.data))?,
                 };
                 Ok(Some(serde_json::to_string(&trans).handle_error()?))

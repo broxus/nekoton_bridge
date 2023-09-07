@@ -176,14 +176,18 @@ void main() {
       final transport =
           await ProtoTransport.create(protoConnection: connection);
 
-      final raw = await transport.getDstTransaction(accountTransaction);
+      const hash =
+          '248ddcef0742827eaa2c25eeb1daa3c94c61dc286c6066f4e7508dcbeb4fa038';
+      const childHash =
+          '1e5592bdb0ef90036be2456cdac36481ab9cb4e2699c0f51036e282c4a798d63';
+      final raw = await transport.getDstTransaction(hash);
       final transaction = raw!.data;
 
       expect(transaction, isNotNull);
-      expect(raw.hash, accountTransaction);
-      expect(transaction.id.hash, accountTransaction);
+      expect(raw.hash, hash);
+      expect(transaction.id.hash, childHash);
       expect(transaction.aborted, false);
-      expect(transaction.inMessage.value, BigInt.parse('100000000'));
+      expect(transaction.inMessage.value, BigInt.parse('091000000'));
       expect(transaction.outMessages.length, 0);
     });
 
@@ -298,7 +302,7 @@ void main() {
       );
 
       expect(fields, isNotNull);
-      expect(fields!.length, 5);
+      expect(fields!.length, 35);
     });
 
     testWidgets('ProtoTransport getNetworkId ', (WidgetTester tester) async {
@@ -352,8 +356,6 @@ void main() {
       final transport =
           await ProtoTransport.create(protoConnection: connection);
       final config = await transport.getBlockchainConfig();
-
-      debugPrint(config.toJson().toString());
 
       expect(config.config, isNotEmpty);
       expect(config.globalId, 42);
