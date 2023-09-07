@@ -188,7 +188,7 @@ void main() {
       expect(transaction.id.hash, childHash);
       expect(transaction.aborted, false);
       expect(transaction.inMessage.value, BigInt.parse('910000000'));
-      expect(transaction.outMessages.length, 0);
+      expect(transaction.outMessages.length, 1);
     });
 
     testWidgets('ProtoTransport multiple calls ', (WidgetTester tester) async {
