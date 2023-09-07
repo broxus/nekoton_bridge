@@ -34,8 +34,8 @@ Future<ExecutionOutput> runLocal({
 }
 
 /// Get address of tvc and contract_abi.
-/// Returns list of [address, state_init] or throws error
-Future<(Address, String)> getExpectedAddress({
+/// Returns list of [address, state_init, hash] or throws error
+Future<(Address, String, String)> getExpectedAddress({
   required String tvc,
   required String contractAbi,
   required int workchainId,
@@ -49,7 +49,7 @@ Future<(Address, String)> getExpectedAddress({
     publicKey: publicKey?.publicKey,
     initData: jsonEncode(initData),
   );
-  return (Address(address: res[0]), res[1]);
+  return (Address(address: res[0]), res[1], res[2]);
 }
 
 /// Returns base64-encoded body that was encoded or throws error
