@@ -392,6 +392,24 @@ void wire_set_code_salt(int64_t port_,
 
 void wire_get_code_salt(int64_t port_, struct wire_uint_8_list *code);
 
+void wire_execute_local(int64_t port_,
+                        struct wire_uint_8_list *config,
+                        struct wire_uint_8_list *account,
+                        struct wire_uint_8_list *message,
+                        uint32_t utime,
+                        bool disable_signature_check,
+                        struct wire_uint_8_list *overwrite_balance,
+                        int32_t *global_id);
+
+void wire_unpack_init_data(int64_t port_,
+                           struct wire_uint_8_list *contract_abi,
+                           struct wire_uint_8_list *data);
+
+void wire_unpack_contract_fields(int64_t port_,
+                                 struct wire_uint_8_list *contract_abi,
+                                 struct wire_uint_8_list *boc,
+                                 bool allow_partial);
+
 void wire_test_logger_info(int64_t port_, struct wire_uint_8_list *string);
 
 void wire_test_logger_debug(int64_t port_, struct wire_uint_8_list *string);
@@ -478,15 +496,23 @@ void wire_get_accounts_by_code_hash__method__GqlTransportImpl(int64_t port_,
 void wire_get_transactions__method__GqlTransportImpl(int64_t port_,
                                                      struct wire_GqlTransportImpl *that,
                                                      struct wire_uint_8_list *address,
-                                                     uint64_t *from_lt,
+                                                     struct wire_uint_8_list *from_lt,
                                                      uint8_t count);
 
 void wire_get_transaction__method__GqlTransportImpl(int64_t port_,
                                                     struct wire_GqlTransportImpl *that,
                                                     struct wire_uint_8_list *hash);
 
+void wire_get_dst_transaction__method__GqlTransportImpl(int64_t port_,
+                                                        struct wire_GqlTransportImpl *that,
+                                                        struct wire_uint_8_list *message_hash);
+
 void wire_get_signature_id__method__GqlTransportImpl(int64_t port_,
                                                      struct wire_GqlTransportImpl *that);
+
+void wire_get_blockchain_config__method__GqlTransportImpl(int64_t port_,
+                                                          struct wire_GqlTransportImpl *that,
+                                                          bool force);
 
 void wire_get_network_id__method__GqlTransportImpl(int64_t port_,
                                                    struct wire_GqlTransportImpl *that);
@@ -525,15 +551,23 @@ void wire_get_accounts_by_code_hash__method__ProtoTransportImpl(int64_t port_,
 void wire_get_transactions__method__ProtoTransportImpl(int64_t port_,
                                                        struct wire_ProtoTransportImpl *that,
                                                        struct wire_uint_8_list *address,
-                                                       uint64_t *from_lt,
+                                                       struct wire_uint_8_list *from_lt,
                                                        uint8_t count);
 
 void wire_get_transaction__method__ProtoTransportImpl(int64_t port_,
                                                       struct wire_ProtoTransportImpl *that,
                                                       struct wire_uint_8_list *hash);
 
+void wire_get_dst_transaction__method__ProtoTransportImpl(int64_t port_,
+                                                          struct wire_ProtoTransportImpl *that,
+                                                          struct wire_uint_8_list *message_hash);
+
 void wire_get_signature_id__method__ProtoTransportImpl(int64_t port_,
                                                        struct wire_ProtoTransportImpl *that);
+
+void wire_get_blockchain_config__method__ProtoTransportImpl(int64_t port_,
+                                                            struct wire_ProtoTransportImpl *that,
+                                                            bool force);
 
 void wire_get_network_id__method__ProtoTransportImpl(int64_t port_,
                                                      struct wire_ProtoTransportImpl *that);
@@ -1081,6 +1115,9 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_split_tvc);
     dummy_var ^= ((int64_t) (void*) wire_set_code_salt);
     dummy_var ^= ((int64_t) (void*) wire_get_code_salt);
+    dummy_var ^= ((int64_t) (void*) wire_execute_local);
+    dummy_var ^= ((int64_t) (void*) wire_unpack_init_data);
+    dummy_var ^= ((int64_t) (void*) wire_unpack_contract_fields);
     dummy_var ^= ((int64_t) (void*) wire_test_logger_info);
     dummy_var ^= ((int64_t) (void*) wire_test_logger_debug);
     dummy_var ^= ((int64_t) (void*) wire_test_logger_warn);
@@ -1116,7 +1153,9 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_get_accounts_by_code_hash__method__GqlTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_transactions__method__GqlTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_transaction__method__GqlTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_dst_transaction__method__GqlTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_signature_id__method__GqlTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_blockchain_config__method__GqlTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_network_id__method__GqlTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_latest_block__method__GqlTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_block__method__GqlTransportImpl);
@@ -1127,7 +1166,9 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_get_accounts_by_code_hash__method__ProtoTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_transactions__method__ProtoTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_transaction__method__ProtoTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_dst_transaction__method__ProtoTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_signature_id__method__ProtoTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_blockchain_config__method__ProtoTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_network_id__method__ProtoTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_subscribe__static_method__TokenWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_owner__method__TokenWalletDartWrapper);

@@ -16,6 +16,16 @@ abstract class Transport {
   /// Get full contract state of address and return FullContractState or throw error
   Future<FullContractState?> getFullContractState(Address address);
 
+  /// Get contract fields of [address] and return (Map<String, dynamic>, state)
+  /// or throw error.
+  /// This method automatically loads state by calling [getFullContractState] if
+  /// [cachedState] is null.
+  Future<(Map<String, dynamic>?, FullContractState?)> getContractFields({
+    required Address address,
+    required String contractAbi,
+    FullContractState? cachedState,
+  });
+
   /// Get list of accounts by code hash. Returns AccountsList or throw error
   Future<AccountsList> getAccountsByCodeHash({
     required String codeHash,
@@ -28,18 +38,25 @@ abstract class Transport {
   Future<TransactionsList> getTransactions({
     required Address address,
     required int count,
-    int? fromLt,
+    String? fromLt,
   });
 
   /// Get single transaction by its id.
   /// Return Transaction if found or throw error
   Future<Transaction?> getTransaction(String hash);
 
+  /// Call get_dst_transaction of nekoton's transport and
+  /// return option RawTransaction or throw error
+  Future<RawTransaction?> getDstTransaction(String messageHash);
+
   /// Get transport signature id and return it or throw error
   Future<int?> getSignatureId();
 
   /// Get id of network or throw error
   Future<int> getNetworkId();
+
+  /// Get blockchain config or throw error
+  Future<BlockchainConfig> getBlockchainConfig({bool force = true});
 
   /// Used only for creating rust instances.
   ArcTransportBoxTrait get transportBox;

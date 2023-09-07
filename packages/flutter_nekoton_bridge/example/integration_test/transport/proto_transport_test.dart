@@ -7,6 +7,7 @@ import 'package:integration_test/integration_test.dart';
 import 'package:http/http.dart' as http;
 
 import '../timeout_utils.dart';
+import 'contract_abi.dart';
 
 Future<Uint8List> postTransportData({
   required String endpoint,
@@ -159,6 +160,37 @@ void main() {
       expect(transaction.outMessages.length, 0);
     });
 
+    testWidgets('ProtoTransport getDstTransaction',
+        (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      await initRustToDartCaller();
+
+      final connection = await ProtoConnection.create(
+        post: postTransportData,
+        settings: protoSettings,
+        name: name,
+        group: networkGroup,
+        networkId: networkId,
+      );
+      final transport =
+          await ProtoTransport.create(protoConnection: connection);
+
+      const hash =
+          '248ddcef0742827eaa2c25eeb1daa3c94c61dc286c6066f4e7508dcbeb4fa038';
+      const childHash =
+          '1e5592bdb0ef90036be2456cdac36481ab9cb4e2699c0f51036e282c4a798d63';
+      final raw = await transport.getDstTransaction(hash);
+      final transaction = raw!.data;
+
+      expect(transaction, isNotNull);
+      expect(raw.hash, hash);
+      expect(transaction.id.hash, childHash);
+      expect(transaction.aborted, false);
+      expect(transaction.inMessage.value, BigInt.parse('910000000'));
+      expect(transaction.outMessages.length, 1);
+    });
+
     testWidgets('ProtoTransport multiple calls ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
@@ -244,6 +276,36 @@ void main() {
       expect(state.isDeployed, true);
     });
 
+    testWidgets('ProtoTransport getContractFields', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      await initRustToDartCaller();
+
+      final connection = await ProtoConnection.create(
+        post: postTransportData,
+        settings: protoSettings,
+        name: name,
+        group: networkGroup,
+        networkId: networkId,
+      );
+      final transport =
+          await ProtoTransport.create(protoConnection: connection);
+
+      final (fields, state) = await transport.getContractFields(
+        address: const Address(
+          address:
+              '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68',
+        ),
+        contractAbi: contractAbi,
+      );
+
+      expect(fields, isNotNull);
+      expect(fields!.length, 35);
+      expect(state, isNotNull);
+    });
+
     testWidgets('ProtoTransport getNetworkId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
@@ -278,6 +340,28 @@ void main() {
           await ProtoTransport.create(protoConnection: connection);
       final id = await transport.getNetworkId();
       expect(id, 1000);
+    });
+
+    testWidgets('ProtoTransport getBlockchainConfig ',
+        (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+      await initRustToDartCaller();
+
+      final connection = await ProtoConnection.create(
+        post: postTransportData,
+        settings: protoSettings,
+        name: name,
+        group: networkGroup,
+        networkId: networkId,
+      );
+      final transport =
+          await ProtoTransport.create(protoConnection: connection);
+      final config = await transport.getBlockchainConfig();
+
+      expect(config.config, isNotEmpty);
+      expect(config.globalId, 42);
+      expect(config.globalVersion, 32);
+      expect(config.capabilities, 2281772718);
     });
   });
 }
