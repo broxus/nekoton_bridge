@@ -16,11 +16,11 @@ abstract class Transport {
   /// Get full contract state of address and return FullContractState or throw error
   Future<FullContractState?> getFullContractState(Address address);
 
-  /// Get contract fields of [address] and return Map<String, dynamic> or
-  /// throw error.
+  /// Get contract fields of [address] and return (Map<String, dynamic>, state)
+  /// or throw error.
   /// This method automatically loads state by calling [getFullContractState] if
   /// [cachedState] is null.
-  Future<Map<String, dynamic>?> getContractFields({
+  Future<(Map<String, dynamic>?, FullContractState?)> getContractFields({
     required Address address,
     required String contractAbi,
     FullContractState? cachedState,

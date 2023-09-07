@@ -293,7 +293,7 @@ void main() {
       final transport =
           await ProtoTransport.create(protoConnection: connection);
 
-      final fields = await transport.getContractFields(
+      final (fields, state) = await transport.getContractFields(
         address: const Address(
           address:
               '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68',
@@ -303,6 +303,7 @@ void main() {
 
       expect(fields, isNotNull);
       expect(fields!.length, 35);
+      expect(state, isNotNull);
     });
 
     testWidgets('ProtoTransport getNetworkId ', (WidgetTester tester) async {

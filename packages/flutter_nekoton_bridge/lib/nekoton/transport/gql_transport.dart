@@ -57,20 +57,23 @@ class GqlTransport extends Transport {
   }
 
   @override
-  Future<Map<String, dynamic>?> getContractFields({
+  Future<(Map<String, dynamic>?, FullContractState?)> getContractFields({
     required Address address,
     required String contractAbi,
     FullContractState? cachedState,
   }) async {
     final state = cachedState ?? await getFullContractState(address);
     if (state == null) {
-      throw Exception('Contract state not found');
+      return (null, null);
     }
 
-    return unpackContractFields(
-      contractAbi: contractAbi,
-      boc: state.boc,
-      allowPartial: true,
+    return (
+      await unpackContractFields(
+        contractAbi: contractAbi,
+        boc: state.boc,
+        allowPartial: true,
+      ),
+      state,
     );
   }
 
