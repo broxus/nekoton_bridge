@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-09-08
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.20.0`](#flutter_nekoton_bridge---v1200)
+ - [`flutter_nekoton_bridge_example` - `v1.13.0`](#flutter_nekoton_bridge_example---v1130)
+ - [`nekoton_bridge` - `v1.13.0`](#nekoton_bridge---v1130)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.20.0`
+
+ - **FEAT**: implement missed methods ([#202](https://github.com/broxus/nekoton_bridge/issues/202)). ([2bb7f4c4](https://github.com/broxus/nekoton_bridge/commit/2bb7f4c41f41838a255e29aee46189a8be72692e))
+
+#### `flutter_nekoton_bridge_example` - `v1.13.0`
+
+ - **FEAT**: implement missed methods ([#202](https://github.com/broxus/nekoton_bridge/issues/202)). ([2bb7f4c4](https://github.com/broxus/nekoton_bridge/commit/2bb7f4c41f41838a255e29aee46189a8be72692e))
+
+#### `nekoton_bridge` - `v1.13.0`
+
+ - **FEAT**: implement missed methods ([#202](https://github.com/broxus/nekoton_bridge/issues/202)). ([2bb7f4c4](https://github.com/broxus/nekoton_bridge/commit/2bb7f4c41f41838a255e29aee46189a8be72692e))
+
+
 ## 2023-08-29
 
 ### Changes
