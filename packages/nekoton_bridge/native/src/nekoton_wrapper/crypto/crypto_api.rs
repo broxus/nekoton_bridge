@@ -70,4 +70,9 @@ impl UnsignedMessageImpl {
     pub fn sign(&self, signature: String) -> anyhow::Result<String> {
         self.inner_message.sign(signature)
     }
+
+    /// Sign message with fake signature and return json-encoded SignedMessage or throws error
+    pub fn sign_fake(&self) -> anyhow::Result<String> {
+        self.inner_message.sign_fake()
+    }
 }

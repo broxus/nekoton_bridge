@@ -2,15 +2,16 @@
 
 use crate::clock;
 use crate::nekoton_wrapper::transport::models::{
-    AccountsList, FullContractState, RawContractStateHelper, TransactionsList,
+    AccountsList, RawContractStateHelper, TransactionsList,
 };
-use crate::nekoton_wrapper::{parse_address, parse_hash, HandleError};
+use crate::nekoton_wrapper::{
+    helpers::make_full_contract_state, parse_address, parse_hash, HandleError,
+};
 use async_trait::async_trait;
 use flutter_rust_bridge::RustOpaque;
 use nekoton::core::models::{Transaction, TransactionsBatchInfo, TransactionsBatchType};
 use nekoton::external::{GqlConnection, ProtoConnection};
 use nekoton::transport::gql::LatestBlock;
-use nekoton::transport::models::RawContractState;
 use nekoton::transport::{gql::GqlTransport, proto::ProtoTransport, Transport};
 use nekoton_abi::TransactionId;
 use nekoton_utils::SimpleClock;
@@ -142,38 +143,7 @@ impl TransportBoxTrait for ProtoTransportBox {
             .await
             .handle_error()?;
 
-        let full_contract_state = match raw_contract_state {
-            RawContractState::Exists(state) => {
-                let boc = state
-                    .account
-                    .serialize()
-                    .as_ref()
-                    .map(ton_types::serialize_toc)
-                    .handle_error()?
-                    .map(base64::encode)
-                    .handle_error()?;
-
-                let is_deployed = matches!(
-                    &state.account.storage.state,
-                    ton_block::AccountState::AccountActive { state_init: _ }
-                );
-
-                Some(FullContractState {
-                    balance: state.account.storage.balance.grams.as_u128().to_string(),
-                    gen_timings: state.timings,
-                    last_transaction_id: Some(state.last_transaction_id),
-                    is_deployed,
-                    code_hash: None,
-                    boc,
-                })
-            }
-            RawContractState::NotExists { timings } => None,
-        };
-
-        return match full_contract_state {
-            None => Ok(None),
-            Some(state) => Ok(Some(serde_json::to_string(&state).handle_error()?)),
-        };
+        make_full_contract_state(raw_contract_state)
     }
 
     /// Get list of accounts by code hash. Returns json-encoded AccountsList of addresses of throw error
@@ -407,38 +377,7 @@ impl TransportBoxTrait for GqlTransportBox {
             .await
             .handle_error()?;
 
-        let full_contract_state = match raw_contract_state {
-            RawContractState::Exists(state) => {
-                let boc = state
-                    .account
-                    .serialize()
-                    .as_ref()
-                    .map(ton_types::serialize_toc)
-                    .handle_error()?
-                    .map(base64::encode)
-                    .handle_error()?;
-
-                let is_deployed = matches!(
-                    &state.account.storage.state,
-                    ton_block::AccountState::AccountActive { state_init: _ }
-                );
-
-                Some(FullContractState {
-                    balance: state.account.storage.balance.grams.as_u128().to_string(),
-                    gen_timings: state.timings,
-                    last_transaction_id: Some(state.last_transaction_id),
-                    is_deployed,
-                    code_hash: None,
-                    boc,
-                })
-            }
-            RawContractState::NotExists { timings } => None,
-        };
-
-        return match full_contract_state {
-            None => Ok(None),
-            Some(state) => Ok(Some(serde_json::to_string(&state).handle_error()?)),
-        };
+        make_full_contract_state(raw_contract_state)
     }
 
     /// Get list of accounts by code hash. Returns json-encoded AccountsList of addresses of throw error

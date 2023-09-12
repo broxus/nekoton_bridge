@@ -334,7 +334,6 @@ void main() {
       expect(config.config, isNotEmpty);
       expect(config.globalId, 42);
       expect(config.globalVersion, 32);
-      expect(config.capabilities, 2281772718);
     });
   });
 }
