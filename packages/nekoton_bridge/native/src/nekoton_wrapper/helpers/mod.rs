@@ -1,7 +1,9 @@
 #![allow(unused_variables, dead_code)]
 
 use crate::nekoton_wrapper::helpers::models::AbiParam;
+use crate::nekoton_wrapper::transport::models::FullContractState;
 use crate::nekoton_wrapper::HandleError;
+use nekoton::transport::models::RawContractState;
 use nekoton_abi::MethodName;
 use std::str::FromStr;
 use ton_block::{Deserializable, MaybeDeserialize, Serializable};
@@ -218,6 +220,50 @@ pub fn serialize_into_boc_with_hash(data: &dyn Serializable) -> anyhow::Result<V
     Ok([make_boc(&cell)?, cell.repr_hash().to_hex_string()].to_vec())
 }
 
+/// Returns tvc as base64
+pub fn serialize_into_boc(data: &dyn Serializable) -> anyhow::Result<String> {
+    let cell = data.serialize().handle_error()?;
+    make_boc(&cell)
+}
+
 pub fn serialize_state_init_data_key(key: u64) -> anyhow::Result<ton_types::SliceData> {
     key.serialize().and_then(ton_types::SliceData::load_cell)
+}
+
+/// Returns optional json-encoded FullContractState made from RawContractState
+pub fn make_full_contract_state(
+    raw_contract_state: RawContractState,
+) -> anyhow::Result<Option<String>> {
+    let full_contract_state = match raw_contract_state {
+        RawContractState::Exists(state) => {
+            let boc = state
+                .account
+                .serialize()
+                .as_ref()
+                .map(ton_types::serialize_toc)
+                .handle_error()?
+                .map(base64::encode)
+                .handle_error()?;
+
+            let is_deployed = matches!(
+                &state.account.storage.state,
+                ton_block::AccountState::AccountActive { state_init: _ }
+            );
+
+            Some(FullContractState {
+                balance: state.account.storage.balance.grams.as_u128().to_string(),
+                gen_timings: state.timings,
+                last_transaction_id: Some(state.last_transaction_id),
+                is_deployed,
+                code_hash: None,
+                boc,
+            })
+        }
+        RawContractState::NotExists { timings } => None,
+    };
+
+    match full_contract_state {
+        None => Ok(None),
+        Some(state) => Ok(Some(serde_json::to_string(&state).handle_error()?)),
+    }
 }

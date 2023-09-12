@@ -120,6 +120,9 @@ pub trait UnsignedMessageBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     /// # Arguments
     /// `signature` - signature receives from KeyStore.sign where data is UnsignedMessage.hash
     fn sign(&self, signature: String) -> anyhow::Result<String>;
+
+    /// Sign message with fake signature and return json-encoded SignedMessage or throws error
+    fn sign_fake(&self) -> anyhow::Result<String>;
 }
 
 pub struct UnsignedMessageBox {
@@ -173,5 +176,12 @@ impl UnsignedMessageBoxTrait for UnsignedMessageBox {
             Ok(message) => serde_json::to_value(message).json_or_error(),
             Err(e) => Err(e),
         }
+    }
+
+    /// Sign message with fake signature and return json-encoded SignedMessage or throws error
+    fn sign_fake(&self) -> anyhow::Result<String> {
+        let signed_message = self.inner_message.sign(&[0; 64]).handle_error()?;
+
+        serde_json::to_value(signed_message).json_or_error()
     }
 }

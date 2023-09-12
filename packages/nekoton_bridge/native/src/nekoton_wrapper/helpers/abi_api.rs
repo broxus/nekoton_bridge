@@ -7,8 +7,9 @@ use crate::nekoton_wrapper::helpers::models::{
     DecodedEvent, DecodedInput, DecodedOutput, DecodedTransaction, ExecutionOutput,
 };
 use crate::nekoton_wrapper::helpers::{
-    make_boc, parse_account_stuff, parse_cell, parse_contract_abi, parse_method_name,
-    parse_params_list, parse_slice, serialize_into_boc_with_hash, serialize_state_init_data_key,
+    make_boc, make_full_contract_state, parse_account_stuff, parse_cell, parse_contract_abi,
+    parse_method_name, parse_params_list, parse_slice, serialize_into_boc,
+    serialize_into_boc_with_hash, serialize_state_init_data_key,
 };
 use crate::nekoton_wrapper::{parse_address, parse_public_key, HandleError};
 use nekoton::core::models::{Expiration, ExpireAt, Transaction};
@@ -760,4 +761,140 @@ pub fn unpack_contract_fields(
     .handle_error()?;
 
     Ok(Some(serde_json::to_string(&make_abi_tokens(&tokens)?)?))
+}
+
+/// Returns json-encoded SignedMessage or throws error
+/// dst - destination address
+/// timeout - milliseconds
+pub fn create_raw_external_message(
+    dst: String,
+    state_init: Option<String>,
+    body: Option<String>,
+    timeout: u32,
+) -> anyhow::Result<String> {
+    // Parse params
+    let dst = parse_address(dst)?;
+
+    let time = SystemTime::now().duration_since(UNIX_EPOCH)?.as_millis() as u64;
+
+    let expire_at = ExpireAt::new_from_millis(Expiration::Timeout(timeout), time);
+
+    // Build message
+    let mut message =
+        ton_block::Message::with_ext_in_header(ton_block::ExternalInboundMessageHeader {
+            dst,
+            ..Default::default()
+        });
+
+    let state_init = state_init
+        .as_deref()
+        .map(ton_block::StateInit::construct_from_base64)
+        .transpose()
+        .handle_error()?;
+
+    if let Some(state_init) = state_init {
+        message.set_state_init(state_init);
+    }
+
+    if let Some(body) = body {
+        message.set_body(parse_slice(body)?);
+    }
+
+    serde_json::to_string(&nekoton::crypto::SignedMessage {
+        message,
+        expire_at: expire_at.timestamp,
+    })
+    .handle_error()
+}
+
+/// Returns base-64 encoded Message or throws error
+/// src - address of sender
+/// dst - address of destination
+/// body - base64-encoded data
+pub fn encode_internal_message(
+    src: Option<String>,
+    dst: String,
+    bounce: bool,
+    state_init: Option<String>,
+    body: Option<String>,
+    amount: String,
+    bounced: Option<bool>,
+) -> anyhow::Result<String> {
+    let src = match src {
+        Some(src) => ton_block::MsgAddressIntOrNone::Some(parse_address(src)?),
+        None => ton_block::MsgAddressIntOrNone::None,
+    };
+
+    let dst = parse_address(dst)?;
+
+    let amount = amount.parse::<u64>().handle_error()?;
+
+    let mut message = ton_block::Message::with_int_header(ton_block::InternalMessageHeader {
+        ihr_disabled: true,
+        bounce,
+        src,
+        dst,
+        value: amount.into(),
+        bounced: bounced.unwrap_or_default(),
+        ..Default::default()
+    });
+
+    let state_init = state_init
+        .as_deref()
+        .map(ton_block::StateInit::construct_from_base64)
+        .transpose()
+        .handle_error()?;
+
+    if let Some(state_init) = state_init {
+        message.set_state_init(state_init);
+    }
+
+    if let Some(body) = body {
+        message.set_body(parse_slice(body)?);
+    }
+
+    serialize_into_boc(&message)
+}
+
+/// Returns base-64 encoded Account or throws error
+pub fn make_full_account_boc(account_stuff_boc: Option<String>) -> anyhow::Result<String> {
+    let account = match account_stuff_boc {
+        Some(stuff) => ton_block::Account::Account(parse_account_stuff(stuff)?),
+        None => ton_block::Account::AccountNone,
+    };
+
+    serialize_into_boc(&account)
+}
+
+/// Returns optional json-encoded FullContractState or throws error
+/// account - base64-encoded boc after execute_local
+pub fn parse_full_account_boc(account: String) -> anyhow::Result<Option<String>> {
+    let account = parse_cell(account)?;
+    let account = if nekoton::utils::is_empty_cell(&account.repr_hash()) {
+        nekoton::transport::models::RawContractState::NotExists {
+            timings: nekoton::abi::GenTimings::Unknown,
+        }
+    } else {
+        match ton_block::Account::construct_from_cell(account).handle_error()? {
+            ton_block::Account::Account(account) => {
+                let last_transaction_id = nekoton::abi::LastTransactionId::Inexact {
+                    latest_lt: account.storage.last_trans_lt,
+                };
+                nekoton::transport::models::RawContractState::Exists(
+                    nekoton::transport::models::ExistingContract {
+                        account,
+                        timings: nekoton::abi::GenTimings::Unknown,
+                        last_transaction_id,
+                    },
+                )
+            }
+            ton_block::Account::AccountNone => {
+                nekoton::transport::models::RawContractState::NotExists {
+                    timings: nekoton::abi::GenTimings::Unknown,
+                }
+            }
+        }
+    };
+
+    make_full_contract_state(account)
 }

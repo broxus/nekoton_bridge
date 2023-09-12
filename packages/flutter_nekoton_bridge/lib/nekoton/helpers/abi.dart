@@ -67,7 +67,7 @@ Future<String> encodeInternalInput({
 
 /// Returns SignedMessage from nekoton or throws error
 Future<SignedMessage> createExternalMessageWithoutSignature({
-  required String dst,
+  required Address dst,
   required String contractAbi,
   required String method,
   String? stateInit,
@@ -75,7 +75,7 @@ Future<SignedMessage> createExternalMessageWithoutSignature({
   required Duration timeout,
 }) async {
   final res = await createLib().createExternalMessageWithoutSignature(
-    dst: dst,
+    dst: dst.address,
     contractAbi: contractAbi,
     method: method,
     input: jsonEncode(input),
@@ -320,6 +320,12 @@ class ExecuteLocalException implements Exception {
 
 /// Run contract locally.
 /// [config] - value from [Transport.getBlockchainConfig]
+/// [account] - boc from [makeFullAccountBoc]
+/// [message] - base64-encoded boc from one of:
+/// 1) [encodeInternalMessage]
+/// 2) [createRawExternalMessage]
+/// 3) [createExternalMessageWithoutSignature]
+/// 4) [UnsignedMessage.signFake]
 ///
 /// Returns [boc, transaction] if everything is ok or
 /// throws [ExecuteLocalException] if transaction failed, this is not
@@ -383,4 +389,56 @@ Future<Map<String, dynamic>?> unpackContractFields({
   if (result == null) return null;
 
   return jsonDecode(result) as Map<String, dynamic>;
+}
+
+/// Create raw external message without real signing or throws error
+Future<SignedMessage> createRawExternalMessage({
+  required Address dst,
+  required Duration timeout,
+  String? stateInit,
+  String? body,
+}) async {
+  final result = await createLib().createRawExternalMessage(
+    dst: dst.address,
+    timeout: timeout.inMilliseconds,
+    body: body,
+    stateInit: stateInit,
+  );
+
+  return SignedMessage.fromJson(jsonDecode(result));
+}
+
+/// Returns base-64 encoded Message or throws error
+Future<String> encodeInternalMessage({
+  required Address dst,
+  required bool bounce,
+  required BigInt amount,
+  Address? src,
+  String? stateInit,
+  String? body,
+  bool? bounced,
+}) async {
+  return createLib().encodeInternalMessage(
+    dst: dst.address,
+    src: src?.address,
+    body: body,
+    stateInit: stateInit,
+    bounced: bounced,
+    bounce: bounce,
+    amount: amount.toString(),
+  );
+}
+
+/// Returns base-64 encoded Account or throws error
+/// [accountStuffBoc] - [FullContractState.boc]
+Future<String> makeFullAccountBoc(String? accountStuffBoc) {
+  return createLib().makeFullAccountBoc(accountStuffBoc: accountStuffBoc);
+}
+
+/// [account] - base64-encoded boc after [executeLocal]
+Future<FullContractState?> parseFullAccountBoc(String account) async {
+  final state = await createLib().parseFullAccountBoc(account: account);
+  if (state == null) return null;
+
+  return FullContractState.fromJson(jsonDecode(state));
 }

@@ -299,6 +299,45 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kUnpackContractFieldsConstMeta;
 
+  /// Returns json-encoded SignedMessage or throws error
+  /// dst - destination address
+  /// timeout - milliseconds
+  Future<String> createRawExternalMessage(
+      {required String dst,
+      String? stateInit,
+      String? body,
+      required int timeout,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kCreateRawExternalMessageConstMeta;
+
+  /// Returns base-64 encoded Message or throws error
+  /// src - address of sender
+  /// dst - address of destination
+  /// body - base64-encoded data
+  Future<String> encodeInternalMessage(
+      {String? src,
+      required String dst,
+      required bool bounce,
+      String? stateInit,
+      String? body,
+      required String amount,
+      bool? bounced,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kEncodeInternalMessageConstMeta;
+
+  /// Returns base-64 encoded Account or throws error
+  Future<String> makeFullAccountBoc({String? accountStuffBoc, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kMakeFullAccountBocConstMeta;
+
+  /// Returns optional json-encoded FullContractState or throws error
+  /// account - base64-encoded boc after execute_local
+  Future<String?> parseFullAccountBoc({required String account, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kParseFullAccountBocConstMeta;
+
   ///----------------------------
   /// CONTENT OF src/utils/tests_api.rs
   ///----------------------------
@@ -443,6 +482,13 @@ abstract class NekotonBridge {
       dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kSignMethodUnsignedMessageImplConstMeta;
+
+  /// Sign message with fake signature and return json-encoded SignedMessage or throws error
+  Future<String> signFakeMethodUnsignedMessageImpl(
+      {required UnsignedMessageImpl that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kSignFakeMethodUnsignedMessageImplConstMeta;
 
   Future<GqlTransportImpl> newStaticMethodGqlTransportImpl(
       {required GqlConnectionDartWrapper gqlConnection, dynamic hint});
@@ -3311,6 +3357,12 @@ class UnsignedMessageImpl {
         that: this,
         signature: signature,
       );
+
+  /// Sign message with fake signature and return json-encoded SignedMessage or throws error
+  Future<String> signFake({dynamic hint}) =>
+      bridge.signFakeMethodUnsignedMessageImpl(
+        that: this,
+      );
 }
 
 class NekotonBridgeImpl implements NekotonBridge {
@@ -4073,6 +4125,108 @@ class NekotonBridgeImpl implements NekotonBridge {
         argNames: ["contractAbi", "boc", "allowPartial"],
       );
 
+  Future<String> createRawExternalMessage(
+      {required String dst,
+      String? stateInit,
+      String? body,
+      required int timeout,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(dst);
+    var arg1 = _platform.api2wire_opt_String(stateInit);
+    var arg2 = _platform.api2wire_opt_String(body);
+    var arg3 = api2wire_u32(timeout);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_create_raw_external_message(port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kCreateRawExternalMessageConstMeta,
+      argValues: [dst, stateInit, body, timeout],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kCreateRawExternalMessageConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "create_raw_external_message",
+        argNames: ["dst", "stateInit", "body", "timeout"],
+      );
+
+  Future<String> encodeInternalMessage(
+      {String? src,
+      required String dst,
+      required bool bounce,
+      String? stateInit,
+      String? body,
+      required String amount,
+      bool? bounced,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_opt_String(src);
+    var arg1 = _platform.api2wire_String(dst);
+    var arg2 = bounce;
+    var arg3 = _platform.api2wire_opt_String(stateInit);
+    var arg4 = _platform.api2wire_opt_String(body);
+    var arg5 = _platform.api2wire_String(amount);
+    var arg6 = _platform.api2wire_opt_box_autoadd_bool(bounced);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_encode_internal_message(
+          port_, arg0, arg1, arg2, arg3, arg4, arg5, arg6),
+      parseSuccessData: _wire2api_String,
+      constMeta: kEncodeInternalMessageConstMeta,
+      argValues: [src, dst, bounce, stateInit, body, amount, bounced],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kEncodeInternalMessageConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "encode_internal_message",
+        argNames: [
+          "src",
+          "dst",
+          "bounce",
+          "stateInit",
+          "body",
+          "amount",
+          "bounced"
+        ],
+      );
+
+  Future<String> makeFullAccountBoc({String? accountStuffBoc, dynamic hint}) {
+    var arg0 = _platform.api2wire_opt_String(accountStuffBoc);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_make_full_account_boc(port_, arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kMakeFullAccountBocConstMeta,
+      argValues: [accountStuffBoc],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kMakeFullAccountBocConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "make_full_account_boc",
+        argNames: ["accountStuffBoc"],
+      );
+
+  Future<String?> parseFullAccountBoc({required String account, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(account);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) =>
+          _platform.inner.wire_parse_full_account_boc(port_, arg0),
+      parseSuccessData: _wire2api_opt_String,
+      constMeta: kParseFullAccountBocConstMeta,
+      argValues: [account],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kParseFullAccountBocConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "parse_full_account_boc",
+        argNames: ["account"],
+      );
+
   Future<void> testLoggerInfo({required String string, dynamic hint}) {
     var arg0 = _platform.api2wire_String(string);
     return _platform.executeNormal(FlutterRustBridgeTask(
@@ -4584,6 +4738,26 @@ class NekotonBridgeImpl implements NekotonBridge {
         debugName: "sign__method__UnsignedMessageImpl",
         argNames: ["that", "signature"],
       );
+
+  Future<String> signFakeMethodUnsignedMessageImpl(
+      {required UnsignedMessageImpl that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_unsigned_message_impl(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_sign_fake__method__UnsignedMessageImpl(port_, arg0),
+      parseSuccessData: _wire2api_String,
+      constMeta: kSignFakeMethodUnsignedMessageImplConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kSignFakeMethodUnsignedMessageImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "sign_fake__method__UnsignedMessageImpl",
+            argNames: ["that"],
+          );
 
   Future<GqlTransportImpl> newStaticMethodGqlTransportImpl(
       {required GqlConnectionDartWrapper gqlConnection, dynamic hint}) {

@@ -410,6 +410,25 @@ void wire_unpack_contract_fields(int64_t port_,
                                  struct wire_uint_8_list *boc,
                                  bool allow_partial);
 
+void wire_create_raw_external_message(int64_t port_,
+                                      struct wire_uint_8_list *dst,
+                                      struct wire_uint_8_list *state_init,
+                                      struct wire_uint_8_list *body,
+                                      uint32_t timeout);
+
+void wire_encode_internal_message(int64_t port_,
+                                  struct wire_uint_8_list *src,
+                                  struct wire_uint_8_list *dst,
+                                  bool bounce,
+                                  struct wire_uint_8_list *state_init,
+                                  struct wire_uint_8_list *body,
+                                  struct wire_uint_8_list *amount,
+                                  bool *bounced);
+
+void wire_make_full_account_boc(int64_t port_, struct wire_uint_8_list *account_stuff_boc);
+
+void wire_parse_full_account_boc(int64_t port_, struct wire_uint_8_list *account);
+
 void wire_test_logger_info(int64_t port_, struct wire_uint_8_list *string);
 
 void wire_test_logger_debug(int64_t port_, struct wire_uint_8_list *string);
@@ -475,6 +494,9 @@ void wire_hash__method__UnsignedMessageImpl(int64_t port_, struct wire_UnsignedM
 void wire_sign__method__UnsignedMessageImpl(int64_t port_,
                                             struct wire_UnsignedMessageImpl *that,
                                             struct wire_uint_8_list *signature);
+
+void wire_sign_fake__method__UnsignedMessageImpl(int64_t port_,
+                                                 struct wire_UnsignedMessageImpl *that);
 
 void wire_new__static_method__GqlTransportImpl(int64_t port_,
                                                struct wire_GqlConnectionDartWrapper *gql_connection);
@@ -964,6 +986,8 @@ struct wire_StringList *new_StringList_0(int32_t len);
 
 struct wire_AccountsStorageImpl *new_box_autoadd_accounts_storage_impl_0(void);
 
+bool *new_box_autoadd_bool_0(bool value);
+
 struct wire_CallerTestClass *new_box_autoadd_caller_test_class_0(void);
 
 struct wire_DartCallStub *new_box_autoadd_dart_call_stub_0(void);
@@ -1118,6 +1142,10 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_execute_local);
     dummy_var ^= ((int64_t) (void*) wire_unpack_init_data);
     dummy_var ^= ((int64_t) (void*) wire_unpack_contract_fields);
+    dummy_var ^= ((int64_t) (void*) wire_create_raw_external_message);
+    dummy_var ^= ((int64_t) (void*) wire_encode_internal_message);
+    dummy_var ^= ((int64_t) (void*) wire_make_full_account_boc);
+    dummy_var ^= ((int64_t) (void*) wire_parse_full_account_boc);
     dummy_var ^= ((int64_t) (void*) wire_test_logger_info);
     dummy_var ^= ((int64_t) (void*) wire_test_logger_debug);
     dummy_var ^= ((int64_t) (void*) wire_test_logger_warn);
@@ -1147,6 +1175,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_expire_at__method__UnsignedMessageImpl);
     dummy_var ^= ((int64_t) (void*) wire_hash__method__UnsignedMessageImpl);
     dummy_var ^= ((int64_t) (void*) wire_sign__method__UnsignedMessageImpl);
+    dummy_var ^= ((int64_t) (void*) wire_sign_fake__method__UnsignedMessageImpl);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__GqlTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_contract_state__method__GqlTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_full_contract_state__method__GqlTransportImpl);
@@ -1272,6 +1301,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) new_ArcUnsignedMessageBoxTrait);
     dummy_var ^= ((int64_t) (void*) new_StringList_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_accounts_storage_impl_0);
+    dummy_var ^= ((int64_t) (void*) new_box_autoadd_bool_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_caller_test_class_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_dart_call_stub_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_dynamic_value_0);

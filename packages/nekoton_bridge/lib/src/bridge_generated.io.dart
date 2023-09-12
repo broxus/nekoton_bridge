@@ -127,6 +127,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
   }
 
   @protected
+  ffi.Pointer<ffi.Bool> api2wire_box_autoadd_bool(bool raw) {
+    return inner.new_box_autoadd_bool_0(api2wire_bool(raw));
+  }
+
+  @protected
   ffi.Pointer<wire_CallerTestClass> api2wire_box_autoadd_caller_test_class(
       CallerTestClass raw) {
     final ptr = inner.new_box_autoadd_caller_test_class_0();
@@ -322,6 +327,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
   @protected
   ffi.Pointer<wire_uint_8_list> api2wire_opt_String(String? raw) {
     return raw == null ? ffi.nullptr : api2wire_String(raw);
+  }
+
+  @protected
+  ffi.Pointer<ffi.Bool> api2wire_opt_box_autoadd_bool(bool? raw) {
+    return raw == null ? ffi.nullptr : api2wire_box_autoadd_bool(raw);
   }
 
   @protected
@@ -1674,6 +1684,118 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           void Function(int, ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>, bool)>();
 
+  void wire_create_raw_external_message(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> dst,
+    ffi.Pointer<wire_uint_8_list> state_init,
+    ffi.Pointer<wire_uint_8_list> body,
+    int timeout,
+  ) {
+    return _wire_create_raw_external_message(
+      port_,
+      dst,
+      state_init,
+      body,
+      timeout,
+    );
+  }
+
+  late final _wire_create_raw_external_messagePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Uint32)>>('wire_create_raw_external_message');
+  late final _wire_create_raw_external_message =
+      _wire_create_raw_external_messagePtr.asFunction<
+          void Function(
+              int,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              int)>();
+
+  void wire_encode_internal_message(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> src,
+    ffi.Pointer<wire_uint_8_list> dst,
+    bool bounce,
+    ffi.Pointer<wire_uint_8_list> state_init,
+    ffi.Pointer<wire_uint_8_list> body,
+    ffi.Pointer<wire_uint_8_list> amount,
+    ffi.Pointer<ffi.Bool> bounced,
+  ) {
+    return _wire_encode_internal_message(
+      port_,
+      src,
+      dst,
+      bounce,
+      state_init,
+      body,
+      amount,
+      bounced,
+    );
+  }
+
+  late final _wire_encode_internal_messagePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Bool,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<ffi.Bool>)>>('wire_encode_internal_message');
+  late final _wire_encode_internal_message =
+      _wire_encode_internal_messagePtr.asFunction<
+          void Function(
+              int,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              bool,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<ffi.Bool>)>();
+
+  void wire_make_full_account_boc(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> account_stuff_boc,
+  ) {
+    return _wire_make_full_account_boc(
+      port_,
+      account_stuff_boc,
+    );
+  }
+
+  late final _wire_make_full_account_bocPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_make_full_account_boc');
+  late final _wire_make_full_account_boc = _wire_make_full_account_bocPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_parse_full_account_boc(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> account,
+  ) {
+    return _wire_parse_full_account_boc(
+      port_,
+      account,
+    );
+  }
+
+  late final _wire_parse_full_account_bocPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_parse_full_account_boc');
+  late final _wire_parse_full_account_boc = _wire_parse_full_account_bocPtr
+      .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
+
   void wire_test_logger_info(
     int port_,
     ffi.Pointer<wire_uint_8_list> string,
@@ -2159,6 +2281,25 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       _wire_sign__method__UnsignedMessageImplPtr.asFunction<
           void Function(int, ffi.Pointer<wire_UnsignedMessageImpl>,
               ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_sign_fake__method__UnsignedMessageImpl(
+    int port_,
+    ffi.Pointer<wire_UnsignedMessageImpl> that,
+  ) {
+    return _wire_sign_fake__method__UnsignedMessageImpl(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_sign_fake__method__UnsignedMessageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_UnsignedMessageImpl>)>>(
+      'wire_sign_fake__method__UnsignedMessageImpl');
+  late final _wire_sign_fake__method__UnsignedMessageImpl =
+      _wire_sign_fake__method__UnsignedMessageImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_UnsignedMessageImpl>)>();
 
   void wire_new__static_method__GqlTransportImpl(
     int port_,
@@ -5057,6 +5198,20 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _new_box_autoadd_accounts_storage_impl_0 =
       _new_box_autoadd_accounts_storage_impl_0Ptr
           .asFunction<ffi.Pointer<wire_AccountsStorageImpl> Function()>();
+
+  ffi.Pointer<ffi.Bool> new_box_autoadd_bool_0(
+    bool value,
+  ) {
+    return _new_box_autoadd_bool_0(
+      value,
+    );
+  }
+
+  late final _new_box_autoadd_bool_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Bool> Function(ffi.Bool)>>(
+          'new_box_autoadd_bool_0');
+  late final _new_box_autoadd_bool_0 = _new_box_autoadd_bool_0Ptr
+      .asFunction<ffi.Pointer<ffi.Bool> Function(bool)>();
 
   ffi.Pointer<wire_CallerTestClass> new_box_autoadd_caller_test_class_0() {
     return _new_box_autoadd_caller_test_class_0();
