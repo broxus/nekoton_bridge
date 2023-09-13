@@ -24,7 +24,7 @@ Future<String> postTransportData({
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  const name = 'Mainnet (GQL)';
+  const name = 'Mainnet (JRPC)';
   const networkId = 1;
   const networkGroup = 'mainnet';
   const endpoint = 'https://jrpc.everwallet.net/rpc';
