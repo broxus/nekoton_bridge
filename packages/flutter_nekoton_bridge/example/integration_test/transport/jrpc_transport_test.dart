@@ -92,7 +92,7 @@ void main() {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
-      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/jrpc';
+      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/rpc';
 
       final connection = await JrpcConnection.create(
         post: postTransportData,
@@ -312,7 +312,7 @@ void main() {
         (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
-      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/jrpc';
+      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/rpc';
 
       final connection = await JrpcConnection.create(
         post: postTransportData,
