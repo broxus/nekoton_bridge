@@ -3020,7 +3020,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     int port_,
     ffi.Pointer<wire_JrpcTransportImpl> that,
     ffi.Pointer<wire_uint_8_list> address,
-    ffi.Pointer<ffi.Uint64> from_lt,
+    ffi.Pointer<wire_uint_8_list> from_lt,
     int count,
   ) {
     return _wire_get_transactions__method__JrpcTransportImpl(
@@ -3038,12 +3038,16 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Int64,
               ffi.Pointer<wire_JrpcTransportImpl>,
               ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<ffi.Uint64>,
+              ffi.Pointer<wire_uint_8_list>,
               ffi.Uint8)>>('wire_get_transactions__method__JrpcTransportImpl');
   late final _wire_get_transactions__method__JrpcTransportImpl =
       _wire_get_transactions__method__JrpcTransportImplPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_JrpcTransportImpl>,
-              ffi.Pointer<wire_uint_8_list>, ffi.Pointer<ffi.Uint64>, int)>();
+          void Function(
+              int,
+              ffi.Pointer<wire_JrpcTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              int)>();
 
   void wire_get_transaction__method__JrpcTransportImpl(
     int port_,

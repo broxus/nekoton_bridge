@@ -882,7 +882,7 @@ class NekotonBridgeWasmModule implements WasmModule {
       NativePortType port_,
       List<dynamic> that,
       String address,
-      Object? from_lt,
+      String? from_lt,
       int count);
 
   external dynamic /* void */ wire_get_transaction__method__JrpcTransportImpl(
@@ -1774,7 +1774,7 @@ class NekotonBridgeWire
           port_, that, code_hash, limit, continuation);
 
   void wire_get_transactions__method__JrpcTransportImpl(NativePortType port_,
-          List<dynamic> that, String address, Object? from_lt, int count) =>
+          List<dynamic> that, String address, String? from_lt, int count) =>
       wasmModule.wire_get_transactions__method__JrpcTransportImpl(
           port_, that, address, from_lt, count);
 

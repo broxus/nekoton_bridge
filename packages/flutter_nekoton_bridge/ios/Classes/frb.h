@@ -626,7 +626,7 @@ void wire_get_accounts_by_code_hash__method__JrpcTransportImpl(int64_t port_,
 void wire_get_transactions__method__JrpcTransportImpl(int64_t port_,
                                                       struct wire_JrpcTransportImpl *that,
                                                       struct wire_uint_8_list *address,
-                                                      uint64_t *from_lt,
+                                                      struct wire_uint_8_list *from_lt,
                                                       uint8_t count);
 
 void wire_get_transaction__method__JrpcTransportImpl(int64_t port_,

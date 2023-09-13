@@ -50,7 +50,7 @@ impl JrpcTransportImpl {
     pub fn get_transactions(
         &self,
         address: String,
-        from_lt: Option<u64>,
+        from_lt: Option<String>,
         count: u8,
     ) -> anyhow::Result<String> {
         async_run!(

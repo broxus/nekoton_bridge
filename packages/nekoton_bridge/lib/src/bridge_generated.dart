@@ -719,7 +719,7 @@ abstract class NekotonBridge {
   Future<String> getTransactionsMethodJrpcTransportImpl(
       {required JrpcTransportImpl that,
       required String address,
-      int? fromLt,
+      String? fromLt,
       required int count,
       dynamic hint});
 
@@ -2477,7 +2477,7 @@ class JrpcTransportImpl {
   /// Return json-encoded TransactionsList or throw error
   Future<String> getTransactions(
           {required String address,
-          int? fromLt,
+          String? fromLt,
           required int count,
           dynamic hint}) =>
       bridge.getTransactionsMethodJrpcTransportImpl(
@@ -5582,12 +5582,12 @@ class NekotonBridgeImpl implements NekotonBridge {
   Future<String> getTransactionsMethodJrpcTransportImpl(
       {required JrpcTransportImpl that,
       required String address,
-      int? fromLt,
+      String? fromLt,
       required int count,
       dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
     var arg1 = _platform.api2wire_String(address);
-    var arg2 = _platform.api2wire_opt_box_autoadd_u64(fromLt);
+    var arg2 = _platform.api2wire_opt_String(fromLt);
     var arg3 = api2wire_u8(count);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
