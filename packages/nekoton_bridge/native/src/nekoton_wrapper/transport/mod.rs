@@ -8,11 +8,14 @@ use crate::nekoton_wrapper::{
     helpers::make_full_contract_state, parse_address, parse_hash, HandleError,
 };
 use async_trait::async_trait;
+use duplicate::duplicate_item;
 use flutter_rust_bridge::RustOpaque;
 use nekoton::core::models::{Transaction, TransactionsBatchInfo, TransactionsBatchType};
-use nekoton::external::{GqlConnection, ProtoConnection, JrpcConnection};
+use nekoton::external::{GqlConnection, JrpcConnection, ProtoConnection};
 use nekoton::transport::gql::LatestBlock;
-use nekoton::transport::{gql::GqlTransport, proto::ProtoTransport, jrpc::JrpcTransport, Transport};
+use nekoton::transport::{
+    gql::GqlTransport, jrpc::JrpcTransport, proto::ProtoTransport, Transport,
+};
 use nekoton_abi::TransactionId;
 use nekoton_utils::SimpleClock;
 use std::convert::TryFrom;
@@ -20,14 +23,13 @@ use std::panic::{RefUnwindSafe, UnwindSafe};
 use std::sync::Arc;
 use std::time::Duration;
 use ton_block::Serializable;
-use duplicate::duplicate_item;
 
 use self::models::{BlockchainConfigDef, RawTransactionDef};
 
 pub mod gql_transport_api;
 pub mod jrpc_transport_api;
-pub mod proto_transport_api;
 pub mod models;
+pub mod proto_transport_api;
 
 /// This is a fucking hack that allows using nekoton::ProtoTransport, nekoton::JrpcTransport or nekoton::GqlTransport in dart classes.
 /// This is a trait-wrapper above real ProtoTransport, JrpcTransport or GqlTransport with UnwindSafe + RefUnwindSafe.
