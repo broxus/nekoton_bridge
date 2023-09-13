@@ -633,8 +633,16 @@ void wire_get_transaction__method__JrpcTransportImpl(int64_t port_,
                                                      struct wire_JrpcTransportImpl *that,
                                                      struct wire_uint_8_list *hash);
 
+void wire_get_dst_transaction__method__JrpcTransportImpl(int64_t port_,
+                                                         struct wire_JrpcTransportImpl *that,
+                                                         struct wire_uint_8_list *message_hash);
+
 void wire_get_signature_id__method__JrpcTransportImpl(int64_t port_,
                                                       struct wire_JrpcTransportImpl *that);
+
+void wire_get_blockchain_config__method__JrpcTransportImpl(int64_t port_,
+                                                           struct wire_JrpcTransportImpl *that,
+                                                           bool force);
 
 void wire_get_network_id__method__JrpcTransportImpl(int64_t port_,
                                                     struct wire_JrpcTransportImpl *that);
@@ -1263,7 +1271,9 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_get_accounts_by_code_hash__method__JrpcTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_transactions__method__JrpcTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_transaction__method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_dst_transaction__method__JrpcTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_signature_id__method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_blockchain_config__method__JrpcTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_network_id__method__JrpcTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_subscribe__static_method__TokenWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_owner__method__TokenWalletDartWrapper);

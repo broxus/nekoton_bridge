@@ -888,8 +888,16 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_get_transaction__method__JrpcTransportImpl(
       NativePortType port_, List<dynamic> that, String hash);
 
+  external dynamic /* void */
+      wire_get_dst_transaction__method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> that, String message_hash);
+
   external dynamic /* void */ wire_get_signature_id__method__JrpcTransportImpl(
       NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */
+      wire_get_blockchain_config__method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> that, bool force);
 
   external dynamic /* void */ wire_get_network_id__method__JrpcTransportImpl(
       NativePortType port_, List<dynamic> that);
@@ -1783,9 +1791,19 @@ class NekotonBridgeWire
       wasmModule.wire_get_transaction__method__JrpcTransportImpl(
           port_, that, hash);
 
+  void wire_get_dst_transaction__method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> that, String message_hash) =>
+      wasmModule.wire_get_dst_transaction__method__JrpcTransportImpl(
+          port_, that, message_hash);
+
   void wire_get_signature_id__method__JrpcTransportImpl(
           NativePortType port_, List<dynamic> that) =>
       wasmModule.wire_get_signature_id__method__JrpcTransportImpl(port_, that);
+
+  void wire_get_blockchain_config__method__JrpcTransportImpl(
+          NativePortType port_, List<dynamic> that, bool force) =>
+      wasmModule.wire_get_blockchain_config__method__JrpcTransportImpl(
+          port_, that, force);
 
   void wire_get_network_id__method__JrpcTransportImpl(
           NativePortType port_, List<dynamic> that) =>

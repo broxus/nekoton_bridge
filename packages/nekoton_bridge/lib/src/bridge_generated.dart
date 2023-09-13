@@ -734,12 +734,30 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta
       get kGetTransactionMethodJrpcTransportImplConstMeta;
 
+  /// Call get_dst_transaction of nekoton's transport and
+  /// return option json-encoded RawTransaction or throw error
+  Future<String?> getDstTransactionMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String messageHash,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetDstTransactionMethodJrpcTransportImplConstMeta;
+
   /// Get transport signature id and return it or throw error
   Future<int?> getSignatureIdMethodJrpcTransportImpl(
       {required JrpcTransportImpl that, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta
       get kGetSignatureIdMethodJrpcTransportImplConstMeta;
+
+  /// Get config of transport.
+  /// Returns json-encoded BlockchainConfigDef or throw error
+  Future<String> getBlockchainConfigMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, required bool force, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetBlockchainConfigMethodJrpcTransportImplConstMeta;
 
   /// Get id of network or throw error
   Future<int> getNetworkIdMethodJrpcTransportImpl(
@@ -2495,10 +2513,27 @@ class JrpcTransportImpl {
         hash: hash,
       );
 
+  /// Call get_dst_transaction of nekoton's transport and
+  /// return option json-encoded RawTransaction or throw error
+  Future<String?> getDstTransaction(
+          {required String messageHash, dynamic hint}) =>
+      bridge.getDstTransactionMethodJrpcTransportImpl(
+        that: this,
+        messageHash: messageHash,
+      );
+
   /// Get transport signature id and return it or throw error
   Future<int?> getSignatureId({dynamic hint}) =>
       bridge.getSignatureIdMethodJrpcTransportImpl(
         that: this,
+      );
+
+  /// Get config of transport.
+  /// Returns json-encoded BlockchainConfigDef or throw error
+  Future<String> getBlockchainConfig({required bool force, dynamic hint}) =>
+      bridge.getBlockchainConfigMethodJrpcTransportImpl(
+        that: this,
+        force: force,
       );
 
   /// Get id of network or throw error
@@ -5628,6 +5663,30 @@ class NekotonBridgeImpl implements NekotonBridge {
             argNames: ["that", "hash"],
           );
 
+  Future<String?> getDstTransactionMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String messageHash,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = _platform.api2wire_String(messageHash);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_dst_transaction__method__JrpcTransportImpl(
+              port_, arg0, arg1),
+      parseSuccessData: _wire2api_opt_String,
+      constMeta: kGetDstTransactionMethodJrpcTransportImplConstMeta,
+      argValues: [that, messageHash],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetDstTransactionMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_dst_transaction__method__JrpcTransportImpl",
+            argNames: ["that", "messageHash"],
+          );
+
   Future<int?> getSignatureIdMethodJrpcTransportImpl(
       {required JrpcTransportImpl that, dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
@@ -5646,6 +5705,28 @@ class NekotonBridgeImpl implements NekotonBridge {
           const FlutterRustBridgeTaskConstMeta(
             debugName: "get_signature_id__method__JrpcTransportImpl",
             argNames: ["that"],
+          );
+
+  Future<String> getBlockchainConfigMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, required bool force, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = force;
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_blockchain_config__method__JrpcTransportImpl(
+              port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetBlockchainConfigMethodJrpcTransportImplConstMeta,
+      argValues: [that, force],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetBlockchainConfigMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_blockchain_config__method__JrpcTransportImpl",
+            argNames: ["that", "force"],
           );
 
   Future<int> getNetworkIdMethodJrpcTransportImpl(

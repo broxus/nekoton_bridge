@@ -3071,6 +3071,28 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           void Function(int, ffi.Pointer<wire_JrpcTransportImpl>,
               ffi.Pointer<wire_uint_8_list>)>();
 
+  void wire_get_dst_transaction__method__JrpcTransportImpl(
+    int port_,
+    ffi.Pointer<wire_JrpcTransportImpl> that,
+    ffi.Pointer<wire_uint_8_list> message_hash,
+  ) {
+    return _wire_get_dst_transaction__method__JrpcTransportImpl(
+      port_,
+      that,
+      message_hash,
+    );
+  }
+
+  late final _wire_get_dst_transaction__method__JrpcTransportImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_JrpcTransportImpl>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_get_dst_transaction__method__JrpcTransportImpl');
+  late final _wire_get_dst_transaction__method__JrpcTransportImpl =
+      _wire_get_dst_transaction__method__JrpcTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_JrpcTransportImpl>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
   void wire_get_signature_id__method__JrpcTransportImpl(
     int port_,
     ffi.Pointer<wire_JrpcTransportImpl> that,
@@ -3089,6 +3111,28 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_get_signature_id__method__JrpcTransportImpl =
       _wire_get_signature_id__method__JrpcTransportImplPtr.asFunction<
           void Function(int, ffi.Pointer<wire_JrpcTransportImpl>)>();
+
+  void wire_get_blockchain_config__method__JrpcTransportImpl(
+    int port_,
+    ffi.Pointer<wire_JrpcTransportImpl> that,
+    bool force,
+  ) {
+    return _wire_get_blockchain_config__method__JrpcTransportImpl(
+      port_,
+      that,
+      force,
+    );
+  }
+
+  late final _wire_get_blockchain_config__method__JrpcTransportImplPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Int64,
+                      ffi.Pointer<wire_JrpcTransportImpl>, ffi.Bool)>>(
+          'wire_get_blockchain_config__method__JrpcTransportImpl');
+  late final _wire_get_blockchain_config__method__JrpcTransportImpl =
+      _wire_get_blockchain_config__method__JrpcTransportImplPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_JrpcTransportImpl>, bool)>();
 
   void wire_get_network_id__method__JrpcTransportImpl(
     int port_,
