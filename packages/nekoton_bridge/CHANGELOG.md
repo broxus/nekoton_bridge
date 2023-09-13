@@ -1,3 +1,11 @@
+## 1.14.0
+
+ - **FEAT**: implement more abi methods ([#204](https://github.com/broxus/nekoton_bridge/issues/204)). ([b0d957c4](https://github.com/broxus/nekoton_bridge/commit/b0d957c4411bc3527db24f577242da000132a32d))
+
+## 1.13.0
+
+ - **FEAT**: implement missed methods ([#202](https://github.com/broxus/nekoton_bridge/issues/202)). ([2bb7f4c4](https://github.com/broxus/nekoton_bridge/commit/2bb7f4c41f41838a255e29aee46189a8be72692e))
+
 ## 1.12.0
 
  - **FIX**: another dummy. ([a002a1da](https://github.com/broxus/nekoton_bridge/commit/a002a1dae4180bb1aeddfe848cbe99098d6afe6e))

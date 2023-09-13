@@ -35,4 +35,15 @@ class UnsignedMessage {
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
     return SignedMessage.fromJson(decoded);
   }
+
+  /// Sign message without signature and return SignedMessage.
+  Future<SignedMessage> signFake() async {
+    final encoded = await message.signFake();
+    final decoded = jsonDecode(encoded) as Map<String, dynamic>;
+    return SignedMessage.fromJson(decoded);
+  }
+
+  void dispose() {
+    message.innerMessage.dispose();
+  }
 }

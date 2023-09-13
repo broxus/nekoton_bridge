@@ -7,19 +7,24 @@ use crate::nekoton_wrapper::helpers::models::{
     DecodedEvent, DecodedInput, DecodedOutput, DecodedTransaction, ExecutionOutput,
 };
 use crate::nekoton_wrapper::helpers::{
-    parse_account_stuff, parse_cell, parse_contract_abi, parse_method_name, parse_params_list,
-    parse_slice,
+    make_boc, make_full_contract_state, parse_account_stuff, parse_cell, parse_contract_abi,
+    parse_method_name, parse_params_list, parse_slice, serialize_into_boc,
+    serialize_into_boc_with_hash, serialize_state_init_data_key,
 };
 use crate::nekoton_wrapper::{parse_address, parse_public_key, HandleError};
 use nekoton::core::models::{Expiration, ExpireAt, Transaction};
 use nekoton::core::parsing::parse_payload;
 use nekoton::core::utils::make_labs_unsigned_message;
 use nekoton::crypto::SignedMessage;
-use nekoton_abi::{guess_method_by_input, insert_state_init_data, FunctionExt};
+use nekoton_abi::{guess_method_by_input, insert_state_init_data, make_abi_tokens, FunctionExt};
 use std::borrow::Cow;
 use std::collections::HashMap;
+use std::convert::TryFrom;
+use std::sync::atomic::AtomicU64;
+use std::sync::Arc;
 use std::time::{SystemTime, UNIX_EPOCH};
-use ton_block::{Deserializable, Serializable};
+use ton_block::{Deserializable, GetRepresentationHash, Serializable};
+use ton_executor::TransactionExecutor;
 use ton_types::SliceData;
 
 /// Check if public key is correct.
@@ -71,7 +76,7 @@ pub fn run_local(
 }
 
 /// Get address of tvc and contract_abi.
-/// Returns list of [address, state_init] or throws error
+/// Returns list of [address, state_init, hash] or throws error
 pub fn get_expected_address(
     tvc: String,
     contract_abi: String,
@@ -115,12 +120,9 @@ pub fn get_expected_address(
     let cell = state_init.serialize().handle_error()?;
     let repr_hash = cell.repr_hash().to_hex_string();
 
-    let address = format!("{workchain_id}:{repr_hash}");
-    let state_init = ton_types::serialize_toc(&cell)
-        .map(base64::encode)
-        .handle_error()?;
-
-    Ok(vec![address, state_init])
+    let mut result = vec![format!("{workchain_id}:{repr_hash}")];
+    result.extend(serialize_into_boc_with_hash(&cell)?);
+    Ok(result)
 }
 
 /// Returns base64-encoded body that was encoded or throws error
@@ -461,18 +463,15 @@ pub fn get_boc_hash(boc: String) -> anyhow::Result<String> {
 }
 
 /// Return base64 encoded bytes of tokens or throws error
-pub fn pack_into_cell(params: String, tokens: String) -> anyhow::Result<String> {
+/// returns [tvc, hash]
+pub fn pack_into_cell(params: String, tokens: String) -> anyhow::Result<Vec<String>> {
     let params = parse_params_list(params)?;
     let tokens = serde_json::from_str::<serde_json::Value>(&tokens).handle_error()?;
     let tokens = nekoton_abi::parse_abi_tokens(&params, tokens).handle_error()?;
     let version = ton_abi::contract::AbiVersion { major: 2, minor: 2 };
 
     let cell = nekoton_abi::pack_into_cell(&tokens, version).handle_error()?;
-    let bytes = ton_types::serialize_toc(&cell).handle_error()?;
-
-    let bytes = base64::encode(bytes);
-
-    Ok(bytes)
+    serialize_into_boc_with_hash(&cell)
 }
 
 /// Parse list of params and return json-encoded Tokens or throws error
@@ -540,21 +539,17 @@ pub fn extract_public_key(boc: String) -> anyhow::Result<String> {
 }
 
 /// Convert code to base64 tvc string and return it or throw error
-pub fn code_to_tvc(code: String) -> anyhow::Result<String> {
+/// returns [tvc, hash]
+pub fn code_to_tvc(code: String) -> anyhow::Result<Vec<String>> {
     let cell = base64::decode(code).handle_error()?;
 
-    let tvc = ton_types::deserialize_tree_of_cells(&mut cell.as_slice())
-        .handle_error()
-        .and_then(|e| nekoton_abi::code_to_tvc(e).handle_error())
-        .and_then(|e| e.serialize().handle_error())
-        .and_then(|e| ton_types::serialize_toc(&e).handle_error())
-        .map(base64::encode)?;
-
-    Ok(tvc)
+    let cell = ton_types::deserialize_tree_of_cells(&mut cell.as_slice())?;
+    serialize_into_boc_with_hash(&cell)
 }
 
 /// Merge code and data to tvc base64 string and return it or throw error
-pub fn merge_tvc(code: String, data: String) -> anyhow::Result<String> {
+/// returns [tvc, hash]
+pub fn merge_tvc(code: String, data: String) -> anyhow::Result<Vec<String>> {
     let state_init = ton_block::StateInit {
         code: Some(parse_cell(code)?),
         data: Some(parse_cell(data)?),
@@ -562,9 +557,7 @@ pub fn merge_tvc(code: String, data: String) -> anyhow::Result<String> {
     };
 
     let cell = state_init.serialize().handle_error()?;
-    let bytes = ton_types::serialize_toc(&cell).handle_error()?;
-
-    Ok(base64::encode(bytes))
+    serialize_into_boc_with_hash(&cell)
 }
 
 /// Split base64 tvc string into data and code.
@@ -594,11 +587,10 @@ pub fn split_tvc(tvc: String) -> anyhow::Result<Vec<Option<String>>> {
 }
 
 /// Set salt to code and return base64-encoded string or throw error
-pub fn set_code_salt(code: String, salt: String) -> anyhow::Result<String> {
-    nekoton_abi::set_code_salt(parse_cell(code)?, parse_cell(salt)?)
-        .and_then(|cell| ton_types::serialize_toc(&cell))
-        .map(base64::encode)
-        .handle_error()
+/// returns [tvc, hash]
+pub fn set_code_salt(code: String, salt: String) -> anyhow::Result<Vec<String>> {
+    let cell = nekoton_abi::set_code_salt(parse_cell(code)?, parse_cell(salt)?)?;
+    serialize_into_boc_with_hash(&cell)
 }
 
 /// Get salt from code if possible and return base64-encoded salt or throw error
@@ -610,4 +602,299 @@ pub fn get_code_salt(code: String) -> anyhow::Result<Option<String>> {
         None => None,
     };
     Ok(salt)
+}
+
+/// Run contract locally.
+/// [config] - base64-encoded ConfigParams after (getBlockchainConfig)
+/// [message] - base64-encoded Message after (encodeInternalMessage)
+/// [utime] - unixtime in milliseconds
+/// [account] - account address
+/// Returns [boc, transaction] if everything is ok or
+/// [error_code] if transaction failed
+/// or throws error
+pub fn execute_local(
+    config: String,
+    account: String,
+    message: String,
+    utime: u32,
+    disable_signature_check: bool,
+    overwrite_balance: Option<String>,
+    global_id: Option<i32>,
+) -> anyhow::Result<Vec<String>> {
+    let mut account = parse_cell(account)?;
+    let last_trans_lt = ton_block::Account::construct_from_cell(account.clone())
+        .handle_error()?
+        .last_tr_time()
+        .unwrap_or_default();
+    let message = ton_block::Message::construct_from_base64(&message).handle_error()?;
+    if let Some(amount) = overwrite_balance {
+        let amount = amount.trim().parse::<u64>().handle_error()?;
+        let balance = ton_block::CurrencyCollection::with_grams(amount);
+
+        let mut new_account = ton_block::Account::construct_from_cell(account).handle_error()?;
+        match &mut new_account {
+            new_account @ ton_block::Account::AccountNone => {
+                let address = message
+                    .dst()
+                    .ok_or("Message without destination address")
+                    .handle_error()?;
+                *new_account = ton_block::Account::with_address_and_ballance(&address, &balance);
+            }
+            ton_block::Account::Account(stuff) => {
+                stuff.storage.balance = balance;
+            }
+        };
+
+        account = new_account.serialize().handle_error()?;
+    };
+
+    let global_id = global_id.unwrap_or(42);
+
+    let config = ton_block::ConfigParams::construct_from_base64(&config).handle_error()?;
+    let config = ton_executor::BlockchainConfig::with_config(config, global_id).handle_error()?;
+
+    let mut executor = ton_executor::OrdinaryTransactionExecutor::new(config);
+    executor.set_signature_check_disabled(disable_signature_check);
+
+    let params = ton_executor::ExecuteParams {
+        block_unixtime: utime,
+        block_lt: last_trans_lt + 10,
+        last_tr_lt: Arc::new(AtomicU64::new(last_trans_lt + 1)),
+        behavior_modifiers: Some(executor.behavior_modifiers()),
+        ..Default::default()
+    };
+
+    let tx = match executor.execute_with_libs_and_params(Some(&message), &mut account, params) {
+        Ok(tx) => {
+            let hash = tx.hash().handle_error()?;
+            Transaction::try_from((hash, tx)).handle_error()?
+        }
+        Err(e) => {
+            return match e.downcast_ref::<ton_executor::ExecutorError>() {
+                Some(ton_executor::ExecutorError::NoAcceptError(code, _)) => {
+                    Ok(vec![code.to_string()])
+                }
+                _ => Err(e).handle_error(),
+            }
+        }
+    };
+
+    Ok(vec![
+        make_boc(&account)?,
+        serde_json::to_string(&tx).handle_error()?,
+    ])
+}
+
+/// Unpack data by contract.
+/// Returns [option publicKey, json-encoded Map<String, Token>] or throw error
+pub fn unpack_init_data(contract_abi: String, data: String) -> anyhow::Result<Vec<Option<String>>> {
+    type UnpackedData = (Option<ed25519_dalek::PublicKey>, Vec<ton_abi::Token>);
+
+    fn unpack_init_data_impl(
+        contract_abi: ton_abi::Contract,
+        data: ton_types::Cell,
+    ) -> anyhow::Result<UnpackedData> {
+        let data = ton_types::SliceData::load_cell(data)?;
+        let map = ton_types::HashmapE::with_hashmap(
+            ton_abi::Contract::DATA_MAP_KEYLEN,
+            data.reference_opt(0),
+        );
+
+        let pubkey = match map.get(serialize_state_init_data_key(0)?)? {
+            Some(mut pubkey) => {
+                let pubkey = pubkey.get_next_hash()?;
+                Some(ed25519_dalek::PublicKey::from_bytes(pubkey.as_slice())?)
+            }
+            None => None,
+        };
+
+        let mut tokens = Vec::with_capacity(contract_abi.data.len());
+        for item in contract_abi.data.into_values() {
+            if let Some(value) = map.get(serialize_state_init_data_key(item.key)?)? {
+                tokens.append(&mut ton_abi::TokenValue::decode_params(
+                    &[item.value],
+                    value,
+                    &contract_abi.abi_version,
+                    false,
+                )?);
+            }
+        }
+
+        Ok((pubkey, tokens))
+    }
+
+    let contract_abi = parse_contract_abi(contract_abi)?;
+    let data = parse_cell(data)?;
+
+    let (pubkey, data) = unpack_init_data_impl(contract_abi, data).handle_error()?;
+
+    Ok(vec![
+        pubkey.map(hex::encode),
+        Some(serde_json::to_string(&make_abi_tokens(&data)?)?),
+    ])
+}
+
+/// Unpack contract fields.
+/// Returns optional json-encoded Map<String, Token> or throw error
+pub fn unpack_contract_fields(
+    contract_abi: String,
+    boc: String,
+    allow_partial: bool,
+) -> anyhow::Result<Option<String>> {
+    let contract = parse_contract_abi(contract_abi)?;
+    let account_stuff = parse_account_stuff(boc)?;
+
+    let data = match account_stuff.storage.state {
+        ton_block::AccountState::AccountActive { state_init } => match state_init.data {
+            Some(data) => ton_types::SliceData::load_cell(data).handle_error()?,
+            None => return Err("Contract state data is empty").handle_error(),
+        },
+        _ => return Ok(None),
+    };
+
+    let tokens = ton_abi::TokenValue::decode_params(
+        &contract.fields,
+        data,
+        &contract.abi_version,
+        allow_partial,
+    )
+    .handle_error()?;
+
+    Ok(Some(serde_json::to_string(&make_abi_tokens(&tokens)?)?))
+}
+
+/// Returns json-encoded SignedMessage or throws error
+/// dst - destination address
+/// timeout - milliseconds
+pub fn create_raw_external_message(
+    dst: String,
+    state_init: Option<String>,
+    body: Option<String>,
+    timeout: u32,
+) -> anyhow::Result<String> {
+    // Parse params
+    let dst = parse_address(dst)?;
+
+    let time = SystemTime::now().duration_since(UNIX_EPOCH)?.as_millis() as u64;
+
+    let expire_at = ExpireAt::new_from_millis(Expiration::Timeout(timeout), time);
+
+    // Build message
+    let mut message =
+        ton_block::Message::with_ext_in_header(ton_block::ExternalInboundMessageHeader {
+            dst,
+            ..Default::default()
+        });
+
+    let state_init = state_init
+        .as_deref()
+        .map(ton_block::StateInit::construct_from_base64)
+        .transpose()
+        .handle_error()?;
+
+    if let Some(state_init) = state_init {
+        message.set_state_init(state_init);
+    }
+
+    if let Some(body) = body {
+        message.set_body(parse_slice(body)?);
+    }
+
+    serde_json::to_string(&nekoton::crypto::SignedMessage {
+        message,
+        expire_at: expire_at.timestamp,
+    })
+    .handle_error()
+}
+
+/// Returns base-64 encoded Message or throws error
+/// src - address of sender
+/// dst - address of destination
+/// body - base64-encoded data
+pub fn encode_internal_message(
+    src: Option<String>,
+    dst: String,
+    bounce: bool,
+    state_init: Option<String>,
+    body: Option<String>,
+    amount: String,
+    bounced: Option<bool>,
+) -> anyhow::Result<String> {
+    let src = match src {
+        Some(src) => ton_block::MsgAddressIntOrNone::Some(parse_address(src)?),
+        None => ton_block::MsgAddressIntOrNone::None,
+    };
+
+    let dst = parse_address(dst)?;
+
+    let amount = amount.parse::<u64>().handle_error()?;
+
+    let mut message = ton_block::Message::with_int_header(ton_block::InternalMessageHeader {
+        ihr_disabled: true,
+        bounce,
+        src,
+        dst,
+        value: amount.into(),
+        bounced: bounced.unwrap_or_default(),
+        ..Default::default()
+    });
+
+    let state_init = state_init
+        .as_deref()
+        .map(ton_block::StateInit::construct_from_base64)
+        .transpose()
+        .handle_error()?;
+
+    if let Some(state_init) = state_init {
+        message.set_state_init(state_init);
+    }
+
+    if let Some(body) = body {
+        message.set_body(parse_slice(body)?);
+    }
+
+    serialize_into_boc(&message)
+}
+
+/// Returns base-64 encoded Account or throws error
+pub fn make_full_account_boc(account_stuff_boc: Option<String>) -> anyhow::Result<String> {
+    let account = match account_stuff_boc {
+        Some(stuff) => ton_block::Account::Account(parse_account_stuff(stuff)?),
+        None => ton_block::Account::AccountNone,
+    };
+
+    serialize_into_boc(&account)
+}
+
+/// Returns optional json-encoded FullContractState or throws error
+/// account - base64-encoded boc after execute_local
+pub fn parse_full_account_boc(account: String) -> anyhow::Result<Option<String>> {
+    let account = parse_cell(account)?;
+    let account = if nekoton::utils::is_empty_cell(&account.repr_hash()) {
+        nekoton::transport::models::RawContractState::NotExists {
+            timings: nekoton::abi::GenTimings::Unknown,
+        }
+    } else {
+        match ton_block::Account::construct_from_cell(account).handle_error()? {
+            ton_block::Account::Account(account) => {
+                let last_transaction_id = nekoton::abi::LastTransactionId::Inexact {
+                    latest_lt: account.storage.last_trans_lt,
+                };
+                nekoton::transport::models::RawContractState::Exists(
+                    nekoton::transport::models::ExistingContract {
+                        account,
+                        timings: nekoton::abi::GenTimings::Unknown,
+                        last_transaction_id,
+                    },
+                )
+            }
+            ton_block::Account::AccountNone => {
+                nekoton::transport::models::RawContractState::NotExists {
+                    timings: nekoton::abi::GenTimings::Unknown,
+                }
+            }
+        }
+    };
+
+    make_full_contract_state(account)
 }

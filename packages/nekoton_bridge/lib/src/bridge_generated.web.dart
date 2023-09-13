@@ -102,6 +102,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
   }
 
   @protected
+  bool api2wire_box_autoadd_bool(bool raw) {
+    return api2wire_bool(raw);
+  }
+
+  @protected
   List<dynamic> api2wire_box_autoadd_caller_test_class(CallerTestClass raw) {
     return api2wire_caller_test_class(raw);
   }
@@ -389,6 +394,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
   }
 
   @protected
+  bool? api2wire_opt_box_autoadd_bool(bool? raw) {
+    return raw == null ? null : api2wire_box_autoadd_bool(raw);
+  }
+
+  @protected
   List<dynamic>? api2wire_opt_box_autoadd_dynamic_value(DynamicValue? raw) {
     return raw == null ? null : api2wire_box_autoadd_dynamic_value(raw);
   }
@@ -631,6 +641,45 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_get_code_salt(
       NativePortType port_, String code);
 
+  external dynamic /* void */ wire_execute_local(
+      NativePortType port_,
+      String config,
+      String account,
+      String message,
+      int utime,
+      bool disable_signature_check,
+      String? overwrite_balance,
+      int? global_id);
+
+  external dynamic /* void */ wire_unpack_init_data(
+      NativePortType port_, String contract_abi, String data);
+
+  external dynamic /* void */ wire_unpack_contract_fields(NativePortType port_,
+      String contract_abi, String boc, bool allow_partial);
+
+  external dynamic /* void */ wire_create_raw_external_message(
+      NativePortType port_,
+      String dst,
+      String? state_init,
+      String? body,
+      int timeout);
+
+  external dynamic /* void */ wire_encode_internal_message(
+      NativePortType port_,
+      String? src,
+      String dst,
+      bool bounce,
+      String? state_init,
+      String? body,
+      String amount,
+      bool? bounced);
+
+  external dynamic /* void */ wire_make_full_account_boc(
+      NativePortType port_, String? account_stuff_boc);
+
+  external dynamic /* void */ wire_parse_full_account_boc(
+      NativePortType port_, String account);
+
   external dynamic /* void */ wire_test_logger_info(
       NativePortType port_, String string);
 
@@ -708,6 +757,9 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_sign__method__UnsignedMessageImpl(
       NativePortType port_, List<dynamic> that, String signature);
 
+  external dynamic /* void */ wire_sign_fake__method__UnsignedMessageImpl(
+      NativePortType port_, List<dynamic> that);
+
   external dynamic /* void */ wire_new__static_method__GqlTransportImpl(
       NativePortType port_, List<dynamic> gql_connection);
 
@@ -730,14 +782,22 @@ class NekotonBridgeWasmModule implements WasmModule {
       NativePortType port_,
       List<dynamic> that,
       String address,
-      Object? from_lt,
+      String? from_lt,
       int count);
 
   external dynamic /* void */ wire_get_transaction__method__GqlTransportImpl(
       NativePortType port_, List<dynamic> that, String hash);
 
+  external dynamic /* void */
+      wire_get_dst_transaction__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that, String message_hash);
+
   external dynamic /* void */ wire_get_signature_id__method__GqlTransportImpl(
       NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */
+      wire_get_blockchain_config__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that, bool force);
 
   external dynamic /* void */ wire_get_network_id__method__GqlTransportImpl(
       NativePortType port_, List<dynamic> that);
@@ -779,14 +839,22 @@ class NekotonBridgeWasmModule implements WasmModule {
       NativePortType port_,
       List<dynamic> that,
       String address,
-      Object? from_lt,
+      String? from_lt,
       int count);
 
   external dynamic /* void */ wire_get_transaction__method__ProtoTransportImpl(
       NativePortType port_, List<dynamic> that, String hash);
 
+  external dynamic /* void */
+      wire_get_dst_transaction__method__ProtoTransportImpl(
+          NativePortType port_, List<dynamic> that, String message_hash);
+
   external dynamic /* void */ wire_get_signature_id__method__ProtoTransportImpl(
       NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */
+      wire_get_blockchain_config__method__ProtoTransportImpl(
+          NativePortType port_, List<dynamic> that, bool force);
 
   external dynamic /* void */ wire_get_network_id__method__ProtoTransportImpl(
       NativePortType port_, List<dynamic> that);
@@ -1418,6 +1486,51 @@ class NekotonBridgeWire
   void wire_get_code_salt(NativePortType port_, String code) =>
       wasmModule.wire_get_code_salt(port_, code);
 
+  void wire_execute_local(
+          NativePortType port_,
+          String config,
+          String account,
+          String message,
+          int utime,
+          bool disable_signature_check,
+          String? overwrite_balance,
+          int? global_id) =>
+      wasmModule.wire_execute_local(port_, config, account, message, utime,
+          disable_signature_check, overwrite_balance, global_id);
+
+  void wire_unpack_init_data(
+          NativePortType port_, String contract_abi, String data) =>
+      wasmModule.wire_unpack_init_data(port_, contract_abi, data);
+
+  void wire_unpack_contract_fields(NativePortType port_, String contract_abi,
+          String boc, bool allow_partial) =>
+      wasmModule.wire_unpack_contract_fields(
+          port_, contract_abi, boc, allow_partial);
+
+  void wire_create_raw_external_message(NativePortType port_, String dst,
+          String? state_init, String? body, int timeout) =>
+      wasmModule.wire_create_raw_external_message(
+          port_, dst, state_init, body, timeout);
+
+  void wire_encode_internal_message(
+          NativePortType port_,
+          String? src,
+          String dst,
+          bool bounce,
+          String? state_init,
+          String? body,
+          String amount,
+          bool? bounced) =>
+      wasmModule.wire_encode_internal_message(
+          port_, src, dst, bounce, state_init, body, amount, bounced);
+
+  void wire_make_full_account_boc(
+          NativePortType port_, String? account_stuff_boc) =>
+      wasmModule.wire_make_full_account_boc(port_, account_stuff_boc);
+
+  void wire_parse_full_account_boc(NativePortType port_, String account) =>
+      wasmModule.wire_parse_full_account_boc(port_, account);
+
   void wire_test_logger_info(NativePortType port_, String string) =>
       wasmModule.wire_test_logger_info(port_, string);
 
@@ -1510,6 +1623,10 @@ class NekotonBridgeWire
           NativePortType port_, List<dynamic> that, String signature) =>
       wasmModule.wire_sign__method__UnsignedMessageImpl(port_, that, signature);
 
+  void wire_sign_fake__method__UnsignedMessageImpl(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_sign_fake__method__UnsignedMessageImpl(port_, that);
+
   void wire_new__static_method__GqlTransportImpl(
           NativePortType port_, List<dynamic> gql_connection) =>
       wasmModule.wire_new__static_method__GqlTransportImpl(
@@ -1535,7 +1652,7 @@ class NekotonBridgeWire
           port_, that, code_hash, limit, continuation);
 
   void wire_get_transactions__method__GqlTransportImpl(NativePortType port_,
-          List<dynamic> that, String address, Object? from_lt, int count) =>
+          List<dynamic> that, String address, String? from_lt, int count) =>
       wasmModule.wire_get_transactions__method__GqlTransportImpl(
           port_, that, address, from_lt, count);
 
@@ -1544,9 +1661,19 @@ class NekotonBridgeWire
       wasmModule.wire_get_transaction__method__GqlTransportImpl(
           port_, that, hash);
 
+  void wire_get_dst_transaction__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that, String message_hash) =>
+      wasmModule.wire_get_dst_transaction__method__GqlTransportImpl(
+          port_, that, message_hash);
+
   void wire_get_signature_id__method__GqlTransportImpl(
           NativePortType port_, List<dynamic> that) =>
       wasmModule.wire_get_signature_id__method__GqlTransportImpl(port_, that);
+
+  void wire_get_blockchain_config__method__GqlTransportImpl(
+          NativePortType port_, List<dynamic> that, bool force) =>
+      wasmModule.wire_get_blockchain_config__method__GqlTransportImpl(
+          port_, that, force);
 
   void wire_get_network_id__method__GqlTransportImpl(
           NativePortType port_, List<dynamic> that) =>
@@ -1595,7 +1722,7 @@ class NekotonBridgeWire
           port_, that, code_hash, limit, continuation);
 
   void wire_get_transactions__method__ProtoTransportImpl(NativePortType port_,
-          List<dynamic> that, String address, Object? from_lt, int count) =>
+          List<dynamic> that, String address, String? from_lt, int count) =>
       wasmModule.wire_get_transactions__method__ProtoTransportImpl(
           port_, that, address, from_lt, count);
 
@@ -1604,9 +1731,19 @@ class NekotonBridgeWire
       wasmModule.wire_get_transaction__method__ProtoTransportImpl(
           port_, that, hash);
 
+  void wire_get_dst_transaction__method__ProtoTransportImpl(
+          NativePortType port_, List<dynamic> that, String message_hash) =>
+      wasmModule.wire_get_dst_transaction__method__ProtoTransportImpl(
+          port_, that, message_hash);
+
   void wire_get_signature_id__method__ProtoTransportImpl(
           NativePortType port_, List<dynamic> that) =>
       wasmModule.wire_get_signature_id__method__ProtoTransportImpl(port_, that);
+
+  void wire_get_blockchain_config__method__ProtoTransportImpl(
+          NativePortType port_, List<dynamic> that, bool force) =>
+      wasmModule.wire_get_blockchain_config__method__ProtoTransportImpl(
+          port_, that, force);
 
   void wire_get_network_id__method__ProtoTransportImpl(
           NativePortType port_, List<dynamic> that) =>

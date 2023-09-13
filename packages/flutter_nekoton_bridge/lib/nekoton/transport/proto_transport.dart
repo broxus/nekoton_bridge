@@ -75,7 +75,7 @@ class ProtoTransport extends Transport {
   Future<TransactionsList> getTransactions({
     required Address address,
     required int count,
-    int? fromLt,
+    String? fromLt,
   }) async {
     final res = await transport.getTransactions(
       address: address.address,
@@ -83,6 +83,41 @@ class ProtoTransport extends Transport {
       fromLt: fromLt,
     );
     return TransactionsList.fromJson(jsonDecode(res));
+  }
+
+  @override
+  Future<RawTransaction?> getDstTransaction(String messageHash) async {
+    final res = await transport.getDstTransaction(messageHash: messageHash);
+
+    return res == null ? null : RawTransaction.fromJson(jsonDecode(res));
+  }
+
+  @override
+  Future<(Map<String, dynamic>?, FullContractState?)> getContractFields({
+    required Address address,
+    required String contractAbi,
+    FullContractState? cachedState,
+  }) async {
+    final state = cachedState ?? await getFullContractState(address);
+    if (state == null) {
+      return (null, null);
+    }
+
+    return (
+      await unpackContractFields(
+        contractAbi: contractAbi,
+        boc: state.boc,
+        allowPartial: true,
+      ),
+      state,
+    );
+  }
+
+  @override
+  Future<BlockchainConfig> getBlockchainConfig({bool force = true}) async {
+    final config = await transport.getBlockchainConfig(force: force);
+
+    return BlockchainConfig.fromJson(jsonDecode(config));
   }
 
   @override
