@@ -561,6 +561,70 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta
       get kGetNetworkIdMethodProtoTransportImplConstMeta;
 
+  Future<JrpcTransportImpl> newStaticMethodJrpcTransportImpl(
+      {required JrpcConnectionDartWrapper jrpcConnection, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kNewStaticMethodJrpcTransportImplConstMeta;
+
+  /// Get contract state of address and return json-encoded RawContractState or throw error
+  Future<String> getContractStateMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, required String address, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetContractStateMethodJrpcTransportImplConstMeta;
+
+  /// Get full contract state of address and return json-encoded FullContractState or throw error
+  Future<String?> getFullContractStateMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, required String address, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetFullContractStateMethodJrpcTransportImplConstMeta;
+
+  /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
+  Future<String> getAccountsByCodeHashMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String codeHash,
+      required int limit,
+      String? continuation,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetAccountsByCodeHashMethodJrpcTransportImplConstMeta;
+
+  /// Get list of transactions by address.
+  /// Return json-encoded TransactionsList or throw error
+  Future<String> getTransactionsMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String address,
+      int? fromLt,
+      required int count,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionsMethodJrpcTransportImplConstMeta;
+
+  /// Get single transaction by its hash.
+  /// Return json-encoded Transaction or throw error
+  Future<String?> getTransactionMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, required String hash, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionMethodJrpcTransportImplConstMeta;
+
+  /// Get transport signature id and return it or throw error
+  Future<int?> getSignatureIdMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetSignatureIdMethodJrpcTransportImplConstMeta;
+
+  /// Get id of network or throw error
+  Future<int> getNetworkIdMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetNetworkIdMethodJrpcTransportImplConstMeta;
+
   /// Create TokenWallet by subscribing to its instance.
   /// owner - address of account that is owner of wallet
   /// root_token_contract - address of contract in blockchain
@@ -1395,6 +1459,12 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta
       get kGetCustodiansStaticMethodTonWalletDartWrapperConstMeta;
 
+  Future<JrpcConnectionDartWrapper> newStaticMethodJrpcConnectionDartWrapper(
+      {required String instanceHash, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodJrpcConnectionDartWrapperConstMeta;
+
   Future<GqlConnectionDartWrapper> newStaticMethodGqlConnectionDartWrapper(
       {required bool isLocal, required String instanceHash, dynamic hint});
 
@@ -1461,6 +1531,10 @@ abstract class NekotonBridge {
   DropFnType get dropOpaqueArcGqlConnectionBoxTrait;
   ShareFnType get shareOpaqueArcGqlConnectionBoxTrait;
   OpaqueTypeFinalizer get ArcGqlConnectionBoxTraitFinalizer;
+
+  DropFnType get dropOpaqueArcJrpcConnectionBoxTrait;
+  ShareFnType get shareOpaqueArcJrpcConnectionBoxTrait;
+  OpaqueTypeFinalizer get ArcJrpcConnectionBoxTraitFinalizer;
 
   DropFnType get dropOpaqueArcKeyStoreApiBoxTrait;
   ShareFnType get shareOpaqueArcKeyStoreApiBoxTrait;
@@ -1541,6 +1615,22 @@ class ArcGqlConnectionBoxTrait extends FrbOpaque {
   @override
   OpaqueTypeFinalizer get staticFinalizer =>
       bridge.ArcGqlConnectionBoxTraitFinalizer;
+}
+
+@sealed
+class ArcJrpcConnectionBoxTrait extends FrbOpaque {
+  final NekotonBridge bridge;
+  ArcJrpcConnectionBoxTrait.fromRaw(int ptr, int size, this.bridge)
+      : super.unsafe(ptr, size);
+  @override
+  DropFnType get dropFn => bridge.dropOpaqueArcJrpcConnectionBoxTrait;
+
+  @override
+  ShareFnType get shareFn => bridge.shareOpaqueArcJrpcConnectionBoxTrait;
+
+  @override
+  OpaqueTypeFinalizer get staticFinalizer =>
+      bridge.ArcJrpcConnectionBoxTraitFinalizer;
 }
 
 @sealed
@@ -2170,6 +2260,111 @@ class GqlTransportImpl {
         currentBlockId: currentBlockId,
         address: address,
         timeout: timeout,
+      );
+}
+
+///----------------------------
+/// CONTENT OF src/nekoton_wrapper/external/jrpc_connection_api.rs
+///----------------------------
+/// This is a wrapper structure above JrpcConnectionBoxTrait to provide instance in dart side.
+class JrpcConnectionDartWrapper {
+  final NekotonBridge bridge;
+  final ArcJrpcConnectionBoxTrait innerConnection;
+
+  const JrpcConnectionDartWrapper({
+    required this.bridge,
+    required this.innerConnection,
+  });
+
+  static Future<JrpcConnectionDartWrapper> newJrpcConnectionDartWrapper(
+          {required NekotonBridge bridge,
+          required String instanceHash,
+          dynamic hint}) =>
+      bridge.newStaticMethodJrpcConnectionDartWrapper(
+          instanceHash: instanceHash, hint: hint);
+}
+
+///----------------------------
+/// CONTENT OF src/nekoton_wrapper/transport/jrpc_transport_api.rs
+///----------------------------
+/// Wrapper structure above JrpcTransport that provides interface to communicate with it
+/// via TransportBoxTrait.
+class JrpcTransportImpl {
+  final NekotonBridge bridge;
+  final ArcTransportBoxTrait innerTransport;
+
+  const JrpcTransportImpl({
+    required this.bridge,
+    required this.innerTransport,
+  });
+
+  static Future<JrpcTransportImpl> newJrpcTransportImpl(
+          {required NekotonBridge bridge,
+          required JrpcConnectionDartWrapper jrpcConnection,
+          dynamic hint}) =>
+      bridge.newStaticMethodJrpcTransportImpl(
+          jrpcConnection: jrpcConnection, hint: hint);
+
+  /// Get contract state of address and return json-encoded RawContractState or throw error
+  Future<String> getContractState({required String address, dynamic hint}) =>
+      bridge.getContractStateMethodJrpcTransportImpl(
+        that: this,
+        address: address,
+      );
+
+  /// Get full contract state of address and return json-encoded FullContractState or throw error
+  Future<String?> getFullContractState(
+          {required String address, dynamic hint}) =>
+      bridge.getFullContractStateMethodJrpcTransportImpl(
+        that: this,
+        address: address,
+      );
+
+  /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
+  Future<String> getAccountsByCodeHash(
+          {required String codeHash,
+          required int limit,
+          String? continuation,
+          dynamic hint}) =>
+      bridge.getAccountsByCodeHashMethodJrpcTransportImpl(
+        that: this,
+        codeHash: codeHash,
+        limit: limit,
+        continuation: continuation,
+      );
+
+  /// Get list of transactions by address.
+  /// Return json-encoded TransactionsList or throw error
+  Future<String> getTransactions(
+          {required String address,
+          int? fromLt,
+          required int count,
+          dynamic hint}) =>
+      bridge.getTransactionsMethodJrpcTransportImpl(
+        that: this,
+        address: address,
+        fromLt: fromLt,
+        count: count,
+      );
+
+  /// Get single transaction by its hash.
+  /// Return json-encoded Transaction or throw error
+  Future<String?> getTransaction({required String hash, dynamic hint}) =>
+      bridge.getTransactionMethodJrpcTransportImpl(
+        that: this,
+        hash: hash,
+      );
+
+  /// Get transport signature id and return it or throw error
+  Future<int?> getSignatureId({dynamic hint}) =>
+      bridge.getSignatureIdMethodJrpcTransportImpl(
+        that: this,
+      );
+
+  /// Get id of network or throw error
+  Future<int> getNetworkId({dynamic hint}) =>
+      bridge.getNetworkIdMethodJrpcTransportImpl(
+        that: this,
       );
 }
 
@@ -4818,6 +5013,192 @@ class NekotonBridgeImpl implements NekotonBridge {
             argNames: ["that"],
           );
 
+  Future<JrpcTransportImpl> newStaticMethodJrpcTransportImpl(
+      {required JrpcConnectionDartWrapper jrpcConnection, dynamic hint}) {
+    var arg0 = _platform
+        .api2wire_box_autoadd_jrpc_connection_dart_wrapper(jrpcConnection);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_new__static_method__JrpcTransportImpl(port_, arg0),
+      parseSuccessData: (d) => _wire2api_jrpc_transport_impl(d),
+      constMeta: kNewStaticMethodJrpcTransportImplConstMeta,
+      argValues: [jrpcConnection],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "new__static_method__JrpcTransportImpl",
+            argNames: ["jrpcConnection"],
+          );
+
+  Future<String> getContractStateMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String address,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = _platform.api2wire_String(address);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_contract_state__method__JrpcTransportImpl(
+              port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetContractStateMethodJrpcTransportImplConstMeta,
+      argValues: [that, address],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetContractStateMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_contract_state__method__JrpcTransportImpl",
+            argNames: ["that", "address"],
+          );
+
+  Future<String?> getFullContractStateMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String address,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = _platform.api2wire_String(address);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_full_contract_state__method__JrpcTransportImpl(
+              port_, arg0, arg1),
+      parseSuccessData: _wire2api_opt_String,
+      constMeta: kGetFullContractStateMethodJrpcTransportImplConstMeta,
+      argValues: [that, address],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetFullContractStateMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_full_contract_state__method__JrpcTransportImpl",
+            argNames: ["that", "address"],
+          );
+
+  Future<String> getAccountsByCodeHashMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String codeHash,
+      required int limit,
+      String? continuation,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = _platform.api2wire_String(codeHash);
+    var arg2 = api2wire_u8(limit);
+    var arg3 = _platform.api2wire_opt_String(continuation);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_accounts_by_code_hash__method__JrpcTransportImpl(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetAccountsByCodeHashMethodJrpcTransportImplConstMeta,
+      argValues: [that, codeHash, limit, continuation],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetAccountsByCodeHashMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_accounts_by_code_hash__method__JrpcTransportImpl",
+            argNames: ["that", "codeHash", "limit", "continuation"],
+          );
+
+  Future<String> getTransactionsMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String address,
+      int? fromLt,
+      required int count,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = _platform.api2wire_String(address);
+    var arg2 = _platform.api2wire_opt_box_autoadd_u64(fromLt);
+    var arg3 = api2wire_u8(count);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_transactions__method__JrpcTransportImpl(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kGetTransactionsMethodJrpcTransportImplConstMeta,
+      argValues: [that, address, fromLt, count],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionsMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_transactions__method__JrpcTransportImpl",
+            argNames: ["that", "address", "fromLt", "count"],
+          );
+
+  Future<String?> getTransactionMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, required String hash, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = _platform.api2wire_String(hash);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_transaction__method__JrpcTransportImpl(port_, arg0, arg1),
+      parseSuccessData: _wire2api_opt_String,
+      constMeta: kGetTransactionMethodJrpcTransportImplConstMeta,
+      argValues: [that, hash],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTransactionMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_transaction__method__JrpcTransportImpl",
+            argNames: ["that", "hash"],
+          );
+
+  Future<int?> getSignatureIdMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_signature_id__method__JrpcTransportImpl(port_, arg0),
+      parseSuccessData: _wire2api_opt_box_autoadd_i32,
+      constMeta: kGetSignatureIdMethodJrpcTransportImplConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetSignatureIdMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_signature_id__method__JrpcTransportImpl",
+            argNames: ["that"],
+          );
+
+  Future<int> getNetworkIdMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that, dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_network_id__method__JrpcTransportImpl(port_, arg0),
+      parseSuccessData: _wire2api_i32,
+      constMeta: kGetNetworkIdMethodJrpcTransportImplConstMeta,
+      argValues: [that],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetNetworkIdMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "get_network_id__method__JrpcTransportImpl",
+            argNames: ["that"],
+          );
+
   Future<TokenWalletDartWrapper> subscribeStaticMethodTokenWalletDartWrapper(
       {required String instanceHash,
       required String owner,
@@ -6793,6 +7174,26 @@ class NekotonBridgeImpl implements NekotonBridge {
             argNames: ["transport", "address"],
           );
 
+  Future<JrpcConnectionDartWrapper> newStaticMethodJrpcConnectionDartWrapper(
+      {required String instanceHash, dynamic hint}) {
+    var arg0 = _platform.api2wire_String(instanceHash);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_new__static_method__JrpcConnectionDartWrapper(port_, arg0),
+      parseSuccessData: (d) => _wire2api_jrpc_connection_dart_wrapper(d),
+      constMeta: kNewStaticMethodJrpcConnectionDartWrapperConstMeta,
+      argValues: [instanceHash],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kNewStaticMethodJrpcConnectionDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "new__static_method__JrpcConnectionDartWrapper",
+            argNames: ["instanceHash"],
+          );
+
   Future<GqlConnectionDartWrapper> newStaticMethodGqlConnectionDartWrapper(
       {required bool isLocal, required String instanceHash, dynamic hint}) {
     var arg0 = isLocal;
@@ -7011,6 +7412,13 @@ class NekotonBridgeImpl implements NekotonBridge {
   OpaqueTypeFinalizer get ArcGqlConnectionBoxTraitFinalizer =>
       _platform.ArcGqlConnectionBoxTraitFinalizer;
 
+  DropFnType get dropOpaqueArcJrpcConnectionBoxTrait =>
+      _platform.inner.drop_opaque_ArcJrpcConnectionBoxTrait;
+  ShareFnType get shareOpaqueArcJrpcConnectionBoxTrait =>
+      _platform.inner.share_opaque_ArcJrpcConnectionBoxTrait;
+  OpaqueTypeFinalizer get ArcJrpcConnectionBoxTraitFinalizer =>
+      _platform.ArcJrpcConnectionBoxTraitFinalizer;
+
   DropFnType get dropOpaqueArcKeyStoreApiBoxTrait =>
       _platform.inner.drop_opaque_ArcKeyStoreApiBoxTrait;
   ShareFnType get shareOpaqueArcKeyStoreApiBoxTrait =>
@@ -7082,6 +7490,10 @@ class NekotonBridgeImpl implements NekotonBridge {
 
   ArcGqlConnectionBoxTrait _wire2api_ArcGqlConnectionBoxTrait(dynamic raw) {
     return ArcGqlConnectionBoxTrait.fromRaw(raw[0], raw[1], this);
+  }
+
+  ArcJrpcConnectionBoxTrait _wire2api_ArcJrpcConnectionBoxTrait(dynamic raw) {
+    return ArcJrpcConnectionBoxTrait.fromRaw(raw[0], raw[1], this);
   }
 
   ArcKeyStoreApiBoxTrait _wire2api_ArcKeyStoreApiBoxTrait(dynamic raw) {
@@ -7306,6 +7718,27 @@ class NekotonBridgeImpl implements NekotonBridge {
 
   int _wire2api_i8(dynamic raw) {
     return raw as int;
+  }
+
+  JrpcConnectionDartWrapper _wire2api_jrpc_connection_dart_wrapper(
+      dynamic raw) {
+    final arr = raw as List<dynamic>;
+    if (arr.length != 1)
+      throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
+    return JrpcConnectionDartWrapper(
+      bridge: this,
+      innerConnection: _wire2api_ArcJrpcConnectionBoxTrait(arr[0]),
+    );
+  }
+
+  JrpcTransportImpl _wire2api_jrpc_transport_impl(dynamic raw) {
+    final arr = raw as List<dynamic>;
+    if (arr.length != 1)
+      throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
+    return JrpcTransportImpl(
+      bridge: this,
+      innerTransport: _wire2api_ArcTransportBoxTrait(arr[0]),
+    );
   }
 
   KeystoreDartWrapper _wire2api_keystore_dart_wrapper(dynamic raw) {

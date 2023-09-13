@@ -160,6 +160,18 @@ typedef struct wire_ProtoTransportImpl {
   struct wire_ArcTransportBoxTrait inner_transport;
 } wire_ProtoTransportImpl;
 
+typedef struct wire_ArcJrpcConnectionBoxTrait {
+  const void *ptr;
+} wire_ArcJrpcConnectionBoxTrait;
+
+typedef struct wire_JrpcConnectionDartWrapper {
+  struct wire_ArcJrpcConnectionBoxTrait inner_connection;
+} wire_JrpcConnectionDartWrapper;
+
+typedef struct wire_JrpcTransportImpl {
+  struct wire_ArcTransportBoxTrait inner_transport;
+} wire_JrpcTransportImpl;
+
 typedef struct wire_ArcTokenWalletBoxTrait {
   const void *ptr;
 } wire_ArcTokenWalletBoxTrait;
@@ -538,6 +550,39 @@ void wire_get_signature_id__method__ProtoTransportImpl(int64_t port_,
 void wire_get_network_id__method__ProtoTransportImpl(int64_t port_,
                                                      struct wire_ProtoTransportImpl *that);
 
+void wire_new__static_method__JrpcTransportImpl(int64_t port_,
+                                                struct wire_JrpcConnectionDartWrapper *jrpc_connection);
+
+void wire_get_contract_state__method__JrpcTransportImpl(int64_t port_,
+                                                        struct wire_JrpcTransportImpl *that,
+                                                        struct wire_uint_8_list *address);
+
+void wire_get_full_contract_state__method__JrpcTransportImpl(int64_t port_,
+                                                             struct wire_JrpcTransportImpl *that,
+                                                             struct wire_uint_8_list *address);
+
+void wire_get_accounts_by_code_hash__method__JrpcTransportImpl(int64_t port_,
+                                                               struct wire_JrpcTransportImpl *that,
+                                                               struct wire_uint_8_list *code_hash,
+                                                               uint8_t limit,
+                                                               struct wire_uint_8_list *continuation);
+
+void wire_get_transactions__method__JrpcTransportImpl(int64_t port_,
+                                                      struct wire_JrpcTransportImpl *that,
+                                                      struct wire_uint_8_list *address,
+                                                      uint64_t *from_lt,
+                                                      uint8_t count);
+
+void wire_get_transaction__method__JrpcTransportImpl(int64_t port_,
+                                                     struct wire_JrpcTransportImpl *that,
+                                                     struct wire_uint_8_list *hash);
+
+void wire_get_signature_id__method__JrpcTransportImpl(int64_t port_,
+                                                      struct wire_JrpcTransportImpl *that);
+
+void wire_get_network_id__method__JrpcTransportImpl(int64_t port_,
+                                                    struct wire_JrpcTransportImpl *that);
+
 void wire_subscribe__static_method__TokenWalletDartWrapper(int64_t port_,
                                                            struct wire_uint_8_list *instance_hash,
                                                            struct wire_uint_8_list *owner,
@@ -876,6 +921,9 @@ void wire_get_custodians__static_method__TonWalletDartWrapper(int64_t port_,
                                                               struct wire_ArcTransportBoxTrait transport,
                                                               struct wire_uint_8_list *address);
 
+void wire_new__static_method__JrpcConnectionDartWrapper(int64_t port_,
+                                                        struct wire_uint_8_list *instance_hash);
+
 void wire_new__static_method__GqlConnectionDartWrapper(int64_t port_,
                                                        bool is_local,
                                                        struct wire_uint_8_list *instance_hash);
@@ -910,6 +958,8 @@ struct wire_ArcGenericContractBoxTrait new_ArcGenericContractBoxTrait(void);
 
 struct wire_ArcGqlConnectionBoxTrait new_ArcGqlConnectionBoxTrait(void);
 
+struct wire_ArcJrpcConnectionBoxTrait new_ArcJrpcConnectionBoxTrait(void);
+
 struct wire_ArcKeyStoreApiBoxTrait new_ArcKeyStoreApiBoxTrait(void);
 
 struct wire_ArcLedgerConnectionBoxTrait new_ArcLedgerConnectionBoxTrait(void);
@@ -943,6 +993,10 @@ struct wire_GqlConnectionDartWrapper *new_box_autoadd_gql_connection_dart_wrappe
 struct wire_GqlTransportImpl *new_box_autoadd_gql_transport_impl_0(void);
 
 int32_t *new_box_autoadd_i32_0(int32_t value);
+
+struct wire_JrpcConnectionDartWrapper *new_box_autoadd_jrpc_connection_dart_wrapper_0(void);
+
+struct wire_JrpcTransportImpl *new_box_autoadd_jrpc_transport_impl_0(void);
 
 struct wire_KeySigner *new_box_autoadd_key_signer_0(void);
 
@@ -989,6 +1043,10 @@ const void *share_opaque_ArcGenericContractBoxTrait(const void *ptr);
 void drop_opaque_ArcGqlConnectionBoxTrait(const void *ptr);
 
 const void *share_opaque_ArcGqlConnectionBoxTrait(const void *ptr);
+
+void drop_opaque_ArcJrpcConnectionBoxTrait(const void *ptr);
+
+const void *share_opaque_ArcJrpcConnectionBoxTrait(const void *ptr);
 
 void drop_opaque_ArcKeyStoreApiBoxTrait(const void *ptr);
 
@@ -1129,6 +1187,14 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_get_transaction__method__ProtoTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_signature_id__method__ProtoTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_get_network_id__method__ProtoTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_contract_state__method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_full_contract_state__method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_accounts_by_code_hash__method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_transactions__method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_transaction__method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_signature_id__method__JrpcTransportImpl);
+    dummy_var ^= ((int64_t) (void*) wire_get_network_id__method__JrpcTransportImpl);
     dummy_var ^= ((int64_t) (void*) wire_subscribe__static_method__TokenWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_owner__method__TokenWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_address__method__TokenWalletDartWrapper);
@@ -1208,6 +1274,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_find_existing_wallets__static_method__TonWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_get_existing_wallet_info__static_method__TonWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_get_custodians__static_method__TonWalletDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_new__static_method__JrpcConnectionDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__GqlConnectionDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__ProtoConnectionDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__LedgerConnectionDartWrapper);
@@ -1221,6 +1288,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) new_ArcAccountsStorageBoxTrait);
     dummy_var ^= ((int64_t) (void*) new_ArcGenericContractBoxTrait);
     dummy_var ^= ((int64_t) (void*) new_ArcGqlConnectionBoxTrait);
+    dummy_var ^= ((int64_t) (void*) new_ArcJrpcConnectionBoxTrait);
     dummy_var ^= ((int64_t) (void*) new_ArcKeyStoreApiBoxTrait);
     dummy_var ^= ((int64_t) (void*) new_ArcLedgerConnectionBoxTrait);
     dummy_var ^= ((int64_t) (void*) new_ArcProtoConnectionBoxTrait);
@@ -1238,6 +1306,8 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_gql_connection_dart_wrapper_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_gql_transport_impl_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_i32_0);
+    dummy_var ^= ((int64_t) (void*) new_box_autoadd_jrpc_connection_dart_wrapper_0);
+    dummy_var ^= ((int64_t) (void*) new_box_autoadd_jrpc_transport_impl_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_key_signer_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_keystore_dart_wrapper_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_ledger_connection_dart_wrapper_0);
@@ -1261,6 +1331,8 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) share_opaque_ArcGenericContractBoxTrait);
     dummy_var ^= ((int64_t) (void*) drop_opaque_ArcGqlConnectionBoxTrait);
     dummy_var ^= ((int64_t) (void*) share_opaque_ArcGqlConnectionBoxTrait);
+    dummy_var ^= ((int64_t) (void*) drop_opaque_ArcJrpcConnectionBoxTrait);
+    dummy_var ^= ((int64_t) (void*) share_opaque_ArcJrpcConnectionBoxTrait);
     dummy_var ^= ((int64_t) (void*) drop_opaque_ArcKeyStoreApiBoxTrait);
     dummy_var ^= ((int64_t) (void*) share_opaque_ArcKeyStoreApiBoxTrait);
     dummy_var ^= ((int64_t) (void*) drop_opaque_ArcLedgerConnectionBoxTrait);
