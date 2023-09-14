@@ -1,3 +1,7 @@
+## 1.22.0
+
+ - **FEAT**: revert JRPC ([#206](https://github.com/broxus/nekoton_bridge/issues/206)). ([6b0f2941](https://github.com/broxus/nekoton_bridge/commit/6b0f2941874ac47103b4783cc86249a80e6f363b))
+
 ## 1.21.0
 
  - **FEAT**: implement more abi methods ([#204](https://github.com/broxus/nekoton_bridge/issues/204)). ([b0d957c4](https://github.com/broxus/nekoton_bridge/commit/b0d957c4411bc3527db24f577242da000132a32d))
