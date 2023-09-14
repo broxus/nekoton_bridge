@@ -8,17 +8,19 @@ import 'package:flutter_nekoton_bridge/example_related/caller_test_class_wrapper
 import 'package:flutter_nekoton_bridge/example_related/caller_wrapper.dart'
     as prefix3;
 import 'package:flutter_nekoton_bridge/nekoton/core/generic_contract/generic_contract.dart'
-    as prefix7;
-import 'package:flutter_nekoton_bridge/nekoton/core/token_wallet/token_wallet.dart'
     as prefix8;
-import 'package:flutter_nekoton_bridge/nekoton/core/ton_wallet/ton_wallet.dart'
+import 'package:flutter_nekoton_bridge/nekoton/core/token_wallet/token_wallet.dart'
     as prefix9;
+import 'package:flutter_nekoton_bridge/nekoton/core/ton_wallet/ton_wallet.dart'
+    as prefix10;
 import 'package:flutter_nekoton_bridge/nekoton/external/gql_connection.dart'
     as prefix4;
+import 'package:flutter_nekoton_bridge/nekoton/external/jrpc_connection.dart'
+    as prefix6;
 import 'package:flutter_nekoton_bridge/nekoton/external/proto_connection.dart'
     as prefix5;
 import 'package:flutter_nekoton_bridge/nekoton/external/storage.dart'
-    as prefix6;
+    as prefix7;
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart' as prefix0;
 
 // ignore_for_file: camel_case_types
@@ -216,8 +218,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'create': 3
             }),
         r.NonGenericClassMirrorImpl(
-            r'Storage',
-            r'.Storage',
+            r'JrpcConnection',
+            r'.JrpcConnection',
             134217735,
             5,
             const prefix0.Reflector(),
@@ -225,7 +227,44 @@ final _data = <r.Reflectable, r.ReflectorData>{
             null,
             null,
             -1,
-            {r'create': () => prefix6.Storage.create},
+            {r'create': () => prefix6.JrpcConnection.create},
+            {},
+            {},
+            -1,
+            -1,
+            const <int>[-1],
+            null,
+            {
+              r'==': 1,
+              r'toString': 0,
+              r'noSuchMethod': 1,
+              r'hashCode': 0,
+              r'runtimeType': 0,
+              r'init': 0,
+              r'dispose': 0,
+              r'instanceHash': 0,
+              r'avoidCall': 0,
+              r'post': 1,
+              r'initializeMirror': 0,
+              r'connection': 0,
+              r'connection=': 1,
+              r'type': 0,
+              r'name': 0,
+              r'networkId': 0,
+              r'group': 0,
+              r'create': 3
+            }),
+        r.NonGenericClassMirrorImpl(
+            r'Storage',
+            r'.Storage',
+            134217735,
+            6,
+            const prefix0.Reflector(),
+            const <int>[-1],
+            null,
+            null,
+            -1,
+            {r'create': () => prefix7.Storage.create},
             {},
             {},
             -1,
@@ -256,13 +295,13 @@ final _data = <r.Reflectable, r.ReflectorData>{
             r'GenericContract',
             r'.GenericContract',
             134217735,
-            6,
+            7,
             const prefix0.Reflector(),
             const <int>[-1],
             null,
             null,
             -1,
-            {r'subscribe': () => prefix7.GenericContract.subscribe},
+            {r'subscribe': () => prefix8.GenericContract.subscribe},
             {},
             {},
             -1,
@@ -313,18 +352,18 @@ final _data = <r.Reflectable, r.ReflectorData>{
             r'TokenWallet',
             r'.TokenWallet',
             134217735,
-            7,
+            8,
             const prefix0.Reflector(),
             const <int>[-1],
             null,
             null,
             -1,
             {
-              r'subscribe': () => prefix8.TokenWallet.subscribe,
+              r'subscribe': () => prefix9.TokenWallet.subscribe,
               r'getTokenWalletDetails': () =>
-                  prefix8.TokenWallet.getTokenWalletDetails,
+                  prefix9.TokenWallet.getTokenWalletDetails,
               r'getTokenRootDetailsFromTokenWallet': () =>
-                  prefix8.TokenWallet.getTokenRootDetailsFromTokenWallet
+                  prefix9.TokenWallet.getTokenRootDetailsFromTokenWallet
             },
             {},
             {},
@@ -381,23 +420,24 @@ final _data = <r.Reflectable, r.ReflectorData>{
             r'TonWallet',
             r'.TonWallet',
             134217735,
-            8,
+            9,
             const prefix0.Reflector(),
             const <int>[-1],
             null,
             null,
             -1,
             {
-              r'subscribe': () => prefix9.TonWallet.subscribe,
-              r'subscribeByAddress': () => prefix9.TonWallet.subscribeByAddress,
+              r'subscribe': () => prefix10.TonWallet.subscribe,
+              r'subscribeByAddress': () =>
+                  prefix10.TonWallet.subscribeByAddress,
               r'subscribeByExistingWallet': () =>
-                  prefix9.TonWallet.subscribeByExistingWallet,
+                  prefix10.TonWallet.subscribeByExistingWallet,
               r'findExistingWallets': () =>
-                  prefix9.TonWallet.findExistingWallets,
+                  prefix10.TonWallet.findExistingWallets,
               r'getExistingWalletInfo': () =>
-                  prefix9.TonWallet.getExistingWalletInfo,
+                  prefix10.TonWallet.getExistingWalletInfo,
               r'getWalletCustodians': () =>
-                  prefix9.TonWallet.getWalletCustodians
+                  prefix10.TonWallet.getWalletCustodians
             },
             {},
             {},
@@ -474,12 +514,13 @@ final _data = <r.Reflectable, r.ReflectorData>{
         prefix3.CallerWrapper,
         prefix4.GqlConnection,
         prefix5.ProtoConnection,
-        prefix6.Storage,
-        prefix7.GenericContract,
-        prefix8.TokenWallet,
-        prefix9.TonWallet
+        prefix6.JrpcConnection,
+        prefix7.Storage,
+        prefix8.GenericContract,
+        prefix9.TokenWallet,
+        prefix10.TonWallet
       ],
-      9,
+      10,
       {
         r'==': (dynamic instance) => (x) => instance == x,
         r'toString': (dynamic instance) => instance.toString,
