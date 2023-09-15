@@ -17,7 +17,6 @@ class JrpcConnection extends RustToDartMirrorInterface {
   final JrpcConnectionPost _post;
 
   final String _name;
-  final int _networkId;
   final String _group;
   final JrpcNetworkSettings _settings;
 
@@ -28,7 +27,6 @@ class JrpcConnection extends RustToDartMirrorInterface {
     this._settings,
     this._name,
     this._group,
-    this._networkId,
   );
 
   static Future<JrpcConnection> create({
@@ -36,9 +34,8 @@ class JrpcConnection extends RustToDartMirrorInterface {
     required JrpcNetworkSettings settings,
     required String name,
     required String group,
-    required int networkId,
   }) async {
-    final instance = JrpcConnection._(post, settings, name, group, networkId);
+    final instance = JrpcConnection._(post, settings, name, group);
 
     final lib = createLib();
     instance.connection = await lib.newStaticMethodJrpcConnectionDartWrapper(
@@ -49,8 +46,6 @@ class JrpcConnection extends RustToDartMirrorInterface {
   }
 
   String get name => _name;
-
-  int get networkId => _networkId;
 
   String get group => _group;
 

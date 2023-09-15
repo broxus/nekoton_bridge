@@ -211,7 +211,6 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'connection=': 5,
               r'type': 0,
               r'name': 0,
-              r'networkId': 0,
               r'group': 0,
               r'create': 7
             }),
@@ -248,7 +247,6 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'connection=': 5,
               r'type': 0,
               r'name': 0,
-              r'networkId': 0,
               r'group': 0,
               r'create': 7
             }),
@@ -285,7 +283,6 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'connection=': 5,
               r'type': 0,
               r'name': 0,
-              r'networkId': 0,
               r'group': 0,
               r'create': 7
             }),
@@ -573,7 +570,6 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'connection': (dynamic instance) => instance.connection,
         r'type': (dynamic instance) => instance.type,
         r'name': (dynamic instance) => instance.name,
-        r'networkId': (dynamic instance) => instance.networkId,
         r'group': (dynamic instance) => instance.group,
         r'getPublicKey': (dynamic instance) => instance.getPublicKey,
         r'get': (dynamic instance) => instance.get,
@@ -682,7 +678,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         const [
           0,
           0,
-          const [#post, #get, #settings, #name, #group, #networkId]
+          const [#post, #get, #settings, #name, #group]
         ],
         const [
           0,

@@ -19,6 +19,8 @@ class JrpcTransport extends Transport {
       jrpcConnection: jrpcConnection.connection,
     );
 
+    instance.networkId = await instance.getNetworkId();
+
     return instance;
   }
 
@@ -125,9 +127,6 @@ class JrpcTransport extends Transport {
 
   @override
   String get name => jrpcConnection.name;
-
-  @override
-  int get networkId => jrpcConnection.networkId;
 
   @override
   TransportType get type => jrpcConnection.type;

@@ -19,6 +19,8 @@ class GqlTransport extends Transport {
       gqlConnection: gqlConnection.connection,
     );
 
+    instance.networkId = await instance.getNetworkId();
+
     return instance;
   }
 
@@ -144,9 +146,6 @@ class GqlTransport extends Transport {
 
   @override
   String get name => gqlConnection.name;
-
-  @override
-  int get networkId => gqlConnection.networkId;
 
   @override
   TransportType get type => gqlConnection.type;
