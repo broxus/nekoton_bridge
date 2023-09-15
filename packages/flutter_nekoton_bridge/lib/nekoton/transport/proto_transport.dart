@@ -19,6 +19,8 @@ class ProtoTransport extends Transport {
       protoConnection: protoConnection.connection,
     );
 
+    instance.networkId = await instance.getNetworkId();
+
     return instance;
   }
 
@@ -125,9 +127,6 @@ class ProtoTransport extends Transport {
 
   @override
   String get name => protoConnection.name;
-
-  @override
-  int get networkId => protoConnection.networkId;
 
   @override
   TransportType get type => protoConnection.type;

@@ -28,7 +28,6 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   const name = 'Mainnet (GQL)';
-  const networkId = 1;
   const networkGroup = 'mainnet';
   const endpoint = 'https://jrpc.everwallet.net/proto';
 
@@ -61,7 +60,6 @@ void main() {
       settings: jrpcSettings,
       name: name,
       group: networkGroup,
-      networkId: networkId,
     );
     transport = await ProtoTransport.create(protoConnection: connection);
   });

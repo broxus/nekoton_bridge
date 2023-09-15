@@ -25,7 +25,6 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   const name = 'Mainnet (JRPC)';
-  const networkId = 1;
   const networkGroup = 'mainnet';
   const endpoint = 'https://jrpc.everwallet.net/rpc';
 
@@ -61,7 +60,6 @@ void main() {
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await JrpcTransport.create(jrpcConnection: connection);
 
@@ -78,7 +76,6 @@ void main() {
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await JrpcTransport.create(jrpcConnection: connection);
 
@@ -99,7 +96,6 @@ void main() {
         settings: const JrpcNetworkSettings(endpoint: venomEndpoint),
         name: 'Testnet Venom',
         group: 'testnet',
-        networkId: 1010,
       );
       final transport = await JrpcTransport.create(jrpcConnection: connection);
 
@@ -118,7 +114,6 @@ void main() {
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await JrpcTransport.create(jrpcConnection: connection);
 
@@ -140,7 +135,6 @@ void main() {
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await JrpcTransport.create(jrpcConnection: connection);
 
@@ -163,7 +157,6 @@ void main() {
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await JrpcTransport.create(jrpcConnection: connection);
 
@@ -192,7 +185,6 @@ void main() {
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await JrpcTransport.create(jrpcConnection: connection);
 
@@ -227,7 +219,6 @@ void main() {
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await JrpcTransport.create(jrpcConnection: connection);
 
@@ -252,7 +243,6 @@ void main() {
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await JrpcTransport.create(jrpcConnection: connection);
 
@@ -275,7 +265,6 @@ void main() {
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await JrpcTransport.create(jrpcConnection: connection);
 
@@ -301,7 +290,6 @@ void main() {
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await JrpcTransport.create(jrpcConnection: connection);
       final id = await transport.getNetworkId();
@@ -319,7 +307,6 @@ void main() {
         settings: const JrpcNetworkSettings(endpoint: venomEndpoint),
         name: 'Testnet Venom',
         group: 'testnet',
-        networkId: 1010,
       );
       final transport = await JrpcTransport.create(jrpcConnection: connection);
       final id = await transport.getNetworkId();
@@ -336,7 +323,6 @@ void main() {
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await JrpcTransport.create(jrpcConnection: connection);
       final config = await transport.getBlockchainConfig();

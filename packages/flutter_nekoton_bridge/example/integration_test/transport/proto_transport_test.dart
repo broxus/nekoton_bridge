@@ -27,7 +27,6 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   const name = 'Mainnet (GQL)';
-  const networkId = 1;
   const networkGroup = 'mainnet';
   const endpoint = 'https://jrpc.everwallet.net/proto';
 
@@ -63,7 +62,6 @@ void main() {
         settings: protoSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport =
           await ProtoTransport.create(protoConnection: connection);
@@ -81,7 +79,6 @@ void main() {
         settings: protoSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport =
           await ProtoTransport.create(protoConnection: connection);
@@ -103,7 +100,6 @@ void main() {
         settings: const ProtoNetworkSettings(endpoint: venomEndpoint),
         name: 'Testnet Venom',
         group: 'testnet',
-        networkId: 1010,
       );
       final transport =
           await ProtoTransport.create(protoConnection: connection);
@@ -123,7 +119,6 @@ void main() {
         settings: protoSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport =
           await ProtoTransport.create(protoConnection: connection);
@@ -146,7 +141,6 @@ void main() {
         settings: protoSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport =
           await ProtoTransport.create(protoConnection: connection);
@@ -171,7 +165,6 @@ void main() {
         settings: protoSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport =
           await ProtoTransport.create(protoConnection: connection);
@@ -201,7 +194,6 @@ void main() {
         settings: protoSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport =
           await ProtoTransport.create(protoConnection: connection);
@@ -238,7 +230,6 @@ void main() {
         settings: protoSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport =
           await ProtoTransport.create(protoConnection: connection);
@@ -264,7 +255,6 @@ void main() {
         settings: protoSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport =
           await ProtoTransport.create(protoConnection: connection);
@@ -288,7 +278,6 @@ void main() {
         settings: protoSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport =
           await ProtoTransport.create(protoConnection: connection);
@@ -315,7 +304,6 @@ void main() {
         settings: protoSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport =
           await ProtoTransport.create(protoConnection: connection);
@@ -334,7 +322,6 @@ void main() {
         settings: const ProtoNetworkSettings(endpoint: venomEndpoint),
         name: 'Testnet Venom',
         group: 'testnet',
-        networkId: 1010,
       );
       final transport =
           await ProtoTransport.create(protoConnection: connection);
@@ -352,7 +339,6 @@ void main() {
         settings: protoSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport =
           await ProtoTransport.create(protoConnection: connection);

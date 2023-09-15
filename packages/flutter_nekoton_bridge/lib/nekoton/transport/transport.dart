@@ -4,7 +4,7 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 abstract class Transport {
   String get name;
 
-  int get networkId;
+  late final int networkId;
 
   String get group;
 
