@@ -74,6 +74,8 @@ void main() {
     testWidgets('Create GqlTransport', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
+      await initRustToDartCaller();
+
       final connection = await GqlConnection.create(
         post: postTransportData,
         get: getTransportData,

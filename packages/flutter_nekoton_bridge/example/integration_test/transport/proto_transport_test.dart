@@ -57,6 +57,8 @@ void main() {
     testWidgets('Create ProtoTransport', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
+      await initRustToDartCaller();
+
       final connection = await ProtoConnection.create(
         post: postTransportData,
         settings: protoSettings,

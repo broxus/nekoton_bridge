@@ -55,6 +55,8 @@ void main() {
     testWidgets('Create JrpcTransport', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
+      await initRustToDartCaller();
+
       final connection = await JrpcConnection.create(
         post: postTransportData,
         settings: jrpcSettings,
