@@ -1,3 +1,7 @@
+## 1.16.0
+
+ - **FEAT**: automatically fetch network id in transport initialization ([#209](https://github.com/broxus/nekoton_bridge/issues/209)). ([81fd877e](https://github.com/broxus/nekoton_bridge/commit/81fd877e2c890f8a2cb9c120e6ba92f580488e2c))
+
 ## 1.15.0
 
  - **FEAT**: revert JRPC ([#206](https://github.com/broxus/nekoton_bridge/issues/206)). ([6b0f2941](https://github.com/broxus/nekoton_bridge/commit/6b0f2941874ac47103b4783cc86249a80e6f363b))

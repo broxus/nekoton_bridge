@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-09-18
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.23.0`](#flutter_nekoton_bridge---v1230)
+ - [`flutter_nekoton_bridge_example` - `v1.16.0`](#flutter_nekoton_bridge_example---v1160)
+ - [`nekoton_bridge` - `v1.15.1`](#nekoton_bridge---v1151)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.23.0`
+
+ - **FIX**: remove isUtc from DateTimeJsonConverter ([#208](https://github.com/broxus/nekoton_bridge/issues/208)). ([5135f5df](https://github.com/broxus/nekoton_bridge/commit/5135f5dfd4333f280e00fe0ff7a1821120e0b219))
+ - **FEAT**: add connection hash ([#211](https://github.com/broxus/nekoton_bridge/issues/211)). ([21050663](https://github.com/broxus/nekoton_bridge/commit/2105066331e7f89ac5ebcaad16931ef90e550898))
+ - **FEAT**: automatically fetch network id in transport initialization ([#209](https://github.com/broxus/nekoton_bridge/issues/209)). ([81fd877e](https://github.com/broxus/nekoton_bridge/commit/81fd877e2c890f8a2cb9c120e6ba92f580488e2c))
+
+#### `flutter_nekoton_bridge_example` - `v1.16.0`
+
+ - **FEAT**: automatically fetch network id in transport initialization ([#209](https://github.com/broxus/nekoton_bridge/issues/209)). ([81fd877e](https://github.com/broxus/nekoton_bridge/commit/81fd877e2c890f8a2cb9c120e6ba92f580488e2c))
+
+#### `nekoton_bridge` - `v1.15.1`
+
+ - **FIX**: fix flutter_rust_bridge version to exact ([#210](https://github.com/broxus/nekoton_bridge/issues/210)). ([43ec5715](https://github.com/broxus/nekoton_bridge/commit/43ec57151230e7c6db7de49b67a16336352fee5d))
+
+
 ## 2023-09-14
 
 ### Changes

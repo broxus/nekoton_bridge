@@ -1,3 +1,9 @@
+## 1.23.0
+
+ - **FIX**: remove isUtc from DateTimeJsonConverter ([#208](https://github.com/broxus/nekoton_bridge/issues/208)). ([5135f5df](https://github.com/broxus/nekoton_bridge/commit/5135f5dfd4333f280e00fe0ff7a1821120e0b219))
+ - **FEAT**: add connection hash ([#211](https://github.com/broxus/nekoton_bridge/issues/211)). ([21050663](https://github.com/broxus/nekoton_bridge/commit/2105066331e7f89ac5ebcaad16931ef90e550898))
+ - **FEAT**: automatically fetch network id in transport initialization ([#209](https://github.com/broxus/nekoton_bridge/issues/209)). ([81fd877e](https://github.com/broxus/nekoton_bridge/commit/81fd877e2c890f8a2cb9c120e6ba92f580488e2c))
+
 ## 1.22.0
 
  - **FEAT**: revert JRPC ([#206](https://github.com/broxus/nekoton_bridge/issues/206)). ([6b0f2941](https://github.com/broxus/nekoton_bridge/commit/6b0f2941874ac47103b4783cc86249a80e6f363b))
