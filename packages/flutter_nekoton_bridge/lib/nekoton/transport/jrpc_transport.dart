@@ -21,6 +21,9 @@ class JrpcTransport extends Transport {
 
     instance.networkId = await instance.getNetworkId();
 
+    instance.connectionParamsHash =
+        getHash('jrpc:${jrpcConnection.settings.endpoint}');
+
     return instance;
   }
 
@@ -133,8 +136,4 @@ class JrpcTransport extends Transport {
 
   @override
   ArcTransportBoxTrait get transportBox => transport.innerTransport;
-
-  @override
-  String get connectionParamsHash =>
-      getHash('jrpc:${jrpcConnection.settings.endpoint}');
 }

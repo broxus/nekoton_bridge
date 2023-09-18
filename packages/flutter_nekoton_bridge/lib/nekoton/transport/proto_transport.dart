@@ -21,6 +21,9 @@ class ProtoTransport extends Transport {
 
     instance.networkId = await instance.getNetworkId();
 
+    instance.connectionParamsHash =
+        getHash('proto:${protoConnection.settings.endpoint}');
+
     return instance;
   }
 
@@ -133,8 +136,4 @@ class ProtoTransport extends Transport {
 
   @override
   ArcTransportBoxTrait get transportBox => transport.innerTransport;
-
-  @override
-  String get connectionParamsHash =>
-      getHash('proto:${protoConnection.settings.endpoint}');
 }

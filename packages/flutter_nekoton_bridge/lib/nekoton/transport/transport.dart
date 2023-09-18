@@ -11,7 +11,7 @@ abstract class Transport {
   TransportType get type;
 
   /// Get uniquer identifier of transport based on type and endpoints
-  String get connectionParamsHash;
+  late final String connectionParamsHash;
 
   /// Get contract state of address and return RawContractState or throw error
   Future<RawContractState> getContractState(Address address);

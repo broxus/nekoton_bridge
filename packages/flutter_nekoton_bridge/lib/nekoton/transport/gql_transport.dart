@@ -21,6 +21,9 @@ class GqlTransport extends Transport {
 
     instance.networkId = await instance.getNetworkId();
 
+    instance.connectionParamsHash =
+        getHash('gql:${gqlConnection.settings.endpoints.join(',')}');
+
     return instance;
   }
 
@@ -152,8 +155,4 @@ class GqlTransport extends Transport {
 
   @override
   ArcTransportBoxTrait get transportBox => transport.innerTransport;
-
-  @override
-  String get connectionParamsHash =>
-      getHash('gql:${gqlConnection.settings.endpoints.join(',')}');
 }
