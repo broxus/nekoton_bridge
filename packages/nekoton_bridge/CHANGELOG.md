@@ -1,3 +1,7 @@
+## 1.15.1
+
+ - **FIX**: fix flutter_rust_bridge version to exact ([#210](https://github.com/broxus/nekoton_bridge/issues/210)). ([43ec5715](https://github.com/broxus/nekoton_bridge/commit/43ec57151230e7c6db7de49b67a16336352fee5d))
+
 ## 1.15.0
 
  - **FEAT**: revert JRPC ([#206](https://github.com/broxus/nekoton_bridge/issues/206)). ([6b0f2941](https://github.com/broxus/nekoton_bridge/commit/6b0f2941874ac47103b4783cc86249a80e6f363b))
