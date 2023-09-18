@@ -13,7 +13,7 @@ rerun_except = "1.0.0"
 #env_logger = "0.9"
 
 [dependencies]
-flutter_rust_bridge = "1.78.*"
+flutter_rust_bridge = "1.82.*"
 lazy_static = "1.4.0"
 anyhow = "1.0.54"
 thiserror = "1.0.39"
