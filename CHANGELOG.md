@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-09-14
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.22.0`](#flutter_nekoton_bridge---v1220)
+ - [`flutter_nekoton_bridge_example` - `v1.15.0`](#flutter_nekoton_bridge_example---v1150)
+ - [`nekoton_bridge` - `v1.15.0`](#nekoton_bridge---v1150)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.22.0`
+
+ - **FEAT**: revert JRPC ([#206](https://github.com/broxus/nekoton_bridge/issues/206)). ([6b0f2941](https://github.com/broxus/nekoton_bridge/commit/6b0f2941874ac47103b4783cc86249a80e6f363b))
+
+#### `flutter_nekoton_bridge_example` - `v1.15.0`
+
+ - **FEAT**: revert JRPC ([#206](https://github.com/broxus/nekoton_bridge/issues/206)). ([6b0f2941](https://github.com/broxus/nekoton_bridge/commit/6b0f2941874ac47103b4783cc86249a80e6f363b))
+
+#### `nekoton_bridge` - `v1.15.0`
+
+ - **FEAT**: revert JRPC ([#206](https://github.com/broxus/nekoton_bridge/issues/206)). ([6b0f2941](https://github.com/broxus/nekoton_bridge/commit/6b0f2941874ac47103b4783cc86249a80e6f363b))
+
+
 ## 2023-09-12
 
 ### Changes
