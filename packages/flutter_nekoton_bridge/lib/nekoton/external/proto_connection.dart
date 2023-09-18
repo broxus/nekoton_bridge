@@ -20,7 +20,6 @@ class ProtoConnection extends RustToDartMirrorInterface {
   final ProtoConnectionPost _post;
 
   final String _name;
-  final int _networkId;
   final String _group;
   final ProtoNetworkSettings _settings;
 
@@ -31,7 +30,6 @@ class ProtoConnection extends RustToDartMirrorInterface {
     this._settings,
     this._name,
     this._group,
-    this._networkId,
   );
 
   static Future<ProtoConnection> create({
@@ -39,9 +37,8 @@ class ProtoConnection extends RustToDartMirrorInterface {
     required ProtoNetworkSettings settings,
     required String name,
     required String group,
-    required int networkId,
   }) async {
-    final instance = ProtoConnection._(post, settings, name, group, networkId);
+    final instance = ProtoConnection._(post, settings, name, group);
 
     final lib = createLib();
     instance.connection = await lib.newStaticMethodProtoConnectionDartWrapper(
@@ -52,8 +49,6 @@ class ProtoConnection extends RustToDartMirrorInterface {
   }
 
   String get name => _name;
-
-  int get networkId => _networkId;
 
   String get group => _group;
 

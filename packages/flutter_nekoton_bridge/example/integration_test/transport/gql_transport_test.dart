@@ -31,7 +31,6 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   const name = 'Mainnet (GQL)';
-  const networkId = 1;
   const networkGroup = 'mainnet';
   const endpoint =
       'https://mainnet.evercloud.dev/89a3b8f46a484f2ea3bdd364ddaee3a3/graphql';
@@ -75,13 +74,14 @@ void main() {
     testWidgets('Create GqlTransport', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
+      await initRustToDartCaller();
+
       final connection = await GqlConnection.create(
         post: postTransportData,
         get: getTransportData,
         settings: gqlSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await GqlTransport.create(gqlConnection: connection);
 
@@ -99,7 +99,6 @@ void main() {
         settings: gqlSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await GqlTransport.create(gqlConnection: connection);
 
@@ -119,7 +118,6 @@ void main() {
         settings: gqlSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await GqlTransport.create(gqlConnection: connection);
 
@@ -142,7 +140,6 @@ void main() {
         settings: gqlSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await GqlTransport.create(gqlConnection: connection);
 
@@ -166,7 +163,6 @@ void main() {
         settings: gqlSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await GqlTransport.create(gqlConnection: connection);
       const hash =
@@ -195,7 +191,6 @@ void main() {
         settings: gqlSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await GqlTransport.create(gqlConnection: connection);
 
@@ -231,7 +226,6 @@ void main() {
         settings: gqlSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await GqlTransport.create(gqlConnection: connection);
 
@@ -257,7 +251,6 @@ void main() {
         settings: gqlSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await GqlTransport.create(gqlConnection: connection);
 
@@ -281,7 +274,6 @@ void main() {
         settings: gqlSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await GqlTransport.create(gqlConnection: connection);
 
@@ -308,7 +300,6 @@ void main() {
         settings: gqlSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await GqlTransport.create(gqlConnection: connection);
       final id = await transport.getNetworkId();
@@ -326,7 +317,6 @@ void main() {
         settings: gqlSettings,
         name: name,
         group: networkGroup,
-        networkId: networkId,
       );
       final transport = await GqlTransport.create(gqlConnection: connection);
       final config = await transport.getBlockchainConfig();

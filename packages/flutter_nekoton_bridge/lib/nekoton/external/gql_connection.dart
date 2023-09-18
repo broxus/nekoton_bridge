@@ -23,7 +23,6 @@ class GqlConnection extends RustToDartMirrorInterface {
   final GqlConnectionGet _get;
 
   final String _name;
-  final int _networkId;
   final String _group;
   final GqlNetworkSettings _settings;
 
@@ -37,7 +36,6 @@ class GqlConnection extends RustToDartMirrorInterface {
     this._settings,
     this._name,
     this._group,
-    this._networkId,
   );
 
   static Future<GqlConnection> create({
@@ -46,10 +44,8 @@ class GqlConnection extends RustToDartMirrorInterface {
     required GqlNetworkSettings settings,
     required String name,
     required String group,
-    required int networkId,
   }) async {
-    final instance =
-        GqlConnection._(post, get, settings, name, group, networkId);
+    final instance = GqlConnection._(post, get, settings, name, group);
 
     final lib = createLib();
     instance.connection = await lib.newStaticMethodGqlConnectionDartWrapper(
@@ -61,8 +57,6 @@ class GqlConnection extends RustToDartMirrorInterface {
   }
 
   String get name => _name;
-
-  int get networkId => _networkId;
 
   String get group => _group;
 
