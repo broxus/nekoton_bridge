@@ -1,4 +1,3 @@
-import 'package:crypto/crypto.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
 /// Abstract class for transport, so we can combine both implementations into single list
