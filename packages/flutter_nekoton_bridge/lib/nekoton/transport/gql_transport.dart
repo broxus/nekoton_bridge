@@ -21,6 +21,9 @@ class GqlTransport extends Transport {
 
     instance.networkId = await instance.getNetworkId();
 
+    instance.connectionParamsHash =
+        getHash('gql:${gqlConnection.settings.endpoints.join(',')}');
+
     return instance;
   }
 
