@@ -18,13 +18,13 @@ class JrpcConnection extends RustToDartMirrorInterface {
 
   final String _name;
   final String _group;
-  final JrpcNetworkSettings _settings;
+  final JrpcNetworkSettings settings;
 
   final type = TransportType.gql;
 
   JrpcConnection._(
     this._post,
-    this._settings,
+    this.settings,
     this._name,
     this._group,
   );
@@ -53,7 +53,7 @@ class JrpcConnection extends RustToDartMirrorInterface {
   Future<String> post(String requestData) async {
     try {
       return await _post(
-        endpoint: _settings.endpoint,
+        endpoint: settings.endpoint,
         headers: {
           'Content-Type': 'application/json',
         },

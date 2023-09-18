@@ -21,13 +21,13 @@ class ProtoConnection extends RustToDartMirrorInterface {
 
   final String _name;
   final String _group;
-  final ProtoNetworkSettings _settings;
+  final ProtoNetworkSettings settings;
 
   final type = TransportType.proto;
 
   ProtoConnection._(
     this._post,
-    this._settings,
+    this.settings,
     this._name,
     this._group,
   );
@@ -56,7 +56,7 @@ class ProtoConnection extends RustToDartMirrorInterface {
   Future<Uint8List> post(Uint8List requestData) async {
     try {
       return await _post(
-        endpoint: _settings.endpoint,
+        endpoint: settings.endpoint,
         headers: {
           'Content-Type': 'x-protobuf',
         },

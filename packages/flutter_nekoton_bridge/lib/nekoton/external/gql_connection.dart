@@ -24,7 +24,7 @@ class GqlConnection extends RustToDartMirrorInterface {
 
   final String _name;
   final String _group;
-  final GqlNetworkSettings _settings;
+  final GqlNetworkSettings settings;
 
   final type = TransportType.gql;
 
@@ -33,7 +33,7 @@ class GqlConnection extends RustToDartMirrorInterface {
   GqlConnection._(
     this._post,
     this._get,
-    this._settings,
+    this.settings,
     this._name,
     this._group,
   );
@@ -65,8 +65,8 @@ class GqlConnection extends RustToDartMirrorInterface {
     try {
       String endpoint;
 
-      if (_settings.endpoints.length == 1) {
-        endpoint = _settings.endpoints.first;
+      if (settings.endpoints.length == 1) {
+        endpoint = settings.endpoints.first;
       } else {
         endpoint = await _getEndpoint();
       }
@@ -87,16 +87,16 @@ class GqlConnection extends RustToDartMirrorInterface {
     if (_cachedEndpoint != null) return _cachedEndpoint!;
 
     _cachedEndpoint = await _selectQueryingEndpoint().timeout(
-      Duration(milliseconds: _settings.latencyDetectionInterval),
+      Duration(milliseconds: settings.latencyDetectionInterval),
       onTimeout: () => throw ErrorCode.Network,
     );
     return _cachedEndpoint!;
   }
 
   Future<String> _selectQueryingEndpoint() async {
-    final maxLatency = _settings.maxLatency;
-    final retryCount = _settings.endpointSelectionRetryCount;
-    final endpointsCount = _settings.endpoints.length;
+    final maxLatency = settings.maxLatency;
+    final retryCount = settings.endpointSelectionRetryCount;
+    final endpointsCount = settings.endpoints.length;
 
     for (var i = 0; i < retryCount; i++) {
       try {
@@ -104,7 +104,7 @@ class GqlConnection extends RustToDartMirrorInterface {
 
         var checkedEndpoints = 0;
 
-        for (final e in _settings.endpoints) {
+        for (final e in settings.endpoints) {
           _checkLatency(e).whenComplete(() {
             checkedEndpoints++;
           }).then((v) {

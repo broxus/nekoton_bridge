@@ -22,6 +22,7 @@ dependencies:
   #  for generating mirror hash
   uuid: ^3.0.7
   tuple: ^2.0.1
+  crypto: ^3.0.3
 dev_dependencies:
   ffi: ^2.0.2
   ffigen: ^8.0.2

@@ -21,6 +21,9 @@ class JrpcTransport extends Transport {
 
     instance.networkId = await instance.getNetworkId();
 
+    instance.connectionParamsHash =
+        getHash('jrpc:${jrpcConnection.settings.endpoint}');
+
     return instance;
   }
 

@@ -21,6 +21,9 @@ class ProtoTransport extends Transport {
 
     instance.networkId = await instance.getNetworkId();
 
+    instance.connectionParamsHash =
+        getHash('proto:${protoConnection.settings.endpoint}');
+
     return instance;
   }
 
