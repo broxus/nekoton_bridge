@@ -1,3 +1,4 @@
+import 'package:crypto/crypto.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
 /// Abstract class for transport, so we can combine both implementations into single list
@@ -9,6 +10,9 @@ abstract class Transport {
   String get group;
 
   TransportType get type;
+
+  /// Get uniquer identifier of transport based on type and endpoints
+  String get connectionParamsHash;
 
   /// Get contract state of address and return RawContractState or throw error
   Future<RawContractState> getContractState(Address address);

@@ -133,4 +133,8 @@ class ProtoTransport extends Transport {
 
   @override
   ArcTransportBoxTrait get transportBox => transport.innerTransport;
+
+  @override
+  String get connectionParamsHash =>
+      getHash('proto:${protoConnection.settings.endpoint}');
 }

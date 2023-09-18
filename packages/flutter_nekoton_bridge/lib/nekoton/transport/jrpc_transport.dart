@@ -133,4 +133,8 @@ class JrpcTransport extends Transport {
 
   @override
   ArcTransportBoxTrait get transportBox => transport.innerTransport;
+
+  @override
+  String get connectionParamsHash =>
+      getHash('jrpc:${jrpcConnection.settings.endpoint}');
 }

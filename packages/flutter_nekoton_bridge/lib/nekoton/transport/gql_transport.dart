@@ -152,4 +152,8 @@ class GqlTransport extends Transport {
 
   @override
   ArcTransportBoxTrait get transportBox => transport.innerTransport;
+
+  @override
+  String get connectionParamsHash =>
+      getHash('gql:${gqlConnection.settings.endpoints.join(',')}');
 }
