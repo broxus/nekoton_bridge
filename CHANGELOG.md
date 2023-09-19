@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-09-19
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.24.0`](#flutter_nekoton_bridge---v1240)
+ - [`nekoton_bridge` - `v1.16.0`](#nekoton_bridge---v1160)
+ - [`flutter_nekoton_bridge_example` - `v1.16.1`](#flutter_nekoton_bridge_example---v1161)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.16.1`
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.24.0`
+
+ - **FEAT**: empty thing just to satisfy melos version. ([6457f342](https://github.com/broxus/nekoton_bridge/commit/6457f342129728a00b78465aef6409d8fce09e71))
+
+#### `nekoton_bridge` - `v1.16.0`
+
+ - **FEAT**: empty thing just to satisfy melos version. ([6457f342](https://github.com/broxus/nekoton_bridge/commit/6457f342129728a00b78465aef6409d8fce09e71))
+
+
 ## 2023-09-18
 
 ### Changes

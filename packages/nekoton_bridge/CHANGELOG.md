@@ -1,3 +1,7 @@
+## 1.16.0
+
+ - **FEAT**: empty thing just to satisfy melos version. ([6457f342](https://github.com/broxus/nekoton_bridge/commit/6457f342129728a00b78465aef6409d8fce09e71))
+
 ## 1.15.1
 
  - **FIX**: fix flutter_rust_bridge version to exact ([#210](https://github.com/broxus/nekoton_bridge/issues/210)). ([43ec5715](https://github.com/broxus/nekoton_bridge/commit/43ec57151230e7c6db7de49b67a16336352fee5d))
