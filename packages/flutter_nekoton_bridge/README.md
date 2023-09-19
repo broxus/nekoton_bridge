@@ -261,4 +261,3 @@ and you will see duplicate. Better to put it inside other files of module and im
 [license_badge]: https://img.shields.io/badge/license-AGPLv3-blue.svg
 [license_link]: https://opensource.org/license/agpl-v3/
 [pubdev_link]: https://pub.dev/packages/flutter_nekoton_bridge
-
