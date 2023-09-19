@@ -72,7 +72,7 @@ jobs:
           cache: true
           cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
       - uses: bluefireteam/melos-action@v2
-      - name: Dry-run publish to pub.dev
-        run: melos publish -y --dry-run --scope="nekoton_bridge"
+      # - name: Dry-run publish to pub.dev
+        # run: melos publish -y --dry-run --scope="nekoton_bridge"
       - name: Publish to pub.dev
         run: melos publish -y --no-dry-run --scope="nekoton_bridge"
