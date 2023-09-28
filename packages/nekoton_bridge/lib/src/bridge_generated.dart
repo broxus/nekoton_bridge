@@ -406,6 +406,11 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kCallSendResultConstMeta;
 
+  /// Set clock offset in milliseconds
+  Future<void> setClockOffset({required int offsetMs, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kSetClockOffsetConstMeta;
+
   Future<void> simpleLog({required String string, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kSimpleLogConstMeta;
@@ -4686,6 +4691,23 @@ class NekotonBridgeImpl implements NekotonBridge {
       const FlutterRustBridgeTaskConstMeta(
         debugName: "call_send_result",
         argNames: ["id", "value"],
+      );
+
+  Future<void> setClockOffset({required int offsetMs, dynamic hint}) {
+    var arg0 = _platform.api2wire_i64(offsetMs);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner.wire_set_clock_offset(port_, arg0),
+      parseSuccessData: _wire2api_unit,
+      constMeta: kSetClockOffsetConstMeta,
+      argValues: [offsetMs],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kSetClockOffsetConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "set_clock_offset",
+        argNames: ["offsetMs"],
       );
 
   Future<void> simpleLog({required String string, dynamic hint}) {

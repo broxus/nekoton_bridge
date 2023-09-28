@@ -7,7 +7,7 @@ pub mod transport;
 
 use anyhow::Context;
 use lazy_static::lazy_static;
-use nekoton_utils::SimpleClock;
+use nekoton_utils::ClockWithOffset;
 use serde::Serialize;
 use std::str::FromStr;
 use std::sync::Arc;
@@ -17,7 +17,7 @@ use ton_block::MsgAddressInt;
 use ton_types::UInt256;
 
 lazy_static! {
-    pub static ref CLOCK: Arc<SimpleClock> = Arc::new(SimpleClock {});
+    pub static ref CLOCK: Arc<ClockWithOffset> = Arc::new(ClockWithOffset::new(0));
     pub static ref RUNTIME: Mutex<Option<Runtime>> = Mutex::new(None);
 }
 
@@ -121,4 +121,8 @@ pub trait ToNekoton<T> {
 
 pub trait ToSerializable<T> {
     fn to_serializable(self) -> T;
+}
+
+pub fn update_clock_offset(offset_ms: i64) {
+    clock!().update_offset(offset_ms);
 }

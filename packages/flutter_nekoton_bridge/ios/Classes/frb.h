@@ -471,6 +471,8 @@ void wire_init_caller(int64_t port_);
 
 WireSyncReturn wire_call_send_result(struct wire_uint_8_list *id, struct wire_DynamicValue *value);
 
+void wire_set_clock_offset(int64_t port_, int64_t offset_ms);
+
 void wire_simple_log(int64_t port_, struct wire_uint_8_list *string);
 
 void wire_simple_panic(int64_t port_);
@@ -1225,6 +1227,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_init_runtime);
     dummy_var ^= ((int64_t) (void*) wire_init_caller);
     dummy_var ^= ((int64_t) (void*) wire_call_send_result);
+    dummy_var ^= ((int64_t) (void*) wire_set_clock_offset);
     dummy_var ^= ((int64_t) (void*) wire_simple_log);
     dummy_var ^= ((int64_t) (void*) wire_simple_panic);
     dummy_var ^= ((int64_t) (void*) wire_simple_adder_sync);

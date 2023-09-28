@@ -10,7 +10,7 @@ use crate::utils::caller;
 use crate::utils::logger;
 use crate::utils::mega_struct;
 
-use crate::nekoton_wrapper::init_tokio_runtime;
+use crate::nekoton_wrapper::{init_tokio_runtime, update_clock_offset};
 
 /// Init utils
 pub fn init_logger(level: logger::LogLevel, mobile_logger: bool) {
@@ -36,6 +36,12 @@ pub fn init_caller(stream_sink: StreamSink<caller::DartCallStubRegistred>) {
 pub fn call_send_result(id: String, value: caller::DynamicValue) -> SyncReturn<()> {
     caller::call_send_result(id, value)
 }
+
+/// Set clock offset in milliseconds
+pub fn set_clock_offset(offset_ms: i64) {
+    update_clock_offset(offset_ms);
+}
+
 
 // TODO: remove all non-integration test related things FROM here
 
