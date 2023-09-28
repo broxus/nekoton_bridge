@@ -1,11 +1,13 @@
 use std::sync::Once;
-use std::time::{Duration, SystemTime, UNIX_EPOCH};
 
 use flutter_rust_bridge::StreamSink;
 use lazy_static::lazy_static;
 use log::{error, info, warn, Log, Metadata, Record};
+use nekoton_utils::Clock;
 use parking_lot::RwLock;
 use simplelog::*;
+
+use crate::clock;
 
 pub enum LogLevel {
     Trace,
@@ -108,10 +110,7 @@ impl SendToDartLogger {
     }
 
     fn record_to_entry(record: &Record) -> LogEntry {
-        let time_millis = SystemTime::now()
-            .duration_since(UNIX_EPOCH)
-            .unwrap_or_else(|_| Duration::from_secs(0))
-            .as_millis() as i64;
+        let time_millis = clock!().now_ms_u64() as i64;
 
         let level = match record.level() {
             Level::Trace => LogLevel::Trace,

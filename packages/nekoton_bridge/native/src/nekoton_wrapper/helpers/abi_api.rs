@@ -17,12 +17,12 @@ use nekoton::core::parsing::parse_payload;
 use nekoton::core::utils::make_labs_unsigned_message;
 use nekoton::crypto::SignedMessage;
 use nekoton_abi::{guess_method_by_input, insert_state_init_data, make_abi_tokens, FunctionExt};
+use nekoton_utils::Clock;
 use std::borrow::Cow;
 use std::collections::HashMap;
 use std::convert::TryFrom;
 use std::sync::atomic::AtomicU64;
 use std::sync::Arc;
-use std::time::{SystemTime, UNIX_EPOCH};
 use ton_block::{Deserializable, GetRepresentationHash, Serializable};
 use ton_executor::TransactionExecutor;
 use ton_types::SliceData;
@@ -171,7 +171,7 @@ pub fn create_external_message_without_signature(
     let input = serde_json::from_str::<serde_json::Value>(&input).handle_error()?;
     let input = nekoton_abi::parse_abi_tokens(&method.inputs, input).handle_error()?;
 
-    let time = SystemTime::now().duration_since(UNIX_EPOCH)?.as_millis() as u64;
+    let time = clock!().now_ms_u64();
 
     let expire_at = ExpireAt::new_from_millis(Expiration::Timeout(timeout), time);
 
@@ -775,7 +775,7 @@ pub fn create_raw_external_message(
     // Parse params
     let dst = parse_address(dst)?;
 
-    let time = SystemTime::now().duration_since(UNIX_EPOCH)?.as_millis() as u64;
+    let time = clock!().now_ms_u64();
 
     let expire_at = ExpireAt::new_from_millis(Expiration::Timeout(timeout), time);
 
