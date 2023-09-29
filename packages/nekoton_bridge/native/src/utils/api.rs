@@ -42,7 +42,6 @@ pub fn set_clock_offset(offset_ms: i64) {
     update_clock_offset(offset_ms);
 }
 
-
 // TODO: remove all non-integration test related things FROM here
 
 pub fn simple_log(string: String) {
