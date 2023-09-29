@@ -15,6 +15,43 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_nekoton_bridge` - `v1.25.0`](#flutter_nekoton_bridge---v1250)
+ - [`nekoton_bridge` - `v1.17.0`](#nekoton_bridge---v1170)
+ - [`flutter_nekoton_bridge_example` - `v1.16.2`](#flutter_nekoton_bridge_example---v1162)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.16.2`
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.25.0`
+
+ - **FEAT**: add clock offset ([#222](https://github.com/broxus/nekoton_bridge/issues/222)). ([a8457b6d](https://github.com/broxus/nekoton_bridge/commit/a8457b6df60ed21305efde135566326567d83ea6))
+ - **FEAT**: empty ([#217](https://github.com/broxus/nekoton_bridge/issues/217)). ([80c18cb1](https://github.com/broxus/nekoton_bridge/commit/80c18cb15753b874f9329364507ed9e0c6f80676))
+ - **FEAT**: empty thing just to satisfy melos version. ([6457f342](https://github.com/broxus/nekoton_bridge/commit/6457f342129728a00b78465aef6409d8fce09e71))
+
+#### `nekoton_bridge` - `v1.17.0`
+
+ - **FEAT**: add clock offset ([#222](https://github.com/broxus/nekoton_bridge/issues/222)). ([a8457b6d](https://github.com/broxus/nekoton_bridge/commit/a8457b6df60ed21305efde135566326567d83ea6))
+ - **FEAT**: empty ([#217](https://github.com/broxus/nekoton_bridge/issues/217)). ([80c18cb1](https://github.com/broxus/nekoton_bridge/commit/80c18cb15753b874f9329364507ed9e0c6f80676))
+ - **FEAT**: empty thing just to satisfy melos version. ([6457f342](https://github.com/broxus/nekoton_bridge/commit/6457f342129728a00b78465aef6409d8fce09e71))
+
+
+## 2023-09-29
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v1.24.0`](#flutter_nekoton_bridge---v1240)
  - [`nekoton_bridge` - `v1.16.0`](#nekoton_bridge---v1160)
  - [`flutter_nekoton_bridge_example` - `v1.16.1`](#flutter_nekoton_bridge_example---v1161)
