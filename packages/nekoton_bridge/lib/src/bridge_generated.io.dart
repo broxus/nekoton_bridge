@@ -2077,6 +2077,22 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       WireSyncReturn Function(
           ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_DynamicValue>)>();
 
+  void wire_set_clock_offset(
+    int port_,
+    int offset_ms,
+  ) {
+    return _wire_set_clock_offset(
+      port_,
+      offset_ms,
+    );
+  }
+
+  late final _wire_set_clock_offsetPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Int64)>>(
+          'wire_set_clock_offset');
+  late final _wire_set_clock_offset =
+      _wire_set_clock_offsetPtr.asFunction<void Function(int, int)>();
+
   void wire_simple_log(
     int port_,
     ffi.Pointer<wire_uint_8_list> string,

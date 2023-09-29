@@ -716,6 +716,9 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_call_send_result(
       String id, List<dynamic> value);
 
+  external dynamic /* void */ wire_set_clock_offset(
+      NativePortType port_, Object offset_ms);
+
   external dynamic /* void */ wire_simple_log(
       NativePortType port_, String string);
 
@@ -1580,6 +1583,9 @@ class NekotonBridgeWire
 
   dynamic /* void */ wire_call_send_result(String id, List<dynamic> value) =>
       wasmModule.wire_call_send_result(id, value);
+
+  void wire_set_clock_offset(NativePortType port_, Object offset_ms) =>
+      wasmModule.wire_set_clock_offset(port_, offset_ms);
 
   void wire_simple_log(NativePortType port_, String string) =>
       wasmModule.wire_simple_log(port_, string);
