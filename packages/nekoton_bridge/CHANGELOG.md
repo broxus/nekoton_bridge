@@ -1,3 +1,8 @@
+## 1.16.0
+
+ - **FEAT**: add clock offset ([#222](https://github.com/broxus/nekoton_bridge/issues/222)). ([a8457b6d](https://github.com/broxus/nekoton_bridge/commit/a8457b6df60ed21305efde135566326567d83ea6))
+ - **FEAT**: empty ([#217](https://github.com/broxus/nekoton_bridge/issues/217)). ([80c18cb1](https://github.com/broxus/nekoton_bridge/commit/80c18cb15753b874f9329364507ed9e0c6f80676))
+
 ## 1.15.1
 
  - **FIX**: fix flutter_rust_bridge version to exact ([#210](https://github.com/broxus/nekoton_bridge/issues/210)). ([43ec5715](https://github.com/broxus/nekoton_bridge/commit/43ec57151230e7c6db7de49b67a16336352fee5d))
