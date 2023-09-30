@@ -1,3 +1,14 @@
+## 1.25.0
+
+ - **FEAT**: add clock offset ([#222](https://github.com/broxus/nekoton_bridge/issues/222)). ([a8457b6d](https://github.com/broxus/nekoton_bridge/commit/a8457b6df60ed21305efde135566326567d83ea6))
+ - **FEAT**: empty ([#217](https://github.com/broxus/nekoton_bridge/issues/217)). ([80c18cb1](https://github.com/broxus/nekoton_bridge/commit/80c18cb15753b874f9329364507ed9e0c6f80676))
+ - **FEAT**: empty thing just to satisfy melos version. ([6457f342](https://github.com/broxus/nekoton_bridge/commit/6457f342129728a00b78465aef6409d8fce09e71))
+
+## 1.24.0
+
+ - **FEAT**: add clock offset ([#222](https://github.com/broxus/nekoton_bridge/issues/222)). ([a8457b6d](https://github.com/broxus/nekoton_bridge/commit/a8457b6df60ed21305efde135566326567d83ea6))
+ - **FEAT**: empty ([#217](https://github.com/broxus/nekoton_bridge/issues/217)). ([80c18cb1](https://github.com/broxus/nekoton_bridge/commit/80c18cb15753b874f9329364507ed9e0c6f80676))
+
 ## 1.23.0
 
  - **FIX**: remove isUtc from DateTimeJsonConverter ([#208](https://github.com/broxus/nekoton_bridge/issues/208)). ([5135f5df](https://github.com/broxus/nekoton_bridge/commit/5135f5dfd4333f280e00fe0ff7a1821120e0b219))

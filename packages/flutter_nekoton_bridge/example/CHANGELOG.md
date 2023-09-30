@@ -1,3 +1,11 @@
+## 1.16.2
+
+ - Update a dependency to the latest release.
+
+## 1.16.1
+
+ - Update a dependency to the latest release.
+
 ## 1.16.0
 
  - **FEAT**: automatically fetch network id in transport initialization ([#209](https://github.com/broxus/nekoton_bridge/issues/209)). ([81fd877e](https://github.com/broxus/nekoton_bridge/commit/81fd877e2c890f8a2cb9c120e6ba92f580488e2c))
