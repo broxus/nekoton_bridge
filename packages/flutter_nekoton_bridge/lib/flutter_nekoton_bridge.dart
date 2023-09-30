@@ -35,10 +35,10 @@ Future<void> setupLogger({
   lib.createLogStream().listen(logHandler);
 }
 
-/// Update clock offset in milliseconds
-Future<void> updateClockOffset(int offsetMs) {
+/// Update clock offset
+Future<void> updateClockOffset(Duration offset) {
   var lib = createLib();
-  return lib.setClockOffset(offsetMs: offsetMs);
+  return lib.setClockOffset(offsetMs: offset.inMilliseconds);
 }
 
 Stream<DartCallStubRegistred>? _caller;
