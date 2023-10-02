@@ -1,3 +1,7 @@
+## 1.25.1
+
+ - **FIX**: updateClockOffset param changed to Duration ([#224](https://github.com/broxus/nekoton_bridge/issues/224)). ([23ca1175](https://github.com/broxus/nekoton_bridge/commit/23ca1175e210dd3b856e49cb8c3292ababcbcd42))
+
 ## 1.25.0
 
  - **FEAT**: add clock offset ([#222](https://github.com/broxus/nekoton_bridge/issues/222)). ([a8457b6d](https://github.com/broxus/nekoton_bridge/commit/a8457b6df60ed21305efde135566326567d83ea6))
