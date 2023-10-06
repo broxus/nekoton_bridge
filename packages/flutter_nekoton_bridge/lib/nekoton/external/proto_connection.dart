@@ -58,7 +58,7 @@ class ProtoConnection extends RustToDartMirrorInterface {
       return await _post(
         endpoint: settings.endpoint,
         headers: {
-          'Content-Type': 'x-protobuf',
+          'Content-Type': 'application/x-protobuf',
         },
         dataBytes: requestData,
       );
