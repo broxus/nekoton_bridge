@@ -1,3 +1,7 @@
+## 1.25.2
+
+ - **FIX**: http header for protobuf ([#226](https://github.com/broxus/nekoton_bridge/issues/226)). ([ade9998e](https://github.com/broxus/nekoton_bridge/commit/ade9998ea41ce9186cfc16ca5dbd5e108a943c79))
+
 ## 1.25.1
 
  - **FIX**: updateClockOffset param changed to Duration ([#224](https://github.com/broxus/nekoton_bridge/issues/224)). ([23ca1175](https://github.com/broxus/nekoton_bridge/commit/23ca1175e210dd3b856e49cb8c3292ababcbcd42))
