@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-10-06
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.25.2`](#flutter_nekoton_bridge---v1252)
+ - [`flutter_nekoton_bridge_example` - `v1.16.4`](#flutter_nekoton_bridge_example---v1164)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.16.4`
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.25.2`
+
+ - **FIX**: http header for protobuf ([#226](https://github.com/broxus/nekoton_bridge/issues/226)). ([ade9998e](https://github.com/broxus/nekoton_bridge/commit/ade9998ea41ce9186cfc16ca5dbd5e108a943c79))
+
+
 ## 2023-10-01
 
 ### Changes
