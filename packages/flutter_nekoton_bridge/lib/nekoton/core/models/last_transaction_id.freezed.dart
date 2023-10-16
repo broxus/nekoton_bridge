@@ -76,11 +76,11 @@ class _$LastTransactionIdCopyWithImpl<$Res, $Val extends LastTransactionId>
 }
 
 /// @nodoc
-abstract class _$$_LastTransactionIdCopyWith<$Res>
+abstract class _$$LastTransactionIdImplCopyWith<$Res>
     implements $LastTransactionIdCopyWith<$Res> {
-  factory _$$_LastTransactionIdCopyWith(_$_LastTransactionId value,
-          $Res Function(_$_LastTransactionId) then) =
-      __$$_LastTransactionIdCopyWithImpl<$Res>;
+  factory _$$LastTransactionIdImplCopyWith(_$LastTransactionIdImpl value,
+          $Res Function(_$LastTransactionIdImpl) then) =
+      __$$LastTransactionIdImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -88,11 +88,11 @@ abstract class _$$_LastTransactionIdCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LastTransactionIdCopyWithImpl<$Res>
-    extends _$LastTransactionIdCopyWithImpl<$Res, _$_LastTransactionId>
-    implements _$$_LastTransactionIdCopyWith<$Res> {
-  __$$_LastTransactionIdCopyWithImpl(
-      _$_LastTransactionId _value, $Res Function(_$_LastTransactionId) _then)
+class __$$LastTransactionIdImplCopyWithImpl<$Res>
+    extends _$LastTransactionIdCopyWithImpl<$Res, _$LastTransactionIdImpl>
+    implements _$$LastTransactionIdImplCopyWith<$Res> {
+  __$$LastTransactionIdImplCopyWithImpl(_$LastTransactionIdImpl _value,
+      $Res Function(_$LastTransactionIdImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -102,7 +102,7 @@ class __$$_LastTransactionIdCopyWithImpl<$Res>
     Object? lt = null,
     Object? hash = freezed,
   }) {
-    return _then(_$_LastTransactionId(
+    return _then(_$LastTransactionIdImpl(
       isExact: null == isExact
           ? _value.isExact
           : isExact // ignore: cast_nullable_to_non_nullable
@@ -121,14 +121,14 @@ class __$$_LastTransactionIdCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LastTransactionId implements _LastTransactionId {
-  const _$_LastTransactionId(
+class _$LastTransactionIdImpl implements _LastTransactionId {
+  const _$LastTransactionIdImpl(
       {required this.isExact,
       required this.lt,
       @JsonKey(includeIfNull: false) this.hash});
 
-  factory _$_LastTransactionId.fromJson(Map<String, dynamic> json) =>
-      _$$_LastTransactionIdFromJson(json);
+  factory _$LastTransactionIdImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LastTransactionIdImplFromJson(json);
 
   @override
   final bool isExact;
@@ -147,7 +147,7 @@ class _$_LastTransactionId implements _LastTransactionId {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LastTransactionId &&
+            other is _$LastTransactionIdImpl &&
             (identical(other.isExact, isExact) || other.isExact == isExact) &&
             (identical(other.lt, lt) || other.lt == lt) &&
             (identical(other.hash, hash) || other.hash == hash));
@@ -160,13 +160,13 @@ class _$_LastTransactionId implements _LastTransactionId {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LastTransactionIdCopyWith<_$_LastTransactionId> get copyWith =>
-      __$$_LastTransactionIdCopyWithImpl<_$_LastTransactionId>(
+  _$$LastTransactionIdImplCopyWith<_$LastTransactionIdImpl> get copyWith =>
+      __$$LastTransactionIdImplCopyWithImpl<_$LastTransactionIdImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LastTransactionIdToJson(
+    return _$$LastTransactionIdImplToJson(
       this,
     );
   }
@@ -177,10 +177,10 @@ abstract class _LastTransactionId implements LastTransactionId {
           {required final bool isExact,
           required final String lt,
           @JsonKey(includeIfNull: false) final String? hash}) =
-      _$_LastTransactionId;
+      _$LastTransactionIdImpl;
 
   factory _LastTransactionId.fromJson(Map<String, dynamic> json) =
-      _$_LastTransactionId.fromJson;
+      _$LastTransactionIdImpl.fromJson;
 
   @override
   bool get isExact;
@@ -191,6 +191,6 @@ abstract class _LastTransactionId implements LastTransactionId {
   String? get hash;
   @override
   @JsonKey(ignore: true)
-  _$$_LastTransactionIdCopyWith<_$_LastTransactionId> get copyWith =>
+  _$$LastTransactionIdImplCopyWith<_$LastTransactionIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

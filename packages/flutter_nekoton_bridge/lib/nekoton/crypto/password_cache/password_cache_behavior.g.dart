@@ -6,28 +6,30 @@ part of 'password_cache_behavior.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Store _$$_StoreFromJson(Map<String, dynamic> json) => _$_Store(
+_$StoreImpl _$$StoreImplFromJson(Map<String, dynamic> json) => _$StoreImpl(
       json['data'] as int,
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_StoreToJson(_$_Store instance) => <String, dynamic>{
+Map<String, dynamic> _$$StoreImplToJson(_$StoreImpl instance) =>
+    <String, dynamic>{
       'data': instance.data,
       'type': instance.$type,
     };
 
-_$_Remove _$$_RemoveFromJson(Map<String, dynamic> json) => _$_Remove(
+_$RemoveImpl _$$RemoveImplFromJson(Map<String, dynamic> json) => _$RemoveImpl(
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_RemoveToJson(_$_Remove instance) => <String, dynamic>{
+Map<String, dynamic> _$$RemoveImplToJson(_$RemoveImpl instance) =>
+    <String, dynamic>{
       'type': instance.$type,
     };
 
-_$_Nop _$$_NopFromJson(Map<String, dynamic> json) => _$_Nop(
+_$NopImpl _$$NopImplFromJson(Map<String, dynamic> json) => _$NopImpl(
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_NopToJson(_$_Nop instance) => <String, dynamic>{
+Map<String, dynamic> _$$NopImplToJson(_$NopImpl instance) => <String, dynamic>{
       'type': instance.$type,
     };

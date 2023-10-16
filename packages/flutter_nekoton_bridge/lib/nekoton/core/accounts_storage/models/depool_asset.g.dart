@@ -6,12 +6,12 @@ part of 'depool_asset.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DePoolAsset _$$_DePoolAssetFromJson(Map<String, dynamic> json) =>
-    _$_DePoolAsset(
+_$DePoolAssetImpl _$$DePoolAssetImplFromJson(Map<String, dynamic> json) =>
+    _$DePoolAssetImpl(
       address: Address.fromJson(json['address'] as String),
     );
 
-Map<String, dynamic> _$$_DePoolAssetToJson(_$_DePoolAsset instance) =>
+Map<String, dynamic> _$$DePoolAssetImplToJson(_$DePoolAssetImpl instance) =>
     <String, dynamic>{
       'address': instance.address.toJson(),
     };

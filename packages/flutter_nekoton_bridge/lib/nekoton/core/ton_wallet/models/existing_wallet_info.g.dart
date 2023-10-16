@@ -6,9 +6,9 @@ part of 'existing_wallet_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ExistingWalletInfo _$$_ExistingWalletInfoFromJson(
+_$ExistingWalletInfoImpl _$$ExistingWalletInfoImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ExistingWalletInfo(
+    _$ExistingWalletInfoImpl(
       address: Address.fromJson(json['address'] as String),
       publicKey: PublicKey.fromJson(json['publicKey'] as String),
       walletType:
@@ -17,8 +17,8 @@ _$_ExistingWalletInfo _$$_ExistingWalletInfoFromJson(
           ContractState.fromJson(json['contractState'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ExistingWalletInfoToJson(
-        _$_ExistingWalletInfo instance) =>
+Map<String, dynamic> _$$ExistingWalletInfoImplToJson(
+        _$ExistingWalletInfoImpl instance) =>
     <String, dynamic>{
       'address': instance.address.toJson(),
       'publicKey': instance.publicKey.toJson(),

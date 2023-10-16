@@ -76,22 +76,24 @@ class _$TransactionsBatchInfoCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_TransactionsBatchInfoCopyWith<$Res>
+abstract class _$$TransactionsBatchInfoImplCopyWith<$Res>
     implements $TransactionsBatchInfoCopyWith<$Res> {
-  factory _$$_TransactionsBatchInfoCopyWith(_$_TransactionsBatchInfo value,
-          $Res Function(_$_TransactionsBatchInfo) then) =
-      __$$_TransactionsBatchInfoCopyWithImpl<$Res>;
+  factory _$$TransactionsBatchInfoImplCopyWith(
+          _$TransactionsBatchInfoImpl value,
+          $Res Function(_$TransactionsBatchInfoImpl) then) =
+      __$$TransactionsBatchInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String minLt, String maxLt, TransactionsBatchType batchType});
 }
 
 /// @nodoc
-class __$$_TransactionsBatchInfoCopyWithImpl<$Res>
-    extends _$TransactionsBatchInfoCopyWithImpl<$Res, _$_TransactionsBatchInfo>
-    implements _$$_TransactionsBatchInfoCopyWith<$Res> {
-  __$$_TransactionsBatchInfoCopyWithImpl(_$_TransactionsBatchInfo _value,
-      $Res Function(_$_TransactionsBatchInfo) _then)
+class __$$TransactionsBatchInfoImplCopyWithImpl<$Res>
+    extends _$TransactionsBatchInfoCopyWithImpl<$Res,
+        _$TransactionsBatchInfoImpl>
+    implements _$$TransactionsBatchInfoImplCopyWith<$Res> {
+  __$$TransactionsBatchInfoImplCopyWithImpl(_$TransactionsBatchInfoImpl _value,
+      $Res Function(_$TransactionsBatchInfoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +103,7 @@ class __$$_TransactionsBatchInfoCopyWithImpl<$Res>
     Object? maxLt = null,
     Object? batchType = null,
   }) {
-    return _then(_$_TransactionsBatchInfo(
+    return _then(_$TransactionsBatchInfoImpl(
       minLt: null == minLt
           ? _value.minLt
           : minLt // ignore: cast_nullable_to_non_nullable
@@ -120,12 +122,12 @@ class __$$_TransactionsBatchInfoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TransactionsBatchInfo implements _TransactionsBatchInfo {
-  const _$_TransactionsBatchInfo(
+class _$TransactionsBatchInfoImpl implements _TransactionsBatchInfo {
+  const _$TransactionsBatchInfoImpl(
       {required this.minLt, required this.maxLt, required this.batchType});
 
-  factory _$_TransactionsBatchInfo.fromJson(Map<String, dynamic> json) =>
-      _$$_TransactionsBatchInfoFromJson(json);
+  factory _$TransactionsBatchInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TransactionsBatchInfoImplFromJson(json);
 
   @override
   final String minLt;
@@ -143,7 +145,7 @@ class _$_TransactionsBatchInfo implements _TransactionsBatchInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TransactionsBatchInfo &&
+            other is _$TransactionsBatchInfoImpl &&
             (identical(other.minLt, minLt) || other.minLt == minLt) &&
             (identical(other.maxLt, maxLt) || other.maxLt == maxLt) &&
             (identical(other.batchType, batchType) ||
@@ -157,13 +159,13 @@ class _$_TransactionsBatchInfo implements _TransactionsBatchInfo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TransactionsBatchInfoCopyWith<_$_TransactionsBatchInfo> get copyWith =>
-      __$$_TransactionsBatchInfoCopyWithImpl<_$_TransactionsBatchInfo>(
-          this, _$identity);
+  _$$TransactionsBatchInfoImplCopyWith<_$TransactionsBatchInfoImpl>
+      get copyWith => __$$TransactionsBatchInfoImplCopyWithImpl<
+          _$TransactionsBatchInfoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TransactionsBatchInfoToJson(
+    return _$$TransactionsBatchInfoImplToJson(
       this,
     );
   }
@@ -174,10 +176,10 @@ abstract class _TransactionsBatchInfo implements TransactionsBatchInfo {
           {required final String minLt,
           required final String maxLt,
           required final TransactionsBatchType batchType}) =
-      _$_TransactionsBatchInfo;
+      _$TransactionsBatchInfoImpl;
 
   factory _TransactionsBatchInfo.fromJson(Map<String, dynamic> json) =
-      _$_TransactionsBatchInfo.fromJson;
+      _$TransactionsBatchInfoImpl.fromJson;
 
   @override
   String get minLt;
@@ -187,6 +189,6 @@ abstract class _TransactionsBatchInfo implements TransactionsBatchInfo {
   TransactionsBatchType get batchType;
   @override
   @JsonKey(ignore: true)
-  _$$_TransactionsBatchInfoCopyWith<_$_TransactionsBatchInfo> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$TransactionsBatchInfoImplCopyWith<_$TransactionsBatchInfoImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

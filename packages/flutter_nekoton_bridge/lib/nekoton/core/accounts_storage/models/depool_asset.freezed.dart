@@ -72,11 +72,11 @@ class _$DePoolAssetCopyWithImpl<$Res, $Val extends DePoolAsset>
 }
 
 /// @nodoc
-abstract class _$$_DePoolAssetCopyWith<$Res>
+abstract class _$$DePoolAssetImplCopyWith<$Res>
     implements $DePoolAssetCopyWith<$Res> {
-  factory _$$_DePoolAssetCopyWith(
-          _$_DePoolAsset value, $Res Function(_$_DePoolAsset) then) =
-      __$$_DePoolAssetCopyWithImpl<$Res>;
+  factory _$$DePoolAssetImplCopyWith(
+          _$DePoolAssetImpl value, $Res Function(_$DePoolAssetImpl) then) =
+      __$$DePoolAssetImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Address address});
@@ -86,11 +86,11 @@ abstract class _$$_DePoolAssetCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DePoolAssetCopyWithImpl<$Res>
-    extends _$DePoolAssetCopyWithImpl<$Res, _$_DePoolAsset>
-    implements _$$_DePoolAssetCopyWith<$Res> {
-  __$$_DePoolAssetCopyWithImpl(
-      _$_DePoolAsset _value, $Res Function(_$_DePoolAsset) _then)
+class __$$DePoolAssetImplCopyWithImpl<$Res>
+    extends _$DePoolAssetCopyWithImpl<$Res, _$DePoolAssetImpl>
+    implements _$$DePoolAssetImplCopyWith<$Res> {
+  __$$DePoolAssetImplCopyWithImpl(
+      _$DePoolAssetImpl _value, $Res Function(_$DePoolAssetImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_DePoolAssetCopyWithImpl<$Res>
   $Res call({
     Object? address = null,
   }) {
-    return _then(_$_DePoolAsset(
+    return _then(_$DePoolAssetImpl(
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -109,11 +109,11 @@ class __$$_DePoolAssetCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DePoolAsset implements _DePoolAsset {
-  const _$_DePoolAsset({required this.address});
+class _$DePoolAssetImpl implements _DePoolAsset {
+  const _$DePoolAssetImpl({required this.address});
 
-  factory _$_DePoolAsset.fromJson(Map<String, dynamic> json) =>
-      _$$_DePoolAssetFromJson(json);
+  factory _$DePoolAssetImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DePoolAssetImplFromJson(json);
 
   @override
   final Address address;
@@ -127,7 +127,7 @@ class _$_DePoolAsset implements _DePoolAsset {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DePoolAsset &&
+            other is _$DePoolAssetImpl &&
             (identical(other.address, address) || other.address == address));
   }
 
@@ -138,27 +138,28 @@ class _$_DePoolAsset implements _DePoolAsset {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DePoolAssetCopyWith<_$_DePoolAsset> get copyWith =>
-      __$$_DePoolAssetCopyWithImpl<_$_DePoolAsset>(this, _$identity);
+  _$$DePoolAssetImplCopyWith<_$DePoolAssetImpl> get copyWith =>
+      __$$DePoolAssetImplCopyWithImpl<_$DePoolAssetImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DePoolAssetToJson(
+    return _$$DePoolAssetImplToJson(
       this,
     );
   }
 }
 
 abstract class _DePoolAsset implements DePoolAsset {
-  const factory _DePoolAsset({required final Address address}) = _$_DePoolAsset;
+  const factory _DePoolAsset({required final Address address}) =
+      _$DePoolAssetImpl;
 
   factory _DePoolAsset.fromJson(Map<String, dynamic> json) =
-      _$_DePoolAsset.fromJson;
+      _$DePoolAssetImpl.fromJson;
 
   @override
   Address get address;
   @override
   @JsonKey(ignore: true)
-  _$$_DePoolAssetCopyWith<_$_DePoolAsset> get copyWith =>
+  _$$DePoolAssetImplCopyWith<_$DePoolAssetImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

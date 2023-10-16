@@ -63,22 +63,22 @@ class _$ProtoNetworkSettingsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ProtoNetworkSettingsCopyWith<$Res>
+abstract class _$$ProtoNetworkSettingsImplCopyWith<$Res>
     implements $ProtoNetworkSettingsCopyWith<$Res> {
-  factory _$$_ProtoNetworkSettingsCopyWith(_$_ProtoNetworkSettings value,
-          $Res Function(_$_ProtoNetworkSettings) then) =
-      __$$_ProtoNetworkSettingsCopyWithImpl<$Res>;
+  factory _$$ProtoNetworkSettingsImplCopyWith(_$ProtoNetworkSettingsImpl value,
+          $Res Function(_$ProtoNetworkSettingsImpl) then) =
+      __$$ProtoNetworkSettingsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String endpoint});
 }
 
 /// @nodoc
-class __$$_ProtoNetworkSettingsCopyWithImpl<$Res>
-    extends _$ProtoNetworkSettingsCopyWithImpl<$Res, _$_ProtoNetworkSettings>
-    implements _$$_ProtoNetworkSettingsCopyWith<$Res> {
-  __$$_ProtoNetworkSettingsCopyWithImpl(_$_ProtoNetworkSettings _value,
-      $Res Function(_$_ProtoNetworkSettings) _then)
+class __$$ProtoNetworkSettingsImplCopyWithImpl<$Res>
+    extends _$ProtoNetworkSettingsCopyWithImpl<$Res, _$ProtoNetworkSettingsImpl>
+    implements _$$ProtoNetworkSettingsImplCopyWith<$Res> {
+  __$$ProtoNetworkSettingsImplCopyWithImpl(_$ProtoNetworkSettingsImpl _value,
+      $Res Function(_$ProtoNetworkSettingsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,7 +86,7 @@ class __$$_ProtoNetworkSettingsCopyWithImpl<$Res>
   $Res call({
     Object? endpoint = null,
   }) {
-    return _then(_$_ProtoNetworkSettings(
+    return _then(_$ProtoNetworkSettingsImpl(
       endpoint: null == endpoint
           ? _value.endpoint
           : endpoint // ignore: cast_nullable_to_non_nullable
@@ -97,11 +97,11 @@ class __$$_ProtoNetworkSettingsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProtoNetworkSettings implements _ProtoNetworkSettings {
-  const _$_ProtoNetworkSettings({required this.endpoint});
+class _$ProtoNetworkSettingsImpl implements _ProtoNetworkSettings {
+  const _$ProtoNetworkSettingsImpl({required this.endpoint});
 
-  factory _$_ProtoNetworkSettings.fromJson(Map<String, dynamic> json) =>
-      _$$_ProtoNetworkSettingsFromJson(json);
+  factory _$ProtoNetworkSettingsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProtoNetworkSettingsImplFromJson(json);
 
   @override
   final String endpoint;
@@ -115,7 +115,7 @@ class _$_ProtoNetworkSettings implements _ProtoNetworkSettings {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProtoNetworkSettings &&
+            other is _$ProtoNetworkSettingsImpl &&
             (identical(other.endpoint, endpoint) ||
                 other.endpoint == endpoint));
   }
@@ -127,13 +127,14 @@ class _$_ProtoNetworkSettings implements _ProtoNetworkSettings {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProtoNetworkSettingsCopyWith<_$_ProtoNetworkSettings> get copyWith =>
-      __$$_ProtoNetworkSettingsCopyWithImpl<_$_ProtoNetworkSettings>(
-          this, _$identity);
+  _$$ProtoNetworkSettingsImplCopyWith<_$ProtoNetworkSettingsImpl>
+      get copyWith =>
+          __$$ProtoNetworkSettingsImplCopyWithImpl<_$ProtoNetworkSettingsImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProtoNetworkSettingsToJson(
+    return _$$ProtoNetworkSettingsImplToJson(
       this,
     );
   }
@@ -141,15 +142,15 @@ class _$_ProtoNetworkSettings implements _ProtoNetworkSettings {
 
 abstract class _ProtoNetworkSettings implements ProtoNetworkSettings {
   const factory _ProtoNetworkSettings({required final String endpoint}) =
-      _$_ProtoNetworkSettings;
+      _$ProtoNetworkSettingsImpl;
 
   factory _ProtoNetworkSettings.fromJson(Map<String, dynamic> json) =
-      _$_ProtoNetworkSettings.fromJson;
+      _$ProtoNetworkSettingsImpl.fromJson;
 
   @override
   String get endpoint;
   @override
   @JsonKey(ignore: true)
-  _$$_ProtoNetworkSettingsCopyWith<_$_ProtoNetworkSettings> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ProtoNetworkSettingsImplCopyWith<_$ProtoNetworkSettingsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

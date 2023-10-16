@@ -6,70 +6,72 @@ part of 'transaction_additional_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Comment _$$_CommentFromJson(Map<String, dynamic> json) => _$_Comment(
+_$CommentImpl _$$CommentImplFromJson(Map<String, dynamic> json) =>
+    _$CommentImpl(
       json['data'] as String,
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_CommentToJson(_$_Comment instance) =>
+Map<String, dynamic> _$$CommentImplToJson(_$CommentImpl instance) =>
     <String, dynamic>{
       'data': instance.data,
       'type': instance.$type,
     };
 
-_$_DePoolOnRoundComplete _$$_DePoolOnRoundCompleteFromJson(
+_$DePoolOnRoundCompleteImpl _$$DePoolOnRoundCompleteImplFromJson(
         Map<String, dynamic> json) =>
-    _$_DePoolOnRoundComplete(
+    _$DePoolOnRoundCompleteImpl(
       DePoolOnRoundCompleteNotification.fromJson(
           json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_DePoolOnRoundCompleteToJson(
-        _$_DePoolOnRoundComplete instance) =>
+Map<String, dynamic> _$$DePoolOnRoundCompleteImplToJson(
+        _$DePoolOnRoundCompleteImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
-_$_DePoolReceiveAnswer _$$_DePoolReceiveAnswerFromJson(
+_$DePoolReceiveAnswerImpl _$$DePoolReceiveAnswerImplFromJson(
         Map<String, dynamic> json) =>
-    _$_DePoolReceiveAnswer(
+    _$DePoolReceiveAnswerImpl(
       DePoolReceiveAnswerNotification.fromJson(
           json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_DePoolReceiveAnswerToJson(
-        _$_DePoolReceiveAnswer instance) =>
+Map<String, dynamic> _$$DePoolReceiveAnswerImplToJson(
+        _$DePoolReceiveAnswerImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
-_$_TokenWalletDeployed _$$_TokenWalletDeployedFromJson(
+_$TokenWalletDeployedImpl _$$TokenWalletDeployedImplFromJson(
         Map<String, dynamic> json) =>
-    _$_TokenWalletDeployed(
+    _$TokenWalletDeployedImpl(
       TokenWalletDeployedNotification.fromJson(
           json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_TokenWalletDeployedToJson(
-        _$_TokenWalletDeployed instance) =>
+Map<String, dynamic> _$$TokenWalletDeployedImplToJson(
+        _$TokenWalletDeployedImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
-_$_WalletInteraction _$$_WalletInteractionFromJson(Map<String, dynamic> json) =>
-    _$_WalletInteraction(
+_$WalletInteractionImpl _$$WalletInteractionImplFromJson(
+        Map<String, dynamic> json) =>
+    _$WalletInteractionImpl(
       WalletInteractionInfo.fromJson(json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_WalletInteractionToJson(
-        _$_WalletInteraction instance) =>
+Map<String, dynamic> _$$WalletInteractionImplToJson(
+        _$WalletInteractionImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,

@@ -118,11 +118,12 @@ class _$WalletInteractionInfoCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_WalletInteractionInfoCopyWith<$Res>
+abstract class _$$WalletInteractionInfoImplCopyWith<$Res>
     implements $WalletInteractionInfoCopyWith<$Res> {
-  factory _$$_WalletInteractionInfoCopyWith(_$_WalletInteractionInfo value,
-          $Res Function(_$_WalletInteractionInfo) then) =
-      __$$_WalletInteractionInfoCopyWithImpl<$Res>;
+  factory _$$WalletInteractionInfoImplCopyWith(
+          _$WalletInteractionInfoImpl value,
+          $Res Function(_$WalletInteractionInfoImpl) then) =
+      __$$WalletInteractionInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -139,11 +140,12 @@ abstract class _$$_WalletInteractionInfoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_WalletInteractionInfoCopyWithImpl<$Res>
-    extends _$WalletInteractionInfoCopyWithImpl<$Res, _$_WalletInteractionInfo>
-    implements _$$_WalletInteractionInfoCopyWith<$Res> {
-  __$$_WalletInteractionInfoCopyWithImpl(_$_WalletInteractionInfo _value,
-      $Res Function(_$_WalletInteractionInfo) _then)
+class __$$WalletInteractionInfoImplCopyWithImpl<$Res>
+    extends _$WalletInteractionInfoCopyWithImpl<$Res,
+        _$WalletInteractionInfoImpl>
+    implements _$$WalletInteractionInfoImplCopyWith<$Res> {
+  __$$WalletInteractionInfoImplCopyWithImpl(_$WalletInteractionInfoImpl _value,
+      $Res Function(_$WalletInteractionInfoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -153,7 +155,7 @@ class __$$_WalletInteractionInfoCopyWithImpl<$Res>
     Object? knownPayload = freezed,
     Object? method = null,
   }) {
-    return _then(_$_WalletInteractionInfo(
+    return _then(_$WalletInteractionInfoImpl(
       recipient: freezed == recipient
           ? _value.recipient
           : recipient // ignore: cast_nullable_to_non_nullable
@@ -172,14 +174,14 @@ class __$$_WalletInteractionInfoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WalletInteractionInfo implements _WalletInteractionInfo {
-  const _$_WalletInteractionInfo(
+class _$WalletInteractionInfoImpl implements _WalletInteractionInfo {
+  const _$WalletInteractionInfoImpl(
       {@JsonKey(includeIfNull: false) @amountJsonConverter this.recipient,
       @JsonKey(includeIfNull: false) this.knownPayload,
       required this.method});
 
-  factory _$_WalletInteractionInfo.fromJson(Map<String, dynamic> json) =>
-      _$$_WalletInteractionInfoFromJson(json);
+  factory _$WalletInteractionInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WalletInteractionInfoImplFromJson(json);
 
   @override
   @JsonKey(includeIfNull: false)
@@ -200,7 +202,7 @@ class _$_WalletInteractionInfo implements _WalletInteractionInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WalletInteractionInfo &&
+            other is _$WalletInteractionInfoImpl &&
             (identical(other.recipient, recipient) ||
                 other.recipient == recipient) &&
             (identical(other.knownPayload, knownPayload) ||
@@ -215,13 +217,13 @@ class _$_WalletInteractionInfo implements _WalletInteractionInfo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WalletInteractionInfoCopyWith<_$_WalletInteractionInfo> get copyWith =>
-      __$$_WalletInteractionInfoCopyWithImpl<_$_WalletInteractionInfo>(
-          this, _$identity);
+  _$$WalletInteractionInfoImplCopyWith<_$WalletInteractionInfoImpl>
+      get copyWith => __$$WalletInteractionInfoImplCopyWithImpl<
+          _$WalletInteractionInfoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WalletInteractionInfoToJson(
+    return _$$WalletInteractionInfoImplToJson(
       this,
     );
   }
@@ -234,10 +236,10 @@ abstract class _WalletInteractionInfo implements WalletInteractionInfo {
           final Address? recipient,
           @JsonKey(includeIfNull: false) final KnownPayload? knownPayload,
           required final WalletInteractionMethod method}) =
-      _$_WalletInteractionInfo;
+      _$WalletInteractionInfoImpl;
 
   factory _WalletInteractionInfo.fromJson(Map<String, dynamic> json) =
-      _$_WalletInteractionInfo.fromJson;
+      _$WalletInteractionInfoImpl.fromJson;
 
   @override
   @JsonKey(includeIfNull: false)
@@ -250,6 +252,6 @@ abstract class _WalletInteractionInfo implements WalletInteractionInfo {
   WalletInteractionMethod get method;
   @override
   @JsonKey(ignore: true)
-  _$$_WalletInteractionInfoCopyWith<_$_WalletInteractionInfo> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$WalletInteractionInfoImplCopyWith<_$WalletInteractionInfoImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

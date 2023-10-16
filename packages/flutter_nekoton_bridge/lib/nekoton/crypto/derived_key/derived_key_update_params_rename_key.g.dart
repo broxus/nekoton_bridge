@@ -6,17 +6,17 @@ part of 'derived_key_update_params_rename_key.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DerivedKeyUpdateParamsRenameKeyRenameKey
-    _$$_DerivedKeyUpdateParamsRenameKeyRenameKeyFromJson(
+_$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl
+    _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplFromJson(
             Map<String, dynamic> json) =>
-        _$_DerivedKeyUpdateParamsRenameKeyRenameKey(
+        _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl(
           masterKey: PublicKey.fromJson(json['master_key'] as String),
           publicKey: PublicKey.fromJson(json['public_key'] as String),
           name: json['name'] as String,
         );
 
-Map<String, dynamic> _$$_DerivedKeyUpdateParamsRenameKeyRenameKeyToJson(
-        _$_DerivedKeyUpdateParamsRenameKeyRenameKey instance) =>
+Map<String, dynamic> _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplToJson(
+        _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl instance) =>
     <String, dynamic>{
       'master_key': instance.masterKey.toJson(),
       'public_key': instance.publicKey.toJson(),

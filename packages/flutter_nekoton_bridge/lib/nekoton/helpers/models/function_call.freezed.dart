@@ -74,22 +74,22 @@ class _$FunctionCallCopyWithImpl<$Res, $Val extends FunctionCall>
 }
 
 /// @nodoc
-abstract class _$$_FunctionCallCopyWith<$Res>
+abstract class _$$FunctionCallImplCopyWith<$Res>
     implements $FunctionCallCopyWith<$Res> {
-  factory _$$_FunctionCallCopyWith(
-          _$_FunctionCall value, $Res Function(_$_FunctionCall) then) =
-      __$$_FunctionCallCopyWithImpl<$Res>;
+  factory _$$FunctionCallImplCopyWith(
+          _$FunctionCallImpl value, $Res Function(_$FunctionCallImpl) then) =
+      __$$FunctionCallImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String abi, String method, Map<String, dynamic> params});
 }
 
 /// @nodoc
-class __$$_FunctionCallCopyWithImpl<$Res>
-    extends _$FunctionCallCopyWithImpl<$Res, _$_FunctionCall>
-    implements _$$_FunctionCallCopyWith<$Res> {
-  __$$_FunctionCallCopyWithImpl(
-      _$_FunctionCall _value, $Res Function(_$_FunctionCall) _then)
+class __$$FunctionCallImplCopyWithImpl<$Res>
+    extends _$FunctionCallCopyWithImpl<$Res, _$FunctionCallImpl>
+    implements _$$FunctionCallImplCopyWith<$Res> {
+  __$$FunctionCallImplCopyWithImpl(
+      _$FunctionCallImpl _value, $Res Function(_$FunctionCallImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_FunctionCallCopyWithImpl<$Res>
     Object? method = null,
     Object? params = null,
   }) {
-    return _then(_$_FunctionCall(
+    return _then(_$FunctionCallImpl(
       abi: null == abi
           ? _value.abi
           : abi // ignore: cast_nullable_to_non_nullable
@@ -118,15 +118,15 @@ class __$$_FunctionCallCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FunctionCall implements _FunctionCall {
-  const _$_FunctionCall(
+class _$FunctionCallImpl implements _FunctionCall {
+  const _$FunctionCallImpl(
       {required this.abi,
       required this.method,
       required final Map<String, dynamic> params})
       : _params = params;
 
-  factory _$_FunctionCall.fromJson(Map<String, dynamic> json) =>
-      _$$_FunctionCallFromJson(json);
+  factory _$FunctionCallImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FunctionCallImplFromJson(json);
 
   @override
   final String abi;
@@ -149,7 +149,7 @@ class _$_FunctionCall implements _FunctionCall {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FunctionCall &&
+            other is _$FunctionCallImpl &&
             (identical(other.abi, abi) || other.abi == abi) &&
             (identical(other.method, method) || other.method == method) &&
             const DeepCollectionEquality().equals(other._params, _params));
@@ -163,12 +163,12 @@ class _$_FunctionCall implements _FunctionCall {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FunctionCallCopyWith<_$_FunctionCall> get copyWith =>
-      __$$_FunctionCallCopyWithImpl<_$_FunctionCall>(this, _$identity);
+  _$$FunctionCallImplCopyWith<_$FunctionCallImpl> get copyWith =>
+      __$$FunctionCallImplCopyWithImpl<_$FunctionCallImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FunctionCallToJson(
+    return _$$FunctionCallImplToJson(
       this,
     );
   }
@@ -178,10 +178,10 @@ abstract class _FunctionCall implements FunctionCall {
   const factory _FunctionCall(
       {required final String abi,
       required final String method,
-      required final Map<String, dynamic> params}) = _$_FunctionCall;
+      required final Map<String, dynamic> params}) = _$FunctionCallImpl;
 
   factory _FunctionCall.fromJson(Map<String, dynamic> json) =
-      _$_FunctionCall.fromJson;
+      _$FunctionCallImpl.fromJson;
 
   @override
   String get abi;
@@ -191,6 +191,6 @@ abstract class _FunctionCall implements FunctionCall {
   Map<String, dynamic> get params;
   @override
   @JsonKey(ignore: true)
-  _$$_FunctionCallCopyWith<_$_FunctionCall> get copyWith =>
+  _$$FunctionCallImplCopyWith<_$FunctionCallImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

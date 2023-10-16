@@ -75,11 +75,11 @@ class _$DecodedTransactionCopyWithImpl<$Res, $Val extends DecodedTransaction>
 }
 
 /// @nodoc
-abstract class _$$_DecodedTransactionCopyWith<$Res>
+abstract class _$$DecodedTransactionImplCopyWith<$Res>
     implements $DecodedTransactionCopyWith<$Res> {
-  factory _$$_DecodedTransactionCopyWith(_$_DecodedTransaction value,
-          $Res Function(_$_DecodedTransaction) then) =
-      __$$_DecodedTransactionCopyWithImpl<$Res>;
+  factory _$$DecodedTransactionImplCopyWith(_$DecodedTransactionImpl value,
+          $Res Function(_$DecodedTransactionImpl) then) =
+      __$$DecodedTransactionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -87,11 +87,11 @@ abstract class _$$_DecodedTransactionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DecodedTransactionCopyWithImpl<$Res>
-    extends _$DecodedTransactionCopyWithImpl<$Res, _$_DecodedTransaction>
-    implements _$$_DecodedTransactionCopyWith<$Res> {
-  __$$_DecodedTransactionCopyWithImpl(
-      _$_DecodedTransaction _value, $Res Function(_$_DecodedTransaction) _then)
+class __$$DecodedTransactionImplCopyWithImpl<$Res>
+    extends _$DecodedTransactionCopyWithImpl<$Res, _$DecodedTransactionImpl>
+    implements _$$DecodedTransactionImplCopyWith<$Res> {
+  __$$DecodedTransactionImplCopyWithImpl(_$DecodedTransactionImpl _value,
+      $Res Function(_$DecodedTransactionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +101,7 @@ class __$$_DecodedTransactionCopyWithImpl<$Res>
     Object? input = null,
     Object? output = null,
   }) {
-    return _then(_$_DecodedTransaction(
+    return _then(_$DecodedTransactionImpl(
       method: null == method
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
@@ -120,16 +120,16 @@ class __$$_DecodedTransactionCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DecodedTransaction implements _DecodedTransaction {
-  const _$_DecodedTransaction(
+class _$DecodedTransactionImpl implements _DecodedTransaction {
+  const _$DecodedTransactionImpl(
       {required this.method,
       required final Map<String, dynamic> input,
       required final Map<String, dynamic> output})
       : _input = input,
         _output = output;
 
-  factory _$_DecodedTransaction.fromJson(Map<String, dynamic> json) =>
-      _$$_DecodedTransactionFromJson(json);
+  factory _$DecodedTransactionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DecodedTransactionImplFromJson(json);
 
   @override
   final String method;
@@ -158,7 +158,7 @@ class _$_DecodedTransaction implements _DecodedTransaction {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DecodedTransaction &&
+            other is _$DecodedTransactionImpl &&
             (identical(other.method, method) || other.method == method) &&
             const DeepCollectionEquality().equals(other._input, _input) &&
             const DeepCollectionEquality().equals(other._output, _output));
@@ -175,13 +175,13 @@ class _$_DecodedTransaction implements _DecodedTransaction {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DecodedTransactionCopyWith<_$_DecodedTransaction> get copyWith =>
-      __$$_DecodedTransactionCopyWithImpl<_$_DecodedTransaction>(
+  _$$DecodedTransactionImplCopyWith<_$DecodedTransactionImpl> get copyWith =>
+      __$$DecodedTransactionImplCopyWithImpl<_$DecodedTransactionImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DecodedTransactionToJson(
+    return _$$DecodedTransactionImplToJson(
       this,
     );
   }
@@ -191,10 +191,10 @@ abstract class _DecodedTransaction implements DecodedTransaction {
   const factory _DecodedTransaction(
       {required final String method,
       required final Map<String, dynamic> input,
-      required final Map<String, dynamic> output}) = _$_DecodedTransaction;
+      required final Map<String, dynamic> output}) = _$DecodedTransactionImpl;
 
   factory _DecodedTransaction.fromJson(Map<String, dynamic> json) =
-      _$_DecodedTransaction.fromJson;
+      _$DecodedTransactionImpl.fromJson;
 
   @override
   String get method;
@@ -204,6 +204,6 @@ abstract class _DecodedTransaction implements DecodedTransaction {
   Map<String, dynamic> get output;
   @override
   @JsonKey(ignore: true)
-  _$$_DecodedTransactionCopyWith<_$_DecodedTransaction> get copyWith =>
+  _$$DecodedTransactionImplCopyWith<_$DecodedTransactionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

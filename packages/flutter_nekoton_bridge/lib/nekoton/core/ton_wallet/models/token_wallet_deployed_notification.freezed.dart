@@ -76,12 +76,12 @@ class _$TokenWalletDeployedNotificationCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_TokenWalletDeployedNotificationCopyWith<$Res>
+abstract class _$$TokenWalletDeployedNotificationImplCopyWith<$Res>
     implements $TokenWalletDeployedNotificationCopyWith<$Res> {
-  factory _$$_TokenWalletDeployedNotificationCopyWith(
-          _$_TokenWalletDeployedNotification value,
-          $Res Function(_$_TokenWalletDeployedNotification) then) =
-      __$$_TokenWalletDeployedNotificationCopyWithImpl<$Res>;
+  factory _$$TokenWalletDeployedNotificationImplCopyWith(
+          _$TokenWalletDeployedNotificationImpl value,
+          $Res Function(_$TokenWalletDeployedNotificationImpl) then) =
+      __$$TokenWalletDeployedNotificationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Address rootTokenContract});
@@ -91,13 +91,13 @@ abstract class _$$_TokenWalletDeployedNotificationCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TokenWalletDeployedNotificationCopyWithImpl<$Res>
+class __$$TokenWalletDeployedNotificationImplCopyWithImpl<$Res>
     extends _$TokenWalletDeployedNotificationCopyWithImpl<$Res,
-        _$_TokenWalletDeployedNotification>
-    implements _$$_TokenWalletDeployedNotificationCopyWith<$Res> {
-  __$$_TokenWalletDeployedNotificationCopyWithImpl(
-      _$_TokenWalletDeployedNotification _value,
-      $Res Function(_$_TokenWalletDeployedNotification) _then)
+        _$TokenWalletDeployedNotificationImpl>
+    implements _$$TokenWalletDeployedNotificationImplCopyWith<$Res> {
+  __$$TokenWalletDeployedNotificationImplCopyWithImpl(
+      _$TokenWalletDeployedNotificationImpl _value,
+      $Res Function(_$TokenWalletDeployedNotificationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -105,7 +105,7 @@ class __$$_TokenWalletDeployedNotificationCopyWithImpl<$Res>
   $Res call({
     Object? rootTokenContract = null,
   }) {
-    return _then(_$_TokenWalletDeployedNotification(
+    return _then(_$TokenWalletDeployedNotificationImpl(
       rootTokenContract: null == rootTokenContract
           ? _value.rootTokenContract
           : rootTokenContract // ignore: cast_nullable_to_non_nullable
@@ -116,13 +116,14 @@ class __$$_TokenWalletDeployedNotificationCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TokenWalletDeployedNotification
+class _$TokenWalletDeployedNotificationImpl
     implements _TokenWalletDeployedNotification {
-  const _$_TokenWalletDeployedNotification({required this.rootTokenContract});
+  const _$TokenWalletDeployedNotificationImpl(
+      {required this.rootTokenContract});
 
-  factory _$_TokenWalletDeployedNotification.fromJson(
+  factory _$TokenWalletDeployedNotificationImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$_TokenWalletDeployedNotificationFromJson(json);
+      _$$TokenWalletDeployedNotificationImplFromJson(json);
 
   @override
   final Address rootTokenContract;
@@ -136,7 +137,7 @@ class _$_TokenWalletDeployedNotification
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TokenWalletDeployedNotification &&
+            other is _$TokenWalletDeployedNotificationImpl &&
             (identical(other.rootTokenContract, rootTokenContract) ||
                 other.rootTokenContract == rootTokenContract));
   }
@@ -148,14 +149,14 @@ class _$_TokenWalletDeployedNotification
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TokenWalletDeployedNotificationCopyWith<
-          _$_TokenWalletDeployedNotification>
-      get copyWith => __$$_TokenWalletDeployedNotificationCopyWithImpl<
-          _$_TokenWalletDeployedNotification>(this, _$identity);
+  _$$TokenWalletDeployedNotificationImplCopyWith<
+          _$TokenWalletDeployedNotificationImpl>
+      get copyWith => __$$TokenWalletDeployedNotificationImplCopyWithImpl<
+          _$TokenWalletDeployedNotificationImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TokenWalletDeployedNotificationToJson(
+    return _$$TokenWalletDeployedNotificationImplToJson(
       this,
     );
   }
@@ -165,16 +166,16 @@ abstract class _TokenWalletDeployedNotification
     implements TokenWalletDeployedNotification {
   const factory _TokenWalletDeployedNotification(
           {required final Address rootTokenContract}) =
-      _$_TokenWalletDeployedNotification;
+      _$TokenWalletDeployedNotificationImpl;
 
   factory _TokenWalletDeployedNotification.fromJson(Map<String, dynamic> json) =
-      _$_TokenWalletDeployedNotification.fromJson;
+      _$TokenWalletDeployedNotificationImpl.fromJson;
 
   @override
   Address get rootTokenContract;
   @override
   @JsonKey(ignore: true)
-  _$$_TokenWalletDeployedNotificationCopyWith<
-          _$_TokenWalletDeployedNotification>
+  _$$TokenWalletDeployedNotificationImplCopyWith<
+          _$TokenWalletDeployedNotificationImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

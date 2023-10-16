@@ -6,9 +6,10 @@ part of 'de_pool_on_round_complete_notification.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DePoolOnRoundCompleteNotification
-    _$$_DePoolOnRoundCompleteNotificationFromJson(Map<String, dynamic> json) =>
-        _$_DePoolOnRoundCompleteNotification(
+_$DePoolOnRoundCompleteNotificationImpl
+    _$$DePoolOnRoundCompleteNotificationImplFromJson(
+            Map<String, dynamic> json) =>
+        _$DePoolOnRoundCompleteNotificationImpl(
           roundId: json['roundId'] as String,
           reward: amountJsonConverter.fromJson(json['reward'] as String),
           ordinaryStake:
@@ -20,8 +21,8 @@ _$_DePoolOnRoundCompleteNotification
           reason: json['reason'] as int,
         );
 
-Map<String, dynamic> _$$_DePoolOnRoundCompleteNotificationToJson(
-        _$_DePoolOnRoundCompleteNotification instance) =>
+Map<String, dynamic> _$$DePoolOnRoundCompleteNotificationImplToJson(
+        _$DePoolOnRoundCompleteNotificationImpl instance) =>
     <String, dynamic>{
       'roundId': instance.roundId,
       'reward': amountJsonConverter.toJson(instance.reward),

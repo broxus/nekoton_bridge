@@ -6,15 +6,15 @@ part of 'decoded_transaction_event.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DecodedTransactionEvent _$$_DecodedTransactionEventFromJson(
+_$DecodedTransactionEventImpl _$$DecodedTransactionEventImplFromJson(
         Map<String, dynamic> json) =>
-    _$_DecodedTransactionEvent(
+    _$DecodedTransactionEventImpl(
       event: json['event'] as String,
       data: json['data'] as Map<String, dynamic>,
     );
 
-Map<String, dynamic> _$$_DecodedTransactionEventToJson(
-        _$_DecodedTransactionEvent instance) =>
+Map<String, dynamic> _$$DecodedTransactionEventImplToJson(
+        _$DecodedTransactionEventImpl instance) =>
     <String, dynamic>{
       'event': instance.event,
       'data': instance.data,

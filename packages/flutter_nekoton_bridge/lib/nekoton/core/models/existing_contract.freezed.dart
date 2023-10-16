@@ -96,11 +96,11 @@ class _$ExistingContractCopyWithImpl<$Res, $Val extends ExistingContract>
 }
 
 /// @nodoc
-abstract class _$$_ExistingContractCopyWith<$Res>
+abstract class _$$ExistingContractImplCopyWith<$Res>
     implements $ExistingContractCopyWith<$Res> {
-  factory _$$_ExistingContractCopyWith(
-          _$_ExistingContract value, $Res Function(_$_ExistingContract) then) =
-      __$$_ExistingContractCopyWithImpl<$Res>;
+  factory _$$ExistingContractImplCopyWith(_$ExistingContractImpl value,
+          $Res Function(_$ExistingContractImpl) then) =
+      __$$ExistingContractImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -115,11 +115,11 @@ abstract class _$$_ExistingContractCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ExistingContractCopyWithImpl<$Res>
-    extends _$ExistingContractCopyWithImpl<$Res, _$_ExistingContract>
-    implements _$$_ExistingContractCopyWith<$Res> {
-  __$$_ExistingContractCopyWithImpl(
-      _$_ExistingContract _value, $Res Function(_$_ExistingContract) _then)
+class __$$ExistingContractImplCopyWithImpl<$Res>
+    extends _$ExistingContractCopyWithImpl<$Res, _$ExistingContractImpl>
+    implements _$$ExistingContractImplCopyWith<$Res> {
+  __$$ExistingContractImplCopyWithImpl(_$ExistingContractImpl _value,
+      $Res Function(_$ExistingContractImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -129,7 +129,7 @@ class __$$_ExistingContractCopyWithImpl<$Res>
     Object? timings = null,
     Object? lastTransactionId = null,
   }) {
-    return _then(_$_ExistingContract(
+    return _then(_$ExistingContractImpl(
       account: null == account
           ? _value.account
           : account // ignore: cast_nullable_to_non_nullable
@@ -148,14 +148,14 @@ class __$$_ExistingContractCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ExistingContract implements _ExistingContract {
-  const _$_ExistingContract(
+class _$ExistingContractImpl implements _ExistingContract {
+  const _$ExistingContractImpl(
       {required this.account,
       required this.timings,
       required this.lastTransactionId});
 
-  factory _$_ExistingContract.fromJson(Map<String, dynamic> json) =>
-      _$$_ExistingContractFromJson(json);
+  factory _$ExistingContractImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ExistingContractImplFromJson(json);
 
   @override
   final String account;
@@ -173,7 +173,7 @@ class _$_ExistingContract implements _ExistingContract {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ExistingContract &&
+            other is _$ExistingContractImpl &&
             (identical(other.account, account) || other.account == account) &&
             (identical(other.timings, timings) || other.timings == timings) &&
             (identical(other.lastTransactionId, lastTransactionId) ||
@@ -188,12 +188,13 @@ class _$_ExistingContract implements _ExistingContract {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ExistingContractCopyWith<_$_ExistingContract> get copyWith =>
-      __$$_ExistingContractCopyWithImpl<_$_ExistingContract>(this, _$identity);
+  _$$ExistingContractImplCopyWith<_$ExistingContractImpl> get copyWith =>
+      __$$ExistingContractImplCopyWithImpl<_$ExistingContractImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ExistingContractToJson(
+    return _$$ExistingContractImplToJson(
       this,
     );
   }
@@ -204,10 +205,10 @@ abstract class _ExistingContract implements ExistingContract {
           {required final String account,
           required final GenTimings timings,
           required final LastTransactionId lastTransactionId}) =
-      _$_ExistingContract;
+      _$ExistingContractImpl;
 
   factory _ExistingContract.fromJson(Map<String, dynamic> json) =
-      _$_ExistingContract.fromJson;
+      _$ExistingContractImpl.fromJson;
 
   @override
   String get account;
@@ -217,6 +218,6 @@ abstract class _ExistingContract implements ExistingContract {
   LastTransactionId get lastTransactionId;
   @override
   @JsonKey(ignore: true)
-  _$$_ExistingContractCopyWith<_$_ExistingContract> get copyWith =>
+  _$$ExistingContractImplCopyWith<_$ExistingContractImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

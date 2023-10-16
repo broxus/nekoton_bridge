@@ -6,8 +6,9 @@ part of 'internal_message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_InternalMessage _$$_InternalMessageFromJson(Map<String, dynamic> json) =>
-    _$_InternalMessage(
+_$InternalMessageImpl _$$InternalMessageImplFromJson(
+        Map<String, dynamic> json) =>
+    _$InternalMessageImpl(
       source: json['source'] == null
           ? null
           : Address.fromJson(json['source'] as String),
@@ -17,7 +18,8 @@ _$_InternalMessage _$$_InternalMessageFromJson(Map<String, dynamic> json) =>
       body: json['body'] as String,
     );
 
-Map<String, dynamic> _$$_InternalMessageToJson(_$_InternalMessage instance) =>
+Map<String, dynamic> _$$InternalMessageImplToJson(
+        _$InternalMessageImpl instance) =>
     <String, dynamic>{
       'source': instance.source?.toJson(),
       'destination': instance.destination.toJson(),

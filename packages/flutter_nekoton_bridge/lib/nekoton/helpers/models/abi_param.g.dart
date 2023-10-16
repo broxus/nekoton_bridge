@@ -6,7 +6,8 @@ part of 'abi_param.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AbiParam _$$_AbiParamFromJson(Map<String, dynamic> json) => _$_AbiParam(
+_$AbiParamImpl _$$AbiParamImplFromJson(Map<String, dynamic> json) =>
+    _$AbiParamImpl(
       name: json['name'] as String,
       type: json['type'] as String,
       components: (json['components'] as List<dynamic>?)
@@ -14,7 +15,7 @@ _$_AbiParam _$$_AbiParamFromJson(Map<String, dynamic> json) => _$_AbiParam(
           .toList(),
     );
 
-Map<String, dynamic> _$$_AbiParamToJson(_$_AbiParam instance) =>
+Map<String, dynamic> _$$AbiParamImplToJson(_$AbiParamImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'type': instance.type,

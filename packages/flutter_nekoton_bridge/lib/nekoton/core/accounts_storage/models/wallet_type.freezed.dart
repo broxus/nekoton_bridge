@@ -105,20 +105,20 @@ class _$WalletTypeCopyWithImpl<$Res, $Val extends WalletType>
 }
 
 /// @nodoc
-abstract class _$$_MultisigCopyWith<$Res> {
-  factory _$$_MultisigCopyWith(
-          _$_Multisig value, $Res Function(_$_Multisig) then) =
-      __$$_MultisigCopyWithImpl<$Res>;
+abstract class _$$MultisigImplCopyWith<$Res> {
+  factory _$$MultisigImplCopyWith(
+          _$MultisigImpl value, $Res Function(_$MultisigImpl) then) =
+      __$$MultisigImplCopyWithImpl<$Res>;
   @useResult
   $Res call({MultisigType data});
 }
 
 /// @nodoc
-class __$$_MultisigCopyWithImpl<$Res>
-    extends _$WalletTypeCopyWithImpl<$Res, _$_Multisig>
-    implements _$$_MultisigCopyWith<$Res> {
-  __$$_MultisigCopyWithImpl(
-      _$_Multisig _value, $Res Function(_$_Multisig) _then)
+class __$$MultisigImplCopyWithImpl<$Res>
+    extends _$WalletTypeCopyWithImpl<$Res, _$MultisigImpl>
+    implements _$$MultisigImplCopyWith<$Res> {
+  __$$MultisigImplCopyWithImpl(
+      _$MultisigImpl _value, $Res Function(_$MultisigImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -126,7 +126,7 @@ class __$$_MultisigCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Multisig(
+    return _then(_$MultisigImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -137,12 +137,12 @@ class __$$_MultisigCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Multisig implements _Multisig {
-  const _$_Multisig(this.data, {final String? $type})
+class _$MultisigImpl implements _Multisig {
+  const _$MultisigImpl(this.data, {final String? $type})
       : $type = $type ?? 'multisig';
 
-  factory _$_Multisig.fromJson(Map<String, dynamic> json) =>
-      _$$_MultisigFromJson(json);
+  factory _$MultisigImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MultisigImplFromJson(json);
 
   @override
   final MultisigType data;
@@ -159,7 +159,7 @@ class _$_Multisig implements _Multisig {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Multisig &&
+            other is _$MultisigImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -170,8 +170,8 @@ class _$_Multisig implements _Multisig {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MultisigCopyWith<_$_Multisig> get copyWith =>
-      __$$_MultisigCopyWithImpl<_$_Multisig>(this, _$identity);
+  _$$MultisigImplCopyWith<_$MultisigImpl> get copyWith =>
+      __$$MultisigImplCopyWithImpl<_$MultisigImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -249,46 +249,47 @@ class _$_Multisig implements _Multisig {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MultisigToJson(
+    return _$$MultisigImplToJson(
       this,
     );
   }
 }
 
 abstract class _Multisig implements WalletType {
-  const factory _Multisig(final MultisigType data) = _$_Multisig;
+  const factory _Multisig(final MultisigType data) = _$MultisigImpl;
 
-  factory _Multisig.fromJson(Map<String, dynamic> json) = _$_Multisig.fromJson;
+  factory _Multisig.fromJson(Map<String, dynamic> json) =
+      _$MultisigImpl.fromJson;
 
   MultisigType get data;
   @JsonKey(ignore: true)
-  _$$_MultisigCopyWith<_$_Multisig> get copyWith =>
+  _$$MultisigImplCopyWith<_$MultisigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_WalletV3CopyWith<$Res> {
-  factory _$$_WalletV3CopyWith(
-          _$_WalletV3 value, $Res Function(_$_WalletV3) then) =
-      __$$_WalletV3CopyWithImpl<$Res>;
+abstract class _$$WalletV3ImplCopyWith<$Res> {
+  factory _$$WalletV3ImplCopyWith(
+          _$WalletV3Impl value, $Res Function(_$WalletV3Impl) then) =
+      __$$WalletV3ImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_WalletV3CopyWithImpl<$Res>
-    extends _$WalletTypeCopyWithImpl<$Res, _$_WalletV3>
-    implements _$$_WalletV3CopyWith<$Res> {
-  __$$_WalletV3CopyWithImpl(
-      _$_WalletV3 _value, $Res Function(_$_WalletV3) _then)
+class __$$WalletV3ImplCopyWithImpl<$Res>
+    extends _$WalletTypeCopyWithImpl<$Res, _$WalletV3Impl>
+    implements _$$WalletV3ImplCopyWith<$Res> {
+  __$$WalletV3ImplCopyWithImpl(
+      _$WalletV3Impl _value, $Res Function(_$WalletV3Impl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_WalletV3 implements _WalletV3 {
-  const _$_WalletV3({final String? $type}) : $type = $type ?? 'walletV3';
+class _$WalletV3Impl implements _WalletV3 {
+  const _$WalletV3Impl({final String? $type}) : $type = $type ?? 'walletV3';
 
-  factory _$_WalletV3.fromJson(Map<String, dynamic> json) =>
-      _$$_WalletV3FromJson(json);
+  factory _$WalletV3Impl.fromJson(Map<String, dynamic> json) =>
+      _$$WalletV3ImplFromJson(json);
 
   @JsonKey(name: 'type')
   final String $type;
@@ -301,7 +302,7 @@ class _$_WalletV3 implements _WalletV3 {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_WalletV3);
+        (other.runtimeType == runtimeType && other is _$WalletV3Impl);
   }
 
   @JsonKey(ignore: true)
@@ -384,42 +385,43 @@ class _$_WalletV3 implements _WalletV3 {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WalletV3ToJson(
+    return _$$WalletV3ImplToJson(
       this,
     );
   }
 }
 
 abstract class _WalletV3 implements WalletType {
-  const factory _WalletV3() = _$_WalletV3;
+  const factory _WalletV3() = _$WalletV3Impl;
 
-  factory _WalletV3.fromJson(Map<String, dynamic> json) = _$_WalletV3.fromJson;
+  factory _WalletV3.fromJson(Map<String, dynamic> json) =
+      _$WalletV3Impl.fromJson;
 }
 
 /// @nodoc
-abstract class _$$_HighloadWalletV2CopyWith<$Res> {
-  factory _$$_HighloadWalletV2CopyWith(
-          _$_HighloadWalletV2 value, $Res Function(_$_HighloadWalletV2) then) =
-      __$$_HighloadWalletV2CopyWithImpl<$Res>;
+abstract class _$$HighloadWalletV2ImplCopyWith<$Res> {
+  factory _$$HighloadWalletV2ImplCopyWith(_$HighloadWalletV2Impl value,
+          $Res Function(_$HighloadWalletV2Impl) then) =
+      __$$HighloadWalletV2ImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_HighloadWalletV2CopyWithImpl<$Res>
-    extends _$WalletTypeCopyWithImpl<$Res, _$_HighloadWalletV2>
-    implements _$$_HighloadWalletV2CopyWith<$Res> {
-  __$$_HighloadWalletV2CopyWithImpl(
-      _$_HighloadWalletV2 _value, $Res Function(_$_HighloadWalletV2) _then)
+class __$$HighloadWalletV2ImplCopyWithImpl<$Res>
+    extends _$WalletTypeCopyWithImpl<$Res, _$HighloadWalletV2Impl>
+    implements _$$HighloadWalletV2ImplCopyWith<$Res> {
+  __$$HighloadWalletV2ImplCopyWithImpl(_$HighloadWalletV2Impl _value,
+      $Res Function(_$HighloadWalletV2Impl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_HighloadWalletV2 implements _HighloadWalletV2 {
-  const _$_HighloadWalletV2({final String? $type})
+class _$HighloadWalletV2Impl implements _HighloadWalletV2 {
+  const _$HighloadWalletV2Impl({final String? $type})
       : $type = $type ?? 'highloadWalletV2';
 
-  factory _$_HighloadWalletV2.fromJson(Map<String, dynamic> json) =>
-      _$$_HighloadWalletV2FromJson(json);
+  factory _$HighloadWalletV2Impl.fromJson(Map<String, dynamic> json) =>
+      _$$HighloadWalletV2ImplFromJson(json);
 
   @JsonKey(name: 'type')
   final String $type;
@@ -432,7 +434,7 @@ class _$_HighloadWalletV2 implements _HighloadWalletV2 {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_HighloadWalletV2);
+        (other.runtimeType == runtimeType && other is _$HighloadWalletV2Impl);
   }
 
   @JsonKey(ignore: true)
@@ -515,43 +517,43 @@ class _$_HighloadWalletV2 implements _HighloadWalletV2 {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HighloadWalletV2ToJson(
+    return _$$HighloadWalletV2ImplToJson(
       this,
     );
   }
 }
 
 abstract class _HighloadWalletV2 implements WalletType {
-  const factory _HighloadWalletV2() = _$_HighloadWalletV2;
+  const factory _HighloadWalletV2() = _$HighloadWalletV2Impl;
 
   factory _HighloadWalletV2.fromJson(Map<String, dynamic> json) =
-      _$_HighloadWalletV2.fromJson;
+      _$HighloadWalletV2Impl.fromJson;
 }
 
 /// @nodoc
-abstract class _$$_WalletTypeEverWalletCopyWith<$Res> {
-  factory _$$_WalletTypeEverWalletCopyWith(_$_WalletTypeEverWallet value,
-          $Res Function(_$_WalletTypeEverWallet) then) =
-      __$$_WalletTypeEverWalletCopyWithImpl<$Res>;
+abstract class _$$WalletTypeEverWalletImplCopyWith<$Res> {
+  factory _$$WalletTypeEverWalletImplCopyWith(_$WalletTypeEverWalletImpl value,
+          $Res Function(_$WalletTypeEverWalletImpl) then) =
+      __$$WalletTypeEverWalletImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_WalletTypeEverWalletCopyWithImpl<$Res>
-    extends _$WalletTypeCopyWithImpl<$Res, _$_WalletTypeEverWallet>
-    implements _$$_WalletTypeEverWalletCopyWith<$Res> {
-  __$$_WalletTypeEverWalletCopyWithImpl(_$_WalletTypeEverWallet _value,
-      $Res Function(_$_WalletTypeEverWallet) _then)
+class __$$WalletTypeEverWalletImplCopyWithImpl<$Res>
+    extends _$WalletTypeCopyWithImpl<$Res, _$WalletTypeEverWalletImpl>
+    implements _$$WalletTypeEverWalletImplCopyWith<$Res> {
+  __$$WalletTypeEverWalletImplCopyWithImpl(_$WalletTypeEverWalletImpl _value,
+      $Res Function(_$WalletTypeEverWalletImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_WalletTypeEverWallet implements _WalletTypeEverWallet {
-  const _$_WalletTypeEverWallet({final String? $type})
+class _$WalletTypeEverWalletImpl implements _WalletTypeEverWallet {
+  const _$WalletTypeEverWalletImpl({final String? $type})
       : $type = $type ?? 'everWallet';
 
-  factory _$_WalletTypeEverWallet.fromJson(Map<String, dynamic> json) =>
-      _$$_WalletTypeEverWalletFromJson(json);
+  factory _$WalletTypeEverWalletImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WalletTypeEverWalletImplFromJson(json);
 
   @JsonKey(name: 'type')
   final String $type;
@@ -564,7 +566,8 @@ class _$_WalletTypeEverWallet implements _WalletTypeEverWallet {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_WalletTypeEverWallet);
+        (other.runtimeType == runtimeType &&
+            other is _$WalletTypeEverWalletImpl);
   }
 
   @JsonKey(ignore: true)
@@ -647,15 +650,15 @@ class _$_WalletTypeEverWallet implements _WalletTypeEverWallet {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WalletTypeEverWalletToJson(
+    return _$$WalletTypeEverWalletImplToJson(
       this,
     );
   }
 }
 
 abstract class _WalletTypeEverWallet implements WalletType {
-  const factory _WalletTypeEverWallet() = _$_WalletTypeEverWallet;
+  const factory _WalletTypeEverWallet() = _$WalletTypeEverWalletImpl;
 
   factory _WalletTypeEverWallet.fromJson(Map<String, dynamic> json) =
-      _$_WalletTypeEverWallet.fromJson;
+      _$WalletTypeEverWalletImpl.fromJson;
 }

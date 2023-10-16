@@ -91,29 +91,29 @@ class _$WalletInteractionMethodCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_WalletV3TransferCopyWith<$Res> {
-  factory _$$_WalletV3TransferCopyWith(
-          _$_WalletV3Transfer value, $Res Function(_$_WalletV3Transfer) then) =
-      __$$_WalletV3TransferCopyWithImpl<$Res>;
+abstract class _$$WalletV3TransferImplCopyWith<$Res> {
+  factory _$$WalletV3TransferImplCopyWith(_$WalletV3TransferImpl value,
+          $Res Function(_$WalletV3TransferImpl) then) =
+      __$$WalletV3TransferImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_WalletV3TransferCopyWithImpl<$Res>
-    extends _$WalletInteractionMethodCopyWithImpl<$Res, _$_WalletV3Transfer>
-    implements _$$_WalletV3TransferCopyWith<$Res> {
-  __$$_WalletV3TransferCopyWithImpl(
-      _$_WalletV3Transfer _value, $Res Function(_$_WalletV3Transfer) _then)
+class __$$WalletV3TransferImplCopyWithImpl<$Res>
+    extends _$WalletInteractionMethodCopyWithImpl<$Res, _$WalletV3TransferImpl>
+    implements _$$WalletV3TransferImplCopyWith<$Res> {
+  __$$WalletV3TransferImplCopyWithImpl(_$WalletV3TransferImpl _value,
+      $Res Function(_$WalletV3TransferImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_WalletV3Transfer implements _WalletV3Transfer {
-  const _$_WalletV3Transfer({final String? $type})
+class _$WalletV3TransferImpl implements _WalletV3Transfer {
+  const _$WalletV3TransferImpl({final String? $type})
       : $type = $type ?? 'wallet_v3_transfer';
 
-  factory _$_WalletV3Transfer.fromJson(Map<String, dynamic> json) =>
-      _$$_WalletV3TransferFromJson(json);
+  factory _$WalletV3TransferImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WalletV3TransferImplFromJson(json);
 
   @JsonKey(name: 'type')
   final String $type;
@@ -126,7 +126,7 @@ class _$_WalletV3Transfer implements _WalletV3Transfer {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_WalletV3Transfer);
+        (other.runtimeType == runtimeType && other is _$WalletV3TransferImpl);
   }
 
   @JsonKey(ignore: true)
@@ -197,24 +197,24 @@ class _$_WalletV3Transfer implements _WalletV3Transfer {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WalletV3TransferToJson(
+    return _$$WalletV3TransferImplToJson(
       this,
     );
   }
 }
 
 abstract class _WalletV3Transfer implements WalletInteractionMethod {
-  const factory _WalletV3Transfer() = _$_WalletV3Transfer;
+  const factory _WalletV3Transfer() = _$WalletV3TransferImpl;
 
   factory _WalletV3Transfer.fromJson(Map<String, dynamic> json) =
-      _$_WalletV3Transfer.fromJson;
+      _$WalletV3TransferImpl.fromJson;
 }
 
 /// @nodoc
-abstract class _$$_MultisigCopyWith<$Res> {
-  factory _$$_MultisigCopyWith(
-          _$_Multisig value, $Res Function(_$_Multisig) then) =
-      __$$_MultisigCopyWithImpl<$Res>;
+abstract class _$$MultisigImplCopyWith<$Res> {
+  factory _$$MultisigImplCopyWith(
+          _$MultisigImpl value, $Res Function(_$MultisigImpl) then) =
+      __$$MultisigImplCopyWithImpl<$Res>;
   @useResult
   $Res call({MultisigTransaction data});
 
@@ -222,11 +222,11 @@ abstract class _$$_MultisigCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_MultisigCopyWithImpl<$Res>
-    extends _$WalletInteractionMethodCopyWithImpl<$Res, _$_Multisig>
-    implements _$$_MultisigCopyWith<$Res> {
-  __$$_MultisigCopyWithImpl(
-      _$_Multisig _value, $Res Function(_$_Multisig) _then)
+class __$$MultisigImplCopyWithImpl<$Res>
+    extends _$WalletInteractionMethodCopyWithImpl<$Res, _$MultisigImpl>
+    implements _$$MultisigImplCopyWith<$Res> {
+  __$$MultisigImplCopyWithImpl(
+      _$MultisigImpl _value, $Res Function(_$MultisigImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -234,7 +234,7 @@ class __$$_MultisigCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Multisig(
+    return _then(_$MultisigImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -253,12 +253,12 @@ class __$$_MultisigCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Multisig implements _Multisig {
-  const _$_Multisig(this.data, {final String? $type})
+class _$MultisigImpl implements _Multisig {
+  const _$MultisigImpl(this.data, {final String? $type})
       : $type = $type ?? 'multisig';
 
-  factory _$_Multisig.fromJson(Map<String, dynamic> json) =>
-      _$$_MultisigFromJson(json);
+  factory _$MultisigImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MultisigImplFromJson(json);
 
   @override
   final MultisigTransaction data;
@@ -275,7 +275,7 @@ class _$_Multisig implements _Multisig {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Multisig &&
+            other is _$MultisigImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -286,8 +286,8 @@ class _$_Multisig implements _Multisig {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MultisigCopyWith<_$_Multisig> get copyWith =>
-      __$$_MultisigCopyWithImpl<_$_Multisig>(this, _$identity);
+  _$$MultisigImplCopyWith<_$MultisigImpl> get copyWith =>
+      __$$MultisigImplCopyWithImpl<_$MultisigImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -353,19 +353,20 @@ class _$_Multisig implements _Multisig {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MultisigToJson(
+    return _$$MultisigImplToJson(
       this,
     );
   }
 }
 
 abstract class _Multisig implements WalletInteractionMethod {
-  const factory _Multisig(final MultisigTransaction data) = _$_Multisig;
+  const factory _Multisig(final MultisigTransaction data) = _$MultisigImpl;
 
-  factory _Multisig.fromJson(Map<String, dynamic> json) = _$_Multisig.fromJson;
+  factory _Multisig.fromJson(Map<String, dynamic> json) =
+      _$MultisigImpl.fromJson;
 
   MultisigTransaction get data;
   @JsonKey(ignore: true)
-  _$$_MultisigCopyWith<_$_Multisig> get copyWith =>
+  _$$MultisigImplCopyWith<_$MultisigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

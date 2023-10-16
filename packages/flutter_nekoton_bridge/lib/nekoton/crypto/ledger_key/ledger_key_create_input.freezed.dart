@@ -69,22 +69,22 @@ class _$LedgerKeyCreateInputCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LedgerKeyCreateInputCopyWith<$Res>
+abstract class _$$LedgerKeyCreateInputImplCopyWith<$Res>
     implements $LedgerKeyCreateInputCopyWith<$Res> {
-  factory _$$_LedgerKeyCreateInputCopyWith(_$_LedgerKeyCreateInput value,
-          $Res Function(_$_LedgerKeyCreateInput) then) =
-      __$$_LedgerKeyCreateInputCopyWithImpl<$Res>;
+  factory _$$LedgerKeyCreateInputImplCopyWith(_$LedgerKeyCreateInputImpl value,
+          $Res Function(_$LedgerKeyCreateInputImpl) then) =
+      __$$LedgerKeyCreateInputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? name, int accountId});
 }
 
 /// @nodoc
-class __$$_LedgerKeyCreateInputCopyWithImpl<$Res>
-    extends _$LedgerKeyCreateInputCopyWithImpl<$Res, _$_LedgerKeyCreateInput>
-    implements _$$_LedgerKeyCreateInputCopyWith<$Res> {
-  __$$_LedgerKeyCreateInputCopyWithImpl(_$_LedgerKeyCreateInput _value,
-      $Res Function(_$_LedgerKeyCreateInput) _then)
+class __$$LedgerKeyCreateInputImplCopyWithImpl<$Res>
+    extends _$LedgerKeyCreateInputCopyWithImpl<$Res, _$LedgerKeyCreateInputImpl>
+    implements _$$LedgerKeyCreateInputImplCopyWith<$Res> {
+  __$$LedgerKeyCreateInputImplCopyWithImpl(_$LedgerKeyCreateInputImpl _value,
+      $Res Function(_$LedgerKeyCreateInputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +93,7 @@ class __$$_LedgerKeyCreateInputCopyWithImpl<$Res>
     Object? name = freezed,
     Object? accountId = null,
   }) {
-    return _then(_$_LedgerKeyCreateInput(
+    return _then(_$LedgerKeyCreateInputImpl(
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -108,11 +108,11 @@ class __$$_LedgerKeyCreateInputCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LedgerKeyCreateInput implements _LedgerKeyCreateInput {
-  const _$_LedgerKeyCreateInput({this.name, required this.accountId});
+class _$LedgerKeyCreateInputImpl implements _LedgerKeyCreateInput {
+  const _$LedgerKeyCreateInputImpl({this.name, required this.accountId});
 
-  factory _$_LedgerKeyCreateInput.fromJson(Map<String, dynamic> json) =>
-      _$$_LedgerKeyCreateInputFromJson(json);
+  factory _$LedgerKeyCreateInputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LedgerKeyCreateInputImplFromJson(json);
 
   @override
   final String? name;
@@ -128,7 +128,7 @@ class _$_LedgerKeyCreateInput implements _LedgerKeyCreateInput {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LedgerKeyCreateInput &&
+            other is _$LedgerKeyCreateInputImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.accountId, accountId) ||
                 other.accountId == accountId));
@@ -141,13 +141,14 @@ class _$_LedgerKeyCreateInput implements _LedgerKeyCreateInput {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LedgerKeyCreateInputCopyWith<_$_LedgerKeyCreateInput> get copyWith =>
-      __$$_LedgerKeyCreateInputCopyWithImpl<_$_LedgerKeyCreateInput>(
-          this, _$identity);
+  _$$LedgerKeyCreateInputImplCopyWith<_$LedgerKeyCreateInputImpl>
+      get copyWith =>
+          __$$LedgerKeyCreateInputImplCopyWithImpl<_$LedgerKeyCreateInputImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LedgerKeyCreateInputToJson(
+    return _$$LedgerKeyCreateInputImplToJson(
       this,
     );
   }
@@ -156,10 +157,10 @@ class _$_LedgerKeyCreateInput implements _LedgerKeyCreateInput {
 abstract class _LedgerKeyCreateInput implements LedgerKeyCreateInput {
   const factory _LedgerKeyCreateInput(
       {final String? name,
-      required final int accountId}) = _$_LedgerKeyCreateInput;
+      required final int accountId}) = _$LedgerKeyCreateInputImpl;
 
   factory _LedgerKeyCreateInput.fromJson(Map<String, dynamic> json) =
-      _$_LedgerKeyCreateInput.fromJson;
+      _$LedgerKeyCreateInputImpl.fromJson;
 
   @override
   String? get name;
@@ -167,6 +168,6 @@ abstract class _LedgerKeyCreateInput implements LedgerKeyCreateInput {
   int get accountId;
   @override
   @JsonKey(ignore: true)
-  _$$_LedgerKeyCreateInputCopyWith<_$_LedgerKeyCreateInput> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$LedgerKeyCreateInputImplCopyWith<_$LedgerKeyCreateInputImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

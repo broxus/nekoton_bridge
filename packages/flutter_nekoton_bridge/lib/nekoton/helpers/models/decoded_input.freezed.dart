@@ -68,22 +68,22 @@ class _$DecodedInputCopyWithImpl<$Res, $Val extends DecodedInput>
 }
 
 /// @nodoc
-abstract class _$$_DecodedInputCopyWith<$Res>
+abstract class _$$DecodedInputImplCopyWith<$Res>
     implements $DecodedInputCopyWith<$Res> {
-  factory _$$_DecodedInputCopyWith(
-          _$_DecodedInput value, $Res Function(_$_DecodedInput) then) =
-      __$$_DecodedInputCopyWithImpl<$Res>;
+  factory _$$DecodedInputImplCopyWith(
+          _$DecodedInputImpl value, $Res Function(_$DecodedInputImpl) then) =
+      __$$DecodedInputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String method, Map<String, dynamic> input});
 }
 
 /// @nodoc
-class __$$_DecodedInputCopyWithImpl<$Res>
-    extends _$DecodedInputCopyWithImpl<$Res, _$_DecodedInput>
-    implements _$$_DecodedInputCopyWith<$Res> {
-  __$$_DecodedInputCopyWithImpl(
-      _$_DecodedInput _value, $Res Function(_$_DecodedInput) _then)
+class __$$DecodedInputImplCopyWithImpl<$Res>
+    extends _$DecodedInputCopyWithImpl<$Res, _$DecodedInputImpl>
+    implements _$$DecodedInputImplCopyWith<$Res> {
+  __$$DecodedInputImplCopyWithImpl(
+      _$DecodedInputImpl _value, $Res Function(_$DecodedInputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_DecodedInputCopyWithImpl<$Res>
     Object? method = null,
     Object? input = null,
   }) {
-    return _then(_$_DecodedInput(
+    return _then(_$DecodedInputImpl(
       method: null == method
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
@@ -107,13 +107,13 @@ class __$$_DecodedInputCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DecodedInput implements _DecodedInput {
-  const _$_DecodedInput(
+class _$DecodedInputImpl implements _DecodedInput {
+  const _$DecodedInputImpl(
       {required this.method, required final Map<String, dynamic> input})
       : _input = input;
 
-  factory _$_DecodedInput.fromJson(Map<String, dynamic> json) =>
-      _$$_DecodedInputFromJson(json);
+  factory _$DecodedInputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DecodedInputImplFromJson(json);
 
   @override
   final String method;
@@ -134,7 +134,7 @@ class _$_DecodedInput implements _DecodedInput {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DecodedInput &&
+            other is _$DecodedInputImpl &&
             (identical(other.method, method) || other.method == method) &&
             const DeepCollectionEquality().equals(other._input, _input));
   }
@@ -147,12 +147,12 @@ class _$_DecodedInput implements _DecodedInput {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DecodedInputCopyWith<_$_DecodedInput> get copyWith =>
-      __$$_DecodedInputCopyWithImpl<_$_DecodedInput>(this, _$identity);
+  _$$DecodedInputImplCopyWith<_$DecodedInputImpl> get copyWith =>
+      __$$DecodedInputImplCopyWithImpl<_$DecodedInputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DecodedInputToJson(
+    return _$$DecodedInputImplToJson(
       this,
     );
   }
@@ -161,10 +161,10 @@ class _$_DecodedInput implements _DecodedInput {
 abstract class _DecodedInput implements DecodedInput {
   const factory _DecodedInput(
       {required final String method,
-      required final Map<String, dynamic> input}) = _$_DecodedInput;
+      required final Map<String, dynamic> input}) = _$DecodedInputImpl;
 
   factory _DecodedInput.fromJson(Map<String, dynamic> json) =
-      _$_DecodedInput.fromJson;
+      _$DecodedInputImpl.fromJson;
 
   @override
   String get method;
@@ -172,6 +172,6 @@ abstract class _DecodedInput implements DecodedInput {
   Map<String, dynamic> get input;
   @override
   @JsonKey(ignore: true)
-  _$$_DecodedInputCopyWith<_$_DecodedInput> get copyWith =>
+  _$$DecodedInputImplCopyWith<_$DecodedInputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -6,15 +6,15 @@ part of 'ledger_key_get_public_keys.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LedgerKeyGetPublicKeysRename _$$_LedgerKeyGetPublicKeysRenameFromJson(
+_$LedgerKeyGetPublicKeysRenameImpl _$$LedgerKeyGetPublicKeysRenameImplFromJson(
         Map<String, dynamic> json) =>
-    _$_LedgerKeyGetPublicKeysRename(
+    _$LedgerKeyGetPublicKeysRenameImpl(
       offset: json['offset'] as int,
       limit: json['limit'] as int,
     );
 
-Map<String, dynamic> _$$_LedgerKeyGetPublicKeysRenameToJson(
-        _$_LedgerKeyGetPublicKeysRename instance) =>
+Map<String, dynamic> _$$LedgerKeyGetPublicKeysRenameImplToJson(
+        _$LedgerKeyGetPublicKeysRenameImpl instance) =>
     <String, dynamic>{
       'offset': instance.offset,
       'limit': instance.limit,

@@ -68,22 +68,22 @@ class _$DecodedOutputCopyWithImpl<$Res, $Val extends DecodedOutput>
 }
 
 /// @nodoc
-abstract class _$$_DecodedOutputCopyWith<$Res>
+abstract class _$$DecodedOutputImplCopyWith<$Res>
     implements $DecodedOutputCopyWith<$Res> {
-  factory _$$_DecodedOutputCopyWith(
-          _$_DecodedOutput value, $Res Function(_$_DecodedOutput) then) =
-      __$$_DecodedOutputCopyWithImpl<$Res>;
+  factory _$$DecodedOutputImplCopyWith(
+          _$DecodedOutputImpl value, $Res Function(_$DecodedOutputImpl) then) =
+      __$$DecodedOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String method, Map<String, dynamic> output});
 }
 
 /// @nodoc
-class __$$_DecodedOutputCopyWithImpl<$Res>
-    extends _$DecodedOutputCopyWithImpl<$Res, _$_DecodedOutput>
-    implements _$$_DecodedOutputCopyWith<$Res> {
-  __$$_DecodedOutputCopyWithImpl(
-      _$_DecodedOutput _value, $Res Function(_$_DecodedOutput) _then)
+class __$$DecodedOutputImplCopyWithImpl<$Res>
+    extends _$DecodedOutputCopyWithImpl<$Res, _$DecodedOutputImpl>
+    implements _$$DecodedOutputImplCopyWith<$Res> {
+  __$$DecodedOutputImplCopyWithImpl(
+      _$DecodedOutputImpl _value, $Res Function(_$DecodedOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_DecodedOutputCopyWithImpl<$Res>
     Object? method = null,
     Object? output = null,
   }) {
-    return _then(_$_DecodedOutput(
+    return _then(_$DecodedOutputImpl(
       method: null == method
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
@@ -107,13 +107,13 @@ class __$$_DecodedOutputCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DecodedOutput implements _DecodedOutput {
-  const _$_DecodedOutput(
+class _$DecodedOutputImpl implements _DecodedOutput {
+  const _$DecodedOutputImpl(
       {required this.method, required final Map<String, dynamic> output})
       : _output = output;
 
-  factory _$_DecodedOutput.fromJson(Map<String, dynamic> json) =>
-      _$$_DecodedOutputFromJson(json);
+  factory _$DecodedOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DecodedOutputImplFromJson(json);
 
   @override
   final String method;
@@ -134,7 +134,7 @@ class _$_DecodedOutput implements _DecodedOutput {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DecodedOutput &&
+            other is _$DecodedOutputImpl &&
             (identical(other.method, method) || other.method == method) &&
             const DeepCollectionEquality().equals(other._output, _output));
   }
@@ -147,12 +147,12 @@ class _$_DecodedOutput implements _DecodedOutput {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DecodedOutputCopyWith<_$_DecodedOutput> get copyWith =>
-      __$$_DecodedOutputCopyWithImpl<_$_DecodedOutput>(this, _$identity);
+  _$$DecodedOutputImplCopyWith<_$DecodedOutputImpl> get copyWith =>
+      __$$DecodedOutputImplCopyWithImpl<_$DecodedOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DecodedOutputToJson(
+    return _$$DecodedOutputImplToJson(
       this,
     );
   }
@@ -161,10 +161,10 @@ class _$_DecodedOutput implements _DecodedOutput {
 abstract class _DecodedOutput implements DecodedOutput {
   const factory _DecodedOutput(
       {required final String method,
-      required final Map<String, dynamic> output}) = _$_DecodedOutput;
+      required final Map<String, dynamic> output}) = _$DecodedOutputImpl;
 
   factory _DecodedOutput.fromJson(Map<String, dynamic> json) =
-      _$_DecodedOutput.fromJson;
+      _$DecodedOutputImpl.fromJson;
 
   @override
   String get method;
@@ -172,6 +172,6 @@ abstract class _DecodedOutput implements DecodedOutput {
   Map<String, dynamic> get output;
   @override
   @JsonKey(ignore: true)
-  _$$_DecodedOutputCopyWith<_$_DecodedOutput> get copyWith =>
+  _$$DecodedOutputImplCopyWith<_$DecodedOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

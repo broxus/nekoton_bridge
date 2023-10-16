@@ -71,25 +71,25 @@ class _$SubscriptionHandlerMessageCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_SubscriptionHandlerMessageCopyWith<$Res>
+abstract class _$$SubscriptionHandlerMessageImplCopyWith<$Res>
     implements $SubscriptionHandlerMessageCopyWith<$Res> {
-  factory _$$_SubscriptionHandlerMessageCopyWith(
-          _$_SubscriptionHandlerMessage value,
-          $Res Function(_$_SubscriptionHandlerMessage) then) =
-      __$$_SubscriptionHandlerMessageCopyWithImpl<$Res>;
+  factory _$$SubscriptionHandlerMessageImplCopyWith(
+          _$SubscriptionHandlerMessageImpl value,
+          $Res Function(_$SubscriptionHandlerMessageImpl) then) =
+      __$$SubscriptionHandlerMessageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String event, String payload});
 }
 
 /// @nodoc
-class __$$_SubscriptionHandlerMessageCopyWithImpl<$Res>
+class __$$SubscriptionHandlerMessageImplCopyWithImpl<$Res>
     extends _$SubscriptionHandlerMessageCopyWithImpl<$Res,
-        _$_SubscriptionHandlerMessage>
-    implements _$$_SubscriptionHandlerMessageCopyWith<$Res> {
-  __$$_SubscriptionHandlerMessageCopyWithImpl(
-      _$_SubscriptionHandlerMessage _value,
-      $Res Function(_$_SubscriptionHandlerMessage) _then)
+        _$SubscriptionHandlerMessageImpl>
+    implements _$$SubscriptionHandlerMessageImplCopyWith<$Res> {
+  __$$SubscriptionHandlerMessageImplCopyWithImpl(
+      _$SubscriptionHandlerMessageImpl _value,
+      $Res Function(_$SubscriptionHandlerMessageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_SubscriptionHandlerMessageCopyWithImpl<$Res>
     Object? event = null,
     Object? payload = null,
   }) {
-    return _then(_$_SubscriptionHandlerMessage(
+    return _then(_$SubscriptionHandlerMessageImpl(
       event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
@@ -113,12 +113,13 @@ class __$$_SubscriptionHandlerMessageCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SubscriptionHandlerMessage implements _SubscriptionHandlerMessage {
-  const _$_SubscriptionHandlerMessage(
+class _$SubscriptionHandlerMessageImpl implements _SubscriptionHandlerMessage {
+  const _$SubscriptionHandlerMessageImpl(
       {required this.event, required this.payload});
 
-  factory _$_SubscriptionHandlerMessage.fromJson(Map<String, dynamic> json) =>
-      _$$_SubscriptionHandlerMessageFromJson(json);
+  factory _$SubscriptionHandlerMessageImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$SubscriptionHandlerMessageImplFromJson(json);
 
   @override
   final String event;
@@ -134,7 +135,7 @@ class _$_SubscriptionHandlerMessage implements _SubscriptionHandlerMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SubscriptionHandlerMessage &&
+            other is _$SubscriptionHandlerMessageImpl &&
             (identical(other.event, event) || other.event == event) &&
             (identical(other.payload, payload) || other.payload == payload));
   }
@@ -146,13 +147,13 @@ class _$_SubscriptionHandlerMessage implements _SubscriptionHandlerMessage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SubscriptionHandlerMessageCopyWith<_$_SubscriptionHandlerMessage>
-      get copyWith => __$$_SubscriptionHandlerMessageCopyWithImpl<
-          _$_SubscriptionHandlerMessage>(this, _$identity);
+  _$$SubscriptionHandlerMessageImplCopyWith<_$SubscriptionHandlerMessageImpl>
+      get copyWith => __$$SubscriptionHandlerMessageImplCopyWithImpl<
+          _$SubscriptionHandlerMessageImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SubscriptionHandlerMessageToJson(
+    return _$$SubscriptionHandlerMessageImplToJson(
       this,
     );
   }
@@ -162,10 +163,10 @@ abstract class _SubscriptionHandlerMessage
     implements SubscriptionHandlerMessage {
   const factory _SubscriptionHandlerMessage(
       {required final String event,
-      required final String payload}) = _$_SubscriptionHandlerMessage;
+      required final String payload}) = _$SubscriptionHandlerMessageImpl;
 
   factory _SubscriptionHandlerMessage.fromJson(Map<String, dynamic> json) =
-      _$_SubscriptionHandlerMessage.fromJson;
+      _$SubscriptionHandlerMessageImpl.fromJson;
 
   @override
   String get event;
@@ -173,6 +174,6 @@ abstract class _SubscriptionHandlerMessage
   String get payload;
   @override
   @JsonKey(ignore: true)
-  _$$_SubscriptionHandlerMessageCopyWith<_$_SubscriptionHandlerMessage>
+  _$$SubscriptionHandlerMessageImplCopyWith<_$SubscriptionHandlerMessageImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

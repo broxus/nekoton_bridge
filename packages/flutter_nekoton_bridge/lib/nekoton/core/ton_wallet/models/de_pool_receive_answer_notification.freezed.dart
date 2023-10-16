@@ -72,25 +72,25 @@ class _$DePoolReceiveAnswerNotificationCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DePoolReceiveAnswerNotificationCopyWith<$Res>
+abstract class _$$DePoolReceiveAnswerNotificationImplCopyWith<$Res>
     implements $DePoolReceiveAnswerNotificationCopyWith<$Res> {
-  factory _$$_DePoolReceiveAnswerNotificationCopyWith(
-          _$_DePoolReceiveAnswerNotification value,
-          $Res Function(_$_DePoolReceiveAnswerNotification) then) =
-      __$$_DePoolReceiveAnswerNotificationCopyWithImpl<$Res>;
+  factory _$$DePoolReceiveAnswerNotificationImplCopyWith(
+          _$DePoolReceiveAnswerNotificationImpl value,
+          $Res Function(_$DePoolReceiveAnswerNotificationImpl) then) =
+      __$$DePoolReceiveAnswerNotificationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int errorCode, String comment});
 }
 
 /// @nodoc
-class __$$_DePoolReceiveAnswerNotificationCopyWithImpl<$Res>
+class __$$DePoolReceiveAnswerNotificationImplCopyWithImpl<$Res>
     extends _$DePoolReceiveAnswerNotificationCopyWithImpl<$Res,
-        _$_DePoolReceiveAnswerNotification>
-    implements _$$_DePoolReceiveAnswerNotificationCopyWith<$Res> {
-  __$$_DePoolReceiveAnswerNotificationCopyWithImpl(
-      _$_DePoolReceiveAnswerNotification _value,
-      $Res Function(_$_DePoolReceiveAnswerNotification) _then)
+        _$DePoolReceiveAnswerNotificationImpl>
+    implements _$$DePoolReceiveAnswerNotificationImplCopyWith<$Res> {
+  __$$DePoolReceiveAnswerNotificationImplCopyWithImpl(
+      _$DePoolReceiveAnswerNotificationImpl _value,
+      $Res Function(_$DePoolReceiveAnswerNotificationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_DePoolReceiveAnswerNotificationCopyWithImpl<$Res>
     Object? errorCode = null,
     Object? comment = null,
   }) {
-    return _then(_$_DePoolReceiveAnswerNotification(
+    return _then(_$DePoolReceiveAnswerNotificationImpl(
       errorCode: null == errorCode
           ? _value.errorCode
           : errorCode // ignore: cast_nullable_to_non_nullable
@@ -114,14 +114,14 @@ class __$$_DePoolReceiveAnswerNotificationCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DePoolReceiveAnswerNotification
+class _$DePoolReceiveAnswerNotificationImpl
     implements _DePoolReceiveAnswerNotification {
-  const _$_DePoolReceiveAnswerNotification(
+  const _$DePoolReceiveAnswerNotificationImpl(
       {required this.errorCode, required this.comment});
 
-  factory _$_DePoolReceiveAnswerNotification.fromJson(
+  factory _$DePoolReceiveAnswerNotificationImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$_DePoolReceiveAnswerNotificationFromJson(json);
+      _$$DePoolReceiveAnswerNotificationImplFromJson(json);
 
   @override
   final int errorCode;
@@ -137,7 +137,7 @@ class _$_DePoolReceiveAnswerNotification
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DePoolReceiveAnswerNotification &&
+            other is _$DePoolReceiveAnswerNotificationImpl &&
             (identical(other.errorCode, errorCode) ||
                 other.errorCode == errorCode) &&
             (identical(other.comment, comment) || other.comment == comment));
@@ -150,14 +150,14 @@ class _$_DePoolReceiveAnswerNotification
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DePoolReceiveAnswerNotificationCopyWith<
-          _$_DePoolReceiveAnswerNotification>
-      get copyWith => __$$_DePoolReceiveAnswerNotificationCopyWithImpl<
-          _$_DePoolReceiveAnswerNotification>(this, _$identity);
+  _$$DePoolReceiveAnswerNotificationImplCopyWith<
+          _$DePoolReceiveAnswerNotificationImpl>
+      get copyWith => __$$DePoolReceiveAnswerNotificationImplCopyWithImpl<
+          _$DePoolReceiveAnswerNotificationImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DePoolReceiveAnswerNotificationToJson(
+    return _$$DePoolReceiveAnswerNotificationImplToJson(
       this,
     );
   }
@@ -167,10 +167,10 @@ abstract class _DePoolReceiveAnswerNotification
     implements DePoolReceiveAnswerNotification {
   const factory _DePoolReceiveAnswerNotification(
       {required final int errorCode,
-      required final String comment}) = _$_DePoolReceiveAnswerNotification;
+      required final String comment}) = _$DePoolReceiveAnswerNotificationImpl;
 
   factory _DePoolReceiveAnswerNotification.fromJson(Map<String, dynamic> json) =
-      _$_DePoolReceiveAnswerNotification.fromJson;
+      _$DePoolReceiveAnswerNotificationImpl.fromJson;
 
   @override
   int get errorCode;
@@ -178,7 +178,7 @@ abstract class _DePoolReceiveAnswerNotification
   String get comment;
   @override
   @JsonKey(ignore: true)
-  _$$_DePoolReceiveAnswerNotificationCopyWith<
-          _$_DePoolReceiveAnswerNotification>
+  _$$DePoolReceiveAnswerNotificationImplCopyWith<
+          _$DePoolReceiveAnswerNotificationImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

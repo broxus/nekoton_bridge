@@ -70,23 +70,25 @@ class _$DecodedTransactionEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DecodedTransactionEventCopyWith<$Res>
+abstract class _$$DecodedTransactionEventImplCopyWith<$Res>
     implements $DecodedTransactionEventCopyWith<$Res> {
-  factory _$$_DecodedTransactionEventCopyWith(_$_DecodedTransactionEvent value,
-          $Res Function(_$_DecodedTransactionEvent) then) =
-      __$$_DecodedTransactionEventCopyWithImpl<$Res>;
+  factory _$$DecodedTransactionEventImplCopyWith(
+          _$DecodedTransactionEventImpl value,
+          $Res Function(_$DecodedTransactionEventImpl) then) =
+      __$$DecodedTransactionEventImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String event, Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$_DecodedTransactionEventCopyWithImpl<$Res>
+class __$$DecodedTransactionEventImplCopyWithImpl<$Res>
     extends _$DecodedTransactionEventCopyWithImpl<$Res,
-        _$_DecodedTransactionEvent>
-    implements _$$_DecodedTransactionEventCopyWith<$Res> {
-  __$$_DecodedTransactionEventCopyWithImpl(_$_DecodedTransactionEvent _value,
-      $Res Function(_$_DecodedTransactionEvent) _then)
+        _$DecodedTransactionEventImpl>
+    implements _$$DecodedTransactionEventImplCopyWith<$Res> {
+  __$$DecodedTransactionEventImplCopyWithImpl(
+      _$DecodedTransactionEventImpl _value,
+      $Res Function(_$DecodedTransactionEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +97,7 @@ class __$$_DecodedTransactionEventCopyWithImpl<$Res>
     Object? event = null,
     Object? data = null,
   }) {
-    return _then(_$_DecodedTransactionEvent(
+    return _then(_$DecodedTransactionEventImpl(
       event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
@@ -110,13 +112,13 @@ class __$$_DecodedTransactionEventCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DecodedTransactionEvent implements _DecodedTransactionEvent {
-  const _$_DecodedTransactionEvent(
+class _$DecodedTransactionEventImpl implements _DecodedTransactionEvent {
+  const _$DecodedTransactionEventImpl(
       {required this.event, required final Map<String, dynamic> data})
       : _data = data;
 
-  factory _$_DecodedTransactionEvent.fromJson(Map<String, dynamic> json) =>
-      _$$_DecodedTransactionEventFromJson(json);
+  factory _$DecodedTransactionEventImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DecodedTransactionEventImplFromJson(json);
 
   @override
   final String event;
@@ -137,7 +139,7 @@ class _$_DecodedTransactionEvent implements _DecodedTransactionEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DecodedTransactionEvent &&
+            other is _$DecodedTransactionEventImpl &&
             (identical(other.event, event) || other.event == event) &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
@@ -150,14 +152,13 @@ class _$_DecodedTransactionEvent implements _DecodedTransactionEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DecodedTransactionEventCopyWith<_$_DecodedTransactionEvent>
-      get copyWith =>
-          __$$_DecodedTransactionEventCopyWithImpl<_$_DecodedTransactionEvent>(
-              this, _$identity);
+  _$$DecodedTransactionEventImplCopyWith<_$DecodedTransactionEventImpl>
+      get copyWith => __$$DecodedTransactionEventImplCopyWithImpl<
+          _$DecodedTransactionEventImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DecodedTransactionEventToJson(
+    return _$$DecodedTransactionEventImplToJson(
       this,
     );
   }
@@ -165,11 +166,12 @@ class _$_DecodedTransactionEvent implements _DecodedTransactionEvent {
 
 abstract class _DecodedTransactionEvent implements DecodedTransactionEvent {
   const factory _DecodedTransactionEvent(
-      {required final String event,
-      required final Map<String, dynamic> data}) = _$_DecodedTransactionEvent;
+          {required final String event,
+          required final Map<String, dynamic> data}) =
+      _$DecodedTransactionEventImpl;
 
   factory _DecodedTransactionEvent.fromJson(Map<String, dynamic> json) =
-      _$_DecodedTransactionEvent.fromJson;
+      _$DecodedTransactionEventImpl.fromJson;
 
   @override
   String get event;
@@ -177,6 +179,6 @@ abstract class _DecodedTransactionEvent implements DecodedTransactionEvent {
   Map<String, dynamic> get data;
   @override
   @JsonKey(ignore: true)
-  _$$_DecodedTransactionEventCopyWith<_$_DecodedTransactionEvent>
+  _$$DecodedTransactionEventImplCopyWith<_$DecodedTransactionEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

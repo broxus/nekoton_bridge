@@ -6,15 +6,16 @@ part of 'last_transaction_id.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LastTransactionId _$$_LastTransactionIdFromJson(Map<String, dynamic> json) =>
-    _$_LastTransactionId(
+_$LastTransactionIdImpl _$$LastTransactionIdImplFromJson(
+        Map<String, dynamic> json) =>
+    _$LastTransactionIdImpl(
       isExact: json['isExact'] as bool,
       lt: json['lt'] as String,
       hash: json['hash'] as String?,
     );
 
-Map<String, dynamic> _$$_LastTransactionIdToJson(
-    _$_LastTransactionId instance) {
+Map<String, dynamic> _$$LastTransactionIdImplToJson(
+    _$LastTransactionIdImpl instance) {
   final val = <String, dynamic>{
     'isExact': instance.isExact,
     'lt': instance.lt,

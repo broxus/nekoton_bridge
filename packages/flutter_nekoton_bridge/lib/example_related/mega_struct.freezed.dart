@@ -72,19 +72,21 @@ class _$CoordsCopyWithImpl<$Res, $Val extends Coords>
 }
 
 /// @nodoc
-abstract class _$$_CoordsCopyWith<$Res> implements $CoordsCopyWith<$Res> {
-  factory _$$_CoordsCopyWith(_$_Coords value, $Res Function(_$_Coords) then) =
-      __$$_CoordsCopyWithImpl<$Res>;
+abstract class _$$CoordsImplCopyWith<$Res> implements $CoordsCopyWith<$Res> {
+  factory _$$CoordsImplCopyWith(
+          _$CoordsImpl value, $Res Function(_$CoordsImpl) then) =
+      __$$CoordsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({double x, double y, double z});
 }
 
 /// @nodoc
-class __$$_CoordsCopyWithImpl<$Res>
-    extends _$CoordsCopyWithImpl<$Res, _$_Coords>
-    implements _$$_CoordsCopyWith<$Res> {
-  __$$_CoordsCopyWithImpl(_$_Coords _value, $Res Function(_$_Coords) _then)
+class __$$CoordsImplCopyWithImpl<$Res>
+    extends _$CoordsCopyWithImpl<$Res, _$CoordsImpl>
+    implements _$$CoordsImplCopyWith<$Res> {
+  __$$CoordsImplCopyWithImpl(
+      _$CoordsImpl _value, $Res Function(_$CoordsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,7 +96,7 @@ class __$$_CoordsCopyWithImpl<$Res>
     Object? y = null,
     Object? z = null,
   }) {
-    return _then(_$_Coords(
+    return _then(_$CoordsImpl(
       x: null == x
           ? _value.x
           : x // ignore: cast_nullable_to_non_nullable
@@ -113,11 +115,11 @@ class __$$_CoordsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Coords with DiagnosticableTreeMixin implements _Coords {
-  const _$_Coords({required this.x, required this.y, required this.z});
+class _$CoordsImpl with DiagnosticableTreeMixin implements _Coords {
+  const _$CoordsImpl({required this.x, required this.y, required this.z});
 
-  factory _$_Coords.fromJson(Map<String, dynamic> json) =>
-      _$$_CoordsFromJson(json);
+  factory _$CoordsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CoordsImplFromJson(json);
 
   @override
   final double x;
@@ -145,7 +147,7 @@ class _$_Coords with DiagnosticableTreeMixin implements _Coords {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Coords &&
+            other is _$CoordsImpl &&
             (identical(other.x, x) || other.x == x) &&
             (identical(other.y, y) || other.y == y) &&
             (identical(other.z, z) || other.z == z));
@@ -158,12 +160,12 @@ class _$_Coords with DiagnosticableTreeMixin implements _Coords {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CoordsCopyWith<_$_Coords> get copyWith =>
-      __$$_CoordsCopyWithImpl<_$_Coords>(this, _$identity);
+  _$$CoordsImplCopyWith<_$CoordsImpl> get copyWith =>
+      __$$CoordsImplCopyWithImpl<_$CoordsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CoordsToJson(
+    return _$$CoordsImplToJson(
       this,
     );
   }
@@ -173,9 +175,9 @@ abstract class _Coords implements Coords {
   const factory _Coords(
       {required final double x,
       required final double y,
-      required final double z}) = _$_Coords;
+      required final double z}) = _$CoordsImpl;
 
-  factory _Coords.fromJson(Map<String, dynamic> json) = _$_Coords.fromJson;
+  factory _Coords.fromJson(Map<String, dynamic> json) = _$CoordsImpl.fromJson;
 
   @override
   double get x;
@@ -185,7 +187,7 @@ abstract class _Coords implements Coords {
   double get z;
   @override
   @JsonKey(ignore: true)
-  _$$_CoordsCopyWith<_$_Coords> get copyWith =>
+  _$$CoordsImplCopyWith<_$CoordsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -259,11 +261,11 @@ class _$MegaStructCopyWithImpl<$Res, $Val extends MegaStruct>
 }
 
 /// @nodoc
-abstract class _$$_MegaStructCopyWith<$Res>
+abstract class _$$MegaStructImplCopyWith<$Res>
     implements $MegaStructCopyWith<$Res> {
-  factory _$$_MegaStructCopyWith(
-          _$_MegaStruct value, $Res Function(_$_MegaStruct) then) =
-      __$$_MegaStructCopyWithImpl<$Res>;
+  factory _$$MegaStructImplCopyWith(
+          _$MegaStructImpl value, $Res Function(_$MegaStructImpl) then) =
+      __$$MegaStructImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, Coords coords, Map<String, String> props});
@@ -273,11 +275,11 @@ abstract class _$$_MegaStructCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_MegaStructCopyWithImpl<$Res>
-    extends _$MegaStructCopyWithImpl<$Res, _$_MegaStruct>
-    implements _$$_MegaStructCopyWith<$Res> {
-  __$$_MegaStructCopyWithImpl(
-      _$_MegaStruct _value, $Res Function(_$_MegaStruct) _then)
+class __$$MegaStructImplCopyWithImpl<$Res>
+    extends _$MegaStructCopyWithImpl<$Res, _$MegaStructImpl>
+    implements _$$MegaStructImplCopyWith<$Res> {
+  __$$MegaStructImplCopyWithImpl(
+      _$MegaStructImpl _value, $Res Function(_$MegaStructImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -287,7 +289,7 @@ class __$$_MegaStructCopyWithImpl<$Res>
     Object? coords = null,
     Object? props = null,
   }) {
-    return _then(_$_MegaStruct(
+    return _then(_$MegaStructImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -306,15 +308,15 @@ class __$$_MegaStructCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MegaStruct with DiagnosticableTreeMixin implements _MegaStruct {
-  const _$_MegaStruct(
+class _$MegaStructImpl with DiagnosticableTreeMixin implements _MegaStruct {
+  const _$MegaStructImpl(
       {required this.name,
       required this.coords,
       required final Map<String, String> props})
       : _props = props;
 
-  factory _$_MegaStruct.fromJson(Map<String, dynamic> json) =>
-      _$$_MegaStructFromJson(json);
+  factory _$MegaStructImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MegaStructImplFromJson(json);
 
   @override
   final String name;
@@ -347,7 +349,7 @@ class _$_MegaStruct with DiagnosticableTreeMixin implements _MegaStruct {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MegaStruct &&
+            other is _$MegaStructImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.coords, coords) || other.coords == coords) &&
             const DeepCollectionEquality().equals(other._props, _props));
@@ -361,12 +363,12 @@ class _$_MegaStruct with DiagnosticableTreeMixin implements _MegaStruct {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MegaStructCopyWith<_$_MegaStruct> get copyWith =>
-      __$$_MegaStructCopyWithImpl<_$_MegaStruct>(this, _$identity);
+  _$$MegaStructImplCopyWith<_$MegaStructImpl> get copyWith =>
+      __$$MegaStructImplCopyWithImpl<_$MegaStructImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MegaStructToJson(
+    return _$$MegaStructImplToJson(
       this,
     );
   }
@@ -376,10 +378,10 @@ abstract class _MegaStruct implements MegaStruct {
   const factory _MegaStruct(
       {required final String name,
       required final Coords coords,
-      required final Map<String, String> props}) = _$_MegaStruct;
+      required final Map<String, String> props}) = _$MegaStructImpl;
 
   factory _MegaStruct.fromJson(Map<String, dynamic> json) =
-      _$_MegaStruct.fromJson;
+      _$MegaStructImpl.fromJson;
 
   @override
   String get name;
@@ -389,6 +391,6 @@ abstract class _MegaStruct implements MegaStruct {
   Map<String, String> get props;
   @override
   @JsonKey(ignore: true)
-  _$$_MegaStructCopyWith<_$_MegaStruct> get copyWith =>
+  _$$MegaStructImplCopyWith<_$MegaStructImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

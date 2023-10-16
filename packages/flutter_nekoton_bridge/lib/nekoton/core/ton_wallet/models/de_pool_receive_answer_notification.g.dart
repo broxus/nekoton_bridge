@@ -6,15 +6,15 @@ part of 'de_pool_receive_answer_notification.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DePoolReceiveAnswerNotification _$$_DePoolReceiveAnswerNotificationFromJson(
-        Map<String, dynamic> json) =>
-    _$_DePoolReceiveAnswerNotification(
-      errorCode: json['errorCode'] as int,
-      comment: json['comment'] as String,
-    );
+_$DePoolReceiveAnswerNotificationImpl
+    _$$DePoolReceiveAnswerNotificationImplFromJson(Map<String, dynamic> json) =>
+        _$DePoolReceiveAnswerNotificationImpl(
+          errorCode: json['errorCode'] as int,
+          comment: json['comment'] as String,
+        );
 
-Map<String, dynamic> _$$_DePoolReceiveAnswerNotificationToJson(
-        _$_DePoolReceiveAnswerNotification instance) =>
+Map<String, dynamic> _$$DePoolReceiveAnswerNotificationImplToJson(
+        _$DePoolReceiveAnswerNotificationImpl instance) =>
     <String, dynamic>{
       'errorCode': instance.errorCode,
       'comment': instance.comment,

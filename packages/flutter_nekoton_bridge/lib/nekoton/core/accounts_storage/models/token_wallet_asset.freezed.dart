@@ -72,11 +72,11 @@ class _$TokenWalletAssetCopyWithImpl<$Res, $Val extends TokenWalletAsset>
 }
 
 /// @nodoc
-abstract class _$$_TokenWalletAssetCopyWith<$Res>
+abstract class _$$TokenWalletAssetImplCopyWith<$Res>
     implements $TokenWalletAssetCopyWith<$Res> {
-  factory _$$_TokenWalletAssetCopyWith(
-          _$_TokenWalletAsset value, $Res Function(_$_TokenWalletAsset) then) =
-      __$$_TokenWalletAssetCopyWithImpl<$Res>;
+  factory _$$TokenWalletAssetImplCopyWith(_$TokenWalletAssetImpl value,
+          $Res Function(_$TokenWalletAssetImpl) then) =
+      __$$TokenWalletAssetImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Address rootTokenContract});
@@ -86,11 +86,11 @@ abstract class _$$_TokenWalletAssetCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TokenWalletAssetCopyWithImpl<$Res>
-    extends _$TokenWalletAssetCopyWithImpl<$Res, _$_TokenWalletAsset>
-    implements _$$_TokenWalletAssetCopyWith<$Res> {
-  __$$_TokenWalletAssetCopyWithImpl(
-      _$_TokenWalletAsset _value, $Res Function(_$_TokenWalletAsset) _then)
+class __$$TokenWalletAssetImplCopyWithImpl<$Res>
+    extends _$TokenWalletAssetCopyWithImpl<$Res, _$TokenWalletAssetImpl>
+    implements _$$TokenWalletAssetImplCopyWith<$Res> {
+  __$$TokenWalletAssetImplCopyWithImpl(_$TokenWalletAssetImpl _value,
+      $Res Function(_$TokenWalletAssetImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_TokenWalletAssetCopyWithImpl<$Res>
   $Res call({
     Object? rootTokenContract = null,
   }) {
-    return _then(_$_TokenWalletAsset(
+    return _then(_$TokenWalletAssetImpl(
       rootTokenContract: null == rootTokenContract
           ? _value.rootTokenContract
           : rootTokenContract // ignore: cast_nullable_to_non_nullable
@@ -110,11 +110,11 @@ class __$$_TokenWalletAssetCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$_TokenWalletAsset implements _TokenWalletAsset {
-  const _$_TokenWalletAsset({required this.rootTokenContract});
+class _$TokenWalletAssetImpl implements _TokenWalletAsset {
+  const _$TokenWalletAssetImpl({required this.rootTokenContract});
 
-  factory _$_TokenWalletAsset.fromJson(Map<String, dynamic> json) =>
-      _$$_TokenWalletAssetFromJson(json);
+  factory _$TokenWalletAssetImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TokenWalletAssetImplFromJson(json);
 
   @override
   final Address rootTokenContract;
@@ -128,7 +128,7 @@ class _$_TokenWalletAsset implements _TokenWalletAsset {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TokenWalletAsset &&
+            other is _$TokenWalletAssetImpl &&
             (identical(other.rootTokenContract, rootTokenContract) ||
                 other.rootTokenContract == rootTokenContract));
   }
@@ -140,12 +140,13 @@ class _$_TokenWalletAsset implements _TokenWalletAsset {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TokenWalletAssetCopyWith<_$_TokenWalletAsset> get copyWith =>
-      __$$_TokenWalletAssetCopyWithImpl<_$_TokenWalletAsset>(this, _$identity);
+  _$$TokenWalletAssetImplCopyWith<_$TokenWalletAssetImpl> get copyWith =>
+      __$$TokenWalletAssetImplCopyWithImpl<_$TokenWalletAssetImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TokenWalletAssetToJson(
+    return _$$TokenWalletAssetImplToJson(
       this,
     );
   }
@@ -153,15 +154,15 @@ class _$_TokenWalletAsset implements _TokenWalletAsset {
 
 abstract class _TokenWalletAsset implements TokenWalletAsset {
   const factory _TokenWalletAsset({required final Address rootTokenContract}) =
-      _$_TokenWalletAsset;
+      _$TokenWalletAssetImpl;
 
   factory _TokenWalletAsset.fromJson(Map<String, dynamic> json) =
-      _$_TokenWalletAsset.fromJson;
+      _$TokenWalletAssetImpl.fromJson;
 
   @override
   Address get rootTokenContract;
   @override
   @JsonKey(ignore: true)
-  _$$_TokenWalletAssetCopyWith<_$_TokenWalletAsset> get copyWith =>
+  _$$TokenWalletAssetImplCopyWith<_$TokenWalletAssetImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

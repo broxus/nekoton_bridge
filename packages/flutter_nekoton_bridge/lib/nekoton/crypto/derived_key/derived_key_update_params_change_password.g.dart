@@ -6,10 +6,10 @@ part of 'derived_key_update_params_change_password.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DerivedKeyUpdateParamsChangePasswordChangePassword
-    _$$_DerivedKeyUpdateParamsChangePasswordChangePasswordFromJson(
+_$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl
+    _$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplFromJson(
             Map<String, dynamic> json) =>
-        _$_DerivedKeyUpdateParamsChangePasswordChangePassword(
+        _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl(
           masterKey: PublicKey.fromJson(json['master_key'] as String),
           oldPassword:
               Password.fromJson(json['old_password'] as Map<String, dynamic>),
@@ -17,11 +17,11 @@ _$_DerivedKeyUpdateParamsChangePasswordChangePassword
               Password.fromJson(json['new_password'] as Map<String, dynamic>),
         );
 
-Map<String, dynamic>
-    _$$_DerivedKeyUpdateParamsChangePasswordChangePasswordToJson(
-            _$_DerivedKeyUpdateParamsChangePasswordChangePassword instance) =>
-        <String, dynamic>{
-          'master_key': instance.masterKey.toJson(),
-          'old_password': instance.oldPassword.toJson(),
-          'new_password': instance.newPassword.toJson(),
-        };
+Map<String,
+    dynamic> _$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplToJson(
+        _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl instance) =>
+    <String, dynamic>{
+      'master_key': instance.masterKey.toJson(),
+      'old_password': instance.oldPassword.toJson(),
+      'new_password': instance.newPassword.toJson(),
+    };

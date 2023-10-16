@@ -124,10 +124,10 @@ class _$TokenWalletTransactionCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_IncomingTransferCopyWith<$Res> {
-  factory _$$_IncomingTransferCopyWith(
-          _$_IncomingTransfer value, $Res Function(_$_IncomingTransfer) then) =
-      __$$_IncomingTransferCopyWithImpl<$Res>;
+abstract class _$$IncomingTransferImplCopyWith<$Res> {
+  factory _$$IncomingTransferImplCopyWith(_$IncomingTransferImpl value,
+          $Res Function(_$IncomingTransferImpl) then) =
+      __$$IncomingTransferImplCopyWithImpl<$Res>;
   @useResult
   $Res call({TokenIncomingTransfer data});
 
@@ -135,11 +135,11 @@ abstract class _$$_IncomingTransferCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_IncomingTransferCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$_IncomingTransfer>
-    implements _$$_IncomingTransferCopyWith<$Res> {
-  __$$_IncomingTransferCopyWithImpl(
-      _$_IncomingTransfer _value, $Res Function(_$_IncomingTransfer) _then)
+class __$$IncomingTransferImplCopyWithImpl<$Res>
+    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$IncomingTransferImpl>
+    implements _$$IncomingTransferImplCopyWith<$Res> {
+  __$$IncomingTransferImplCopyWithImpl(_$IncomingTransferImpl _value,
+      $Res Function(_$IncomingTransferImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -147,7 +147,7 @@ class __$$_IncomingTransferCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_IncomingTransfer(
+    return _then(_$IncomingTransferImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -166,12 +166,12 @@ class __$$_IncomingTransferCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_IncomingTransfer implements _IncomingTransfer {
-  const _$_IncomingTransfer(this.data, {final String? $type})
+class _$IncomingTransferImpl implements _IncomingTransfer {
+  const _$IncomingTransferImpl(this.data, {final String? $type})
       : $type = $type ?? 'incoming_transfer';
 
-  factory _$_IncomingTransfer.fromJson(Map<String, dynamic> json) =>
-      _$$_IncomingTransferFromJson(json);
+  factory _$IncomingTransferImpl.fromJson(Map<String, dynamic> json) =>
+      _$$IncomingTransferImplFromJson(json);
 
   @override
   final TokenIncomingTransfer data;
@@ -188,7 +188,7 @@ class _$_IncomingTransfer implements _IncomingTransfer {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_IncomingTransfer &&
+            other is _$IncomingTransferImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -199,8 +199,9 @@ class _$_IncomingTransfer implements _IncomingTransfer {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IncomingTransferCopyWith<_$_IncomingTransfer> get copyWith =>
-      __$$_IncomingTransferCopyWithImpl<_$_IncomingTransfer>(this, _$identity);
+  _$$IncomingTransferImplCopyWith<_$IncomingTransferImpl> get copyWith =>
+      __$$IncomingTransferImplCopyWithImpl<_$IncomingTransferImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -290,7 +291,7 @@ class _$_IncomingTransfer implements _IncomingTransfer {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_IncomingTransferToJson(
+    return _$$IncomingTransferImplToJson(
       this,
     );
   }
@@ -298,23 +299,23 @@ class _$_IncomingTransfer implements _IncomingTransfer {
 
 abstract class _IncomingTransfer implements TokenWalletTransaction {
   const factory _IncomingTransfer(final TokenIncomingTransfer data) =
-      _$_IncomingTransfer;
+      _$IncomingTransferImpl;
 
   factory _IncomingTransfer.fromJson(Map<String, dynamic> json) =
-      _$_IncomingTransfer.fromJson;
+      _$IncomingTransferImpl.fromJson;
 
   @override
   TokenIncomingTransfer get data;
   @JsonKey(ignore: true)
-  _$$_IncomingTransferCopyWith<_$_IncomingTransfer> get copyWith =>
+  _$$IncomingTransferImplCopyWith<_$IncomingTransferImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_OutgoingTransferCopyWith<$Res> {
-  factory _$$_OutgoingTransferCopyWith(
-          _$_OutgoingTransfer value, $Res Function(_$_OutgoingTransfer) then) =
-      __$$_OutgoingTransferCopyWithImpl<$Res>;
+abstract class _$$OutgoingTransferImplCopyWith<$Res> {
+  factory _$$OutgoingTransferImplCopyWith(_$OutgoingTransferImpl value,
+          $Res Function(_$OutgoingTransferImpl) then) =
+      __$$OutgoingTransferImplCopyWithImpl<$Res>;
   @useResult
   $Res call({TokenOutgoingTransfer data});
 
@@ -322,11 +323,11 @@ abstract class _$$_OutgoingTransferCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_OutgoingTransferCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$_OutgoingTransfer>
-    implements _$$_OutgoingTransferCopyWith<$Res> {
-  __$$_OutgoingTransferCopyWithImpl(
-      _$_OutgoingTransfer _value, $Res Function(_$_OutgoingTransfer) _then)
+class __$$OutgoingTransferImplCopyWithImpl<$Res>
+    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$OutgoingTransferImpl>
+    implements _$$OutgoingTransferImplCopyWith<$Res> {
+  __$$OutgoingTransferImplCopyWithImpl(_$OutgoingTransferImpl _value,
+      $Res Function(_$OutgoingTransferImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -334,7 +335,7 @@ class __$$_OutgoingTransferCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_OutgoingTransfer(
+    return _then(_$OutgoingTransferImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -353,12 +354,12 @@ class __$$_OutgoingTransferCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_OutgoingTransfer implements _OutgoingTransfer {
-  const _$_OutgoingTransfer(this.data, {final String? $type})
+class _$OutgoingTransferImpl implements _OutgoingTransfer {
+  const _$OutgoingTransferImpl(this.data, {final String? $type})
       : $type = $type ?? 'outgoing_transfer';
 
-  factory _$_OutgoingTransfer.fromJson(Map<String, dynamic> json) =>
-      _$$_OutgoingTransferFromJson(json);
+  factory _$OutgoingTransferImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OutgoingTransferImplFromJson(json);
 
   @override
   final TokenOutgoingTransfer data;
@@ -375,7 +376,7 @@ class _$_OutgoingTransfer implements _OutgoingTransfer {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OutgoingTransfer &&
+            other is _$OutgoingTransferImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -386,8 +387,9 @@ class _$_OutgoingTransfer implements _OutgoingTransfer {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OutgoingTransferCopyWith<_$_OutgoingTransfer> get copyWith =>
-      __$$_OutgoingTransferCopyWithImpl<_$_OutgoingTransfer>(this, _$identity);
+  _$$OutgoingTransferImplCopyWith<_$OutgoingTransferImpl> get copyWith =>
+      __$$OutgoingTransferImplCopyWithImpl<_$OutgoingTransferImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -477,7 +479,7 @@ class _$_OutgoingTransfer implements _OutgoingTransfer {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_OutgoingTransferToJson(
+    return _$$OutgoingTransferImplToJson(
       this,
     );
   }
@@ -485,23 +487,23 @@ class _$_OutgoingTransfer implements _OutgoingTransfer {
 
 abstract class _OutgoingTransfer implements TokenWalletTransaction {
   const factory _OutgoingTransfer(final TokenOutgoingTransfer data) =
-      _$_OutgoingTransfer;
+      _$OutgoingTransferImpl;
 
   factory _OutgoingTransfer.fromJson(Map<String, dynamic> json) =
-      _$_OutgoingTransfer.fromJson;
+      _$OutgoingTransferImpl.fromJson;
 
   @override
   TokenOutgoingTransfer get data;
   @JsonKey(ignore: true)
-  _$$_OutgoingTransferCopyWith<_$_OutgoingTransfer> get copyWith =>
+  _$$OutgoingTransferImplCopyWith<_$OutgoingTransferImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SwapBackCopyWith<$Res> {
-  factory _$$_SwapBackCopyWith(
-          _$_SwapBack value, $Res Function(_$_SwapBack) then) =
-      __$$_SwapBackCopyWithImpl<$Res>;
+abstract class _$$SwapBackImplCopyWith<$Res> {
+  factory _$$SwapBackImplCopyWith(
+          _$SwapBackImpl value, $Res Function(_$SwapBackImpl) then) =
+      __$$SwapBackImplCopyWithImpl<$Res>;
   @useResult
   $Res call({TokenSwapBack data});
 
@@ -509,11 +511,11 @@ abstract class _$$_SwapBackCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SwapBackCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$_SwapBack>
-    implements _$$_SwapBackCopyWith<$Res> {
-  __$$_SwapBackCopyWithImpl(
-      _$_SwapBack _value, $Res Function(_$_SwapBack) _then)
+class __$$SwapBackImplCopyWithImpl<$Res>
+    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$SwapBackImpl>
+    implements _$$SwapBackImplCopyWith<$Res> {
+  __$$SwapBackImplCopyWithImpl(
+      _$SwapBackImpl _value, $Res Function(_$SwapBackImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -521,7 +523,7 @@ class __$$_SwapBackCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_SwapBack(
+    return _then(_$SwapBackImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -540,12 +542,12 @@ class __$$_SwapBackCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SwapBack implements _SwapBack {
-  const _$_SwapBack(this.data, {final String? $type})
+class _$SwapBackImpl implements _SwapBack {
+  const _$SwapBackImpl(this.data, {final String? $type})
       : $type = $type ?? 'swap_back';
 
-  factory _$_SwapBack.fromJson(Map<String, dynamic> json) =>
-      _$$_SwapBackFromJson(json);
+  factory _$SwapBackImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SwapBackImplFromJson(json);
 
   @override
   final TokenSwapBack data;
@@ -562,7 +564,7 @@ class _$_SwapBack implements _SwapBack {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SwapBack &&
+            other is _$SwapBackImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -573,8 +575,8 @@ class _$_SwapBack implements _SwapBack {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SwapBackCopyWith<_$_SwapBack> get copyWith =>
-      __$$_SwapBackCopyWithImpl<_$_SwapBack>(this, _$identity);
+  _$$SwapBackImplCopyWith<_$SwapBackImpl> get copyWith =>
+      __$$SwapBackImplCopyWithImpl<_$SwapBackImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -664,37 +666,40 @@ class _$_SwapBack implements _SwapBack {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SwapBackToJson(
+    return _$$SwapBackImplToJson(
       this,
     );
   }
 }
 
 abstract class _SwapBack implements TokenWalletTransaction {
-  const factory _SwapBack(final TokenSwapBack data) = _$_SwapBack;
+  const factory _SwapBack(final TokenSwapBack data) = _$SwapBackImpl;
 
-  factory _SwapBack.fromJson(Map<String, dynamic> json) = _$_SwapBack.fromJson;
+  factory _SwapBack.fromJson(Map<String, dynamic> json) =
+      _$SwapBackImpl.fromJson;
 
   @override
   TokenSwapBack get data;
   @JsonKey(ignore: true)
-  _$$_SwapBackCopyWith<_$_SwapBack> get copyWith =>
+  _$$SwapBackImplCopyWith<_$SwapBackImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_AcceptCopyWith<$Res> {
-  factory _$$_AcceptCopyWith(_$_Accept value, $Res Function(_$_Accept) then) =
-      __$$_AcceptCopyWithImpl<$Res>;
+abstract class _$$AcceptImplCopyWith<$Res> {
+  factory _$$AcceptImplCopyWith(
+          _$AcceptImpl value, $Res Function(_$AcceptImpl) then) =
+      __$$AcceptImplCopyWithImpl<$Res>;
   @useResult
   $Res call({@amountJsonConverter BigInt data});
 }
 
 /// @nodoc
-class __$$_AcceptCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$_Accept>
-    implements _$$_AcceptCopyWith<$Res> {
-  __$$_AcceptCopyWithImpl(_$_Accept _value, $Res Function(_$_Accept) _then)
+class __$$AcceptImplCopyWithImpl<$Res>
+    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$AcceptImpl>
+    implements _$$AcceptImplCopyWith<$Res> {
+  __$$AcceptImplCopyWithImpl(
+      _$AcceptImpl _value, $Res Function(_$AcceptImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -702,7 +707,7 @@ class __$$_AcceptCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Accept(
+    return _then(_$AcceptImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -713,12 +718,12 @@ class __$$_AcceptCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Accept implements _Accept {
-  const _$_Accept(@amountJsonConverter this.data, {final String? $type})
+class _$AcceptImpl implements _Accept {
+  const _$AcceptImpl(@amountJsonConverter this.data, {final String? $type})
       : $type = $type ?? 'accept';
 
-  factory _$_Accept.fromJson(Map<String, dynamic> json) =>
-      _$$_AcceptFromJson(json);
+  factory _$AcceptImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AcceptImplFromJson(json);
 
   @override
   @amountJsonConverter
@@ -736,7 +741,7 @@ class _$_Accept implements _Accept {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Accept &&
+            other is _$AcceptImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -747,8 +752,8 @@ class _$_Accept implements _Accept {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AcceptCopyWith<_$_Accept> get copyWith =>
-      __$$_AcceptCopyWithImpl<_$_Accept>(this, _$identity);
+  _$$AcceptImplCopyWith<_$AcceptImpl> get copyWith =>
+      __$$AcceptImplCopyWithImpl<_$AcceptImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -838,40 +843,40 @@ class _$_Accept implements _Accept {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AcceptToJson(
+    return _$$AcceptImplToJson(
       this,
     );
   }
 }
 
 abstract class _Accept implements TokenWalletTransaction {
-  const factory _Accept(@amountJsonConverter final BigInt data) = _$_Accept;
+  const factory _Accept(@amountJsonConverter final BigInt data) = _$AcceptImpl;
 
-  factory _Accept.fromJson(Map<String, dynamic> json) = _$_Accept.fromJson;
+  factory _Accept.fromJson(Map<String, dynamic> json) = _$AcceptImpl.fromJson;
 
   @override
   @amountJsonConverter
   BigInt get data;
   @JsonKey(ignore: true)
-  _$$_AcceptCopyWith<_$_Accept> get copyWith =>
+  _$$AcceptImplCopyWith<_$AcceptImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_TransferBouncedCopyWith<$Res> {
-  factory _$$_TransferBouncedCopyWith(
-          _$_TransferBounced value, $Res Function(_$_TransferBounced) then) =
-      __$$_TransferBouncedCopyWithImpl<$Res>;
+abstract class _$$TransferBouncedImplCopyWith<$Res> {
+  factory _$$TransferBouncedImplCopyWith(_$TransferBouncedImpl value,
+          $Res Function(_$TransferBouncedImpl) then) =
+      __$$TransferBouncedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({@amountJsonConverter BigInt data});
 }
 
 /// @nodoc
-class __$$_TransferBouncedCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$_TransferBounced>
-    implements _$$_TransferBouncedCopyWith<$Res> {
-  __$$_TransferBouncedCopyWithImpl(
-      _$_TransferBounced _value, $Res Function(_$_TransferBounced) _then)
+class __$$TransferBouncedImplCopyWithImpl<$Res>
+    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$TransferBouncedImpl>
+    implements _$$TransferBouncedImplCopyWith<$Res> {
+  __$$TransferBouncedImplCopyWithImpl(
+      _$TransferBouncedImpl _value, $Res Function(_$TransferBouncedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -879,7 +884,7 @@ class __$$_TransferBouncedCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_TransferBounced(
+    return _then(_$TransferBouncedImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -890,13 +895,13 @@ class __$$_TransferBouncedCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TransferBounced implements _TransferBounced {
-  const _$_TransferBounced(@amountJsonConverter this.data,
+class _$TransferBouncedImpl implements _TransferBounced {
+  const _$TransferBouncedImpl(@amountJsonConverter this.data,
       {final String? $type})
       : $type = $type ?? 'transfer_bounced';
 
-  factory _$_TransferBounced.fromJson(Map<String, dynamic> json) =>
-      _$$_TransferBouncedFromJson(json);
+  factory _$TransferBouncedImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TransferBouncedImplFromJson(json);
 
   @override
   @amountJsonConverter
@@ -914,7 +919,7 @@ class _$_TransferBounced implements _TransferBounced {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TransferBounced &&
+            other is _$TransferBouncedImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -925,8 +930,9 @@ class _$_TransferBounced implements _TransferBounced {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TransferBouncedCopyWith<_$_TransferBounced> get copyWith =>
-      __$$_TransferBouncedCopyWithImpl<_$_TransferBounced>(this, _$identity);
+  _$$TransferBouncedImplCopyWith<_$TransferBouncedImpl> get copyWith =>
+      __$$TransferBouncedImplCopyWithImpl<_$TransferBouncedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1016,7 +1022,7 @@ class _$_TransferBounced implements _TransferBounced {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TransferBouncedToJson(
+    return _$$TransferBouncedImplToJson(
       this,
     );
   }
@@ -1024,34 +1030,34 @@ class _$_TransferBounced implements _TransferBounced {
 
 abstract class _TransferBounced implements TokenWalletTransaction {
   const factory _TransferBounced(@amountJsonConverter final BigInt data) =
-      _$_TransferBounced;
+      _$TransferBouncedImpl;
 
   factory _TransferBounced.fromJson(Map<String, dynamic> json) =
-      _$_TransferBounced.fromJson;
+      _$TransferBouncedImpl.fromJson;
 
   @override
   @amountJsonConverter
   BigInt get data;
   @JsonKey(ignore: true)
-  _$$_TransferBouncedCopyWith<_$_TransferBounced> get copyWith =>
+  _$$TransferBouncedImplCopyWith<_$TransferBouncedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SwapBackBouncedCopyWith<$Res> {
-  factory _$$_SwapBackBouncedCopyWith(
-          _$_SwapBackBounced value, $Res Function(_$_SwapBackBounced) then) =
-      __$$_SwapBackBouncedCopyWithImpl<$Res>;
+abstract class _$$SwapBackBouncedImplCopyWith<$Res> {
+  factory _$$SwapBackBouncedImplCopyWith(_$SwapBackBouncedImpl value,
+          $Res Function(_$SwapBackBouncedImpl) then) =
+      __$$SwapBackBouncedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({@amountJsonConverter BigInt data});
 }
 
 /// @nodoc
-class __$$_SwapBackBouncedCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$_SwapBackBounced>
-    implements _$$_SwapBackBouncedCopyWith<$Res> {
-  __$$_SwapBackBouncedCopyWithImpl(
-      _$_SwapBackBounced _value, $Res Function(_$_SwapBackBounced) _then)
+class __$$SwapBackBouncedImplCopyWithImpl<$Res>
+    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$SwapBackBouncedImpl>
+    implements _$$SwapBackBouncedImplCopyWith<$Res> {
+  __$$SwapBackBouncedImplCopyWithImpl(
+      _$SwapBackBouncedImpl _value, $Res Function(_$SwapBackBouncedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1059,7 +1065,7 @@ class __$$_SwapBackBouncedCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_SwapBackBounced(
+    return _then(_$SwapBackBouncedImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1070,13 +1076,13 @@ class __$$_SwapBackBouncedCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SwapBackBounced implements _SwapBackBounced {
-  const _$_SwapBackBounced(@amountJsonConverter this.data,
+class _$SwapBackBouncedImpl implements _SwapBackBounced {
+  const _$SwapBackBouncedImpl(@amountJsonConverter this.data,
       {final String? $type})
       : $type = $type ?? 'swap_back_bounced';
 
-  factory _$_SwapBackBounced.fromJson(Map<String, dynamic> json) =>
-      _$$_SwapBackBouncedFromJson(json);
+  factory _$SwapBackBouncedImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SwapBackBouncedImplFromJson(json);
 
   @override
   @amountJsonConverter
@@ -1094,7 +1100,7 @@ class _$_SwapBackBounced implements _SwapBackBounced {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SwapBackBounced &&
+            other is _$SwapBackBouncedImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -1105,8 +1111,9 @@ class _$_SwapBackBounced implements _SwapBackBounced {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SwapBackBouncedCopyWith<_$_SwapBackBounced> get copyWith =>
-      __$$_SwapBackBouncedCopyWithImpl<_$_SwapBackBounced>(this, _$identity);
+  _$$SwapBackBouncedImplCopyWith<_$SwapBackBouncedImpl> get copyWith =>
+      __$$SwapBackBouncedImplCopyWithImpl<_$SwapBackBouncedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1196,7 +1203,7 @@ class _$_SwapBackBounced implements _SwapBackBounced {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SwapBackBouncedToJson(
+    return _$$SwapBackBouncedImplToJson(
       this,
     );
   }
@@ -1204,15 +1211,15 @@ class _$_SwapBackBounced implements _SwapBackBounced {
 
 abstract class _SwapBackBounced implements TokenWalletTransaction {
   const factory _SwapBackBounced(@amountJsonConverter final BigInt data) =
-      _$_SwapBackBounced;
+      _$SwapBackBouncedImpl;
 
   factory _SwapBackBounced.fromJson(Map<String, dynamic> json) =
-      _$_SwapBackBounced.fromJson;
+      _$SwapBackBouncedImpl.fromJson;
 
   @override
   @amountJsonConverter
   BigInt get data;
   @JsonKey(ignore: true)
-  _$$_SwapBackBouncedCopyWith<_$_SwapBackBounced> get copyWith =>
+  _$$SwapBackBouncedImplCopyWith<_$SwapBackBouncedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

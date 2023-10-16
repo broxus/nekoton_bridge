@@ -91,11 +91,11 @@ class _$AssetsListCopyWithImpl<$Res, $Val extends AssetsList>
 }
 
 /// @nodoc
-abstract class _$$_AssetsListCopyWith<$Res>
+abstract class _$$AssetsListImplCopyWith<$Res>
     implements $AssetsListCopyWith<$Res> {
-  factory _$$_AssetsListCopyWith(
-          _$_AssetsList value, $Res Function(_$_AssetsList) then) =
-      __$$_AssetsListCopyWithImpl<$Res>;
+  factory _$$AssetsListImplCopyWith(
+          _$AssetsListImpl value, $Res Function(_$AssetsListImpl) then) =
+      __$$AssetsListImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -108,11 +108,11 @@ abstract class _$$_AssetsListCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AssetsListCopyWithImpl<$Res>
-    extends _$AssetsListCopyWithImpl<$Res, _$_AssetsList>
-    implements _$$_AssetsListCopyWith<$Res> {
-  __$$_AssetsListCopyWithImpl(
-      _$_AssetsList _value, $Res Function(_$_AssetsList) _then)
+class __$$AssetsListImplCopyWithImpl<$Res>
+    extends _$AssetsListCopyWithImpl<$Res, _$AssetsListImpl>
+    implements _$$AssetsListImplCopyWith<$Res> {
+  __$$AssetsListImplCopyWithImpl(
+      _$AssetsListImpl _value, $Res Function(_$AssetsListImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -122,7 +122,7 @@ class __$$_AssetsListCopyWithImpl<$Res>
     Object? tonWallet = null,
     Object? additionalAssets = null,
   }) {
-    return _then(_$_AssetsList(
+    return _then(_$AssetsListImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -141,16 +141,16 @@ class __$$_AssetsListCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AssetsList extends _AssetsList {
-  const _$_AssetsList(
+class _$AssetsListImpl extends _AssetsList {
+  const _$AssetsListImpl(
       {required this.name,
       required this.tonWallet,
       required final Map<String, AdditionalAssets> additionalAssets})
       : _additionalAssets = additionalAssets,
         super._();
 
-  factory _$_AssetsList.fromJson(Map<String, dynamic> json) =>
-      _$$_AssetsListFromJson(json);
+  factory _$AssetsListImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AssetsListImplFromJson(json);
 
   @override
   final String name;
@@ -179,7 +179,7 @@ class _$_AssetsList extends _AssetsList {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AssetsList &&
+            other is _$AssetsListImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.tonWallet, tonWallet) ||
                 other.tonWallet == tonWallet) &&
@@ -195,12 +195,12 @@ class _$_AssetsList extends _AssetsList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AssetsListCopyWith<_$_AssetsList> get copyWith =>
-      __$$_AssetsListCopyWithImpl<_$_AssetsList>(this, _$identity);
+  _$$AssetsListImplCopyWith<_$AssetsListImpl> get copyWith =>
+      __$$AssetsListImplCopyWithImpl<_$AssetsListImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AssetsListToJson(
+    return _$$AssetsListImplToJson(
       this,
     );
   }
@@ -211,11 +211,11 @@ abstract class _AssetsList extends AssetsList {
           {required final String name,
           required final TonWalletAsset tonWallet,
           required final Map<String, AdditionalAssets> additionalAssets}) =
-      _$_AssetsList;
+      _$AssetsListImpl;
   const _AssetsList._() : super._();
 
   factory _AssetsList.fromJson(Map<String, dynamic> json) =
-      _$_AssetsList.fromJson;
+      _$AssetsListImpl.fromJson;
 
   @override
   String get name;
@@ -227,6 +227,6 @@ abstract class _AssetsList extends AssetsList {
   Map<String, AdditionalAssets> get additionalAssets;
   @override
   @JsonKey(ignore: true)
-  _$$_AssetsListCopyWith<_$_AssetsList> get copyWith =>
+  _$$AssetsListImplCopyWith<_$AssetsListImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

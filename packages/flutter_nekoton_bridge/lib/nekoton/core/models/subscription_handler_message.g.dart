@@ -6,15 +6,15 @@ part of 'subscription_handler_message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SubscriptionHandlerMessage _$$_SubscriptionHandlerMessageFromJson(
+_$SubscriptionHandlerMessageImpl _$$SubscriptionHandlerMessageImplFromJson(
         Map<String, dynamic> json) =>
-    _$_SubscriptionHandlerMessage(
+    _$SubscriptionHandlerMessageImpl(
       event: json['event'] as String,
       payload: json['payload'] as String,
     );
 
-Map<String, dynamic> _$$_SubscriptionHandlerMessageToJson(
-        _$_SubscriptionHandlerMessage instance) =>
+Map<String, dynamic> _$$SubscriptionHandlerMessageImplToJson(
+        _$SubscriptionHandlerMessageImpl instance) =>
     <String, dynamic>{
       'event': instance.event,
       'payload': instance.payload,

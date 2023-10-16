@@ -6,8 +6,8 @@ part of 'account_to_add.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AccountToAdd _$$_AccountToAddFromJson(Map<String, dynamic> json) =>
-    _$_AccountToAdd(
+_$AccountToAddImpl _$$AccountToAddImplFromJson(Map<String, dynamic> json) =>
+    _$AccountToAddImpl(
       name: json['name'] as String,
       publicKey: PublicKey.fromJson(json['publicKey'] as String),
       contract: WalletType.fromJson(json['contract'] as Map<String, dynamic>),
@@ -17,7 +17,7 @@ _$_AccountToAdd _$$_AccountToAddFromJson(Map<String, dynamic> json) =>
           : Address.fromJson(json['explicitAddress'] as String),
     );
 
-Map<String, dynamic> _$$_AccountToAddToJson(_$_AccountToAdd instance) =>
+Map<String, dynamic> _$$AccountToAddImplToJson(_$AccountToAddImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'publicKey': instance.publicKey.toJson(),
