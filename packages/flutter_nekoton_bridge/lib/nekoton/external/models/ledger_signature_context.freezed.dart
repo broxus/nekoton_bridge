@@ -97,11 +97,12 @@ class _$LedgerSignatureContextCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LedgerSignatureContextCopyWith<$Res>
+abstract class _$$LedgerSignatureContextImplCopyWith<$Res>
     implements $LedgerSignatureContextCopyWith<$Res> {
-  factory _$$_LedgerSignatureContextCopyWith(_$_LedgerSignatureContext value,
-          $Res Function(_$_LedgerSignatureContext) then) =
-      __$$_LedgerSignatureContextCopyWithImpl<$Res>;
+  factory _$$LedgerSignatureContextImplCopyWith(
+          _$LedgerSignatureContextImpl value,
+          $Res Function(_$LedgerSignatureContextImpl) then) =
+      __$$LedgerSignatureContextImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -115,12 +116,13 @@ abstract class _$$_LedgerSignatureContextCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LedgerSignatureContextCopyWithImpl<$Res>
+class __$$LedgerSignatureContextImplCopyWithImpl<$Res>
     extends _$LedgerSignatureContextCopyWithImpl<$Res,
-        _$_LedgerSignatureContext>
-    implements _$$_LedgerSignatureContextCopyWith<$Res> {
-  __$$_LedgerSignatureContextCopyWithImpl(_$_LedgerSignatureContext _value,
-      $Res Function(_$_LedgerSignatureContext) _then)
+        _$LedgerSignatureContextImpl>
+    implements _$$LedgerSignatureContextImplCopyWith<$Res> {
+  __$$LedgerSignatureContextImplCopyWithImpl(
+      _$LedgerSignatureContextImpl _value,
+      $Res Function(_$LedgerSignatureContextImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -131,7 +133,7 @@ class __$$_LedgerSignatureContextCopyWithImpl<$Res>
     Object? amount = null,
     Object? address = null,
   }) {
-    return _then(_$_LedgerSignatureContext(
+    return _then(_$LedgerSignatureContextImpl(
       decimals: null == decimals
           ? _value.decimals
           : decimals // ignore: cast_nullable_to_non_nullable
@@ -154,15 +156,15 @@ class __$$_LedgerSignatureContextCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LedgerSignatureContext implements _LedgerSignatureContext {
-  const _$_LedgerSignatureContext(
+class _$LedgerSignatureContextImpl implements _LedgerSignatureContext {
+  const _$LedgerSignatureContextImpl(
       {required this.decimals,
       required this.asset,
       @amountJsonConverter required this.amount,
       required this.address});
 
-  factory _$_LedgerSignatureContext.fromJson(Map<String, dynamic> json) =>
-      _$$_LedgerSignatureContextFromJson(json);
+  factory _$LedgerSignatureContextImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LedgerSignatureContextImplFromJson(json);
 
   @override
   final int decimals;
@@ -183,7 +185,7 @@ class _$_LedgerSignatureContext implements _LedgerSignatureContext {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LedgerSignatureContext &&
+            other is _$LedgerSignatureContextImpl &&
             (identical(other.decimals, decimals) ||
                 other.decimals == decimals) &&
             (identical(other.asset, asset) || other.asset == asset) &&
@@ -199,13 +201,13 @@ class _$_LedgerSignatureContext implements _LedgerSignatureContext {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LedgerSignatureContextCopyWith<_$_LedgerSignatureContext> get copyWith =>
-      __$$_LedgerSignatureContextCopyWithImpl<_$_LedgerSignatureContext>(
-          this, _$identity);
+  _$$LedgerSignatureContextImplCopyWith<_$LedgerSignatureContextImpl>
+      get copyWith => __$$LedgerSignatureContextImplCopyWithImpl<
+          _$LedgerSignatureContextImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LedgerSignatureContextToJson(
+    return _$$LedgerSignatureContextImplToJson(
       this,
     );
   }
@@ -216,10 +218,10 @@ abstract class _LedgerSignatureContext implements LedgerSignatureContext {
       {required final int decimals,
       required final String asset,
       @amountJsonConverter required final BigInt amount,
-      required final Address address}) = _$_LedgerSignatureContext;
+      required final Address address}) = _$LedgerSignatureContextImpl;
 
   factory _LedgerSignatureContext.fromJson(Map<String, dynamic> json) =
-      _$_LedgerSignatureContext.fromJson;
+      _$LedgerSignatureContextImpl.fromJson;
 
   @override
   int get decimals;
@@ -232,6 +234,6 @@ abstract class _LedgerSignatureContext implements LedgerSignatureContext {
   Address get address;
   @override
   @JsonKey(ignore: true)
-  _$$_LedgerSignatureContextCopyWith<_$_LedgerSignatureContext> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$LedgerSignatureContextImplCopyWith<_$LedgerSignatureContextImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

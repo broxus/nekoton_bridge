@@ -68,22 +68,22 @@ class _$DecodedEventCopyWithImpl<$Res, $Val extends DecodedEvent>
 }
 
 /// @nodoc
-abstract class _$$_DecodedEventCopyWith<$Res>
+abstract class _$$DecodedEventImplCopyWith<$Res>
     implements $DecodedEventCopyWith<$Res> {
-  factory _$$_DecodedEventCopyWith(
-          _$_DecodedEvent value, $Res Function(_$_DecodedEvent) then) =
-      __$$_DecodedEventCopyWithImpl<$Res>;
+  factory _$$DecodedEventImplCopyWith(
+          _$DecodedEventImpl value, $Res Function(_$DecodedEventImpl) then) =
+      __$$DecodedEventImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String event, Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$_DecodedEventCopyWithImpl<$Res>
-    extends _$DecodedEventCopyWithImpl<$Res, _$_DecodedEvent>
-    implements _$$_DecodedEventCopyWith<$Res> {
-  __$$_DecodedEventCopyWithImpl(
-      _$_DecodedEvent _value, $Res Function(_$_DecodedEvent) _then)
+class __$$DecodedEventImplCopyWithImpl<$Res>
+    extends _$DecodedEventCopyWithImpl<$Res, _$DecodedEventImpl>
+    implements _$$DecodedEventImplCopyWith<$Res> {
+  __$$DecodedEventImplCopyWithImpl(
+      _$DecodedEventImpl _value, $Res Function(_$DecodedEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_DecodedEventCopyWithImpl<$Res>
     Object? event = null,
     Object? data = null,
   }) {
-    return _then(_$_DecodedEvent(
+    return _then(_$DecodedEventImpl(
       event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
@@ -107,13 +107,13 @@ class __$$_DecodedEventCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DecodedEvent implements _DecodedEvent {
-  const _$_DecodedEvent(
+class _$DecodedEventImpl implements _DecodedEvent {
+  const _$DecodedEventImpl(
       {required this.event, required final Map<String, dynamic> data})
       : _data = data;
 
-  factory _$_DecodedEvent.fromJson(Map<String, dynamic> json) =>
-      _$$_DecodedEventFromJson(json);
+  factory _$DecodedEventImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DecodedEventImplFromJson(json);
 
   @override
   final String event;
@@ -134,7 +134,7 @@ class _$_DecodedEvent implements _DecodedEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DecodedEvent &&
+            other is _$DecodedEventImpl &&
             (identical(other.event, event) || other.event == event) &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
@@ -147,12 +147,12 @@ class _$_DecodedEvent implements _DecodedEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DecodedEventCopyWith<_$_DecodedEvent> get copyWith =>
-      __$$_DecodedEventCopyWithImpl<_$_DecodedEvent>(this, _$identity);
+  _$$DecodedEventImplCopyWith<_$DecodedEventImpl> get copyWith =>
+      __$$DecodedEventImplCopyWithImpl<_$DecodedEventImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DecodedEventToJson(
+    return _$$DecodedEventImplToJson(
       this,
     );
   }
@@ -161,10 +161,10 @@ class _$_DecodedEvent implements _DecodedEvent {
 abstract class _DecodedEvent implements DecodedEvent {
   const factory _DecodedEvent(
       {required final String event,
-      required final Map<String, dynamic> data}) = _$_DecodedEvent;
+      required final Map<String, dynamic> data}) = _$DecodedEventImpl;
 
   factory _DecodedEvent.fromJson(Map<String, dynamic> json) =
-      _$_DecodedEvent.fromJson;
+      _$DecodedEventImpl.fromJson;
 
   @override
   String get event;
@@ -172,6 +172,6 @@ abstract class _DecodedEvent implements DecodedEvent {
   Map<String, dynamic> get data;
   @override
   @JsonKey(ignore: true)
-  _$$_DecodedEventCopyWith<_$_DecodedEvent> get copyWith =>
+  _$$DecodedEventImplCopyWith<_$DecodedEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

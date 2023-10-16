@@ -6,27 +6,27 @@ part of 'ledger_update_key_input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LedgerUpdateKeyInput _$$_LedgerUpdateKeyInputFromJson(
+_$LedgerUpdateKeyInputImpl _$$LedgerUpdateKeyInputImplFromJson(
         Map<String, dynamic> json) =>
-    _$_LedgerUpdateKeyInput(
+    _$LedgerUpdateKeyInputImpl(
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_LedgerUpdateKeyInputToJson(
-        _$_LedgerUpdateKeyInput instance) =>
+Map<String, dynamic> _$$LedgerUpdateKeyInputImplToJson(
+        _$LedgerUpdateKeyInputImpl instance) =>
     <String, dynamic>{
       'type': instance.$type,
     };
 
-_$_LedgerUpdateKeyInputRename _$$_LedgerUpdateKeyInputRenameFromJson(
+_$LedgerUpdateKeyInputRenameImpl _$$LedgerUpdateKeyInputRenameImplFromJson(
         Map<String, dynamic> json) =>
-    _$_LedgerUpdateKeyInputRename(
+    _$LedgerUpdateKeyInputRenameImpl(
       LedgerUpdateKeyInputRename.fromJson(json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_LedgerUpdateKeyInputRenameToJson(
-        _$_LedgerUpdateKeyInputRename instance) =>
+Map<String, dynamic> _$$LedgerUpdateKeyInputRenameImplToJson(
+        _$LedgerUpdateKeyInputRenameImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,

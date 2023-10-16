@@ -6,14 +6,14 @@ part of 'derived_key_export_output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DerivedKeyExportOutput _$$_DerivedKeyExportOutputFromJson(
+_$DerivedKeyExportOutputImpl _$$DerivedKeyExportOutputImplFromJson(
         Map<String, dynamic> json) =>
-    _$_DerivedKeyExportOutput(
+    _$DerivedKeyExportOutputImpl(
       phrase: json['phrase'] as String,
     );
 
-Map<String, dynamic> _$$_DerivedKeyExportOutputToJson(
-        _$_DerivedKeyExportOutput instance) =>
+Map<String, dynamic> _$$DerivedKeyExportOutputImplToJson(
+        _$DerivedKeyExportOutputImpl instance) =>
     <String, dynamic>{
       'phrase': instance.phrase,
     };

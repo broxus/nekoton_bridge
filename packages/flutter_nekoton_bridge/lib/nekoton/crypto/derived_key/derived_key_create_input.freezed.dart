@@ -92,9 +92,10 @@ class _$DerivedKeyCreateInputCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ImportCopyWith<$Res> {
-  factory _$$_ImportCopyWith(_$_Import value, $Res Function(_$_Import) then) =
-      __$$_ImportCopyWithImpl<$Res>;
+abstract class _$$ImportImplCopyWith<$Res> {
+  factory _$$ImportImplCopyWith(
+          _$ImportImpl value, $Res Function(_$ImportImpl) then) =
+      __$$ImportImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DerivedKeyCreateInputImport data});
 
@@ -102,10 +103,11 @@ abstract class _$$_ImportCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ImportCopyWithImpl<$Res>
-    extends _$DerivedKeyCreateInputCopyWithImpl<$Res, _$_Import>
-    implements _$$_ImportCopyWith<$Res> {
-  __$$_ImportCopyWithImpl(_$_Import _value, $Res Function(_$_Import) _then)
+class __$$ImportImplCopyWithImpl<$Res>
+    extends _$DerivedKeyCreateInputCopyWithImpl<$Res, _$ImportImpl>
+    implements _$$ImportImplCopyWith<$Res> {
+  __$$ImportImplCopyWithImpl(
+      _$ImportImpl _value, $Res Function(_$ImportImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,7 +115,7 @@ class __$$_ImportCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Import(
+    return _then(_$ImportImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -132,11 +134,12 @@ class __$$_ImportCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Import implements _Import {
-  const _$_Import(this.data, {final String? $type}) : $type = $type ?? 'import';
+class _$ImportImpl implements _Import {
+  const _$ImportImpl(this.data, {final String? $type})
+      : $type = $type ?? 'import';
 
-  factory _$_Import.fromJson(Map<String, dynamic> json) =>
-      _$$_ImportFromJson(json);
+  factory _$ImportImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ImportImplFromJson(json);
 
   @override
   final DerivedKeyCreateInputImport data;
@@ -153,7 +156,7 @@ class _$_Import implements _Import {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Import &&
+            other is _$ImportImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -164,8 +167,8 @@ class _$_Import implements _Import {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ImportCopyWith<_$_Import> get copyWith =>
-      __$$_ImportCopyWithImpl<_$_Import>(this, _$identity);
+  _$$ImportImplCopyWith<_$ImportImpl> get copyWith =>
+      __$$ImportImplCopyWithImpl<_$ImportImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -231,28 +234,29 @@ class _$_Import implements _Import {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ImportToJson(
+    return _$$ImportImplToJson(
       this,
     );
   }
 }
 
 abstract class _Import implements DerivedKeyCreateInput {
-  const factory _Import(final DerivedKeyCreateInputImport data) = _$_Import;
+  const factory _Import(final DerivedKeyCreateInputImport data) = _$ImportImpl;
 
-  factory _Import.fromJson(Map<String, dynamic> json) = _$_Import.fromJson;
+  factory _Import.fromJson(Map<String, dynamic> json) = _$ImportImpl.fromJson;
 
   @override
   DerivedKeyCreateInputImport get data;
   @JsonKey(ignore: true)
-  _$$_ImportCopyWith<_$_Import> get copyWith =>
+  _$$ImportImplCopyWith<_$ImportImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DeriveCopyWith<$Res> {
-  factory _$$_DeriveCopyWith(_$_Derive value, $Res Function(_$_Derive) then) =
-      __$$_DeriveCopyWithImpl<$Res>;
+abstract class _$$DeriveImplCopyWith<$Res> {
+  factory _$$DeriveImplCopyWith(
+          _$DeriveImpl value, $Res Function(_$DeriveImpl) then) =
+      __$$DeriveImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DerivedKeyCreateInputDerive data});
 
@@ -260,10 +264,11 @@ abstract class _$$_DeriveCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DeriveCopyWithImpl<$Res>
-    extends _$DerivedKeyCreateInputCopyWithImpl<$Res, _$_Derive>
-    implements _$$_DeriveCopyWith<$Res> {
-  __$$_DeriveCopyWithImpl(_$_Derive _value, $Res Function(_$_Derive) _then)
+class __$$DeriveImplCopyWithImpl<$Res>
+    extends _$DerivedKeyCreateInputCopyWithImpl<$Res, _$DeriveImpl>
+    implements _$$DeriveImplCopyWith<$Res> {
+  __$$DeriveImplCopyWithImpl(
+      _$DeriveImpl _value, $Res Function(_$DeriveImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -271,7 +276,7 @@ class __$$_DeriveCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Derive(
+    return _then(_$DeriveImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -290,11 +295,12 @@ class __$$_DeriveCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Derive implements _Derive {
-  const _$_Derive(this.data, {final String? $type}) : $type = $type ?? 'derive';
+class _$DeriveImpl implements _Derive {
+  const _$DeriveImpl(this.data, {final String? $type})
+      : $type = $type ?? 'derive';
 
-  factory _$_Derive.fromJson(Map<String, dynamic> json) =>
-      _$$_DeriveFromJson(json);
+  factory _$DeriveImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DeriveImplFromJson(json);
 
   @override
   final DerivedKeyCreateInputDerive data;
@@ -311,7 +317,7 @@ class _$_Derive implements _Derive {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Derive &&
+            other is _$DeriveImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -322,8 +328,8 @@ class _$_Derive implements _Derive {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeriveCopyWith<_$_Derive> get copyWith =>
-      __$$_DeriveCopyWithImpl<_$_Derive>(this, _$identity);
+  _$$DeriveImplCopyWith<_$DeriveImpl> get copyWith =>
+      __$$DeriveImplCopyWithImpl<_$DeriveImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -389,20 +395,20 @@ class _$_Derive implements _Derive {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DeriveToJson(
+    return _$$DeriveImplToJson(
       this,
     );
   }
 }
 
 abstract class _Derive implements DerivedKeyCreateInput {
-  const factory _Derive(final DerivedKeyCreateInputDerive data) = _$_Derive;
+  const factory _Derive(final DerivedKeyCreateInputDerive data) = _$DeriveImpl;
 
-  factory _Derive.fromJson(Map<String, dynamic> json) = _$_Derive.fromJson;
+  factory _Derive.fromJson(Map<String, dynamic> json) = _$DeriveImpl.fromJson;
 
   @override
   DerivedKeyCreateInputDerive get data;
   @JsonKey(ignore: true)
-  _$$_DeriveCopyWith<_$_Derive> get copyWith =>
+  _$$DeriveImplCopyWith<_$DeriveImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

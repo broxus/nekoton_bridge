@@ -6,31 +6,34 @@ part of 'expiration.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Never _$$_NeverFromJson(Map<String, dynamic> json) => _$_Never(
+_$NeverImpl _$$NeverImplFromJson(Map<String, dynamic> json) => _$NeverImpl(
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_NeverToJson(_$_Never instance) => <String, dynamic>{
+Map<String, dynamic> _$$NeverImplToJson(_$NeverImpl instance) =>
+    <String, dynamic>{
       'type': instance.$type,
     };
 
-_$_Timeout _$$_TimeoutFromJson(Map<String, dynamic> json) => _$_Timeout(
+_$TimeoutImpl _$$TimeoutImplFromJson(Map<String, dynamic> json) =>
+    _$TimeoutImpl(
       json['data'] as int,
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_TimeoutToJson(_$_Timeout instance) =>
+Map<String, dynamic> _$$TimeoutImplToJson(_$TimeoutImpl instance) =>
     <String, dynamic>{
       'data': instance.data,
       'type': instance.$type,
     };
 
-_$_Timestamp _$$_TimestampFromJson(Map<String, dynamic> json) => _$_Timestamp(
+_$TimestampImpl _$$TimestampImplFromJson(Map<String, dynamic> json) =>
+    _$TimestampImpl(
       json['data'] as int,
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_TimestampToJson(_$_Timestamp instance) =>
+Map<String, dynamic> _$$TimestampImplToJson(_$TimestampImpl instance) =>
     <String, dynamic>{
       'data': instance.data,
       'type': instance.$type,

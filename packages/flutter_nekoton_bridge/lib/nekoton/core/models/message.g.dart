@@ -6,7 +6,8 @@ part of 'message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Message _$$_MessageFromJson(Map<String, dynamic> json) => _$_Message(
+_$MessageImpl _$$MessageImplFromJson(Map<String, dynamic> json) =>
+    _$MessageImpl(
       hash: json['hash'] as String,
       src: json['src'] == null ? null : Address.fromJson(json['src'] as String),
       dst: json['dst'] == null ? null : Address.fromJson(json['dst'] as String),
@@ -17,7 +18,7 @@ _$_Message _$$_MessageFromJson(Map<String, dynamic> json) => _$_Message(
       bodyHash: json['bodyHash'] as String?,
     );
 
-Map<String, dynamic> _$$_MessageToJson(_$_Message instance) =>
+Map<String, dynamic> _$$MessageImplToJson(_$MessageImpl instance) =>
     <String, dynamic>{
       'hash': instance.hash,
       'src': instance.src?.toJson(),

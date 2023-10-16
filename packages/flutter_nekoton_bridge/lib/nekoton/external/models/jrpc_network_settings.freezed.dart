@@ -62,22 +62,22 @@ class _$JrpcNetworkSettingsCopyWithImpl<$Res, $Val extends JrpcNetworkSettings>
 }
 
 /// @nodoc
-abstract class _$$_JrpcNetworkSettingsCopyWith<$Res>
+abstract class _$$JrpcNetworkSettingsImplCopyWith<$Res>
     implements $JrpcNetworkSettingsCopyWith<$Res> {
-  factory _$$_JrpcNetworkSettingsCopyWith(_$_JrpcNetworkSettings value,
-          $Res Function(_$_JrpcNetworkSettings) then) =
-      __$$_JrpcNetworkSettingsCopyWithImpl<$Res>;
+  factory _$$JrpcNetworkSettingsImplCopyWith(_$JrpcNetworkSettingsImpl value,
+          $Res Function(_$JrpcNetworkSettingsImpl) then) =
+      __$$JrpcNetworkSettingsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String endpoint});
 }
 
 /// @nodoc
-class __$$_JrpcNetworkSettingsCopyWithImpl<$Res>
-    extends _$JrpcNetworkSettingsCopyWithImpl<$Res, _$_JrpcNetworkSettings>
-    implements _$$_JrpcNetworkSettingsCopyWith<$Res> {
-  __$$_JrpcNetworkSettingsCopyWithImpl(_$_JrpcNetworkSettings _value,
-      $Res Function(_$_JrpcNetworkSettings) _then)
+class __$$JrpcNetworkSettingsImplCopyWithImpl<$Res>
+    extends _$JrpcNetworkSettingsCopyWithImpl<$Res, _$JrpcNetworkSettingsImpl>
+    implements _$$JrpcNetworkSettingsImplCopyWith<$Res> {
+  __$$JrpcNetworkSettingsImplCopyWithImpl(_$JrpcNetworkSettingsImpl _value,
+      $Res Function(_$JrpcNetworkSettingsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_JrpcNetworkSettingsCopyWithImpl<$Res>
   $Res call({
     Object? endpoint = null,
   }) {
-    return _then(_$_JrpcNetworkSettings(
+    return _then(_$JrpcNetworkSettingsImpl(
       endpoint: null == endpoint
           ? _value.endpoint
           : endpoint // ignore: cast_nullable_to_non_nullable
@@ -96,11 +96,11 @@ class __$$_JrpcNetworkSettingsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_JrpcNetworkSettings implements _JrpcNetworkSettings {
-  const _$_JrpcNetworkSettings({required this.endpoint});
+class _$JrpcNetworkSettingsImpl implements _JrpcNetworkSettings {
+  const _$JrpcNetworkSettingsImpl({required this.endpoint});
 
-  factory _$_JrpcNetworkSettings.fromJson(Map<String, dynamic> json) =>
-      _$$_JrpcNetworkSettingsFromJson(json);
+  factory _$JrpcNetworkSettingsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$JrpcNetworkSettingsImplFromJson(json);
 
   @override
   final String endpoint;
@@ -114,7 +114,7 @@ class _$_JrpcNetworkSettings implements _JrpcNetworkSettings {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_JrpcNetworkSettings &&
+            other is _$JrpcNetworkSettingsImpl &&
             (identical(other.endpoint, endpoint) ||
                 other.endpoint == endpoint));
   }
@@ -126,13 +126,13 @@ class _$_JrpcNetworkSettings implements _JrpcNetworkSettings {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_JrpcNetworkSettingsCopyWith<_$_JrpcNetworkSettings> get copyWith =>
-      __$$_JrpcNetworkSettingsCopyWithImpl<_$_JrpcNetworkSettings>(
+  _$$JrpcNetworkSettingsImplCopyWith<_$JrpcNetworkSettingsImpl> get copyWith =>
+      __$$JrpcNetworkSettingsImplCopyWithImpl<_$JrpcNetworkSettingsImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_JrpcNetworkSettingsToJson(
+    return _$$JrpcNetworkSettingsImplToJson(
       this,
     );
   }
@@ -140,15 +140,15 @@ class _$_JrpcNetworkSettings implements _JrpcNetworkSettings {
 
 abstract class _JrpcNetworkSettings implements JrpcNetworkSettings {
   const factory _JrpcNetworkSettings({required final String endpoint}) =
-      _$_JrpcNetworkSettings;
+      _$JrpcNetworkSettingsImpl;
 
   factory _JrpcNetworkSettings.fromJson(Map<String, dynamic> json) =
-      _$_JrpcNetworkSettings.fromJson;
+      _$JrpcNetworkSettingsImpl.fromJson;
 
   @override
   String get endpoint;
   @override
   @JsonKey(ignore: true)
-  _$$_JrpcNetworkSettingsCopyWith<_$_JrpcNetworkSettings> get copyWith =>
+  _$$JrpcNetworkSettingsImplCopyWith<_$JrpcNetworkSettingsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

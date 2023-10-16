@@ -88,10 +88,10 @@ class _$PasswordCopyWithImpl<$Res, $Val extends Password>
 }
 
 /// @nodoc
-abstract class _$$_ExplicitCopyWith<$Res> {
-  factory _$$_ExplicitCopyWith(
-          _$_Explicit value, $Res Function(_$_Explicit) then) =
-      __$$_ExplicitCopyWithImpl<$Res>;
+abstract class _$$ExplicitImplCopyWith<$Res> {
+  factory _$$ExplicitImplCopyWith(
+          _$ExplicitImpl value, $Res Function(_$ExplicitImpl) then) =
+      __$$ExplicitImplCopyWithImpl<$Res>;
   @useResult
   $Res call({PasswordExplicit data});
 
@@ -99,11 +99,11 @@ abstract class _$$_ExplicitCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ExplicitCopyWithImpl<$Res>
-    extends _$PasswordCopyWithImpl<$Res, _$_Explicit>
-    implements _$$_ExplicitCopyWith<$Res> {
-  __$$_ExplicitCopyWithImpl(
-      _$_Explicit _value, $Res Function(_$_Explicit) _then)
+class __$$ExplicitImplCopyWithImpl<$Res>
+    extends _$PasswordCopyWithImpl<$Res, _$ExplicitImpl>
+    implements _$$ExplicitImplCopyWith<$Res> {
+  __$$ExplicitImplCopyWithImpl(
+      _$ExplicitImpl _value, $Res Function(_$ExplicitImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +111,7 @@ class __$$_ExplicitCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Explicit(
+    return _then(_$ExplicitImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -130,12 +130,12 @@ class __$$_ExplicitCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Explicit implements _Explicit {
-  const _$_Explicit(this.data, {final String? $type})
+class _$ExplicitImpl implements _Explicit {
+  const _$ExplicitImpl(this.data, {final String? $type})
       : $type = $type ?? 'explicit';
 
-  factory _$_Explicit.fromJson(Map<String, dynamic> json) =>
-      _$$_ExplicitFromJson(json);
+  factory _$ExplicitImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ExplicitImplFromJson(json);
 
   @override
   final PasswordExplicit data;
@@ -152,7 +152,7 @@ class _$_Explicit implements _Explicit {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Explicit &&
+            other is _$ExplicitImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -163,8 +163,8 @@ class _$_Explicit implements _Explicit {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ExplicitCopyWith<_$_Explicit> get copyWith =>
-      __$$_ExplicitCopyWithImpl<_$_Explicit>(this, _$identity);
+  _$$ExplicitImplCopyWith<_$ExplicitImpl> get copyWith =>
+      __$$ExplicitImplCopyWithImpl<_$ExplicitImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -230,46 +230,47 @@ class _$_Explicit implements _Explicit {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ExplicitToJson(
+    return _$$ExplicitImplToJson(
       this,
     );
   }
 }
 
 abstract class _Explicit implements Password {
-  const factory _Explicit(final PasswordExplicit data) = _$_Explicit;
+  const factory _Explicit(final PasswordExplicit data) = _$ExplicitImpl;
 
-  factory _Explicit.fromJson(Map<String, dynamic> json) = _$_Explicit.fromJson;
+  factory _Explicit.fromJson(Map<String, dynamic> json) =
+      _$ExplicitImpl.fromJson;
 
   PasswordExplicit get data;
   @JsonKey(ignore: true)
-  _$$_ExplicitCopyWith<_$_Explicit> get copyWith =>
+  _$$ExplicitImplCopyWith<_$ExplicitImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FromCacheCopyWith<$Res> {
-  factory _$$_FromCacheCopyWith(
-          _$_FromCache value, $Res Function(_$_FromCache) then) =
-      __$$_FromCacheCopyWithImpl<$Res>;
+abstract class _$$FromCacheImplCopyWith<$Res> {
+  factory _$$FromCacheImplCopyWith(
+          _$FromCacheImpl value, $Res Function(_$FromCacheImpl) then) =
+      __$$FromCacheImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FromCacheCopyWithImpl<$Res>
-    extends _$PasswordCopyWithImpl<$Res, _$_FromCache>
-    implements _$$_FromCacheCopyWith<$Res> {
-  __$$_FromCacheCopyWithImpl(
-      _$_FromCache _value, $Res Function(_$_FromCache) _then)
+class __$$FromCacheImplCopyWithImpl<$Res>
+    extends _$PasswordCopyWithImpl<$Res, _$FromCacheImpl>
+    implements _$$FromCacheImplCopyWith<$Res> {
+  __$$FromCacheImplCopyWithImpl(
+      _$FromCacheImpl _value, $Res Function(_$FromCacheImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_FromCache implements _FromCache {
-  const _$_FromCache({final String? $type}) : $type = $type ?? 'from_cache';
+class _$FromCacheImpl implements _FromCache {
+  const _$FromCacheImpl({final String? $type}) : $type = $type ?? 'from_cache';
 
-  factory _$_FromCache.fromJson(Map<String, dynamic> json) =>
-      _$$_FromCacheFromJson(json);
+  factory _$FromCacheImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FromCacheImplFromJson(json);
 
   @JsonKey(name: 'type')
   final String $type;
@@ -282,7 +283,7 @@ class _$_FromCache implements _FromCache {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FromCache);
+        (other.runtimeType == runtimeType && other is _$FromCacheImpl);
   }
 
   @JsonKey(ignore: true)
@@ -353,15 +354,15 @@ class _$_FromCache implements _FromCache {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FromCacheToJson(
+    return _$$FromCacheImplToJson(
       this,
     );
   }
 }
 
 abstract class _FromCache implements Password {
-  const factory _FromCache() = _$_FromCache;
+  const factory _FromCache() = _$FromCacheImpl;
 
   factory _FromCache.fromJson(Map<String, dynamic> json) =
-      _$_FromCache.fromJson;
+      _$FromCacheImpl.fromJson;
 }

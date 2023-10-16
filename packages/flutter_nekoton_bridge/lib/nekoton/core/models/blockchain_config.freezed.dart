@@ -81,22 +81,22 @@ class _$BlockchainConfigCopyWithImpl<$Res, $Val extends BlockchainConfig>
 }
 
 /// @nodoc
-abstract class _$$_BlockchainConfigCopyWith<$Res>
+abstract class _$$BlockchainConfigImplCopyWith<$Res>
     implements $BlockchainConfigCopyWith<$Res> {
-  factory _$$_BlockchainConfigCopyWith(
-          _$_BlockchainConfig value, $Res Function(_$_BlockchainConfig) then) =
-      __$$_BlockchainConfigCopyWithImpl<$Res>;
+  factory _$$BlockchainConfigImplCopyWith(_$BlockchainConfigImpl value,
+          $Res Function(_$BlockchainConfigImpl) then) =
+      __$$BlockchainConfigImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int capabilities, int globalId, int globalVersion, String config});
 }
 
 /// @nodoc
-class __$$_BlockchainConfigCopyWithImpl<$Res>
-    extends _$BlockchainConfigCopyWithImpl<$Res, _$_BlockchainConfig>
-    implements _$$_BlockchainConfigCopyWith<$Res> {
-  __$$_BlockchainConfigCopyWithImpl(
-      _$_BlockchainConfig _value, $Res Function(_$_BlockchainConfig) _then)
+class __$$BlockchainConfigImplCopyWithImpl<$Res>
+    extends _$BlockchainConfigCopyWithImpl<$Res, _$BlockchainConfigImpl>
+    implements _$$BlockchainConfigImplCopyWith<$Res> {
+  __$$BlockchainConfigImplCopyWithImpl(_$BlockchainConfigImpl _value,
+      $Res Function(_$BlockchainConfigImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -107,7 +107,7 @@ class __$$_BlockchainConfigCopyWithImpl<$Res>
     Object? globalVersion = null,
     Object? config = null,
   }) {
-    return _then(_$_BlockchainConfig(
+    return _then(_$BlockchainConfigImpl(
       capabilities: null == capabilities
           ? _value.capabilities
           : capabilities // ignore: cast_nullable_to_non_nullable
@@ -130,15 +130,15 @@ class __$$_BlockchainConfigCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BlockchainConfig implements _BlockchainConfig {
-  const _$_BlockchainConfig(
+class _$BlockchainConfigImpl implements _BlockchainConfig {
+  const _$BlockchainConfigImpl(
       {required this.capabilities,
       required this.globalId,
       required this.globalVersion,
       required this.config});
 
-  factory _$_BlockchainConfig.fromJson(Map<String, dynamic> json) =>
-      _$$_BlockchainConfigFromJson(json);
+  factory _$BlockchainConfigImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BlockchainConfigImplFromJson(json);
 
   @override
   final int capabilities;
@@ -159,7 +159,7 @@ class _$_BlockchainConfig implements _BlockchainConfig {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BlockchainConfig &&
+            other is _$BlockchainConfigImpl &&
             (identical(other.capabilities, capabilities) ||
                 other.capabilities == capabilities) &&
             (identical(other.globalId, globalId) ||
@@ -177,12 +177,13 @@ class _$_BlockchainConfig implements _BlockchainConfig {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BlockchainConfigCopyWith<_$_BlockchainConfig> get copyWith =>
-      __$$_BlockchainConfigCopyWithImpl<_$_BlockchainConfig>(this, _$identity);
+  _$$BlockchainConfigImplCopyWith<_$BlockchainConfigImpl> get copyWith =>
+      __$$BlockchainConfigImplCopyWithImpl<_$BlockchainConfigImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BlockchainConfigToJson(
+    return _$$BlockchainConfigImplToJson(
       this,
     );
   }
@@ -193,10 +194,10 @@ abstract class _BlockchainConfig implements BlockchainConfig {
       {required final int capabilities,
       required final int globalId,
       required final int globalVersion,
-      required final String config}) = _$_BlockchainConfig;
+      required final String config}) = _$BlockchainConfigImpl;
 
   factory _BlockchainConfig.fromJson(Map<String, dynamic> json) =
-      _$_BlockchainConfig.fromJson;
+      _$BlockchainConfigImpl.fromJson;
 
   @override
   int get capabilities;
@@ -208,6 +209,6 @@ abstract class _BlockchainConfig implements BlockchainConfig {
   String get config;
   @override
   @JsonKey(ignore: true)
-  _$$_BlockchainConfigCopyWith<_$_BlockchainConfig> get copyWith =>
+  _$$BlockchainConfigImplCopyWith<_$BlockchainConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

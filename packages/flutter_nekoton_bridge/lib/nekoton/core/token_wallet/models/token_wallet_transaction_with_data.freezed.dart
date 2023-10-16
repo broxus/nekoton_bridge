@@ -95,12 +95,12 @@ class _$TokenWalletTransactionWithDataCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_TokenWalletTransactionWithDataCopyWith<$Res>
+abstract class _$$TokenWalletTransactionWithDataImplCopyWith<$Res>
     implements $TokenWalletTransactionWithDataCopyWith<$Res> {
-  factory _$$_TokenWalletTransactionWithDataCopyWith(
-          _$_TokenWalletTransactionWithData value,
-          $Res Function(_$_TokenWalletTransactionWithData) then) =
-      __$$_TokenWalletTransactionWithDataCopyWithImpl<$Res>;
+  factory _$$TokenWalletTransactionWithDataImplCopyWith(
+          _$TokenWalletTransactionWithDataImpl value,
+          $Res Function(_$TokenWalletTransactionWithDataImpl) then) =
+      __$$TokenWalletTransactionWithDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Transaction transaction, TokenWalletTransaction? data});
@@ -112,13 +112,13 @@ abstract class _$$_TokenWalletTransactionWithDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TokenWalletTransactionWithDataCopyWithImpl<$Res>
+class __$$TokenWalletTransactionWithDataImplCopyWithImpl<$Res>
     extends _$TokenWalletTransactionWithDataCopyWithImpl<$Res,
-        _$_TokenWalletTransactionWithData>
-    implements _$$_TokenWalletTransactionWithDataCopyWith<$Res> {
-  __$$_TokenWalletTransactionWithDataCopyWithImpl(
-      _$_TokenWalletTransactionWithData _value,
-      $Res Function(_$_TokenWalletTransactionWithData) _then)
+        _$TokenWalletTransactionWithDataImpl>
+    implements _$$TokenWalletTransactionWithDataImplCopyWith<$Res> {
+  __$$TokenWalletTransactionWithDataImplCopyWithImpl(
+      _$TokenWalletTransactionWithDataImpl _value,
+      $Res Function(_$TokenWalletTransactionWithDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -127,7 +127,7 @@ class __$$_TokenWalletTransactionWithDataCopyWithImpl<$Res>
     Object? transaction = null,
     Object? data = freezed,
   }) {
-    return _then(_$_TokenWalletTransactionWithData(
+    return _then(_$TokenWalletTransactionWithDataImpl(
       transaction: null == transaction
           ? _value.transaction
           : transaction // ignore: cast_nullable_to_non_nullable
@@ -142,15 +142,15 @@ class __$$_TokenWalletTransactionWithDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TokenWalletTransactionWithData
+class _$TokenWalletTransactionWithDataImpl
     extends _TokenWalletTransactionWithData {
-  const _$_TokenWalletTransactionWithData(
+  const _$TokenWalletTransactionWithDataImpl(
       {required this.transaction, this.data})
       : super._();
 
-  factory _$_TokenWalletTransactionWithData.fromJson(
+  factory _$TokenWalletTransactionWithDataImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$_TokenWalletTransactionWithDataFromJson(json);
+      _$$TokenWalletTransactionWithDataImplFromJson(json);
 
   @override
   final Transaction transaction;
@@ -166,7 +166,7 @@ class _$_TokenWalletTransactionWithData
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TokenWalletTransactionWithData &&
+            other is _$TokenWalletTransactionWithDataImpl &&
             (identical(other.transaction, transaction) ||
                 other.transaction == transaction) &&
             (identical(other.data, data) || other.data == data));
@@ -179,13 +179,14 @@ class _$_TokenWalletTransactionWithData
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TokenWalletTransactionWithDataCopyWith<_$_TokenWalletTransactionWithData>
-      get copyWith => __$$_TokenWalletTransactionWithDataCopyWithImpl<
-          _$_TokenWalletTransactionWithData>(this, _$identity);
+  _$$TokenWalletTransactionWithDataImplCopyWith<
+          _$TokenWalletTransactionWithDataImpl>
+      get copyWith => __$$TokenWalletTransactionWithDataImplCopyWithImpl<
+          _$TokenWalletTransactionWithDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TokenWalletTransactionWithDataToJson(
+    return _$$TokenWalletTransactionWithDataImplToJson(
       this,
     );
   }
@@ -194,12 +195,13 @@ class _$_TokenWalletTransactionWithData
 abstract class _TokenWalletTransactionWithData
     extends TokenWalletTransactionWithData {
   const factory _TokenWalletTransactionWithData(
-      {required final Transaction transaction,
-      final TokenWalletTransaction? data}) = _$_TokenWalletTransactionWithData;
+          {required final Transaction transaction,
+          final TokenWalletTransaction? data}) =
+      _$TokenWalletTransactionWithDataImpl;
   const _TokenWalletTransactionWithData._() : super._();
 
   factory _TokenWalletTransactionWithData.fromJson(Map<String, dynamic> json) =
-      _$_TokenWalletTransactionWithData.fromJson;
+      _$TokenWalletTransactionWithDataImpl.fromJson;
 
   @override
   Transaction get transaction;
@@ -207,6 +209,7 @@ abstract class _TokenWalletTransactionWithData
   TokenWalletTransaction? get data;
   @override
   @JsonKey(ignore: true)
-  _$$_TokenWalletTransactionWithDataCopyWith<_$_TokenWalletTransactionWithData>
+  _$$TokenWalletTransactionWithDataImplCopyWith<
+          _$TokenWalletTransactionWithDataImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

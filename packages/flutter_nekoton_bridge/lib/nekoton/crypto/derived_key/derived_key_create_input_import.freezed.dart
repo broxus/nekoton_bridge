@@ -88,12 +88,12 @@ class _$DerivedKeyCreateInputImportCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DerivedKeyCreateInputImportImportCopyWith<$Res>
+abstract class _$$DerivedKeyCreateInputImportImportImplCopyWith<$Res>
     implements $DerivedKeyCreateInputImportCopyWith<$Res> {
-  factory _$$_DerivedKeyCreateInputImportImportCopyWith(
-          _$_DerivedKeyCreateInputImportImport value,
-          $Res Function(_$_DerivedKeyCreateInputImportImport) then) =
-      __$$_DerivedKeyCreateInputImportImportCopyWithImpl<$Res>;
+  factory _$$DerivedKeyCreateInputImportImportImplCopyWith(
+          _$DerivedKeyCreateInputImportImportImpl value,
+          $Res Function(_$DerivedKeyCreateInputImportImportImpl) then) =
+      __$$DerivedKeyCreateInputImportImportImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? keyName, String phrase, Password password});
@@ -103,13 +103,13 @@ abstract class _$$_DerivedKeyCreateInputImportImportCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DerivedKeyCreateInputImportImportCopyWithImpl<$Res>
+class __$$DerivedKeyCreateInputImportImportImplCopyWithImpl<$Res>
     extends _$DerivedKeyCreateInputImportCopyWithImpl<$Res,
-        _$_DerivedKeyCreateInputImportImport>
-    implements _$$_DerivedKeyCreateInputImportImportCopyWith<$Res> {
-  __$$_DerivedKeyCreateInputImportImportCopyWithImpl(
-      _$_DerivedKeyCreateInputImportImport _value,
-      $Res Function(_$_DerivedKeyCreateInputImportImport) _then)
+        _$DerivedKeyCreateInputImportImportImpl>
+    implements _$$DerivedKeyCreateInputImportImportImplCopyWith<$Res> {
+  __$$DerivedKeyCreateInputImportImportImplCopyWithImpl(
+      _$DerivedKeyCreateInputImportImportImpl _value,
+      $Res Function(_$DerivedKeyCreateInputImportImportImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,7 +119,7 @@ class __$$_DerivedKeyCreateInputImportImportCopyWithImpl<$Res>
     Object? phrase = null,
     Object? password = null,
   }) {
-    return _then(_$_DerivedKeyCreateInputImportImport(
+    return _then(_$DerivedKeyCreateInputImportImportImpl(
       keyName: freezed == keyName
           ? _value.keyName
           : keyName // ignore: cast_nullable_to_non_nullable
@@ -139,14 +139,14 @@ class __$$_DerivedKeyCreateInputImportImportCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$_DerivedKeyCreateInputImportImport
+class _$DerivedKeyCreateInputImportImportImpl
     implements _DerivedKeyCreateInputImportImport {
-  const _$_DerivedKeyCreateInputImportImport(
+  const _$DerivedKeyCreateInputImportImportImpl(
       {this.keyName, required this.phrase, required this.password});
 
-  factory _$_DerivedKeyCreateInputImportImport.fromJson(
+  factory _$DerivedKeyCreateInputImportImportImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$_DerivedKeyCreateInputImportImportFromJson(json);
+      _$$DerivedKeyCreateInputImportImportImplFromJson(json);
 
   @override
   final String? keyName;
@@ -164,7 +164,7 @@ class _$_DerivedKeyCreateInputImportImport
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DerivedKeyCreateInputImportImport &&
+            other is _$DerivedKeyCreateInputImportImportImpl &&
             (identical(other.keyName, keyName) || other.keyName == keyName) &&
             (identical(other.phrase, phrase) || other.phrase == phrase) &&
             (identical(other.password, password) ||
@@ -178,14 +178,14 @@ class _$_DerivedKeyCreateInputImportImport
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DerivedKeyCreateInputImportImportCopyWith<
-          _$_DerivedKeyCreateInputImportImport>
-      get copyWith => __$$_DerivedKeyCreateInputImportImportCopyWithImpl<
-          _$_DerivedKeyCreateInputImportImport>(this, _$identity);
+  _$$DerivedKeyCreateInputImportImportImplCopyWith<
+          _$DerivedKeyCreateInputImportImportImpl>
+      get copyWith => __$$DerivedKeyCreateInputImportImportImplCopyWithImpl<
+          _$DerivedKeyCreateInputImportImportImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DerivedKeyCreateInputImportImportToJson(
+    return _$$DerivedKeyCreateInputImportImportImplToJson(
       this,
     );
   }
@@ -194,13 +194,14 @@ class _$_DerivedKeyCreateInputImportImport
 abstract class _DerivedKeyCreateInputImportImport
     implements DerivedKeyCreateInputImport {
   const factory _DerivedKeyCreateInputImportImport(
-      {final String? keyName,
-      required final String phrase,
-      required final Password password}) = _$_DerivedKeyCreateInputImportImport;
+          {final String? keyName,
+          required final String phrase,
+          required final Password password}) =
+      _$DerivedKeyCreateInputImportImportImpl;
 
   factory _DerivedKeyCreateInputImportImport.fromJson(
           Map<String, dynamic> json) =
-      _$_DerivedKeyCreateInputImportImport.fromJson;
+      _$DerivedKeyCreateInputImportImportImpl.fromJson;
 
   @override
   String? get keyName;
@@ -210,7 +211,7 @@ abstract class _DerivedKeyCreateInputImportImport
   Password get password;
   @override
   @JsonKey(ignore: true)
-  _$$_DerivedKeyCreateInputImportImportCopyWith<
-          _$_DerivedKeyCreateInputImportImport>
+  _$$DerivedKeyCreateInputImportImportImplCopyWith<
+          _$DerivedKeyCreateInputImportImportImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

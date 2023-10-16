@@ -6,32 +6,35 @@ part of 'multisig_transaction.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Send _$$_SendFromJson(Map<String, dynamic> json) => _$_Send(
+_$SendImpl _$$SendImplFromJson(Map<String, dynamic> json) => _$SendImpl(
       MultisigSendTransaction.fromJson(json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_SendToJson(_$_Send instance) => <String, dynamic>{
+Map<String, dynamic> _$$SendImplToJson(_$SendImpl instance) =>
+    <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
-_$_Submit _$$_SubmitFromJson(Map<String, dynamic> json) => _$_Submit(
+_$SubmitImpl _$$SubmitImplFromJson(Map<String, dynamic> json) => _$SubmitImpl(
       MultisigSubmitTransaction.fromJson(json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_SubmitToJson(_$_Submit instance) => <String, dynamic>{
+Map<String, dynamic> _$$SubmitImplToJson(_$SubmitImpl instance) =>
+    <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
-_$_Confirm _$$_ConfirmFromJson(Map<String, dynamic> json) => _$_Confirm(
+_$ConfirmImpl _$$ConfirmImplFromJson(Map<String, dynamic> json) =>
+    _$ConfirmImpl(
       MultisigConfirmTransaction.fromJson(json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_ConfirmToJson(_$_Confirm instance) =>
+Map<String, dynamic> _$$ConfirmImplToJson(_$ConfirmImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,

@@ -124,19 +124,20 @@ class _$TransactionAdditionalInfoCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_CommentCopyWith<$Res> {
-  factory _$$_CommentCopyWith(
-          _$_Comment value, $Res Function(_$_Comment) then) =
-      __$$_CommentCopyWithImpl<$Res>;
+abstract class _$$CommentImplCopyWith<$Res> {
+  factory _$$CommentImplCopyWith(
+          _$CommentImpl value, $Res Function(_$CommentImpl) then) =
+      __$$CommentImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class __$$_CommentCopyWithImpl<$Res>
-    extends _$TransactionAdditionalInfoCopyWithImpl<$Res, _$_Comment>
-    implements _$$_CommentCopyWith<$Res> {
-  __$$_CommentCopyWithImpl(_$_Comment _value, $Res Function(_$_Comment) _then)
+class __$$CommentImplCopyWithImpl<$Res>
+    extends _$TransactionAdditionalInfoCopyWithImpl<$Res, _$CommentImpl>
+    implements _$$CommentImplCopyWith<$Res> {
+  __$$CommentImplCopyWithImpl(
+      _$CommentImpl _value, $Res Function(_$CommentImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -144,7 +145,7 @@ class __$$_CommentCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Comment(
+    return _then(_$CommentImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -155,12 +156,12 @@ class __$$_CommentCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Comment implements _Comment {
-  const _$_Comment(this.data, {final String? $type})
+class _$CommentImpl implements _Comment {
+  const _$CommentImpl(this.data, {final String? $type})
       : $type = $type ?? 'comment';
 
-  factory _$_Comment.fromJson(Map<String, dynamic> json) =>
-      _$$_CommentFromJson(json);
+  factory _$CommentImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CommentImplFromJson(json);
 
   @override
   final String data;
@@ -177,7 +178,7 @@ class _$_Comment implements _Comment {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Comment &&
+            other is _$CommentImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -188,8 +189,8 @@ class _$_Comment implements _Comment {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CommentCopyWith<_$_Comment> get copyWith =>
-      __$$_CommentCopyWithImpl<_$_Comment>(this, _$identity);
+  _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
+      __$$CommentImplCopyWithImpl<_$CommentImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -281,29 +282,30 @@ class _$_Comment implements _Comment {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CommentToJson(
+    return _$$CommentImplToJson(
       this,
     );
   }
 }
 
 abstract class _Comment implements TransactionAdditionalInfo {
-  const factory _Comment(final String data) = _$_Comment;
+  const factory _Comment(final String data) = _$CommentImpl;
 
-  factory _Comment.fromJson(Map<String, dynamic> json) = _$_Comment.fromJson;
+  factory _Comment.fromJson(Map<String, dynamic> json) = _$CommentImpl.fromJson;
 
   @override
   String get data;
   @JsonKey(ignore: true)
-  _$$_CommentCopyWith<_$_Comment> get copyWith =>
+  _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DePoolOnRoundCompleteCopyWith<$Res> {
-  factory _$$_DePoolOnRoundCompleteCopyWith(_$_DePoolOnRoundComplete value,
-          $Res Function(_$_DePoolOnRoundComplete) then) =
-      __$$_DePoolOnRoundCompleteCopyWithImpl<$Res>;
+abstract class _$$DePoolOnRoundCompleteImplCopyWith<$Res> {
+  factory _$$DePoolOnRoundCompleteImplCopyWith(
+          _$DePoolOnRoundCompleteImpl value,
+          $Res Function(_$DePoolOnRoundCompleteImpl) then) =
+      __$$DePoolOnRoundCompleteImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DePoolOnRoundCompleteNotification data});
 
@@ -311,12 +313,12 @@ abstract class _$$_DePoolOnRoundCompleteCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DePoolOnRoundCompleteCopyWithImpl<$Res>
+class __$$DePoolOnRoundCompleteImplCopyWithImpl<$Res>
     extends _$TransactionAdditionalInfoCopyWithImpl<$Res,
-        _$_DePoolOnRoundComplete>
-    implements _$$_DePoolOnRoundCompleteCopyWith<$Res> {
-  __$$_DePoolOnRoundCompleteCopyWithImpl(_$_DePoolOnRoundComplete _value,
-      $Res Function(_$_DePoolOnRoundComplete) _then)
+        _$DePoolOnRoundCompleteImpl>
+    implements _$$DePoolOnRoundCompleteImplCopyWith<$Res> {
+  __$$DePoolOnRoundCompleteImplCopyWithImpl(_$DePoolOnRoundCompleteImpl _value,
+      $Res Function(_$DePoolOnRoundCompleteImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -324,7 +326,7 @@ class __$$_DePoolOnRoundCompleteCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_DePoolOnRoundComplete(
+    return _then(_$DePoolOnRoundCompleteImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -344,12 +346,12 @@ class __$$_DePoolOnRoundCompleteCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DePoolOnRoundComplete implements _DePoolOnRoundComplete {
-  const _$_DePoolOnRoundComplete(this.data, {final String? $type})
+class _$DePoolOnRoundCompleteImpl implements _DePoolOnRoundComplete {
+  const _$DePoolOnRoundCompleteImpl(this.data, {final String? $type})
       : $type = $type ?? 'de_pool_on_round_complete';
 
-  factory _$_DePoolOnRoundComplete.fromJson(Map<String, dynamic> json) =>
-      _$$_DePoolOnRoundCompleteFromJson(json);
+  factory _$DePoolOnRoundCompleteImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DePoolOnRoundCompleteImplFromJson(json);
 
   @override
   final DePoolOnRoundCompleteNotification data;
@@ -366,7 +368,7 @@ class _$_DePoolOnRoundComplete implements _DePoolOnRoundComplete {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DePoolOnRoundComplete &&
+            other is _$DePoolOnRoundCompleteImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -377,9 +379,9 @@ class _$_DePoolOnRoundComplete implements _DePoolOnRoundComplete {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DePoolOnRoundCompleteCopyWith<_$_DePoolOnRoundComplete> get copyWith =>
-      __$$_DePoolOnRoundCompleteCopyWithImpl<_$_DePoolOnRoundComplete>(
-          this, _$identity);
+  _$$DePoolOnRoundCompleteImplCopyWith<_$DePoolOnRoundCompleteImpl>
+      get copyWith => __$$DePoolOnRoundCompleteImplCopyWithImpl<
+          _$DePoolOnRoundCompleteImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -471,7 +473,7 @@ class _$_DePoolOnRoundComplete implements _DePoolOnRoundComplete {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DePoolOnRoundCompleteToJson(
+    return _$$DePoolOnRoundCompleteImplToJson(
       this,
     );
   }
@@ -479,23 +481,24 @@ class _$_DePoolOnRoundComplete implements _DePoolOnRoundComplete {
 
 abstract class _DePoolOnRoundComplete implements TransactionAdditionalInfo {
   const factory _DePoolOnRoundComplete(
-      final DePoolOnRoundCompleteNotification data) = _$_DePoolOnRoundComplete;
+          final DePoolOnRoundCompleteNotification data) =
+      _$DePoolOnRoundCompleteImpl;
 
   factory _DePoolOnRoundComplete.fromJson(Map<String, dynamic> json) =
-      _$_DePoolOnRoundComplete.fromJson;
+      _$DePoolOnRoundCompleteImpl.fromJson;
 
   @override
   DePoolOnRoundCompleteNotification get data;
   @JsonKey(ignore: true)
-  _$$_DePoolOnRoundCompleteCopyWith<_$_DePoolOnRoundComplete> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$DePoolOnRoundCompleteImplCopyWith<_$DePoolOnRoundCompleteImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DePoolReceiveAnswerCopyWith<$Res> {
-  factory _$$_DePoolReceiveAnswerCopyWith(_$_DePoolReceiveAnswer value,
-          $Res Function(_$_DePoolReceiveAnswer) then) =
-      __$$_DePoolReceiveAnswerCopyWithImpl<$Res>;
+abstract class _$$DePoolReceiveAnswerImplCopyWith<$Res> {
+  factory _$$DePoolReceiveAnswerImplCopyWith(_$DePoolReceiveAnswerImpl value,
+          $Res Function(_$DePoolReceiveAnswerImpl) then) =
+      __$$DePoolReceiveAnswerImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DePoolReceiveAnswerNotification data});
 
@@ -503,12 +506,12 @@ abstract class _$$_DePoolReceiveAnswerCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DePoolReceiveAnswerCopyWithImpl<$Res>
+class __$$DePoolReceiveAnswerImplCopyWithImpl<$Res>
     extends _$TransactionAdditionalInfoCopyWithImpl<$Res,
-        _$_DePoolReceiveAnswer>
-    implements _$$_DePoolReceiveAnswerCopyWith<$Res> {
-  __$$_DePoolReceiveAnswerCopyWithImpl(_$_DePoolReceiveAnswer _value,
-      $Res Function(_$_DePoolReceiveAnswer) _then)
+        _$DePoolReceiveAnswerImpl>
+    implements _$$DePoolReceiveAnswerImplCopyWith<$Res> {
+  __$$DePoolReceiveAnswerImplCopyWithImpl(_$DePoolReceiveAnswerImpl _value,
+      $Res Function(_$DePoolReceiveAnswerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -516,7 +519,7 @@ class __$$_DePoolReceiveAnswerCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_DePoolReceiveAnswer(
+    return _then(_$DePoolReceiveAnswerImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -535,12 +538,12 @@ class __$$_DePoolReceiveAnswerCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DePoolReceiveAnswer implements _DePoolReceiveAnswer {
-  const _$_DePoolReceiveAnswer(this.data, {final String? $type})
+class _$DePoolReceiveAnswerImpl implements _DePoolReceiveAnswer {
+  const _$DePoolReceiveAnswerImpl(this.data, {final String? $type})
       : $type = $type ?? 'de_pool_receive_answer';
 
-  factory _$_DePoolReceiveAnswer.fromJson(Map<String, dynamic> json) =>
-      _$$_DePoolReceiveAnswerFromJson(json);
+  factory _$DePoolReceiveAnswerImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DePoolReceiveAnswerImplFromJson(json);
 
   @override
   final DePoolReceiveAnswerNotification data;
@@ -557,7 +560,7 @@ class _$_DePoolReceiveAnswer implements _DePoolReceiveAnswer {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DePoolReceiveAnswer &&
+            other is _$DePoolReceiveAnswerImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -568,8 +571,8 @@ class _$_DePoolReceiveAnswer implements _DePoolReceiveAnswer {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DePoolReceiveAnswerCopyWith<_$_DePoolReceiveAnswer> get copyWith =>
-      __$$_DePoolReceiveAnswerCopyWithImpl<_$_DePoolReceiveAnswer>(
+  _$$DePoolReceiveAnswerImplCopyWith<_$DePoolReceiveAnswerImpl> get copyWith =>
+      __$$DePoolReceiveAnswerImplCopyWithImpl<_$DePoolReceiveAnswerImpl>(
           this, _$identity);
 
   @override
@@ -662,7 +665,7 @@ class _$_DePoolReceiveAnswer implements _DePoolReceiveAnswer {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DePoolReceiveAnswerToJson(
+    return _$$DePoolReceiveAnswerImplToJson(
       this,
     );
   }
@@ -670,23 +673,23 @@ class _$_DePoolReceiveAnswer implements _DePoolReceiveAnswer {
 
 abstract class _DePoolReceiveAnswer implements TransactionAdditionalInfo {
   const factory _DePoolReceiveAnswer(
-      final DePoolReceiveAnswerNotification data) = _$_DePoolReceiveAnswer;
+      final DePoolReceiveAnswerNotification data) = _$DePoolReceiveAnswerImpl;
 
   factory _DePoolReceiveAnswer.fromJson(Map<String, dynamic> json) =
-      _$_DePoolReceiveAnswer.fromJson;
+      _$DePoolReceiveAnswerImpl.fromJson;
 
   @override
   DePoolReceiveAnswerNotification get data;
   @JsonKey(ignore: true)
-  _$$_DePoolReceiveAnswerCopyWith<_$_DePoolReceiveAnswer> get copyWith =>
+  _$$DePoolReceiveAnswerImplCopyWith<_$DePoolReceiveAnswerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_TokenWalletDeployedCopyWith<$Res> {
-  factory _$$_TokenWalletDeployedCopyWith(_$_TokenWalletDeployed value,
-          $Res Function(_$_TokenWalletDeployed) then) =
-      __$$_TokenWalletDeployedCopyWithImpl<$Res>;
+abstract class _$$TokenWalletDeployedImplCopyWith<$Res> {
+  factory _$$TokenWalletDeployedImplCopyWith(_$TokenWalletDeployedImpl value,
+          $Res Function(_$TokenWalletDeployedImpl) then) =
+      __$$TokenWalletDeployedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({TokenWalletDeployedNotification data});
 
@@ -694,12 +697,12 @@ abstract class _$$_TokenWalletDeployedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_TokenWalletDeployedCopyWithImpl<$Res>
+class __$$TokenWalletDeployedImplCopyWithImpl<$Res>
     extends _$TransactionAdditionalInfoCopyWithImpl<$Res,
-        _$_TokenWalletDeployed>
-    implements _$$_TokenWalletDeployedCopyWith<$Res> {
-  __$$_TokenWalletDeployedCopyWithImpl(_$_TokenWalletDeployed _value,
-      $Res Function(_$_TokenWalletDeployed) _then)
+        _$TokenWalletDeployedImpl>
+    implements _$$TokenWalletDeployedImplCopyWith<$Res> {
+  __$$TokenWalletDeployedImplCopyWithImpl(_$TokenWalletDeployedImpl _value,
+      $Res Function(_$TokenWalletDeployedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -707,7 +710,7 @@ class __$$_TokenWalletDeployedCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_TokenWalletDeployed(
+    return _then(_$TokenWalletDeployedImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -726,12 +729,12 @@ class __$$_TokenWalletDeployedCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TokenWalletDeployed implements _TokenWalletDeployed {
-  const _$_TokenWalletDeployed(this.data, {final String? $type})
+class _$TokenWalletDeployedImpl implements _TokenWalletDeployed {
+  const _$TokenWalletDeployedImpl(this.data, {final String? $type})
       : $type = $type ?? 'token_wallet_deployed';
 
-  factory _$_TokenWalletDeployed.fromJson(Map<String, dynamic> json) =>
-      _$$_TokenWalletDeployedFromJson(json);
+  factory _$TokenWalletDeployedImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TokenWalletDeployedImplFromJson(json);
 
   @override
   final TokenWalletDeployedNotification data;
@@ -748,7 +751,7 @@ class _$_TokenWalletDeployed implements _TokenWalletDeployed {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TokenWalletDeployed &&
+            other is _$TokenWalletDeployedImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -759,8 +762,8 @@ class _$_TokenWalletDeployed implements _TokenWalletDeployed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TokenWalletDeployedCopyWith<_$_TokenWalletDeployed> get copyWith =>
-      __$$_TokenWalletDeployedCopyWithImpl<_$_TokenWalletDeployed>(
+  _$$TokenWalletDeployedImplCopyWith<_$TokenWalletDeployedImpl> get copyWith =>
+      __$$TokenWalletDeployedImplCopyWithImpl<_$TokenWalletDeployedImpl>(
           this, _$identity);
 
   @override
@@ -853,7 +856,7 @@ class _$_TokenWalletDeployed implements _TokenWalletDeployed {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TokenWalletDeployedToJson(
+    return _$$TokenWalletDeployedImplToJson(
       this,
     );
   }
@@ -861,23 +864,23 @@ class _$_TokenWalletDeployed implements _TokenWalletDeployed {
 
 abstract class _TokenWalletDeployed implements TransactionAdditionalInfo {
   const factory _TokenWalletDeployed(
-      final TokenWalletDeployedNotification data) = _$_TokenWalletDeployed;
+      final TokenWalletDeployedNotification data) = _$TokenWalletDeployedImpl;
 
   factory _TokenWalletDeployed.fromJson(Map<String, dynamic> json) =
-      _$_TokenWalletDeployed.fromJson;
+      _$TokenWalletDeployedImpl.fromJson;
 
   @override
   TokenWalletDeployedNotification get data;
   @JsonKey(ignore: true)
-  _$$_TokenWalletDeployedCopyWith<_$_TokenWalletDeployed> get copyWith =>
+  _$$TokenWalletDeployedImplCopyWith<_$TokenWalletDeployedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_WalletInteractionCopyWith<$Res> {
-  factory _$$_WalletInteractionCopyWith(_$_WalletInteraction value,
-          $Res Function(_$_WalletInteraction) then) =
-      __$$_WalletInteractionCopyWithImpl<$Res>;
+abstract class _$$WalletInteractionImplCopyWith<$Res> {
+  factory _$$WalletInteractionImplCopyWith(_$WalletInteractionImpl value,
+          $Res Function(_$WalletInteractionImpl) then) =
+      __$$WalletInteractionImplCopyWithImpl<$Res>;
   @useResult
   $Res call({WalletInteractionInfo data});
 
@@ -885,11 +888,12 @@ abstract class _$$_WalletInteractionCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_WalletInteractionCopyWithImpl<$Res>
-    extends _$TransactionAdditionalInfoCopyWithImpl<$Res, _$_WalletInteraction>
-    implements _$$_WalletInteractionCopyWith<$Res> {
-  __$$_WalletInteractionCopyWithImpl(
-      _$_WalletInteraction _value, $Res Function(_$_WalletInteraction) _then)
+class __$$WalletInteractionImplCopyWithImpl<$Res>
+    extends _$TransactionAdditionalInfoCopyWithImpl<$Res,
+        _$WalletInteractionImpl>
+    implements _$$WalletInteractionImplCopyWith<$Res> {
+  __$$WalletInteractionImplCopyWithImpl(_$WalletInteractionImpl _value,
+      $Res Function(_$WalletInteractionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -897,7 +901,7 @@ class __$$_WalletInteractionCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_WalletInteraction(
+    return _then(_$WalletInteractionImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -916,12 +920,12 @@ class __$$_WalletInteractionCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WalletInteraction implements _WalletInteraction {
-  const _$_WalletInteraction(this.data, {final String? $type})
+class _$WalletInteractionImpl implements _WalletInteraction {
+  const _$WalletInteractionImpl(this.data, {final String? $type})
       : $type = $type ?? 'wallet_interaction';
 
-  factory _$_WalletInteraction.fromJson(Map<String, dynamic> json) =>
-      _$$_WalletInteractionFromJson(json);
+  factory _$WalletInteractionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WalletInteractionImplFromJson(json);
 
   @override
   final WalletInteractionInfo data;
@@ -938,7 +942,7 @@ class _$_WalletInteraction implements _WalletInteraction {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WalletInteraction &&
+            other is _$WalletInteractionImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -949,8 +953,8 @@ class _$_WalletInteraction implements _WalletInteraction {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WalletInteractionCopyWith<_$_WalletInteraction> get copyWith =>
-      __$$_WalletInteractionCopyWithImpl<_$_WalletInteraction>(
+  _$$WalletInteractionImplCopyWith<_$WalletInteractionImpl> get copyWith =>
+      __$$WalletInteractionImplCopyWithImpl<_$WalletInteractionImpl>(
           this, _$identity);
 
   @override
@@ -1043,7 +1047,7 @@ class _$_WalletInteraction implements _WalletInteraction {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WalletInteractionToJson(
+    return _$$WalletInteractionImplToJson(
       this,
     );
   }
@@ -1051,14 +1055,14 @@ class _$_WalletInteraction implements _WalletInteraction {
 
 abstract class _WalletInteraction implements TransactionAdditionalInfo {
   const factory _WalletInteraction(final WalletInteractionInfo data) =
-      _$_WalletInteraction;
+      _$WalletInteractionImpl;
 
   factory _WalletInteraction.fromJson(Map<String, dynamic> json) =
-      _$_WalletInteraction.fromJson;
+      _$WalletInteractionImpl.fromJson;
 
   @override
   WalletInteractionInfo get data;
   @JsonKey(ignore: true)
-  _$$_WalletInteractionCopyWith<_$_WalletInteraction> get copyWith =>
+  _$$WalletInteractionImplCopyWith<_$WalletInteractionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

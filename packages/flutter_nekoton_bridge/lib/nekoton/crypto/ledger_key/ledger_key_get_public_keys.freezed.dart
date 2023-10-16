@@ -70,25 +70,25 @@ class _$LedgerKeyGetPublicKeysCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LedgerKeyGetPublicKeysRenameCopyWith<$Res>
+abstract class _$$LedgerKeyGetPublicKeysRenameImplCopyWith<$Res>
     implements $LedgerKeyGetPublicKeysCopyWith<$Res> {
-  factory _$$_LedgerKeyGetPublicKeysRenameCopyWith(
-          _$_LedgerKeyGetPublicKeysRename value,
-          $Res Function(_$_LedgerKeyGetPublicKeysRename) then) =
-      __$$_LedgerKeyGetPublicKeysRenameCopyWithImpl<$Res>;
+  factory _$$LedgerKeyGetPublicKeysRenameImplCopyWith(
+          _$LedgerKeyGetPublicKeysRenameImpl value,
+          $Res Function(_$LedgerKeyGetPublicKeysRenameImpl) then) =
+      __$$LedgerKeyGetPublicKeysRenameImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int offset, int limit});
 }
 
 /// @nodoc
-class __$$_LedgerKeyGetPublicKeysRenameCopyWithImpl<$Res>
+class __$$LedgerKeyGetPublicKeysRenameImplCopyWithImpl<$Res>
     extends _$LedgerKeyGetPublicKeysCopyWithImpl<$Res,
-        _$_LedgerKeyGetPublicKeysRename>
-    implements _$$_LedgerKeyGetPublicKeysRenameCopyWith<$Res> {
-  __$$_LedgerKeyGetPublicKeysRenameCopyWithImpl(
-      _$_LedgerKeyGetPublicKeysRename _value,
-      $Res Function(_$_LedgerKeyGetPublicKeysRename) _then)
+        _$LedgerKeyGetPublicKeysRenameImpl>
+    implements _$$LedgerKeyGetPublicKeysRenameImplCopyWith<$Res> {
+  __$$LedgerKeyGetPublicKeysRenameImplCopyWithImpl(
+      _$LedgerKeyGetPublicKeysRenameImpl _value,
+      $Res Function(_$LedgerKeyGetPublicKeysRenameImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +97,7 @@ class __$$_LedgerKeyGetPublicKeysRenameCopyWithImpl<$Res>
     Object? offset = null,
     Object? limit = null,
   }) {
-    return _then(_$_LedgerKeyGetPublicKeysRename(
+    return _then(_$LedgerKeyGetPublicKeysRenameImpl(
       offset: null == offset
           ? _value.offset
           : offset // ignore: cast_nullable_to_non_nullable
@@ -112,12 +112,14 @@ class __$$_LedgerKeyGetPublicKeysRenameCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LedgerKeyGetPublicKeysRename implements _LedgerKeyGetPublicKeysRename {
-  const _$_LedgerKeyGetPublicKeysRename(
+class _$LedgerKeyGetPublicKeysRenameImpl
+    implements _LedgerKeyGetPublicKeysRename {
+  const _$LedgerKeyGetPublicKeysRenameImpl(
       {required this.offset, required this.limit});
 
-  factory _$_LedgerKeyGetPublicKeysRename.fromJson(Map<String, dynamic> json) =>
-      _$$_LedgerKeyGetPublicKeysRenameFromJson(json);
+  factory _$LedgerKeyGetPublicKeysRenameImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$LedgerKeyGetPublicKeysRenameImplFromJson(json);
 
   @override
   final int offset;
@@ -133,7 +135,7 @@ class _$_LedgerKeyGetPublicKeysRename implements _LedgerKeyGetPublicKeysRename {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LedgerKeyGetPublicKeysRename &&
+            other is _$LedgerKeyGetPublicKeysRenameImpl &&
             (identical(other.offset, offset) || other.offset == offset) &&
             (identical(other.limit, limit) || other.limit == limit));
   }
@@ -145,13 +147,14 @@ class _$_LedgerKeyGetPublicKeysRename implements _LedgerKeyGetPublicKeysRename {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LedgerKeyGetPublicKeysRenameCopyWith<_$_LedgerKeyGetPublicKeysRename>
-      get copyWith => __$$_LedgerKeyGetPublicKeysRenameCopyWithImpl<
-          _$_LedgerKeyGetPublicKeysRename>(this, _$identity);
+  _$$LedgerKeyGetPublicKeysRenameImplCopyWith<
+          _$LedgerKeyGetPublicKeysRenameImpl>
+      get copyWith => __$$LedgerKeyGetPublicKeysRenameImplCopyWithImpl<
+          _$LedgerKeyGetPublicKeysRenameImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LedgerKeyGetPublicKeysRenameToJson(
+    return _$$LedgerKeyGetPublicKeysRenameImplToJson(
       this,
     );
   }
@@ -160,10 +163,10 @@ class _$_LedgerKeyGetPublicKeysRename implements _LedgerKeyGetPublicKeysRename {
 abstract class _LedgerKeyGetPublicKeysRename implements LedgerKeyGetPublicKeys {
   const factory _LedgerKeyGetPublicKeysRename(
       {required final int offset,
-      required final int limit}) = _$_LedgerKeyGetPublicKeysRename;
+      required final int limit}) = _$LedgerKeyGetPublicKeysRenameImpl;
 
   factory _LedgerKeyGetPublicKeysRename.fromJson(Map<String, dynamic> json) =
-      _$_LedgerKeyGetPublicKeysRename.fromJson;
+      _$LedgerKeyGetPublicKeysRenameImpl.fromJson;
 
   @override
   int get offset;
@@ -171,6 +174,7 @@ abstract class _LedgerKeyGetPublicKeysRename implements LedgerKeyGetPublicKeys {
   int get limit;
   @override
   @JsonKey(ignore: true)
-  _$$_LedgerKeyGetPublicKeysRenameCopyWith<_$_LedgerKeyGetPublicKeysRename>
+  _$$LedgerKeyGetPublicKeysRenameImplCopyWith<
+          _$LedgerKeyGetPublicKeysRenameImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

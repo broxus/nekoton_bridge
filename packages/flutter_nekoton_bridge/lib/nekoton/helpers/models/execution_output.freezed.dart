@@ -70,11 +70,11 @@ class _$ExecutionOutputCopyWithImpl<$Res, $Val extends ExecutionOutput>
 }
 
 /// @nodoc
-abstract class _$$_ExecutionOutputCopyWith<$Res>
+abstract class _$$ExecutionOutputImplCopyWith<$Res>
     implements $ExecutionOutputCopyWith<$Res> {
-  factory _$$_ExecutionOutputCopyWith(
-          _$_ExecutionOutput value, $Res Function(_$_ExecutionOutput) then) =
-      __$$_ExecutionOutputCopyWithImpl<$Res>;
+  factory _$$ExecutionOutputImplCopyWith(_$ExecutionOutputImpl value,
+          $Res Function(_$ExecutionOutputImpl) then) =
+      __$$ExecutionOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -82,11 +82,11 @@ abstract class _$$_ExecutionOutputCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ExecutionOutputCopyWithImpl<$Res>
-    extends _$ExecutionOutputCopyWithImpl<$Res, _$_ExecutionOutput>
-    implements _$$_ExecutionOutputCopyWith<$Res> {
-  __$$_ExecutionOutputCopyWithImpl(
-      _$_ExecutionOutput _value, $Res Function(_$_ExecutionOutput) _then)
+class __$$ExecutionOutputImplCopyWithImpl<$Res>
+    extends _$ExecutionOutputCopyWithImpl<$Res, _$ExecutionOutputImpl>
+    implements _$$ExecutionOutputImplCopyWith<$Res> {
+  __$$ExecutionOutputImplCopyWithImpl(
+      _$ExecutionOutputImpl _value, $Res Function(_$ExecutionOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +95,7 @@ class __$$_ExecutionOutputCopyWithImpl<$Res>
     Object? output = freezed,
     Object? code = null,
   }) {
-    return _then(_$_ExecutionOutput(
+    return _then(_$ExecutionOutputImpl(
       output: freezed == output
           ? _value._output
           : output // ignore: cast_nullable_to_non_nullable
@@ -110,14 +110,14 @@ class __$$_ExecutionOutputCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ExecutionOutput implements _ExecutionOutput {
-  const _$_ExecutionOutput(
+class _$ExecutionOutputImpl implements _ExecutionOutput {
+  const _$ExecutionOutputImpl(
       {@JsonKey(includeIfNull: false) final Map<String, dynamic>? output,
       required this.code})
       : _output = output;
 
-  factory _$_ExecutionOutput.fromJson(Map<String, dynamic> json) =>
-      _$$_ExecutionOutputFromJson(json);
+  factory _$ExecutionOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ExecutionOutputImplFromJson(json);
 
   final Map<String, dynamic>? _output;
   @override
@@ -142,7 +142,7 @@ class _$_ExecutionOutput implements _ExecutionOutput {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ExecutionOutput &&
+            other is _$ExecutionOutputImpl &&
             const DeepCollectionEquality().equals(other._output, _output) &&
             (identical(other.code, code) || other.code == code));
   }
@@ -155,12 +155,13 @@ class _$_ExecutionOutput implements _ExecutionOutput {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ExecutionOutputCopyWith<_$_ExecutionOutput> get copyWith =>
-      __$$_ExecutionOutputCopyWithImpl<_$_ExecutionOutput>(this, _$identity);
+  _$$ExecutionOutputImplCopyWith<_$ExecutionOutputImpl> get copyWith =>
+      __$$ExecutionOutputImplCopyWithImpl<_$ExecutionOutputImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ExecutionOutputToJson(
+    return _$$ExecutionOutputImplToJson(
       this,
     );
   }
@@ -169,10 +170,10 @@ class _$_ExecutionOutput implements _ExecutionOutput {
 abstract class _ExecutionOutput implements ExecutionOutput {
   const factory _ExecutionOutput(
       {@JsonKey(includeIfNull: false) final Map<String, dynamic>? output,
-      required final int code}) = _$_ExecutionOutput;
+      required final int code}) = _$ExecutionOutputImpl;
 
   factory _ExecutionOutput.fromJson(Map<String, dynamic> json) =
-      _$_ExecutionOutput.fromJson;
+      _$ExecutionOutputImpl.fromJson;
 
   @override
   @JsonKey(includeIfNull: false)
@@ -181,6 +182,6 @@ abstract class _ExecutionOutput implements ExecutionOutput {
   int get code;
   @override
   @JsonKey(ignore: true)
-  _$$_ExecutionOutputCopyWith<_$_ExecutionOutput> get copyWith =>
+  _$$ExecutionOutputImplCopyWith<_$ExecutionOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

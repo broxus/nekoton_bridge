@@ -65,23 +65,25 @@ class _$OnBalanceChangedPayloadCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_OnBalanceChangedPayloadCopyWith<$Res>
+abstract class _$$OnBalanceChangedPayloadImplCopyWith<$Res>
     implements $OnBalanceChangedPayloadCopyWith<$Res> {
-  factory _$$_OnBalanceChangedPayloadCopyWith(_$_OnBalanceChangedPayload value,
-          $Res Function(_$_OnBalanceChangedPayload) then) =
-      __$$_OnBalanceChangedPayloadCopyWithImpl<$Res>;
+  factory _$$OnBalanceChangedPayloadImplCopyWith(
+          _$OnBalanceChangedPayloadImpl value,
+          $Res Function(_$OnBalanceChangedPayloadImpl) then) =
+      __$$OnBalanceChangedPayloadImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@amountJsonConverter BigInt balance});
 }
 
 /// @nodoc
-class __$$_OnBalanceChangedPayloadCopyWithImpl<$Res>
+class __$$OnBalanceChangedPayloadImplCopyWithImpl<$Res>
     extends _$OnBalanceChangedPayloadCopyWithImpl<$Res,
-        _$_OnBalanceChangedPayload>
-    implements _$$_OnBalanceChangedPayloadCopyWith<$Res> {
-  __$$_OnBalanceChangedPayloadCopyWithImpl(_$_OnBalanceChangedPayload _value,
-      $Res Function(_$_OnBalanceChangedPayload) _then)
+        _$OnBalanceChangedPayloadImpl>
+    implements _$$OnBalanceChangedPayloadImplCopyWith<$Res> {
+  __$$OnBalanceChangedPayloadImplCopyWithImpl(
+      _$OnBalanceChangedPayloadImpl _value,
+      $Res Function(_$OnBalanceChangedPayloadImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -89,7 +91,7 @@ class __$$_OnBalanceChangedPayloadCopyWithImpl<$Res>
   $Res call({
     Object? balance = null,
   }) {
-    return _then(_$_OnBalanceChangedPayload(
+    return _then(_$OnBalanceChangedPayloadImpl(
       balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
@@ -100,12 +102,12 @@ class __$$_OnBalanceChangedPayloadCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_OnBalanceChangedPayload implements _OnBalanceChangedPayload {
-  const _$_OnBalanceChangedPayload(
+class _$OnBalanceChangedPayloadImpl implements _OnBalanceChangedPayload {
+  const _$OnBalanceChangedPayloadImpl(
       {@amountJsonConverter required this.balance});
 
-  factory _$_OnBalanceChangedPayload.fromJson(Map<String, dynamic> json) =>
-      _$$_OnBalanceChangedPayloadFromJson(json);
+  factory _$OnBalanceChangedPayloadImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OnBalanceChangedPayloadImplFromJson(json);
 
   @override
   @amountJsonConverter
@@ -120,7 +122,7 @@ class _$_OnBalanceChangedPayload implements _OnBalanceChangedPayload {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OnBalanceChangedPayload &&
+            other is _$OnBalanceChangedPayloadImpl &&
             (identical(other.balance, balance) || other.balance == balance));
   }
 
@@ -131,14 +133,13 @@ class _$_OnBalanceChangedPayload implements _OnBalanceChangedPayload {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OnBalanceChangedPayloadCopyWith<_$_OnBalanceChangedPayload>
-      get copyWith =>
-          __$$_OnBalanceChangedPayloadCopyWithImpl<_$_OnBalanceChangedPayload>(
-              this, _$identity);
+  _$$OnBalanceChangedPayloadImplCopyWith<_$OnBalanceChangedPayloadImpl>
+      get copyWith => __$$OnBalanceChangedPayloadImplCopyWithImpl<
+          _$OnBalanceChangedPayloadImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_OnBalanceChangedPayloadToJson(
+    return _$$OnBalanceChangedPayloadImplToJson(
       this,
     );
   }
@@ -147,16 +148,16 @@ class _$_OnBalanceChangedPayload implements _OnBalanceChangedPayload {
 abstract class _OnBalanceChangedPayload implements OnBalanceChangedPayload {
   const factory _OnBalanceChangedPayload(
           {@amountJsonConverter required final BigInt balance}) =
-      _$_OnBalanceChangedPayload;
+      _$OnBalanceChangedPayloadImpl;
 
   factory _OnBalanceChangedPayload.fromJson(Map<String, dynamic> json) =
-      _$_OnBalanceChangedPayload.fromJson;
+      _$OnBalanceChangedPayloadImpl.fromJson;
 
   @override
   @amountJsonConverter
   BigInt get balance;
   @override
   @JsonKey(ignore: true)
-  _$$_OnBalanceChangedPayloadCopyWith<_$_OnBalanceChangedPayload>
+  _$$OnBalanceChangedPayloadImplCopyWith<_$OnBalanceChangedPayloadImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

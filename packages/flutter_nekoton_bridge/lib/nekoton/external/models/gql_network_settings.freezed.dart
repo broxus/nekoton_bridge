@@ -91,11 +91,11 @@ class _$GqlNetworkSettingsCopyWithImpl<$Res, $Val extends GqlNetworkSettings>
 }
 
 /// @nodoc
-abstract class _$$_GqlNetworkSettingsCopyWith<$Res>
+abstract class _$$GqlNetworkSettingsImplCopyWith<$Res>
     implements $GqlNetworkSettingsCopyWith<$Res> {
-  factory _$$_GqlNetworkSettingsCopyWith(_$_GqlNetworkSettings value,
-          $Res Function(_$_GqlNetworkSettings) then) =
-      __$$_GqlNetworkSettingsCopyWithImpl<$Res>;
+  factory _$$GqlNetworkSettingsImplCopyWith(_$GqlNetworkSettingsImpl value,
+          $Res Function(_$GqlNetworkSettingsImpl) then) =
+      __$$GqlNetworkSettingsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -107,11 +107,11 @@ abstract class _$$_GqlNetworkSettingsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GqlNetworkSettingsCopyWithImpl<$Res>
-    extends _$GqlNetworkSettingsCopyWithImpl<$Res, _$_GqlNetworkSettings>
-    implements _$$_GqlNetworkSettingsCopyWith<$Res> {
-  __$$_GqlNetworkSettingsCopyWithImpl(
-      _$_GqlNetworkSettings _value, $Res Function(_$_GqlNetworkSettings) _then)
+class __$$GqlNetworkSettingsImplCopyWithImpl<$Res>
+    extends _$GqlNetworkSettingsCopyWithImpl<$Res, _$GqlNetworkSettingsImpl>
+    implements _$$GqlNetworkSettingsImplCopyWith<$Res> {
+  __$$GqlNetworkSettingsImplCopyWithImpl(_$GqlNetworkSettingsImpl _value,
+      $Res Function(_$GqlNetworkSettingsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +123,7 @@ class __$$_GqlNetworkSettingsCopyWithImpl<$Res>
     Object? endpointSelectionRetryCount = null,
     Object? local = null,
   }) {
-    return _then(_$_GqlNetworkSettings(
+    return _then(_$GqlNetworkSettingsImpl(
       endpoints: null == endpoints
           ? _value._endpoints
           : endpoints // ignore: cast_nullable_to_non_nullable
@@ -150,8 +150,8 @@ class __$$_GqlNetworkSettingsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GqlNetworkSettings implements _GqlNetworkSettings {
-  const _$_GqlNetworkSettings(
+class _$GqlNetworkSettingsImpl implements _GqlNetworkSettings {
+  const _$GqlNetworkSettingsImpl(
       {required final List<String> endpoints,
       required this.latencyDetectionInterval,
       required this.maxLatency,
@@ -159,8 +159,8 @@ class _$_GqlNetworkSettings implements _GqlNetworkSettings {
       required this.local})
       : _endpoints = endpoints;
 
-  factory _$_GqlNetworkSettings.fromJson(Map<String, dynamic> json) =>
-      _$$_GqlNetworkSettingsFromJson(json);
+  factory _$GqlNetworkSettingsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GqlNetworkSettingsImplFromJson(json);
 
   final List<String> _endpoints;
   @override
@@ -188,7 +188,7 @@ class _$_GqlNetworkSettings implements _GqlNetworkSettings {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GqlNetworkSettings &&
+            other is _$GqlNetworkSettingsImpl &&
             const DeepCollectionEquality()
                 .equals(other._endpoints, _endpoints) &&
             (identical(
@@ -216,13 +216,13 @@ class _$_GqlNetworkSettings implements _GqlNetworkSettings {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GqlNetworkSettingsCopyWith<_$_GqlNetworkSettings> get copyWith =>
-      __$$_GqlNetworkSettingsCopyWithImpl<_$_GqlNetworkSettings>(
+  _$$GqlNetworkSettingsImplCopyWith<_$GqlNetworkSettingsImpl> get copyWith =>
+      __$$GqlNetworkSettingsImplCopyWithImpl<_$GqlNetworkSettingsImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GqlNetworkSettingsToJson(
+    return _$$GqlNetworkSettingsImplToJson(
       this,
     );
   }
@@ -234,10 +234,10 @@ abstract class _GqlNetworkSettings implements GqlNetworkSettings {
       required final int latencyDetectionInterval,
       required final int maxLatency,
       required final int endpointSelectionRetryCount,
-      required final bool local}) = _$_GqlNetworkSettings;
+      required final bool local}) = _$GqlNetworkSettingsImpl;
 
   factory _GqlNetworkSettings.fromJson(Map<String, dynamic> json) =
-      _$_GqlNetworkSettings.fromJson;
+      _$GqlNetworkSettingsImpl.fromJson;
 
   @override
   List<String> get endpoints;
@@ -251,6 +251,6 @@ abstract class _GqlNetworkSettings implements GqlNetworkSettings {
   bool get local;
   @override
   @JsonKey(ignore: true)
-  _$$_GqlNetworkSettingsCopyWith<_$_GqlNetworkSettings> get copyWith =>
+  _$$GqlNetworkSettingsImplCopyWith<_$GqlNetworkSettingsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

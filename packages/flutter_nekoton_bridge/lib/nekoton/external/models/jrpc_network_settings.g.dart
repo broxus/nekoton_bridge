@@ -6,14 +6,14 @@ part of 'jrpc_network_settings.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_JrpcNetworkSettings _$$_JrpcNetworkSettingsFromJson(
+_$JrpcNetworkSettingsImpl _$$JrpcNetworkSettingsImplFromJson(
         Map<String, dynamic> json) =>
-    _$_JrpcNetworkSettings(
+    _$JrpcNetworkSettingsImpl(
       endpoint: json['endpoint'] as String,
     );
 
-Map<String, dynamic> _$$_JrpcNetworkSettingsToJson(
-        _$_JrpcNetworkSettings instance) =>
+Map<String, dynamic> _$$JrpcNetworkSettingsImplToJson(
+        _$JrpcNetworkSettingsImpl instance) =>
     <String, dynamic>{
       'endpoint': instance.endpoint,
     };

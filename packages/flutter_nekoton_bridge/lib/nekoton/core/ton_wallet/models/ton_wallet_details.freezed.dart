@@ -100,11 +100,11 @@ class _$TonWalletDetailsCopyWithImpl<$Res, $Val extends TonWalletDetails>
 }
 
 /// @nodoc
-abstract class _$$_TonWalletDetailsCopyWith<$Res>
+abstract class _$$TonWalletDetailsImplCopyWith<$Res>
     implements $TonWalletDetailsCopyWith<$Res> {
-  factory _$$_TonWalletDetailsCopyWith(
-          _$_TonWalletDetails value, $Res Function(_$_TonWalletDetails) then) =
-      __$$_TonWalletDetailsCopyWithImpl<$Res>;
+  factory _$$TonWalletDetailsImplCopyWith(_$TonWalletDetailsImpl value,
+          $Res Function(_$TonWalletDetailsImpl) then) =
+      __$$TonWalletDetailsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -117,11 +117,11 @@ abstract class _$$_TonWalletDetailsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TonWalletDetailsCopyWithImpl<$Res>
-    extends _$TonWalletDetailsCopyWithImpl<$Res, _$_TonWalletDetails>
-    implements _$$_TonWalletDetailsCopyWith<$Res> {
-  __$$_TonWalletDetailsCopyWithImpl(
-      _$_TonWalletDetails _value, $Res Function(_$_TonWalletDetails) _then)
+class __$$TonWalletDetailsImplCopyWithImpl<$Res>
+    extends _$TonWalletDetailsCopyWithImpl<$Res, _$TonWalletDetailsImpl>
+    implements _$$TonWalletDetailsImplCopyWith<$Res> {
+  __$$TonWalletDetailsImplCopyWithImpl(_$TonWalletDetailsImpl _value,
+      $Res Function(_$TonWalletDetailsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -134,7 +134,7 @@ class __$$_TonWalletDetailsCopyWithImpl<$Res>
     Object? expirationTime = null,
     Object? requiredConfirmations = freezed,
   }) {
-    return _then(_$_TonWalletDetails(
+    return _then(_$TonWalletDetailsImpl(
       requiresSeparateDeploy: null == requiresSeparateDeploy
           ? _value.requiresSeparateDeploy
           : requiresSeparateDeploy // ignore: cast_nullable_to_non_nullable
@@ -166,8 +166,8 @@ class __$$_TonWalletDetailsCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$_TonWalletDetails implements _TonWalletDetails {
-  const _$_TonWalletDetails(
+class _$TonWalletDetailsImpl implements _TonWalletDetails {
+  const _$TonWalletDetailsImpl(
       {required this.requiresSeparateDeploy,
       @amountJsonConverter required this.minAmount,
       required this.supportsPayload,
@@ -175,8 +175,8 @@ class _$_TonWalletDetails implements _TonWalletDetails {
       required this.expirationTime,
       required this.requiredConfirmations});
 
-  factory _$_TonWalletDetails.fromJson(Map<String, dynamic> json) =>
-      _$$_TonWalletDetailsFromJson(json);
+  factory _$TonWalletDetailsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TonWalletDetailsImplFromJson(json);
 
   @override
   final bool requiresSeparateDeploy;
@@ -202,7 +202,7 @@ class _$_TonWalletDetails implements _TonWalletDetails {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TonWalletDetails &&
+            other is _$TonWalletDetailsImpl &&
             (identical(other.requiresSeparateDeploy, requiresSeparateDeploy) ||
                 other.requiresSeparateDeploy == requiresSeparateDeploy) &&
             (identical(other.minAmount, minAmount) ||
@@ -231,12 +231,13 @@ class _$_TonWalletDetails implements _TonWalletDetails {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TonWalletDetailsCopyWith<_$_TonWalletDetails> get copyWith =>
-      __$$_TonWalletDetailsCopyWithImpl<_$_TonWalletDetails>(this, _$identity);
+  _$$TonWalletDetailsImplCopyWith<_$TonWalletDetailsImpl> get copyWith =>
+      __$$TonWalletDetailsImplCopyWithImpl<_$TonWalletDetailsImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TonWalletDetailsToJson(
+    return _$$TonWalletDetailsImplToJson(
       this,
     );
   }
@@ -249,10 +250,10 @@ abstract class _TonWalletDetails implements TonWalletDetails {
       required final bool supportsPayload,
       required final bool supportsMultipleOwners,
       required final int expirationTime,
-      required final int? requiredConfirmations}) = _$_TonWalletDetails;
+      required final int? requiredConfirmations}) = _$TonWalletDetailsImpl;
 
   factory _TonWalletDetails.fromJson(Map<String, dynamic> json) =
-      _$_TonWalletDetails.fromJson;
+      _$TonWalletDetailsImpl.fromJson;
 
   @override
   bool get requiresSeparateDeploy;
@@ -269,6 +270,6 @@ abstract class _TonWalletDetails implements TonWalletDetails {
   int? get requiredConfirmations;
   @override
   @JsonKey(ignore: true)
-  _$$_TonWalletDetailsCopyWith<_$_TonWalletDetails> get copyWith =>
+  _$$TonWalletDetailsImplCopyWith<_$TonWalletDetailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

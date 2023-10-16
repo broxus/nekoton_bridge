@@ -110,11 +110,11 @@ class _$KeyStoreEntryCopyWithImpl<$Res, $Val extends KeyStoreEntry>
 }
 
 /// @nodoc
-abstract class _$$_KeyStoreEntryCopyWith<$Res>
+abstract class _$$KeyStoreEntryImplCopyWith<$Res>
     implements $KeyStoreEntryCopyWith<$Res> {
-  factory _$$_KeyStoreEntryCopyWith(
-          _$_KeyStoreEntry value, $Res Function(_$_KeyStoreEntry) then) =
-      __$$_KeyStoreEntryCopyWithImpl<$Res>;
+  factory _$$KeyStoreEntryImplCopyWith(
+          _$KeyStoreEntryImpl value, $Res Function(_$KeyStoreEntryImpl) then) =
+      __$$KeyStoreEntryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -131,11 +131,11 @@ abstract class _$$_KeyStoreEntryCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_KeyStoreEntryCopyWithImpl<$Res>
-    extends _$KeyStoreEntryCopyWithImpl<$Res, _$_KeyStoreEntry>
-    implements _$$_KeyStoreEntryCopyWith<$Res> {
-  __$$_KeyStoreEntryCopyWithImpl(
-      _$_KeyStoreEntry _value, $Res Function(_$_KeyStoreEntry) _then)
+class __$$KeyStoreEntryImplCopyWithImpl<$Res>
+    extends _$KeyStoreEntryCopyWithImpl<$Res, _$KeyStoreEntryImpl>
+    implements _$$KeyStoreEntryImplCopyWith<$Res> {
+  __$$KeyStoreEntryImplCopyWithImpl(
+      _$KeyStoreEntryImpl _value, $Res Function(_$KeyStoreEntryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -147,7 +147,7 @@ class __$$_KeyStoreEntryCopyWithImpl<$Res>
     Object? masterKey = null,
     Object? accountId = null,
   }) {
-    return _then(_$_KeyStoreEntry(
+    return _then(_$KeyStoreEntryImpl(
       signerName: null == signerName
           ? _value.signerName
           : signerName // ignore: cast_nullable_to_non_nullable
@@ -175,8 +175,8 @@ class __$$_KeyStoreEntryCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$_KeyStoreEntry extends _KeyStoreEntry {
-  const _$_KeyStoreEntry(
+class _$KeyStoreEntryImpl extends _KeyStoreEntry {
+  const _$KeyStoreEntryImpl(
       {required this.signerName,
       required this.name,
       required this.publicKey,
@@ -184,8 +184,8 @@ class _$_KeyStoreEntry extends _KeyStoreEntry {
       required this.accountId})
       : super._();
 
-  factory _$_KeyStoreEntry.fromJson(Map<String, dynamic> json) =>
-      _$$_KeyStoreEntryFromJson(json);
+  factory _$KeyStoreEntryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$KeyStoreEntryImplFromJson(json);
 
   @override
   final String signerName;
@@ -207,7 +207,7 @@ class _$_KeyStoreEntry extends _KeyStoreEntry {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_KeyStoreEntry &&
+            other is _$KeyStoreEntryImpl &&
             (identical(other.signerName, signerName) ||
                 other.signerName == signerName) &&
             (identical(other.name, name) || other.name == name) &&
@@ -227,12 +227,12 @@ class _$_KeyStoreEntry extends _KeyStoreEntry {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_KeyStoreEntryCopyWith<_$_KeyStoreEntry> get copyWith =>
-      __$$_KeyStoreEntryCopyWithImpl<_$_KeyStoreEntry>(this, _$identity);
+  _$$KeyStoreEntryImplCopyWith<_$KeyStoreEntryImpl> get copyWith =>
+      __$$KeyStoreEntryImplCopyWithImpl<_$KeyStoreEntryImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_KeyStoreEntryToJson(
+    return _$$KeyStoreEntryImplToJson(
       this,
     );
   }
@@ -244,11 +244,11 @@ abstract class _KeyStoreEntry extends KeyStoreEntry {
       required final String name,
       required final PublicKey publicKey,
       required final PublicKey masterKey,
-      required final int accountId}) = _$_KeyStoreEntry;
+      required final int accountId}) = _$KeyStoreEntryImpl;
   const _KeyStoreEntry._() : super._();
 
   factory _KeyStoreEntry.fromJson(Map<String, dynamic> json) =
-      _$_KeyStoreEntry.fromJson;
+      _$KeyStoreEntryImpl.fromJson;
 
   @override
   String get signerName;
@@ -262,6 +262,6 @@ abstract class _KeyStoreEntry extends KeyStoreEntry {
   int get accountId;
   @override
   @JsonKey(ignore: true)
-  _$$_KeyStoreEntryCopyWith<_$_KeyStoreEntry> get copyWith =>
+  _$$KeyStoreEntryImplCopyWith<_$KeyStoreEntryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

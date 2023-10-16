@@ -68,22 +68,22 @@ class _$GenTimingsCopyWithImpl<$Res, $Val extends GenTimings>
 }
 
 /// @nodoc
-abstract class _$$_GenTimingsCopyWith<$Res>
+abstract class _$$GenTimingsImplCopyWith<$Res>
     implements $GenTimingsCopyWith<$Res> {
-  factory _$$_GenTimingsCopyWith(
-          _$_GenTimings value, $Res Function(_$_GenTimings) then) =
-      __$$_GenTimingsCopyWithImpl<$Res>;
+  factory _$$GenTimingsImplCopyWith(
+          _$GenTimingsImpl value, $Res Function(_$GenTimingsImpl) then) =
+      __$$GenTimingsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String genLt, int genUtime});
 }
 
 /// @nodoc
-class __$$_GenTimingsCopyWithImpl<$Res>
-    extends _$GenTimingsCopyWithImpl<$Res, _$_GenTimings>
-    implements _$$_GenTimingsCopyWith<$Res> {
-  __$$_GenTimingsCopyWithImpl(
-      _$_GenTimings _value, $Res Function(_$_GenTimings) _then)
+class __$$GenTimingsImplCopyWithImpl<$Res>
+    extends _$GenTimingsCopyWithImpl<$Res, _$GenTimingsImpl>
+    implements _$$GenTimingsImplCopyWith<$Res> {
+  __$$GenTimingsImplCopyWithImpl(
+      _$GenTimingsImpl _value, $Res Function(_$GenTimingsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_GenTimingsCopyWithImpl<$Res>
     Object? genLt = null,
     Object? genUtime = null,
   }) {
-    return _then(_$_GenTimings(
+    return _then(_$GenTimingsImpl(
       genLt: null == genLt
           ? _value.genLt
           : genLt // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,11 @@ class __$$_GenTimingsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GenTimings implements _GenTimings {
-  const _$_GenTimings({required this.genLt, required this.genUtime});
+class _$GenTimingsImpl implements _GenTimings {
+  const _$GenTimingsImpl({required this.genLt, required this.genUtime});
 
-  factory _$_GenTimings.fromJson(Map<String, dynamic> json) =>
-      _$$_GenTimingsFromJson(json);
+  factory _$GenTimingsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GenTimingsImplFromJson(json);
 
   @override
   final String genLt;
@@ -127,7 +127,7 @@ class _$_GenTimings implements _GenTimings {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GenTimings &&
+            other is _$GenTimingsImpl &&
             (identical(other.genLt, genLt) || other.genLt == genLt) &&
             (identical(other.genUtime, genUtime) ||
                 other.genUtime == genUtime));
@@ -140,12 +140,12 @@ class _$_GenTimings implements _GenTimings {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GenTimingsCopyWith<_$_GenTimings> get copyWith =>
-      __$$_GenTimingsCopyWithImpl<_$_GenTimings>(this, _$identity);
+  _$$GenTimingsImplCopyWith<_$GenTimingsImpl> get copyWith =>
+      __$$GenTimingsImplCopyWithImpl<_$GenTimingsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GenTimingsToJson(
+    return _$$GenTimingsImplToJson(
       this,
     );
   }
@@ -154,10 +154,10 @@ class _$_GenTimings implements _GenTimings {
 abstract class _GenTimings implements GenTimings {
   const factory _GenTimings(
       {required final String genLt,
-      required final int genUtime}) = _$_GenTimings;
+      required final int genUtime}) = _$GenTimingsImpl;
 
   factory _GenTimings.fromJson(Map<String, dynamic> json) =
-      _$_GenTimings.fromJson;
+      _$GenTimingsImpl.fromJson;
 
   @override
   String get genLt;
@@ -165,6 +165,6 @@ abstract class _GenTimings implements GenTimings {
   int get genUtime;
   @override
   @JsonKey(ignore: true)
-  _$$_GenTimingsCopyWith<_$_GenTimings> get copyWith =>
+  _$$GenTimingsImplCopyWith<_$GenTimingsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

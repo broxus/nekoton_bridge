@@ -88,11 +88,11 @@ class _$TokenSwapBackCopyWithImpl<$Res, $Val extends TokenSwapBack>
 }
 
 /// @nodoc
-abstract class _$$_TokenSwapBackCopyWith<$Res>
+abstract class _$$TokenSwapBackImplCopyWith<$Res>
     implements $TokenSwapBackCopyWith<$Res> {
-  factory _$$_TokenSwapBackCopyWith(
-          _$_TokenSwapBack value, $Res Function(_$_TokenSwapBack) then) =
-      __$$_TokenSwapBackCopyWithImpl<$Res>;
+  factory _$$TokenSwapBackImplCopyWith(
+          _$TokenSwapBackImpl value, $Res Function(_$TokenSwapBackImpl) then) =
+      __$$TokenSwapBackImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -105,11 +105,11 @@ abstract class _$$_TokenSwapBackCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TokenSwapBackCopyWithImpl<$Res>
-    extends _$TokenSwapBackCopyWithImpl<$Res, _$_TokenSwapBack>
-    implements _$$_TokenSwapBackCopyWith<$Res> {
-  __$$_TokenSwapBackCopyWithImpl(
-      _$_TokenSwapBack _value, $Res Function(_$_TokenSwapBack) _then)
+class __$$TokenSwapBackImplCopyWithImpl<$Res>
+    extends _$TokenSwapBackCopyWithImpl<$Res, _$TokenSwapBackImpl>
+    implements _$$TokenSwapBackImplCopyWith<$Res> {
+  __$$TokenSwapBackImplCopyWithImpl(
+      _$TokenSwapBackImpl _value, $Res Function(_$TokenSwapBackImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,7 +119,7 @@ class __$$_TokenSwapBackCopyWithImpl<$Res>
     Object? callbackAddress = null,
     Object? callbackPayload = null,
   }) {
-    return _then(_$_TokenSwapBack(
+    return _then(_$TokenSwapBackImpl(
       tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
@@ -139,14 +139,14 @@ class __$$_TokenSwapBackCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$_TokenSwapBack implements _TokenSwapBack {
-  const _$_TokenSwapBack(
+class _$TokenSwapBackImpl implements _TokenSwapBack {
+  const _$TokenSwapBackImpl(
       {@amountJsonConverter required this.tokens,
       required this.callbackAddress,
       required this.callbackPayload});
 
-  factory _$_TokenSwapBack.fromJson(Map<String, dynamic> json) =>
-      _$$_TokenSwapBackFromJson(json);
+  factory _$TokenSwapBackImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TokenSwapBackImplFromJson(json);
 
   @override
   @amountJsonConverter
@@ -165,7 +165,7 @@ class _$_TokenSwapBack implements _TokenSwapBack {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TokenSwapBack &&
+            other is _$TokenSwapBackImpl &&
             (identical(other.tokens, tokens) || other.tokens == tokens) &&
             (identical(other.callbackAddress, callbackAddress) ||
                 other.callbackAddress == callbackAddress) &&
@@ -181,12 +181,12 @@ class _$_TokenSwapBack implements _TokenSwapBack {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TokenSwapBackCopyWith<_$_TokenSwapBack> get copyWith =>
-      __$$_TokenSwapBackCopyWithImpl<_$_TokenSwapBack>(this, _$identity);
+  _$$TokenSwapBackImplCopyWith<_$TokenSwapBackImpl> get copyWith =>
+      __$$TokenSwapBackImplCopyWithImpl<_$TokenSwapBackImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TokenSwapBackToJson(
+    return _$$TokenSwapBackImplToJson(
       this,
     );
   }
@@ -196,10 +196,10 @@ abstract class _TokenSwapBack implements TokenSwapBack {
   const factory _TokenSwapBack(
       {@amountJsonConverter required final BigInt tokens,
       required final Address callbackAddress,
-      required final String callbackPayload}) = _$_TokenSwapBack;
+      required final String callbackPayload}) = _$TokenSwapBackImpl;
 
   factory _TokenSwapBack.fromJson(Map<String, dynamic> json) =
-      _$_TokenSwapBack.fromJson;
+      _$TokenSwapBackImpl.fromJson;
 
   @override
   @amountJsonConverter
@@ -210,6 +210,6 @@ abstract class _TokenSwapBack implements TokenSwapBack {
   String get callbackPayload;
   @override
   @JsonKey(ignore: true)
-  _$$_TokenSwapBackCopyWith<_$_TokenSwapBack> get copyWith =>
+  _$$TokenSwapBackImplCopyWith<_$TokenSwapBackImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

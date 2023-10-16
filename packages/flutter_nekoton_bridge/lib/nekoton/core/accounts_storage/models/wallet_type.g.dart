@@ -6,12 +6,13 @@ part of 'wallet_type.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Multisig _$$_MultisigFromJson(Map<String, dynamic> json) => _$_Multisig(
+_$MultisigImpl _$$MultisigImplFromJson(Map<String, dynamic> json) =>
+    _$MultisigImpl(
       $enumDecode(_$MultisigTypeEnumMap, json['data']),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_MultisigToJson(_$_Multisig instance) =>
+Map<String, dynamic> _$$MultisigImplToJson(_$MultisigImpl instance) =>
     <String, dynamic>{
       'data': _$MultisigTypeEnumMap[instance.data]!,
       'type': instance.$type,
@@ -28,33 +29,36 @@ const _$MultisigTypeEnumMap = {
   MultisigType.multisig2_1: 'Multisig2_1',
 };
 
-_$_WalletV3 _$$_WalletV3FromJson(Map<String, dynamic> json) => _$_WalletV3(
+_$WalletV3Impl _$$WalletV3ImplFromJson(Map<String, dynamic> json) =>
+    _$WalletV3Impl(
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_WalletV3ToJson(_$_WalletV3 instance) =>
+Map<String, dynamic> _$$WalletV3ImplToJson(_$WalletV3Impl instance) =>
     <String, dynamic>{
       'type': instance.$type,
     };
 
-_$_HighloadWalletV2 _$$_HighloadWalletV2FromJson(Map<String, dynamic> json) =>
-    _$_HighloadWalletV2(
-      $type: json['type'] as String?,
-    );
-
-Map<String, dynamic> _$$_HighloadWalletV2ToJson(_$_HighloadWalletV2 instance) =>
-    <String, dynamic>{
-      'type': instance.$type,
-    };
-
-_$_WalletTypeEverWallet _$$_WalletTypeEverWalletFromJson(
+_$HighloadWalletV2Impl _$$HighloadWalletV2ImplFromJson(
         Map<String, dynamic> json) =>
-    _$_WalletTypeEverWallet(
+    _$HighloadWalletV2Impl(
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_WalletTypeEverWalletToJson(
-        _$_WalletTypeEverWallet instance) =>
+Map<String, dynamic> _$$HighloadWalletV2ImplToJson(
+        _$HighloadWalletV2Impl instance) =>
+    <String, dynamic>{
+      'type': instance.$type,
+    };
+
+_$WalletTypeEverWalletImpl _$$WalletTypeEverWalletImplFromJson(
+        Map<String, dynamic> json) =>
+    _$WalletTypeEverWalletImpl(
+      $type: json['type'] as String?,
+    );
+
+Map<String, dynamic> _$$WalletTypeEverWalletImplToJson(
+        _$WalletTypeEverWalletImpl instance) =>
     <String, dynamic>{
       'type': instance.$type,
     };

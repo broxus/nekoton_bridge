@@ -97,26 +97,28 @@ class _$ExpirationCopyWithImpl<$Res, $Val extends Expiration>
 }
 
 /// @nodoc
-abstract class _$$_NeverCopyWith<$Res> {
-  factory _$$_NeverCopyWith(_$_Never value, $Res Function(_$_Never) then) =
-      __$$_NeverCopyWithImpl<$Res>;
+abstract class _$$NeverImplCopyWith<$Res> {
+  factory _$$NeverImplCopyWith(
+          _$NeverImpl value, $Res Function(_$NeverImpl) then) =
+      __$$NeverImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_NeverCopyWithImpl<$Res>
-    extends _$ExpirationCopyWithImpl<$Res, _$_Never>
-    implements _$$_NeverCopyWith<$Res> {
-  __$$_NeverCopyWithImpl(_$_Never _value, $Res Function(_$_Never) _then)
+class __$$NeverImplCopyWithImpl<$Res>
+    extends _$ExpirationCopyWithImpl<$Res, _$NeverImpl>
+    implements _$$NeverImplCopyWith<$Res> {
+  __$$NeverImplCopyWithImpl(
+      _$NeverImpl _value, $Res Function(_$NeverImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_Never implements _Never {
-  const _$_Never({final String? $type}) : $type = $type ?? 'never';
+class _$NeverImpl implements _Never {
+  const _$NeverImpl({final String? $type}) : $type = $type ?? 'never';
 
-  factory _$_Never.fromJson(Map<String, dynamic> json) =>
-      _$$_NeverFromJson(json);
+  factory _$NeverImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NeverImplFromJson(json);
 
   @JsonKey(name: 'type')
   final String $type;
@@ -129,7 +131,7 @@ class _$_Never implements _Never {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Never);
+        (other.runtimeType == runtimeType && other is _$NeverImpl);
   }
 
   @JsonKey(ignore: true)
@@ -206,32 +208,33 @@ class _$_Never implements _Never {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NeverToJson(
+    return _$$NeverImplToJson(
       this,
     );
   }
 }
 
 abstract class _Never implements Expiration {
-  const factory _Never() = _$_Never;
+  const factory _Never() = _$NeverImpl;
 
-  factory _Never.fromJson(Map<String, dynamic> json) = _$_Never.fromJson;
+  factory _Never.fromJson(Map<String, dynamic> json) = _$NeverImpl.fromJson;
 }
 
 /// @nodoc
-abstract class _$$_TimeoutCopyWith<$Res> {
-  factory _$$_TimeoutCopyWith(
-          _$_Timeout value, $Res Function(_$_Timeout) then) =
-      __$$_TimeoutCopyWithImpl<$Res>;
+abstract class _$$TimeoutImplCopyWith<$Res> {
+  factory _$$TimeoutImplCopyWith(
+          _$TimeoutImpl value, $Res Function(_$TimeoutImpl) then) =
+      __$$TimeoutImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int data});
 }
 
 /// @nodoc
-class __$$_TimeoutCopyWithImpl<$Res>
-    extends _$ExpirationCopyWithImpl<$Res, _$_Timeout>
-    implements _$$_TimeoutCopyWith<$Res> {
-  __$$_TimeoutCopyWithImpl(_$_Timeout _value, $Res Function(_$_Timeout) _then)
+class __$$TimeoutImplCopyWithImpl<$Res>
+    extends _$ExpirationCopyWithImpl<$Res, _$TimeoutImpl>
+    implements _$$TimeoutImplCopyWith<$Res> {
+  __$$TimeoutImplCopyWithImpl(
+      _$TimeoutImpl _value, $Res Function(_$TimeoutImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -239,7 +242,7 @@ class __$$_TimeoutCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Timeout(
+    return _then(_$TimeoutImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -250,12 +253,12 @@ class __$$_TimeoutCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Timeout implements _Timeout {
-  const _$_Timeout(this.data, {final String? $type})
+class _$TimeoutImpl implements _Timeout {
+  const _$TimeoutImpl(this.data, {final String? $type})
       : $type = $type ?? 'timeout';
 
-  factory _$_Timeout.fromJson(Map<String, dynamic> json) =>
-      _$$_TimeoutFromJson(json);
+  factory _$TimeoutImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TimeoutImplFromJson(json);
 
   @override
   final int data;
@@ -272,7 +275,7 @@ class _$_Timeout implements _Timeout {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Timeout &&
+            other is _$TimeoutImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -283,8 +286,8 @@ class _$_Timeout implements _Timeout {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TimeoutCopyWith<_$_Timeout> get copyWith =>
-      __$$_TimeoutCopyWithImpl<_$_Timeout>(this, _$identity);
+  _$$TimeoutImplCopyWith<_$TimeoutImpl> get copyWith =>
+      __$$TimeoutImplCopyWithImpl<_$TimeoutImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -356,38 +359,38 @@ class _$_Timeout implements _Timeout {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TimeoutToJson(
+    return _$$TimeoutImplToJson(
       this,
     );
   }
 }
 
 abstract class _Timeout implements Expiration {
-  const factory _Timeout(final int data) = _$_Timeout;
+  const factory _Timeout(final int data) = _$TimeoutImpl;
 
-  factory _Timeout.fromJson(Map<String, dynamic> json) = _$_Timeout.fromJson;
+  factory _Timeout.fromJson(Map<String, dynamic> json) = _$TimeoutImpl.fromJson;
 
   int get data;
   @JsonKey(ignore: true)
-  _$$_TimeoutCopyWith<_$_Timeout> get copyWith =>
+  _$$TimeoutImplCopyWith<_$TimeoutImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_TimestampCopyWith<$Res> {
-  factory _$$_TimestampCopyWith(
-          _$_Timestamp value, $Res Function(_$_Timestamp) then) =
-      __$$_TimestampCopyWithImpl<$Res>;
+abstract class _$$TimestampImplCopyWith<$Res> {
+  factory _$$TimestampImplCopyWith(
+          _$TimestampImpl value, $Res Function(_$TimestampImpl) then) =
+      __$$TimestampImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int data});
 }
 
 /// @nodoc
-class __$$_TimestampCopyWithImpl<$Res>
-    extends _$ExpirationCopyWithImpl<$Res, _$_Timestamp>
-    implements _$$_TimestampCopyWith<$Res> {
-  __$$_TimestampCopyWithImpl(
-      _$_Timestamp _value, $Res Function(_$_Timestamp) _then)
+class __$$TimestampImplCopyWithImpl<$Res>
+    extends _$ExpirationCopyWithImpl<$Res, _$TimestampImpl>
+    implements _$$TimestampImplCopyWith<$Res> {
+  __$$TimestampImplCopyWithImpl(
+      _$TimestampImpl _value, $Res Function(_$TimestampImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -395,7 +398,7 @@ class __$$_TimestampCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Timestamp(
+    return _then(_$TimestampImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -406,12 +409,12 @@ class __$$_TimestampCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Timestamp implements _Timestamp {
-  const _$_Timestamp(this.data, {final String? $type})
+class _$TimestampImpl implements _Timestamp {
+  const _$TimestampImpl(this.data, {final String? $type})
       : $type = $type ?? 'timestamp';
 
-  factory _$_Timestamp.fromJson(Map<String, dynamic> json) =>
-      _$$_TimestampFromJson(json);
+  factory _$TimestampImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TimestampImplFromJson(json);
 
   @override
   final int data;
@@ -428,7 +431,7 @@ class _$_Timestamp implements _Timestamp {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Timestamp &&
+            other is _$TimestampImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -439,8 +442,8 @@ class _$_Timestamp implements _Timestamp {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TimestampCopyWith<_$_Timestamp> get copyWith =>
-      __$$_TimestampCopyWithImpl<_$_Timestamp>(this, _$identity);
+  _$$TimestampImplCopyWith<_$TimestampImpl> get copyWith =>
+      __$$TimestampImplCopyWithImpl<_$TimestampImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -512,20 +515,20 @@ class _$_Timestamp implements _Timestamp {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TimestampToJson(
+    return _$$TimestampImplToJson(
       this,
     );
   }
 }
 
 abstract class _Timestamp implements Expiration {
-  const factory _Timestamp(final int data) = _$_Timestamp;
+  const factory _Timestamp(final int data) = _$TimestampImpl;
 
   factory _Timestamp.fromJson(Map<String, dynamic> json) =
-      _$_Timestamp.fromJson;
+      _$TimestampImpl.fromJson;
 
   int get data;
   @JsonKey(ignore: true)
-  _$$_TimestampCopyWith<_$_Timestamp> get copyWith =>
+  _$$TimestampImplCopyWith<_$TimestampImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

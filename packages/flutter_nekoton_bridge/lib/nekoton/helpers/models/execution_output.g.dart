@@ -6,13 +6,15 @@ part of 'execution_output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ExecutionOutput _$$_ExecutionOutputFromJson(Map<String, dynamic> json) =>
-    _$_ExecutionOutput(
+_$ExecutionOutputImpl _$$ExecutionOutputImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ExecutionOutputImpl(
       output: json['output'] as Map<String, dynamic>?,
       code: json['code'] as int,
     );
 
-Map<String, dynamic> _$$_ExecutionOutputToJson(_$_ExecutionOutput instance) {
+Map<String, dynamic> _$$ExecutionOutputImplToJson(
+    _$ExecutionOutputImpl instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

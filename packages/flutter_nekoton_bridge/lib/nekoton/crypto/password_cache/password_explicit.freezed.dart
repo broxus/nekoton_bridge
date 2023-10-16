@@ -78,12 +78,12 @@ class _$PasswordExplicitCopyWithImpl<$Res, $Val extends PasswordExplicit>
 }
 
 /// @nodoc
-abstract class _$$_PasswordExplicitExplicitCopyWith<$Res>
+abstract class _$$PasswordExplicitExplicitImplCopyWith<$Res>
     implements $PasswordExplicitCopyWith<$Res> {
-  factory _$$_PasswordExplicitExplicitCopyWith(
-          _$_PasswordExplicitExplicit value,
-          $Res Function(_$_PasswordExplicitExplicit) then) =
-      __$$_PasswordExplicitExplicitCopyWithImpl<$Res>;
+  factory _$$PasswordExplicitExplicitImplCopyWith(
+          _$PasswordExplicitExplicitImpl value,
+          $Res Function(_$PasswordExplicitExplicitImpl) then) =
+      __$$PasswordExplicitExplicitImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String password, PasswordCacheBehavior cacheBehavior});
@@ -93,11 +93,12 @@ abstract class _$$_PasswordExplicitExplicitCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PasswordExplicitExplicitCopyWithImpl<$Res>
-    extends _$PasswordExplicitCopyWithImpl<$Res, _$_PasswordExplicitExplicit>
-    implements _$$_PasswordExplicitExplicitCopyWith<$Res> {
-  __$$_PasswordExplicitExplicitCopyWithImpl(_$_PasswordExplicitExplicit _value,
-      $Res Function(_$_PasswordExplicitExplicit) _then)
+class __$$PasswordExplicitExplicitImplCopyWithImpl<$Res>
+    extends _$PasswordExplicitCopyWithImpl<$Res, _$PasswordExplicitExplicitImpl>
+    implements _$$PasswordExplicitExplicitImplCopyWith<$Res> {
+  __$$PasswordExplicitExplicitImplCopyWithImpl(
+      _$PasswordExplicitExplicitImpl _value,
+      $Res Function(_$PasswordExplicitExplicitImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -106,7 +107,7 @@ class __$$_PasswordExplicitExplicitCopyWithImpl<$Res>
     Object? password = null,
     Object? cacheBehavior = null,
   }) {
-    return _then(_$_PasswordExplicitExplicit(
+    return _then(_$PasswordExplicitExplicitImpl(
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -122,12 +123,12 @@ class __$$_PasswordExplicitExplicitCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$_PasswordExplicitExplicit implements _PasswordExplicitExplicit {
-  const _$_PasswordExplicitExplicit(
+class _$PasswordExplicitExplicitImpl implements _PasswordExplicitExplicit {
+  const _$PasswordExplicitExplicitImpl(
       {required this.password, required this.cacheBehavior});
 
-  factory _$_PasswordExplicitExplicit.fromJson(Map<String, dynamic> json) =>
-      _$$_PasswordExplicitExplicitFromJson(json);
+  factory _$PasswordExplicitExplicitImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PasswordExplicitExplicitImplFromJson(json);
 
   @override
   final String password;
@@ -143,7 +144,7 @@ class _$_PasswordExplicitExplicit implements _PasswordExplicitExplicit {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PasswordExplicitExplicit &&
+            other is _$PasswordExplicitExplicitImpl &&
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.cacheBehavior, cacheBehavior) ||
@@ -157,13 +158,13 @@ class _$_PasswordExplicitExplicit implements _PasswordExplicitExplicit {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PasswordExplicitExplicitCopyWith<_$_PasswordExplicitExplicit>
-      get copyWith => __$$_PasswordExplicitExplicitCopyWithImpl<
-          _$_PasswordExplicitExplicit>(this, _$identity);
+  _$$PasswordExplicitExplicitImplCopyWith<_$PasswordExplicitExplicitImpl>
+      get copyWith => __$$PasswordExplicitExplicitImplCopyWithImpl<
+          _$PasswordExplicitExplicitImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PasswordExplicitExplicitToJson(
+    return _$$PasswordExplicitExplicitImplToJson(
       this,
     );
   }
@@ -173,10 +174,10 @@ abstract class _PasswordExplicitExplicit implements PasswordExplicit {
   const factory _PasswordExplicitExplicit(
           {required final String password,
           required final PasswordCacheBehavior cacheBehavior}) =
-      _$_PasswordExplicitExplicit;
+      _$PasswordExplicitExplicitImpl;
 
   factory _PasswordExplicitExplicit.fromJson(Map<String, dynamic> json) =
-      _$_PasswordExplicitExplicit.fromJson;
+      _$PasswordExplicitExplicitImpl.fromJson;
 
   @override
   String get password;
@@ -184,6 +185,6 @@ abstract class _PasswordExplicitExplicit implements PasswordExplicit {
   PasswordCacheBehavior get cacheBehavior;
   @override
   @JsonKey(ignore: true)
-  _$$_PasswordExplicitExplicitCopyWith<_$_PasswordExplicitExplicit>
+  _$$PasswordExplicitExplicitImplCopyWith<_$PasswordExplicitExplicitImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

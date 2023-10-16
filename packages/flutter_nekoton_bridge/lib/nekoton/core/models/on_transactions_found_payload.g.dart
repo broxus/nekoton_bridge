@@ -6,9 +6,9 @@ part of 'on_transactions_found_payload.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_OnTransactionsFoundPayload _$$_OnTransactionsFoundPayloadFromJson(
+_$OnTransactionsFoundPayloadImpl _$$OnTransactionsFoundPayloadImplFromJson(
         Map<String, dynamic> json) =>
-    _$_OnTransactionsFoundPayload(
+    _$OnTransactionsFoundPayloadImpl(
       transactions: (json['transactions'] as List<dynamic>)
           .map((e) => Transaction.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -16,8 +16,8 @@ _$_OnTransactionsFoundPayload _$$_OnTransactionsFoundPayloadFromJson(
           json['batch_info'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_OnTransactionsFoundPayloadToJson(
-        _$_OnTransactionsFoundPayload instance) =>
+Map<String, dynamic> _$$OnTransactionsFoundPayloadImplToJson(
+        _$OnTransactionsFoundPayloadImpl instance) =>
     <String, dynamic>{
       'transactions': instance.transactions.map((e) => e.toJson()).toList(),
       'batch_info': instance.batchInfo.toJson(),

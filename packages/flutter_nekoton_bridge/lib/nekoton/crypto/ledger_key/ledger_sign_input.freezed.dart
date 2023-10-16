@@ -91,11 +91,11 @@ class _$LedgerSignInputCopyWithImpl<$Res, $Val extends LedgerSignInput>
 }
 
 /// @nodoc
-abstract class _$$_LedgerSignInputCopyWith<$Res>
+abstract class _$$LedgerSignInputImplCopyWith<$Res>
     implements $LedgerSignInputCopyWith<$Res> {
-  factory _$$_LedgerSignInputCopyWith(
-          _$_LedgerSignInput value, $Res Function(_$_LedgerSignInput) then) =
-      __$$_LedgerSignInputCopyWithImpl<$Res>;
+  factory _$$LedgerSignInputImplCopyWith(_$LedgerSignInputImpl value,
+          $Res Function(_$LedgerSignInputImpl) then) =
+      __$$LedgerSignInputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PublicKey publicKey, LedgerSignatureContext? context});
@@ -107,11 +107,11 @@ abstract class _$$_LedgerSignInputCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LedgerSignInputCopyWithImpl<$Res>
-    extends _$LedgerSignInputCopyWithImpl<$Res, _$_LedgerSignInput>
-    implements _$$_LedgerSignInputCopyWith<$Res> {
-  __$$_LedgerSignInputCopyWithImpl(
-      _$_LedgerSignInput _value, $Res Function(_$_LedgerSignInput) _then)
+class __$$LedgerSignInputImplCopyWithImpl<$Res>
+    extends _$LedgerSignInputCopyWithImpl<$Res, _$LedgerSignInputImpl>
+    implements _$$LedgerSignInputImplCopyWith<$Res> {
+  __$$LedgerSignInputImplCopyWithImpl(
+      _$LedgerSignInputImpl _value, $Res Function(_$LedgerSignInputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -120,7 +120,7 @@ class __$$_LedgerSignInputCopyWithImpl<$Res>
     Object? publicKey = null,
     Object? context = freezed,
   }) {
-    return _then(_$_LedgerSignInput(
+    return _then(_$LedgerSignInputImpl(
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
@@ -135,11 +135,11 @@ class __$$_LedgerSignInputCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LedgerSignInput implements _LedgerSignInput {
-  const _$_LedgerSignInput({required this.publicKey, this.context});
+class _$LedgerSignInputImpl implements _LedgerSignInput {
+  const _$LedgerSignInputImpl({required this.publicKey, this.context});
 
-  factory _$_LedgerSignInput.fromJson(Map<String, dynamic> json) =>
-      _$$_LedgerSignInputFromJson(json);
+  factory _$LedgerSignInputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LedgerSignInputImplFromJson(json);
 
   @override
   final PublicKey publicKey;
@@ -155,7 +155,7 @@ class _$_LedgerSignInput implements _LedgerSignInput {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LedgerSignInput &&
+            other is _$LedgerSignInputImpl &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey) &&
             (identical(other.context, context) || other.context == context));
@@ -168,12 +168,13 @@ class _$_LedgerSignInput implements _LedgerSignInput {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LedgerSignInputCopyWith<_$_LedgerSignInput> get copyWith =>
-      __$$_LedgerSignInputCopyWithImpl<_$_LedgerSignInput>(this, _$identity);
+  _$$LedgerSignInputImplCopyWith<_$LedgerSignInputImpl> get copyWith =>
+      __$$LedgerSignInputImplCopyWithImpl<_$LedgerSignInputImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LedgerSignInputToJson(
+    return _$$LedgerSignInputImplToJson(
       this,
     );
   }
@@ -182,10 +183,10 @@ class _$_LedgerSignInput implements _LedgerSignInput {
 abstract class _LedgerSignInput implements LedgerSignInput {
   const factory _LedgerSignInput(
       {required final PublicKey publicKey,
-      final LedgerSignatureContext? context}) = _$_LedgerSignInput;
+      final LedgerSignatureContext? context}) = _$LedgerSignInputImpl;
 
   factory _LedgerSignInput.fromJson(Map<String, dynamic> json) =
-      _$_LedgerSignInput.fromJson;
+      _$LedgerSignInputImpl.fromJson;
 
   @override
   PublicKey get publicKey;
@@ -193,6 +194,6 @@ abstract class _LedgerSignInput implements LedgerSignInput {
   LedgerSignatureContext? get context;
   @override
   @JsonKey(ignore: true)
-  _$$_LedgerSignInputCopyWith<_$_LedgerSignInput> get copyWith =>
+  _$$LedgerSignInputImplCopyWith<_$LedgerSignInputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

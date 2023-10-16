@@ -68,22 +68,22 @@ class _$TransactionIdCopyWithImpl<$Res, $Val extends TransactionId>
 }
 
 /// @nodoc
-abstract class _$$_TransactionIdCopyWith<$Res>
+abstract class _$$TransactionIdImplCopyWith<$Res>
     implements $TransactionIdCopyWith<$Res> {
-  factory _$$_TransactionIdCopyWith(
-          _$_TransactionId value, $Res Function(_$_TransactionId) then) =
-      __$$_TransactionIdCopyWithImpl<$Res>;
+  factory _$$TransactionIdImplCopyWith(
+          _$TransactionIdImpl value, $Res Function(_$TransactionIdImpl) then) =
+      __$$TransactionIdImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String lt, String hash});
 }
 
 /// @nodoc
-class __$$_TransactionIdCopyWithImpl<$Res>
-    extends _$TransactionIdCopyWithImpl<$Res, _$_TransactionId>
-    implements _$$_TransactionIdCopyWith<$Res> {
-  __$$_TransactionIdCopyWithImpl(
-      _$_TransactionId _value, $Res Function(_$_TransactionId) _then)
+class __$$TransactionIdImplCopyWithImpl<$Res>
+    extends _$TransactionIdCopyWithImpl<$Res, _$TransactionIdImpl>
+    implements _$$TransactionIdImplCopyWith<$Res> {
+  __$$TransactionIdImplCopyWithImpl(
+      _$TransactionIdImpl _value, $Res Function(_$TransactionIdImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_TransactionIdCopyWithImpl<$Res>
     Object? lt = null,
     Object? hash = null,
   }) {
-    return _then(_$_TransactionId(
+    return _then(_$TransactionIdImpl(
       lt: null == lt
           ? _value.lt
           : lt // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,11 @@ class __$$_TransactionIdCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TransactionId implements _TransactionId {
-  const _$_TransactionId({required this.lt, required this.hash});
+class _$TransactionIdImpl implements _TransactionId {
+  const _$TransactionIdImpl({required this.lt, required this.hash});
 
-  factory _$_TransactionId.fromJson(Map<String, dynamic> json) =>
-      _$$_TransactionIdFromJson(json);
+  factory _$TransactionIdImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TransactionIdImplFromJson(json);
 
   @override
   final String lt;
@@ -127,7 +127,7 @@ class _$_TransactionId implements _TransactionId {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TransactionId &&
+            other is _$TransactionIdImpl &&
             (identical(other.lt, lt) || other.lt == lt) &&
             (identical(other.hash, hash) || other.hash == hash));
   }
@@ -139,12 +139,12 @@ class _$_TransactionId implements _TransactionId {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TransactionIdCopyWith<_$_TransactionId> get copyWith =>
-      __$$_TransactionIdCopyWithImpl<_$_TransactionId>(this, _$identity);
+  _$$TransactionIdImplCopyWith<_$TransactionIdImpl> get copyWith =>
+      __$$TransactionIdImplCopyWithImpl<_$TransactionIdImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TransactionIdToJson(
+    return _$$TransactionIdImplToJson(
       this,
     );
   }
@@ -153,10 +153,10 @@ class _$_TransactionId implements _TransactionId {
 abstract class _TransactionId implements TransactionId {
   const factory _TransactionId(
       {required final String lt,
-      required final String hash}) = _$_TransactionId;
+      required final String hash}) = _$TransactionIdImpl;
 
   factory _TransactionId.fromJson(Map<String, dynamic> json) =
-      _$_TransactionId.fromJson;
+      _$TransactionIdImpl.fromJson;
 
   @override
   String get lt;
@@ -164,6 +164,6 @@ abstract class _TransactionId implements TransactionId {
   String get hash;
   @override
   @JsonKey(ignore: true)
-  _$$_TransactionIdCopyWith<_$_TransactionId> get copyWith =>
+  _$$TransactionIdImplCopyWith<_$TransactionIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

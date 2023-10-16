@@ -99,18 +99,20 @@ class _$PasswordCacheBehaviorCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_StoreCopyWith<$Res> {
-  factory _$$_StoreCopyWith(_$_Store value, $Res Function(_$_Store) then) =
-      __$$_StoreCopyWithImpl<$Res>;
+abstract class _$$StoreImplCopyWith<$Res> {
+  factory _$$StoreImplCopyWith(
+          _$StoreImpl value, $Res Function(_$StoreImpl) then) =
+      __$$StoreImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int data});
 }
 
 /// @nodoc
-class __$$_StoreCopyWithImpl<$Res>
-    extends _$PasswordCacheBehaviorCopyWithImpl<$Res, _$_Store>
-    implements _$$_StoreCopyWith<$Res> {
-  __$$_StoreCopyWithImpl(_$_Store _value, $Res Function(_$_Store) _then)
+class __$$StoreImplCopyWithImpl<$Res>
+    extends _$PasswordCacheBehaviorCopyWithImpl<$Res, _$StoreImpl>
+    implements _$$StoreImplCopyWith<$Res> {
+  __$$StoreImplCopyWithImpl(
+      _$StoreImpl _value, $Res Function(_$StoreImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +120,7 @@ class __$$_StoreCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Store(
+    return _then(_$StoreImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -129,11 +131,12 @@ class __$$_StoreCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Store implements _Store {
-  const _$_Store(this.data, {final String? $type}) : $type = $type ?? 'store';
+class _$StoreImpl implements _Store {
+  const _$StoreImpl(this.data, {final String? $type})
+      : $type = $type ?? 'store';
 
-  factory _$_Store.fromJson(Map<String, dynamic> json) =>
-      _$$_StoreFromJson(json);
+  factory _$StoreImpl.fromJson(Map<String, dynamic> json) =>
+      _$$StoreImplFromJson(json);
 
   @override
   final int data;
@@ -150,7 +153,7 @@ class _$_Store implements _Store {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Store &&
+            other is _$StoreImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -161,8 +164,8 @@ class _$_Store implements _Store {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StoreCopyWith<_$_Store> get copyWith =>
-      __$$_StoreCopyWithImpl<_$_Store>(this, _$identity);
+  _$$StoreImplCopyWith<_$StoreImpl> get copyWith =>
+      __$$StoreImplCopyWithImpl<_$StoreImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -234,44 +237,46 @@ class _$_Store implements _Store {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StoreToJson(
+    return _$$StoreImplToJson(
       this,
     );
   }
 }
 
 abstract class _Store implements PasswordCacheBehavior {
-  const factory _Store(final int data) = _$_Store;
+  const factory _Store(final int data) = _$StoreImpl;
 
-  factory _Store.fromJson(Map<String, dynamic> json) = _$_Store.fromJson;
+  factory _Store.fromJson(Map<String, dynamic> json) = _$StoreImpl.fromJson;
 
   int get data;
   @JsonKey(ignore: true)
-  _$$_StoreCopyWith<_$_Store> get copyWith =>
+  _$$StoreImplCopyWith<_$StoreImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_RemoveCopyWith<$Res> {
-  factory _$$_RemoveCopyWith(_$_Remove value, $Res Function(_$_Remove) then) =
-      __$$_RemoveCopyWithImpl<$Res>;
+abstract class _$$RemoveImplCopyWith<$Res> {
+  factory _$$RemoveImplCopyWith(
+          _$RemoveImpl value, $Res Function(_$RemoveImpl) then) =
+      __$$RemoveImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_RemoveCopyWithImpl<$Res>
-    extends _$PasswordCacheBehaviorCopyWithImpl<$Res, _$_Remove>
-    implements _$$_RemoveCopyWith<$Res> {
-  __$$_RemoveCopyWithImpl(_$_Remove _value, $Res Function(_$_Remove) _then)
+class __$$RemoveImplCopyWithImpl<$Res>
+    extends _$PasswordCacheBehaviorCopyWithImpl<$Res, _$RemoveImpl>
+    implements _$$RemoveImplCopyWith<$Res> {
+  __$$RemoveImplCopyWithImpl(
+      _$RemoveImpl _value, $Res Function(_$RemoveImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_Remove implements _Remove {
-  const _$_Remove({final String? $type}) : $type = $type ?? 'remove';
+class _$RemoveImpl implements _Remove {
+  const _$RemoveImpl({final String? $type}) : $type = $type ?? 'remove';
 
-  factory _$_Remove.fromJson(Map<String, dynamic> json) =>
-      _$$_RemoveFromJson(json);
+  factory _$RemoveImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RemoveImplFromJson(json);
 
   @JsonKey(name: 'type')
   final String $type;
@@ -284,7 +289,7 @@ class _$_Remove implements _Remove {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Remove);
+        (other.runtimeType == runtimeType && other is _$RemoveImpl);
   }
 
   @JsonKey(ignore: true)
@@ -361,38 +366,39 @@ class _$_Remove implements _Remove {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RemoveToJson(
+    return _$$RemoveImplToJson(
       this,
     );
   }
 }
 
 abstract class _Remove implements PasswordCacheBehavior {
-  const factory _Remove() = _$_Remove;
+  const factory _Remove() = _$RemoveImpl;
 
-  factory _Remove.fromJson(Map<String, dynamic> json) = _$_Remove.fromJson;
+  factory _Remove.fromJson(Map<String, dynamic> json) = _$RemoveImpl.fromJson;
 }
 
 /// @nodoc
-abstract class _$$_NopCopyWith<$Res> {
-  factory _$$_NopCopyWith(_$_Nop value, $Res Function(_$_Nop) then) =
-      __$$_NopCopyWithImpl<$Res>;
+abstract class _$$NopImplCopyWith<$Res> {
+  factory _$$NopImplCopyWith(_$NopImpl value, $Res Function(_$NopImpl) then) =
+      __$$NopImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_NopCopyWithImpl<$Res>
-    extends _$PasswordCacheBehaviorCopyWithImpl<$Res, _$_Nop>
-    implements _$$_NopCopyWith<$Res> {
-  __$$_NopCopyWithImpl(_$_Nop _value, $Res Function(_$_Nop) _then)
+class __$$NopImplCopyWithImpl<$Res>
+    extends _$PasswordCacheBehaviorCopyWithImpl<$Res, _$NopImpl>
+    implements _$$NopImplCopyWith<$Res> {
+  __$$NopImplCopyWithImpl(_$NopImpl _value, $Res Function(_$NopImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_Nop implements _Nop {
-  const _$_Nop({final String? $type}) : $type = $type ?? 'nop';
+class _$NopImpl implements _Nop {
+  const _$NopImpl({final String? $type}) : $type = $type ?? 'nop';
 
-  factory _$_Nop.fromJson(Map<String, dynamic> json) => _$$_NopFromJson(json);
+  factory _$NopImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NopImplFromJson(json);
 
   @JsonKey(name: 'type')
   final String $type;
@@ -405,7 +411,7 @@ class _$_Nop implements _Nop {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Nop);
+        (other.runtimeType == runtimeType && other is _$NopImpl);
   }
 
   @JsonKey(ignore: true)
@@ -482,14 +488,14 @@ class _$_Nop implements _Nop {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NopToJson(
+    return _$$NopImplToJson(
       this,
     );
   }
 }
 
 abstract class _Nop implements PasswordCacheBehavior {
-  const factory _Nop() = _$_Nop;
+  const factory _Nop() = _$NopImpl;
 
-  factory _Nop.fromJson(Map<String, dynamic> json) = _$_Nop.fromJson;
+  factory _Nop.fromJson(Map<String, dynamic> json) = _$NopImpl.fromJson;
 }

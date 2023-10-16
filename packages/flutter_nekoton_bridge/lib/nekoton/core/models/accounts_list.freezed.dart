@@ -71,11 +71,11 @@ class _$AccountsListCopyWithImpl<$Res, $Val extends AccountsList>
 }
 
 /// @nodoc
-abstract class _$$_AccountsListCopyWith<$Res>
+abstract class _$$AccountsListImplCopyWith<$Res>
     implements $AccountsListCopyWith<$Res> {
-  factory _$$_AccountsListCopyWith(
-          _$_AccountsList value, $Res Function(_$_AccountsList) then) =
-      __$$_AccountsListCopyWithImpl<$Res>;
+  factory _$$AccountsListImplCopyWith(
+          _$AccountsListImpl value, $Res Function(_$AccountsListImpl) then) =
+      __$$AccountsListImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -84,11 +84,11 @@ abstract class _$$_AccountsListCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AccountsListCopyWithImpl<$Res>
-    extends _$AccountsListCopyWithImpl<$Res, _$_AccountsList>
-    implements _$$_AccountsListCopyWith<$Res> {
-  __$$_AccountsListCopyWithImpl(
-      _$_AccountsList _value, $Res Function(_$_AccountsList) _then)
+class __$$AccountsListImplCopyWithImpl<$Res>
+    extends _$AccountsListCopyWithImpl<$Res, _$AccountsListImpl>
+    implements _$$AccountsListImplCopyWith<$Res> {
+  __$$AccountsListImplCopyWithImpl(
+      _$AccountsListImpl _value, $Res Function(_$AccountsListImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +97,7 @@ class __$$_AccountsListCopyWithImpl<$Res>
     Object? accounts = null,
     Object? continuation = freezed,
   }) {
-    return _then(_$_AccountsList(
+    return _then(_$AccountsListImpl(
       accounts: null == accounts
           ? _value._accounts
           : accounts // ignore: cast_nullable_to_non_nullable
@@ -112,14 +112,14 @@ class __$$_AccountsListCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AccountsList implements _AccountsList {
-  const _$_AccountsList(
+class _$AccountsListImpl implements _AccountsList {
+  const _$AccountsListImpl(
       {required final List<String> accounts,
       @JsonKey(includeIfNull: false) this.continuation})
       : _accounts = accounts;
 
-  factory _$_AccountsList.fromJson(Map<String, dynamic> json) =>
-      _$$_AccountsListFromJson(json);
+  factory _$AccountsListImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AccountsListImplFromJson(json);
 
   final List<String> _accounts;
   @override
@@ -142,7 +142,7 @@ class _$_AccountsList implements _AccountsList {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AccountsList &&
+            other is _$AccountsListImpl &&
             const DeepCollectionEquality().equals(other._accounts, _accounts) &&
             (identical(other.continuation, continuation) ||
                 other.continuation == continuation));
@@ -156,12 +156,12 @@ class _$_AccountsList implements _AccountsList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AccountsListCopyWith<_$_AccountsList> get copyWith =>
-      __$$_AccountsListCopyWithImpl<_$_AccountsList>(this, _$identity);
+  _$$AccountsListImplCopyWith<_$AccountsListImpl> get copyWith =>
+      __$$AccountsListImplCopyWithImpl<_$AccountsListImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AccountsListToJson(
+    return _$$AccountsListImplToJson(
       this,
     );
   }
@@ -171,10 +171,10 @@ abstract class _AccountsList implements AccountsList {
   const factory _AccountsList(
           {required final List<String> accounts,
           @JsonKey(includeIfNull: false) final String? continuation}) =
-      _$_AccountsList;
+      _$AccountsListImpl;
 
   factory _AccountsList.fromJson(Map<String, dynamic> json) =
-      _$_AccountsList.fromJson;
+      _$AccountsListImpl.fromJson;
 
   @override
   List<String> get accounts;
@@ -183,6 +183,6 @@ abstract class _AccountsList implements AccountsList {
   String? get continuation;
   @override
   @JsonKey(ignore: true)
-  _$$_AccountsListCopyWith<_$_AccountsList> get copyWith =>
+  _$$AccountsListImplCopyWith<_$AccountsListImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

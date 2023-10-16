@@ -6,9 +6,9 @@ part of 'multisig_pending_transaction.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_MultisigPendingTransaction _$$_MultisigPendingTransactionFromJson(
+_$MultisigPendingTransactionImpl _$$MultisigPendingTransactionImplFromJson(
         Map<String, dynamic> json) =>
-    _$_MultisigPendingTransaction(
+    _$MultisigPendingTransactionImpl(
       id: json['id'] as String,
       confirmations: (json['confirmations'] as List<dynamic>)
           .map((e) => PublicKey.fromJson(e as String))
@@ -24,8 +24,8 @@ _$_MultisigPendingTransaction _$$_MultisigPendingTransactionFromJson(
       bounce: json['bounce'] as bool,
     );
 
-Map<String, dynamic> _$$_MultisigPendingTransactionToJson(
-        _$_MultisigPendingTransaction instance) =>
+Map<String, dynamic> _$$MultisigPendingTransactionImplToJson(
+        _$MultisigPendingTransactionImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'confirmations': instance.confirmations.map((e) => e.toJson()).toList(),

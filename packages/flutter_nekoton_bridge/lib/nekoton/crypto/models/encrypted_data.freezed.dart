@@ -110,11 +110,11 @@ class _$EncryptedDataCopyWithImpl<$Res, $Val extends EncryptedData>
 }
 
 /// @nodoc
-abstract class _$$_EncryptedDataCopyWith<$Res>
+abstract class _$$EncryptedDataImplCopyWith<$Res>
     implements $EncryptedDataCopyWith<$Res> {
-  factory _$$_EncryptedDataCopyWith(
-          _$_EncryptedData value, $Res Function(_$_EncryptedData) then) =
-      __$$_EncryptedDataCopyWithImpl<$Res>;
+  factory _$$EncryptedDataImplCopyWith(
+          _$EncryptedDataImpl value, $Res Function(_$EncryptedDataImpl) then) =
+      __$$EncryptedDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -131,11 +131,11 @@ abstract class _$$_EncryptedDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EncryptedDataCopyWithImpl<$Res>
-    extends _$EncryptedDataCopyWithImpl<$Res, _$_EncryptedData>
-    implements _$$_EncryptedDataCopyWith<$Res> {
-  __$$_EncryptedDataCopyWithImpl(
-      _$_EncryptedData _value, $Res Function(_$_EncryptedData) _then)
+class __$$EncryptedDataImplCopyWithImpl<$Res>
+    extends _$EncryptedDataCopyWithImpl<$Res, _$EncryptedDataImpl>
+    implements _$$EncryptedDataImplCopyWith<$Res> {
+  __$$EncryptedDataImplCopyWithImpl(
+      _$EncryptedDataImpl _value, $Res Function(_$EncryptedDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -147,7 +147,7 @@ class __$$_EncryptedDataCopyWithImpl<$Res>
     Object? data = null,
     Object? nonce = null,
   }) {
-    return _then(_$_EncryptedData(
+    return _then(_$EncryptedDataImpl(
       algorithm: null == algorithm
           ? _value.algorithm
           : algorithm // ignore: cast_nullable_to_non_nullable
@@ -174,16 +174,16 @@ class __$$_EncryptedDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EncryptedData implements _EncryptedData {
-  const _$_EncryptedData(
+class _$EncryptedDataImpl implements _EncryptedData {
+  const _$EncryptedDataImpl(
       {required this.algorithm,
       required this.sourcePublicKey,
       required this.recipientPublicKey,
       required this.data,
       required this.nonce});
 
-  factory _$_EncryptedData.fromJson(Map<String, dynamic> json) =>
-      _$$_EncryptedDataFromJson(json);
+  factory _$EncryptedDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EncryptedDataImplFromJson(json);
 
   @override
   final EncryptionAlgorithm algorithm;
@@ -205,7 +205,7 @@ class _$_EncryptedData implements _EncryptedData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EncryptedData &&
+            other is _$EncryptedDataImpl &&
             (identical(other.algorithm, algorithm) ||
                 other.algorithm == algorithm) &&
             (identical(other.sourcePublicKey, sourcePublicKey) ||
@@ -224,12 +224,12 @@ class _$_EncryptedData implements _EncryptedData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EncryptedDataCopyWith<_$_EncryptedData> get copyWith =>
-      __$$_EncryptedDataCopyWithImpl<_$_EncryptedData>(this, _$identity);
+  _$$EncryptedDataImplCopyWith<_$EncryptedDataImpl> get copyWith =>
+      __$$EncryptedDataImplCopyWithImpl<_$EncryptedDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EncryptedDataToJson(
+    return _$$EncryptedDataImplToJson(
       this,
     );
   }
@@ -241,10 +241,10 @@ abstract class _EncryptedData implements EncryptedData {
       required final PublicKey sourcePublicKey,
       required final PublicKey recipientPublicKey,
       required final String data,
-      required final String nonce}) = _$_EncryptedData;
+      required final String nonce}) = _$EncryptedDataImpl;
 
   factory _EncryptedData.fromJson(Map<String, dynamic> json) =
-      _$_EncryptedData.fromJson;
+      _$EncryptedDataImpl.fromJson;
 
   @override
   EncryptionAlgorithm get algorithm;
@@ -258,6 +258,6 @@ abstract class _EncryptedData implements EncryptedData {
   String get nonce;
   @override
   @JsonKey(ignore: true)
-  _$$_EncryptedDataCopyWith<_$_EncryptedData> get copyWith =>
+  _$$EncryptedDataImplCopyWith<_$EncryptedDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

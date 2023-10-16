@@ -6,15 +6,15 @@ part of 'on_state_changed_payload.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_OnStateChangedPayload _$$_OnStateChangedPayloadFromJson(
+_$OnStateChangedPayloadImpl _$$OnStateChangedPayloadImplFromJson(
         Map<String, dynamic> json) =>
-    _$_OnStateChangedPayload(
+    _$OnStateChangedPayloadImpl(
       newState:
           ContractState.fromJson(json['new_state'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_OnStateChangedPayloadToJson(
-        _$_OnStateChangedPayload instance) =>
+Map<String, dynamic> _$$OnStateChangedPayloadImplToJson(
+        _$OnStateChangedPayloadImpl instance) =>
     <String, dynamic>{
       'new_state': instance.newState.toJson(),
     };

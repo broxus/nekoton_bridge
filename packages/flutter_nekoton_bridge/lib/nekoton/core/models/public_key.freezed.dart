@@ -56,22 +56,22 @@ class _$PublicKeyCopyWithImpl<$Res, $Val extends PublicKey>
 }
 
 /// @nodoc
-abstract class _$$_FromStringCopyWith<$Res>
+abstract class _$$FromStringImplCopyWith<$Res>
     implements $PublicKeyCopyWith<$Res> {
-  factory _$$_FromStringCopyWith(
-          _$_FromString value, $Res Function(_$_FromString) then) =
-      __$$_FromStringCopyWithImpl<$Res>;
+  factory _$$FromStringImplCopyWith(
+          _$FromStringImpl value, $Res Function(_$FromStringImpl) then) =
+      __$$FromStringImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String publicKey});
 }
 
 /// @nodoc
-class __$$_FromStringCopyWithImpl<$Res>
-    extends _$PublicKeyCopyWithImpl<$Res, _$_FromString>
-    implements _$$_FromStringCopyWith<$Res> {
-  __$$_FromStringCopyWithImpl(
-      _$_FromString _value, $Res Function(_$_FromString) _then)
+class __$$FromStringImplCopyWithImpl<$Res>
+    extends _$PublicKeyCopyWithImpl<$Res, _$FromStringImpl>
+    implements _$$FromStringImplCopyWith<$Res> {
+  __$$FromStringImplCopyWithImpl(
+      _$FromStringImpl _value, $Res Function(_$FromStringImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -79,7 +79,7 @@ class __$$_FromStringCopyWithImpl<$Res>
   $Res call({
     Object? publicKey = null,
   }) {
-    return _then(_$_FromString(
+    return _then(_$FromStringImpl(
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
@@ -90,8 +90,8 @@ class __$$_FromStringCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FromString extends _FromString {
-  const _$_FromString({required this.publicKey}) : super._();
+class _$FromStringImpl extends _FromString {
+  const _$FromStringImpl({required this.publicKey}) : super._();
 
   @override
   final String publicKey;
@@ -100,7 +100,7 @@ class _$_FromString extends _FromString {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FromString &&
+            other is _$FromStringImpl &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey));
   }
@@ -111,18 +111,19 @@ class _$_FromString extends _FromString {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FromStringCopyWith<_$_FromString> get copyWith =>
-      __$$_FromStringCopyWithImpl<_$_FromString>(this, _$identity);
+  _$$FromStringImplCopyWith<_$FromStringImpl> get copyWith =>
+      __$$FromStringImplCopyWithImpl<_$FromStringImpl>(this, _$identity);
 }
 
 abstract class _FromString extends PublicKey {
-  const factory _FromString({required final String publicKey}) = _$_FromString;
+  const factory _FromString({required final String publicKey}) =
+      _$FromStringImpl;
   const _FromString._() : super._();
 
   @override
   String get publicKey;
   @override
   @JsonKey(ignore: true)
-  _$$_FromStringCopyWith<_$_FromString> get copyWith =>
+  _$$FromStringImplCopyWith<_$FromStringImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

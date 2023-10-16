@@ -73,21 +73,22 @@ class _$AbiParamCopyWithImpl<$Res, $Val extends AbiParam>
 }
 
 /// @nodoc
-abstract class _$$_AbiParamCopyWith<$Res> implements $AbiParamCopyWith<$Res> {
-  factory _$$_AbiParamCopyWith(
-          _$_AbiParam value, $Res Function(_$_AbiParam) then) =
-      __$$_AbiParamCopyWithImpl<$Res>;
+abstract class _$$AbiParamImplCopyWith<$Res>
+    implements $AbiParamCopyWith<$Res> {
+  factory _$$AbiParamImplCopyWith(
+          _$AbiParamImpl value, $Res Function(_$AbiParamImpl) then) =
+      __$$AbiParamImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String type, List<AbiParam>? components});
 }
 
 /// @nodoc
-class __$$_AbiParamCopyWithImpl<$Res>
-    extends _$AbiParamCopyWithImpl<$Res, _$_AbiParam>
-    implements _$$_AbiParamCopyWith<$Res> {
-  __$$_AbiParamCopyWithImpl(
-      _$_AbiParam _value, $Res Function(_$_AbiParam) _then)
+class __$$AbiParamImplCopyWithImpl<$Res>
+    extends _$AbiParamCopyWithImpl<$Res, _$AbiParamImpl>
+    implements _$$AbiParamImplCopyWith<$Res> {
+  __$$AbiParamImplCopyWithImpl(
+      _$AbiParamImpl _value, $Res Function(_$AbiParamImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +98,7 @@ class __$$_AbiParamCopyWithImpl<$Res>
     Object? type = null,
     Object? components = freezed,
   }) {
-    return _then(_$_AbiParam(
+    return _then(_$AbiParamImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -116,15 +117,15 @@ class __$$_AbiParamCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AbiParam implements _AbiParam {
-  const _$_AbiParam(
+class _$AbiParamImpl implements _AbiParam {
+  const _$AbiParamImpl(
       {required this.name,
       required this.type,
       final List<AbiParam>? components})
       : _components = components;
 
-  factory _$_AbiParam.fromJson(Map<String, dynamic> json) =>
-      _$$_AbiParamFromJson(json);
+  factory _$AbiParamImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AbiParamImplFromJson(json);
 
   @override
   final String name;
@@ -149,7 +150,7 @@ class _$_AbiParam implements _AbiParam {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AbiParam &&
+            other is _$AbiParamImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality()
@@ -164,12 +165,12 @@ class _$_AbiParam implements _AbiParam {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AbiParamCopyWith<_$_AbiParam> get copyWith =>
-      __$$_AbiParamCopyWithImpl<_$_AbiParam>(this, _$identity);
+  _$$AbiParamImplCopyWith<_$AbiParamImpl> get copyWith =>
+      __$$AbiParamImplCopyWithImpl<_$AbiParamImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AbiParamToJson(
+    return _$$AbiParamImplToJson(
       this,
     );
   }
@@ -179,9 +180,10 @@ abstract class _AbiParam implements AbiParam {
   const factory _AbiParam(
       {required final String name,
       required final String type,
-      final List<AbiParam>? components}) = _$_AbiParam;
+      final List<AbiParam>? components}) = _$AbiParamImpl;
 
-  factory _AbiParam.fromJson(Map<String, dynamic> json) = _$_AbiParam.fromJson;
+  factory _AbiParam.fromJson(Map<String, dynamic> json) =
+      _$AbiParamImpl.fromJson;
 
   @override
   String get name;
@@ -191,6 +193,6 @@ abstract class _AbiParam implements AbiParam {
   List<AbiParam>? get components;
   @override
   @JsonKey(ignore: true)
-  _$$_AbiParamCopyWith<_$_AbiParam> get copyWith =>
+  _$$AbiParamImplCopyWith<_$AbiParamImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

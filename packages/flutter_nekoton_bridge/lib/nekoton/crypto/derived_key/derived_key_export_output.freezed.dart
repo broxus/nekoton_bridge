@@ -64,23 +64,25 @@ class _$DerivedKeyExportOutputCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DerivedKeyExportOutputCopyWith<$Res>
+abstract class _$$DerivedKeyExportOutputImplCopyWith<$Res>
     implements $DerivedKeyExportOutputCopyWith<$Res> {
-  factory _$$_DerivedKeyExportOutputCopyWith(_$_DerivedKeyExportOutput value,
-          $Res Function(_$_DerivedKeyExportOutput) then) =
-      __$$_DerivedKeyExportOutputCopyWithImpl<$Res>;
+  factory _$$DerivedKeyExportOutputImplCopyWith(
+          _$DerivedKeyExportOutputImpl value,
+          $Res Function(_$DerivedKeyExportOutputImpl) then) =
+      __$$DerivedKeyExportOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String phrase});
 }
 
 /// @nodoc
-class __$$_DerivedKeyExportOutputCopyWithImpl<$Res>
+class __$$DerivedKeyExportOutputImplCopyWithImpl<$Res>
     extends _$DerivedKeyExportOutputCopyWithImpl<$Res,
-        _$_DerivedKeyExportOutput>
-    implements _$$_DerivedKeyExportOutputCopyWith<$Res> {
-  __$$_DerivedKeyExportOutputCopyWithImpl(_$_DerivedKeyExportOutput _value,
-      $Res Function(_$_DerivedKeyExportOutput) _then)
+        _$DerivedKeyExportOutputImpl>
+    implements _$$DerivedKeyExportOutputImplCopyWith<$Res> {
+  __$$DerivedKeyExportOutputImplCopyWithImpl(
+      _$DerivedKeyExportOutputImpl _value,
+      $Res Function(_$DerivedKeyExportOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -88,7 +90,7 @@ class __$$_DerivedKeyExportOutputCopyWithImpl<$Res>
   $Res call({
     Object? phrase = null,
   }) {
-    return _then(_$_DerivedKeyExportOutput(
+    return _then(_$DerivedKeyExportOutputImpl(
       phrase: null == phrase
           ? _value.phrase
           : phrase // ignore: cast_nullable_to_non_nullable
@@ -99,11 +101,11 @@ class __$$_DerivedKeyExportOutputCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DerivedKeyExportOutput implements _DerivedKeyExportOutput {
-  const _$_DerivedKeyExportOutput({required this.phrase});
+class _$DerivedKeyExportOutputImpl implements _DerivedKeyExportOutput {
+  const _$DerivedKeyExportOutputImpl({required this.phrase});
 
-  factory _$_DerivedKeyExportOutput.fromJson(Map<String, dynamic> json) =>
-      _$$_DerivedKeyExportOutputFromJson(json);
+  factory _$DerivedKeyExportOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DerivedKeyExportOutputImplFromJson(json);
 
   @override
   final String phrase;
@@ -117,7 +119,7 @@ class _$_DerivedKeyExportOutput implements _DerivedKeyExportOutput {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DerivedKeyExportOutput &&
+            other is _$DerivedKeyExportOutputImpl &&
             (identical(other.phrase, phrase) || other.phrase == phrase));
   }
 
@@ -128,13 +130,13 @@ class _$_DerivedKeyExportOutput implements _DerivedKeyExportOutput {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DerivedKeyExportOutputCopyWith<_$_DerivedKeyExportOutput> get copyWith =>
-      __$$_DerivedKeyExportOutputCopyWithImpl<_$_DerivedKeyExportOutput>(
-          this, _$identity);
+  _$$DerivedKeyExportOutputImplCopyWith<_$DerivedKeyExportOutputImpl>
+      get copyWith => __$$DerivedKeyExportOutputImplCopyWithImpl<
+          _$DerivedKeyExportOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DerivedKeyExportOutputToJson(
+    return _$$DerivedKeyExportOutputImplToJson(
       this,
     );
   }
@@ -142,15 +144,15 @@ class _$_DerivedKeyExportOutput implements _DerivedKeyExportOutput {
 
 abstract class _DerivedKeyExportOutput implements DerivedKeyExportOutput {
   const factory _DerivedKeyExportOutput({required final String phrase}) =
-      _$_DerivedKeyExportOutput;
+      _$DerivedKeyExportOutputImpl;
 
   factory _DerivedKeyExportOutput.fromJson(Map<String, dynamic> json) =
-      _$_DerivedKeyExportOutput.fromJson;
+      _$DerivedKeyExportOutputImpl.fromJson;
 
   @override
   String get phrase;
   @override
   @JsonKey(ignore: true)
-  _$$_DerivedKeyExportOutputCopyWith<_$_DerivedKeyExportOutput> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$DerivedKeyExportOutputImplCopyWith<_$DerivedKeyExportOutputImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
