@@ -6,12 +6,13 @@ part of 'keypair.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Keypair _$$_KeypairFromJson(Map<String, dynamic> json) => _$_Keypair(
+_$KeypairImpl _$$KeypairImplFromJson(Map<String, dynamic> json) =>
+    _$KeypairImpl(
       public: PublicKey.fromJson(json['public'] as String),
       secret: PublicKey.fromJson(json['secret'] as String),
     );
 
-Map<String, dynamic> _$$_KeypairToJson(_$_Keypair instance) =>
+Map<String, dynamic> _$$KeypairImplToJson(_$KeypairImpl instance) =>
     <String, dynamic>{
       'public': instance.public.toJson(),
       'secret': instance.secret.toJson(),

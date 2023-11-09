@@ -6,23 +6,25 @@ part of 'raw_contract_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_NotExists _$$_NotExistsFromJson(Map<String, dynamic> json) => _$_NotExists(
+_$NotExistsImpl _$$NotExistsImplFromJson(Map<String, dynamic> json) =>
+    _$NotExistsImpl(
       GenTimings.fromJson(json['timings'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_NotExistsToJson(_$_NotExists instance) =>
+Map<String, dynamic> _$$NotExistsImplToJson(_$NotExistsImpl instance) =>
     <String, dynamic>{
       'timings': instance.timings.toJson(),
       'type': instance.$type,
     };
 
-_$_Exists _$$_ExistsFromJson(Map<String, dynamic> json) => _$_Exists(
+_$ExistsImpl _$$ExistsImplFromJson(Map<String, dynamic> json) => _$ExistsImpl(
       ExistingContract.fromJson(json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_ExistsToJson(_$_Exists instance) => <String, dynamic>{
+Map<String, dynamic> _$$ExistsImplToJson(_$ExistsImpl instance) =>
+    <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,
     };

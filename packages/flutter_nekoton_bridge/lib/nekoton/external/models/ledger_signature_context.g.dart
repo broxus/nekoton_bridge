@@ -6,17 +6,17 @@ part of 'ledger_signature_context.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LedgerSignatureContext _$$_LedgerSignatureContextFromJson(
+_$LedgerSignatureContextImpl _$$LedgerSignatureContextImplFromJson(
         Map<String, dynamic> json) =>
-    _$_LedgerSignatureContext(
+    _$LedgerSignatureContextImpl(
       decimals: json['decimals'] as int,
       asset: json['asset'] as String,
       amount: amountJsonConverter.fromJson(json['amount'] as String),
       address: Address.fromJson(json['address'] as String),
     );
 
-Map<String, dynamic> _$$_LedgerSignatureContextToJson(
-        _$_LedgerSignatureContext instance) =>
+Map<String, dynamic> _$$LedgerSignatureContextImplToJson(
+        _$LedgerSignatureContextImpl instance) =>
     <String, dynamic>{
       'decimals': instance.decimals,
       'asset': instance.asset,

@@ -74,11 +74,12 @@ class _$OnStateChangedPayloadCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_OnStateChangedPayloadCopyWith<$Res>
+abstract class _$$OnStateChangedPayloadImplCopyWith<$Res>
     implements $OnStateChangedPayloadCopyWith<$Res> {
-  factory _$$_OnStateChangedPayloadCopyWith(_$_OnStateChangedPayload value,
-          $Res Function(_$_OnStateChangedPayload) then) =
-      __$$_OnStateChangedPayloadCopyWithImpl<$Res>;
+  factory _$$OnStateChangedPayloadImplCopyWith(
+          _$OnStateChangedPayloadImpl value,
+          $Res Function(_$OnStateChangedPayloadImpl) then) =
+      __$$OnStateChangedPayloadImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ContractState newState});
@@ -88,11 +89,12 @@ abstract class _$$_OnStateChangedPayloadCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_OnStateChangedPayloadCopyWithImpl<$Res>
-    extends _$OnStateChangedPayloadCopyWithImpl<$Res, _$_OnStateChangedPayload>
-    implements _$$_OnStateChangedPayloadCopyWith<$Res> {
-  __$$_OnStateChangedPayloadCopyWithImpl(_$_OnStateChangedPayload _value,
-      $Res Function(_$_OnStateChangedPayload) _then)
+class __$$OnStateChangedPayloadImplCopyWithImpl<$Res>
+    extends _$OnStateChangedPayloadCopyWithImpl<$Res,
+        _$OnStateChangedPayloadImpl>
+    implements _$$OnStateChangedPayloadImplCopyWith<$Res> {
+  __$$OnStateChangedPayloadImplCopyWithImpl(_$OnStateChangedPayloadImpl _value,
+      $Res Function(_$OnStateChangedPayloadImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +102,7 @@ class __$$_OnStateChangedPayloadCopyWithImpl<$Res>
   $Res call({
     Object? newState = null,
   }) {
-    return _then(_$_OnStateChangedPayload(
+    return _then(_$OnStateChangedPayloadImpl(
       newState: null == newState
           ? _value.newState
           : newState // ignore: cast_nullable_to_non_nullable
@@ -112,11 +114,11 @@ class __$$_OnStateChangedPayloadCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
-class _$_OnStateChangedPayload implements _OnStateChangedPayload {
-  const _$_OnStateChangedPayload({required this.newState});
+class _$OnStateChangedPayloadImpl implements _OnStateChangedPayload {
+  const _$OnStateChangedPayloadImpl({required this.newState});
 
-  factory _$_OnStateChangedPayload.fromJson(Map<String, dynamic> json) =>
-      _$$_OnStateChangedPayloadFromJson(json);
+  factory _$OnStateChangedPayloadImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OnStateChangedPayloadImplFromJson(json);
 
   @override
   final ContractState newState;
@@ -130,7 +132,7 @@ class _$_OnStateChangedPayload implements _OnStateChangedPayload {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OnStateChangedPayload &&
+            other is _$OnStateChangedPayloadImpl &&
             (identical(other.newState, newState) ||
                 other.newState == newState));
   }
@@ -142,13 +144,13 @@ class _$_OnStateChangedPayload implements _OnStateChangedPayload {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OnStateChangedPayloadCopyWith<_$_OnStateChangedPayload> get copyWith =>
-      __$$_OnStateChangedPayloadCopyWithImpl<_$_OnStateChangedPayload>(
-          this, _$identity);
+  _$$OnStateChangedPayloadImplCopyWith<_$OnStateChangedPayloadImpl>
+      get copyWith => __$$OnStateChangedPayloadImplCopyWithImpl<
+          _$OnStateChangedPayloadImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_OnStateChangedPayloadToJson(
+    return _$$OnStateChangedPayloadImplToJson(
       this,
     );
   }
@@ -156,15 +158,15 @@ class _$_OnStateChangedPayload implements _OnStateChangedPayload {
 
 abstract class _OnStateChangedPayload implements OnStateChangedPayload {
   const factory _OnStateChangedPayload(
-      {required final ContractState newState}) = _$_OnStateChangedPayload;
+      {required final ContractState newState}) = _$OnStateChangedPayloadImpl;
 
   factory _OnStateChangedPayload.fromJson(Map<String, dynamic> json) =
-      _$_OnStateChangedPayload.fromJson;
+      _$OnStateChangedPayloadImpl.fromJson;
 
   @override
   ContractState get newState;
   @override
   @JsonKey(ignore: true)
-  _$$_OnStateChangedPayloadCopyWith<_$_OnStateChangedPayload> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$OnStateChangedPayloadImplCopyWith<_$OnStateChangedPayloadImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

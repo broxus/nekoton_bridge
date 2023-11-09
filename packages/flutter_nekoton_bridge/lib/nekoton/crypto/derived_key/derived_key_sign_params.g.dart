@@ -6,27 +6,27 @@ part of 'derived_key_sign_params.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ByAccountId _$$_ByAccountIdFromJson(Map<String, dynamic> json) =>
-    _$_ByAccountId(
+_$ByAccountIdImpl _$$ByAccountIdImplFromJson(Map<String, dynamic> json) =>
+    _$ByAccountIdImpl(
       DerivedKeyPasswordByAccountId.fromJson(
           json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_ByAccountIdToJson(_$_ByAccountId instance) =>
+Map<String, dynamic> _$$ByAccountIdImplToJson(_$ByAccountIdImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
-_$_ByPublicKey _$$_ByPublicKeyFromJson(Map<String, dynamic> json) =>
-    _$_ByPublicKey(
+_$ByPublicKeyImpl _$$ByPublicKeyImplFromJson(Map<String, dynamic> json) =>
+    _$ByPublicKeyImpl(
       DerivedKeyPasswordByPublicKey.fromJson(
           json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_ByPublicKeyToJson(_$_ByPublicKey instance) =>
+Map<String, dynamic> _$$ByPublicKeyImplToJson(_$ByPublicKeyImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,

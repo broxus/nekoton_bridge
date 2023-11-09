@@ -78,11 +78,11 @@ class _$SignedMessageCopyWithImpl<$Res, $Val extends SignedMessage>
 }
 
 /// @nodoc
-abstract class _$$_SignedMessageCopyWith<$Res>
+abstract class _$$SignedMessageImplCopyWith<$Res>
     implements $SignedMessageCopyWith<$Res> {
-  factory _$$_SignedMessageCopyWith(
-          _$_SignedMessage value, $Res Function(_$_SignedMessage) then) =
-      __$$_SignedMessageCopyWithImpl<$Res>;
+  factory _$$SignedMessageImplCopyWith(
+          _$SignedMessageImpl value, $Res Function(_$SignedMessageImpl) then) =
+      __$$SignedMessageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -92,11 +92,11 @@ abstract class _$$_SignedMessageCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SignedMessageCopyWithImpl<$Res>
-    extends _$SignedMessageCopyWithImpl<$Res, _$_SignedMessage>
-    implements _$$_SignedMessageCopyWith<$Res> {
-  __$$_SignedMessageCopyWithImpl(
-      _$_SignedMessage _value, $Res Function(_$_SignedMessage) _then)
+class __$$SignedMessageImplCopyWithImpl<$Res>
+    extends _$SignedMessageCopyWithImpl<$Res, _$SignedMessageImpl>
+    implements _$$SignedMessageImplCopyWith<$Res> {
+  __$$SignedMessageImplCopyWithImpl(
+      _$SignedMessageImpl _value, $Res Function(_$SignedMessageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -106,7 +106,7 @@ class __$$_SignedMessageCopyWithImpl<$Res>
     Object? expireAt = null,
     Object? boc = null,
   }) {
-    return _then(_$_SignedMessage(
+    return _then(_$SignedMessageImpl(
       hash: null == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
@@ -125,14 +125,14 @@ class __$$_SignedMessageCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SignedMessage implements _SignedMessage {
-  const _$_SignedMessage(
+class _$SignedMessageImpl implements _SignedMessage {
+  const _$SignedMessageImpl(
       {required this.hash,
       @dateSecondsSinceEpochJsonConverter required this.expireAt,
       required this.boc});
 
-  factory _$_SignedMessage.fromJson(Map<String, dynamic> json) =>
-      _$$_SignedMessageFromJson(json);
+  factory _$SignedMessageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SignedMessageImplFromJson(json);
 
   @override
   final String hash;
@@ -151,7 +151,7 @@ class _$_SignedMessage implements _SignedMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SignedMessage &&
+            other is _$SignedMessageImpl &&
             (identical(other.hash, hash) || other.hash == hash) &&
             (identical(other.expireAt, expireAt) ||
                 other.expireAt == expireAt) &&
@@ -165,12 +165,12 @@ class _$_SignedMessage implements _SignedMessage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SignedMessageCopyWith<_$_SignedMessage> get copyWith =>
-      __$$_SignedMessageCopyWithImpl<_$_SignedMessage>(this, _$identity);
+  _$$SignedMessageImplCopyWith<_$SignedMessageImpl> get copyWith =>
+      __$$SignedMessageImplCopyWithImpl<_$SignedMessageImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SignedMessageToJson(
+    return _$$SignedMessageImplToJson(
       this,
     );
   }
@@ -180,10 +180,10 @@ abstract class _SignedMessage implements SignedMessage {
   const factory _SignedMessage(
       {required final String hash,
       @dateSecondsSinceEpochJsonConverter required final DateTime expireAt,
-      required final String boc}) = _$_SignedMessage;
+      required final String boc}) = _$SignedMessageImpl;
 
   factory _SignedMessage.fromJson(Map<String, dynamic> json) =
-      _$_SignedMessage.fromJson;
+      _$SignedMessageImpl.fromJson;
 
   @override
   String get hash;
@@ -194,6 +194,6 @@ abstract class _SignedMessage implements SignedMessage {
   String get boc;
   @override
   @JsonKey(ignore: true)
-  _$$_SignedMessageCopyWith<_$_SignedMessage> get copyWith =>
+  _$$SignedMessageImplCopyWith<_$SignedMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

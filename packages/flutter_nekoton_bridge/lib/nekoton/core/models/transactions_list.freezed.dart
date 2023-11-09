@@ -105,11 +105,11 @@ class _$TransactionsListCopyWithImpl<$Res, $Val extends TransactionsList>
 }
 
 /// @nodoc
-abstract class _$$_TransactionsListCopyWith<$Res>
+abstract class _$$TransactionsListImplCopyWith<$Res>
     implements $TransactionsListCopyWith<$Res> {
-  factory _$$_TransactionsListCopyWith(
-          _$_TransactionsList value, $Res Function(_$_TransactionsList) then) =
-      __$$_TransactionsListCopyWithImpl<$Res>;
+  factory _$$TransactionsListImplCopyWith(_$TransactionsListImpl value,
+          $Res Function(_$TransactionsListImpl) then) =
+      __$$TransactionsListImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -124,11 +124,11 @@ abstract class _$$_TransactionsListCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TransactionsListCopyWithImpl<$Res>
-    extends _$TransactionsListCopyWithImpl<$Res, _$_TransactionsList>
-    implements _$$_TransactionsListCopyWith<$Res> {
-  __$$_TransactionsListCopyWithImpl(
-      _$_TransactionsList _value, $Res Function(_$_TransactionsList) _then)
+class __$$TransactionsListImplCopyWithImpl<$Res>
+    extends _$TransactionsListCopyWithImpl<$Res, _$TransactionsListImpl>
+    implements _$$TransactionsListImplCopyWith<$Res> {
+  __$$TransactionsListImplCopyWithImpl(_$TransactionsListImpl _value,
+      $Res Function(_$TransactionsListImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -138,7 +138,7 @@ class __$$_TransactionsListCopyWithImpl<$Res>
     Object? continuation = freezed,
     Object? info = freezed,
   }) {
-    return _then(_$_TransactionsList(
+    return _then(_$TransactionsListImpl(
       transactions: null == transactions
           ? _value._transactions
           : transactions // ignore: cast_nullable_to_non_nullable
@@ -157,15 +157,15 @@ class __$$_TransactionsListCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TransactionsList implements _TransactionsList {
-  const _$_TransactionsList(
+class _$TransactionsListImpl implements _TransactionsList {
+  const _$TransactionsListImpl(
       {required final List<Transaction> transactions,
       @JsonKey(includeIfNull: false) this.continuation,
       this.info})
       : _transactions = transactions;
 
-  factory _$_TransactionsList.fromJson(Map<String, dynamic> json) =>
-      _$$_TransactionsListFromJson(json);
+  factory _$TransactionsListImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TransactionsListImplFromJson(json);
 
   final List<Transaction> _transactions;
   @override
@@ -190,7 +190,7 @@ class _$_TransactionsList implements _TransactionsList {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TransactionsList &&
+            other is _$TransactionsListImpl &&
             const DeepCollectionEquality()
                 .equals(other._transactions, _transactions) &&
             (identical(other.continuation, continuation) ||
@@ -206,12 +206,13 @@ class _$_TransactionsList implements _TransactionsList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TransactionsListCopyWith<_$_TransactionsList> get copyWith =>
-      __$$_TransactionsListCopyWithImpl<_$_TransactionsList>(this, _$identity);
+  _$$TransactionsListImplCopyWith<_$TransactionsListImpl> get copyWith =>
+      __$$TransactionsListImplCopyWithImpl<_$TransactionsListImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TransactionsListToJson(
+    return _$$TransactionsListImplToJson(
       this,
     );
   }
@@ -221,10 +222,10 @@ abstract class _TransactionsList implements TransactionsList {
   const factory _TransactionsList(
       {required final List<Transaction> transactions,
       @JsonKey(includeIfNull: false) final TransactionId? continuation,
-      final TransactionsBatchInfo? info}) = _$_TransactionsList;
+      final TransactionsBatchInfo? info}) = _$TransactionsListImpl;
 
   factory _TransactionsList.fromJson(Map<String, dynamic> json) =
-      _$_TransactionsList.fromJson;
+      _$TransactionsListImpl.fromJson;
 
   @override
   List<Transaction> get transactions;
@@ -235,6 +236,6 @@ abstract class _TransactionsList implements TransactionsList {
   TransactionsBatchInfo? get info;
   @override
   @JsonKey(ignore: true)
-  _$$_TransactionsListCopyWith<_$_TransactionsList> get copyWith =>
+  _$$TransactionsListImplCopyWith<_$TransactionsListImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

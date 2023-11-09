@@ -89,10 +89,10 @@ class _$RawContractStateCopyWithImpl<$Res, $Val extends RawContractState>
 }
 
 /// @nodoc
-abstract class _$$_NotExistsCopyWith<$Res> {
-  factory _$$_NotExistsCopyWith(
-          _$_NotExists value, $Res Function(_$_NotExists) then) =
-      __$$_NotExistsCopyWithImpl<$Res>;
+abstract class _$$NotExistsImplCopyWith<$Res> {
+  factory _$$NotExistsImplCopyWith(
+          _$NotExistsImpl value, $Res Function(_$NotExistsImpl) then) =
+      __$$NotExistsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({GenTimings timings});
 
@@ -100,11 +100,11 @@ abstract class _$$_NotExistsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_NotExistsCopyWithImpl<$Res>
-    extends _$RawContractStateCopyWithImpl<$Res, _$_NotExists>
-    implements _$$_NotExistsCopyWith<$Res> {
-  __$$_NotExistsCopyWithImpl(
-      _$_NotExists _value, $Res Function(_$_NotExists) _then)
+class __$$NotExistsImplCopyWithImpl<$Res>
+    extends _$RawContractStateCopyWithImpl<$Res, _$NotExistsImpl>
+    implements _$$NotExistsImplCopyWith<$Res> {
+  __$$NotExistsImplCopyWithImpl(
+      _$NotExistsImpl _value, $Res Function(_$NotExistsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$_NotExistsCopyWithImpl<$Res>
   $Res call({
     Object? timings = null,
   }) {
-    return _then(_$_NotExists(
+    return _then(_$NotExistsImpl(
       null == timings
           ? _value.timings
           : timings // ignore: cast_nullable_to_non_nullable
@@ -131,12 +131,12 @@ class __$$_NotExistsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_NotExists implements _NotExists {
-  const _$_NotExists(this.timings, {final String? $type})
+class _$NotExistsImpl implements _NotExists {
+  const _$NotExistsImpl(this.timings, {final String? $type})
       : $type = $type ?? 'notExists';
 
-  factory _$_NotExists.fromJson(Map<String, dynamic> json) =>
-      _$$_NotExistsFromJson(json);
+  factory _$NotExistsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NotExistsImplFromJson(json);
 
   @override
   final GenTimings timings;
@@ -153,7 +153,7 @@ class _$_NotExists implements _NotExists {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NotExists &&
+            other is _$NotExistsImpl &&
             (identical(other.timings, timings) || other.timings == timings));
   }
 
@@ -164,8 +164,8 @@ class _$_NotExists implements _NotExists {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NotExistsCopyWith<_$_NotExists> get copyWith =>
-      __$$_NotExistsCopyWithImpl<_$_NotExists>(this, _$identity);
+  _$$NotExistsImplCopyWith<_$NotExistsImpl> get copyWith =>
+      __$$NotExistsImplCopyWithImpl<_$NotExistsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -231,28 +231,29 @@ class _$_NotExists implements _NotExists {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NotExistsToJson(
+    return _$$NotExistsImplToJson(
       this,
     );
   }
 }
 
 abstract class _NotExists implements RawContractState {
-  const factory _NotExists(final GenTimings timings) = _$_NotExists;
+  const factory _NotExists(final GenTimings timings) = _$NotExistsImpl;
 
   factory _NotExists.fromJson(Map<String, dynamic> json) =
-      _$_NotExists.fromJson;
+      _$NotExistsImpl.fromJson;
 
   GenTimings get timings;
   @JsonKey(ignore: true)
-  _$$_NotExistsCopyWith<_$_NotExists> get copyWith =>
+  _$$NotExistsImplCopyWith<_$NotExistsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ExistsCopyWith<$Res> {
-  factory _$$_ExistsCopyWith(_$_Exists value, $Res Function(_$_Exists) then) =
-      __$$_ExistsCopyWithImpl<$Res>;
+abstract class _$$ExistsImplCopyWith<$Res> {
+  factory _$$ExistsImplCopyWith(
+          _$ExistsImpl value, $Res Function(_$ExistsImpl) then) =
+      __$$ExistsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ExistingContract data});
 
@@ -260,10 +261,11 @@ abstract class _$$_ExistsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ExistsCopyWithImpl<$Res>
-    extends _$RawContractStateCopyWithImpl<$Res, _$_Exists>
-    implements _$$_ExistsCopyWith<$Res> {
-  __$$_ExistsCopyWithImpl(_$_Exists _value, $Res Function(_$_Exists) _then)
+class __$$ExistsImplCopyWithImpl<$Res>
+    extends _$RawContractStateCopyWithImpl<$Res, _$ExistsImpl>
+    implements _$$ExistsImplCopyWith<$Res> {
+  __$$ExistsImplCopyWithImpl(
+      _$ExistsImpl _value, $Res Function(_$ExistsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -271,7 +273,7 @@ class __$$_ExistsCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Exists(
+    return _then(_$ExistsImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -290,11 +292,12 @@ class __$$_ExistsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Exists implements _Exists {
-  const _$_Exists(this.data, {final String? $type}) : $type = $type ?? 'exists';
+class _$ExistsImpl implements _Exists {
+  const _$ExistsImpl(this.data, {final String? $type})
+      : $type = $type ?? 'exists';
 
-  factory _$_Exists.fromJson(Map<String, dynamic> json) =>
-      _$$_ExistsFromJson(json);
+  factory _$ExistsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ExistsImplFromJson(json);
 
   @override
   final ExistingContract data;
@@ -311,7 +314,7 @@ class _$_Exists implements _Exists {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Exists &&
+            other is _$ExistsImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -322,8 +325,8 @@ class _$_Exists implements _Exists {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ExistsCopyWith<_$_Exists> get copyWith =>
-      __$$_ExistsCopyWithImpl<_$_Exists>(this, _$identity);
+  _$$ExistsImplCopyWith<_$ExistsImpl> get copyWith =>
+      __$$ExistsImplCopyWithImpl<_$ExistsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -389,19 +392,19 @@ class _$_Exists implements _Exists {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ExistsToJson(
+    return _$$ExistsImplToJson(
       this,
     );
   }
 }
 
 abstract class _Exists implements RawContractState {
-  const factory _Exists(final ExistingContract data) = _$_Exists;
+  const factory _Exists(final ExistingContract data) = _$ExistsImpl;
 
-  factory _Exists.fromJson(Map<String, dynamic> json) = _$_Exists.fromJson;
+  factory _Exists.fromJson(Map<String, dynamic> json) = _$ExistsImpl.fromJson;
 
   ExistingContract get data;
   @JsonKey(ignore: true)
-  _$$_ExistsCopyWith<_$_Exists> get copyWith =>
+  _$$ExistsImplCopyWith<_$ExistsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -6,14 +6,14 @@ part of 'on_balance_changed_payload.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_OnBalanceChangedPayload _$$_OnBalanceChangedPayloadFromJson(
+_$OnBalanceChangedPayloadImpl _$$OnBalanceChangedPayloadImplFromJson(
         Map<String, dynamic> json) =>
-    _$_OnBalanceChangedPayload(
+    _$OnBalanceChangedPayloadImpl(
       balance: amountJsonConverter.fromJson(json['balance'] as String),
     );
 
-Map<String, dynamic> _$$_OnBalanceChangedPayloadToJson(
-        _$_OnBalanceChangedPayload instance) =>
+Map<String, dynamic> _$$OnBalanceChangedPayloadImplToJson(
+        _$OnBalanceChangedPayloadImpl instance) =>
     <String, dynamic>{
       'balance': amountJsonConverter.toJson(instance.balance),
     };

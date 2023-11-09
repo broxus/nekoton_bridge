@@ -6,8 +6,9 @@ part of 'ledger_sign_input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LedgerSignInput _$$_LedgerSignInputFromJson(Map<String, dynamic> json) =>
-    _$_LedgerSignInput(
+_$LedgerSignInputImpl _$$LedgerSignInputImplFromJson(
+        Map<String, dynamic> json) =>
+    _$LedgerSignInputImpl(
       publicKey: PublicKey.fromJson(json['publicKey'] as String),
       context: json['context'] == null
           ? null
@@ -15,7 +16,8 @@ _$_LedgerSignInput _$$_LedgerSignInputFromJson(Map<String, dynamic> json) =>
               json['context'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_LedgerSignInputToJson(_$_LedgerSignInput instance) =>
+Map<String, dynamic> _$$LedgerSignInputImplToJson(
+        _$LedgerSignInputImpl instance) =>
     <String, dynamic>{
       'publicKey': instance.publicKey.toJson(),
       'context': instance.context?.toJson(),

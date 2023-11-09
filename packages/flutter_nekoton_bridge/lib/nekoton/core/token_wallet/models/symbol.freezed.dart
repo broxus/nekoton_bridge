@@ -89,9 +89,10 @@ class _$SymbolCopyWithImpl<$Res, $Val extends Symbol>
 }
 
 /// @nodoc
-abstract class _$$_SymbolCopyWith<$Res> implements $SymbolCopyWith<$Res> {
-  factory _$$_SymbolCopyWith(_$_Symbol value, $Res Function(_$_Symbol) then) =
-      __$$_SymbolCopyWithImpl<$Res>;
+abstract class _$$SymbolImplCopyWith<$Res> implements $SymbolCopyWith<$Res> {
+  factory _$$SymbolImplCopyWith(
+          _$SymbolImpl value, $Res Function(_$SymbolImpl) then) =
+      __$$SymbolImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -102,10 +103,11 @@ abstract class _$$_SymbolCopyWith<$Res> implements $SymbolCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SymbolCopyWithImpl<$Res>
-    extends _$SymbolCopyWithImpl<$Res, _$_Symbol>
-    implements _$$_SymbolCopyWith<$Res> {
-  __$$_SymbolCopyWithImpl(_$_Symbol _value, $Res Function(_$_Symbol) _then)
+class __$$SymbolImplCopyWithImpl<$Res>
+    extends _$SymbolCopyWithImpl<$Res, _$SymbolImpl>
+    implements _$$SymbolImplCopyWith<$Res> {
+  __$$SymbolImplCopyWithImpl(
+      _$SymbolImpl _value, $Res Function(_$SymbolImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -116,7 +118,7 @@ class __$$_SymbolCopyWithImpl<$Res>
     Object? decimals = null,
     Object? rootTokenContract = null,
   }) {
-    return _then(_$_Symbol(
+    return _then(_$SymbolImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -139,15 +141,15 @@ class __$$_SymbolCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Symbol implements _Symbol {
-  const _$_Symbol(
+class _$SymbolImpl implements _Symbol {
+  const _$SymbolImpl(
       {required this.name,
       required this.fullName,
       required this.decimals,
       required this.rootTokenContract});
 
-  factory _$_Symbol.fromJson(Map<String, dynamic> json) =>
-      _$$_SymbolFromJson(json);
+  factory _$SymbolImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SymbolImplFromJson(json);
 
   @override
   final String name;
@@ -167,7 +169,7 @@ class _$_Symbol implements _Symbol {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Symbol &&
+            other is _$SymbolImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.fullName, fullName) ||
                 other.fullName == fullName) &&
@@ -185,12 +187,12 @@ class _$_Symbol implements _Symbol {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SymbolCopyWith<_$_Symbol> get copyWith =>
-      __$$_SymbolCopyWithImpl<_$_Symbol>(this, _$identity);
+  _$$SymbolImplCopyWith<_$SymbolImpl> get copyWith =>
+      __$$SymbolImplCopyWithImpl<_$SymbolImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SymbolToJson(
+    return _$$SymbolImplToJson(
       this,
     );
   }
@@ -201,9 +203,9 @@ abstract class _Symbol implements Symbol {
       {required final String name,
       required final String fullName,
       required final int decimals,
-      required final Address rootTokenContract}) = _$_Symbol;
+      required final Address rootTokenContract}) = _$SymbolImpl;
 
-  factory _Symbol.fromJson(Map<String, dynamic> json) = _$_Symbol.fromJson;
+  factory _Symbol.fromJson(Map<String, dynamic> json) = _$SymbolImpl.fromJson;
 
   @override
   String get name;
@@ -215,6 +217,6 @@ abstract class _Symbol implements Symbol {
   Address get rootTokenContract;
   @override
   @JsonKey(ignore: true)
-  _$$_SymbolCopyWith<_$_Symbol> get copyWith =>
+  _$$SymbolImplCopyWith<_$SymbolImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

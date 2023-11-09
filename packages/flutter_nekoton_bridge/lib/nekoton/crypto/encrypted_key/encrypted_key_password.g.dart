@@ -6,15 +6,15 @@ part of 'encrypted_key_password.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EncryptedKeyPassword _$$_EncryptedKeyPasswordFromJson(
+_$EncryptedKeyPasswordImpl _$$EncryptedKeyPasswordImplFromJson(
         Map<String, dynamic> json) =>
-    _$_EncryptedKeyPassword(
+    _$EncryptedKeyPasswordImpl(
       publicKey: PublicKey.fromJson(json['public_key'] as String),
       password: Password.fromJson(json['password'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_EncryptedKeyPasswordToJson(
-        _$_EncryptedKeyPassword instance) =>
+Map<String, dynamic> _$$EncryptedKeyPasswordImplToJson(
+        _$EncryptedKeyPasswordImpl instance) =>
     <String, dynamic>{
       'public_key': instance.publicKey.toJson(),
       'password': instance.password.toJson(),

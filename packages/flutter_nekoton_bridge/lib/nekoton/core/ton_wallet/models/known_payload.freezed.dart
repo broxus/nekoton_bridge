@@ -99,19 +99,20 @@ class _$KnownPayloadCopyWithImpl<$Res, $Val extends KnownPayload>
 }
 
 /// @nodoc
-abstract class _$$_CommentCopyWith<$Res> {
-  factory _$$_CommentCopyWith(
-          _$_Comment value, $Res Function(_$_Comment) then) =
-      __$$_CommentCopyWithImpl<$Res>;
+abstract class _$$CommentImplCopyWith<$Res> {
+  factory _$$CommentImplCopyWith(
+          _$CommentImpl value, $Res Function(_$CommentImpl) then) =
+      __$$CommentImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class __$$_CommentCopyWithImpl<$Res>
-    extends _$KnownPayloadCopyWithImpl<$Res, _$_Comment>
-    implements _$$_CommentCopyWith<$Res> {
-  __$$_CommentCopyWithImpl(_$_Comment _value, $Res Function(_$_Comment) _then)
+class __$$CommentImplCopyWithImpl<$Res>
+    extends _$KnownPayloadCopyWithImpl<$Res, _$CommentImpl>
+    implements _$$CommentImplCopyWith<$Res> {
+  __$$CommentImplCopyWithImpl(
+      _$CommentImpl _value, $Res Function(_$CommentImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,7 +120,7 @@ class __$$_CommentCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Comment(
+    return _then(_$CommentImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -130,12 +131,12 @@ class __$$_CommentCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Comment implements _Comment {
-  const _$_Comment(this.data, {final String? $type})
+class _$CommentImpl implements _Comment {
+  const _$CommentImpl(this.data, {final String? $type})
       : $type = $type ?? 'comment';
 
-  factory _$_Comment.fromJson(Map<String, dynamic> json) =>
-      _$$_CommentFromJson(json);
+  factory _$CommentImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CommentImplFromJson(json);
 
   @override
   final String data;
@@ -152,7 +153,7 @@ class _$_Comment implements _Comment {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Comment &&
+            other is _$CommentImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -163,8 +164,8 @@ class _$_Comment implements _Comment {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CommentCopyWith<_$_Comment> get copyWith =>
-      __$$_CommentCopyWithImpl<_$_Comment>(this, _$identity);
+  _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
+      __$$CommentImplCopyWithImpl<_$CommentImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -237,29 +238,30 @@ class _$_Comment implements _Comment {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CommentToJson(
+    return _$$CommentImplToJson(
       this,
     );
   }
 }
 
 abstract class _Comment implements KnownPayload {
-  const factory _Comment(final String data) = _$_Comment;
+  const factory _Comment(final String data) = _$CommentImpl;
 
-  factory _Comment.fromJson(Map<String, dynamic> json) = _$_Comment.fromJson;
+  factory _Comment.fromJson(Map<String, dynamic> json) = _$CommentImpl.fromJson;
 
   @override
   String get data;
   @JsonKey(ignore: true)
-  _$$_CommentCopyWith<_$_Comment> get copyWith =>
+  _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_TokenOutgoingTransferCopyWith<$Res> {
-  factory _$$_TokenOutgoingTransferCopyWith(_$_TokenOutgoingTransfer value,
-          $Res Function(_$_TokenOutgoingTransfer) then) =
-      __$$_TokenOutgoingTransferCopyWithImpl<$Res>;
+abstract class _$$TokenOutgoingTransferImplCopyWith<$Res> {
+  factory _$$TokenOutgoingTransferImplCopyWith(
+          _$TokenOutgoingTransferImpl value,
+          $Res Function(_$TokenOutgoingTransferImpl) then) =
+      __$$TokenOutgoingTransferImplCopyWithImpl<$Res>;
   @useResult
   $Res call({TokenOutgoingTransfer data});
 
@@ -267,11 +269,11 @@ abstract class _$$_TokenOutgoingTransferCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_TokenOutgoingTransferCopyWithImpl<$Res>
-    extends _$KnownPayloadCopyWithImpl<$Res, _$_TokenOutgoingTransfer>
-    implements _$$_TokenOutgoingTransferCopyWith<$Res> {
-  __$$_TokenOutgoingTransferCopyWithImpl(_$_TokenOutgoingTransfer _value,
-      $Res Function(_$_TokenOutgoingTransfer) _then)
+class __$$TokenOutgoingTransferImplCopyWithImpl<$Res>
+    extends _$KnownPayloadCopyWithImpl<$Res, _$TokenOutgoingTransferImpl>
+    implements _$$TokenOutgoingTransferImplCopyWith<$Res> {
+  __$$TokenOutgoingTransferImplCopyWithImpl(_$TokenOutgoingTransferImpl _value,
+      $Res Function(_$TokenOutgoingTransferImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -279,7 +281,7 @@ class __$$_TokenOutgoingTransferCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_TokenOutgoingTransfer(
+    return _then(_$TokenOutgoingTransferImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -298,12 +300,12 @@ class __$$_TokenOutgoingTransferCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TokenOutgoingTransfer implements _TokenOutgoingTransfer {
-  const _$_TokenOutgoingTransfer(this.data, {final String? $type})
+class _$TokenOutgoingTransferImpl implements _TokenOutgoingTransfer {
+  const _$TokenOutgoingTransferImpl(this.data, {final String? $type})
       : $type = $type ?? 'token_outgoing_transfer';
 
-  factory _$_TokenOutgoingTransfer.fromJson(Map<String, dynamic> json) =>
-      _$$_TokenOutgoingTransferFromJson(json);
+  factory _$TokenOutgoingTransferImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TokenOutgoingTransferImplFromJson(json);
 
   @override
   final TokenOutgoingTransfer data;
@@ -320,7 +322,7 @@ class _$_TokenOutgoingTransfer implements _TokenOutgoingTransfer {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TokenOutgoingTransfer &&
+            other is _$TokenOutgoingTransferImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -331,9 +333,9 @@ class _$_TokenOutgoingTransfer implements _TokenOutgoingTransfer {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TokenOutgoingTransferCopyWith<_$_TokenOutgoingTransfer> get copyWith =>
-      __$$_TokenOutgoingTransferCopyWithImpl<_$_TokenOutgoingTransfer>(
-          this, _$identity);
+  _$$TokenOutgoingTransferImplCopyWith<_$TokenOutgoingTransferImpl>
+      get copyWith => __$$TokenOutgoingTransferImplCopyWithImpl<
+          _$TokenOutgoingTransferImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -406,7 +408,7 @@ class _$_TokenOutgoingTransfer implements _TokenOutgoingTransfer {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TokenOutgoingTransferToJson(
+    return _$$TokenOutgoingTransferImplToJson(
       this,
     );
   }
@@ -414,23 +416,23 @@ class _$_TokenOutgoingTransfer implements _TokenOutgoingTransfer {
 
 abstract class _TokenOutgoingTransfer implements KnownPayload {
   const factory _TokenOutgoingTransfer(final TokenOutgoingTransfer data) =
-      _$_TokenOutgoingTransfer;
+      _$TokenOutgoingTransferImpl;
 
   factory _TokenOutgoingTransfer.fromJson(Map<String, dynamic> json) =
-      _$_TokenOutgoingTransfer.fromJson;
+      _$TokenOutgoingTransferImpl.fromJson;
 
   @override
   TokenOutgoingTransfer get data;
   @JsonKey(ignore: true)
-  _$$_TokenOutgoingTransferCopyWith<_$_TokenOutgoingTransfer> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$TokenOutgoingTransferImplCopyWith<_$TokenOutgoingTransferImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_TokenSwapBackCopyWith<$Res> {
-  factory _$$_TokenSwapBackCopyWith(
-          _$_TokenSwapBack value, $Res Function(_$_TokenSwapBack) then) =
-      __$$_TokenSwapBackCopyWithImpl<$Res>;
+abstract class _$$TokenSwapBackImplCopyWith<$Res> {
+  factory _$$TokenSwapBackImplCopyWith(
+          _$TokenSwapBackImpl value, $Res Function(_$TokenSwapBackImpl) then) =
+      __$$TokenSwapBackImplCopyWithImpl<$Res>;
   @useResult
   $Res call({TokenSwapBack data});
 
@@ -438,11 +440,11 @@ abstract class _$$_TokenSwapBackCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_TokenSwapBackCopyWithImpl<$Res>
-    extends _$KnownPayloadCopyWithImpl<$Res, _$_TokenSwapBack>
-    implements _$$_TokenSwapBackCopyWith<$Res> {
-  __$$_TokenSwapBackCopyWithImpl(
-      _$_TokenSwapBack _value, $Res Function(_$_TokenSwapBack) _then)
+class __$$TokenSwapBackImplCopyWithImpl<$Res>
+    extends _$KnownPayloadCopyWithImpl<$Res, _$TokenSwapBackImpl>
+    implements _$$TokenSwapBackImplCopyWith<$Res> {
+  __$$TokenSwapBackImplCopyWithImpl(
+      _$TokenSwapBackImpl _value, $Res Function(_$TokenSwapBackImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -450,7 +452,7 @@ class __$$_TokenSwapBackCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_TokenSwapBack(
+    return _then(_$TokenSwapBackImpl(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -469,12 +471,12 @@ class __$$_TokenSwapBackCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TokenSwapBack implements _TokenSwapBack {
-  const _$_TokenSwapBack(this.data, {final String? $type})
+class _$TokenSwapBackImpl implements _TokenSwapBack {
+  const _$TokenSwapBackImpl(this.data, {final String? $type})
       : $type = $type ?? 'token_swap_back';
 
-  factory _$_TokenSwapBack.fromJson(Map<String, dynamic> json) =>
-      _$$_TokenSwapBackFromJson(json);
+  factory _$TokenSwapBackImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TokenSwapBackImplFromJson(json);
 
   @override
   final TokenSwapBack data;
@@ -491,7 +493,7 @@ class _$_TokenSwapBack implements _TokenSwapBack {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TokenSwapBack &&
+            other is _$TokenSwapBackImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -502,8 +504,8 @@ class _$_TokenSwapBack implements _TokenSwapBack {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TokenSwapBackCopyWith<_$_TokenSwapBack> get copyWith =>
-      __$$_TokenSwapBackCopyWithImpl<_$_TokenSwapBack>(this, _$identity);
+  _$$TokenSwapBackImplCopyWith<_$TokenSwapBackImpl> get copyWith =>
+      __$$TokenSwapBackImplCopyWithImpl<_$TokenSwapBackImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -576,21 +578,21 @@ class _$_TokenSwapBack implements _TokenSwapBack {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TokenSwapBackToJson(
+    return _$$TokenSwapBackImplToJson(
       this,
     );
   }
 }
 
 abstract class _TokenSwapBack implements KnownPayload {
-  const factory _TokenSwapBack(final TokenSwapBack data) = _$_TokenSwapBack;
+  const factory _TokenSwapBack(final TokenSwapBack data) = _$TokenSwapBackImpl;
 
   factory _TokenSwapBack.fromJson(Map<String, dynamic> json) =
-      _$_TokenSwapBack.fromJson;
+      _$TokenSwapBackImpl.fromJson;
 
   @override
   TokenSwapBack get data;
   @JsonKey(ignore: true)
-  _$$_TokenSwapBackCopyWith<_$_TokenSwapBack> get copyWith =>
+  _$$TokenSwapBackImplCopyWith<_$TokenSwapBackImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

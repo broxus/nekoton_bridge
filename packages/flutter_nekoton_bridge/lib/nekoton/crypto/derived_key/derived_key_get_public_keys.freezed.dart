@@ -101,12 +101,12 @@ class _$DerivedKeyGetPublicKeysCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DerivedKeyGetPublicKeysRenameCopyWith<$Res>
+abstract class _$$DerivedKeyGetPublicKeysRenameImplCopyWith<$Res>
     implements $DerivedKeyGetPublicKeysCopyWith<$Res> {
-  factory _$$_DerivedKeyGetPublicKeysRenameCopyWith(
-          _$_DerivedKeyGetPublicKeysRename value,
-          $Res Function(_$_DerivedKeyGetPublicKeysRename) then) =
-      __$$_DerivedKeyGetPublicKeysRenameCopyWithImpl<$Res>;
+  factory _$$DerivedKeyGetPublicKeysRenameImplCopyWith(
+          _$DerivedKeyGetPublicKeysRenameImpl value,
+          $Res Function(_$DerivedKeyGetPublicKeysRenameImpl) then) =
+      __$$DerivedKeyGetPublicKeysRenameImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PublicKey masterKey, Password password, int limit, int offset});
@@ -118,13 +118,13 @@ abstract class _$$_DerivedKeyGetPublicKeysRenameCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DerivedKeyGetPublicKeysRenameCopyWithImpl<$Res>
+class __$$DerivedKeyGetPublicKeysRenameImplCopyWithImpl<$Res>
     extends _$DerivedKeyGetPublicKeysCopyWithImpl<$Res,
-        _$_DerivedKeyGetPublicKeysRename>
-    implements _$$_DerivedKeyGetPublicKeysRenameCopyWith<$Res> {
-  __$$_DerivedKeyGetPublicKeysRenameCopyWithImpl(
-      _$_DerivedKeyGetPublicKeysRename _value,
-      $Res Function(_$_DerivedKeyGetPublicKeysRename) _then)
+        _$DerivedKeyGetPublicKeysRenameImpl>
+    implements _$$DerivedKeyGetPublicKeysRenameImplCopyWith<$Res> {
+  __$$DerivedKeyGetPublicKeysRenameImplCopyWithImpl(
+      _$DerivedKeyGetPublicKeysRenameImpl _value,
+      $Res Function(_$DerivedKeyGetPublicKeysRenameImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -135,7 +135,7 @@ class __$$_DerivedKeyGetPublicKeysRenameCopyWithImpl<$Res>
     Object? limit = null,
     Object? offset = null,
   }) {
-    return _then(_$_DerivedKeyGetPublicKeysRename(
+    return _then(_$DerivedKeyGetPublicKeysRenameImpl(
       masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
@@ -159,17 +159,17 @@ class __$$_DerivedKeyGetPublicKeysRenameCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$_DerivedKeyGetPublicKeysRename
+class _$DerivedKeyGetPublicKeysRenameImpl
     implements _DerivedKeyGetPublicKeysRename {
-  const _$_DerivedKeyGetPublicKeysRename(
+  const _$DerivedKeyGetPublicKeysRenameImpl(
       {required this.masterKey,
       required this.password,
       required this.limit,
       required this.offset});
 
-  factory _$_DerivedKeyGetPublicKeysRename.fromJson(
+  factory _$DerivedKeyGetPublicKeysRenameImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$_DerivedKeyGetPublicKeysRenameFromJson(json);
+      _$$DerivedKeyGetPublicKeysRenameImplFromJson(json);
 
   @override
   final PublicKey masterKey;
@@ -189,7 +189,7 @@ class _$_DerivedKeyGetPublicKeysRename
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DerivedKeyGetPublicKeysRename &&
+            other is _$DerivedKeyGetPublicKeysRenameImpl &&
             (identical(other.masterKey, masterKey) ||
                 other.masterKey == masterKey) &&
             (identical(other.password, password) ||
@@ -206,13 +206,14 @@ class _$_DerivedKeyGetPublicKeysRename
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DerivedKeyGetPublicKeysRenameCopyWith<_$_DerivedKeyGetPublicKeysRename>
-      get copyWith => __$$_DerivedKeyGetPublicKeysRenameCopyWithImpl<
-          _$_DerivedKeyGetPublicKeysRename>(this, _$identity);
+  _$$DerivedKeyGetPublicKeysRenameImplCopyWith<
+          _$DerivedKeyGetPublicKeysRenameImpl>
+      get copyWith => __$$DerivedKeyGetPublicKeysRenameImplCopyWithImpl<
+          _$DerivedKeyGetPublicKeysRenameImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DerivedKeyGetPublicKeysRenameToJson(
+    return _$$DerivedKeyGetPublicKeysRenameImplToJson(
       this,
     );
   }
@@ -224,10 +225,10 @@ abstract class _DerivedKeyGetPublicKeysRename
       {required final PublicKey masterKey,
       required final Password password,
       required final int limit,
-      required final int offset}) = _$_DerivedKeyGetPublicKeysRename;
+      required final int offset}) = _$DerivedKeyGetPublicKeysRenameImpl;
 
   factory _DerivedKeyGetPublicKeysRename.fromJson(Map<String, dynamic> json) =
-      _$_DerivedKeyGetPublicKeysRename.fromJson;
+      _$DerivedKeyGetPublicKeysRenameImpl.fromJson;
 
   @override
   PublicKey get masterKey;
@@ -239,6 +240,7 @@ abstract class _DerivedKeyGetPublicKeysRename
   int get offset;
   @override
   @JsonKey(ignore: true)
-  _$$_DerivedKeyGetPublicKeysRenameCopyWith<_$_DerivedKeyGetPublicKeysRename>
+  _$$DerivedKeyGetPublicKeysRenameImplCopyWith<
+          _$DerivedKeyGetPublicKeysRenameImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

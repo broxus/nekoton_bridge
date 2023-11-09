@@ -6,25 +6,25 @@ part of 'transfer_recipient.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_OwnerWallet _$$_OwnerWalletFromJson(Map<String, dynamic> json) =>
-    _$_OwnerWallet(
+_$OwnerWalletImpl _$$OwnerWalletImplFromJson(Map<String, dynamic> json) =>
+    _$OwnerWalletImpl(
       Address.fromJson(json['data'] as String),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_OwnerWalletToJson(_$_OwnerWallet instance) =>
+Map<String, dynamic> _$$OwnerWalletImplToJson(_$OwnerWalletImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
-_$_TokenWallet _$$_TokenWalletFromJson(Map<String, dynamic> json) =>
-    _$_TokenWallet(
+_$TokenWalletImpl _$$TokenWalletImplFromJson(Map<String, dynamic> json) =>
+    _$TokenWalletImpl(
       Address.fromJson(json['data'] as String),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$_TokenWalletToJson(_$_TokenWallet instance) =>
+Map<String, dynamic> _$$TokenWalletImplToJson(_$TokenWalletImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,

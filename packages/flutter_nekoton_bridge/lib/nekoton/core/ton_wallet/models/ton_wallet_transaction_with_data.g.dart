@@ -6,9 +6,9 @@ part of 'ton_wallet_transaction_with_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TonWalletTransactionWithData _$$_TonWalletTransactionWithDataFromJson(
+_$TonWalletTransactionWithDataImpl _$$TonWalletTransactionWithDataImplFromJson(
         Map<String, dynamic> json) =>
-    _$_TonWalletTransactionWithData(
+    _$TonWalletTransactionWithDataImpl(
       transaction:
           Transaction.fromJson(json['transaction'] as Map<String, dynamic>),
       data: json['data'] == null
@@ -17,8 +17,8 @@ _$_TonWalletTransactionWithData _$$_TonWalletTransactionWithDataFromJson(
               json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_TonWalletTransactionWithDataToJson(
-        _$_TonWalletTransactionWithData instance) =>
+Map<String, dynamic> _$$TonWalletTransactionWithDataImplToJson(
+        _$TonWalletTransactionWithDataImpl instance) =>
     <String, dynamic>{
       'transaction': instance.transaction.toJson(),
       'data': instance.data?.toJson(),
