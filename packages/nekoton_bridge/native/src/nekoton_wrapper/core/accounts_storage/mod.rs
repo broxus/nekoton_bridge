@@ -52,6 +52,19 @@ pub trait AccountsStorageBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         root_token_contract: String,
     ) -> anyhow::Result<String>;
 
+    /// Add token wallets signatures to account (add new tokens to account aka enable it via slider).
+    /// account_address - address of account
+    /// network_group - name of network group where this token must be visible, could be found in
+    ///   connection info
+    /// root_token_contracts - list of addresses of tokens in blockchain.
+    /// Return true or throw error.
+    async fn add_token_wallets(
+        &self,
+        account_address: String,
+        network_group: String,
+        root_token_contracts: Vec<String>,
+    ) -> anyhow::Result<bool>;
+
     /// Remove token wallet signature from account (remove token from account aka disable it via slider).
     /// account_address - address of account
     /// network_group - name of network group where this token must be visible, could be found in
@@ -64,6 +77,19 @@ pub trait AccountsStorageBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         network_group: String,
         root_token_contract: String,
     ) -> anyhow::Result<String>;
+
+    /// Remove token wallets signatures from account (remove tokens from account aka disable it via slider).
+    /// account_address - address of account
+    /// network_group - name of network group where this token must be visible, could be found in
+    ///   connection info
+    /// root_token_contracts - list of addresses of tokens in blockchain.
+    /// Return true or throw error.
+    async fn remove_token_wallets(
+        &self,
+        account_address: String,
+        network_group: String,
+        root_token_contracts: Vec<String>,
+    ) -> anyhow::Result<bool>;
 
     /// Remove account from storage and return its instance if it was removed.
     /// account_address - address of account
@@ -202,6 +228,32 @@ impl AccountsStorageBoxTrait for AccountsStorageBox {
         serde_json::to_string(&AssetsListHelper(entry)).handle_error()
     }
 
+    /// Add token wallets signatures to account (add new tokens to account aka enable it via slider).
+    /// account_address - address of account
+    /// network_group - name of network group where this token must be visible, could be found in
+    ///   connection info
+    /// root_token_contracts - list of addresses of tokens in blockchain.
+    /// Return true or throw error.
+    async fn add_token_wallets(
+        &self,
+        account_address: String,
+        network_group: String,
+        root_token_contracts: Vec<String>,
+    ) -> anyhow::Result<bool> {
+        let root_token_contracts = root_token_contracts
+            .iter()
+            .map(|item| parse_address(item.to_string()).expect("Address is not valid"));
+
+        for contract in root_token_contracts {
+            self.inner_storage
+                .add_token_wallet(&account_address, &network_group, contract)
+                .await
+                .handle_error()?;
+        }
+
+        Ok(true)
+    }
+
     /// Remove token wallet signature from account (remove token from account aka disable it via slider).
     /// account_address - address of account
     /// network_group - name of network group where this token must be visible, could be found in
@@ -223,6 +275,32 @@ impl AccountsStorageBoxTrait for AccountsStorageBox {
             .handle_error()?;
 
         serde_json::to_string(&AssetsListHelper(entry)).handle_error()
+    }
+
+    /// Remove token wallets signatures from account (remove tokens from account aka disable it via slider).
+    /// account_address - address of account
+    /// network_group - name of network group where this token must be visible, could be found in
+    ///   connection info
+    /// root_token_contracts - list of addresses of tokens in blockchain.
+    /// Return true or throw error.
+    async fn remove_token_wallets(
+        &self,
+        account_address: String,
+        network_group: String,
+        root_token_contracts: Vec<String>,
+    ) -> anyhow::Result<bool> {
+        let root_token_contracts = root_token_contracts
+            .iter()
+            .map(|item| parse_address(item.to_string()).expect("Address is not valid"));
+
+        for contract in root_token_contracts {
+            self.inner_storage
+                .remove_token_wallet(&account_address, &network_group, &contract)
+                .await
+                .handle_error()?;
+        }
+
+        Ok(true)
     }
 
     /// Remove account from storage and return its instance if it was removed.

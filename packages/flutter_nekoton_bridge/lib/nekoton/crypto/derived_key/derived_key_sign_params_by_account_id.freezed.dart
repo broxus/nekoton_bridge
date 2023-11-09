@@ -97,12 +97,12 @@ class _$DerivedKeyPasswordByAccountIdCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWith<$Res>
+abstract class _$$_DerivedKeyPasswordByAccountIdByAccountIdCopyWith<$Res>
     implements $DerivedKeyPasswordByAccountIdCopyWith<$Res> {
-  factory _$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWith(
-          _$DerivedKeyPasswordByAccountIdByAccountIdImpl value,
-          $Res Function(_$DerivedKeyPasswordByAccountIdByAccountIdImpl) then) =
-      __$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWithImpl<$Res>;
+  factory _$$_DerivedKeyPasswordByAccountIdByAccountIdCopyWith(
+          _$_DerivedKeyPasswordByAccountIdByAccountId value,
+          $Res Function(_$_DerivedKeyPasswordByAccountIdByAccountId) then) =
+      __$$_DerivedKeyPasswordByAccountIdByAccountIdCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PublicKey masterKey, int accountId, Password password});
@@ -114,13 +114,13 @@ abstract class _$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWithImpl<$Res>
+class __$$_DerivedKeyPasswordByAccountIdByAccountIdCopyWithImpl<$Res>
     extends _$DerivedKeyPasswordByAccountIdCopyWithImpl<$Res,
-        _$DerivedKeyPasswordByAccountIdByAccountIdImpl>
-    implements _$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWith<$Res> {
-  __$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWithImpl(
-      _$DerivedKeyPasswordByAccountIdByAccountIdImpl _value,
-      $Res Function(_$DerivedKeyPasswordByAccountIdByAccountIdImpl) _then)
+        _$_DerivedKeyPasswordByAccountIdByAccountId>
+    implements _$$_DerivedKeyPasswordByAccountIdByAccountIdCopyWith<$Res> {
+  __$$_DerivedKeyPasswordByAccountIdByAccountIdCopyWithImpl(
+      _$_DerivedKeyPasswordByAccountIdByAccountId _value,
+      $Res Function(_$_DerivedKeyPasswordByAccountIdByAccountId) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -130,7 +130,7 @@ class __$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWithImpl<$Res>
     Object? accountId = null,
     Object? password = null,
   }) {
-    return _then(_$DerivedKeyPasswordByAccountIdByAccountIdImpl(
+    return _then(_$_DerivedKeyPasswordByAccountIdByAccountId(
       masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
@@ -150,16 +150,16 @@ class __$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$DerivedKeyPasswordByAccountIdByAccountIdImpl
+class _$_DerivedKeyPasswordByAccountIdByAccountId
     implements _DerivedKeyPasswordByAccountIdByAccountId {
-  const _$DerivedKeyPasswordByAccountIdByAccountIdImpl(
+  const _$_DerivedKeyPasswordByAccountIdByAccountId(
       {required this.masterKey,
       required this.accountId,
       required this.password});
 
-  factory _$DerivedKeyPasswordByAccountIdByAccountIdImpl.fromJson(
+  factory _$_DerivedKeyPasswordByAccountIdByAccountId.fromJson(
           Map<String, dynamic> json) =>
-      _$$DerivedKeyPasswordByAccountIdByAccountIdImplFromJson(json);
+      _$$_DerivedKeyPasswordByAccountIdByAccountIdFromJson(json);
 
   @override
   final PublicKey masterKey;
@@ -177,7 +177,7 @@ class _$DerivedKeyPasswordByAccountIdByAccountIdImpl
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DerivedKeyPasswordByAccountIdByAccountIdImpl &&
+            other is _$_DerivedKeyPasswordByAccountIdByAccountId &&
             (identical(other.masterKey, masterKey) ||
                 other.masterKey == masterKey) &&
             (identical(other.accountId, accountId) ||
@@ -193,15 +193,14 @@ class _$DerivedKeyPasswordByAccountIdByAccountIdImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWith<
-          _$DerivedKeyPasswordByAccountIdByAccountIdImpl>
-      get copyWith =>
-          __$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWithImpl<
-              _$DerivedKeyPasswordByAccountIdByAccountIdImpl>(this, _$identity);
+  _$$_DerivedKeyPasswordByAccountIdByAccountIdCopyWith<
+          _$_DerivedKeyPasswordByAccountIdByAccountId>
+      get copyWith => __$$_DerivedKeyPasswordByAccountIdByAccountIdCopyWithImpl<
+          _$_DerivedKeyPasswordByAccountIdByAccountId>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DerivedKeyPasswordByAccountIdByAccountIdImplToJson(
+    return _$$_DerivedKeyPasswordByAccountIdByAccountIdToJson(
       this,
     );
   }
@@ -213,11 +212,11 @@ abstract class _DerivedKeyPasswordByAccountIdByAccountId
           {required final PublicKey masterKey,
           required final int accountId,
           required final Password password}) =
-      _$DerivedKeyPasswordByAccountIdByAccountIdImpl;
+      _$_DerivedKeyPasswordByAccountIdByAccountId;
 
   factory _DerivedKeyPasswordByAccountIdByAccountId.fromJson(
           Map<String, dynamic> json) =
-      _$DerivedKeyPasswordByAccountIdByAccountIdImpl.fromJson;
+      _$_DerivedKeyPasswordByAccountIdByAccountId.fromJson;
 
   @override
   PublicKey get masterKey;
@@ -227,7 +226,7 @@ abstract class _DerivedKeyPasswordByAccountIdByAccountId
   Password get password;
   @override
   @JsonKey(ignore: true)
-  _$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWith<
-          _$DerivedKeyPasswordByAccountIdByAccountIdImpl>
+  _$$_DerivedKeyPasswordByAccountIdByAccountIdCopyWith<
+          _$_DerivedKeyPasswordByAccountIdByAccountId>
       get copyWith => throw _privateConstructorUsedError;
 }

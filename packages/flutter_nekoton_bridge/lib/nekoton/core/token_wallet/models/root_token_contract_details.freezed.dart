@@ -110,12 +110,12 @@ class _$RootTokenContractDetailsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$RootTokenContractDetailsImplCopyWith<$Res>
+abstract class _$$_RootTokenContractDetailsCopyWith<$Res>
     implements $RootTokenContractDetailsCopyWith<$Res> {
-  factory _$$RootTokenContractDetailsImplCopyWith(
-          _$RootTokenContractDetailsImpl value,
-          $Res Function(_$RootTokenContractDetailsImpl) then) =
-      __$$RootTokenContractDetailsImplCopyWithImpl<$Res>;
+  factory _$$_RootTokenContractDetailsCopyWith(
+          _$_RootTokenContractDetails value,
+          $Res Function(_$_RootTokenContractDetails) then) =
+      __$$_RootTokenContractDetailsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -131,13 +131,12 @@ abstract class _$$RootTokenContractDetailsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$RootTokenContractDetailsImplCopyWithImpl<$Res>
+class __$$_RootTokenContractDetailsCopyWithImpl<$Res>
     extends _$RootTokenContractDetailsCopyWithImpl<$Res,
-        _$RootTokenContractDetailsImpl>
-    implements _$$RootTokenContractDetailsImplCopyWith<$Res> {
-  __$$RootTokenContractDetailsImplCopyWithImpl(
-      _$RootTokenContractDetailsImpl _value,
-      $Res Function(_$RootTokenContractDetailsImpl) _then)
+        _$_RootTokenContractDetails>
+    implements _$$_RootTokenContractDetailsCopyWith<$Res> {
+  __$$_RootTokenContractDetailsCopyWithImpl(_$_RootTokenContractDetails _value,
+      $Res Function(_$_RootTokenContractDetails) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -150,7 +149,7 @@ class __$$RootTokenContractDetailsImplCopyWithImpl<$Res>
     Object? ownerAddress = null,
     Object? totalSupply = null,
   }) {
-    return _then(_$RootTokenContractDetailsImpl(
+    return _then(_$_RootTokenContractDetails(
       version: null == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
@@ -182,8 +181,8 @@ class __$$RootTokenContractDetailsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$RootTokenContractDetailsImpl implements _RootTokenContractDetails {
-  const _$RootTokenContractDetailsImpl(
+class _$_RootTokenContractDetails implements _RootTokenContractDetails {
+  const _$_RootTokenContractDetails(
       {required this.version,
       required this.name,
       required this.symbol,
@@ -191,8 +190,8 @@ class _$RootTokenContractDetailsImpl implements _RootTokenContractDetails {
       required this.ownerAddress,
       required this.totalSupply});
 
-  factory _$RootTokenContractDetailsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RootTokenContractDetailsImplFromJson(json);
+  factory _$_RootTokenContractDetails.fromJson(Map<String, dynamic> json) =>
+      _$$_RootTokenContractDetailsFromJson(json);
 
   @override
   final TokenWalletVersion version;
@@ -216,7 +215,7 @@ class _$RootTokenContractDetailsImpl implements _RootTokenContractDetails {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RootTokenContractDetailsImpl &&
+            other is _$_RootTokenContractDetails &&
             (identical(other.version, version) || other.version == version) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.symbol, symbol) || other.symbol == symbol) &&
@@ -236,13 +235,13 @@ class _$RootTokenContractDetailsImpl implements _RootTokenContractDetails {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RootTokenContractDetailsImplCopyWith<_$RootTokenContractDetailsImpl>
-      get copyWith => __$$RootTokenContractDetailsImplCopyWithImpl<
-          _$RootTokenContractDetailsImpl>(this, _$identity);
+  _$$_RootTokenContractDetailsCopyWith<_$_RootTokenContractDetails>
+      get copyWith => __$$_RootTokenContractDetailsCopyWithImpl<
+          _$_RootTokenContractDetails>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RootTokenContractDetailsImplToJson(
+    return _$$_RootTokenContractDetailsToJson(
       this,
     );
   }
@@ -255,10 +254,10 @@ abstract class _RootTokenContractDetails implements RootTokenContractDetails {
       required final String symbol,
       required final int decimals,
       required final Address ownerAddress,
-      required final String totalSupply}) = _$RootTokenContractDetailsImpl;
+      required final String totalSupply}) = _$_RootTokenContractDetails;
 
   factory _RootTokenContractDetails.fromJson(Map<String, dynamic> json) =
-      _$RootTokenContractDetailsImpl.fromJson;
+      _$_RootTokenContractDetails.fromJson;
 
   @override
   TokenWalletVersion get version;
@@ -274,6 +273,6 @@ abstract class _RootTokenContractDetails implements RootTokenContractDetails {
   String get totalSupply;
   @override
   @JsonKey(ignore: true)
-  _$$RootTokenContractDetailsImplCopyWith<_$RootTokenContractDetailsImpl>
+  _$$_RootTokenContractDetailsCopyWith<_$_RootTokenContractDetails>
       get copyWith => throw _privateConstructorUsedError;
 }

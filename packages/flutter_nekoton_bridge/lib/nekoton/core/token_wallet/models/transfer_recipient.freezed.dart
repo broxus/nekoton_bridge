@@ -118,11 +118,11 @@ class _$TransferRecipientCopyWithImpl<$Res, $Val extends TransferRecipient>
 }
 
 /// @nodoc
-abstract class _$$OwnerWalletImplCopyWith<$Res>
+abstract class _$$_OwnerWalletCopyWith<$Res>
     implements $TransferRecipientCopyWith<$Res> {
-  factory _$$OwnerWalletImplCopyWith(
-          _$OwnerWalletImpl value, $Res Function(_$OwnerWalletImpl) then) =
-      __$$OwnerWalletImplCopyWithImpl<$Res>;
+  factory _$$_OwnerWalletCopyWith(
+          _$_OwnerWallet value, $Res Function(_$_OwnerWallet) then) =
+      __$$_OwnerWalletCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Address data});
@@ -132,11 +132,11 @@ abstract class _$$OwnerWalletImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$OwnerWalletImplCopyWithImpl<$Res>
-    extends _$TransferRecipientCopyWithImpl<$Res, _$OwnerWalletImpl>
-    implements _$$OwnerWalletImplCopyWith<$Res> {
-  __$$OwnerWalletImplCopyWithImpl(
-      _$OwnerWalletImpl _value, $Res Function(_$OwnerWalletImpl) _then)
+class __$$_OwnerWalletCopyWithImpl<$Res>
+    extends _$TransferRecipientCopyWithImpl<$Res, _$_OwnerWallet>
+    implements _$$_OwnerWalletCopyWith<$Res> {
+  __$$_OwnerWalletCopyWithImpl(
+      _$_OwnerWallet _value, $Res Function(_$_OwnerWallet) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -144,7 +144,7 @@ class __$$OwnerWalletImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$OwnerWalletImpl(
+    return _then(_$_OwnerWallet(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -155,12 +155,12 @@ class __$$OwnerWalletImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$OwnerWalletImpl implements _OwnerWallet {
-  const _$OwnerWalletImpl(this.data, {final String? $type})
+class _$_OwnerWallet implements _OwnerWallet {
+  const _$_OwnerWallet(this.data, {final String? $type})
       : $type = $type ?? 'ownerWallet';
 
-  factory _$OwnerWalletImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OwnerWalletImplFromJson(json);
+  factory _$_OwnerWallet.fromJson(Map<String, dynamic> json) =>
+      _$$_OwnerWalletFromJson(json);
 
   @override
   final Address data;
@@ -177,7 +177,7 @@ class _$OwnerWalletImpl implements _OwnerWallet {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OwnerWalletImpl &&
+            other is _$_OwnerWallet &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -188,8 +188,8 @@ class _$OwnerWalletImpl implements _OwnerWallet {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OwnerWalletImplCopyWith<_$OwnerWalletImpl> get copyWith =>
-      __$$OwnerWalletImplCopyWithImpl<_$OwnerWalletImpl>(this, _$identity);
+  _$$_OwnerWalletCopyWith<_$_OwnerWallet> get copyWith =>
+      __$$_OwnerWalletCopyWithImpl<_$_OwnerWallet>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -255,32 +255,32 @@ class _$OwnerWalletImpl implements _OwnerWallet {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OwnerWalletImplToJson(
+    return _$$_OwnerWalletToJson(
       this,
     );
   }
 }
 
 abstract class _OwnerWallet implements TransferRecipient {
-  const factory _OwnerWallet(final Address data) = _$OwnerWalletImpl;
+  const factory _OwnerWallet(final Address data) = _$_OwnerWallet;
 
   factory _OwnerWallet.fromJson(Map<String, dynamic> json) =
-      _$OwnerWalletImpl.fromJson;
+      _$_OwnerWallet.fromJson;
 
   @override
   Address get data;
   @override
   @JsonKey(ignore: true)
-  _$$OwnerWalletImplCopyWith<_$OwnerWalletImpl> get copyWith =>
+  _$$_OwnerWalletCopyWith<_$_OwnerWallet> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TokenWalletImplCopyWith<$Res>
+abstract class _$$_TokenWalletCopyWith<$Res>
     implements $TransferRecipientCopyWith<$Res> {
-  factory _$$TokenWalletImplCopyWith(
-          _$TokenWalletImpl value, $Res Function(_$TokenWalletImpl) then) =
-      __$$TokenWalletImplCopyWithImpl<$Res>;
+  factory _$$_TokenWalletCopyWith(
+          _$_TokenWallet value, $Res Function(_$_TokenWallet) then) =
+      __$$_TokenWalletCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Address data});
@@ -290,11 +290,11 @@ abstract class _$$TokenWalletImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$TokenWalletImplCopyWithImpl<$Res>
-    extends _$TransferRecipientCopyWithImpl<$Res, _$TokenWalletImpl>
-    implements _$$TokenWalletImplCopyWith<$Res> {
-  __$$TokenWalletImplCopyWithImpl(
-      _$TokenWalletImpl _value, $Res Function(_$TokenWalletImpl) _then)
+class __$$_TokenWalletCopyWithImpl<$Res>
+    extends _$TransferRecipientCopyWithImpl<$Res, _$_TokenWallet>
+    implements _$$_TokenWalletCopyWith<$Res> {
+  __$$_TokenWalletCopyWithImpl(
+      _$_TokenWallet _value, $Res Function(_$_TokenWallet) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -302,7 +302,7 @@ class __$$TokenWalletImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$TokenWalletImpl(
+    return _then(_$_TokenWallet(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -313,12 +313,12 @@ class __$$TokenWalletImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TokenWalletImpl implements _TokenWallet {
-  const _$TokenWalletImpl(this.data, {final String? $type})
+class _$_TokenWallet implements _TokenWallet {
+  const _$_TokenWallet(this.data, {final String? $type})
       : $type = $type ?? 'tokenWallet';
 
-  factory _$TokenWalletImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TokenWalletImplFromJson(json);
+  factory _$_TokenWallet.fromJson(Map<String, dynamic> json) =>
+      _$$_TokenWalletFromJson(json);
 
   @override
   final Address data;
@@ -335,7 +335,7 @@ class _$TokenWalletImpl implements _TokenWallet {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TokenWalletImpl &&
+            other is _$_TokenWallet &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -346,8 +346,8 @@ class _$TokenWalletImpl implements _TokenWallet {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TokenWalletImplCopyWith<_$TokenWalletImpl> get copyWith =>
-      __$$TokenWalletImplCopyWithImpl<_$TokenWalletImpl>(this, _$identity);
+  _$$_TokenWalletCopyWith<_$_TokenWallet> get copyWith =>
+      __$$_TokenWalletCopyWithImpl<_$_TokenWallet>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -413,22 +413,22 @@ class _$TokenWalletImpl implements _TokenWallet {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TokenWalletImplToJson(
+    return _$$_TokenWalletToJson(
       this,
     );
   }
 }
 
 abstract class _TokenWallet implements TransferRecipient {
-  const factory _TokenWallet(final Address data) = _$TokenWalletImpl;
+  const factory _TokenWallet(final Address data) = _$_TokenWallet;
 
   factory _TokenWallet.fromJson(Map<String, dynamic> json) =
-      _$TokenWalletImpl.fromJson;
+      _$_TokenWallet.fromJson;
 
   @override
   Address get data;
   @override
   @JsonKey(ignore: true)
-  _$$TokenWalletImplCopyWith<_$TokenWalletImpl> get copyWith =>
+  _$$_TokenWalletCopyWith<_$_TokenWallet> get copyWith =>
       throw _privateConstructorUsedError;
 }

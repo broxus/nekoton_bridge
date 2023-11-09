@@ -106,12 +106,11 @@ class _$EncryptedKeyCreateInputCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$EncryptedKeyCreateInputImplCopyWith<$Res>
+abstract class _$$_EncryptedKeyCreateInputCopyWith<$Res>
     implements $EncryptedKeyCreateInputCopyWith<$Res> {
-  factory _$$EncryptedKeyCreateInputImplCopyWith(
-          _$EncryptedKeyCreateInputImpl value,
-          $Res Function(_$EncryptedKeyCreateInputImpl) then) =
-      __$$EncryptedKeyCreateInputImplCopyWithImpl<$Res>;
+  factory _$$_EncryptedKeyCreateInputCopyWith(_$_EncryptedKeyCreateInput value,
+          $Res Function(_$_EncryptedKeyCreateInput) then) =
+      __$$_EncryptedKeyCreateInputCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -127,13 +126,12 @@ abstract class _$$EncryptedKeyCreateInputImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$EncryptedKeyCreateInputImplCopyWithImpl<$Res>
+class __$$_EncryptedKeyCreateInputCopyWithImpl<$Res>
     extends _$EncryptedKeyCreateInputCopyWithImpl<$Res,
-        _$EncryptedKeyCreateInputImpl>
-    implements _$$EncryptedKeyCreateInputImplCopyWith<$Res> {
-  __$$EncryptedKeyCreateInputImplCopyWithImpl(
-      _$EncryptedKeyCreateInputImpl _value,
-      $Res Function(_$EncryptedKeyCreateInputImpl) _then)
+        _$_EncryptedKeyCreateInput>
+    implements _$$_EncryptedKeyCreateInputCopyWith<$Res> {
+  __$$_EncryptedKeyCreateInputCopyWithImpl(_$_EncryptedKeyCreateInput _value,
+      $Res Function(_$_EncryptedKeyCreateInput) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -144,7 +142,7 @@ class __$$EncryptedKeyCreateInputImplCopyWithImpl<$Res>
     Object? mnemonicType = null,
     Object? password = null,
   }) {
-    return _then(_$EncryptedKeyCreateInputImpl(
+    return _then(_$_EncryptedKeyCreateInput(
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -167,15 +165,15 @@ class __$$EncryptedKeyCreateInputImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$EncryptedKeyCreateInputImpl implements _EncryptedKeyCreateInput {
-  _$EncryptedKeyCreateInputImpl(
+class _$_EncryptedKeyCreateInput implements _EncryptedKeyCreateInput {
+  _$_EncryptedKeyCreateInput(
       {this.name,
       required this.phrase,
       @mnemonicJsonConverter required this.mnemonicType,
       required this.password});
 
-  factory _$EncryptedKeyCreateInputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EncryptedKeyCreateInputImplFromJson(json);
+  factory _$_EncryptedKeyCreateInput.fromJson(Map<String, dynamic> json) =>
+      _$$_EncryptedKeyCreateInputFromJson(json);
 
   @override
   final String? name;
@@ -196,7 +194,7 @@ class _$EncryptedKeyCreateInputImpl implements _EncryptedKeyCreateInput {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EncryptedKeyCreateInputImpl &&
+            other is _$_EncryptedKeyCreateInput &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.phrase, phrase) || other.phrase == phrase) &&
             (identical(other.mnemonicType, mnemonicType) ||
@@ -213,13 +211,14 @@ class _$EncryptedKeyCreateInputImpl implements _EncryptedKeyCreateInput {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EncryptedKeyCreateInputImplCopyWith<_$EncryptedKeyCreateInputImpl>
-      get copyWith => __$$EncryptedKeyCreateInputImplCopyWithImpl<
-          _$EncryptedKeyCreateInputImpl>(this, _$identity);
+  _$$_EncryptedKeyCreateInputCopyWith<_$_EncryptedKeyCreateInput>
+      get copyWith =>
+          __$$_EncryptedKeyCreateInputCopyWithImpl<_$_EncryptedKeyCreateInput>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$EncryptedKeyCreateInputImplToJson(
+    return _$$_EncryptedKeyCreateInputToJson(
       this,
     );
   }
@@ -230,10 +229,10 @@ abstract class _EncryptedKeyCreateInput implements EncryptedKeyCreateInput {
       {final String? name,
       required final String phrase,
       @mnemonicJsonConverter required final MnemonicType mnemonicType,
-      required final Password password}) = _$EncryptedKeyCreateInputImpl;
+      required final Password password}) = _$_EncryptedKeyCreateInput;
 
   factory _EncryptedKeyCreateInput.fromJson(Map<String, dynamic> json) =
-      _$EncryptedKeyCreateInputImpl.fromJson;
+      _$_EncryptedKeyCreateInput.fromJson;
 
   @override
   String? get name;
@@ -246,6 +245,6 @@ abstract class _EncryptedKeyCreateInput implements EncryptedKeyCreateInput {
   Password get password;
   @override
   @JsonKey(ignore: true)
-  _$$EncryptedKeyCreateInputImplCopyWith<_$EncryptedKeyCreateInputImpl>
+  _$$_EncryptedKeyCreateInputCopyWith<_$_EncryptedKeyCreateInput>
       get copyWith => throw _privateConstructorUsedError;
 }

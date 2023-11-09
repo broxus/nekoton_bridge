@@ -6,14 +6,14 @@ part of 'encrypted_key_get_public_keys.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EncryptedKeyGetPublicKeysRenameImpl
-    _$$EncryptedKeyGetPublicKeysRenameImplFromJson(Map<String, dynamic> json) =>
-        _$EncryptedKeyGetPublicKeysRenameImpl(
-          publicKey: PublicKey.fromJson(json['public_key'] as String),
-        );
+_$_EncryptedKeyGetPublicKeysRename _$$_EncryptedKeyGetPublicKeysRenameFromJson(
+        Map<String, dynamic> json) =>
+    _$_EncryptedKeyGetPublicKeysRename(
+      publicKey: PublicKey.fromJson(json['public_key'] as String),
+    );
 
-Map<String, dynamic> _$$EncryptedKeyGetPublicKeysRenameImplToJson(
-        _$EncryptedKeyGetPublicKeysRenameImpl instance) =>
+Map<String, dynamic> _$$_EncryptedKeyGetPublicKeysRenameToJson(
+        _$_EncryptedKeyGetPublicKeysRename instance) =>
     <String, dynamic>{
       'public_key': instance.publicKey.toJson(),
     };

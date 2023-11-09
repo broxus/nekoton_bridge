@@ -6,16 +6,16 @@ part of 'token_wallet_details.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TokenWalletDetailsImpl _$$TokenWalletDetailsImplFromJson(
+_$_TokenWalletDetails _$$_TokenWalletDetailsFromJson(
         Map<String, dynamic> json) =>
-    _$TokenWalletDetailsImpl(
+    _$_TokenWalletDetails(
       rootAddress: Address.fromJson(json['rootAddress'] as String),
       ownerAddress: Address.fromJson(json['ownerAddress'] as String),
       balance: amountJsonConverter.fromJson(json['balance'] as String),
     );
 
-Map<String, dynamic> _$$TokenWalletDetailsImplToJson(
-        _$TokenWalletDetailsImpl instance) =>
+Map<String, dynamic> _$$_TokenWalletDetailsToJson(
+        _$_TokenWalletDetails instance) =>
     <String, dynamic>{
       'rootAddress': instance.rootAddress.toJson(),
       'ownerAddress': instance.ownerAddress.toJson(),

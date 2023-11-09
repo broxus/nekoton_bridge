@@ -98,10 +98,9 @@ class _$MultisigTransactionCopyWithImpl<$Res, $Val extends MultisigTransaction>
 }
 
 /// @nodoc
-abstract class _$$SendImplCopyWith<$Res> {
-  factory _$$SendImplCopyWith(
-          _$SendImpl value, $Res Function(_$SendImpl) then) =
-      __$$SendImplCopyWithImpl<$Res>;
+abstract class _$$_SendCopyWith<$Res> {
+  factory _$$_SendCopyWith(_$_Send value, $Res Function(_$_Send) then) =
+      __$$_SendCopyWithImpl<$Res>;
   @useResult
   $Res call({MultisigSendTransaction data});
 
@@ -109,10 +108,10 @@ abstract class _$$SendImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$SendImplCopyWithImpl<$Res>
-    extends _$MultisigTransactionCopyWithImpl<$Res, _$SendImpl>
-    implements _$$SendImplCopyWith<$Res> {
-  __$$SendImplCopyWithImpl(_$SendImpl _value, $Res Function(_$SendImpl) _then)
+class __$$_SendCopyWithImpl<$Res>
+    extends _$MultisigTransactionCopyWithImpl<$Res, _$_Send>
+    implements _$$_SendCopyWith<$Res> {
+  __$$_SendCopyWithImpl(_$_Send _value, $Res Function(_$_Send) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -120,7 +119,7 @@ class __$$SendImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$SendImpl(
+    return _then(_$_Send(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -139,11 +138,10 @@ class __$$SendImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SendImpl implements _Send {
-  const _$SendImpl(this.data, {final String? $type}) : $type = $type ?? 'send';
+class _$_Send implements _Send {
+  const _$_Send(this.data, {final String? $type}) : $type = $type ?? 'send';
 
-  factory _$SendImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SendImplFromJson(json);
+  factory _$_Send.fromJson(Map<String, dynamic> json) => _$$_SendFromJson(json);
 
   @override
   final MultisigSendTransaction data;
@@ -160,7 +158,7 @@ class _$SendImpl implements _Send {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SendImpl &&
+            other is _$_Send &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -171,8 +169,8 @@ class _$SendImpl implements _Send {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SendImplCopyWith<_$SendImpl> get copyWith =>
-      __$$SendImplCopyWithImpl<_$SendImpl>(this, _$identity);
+  _$$_SendCopyWith<_$_Send> get copyWith =>
+      __$$_SendCopyWithImpl<_$_Send>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -244,29 +242,27 @@ class _$SendImpl implements _Send {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SendImplToJson(
+    return _$$_SendToJson(
       this,
     );
   }
 }
 
 abstract class _Send implements MultisigTransaction {
-  const factory _Send(final MultisigSendTransaction data) = _$SendImpl;
+  const factory _Send(final MultisigSendTransaction data) = _$_Send;
 
-  factory _Send.fromJson(Map<String, dynamic> json) = _$SendImpl.fromJson;
+  factory _Send.fromJson(Map<String, dynamic> json) = _$_Send.fromJson;
 
   @override
   MultisigSendTransaction get data;
   @JsonKey(ignore: true)
-  _$$SendImplCopyWith<_$SendImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_SendCopyWith<_$_Send> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SubmitImplCopyWith<$Res> {
-  factory _$$SubmitImplCopyWith(
-          _$SubmitImpl value, $Res Function(_$SubmitImpl) then) =
-      __$$SubmitImplCopyWithImpl<$Res>;
+abstract class _$$_SubmitCopyWith<$Res> {
+  factory _$$_SubmitCopyWith(_$_Submit value, $Res Function(_$_Submit) then) =
+      __$$_SubmitCopyWithImpl<$Res>;
   @useResult
   $Res call({MultisigSubmitTransaction data});
 
@@ -274,11 +270,10 @@ abstract class _$$SubmitImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$SubmitImplCopyWithImpl<$Res>
-    extends _$MultisigTransactionCopyWithImpl<$Res, _$SubmitImpl>
-    implements _$$SubmitImplCopyWith<$Res> {
-  __$$SubmitImplCopyWithImpl(
-      _$SubmitImpl _value, $Res Function(_$SubmitImpl) _then)
+class __$$_SubmitCopyWithImpl<$Res>
+    extends _$MultisigTransactionCopyWithImpl<$Res, _$_Submit>
+    implements _$$_SubmitCopyWith<$Res> {
+  __$$_SubmitCopyWithImpl(_$_Submit _value, $Res Function(_$_Submit) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -286,7 +281,7 @@ class __$$SubmitImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$SubmitImpl(
+    return _then(_$_Submit(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -305,12 +300,11 @@ class __$$SubmitImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SubmitImpl implements _Submit {
-  const _$SubmitImpl(this.data, {final String? $type})
-      : $type = $type ?? 'submit';
+class _$_Submit implements _Submit {
+  const _$_Submit(this.data, {final String? $type}) : $type = $type ?? 'submit';
 
-  factory _$SubmitImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SubmitImplFromJson(json);
+  factory _$_Submit.fromJson(Map<String, dynamic> json) =>
+      _$$_SubmitFromJson(json);
 
   @override
   final MultisigSubmitTransaction data;
@@ -327,7 +321,7 @@ class _$SubmitImpl implements _Submit {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SubmitImpl &&
+            other is _$_Submit &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -338,8 +332,8 @@ class _$SubmitImpl implements _Submit {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SubmitImplCopyWith<_$SubmitImpl> get copyWith =>
-      __$$SubmitImplCopyWithImpl<_$SubmitImpl>(this, _$identity);
+  _$$_SubmitCopyWith<_$_Submit> get copyWith =>
+      __$$_SubmitCopyWithImpl<_$_Submit>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -411,29 +405,29 @@ class _$SubmitImpl implements _Submit {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SubmitImplToJson(
+    return _$$_SubmitToJson(
       this,
     );
   }
 }
 
 abstract class _Submit implements MultisigTransaction {
-  const factory _Submit(final MultisigSubmitTransaction data) = _$SubmitImpl;
+  const factory _Submit(final MultisigSubmitTransaction data) = _$_Submit;
 
-  factory _Submit.fromJson(Map<String, dynamic> json) = _$SubmitImpl.fromJson;
+  factory _Submit.fromJson(Map<String, dynamic> json) = _$_Submit.fromJson;
 
   @override
   MultisigSubmitTransaction get data;
   @JsonKey(ignore: true)
-  _$$SubmitImplCopyWith<_$SubmitImpl> get copyWith =>
+  _$$_SubmitCopyWith<_$_Submit> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ConfirmImplCopyWith<$Res> {
-  factory _$$ConfirmImplCopyWith(
-          _$ConfirmImpl value, $Res Function(_$ConfirmImpl) then) =
-      __$$ConfirmImplCopyWithImpl<$Res>;
+abstract class _$$_ConfirmCopyWith<$Res> {
+  factory _$$_ConfirmCopyWith(
+          _$_Confirm value, $Res Function(_$_Confirm) then) =
+      __$$_ConfirmCopyWithImpl<$Res>;
   @useResult
   $Res call({MultisigConfirmTransaction data});
 
@@ -441,11 +435,10 @@ abstract class _$$ConfirmImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ConfirmImplCopyWithImpl<$Res>
-    extends _$MultisigTransactionCopyWithImpl<$Res, _$ConfirmImpl>
-    implements _$$ConfirmImplCopyWith<$Res> {
-  __$$ConfirmImplCopyWithImpl(
-      _$ConfirmImpl _value, $Res Function(_$ConfirmImpl) _then)
+class __$$_ConfirmCopyWithImpl<$Res>
+    extends _$MultisigTransactionCopyWithImpl<$Res, _$_Confirm>
+    implements _$$_ConfirmCopyWith<$Res> {
+  __$$_ConfirmCopyWithImpl(_$_Confirm _value, $Res Function(_$_Confirm) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -453,7 +446,7 @@ class __$$ConfirmImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ConfirmImpl(
+    return _then(_$_Confirm(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -472,12 +465,12 @@ class __$$ConfirmImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ConfirmImpl implements _Confirm {
-  const _$ConfirmImpl(this.data, {final String? $type})
+class _$_Confirm implements _Confirm {
+  const _$_Confirm(this.data, {final String? $type})
       : $type = $type ?? 'confirm';
 
-  factory _$ConfirmImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConfirmImplFromJson(json);
+  factory _$_Confirm.fromJson(Map<String, dynamic> json) =>
+      _$$_ConfirmFromJson(json);
 
   @override
   final MultisigConfirmTransaction data;
@@ -494,7 +487,7 @@ class _$ConfirmImpl implements _Confirm {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConfirmImpl &&
+            other is _$_Confirm &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -505,8 +498,8 @@ class _$ConfirmImpl implements _Confirm {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConfirmImplCopyWith<_$ConfirmImpl> get copyWith =>
-      __$$ConfirmImplCopyWithImpl<_$ConfirmImpl>(this, _$identity);
+  _$$_ConfirmCopyWith<_$_Confirm> get copyWith =>
+      __$$_ConfirmCopyWithImpl<_$_Confirm>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -578,20 +571,20 @@ class _$ConfirmImpl implements _Confirm {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConfirmImplToJson(
+    return _$$_ConfirmToJson(
       this,
     );
   }
 }
 
 abstract class _Confirm implements MultisigTransaction {
-  const factory _Confirm(final MultisigConfirmTransaction data) = _$ConfirmImpl;
+  const factory _Confirm(final MultisigConfirmTransaction data) = _$_Confirm;
 
-  factory _Confirm.fromJson(Map<String, dynamic> json) = _$ConfirmImpl.fromJson;
+  factory _Confirm.fromJson(Map<String, dynamic> json) = _$_Confirm.fromJson;
 
   @override
   MultisigConfirmTransaction get data;
   @JsonKey(ignore: true)
-  _$$ConfirmImplCopyWith<_$ConfirmImpl> get copyWith =>
+  _$$_ConfirmCopyWith<_$_Confirm> get copyWith =>
       throw _privateConstructorUsedError;
 }

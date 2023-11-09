@@ -81,12 +81,12 @@ class _$MultisigConfirmTransactionCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$MultisigConfirmTransactionImplCopyWith<$Res>
+abstract class _$$_MultisigConfirmTransactionCopyWith<$Res>
     implements $MultisigConfirmTransactionCopyWith<$Res> {
-  factory _$$MultisigConfirmTransactionImplCopyWith(
-          _$MultisigConfirmTransactionImpl value,
-          $Res Function(_$MultisigConfirmTransactionImpl) then) =
-      __$$MultisigConfirmTransactionImplCopyWithImpl<$Res>;
+  factory _$$_MultisigConfirmTransactionCopyWith(
+          _$_MultisigConfirmTransaction value,
+          $Res Function(_$_MultisigConfirmTransaction) then) =
+      __$$_MultisigConfirmTransactionCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PublicKey custodian, String transactionId});
@@ -96,13 +96,13 @@ abstract class _$$MultisigConfirmTransactionImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$MultisigConfirmTransactionImplCopyWithImpl<$Res>
+class __$$_MultisigConfirmTransactionCopyWithImpl<$Res>
     extends _$MultisigConfirmTransactionCopyWithImpl<$Res,
-        _$MultisigConfirmTransactionImpl>
-    implements _$$MultisigConfirmTransactionImplCopyWith<$Res> {
-  __$$MultisigConfirmTransactionImplCopyWithImpl(
-      _$MultisigConfirmTransactionImpl _value,
-      $Res Function(_$MultisigConfirmTransactionImpl) _then)
+        _$_MultisigConfirmTransaction>
+    implements _$$_MultisigConfirmTransactionCopyWith<$Res> {
+  __$$_MultisigConfirmTransactionCopyWithImpl(
+      _$_MultisigConfirmTransaction _value,
+      $Res Function(_$_MultisigConfirmTransaction) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +111,7 @@ class __$$MultisigConfirmTransactionImplCopyWithImpl<$Res>
     Object? custodian = null,
     Object? transactionId = null,
   }) {
-    return _then(_$MultisigConfirmTransactionImpl(
+    return _then(_$_MultisigConfirmTransaction(
       custodian: null == custodian
           ? _value.custodian
           : custodian // ignore: cast_nullable_to_non_nullable
@@ -126,13 +126,12 @@ class __$$MultisigConfirmTransactionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MultisigConfirmTransactionImpl implements _MultisigConfirmTransaction {
-  const _$MultisigConfirmTransactionImpl(
+class _$_MultisigConfirmTransaction implements _MultisigConfirmTransaction {
+  const _$_MultisigConfirmTransaction(
       {required this.custodian, required this.transactionId});
 
-  factory _$MultisigConfirmTransactionImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$MultisigConfirmTransactionImplFromJson(json);
+  factory _$_MultisigConfirmTransaction.fromJson(Map<String, dynamic> json) =>
+      _$$_MultisigConfirmTransactionFromJson(json);
 
   @override
   final PublicKey custodian;
@@ -148,7 +147,7 @@ class _$MultisigConfirmTransactionImpl implements _MultisigConfirmTransaction {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MultisigConfirmTransactionImpl &&
+            other is _$_MultisigConfirmTransaction &&
             (identical(other.custodian, custodian) ||
                 other.custodian == custodian) &&
             (identical(other.transactionId, transactionId) ||
@@ -162,13 +161,13 @@ class _$MultisigConfirmTransactionImpl implements _MultisigConfirmTransaction {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MultisigConfirmTransactionImplCopyWith<_$MultisigConfirmTransactionImpl>
-      get copyWith => __$$MultisigConfirmTransactionImplCopyWithImpl<
-          _$MultisigConfirmTransactionImpl>(this, _$identity);
+  _$$_MultisigConfirmTransactionCopyWith<_$_MultisigConfirmTransaction>
+      get copyWith => __$$_MultisigConfirmTransactionCopyWithImpl<
+          _$_MultisigConfirmTransaction>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$MultisigConfirmTransactionImplToJson(
+    return _$$_MultisigConfirmTransactionToJson(
       this,
     );
   }
@@ -178,10 +177,10 @@ abstract class _MultisigConfirmTransaction
     implements MultisigConfirmTransaction {
   const factory _MultisigConfirmTransaction(
       {required final PublicKey custodian,
-      required final String transactionId}) = _$MultisigConfirmTransactionImpl;
+      required final String transactionId}) = _$_MultisigConfirmTransaction;
 
   factory _MultisigConfirmTransaction.fromJson(Map<String, dynamic> json) =
-      _$MultisigConfirmTransactionImpl.fromJson;
+      _$_MultisigConfirmTransaction.fromJson;
 
   @override
   PublicKey get custodian;
@@ -189,6 +188,6 @@ abstract class _MultisigConfirmTransaction
   String get transactionId;
   @override
   @JsonKey(ignore: true)
-  _$$MultisigConfirmTransactionImplCopyWith<_$MultisigConfirmTransactionImpl>
+  _$$_MultisigConfirmTransactionCopyWith<_$_MultisigConfirmTransaction>
       get copyWith => throw _privateConstructorUsedError;
 }

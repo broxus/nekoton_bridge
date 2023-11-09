@@ -107,15 +107,13 @@ class _$DerivedKeyUpdateParamsChangePasswordCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplCopyWith<
+abstract class _$$_DerivedKeyUpdateParamsChangePasswordChangePasswordCopyWith<
     $Res> implements $DerivedKeyUpdateParamsChangePasswordCopyWith<$Res> {
-  factory _$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplCopyWith(
-          _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl value,
-          $Res Function(
-                  _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl)
+  factory _$$_DerivedKeyUpdateParamsChangePasswordChangePasswordCopyWith(
+          _$_DerivedKeyUpdateParamsChangePasswordChangePassword value,
+          $Res Function(_$_DerivedKeyUpdateParamsChangePasswordChangePassword)
               then) =
-      __$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplCopyWithImpl<
-          $Res>;
+      __$$_DerivedKeyUpdateParamsChangePasswordChangePasswordCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PublicKey masterKey, Password oldPassword, Password newPassword});
@@ -129,16 +127,14 @@ abstract class _$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplCopyWith
 }
 
 /// @nodoc
-class __$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplCopyWithImpl<
-        $Res>
+class __$$_DerivedKeyUpdateParamsChangePasswordChangePasswordCopyWithImpl<$Res>
     extends _$DerivedKeyUpdateParamsChangePasswordCopyWithImpl<$Res,
-        _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl>
+        _$_DerivedKeyUpdateParamsChangePasswordChangePassword>
     implements
-        _$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplCopyWith<
-            $Res> {
-  __$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplCopyWithImpl(
-      _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl _value,
-      $Res Function(_$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl)
+        _$$_DerivedKeyUpdateParamsChangePasswordChangePasswordCopyWith<$Res> {
+  __$$_DerivedKeyUpdateParamsChangePasswordChangePasswordCopyWithImpl(
+      _$_DerivedKeyUpdateParamsChangePasswordChangePassword _value,
+      $Res Function(_$_DerivedKeyUpdateParamsChangePasswordChangePassword)
           _then)
       : super(_value, _then);
 
@@ -149,7 +145,7 @@ class __$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplCopyWithImpl<
     Object? oldPassword = null,
     Object? newPassword = null,
   }) {
-    return _then(_$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl(
+    return _then(_$_DerivedKeyUpdateParamsChangePasswordChangePassword(
       masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
@@ -169,16 +165,16 @@ class __$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplCopyWithImpl<
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl
+class _$_DerivedKeyUpdateParamsChangePasswordChangePassword
     implements _DerivedKeyUpdateParamsChangePasswordChangePassword {
-  const _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl(
+  const _$_DerivedKeyUpdateParamsChangePasswordChangePassword(
       {required this.masterKey,
       required this.oldPassword,
       required this.newPassword});
 
-  factory _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl.fromJson(
+  factory _$_DerivedKeyUpdateParamsChangePasswordChangePassword.fromJson(
           Map<String, dynamic> json) =>
-      _$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplFromJson(json);
+      _$$_DerivedKeyUpdateParamsChangePasswordChangePasswordFromJson(json);
 
   @override
   final PublicKey masterKey;
@@ -196,7 +192,7 @@ class _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl &&
+            other is _$_DerivedKeyUpdateParamsChangePasswordChangePassword &&
             (identical(other.masterKey, masterKey) ||
                 other.masterKey == masterKey) &&
             (identical(other.oldPassword, oldPassword) ||
@@ -213,16 +209,16 @@ class _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplCopyWith<
-          _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl>
+  _$$_DerivedKeyUpdateParamsChangePasswordChangePasswordCopyWith<
+          _$_DerivedKeyUpdateParamsChangePasswordChangePassword>
       get copyWith =>
-          __$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplCopyWithImpl<
-                  _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl>(
+          __$$_DerivedKeyUpdateParamsChangePasswordChangePasswordCopyWithImpl<
+                  _$_DerivedKeyUpdateParamsChangePasswordChangePassword>(
               this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplToJson(
+    return _$$_DerivedKeyUpdateParamsChangePasswordChangePasswordToJson(
       this,
     );
   }
@@ -234,11 +230,11 @@ abstract class _DerivedKeyUpdateParamsChangePasswordChangePassword
           {required final PublicKey masterKey,
           required final Password oldPassword,
           required final Password newPassword}) =
-      _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl;
+      _$_DerivedKeyUpdateParamsChangePasswordChangePassword;
 
   factory _DerivedKeyUpdateParamsChangePasswordChangePassword.fromJson(
           Map<String, dynamic> json) =
-      _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl.fromJson;
+      _$_DerivedKeyUpdateParamsChangePasswordChangePassword.fromJson;
 
   @override
   PublicKey get masterKey;
@@ -248,7 +244,7 @@ abstract class _DerivedKeyUpdateParamsChangePasswordChangePassword
   Password get newPassword;
   @override
   @JsonKey(ignore: true)
-  _$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplCopyWith<
-          _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl>
+  _$$_DerivedKeyUpdateParamsChangePasswordChangePasswordCopyWith<
+          _$_DerivedKeyUpdateParamsChangePasswordChangePassword>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -6,15 +6,15 @@ part of 'signed_message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SignedMessageImpl _$$SignedMessageImplFromJson(Map<String, dynamic> json) =>
-    _$SignedMessageImpl(
+_$_SignedMessage _$$_SignedMessageFromJson(Map<String, dynamic> json) =>
+    _$_SignedMessage(
       hash: json['hash'] as String,
       expireAt:
           dateSecondsSinceEpochJsonConverter.fromJson(json['expireAt'] as int),
       boc: json['boc'] as String,
     );
 
-Map<String, dynamic> _$$SignedMessageImplToJson(_$SignedMessageImpl instance) =>
+Map<String, dynamic> _$$_SignedMessageToJson(_$_SignedMessage instance) =>
     <String, dynamic>{
       'hash': instance.hash,
       'expireAt': dateSecondsSinceEpochJsonConverter.toJson(instance.expireAt),

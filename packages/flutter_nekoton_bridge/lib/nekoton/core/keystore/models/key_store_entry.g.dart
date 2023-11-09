@@ -6,8 +6,8 @@ part of 'key_store_entry.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$KeyStoreEntryImpl _$$KeyStoreEntryImplFromJson(Map<String, dynamic> json) =>
-    _$KeyStoreEntryImpl(
+_$_KeyStoreEntry _$$_KeyStoreEntryFromJson(Map<String, dynamic> json) =>
+    _$_KeyStoreEntry(
       signerName: json['signer_name'] as String,
       name: json['name'] as String,
       publicKey: PublicKey.fromJson(json['public_key'] as String),
@@ -15,7 +15,7 @@ _$KeyStoreEntryImpl _$$KeyStoreEntryImplFromJson(Map<String, dynamic> json) =>
       accountId: json['account_id'] as int,
     );
 
-Map<String, dynamic> _$$KeyStoreEntryImplToJson(_$KeyStoreEntryImpl instance) =>
+Map<String, dynamic> _$$_KeyStoreEntryToJson(_$_KeyStoreEntry instance) =>
     <String, dynamic>{
       'signer_name': instance.signerName,
       'name': instance.name,

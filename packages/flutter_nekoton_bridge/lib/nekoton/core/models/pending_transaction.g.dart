@@ -6,17 +6,17 @@ part of 'pending_transaction.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PendingTransactionImpl _$$PendingTransactionImplFromJson(
+_$_PendingTransaction _$$_PendingTransactionFromJson(
         Map<String, dynamic> json) =>
-    _$PendingTransactionImpl(
+    _$_PendingTransaction(
       messageHash: json['messageHash'] as String,
       src: json['src'] == null ? null : Address.fromJson(json['src'] as String),
       expireAt:
           dateSecondsSinceEpochJsonConverter.fromJson(json['expireAt'] as int),
     );
 
-Map<String, dynamic> _$$PendingTransactionImplToJson(
-        _$PendingTransactionImpl instance) =>
+Map<String, dynamic> _$$_PendingTransactionToJson(
+        _$_PendingTransaction instance) =>
     <String, dynamic>{
       'messageHash': instance.messageHash,
       'src': instance.src?.toJson(),

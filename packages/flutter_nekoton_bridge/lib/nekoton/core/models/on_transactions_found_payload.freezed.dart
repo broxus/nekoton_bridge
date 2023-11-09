@@ -81,12 +81,12 @@ class _$OnTransactionsFoundPayloadCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$OnTransactionsFoundPayloadImplCopyWith<$Res>
+abstract class _$$_OnTransactionsFoundPayloadCopyWith<$Res>
     implements $OnTransactionsFoundPayloadCopyWith<$Res> {
-  factory _$$OnTransactionsFoundPayloadImplCopyWith(
-          _$OnTransactionsFoundPayloadImpl value,
-          $Res Function(_$OnTransactionsFoundPayloadImpl) then) =
-      __$$OnTransactionsFoundPayloadImplCopyWithImpl<$Res>;
+  factory _$$_OnTransactionsFoundPayloadCopyWith(
+          _$_OnTransactionsFoundPayload value,
+          $Res Function(_$_OnTransactionsFoundPayload) then) =
+      __$$_OnTransactionsFoundPayloadCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Transaction> transactions, TransactionsBatchInfo batchInfo});
@@ -96,13 +96,13 @@ abstract class _$$OnTransactionsFoundPayloadImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$OnTransactionsFoundPayloadImplCopyWithImpl<$Res>
+class __$$_OnTransactionsFoundPayloadCopyWithImpl<$Res>
     extends _$OnTransactionsFoundPayloadCopyWithImpl<$Res,
-        _$OnTransactionsFoundPayloadImpl>
-    implements _$$OnTransactionsFoundPayloadImplCopyWith<$Res> {
-  __$$OnTransactionsFoundPayloadImplCopyWithImpl(
-      _$OnTransactionsFoundPayloadImpl _value,
-      $Res Function(_$OnTransactionsFoundPayloadImpl) _then)
+        _$_OnTransactionsFoundPayload>
+    implements _$$_OnTransactionsFoundPayloadCopyWith<$Res> {
+  __$$_OnTransactionsFoundPayloadCopyWithImpl(
+      _$_OnTransactionsFoundPayload _value,
+      $Res Function(_$_OnTransactionsFoundPayload) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +111,7 @@ class __$$OnTransactionsFoundPayloadImplCopyWithImpl<$Res>
     Object? transactions = null,
     Object? batchInfo = null,
   }) {
-    return _then(_$OnTransactionsFoundPayloadImpl(
+    return _then(_$_OnTransactionsFoundPayload(
       transactions: null == transactions
           ? _value._transactions
           : transactions // ignore: cast_nullable_to_non_nullable
@@ -127,14 +127,13 @@ class __$$OnTransactionsFoundPayloadImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
-class _$OnTransactionsFoundPayloadImpl implements _OnTransactionsFoundPayload {
-  const _$OnTransactionsFoundPayloadImpl(
+class _$_OnTransactionsFoundPayload implements _OnTransactionsFoundPayload {
+  const _$_OnTransactionsFoundPayload(
       {required final List<Transaction> transactions, required this.batchInfo})
       : _transactions = transactions;
 
-  factory _$OnTransactionsFoundPayloadImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$OnTransactionsFoundPayloadImplFromJson(json);
+  factory _$_OnTransactionsFoundPayload.fromJson(Map<String, dynamic> json) =>
+      _$$_OnTransactionsFoundPayloadFromJson(json);
 
   final List<Transaction> _transactions;
   @override
@@ -156,7 +155,7 @@ class _$OnTransactionsFoundPayloadImpl implements _OnTransactionsFoundPayload {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OnTransactionsFoundPayloadImpl &&
+            other is _$_OnTransactionsFoundPayload &&
             const DeepCollectionEquality()
                 .equals(other._transactions, _transactions) &&
             (identical(other.batchInfo, batchInfo) ||
@@ -171,13 +170,13 @@ class _$OnTransactionsFoundPayloadImpl implements _OnTransactionsFoundPayload {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OnTransactionsFoundPayloadImplCopyWith<_$OnTransactionsFoundPayloadImpl>
-      get copyWith => __$$OnTransactionsFoundPayloadImplCopyWithImpl<
-          _$OnTransactionsFoundPayloadImpl>(this, _$identity);
+  _$$_OnTransactionsFoundPayloadCopyWith<_$_OnTransactionsFoundPayload>
+      get copyWith => __$$_OnTransactionsFoundPayloadCopyWithImpl<
+          _$_OnTransactionsFoundPayload>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OnTransactionsFoundPayloadImplToJson(
+    return _$$_OnTransactionsFoundPayloadToJson(
       this,
     );
   }
@@ -188,10 +187,10 @@ abstract class _OnTransactionsFoundPayload
   const factory _OnTransactionsFoundPayload(
           {required final List<Transaction> transactions,
           required final TransactionsBatchInfo batchInfo}) =
-      _$OnTransactionsFoundPayloadImpl;
+      _$_OnTransactionsFoundPayload;
 
   factory _OnTransactionsFoundPayload.fromJson(Map<String, dynamic> json) =
-      _$OnTransactionsFoundPayloadImpl.fromJson;
+      _$_OnTransactionsFoundPayload.fromJson;
 
   @override
   List<Transaction> get transactions;
@@ -199,6 +198,6 @@ abstract class _OnTransactionsFoundPayload
   TransactionsBatchInfo get batchInfo;
   @override
   @JsonKey(ignore: true)
-  _$$OnTransactionsFoundPayloadImplCopyWith<_$OnTransactionsFoundPayloadImpl>
+  _$$_OnTransactionsFoundPayloadCopyWith<_$_OnTransactionsFoundPayload>
       get copyWith => throw _privateConstructorUsedError;
 }

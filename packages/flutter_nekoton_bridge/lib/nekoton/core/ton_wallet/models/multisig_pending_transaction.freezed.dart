@@ -156,12 +156,12 @@ class _$MultisigPendingTransactionCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$MultisigPendingTransactionImplCopyWith<$Res>
+abstract class _$$_MultisigPendingTransactionCopyWith<$Res>
     implements $MultisigPendingTransactionCopyWith<$Res> {
-  factory _$$MultisigPendingTransactionImplCopyWith(
-          _$MultisigPendingTransactionImpl value,
-          $Res Function(_$MultisigPendingTransactionImpl) then) =
-      __$$MultisigPendingTransactionImplCopyWithImpl<$Res>;
+  factory _$$_MultisigPendingTransactionCopyWith(
+          _$_MultisigPendingTransaction value,
+          $Res Function(_$_MultisigPendingTransaction) then) =
+      __$$_MultisigPendingTransactionCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -184,13 +184,13 @@ abstract class _$$MultisigPendingTransactionImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$MultisigPendingTransactionImplCopyWithImpl<$Res>
+class __$$_MultisigPendingTransactionCopyWithImpl<$Res>
     extends _$MultisigPendingTransactionCopyWithImpl<$Res,
-        _$MultisigPendingTransactionImpl>
-    implements _$$MultisigPendingTransactionImplCopyWith<$Res> {
-  __$$MultisigPendingTransactionImplCopyWithImpl(
-      _$MultisigPendingTransactionImpl _value,
-      $Res Function(_$MultisigPendingTransactionImpl) _then)
+        _$_MultisigPendingTransaction>
+    implements _$$_MultisigPendingTransactionCopyWith<$Res> {
+  __$$_MultisigPendingTransactionCopyWithImpl(
+      _$_MultisigPendingTransaction _value,
+      $Res Function(_$_MultisigPendingTransaction) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -208,7 +208,7 @@ class __$$MultisigPendingTransactionImplCopyWithImpl<$Res>
     Object? payload = null,
     Object? bounce = null,
   }) {
-    return _then(_$MultisigPendingTransactionImpl(
+    return _then(_$_MultisigPendingTransaction(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -260,8 +260,8 @@ class __$$MultisigPendingTransactionImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$MultisigPendingTransactionImpl implements _MultisigPendingTransaction {
-  const _$MultisigPendingTransactionImpl(
+class _$_MultisigPendingTransaction implements _MultisigPendingTransaction {
+  const _$_MultisigPendingTransaction(
       {required this.id,
       required final List<PublicKey> confirmations,
       required this.signsRequired,
@@ -275,9 +275,8 @@ class _$MultisigPendingTransactionImpl implements _MultisigPendingTransaction {
       required this.bounce})
       : _confirmations = confirmations;
 
-  factory _$MultisigPendingTransactionImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$MultisigPendingTransactionImplFromJson(json);
+  factory _$_MultisigPendingTransaction.fromJson(Map<String, dynamic> json) =>
+      _$$_MultisigPendingTransactionFromJson(json);
 
   @override
   final String id;
@@ -318,7 +317,7 @@ class _$MultisigPendingTransactionImpl implements _MultisigPendingTransaction {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MultisigPendingTransactionImpl &&
+            other is _$_MultisigPendingTransaction &&
             (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality()
                 .equals(other._confirmations, _confirmations) &&
@@ -355,13 +354,13 @@ class _$MultisigPendingTransactionImpl implements _MultisigPendingTransaction {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MultisigPendingTransactionImplCopyWith<_$MultisigPendingTransactionImpl>
-      get copyWith => __$$MultisigPendingTransactionImplCopyWithImpl<
-          _$MultisigPendingTransactionImpl>(this, _$identity);
+  _$$_MultisigPendingTransactionCopyWith<_$_MultisigPendingTransaction>
+      get copyWith => __$$_MultisigPendingTransactionCopyWithImpl<
+          _$_MultisigPendingTransaction>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$MultisigPendingTransactionImplToJson(
+    return _$$_MultisigPendingTransactionToJson(
       this,
     );
   }
@@ -380,10 +379,10 @@ abstract class _MultisigPendingTransaction
       @amountJsonConverter required final BigInt value,
       required final int sendFlags,
       required final String payload,
-      required final bool bounce}) = _$MultisigPendingTransactionImpl;
+      required final bool bounce}) = _$_MultisigPendingTransaction;
 
   factory _MultisigPendingTransaction.fromJson(Map<String, dynamic> json) =
-      _$MultisigPendingTransactionImpl.fromJson;
+      _$_MultisigPendingTransaction.fromJson;
 
   @override
   String get id;
@@ -410,6 +409,6 @@ abstract class _MultisigPendingTransaction
   bool get bounce;
   @override
   @JsonKey(ignore: true)
-  _$$MultisigPendingTransactionImplCopyWith<_$MultisigPendingTransactionImpl>
+  _$$_MultisigPendingTransactionCopyWith<_$_MultisigPendingTransaction>
       get copyWith => throw _privateConstructorUsedError;
 }

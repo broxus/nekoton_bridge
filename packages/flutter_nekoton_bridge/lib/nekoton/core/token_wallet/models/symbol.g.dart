@@ -6,15 +6,14 @@ part of 'symbol.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SymbolImpl _$$SymbolImplFromJson(Map<String, dynamic> json) => _$SymbolImpl(
+_$_Symbol _$$_SymbolFromJson(Map<String, dynamic> json) => _$_Symbol(
       name: json['name'] as String,
       fullName: json['fullName'] as String,
       decimals: json['decimals'] as int,
       rootTokenContract: Address.fromJson(json['rootTokenContract'] as String),
     );
 
-Map<String, dynamic> _$$SymbolImplToJson(_$SymbolImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$_SymbolToJson(_$_Symbol instance) => <String, dynamic>{
       'name': instance.name,
       'fullName': instance.fullName,
       'decimals': instance.decimals,

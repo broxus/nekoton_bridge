@@ -104,12 +104,12 @@ class _$DerivedKeyCreateInputDeriveCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$DerivedKeyCreateInputDeriveDeriveImplCopyWith<$Res>
+abstract class _$$_DerivedKeyCreateInputDeriveDeriveCopyWith<$Res>
     implements $DerivedKeyCreateInputDeriveCopyWith<$Res> {
-  factory _$$DerivedKeyCreateInputDeriveDeriveImplCopyWith(
-          _$DerivedKeyCreateInputDeriveDeriveImpl value,
-          $Res Function(_$DerivedKeyCreateInputDeriveDeriveImpl) then) =
-      __$$DerivedKeyCreateInputDeriveDeriveImplCopyWithImpl<$Res>;
+  factory _$$_DerivedKeyCreateInputDeriveDeriveCopyWith(
+          _$_DerivedKeyCreateInputDeriveDerive value,
+          $Res Function(_$_DerivedKeyCreateInputDeriveDerive) then) =
+      __$$_DerivedKeyCreateInputDeriveDeriveCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -122,13 +122,13 @@ abstract class _$$DerivedKeyCreateInputDeriveDeriveImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$DerivedKeyCreateInputDeriveDeriveImplCopyWithImpl<$Res>
+class __$$_DerivedKeyCreateInputDeriveDeriveCopyWithImpl<$Res>
     extends _$DerivedKeyCreateInputDeriveCopyWithImpl<$Res,
-        _$DerivedKeyCreateInputDeriveDeriveImpl>
-    implements _$$DerivedKeyCreateInputDeriveDeriveImplCopyWith<$Res> {
-  __$$DerivedKeyCreateInputDeriveDeriveImplCopyWithImpl(
-      _$DerivedKeyCreateInputDeriveDeriveImpl _value,
-      $Res Function(_$DerivedKeyCreateInputDeriveDeriveImpl) _then)
+        _$_DerivedKeyCreateInputDeriveDerive>
+    implements _$$_DerivedKeyCreateInputDeriveDeriveCopyWith<$Res> {
+  __$$_DerivedKeyCreateInputDeriveDeriveCopyWithImpl(
+      _$_DerivedKeyCreateInputDeriveDerive _value,
+      $Res Function(_$_DerivedKeyCreateInputDeriveDerive) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -139,7 +139,7 @@ class __$$DerivedKeyCreateInputDeriveDeriveImplCopyWithImpl<$Res>
     Object? accountId = null,
     Object? password = null,
   }) {
-    return _then(_$DerivedKeyCreateInputDeriveDeriveImpl(
+    return _then(_$_DerivedKeyCreateInputDeriveDerive(
       keyName: freezed == keyName
           ? _value.keyName
           : keyName // ignore: cast_nullable_to_non_nullable
@@ -163,17 +163,17 @@ class __$$DerivedKeyCreateInputDeriveDeriveImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$DerivedKeyCreateInputDeriveDeriveImpl
+class _$_DerivedKeyCreateInputDeriveDerive
     implements _DerivedKeyCreateInputDeriveDerive {
-  const _$DerivedKeyCreateInputDeriveDeriveImpl(
+  const _$_DerivedKeyCreateInputDeriveDerive(
       {this.keyName,
       required this.masterKey,
       required this.accountId,
       required this.password});
 
-  factory _$DerivedKeyCreateInputDeriveDeriveImpl.fromJson(
+  factory _$_DerivedKeyCreateInputDeriveDerive.fromJson(
           Map<String, dynamic> json) =>
-      _$$DerivedKeyCreateInputDeriveDeriveImplFromJson(json);
+      _$$_DerivedKeyCreateInputDeriveDeriveFromJson(json);
 
   @override
   final String? keyName;
@@ -193,7 +193,7 @@ class _$DerivedKeyCreateInputDeriveDeriveImpl
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DerivedKeyCreateInputDeriveDeriveImpl &&
+            other is _$_DerivedKeyCreateInputDeriveDerive &&
             (identical(other.keyName, keyName) || other.keyName == keyName) &&
             (identical(other.masterKey, masterKey) ||
                 other.masterKey == masterKey) &&
@@ -211,14 +211,14 @@ class _$DerivedKeyCreateInputDeriveDeriveImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DerivedKeyCreateInputDeriveDeriveImplCopyWith<
-          _$DerivedKeyCreateInputDeriveDeriveImpl>
-      get copyWith => __$$DerivedKeyCreateInputDeriveDeriveImplCopyWithImpl<
-          _$DerivedKeyCreateInputDeriveDeriveImpl>(this, _$identity);
+  _$$_DerivedKeyCreateInputDeriveDeriveCopyWith<
+          _$_DerivedKeyCreateInputDeriveDerive>
+      get copyWith => __$$_DerivedKeyCreateInputDeriveDeriveCopyWithImpl<
+          _$_DerivedKeyCreateInputDeriveDerive>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DerivedKeyCreateInputDeriveDeriveImplToJson(
+    return _$$_DerivedKeyCreateInputDeriveDeriveToJson(
       this,
     );
   }
@@ -227,15 +227,14 @@ class _$DerivedKeyCreateInputDeriveDeriveImpl
 abstract class _DerivedKeyCreateInputDeriveDerive
     implements DerivedKeyCreateInputDerive {
   const factory _DerivedKeyCreateInputDeriveDerive(
-          {final String? keyName,
-          required final PublicKey masterKey,
-          required final int accountId,
-          required final Password password}) =
-      _$DerivedKeyCreateInputDeriveDeriveImpl;
+      {final String? keyName,
+      required final PublicKey masterKey,
+      required final int accountId,
+      required final Password password}) = _$_DerivedKeyCreateInputDeriveDerive;
 
   factory _DerivedKeyCreateInputDeriveDerive.fromJson(
           Map<String, dynamic> json) =
-      _$DerivedKeyCreateInputDeriveDeriveImpl.fromJson;
+      _$_DerivedKeyCreateInputDeriveDerive.fromJson;
 
   @override
   String? get keyName;
@@ -247,7 +246,7 @@ abstract class _DerivedKeyCreateInputDeriveDerive
   Password get password;
   @override
   @JsonKey(ignore: true)
-  _$$DerivedKeyCreateInputDeriveDeriveImplCopyWith<
-          _$DerivedKeyCreateInputDeriveDeriveImpl>
+  _$$_DerivedKeyCreateInputDeriveDeriveCopyWith<
+          _$_DerivedKeyCreateInputDeriveDerive>
       get copyWith => throw _privateConstructorUsedError;
 }

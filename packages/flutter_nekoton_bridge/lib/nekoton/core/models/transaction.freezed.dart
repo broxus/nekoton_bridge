@@ -169,11 +169,11 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
 }
 
 /// @nodoc
-abstract class _$$TransactionImplCopyWith<$Res>
+abstract class _$$_TransactionCopyWith<$Res>
     implements $TransactionCopyWith<$Res> {
-  factory _$$TransactionImplCopyWith(
-          _$TransactionImpl value, $Res Function(_$TransactionImpl) then) =
-      __$$TransactionImplCopyWithImpl<$Res>;
+  factory _$$_TransactionCopyWith(
+          _$_Transaction value, $Res Function(_$_Transaction) then) =
+      __$$_TransactionCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -198,11 +198,11 @@ abstract class _$$TransactionImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$TransactionImplCopyWithImpl<$Res>
-    extends _$TransactionCopyWithImpl<$Res, _$TransactionImpl>
-    implements _$$TransactionImplCopyWith<$Res> {
-  __$$TransactionImplCopyWithImpl(
-      _$TransactionImpl _value, $Res Function(_$TransactionImpl) _then)
+class __$$_TransactionCopyWithImpl<$Res>
+    extends _$TransactionCopyWithImpl<$Res, _$_Transaction>
+    implements _$$_TransactionCopyWith<$Res> {
+  __$$_TransactionCopyWithImpl(
+      _$_Transaction _value, $Res Function(_$_Transaction) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -220,7 +220,7 @@ class __$$TransactionImplCopyWithImpl<$Res>
     Object? inMessage = null,
     Object? outMessages = null,
   }) {
-    return _then(_$TransactionImpl(
+    return _then(_$_Transaction(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -271,8 +271,8 @@ class __$$TransactionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TransactionImpl extends _Transaction {
-  const _$TransactionImpl(
+class _$_Transaction extends _Transaction {
+  const _$_Transaction(
       {required this.id,
       this.prevTransactionId,
       @dateSecondsSinceEpochJsonConverter required this.createdAt,
@@ -287,8 +287,8 @@ class _$TransactionImpl extends _Transaction {
       : _outMessages = outMessages,
         super._();
 
-  factory _$TransactionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TransactionImplFromJson(json);
+  factory _$_Transaction.fromJson(Map<String, dynamic> json) =>
+      _$$_TransactionFromJson(json);
 
   @override
   final TransactionId id;
@@ -331,7 +331,7 @@ class _$TransactionImpl extends _Transaction {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TransactionImpl &&
+            other is _$_Transaction &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.prevTransactionId, prevTransactionId) ||
                 other.prevTransactionId == prevTransactionId) &&
@@ -373,12 +373,12 @@ class _$TransactionImpl extends _Transaction {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TransactionImplCopyWith<_$TransactionImpl> get copyWith =>
-      __$$TransactionImplCopyWithImpl<_$TransactionImpl>(this, _$identity);
+  _$$_TransactionCopyWith<_$_Transaction> get copyWith =>
+      __$$_TransactionCopyWithImpl<_$_Transaction>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TransactionImplToJson(
+    return _$$_TransactionToJson(
       this,
     );
   }
@@ -396,11 +396,11 @@ abstract class _Transaction extends Transaction {
       required final AccountStatus endStatus,
       @amountJsonConverter required final BigInt totalFees,
       required final Message inMessage,
-      required final List<Message> outMessages}) = _$TransactionImpl;
+      required final List<Message> outMessages}) = _$_Transaction;
   const _Transaction._() : super._();
 
   factory _Transaction.fromJson(Map<String, dynamic> json) =
-      _$TransactionImpl.fromJson;
+      _$_Transaction.fromJson;
 
   @override
   TransactionId get id;
@@ -430,6 +430,6 @@ abstract class _Transaction extends Transaction {
   List<Message> get outMessages;
   @override
   @JsonKey(ignore: true)
-  _$$TransactionImplCopyWith<_$TransactionImpl> get copyWith =>
+  _$$_TransactionCopyWith<_$_Transaction> get copyWith =>
       throw _privateConstructorUsedError;
 }

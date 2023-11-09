@@ -6,9 +6,9 @@ part of 'root_token_contract_details.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RootTokenContractDetailsImpl _$$RootTokenContractDetailsImplFromJson(
+_$_RootTokenContractDetails _$$_RootTokenContractDetailsFromJson(
         Map<String, dynamic> json) =>
-    _$RootTokenContractDetailsImpl(
+    _$_RootTokenContractDetails(
       version: $enumDecode(_$TokenWalletVersionEnumMap, json['version']),
       name: json['name'] as String,
       symbol: json['symbol'] as String,
@@ -17,8 +17,8 @@ _$RootTokenContractDetailsImpl _$$RootTokenContractDetailsImplFromJson(
       totalSupply: json['total_supply'] as String,
     );
 
-Map<String, dynamic> _$$RootTokenContractDetailsImplToJson(
-        _$RootTokenContractDetailsImpl instance) =>
+Map<String, dynamic> _$$_RootTokenContractDetailsToJson(
+        _$_RootTokenContractDetails instance) =>
     <String, dynamic>{
       'version': _$TokenWalletVersionEnumMap[instance.version]!,
       'name': instance.name,

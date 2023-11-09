@@ -94,11 +94,11 @@ class _$OnMessageSentPayloadCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$OnMessageSentPayloadImplCopyWith<$Res>
+abstract class _$$_OnMessageSentPayloadCopyWith<$Res>
     implements $OnMessageSentPayloadCopyWith<$Res> {
-  factory _$$OnMessageSentPayloadImplCopyWith(_$OnMessageSentPayloadImpl value,
-          $Res Function(_$OnMessageSentPayloadImpl) then) =
-      __$$OnMessageSentPayloadImplCopyWithImpl<$Res>;
+  factory _$$_OnMessageSentPayloadCopyWith(_$_OnMessageSentPayload value,
+          $Res Function(_$_OnMessageSentPayload) then) =
+      __$$_OnMessageSentPayloadCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PendingTransaction pendingTransaction, Transaction? transaction});
@@ -110,11 +110,11 @@ abstract class _$$OnMessageSentPayloadImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$OnMessageSentPayloadImplCopyWithImpl<$Res>
-    extends _$OnMessageSentPayloadCopyWithImpl<$Res, _$OnMessageSentPayloadImpl>
-    implements _$$OnMessageSentPayloadImplCopyWith<$Res> {
-  __$$OnMessageSentPayloadImplCopyWithImpl(_$OnMessageSentPayloadImpl _value,
-      $Res Function(_$OnMessageSentPayloadImpl) _then)
+class __$$_OnMessageSentPayloadCopyWithImpl<$Res>
+    extends _$OnMessageSentPayloadCopyWithImpl<$Res, _$_OnMessageSentPayload>
+    implements _$$_OnMessageSentPayloadCopyWith<$Res> {
+  __$$_OnMessageSentPayloadCopyWithImpl(_$_OnMessageSentPayload _value,
+      $Res Function(_$_OnMessageSentPayload) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +123,7 @@ class __$$OnMessageSentPayloadImplCopyWithImpl<$Res>
     Object? pendingTransaction = null,
     Object? transaction = freezed,
   }) {
-    return _then(_$OnMessageSentPayloadImpl(
+    return _then(_$_OnMessageSentPayload(
       pendingTransaction: null == pendingTransaction
           ? _value.pendingTransaction
           : pendingTransaction // ignore: cast_nullable_to_non_nullable
@@ -139,12 +139,12 @@ class __$$OnMessageSentPayloadImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
-class _$OnMessageSentPayloadImpl implements _OnMessageSentPayload {
-  const _$OnMessageSentPayloadImpl(
+class _$_OnMessageSentPayload implements _OnMessageSentPayload {
+  const _$_OnMessageSentPayload(
       {required this.pendingTransaction, this.transaction});
 
-  factory _$OnMessageSentPayloadImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OnMessageSentPayloadImplFromJson(json);
+  factory _$_OnMessageSentPayload.fromJson(Map<String, dynamic> json) =>
+      _$$_OnMessageSentPayloadFromJson(json);
 
   @override
   final PendingTransaction pendingTransaction;
@@ -160,7 +160,7 @@ class _$OnMessageSentPayloadImpl implements _OnMessageSentPayload {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OnMessageSentPayloadImpl &&
+            other is _$_OnMessageSentPayload &&
             (identical(other.pendingTransaction, pendingTransaction) ||
                 other.pendingTransaction == pendingTransaction) &&
             (identical(other.transaction, transaction) ||
@@ -174,14 +174,13 @@ class _$OnMessageSentPayloadImpl implements _OnMessageSentPayload {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OnMessageSentPayloadImplCopyWith<_$OnMessageSentPayloadImpl>
-      get copyWith =>
-          __$$OnMessageSentPayloadImplCopyWithImpl<_$OnMessageSentPayloadImpl>(
-              this, _$identity);
+  _$$_OnMessageSentPayloadCopyWith<_$_OnMessageSentPayload> get copyWith =>
+      __$$_OnMessageSentPayloadCopyWithImpl<_$_OnMessageSentPayload>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OnMessageSentPayloadImplToJson(
+    return _$$_OnMessageSentPayloadToJson(
       this,
     );
   }
@@ -190,10 +189,10 @@ class _$OnMessageSentPayloadImpl implements _OnMessageSentPayload {
 abstract class _OnMessageSentPayload implements OnMessageSentPayload {
   const factory _OnMessageSentPayload(
       {required final PendingTransaction pendingTransaction,
-      final Transaction? transaction}) = _$OnMessageSentPayloadImpl;
+      final Transaction? transaction}) = _$_OnMessageSentPayload;
 
   factory _OnMessageSentPayload.fromJson(Map<String, dynamic> json) =
-      _$OnMessageSentPayloadImpl.fromJson;
+      _$_OnMessageSentPayload.fromJson;
 
   @override
   PendingTransaction get pendingTransaction;
@@ -201,6 +200,6 @@ abstract class _OnMessageSentPayload implements OnMessageSentPayload {
   Transaction? get transaction;
   @override
   @JsonKey(ignore: true)
-  _$$OnMessageSentPayloadImplCopyWith<_$OnMessageSentPayloadImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_OnMessageSentPayloadCopyWith<_$_OnMessageSentPayload> get copyWith =>
+      throw _privateConstructorUsedError;
 }

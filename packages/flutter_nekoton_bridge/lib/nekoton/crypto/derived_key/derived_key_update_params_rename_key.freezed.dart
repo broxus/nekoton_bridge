@@ -97,12 +97,12 @@ class _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWith<$Res>
+abstract class _$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWith<$Res>
     implements $DerivedKeyUpdateParamsRenameKeyCopyWith<$Res> {
-  factory _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWith(
-          _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl value,
-          $Res Function(_$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl) then) =
-      __$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWithImpl<$Res>;
+  factory _$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWith(
+          _$_DerivedKeyUpdateParamsRenameKeyRenameKey value,
+          $Res Function(_$_DerivedKeyUpdateParamsRenameKeyRenameKey) then) =
+      __$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PublicKey masterKey, PublicKey publicKey, String name});
@@ -114,13 +114,13 @@ abstract class _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWithImpl<$Res>
+class __$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWithImpl<$Res>
     extends _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res,
-        _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl>
-    implements _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWith<$Res> {
-  __$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWithImpl(
-      _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl _value,
-      $Res Function(_$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl) _then)
+        _$_DerivedKeyUpdateParamsRenameKeyRenameKey>
+    implements _$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWith<$Res> {
+  __$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWithImpl(
+      _$_DerivedKeyUpdateParamsRenameKeyRenameKey _value,
+      $Res Function(_$_DerivedKeyUpdateParamsRenameKeyRenameKey) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -130,7 +130,7 @@ class __$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWithImpl<$Res>
     Object? publicKey = null,
     Object? name = null,
   }) {
-    return _then(_$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl(
+    return _then(_$_DerivedKeyUpdateParamsRenameKeyRenameKey(
       masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
@@ -150,14 +150,14 @@ class __$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl
+class _$_DerivedKeyUpdateParamsRenameKeyRenameKey
     implements _DerivedKeyUpdateParamsRenameKeyRenameKey {
-  const _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl(
+  const _$_DerivedKeyUpdateParamsRenameKeyRenameKey(
       {required this.masterKey, required this.publicKey, required this.name});
 
-  factory _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl.fromJson(
+  factory _$_DerivedKeyUpdateParamsRenameKeyRenameKey.fromJson(
           Map<String, dynamic> json) =>
-      _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplFromJson(json);
+      _$$_DerivedKeyUpdateParamsRenameKeyRenameKeyFromJson(json);
 
   @override
   final PublicKey masterKey;
@@ -175,7 +175,7 @@ class _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl &&
+            other is _$_DerivedKeyUpdateParamsRenameKeyRenameKey &&
             (identical(other.masterKey, masterKey) ||
                 other.masterKey == masterKey) &&
             (identical(other.publicKey, publicKey) ||
@@ -190,15 +190,14 @@ class _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWith<
-          _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl>
-      get copyWith =>
-          __$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWithImpl<
-              _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl>(this, _$identity);
+  _$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWith<
+          _$_DerivedKeyUpdateParamsRenameKeyRenameKey>
+      get copyWith => __$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWithImpl<
+          _$_DerivedKeyUpdateParamsRenameKeyRenameKey>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplToJson(
+    return _$$_DerivedKeyUpdateParamsRenameKeyRenameKeyToJson(
       this,
     );
   }
@@ -210,11 +209,11 @@ abstract class _DerivedKeyUpdateParamsRenameKeyRenameKey
           {required final PublicKey masterKey,
           required final PublicKey publicKey,
           required final String name}) =
-      _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl;
+      _$_DerivedKeyUpdateParamsRenameKeyRenameKey;
 
   factory _DerivedKeyUpdateParamsRenameKeyRenameKey.fromJson(
           Map<String, dynamic> json) =
-      _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl.fromJson;
+      _$_DerivedKeyUpdateParamsRenameKeyRenameKey.fromJson;
 
   @override
   PublicKey get masterKey;
@@ -224,7 +223,7 @@ abstract class _DerivedKeyUpdateParamsRenameKeyRenameKey
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWith<
-          _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl>
+  _$$_DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWith<
+          _$_DerivedKeyUpdateParamsRenameKeyRenameKey>
       get copyWith => throw _privateConstructorUsedError;
 }

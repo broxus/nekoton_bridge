@@ -74,12 +74,12 @@ class _$EncryptedKeyGetPublicKeysCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$EncryptedKeyGetPublicKeysRenameImplCopyWith<$Res>
+abstract class _$$_EncryptedKeyGetPublicKeysRenameCopyWith<$Res>
     implements $EncryptedKeyGetPublicKeysCopyWith<$Res> {
-  factory _$$EncryptedKeyGetPublicKeysRenameImplCopyWith(
-          _$EncryptedKeyGetPublicKeysRenameImpl value,
-          $Res Function(_$EncryptedKeyGetPublicKeysRenameImpl) then) =
-      __$$EncryptedKeyGetPublicKeysRenameImplCopyWithImpl<$Res>;
+  factory _$$_EncryptedKeyGetPublicKeysRenameCopyWith(
+          _$_EncryptedKeyGetPublicKeysRename value,
+          $Res Function(_$_EncryptedKeyGetPublicKeysRename) then) =
+      __$$_EncryptedKeyGetPublicKeysRenameCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PublicKey publicKey});
@@ -89,13 +89,13 @@ abstract class _$$EncryptedKeyGetPublicKeysRenameImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$EncryptedKeyGetPublicKeysRenameImplCopyWithImpl<$Res>
+class __$$_EncryptedKeyGetPublicKeysRenameCopyWithImpl<$Res>
     extends _$EncryptedKeyGetPublicKeysCopyWithImpl<$Res,
-        _$EncryptedKeyGetPublicKeysRenameImpl>
-    implements _$$EncryptedKeyGetPublicKeysRenameImplCopyWith<$Res> {
-  __$$EncryptedKeyGetPublicKeysRenameImplCopyWithImpl(
-      _$EncryptedKeyGetPublicKeysRenameImpl _value,
-      $Res Function(_$EncryptedKeyGetPublicKeysRenameImpl) _then)
+        _$_EncryptedKeyGetPublicKeysRename>
+    implements _$$_EncryptedKeyGetPublicKeysRenameCopyWith<$Res> {
+  __$$_EncryptedKeyGetPublicKeysRenameCopyWithImpl(
+      _$_EncryptedKeyGetPublicKeysRename _value,
+      $Res Function(_$_EncryptedKeyGetPublicKeysRename) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -103,7 +103,7 @@ class __$$EncryptedKeyGetPublicKeysRenameImplCopyWithImpl<$Res>
   $Res call({
     Object? publicKey = null,
   }) {
-    return _then(_$EncryptedKeyGetPublicKeysRenameImpl(
+    return _then(_$_EncryptedKeyGetPublicKeysRename(
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
@@ -115,13 +115,13 @@ class __$$EncryptedKeyGetPublicKeysRenameImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$EncryptedKeyGetPublicKeysRenameImpl
+class _$_EncryptedKeyGetPublicKeysRename
     implements _EncryptedKeyGetPublicKeysRename {
-  const _$EncryptedKeyGetPublicKeysRenameImpl({required this.publicKey});
+  const _$_EncryptedKeyGetPublicKeysRename({required this.publicKey});
 
-  factory _$EncryptedKeyGetPublicKeysRenameImpl.fromJson(
+  factory _$_EncryptedKeyGetPublicKeysRename.fromJson(
           Map<String, dynamic> json) =>
-      _$$EncryptedKeyGetPublicKeysRenameImplFromJson(json);
+      _$$_EncryptedKeyGetPublicKeysRenameFromJson(json);
 
   @override
   final PublicKey publicKey;
@@ -135,7 +135,7 @@ class _$EncryptedKeyGetPublicKeysRenameImpl
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EncryptedKeyGetPublicKeysRenameImpl &&
+            other is _$_EncryptedKeyGetPublicKeysRename &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey));
   }
@@ -147,14 +147,14 @@ class _$EncryptedKeyGetPublicKeysRenameImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EncryptedKeyGetPublicKeysRenameImplCopyWith<
-          _$EncryptedKeyGetPublicKeysRenameImpl>
-      get copyWith => __$$EncryptedKeyGetPublicKeysRenameImplCopyWithImpl<
-          _$EncryptedKeyGetPublicKeysRenameImpl>(this, _$identity);
+  _$$_EncryptedKeyGetPublicKeysRenameCopyWith<
+          _$_EncryptedKeyGetPublicKeysRename>
+      get copyWith => __$$_EncryptedKeyGetPublicKeysRenameCopyWithImpl<
+          _$_EncryptedKeyGetPublicKeysRename>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$EncryptedKeyGetPublicKeysRenameImplToJson(
+    return _$$_EncryptedKeyGetPublicKeysRenameToJson(
       this,
     );
   }
@@ -164,16 +164,16 @@ abstract class _EncryptedKeyGetPublicKeysRename
     implements EncryptedKeyGetPublicKeys {
   const factory _EncryptedKeyGetPublicKeysRename(
           {required final PublicKey publicKey}) =
-      _$EncryptedKeyGetPublicKeysRenameImpl;
+      _$_EncryptedKeyGetPublicKeysRename;
 
   factory _EncryptedKeyGetPublicKeysRename.fromJson(Map<String, dynamic> json) =
-      _$EncryptedKeyGetPublicKeysRenameImpl.fromJson;
+      _$_EncryptedKeyGetPublicKeysRename.fromJson;
 
   @override
   PublicKey get publicKey;
   @override
   @JsonKey(ignore: true)
-  _$$EncryptedKeyGetPublicKeysRenameImplCopyWith<
-          _$EncryptedKeyGetPublicKeysRenameImpl>
+  _$$_EncryptedKeyGetPublicKeysRenameCopyWith<
+          _$_EncryptedKeyGetPublicKeysRename>
       get copyWith => throw _privateConstructorUsedError;
 }

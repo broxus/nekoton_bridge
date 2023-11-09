@@ -123,11 +123,11 @@ class _$AccountToAddCopyWithImpl<$Res, $Val extends AccountToAdd>
 }
 
 /// @nodoc
-abstract class _$$AccountToAddImplCopyWith<$Res>
+abstract class _$$_AccountToAddCopyWith<$Res>
     implements $AccountToAddCopyWith<$Res> {
-  factory _$$AccountToAddImplCopyWith(
-          _$AccountToAddImpl value, $Res Function(_$AccountToAddImpl) then) =
-      __$$AccountToAddImplCopyWithImpl<$Res>;
+  factory _$$_AccountToAddCopyWith(
+          _$_AccountToAdd value, $Res Function(_$_AccountToAdd) then) =
+      __$$_AccountToAddCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -146,11 +146,11 @@ abstract class _$$AccountToAddImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$AccountToAddImplCopyWithImpl<$Res>
-    extends _$AccountToAddCopyWithImpl<$Res, _$AccountToAddImpl>
-    implements _$$AccountToAddImplCopyWith<$Res> {
-  __$$AccountToAddImplCopyWithImpl(
-      _$AccountToAddImpl _value, $Res Function(_$AccountToAddImpl) _then)
+class __$$_AccountToAddCopyWithImpl<$Res>
+    extends _$AccountToAddCopyWithImpl<$Res, _$_AccountToAdd>
+    implements _$$_AccountToAddCopyWith<$Res> {
+  __$$_AccountToAddCopyWithImpl(
+      _$_AccountToAdd _value, $Res Function(_$_AccountToAdd) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -162,7 +162,7 @@ class __$$AccountToAddImplCopyWithImpl<$Res>
     Object? workchain = null,
     Object? explicitAddress = freezed,
   }) {
-    return _then(_$AccountToAddImpl(
+    return _then(_$_AccountToAdd(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -189,16 +189,16 @@ class __$$AccountToAddImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AccountToAddImpl implements _AccountToAdd {
-  const _$AccountToAddImpl(
+class _$_AccountToAdd implements _AccountToAdd {
+  const _$_AccountToAdd(
       {required this.name,
       required this.publicKey,
       required this.contract,
       required this.workchain,
       this.explicitAddress});
 
-  factory _$AccountToAddImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AccountToAddImplFromJson(json);
+  factory _$_AccountToAdd.fromJson(Map<String, dynamic> json) =>
+      _$$_AccountToAddFromJson(json);
 
   @override
   final String name;
@@ -220,7 +220,7 @@ class _$AccountToAddImpl implements _AccountToAdd {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AccountToAddImpl &&
+            other is _$_AccountToAdd &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey) &&
@@ -240,12 +240,12 @@ class _$AccountToAddImpl implements _AccountToAdd {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AccountToAddImplCopyWith<_$AccountToAddImpl> get copyWith =>
-      __$$AccountToAddImplCopyWithImpl<_$AccountToAddImpl>(this, _$identity);
+  _$$_AccountToAddCopyWith<_$_AccountToAdd> get copyWith =>
+      __$$_AccountToAddCopyWithImpl<_$_AccountToAdd>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AccountToAddImplToJson(
+    return _$$_AccountToAddToJson(
       this,
     );
   }
@@ -257,10 +257,10 @@ abstract class _AccountToAdd implements AccountToAdd {
       required final PublicKey publicKey,
       required final WalletType contract,
       required final int workchain,
-      final Address? explicitAddress}) = _$AccountToAddImpl;
+      final Address? explicitAddress}) = _$_AccountToAdd;
 
   factory _AccountToAdd.fromJson(Map<String, dynamic> json) =
-      _$AccountToAddImpl.fromJson;
+      _$_AccountToAdd.fromJson;
 
   @override
   String get name;
@@ -274,6 +274,6 @@ abstract class _AccountToAdd implements AccountToAdd {
   Address? get explicitAddress;
   @override
   @JsonKey(ignore: true)
-  _$$AccountToAddImplCopyWith<_$AccountToAddImpl> get copyWith =>
+  _$$_AccountToAddCopyWith<_$_AccountToAdd> get copyWith =>
       throw _privateConstructorUsedError;
 }

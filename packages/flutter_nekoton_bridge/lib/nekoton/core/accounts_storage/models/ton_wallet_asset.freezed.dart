@@ -102,11 +102,11 @@ class _$TonWalletAssetCopyWithImpl<$Res, $Val extends TonWalletAsset>
 }
 
 /// @nodoc
-abstract class _$$TonWalletAssetImplCopyWith<$Res>
+abstract class _$$_TonWalletAssetCopyWith<$Res>
     implements $TonWalletAssetCopyWith<$Res> {
-  factory _$$TonWalletAssetImplCopyWith(_$TonWalletAssetImpl value,
-          $Res Function(_$TonWalletAssetImpl) then) =
-      __$$TonWalletAssetImplCopyWithImpl<$Res>;
+  factory _$$_TonWalletAssetCopyWith(
+          _$_TonWalletAsset value, $Res Function(_$_TonWalletAsset) then) =
+      __$$_TonWalletAssetCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Address address, PublicKey publicKey, WalletType contract});
@@ -120,11 +120,11 @@ abstract class _$$TonWalletAssetImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$TonWalletAssetImplCopyWithImpl<$Res>
-    extends _$TonWalletAssetCopyWithImpl<$Res, _$TonWalletAssetImpl>
-    implements _$$TonWalletAssetImplCopyWith<$Res> {
-  __$$TonWalletAssetImplCopyWithImpl(
-      _$TonWalletAssetImpl _value, $Res Function(_$TonWalletAssetImpl) _then)
+class __$$_TonWalletAssetCopyWithImpl<$Res>
+    extends _$TonWalletAssetCopyWithImpl<$Res, _$_TonWalletAsset>
+    implements _$$_TonWalletAssetCopyWith<$Res> {
+  __$$_TonWalletAssetCopyWithImpl(
+      _$_TonWalletAsset _value, $Res Function(_$_TonWalletAsset) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -134,7 +134,7 @@ class __$$TonWalletAssetImplCopyWithImpl<$Res>
     Object? publicKey = null,
     Object? contract = null,
   }) {
-    return _then(_$TonWalletAssetImpl(
+    return _then(_$_TonWalletAsset(
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -153,13 +153,13 @@ class __$$TonWalletAssetImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TonWalletAssetImpl extends _TonWalletAsset {
-  const _$TonWalletAssetImpl(
+class _$_TonWalletAsset extends _TonWalletAsset {
+  const _$_TonWalletAsset(
       {required this.address, required this.publicKey, required this.contract})
       : super._();
 
-  factory _$TonWalletAssetImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TonWalletAssetImplFromJson(json);
+  factory _$_TonWalletAsset.fromJson(Map<String, dynamic> json) =>
+      _$$_TonWalletAssetFromJson(json);
 
   @override
   final Address address;
@@ -177,7 +177,7 @@ class _$TonWalletAssetImpl extends _TonWalletAsset {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TonWalletAssetImpl &&
+            other is _$_TonWalletAsset &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey) &&
@@ -192,13 +192,12 @@ class _$TonWalletAssetImpl extends _TonWalletAsset {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TonWalletAssetImplCopyWith<_$TonWalletAssetImpl> get copyWith =>
-      __$$TonWalletAssetImplCopyWithImpl<_$TonWalletAssetImpl>(
-          this, _$identity);
+  _$$_TonWalletAssetCopyWith<_$_TonWalletAsset> get copyWith =>
+      __$$_TonWalletAssetCopyWithImpl<_$_TonWalletAsset>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TonWalletAssetImplToJson(
+    return _$$_TonWalletAssetToJson(
       this,
     );
   }
@@ -208,11 +207,11 @@ abstract class _TonWalletAsset extends TonWalletAsset {
   const factory _TonWalletAsset(
       {required final Address address,
       required final PublicKey publicKey,
-      required final WalletType contract}) = _$TonWalletAssetImpl;
+      required final WalletType contract}) = _$_TonWalletAsset;
   const _TonWalletAsset._() : super._();
 
   factory _TonWalletAsset.fromJson(Map<String, dynamic> json) =
-      _$TonWalletAssetImpl.fromJson;
+      _$_TonWalletAsset.fromJson;
 
   @override
   Address get address;
@@ -222,6 +221,6 @@ abstract class _TonWalletAsset extends TonWalletAsset {
   WalletType get contract;
   @override
   @JsonKey(ignore: true)
-  _$$TonWalletAssetImplCopyWith<_$TonWalletAssetImpl> get copyWith =>
+  _$$_TonWalletAssetCopyWith<_$_TonWalletAsset> get copyWith =>
       throw _privateConstructorUsedError;
 }

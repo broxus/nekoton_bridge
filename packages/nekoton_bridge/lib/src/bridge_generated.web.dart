@@ -1086,12 +1086,28 @@ class NekotonBridgeWasmModule implements WasmModule {
           String root_token_contract);
 
   external dynamic /* void */
+      wire_add_token_wallets__method__AccountsStorageImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String account_address,
+          String network_group,
+          List<String> root_token_contracts);
+
+  external dynamic /* void */
       wire_remove_token_wallet__method__AccountsStorageImpl(
           NativePortType port_,
           List<dynamic> that,
           String account_address,
           String network_group,
           String root_token_contract);
+
+  external dynamic /* void */
+      wire_remove_token_wallets__method__AccountsStorageImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String account_address,
+          String network_group,
+          List<String> root_token_contracts);
 
   external dynamic /* void */ wire_remove_account__method__AccountsStorageImpl(
       NativePortType port_, List<dynamic> that, String account_address);
@@ -2041,6 +2057,15 @@ class NekotonBridgeWire
       wasmModule.wire_add_token_wallet__method__AccountsStorageImpl(
           port_, that, account_address, network_group, root_token_contract);
 
+  void wire_add_token_wallets__method__AccountsStorageImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String account_address,
+          String network_group,
+          List<String> root_token_contracts) =>
+      wasmModule.wire_add_token_wallets__method__AccountsStorageImpl(
+          port_, that, account_address, network_group, root_token_contracts);
+
   void wire_remove_token_wallet__method__AccountsStorageImpl(
           NativePortType port_,
           List<dynamic> that,
@@ -2049,6 +2074,15 @@ class NekotonBridgeWire
           String root_token_contract) =>
       wasmModule.wire_remove_token_wallet__method__AccountsStorageImpl(
           port_, that, account_address, network_group, root_token_contract);
+
+  void wire_remove_token_wallets__method__AccountsStorageImpl(
+          NativePortType port_,
+          List<dynamic> that,
+          String account_address,
+          String network_group,
+          List<String> root_token_contracts) =>
+      wasmModule.wire_remove_token_wallets__method__AccountsStorageImpl(
+          port_, that, account_address, network_group, root_token_contracts);
 
   void wire_remove_account__method__AccountsStorageImpl(
           NativePortType port_, List<dynamic> that, String account_address) =>

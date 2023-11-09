@@ -81,12 +81,11 @@ class _$TokenIncomingTransferCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$TokenIncomingTransferImplCopyWith<$Res>
+abstract class _$$_TokenIncomingTransferCopyWith<$Res>
     implements $TokenIncomingTransferCopyWith<$Res> {
-  factory _$$TokenIncomingTransferImplCopyWith(
-          _$TokenIncomingTransferImpl value,
-          $Res Function(_$TokenIncomingTransferImpl) then) =
-      __$$TokenIncomingTransferImplCopyWithImpl<$Res>;
+  factory _$$_TokenIncomingTransferCopyWith(_$_TokenIncomingTransfer value,
+          $Res Function(_$_TokenIncomingTransfer) then) =
+      __$$_TokenIncomingTransferCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@amountJsonConverter BigInt tokens, Address senderAddress});
@@ -96,12 +95,11 @@ abstract class _$$TokenIncomingTransferImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$TokenIncomingTransferImplCopyWithImpl<$Res>
-    extends _$TokenIncomingTransferCopyWithImpl<$Res,
-        _$TokenIncomingTransferImpl>
-    implements _$$TokenIncomingTransferImplCopyWith<$Res> {
-  __$$TokenIncomingTransferImplCopyWithImpl(_$TokenIncomingTransferImpl _value,
-      $Res Function(_$TokenIncomingTransferImpl) _then)
+class __$$_TokenIncomingTransferCopyWithImpl<$Res>
+    extends _$TokenIncomingTransferCopyWithImpl<$Res, _$_TokenIncomingTransfer>
+    implements _$$_TokenIncomingTransferCopyWith<$Res> {
+  __$$_TokenIncomingTransferCopyWithImpl(_$_TokenIncomingTransfer _value,
+      $Res Function(_$_TokenIncomingTransfer) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +108,7 @@ class __$$TokenIncomingTransferImplCopyWithImpl<$Res>
     Object? tokens = null,
     Object? senderAddress = null,
   }) {
-    return _then(_$TokenIncomingTransferImpl(
+    return _then(_$_TokenIncomingTransfer(
       tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
@@ -125,12 +123,12 @@ class __$$TokenIncomingTransferImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TokenIncomingTransferImpl implements _TokenIncomingTransfer {
-  const _$TokenIncomingTransferImpl(
+class _$_TokenIncomingTransfer implements _TokenIncomingTransfer {
+  const _$_TokenIncomingTransfer(
       {@amountJsonConverter required this.tokens, required this.senderAddress});
 
-  factory _$TokenIncomingTransferImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TokenIncomingTransferImplFromJson(json);
+  factory _$_TokenIncomingTransfer.fromJson(Map<String, dynamic> json) =>
+      _$$_TokenIncomingTransferFromJson(json);
 
   @override
   @amountJsonConverter
@@ -147,7 +145,7 @@ class _$TokenIncomingTransferImpl implements _TokenIncomingTransfer {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TokenIncomingTransferImpl &&
+            other is _$_TokenIncomingTransfer &&
             (identical(other.tokens, tokens) || other.tokens == tokens) &&
             (identical(other.senderAddress, senderAddress) ||
                 other.senderAddress == senderAddress));
@@ -160,13 +158,13 @@ class _$TokenIncomingTransferImpl implements _TokenIncomingTransfer {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TokenIncomingTransferImplCopyWith<_$TokenIncomingTransferImpl>
-      get copyWith => __$$TokenIncomingTransferImplCopyWithImpl<
-          _$TokenIncomingTransferImpl>(this, _$identity);
+  _$$_TokenIncomingTransferCopyWith<_$_TokenIncomingTransfer> get copyWith =>
+      __$$_TokenIncomingTransferCopyWithImpl<_$_TokenIncomingTransfer>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TokenIncomingTransferImplToJson(
+    return _$$_TokenIncomingTransferToJson(
       this,
     );
   }
@@ -175,10 +173,10 @@ class _$TokenIncomingTransferImpl implements _TokenIncomingTransfer {
 abstract class _TokenIncomingTransfer implements TokenIncomingTransfer {
   const factory _TokenIncomingTransfer(
       {@amountJsonConverter required final BigInt tokens,
-      required final Address senderAddress}) = _$TokenIncomingTransferImpl;
+      required final Address senderAddress}) = _$_TokenIncomingTransfer;
 
   factory _TokenIncomingTransfer.fromJson(Map<String, dynamic> json) =
-      _$TokenIncomingTransferImpl.fromJson;
+      _$_TokenIncomingTransfer.fromJson;
 
   @override
   @amountJsonConverter
@@ -187,6 +185,6 @@ abstract class _TokenIncomingTransfer implements TokenIncomingTransfer {
   Address get senderAddress;
   @override
   @JsonKey(ignore: true)
-  _$$TokenIncomingTransferImplCopyWith<_$TokenIncomingTransferImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_TokenIncomingTransferCopyWith<_$_TokenIncomingTransfer> get copyWith =>
+      throw _privateConstructorUsedError;
 }

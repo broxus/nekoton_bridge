@@ -90,29 +90,29 @@ class _$LedgerUpdateKeyInputCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$LedgerUpdateKeyInputImplCopyWith<$Res> {
-  factory _$$LedgerUpdateKeyInputImplCopyWith(_$LedgerUpdateKeyInputImpl value,
-          $Res Function(_$LedgerUpdateKeyInputImpl) then) =
-      __$$LedgerUpdateKeyInputImplCopyWithImpl<$Res>;
+abstract class _$$_LedgerUpdateKeyInputCopyWith<$Res> {
+  factory _$$_LedgerUpdateKeyInputCopyWith(_$_LedgerUpdateKeyInput value,
+          $Res Function(_$_LedgerUpdateKeyInput) then) =
+      __$$_LedgerUpdateKeyInputCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LedgerUpdateKeyInputImplCopyWithImpl<$Res>
-    extends _$LedgerUpdateKeyInputCopyWithImpl<$Res, _$LedgerUpdateKeyInputImpl>
-    implements _$$LedgerUpdateKeyInputImplCopyWith<$Res> {
-  __$$LedgerUpdateKeyInputImplCopyWithImpl(_$LedgerUpdateKeyInputImpl _value,
-      $Res Function(_$LedgerUpdateKeyInputImpl) _then)
+class __$$_LedgerUpdateKeyInputCopyWithImpl<$Res>
+    extends _$LedgerUpdateKeyInputCopyWithImpl<$Res, _$_LedgerUpdateKeyInput>
+    implements _$$_LedgerUpdateKeyInputCopyWith<$Res> {
+  __$$_LedgerUpdateKeyInputCopyWithImpl(_$_LedgerUpdateKeyInput _value,
+      $Res Function(_$_LedgerUpdateKeyInput) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$LedgerUpdateKeyInputImpl implements _LedgerUpdateKeyInput {
-  const _$LedgerUpdateKeyInputImpl({final String? $type})
+class _$_LedgerUpdateKeyInput implements _LedgerUpdateKeyInput {
+  const _$_LedgerUpdateKeyInput({final String? $type})
       : $type = $type ?? 'default';
 
-  factory _$LedgerUpdateKeyInputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LedgerUpdateKeyInputImplFromJson(json);
+  factory _$_LedgerUpdateKeyInput.fromJson(Map<String, dynamic> json) =>
+      _$$_LedgerUpdateKeyInputFromJson(json);
 
   @JsonKey(name: 'type')
   final String $type;
@@ -125,8 +125,7 @@ class _$LedgerUpdateKeyInputImpl implements _LedgerUpdateKeyInput {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LedgerUpdateKeyInputImpl);
+        (other.runtimeType == runtimeType && other is _$_LedgerUpdateKeyInput);
   }
 
   @JsonKey(ignore: true)
@@ -197,25 +196,25 @@ class _$LedgerUpdateKeyInputImpl implements _LedgerUpdateKeyInput {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LedgerUpdateKeyInputImplToJson(
+    return _$$_LedgerUpdateKeyInputToJson(
       this,
     );
   }
 }
 
 abstract class _LedgerUpdateKeyInput implements LedgerUpdateKeyInput {
-  const factory _LedgerUpdateKeyInput() = _$LedgerUpdateKeyInputImpl;
+  const factory _LedgerUpdateKeyInput() = _$_LedgerUpdateKeyInput;
 
   factory _LedgerUpdateKeyInput.fromJson(Map<String, dynamic> json) =
-      _$LedgerUpdateKeyInputImpl.fromJson;
+      _$_LedgerUpdateKeyInput.fromJson;
 }
 
 /// @nodoc
-abstract class _$$LedgerUpdateKeyInputRenameImplCopyWith<$Res> {
-  factory _$$LedgerUpdateKeyInputRenameImplCopyWith(
-          _$LedgerUpdateKeyInputRenameImpl value,
-          $Res Function(_$LedgerUpdateKeyInputRenameImpl) then) =
-      __$$LedgerUpdateKeyInputRenameImplCopyWithImpl<$Res>;
+abstract class _$$_LedgerUpdateKeyInputRenameCopyWith<$Res> {
+  factory _$$_LedgerUpdateKeyInputRenameCopyWith(
+          _$_LedgerUpdateKeyInputRename value,
+          $Res Function(_$_LedgerUpdateKeyInputRename) then) =
+      __$$_LedgerUpdateKeyInputRenameCopyWithImpl<$Res>;
   @useResult
   $Res call({LedgerUpdateKeyInputRename data});
 
@@ -223,13 +222,13 @@ abstract class _$$LedgerUpdateKeyInputRenameImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$LedgerUpdateKeyInputRenameImplCopyWithImpl<$Res>
+class __$$_LedgerUpdateKeyInputRenameCopyWithImpl<$Res>
     extends _$LedgerUpdateKeyInputCopyWithImpl<$Res,
-        _$LedgerUpdateKeyInputRenameImpl>
-    implements _$$LedgerUpdateKeyInputRenameImplCopyWith<$Res> {
-  __$$LedgerUpdateKeyInputRenameImplCopyWithImpl(
-      _$LedgerUpdateKeyInputRenameImpl _value,
-      $Res Function(_$LedgerUpdateKeyInputRenameImpl) _then)
+        _$_LedgerUpdateKeyInputRename>
+    implements _$$_LedgerUpdateKeyInputRenameCopyWith<$Res> {
+  __$$_LedgerUpdateKeyInputRenameCopyWithImpl(
+      _$_LedgerUpdateKeyInputRename _value,
+      $Res Function(_$_LedgerUpdateKeyInputRename) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -237,7 +236,7 @@ class __$$LedgerUpdateKeyInputRenameImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$LedgerUpdateKeyInputRenameImpl(
+    return _then(_$_LedgerUpdateKeyInputRename(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -256,13 +255,12 @@ class __$$LedgerUpdateKeyInputRenameImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$LedgerUpdateKeyInputRenameImpl implements _LedgerUpdateKeyInputRename {
-  const _$LedgerUpdateKeyInputRenameImpl(this.data, {final String? $type})
+class _$_LedgerUpdateKeyInputRename implements _LedgerUpdateKeyInputRename {
+  const _$_LedgerUpdateKeyInputRename(this.data, {final String? $type})
       : $type = $type ?? 'rename';
 
-  factory _$LedgerUpdateKeyInputRenameImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$LedgerUpdateKeyInputRenameImplFromJson(json);
+  factory _$_LedgerUpdateKeyInputRename.fromJson(Map<String, dynamic> json) =>
+      _$$_LedgerUpdateKeyInputRenameFromJson(json);
 
   @override
   final LedgerUpdateKeyInputRename data;
@@ -279,7 +277,7 @@ class _$LedgerUpdateKeyInputRenameImpl implements _LedgerUpdateKeyInputRename {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LedgerUpdateKeyInputRenameImpl &&
+            other is _$_LedgerUpdateKeyInputRename &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -290,9 +288,9 @@ class _$LedgerUpdateKeyInputRenameImpl implements _LedgerUpdateKeyInputRename {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LedgerUpdateKeyInputRenameImplCopyWith<_$LedgerUpdateKeyInputRenameImpl>
-      get copyWith => __$$LedgerUpdateKeyInputRenameImplCopyWithImpl<
-          _$LedgerUpdateKeyInputRenameImpl>(this, _$identity);
+  _$$_LedgerUpdateKeyInputRenameCopyWith<_$_LedgerUpdateKeyInputRename>
+      get copyWith => __$$_LedgerUpdateKeyInputRenameCopyWithImpl<
+          _$_LedgerUpdateKeyInputRename>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -358,7 +356,7 @@ class _$LedgerUpdateKeyInputRenameImpl implements _LedgerUpdateKeyInputRename {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LedgerUpdateKeyInputRenameImplToJson(
+    return _$$_LedgerUpdateKeyInputRenameToJson(
       this,
     );
   }
@@ -366,13 +364,13 @@ class _$LedgerUpdateKeyInputRenameImpl implements _LedgerUpdateKeyInputRename {
 
 abstract class _LedgerUpdateKeyInputRename implements LedgerUpdateKeyInput {
   const factory _LedgerUpdateKeyInputRename(
-      final LedgerUpdateKeyInputRename data) = _$LedgerUpdateKeyInputRenameImpl;
+      final LedgerUpdateKeyInputRename data) = _$_LedgerUpdateKeyInputRename;
 
   factory _LedgerUpdateKeyInputRename.fromJson(Map<String, dynamic> json) =
-      _$LedgerUpdateKeyInputRenameImpl.fromJson;
+      _$_LedgerUpdateKeyInputRename.fromJson;
 
   LedgerUpdateKeyInputRename get data;
   @JsonKey(ignore: true)
-  _$$LedgerUpdateKeyInputRenameImplCopyWith<_$LedgerUpdateKeyInputRenameImpl>
+  _$$_LedgerUpdateKeyInputRenameCopyWith<_$_LedgerUpdateKeyInputRename>
       get copyWith => throw _privateConstructorUsedError;
 }

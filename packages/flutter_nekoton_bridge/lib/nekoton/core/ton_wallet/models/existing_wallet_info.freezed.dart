@@ -121,11 +121,11 @@ class _$ExistingWalletInfoCopyWithImpl<$Res, $Val extends ExistingWalletInfo>
 }
 
 /// @nodoc
-abstract class _$$ExistingWalletInfoImplCopyWith<$Res>
+abstract class _$$_ExistingWalletInfoCopyWith<$Res>
     implements $ExistingWalletInfoCopyWith<$Res> {
-  factory _$$ExistingWalletInfoImplCopyWith(_$ExistingWalletInfoImpl value,
-          $Res Function(_$ExistingWalletInfoImpl) then) =
-      __$$ExistingWalletInfoImplCopyWithImpl<$Res>;
+  factory _$$_ExistingWalletInfoCopyWith(_$_ExistingWalletInfo value,
+          $Res Function(_$_ExistingWalletInfo) then) =
+      __$$_ExistingWalletInfoCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -145,11 +145,11 @@ abstract class _$$ExistingWalletInfoImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ExistingWalletInfoImplCopyWithImpl<$Res>
-    extends _$ExistingWalletInfoCopyWithImpl<$Res, _$ExistingWalletInfoImpl>
-    implements _$$ExistingWalletInfoImplCopyWith<$Res> {
-  __$$ExistingWalletInfoImplCopyWithImpl(_$ExistingWalletInfoImpl _value,
-      $Res Function(_$ExistingWalletInfoImpl) _then)
+class __$$_ExistingWalletInfoCopyWithImpl<$Res>
+    extends _$ExistingWalletInfoCopyWithImpl<$Res, _$_ExistingWalletInfo>
+    implements _$$_ExistingWalletInfoCopyWith<$Res> {
+  __$$_ExistingWalletInfoCopyWithImpl(
+      _$_ExistingWalletInfo _value, $Res Function(_$_ExistingWalletInfo) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -160,7 +160,7 @@ class __$$ExistingWalletInfoImplCopyWithImpl<$Res>
     Object? walletType = null,
     Object? contractState = null,
   }) {
-    return _then(_$ExistingWalletInfoImpl(
+    return _then(_$_ExistingWalletInfo(
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -183,15 +183,15 @@ class __$$ExistingWalletInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ExistingWalletInfoImpl implements _ExistingWalletInfo {
-  const _$ExistingWalletInfoImpl(
+class _$_ExistingWalletInfo implements _ExistingWalletInfo {
+  const _$_ExistingWalletInfo(
       {required this.address,
       required this.publicKey,
       required this.walletType,
       required this.contractState});
 
-  factory _$ExistingWalletInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ExistingWalletInfoImplFromJson(json);
+  factory _$_ExistingWalletInfo.fromJson(Map<String, dynamic> json) =>
+      _$$_ExistingWalletInfoFromJson(json);
 
   @override
   final Address address;
@@ -211,7 +211,7 @@ class _$ExistingWalletInfoImpl implements _ExistingWalletInfo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ExistingWalletInfoImpl &&
+            other is _$_ExistingWalletInfo &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey) &&
@@ -229,13 +229,13 @@ class _$ExistingWalletInfoImpl implements _ExistingWalletInfo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ExistingWalletInfoImplCopyWith<_$ExistingWalletInfoImpl> get copyWith =>
-      __$$ExistingWalletInfoImplCopyWithImpl<_$ExistingWalletInfoImpl>(
+  _$$_ExistingWalletInfoCopyWith<_$_ExistingWalletInfo> get copyWith =>
+      __$$_ExistingWalletInfoCopyWithImpl<_$_ExistingWalletInfo>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ExistingWalletInfoImplToJson(
+    return _$$_ExistingWalletInfoToJson(
       this,
     );
   }
@@ -246,10 +246,10 @@ abstract class _ExistingWalletInfo implements ExistingWalletInfo {
       {required final Address address,
       required final PublicKey publicKey,
       required final WalletType walletType,
-      required final ContractState contractState}) = _$ExistingWalletInfoImpl;
+      required final ContractState contractState}) = _$_ExistingWalletInfo;
 
   factory _ExistingWalletInfo.fromJson(Map<String, dynamic> json) =
-      _$ExistingWalletInfoImpl.fromJson;
+      _$_ExistingWalletInfo.fromJson;
 
   @override
   Address get address;
@@ -261,6 +261,6 @@ abstract class _ExistingWalletInfo implements ExistingWalletInfo {
   ContractState get contractState;
   @override
   @JsonKey(ignore: true)
-  _$$ExistingWalletInfoImplCopyWith<_$ExistingWalletInfoImpl> get copyWith =>
+  _$$_ExistingWalletInfoCopyWith<_$_ExistingWalletInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -76,12 +76,11 @@ class _$OnMessageExpiredPayloadCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$OnMessageExpiredPayloadImplCopyWith<$Res>
+abstract class _$$_OnMessageExpiredPayloadCopyWith<$Res>
     implements $OnMessageExpiredPayloadCopyWith<$Res> {
-  factory _$$OnMessageExpiredPayloadImplCopyWith(
-          _$OnMessageExpiredPayloadImpl value,
-          $Res Function(_$OnMessageExpiredPayloadImpl) then) =
-      __$$OnMessageExpiredPayloadImplCopyWithImpl<$Res>;
+  factory _$$_OnMessageExpiredPayloadCopyWith(_$_OnMessageExpiredPayload value,
+          $Res Function(_$_OnMessageExpiredPayload) then) =
+      __$$_OnMessageExpiredPayloadCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PendingTransaction pendingTransaction});
@@ -91,13 +90,12 @@ abstract class _$$OnMessageExpiredPayloadImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$OnMessageExpiredPayloadImplCopyWithImpl<$Res>
+class __$$_OnMessageExpiredPayloadCopyWithImpl<$Res>
     extends _$OnMessageExpiredPayloadCopyWithImpl<$Res,
-        _$OnMessageExpiredPayloadImpl>
-    implements _$$OnMessageExpiredPayloadImplCopyWith<$Res> {
-  __$$OnMessageExpiredPayloadImplCopyWithImpl(
-      _$OnMessageExpiredPayloadImpl _value,
-      $Res Function(_$OnMessageExpiredPayloadImpl) _then)
+        _$_OnMessageExpiredPayload>
+    implements _$$_OnMessageExpiredPayloadCopyWith<$Res> {
+  __$$_OnMessageExpiredPayloadCopyWithImpl(_$_OnMessageExpiredPayload _value,
+      $Res Function(_$_OnMessageExpiredPayload) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -105,7 +103,7 @@ class __$$OnMessageExpiredPayloadImplCopyWithImpl<$Res>
   $Res call({
     Object? pendingTransaction = null,
   }) {
-    return _then(_$OnMessageExpiredPayloadImpl(
+    return _then(_$_OnMessageExpiredPayload(
       pendingTransaction: null == pendingTransaction
           ? _value.pendingTransaction
           : pendingTransaction // ignore: cast_nullable_to_non_nullable
@@ -117,11 +115,11 @@ class __$$OnMessageExpiredPayloadImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
-class _$OnMessageExpiredPayloadImpl implements _OnMessageExpiredPayload {
-  const _$OnMessageExpiredPayloadImpl({required this.pendingTransaction});
+class _$_OnMessageExpiredPayload implements _OnMessageExpiredPayload {
+  const _$_OnMessageExpiredPayload({required this.pendingTransaction});
 
-  factory _$OnMessageExpiredPayloadImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OnMessageExpiredPayloadImplFromJson(json);
+  factory _$_OnMessageExpiredPayload.fromJson(Map<String, dynamic> json) =>
+      _$$_OnMessageExpiredPayloadFromJson(json);
 
   @override
   final PendingTransaction pendingTransaction;
@@ -135,7 +133,7 @@ class _$OnMessageExpiredPayloadImpl implements _OnMessageExpiredPayload {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OnMessageExpiredPayloadImpl &&
+            other is _$_OnMessageExpiredPayload &&
             (identical(other.pendingTransaction, pendingTransaction) ||
                 other.pendingTransaction == pendingTransaction));
   }
@@ -147,13 +145,14 @@ class _$OnMessageExpiredPayloadImpl implements _OnMessageExpiredPayload {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OnMessageExpiredPayloadImplCopyWith<_$OnMessageExpiredPayloadImpl>
-      get copyWith => __$$OnMessageExpiredPayloadImplCopyWithImpl<
-          _$OnMessageExpiredPayloadImpl>(this, _$identity);
+  _$$_OnMessageExpiredPayloadCopyWith<_$_OnMessageExpiredPayload>
+      get copyWith =>
+          __$$_OnMessageExpiredPayloadCopyWithImpl<_$_OnMessageExpiredPayload>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OnMessageExpiredPayloadImplToJson(
+    return _$$_OnMessageExpiredPayloadToJson(
       this,
     );
   }
@@ -162,15 +161,15 @@ class _$OnMessageExpiredPayloadImpl implements _OnMessageExpiredPayload {
 abstract class _OnMessageExpiredPayload implements OnMessageExpiredPayload {
   const factory _OnMessageExpiredPayload(
           {required final PendingTransaction pendingTransaction}) =
-      _$OnMessageExpiredPayloadImpl;
+      _$_OnMessageExpiredPayload;
 
   factory _OnMessageExpiredPayload.fromJson(Map<String, dynamic> json) =
-      _$OnMessageExpiredPayloadImpl.fromJson;
+      _$_OnMessageExpiredPayload.fromJson;
 
   @override
   PendingTransaction get pendingTransaction;
   @override
   @JsonKey(ignore: true)
-  _$$OnMessageExpiredPayloadImplCopyWith<_$OnMessageExpiredPayloadImpl>
+  _$$_OnMessageExpiredPayloadCopyWith<_$_OnMessageExpiredPayload>
       get copyWith => throw _privateConstructorUsedError;
 }

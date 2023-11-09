@@ -88,11 +88,11 @@ class _$EncryptedKeyPasswordCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$EncryptedKeyPasswordImplCopyWith<$Res>
+abstract class _$$_EncryptedKeyPasswordCopyWith<$Res>
     implements $EncryptedKeyPasswordCopyWith<$Res> {
-  factory _$$EncryptedKeyPasswordImplCopyWith(_$EncryptedKeyPasswordImpl value,
-          $Res Function(_$EncryptedKeyPasswordImpl) then) =
-      __$$EncryptedKeyPasswordImplCopyWithImpl<$Res>;
+  factory _$$_EncryptedKeyPasswordCopyWith(_$_EncryptedKeyPassword value,
+          $Res Function(_$_EncryptedKeyPassword) then) =
+      __$$_EncryptedKeyPasswordCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PublicKey publicKey, Password password});
@@ -104,11 +104,11 @@ abstract class _$$EncryptedKeyPasswordImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$EncryptedKeyPasswordImplCopyWithImpl<$Res>
-    extends _$EncryptedKeyPasswordCopyWithImpl<$Res, _$EncryptedKeyPasswordImpl>
-    implements _$$EncryptedKeyPasswordImplCopyWith<$Res> {
-  __$$EncryptedKeyPasswordImplCopyWithImpl(_$EncryptedKeyPasswordImpl _value,
-      $Res Function(_$EncryptedKeyPasswordImpl) _then)
+class __$$_EncryptedKeyPasswordCopyWithImpl<$Res>
+    extends _$EncryptedKeyPasswordCopyWithImpl<$Res, _$_EncryptedKeyPassword>
+    implements _$$_EncryptedKeyPasswordCopyWith<$Res> {
+  __$$_EncryptedKeyPasswordCopyWithImpl(_$_EncryptedKeyPassword _value,
+      $Res Function(_$_EncryptedKeyPassword) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -117,7 +117,7 @@ class __$$EncryptedKeyPasswordImplCopyWithImpl<$Res>
     Object? publicKey = null,
     Object? password = null,
   }) {
-    return _then(_$EncryptedKeyPasswordImpl(
+    return _then(_$_EncryptedKeyPassword(
       publicKey: null == publicKey
           ? _value.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
@@ -133,12 +133,12 @@ class __$$EncryptedKeyPasswordImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$EncryptedKeyPasswordImpl implements _EncryptedKeyPassword {
-  const _$EncryptedKeyPasswordImpl(
+class _$_EncryptedKeyPassword implements _EncryptedKeyPassword {
+  const _$_EncryptedKeyPassword(
       {required this.publicKey, required this.password});
 
-  factory _$EncryptedKeyPasswordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EncryptedKeyPasswordImplFromJson(json);
+  factory _$_EncryptedKeyPassword.fromJson(Map<String, dynamic> json) =>
+      _$$_EncryptedKeyPasswordFromJson(json);
 
   @override
   final PublicKey publicKey;
@@ -154,7 +154,7 @@ class _$EncryptedKeyPasswordImpl implements _EncryptedKeyPassword {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EncryptedKeyPasswordImpl &&
+            other is _$_EncryptedKeyPassword &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey) &&
             (identical(other.password, password) ||
@@ -168,14 +168,13 @@ class _$EncryptedKeyPasswordImpl implements _EncryptedKeyPassword {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EncryptedKeyPasswordImplCopyWith<_$EncryptedKeyPasswordImpl>
-      get copyWith =>
-          __$$EncryptedKeyPasswordImplCopyWithImpl<_$EncryptedKeyPasswordImpl>(
-              this, _$identity);
+  _$$_EncryptedKeyPasswordCopyWith<_$_EncryptedKeyPassword> get copyWith =>
+      __$$_EncryptedKeyPasswordCopyWithImpl<_$_EncryptedKeyPassword>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$EncryptedKeyPasswordImplToJson(
+    return _$$_EncryptedKeyPasswordToJson(
       this,
     );
   }
@@ -184,10 +183,10 @@ class _$EncryptedKeyPasswordImpl implements _EncryptedKeyPassword {
 abstract class _EncryptedKeyPassword implements EncryptedKeyPassword {
   const factory _EncryptedKeyPassword(
       {required final PublicKey publicKey,
-      required final Password password}) = _$EncryptedKeyPasswordImpl;
+      required final Password password}) = _$_EncryptedKeyPassword;
 
   factory _EncryptedKeyPassword.fromJson(Map<String, dynamic> json) =
-      _$EncryptedKeyPasswordImpl.fromJson;
+      _$_EncryptedKeyPassword.fromJson;
 
   @override
   PublicKey get publicKey;
@@ -195,6 +194,6 @@ abstract class _EncryptedKeyPassword implements EncryptedKeyPassword {
   Password get password;
   @override
   @JsonKey(ignore: true)
-  _$$EncryptedKeyPasswordImplCopyWith<_$EncryptedKeyPasswordImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_EncryptedKeyPasswordCopyWith<_$_EncryptedKeyPassword> get copyWith =>
+      throw _privateConstructorUsedError;
 }

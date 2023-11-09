@@ -85,10 +85,10 @@ class _$KeypairCopyWithImpl<$Res, $Val extends Keypair>
 }
 
 /// @nodoc
-abstract class _$$KeypairImplCopyWith<$Res> implements $KeypairCopyWith<$Res> {
-  factory _$$KeypairImplCopyWith(
-          _$KeypairImpl value, $Res Function(_$KeypairImpl) then) =
-      __$$KeypairImplCopyWithImpl<$Res>;
+abstract class _$$_KeypairCopyWith<$Res> implements $KeypairCopyWith<$Res> {
+  factory _$$_KeypairCopyWith(
+          _$_Keypair value, $Res Function(_$_Keypair) then) =
+      __$$_KeypairCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PublicKey public, PublicKey secret});
@@ -100,11 +100,10 @@ abstract class _$$KeypairImplCopyWith<$Res> implements $KeypairCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$KeypairImplCopyWithImpl<$Res>
-    extends _$KeypairCopyWithImpl<$Res, _$KeypairImpl>
-    implements _$$KeypairImplCopyWith<$Res> {
-  __$$KeypairImplCopyWithImpl(
-      _$KeypairImpl _value, $Res Function(_$KeypairImpl) _then)
+class __$$_KeypairCopyWithImpl<$Res>
+    extends _$KeypairCopyWithImpl<$Res, _$_Keypair>
+    implements _$$_KeypairCopyWith<$Res> {
+  __$$_KeypairCopyWithImpl(_$_Keypair _value, $Res Function(_$_Keypair) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,7 +112,7 @@ class __$$KeypairImplCopyWithImpl<$Res>
     Object? public = null,
     Object? secret = null,
   }) {
-    return _then(_$KeypairImpl(
+    return _then(_$_Keypair(
       public: null == public
           ? _value.public
           : public // ignore: cast_nullable_to_non_nullable
@@ -128,11 +127,11 @@ class __$$KeypairImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$KeypairImpl implements _Keypair {
-  const _$KeypairImpl({required this.public, required this.secret});
+class _$_Keypair implements _Keypair {
+  const _$_Keypair({required this.public, required this.secret});
 
-  factory _$KeypairImpl.fromJson(Map<String, dynamic> json) =>
-      _$$KeypairImplFromJson(json);
+  factory _$_Keypair.fromJson(Map<String, dynamic> json) =>
+      _$$_KeypairFromJson(json);
 
   @override
   final PublicKey public;
@@ -148,7 +147,7 @@ class _$KeypairImpl implements _Keypair {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$KeypairImpl &&
+            other is _$_Keypair &&
             (identical(other.public, public) || other.public == public) &&
             (identical(other.secret, secret) || other.secret == secret));
   }
@@ -160,12 +159,12 @@ class _$KeypairImpl implements _Keypair {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$KeypairImplCopyWith<_$KeypairImpl> get copyWith =>
-      __$$KeypairImplCopyWithImpl<_$KeypairImpl>(this, _$identity);
+  _$$_KeypairCopyWith<_$_Keypair> get copyWith =>
+      __$$_KeypairCopyWithImpl<_$_Keypair>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$KeypairImplToJson(
+    return _$$_KeypairToJson(
       this,
     );
   }
@@ -174,9 +173,9 @@ class _$KeypairImpl implements _Keypair {
 abstract class _Keypair implements Keypair {
   const factory _Keypair(
       {required final PublicKey public,
-      required final PublicKey secret}) = _$KeypairImpl;
+      required final PublicKey secret}) = _$_Keypair;
 
-  factory _Keypair.fromJson(Map<String, dynamic> json) = _$KeypairImpl.fromJson;
+  factory _Keypair.fromJson(Map<String, dynamic> json) = _$_Keypair.fromJson;
 
   @override
   PublicKey get public;
@@ -184,6 +183,6 @@ abstract class _Keypair implements Keypair {
   PublicKey get secret;
   @override
   @JsonKey(ignore: true)
-  _$$KeypairImplCopyWith<_$KeypairImpl> get copyWith =>
+  _$$_KeypairCopyWith<_$_Keypair> get copyWith =>
       throw _privateConstructorUsedError;
 }

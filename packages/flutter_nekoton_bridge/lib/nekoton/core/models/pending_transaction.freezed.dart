@@ -92,11 +92,11 @@ class _$PendingTransactionCopyWithImpl<$Res, $Val extends PendingTransaction>
 }
 
 /// @nodoc
-abstract class _$$PendingTransactionImplCopyWith<$Res>
+abstract class _$$_PendingTransactionCopyWith<$Res>
     implements $PendingTransactionCopyWith<$Res> {
-  factory _$$PendingTransactionImplCopyWith(_$PendingTransactionImpl value,
-          $Res Function(_$PendingTransactionImpl) then) =
-      __$$PendingTransactionImplCopyWithImpl<$Res>;
+  factory _$$_PendingTransactionCopyWith(_$_PendingTransaction value,
+          $Res Function(_$_PendingTransaction) then) =
+      __$$_PendingTransactionCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -109,11 +109,11 @@ abstract class _$$PendingTransactionImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PendingTransactionImplCopyWithImpl<$Res>
-    extends _$PendingTransactionCopyWithImpl<$Res, _$PendingTransactionImpl>
-    implements _$$PendingTransactionImplCopyWith<$Res> {
-  __$$PendingTransactionImplCopyWithImpl(_$PendingTransactionImpl _value,
-      $Res Function(_$PendingTransactionImpl) _then)
+class __$$_PendingTransactionCopyWithImpl<$Res>
+    extends _$PendingTransactionCopyWithImpl<$Res, _$_PendingTransaction>
+    implements _$$_PendingTransactionCopyWith<$Res> {
+  __$$_PendingTransactionCopyWithImpl(
+      _$_PendingTransaction _value, $Res Function(_$_PendingTransaction) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +123,7 @@ class __$$PendingTransactionImplCopyWithImpl<$Res>
     Object? src = freezed,
     Object? expireAt = null,
   }) {
-    return _then(_$PendingTransactionImpl(
+    return _then(_$_PendingTransaction(
       messageHash: null == messageHash
           ? _value.messageHash
           : messageHash // ignore: cast_nullable_to_non_nullable
@@ -142,15 +142,15 @@ class __$$PendingTransactionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PendingTransactionImpl extends _PendingTransaction {
-  const _$PendingTransactionImpl(
+class _$_PendingTransaction extends _PendingTransaction {
+  const _$_PendingTransaction(
       {required this.messageHash,
       this.src,
       @dateSecondsSinceEpochJsonConverter required this.expireAt})
       : super._();
 
-  factory _$PendingTransactionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PendingTransactionImplFromJson(json);
+  factory _$_PendingTransaction.fromJson(Map<String, dynamic> json) =>
+      _$$_PendingTransactionFromJson(json);
 
   @override
   final String messageHash;
@@ -169,7 +169,7 @@ class _$PendingTransactionImpl extends _PendingTransaction {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PendingTransactionImpl &&
+            other is _$_PendingTransaction &&
             (identical(other.messageHash, messageHash) ||
                 other.messageHash == messageHash) &&
             (identical(other.src, src) || other.src == src) &&
@@ -184,13 +184,13 @@ class _$PendingTransactionImpl extends _PendingTransaction {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PendingTransactionImplCopyWith<_$PendingTransactionImpl> get copyWith =>
-      __$$PendingTransactionImplCopyWithImpl<_$PendingTransactionImpl>(
+  _$$_PendingTransactionCopyWith<_$_PendingTransaction> get copyWith =>
+      __$$_PendingTransactionCopyWithImpl<_$_PendingTransaction>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PendingTransactionImplToJson(
+    return _$$_PendingTransactionToJson(
       this,
     );
   }
@@ -201,11 +201,11 @@ abstract class _PendingTransaction extends PendingTransaction {
       {required final String messageHash,
       final Address? src,
       @dateSecondsSinceEpochJsonConverter
-      required final DateTime expireAt}) = _$PendingTransactionImpl;
+      required final DateTime expireAt}) = _$_PendingTransaction;
   const _PendingTransaction._() : super._();
 
   factory _PendingTransaction.fromJson(Map<String, dynamic> json) =
-      _$PendingTransactionImpl.fromJson;
+      _$_PendingTransaction.fromJson;
 
   @override
   String get messageHash;
@@ -216,6 +216,6 @@ abstract class _PendingTransaction extends PendingTransaction {
   DateTime get expireAt;
   @override
   @JsonKey(ignore: true)
-  _$$PendingTransactionImplCopyWith<_$PendingTransactionImpl> get copyWith =>
+  _$$_PendingTransactionCopyWith<_$_PendingTransaction> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -123,11 +123,11 @@ class _$FullContractStateCopyWithImpl<$Res, $Val extends FullContractState>
 }
 
 /// @nodoc
-abstract class _$$FullContractStateImplCopyWith<$Res>
+abstract class _$$_FullContractStateCopyWith<$Res>
     implements $FullContractStateCopyWith<$Res> {
-  factory _$$FullContractStateImplCopyWith(_$FullContractStateImpl value,
-          $Res Function(_$FullContractStateImpl) then) =
-      __$$FullContractStateImplCopyWithImpl<$Res>;
+  factory _$$_FullContractStateCopyWith(_$_FullContractState value,
+          $Res Function(_$_FullContractState) then) =
+      __$$_FullContractStateCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -145,11 +145,11 @@ abstract class _$$FullContractStateImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FullContractStateImplCopyWithImpl<$Res>
-    extends _$FullContractStateCopyWithImpl<$Res, _$FullContractStateImpl>
-    implements _$$FullContractStateImplCopyWith<$Res> {
-  __$$FullContractStateImplCopyWithImpl(_$FullContractStateImpl _value,
-      $Res Function(_$FullContractStateImpl) _then)
+class __$$_FullContractStateCopyWithImpl<$Res>
+    extends _$FullContractStateCopyWithImpl<$Res, _$_FullContractState>
+    implements _$$_FullContractStateCopyWith<$Res> {
+  __$$_FullContractStateCopyWithImpl(
+      _$_FullContractState _value, $Res Function(_$_FullContractState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -162,7 +162,7 @@ class __$$FullContractStateImplCopyWithImpl<$Res>
     Object? codeHash = freezed,
     Object? boc = null,
   }) {
-    return _then(_$FullContractStateImpl(
+    return _then(_$_FullContractState(
       balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
@@ -193,8 +193,8 @@ class __$$FullContractStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FullContractStateImpl implements _FullContractState {
-  const _$FullContractStateImpl(
+class _$_FullContractState implements _FullContractState {
+  const _$_FullContractState(
       {@amountJsonConverter required this.balance,
       required this.genTimings,
       this.lastTransactionId,
@@ -202,8 +202,8 @@ class _$FullContractStateImpl implements _FullContractState {
       this.codeHash,
       required this.boc});
 
-  factory _$FullContractStateImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FullContractStateImplFromJson(json);
+  factory _$_FullContractState.fromJson(Map<String, dynamic> json) =>
+      _$$_FullContractStateFromJson(json);
 
   @override
   @amountJsonConverter
@@ -228,7 +228,7 @@ class _$FullContractStateImpl implements _FullContractState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FullContractStateImpl &&
+            other is _$_FullContractState &&
             (identical(other.balance, balance) || other.balance == balance) &&
             (identical(other.genTimings, genTimings) ||
                 other.genTimings == genTimings) &&
@@ -249,13 +249,13 @@ class _$FullContractStateImpl implements _FullContractState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FullContractStateImplCopyWith<_$FullContractStateImpl> get copyWith =>
-      __$$FullContractStateImplCopyWithImpl<_$FullContractStateImpl>(
+  _$$_FullContractStateCopyWith<_$_FullContractState> get copyWith =>
+      __$$_FullContractStateCopyWithImpl<_$_FullContractState>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FullContractStateImplToJson(
+    return _$$_FullContractStateToJson(
       this,
     );
   }
@@ -268,10 +268,10 @@ abstract class _FullContractState implements FullContractState {
       final LastTransactionId? lastTransactionId,
       required final bool isDeployed,
       final String? codeHash,
-      required final String boc}) = _$FullContractStateImpl;
+      required final String boc}) = _$_FullContractState;
 
   factory _FullContractState.fromJson(Map<String, dynamic> json) =
-      _$FullContractStateImpl.fromJson;
+      _$_FullContractState.fromJson;
 
   @override
   @amountJsonConverter
@@ -288,6 +288,6 @@ abstract class _FullContractState implements FullContractState {
   String get boc;
   @override
   @JsonKey(ignore: true)
-  _$$FullContractStateImplCopyWith<_$FullContractStateImpl> get copyWith =>
+  _$$_FullContractStateCopyWith<_$_FullContractState> get copyWith =>
       throw _privateConstructorUsedError;
 }

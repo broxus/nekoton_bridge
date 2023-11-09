@@ -78,11 +78,11 @@ class _$RawTransactionCopyWithImpl<$Res, $Val extends RawTransaction>
 }
 
 /// @nodoc
-abstract class _$$RawTransactionImplCopyWith<$Res>
+abstract class _$$_RawTransactionCopyWith<$Res>
     implements $RawTransactionCopyWith<$Res> {
-  factory _$$RawTransactionImplCopyWith(_$RawTransactionImpl value,
-          $Res Function(_$RawTransactionImpl) then) =
-      __$$RawTransactionImplCopyWithImpl<$Res>;
+  factory _$$_RawTransactionCopyWith(
+          _$_RawTransaction value, $Res Function(_$_RawTransaction) then) =
+      __$$_RawTransactionCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String hash, Transaction data});
@@ -92,11 +92,11 @@ abstract class _$$RawTransactionImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$RawTransactionImplCopyWithImpl<$Res>
-    extends _$RawTransactionCopyWithImpl<$Res, _$RawTransactionImpl>
-    implements _$$RawTransactionImplCopyWith<$Res> {
-  __$$RawTransactionImplCopyWithImpl(
-      _$RawTransactionImpl _value, $Res Function(_$RawTransactionImpl) _then)
+class __$$_RawTransactionCopyWithImpl<$Res>
+    extends _$RawTransactionCopyWithImpl<$Res, _$_RawTransaction>
+    implements _$$_RawTransactionCopyWith<$Res> {
+  __$$_RawTransactionCopyWithImpl(
+      _$_RawTransaction _value, $Res Function(_$_RawTransaction) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -105,7 +105,7 @@ class __$$RawTransactionImplCopyWithImpl<$Res>
     Object? hash = null,
     Object? data = null,
   }) {
-    return _then(_$RawTransactionImpl(
+    return _then(_$_RawTransaction(
       hash: null == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
@@ -120,11 +120,11 @@ class __$$RawTransactionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$RawTransactionImpl implements _RawTransaction {
-  const _$RawTransactionImpl({required this.hash, required this.data});
+class _$_RawTransaction implements _RawTransaction {
+  const _$_RawTransaction({required this.hash, required this.data});
 
-  factory _$RawTransactionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RawTransactionImplFromJson(json);
+  factory _$_RawTransaction.fromJson(Map<String, dynamic> json) =>
+      _$$_RawTransactionFromJson(json);
 
   @override
   final String hash;
@@ -140,7 +140,7 @@ class _$RawTransactionImpl implements _RawTransaction {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RawTransactionImpl &&
+            other is _$_RawTransaction &&
             (identical(other.hash, hash) || other.hash == hash) &&
             (identical(other.data, data) || other.data == data));
   }
@@ -152,13 +152,12 @@ class _$RawTransactionImpl implements _RawTransaction {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RawTransactionImplCopyWith<_$RawTransactionImpl> get copyWith =>
-      __$$RawTransactionImplCopyWithImpl<_$RawTransactionImpl>(
-          this, _$identity);
+  _$$_RawTransactionCopyWith<_$_RawTransaction> get copyWith =>
+      __$$_RawTransactionCopyWithImpl<_$_RawTransaction>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RawTransactionImplToJson(
+    return _$$_RawTransactionToJson(
       this,
     );
   }
@@ -167,10 +166,10 @@ class _$RawTransactionImpl implements _RawTransaction {
 abstract class _RawTransaction implements RawTransaction {
   const factory _RawTransaction(
       {required final String hash,
-      required final Transaction data}) = _$RawTransactionImpl;
+      required final Transaction data}) = _$_RawTransaction;
 
   factory _RawTransaction.fromJson(Map<String, dynamic> json) =
-      _$RawTransactionImpl.fromJson;
+      _$_RawTransaction.fromJson;
 
   @override
   String get hash;
@@ -178,6 +177,6 @@ abstract class _RawTransaction implements RawTransaction {
   Transaction get data;
   @override
   @JsonKey(ignore: true)
-  _$$RawTransactionImplCopyWith<_$RawTransactionImpl> get copyWith =>
+  _$$_RawTransactionCopyWith<_$_RawTransaction> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -94,10 +94,10 @@ class _$DerivedKeyUpdateParamsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$RenameKeyImplCopyWith<$Res> {
-  factory _$$RenameKeyImplCopyWith(
-          _$RenameKeyImpl value, $Res Function(_$RenameKeyImpl) then) =
-      __$$RenameKeyImplCopyWithImpl<$Res>;
+abstract class _$$_RenameKeyCopyWith<$Res> {
+  factory _$$_RenameKeyCopyWith(
+          _$_RenameKey value, $Res Function(_$_RenameKey) then) =
+      __$$_RenameKeyCopyWithImpl<$Res>;
   @useResult
   $Res call({DerivedKeyUpdateParamsRenameKey data});
 
@@ -105,11 +105,11 @@ abstract class _$$RenameKeyImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$RenameKeyImplCopyWithImpl<$Res>
-    extends _$DerivedKeyUpdateParamsCopyWithImpl<$Res, _$RenameKeyImpl>
-    implements _$$RenameKeyImplCopyWith<$Res> {
-  __$$RenameKeyImplCopyWithImpl(
-      _$RenameKeyImpl _value, $Res Function(_$RenameKeyImpl) _then)
+class __$$_RenameKeyCopyWithImpl<$Res>
+    extends _$DerivedKeyUpdateParamsCopyWithImpl<$Res, _$_RenameKey>
+    implements _$$_RenameKeyCopyWith<$Res> {
+  __$$_RenameKeyCopyWithImpl(
+      _$_RenameKey _value, $Res Function(_$_RenameKey) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -117,7 +117,7 @@ class __$$RenameKeyImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$RenameKeyImpl(
+    return _then(_$_RenameKey(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -136,12 +136,12 @@ class __$$RenameKeyImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$RenameKeyImpl implements _RenameKey {
-  const _$RenameKeyImpl(this.data, {final String? $type})
+class _$_RenameKey implements _RenameKey {
+  const _$_RenameKey(this.data, {final String? $type})
       : $type = $type ?? 'rename_key';
 
-  factory _$RenameKeyImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RenameKeyImplFromJson(json);
+  factory _$_RenameKey.fromJson(Map<String, dynamic> json) =>
+      _$$_RenameKeyFromJson(json);
 
   @override
   final DerivedKeyUpdateParamsRenameKey data;
@@ -158,7 +158,7 @@ class _$RenameKeyImpl implements _RenameKey {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RenameKeyImpl &&
+            other is _$_RenameKey &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -169,8 +169,8 @@ class _$RenameKeyImpl implements _RenameKey {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RenameKeyImplCopyWith<_$RenameKeyImpl> get copyWith =>
-      __$$RenameKeyImplCopyWithImpl<_$RenameKeyImpl>(this, _$identity);
+  _$$_RenameKeyCopyWith<_$_RenameKey> get copyWith =>
+      __$$_RenameKeyCopyWithImpl<_$_RenameKey>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -238,7 +238,7 @@ class _$RenameKeyImpl implements _RenameKey {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RenameKeyImplToJson(
+    return _$$_RenameKeyToJson(
       this,
     );
   }
@@ -246,23 +246,23 @@ class _$RenameKeyImpl implements _RenameKey {
 
 abstract class _RenameKey implements DerivedKeyUpdateParams {
   const factory _RenameKey(final DerivedKeyUpdateParamsRenameKey data) =
-      _$RenameKeyImpl;
+      _$_RenameKey;
 
   factory _RenameKey.fromJson(Map<String, dynamic> json) =
-      _$RenameKeyImpl.fromJson;
+      _$_RenameKey.fromJson;
 
   @override
   DerivedKeyUpdateParamsRenameKey get data;
   @JsonKey(ignore: true)
-  _$$RenameKeyImplCopyWith<_$RenameKeyImpl> get copyWith =>
+  _$$_RenameKeyCopyWith<_$_RenameKey> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangePasswordImplCopyWith<$Res> {
-  factory _$$ChangePasswordImplCopyWith(_$ChangePasswordImpl value,
-          $Res Function(_$ChangePasswordImpl) then) =
-      __$$ChangePasswordImplCopyWithImpl<$Res>;
+abstract class _$$_ChangePasswordCopyWith<$Res> {
+  factory _$$_ChangePasswordCopyWith(
+          _$_ChangePassword value, $Res Function(_$_ChangePassword) then) =
+      __$$_ChangePasswordCopyWithImpl<$Res>;
   @useResult
   $Res call({DerivedKeyUpdateParamsChangePassword data});
 
@@ -270,11 +270,11 @@ abstract class _$$ChangePasswordImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ChangePasswordImplCopyWithImpl<$Res>
-    extends _$DerivedKeyUpdateParamsCopyWithImpl<$Res, _$ChangePasswordImpl>
-    implements _$$ChangePasswordImplCopyWith<$Res> {
-  __$$ChangePasswordImplCopyWithImpl(
-      _$ChangePasswordImpl _value, $Res Function(_$ChangePasswordImpl) _then)
+class __$$_ChangePasswordCopyWithImpl<$Res>
+    extends _$DerivedKeyUpdateParamsCopyWithImpl<$Res, _$_ChangePassword>
+    implements _$$_ChangePasswordCopyWith<$Res> {
+  __$$_ChangePasswordCopyWithImpl(
+      _$_ChangePassword _value, $Res Function(_$_ChangePassword) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -282,7 +282,7 @@ class __$$ChangePasswordImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ChangePasswordImpl(
+    return _then(_$_ChangePassword(
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -302,12 +302,12 @@ class __$$ChangePasswordImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ChangePasswordImpl implements _ChangePassword {
-  const _$ChangePasswordImpl(this.data, {final String? $type})
+class _$_ChangePassword implements _ChangePassword {
+  const _$_ChangePassword(this.data, {final String? $type})
       : $type = $type ?? 'change_password';
 
-  factory _$ChangePasswordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ChangePasswordImplFromJson(json);
+  factory _$_ChangePassword.fromJson(Map<String, dynamic> json) =>
+      _$$_ChangePasswordFromJson(json);
 
   @override
   final DerivedKeyUpdateParamsChangePassword data;
@@ -324,7 +324,7 @@ class _$ChangePasswordImpl implements _ChangePassword {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangePasswordImpl &&
+            other is _$_ChangePassword &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -335,9 +335,8 @@ class _$ChangePasswordImpl implements _ChangePassword {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangePasswordImplCopyWith<_$ChangePasswordImpl> get copyWith =>
-      __$$ChangePasswordImplCopyWithImpl<_$ChangePasswordImpl>(
-          this, _$identity);
+  _$$_ChangePasswordCopyWith<_$_ChangePassword> get copyWith =>
+      __$$_ChangePasswordCopyWithImpl<_$_ChangePassword>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -405,7 +404,7 @@ class _$ChangePasswordImpl implements _ChangePassword {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ChangePasswordImplToJson(
+    return _$$_ChangePasswordToJson(
       this,
     );
   }
@@ -413,14 +412,14 @@ class _$ChangePasswordImpl implements _ChangePassword {
 
 abstract class _ChangePassword implements DerivedKeyUpdateParams {
   const factory _ChangePassword(
-      final DerivedKeyUpdateParamsChangePassword data) = _$ChangePasswordImpl;
+      final DerivedKeyUpdateParamsChangePassword data) = _$_ChangePassword;
 
   factory _ChangePassword.fromJson(Map<String, dynamic> json) =
-      _$ChangePasswordImpl.fromJson;
+      _$_ChangePassword.fromJson;
 
   @override
   DerivedKeyUpdateParamsChangePassword get data;
   @JsonKey(ignore: true)
-  _$$ChangePasswordImplCopyWith<_$ChangePasswordImpl> get copyWith =>
+  _$$_ChangePasswordCopyWith<_$_ChangePassword> get copyWith =>
       throw _privateConstructorUsedError;
 }

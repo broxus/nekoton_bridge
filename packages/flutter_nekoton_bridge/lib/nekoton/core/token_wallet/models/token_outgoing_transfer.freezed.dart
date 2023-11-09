@@ -81,12 +81,11 @@ class _$TokenOutgoingTransferCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$TokenOutgoingTransferImplCopyWith<$Res>
+abstract class _$$_TokenOutgoingTransferCopyWith<$Res>
     implements $TokenOutgoingTransferCopyWith<$Res> {
-  factory _$$TokenOutgoingTransferImplCopyWith(
-          _$TokenOutgoingTransferImpl value,
-          $Res Function(_$TokenOutgoingTransferImpl) then) =
-      __$$TokenOutgoingTransferImplCopyWithImpl<$Res>;
+  factory _$$_TokenOutgoingTransferCopyWith(_$_TokenOutgoingTransfer value,
+          $Res Function(_$_TokenOutgoingTransfer) then) =
+      __$$_TokenOutgoingTransferCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({TransferRecipient to, @amountJsonConverter BigInt tokens});
@@ -96,12 +95,11 @@ abstract class _$$TokenOutgoingTransferImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$TokenOutgoingTransferImplCopyWithImpl<$Res>
-    extends _$TokenOutgoingTransferCopyWithImpl<$Res,
-        _$TokenOutgoingTransferImpl>
-    implements _$$TokenOutgoingTransferImplCopyWith<$Res> {
-  __$$TokenOutgoingTransferImplCopyWithImpl(_$TokenOutgoingTransferImpl _value,
-      $Res Function(_$TokenOutgoingTransferImpl) _then)
+class __$$_TokenOutgoingTransferCopyWithImpl<$Res>
+    extends _$TokenOutgoingTransferCopyWithImpl<$Res, _$_TokenOutgoingTransfer>
+    implements _$$_TokenOutgoingTransferCopyWith<$Res> {
+  __$$_TokenOutgoingTransferCopyWithImpl(_$_TokenOutgoingTransfer _value,
+      $Res Function(_$_TokenOutgoingTransfer) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +108,7 @@ class __$$TokenOutgoingTransferImplCopyWithImpl<$Res>
     Object? to = null,
     Object? tokens = null,
   }) {
-    return _then(_$TokenOutgoingTransferImpl(
+    return _then(_$_TokenOutgoingTransfer(
       to: null == to
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
@@ -125,12 +123,12 @@ class __$$TokenOutgoingTransferImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TokenOutgoingTransferImpl implements _TokenOutgoingTransfer {
-  const _$TokenOutgoingTransferImpl(
+class _$_TokenOutgoingTransfer implements _TokenOutgoingTransfer {
+  const _$_TokenOutgoingTransfer(
       {required this.to, @amountJsonConverter required this.tokens});
 
-  factory _$TokenOutgoingTransferImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TokenOutgoingTransferImplFromJson(json);
+  factory _$_TokenOutgoingTransfer.fromJson(Map<String, dynamic> json) =>
+      _$$_TokenOutgoingTransferFromJson(json);
 
   @override
   final TransferRecipient to;
@@ -147,7 +145,7 @@ class _$TokenOutgoingTransferImpl implements _TokenOutgoingTransfer {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TokenOutgoingTransferImpl &&
+            other is _$_TokenOutgoingTransfer &&
             (identical(other.to, to) || other.to == to) &&
             (identical(other.tokens, tokens) || other.tokens == tokens));
   }
@@ -159,13 +157,13 @@ class _$TokenOutgoingTransferImpl implements _TokenOutgoingTransfer {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TokenOutgoingTransferImplCopyWith<_$TokenOutgoingTransferImpl>
-      get copyWith => __$$TokenOutgoingTransferImplCopyWithImpl<
-          _$TokenOutgoingTransferImpl>(this, _$identity);
+  _$$_TokenOutgoingTransferCopyWith<_$_TokenOutgoingTransfer> get copyWith =>
+      __$$_TokenOutgoingTransferCopyWithImpl<_$_TokenOutgoingTransfer>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TokenOutgoingTransferImplToJson(
+    return _$$_TokenOutgoingTransferToJson(
       this,
     );
   }
@@ -175,10 +173,10 @@ abstract class _TokenOutgoingTransfer implements TokenOutgoingTransfer {
   const factory _TokenOutgoingTransfer(
           {required final TransferRecipient to,
           @amountJsonConverter required final BigInt tokens}) =
-      _$TokenOutgoingTransferImpl;
+      _$_TokenOutgoingTransfer;
 
   factory _TokenOutgoingTransfer.fromJson(Map<String, dynamic> json) =
-      _$TokenOutgoingTransferImpl.fromJson;
+      _$_TokenOutgoingTransfer.fromJson;
 
   @override
   TransferRecipient get to;
@@ -187,6 +185,6 @@ abstract class _TokenOutgoingTransfer implements TokenOutgoingTransfer {
   BigInt get tokens;
   @override
   @JsonKey(ignore: true)
-  _$$TokenOutgoingTransferImplCopyWith<_$TokenOutgoingTransferImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_TokenOutgoingTransferCopyWith<_$_TokenOutgoingTransfer> get copyWith =>
+      throw _privateConstructorUsedError;
 }

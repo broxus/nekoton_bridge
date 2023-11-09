@@ -115,11 +115,11 @@ class _$InternalMessageCopyWithImpl<$Res, $Val extends InternalMessage>
 }
 
 /// @nodoc
-abstract class _$$InternalMessageImplCopyWith<$Res>
+abstract class _$$_InternalMessageCopyWith<$Res>
     implements $InternalMessageCopyWith<$Res> {
-  factory _$$InternalMessageImplCopyWith(_$InternalMessageImpl value,
-          $Res Function(_$InternalMessageImpl) then) =
-      __$$InternalMessageImplCopyWithImpl<$Res>;
+  factory _$$_InternalMessageCopyWith(
+          _$_InternalMessage value, $Res Function(_$_InternalMessage) then) =
+      __$$_InternalMessageCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -136,11 +136,11 @@ abstract class _$$InternalMessageImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$InternalMessageImplCopyWithImpl<$Res>
-    extends _$InternalMessageCopyWithImpl<$Res, _$InternalMessageImpl>
-    implements _$$InternalMessageImplCopyWith<$Res> {
-  __$$InternalMessageImplCopyWithImpl(
-      _$InternalMessageImpl _value, $Res Function(_$InternalMessageImpl) _then)
+class __$$_InternalMessageCopyWithImpl<$Res>
+    extends _$InternalMessageCopyWithImpl<$Res, _$_InternalMessage>
+    implements _$$_InternalMessageCopyWith<$Res> {
+  __$$_InternalMessageCopyWithImpl(
+      _$_InternalMessage _value, $Res Function(_$_InternalMessage) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -152,7 +152,7 @@ class __$$InternalMessageImplCopyWithImpl<$Res>
     Object? bounce = null,
     Object? body = null,
   }) {
-    return _then(_$InternalMessageImpl(
+    return _then(_$_InternalMessage(
       source: freezed == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
@@ -179,16 +179,16 @@ class __$$InternalMessageImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$InternalMessageImpl implements _InternalMessage {
-  _$InternalMessageImpl(
+class _$_InternalMessage implements _InternalMessage {
+  _$_InternalMessage(
       {this.source,
       required this.destination,
       @amountJsonConverter required this.amount,
       required this.bounce,
       required this.body});
 
-  factory _$InternalMessageImpl.fromJson(Map<String, dynamic> json) =>
-      _$$InternalMessageImplFromJson(json);
+  factory _$_InternalMessage.fromJson(Map<String, dynamic> json) =>
+      _$$_InternalMessageFromJson(json);
 
   @override
   final Address? source;
@@ -211,7 +211,7 @@ class _$InternalMessageImpl implements _InternalMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InternalMessageImpl &&
+            other is _$_InternalMessage &&
             (identical(other.source, source) || other.source == source) &&
             (identical(other.destination, destination) ||
                 other.destination == destination) &&
@@ -228,13 +228,12 @@ class _$InternalMessageImpl implements _InternalMessage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InternalMessageImplCopyWith<_$InternalMessageImpl> get copyWith =>
-      __$$InternalMessageImplCopyWithImpl<_$InternalMessageImpl>(
-          this, _$identity);
+  _$$_InternalMessageCopyWith<_$_InternalMessage> get copyWith =>
+      __$$_InternalMessageCopyWithImpl<_$_InternalMessage>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$InternalMessageImplToJson(
+    return _$$_InternalMessageToJson(
       this,
     );
   }
@@ -246,10 +245,10 @@ abstract class _InternalMessage implements InternalMessage {
       required final Address destination,
       @amountJsonConverter required final BigInt amount,
       required final bool bounce,
-      required final String body}) = _$InternalMessageImpl;
+      required final String body}) = _$_InternalMessage;
 
   factory _InternalMessage.fromJson(Map<String, dynamic> json) =
-      _$InternalMessageImpl.fromJson;
+      _$_InternalMessage.fromJson;
 
   @override
   Address? get source;
@@ -264,6 +263,6 @@ abstract class _InternalMessage implements InternalMessage {
   String get body;
   @override
   @JsonKey(ignore: true)
-  _$$InternalMessageImplCopyWith<_$InternalMessageImpl> get copyWith =>
+  _$$_InternalMessageCopyWith<_$_InternalMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }

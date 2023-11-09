@@ -138,10 +138,10 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
 }
 
 /// @nodoc
-abstract class _$$MessageImplCopyWith<$Res> implements $MessageCopyWith<$Res> {
-  factory _$$MessageImplCopyWith(
-          _$MessageImpl value, $Res Function(_$MessageImpl) then) =
-      __$$MessageImplCopyWithImpl<$Res>;
+abstract class _$$_MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
+  factory _$$_MessageCopyWith(
+          _$_Message value, $Res Function(_$_Message) then) =
+      __$$_MessageCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -161,11 +161,10 @@ abstract class _$$MessageImplCopyWith<$Res> implements $MessageCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$MessageImplCopyWithImpl<$Res>
-    extends _$MessageCopyWithImpl<$Res, _$MessageImpl>
-    implements _$$MessageImplCopyWith<$Res> {
-  __$$MessageImplCopyWithImpl(
-      _$MessageImpl _value, $Res Function(_$MessageImpl) _then)
+class __$$_MessageCopyWithImpl<$Res>
+    extends _$MessageCopyWithImpl<$Res, _$_Message>
+    implements _$$_MessageCopyWith<$Res> {
+  __$$_MessageCopyWithImpl(_$_Message _value, $Res Function(_$_Message) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -180,7 +179,7 @@ class __$$MessageImplCopyWithImpl<$Res>
     Object? body = freezed,
     Object? bodyHash = freezed,
   }) {
-    return _then(_$MessageImpl(
+    return _then(_$_Message(
       hash: null == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
@@ -219,8 +218,8 @@ class __$$MessageImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MessageImpl implements _Message {
-  const _$MessageImpl(
+class _$_Message implements _Message {
+  const _$_Message(
       {required this.hash,
       this.src,
       this.dst,
@@ -230,8 +229,8 @@ class _$MessageImpl implements _Message {
       this.body,
       this.bodyHash});
 
-  factory _$MessageImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MessageImplFromJson(json);
+  factory _$_Message.fromJson(Map<String, dynamic> json) =>
+      _$$_MessageFromJson(json);
 
   @override
   final String hash;
@@ -260,7 +259,7 @@ class _$MessageImpl implements _Message {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MessageImpl &&
+            other is _$_Message &&
             (identical(other.hash, hash) || other.hash == hash) &&
             (identical(other.src, src) || other.src == src) &&
             (identical(other.dst, dst) || other.dst == dst) &&
@@ -280,12 +279,12 @@ class _$MessageImpl implements _Message {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MessageImplCopyWith<_$MessageImpl> get copyWith =>
-      __$$MessageImplCopyWithImpl<_$MessageImpl>(this, _$identity);
+  _$$_MessageCopyWith<_$_Message> get copyWith =>
+      __$$_MessageCopyWithImpl<_$_Message>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$MessageImplToJson(
+    return _$$_MessageToJson(
       this,
     );
   }
@@ -300,9 +299,9 @@ abstract class _Message implements Message {
       required final bool bounce,
       required final bool bounced,
       final String? body,
-      final String? bodyHash}) = _$MessageImpl;
+      final String? bodyHash}) = _$_Message;
 
-  factory _Message.fromJson(Map<String, dynamic> json) = _$MessageImpl.fromJson;
+  factory _Message.fromJson(Map<String, dynamic> json) = _$_Message.fromJson;
 
   @override
   String get hash;
@@ -323,6 +322,6 @@ abstract class _Message implements Message {
   String? get bodyHash;
   @override
   @JsonKey(ignore: true)
-  _$$MessageImplCopyWith<_$MessageImpl> get copyWith =>
+  _$$_MessageCopyWith<_$_Message> get copyWith =>
       throw _privateConstructorUsedError;
 }

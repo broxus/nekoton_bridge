@@ -113,12 +113,12 @@ class _$DePoolOnRoundCompleteNotificationCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$DePoolOnRoundCompleteNotificationImplCopyWith<$Res>
+abstract class _$$_DePoolOnRoundCompleteNotificationCopyWith<$Res>
     implements $DePoolOnRoundCompleteNotificationCopyWith<$Res> {
-  factory _$$DePoolOnRoundCompleteNotificationImplCopyWith(
-          _$DePoolOnRoundCompleteNotificationImpl value,
-          $Res Function(_$DePoolOnRoundCompleteNotificationImpl) then) =
-      __$$DePoolOnRoundCompleteNotificationImplCopyWithImpl<$Res>;
+  factory _$$_DePoolOnRoundCompleteNotificationCopyWith(
+          _$_DePoolOnRoundCompleteNotification value,
+          $Res Function(_$_DePoolOnRoundCompleteNotification) then) =
+      __$$_DePoolOnRoundCompleteNotificationCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -132,13 +132,13 @@ abstract class _$$DePoolOnRoundCompleteNotificationImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$DePoolOnRoundCompleteNotificationImplCopyWithImpl<$Res>
+class __$$_DePoolOnRoundCompleteNotificationCopyWithImpl<$Res>
     extends _$DePoolOnRoundCompleteNotificationCopyWithImpl<$Res,
-        _$DePoolOnRoundCompleteNotificationImpl>
-    implements _$$DePoolOnRoundCompleteNotificationImplCopyWith<$Res> {
-  __$$DePoolOnRoundCompleteNotificationImplCopyWithImpl(
-      _$DePoolOnRoundCompleteNotificationImpl _value,
-      $Res Function(_$DePoolOnRoundCompleteNotificationImpl) _then)
+        _$_DePoolOnRoundCompleteNotification>
+    implements _$$_DePoolOnRoundCompleteNotificationCopyWith<$Res> {
+  __$$_DePoolOnRoundCompleteNotificationCopyWithImpl(
+      _$_DePoolOnRoundCompleteNotification _value,
+      $Res Function(_$_DePoolOnRoundCompleteNotification) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -152,7 +152,7 @@ class __$$DePoolOnRoundCompleteNotificationImplCopyWithImpl<$Res>
     Object? reinvest = null,
     Object? reason = null,
   }) {
-    return _then(_$DePoolOnRoundCompleteNotificationImpl(
+    return _then(_$_DePoolOnRoundCompleteNotification(
       roundId: null == roundId
           ? _value.roundId
           : roundId // ignore: cast_nullable_to_non_nullable
@@ -187,9 +187,9 @@ class __$$DePoolOnRoundCompleteNotificationImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$DePoolOnRoundCompleteNotificationImpl
+class _$_DePoolOnRoundCompleteNotification
     implements _DePoolOnRoundCompleteNotification {
-  const _$DePoolOnRoundCompleteNotificationImpl(
+  const _$_DePoolOnRoundCompleteNotification(
       {required this.roundId,
       @amountJsonConverter required this.reward,
       @amountJsonConverter required this.ordinaryStake,
@@ -198,9 +198,9 @@ class _$DePoolOnRoundCompleteNotificationImpl
       required this.reinvest,
       required this.reason});
 
-  factory _$DePoolOnRoundCompleteNotificationImpl.fromJson(
+  factory _$_DePoolOnRoundCompleteNotification.fromJson(
           Map<String, dynamic> json) =>
-      _$$DePoolOnRoundCompleteNotificationImplFromJson(json);
+      _$$_DePoolOnRoundCompleteNotificationFromJson(json);
 
   @override
   final String roundId;
@@ -230,7 +230,7 @@ class _$DePoolOnRoundCompleteNotificationImpl
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DePoolOnRoundCompleteNotificationImpl &&
+            other is _$_DePoolOnRoundCompleteNotification &&
             (identical(other.roundId, roundId) || other.roundId == roundId) &&
             (identical(other.reward, reward) || other.reward == reward) &&
             (identical(other.ordinaryStake, ordinaryStake) ||
@@ -252,14 +252,14 @@ class _$DePoolOnRoundCompleteNotificationImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DePoolOnRoundCompleteNotificationImplCopyWith<
-          _$DePoolOnRoundCompleteNotificationImpl>
-      get copyWith => __$$DePoolOnRoundCompleteNotificationImplCopyWithImpl<
-          _$DePoolOnRoundCompleteNotificationImpl>(this, _$identity);
+  _$$_DePoolOnRoundCompleteNotificationCopyWith<
+          _$_DePoolOnRoundCompleteNotification>
+      get copyWith => __$$_DePoolOnRoundCompleteNotificationCopyWithImpl<
+          _$_DePoolOnRoundCompleteNotification>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DePoolOnRoundCompleteNotificationImplToJson(
+    return _$$_DePoolOnRoundCompleteNotificationToJson(
       this,
     );
   }
@@ -274,11 +274,11 @@ abstract class _DePoolOnRoundCompleteNotification
       @amountJsonConverter required final BigInt vestingStake,
       @amountJsonConverter required final BigInt lockStake,
       required final bool reinvest,
-      required final int reason}) = _$DePoolOnRoundCompleteNotificationImpl;
+      required final int reason}) = _$_DePoolOnRoundCompleteNotification;
 
   factory _DePoolOnRoundCompleteNotification.fromJson(
           Map<String, dynamic> json) =
-      _$DePoolOnRoundCompleteNotificationImpl.fromJson;
+      _$_DePoolOnRoundCompleteNotification.fromJson;
 
   @override
   String get roundId;
@@ -300,7 +300,7 @@ abstract class _DePoolOnRoundCompleteNotification
   int get reason;
   @override
   @JsonKey(ignore: true)
-  _$$DePoolOnRoundCompleteNotificationImplCopyWith<
-          _$DePoolOnRoundCompleteNotificationImpl>
+  _$$_DePoolOnRoundCompleteNotificationCopyWith<
+          _$_DePoolOnRoundCompleteNotification>
       get copyWith => throw _privateConstructorUsedError;
 }

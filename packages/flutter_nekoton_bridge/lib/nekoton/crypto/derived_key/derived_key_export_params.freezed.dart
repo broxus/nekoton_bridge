@@ -90,12 +90,12 @@ class _$DerivedKeyExportSeedParamsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$DerivedKeyExportSeedParamsImplCopyWith<$Res>
+abstract class _$$_DerivedKeyExportSeedParamsCopyWith<$Res>
     implements $DerivedKeyExportSeedParamsCopyWith<$Res> {
-  factory _$$DerivedKeyExportSeedParamsImplCopyWith(
-          _$DerivedKeyExportSeedParamsImpl value,
-          $Res Function(_$DerivedKeyExportSeedParamsImpl) then) =
-      __$$DerivedKeyExportSeedParamsImplCopyWithImpl<$Res>;
+  factory _$$_DerivedKeyExportSeedParamsCopyWith(
+          _$_DerivedKeyExportSeedParams value,
+          $Res Function(_$_DerivedKeyExportSeedParams) then) =
+      __$$_DerivedKeyExportSeedParamsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PublicKey masterKey, Password password});
@@ -107,13 +107,13 @@ abstract class _$$DerivedKeyExportSeedParamsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$DerivedKeyExportSeedParamsImplCopyWithImpl<$Res>
+class __$$_DerivedKeyExportSeedParamsCopyWithImpl<$Res>
     extends _$DerivedKeyExportSeedParamsCopyWithImpl<$Res,
-        _$DerivedKeyExportSeedParamsImpl>
-    implements _$$DerivedKeyExportSeedParamsImplCopyWith<$Res> {
-  __$$DerivedKeyExportSeedParamsImplCopyWithImpl(
-      _$DerivedKeyExportSeedParamsImpl _value,
-      $Res Function(_$DerivedKeyExportSeedParamsImpl) _then)
+        _$_DerivedKeyExportSeedParams>
+    implements _$$_DerivedKeyExportSeedParamsCopyWith<$Res> {
+  __$$_DerivedKeyExportSeedParamsCopyWithImpl(
+      _$_DerivedKeyExportSeedParams _value,
+      $Res Function(_$_DerivedKeyExportSeedParams) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -122,7 +122,7 @@ class __$$DerivedKeyExportSeedParamsImplCopyWithImpl<$Res>
     Object? masterKey = null,
     Object? password = null,
   }) {
-    return _then(_$DerivedKeyExportSeedParamsImpl(
+    return _then(_$_DerivedKeyExportSeedParams(
       masterKey: null == masterKey
           ? _value.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable
@@ -138,13 +138,12 @@ class __$$DerivedKeyExportSeedParamsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$DerivedKeyExportSeedParamsImpl implements _DerivedKeyExportSeedParams {
-  const _$DerivedKeyExportSeedParamsImpl(
+class _$_DerivedKeyExportSeedParams implements _DerivedKeyExportSeedParams {
+  const _$_DerivedKeyExportSeedParams(
       {required this.masterKey, required this.password});
 
-  factory _$DerivedKeyExportSeedParamsImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$DerivedKeyExportSeedParamsImplFromJson(json);
+  factory _$_DerivedKeyExportSeedParams.fromJson(Map<String, dynamic> json) =>
+      _$$_DerivedKeyExportSeedParamsFromJson(json);
 
   @override
   final PublicKey masterKey;
@@ -160,7 +159,7 @@ class _$DerivedKeyExportSeedParamsImpl implements _DerivedKeyExportSeedParams {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DerivedKeyExportSeedParamsImpl &&
+            other is _$_DerivedKeyExportSeedParams &&
             (identical(other.masterKey, masterKey) ||
                 other.masterKey == masterKey) &&
             (identical(other.password, password) ||
@@ -174,13 +173,13 @@ class _$DerivedKeyExportSeedParamsImpl implements _DerivedKeyExportSeedParams {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DerivedKeyExportSeedParamsImplCopyWith<_$DerivedKeyExportSeedParamsImpl>
-      get copyWith => __$$DerivedKeyExportSeedParamsImplCopyWithImpl<
-          _$DerivedKeyExportSeedParamsImpl>(this, _$identity);
+  _$$_DerivedKeyExportSeedParamsCopyWith<_$_DerivedKeyExportSeedParams>
+      get copyWith => __$$_DerivedKeyExportSeedParamsCopyWithImpl<
+          _$_DerivedKeyExportSeedParams>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DerivedKeyExportSeedParamsImplToJson(
+    return _$$_DerivedKeyExportSeedParamsToJson(
       this,
     );
   }
@@ -190,10 +189,10 @@ abstract class _DerivedKeyExportSeedParams
     implements DerivedKeyExportSeedParams {
   const factory _DerivedKeyExportSeedParams(
       {required final PublicKey masterKey,
-      required final Password password}) = _$DerivedKeyExportSeedParamsImpl;
+      required final Password password}) = _$_DerivedKeyExportSeedParams;
 
   factory _DerivedKeyExportSeedParams.fromJson(Map<String, dynamic> json) =
-      _$DerivedKeyExportSeedParamsImpl.fromJson;
+      _$_DerivedKeyExportSeedParams.fromJson;
 
   @override
   PublicKey get masterKey;
@@ -201,6 +200,6 @@ abstract class _DerivedKeyExportSeedParams
   Password get password;
   @override
   @JsonKey(ignore: true)
-  _$$DerivedKeyExportSeedParamsImplCopyWith<_$DerivedKeyExportSeedParamsImpl>
+  _$$_DerivedKeyExportSeedParamsCopyWith<_$_DerivedKeyExportSeedParams>
       get copyWith => throw _privateConstructorUsedError;
 }

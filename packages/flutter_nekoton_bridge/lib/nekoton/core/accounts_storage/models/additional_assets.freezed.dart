@@ -68,22 +68,22 @@ class _$AdditionalAssetsCopyWithImpl<$Res, $Val extends AdditionalAssets>
 }
 
 /// @nodoc
-abstract class _$$AdditionalAssetsImplCopyWith<$Res>
+abstract class _$$_AdditionalAssetsCopyWith<$Res>
     implements $AdditionalAssetsCopyWith<$Res> {
-  factory _$$AdditionalAssetsImplCopyWith(_$AdditionalAssetsImpl value,
-          $Res Function(_$AdditionalAssetsImpl) then) =
-      __$$AdditionalAssetsImplCopyWithImpl<$Res>;
+  factory _$$_AdditionalAssetsCopyWith(
+          _$_AdditionalAssets value, $Res Function(_$_AdditionalAssets) then) =
+      __$$_AdditionalAssetsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<TokenWalletAsset> tokenWallets, List<DePoolAsset> depools});
 }
 
 /// @nodoc
-class __$$AdditionalAssetsImplCopyWithImpl<$Res>
-    extends _$AdditionalAssetsCopyWithImpl<$Res, _$AdditionalAssetsImpl>
-    implements _$$AdditionalAssetsImplCopyWith<$Res> {
-  __$$AdditionalAssetsImplCopyWithImpl(_$AdditionalAssetsImpl _value,
-      $Res Function(_$AdditionalAssetsImpl) _then)
+class __$$_AdditionalAssetsCopyWithImpl<$Res>
+    extends _$AdditionalAssetsCopyWithImpl<$Res, _$_AdditionalAssets>
+    implements _$$_AdditionalAssetsCopyWith<$Res> {
+  __$$_AdditionalAssetsCopyWithImpl(
+      _$_AdditionalAssets _value, $Res Function(_$_AdditionalAssets) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$AdditionalAssetsImplCopyWithImpl<$Res>
     Object? tokenWallets = null,
     Object? depools = null,
   }) {
-    return _then(_$AdditionalAssetsImpl(
+    return _then(_$_AdditionalAssets(
       tokenWallets: null == tokenWallets
           ? _value._tokenWallets
           : tokenWallets // ignore: cast_nullable_to_non_nullable
@@ -108,15 +108,15 @@ class __$$AdditionalAssetsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$AdditionalAssetsImpl implements _AdditionalAssets {
-  const _$AdditionalAssetsImpl(
+class _$_AdditionalAssets implements _AdditionalAssets {
+  const _$_AdditionalAssets(
       {required final List<TokenWalletAsset> tokenWallets,
       required final List<DePoolAsset> depools})
       : _tokenWallets = tokenWallets,
         _depools = depools;
 
-  factory _$AdditionalAssetsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AdditionalAssetsImplFromJson(json);
+  factory _$_AdditionalAssets.fromJson(Map<String, dynamic> json) =>
+      _$$_AdditionalAssetsFromJson(json);
 
   final List<TokenWalletAsset> _tokenWallets;
   @override
@@ -143,7 +143,7 @@ class _$AdditionalAssetsImpl implements _AdditionalAssets {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AdditionalAssetsImpl &&
+            other is _$_AdditionalAssets &&
             const DeepCollectionEquality()
                 .equals(other._tokenWallets, _tokenWallets) &&
             const DeepCollectionEquality().equals(other._depools, _depools));
@@ -159,13 +159,12 @@ class _$AdditionalAssetsImpl implements _AdditionalAssets {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AdditionalAssetsImplCopyWith<_$AdditionalAssetsImpl> get copyWith =>
-      __$$AdditionalAssetsImplCopyWithImpl<_$AdditionalAssetsImpl>(
-          this, _$identity);
+  _$$_AdditionalAssetsCopyWith<_$_AdditionalAssets> get copyWith =>
+      __$$_AdditionalAssetsCopyWithImpl<_$_AdditionalAssets>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AdditionalAssetsImplToJson(
+    return _$$_AdditionalAssetsToJson(
       this,
     );
   }
@@ -174,10 +173,10 @@ class _$AdditionalAssetsImpl implements _AdditionalAssets {
 abstract class _AdditionalAssets implements AdditionalAssets {
   const factory _AdditionalAssets(
       {required final List<TokenWalletAsset> tokenWallets,
-      required final List<DePoolAsset> depools}) = _$AdditionalAssetsImpl;
+      required final List<DePoolAsset> depools}) = _$_AdditionalAssets;
 
   factory _AdditionalAssets.fromJson(Map<String, dynamic> json) =
-      _$AdditionalAssetsImpl.fromJson;
+      _$_AdditionalAssets.fromJson;
 
   @override
   List<TokenWalletAsset> get tokenWallets;
@@ -185,6 +184,6 @@ abstract class _AdditionalAssets implements AdditionalAssets {
   List<DePoolAsset> get depools;
   @override
   @JsonKey(ignore: true)
-  _$$AdditionalAssetsImplCopyWith<_$AdditionalAssetsImpl> get copyWith =>
+  _$$_AdditionalAssetsCopyWith<_$_AdditionalAssets> get copyWith =>
       throw _privateConstructorUsedError;
 }

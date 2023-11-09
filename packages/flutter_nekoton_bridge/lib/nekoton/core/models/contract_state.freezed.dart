@@ -116,11 +116,11 @@ class _$ContractStateCopyWithImpl<$Res, $Val extends ContractState>
 }
 
 /// @nodoc
-abstract class _$$ContractStateImplCopyWith<$Res>
+abstract class _$$_ContractStateCopyWith<$Res>
     implements $ContractStateCopyWith<$Res> {
-  factory _$$ContractStateImplCopyWith(
-          _$ContractStateImpl value, $Res Function(_$ContractStateImpl) then) =
-      __$$ContractStateImplCopyWithImpl<$Res>;
+  factory _$$_ContractStateCopyWith(
+          _$_ContractState value, $Res Function(_$_ContractState) then) =
+      __$$_ContractStateCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -137,11 +137,11 @@ abstract class _$$ContractStateImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ContractStateImplCopyWithImpl<$Res>
-    extends _$ContractStateCopyWithImpl<$Res, _$ContractStateImpl>
-    implements _$$ContractStateImplCopyWith<$Res> {
-  __$$ContractStateImplCopyWithImpl(
-      _$ContractStateImpl _value, $Res Function(_$ContractStateImpl) _then)
+class __$$_ContractStateCopyWithImpl<$Res>
+    extends _$ContractStateCopyWithImpl<$Res, _$_ContractState>
+    implements _$$_ContractStateCopyWith<$Res> {
+  __$$_ContractStateCopyWithImpl(
+      _$_ContractState _value, $Res Function(_$_ContractState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -153,7 +153,7 @@ class __$$ContractStateImplCopyWithImpl<$Res>
     Object? isDeployed = null,
     Object? codeHash = freezed,
   }) {
-    return _then(_$ContractStateImpl(
+    return _then(_$_ContractState(
       balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
@@ -180,16 +180,16 @@ class __$$ContractStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ContractStateImpl implements _ContractState {
-  const _$ContractStateImpl(
+class _$_ContractState implements _ContractState {
+  const _$_ContractState(
       {@amountJsonConverter required this.balance,
       required this.genTimings,
       this.lastTransactionId,
       required this.isDeployed,
       this.codeHash});
 
-  factory _$ContractStateImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ContractStateImplFromJson(json);
+  factory _$_ContractState.fromJson(Map<String, dynamic> json) =>
+      _$$_ContractStateFromJson(json);
 
   @override
   @amountJsonConverter
@@ -212,7 +212,7 @@ class _$ContractStateImpl implements _ContractState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ContractStateImpl &&
+            other is _$_ContractState &&
             (identical(other.balance, balance) || other.balance == balance) &&
             (identical(other.genTimings, genTimings) ||
                 other.genTimings == genTimings) &&
@@ -232,12 +232,12 @@ class _$ContractStateImpl implements _ContractState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ContractStateImplCopyWith<_$ContractStateImpl> get copyWith =>
-      __$$ContractStateImplCopyWithImpl<_$ContractStateImpl>(this, _$identity);
+  _$$_ContractStateCopyWith<_$_ContractState> get copyWith =>
+      __$$_ContractStateCopyWithImpl<_$_ContractState>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ContractStateImplToJson(
+    return _$$_ContractStateToJson(
       this,
     );
   }
@@ -249,10 +249,10 @@ abstract class _ContractState implements ContractState {
       required final GenTimings genTimings,
       final LastTransactionId? lastTransactionId,
       required final bool isDeployed,
-      final String? codeHash}) = _$ContractStateImpl;
+      final String? codeHash}) = _$_ContractState;
 
   factory _ContractState.fromJson(Map<String, dynamic> json) =
-      _$ContractStateImpl.fromJson;
+      _$_ContractState.fromJson;
 
   @override
   @amountJsonConverter
@@ -267,6 +267,6 @@ abstract class _ContractState implements ContractState {
   String? get codeHash;
   @override
   @JsonKey(ignore: true)
-  _$$ContractStateImplCopyWith<_$ContractStateImpl> get copyWith =>
+  _$$_ContractStateCopyWith<_$_ContractState> get copyWith =>
       throw _privateConstructorUsedError;
 }

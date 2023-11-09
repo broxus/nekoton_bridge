@@ -97,11 +97,11 @@ class _$TokenWalletDetailsCopyWithImpl<$Res, $Val extends TokenWalletDetails>
 }
 
 /// @nodoc
-abstract class _$$TokenWalletDetailsImplCopyWith<$Res>
+abstract class _$$_TokenWalletDetailsCopyWith<$Res>
     implements $TokenWalletDetailsCopyWith<$Res> {
-  factory _$$TokenWalletDetailsImplCopyWith(_$TokenWalletDetailsImpl value,
-          $Res Function(_$TokenWalletDetailsImpl) then) =
-      __$$TokenWalletDetailsImplCopyWithImpl<$Res>;
+  factory _$$_TokenWalletDetailsCopyWith(_$_TokenWalletDetails value,
+          $Res Function(_$_TokenWalletDetails) then) =
+      __$$_TokenWalletDetailsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -116,11 +116,11 @@ abstract class _$$TokenWalletDetailsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$TokenWalletDetailsImplCopyWithImpl<$Res>
-    extends _$TokenWalletDetailsCopyWithImpl<$Res, _$TokenWalletDetailsImpl>
-    implements _$$TokenWalletDetailsImplCopyWith<$Res> {
-  __$$TokenWalletDetailsImplCopyWithImpl(_$TokenWalletDetailsImpl _value,
-      $Res Function(_$TokenWalletDetailsImpl) _then)
+class __$$_TokenWalletDetailsCopyWithImpl<$Res>
+    extends _$TokenWalletDetailsCopyWithImpl<$Res, _$_TokenWalletDetails>
+    implements _$$_TokenWalletDetailsCopyWith<$Res> {
+  __$$_TokenWalletDetailsCopyWithImpl(
+      _$_TokenWalletDetails _value, $Res Function(_$_TokenWalletDetails) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -130,7 +130,7 @@ class __$$TokenWalletDetailsImplCopyWithImpl<$Res>
     Object? ownerAddress = null,
     Object? balance = null,
   }) {
-    return _then(_$TokenWalletDetailsImpl(
+    return _then(_$_TokenWalletDetails(
       rootAddress: null == rootAddress
           ? _value.rootAddress
           : rootAddress // ignore: cast_nullable_to_non_nullable
@@ -149,14 +149,14 @@ class __$$TokenWalletDetailsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TokenWalletDetailsImpl implements _TokenWalletDetails {
-  const _$TokenWalletDetailsImpl(
+class _$_TokenWalletDetails implements _TokenWalletDetails {
+  const _$_TokenWalletDetails(
       {required this.rootAddress,
       required this.ownerAddress,
       @amountJsonConverter required this.balance});
 
-  factory _$TokenWalletDetailsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TokenWalletDetailsImplFromJson(json);
+  factory _$_TokenWalletDetails.fromJson(Map<String, dynamic> json) =>
+      _$$_TokenWalletDetailsFromJson(json);
 
   @override
   final Address rootAddress;
@@ -175,7 +175,7 @@ class _$TokenWalletDetailsImpl implements _TokenWalletDetails {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TokenWalletDetailsImpl &&
+            other is _$_TokenWalletDetails &&
             (identical(other.rootAddress, rootAddress) ||
                 other.rootAddress == rootAddress) &&
             (identical(other.ownerAddress, ownerAddress) ||
@@ -191,13 +191,13 @@ class _$TokenWalletDetailsImpl implements _TokenWalletDetails {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TokenWalletDetailsImplCopyWith<_$TokenWalletDetailsImpl> get copyWith =>
-      __$$TokenWalletDetailsImplCopyWithImpl<_$TokenWalletDetailsImpl>(
+  _$$_TokenWalletDetailsCopyWith<_$_TokenWalletDetails> get copyWith =>
+      __$$_TokenWalletDetailsCopyWithImpl<_$_TokenWalletDetails>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TokenWalletDetailsImplToJson(
+    return _$$_TokenWalletDetailsToJson(
       this,
     );
   }
@@ -208,10 +208,10 @@ abstract class _TokenWalletDetails implements TokenWalletDetails {
           {required final Address rootAddress,
           required final Address ownerAddress,
           @amountJsonConverter required final BigInt balance}) =
-      _$TokenWalletDetailsImpl;
+      _$_TokenWalletDetails;
 
   factory _TokenWalletDetails.fromJson(Map<String, dynamic> json) =
-      _$TokenWalletDetailsImpl.fromJson;
+      _$_TokenWalletDetails.fromJson;
 
   @override
   Address get rootAddress;
@@ -222,6 +222,6 @@ abstract class _TokenWalletDetails implements TokenWalletDetails {
   BigInt get balance;
   @override
   @JsonKey(ignore: true)
-  _$$TokenWalletDetailsImplCopyWith<_$TokenWalletDetailsImpl> get copyWith =>
+  _$$_TokenWalletDetailsCopyWith<_$_TokenWalletDetails> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -6,8 +6,8 @@ part of 'transaction.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TransactionImpl _$$TransactionImplFromJson(Map<String, dynamic> json) =>
-    _$TransactionImpl(
+_$_Transaction _$$_TransactionFromJson(Map<String, dynamic> json) =>
+    _$_Transaction(
       id: TransactionId.fromJson(json['id'] as Map<String, dynamic>),
       prevTransactionId: json['prevTransactionId'] == null
           ? null
@@ -27,7 +27,7 @@ _$TransactionImpl _$$TransactionImplFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$TransactionImplToJson(_$TransactionImpl instance) {
+Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) {
   final val = <String, dynamic>{
     'id': instance.id.toJson(),
     'prevTransactionId': instance.prevTransactionId?.toJson(),

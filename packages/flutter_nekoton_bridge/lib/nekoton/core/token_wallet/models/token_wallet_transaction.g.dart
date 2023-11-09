@@ -6,80 +6,70 @@ part of 'token_wallet_transaction.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$IncomingTransferImpl _$$IncomingTransferImplFromJson(
-        Map<String, dynamic> json) =>
-    _$IncomingTransferImpl(
+_$_IncomingTransfer _$$_IncomingTransferFromJson(Map<String, dynamic> json) =>
+    _$_IncomingTransfer(
       TokenIncomingTransfer.fromJson(json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$IncomingTransferImplToJson(
-        _$IncomingTransferImpl instance) =>
+Map<String, dynamic> _$$_IncomingTransferToJson(_$_IncomingTransfer instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
-_$OutgoingTransferImpl _$$OutgoingTransferImplFromJson(
-        Map<String, dynamic> json) =>
-    _$OutgoingTransferImpl(
+_$_OutgoingTransfer _$$_OutgoingTransferFromJson(Map<String, dynamic> json) =>
+    _$_OutgoingTransfer(
       TokenOutgoingTransfer.fromJson(json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$OutgoingTransferImplToJson(
-        _$OutgoingTransferImpl instance) =>
+Map<String, dynamic> _$$_OutgoingTransferToJson(_$_OutgoingTransfer instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
-_$SwapBackImpl _$$SwapBackImplFromJson(Map<String, dynamic> json) =>
-    _$SwapBackImpl(
+_$_SwapBack _$$_SwapBackFromJson(Map<String, dynamic> json) => _$_SwapBack(
       TokenSwapBack.fromJson(json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$SwapBackImplToJson(_$SwapBackImpl instance) =>
+Map<String, dynamic> _$$_SwapBackToJson(_$_SwapBack instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
-_$AcceptImpl _$$AcceptImplFromJson(Map<String, dynamic> json) => _$AcceptImpl(
+_$_Accept _$$_AcceptFromJson(Map<String, dynamic> json) => _$_Accept(
       amountJsonConverter.fromJson(json['data'] as String),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$AcceptImplToJson(_$AcceptImpl instance) =>
+Map<String, dynamic> _$$_AcceptToJson(_$_Accept instance) => <String, dynamic>{
+      'data': amountJsonConverter.toJson(instance.data),
+      'type': instance.$type,
+    };
+
+_$_TransferBounced _$$_TransferBouncedFromJson(Map<String, dynamic> json) =>
+    _$_TransferBounced(
+      amountJsonConverter.fromJson(json['data'] as String),
+      $type: json['type'] as String?,
+    );
+
+Map<String, dynamic> _$$_TransferBouncedToJson(_$_TransferBounced instance) =>
     <String, dynamic>{
       'data': amountJsonConverter.toJson(instance.data),
       'type': instance.$type,
     };
 
-_$TransferBouncedImpl _$$TransferBouncedImplFromJson(
-        Map<String, dynamic> json) =>
-    _$TransferBouncedImpl(
+_$_SwapBackBounced _$$_SwapBackBouncedFromJson(Map<String, dynamic> json) =>
+    _$_SwapBackBounced(
       amountJsonConverter.fromJson(json['data'] as String),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$TransferBouncedImplToJson(
-        _$TransferBouncedImpl instance) =>
-    <String, dynamic>{
-      'data': amountJsonConverter.toJson(instance.data),
-      'type': instance.$type,
-    };
-
-_$SwapBackBouncedImpl _$$SwapBackBouncedImplFromJson(
-        Map<String, dynamic> json) =>
-    _$SwapBackBouncedImpl(
-      amountJsonConverter.fromJson(json['data'] as String),
-      $type: json['type'] as String?,
-    );
-
-Map<String, dynamic> _$$SwapBackBouncedImplToJson(
-        _$SwapBackBouncedImpl instance) =>
+Map<String, dynamic> _$$_SwapBackBouncedToJson(_$_SwapBackBounced instance) =>
     <String, dynamic>{
       'data': amountJsonConverter.toJson(instance.data),
       'type': instance.$type,

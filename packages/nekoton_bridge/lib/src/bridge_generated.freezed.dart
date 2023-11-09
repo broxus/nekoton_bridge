@@ -135,20 +135,20 @@ class _$DynamicValueCopyWithImpl<$Res, $Val extends DynamicValue>
 }
 
 /// @nodoc
-abstract class _$$DynamicValue_U16ImplCopyWith<$Res> {
-  factory _$$DynamicValue_U16ImplCopyWith(_$DynamicValue_U16Impl value,
-          $Res Function(_$DynamicValue_U16Impl) then) =
-      __$$DynamicValue_U16ImplCopyWithImpl<$Res>;
+abstract class _$$DynamicValue_U16CopyWith<$Res> {
+  factory _$$DynamicValue_U16CopyWith(
+          _$DynamicValue_U16 value, $Res Function(_$DynamicValue_U16) then) =
+      __$$DynamicValue_U16CopyWithImpl<$Res>;
   @useResult
   $Res call({int field0});
 }
 
 /// @nodoc
-class __$$DynamicValue_U16ImplCopyWithImpl<$Res>
-    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_U16Impl>
-    implements _$$DynamicValue_U16ImplCopyWith<$Res> {
-  __$$DynamicValue_U16ImplCopyWithImpl(_$DynamicValue_U16Impl _value,
-      $Res Function(_$DynamicValue_U16Impl) _then)
+class __$$DynamicValue_U16CopyWithImpl<$Res>
+    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_U16>
+    implements _$$DynamicValue_U16CopyWith<$Res> {
+  __$$DynamicValue_U16CopyWithImpl(
+      _$DynamicValue_U16 _value, $Res Function(_$DynamicValue_U16) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -156,7 +156,7 @@ class __$$DynamicValue_U16ImplCopyWithImpl<$Res>
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$DynamicValue_U16Impl(
+    return _then(_$DynamicValue_U16(
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
@@ -167,8 +167,8 @@ class __$$DynamicValue_U16ImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DynamicValue_U16Impl implements DynamicValue_U16 {
-  const _$DynamicValue_U16Impl(this.field0);
+class _$DynamicValue_U16 implements DynamicValue_U16 {
+  const _$DynamicValue_U16(this.field0);
 
   @override
   final int field0;
@@ -182,7 +182,7 @@ class _$DynamicValue_U16Impl implements DynamicValue_U16 {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DynamicValue_U16Impl &&
+            other is _$DynamicValue_U16 &&
             (identical(other.field0, field0) || other.field0 == field0));
   }
 
@@ -192,9 +192,8 @@ class _$DynamicValue_U16Impl implements DynamicValue_U16 {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DynamicValue_U16ImplCopyWith<_$DynamicValue_U16Impl> get copyWith =>
-      __$$DynamicValue_U16ImplCopyWithImpl<_$DynamicValue_U16Impl>(
-          this, _$identity);
+  _$$DynamicValue_U16CopyWith<_$DynamicValue_U16> get copyWith =>
+      __$$DynamicValue_U16CopyWithImpl<_$DynamicValue_U16>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -320,29 +319,29 @@ class _$DynamicValue_U16Impl implements DynamicValue_U16 {
 }
 
 abstract class DynamicValue_U16 implements DynamicValue {
-  const factory DynamicValue_U16(final int field0) = _$DynamicValue_U16Impl;
+  const factory DynamicValue_U16(final int field0) = _$DynamicValue_U16;
 
   int get field0;
   @JsonKey(ignore: true)
-  _$$DynamicValue_U16ImplCopyWith<_$DynamicValue_U16Impl> get copyWith =>
+  _$$DynamicValue_U16CopyWith<_$DynamicValue_U16> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DynamicValue_U32ImplCopyWith<$Res> {
-  factory _$$DynamicValue_U32ImplCopyWith(_$DynamicValue_U32Impl value,
-          $Res Function(_$DynamicValue_U32Impl) then) =
-      __$$DynamicValue_U32ImplCopyWithImpl<$Res>;
+abstract class _$$DynamicValue_U32CopyWith<$Res> {
+  factory _$$DynamicValue_U32CopyWith(
+          _$DynamicValue_U32 value, $Res Function(_$DynamicValue_U32) then) =
+      __$$DynamicValue_U32CopyWithImpl<$Res>;
   @useResult
   $Res call({int field0});
 }
 
 /// @nodoc
-class __$$DynamicValue_U32ImplCopyWithImpl<$Res>
-    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_U32Impl>
-    implements _$$DynamicValue_U32ImplCopyWith<$Res> {
-  __$$DynamicValue_U32ImplCopyWithImpl(_$DynamicValue_U32Impl _value,
-      $Res Function(_$DynamicValue_U32Impl) _then)
+class __$$DynamicValue_U32CopyWithImpl<$Res>
+    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_U32>
+    implements _$$DynamicValue_U32CopyWith<$Res> {
+  __$$DynamicValue_U32CopyWithImpl(
+      _$DynamicValue_U32 _value, $Res Function(_$DynamicValue_U32) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -350,7 +349,7 @@ class __$$DynamicValue_U32ImplCopyWithImpl<$Res>
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$DynamicValue_U32Impl(
+    return _then(_$DynamicValue_U32(
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
@@ -361,8 +360,8 @@ class __$$DynamicValue_U32ImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DynamicValue_U32Impl implements DynamicValue_U32 {
-  const _$DynamicValue_U32Impl(this.field0);
+class _$DynamicValue_U32 implements DynamicValue_U32 {
+  const _$DynamicValue_U32(this.field0);
 
   @override
   final int field0;
@@ -376,7 +375,7 @@ class _$DynamicValue_U32Impl implements DynamicValue_U32 {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DynamicValue_U32Impl &&
+            other is _$DynamicValue_U32 &&
             (identical(other.field0, field0) || other.field0 == field0));
   }
 
@@ -386,9 +385,8 @@ class _$DynamicValue_U32Impl implements DynamicValue_U32 {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DynamicValue_U32ImplCopyWith<_$DynamicValue_U32Impl> get copyWith =>
-      __$$DynamicValue_U32ImplCopyWithImpl<_$DynamicValue_U32Impl>(
-          this, _$identity);
+  _$$DynamicValue_U32CopyWith<_$DynamicValue_U32> get copyWith =>
+      __$$DynamicValue_U32CopyWithImpl<_$DynamicValue_U32>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -514,29 +512,29 @@ class _$DynamicValue_U32Impl implements DynamicValue_U32 {
 }
 
 abstract class DynamicValue_U32 implements DynamicValue {
-  const factory DynamicValue_U32(final int field0) = _$DynamicValue_U32Impl;
+  const factory DynamicValue_U32(final int field0) = _$DynamicValue_U32;
 
   int get field0;
   @JsonKey(ignore: true)
-  _$$DynamicValue_U32ImplCopyWith<_$DynamicValue_U32Impl> get copyWith =>
+  _$$DynamicValue_U32CopyWith<_$DynamicValue_U32> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DynamicValue_I32ImplCopyWith<$Res> {
-  factory _$$DynamicValue_I32ImplCopyWith(_$DynamicValue_I32Impl value,
-          $Res Function(_$DynamicValue_I32Impl) then) =
-      __$$DynamicValue_I32ImplCopyWithImpl<$Res>;
+abstract class _$$DynamicValue_I32CopyWith<$Res> {
+  factory _$$DynamicValue_I32CopyWith(
+          _$DynamicValue_I32 value, $Res Function(_$DynamicValue_I32) then) =
+      __$$DynamicValue_I32CopyWithImpl<$Res>;
   @useResult
   $Res call({int field0});
 }
 
 /// @nodoc
-class __$$DynamicValue_I32ImplCopyWithImpl<$Res>
-    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_I32Impl>
-    implements _$$DynamicValue_I32ImplCopyWith<$Res> {
-  __$$DynamicValue_I32ImplCopyWithImpl(_$DynamicValue_I32Impl _value,
-      $Res Function(_$DynamicValue_I32Impl) _then)
+class __$$DynamicValue_I32CopyWithImpl<$Res>
+    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_I32>
+    implements _$$DynamicValue_I32CopyWith<$Res> {
+  __$$DynamicValue_I32CopyWithImpl(
+      _$DynamicValue_I32 _value, $Res Function(_$DynamicValue_I32) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -544,7 +542,7 @@ class __$$DynamicValue_I32ImplCopyWithImpl<$Res>
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$DynamicValue_I32Impl(
+    return _then(_$DynamicValue_I32(
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
@@ -555,8 +553,8 @@ class __$$DynamicValue_I32ImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DynamicValue_I32Impl implements DynamicValue_I32 {
-  const _$DynamicValue_I32Impl(this.field0);
+class _$DynamicValue_I32 implements DynamicValue_I32 {
+  const _$DynamicValue_I32(this.field0);
 
   @override
   final int field0;
@@ -570,7 +568,7 @@ class _$DynamicValue_I32Impl implements DynamicValue_I32 {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DynamicValue_I32Impl &&
+            other is _$DynamicValue_I32 &&
             (identical(other.field0, field0) || other.field0 == field0));
   }
 
@@ -580,9 +578,8 @@ class _$DynamicValue_I32Impl implements DynamicValue_I32 {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DynamicValue_I32ImplCopyWith<_$DynamicValue_I32Impl> get copyWith =>
-      __$$DynamicValue_I32ImplCopyWithImpl<_$DynamicValue_I32Impl>(
-          this, _$identity);
+  _$$DynamicValue_I32CopyWith<_$DynamicValue_I32> get copyWith =>
+      __$$DynamicValue_I32CopyWithImpl<_$DynamicValue_I32>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -708,29 +705,29 @@ class _$DynamicValue_I32Impl implements DynamicValue_I32 {
 }
 
 abstract class DynamicValue_I32 implements DynamicValue {
-  const factory DynamicValue_I32(final int field0) = _$DynamicValue_I32Impl;
+  const factory DynamicValue_I32(final int field0) = _$DynamicValue_I32;
 
   int get field0;
   @JsonKey(ignore: true)
-  _$$DynamicValue_I32ImplCopyWith<_$DynamicValue_I32Impl> get copyWith =>
+  _$$DynamicValue_I32CopyWith<_$DynamicValue_I32> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DynamicValue_U64ImplCopyWith<$Res> {
-  factory _$$DynamicValue_U64ImplCopyWith(_$DynamicValue_U64Impl value,
-          $Res Function(_$DynamicValue_U64Impl) then) =
-      __$$DynamicValue_U64ImplCopyWithImpl<$Res>;
+abstract class _$$DynamicValue_U64CopyWith<$Res> {
+  factory _$$DynamicValue_U64CopyWith(
+          _$DynamicValue_U64 value, $Res Function(_$DynamicValue_U64) then) =
+      __$$DynamicValue_U64CopyWithImpl<$Res>;
   @useResult
   $Res call({int field0});
 }
 
 /// @nodoc
-class __$$DynamicValue_U64ImplCopyWithImpl<$Res>
-    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_U64Impl>
-    implements _$$DynamicValue_U64ImplCopyWith<$Res> {
-  __$$DynamicValue_U64ImplCopyWithImpl(_$DynamicValue_U64Impl _value,
-      $Res Function(_$DynamicValue_U64Impl) _then)
+class __$$DynamicValue_U64CopyWithImpl<$Res>
+    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_U64>
+    implements _$$DynamicValue_U64CopyWith<$Res> {
+  __$$DynamicValue_U64CopyWithImpl(
+      _$DynamicValue_U64 _value, $Res Function(_$DynamicValue_U64) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -738,7 +735,7 @@ class __$$DynamicValue_U64ImplCopyWithImpl<$Res>
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$DynamicValue_U64Impl(
+    return _then(_$DynamicValue_U64(
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
@@ -749,8 +746,8 @@ class __$$DynamicValue_U64ImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DynamicValue_U64Impl implements DynamicValue_U64 {
-  const _$DynamicValue_U64Impl(this.field0);
+class _$DynamicValue_U64 implements DynamicValue_U64 {
+  const _$DynamicValue_U64(this.field0);
 
   @override
   final int field0;
@@ -764,7 +761,7 @@ class _$DynamicValue_U64Impl implements DynamicValue_U64 {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DynamicValue_U64Impl &&
+            other is _$DynamicValue_U64 &&
             (identical(other.field0, field0) || other.field0 == field0));
   }
 
@@ -774,9 +771,8 @@ class _$DynamicValue_U64Impl implements DynamicValue_U64 {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DynamicValue_U64ImplCopyWith<_$DynamicValue_U64Impl> get copyWith =>
-      __$$DynamicValue_U64ImplCopyWithImpl<_$DynamicValue_U64Impl>(
-          this, _$identity);
+  _$$DynamicValue_U64CopyWith<_$DynamicValue_U64> get copyWith =>
+      __$$DynamicValue_U64CopyWithImpl<_$DynamicValue_U64>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -902,29 +898,29 @@ class _$DynamicValue_U64Impl implements DynamicValue_U64 {
 }
 
 abstract class DynamicValue_U64 implements DynamicValue {
-  const factory DynamicValue_U64(final int field0) = _$DynamicValue_U64Impl;
+  const factory DynamicValue_U64(final int field0) = _$DynamicValue_U64;
 
   int get field0;
   @JsonKey(ignore: true)
-  _$$DynamicValue_U64ImplCopyWith<_$DynamicValue_U64Impl> get copyWith =>
+  _$$DynamicValue_U64CopyWith<_$DynamicValue_U64> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DynamicValue_I64ImplCopyWith<$Res> {
-  factory _$$DynamicValue_I64ImplCopyWith(_$DynamicValue_I64Impl value,
-          $Res Function(_$DynamicValue_I64Impl) then) =
-      __$$DynamicValue_I64ImplCopyWithImpl<$Res>;
+abstract class _$$DynamicValue_I64CopyWith<$Res> {
+  factory _$$DynamicValue_I64CopyWith(
+          _$DynamicValue_I64 value, $Res Function(_$DynamicValue_I64) then) =
+      __$$DynamicValue_I64CopyWithImpl<$Res>;
   @useResult
   $Res call({int field0});
 }
 
 /// @nodoc
-class __$$DynamicValue_I64ImplCopyWithImpl<$Res>
-    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_I64Impl>
-    implements _$$DynamicValue_I64ImplCopyWith<$Res> {
-  __$$DynamicValue_I64ImplCopyWithImpl(_$DynamicValue_I64Impl _value,
-      $Res Function(_$DynamicValue_I64Impl) _then)
+class __$$DynamicValue_I64CopyWithImpl<$Res>
+    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_I64>
+    implements _$$DynamicValue_I64CopyWith<$Res> {
+  __$$DynamicValue_I64CopyWithImpl(
+      _$DynamicValue_I64 _value, $Res Function(_$DynamicValue_I64) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -932,7 +928,7 @@ class __$$DynamicValue_I64ImplCopyWithImpl<$Res>
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$DynamicValue_I64Impl(
+    return _then(_$DynamicValue_I64(
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
@@ -943,8 +939,8 @@ class __$$DynamicValue_I64ImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DynamicValue_I64Impl implements DynamicValue_I64 {
-  const _$DynamicValue_I64Impl(this.field0);
+class _$DynamicValue_I64 implements DynamicValue_I64 {
+  const _$DynamicValue_I64(this.field0);
 
   @override
   final int field0;
@@ -958,7 +954,7 @@ class _$DynamicValue_I64Impl implements DynamicValue_I64 {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DynamicValue_I64Impl &&
+            other is _$DynamicValue_I64 &&
             (identical(other.field0, field0) || other.field0 == field0));
   }
 
@@ -968,9 +964,8 @@ class _$DynamicValue_I64Impl implements DynamicValue_I64 {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DynamicValue_I64ImplCopyWith<_$DynamicValue_I64Impl> get copyWith =>
-      __$$DynamicValue_I64ImplCopyWithImpl<_$DynamicValue_I64Impl>(
-          this, _$identity);
+  _$$DynamicValue_I64CopyWith<_$DynamicValue_I64> get copyWith =>
+      __$$DynamicValue_I64CopyWithImpl<_$DynamicValue_I64>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1096,29 +1091,29 @@ class _$DynamicValue_I64Impl implements DynamicValue_I64 {
 }
 
 abstract class DynamicValue_I64 implements DynamicValue {
-  const factory DynamicValue_I64(final int field0) = _$DynamicValue_I64Impl;
+  const factory DynamicValue_I64(final int field0) = _$DynamicValue_I64;
 
   int get field0;
   @JsonKey(ignore: true)
-  _$$DynamicValue_I64ImplCopyWith<_$DynamicValue_I64Impl> get copyWith =>
+  _$$DynamicValue_I64CopyWith<_$DynamicValue_I64> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DynamicValue_F32ImplCopyWith<$Res> {
-  factory _$$DynamicValue_F32ImplCopyWith(_$DynamicValue_F32Impl value,
-          $Res Function(_$DynamicValue_F32Impl) then) =
-      __$$DynamicValue_F32ImplCopyWithImpl<$Res>;
+abstract class _$$DynamicValue_F32CopyWith<$Res> {
+  factory _$$DynamicValue_F32CopyWith(
+          _$DynamicValue_F32 value, $Res Function(_$DynamicValue_F32) then) =
+      __$$DynamicValue_F32CopyWithImpl<$Res>;
   @useResult
   $Res call({double field0});
 }
 
 /// @nodoc
-class __$$DynamicValue_F32ImplCopyWithImpl<$Res>
-    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_F32Impl>
-    implements _$$DynamicValue_F32ImplCopyWith<$Res> {
-  __$$DynamicValue_F32ImplCopyWithImpl(_$DynamicValue_F32Impl _value,
-      $Res Function(_$DynamicValue_F32Impl) _then)
+class __$$DynamicValue_F32CopyWithImpl<$Res>
+    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_F32>
+    implements _$$DynamicValue_F32CopyWith<$Res> {
+  __$$DynamicValue_F32CopyWithImpl(
+      _$DynamicValue_F32 _value, $Res Function(_$DynamicValue_F32) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1126,7 +1121,7 @@ class __$$DynamicValue_F32ImplCopyWithImpl<$Res>
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$DynamicValue_F32Impl(
+    return _then(_$DynamicValue_F32(
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
@@ -1137,8 +1132,8 @@ class __$$DynamicValue_F32ImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DynamicValue_F32Impl implements DynamicValue_F32 {
-  const _$DynamicValue_F32Impl(this.field0);
+class _$DynamicValue_F32 implements DynamicValue_F32 {
+  const _$DynamicValue_F32(this.field0);
 
   @override
   final double field0;
@@ -1152,7 +1147,7 @@ class _$DynamicValue_F32Impl implements DynamicValue_F32 {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DynamicValue_F32Impl &&
+            other is _$DynamicValue_F32 &&
             (identical(other.field0, field0) || other.field0 == field0));
   }
 
@@ -1162,9 +1157,8 @@ class _$DynamicValue_F32Impl implements DynamicValue_F32 {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DynamicValue_F32ImplCopyWith<_$DynamicValue_F32Impl> get copyWith =>
-      __$$DynamicValue_F32ImplCopyWithImpl<_$DynamicValue_F32Impl>(
-          this, _$identity);
+  _$$DynamicValue_F32CopyWith<_$DynamicValue_F32> get copyWith =>
+      __$$DynamicValue_F32CopyWithImpl<_$DynamicValue_F32>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1290,29 +1284,29 @@ class _$DynamicValue_F32Impl implements DynamicValue_F32 {
 }
 
 abstract class DynamicValue_F32 implements DynamicValue {
-  const factory DynamicValue_F32(final double field0) = _$DynamicValue_F32Impl;
+  const factory DynamicValue_F32(final double field0) = _$DynamicValue_F32;
 
   double get field0;
   @JsonKey(ignore: true)
-  _$$DynamicValue_F32ImplCopyWith<_$DynamicValue_F32Impl> get copyWith =>
+  _$$DynamicValue_F32CopyWith<_$DynamicValue_F32> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DynamicValue_F64ImplCopyWith<$Res> {
-  factory _$$DynamicValue_F64ImplCopyWith(_$DynamicValue_F64Impl value,
-          $Res Function(_$DynamicValue_F64Impl) then) =
-      __$$DynamicValue_F64ImplCopyWithImpl<$Res>;
+abstract class _$$DynamicValue_F64CopyWith<$Res> {
+  factory _$$DynamicValue_F64CopyWith(
+          _$DynamicValue_F64 value, $Res Function(_$DynamicValue_F64) then) =
+      __$$DynamicValue_F64CopyWithImpl<$Res>;
   @useResult
   $Res call({double field0});
 }
 
 /// @nodoc
-class __$$DynamicValue_F64ImplCopyWithImpl<$Res>
-    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_F64Impl>
-    implements _$$DynamicValue_F64ImplCopyWith<$Res> {
-  __$$DynamicValue_F64ImplCopyWithImpl(_$DynamicValue_F64Impl _value,
-      $Res Function(_$DynamicValue_F64Impl) _then)
+class __$$DynamicValue_F64CopyWithImpl<$Res>
+    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_F64>
+    implements _$$DynamicValue_F64CopyWith<$Res> {
+  __$$DynamicValue_F64CopyWithImpl(
+      _$DynamicValue_F64 _value, $Res Function(_$DynamicValue_F64) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1320,7 +1314,7 @@ class __$$DynamicValue_F64ImplCopyWithImpl<$Res>
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$DynamicValue_F64Impl(
+    return _then(_$DynamicValue_F64(
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
@@ -1331,8 +1325,8 @@ class __$$DynamicValue_F64ImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DynamicValue_F64Impl implements DynamicValue_F64 {
-  const _$DynamicValue_F64Impl(this.field0);
+class _$DynamicValue_F64 implements DynamicValue_F64 {
+  const _$DynamicValue_F64(this.field0);
 
   @override
   final double field0;
@@ -1346,7 +1340,7 @@ class _$DynamicValue_F64Impl implements DynamicValue_F64 {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DynamicValue_F64Impl &&
+            other is _$DynamicValue_F64 &&
             (identical(other.field0, field0) || other.field0 == field0));
   }
 
@@ -1356,9 +1350,8 @@ class _$DynamicValue_F64Impl implements DynamicValue_F64 {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DynamicValue_F64ImplCopyWith<_$DynamicValue_F64Impl> get copyWith =>
-      __$$DynamicValue_F64ImplCopyWithImpl<_$DynamicValue_F64Impl>(
-          this, _$identity);
+  _$$DynamicValue_F64CopyWith<_$DynamicValue_F64> get copyWith =>
+      __$$DynamicValue_F64CopyWithImpl<_$DynamicValue_F64>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1484,29 +1477,29 @@ class _$DynamicValue_F64Impl implements DynamicValue_F64 {
 }
 
 abstract class DynamicValue_F64 implements DynamicValue {
-  const factory DynamicValue_F64(final double field0) = _$DynamicValue_F64Impl;
+  const factory DynamicValue_F64(final double field0) = _$DynamicValue_F64;
 
   double get field0;
   @JsonKey(ignore: true)
-  _$$DynamicValue_F64ImplCopyWith<_$DynamicValue_F64Impl> get copyWith =>
+  _$$DynamicValue_F64CopyWith<_$DynamicValue_F64> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DynamicValue_StringImplCopyWith<$Res> {
-  factory _$$DynamicValue_StringImplCopyWith(_$DynamicValue_StringImpl value,
-          $Res Function(_$DynamicValue_StringImpl) then) =
-      __$$DynamicValue_StringImplCopyWithImpl<$Res>;
+abstract class _$$DynamicValue_StringCopyWith<$Res> {
+  factory _$$DynamicValue_StringCopyWith(_$DynamicValue_String value,
+          $Res Function(_$DynamicValue_String) then) =
+      __$$DynamicValue_StringCopyWithImpl<$Res>;
   @useResult
   $Res call({String field0});
 }
 
 /// @nodoc
-class __$$DynamicValue_StringImplCopyWithImpl<$Res>
-    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_StringImpl>
-    implements _$$DynamicValue_StringImplCopyWith<$Res> {
-  __$$DynamicValue_StringImplCopyWithImpl(_$DynamicValue_StringImpl _value,
-      $Res Function(_$DynamicValue_StringImpl) _then)
+class __$$DynamicValue_StringCopyWithImpl<$Res>
+    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_String>
+    implements _$$DynamicValue_StringCopyWith<$Res> {
+  __$$DynamicValue_StringCopyWithImpl(
+      _$DynamicValue_String _value, $Res Function(_$DynamicValue_String) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1514,7 +1507,7 @@ class __$$DynamicValue_StringImplCopyWithImpl<$Res>
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$DynamicValue_StringImpl(
+    return _then(_$DynamicValue_String(
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
@@ -1525,8 +1518,8 @@ class __$$DynamicValue_StringImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DynamicValue_StringImpl implements DynamicValue_String {
-  const _$DynamicValue_StringImpl(this.field0);
+class _$DynamicValue_String implements DynamicValue_String {
+  const _$DynamicValue_String(this.field0);
 
   @override
   final String field0;
@@ -1540,7 +1533,7 @@ class _$DynamicValue_StringImpl implements DynamicValue_String {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DynamicValue_StringImpl &&
+            other is _$DynamicValue_String &&
             (identical(other.field0, field0) || other.field0 == field0));
   }
 
@@ -1550,8 +1543,8 @@ class _$DynamicValue_StringImpl implements DynamicValue_String {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DynamicValue_StringImplCopyWith<_$DynamicValue_StringImpl> get copyWith =>
-      __$$DynamicValue_StringImplCopyWithImpl<_$DynamicValue_StringImpl>(
+  _$$DynamicValue_StringCopyWith<_$DynamicValue_String> get copyWith =>
+      __$$DynamicValue_StringCopyWithImpl<_$DynamicValue_String>(
           this, _$identity);
 
   @override
@@ -1679,29 +1672,29 @@ class _$DynamicValue_StringImpl implements DynamicValue_String {
 
 abstract class DynamicValue_String implements DynamicValue {
   const factory DynamicValue_String(final String field0) =
-      _$DynamicValue_StringImpl;
+      _$DynamicValue_String;
 
   String get field0;
   @JsonKey(ignore: true)
-  _$$DynamicValue_StringImplCopyWith<_$DynamicValue_StringImpl> get copyWith =>
+  _$$DynamicValue_StringCopyWith<_$DynamicValue_String> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DynamicValue_VecU8ImplCopyWith<$Res> {
-  factory _$$DynamicValue_VecU8ImplCopyWith(_$DynamicValue_VecU8Impl value,
-          $Res Function(_$DynamicValue_VecU8Impl) then) =
-      __$$DynamicValue_VecU8ImplCopyWithImpl<$Res>;
+abstract class _$$DynamicValue_VecU8CopyWith<$Res> {
+  factory _$$DynamicValue_VecU8CopyWith(_$DynamicValue_VecU8 value,
+          $Res Function(_$DynamicValue_VecU8) then) =
+      __$$DynamicValue_VecU8CopyWithImpl<$Res>;
   @useResult
   $Res call({Uint8List field0});
 }
 
 /// @nodoc
-class __$$DynamicValue_VecU8ImplCopyWithImpl<$Res>
-    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_VecU8Impl>
-    implements _$$DynamicValue_VecU8ImplCopyWith<$Res> {
-  __$$DynamicValue_VecU8ImplCopyWithImpl(_$DynamicValue_VecU8Impl _value,
-      $Res Function(_$DynamicValue_VecU8Impl) _then)
+class __$$DynamicValue_VecU8CopyWithImpl<$Res>
+    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_VecU8>
+    implements _$$DynamicValue_VecU8CopyWith<$Res> {
+  __$$DynamicValue_VecU8CopyWithImpl(
+      _$DynamicValue_VecU8 _value, $Res Function(_$DynamicValue_VecU8) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1709,7 +1702,7 @@ class __$$DynamicValue_VecU8ImplCopyWithImpl<$Res>
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$DynamicValue_VecU8Impl(
+    return _then(_$DynamicValue_VecU8(
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
@@ -1720,8 +1713,8 @@ class __$$DynamicValue_VecU8ImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DynamicValue_VecU8Impl implements DynamicValue_VecU8 {
-  const _$DynamicValue_VecU8Impl(this.field0);
+class _$DynamicValue_VecU8 implements DynamicValue_VecU8 {
+  const _$DynamicValue_VecU8(this.field0);
 
   @override
   final Uint8List field0;
@@ -1735,7 +1728,7 @@ class _$DynamicValue_VecU8Impl implements DynamicValue_VecU8 {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DynamicValue_VecU8Impl &&
+            other is _$DynamicValue_VecU8 &&
             const DeepCollectionEquality().equals(other.field0, field0));
   }
 
@@ -1746,8 +1739,8 @@ class _$DynamicValue_VecU8Impl implements DynamicValue_VecU8 {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DynamicValue_VecU8ImplCopyWith<_$DynamicValue_VecU8Impl> get copyWith =>
-      __$$DynamicValue_VecU8ImplCopyWithImpl<_$DynamicValue_VecU8Impl>(
+  _$$DynamicValue_VecU8CopyWith<_$DynamicValue_VecU8> get copyWith =>
+      __$$DynamicValue_VecU8CopyWithImpl<_$DynamicValue_VecU8>(
           this, _$identity);
 
   @override
@@ -1875,31 +1868,29 @@ class _$DynamicValue_VecU8Impl implements DynamicValue_VecU8 {
 
 abstract class DynamicValue_VecU8 implements DynamicValue {
   const factory DynamicValue_VecU8(final Uint8List field0) =
-      _$DynamicValue_VecU8Impl;
+      _$DynamicValue_VecU8;
 
   Uint8List get field0;
   @JsonKey(ignore: true)
-  _$$DynamicValue_VecU8ImplCopyWith<_$DynamicValue_VecU8Impl> get copyWith =>
+  _$$DynamicValue_VecU8CopyWith<_$DynamicValue_VecU8> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DynamicValue_MegaStructImplCopyWith<$Res> {
-  factory _$$DynamicValue_MegaStructImplCopyWith(
-          _$DynamicValue_MegaStructImpl value,
-          $Res Function(_$DynamicValue_MegaStructImpl) then) =
-      __$$DynamicValue_MegaStructImplCopyWithImpl<$Res>;
+abstract class _$$DynamicValue_MegaStructCopyWith<$Res> {
+  factory _$$DynamicValue_MegaStructCopyWith(_$DynamicValue_MegaStruct value,
+          $Res Function(_$DynamicValue_MegaStruct) then) =
+      __$$DynamicValue_MegaStructCopyWithImpl<$Res>;
   @useResult
   $Res call({String field0});
 }
 
 /// @nodoc
-class __$$DynamicValue_MegaStructImplCopyWithImpl<$Res>
-    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_MegaStructImpl>
-    implements _$$DynamicValue_MegaStructImplCopyWith<$Res> {
-  __$$DynamicValue_MegaStructImplCopyWithImpl(
-      _$DynamicValue_MegaStructImpl _value,
-      $Res Function(_$DynamicValue_MegaStructImpl) _then)
+class __$$DynamicValue_MegaStructCopyWithImpl<$Res>
+    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_MegaStruct>
+    implements _$$DynamicValue_MegaStructCopyWith<$Res> {
+  __$$DynamicValue_MegaStructCopyWithImpl(_$DynamicValue_MegaStruct _value,
+      $Res Function(_$DynamicValue_MegaStruct) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1907,7 +1898,7 @@ class __$$DynamicValue_MegaStructImplCopyWithImpl<$Res>
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$DynamicValue_MegaStructImpl(
+    return _then(_$DynamicValue_MegaStruct(
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
@@ -1918,8 +1909,8 @@ class __$$DynamicValue_MegaStructImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DynamicValue_MegaStructImpl implements DynamicValue_MegaStruct {
-  const _$DynamicValue_MegaStructImpl(this.field0);
+class _$DynamicValue_MegaStruct implements DynamicValue_MegaStruct {
+  const _$DynamicValue_MegaStruct(this.field0);
 
   @override
   final String field0;
@@ -1933,7 +1924,7 @@ class _$DynamicValue_MegaStructImpl implements DynamicValue_MegaStruct {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DynamicValue_MegaStructImpl &&
+            other is _$DynamicValue_MegaStruct &&
             (identical(other.field0, field0) || other.field0 == field0));
   }
 
@@ -1943,9 +1934,9 @@ class _$DynamicValue_MegaStructImpl implements DynamicValue_MegaStruct {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DynamicValue_MegaStructImplCopyWith<_$DynamicValue_MegaStructImpl>
-      get copyWith => __$$DynamicValue_MegaStructImplCopyWithImpl<
-          _$DynamicValue_MegaStructImpl>(this, _$identity);
+  _$$DynamicValue_MegaStructCopyWith<_$DynamicValue_MegaStruct> get copyWith =>
+      __$$DynamicValue_MegaStructCopyWithImpl<_$DynamicValue_MegaStruct>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2072,29 +2063,29 @@ class _$DynamicValue_MegaStructImpl implements DynamicValue_MegaStruct {
 
 abstract class DynamicValue_MegaStruct implements DynamicValue {
   const factory DynamicValue_MegaStruct(final String field0) =
-      _$DynamicValue_MegaStructImpl;
+      _$DynamicValue_MegaStruct;
 
   String get field0;
   @JsonKey(ignore: true)
-  _$$DynamicValue_MegaStructImplCopyWith<_$DynamicValue_MegaStructImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$DynamicValue_MegaStructCopyWith<_$DynamicValue_MegaStruct> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DynamicValue_ErrorImplCopyWith<$Res> {
-  factory _$$DynamicValue_ErrorImplCopyWith(_$DynamicValue_ErrorImpl value,
-          $Res Function(_$DynamicValue_ErrorImpl) then) =
-      __$$DynamicValue_ErrorImplCopyWithImpl<$Res>;
+abstract class _$$DynamicValue_ErrorCopyWith<$Res> {
+  factory _$$DynamicValue_ErrorCopyWith(_$DynamicValue_Error value,
+          $Res Function(_$DynamicValue_Error) then) =
+      __$$DynamicValue_ErrorCopyWithImpl<$Res>;
   @useResult
   $Res call({ErrorCode field0});
 }
 
 /// @nodoc
-class __$$DynamicValue_ErrorImplCopyWithImpl<$Res>
-    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_ErrorImpl>
-    implements _$$DynamicValue_ErrorImplCopyWith<$Res> {
-  __$$DynamicValue_ErrorImplCopyWithImpl(_$DynamicValue_ErrorImpl _value,
-      $Res Function(_$DynamicValue_ErrorImpl) _then)
+class __$$DynamicValue_ErrorCopyWithImpl<$Res>
+    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_Error>
+    implements _$$DynamicValue_ErrorCopyWith<$Res> {
+  __$$DynamicValue_ErrorCopyWithImpl(
+      _$DynamicValue_Error _value, $Res Function(_$DynamicValue_Error) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2102,7 +2093,7 @@ class __$$DynamicValue_ErrorImplCopyWithImpl<$Res>
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$DynamicValue_ErrorImpl(
+    return _then(_$DynamicValue_Error(
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
@@ -2113,8 +2104,8 @@ class __$$DynamicValue_ErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DynamicValue_ErrorImpl implements DynamicValue_Error {
-  const _$DynamicValue_ErrorImpl(this.field0);
+class _$DynamicValue_Error implements DynamicValue_Error {
+  const _$DynamicValue_Error(this.field0);
 
   @override
   final ErrorCode field0;
@@ -2128,7 +2119,7 @@ class _$DynamicValue_ErrorImpl implements DynamicValue_Error {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DynamicValue_ErrorImpl &&
+            other is _$DynamicValue_Error &&
             (identical(other.field0, field0) || other.field0 == field0));
   }
 
@@ -2138,8 +2129,8 @@ class _$DynamicValue_ErrorImpl implements DynamicValue_Error {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DynamicValue_ErrorImplCopyWith<_$DynamicValue_ErrorImpl> get copyWith =>
-      __$$DynamicValue_ErrorImplCopyWithImpl<_$DynamicValue_ErrorImpl>(
+  _$$DynamicValue_ErrorCopyWith<_$DynamicValue_Error> get copyWith =>
+      __$$DynamicValue_ErrorCopyWithImpl<_$DynamicValue_Error>(
           this, _$identity);
 
   @override
@@ -2267,34 +2258,34 @@ class _$DynamicValue_ErrorImpl implements DynamicValue_Error {
 
 abstract class DynamicValue_Error implements DynamicValue {
   const factory DynamicValue_Error(final ErrorCode field0) =
-      _$DynamicValue_ErrorImpl;
+      _$DynamicValue_Error;
 
   ErrorCode get field0;
   @JsonKey(ignore: true)
-  _$$DynamicValue_ErrorImplCopyWith<_$DynamicValue_ErrorImpl> get copyWith =>
+  _$$DynamicValue_ErrorCopyWith<_$DynamicValue_Error> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DynamicValue_NoneImplCopyWith<$Res> {
-  factory _$$DynamicValue_NoneImplCopyWith(_$DynamicValue_NoneImpl value,
-          $Res Function(_$DynamicValue_NoneImpl) then) =
-      __$$DynamicValue_NoneImplCopyWithImpl<$Res>;
+abstract class _$$DynamicValue_NoneCopyWith<$Res> {
+  factory _$$DynamicValue_NoneCopyWith(
+          _$DynamicValue_None value, $Res Function(_$DynamicValue_None) then) =
+      __$$DynamicValue_NoneCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$DynamicValue_NoneImplCopyWithImpl<$Res>
-    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_NoneImpl>
-    implements _$$DynamicValue_NoneImplCopyWith<$Res> {
-  __$$DynamicValue_NoneImplCopyWithImpl(_$DynamicValue_NoneImpl _value,
-      $Res Function(_$DynamicValue_NoneImpl) _then)
+class __$$DynamicValue_NoneCopyWithImpl<$Res>
+    extends _$DynamicValueCopyWithImpl<$Res, _$DynamicValue_None>
+    implements _$$DynamicValue_NoneCopyWith<$Res> {
+  __$$DynamicValue_NoneCopyWithImpl(
+      _$DynamicValue_None _value, $Res Function(_$DynamicValue_None) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$DynamicValue_NoneImpl implements DynamicValue_None {
-  const _$DynamicValue_NoneImpl();
+class _$DynamicValue_None implements DynamicValue_None {
+  const _$DynamicValue_None();
 
   @override
   String toString() {
@@ -2304,7 +2295,7 @@ class _$DynamicValue_NoneImpl implements DynamicValue_None {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DynamicValue_NoneImpl);
+        (other.runtimeType == runtimeType && other is _$DynamicValue_None);
   }
 
   @override
@@ -2434,7 +2425,7 @@ class _$DynamicValue_NoneImpl implements DynamicValue_None {
 }
 
 abstract class DynamicValue_None implements DynamicValue {
-  const factory DynamicValue_None() = _$DynamicValue_NoneImpl;
+  const factory DynamicValue_None() = _$DynamicValue_None;
 }
 
 /// @nodoc
@@ -2509,25 +2500,25 @@ class _$KeySignerCopyWithImpl<$Res, $Val extends KeySigner>
 }
 
 /// @nodoc
-abstract class _$$KeySigner_EncryptedImplCopyWith<$Res> {
-  factory _$$KeySigner_EncryptedImplCopyWith(_$KeySigner_EncryptedImpl value,
-          $Res Function(_$KeySigner_EncryptedImpl) then) =
-      __$$KeySigner_EncryptedImplCopyWithImpl<$Res>;
+abstract class _$$KeySigner_EncryptedCopyWith<$Res> {
+  factory _$$KeySigner_EncryptedCopyWith(_$KeySigner_Encrypted value,
+          $Res Function(_$KeySigner_Encrypted) then) =
+      __$$KeySigner_EncryptedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$KeySigner_EncryptedImplCopyWithImpl<$Res>
-    extends _$KeySignerCopyWithImpl<$Res, _$KeySigner_EncryptedImpl>
-    implements _$$KeySigner_EncryptedImplCopyWith<$Res> {
-  __$$KeySigner_EncryptedImplCopyWithImpl(_$KeySigner_EncryptedImpl _value,
-      $Res Function(_$KeySigner_EncryptedImpl) _then)
+class __$$KeySigner_EncryptedCopyWithImpl<$Res>
+    extends _$KeySignerCopyWithImpl<$Res, _$KeySigner_Encrypted>
+    implements _$$KeySigner_EncryptedCopyWith<$Res> {
+  __$$KeySigner_EncryptedCopyWithImpl(
+      _$KeySigner_Encrypted _value, $Res Function(_$KeySigner_Encrypted) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$KeySigner_EncryptedImpl implements KeySigner_Encrypted {
-  const _$KeySigner_EncryptedImpl();
+class _$KeySigner_Encrypted implements KeySigner_Encrypted {
+  const _$KeySigner_Encrypted();
 
   @override
   String toString() {
@@ -2537,8 +2528,7 @@ class _$KeySigner_EncryptedImpl implements KeySigner_Encrypted {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$KeySigner_EncryptedImpl);
+        (other.runtimeType == runtimeType && other is _$KeySigner_Encrypted);
   }
 
   @override
@@ -2620,29 +2610,29 @@ class _$KeySigner_EncryptedImpl implements KeySigner_Encrypted {
 }
 
 abstract class KeySigner_Encrypted implements KeySigner {
-  const factory KeySigner_Encrypted() = _$KeySigner_EncryptedImpl;
+  const factory KeySigner_Encrypted() = _$KeySigner_Encrypted;
 }
 
 /// @nodoc
-abstract class _$$KeySigner_DerivedImplCopyWith<$Res> {
-  factory _$$KeySigner_DerivedImplCopyWith(_$KeySigner_DerivedImpl value,
-          $Res Function(_$KeySigner_DerivedImpl) then) =
-      __$$KeySigner_DerivedImplCopyWithImpl<$Res>;
+abstract class _$$KeySigner_DerivedCopyWith<$Res> {
+  factory _$$KeySigner_DerivedCopyWith(
+          _$KeySigner_Derived value, $Res Function(_$KeySigner_Derived) then) =
+      __$$KeySigner_DerivedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$KeySigner_DerivedImplCopyWithImpl<$Res>
-    extends _$KeySignerCopyWithImpl<$Res, _$KeySigner_DerivedImpl>
-    implements _$$KeySigner_DerivedImplCopyWith<$Res> {
-  __$$KeySigner_DerivedImplCopyWithImpl(_$KeySigner_DerivedImpl _value,
-      $Res Function(_$KeySigner_DerivedImpl) _then)
+class __$$KeySigner_DerivedCopyWithImpl<$Res>
+    extends _$KeySignerCopyWithImpl<$Res, _$KeySigner_Derived>
+    implements _$$KeySigner_DerivedCopyWith<$Res> {
+  __$$KeySigner_DerivedCopyWithImpl(
+      _$KeySigner_Derived _value, $Res Function(_$KeySigner_Derived) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$KeySigner_DerivedImpl implements KeySigner_Derived {
-  const _$KeySigner_DerivedImpl();
+class _$KeySigner_Derived implements KeySigner_Derived {
+  const _$KeySigner_Derived();
 
   @override
   String toString() {
@@ -2652,7 +2642,7 @@ class _$KeySigner_DerivedImpl implements KeySigner_Derived {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$KeySigner_DerivedImpl);
+        (other.runtimeType == runtimeType && other is _$KeySigner_Derived);
   }
 
   @override
@@ -2734,29 +2724,29 @@ class _$KeySigner_DerivedImpl implements KeySigner_Derived {
 }
 
 abstract class KeySigner_Derived implements KeySigner {
-  const factory KeySigner_Derived() = _$KeySigner_DerivedImpl;
+  const factory KeySigner_Derived() = _$KeySigner_Derived;
 }
 
 /// @nodoc
-abstract class _$$KeySigner_LedgerImplCopyWith<$Res> {
-  factory _$$KeySigner_LedgerImplCopyWith(_$KeySigner_LedgerImpl value,
-          $Res Function(_$KeySigner_LedgerImpl) then) =
-      __$$KeySigner_LedgerImplCopyWithImpl<$Res>;
+abstract class _$$KeySigner_LedgerCopyWith<$Res> {
+  factory _$$KeySigner_LedgerCopyWith(
+          _$KeySigner_Ledger value, $Res Function(_$KeySigner_Ledger) then) =
+      __$$KeySigner_LedgerCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$KeySigner_LedgerImplCopyWithImpl<$Res>
-    extends _$KeySignerCopyWithImpl<$Res, _$KeySigner_LedgerImpl>
-    implements _$$KeySigner_LedgerImplCopyWith<$Res> {
-  __$$KeySigner_LedgerImplCopyWithImpl(_$KeySigner_LedgerImpl _value,
-      $Res Function(_$KeySigner_LedgerImpl) _then)
+class __$$KeySigner_LedgerCopyWithImpl<$Res>
+    extends _$KeySignerCopyWithImpl<$Res, _$KeySigner_Ledger>
+    implements _$$KeySigner_LedgerCopyWith<$Res> {
+  __$$KeySigner_LedgerCopyWithImpl(
+      _$KeySigner_Ledger _value, $Res Function(_$KeySigner_Ledger) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$KeySigner_LedgerImpl implements KeySigner_Ledger {
-  const _$KeySigner_LedgerImpl();
+class _$KeySigner_Ledger implements KeySigner_Ledger {
+  const _$KeySigner_Ledger();
 
   @override
   String toString() {
@@ -2766,7 +2756,7 @@ class _$KeySigner_LedgerImpl implements KeySigner_Ledger {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$KeySigner_LedgerImpl);
+        (other.runtimeType == runtimeType && other is _$KeySigner_Ledger);
   }
 
   @override
@@ -2848,24 +2838,24 @@ class _$KeySigner_LedgerImpl implements KeySigner_Ledger {
 }
 
 abstract class KeySigner_Ledger implements KeySigner {
-  const factory KeySigner_Ledger() = _$KeySigner_LedgerImpl;
+  const factory KeySigner_Ledger() = _$KeySigner_Ledger;
 }
 
 /// @nodoc
-abstract class _$$KeySigner_StubImplCopyWith<$Res> {
-  factory _$$KeySigner_StubImplCopyWith(_$KeySigner_StubImpl value,
-          $Res Function(_$KeySigner_StubImpl) then) =
-      __$$KeySigner_StubImplCopyWithImpl<$Res>;
+abstract class _$$KeySigner_StubCopyWith<$Res> {
+  factory _$$KeySigner_StubCopyWith(
+          _$KeySigner_Stub value, $Res Function(_$KeySigner_Stub) then) =
+      __$$KeySigner_StubCopyWithImpl<$Res>;
   @useResult
   $Res call({bool field0});
 }
 
 /// @nodoc
-class __$$KeySigner_StubImplCopyWithImpl<$Res>
-    extends _$KeySignerCopyWithImpl<$Res, _$KeySigner_StubImpl>
-    implements _$$KeySigner_StubImplCopyWith<$Res> {
-  __$$KeySigner_StubImplCopyWithImpl(
-      _$KeySigner_StubImpl _value, $Res Function(_$KeySigner_StubImpl) _then)
+class __$$KeySigner_StubCopyWithImpl<$Res>
+    extends _$KeySignerCopyWithImpl<$Res, _$KeySigner_Stub>
+    implements _$$KeySigner_StubCopyWith<$Res> {
+  __$$KeySigner_StubCopyWithImpl(
+      _$KeySigner_Stub _value, $Res Function(_$KeySigner_Stub) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2873,7 +2863,7 @@ class __$$KeySigner_StubImplCopyWithImpl<$Res>
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$KeySigner_StubImpl(
+    return _then(_$KeySigner_Stub(
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
@@ -2884,8 +2874,8 @@ class __$$KeySigner_StubImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$KeySigner_StubImpl implements KeySigner_Stub {
-  const _$KeySigner_StubImpl(this.field0);
+class _$KeySigner_Stub implements KeySigner_Stub {
+  const _$KeySigner_Stub(this.field0);
 
   @override
   final bool field0;
@@ -2899,7 +2889,7 @@ class _$KeySigner_StubImpl implements KeySigner_Stub {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$KeySigner_StubImpl &&
+            other is _$KeySigner_Stub &&
             (identical(other.field0, field0) || other.field0 == field0));
   }
 
@@ -2909,9 +2899,8 @@ class _$KeySigner_StubImpl implements KeySigner_Stub {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$KeySigner_StubImplCopyWith<_$KeySigner_StubImpl> get copyWith =>
-      __$$KeySigner_StubImplCopyWithImpl<_$KeySigner_StubImpl>(
-          this, _$identity);
+  _$$KeySigner_StubCopyWith<_$KeySigner_Stub> get copyWith =>
+      __$$KeySigner_StubCopyWithImpl<_$KeySigner_Stub>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2989,11 +2978,11 @@ class _$KeySigner_StubImpl implements KeySigner_Stub {
 }
 
 abstract class KeySigner_Stub implements KeySigner {
-  const factory KeySigner_Stub(final bool field0) = _$KeySigner_StubImpl;
+  const factory KeySigner_Stub(final bool field0) = _$KeySigner_Stub;
 
   bool get field0;
   @JsonKey(ignore: true)
-  _$$KeySigner_StubImplCopyWith<_$KeySigner_StubImpl> get copyWith =>
+  _$$KeySigner_StubCopyWith<_$KeySigner_Stub> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -3058,25 +3047,25 @@ class _$MnemonicTypeCopyWithImpl<$Res, $Val extends MnemonicType>
 }
 
 /// @nodoc
-abstract class _$$MnemonicType_LegacyImplCopyWith<$Res> {
-  factory _$$MnemonicType_LegacyImplCopyWith(_$MnemonicType_LegacyImpl value,
-          $Res Function(_$MnemonicType_LegacyImpl) then) =
-      __$$MnemonicType_LegacyImplCopyWithImpl<$Res>;
+abstract class _$$MnemonicType_LegacyCopyWith<$Res> {
+  factory _$$MnemonicType_LegacyCopyWith(_$MnemonicType_Legacy value,
+          $Res Function(_$MnemonicType_Legacy) then) =
+      __$$MnemonicType_LegacyCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$MnemonicType_LegacyImplCopyWithImpl<$Res>
-    extends _$MnemonicTypeCopyWithImpl<$Res, _$MnemonicType_LegacyImpl>
-    implements _$$MnemonicType_LegacyImplCopyWith<$Res> {
-  __$$MnemonicType_LegacyImplCopyWithImpl(_$MnemonicType_LegacyImpl _value,
-      $Res Function(_$MnemonicType_LegacyImpl) _then)
+class __$$MnemonicType_LegacyCopyWithImpl<$Res>
+    extends _$MnemonicTypeCopyWithImpl<$Res, _$MnemonicType_Legacy>
+    implements _$$MnemonicType_LegacyCopyWith<$Res> {
+  __$$MnemonicType_LegacyCopyWithImpl(
+      _$MnemonicType_Legacy _value, $Res Function(_$MnemonicType_Legacy) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$MnemonicType_LegacyImpl implements MnemonicType_Legacy {
-  const _$MnemonicType_LegacyImpl();
+class _$MnemonicType_Legacy implements MnemonicType_Legacy {
+  const _$MnemonicType_Legacy();
 
   @override
   String toString() {
@@ -3086,8 +3075,7 @@ class _$MnemonicType_LegacyImpl implements MnemonicType_Legacy {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$MnemonicType_LegacyImpl);
+        (other.runtimeType == runtimeType && other is _$MnemonicType_Legacy);
   }
 
   @override
@@ -3157,24 +3145,24 @@ class _$MnemonicType_LegacyImpl implements MnemonicType_Legacy {
 }
 
 abstract class MnemonicType_Legacy implements MnemonicType {
-  const factory MnemonicType_Legacy() = _$MnemonicType_LegacyImpl;
+  const factory MnemonicType_Legacy() = _$MnemonicType_Legacy;
 }
 
 /// @nodoc
-abstract class _$$MnemonicType_LabsImplCopyWith<$Res> {
-  factory _$$MnemonicType_LabsImplCopyWith(_$MnemonicType_LabsImpl value,
-          $Res Function(_$MnemonicType_LabsImpl) then) =
-      __$$MnemonicType_LabsImplCopyWithImpl<$Res>;
+abstract class _$$MnemonicType_LabsCopyWith<$Res> {
+  factory _$$MnemonicType_LabsCopyWith(
+          _$MnemonicType_Labs value, $Res Function(_$MnemonicType_Labs) then) =
+      __$$MnemonicType_LabsCopyWithImpl<$Res>;
   @useResult
   $Res call({int field0});
 }
 
 /// @nodoc
-class __$$MnemonicType_LabsImplCopyWithImpl<$Res>
-    extends _$MnemonicTypeCopyWithImpl<$Res, _$MnemonicType_LabsImpl>
-    implements _$$MnemonicType_LabsImplCopyWith<$Res> {
-  __$$MnemonicType_LabsImplCopyWithImpl(_$MnemonicType_LabsImpl _value,
-      $Res Function(_$MnemonicType_LabsImpl) _then)
+class __$$MnemonicType_LabsCopyWithImpl<$Res>
+    extends _$MnemonicTypeCopyWithImpl<$Res, _$MnemonicType_Labs>
+    implements _$$MnemonicType_LabsCopyWith<$Res> {
+  __$$MnemonicType_LabsCopyWithImpl(
+      _$MnemonicType_Labs _value, $Res Function(_$MnemonicType_Labs) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3182,7 +3170,7 @@ class __$$MnemonicType_LabsImplCopyWithImpl<$Res>
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$MnemonicType_LabsImpl(
+    return _then(_$MnemonicType_Labs(
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
@@ -3193,8 +3181,8 @@ class __$$MnemonicType_LabsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MnemonicType_LabsImpl implements MnemonicType_Labs {
-  const _$MnemonicType_LabsImpl(this.field0);
+class _$MnemonicType_Labs implements MnemonicType_Labs {
+  const _$MnemonicType_Labs(this.field0);
 
   @override
   final int field0;
@@ -3208,7 +3196,7 @@ class _$MnemonicType_LabsImpl implements MnemonicType_Labs {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MnemonicType_LabsImpl &&
+            other is _$MnemonicType_Labs &&
             (identical(other.field0, field0) || other.field0 == field0));
   }
 
@@ -3218,9 +3206,8 @@ class _$MnemonicType_LabsImpl implements MnemonicType_Labs {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MnemonicType_LabsImplCopyWith<_$MnemonicType_LabsImpl> get copyWith =>
-      __$$MnemonicType_LabsImplCopyWithImpl<_$MnemonicType_LabsImpl>(
-          this, _$identity);
+  _$$MnemonicType_LabsCopyWith<_$MnemonicType_Labs> get copyWith =>
+      __$$MnemonicType_LabsCopyWithImpl<_$MnemonicType_Labs>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3286,10 +3273,10 @@ class _$MnemonicType_LabsImpl implements MnemonicType_Labs {
 }
 
 abstract class MnemonicType_Labs implements MnemonicType {
-  const factory MnemonicType_Labs(final int field0) = _$MnemonicType_LabsImpl;
+  const factory MnemonicType_Labs(final int field0) = _$MnemonicType_Labs;
 
   int get field0;
   @JsonKey(ignore: true)
-  _$$MnemonicType_LabsImplCopyWith<_$MnemonicType_LabsImpl> get copyWith =>
+  _$$MnemonicType_LabsCopyWith<_$MnemonicType_Labs> get copyWith =>
       throw _privateConstructorUsedError;
 }

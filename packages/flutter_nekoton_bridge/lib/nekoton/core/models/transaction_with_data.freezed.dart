@@ -74,11 +74,11 @@ class _$TransactionWithDataCopyWithImpl<T, $Res,
 }
 
 /// @nodoc
-abstract class _$$TransactionWithDataImplCopyWith<T, $Res>
+abstract class _$$_TransactionWithDataCopyWith<T, $Res>
     implements $TransactionWithDataCopyWith<T, $Res> {
-  factory _$$TransactionWithDataImplCopyWith(_$TransactionWithDataImpl<T> value,
-          $Res Function(_$TransactionWithDataImpl<T>) then) =
-      __$$TransactionWithDataImplCopyWithImpl<T, $Res>;
+  factory _$$_TransactionWithDataCopyWith(_$_TransactionWithData<T> value,
+          $Res Function(_$_TransactionWithData<T>) then) =
+      __$$_TransactionWithDataCopyWithImpl<T, $Res>;
   @override
   @useResult
   $Res call({Transaction transaction, T? data});
@@ -88,12 +88,12 @@ abstract class _$$TransactionWithDataImplCopyWith<T, $Res>
 }
 
 /// @nodoc
-class __$$TransactionWithDataImplCopyWithImpl<T, $Res>
+class __$$_TransactionWithDataCopyWithImpl<T, $Res>
     extends _$TransactionWithDataCopyWithImpl<T, $Res,
-        _$TransactionWithDataImpl<T>>
-    implements _$$TransactionWithDataImplCopyWith<T, $Res> {
-  __$$TransactionWithDataImplCopyWithImpl(_$TransactionWithDataImpl<T> _value,
-      $Res Function(_$TransactionWithDataImpl<T>) _then)
+        _$_TransactionWithData<T>>
+    implements _$$_TransactionWithDataCopyWith<T, $Res> {
+  __$$_TransactionWithDataCopyWithImpl(_$_TransactionWithData<T> _value,
+      $Res Function(_$_TransactionWithData<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -102,7 +102,7 @@ class __$$TransactionWithDataImplCopyWithImpl<T, $Res>
     Object? transaction = null,
     Object? data = freezed,
   }) {
-    return _then(_$TransactionWithDataImpl<T>(
+    return _then(_$_TransactionWithData<T>(
       transaction: null == transaction
           ? _value.transaction
           : transaction // ignore: cast_nullable_to_non_nullable
@@ -117,8 +117,8 @@ class __$$TransactionWithDataImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$TransactionWithDataImpl<T> extends _TransactionWithData<T> {
-  const _$TransactionWithDataImpl({required this.transaction, this.data})
+class _$_TransactionWithData<T> extends _TransactionWithData<T> {
+  const _$_TransactionWithData({required this.transaction, this.data})
       : super._();
 
   @override
@@ -135,7 +135,7 @@ class _$TransactionWithDataImpl<T> extends _TransactionWithData<T> {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TransactionWithDataImpl<T> &&
+            other is _$_TransactionWithData<T> &&
             (identical(other.transaction, transaction) ||
                 other.transaction == transaction) &&
             const DeepCollectionEquality().equals(other.data, data));
@@ -148,15 +148,15 @@ class _$TransactionWithDataImpl<T> extends _TransactionWithData<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TransactionWithDataImplCopyWith<T, _$TransactionWithDataImpl<T>>
-      get copyWith => __$$TransactionWithDataImplCopyWithImpl<T,
-          _$TransactionWithDataImpl<T>>(this, _$identity);
+  _$$_TransactionWithDataCopyWith<T, _$_TransactionWithData<T>> get copyWith =>
+      __$$_TransactionWithDataCopyWithImpl<T, _$_TransactionWithData<T>>(
+          this, _$identity);
 }
 
 abstract class _TransactionWithData<T> extends TransactionWithData<T> {
   const factory _TransactionWithData(
       {required final Transaction transaction,
-      final T? data}) = _$TransactionWithDataImpl<T>;
+      final T? data}) = _$_TransactionWithData<T>;
   const _TransactionWithData._() : super._();
 
   @override
@@ -165,6 +165,6 @@ abstract class _TransactionWithData<T> extends TransactionWithData<T> {
   T? get data;
   @override
   @JsonKey(ignore: true)
-  _$$TransactionWithDataImplCopyWith<T, _$TransactionWithDataImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_TransactionWithDataCopyWith<T, _$_TransactionWithData<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }

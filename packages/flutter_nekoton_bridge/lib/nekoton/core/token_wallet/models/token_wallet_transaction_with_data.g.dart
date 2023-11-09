@@ -6,19 +6,19 @@ part of 'token_wallet_transaction_with_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TokenWalletTransactionWithDataImpl
-    _$$TokenWalletTransactionWithDataImplFromJson(Map<String, dynamic> json) =>
-        _$TokenWalletTransactionWithDataImpl(
-          transaction:
-              Transaction.fromJson(json['transaction'] as Map<String, dynamic>),
-          data: json['data'] == null
-              ? null
-              : TokenWalletTransaction.fromJson(
-                  json['data'] as Map<String, dynamic>),
-        );
+_$_TokenWalletTransactionWithData _$$_TokenWalletTransactionWithDataFromJson(
+        Map<String, dynamic> json) =>
+    _$_TokenWalletTransactionWithData(
+      transaction:
+          Transaction.fromJson(json['transaction'] as Map<String, dynamic>),
+      data: json['data'] == null
+          ? null
+          : TokenWalletTransaction.fromJson(
+              json['data'] as Map<String, dynamic>),
+    );
 
-Map<String, dynamic> _$$TokenWalletTransactionWithDataImplToJson(
-        _$TokenWalletTransactionWithDataImpl instance) =>
+Map<String, dynamic> _$$_TokenWalletTransactionWithDataToJson(
+        _$_TokenWalletTransactionWithData instance) =>
     <String, dynamic>{
       'transaction': instance.transaction.toJson(),
       'data': instance.data?.toJson(),

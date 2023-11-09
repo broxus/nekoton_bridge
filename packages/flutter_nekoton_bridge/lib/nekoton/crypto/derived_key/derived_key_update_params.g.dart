@@ -6,28 +6,26 @@ part of 'derived_key_update_params.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RenameKeyImpl _$$RenameKeyImplFromJson(Map<String, dynamic> json) =>
-    _$RenameKeyImpl(
+_$_RenameKey _$$_RenameKeyFromJson(Map<String, dynamic> json) => _$_RenameKey(
       DerivedKeyUpdateParamsRenameKey.fromJson(
           json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$RenameKeyImplToJson(_$RenameKeyImpl instance) =>
+Map<String, dynamic> _$$_RenameKeyToJson(_$_RenameKey instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
-_$ChangePasswordImpl _$$ChangePasswordImplFromJson(Map<String, dynamic> json) =>
-    _$ChangePasswordImpl(
+_$_ChangePassword _$$_ChangePasswordFromJson(Map<String, dynamic> json) =>
+    _$_ChangePassword(
       DerivedKeyUpdateParamsChangePassword.fromJson(
           json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$ChangePasswordImplToJson(
-        _$ChangePasswordImpl instance) =>
+Map<String, dynamic> _$$_ChangePasswordToJson(_$_ChangePassword instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,

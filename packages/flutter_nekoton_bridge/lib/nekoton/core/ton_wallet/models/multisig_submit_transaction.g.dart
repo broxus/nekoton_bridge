@@ -6,9 +6,9 @@ part of 'multisig_submit_transaction.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MultisigSubmitTransactionImpl _$$MultisigSubmitTransactionImplFromJson(
+_$_MultisigSubmitTransaction _$$_MultisigSubmitTransactionFromJson(
         Map<String, dynamic> json) =>
-    _$MultisigSubmitTransactionImpl(
+    _$_MultisigSubmitTransaction(
       custodian: PublicKey.fromJson(json['custodian'] as String),
       dest: Address.fromJson(json['dest'] as String),
       value: amountJsonConverter.fromJson(json['value'] as String),
@@ -18,8 +18,8 @@ _$MultisigSubmitTransactionImpl _$$MultisigSubmitTransactionImplFromJson(
       transId: json['transId'] as String,
     );
 
-Map<String, dynamic> _$$MultisigSubmitTransactionImplToJson(
-        _$MultisigSubmitTransactionImpl instance) =>
+Map<String, dynamic> _$$_MultisigSubmitTransactionToJson(
+        _$_MultisigSubmitTransaction instance) =>
     <String, dynamic>{
       'custodian': instance.custodian.toJson(),
       'dest': instance.dest.toJson(),
