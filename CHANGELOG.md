@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-11-10
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.26.0`](#flutter_nekoton_bridge---v1260)
+ - [`flutter_nekoton_bridge_example` - `v1.17.0`](#flutter_nekoton_bridge_example---v1170)
+ - [`nekoton_bridge` - `v1.18.0`](#nekoton_bridge---v1180)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.26.0`
+
+ - **FIX**: generated files ([#229](https://github.com/broxus/nekoton_bridge/issues/229)). ([ed63cac4](https://github.com/broxus/nekoton_bridge/commit/ed63cac4c5b2382f0b6fa34e120ae5066f08732b))
+ - **FEAT**: added method to add multiple token wallets at timme ([#231](https://github.com/broxus/nekoton_bridge/issues/231)). ([f88c0da3](https://github.com/broxus/nekoton_bridge/commit/f88c0da3ed357316b1bd66dec49b985b92fe29d2))
+
+#### `flutter_nekoton_bridge_example` - `v1.17.0`
+
+ - **FEAT**: added method to add multiple token wallets at timme ([#231](https://github.com/broxus/nekoton_bridge/issues/231)). ([f88c0da3](https://github.com/broxus/nekoton_bridge/commit/f88c0da3ed357316b1bd66dec49b985b92fe29d2))
+
+#### `nekoton_bridge` - `v1.18.0`
+
+ - **FIX**: generated files ([#229](https://github.com/broxus/nekoton_bridge/issues/229)). ([ed63cac4](https://github.com/broxus/nekoton_bridge/commit/ed63cac4c5b2382f0b6fa34e120ae5066f08732b))
+ - **FEAT**: added method to add multiple token wallets at timme ([#231](https://github.com/broxus/nekoton_bridge/issues/231)). ([f88c0da3](https://github.com/broxus/nekoton_bridge/commit/f88c0da3ed357316b1bd66dec49b985b92fe29d2))
+
+
 ## 2023-10-06
 
 ### Changes
