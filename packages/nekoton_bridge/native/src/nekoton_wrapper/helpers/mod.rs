@@ -6,7 +6,7 @@ use crate::nekoton_wrapper::HandleError;
 use nekoton::transport::models::RawContractState;
 use nekoton_abi::MethodName;
 use std::str::FromStr;
-use ton_block::{Deserializable, MaybeDeserialize, Serializable};
+use ton_block::{AccountStuff, Deserializable, MaybeDeserialize, Serializable};
 use ton_types::SliceData;
 
 pub mod abi_api;
@@ -249,13 +249,15 @@ pub fn make_full_contract_state(
                 &state.account.storage.state,
                 ton_block::AccountState::AccountActive { state_init: _ }
             );
+            let account = state.account.clone();
+            let code_hash = get_code_hash(&account).handle_error()?;
 
             Some(FullContractState {
-                balance: state.account.storage.balance.grams.as_u128().to_string(),
+                balance: account.storage.balance.grams.as_u128().to_string(),
                 gen_timings: state.timings,
                 last_transaction_id: Some(state.last_transaction_id),
                 is_deployed,
-                code_hash: None,
+                code_hash: Some(code_hash),
                 boc,
             })
         }
@@ -265,5 +267,18 @@ pub fn make_full_contract_state(
     match full_contract_state {
         None => Ok(None),
         Some(state) => Ok(Some(serde_json::to_string(&state).handle_error()?)),
+    }
+}
+
+pub fn get_code_hash(account: &AccountStuff) -> anyhow::Result<String> {
+    match account.clone().storage.state {
+        ton_block::AccountState::AccountActive { state_init, .. } => {
+            let toc = state_init.code.as_ref().map(ton_types::serialize_toc);
+            match toc {
+                Some(t) => Ok(t.map(base64::encode).handle_error()?),
+                None => Err("WalletNotDeployed").handle_error()?,
+            }
+        }
+        _ => Err("WalletNotDeployed").handle_error()?,
     }
 }
