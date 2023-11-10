@@ -72,6 +72,25 @@ impl AccountsStorageImpl {
         )
     }
 
+    /// Add token wallets signatures to account (add new tokens to account aka enable it via slider).
+    /// account_address - address of account
+    /// network_group - name of network group where this token must be visible, could be found in
+    ///   connection info
+    /// root_token_contracts - list of addresses of tokens in blockchain.
+    /// Return true or throw error.
+    pub fn add_token_wallets(
+        &self,
+        account_address: String,
+        network_group: String,
+        root_token_contracts: Vec<String>,
+    ) -> anyhow::Result<bool> {
+        async_run!(
+            self.inner_storage
+                .add_token_wallets(account_address, network_group, root_token_contracts)
+                .await
+        )
+    }
+
     /// Remove token wallet signature from account (remove token from account aka disable it via slider).
     /// account_address - address of account
     /// network_group - name of network group where this token must be visible, could be found in
@@ -87,6 +106,25 @@ impl AccountsStorageImpl {
         async_run!(
             self.inner_storage
                 .remove_token_wallet(account_address, network_group, root_token_contract)
+                .await
+        )
+    }
+
+    /// Remove token wallets signatures from account (remove tokens from account aka disable it via slider).
+    /// account_address - address of account
+    /// network_group - name of network group where this token must be visible, could be found in
+    ///   connection info
+    /// root_token_contracts - list of addresses of tokens in blockchain.
+    /// Return true or throw error.
+    pub fn remove_token_wallets(
+        &self,
+        account_address: String,
+        network_group: String,
+        root_token_contracts: Vec<String>,
+    ) -> anyhow::Result<bool> {
+        async_run!(
+            self.inner_storage
+                .remove_token_wallets(account_address, network_group, root_token_contracts)
                 .await
         )
     }

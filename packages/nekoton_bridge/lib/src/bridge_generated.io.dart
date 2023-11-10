@@ -4142,6 +4142,40 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>)>();
 
+  void wire_add_token_wallets__method__AccountsStorageImpl(
+    int port_,
+    ffi.Pointer<wire_AccountsStorageImpl> that,
+    ffi.Pointer<wire_uint_8_list> account_address,
+    ffi.Pointer<wire_uint_8_list> network_group,
+    ffi.Pointer<wire_StringList> root_token_contracts,
+  ) {
+    return _wire_add_token_wallets__method__AccountsStorageImpl(
+      port_,
+      that,
+      account_address,
+      network_group,
+      root_token_contracts,
+    );
+  }
+
+  late final _wire_add_token_wallets__method__AccountsStorageImplPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.Pointer<wire_AccountsStorageImpl>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_StringList>)>>(
+      'wire_add_token_wallets__method__AccountsStorageImpl');
+  late final _wire_add_token_wallets__method__AccountsStorageImpl =
+      _wire_add_token_wallets__method__AccountsStorageImplPtr.asFunction<
+          void Function(
+              int,
+              ffi.Pointer<wire_AccountsStorageImpl>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_StringList>)>();
+
   void wire_remove_token_wallet__method__AccountsStorageImpl(
     int port_,
     ffi.Pointer<wire_AccountsStorageImpl> that,
@@ -4176,6 +4210,41 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_remove_token_wallets__method__AccountsStorageImpl(
+    int port_,
+    ffi.Pointer<wire_AccountsStorageImpl> that,
+    ffi.Pointer<wire_uint_8_list> account_address,
+    ffi.Pointer<wire_uint_8_list> network_group,
+    ffi.Pointer<wire_StringList> root_token_contracts,
+  ) {
+    return _wire_remove_token_wallets__method__AccountsStorageImpl(
+      port_,
+      that,
+      account_address,
+      network_group,
+      root_token_contracts,
+    );
+  }
+
+  late final _wire_remove_token_wallets__method__AccountsStorageImplPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(
+                      ffi.Int64,
+                      ffi.Pointer<wire_AccountsStorageImpl>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_StringList>)>>(
+          'wire_remove_token_wallets__method__AccountsStorageImpl');
+  late final _wire_remove_token_wallets__method__AccountsStorageImpl =
+      _wire_remove_token_wallets__method__AccountsStorageImplPtr.asFunction<
+          void Function(
+              int,
+              ffi.Pointer<wire_AccountsStorageImpl>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_StringList>)>();
 
   void wire_remove_account__method__AccountsStorageImpl(
     int port_,

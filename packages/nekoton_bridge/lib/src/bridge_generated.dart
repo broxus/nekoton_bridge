@@ -1178,6 +1178,22 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta
       get kAddTokenWalletMethodAccountsStorageImplConstMeta;
 
+  /// Add token wallets signatures to account (add new tokens to account aka enable it via slider).
+  /// account_address - address of account
+  /// network_group - name of network group where this token must be visible, could be found in
+  ///   connection info
+  /// root_token_contracts - list of addresses of tokens in blockchain.
+  /// Return true or throw error.
+  Future<bool> addTokenWalletsMethodAccountsStorageImpl(
+      {required AccountsStorageImpl that,
+      required String accountAddress,
+      required String networkGroup,
+      required List<String> rootTokenContracts,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kAddTokenWalletsMethodAccountsStorageImplConstMeta;
+
   /// Remove token wallet signature from account (remove token from account aka disable it via slider).
   /// account_address - address of account
   /// network_group - name of network group where this token must be visible, could be found in
@@ -1193,6 +1209,22 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta
       get kRemoveTokenWalletMethodAccountsStorageImplConstMeta;
+
+  /// Remove token wallets signatures from account (remove tokens from account aka disable it via slider).
+  /// account_address - address of account
+  /// network_group - name of network group where this token must be visible, could be found in
+  ///   connection info
+  /// root_token_contracts - list of addresses of tokens in blockchain.
+  /// Return true or throw error.
+  Future<bool> removeTokenWalletsMethodAccountsStorageImpl(
+      {required AccountsStorageImpl that,
+      required String accountAddress,
+      required String networkGroup,
+      required List<String> rootTokenContracts,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kRemoveTokenWalletsMethodAccountsStorageImplConstMeta;
 
   /// Remove account from storage and return its instance if it was removed.
   /// account_address - address of account
@@ -1983,6 +2015,24 @@ class AccountsStorageImpl {
         rootTokenContract: rootTokenContract,
       );
 
+  /// Add token wallets signatures to account (add new tokens to account aka enable it via slider).
+  /// account_address - address of account
+  /// network_group - name of network group where this token must be visible, could be found in
+  ///   connection info
+  /// root_token_contracts - list of addresses of tokens in blockchain.
+  /// Return true or throw error.
+  Future<bool> addTokenWallets(
+          {required String accountAddress,
+          required String networkGroup,
+          required List<String> rootTokenContracts,
+          dynamic hint}) =>
+      bridge.addTokenWalletsMethodAccountsStorageImpl(
+        that: this,
+        accountAddress: accountAddress,
+        networkGroup: networkGroup,
+        rootTokenContracts: rootTokenContracts,
+      );
+
   /// Remove token wallet signature from account (remove token from account aka disable it via slider).
   /// account_address - address of account
   /// network_group - name of network group where this token must be visible, could be found in
@@ -1999,6 +2049,24 @@ class AccountsStorageImpl {
         accountAddress: accountAddress,
         networkGroup: networkGroup,
         rootTokenContract: rootTokenContract,
+      );
+
+  /// Remove token wallets signatures from account (remove tokens from account aka disable it via slider).
+  /// account_address - address of account
+  /// network_group - name of network group where this token must be visible, could be found in
+  ///   connection info
+  /// root_token_contracts - list of addresses of tokens in blockchain.
+  /// Return true or throw error.
+  Future<bool> removeTokenWallets(
+          {required String accountAddress,
+          required String networkGroup,
+          required List<String> rootTokenContracts,
+          dynamic hint}) =>
+      bridge.removeTokenWalletsMethodAccountsStorageImpl(
+        that: this,
+        accountAddress: accountAddress,
+        networkGroup: networkGroup,
+        rootTokenContracts: rootTokenContracts,
       );
 
   /// Remove account from storage and return its instance if it was removed.
@@ -6707,6 +6775,39 @@ class NekotonBridgeImpl implements NekotonBridge {
             ],
           );
 
+  Future<bool> addTokenWalletsMethodAccountsStorageImpl(
+      {required AccountsStorageImpl that,
+      required String accountAddress,
+      required String networkGroup,
+      required List<String> rootTokenContracts,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_accounts_storage_impl(that);
+    var arg1 = _platform.api2wire_String(accountAddress);
+    var arg2 = _platform.api2wire_String(networkGroup);
+    var arg3 = _platform.api2wire_StringList(rootTokenContracts);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_add_token_wallets__method__AccountsStorageImpl(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_bool,
+      constMeta: kAddTokenWalletsMethodAccountsStorageImplConstMeta,
+      argValues: [that, accountAddress, networkGroup, rootTokenContracts],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kAddTokenWalletsMethodAccountsStorageImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "add_token_wallets__method__AccountsStorageImpl",
+            argNames: [
+              "that",
+              "accountAddress",
+              "networkGroup",
+              "rootTokenContracts"
+            ],
+          );
+
   Future<String> removeTokenWalletMethodAccountsStorageImpl(
       {required AccountsStorageImpl that,
       required String accountAddress,
@@ -6737,6 +6838,39 @@ class NekotonBridgeImpl implements NekotonBridge {
               "accountAddress",
               "networkGroup",
               "rootTokenContract"
+            ],
+          );
+
+  Future<bool> removeTokenWalletsMethodAccountsStorageImpl(
+      {required AccountsStorageImpl that,
+      required String accountAddress,
+      required String networkGroup,
+      required List<String> rootTokenContracts,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_accounts_storage_impl(that);
+    var arg1 = _platform.api2wire_String(accountAddress);
+    var arg2 = _platform.api2wire_String(networkGroup);
+    var arg3 = _platform.api2wire_StringList(rootTokenContracts);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_remove_token_wallets__method__AccountsStorageImpl(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_bool,
+      constMeta: kRemoveTokenWalletsMethodAccountsStorageImplConstMeta,
+      argValues: [that, accountAddress, networkGroup, rootTokenContracts],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kRemoveTokenWalletsMethodAccountsStorageImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "remove_token_wallets__method__AccountsStorageImpl",
+            argNames: [
+              "that",
+              "accountAddress",
+              "networkGroup",
+              "rootTokenContracts"
             ],
           );
 

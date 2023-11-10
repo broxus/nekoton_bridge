@@ -817,11 +817,23 @@ void wire_add_token_wallet__method__AccountsStorageImpl(int64_t port_,
                                                         struct wire_uint_8_list *network_group,
                                                         struct wire_uint_8_list *root_token_contract);
 
+void wire_add_token_wallets__method__AccountsStorageImpl(int64_t port_,
+                                                         struct wire_AccountsStorageImpl *that,
+                                                         struct wire_uint_8_list *account_address,
+                                                         struct wire_uint_8_list *network_group,
+                                                         struct wire_StringList *root_token_contracts);
+
 void wire_remove_token_wallet__method__AccountsStorageImpl(int64_t port_,
                                                            struct wire_AccountsStorageImpl *that,
                                                            struct wire_uint_8_list *account_address,
                                                            struct wire_uint_8_list *network_group,
                                                            struct wire_uint_8_list *root_token_contract);
+
+void wire_remove_token_wallets__method__AccountsStorageImpl(int64_t port_,
+                                                            struct wire_AccountsStorageImpl *that,
+                                                            struct wire_uint_8_list *account_address,
+                                                            struct wire_uint_8_list *network_group,
+                                                            struct wire_StringList *root_token_contracts);
 
 void wire_remove_account__method__AccountsStorageImpl(int64_t port_,
                                                       struct wire_AccountsStorageImpl *that,
@@ -1315,7 +1327,9 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_add_accounts__method__AccountsStorageImpl);
     dummy_var ^= ((int64_t) (void*) wire_rename_account__method__AccountsStorageImpl);
     dummy_var ^= ((int64_t) (void*) wire_add_token_wallet__method__AccountsStorageImpl);
+    dummy_var ^= ((int64_t) (void*) wire_add_token_wallets__method__AccountsStorageImpl);
     dummy_var ^= ((int64_t) (void*) wire_remove_token_wallet__method__AccountsStorageImpl);
+    dummy_var ^= ((int64_t) (void*) wire_remove_token_wallets__method__AccountsStorageImpl);
     dummy_var ^= ((int64_t) (void*) wire_remove_account__method__AccountsStorageImpl);
     dummy_var ^= ((int64_t) (void*) wire_remove_accounts__method__AccountsStorageImpl);
     dummy_var ^= ((int64_t) (void*) wire_clear__method__AccountsStorageImpl);

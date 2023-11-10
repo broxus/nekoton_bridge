@@ -90,6 +90,25 @@ class AccountsStorage {
     return AssetsList.fromJson(decoded);
   }
 
+  /// Add token wallets signatures to account (add new token to account aka enable it via slider).
+  /// [address] - address of account
+  /// [networkGroup] - name of network group where this token must be visible, could be found in
+  ///   connection info
+  /// [rootTokenContracts] - list of addresses of tokens in blockchain.
+  /// Return nothing or throw error.
+  Future<void> addTokenWallets({
+    required Address address,
+    required String networkGroup,
+    required List<Address> rootTokenContracts,
+  }) async {
+    await accountsStorage.addTokenWallets(
+      accountAddress: address.address,
+      networkGroup: networkGroup,
+      rootTokenContracts: rootTokenContracts.map((c) => c.address).toList(),
+    );
+    await _updateData();
+  }
+
   /// Remove token wallet signature from account (remove token from account aka disable it via slider).
   /// [address] - address of account
   /// [networkGroup] - name of network group where this token must be visible, could be found in
@@ -109,6 +128,25 @@ class AccountsStorage {
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
     await _updateData();
     return AssetsList.fromJson(decoded);
+  }
+
+  /// Remove token wallets signatures from account (remove token from account aka disable it via slider).
+  /// [address] - address of account
+  /// [networkGroup] - name of network group where this token must be visible, could be found in
+  ///   connection info
+  /// [rootTokenContracts] - list of address of tokens in blockchain.
+  /// Return nothing or throw error.
+  Future<void> removeTokenWallets({
+    required Address address,
+    required String networkGroup,
+    required List<Address> rootTokenContracts,
+  }) async {
+    await accountsStorage.removeTokenWallets(
+      accountAddress: address.address,
+      networkGroup: networkGroup,
+      rootTokenContracts: rootTokenContracts.map((c) => c.address).toList(),
+    );
+    await _updateData();
   }
 
   /// Remove account from storage and return true if it was removed or false.
