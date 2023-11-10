@@ -121,7 +121,7 @@ void main() {
 
       final transactions = await transport.getTransactions(
         address: accountAddress,
-        count: 10,
+        count: 1,
       );
 
       expect(transactions.transactions.length, 10);

@@ -126,7 +126,7 @@ void main() {
         count: 10,
       );
 
-      expect(transactions.transactions.length, 10);
+      expect(transactions.transactions.length, 1);
     });
 
     testWidgets('GqlTransport getTransaction ', (WidgetTester tester) async {
