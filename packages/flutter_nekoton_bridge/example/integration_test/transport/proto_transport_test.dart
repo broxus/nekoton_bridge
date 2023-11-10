@@ -130,7 +130,7 @@ void main() {
         count: 1,
       );
 
-      expect(transactions.transactions.length, 10);
+      expect(transactions.transactions.length, 1);
     });
 
     testWidgets('ProtoTransport getTransaction ', (WidgetTester tester) async {
