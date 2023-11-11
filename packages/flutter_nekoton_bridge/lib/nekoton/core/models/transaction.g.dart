@@ -25,6 +25,7 @@ _$TransactionImpl _$$TransactionImplFromJson(Map<String, dynamic> json) =>
       outMessages: (json['outMessages'] as List<dynamic>)
           .map((e) => Message.fromJson(e as Map<String, dynamic>))
           .toList(),
+      boc: json['boc'] as String,
     );
 
 Map<String, dynamic> _$$TransactionImplToJson(_$TransactionImpl instance) {
@@ -48,6 +49,7 @@ Map<String, dynamic> _$$TransactionImplToJson(_$TransactionImpl instance) {
   val['totalFees'] = amountJsonConverter.toJson(instance.totalFees);
   val['inMessage'] = instance.inMessage.toJson();
   val['outMessages'] = instance.outMessages.map((e) => e.toJson()).toList();
+  val['boc'] = instance.boc;
   return val;
 }
 
