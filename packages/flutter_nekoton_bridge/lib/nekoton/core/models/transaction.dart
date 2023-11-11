@@ -19,6 +19,7 @@ sealed class Transaction with _$Transaction implements Comparable<Transaction> {
     @amountJsonConverter required final BigInt totalFees,
     required final Message inMessage,
     required final List<Message> outMessages,
+    required String boc,
   }) = _Transaction;
 
   factory Transaction.fromJson(Map<String, dynamic> json) =>
