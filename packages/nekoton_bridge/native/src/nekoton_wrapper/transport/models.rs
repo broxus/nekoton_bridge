@@ -1,5 +1,5 @@
 use nekoton::{
-    core::models::{Transaction, TransactionsBatchInfo},
+    core::models::TransactionsBatchInfo,
     transport::models::{ExistingContract, RawContractState},
 };
 use nekoton_abi::{GenTimings, LastTransactionId, TransactionId};
@@ -37,7 +37,8 @@ pub struct FullContractState {
 
 #[derive(Serialize)]
 pub struct TransactionsList {
-    pub transactions: Vec<Transaction>,
+    // item=Transaction, to get it use `convert_transaction_to_string`
+    pub transactions: Vec<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub continuation: Option<TransactionId>,
     pub info: Option<TransactionsBatchInfo>,
@@ -58,7 +59,9 @@ pub struct AccountsList {
 pub struct RawTransactionDef {
     #[serde(with = "serde_hex_array")]
     pub hash: UInt256,
-    pub data: Transaction,
+
+    // data=Transaction, to get it use `convert_transaction_to_string`
+    pub data: String,
 }
 
 #[derive(Serialize)]
