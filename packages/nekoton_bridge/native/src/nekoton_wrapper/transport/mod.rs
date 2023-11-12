@@ -217,7 +217,7 @@ impl TransportBoxTrait for name {
         let transactions = raw_transactions
             .clone()
             .into_iter()
-            .map(|e| convert_transaction_to_string(&Transaction::try_from((e.hash, e.data))?))
+            .map(|e| convert_transaction_to_json(&Transaction::try_from((e.hash, e.data))?))
             .collect::<anyhow::Result<Vec<_>>>();
         let transactions = transactions?;
 
@@ -262,7 +262,7 @@ impl TransportBoxTrait for name {
 
         match transaction {
             None => Ok(None),
-            Some(t) => Ok(Some(convert_transaction_to_string(&t)?)),
+            Some(t) => Ok(Some(serde_json::to_string(&convert_transaction_to_json(&t)?)?)),
         }
     }
 
@@ -281,7 +281,7 @@ impl TransportBoxTrait for name {
             Some(t) => {
                 let trans = RawTransactionDef {
                     hash,
-                    data: convert_transaction_to_string(&Transaction::try_from((t.hash, t.data))?)?,
+                    data: convert_transaction_to_json(&Transaction::try_from((t.hash, t.data))?)?,
                 };
                 Ok(Some(serde_json::to_string(&trans).handle_error()?))
             }
@@ -453,7 +453,7 @@ impl TransportBoxTrait for GqlTransportBox {
         let transactions = raw_transactions
             .clone()
             .into_iter()
-            .map(|e| convert_transaction_to_string(&Transaction::try_from((e.hash, e.data))?))
+            .map(|e| convert_transaction_to_json(&Transaction::try_from((e.hash, e.data))?))
             .collect::<anyhow::Result<Vec<_>>>();
         let transactions = transactions?;
 
@@ -497,7 +497,7 @@ impl TransportBoxTrait for GqlTransportBox {
             .handle_error()?;
         match transaction {
             None => Ok(None),
-            Some(t) => Ok(Some(convert_transaction_to_string(&t).handle_error()?)),
+            Some(t) => Ok(Some(serde_json::to_string(&convert_transaction_to_json(&t)?)?)),
         }
     }
 
@@ -516,7 +516,7 @@ impl TransportBoxTrait for GqlTransportBox {
             Some(t) => {
                 let trans = RawTransactionDef {
                     hash,
-                    data: convert_transaction_to_string(&Transaction::try_from((t.hash, t.data))?)?,
+                    data: convert_transaction_to_json(&Transaction::try_from((t.hash, t.data))?)?,
                 };
                 Ok(Some(serde_json::to_string(&trans).handle_error()?))
             }
@@ -612,20 +612,19 @@ impl TransportBoxTrait for GqlTransportBox {
     }
 }
 
-pub fn convert_transaction_to_string(t: &Transaction) -> anyhow::Result<String> {
-    serde_json::to_string(&serde_json::json!({
+pub fn convert_transaction_to_json(t: &Transaction) -> anyhow::Result<serde_json::Value> {
+    Ok(serde_json::json!({
         "id" : t.id,
-        "prev_trans_id": t.prev_trans_id,
-        "created_at": t.created_at,
+        "prevTransId": t.prev_trans_id,
+        "createdAt": t.created_at,
         "aborted": t.aborted,
-        "exit_code": t.exit_code,
-        "result_code": t.result_code,
-        "orig_status":t.orig_status,
-        "end_status":t.end_status,
-        "total_fees" : t.total_fees,
-        "in_msg": t.in_msg,
-        "out_msgs": t.out_msgs,
+        "exitCode": t.exit_code,
+        "resultCode": t.result_code,
+        "origStatus":t.orig_status,
+        "endStatus":t.end_status,
+        "totalFees" : t.total_fees.to_string(),
+        "inMessage": t.in_msg,
+        "outMessages": t.out_msgs,
         "boc": make_boc(&t.raw)?,
     }))
-    .handle_error()
 }

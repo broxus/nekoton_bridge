@@ -37,8 +37,8 @@ pub struct FullContractState {
 
 #[derive(Serialize)]
 pub struct TransactionsList {
-    // item=Transaction, to get it use `convert_transaction_to_string`
-    pub transactions: Vec<String>,
+    // item=Transaction, to get it use `convert_transaction_to_json`
+    pub transactions: Vec<serde_json::Value>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub continuation: Option<TransactionId>,
     pub info: Option<TransactionsBatchInfo>,
@@ -60,8 +60,8 @@ pub struct RawTransactionDef {
     #[serde(with = "serde_hex_array")]
     pub hash: UInt256,
 
-    // data=Transaction, to get it use `convert_transaction_to_string`
-    pub data: String,
+    // data=Transaction, to get it use `convert_transaction_to_json`
+    pub data: serde_json::Value,
 }
 
 #[derive(Serialize)]
