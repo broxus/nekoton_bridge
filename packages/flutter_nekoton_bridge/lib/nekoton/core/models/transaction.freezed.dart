@@ -35,6 +35,7 @@ mixin _$Transaction {
   BigInt get totalFees => throw _privateConstructorUsedError;
   Message get inMessage => throw _privateConstructorUsedError;
   List<Message> get outMessages => throw _privateConstructorUsedError;
+  String get boc => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -59,7 +60,8 @@ abstract class $TransactionCopyWith<$Res> {
       AccountStatus endStatus,
       @amountJsonConverter BigInt totalFees,
       Message inMessage,
-      List<Message> outMessages});
+      List<Message> outMessages,
+      String boc});
 
   $TransactionIdCopyWith<$Res> get id;
   $TransactionIdCopyWith<$Res>? get prevTransactionId;
@@ -90,6 +92,7 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
     Object? totalFees = null,
     Object? inMessage = null,
     Object? outMessages = null,
+    Object? boc = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -136,6 +139,10 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
           ? _value.outMessages
           : outMessages // ignore: cast_nullable_to_non_nullable
               as List<Message>,
+      boc: null == boc
+          ? _value.boc
+          : boc // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -187,7 +194,8 @@ abstract class _$$TransactionImplCopyWith<$Res>
       AccountStatus endStatus,
       @amountJsonConverter BigInt totalFees,
       Message inMessage,
-      List<Message> outMessages});
+      List<Message> outMessages,
+      String boc});
 
   @override
   $TransactionIdCopyWith<$Res> get id;
@@ -219,6 +227,7 @@ class __$$TransactionImplCopyWithImpl<$Res>
     Object? totalFees = null,
     Object? inMessage = null,
     Object? outMessages = null,
+    Object? boc = null,
   }) {
     return _then(_$TransactionImpl(
       id: null == id
@@ -265,6 +274,10 @@ class __$$TransactionImplCopyWithImpl<$Res>
           ? _value._outMessages
           : outMessages // ignore: cast_nullable_to_non_nullable
               as List<Message>,
+      boc: null == boc
+          ? _value.boc
+          : boc // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -283,7 +296,8 @@ class _$TransactionImpl extends _Transaction {
       required this.endStatus,
       @amountJsonConverter required this.totalFees,
       required this.inMessage,
-      required final List<Message> outMessages})
+      required final List<Message> outMessages,
+      required this.boc})
       : _outMessages = outMessages,
         super._();
 
@@ -323,8 +337,11 @@ class _$TransactionImpl extends _Transaction {
   }
 
   @override
+  final String boc;
+
+  @override
   String toString() {
-    return 'Transaction(id: $id, prevTransactionId: $prevTransactionId, createdAt: $createdAt, aborted: $aborted, exitCode: $exitCode, resultCode: $resultCode, origStatus: $origStatus, endStatus: $endStatus, totalFees: $totalFees, inMessage: $inMessage, outMessages: $outMessages)';
+    return 'Transaction(id: $id, prevTransactionId: $prevTransactionId, createdAt: $createdAt, aborted: $aborted, exitCode: $exitCode, resultCode: $resultCode, origStatus: $origStatus, endStatus: $endStatus, totalFees: $totalFees, inMessage: $inMessage, outMessages: $outMessages, boc: $boc)';
   }
 
   @override
@@ -351,7 +368,8 @@ class _$TransactionImpl extends _Transaction {
             (identical(other.inMessage, inMessage) ||
                 other.inMessage == inMessage) &&
             const DeepCollectionEquality()
-                .equals(other._outMessages, _outMessages));
+                .equals(other._outMessages, _outMessages) &&
+            (identical(other.boc, boc) || other.boc == boc));
   }
 
   @JsonKey(ignore: true)
@@ -368,7 +386,8 @@ class _$TransactionImpl extends _Transaction {
       endStatus,
       totalFees,
       inMessage,
-      const DeepCollectionEquality().hash(_outMessages));
+      const DeepCollectionEquality().hash(_outMessages),
+      boc);
 
   @JsonKey(ignore: true)
   @override
@@ -396,7 +415,8 @@ abstract class _Transaction extends Transaction {
       required final AccountStatus endStatus,
       @amountJsonConverter required final BigInt totalFees,
       required final Message inMessage,
-      required final List<Message> outMessages}) = _$TransactionImpl;
+      required final List<Message> outMessages,
+      required final String boc}) = _$TransactionImpl;
   const _Transaction._() : super._();
 
   factory _Transaction.fromJson(Map<String, dynamic> json) =
@@ -428,6 +448,8 @@ abstract class _Transaction extends Transaction {
   Message get inMessage;
   @override
   List<Message> get outMessages;
+  @override
+  String get boc;
   @override
   @JsonKey(ignore: true)
   _$$TransactionImplCopyWith<_$TransactionImpl> get copyWith =>

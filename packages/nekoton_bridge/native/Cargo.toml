@@ -27,6 +27,7 @@ nekoton = { git = "https://github.com/broxus/nekoton.git", features = [
     "gql_transport",
     "jrpc_transport",
     "proto_transport",
+    "extended_models",
 ], rev = "d70dd09d4d482987541f1816fd3bce970710178c" }
 nekoton-abi = { git = "https://github.com/broxus/nekoton.git", rev = "d70dd09d4d482987541f1816fd3bce970710178c" }
 nekoton-utils = { git = "https://github.com/broxus/nekoton.git", rev = "d70dd09d4d482987541f1816fd3bce970710178c" }

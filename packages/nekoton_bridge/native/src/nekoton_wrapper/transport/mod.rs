@@ -5,7 +5,8 @@ use crate::nekoton_wrapper::transport::models::{
     AccountsList, RawContractStateHelper, TransactionsList,
 };
 use crate::nekoton_wrapper::{
-    helpers::make_full_contract_state, parse_address, parse_hash, HandleError,
+    helpers::{make_boc, make_full_contract_state},
+    parse_address, parse_hash, HandleError,
 };
 use async_trait::async_trait;
 use duplicate::duplicate_item;
@@ -216,8 +217,9 @@ impl TransportBoxTrait for name {
         let transactions = raw_transactions
             .clone()
             .into_iter()
-            .filter_map(|e| Transaction::try_from((e.hash, e.data)).ok())
-            .collect::<Vec<_>>();
+            .map(|e| convert_transaction_to_json(&Transaction::try_from((e.hash, e.data))?))
+            .collect::<anyhow::Result<Vec<_>>>();
+        let transactions = transactions?;
 
         let continuation = raw_transactions.last().and_then(|e| {
             (e.data.prev_trans_lt != 0).then_some(TransactionId {
@@ -260,7 +262,9 @@ impl TransportBoxTrait for name {
 
         match transaction {
             None => Ok(None),
-            Some(_) => Ok(Some(serde_json::to_string(&transaction).handle_error()?)),
+            Some(t) => Ok(Some(serde_json::to_string(&convert_transaction_to_json(
+                &t,
+            )?)?)),
         }
     }
 
@@ -279,7 +283,7 @@ impl TransportBoxTrait for name {
             Some(t) => {
                 let trans = RawTransactionDef {
                     hash,
-                    data: Transaction::try_from((t.hash, t.data))?,
+                    data: convert_transaction_to_json(&Transaction::try_from((t.hash, t.data))?)?,
                 };
                 Ok(Some(serde_json::to_string(&trans).handle_error()?))
             }
@@ -451,8 +455,9 @@ impl TransportBoxTrait for GqlTransportBox {
         let transactions = raw_transactions
             .clone()
             .into_iter()
-            .filter_map(|e| Transaction::try_from((e.hash, e.data)).ok())
-            .collect::<Vec<_>>();
+            .map(|e| convert_transaction_to_json(&Transaction::try_from((e.hash, e.data))?))
+            .collect::<anyhow::Result<Vec<_>>>();
+        let transactions = transactions?;
 
         let continuation = raw_transactions.last().and_then(|e| {
             (e.data.prev_trans_lt != 0).then_some(TransactionId {
@@ -494,7 +499,9 @@ impl TransportBoxTrait for GqlTransportBox {
             .handle_error()?;
         match transaction {
             None => Ok(None),
-            Some(_) => Ok(Some(serde_json::to_string(&transaction).handle_error()?)),
+            Some(t) => Ok(Some(serde_json::to_string(&convert_transaction_to_json(
+                &t,
+            )?)?)),
         }
     }
 
@@ -513,7 +520,7 @@ impl TransportBoxTrait for GqlTransportBox {
             Some(t) => {
                 let trans = RawTransactionDef {
                     hash,
-                    data: Transaction::try_from((t.hash, t.data))?,
+                    data: convert_transaction_to_json(&Transaction::try_from((t.hash, t.data))?)?,
                 };
                 Ok(Some(serde_json::to_string(&trans).handle_error()?))
             }
@@ -607,4 +614,21 @@ impl TransportBoxTrait for GqlTransportBox {
 
         Ok(next_block_id)
     }
+}
+
+pub fn convert_transaction_to_json(t: &Transaction) -> anyhow::Result<serde_json::Value> {
+    Ok(serde_json::json!({
+        "id" : t.id,
+        "prevTransId": t.prev_trans_id,
+        "createdAt": t.created_at,
+        "aborted": t.aborted,
+        "exitCode": t.exit_code,
+        "resultCode": t.result_code,
+        "origStatus":t.orig_status,
+        "endStatus":t.end_status,
+        "totalFees" : t.total_fees.to_string(),
+        "inMessage": t.in_msg,
+        "outMessages": t.out_msgs,
+        "boc": make_boc(&t.raw)?,
+    }))
 }
