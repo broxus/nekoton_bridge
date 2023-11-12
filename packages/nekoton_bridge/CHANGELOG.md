@@ -1,3 +1,7 @@
+## 1.18.1
+
+ - **FIX**: add codeHash to contract ([#234](https://github.com/broxus/nekoton_bridge/issues/234)). ([911aec9c](https://github.com/broxus/nekoton_bridge/commit/911aec9c87c07f43a1ec597f437c87b7132168e8))
+
 ## 1.18.0
 
  - **FIX**: generated files ([#229](https://github.com/broxus/nekoton_bridge/issues/229)). ([ed63cac4](https://github.com/broxus/nekoton_bridge/commit/ed63cac4c5b2382f0b6fa34e120ae5066f08732b))

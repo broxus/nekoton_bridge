@@ -1,3 +1,7 @@
+## 1.17.1
+
+ - Update a dependency to the latest release.
+
 ## 1.17.0
 
  - **FEAT**: added method to add multiple token wallets at timme ([#231](https://github.com/broxus/nekoton_bridge/issues/231)). ([f88c0da3](https://github.com/broxus/nekoton_bridge/commit/f88c0da3ed357316b1bd66dec49b985b92fe29d2))
