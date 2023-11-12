@@ -262,7 +262,9 @@ impl TransportBoxTrait for name {
 
         match transaction {
             None => Ok(None),
-            Some(t) => Ok(Some(serde_json::to_string(&convert_transaction_to_json(&t)?)?)),
+            Some(t) => Ok(Some(serde_json::to_string(&convert_transaction_to_json(
+                &t,
+            )?)?)),
         }
     }
 
@@ -497,7 +499,9 @@ impl TransportBoxTrait for GqlTransportBox {
             .handle_error()?;
         match transaction {
             None => Ok(None),
-            Some(t) => Ok(Some(serde_json::to_string(&convert_transaction_to_json(&t)?)?)),
+            Some(t) => Ok(Some(serde_json::to_string(&convert_transaction_to_json(
+                &t,
+            )?)?)),
         }
     }
 
