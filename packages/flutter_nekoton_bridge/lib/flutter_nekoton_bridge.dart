@@ -146,7 +146,7 @@ Future<void> registerRustToDartCaller(RustToDartCaller rustToDartCaller) async {
           msg: 'Unsupported return type: ${result.runtimeType}',
         );
         _logHandler?.call(logEntry);
-      } on Object catch (e) {
+      } on Object catch (e, t) {
         if (id != null) {
           /// To get here, just `throw ErrorCode.Network` for example
           if (e is ErrorCode) {
@@ -162,6 +162,7 @@ Future<void> registerRustToDartCaller(RustToDartCaller rustToDartCaller) async {
           level: LogLevel.Error,
           tag: _tag,
           msg: e.toString(),
+          stack: t.toString(),
         );
         _logHandler?.call(logEntry);
       }
