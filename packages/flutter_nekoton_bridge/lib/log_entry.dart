@@ -5,12 +5,14 @@ extension LogEntryCreate on LogEntry {
     required LogLevel level,
     required String tag,
     required String msg,
+    String? stack,
   }) {
     return LogEntry(
       timeMillis: DateTime.now().millisecondsSinceEpoch,
       level: level,
       tag: tag,
       msg: msg,
+      stack: stack,
     );
   }
 }

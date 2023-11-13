@@ -23,6 +23,7 @@ pub struct LogEntry {
     pub level: LogLevel,
     pub tag: String,
     pub msg: String,
+    pub stack: Option<String>,
 }
 
 static INIT_LOGGER_ONCE: Once = Once::new();
@@ -129,6 +130,7 @@ impl SendToDartLogger {
             level,
             tag,
             msg,
+            stack: Option::None,
         }
     }
 }

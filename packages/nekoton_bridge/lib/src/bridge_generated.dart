@@ -2921,12 +2921,14 @@ class LogEntry {
   final LogLevel level;
   final String tag;
   final String msg;
+  final String? stack;
 
   const LogEntry({
     required this.timeMillis,
     required this.level,
     required this.tag,
     required this.msg,
+    this.stack,
   });
 }
 
@@ -8503,13 +8505,14 @@ class NekotonBridgeImpl implements NekotonBridge {
 
   LogEntry _wire2api_log_entry(dynamic raw) {
     final arr = raw as List<dynamic>;
-    if (arr.length != 4)
-      throw Exception('unexpected arr length: expect 4 but see ${arr.length}');
+    if (arr.length != 5)
+      throw Exception('unexpected arr length: expect 5 but see ${arr.length}');
     return LogEntry(
       timeMillis: _wire2api_i64(arr[0]),
       level: _wire2api_log_level(arr[1]),
       tag: _wire2api_String(arr[2]),
       msg: _wire2api_String(arr[3]),
+      stack: _wire2api_opt_String(arr[4]),
     );
   }
 
