@@ -1,3 +1,7 @@
+## 1.27.1
+
+ - **FIX**: make Transaction.boc nullable ([#238](https://github.com/broxus/nekoton_bridge/issues/238)). ([93cc547a](https://github.com/broxus/nekoton_bridge/commit/93cc547a7988db0480556b6eededf19c622ac94d))
+
 ## 1.27.0
 
  - **FEAT**: add stacktrace to LogEntry ([#236](https://github.com/broxus/nekoton_bridge/issues/236)). ([50a639eb](https://github.com/broxus/nekoton_bridge/commit/50a639eb385edf49c03d3249f8858fd2daff9983))
