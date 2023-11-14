@@ -25,7 +25,7 @@ _$TransactionImpl _$$TransactionImplFromJson(Map<String, dynamic> json) =>
       outMessages: (json['outMessages'] as List<dynamic>)
           .map((e) => Message.fromJson(e as Map<String, dynamic>))
           .toList(),
-      boc: json['boc'] as String,
+      boc: json['boc'] as String?,
     );
 
 Map<String, dynamic> _$$TransactionImplToJson(_$TransactionImpl instance) {
