@@ -1,3 +1,7 @@
+## 1.19.1
+
+ - **FIX**: abi methods ([#241](https://github.com/broxus/nekoton_bridge/issues/241)). ([d3f908aa](https://github.com/broxus/nekoton_bridge/commit/d3f908aada544a80b26d68a948eb349cc2591fc9))
+
 ## 1.19.0
 
  - **FEAT**: add stacktrace to LogEntry ([#236](https://github.com/broxus/nekoton_bridge/issues/236)). ([50a639eb](https://github.com/broxus/nekoton_bridge/commit/50a639eb385edf49c03d3249f8858fd2daff9983))
