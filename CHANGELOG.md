@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-11-17
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.27.2`](#flutter_nekoton_bridge---v1272)
+ - [`nekoton_bridge` - `v1.19.1`](#nekoton_bridge---v1191)
+ - [`flutter_nekoton_bridge_example` - `v1.17.4`](#flutter_nekoton_bridge_example---v1174)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.17.4`
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.27.2`
+
+ - **FIX**: abi methods ([#241](https://github.com/broxus/nekoton_bridge/issues/241)). ([d3f908aa](https://github.com/broxus/nekoton_bridge/commit/d3f908aada544a80b26d68a948eb349cc2591fc9))
+
+#### `nekoton_bridge` - `v1.19.1`
+
+ - **FIX**: abi methods ([#241](https://github.com/broxus/nekoton_bridge/issues/241)). ([d3f908aa](https://github.com/broxus/nekoton_bridge/commit/d3f908aada544a80b26d68a948eb349cc2591fc9))
+
+
 ## 2023-11-14
 
 ### Changes

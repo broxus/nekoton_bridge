@@ -1,3 +1,7 @@
+## 1.27.2
+
+ - **FIX**: abi methods ([#241](https://github.com/broxus/nekoton_bridge/issues/241)). ([d3f908aa](https://github.com/broxus/nekoton_bridge/commit/d3f908aada544a80b26d68a948eb349cc2591fc9))
+
 ## 1.27.1
 
  - **FIX**: make Transaction.boc nullable ([#238](https://github.com/broxus/nekoton_bridge/issues/238)). ([93cc547a](https://github.com/broxus/nekoton_bridge/commit/93cc547a7988db0480556b6eededf19c622ac94d))
