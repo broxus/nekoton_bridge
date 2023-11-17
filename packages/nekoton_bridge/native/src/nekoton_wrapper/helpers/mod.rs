@@ -309,28 +309,29 @@ pub fn make_full_contract_state(
 ) -> anyhow::Result<Option<String>> {
     let full_contract_state = match raw_contract_state {
         RawContractState::Exists(state) => {
-            let boc = state
-                .account
-                .serialize()
-                .as_ref()
-                .map(ton_types::serialize_toc)
-                .handle_error()?
-                .map(base64::encode)
-                .handle_error()?;
+            let boc = serialize_into_boc(&state.account).handle_error()?;
 
             let is_deployed = matches!(
                 &state.account.storage.state,
                 ton_block::AccountState::AccountActive { state_init: _ }
             );
             let account = state.account.clone();
-            let code_hash = get_code_hash(&account).handle_error()?;
+            let code_hash = match &state.account.storage.state {
+                ton_block::AccountState::AccountActive {
+                    state_init:
+                        ton_block::StateInit {
+                            code: Some(code), ..
+                        },
+                } => Some(code.repr_hash().to_hex_string()),
+                _ => None,
+            };
 
             Some(FullContractState {
                 balance: account.storage.balance.grams.as_u128().to_string(),
                 gen_timings: state.timings,
                 last_transaction_id: Some(state.last_transaction_id),
                 is_deployed,
-                code_hash: Some(code_hash),
+                code_hash,
                 boc,
             })
         }
