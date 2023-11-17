@@ -23,11 +23,12 @@ abstract class NekotonBridge {
   ///----------------------------
   /// CONTENT OF src/nekoton_wrapper/crypto/crypto_api.rs
   ///----------------------------
-  /// Check signature by publicKey and data hash
+  /// Check signature by publicKey and data
   Future<bool> verifySignature(
       {required String publicKey,
-      required String dataHash,
+      required String data,
       required String signature,
+      int? signatureId,
       dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta;
@@ -82,7 +83,7 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kRunLocalConstMeta;
 
   /// Get address of tvc and contract_abi.
-  /// Returns list of [address, state_init, hash] or throws error
+  /// Returns list of [address, boc of state_init, hash] or throws error
   Future<List<String>> getExpectedAddress(
       {required String tvc,
       required String contractAbi,
@@ -186,7 +187,10 @@ abstract class NekotonBridge {
   /// Return base64 encoded bytes of tokens or throws error
   /// returns [tvc, hash]
   Future<List<String>> packIntoCell(
-      {required String params, required String tokens, dynamic hint});
+      {required String params,
+      required String tokens,
+      String? version,
+      dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kPackIntoCellConstMeta;
 
@@ -195,6 +199,7 @@ abstract class NekotonBridge {
       {required String params,
       required String boc,
       required bool allowPartial,
+      String? version,
       dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kUnpackFromCellConstMeta;
@@ -3681,18 +3686,20 @@ class NekotonBridgeImpl implements NekotonBridge {
   NekotonBridgeImpl.raw(this._platform);
   Future<bool> verifySignature(
       {required String publicKey,
-      required String dataHash,
+      required String data,
       required String signature,
+      int? signatureId,
       dynamic hint}) {
     var arg0 = _platform.api2wire_String(publicKey);
-    var arg1 = _platform.api2wire_String(dataHash);
+    var arg1 = _platform.api2wire_String(data);
     var arg2 = _platform.api2wire_String(signature);
+    var arg3 = _platform.api2wire_opt_box_autoadd_i32(signatureId);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) =>
-          _platform.inner.wire_verify_signature(port_, arg0, arg1, arg2),
+          _platform.inner.wire_verify_signature(port_, arg0, arg1, arg2, arg3),
       parseSuccessData: _wire2api_bool,
       constMeta: kVerifySignatureConstMeta,
-      argValues: [publicKey, dataHash, signature],
+      argValues: [publicKey, data, signature, signatureId],
       hint: hint,
     ));
   }
@@ -3700,7 +3707,7 @@ class NekotonBridgeImpl implements NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta =>
       const FlutterRustBridgeTaskConstMeta(
         debugName: "verify_signature",
-        argNames: ["publicKey", "dataHash", "signature"],
+        argNames: ["publicKey", "data", "signature", "signatureId"],
       );
 
   Future<GeneratedKeyG> ntGenerateKey(
@@ -4111,15 +4118,19 @@ class NekotonBridgeImpl implements NekotonBridge {
       );
 
   Future<List<String>> packIntoCell(
-      {required String params, required String tokens, dynamic hint}) {
+      {required String params,
+      required String tokens,
+      String? version,
+      dynamic hint}) {
     var arg0 = _platform.api2wire_String(params);
     var arg1 = _platform.api2wire_String(tokens);
+    var arg2 = _platform.api2wire_opt_String(version);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) =>
-          _platform.inner.wire_pack_into_cell(port_, arg0, arg1),
+          _platform.inner.wire_pack_into_cell(port_, arg0, arg1, arg2),
       parseSuccessData: _wire2api_StringList,
       constMeta: kPackIntoCellConstMeta,
-      argValues: [params, tokens],
+      argValues: [params, tokens, version],
       hint: hint,
     ));
   }
@@ -4127,23 +4138,25 @@ class NekotonBridgeImpl implements NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kPackIntoCellConstMeta =>
       const FlutterRustBridgeTaskConstMeta(
         debugName: "pack_into_cell",
-        argNames: ["params", "tokens"],
+        argNames: ["params", "tokens", "version"],
       );
 
   Future<String> unpackFromCell(
       {required String params,
       required String boc,
       required bool allowPartial,
+      String? version,
       dynamic hint}) {
     var arg0 = _platform.api2wire_String(params);
     var arg1 = _platform.api2wire_String(boc);
     var arg2 = allowPartial;
+    var arg3 = _platform.api2wire_opt_String(version);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) =>
-          _platform.inner.wire_unpack_from_cell(port_, arg0, arg1, arg2),
+          _platform.inner.wire_unpack_from_cell(port_, arg0, arg1, arg2, arg3),
       parseSuccessData: _wire2api_String,
       constMeta: kUnpackFromCellConstMeta,
-      argValues: [params, boc, allowPartial],
+      argValues: [params, boc, allowPartial, version],
       hint: hint,
     ));
   }
@@ -4151,7 +4164,7 @@ class NekotonBridgeImpl implements NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kUnpackFromCellConstMeta =>
       const FlutterRustBridgeTaskConstMeta(
         debugName: "unpack_from_cell",
-        argNames: ["params", "boc", "allowPartial"],
+        argNames: ["params", "boc", "allowPartial", "version"],
       );
 
   Future<String> packStdSmcAddr(

@@ -7,9 +7,9 @@ use crate::nekoton_wrapper::helpers::models::{
     DecodedEvent, DecodedInput, DecodedOutput, DecodedTransaction, ExecutionOutput,
 };
 use crate::nekoton_wrapper::helpers::{
-    make_boc, make_full_contract_state, parse_account_stuff, parse_cell, parse_contract_abi,
-    parse_method_name, parse_params_list, parse_slice, serialize_into_boc,
-    serialize_into_boc_with_hash, serialize_state_init_data_key,
+    make_boc, make_boc_with_hash, make_full_contract_state, parse_account_stuff, parse_cell,
+    parse_contract_abi, parse_method_name, parse_optional_abi_version, parse_params_list,
+    parse_slice, serialize_into_boc, serialize_into_boc_with_hash, serialize_state_init_data_key,
 };
 use crate::nekoton_wrapper::{parse_address, parse_public_key, HandleError};
 use nekoton::core::models::{Expiration, ExpireAt, Transaction};
@@ -76,7 +76,7 @@ pub fn run_local(
 }
 
 /// Get address of tvc and contract_abi.
-/// Returns list of [address, state_init, hash] or throws error
+/// Returns list of [address, boc of state_init, hash] or throws error
 pub fn get_expected_address(
     tvc: String,
     contract_abi: String,
@@ -120,9 +120,11 @@ pub fn get_expected_address(
     let cell = state_init.serialize().handle_error()?;
     let repr_hash = cell.repr_hash().to_hex_string();
 
-    let mut result = vec![format!("{workchain_id}:{repr_hash}")];
-    result.extend(serialize_into_boc_with_hash(&cell)?);
-    Ok(result)
+    Ok(vec![
+        format!("{workchain_id}:{repr_hash}"),
+        make_boc(&cell)?,
+        repr_hash,
+    ])
 }
 
 /// Returns base64-encoded body that was encoded or throws error
@@ -464,14 +466,18 @@ pub fn get_boc_hash(boc: String) -> anyhow::Result<String> {
 
 /// Return base64 encoded bytes of tokens or throws error
 /// returns [tvc, hash]
-pub fn pack_into_cell(params: String, tokens: String) -> anyhow::Result<Vec<String>> {
+pub fn pack_into_cell(
+    params: String,
+    tokens: String,
+    version: Option<String>,
+) -> anyhow::Result<Vec<String>> {
     let params = parse_params_list(params)?;
     let tokens = serde_json::from_str::<serde_json::Value>(&tokens).handle_error()?;
     let tokens = nekoton_abi::parse_abi_tokens(&params, tokens).handle_error()?;
-    let version = ton_abi::contract::AbiVersion { major: 2, minor: 2 };
+    let version = parse_optional_abi_version(version)?;
 
     let cell = nekoton_abi::pack_into_cell(&tokens, version).handle_error()?;
-    serialize_into_boc_with_hash(&cell)
+    make_boc_with_hash(cell)
 }
 
 /// Parse list of params and return json-encoded Tokens or throws error
@@ -479,11 +485,12 @@ pub fn unpack_from_cell(
     params: String,
     boc: String,
     allow_partial: bool,
+    version: Option<String>,
 ) -> anyhow::Result<String> {
     let params = parse_params_list(params)?;
     let body = base64::decode(boc).handle_error()?;
     let cell = ton_types::deserialize_tree_of_cells(&mut body.as_slice()).handle_error()?;
-    let version = ton_abi::contract::AbiVersion { major: 2, minor: 2 };
+    let version = parse_optional_abi_version(version)?;
 
     let tokens =
         nekoton_abi::unpack_from_cell(&params, SliceData::load_cell(cell)?, allow_partial, version)
@@ -541,10 +548,9 @@ pub fn extract_public_key(boc: String) -> anyhow::Result<String> {
 /// Convert code to base64 tvc string and return it or throw error
 /// returns [tvc, hash]
 pub fn code_to_tvc(code: String) -> anyhow::Result<Vec<String>> {
-    let cell = base64::decode(code).handle_error()?;
-
-    let cell = ton_types::deserialize_tree_of_cells(&mut cell.as_slice())?;
-    serialize_into_boc_with_hash(&cell)
+    let cell = parse_cell(code).handle_error()?;
+    let state_init = nekoton_abi::code_to_tvc(cell).handle_error()?;
+    serialize_into_boc_with_hash(&state_init)
 }
 
 /// Merge code and data to tvc base64 string and return it or throw error
@@ -556,8 +562,7 @@ pub fn merge_tvc(code: String, data: String) -> anyhow::Result<Vec<String>> {
         ..Default::default()
     };
 
-    let cell = state_init.serialize().handle_error()?;
-    serialize_into_boc_with_hash(&cell)
+    serialize_into_boc_with_hash(&state_init)
 }
 
 /// Split base64 tvc string into data and code.
@@ -590,7 +595,7 @@ pub fn split_tvc(tvc: String) -> anyhow::Result<Vec<Option<String>>> {
 /// returns [tvc, hash]
 pub fn set_code_salt(code: String, salt: String) -> anyhow::Result<Vec<String>> {
     let cell = nekoton_abi::set_code_salt(parse_cell(code)?, parse_cell(salt)?)?;
-    serialize_into_boc_with_hash(&cell)
+    make_boc_with_hash(cell)
 }
 
 /// Get salt from code if possible and return base64-encoded salt or throw error

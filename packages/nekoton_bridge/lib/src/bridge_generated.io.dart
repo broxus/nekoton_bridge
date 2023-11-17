@@ -984,14 +984,16 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   void wire_verify_signature(
     int port_,
     ffi.Pointer<wire_uint_8_list> public_key,
-    ffi.Pointer<wire_uint_8_list> data_hash,
+    ffi.Pointer<wire_uint_8_list> data,
     ffi.Pointer<wire_uint_8_list> signature,
+    ffi.Pointer<ffi.Int32> signature_id,
   ) {
     return _wire_verify_signature(
       port_,
       public_key,
-      data_hash,
+      data,
       signature,
+      signature_id,
     );
   }
 
@@ -1001,10 +1003,15 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Int64,
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<wire_uint_8_list>)>>('wire_verify_signature');
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<ffi.Int32>)>>('wire_verify_signature');
   late final _wire_verify_signature = _wire_verify_signaturePtr.asFunction<
-      void Function(int, ffi.Pointer<wire_uint_8_list>,
-          ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
+      void Function(
+          int,
+          ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<ffi.Int32>)>();
 
   void wire_nt_generate_key(
     int port_,
@@ -1430,33 +1437,40 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     int port_,
     ffi.Pointer<wire_uint_8_list> params,
     ffi.Pointer<wire_uint_8_list> tokens,
+    ffi.Pointer<wire_uint_8_list> version,
   ) {
     return _wire_pack_into_cell(
       port_,
       params,
       tokens,
+      version,
     );
   }
 
   late final _wire_pack_into_cellPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>)>>('wire_pack_into_cell');
   late final _wire_pack_into_cell = _wire_pack_into_cellPtr.asFunction<
-      void Function(
-          int, ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
+      void Function(int, ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
 
   void wire_unpack_from_cell(
     int port_,
     ffi.Pointer<wire_uint_8_list> params,
     ffi.Pointer<wire_uint_8_list> boc,
     bool allow_partial,
+    ffi.Pointer<wire_uint_8_list> version,
   ) {
     return _wire_unpack_from_cell(
       port_,
       params,
       boc,
       allow_partial,
+      version,
     );
   }
 
@@ -1466,10 +1480,15 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Int64,
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
-              ffi.Bool)>>('wire_unpack_from_cell');
+              ffi.Bool,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_unpack_from_cell');
   late final _wire_unpack_from_cell = _wire_unpack_from_cellPtr.asFunction<
-      void Function(int, ffi.Pointer<wire_uint_8_list>,
-          ffi.Pointer<wire_uint_8_list>, bool)>();
+      void Function(
+          int,
+          ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>,
+          bool,
+          ffi.Pointer<wire_uint_8_list>)>();
 
   void wire_pack_std_smc_addr(
     int port_,
