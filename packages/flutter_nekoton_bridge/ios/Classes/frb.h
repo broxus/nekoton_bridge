@@ -372,12 +372,14 @@ void wire_get_boc_hash(int64_t port_, struct wire_uint_8_list *boc);
 
 void wire_pack_into_cell(int64_t port_,
                          struct wire_uint_8_list *params,
-                         struct wire_uint_8_list *tokens);
+                         struct wire_uint_8_list *tokens,
+                         struct wire_uint_8_list *version);
 
 void wire_unpack_from_cell(int64_t port_,
                            struct wire_uint_8_list *params,
                            struct wire_uint_8_list *boc,
-                           bool allow_partial);
+                           bool allow_partial,
+                           struct wire_uint_8_list *version);
 
 void wire_pack_std_smc_addr(int64_t port_,
                             struct wire_uint_8_list *addr,

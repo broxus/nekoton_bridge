@@ -206,10 +206,12 @@ Future<String> getBocHash(String boc) {
 Future<(String, String)> packIntoCell({
   required List<AbiParam> params,
   required TokensObject tokens,
+  String? abiVersion,
 }) async {
   final data = await createLib().packIntoCell(
     params: jsonEncode(params),
     tokens: jsonEncode(tokens),
+    version: abiVersion,
   );
 
   return (data[0], data[1]);
@@ -220,11 +222,13 @@ Future<TokensObject> unpackFromCell({
   required List<AbiParam> params,
   required String boc,
   required bool allowPartial,
+  String? abiVersion,
 }) async {
   return jsonDecode(await createLib().unpackFromCell(
     params: jsonEncode(params),
     boc: boc,
     allowPartial: allowPartial,
+    version: abiVersion,
   ));
 }
 

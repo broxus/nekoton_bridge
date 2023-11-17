@@ -7,7 +7,7 @@ use nekoton::transport::models::RawContractState;
 use nekoton_abi::MethodName;
 use std::str::FromStr;
 use ton_block::{AccountStuff, Deserializable, MaybeDeserialize, Serializable};
-use ton_types::SliceData;
+use ton_types::{SliceData, Cell};
 
 pub mod abi_api;
 pub mod models;
@@ -214,9 +214,28 @@ pub fn make_boc(data: &ton_types::Cell) -> anyhow::Result<String> {
         .map(base64::encode)
 }
 
+/// Parse string abi version into struct
+pub fn parse_abi_version(version: &str) -> anyhow::Result<ton_abi::contract::AbiVersion> {
+    let version = ton_abi::contract::AbiVersion::parse(version).handle_error()?;
+    if version.is_supported() {
+        Ok(version)
+    } else {
+        Err("Unsupported ABI version").handle_error()
+    }
+}
+
+/// Parse string abi version into struct or default version 2.2
+pub fn parse_optional_abi_version(
+    version: Option<String>,
+) -> anyhow::Result<ton_abi::contract::AbiVersion> {
+    match version {
+        Some(version) => Ok(parse_abi_version(&version).handle_error()?),
+        None => Ok(ton_abi::contract::ABI_VERSION_2_2),
+    }
+}
+
 /// Returns [tvc, hash]
-pub fn serialize_into_boc_with_hash(data: &dyn Serializable) -> anyhow::Result<Vec<String>> {
-    let cell = data.serialize().handle_error()?;
+pub fn serialize_into_boc_with_hash(cell: &Cell) -> anyhow::Result<Vec<String>> {
     Ok([make_boc(&cell)?, cell.repr_hash().to_hex_string()].to_vec())
 }
 

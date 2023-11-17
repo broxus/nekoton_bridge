@@ -186,7 +186,10 @@ abstract class NekotonBridge {
   /// Return base64 encoded bytes of tokens or throws error
   /// returns [tvc, hash]
   Future<List<String>> packIntoCell(
-      {required String params, required String tokens, dynamic hint});
+      {required String params,
+      required String tokens,
+      String? version,
+      dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kPackIntoCellConstMeta;
 
@@ -195,6 +198,7 @@ abstract class NekotonBridge {
       {required String params,
       required String boc,
       required bool allowPartial,
+      String? version,
       dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kUnpackFromCellConstMeta;
@@ -4111,15 +4115,19 @@ class NekotonBridgeImpl implements NekotonBridge {
       );
 
   Future<List<String>> packIntoCell(
-      {required String params, required String tokens, dynamic hint}) {
+      {required String params,
+      required String tokens,
+      String? version,
+      dynamic hint}) {
     var arg0 = _platform.api2wire_String(params);
     var arg1 = _platform.api2wire_String(tokens);
+    var arg2 = _platform.api2wire_opt_String(version);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) =>
-          _platform.inner.wire_pack_into_cell(port_, arg0, arg1),
+          _platform.inner.wire_pack_into_cell(port_, arg0, arg1, arg2),
       parseSuccessData: _wire2api_StringList,
       constMeta: kPackIntoCellConstMeta,
-      argValues: [params, tokens],
+      argValues: [params, tokens, version],
       hint: hint,
     ));
   }
@@ -4127,23 +4135,25 @@ class NekotonBridgeImpl implements NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kPackIntoCellConstMeta =>
       const FlutterRustBridgeTaskConstMeta(
         debugName: "pack_into_cell",
-        argNames: ["params", "tokens"],
+        argNames: ["params", "tokens", "version"],
       );
 
   Future<String> unpackFromCell(
       {required String params,
       required String boc,
       required bool allowPartial,
+      String? version,
       dynamic hint}) {
     var arg0 = _platform.api2wire_String(params);
     var arg1 = _platform.api2wire_String(boc);
     var arg2 = allowPartial;
+    var arg3 = _platform.api2wire_opt_String(version);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) =>
-          _platform.inner.wire_unpack_from_cell(port_, arg0, arg1, arg2),
+          _platform.inner.wire_unpack_from_cell(port_, arg0, arg1, arg2, arg3),
       parseSuccessData: _wire2api_String,
       constMeta: kUnpackFromCellConstMeta,
-      argValues: [params, boc, allowPartial],
+      argValues: [params, boc, allowPartial, version],
       hint: hint,
     ));
   }
@@ -4151,7 +4161,7 @@ class NekotonBridgeImpl implements NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kUnpackFromCellConstMeta =>
       const FlutterRustBridgeTaskConstMeta(
         debugName: "unpack_from_cell",
-        argNames: ["params", "boc", "allowPartial"],
+        argNames: ["params", "boc", "allowPartial", "version"],
       );
 
   Future<String> packStdSmcAddr(

@@ -9,7 +9,7 @@ use crate::nekoton_wrapper::helpers::models::{
 use crate::nekoton_wrapper::helpers::{
     make_boc, make_full_contract_state, parse_account_stuff, parse_cell, parse_contract_abi,
     parse_method_name, parse_params_list, parse_slice, serialize_into_boc,
-    serialize_into_boc_with_hash, serialize_state_init_data_key,
+    serialize_into_boc_with_hash, serialize_state_init_data_key,parse_optional_abi_version,
 };
 use crate::nekoton_wrapper::{parse_address, parse_public_key, HandleError};
 use nekoton::core::models::{Expiration, ExpireAt, Transaction};
@@ -26,6 +26,7 @@ use std::sync::Arc;
 use ton_block::{Deserializable, GetRepresentationHash, Serializable};
 use ton_executor::TransactionExecutor;
 use ton_types::SliceData;
+
 
 /// Check if public key is correct.
 /// If no - throws error, if ok - return true
@@ -464,11 +465,11 @@ pub fn get_boc_hash(boc: String) -> anyhow::Result<String> {
 
 /// Return base64 encoded bytes of tokens or throws error
 /// returns [tvc, hash]
-pub fn pack_into_cell(params: String, tokens: String) -> anyhow::Result<Vec<String>> {
+pub fn pack_into_cell(params: String, tokens: String, version: Option<String>,) -> anyhow::Result<Vec<String>> {
     let params = parse_params_list(params)?;
     let tokens = serde_json::from_str::<serde_json::Value>(&tokens).handle_error()?;
     let tokens = nekoton_abi::parse_abi_tokens(&params, tokens).handle_error()?;
-    let version = ton_abi::contract::AbiVersion { major: 2, minor: 2 };
+    let version = parse_optional_abi_version(version)?;
 
     let cell = nekoton_abi::pack_into_cell(&tokens, version).handle_error()?;
     serialize_into_boc_with_hash(&cell)
@@ -479,11 +480,12 @@ pub fn unpack_from_cell(
     params: String,
     boc: String,
     allow_partial: bool,
+     version: Option<String>,
 ) -> anyhow::Result<String> {
     let params = parse_params_list(params)?;
     let body = base64::decode(boc).handle_error()?;
     let cell = ton_types::deserialize_tree_of_cells(&mut body.as_slice()).handle_error()?;
-    let version = ton_abi::contract::AbiVersion { major: 2, minor: 2 };
+    let version = parse_optional_abi_version(version)?;
 
     let tokens =
         nekoton_abi::unpack_from_cell(&params, SliceData::load_cell(cell)?, allow_partial, version)
