@@ -5,9 +5,9 @@ use crate::nekoton_wrapper::transport::models::FullContractState;
 use crate::nekoton_wrapper::HandleError;
 use nekoton::transport::models::RawContractState;
 use nekoton_abi::MethodName;
-use std::str::FromStr;
+use std::{convert::TryFrom, str::FromStr};
 use ton_block::{AccountStuff, Deserializable, MaybeDeserialize, Serializable};
-use ton_types::{SliceData, Cell};
+use ton_types::{Cell, SliceData};
 
 pub mod abi_api;
 pub mod models;
@@ -47,10 +47,10 @@ pub fn parse_account_stuff(boc: String) -> anyhow::Result<ton_block::AccountStuf
 }
 
 /// Parse cell and return its instance or throw error
-pub fn parse_cell(boc: String) -> anyhow::Result<ton_types::Cell> {
+pub fn parse_cell(boc: String) -> anyhow::Result<Cell> {
     let boc = boc.trim();
     if boc.is_empty() {
-        Ok(ton_types::Cell::default())
+        Ok(Cell::default())
     } else {
         let body = base64::decode(boc).handle_error()?;
         ton_types::deserialize_tree_of_cells(&mut body.as_slice()).handle_error()
@@ -208,7 +208,7 @@ pub fn parse_param_type(kind: &str) -> anyhow::Result<ton_abi::ParamType, AbiErr
 }
 
 /// Returns tvc as base64
-pub fn make_boc(data: &ton_types::Cell) -> anyhow::Result<String> {
+pub fn make_boc(data: &Cell) -> anyhow::Result<String> {
     ton_types::serialize_toc(data)
         .handle_error()
         .map(base64::encode)
@@ -234,9 +234,63 @@ pub fn parse_optional_abi_version(
     }
 }
 
-/// Returns [tvc, hash]
-pub fn serialize_into_boc_with_hash(cell: &Cell) -> anyhow::Result<Vec<String>> {
+/// Returns [tvc, hash] from cell
+pub fn make_boc_with_hash(cell: Cell) -> anyhow::Result<Vec<String>> {
     Ok([make_boc(&cell)?, cell.repr_hash().to_hex_string()].to_vec())
+}
+
+/// Returns [tvc, hash] with serialization of data
+pub fn serialize_into_boc_with_hash(data: &dyn Serializable) -> anyhow::Result<Vec<String>> {
+    let cell = data.serialize().handle_error()?;
+    make_boc_with_hash(cell)
+}
+
+/// Parse hex or base64 if failed and return bytes
+/// If string is empty, return empty list
+pub fn parse_hex_or_base64_bytes(data: String) -> anyhow::Result<Vec<u8>> {
+    let data = data.trim();
+    if data.is_empty() {
+        return Ok(Default::default());
+    }
+
+    match parse_hex_bytes(data) {
+        Ok(signature) => Ok(signature),
+        Err(e) => match base64::decode(data) {
+            Ok(signature) => Ok(signature),
+            Err(_) => Err(e),
+        },
+    }
+}
+
+/// Parse base64 or hex if failed and return bytes
+/// If string is empty, return empty list
+pub fn parse_base64_or_hex_bytes(data: String) -> Result<Vec<u8>, base64::DecodeError> {
+    let data = data.trim();
+    if data.is_empty() {
+        return Ok(Default::default());
+    }
+
+    match base64::decode(data) {
+        Ok(signature) => Ok(signature),
+        Err(e) => match parse_hex_bytes(data) {
+            Ok(signature) => Ok(signature),
+            Err(_) => Err(e),
+        },
+    }
+}
+
+/// Parse hex and return decoded bytes
+pub fn parse_hex_bytes(data: &str) -> anyhow::Result<Vec<u8>> {
+    hex::decode(data.strip_prefix("0x").unwrap_or(data)).handle_error()
+}
+
+/// Parse signature from string returning decoded object
+pub fn parse_signature(signature: String) -> anyhow::Result<ed25519_dalek::Signature> {
+    let signature = parse_base64_or_hex_bytes(signature).handle_error()?;
+    match ed25519_dalek::Signature::try_from(signature.as_slice()) {
+        Ok(signature) => Ok(signature),
+        Err(_) => Err("Invalid signature. Expected 64 bytes").handle_error(),
+    }
 }
 
 /// Returns tvc as base64

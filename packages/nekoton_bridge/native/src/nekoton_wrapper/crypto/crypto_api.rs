@@ -1,47 +1,30 @@
 #![allow(unused_variables, dead_code)]
 
 pub use crate::nekoton_wrapper::crypto::models::UnsignedMessageBoxTrait;
-use crate::nekoton_wrapper::{parse_public_key, HandleError};
+use crate::nekoton_wrapper::{
+    helpers::{parse_hex_or_base64_bytes, parse_signature},
+    parse_public_key, HandleError,
+};
 use ed25519_dalek::Verifier;
 pub use flutter_rust_bridge::RustOpaque;
 pub use nekoton::crypto::UnsignedMessage;
-use std::convert::TryFrom;
 use std::sync::Arc;
 
-/// Check signature by publicKey and data hash
+/// Check signature by publicKey and data
 pub fn verify_signature(
     public_key: String,
-    data_hash: String,
+    data: String,
     signature: String,
+    signature_id: Option<i32>,
 ) -> anyhow::Result<bool> {
-    let public_key = parse_public_key(public_key).handle_error()?;
+    let public_key = parse_public_key(public_key)?;
 
-    let data_hash = match hex::decode(&data_hash) {
-        Ok(data_hash) => data_hash,
-        Err(e) => match base64::decode(&data_hash) {
-            Ok(data_hash) => data_hash,
-            Err(e) => return Err(anyhow::Error::msg(e)),
-        },
-    };
+    let data = parse_hex_or_base64_bytes(data).handle_error()?;
+    let signature = parse_signature(signature)?;
 
-    if data_hash.len() != 32 {
-        return Err(anyhow::Error::msg("Invalid data hash. Expected 32 bytes"));
-    }
+    let data = nekoton::crypto::extend_with_signature_id(&data, signature_id);
 
-    let signature = match base64::decode(&signature) {
-        Ok(signature) => signature,
-        Err(e) => match hex::decode(&signature) {
-            Ok(signature) => signature,
-            Err(_) => return Err(anyhow::Error::msg(e)),
-        },
-    };
-
-    let signature = match ed25519_dalek::Signature::try_from(signature.as_slice()) {
-        Ok(signature) => signature,
-        Err(_) => return Err(anyhow::Error::msg("Invalid signature. Expected 64 bytes")),
-    };
-
-    Ok(public_key.verify(&data_hash, &signature).is_ok())
+    Ok(public_key.verify(data.as_ref(), &signature).is_ok())
 }
 
 /// This struct creates only in rust side and describes UnsignedMessage

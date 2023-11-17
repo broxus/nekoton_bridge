@@ -984,14 +984,16 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   void wire_verify_signature(
     int port_,
     ffi.Pointer<wire_uint_8_list> public_key,
-    ffi.Pointer<wire_uint_8_list> data_hash,
+    ffi.Pointer<wire_uint_8_list> data,
     ffi.Pointer<wire_uint_8_list> signature,
+    ffi.Pointer<ffi.Int32> signature_id,
   ) {
     return _wire_verify_signature(
       port_,
       public_key,
-      data_hash,
+      data,
       signature,
+      signature_id,
     );
   }
 
@@ -1001,10 +1003,15 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Int64,
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<wire_uint_8_list>)>>('wire_verify_signature');
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<ffi.Int32>)>>('wire_verify_signature');
   late final _wire_verify_signature = _wire_verify_signaturePtr.asFunction<
-      void Function(int, ffi.Pointer<wire_uint_8_list>,
-          ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
+      void Function(
+          int,
+          ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<wire_uint_8_list>,
+          ffi.Pointer<ffi.Int32>)>();
 
   void wire_nt_generate_key(
     int port_,

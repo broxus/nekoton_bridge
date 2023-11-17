@@ -23,11 +23,12 @@ abstract class NekotonBridge {
   ///----------------------------
   /// CONTENT OF src/nekoton_wrapper/crypto/crypto_api.rs
   ///----------------------------
-  /// Check signature by publicKey and data hash
+  /// Check signature by publicKey and data
   Future<bool> verifySignature(
       {required String publicKey,
-      required String dataHash,
+      required String data,
       required String signature,
+      int? signatureId,
       dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta;
@@ -82,7 +83,7 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kRunLocalConstMeta;
 
   /// Get address of tvc and contract_abi.
-  /// Returns list of [address, state_init, hash] or throws error
+  /// Returns list of [address, boc of state_init, hash] or throws error
   Future<List<String>> getExpectedAddress(
       {required String tvc,
       required String contractAbi,
@@ -3685,18 +3686,20 @@ class NekotonBridgeImpl implements NekotonBridge {
   NekotonBridgeImpl.raw(this._platform);
   Future<bool> verifySignature(
       {required String publicKey,
-      required String dataHash,
+      required String data,
       required String signature,
+      int? signatureId,
       dynamic hint}) {
     var arg0 = _platform.api2wire_String(publicKey);
-    var arg1 = _platform.api2wire_String(dataHash);
+    var arg1 = _platform.api2wire_String(data);
     var arg2 = _platform.api2wire_String(signature);
+    var arg3 = _platform.api2wire_opt_box_autoadd_i32(signatureId);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) =>
-          _platform.inner.wire_verify_signature(port_, arg0, arg1, arg2),
+          _platform.inner.wire_verify_signature(port_, arg0, arg1, arg2, arg3),
       parseSuccessData: _wire2api_bool,
       constMeta: kVerifySignatureConstMeta,
-      argValues: [publicKey, dataHash, signature],
+      argValues: [publicKey, data, signature, signatureId],
       hint: hint,
     ));
   }
@@ -3704,7 +3707,7 @@ class NekotonBridgeImpl implements NekotonBridge {
   FlutterRustBridgeTaskConstMeta get kVerifySignatureConstMeta =>
       const FlutterRustBridgeTaskConstMeta(
         debugName: "verify_signature",
-        argNames: ["publicKey", "dataHash", "signature"],
+        argNames: ["publicKey", "data", "signature", "signatureId"],
       );
 
   Future<GeneratedKeyG> ntGenerateKey(

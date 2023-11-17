@@ -292,8 +292,9 @@ intptr_t init_frb_dart_api_dl(void *obj);
 
 void wire_verify_signature(int64_t port_,
                            struct wire_uint_8_list *public_key,
-                           struct wire_uint_8_list *data_hash,
-                           struct wire_uint_8_list *signature);
+                           struct wire_uint_8_list *data,
+                           struct wire_uint_8_list *signature,
+                           int32_t *signature_id);
 
 void wire_nt_generate_key(int64_t port_, struct wire_MnemonicType *account_type);
 

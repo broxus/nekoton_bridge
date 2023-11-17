@@ -533,7 +533,7 @@ class NekotonBridgeWasmModule implements WasmModule {
   external Object /* Promise */ call([String? moduleName]);
   external NekotonBridgeWasmModule bind(dynamic thisArg, String moduleName);
   external dynamic /* void */ wire_verify_signature(NativePortType port_,
-      String public_key, String data_hash, String signature);
+      String public_key, String data, String signature, int? signature_id);
 
   external dynamic /* void */ wire_nt_generate_key(
       NativePortType port_, List<dynamic> account_type);
@@ -1386,8 +1386,9 @@ class NekotonBridgeWire
       : super(WasmModule.cast<NekotonBridgeWasmModule>(module));
 
   void wire_verify_signature(NativePortType port_, String public_key,
-          String data_hash, String signature) =>
-      wasmModule.wire_verify_signature(port_, public_key, data_hash, signature);
+          String data, String signature, int? signature_id) =>
+      wasmModule.wire_verify_signature(
+          port_, public_key, data, signature, signature_id);
 
   void wire_nt_generate_key(NativePortType port_, List<dynamic> account_type) =>
       wasmModule.wire_nt_generate_key(port_, account_type);
