@@ -1,3 +1,7 @@
+## 1.27.3
+
+ - **FIX**: added disposed flag to transport ([#243](https://github.com/broxus/nekoton_bridge/issues/243)). ([b49beb8c](https://github.com/broxus/nekoton_bridge/commit/b49beb8c2ef7aeae28d7456d8ff396647f8626b6))
+
 ## 1.27.2
 
  - **FIX**: abi methods ([#241](https://github.com/broxus/nekoton_bridge/issues/241)). ([d3f908aa](https://github.com/broxus/nekoton_bridge/commit/d3f908aada544a80b26d68a948eb349cc2591fc9))
