@@ -9,6 +9,11 @@ class ProtoTransport extends Transport {
 
   ProtoTransport._(this.protoConnection);
 
+  @override
+  bool get disposed => _disposed;
+
+  bool _disposed = false;
+
   static Future<ProtoTransport> create({
     required ProtoConnection protoConnection,
   }) async {
@@ -31,6 +36,7 @@ class ProtoTransport extends Transport {
   void dispose() {
     transport.innerTransport.dispose();
     protoConnection.dispose();
+    _disposed = true;
   }
 
   @override
@@ -39,6 +45,8 @@ class ProtoTransport extends Transport {
     required int limit,
     String? continuation,
   }) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     final res = await transport.getAccountsByCodeHash(
       codeHash: codeHash,
       limit: limit,
@@ -49,12 +57,16 @@ class ProtoTransport extends Transport {
 
   @override
   Future<RawContractState> getContractState(Address address) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     final res = await transport.getContractState(address: address.address);
     return RawContractState.fromJson(jsonDecode(res));
   }
 
   @override
   Future<FullContractState?> getFullContractState(Address address) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     final res = await transport.getFullContractState(address: address.address);
     if (res == null) return null;
 
@@ -63,14 +75,22 @@ class ProtoTransport extends Transport {
 
   @override
   Future<int?> getSignatureId() {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     return transport.getSignatureId();
   }
 
   @override
-  Future<int> getNetworkId() => transport.getNetworkId();
+  Future<int> getNetworkId() {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
+    return transport.getNetworkId();
+  }
 
   @override
   Future<Transaction?> getTransaction(String hash) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     final res = await transport.getTransaction(hash: hash);
     if (res == null) return null;
     return Transaction.fromJson(jsonDecode(res));
@@ -82,6 +102,8 @@ class ProtoTransport extends Transport {
     required int count,
     String? fromLt,
   }) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     final res = await transport.getTransactions(
       address: address.address,
       count: count,
@@ -92,6 +114,8 @@ class ProtoTransport extends Transport {
 
   @override
   Future<RawTransaction?> getDstTransaction(String messageHash) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     final res = await transport.getDstTransaction(messageHash: messageHash);
 
     return res == null ? null : RawTransaction.fromJson(jsonDecode(res));
@@ -103,6 +127,8 @@ class ProtoTransport extends Transport {
     required String contractAbi,
     FullContractState? cachedState,
   }) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     final state = cachedState ?? await getFullContractState(address);
     if (state == null) {
       return (null, null);
@@ -120,6 +146,8 @@ class ProtoTransport extends Transport {
 
   @override
   Future<BlockchainConfig> getBlockchainConfig({bool force = true}) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     final config = await transport.getBlockchainConfig(force: force);
 
     return BlockchainConfig.fromJson(jsonDecode(config));

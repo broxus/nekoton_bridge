@@ -9,6 +9,11 @@ class GqlTransport extends Transport {
 
   GqlTransport._(this.gqlConnection);
 
+  @override
+  bool get disposed => _disposed;
+
+  bool _disposed = false;
+
   static Future<GqlTransport> create({
     required GqlConnection gqlConnection,
   }) async {
@@ -31,6 +36,7 @@ class GqlTransport extends Transport {
   void dispose() {
     transport.innerTransport.dispose();
     gqlConnection.dispose();
+    _disposed = true;
   }
 
   @override
@@ -39,6 +45,8 @@ class GqlTransport extends Transport {
     required int limit,
     String? continuation,
   }) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     final res = await transport.getAccountsByCodeHash(
       codeHash: codeHash,
       limit: limit,
@@ -49,12 +57,16 @@ class GqlTransport extends Transport {
 
   @override
   Future<RawContractState> getContractState(Address address) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     final res = await transport.getContractState(address: address.address);
     return RawContractState.fromJson(jsonDecode(res));
   }
 
   @override
   Future<FullContractState?> getFullContractState(Address address) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     final res = await transport.getFullContractState(address: address.address);
     if (res == null) return null;
 
@@ -67,6 +79,8 @@ class GqlTransport extends Transport {
     required String contractAbi,
     FullContractState? cachedState,
   }) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     final state = cachedState ?? await getFullContractState(address);
     if (state == null) {
       return (null, null);
@@ -84,14 +98,22 @@ class GqlTransport extends Transport {
 
   @override
   Future<int?> getSignatureId() {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     return transport.getSignatureId();
   }
 
   @override
-  Future<int> getNetworkId() => transport.getNetworkId();
+  Future<int> getNetworkId() {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
+    return transport.getNetworkId();
+  }
 
   @override
   Future<Transaction?> getTransaction(String hash) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     final res = await transport.getTransaction(hash: hash);
     if (res == null) return null;
     return Transaction.fromJson(jsonDecode(res));
@@ -103,6 +125,8 @@ class GqlTransport extends Transport {
     required int count,
     String? fromLt,
   }) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     final res = await transport.getTransactions(
       address: address.address,
       count: count,
@@ -113,32 +137,46 @@ class GqlTransport extends Transport {
 
   @override
   Future<RawTransaction?> getDstTransaction(String messageHash) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     final res = await transport.getDstTransaction(messageHash: messageHash);
 
     return res == null ? null : RawTransaction.fromJson(jsonDecode(res));
   }
 
   /// Get latest block by address and return it or throw error
-  Future<LatestBlock> getLatestBlock({required Address address}) =>
-      transport.getLatestBlock(address: address.address);
+  Future<LatestBlock> getLatestBlock({required Address address}) {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
+    return transport.getLatestBlock(address: address.address);
+  }
 
   /// Get transport block by id and return base64 encoded block or throw error
-  Future<String> getBlock({required String id}) => transport.getBlock(id: id);
+  Future<String> getBlock({required String id}) {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
+    return transport.getBlock(id: id);
+  }
 
   /// Wait until next block will come to blockchain and return its id or throw error
   Future<String> waitForNextBlock({
     required String currentBlockId,
     required Address address,
     required Duration timeout,
-  }) =>
-      transport.waitForNextBlock(
-        currentBlockId: currentBlockId,
-        address: address.address,
-        timeout: timeout.inMilliseconds,
-      );
+  }) {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
+    return transport.waitForNextBlock(
+      currentBlockId: currentBlockId,
+      address: address.address,
+      timeout: timeout.inMilliseconds,
+    );
+  }
 
   @override
   Future<BlockchainConfig> getBlockchainConfig({bool force = true}) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
     final config = await transport.getBlockchainConfig(force: force);
 
     return BlockchainConfig.fromJson(jsonDecode(config));

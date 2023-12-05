@@ -1,5 +1,8 @@
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
+/// Exception that is thrown when transport is disposed and user calls its methods
+class TransportCallAfterDisposeError implements Exception {}
+
 /// Abstract class for transport, so we can combine both implementations into single list
 abstract class Transport {
   String get name;
@@ -12,6 +15,13 @@ abstract class Transport {
 
   /// Get uniquer identifier of transport based on type and endpoints
   late final String connectionParamsHash;
+
+  /// Flag that means that [dispose] method was called and all next calls will
+  /// throw [TransportCallAfterDisposeError] except of MutexPoisoned error
+  /// or [RustToDartCaller.invoke] exception.
+  ///
+  /// It's a good practice to check this flag before calling any method of transport
+  bool get disposed;
 
   /// Get contract state of address and return RawContractState or throw error
   Future<RawContractState> getContractState(Address address);

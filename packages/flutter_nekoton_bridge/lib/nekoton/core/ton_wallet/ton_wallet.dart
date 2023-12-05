@@ -346,7 +346,7 @@ class TonWallet extends RustToDartMirrorInterface
   /// May throw error.
   @override
   Future<void> refresh() async {
-    if (_isRefreshing) return;
+    if (_isRefreshing || transport.disposed) return;
 
     try {
       _isRefreshing = true;
@@ -494,6 +494,8 @@ class TonWallet extends RustToDartMirrorInterface
   /// This shitty repeated avoidCall needs to avoid `Use after free` when
   /// method calls after dispose.
   Future<void> _updateData() async {
+    if (transport.disposed) return;
+
     if (avoidCall) return;
     _contractState = await getContractState();
     if (avoidCall) return;
