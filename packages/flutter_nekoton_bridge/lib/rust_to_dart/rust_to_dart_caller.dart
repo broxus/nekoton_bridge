@@ -19,7 +19,7 @@ class RustToDartCaller {
   ]) {
     if (instances[instanceHash] == null) {
       throw Exception(
-        "Can't call $memberName function because no any object is registered for $instanceHash",
+        "Can't call $memberName() function because no any object is registered for $instanceHash",
       );
     }
     return instances[instanceHash]!
