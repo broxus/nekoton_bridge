@@ -12,7 +12,7 @@ _$MultisigSendTransactionImpl _$$MultisigSendTransactionImplFromJson(
       dest: Address.fromJson(json['dest'] as String),
       value: amountJsonConverter.fromJson(json['value'] as String),
       bounce: json['bounce'] as bool,
-      flags: json['flags'] as int,
+      flags: (json['flags'] as num).toInt(),
       payload: json['payload'] as String,
     );
 

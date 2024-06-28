@@ -13,13 +13,13 @@ _$MultisigPendingTransactionImpl _$$MultisigPendingTransactionImplFromJson(
       confirmations: (json['confirmations'] as List<dynamic>)
           .map((e) => PublicKey.fromJson(e as String))
           .toList(),
-      signsRequired: json['signs_required'] as int,
-      signsReceived: json['signs_received'] as int,
+      signsRequired: (json['signs_required'] as num).toInt(),
+      signsReceived: (json['signs_received'] as num).toInt(),
       creator: PublicKey.fromJson(json['creator'] as String),
-      index: json['index'] as int,
+      index: (json['index'] as num).toInt(),
       dest: Address.fromJson(json['dest'] as String),
       value: amountJsonConverter.fromJson(json['value'] as String),
-      sendFlags: json['send_flags'] as int,
+      sendFlags: (json['send_flags'] as num).toInt(),
       payload: json['payload'] as String,
       bounce: json['bounce'] as bool,
     );

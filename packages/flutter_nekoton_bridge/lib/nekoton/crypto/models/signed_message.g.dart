@@ -9,8 +9,8 @@ part of 'signed_message.dart';
 _$SignedMessageImpl _$$SignedMessageImplFromJson(Map<String, dynamic> json) =>
     _$SignedMessageImpl(
       hash: json['hash'] as String,
-      expireAt:
-          dateSecondsSinceEpochJsonConverter.fromJson(json['expireAt'] as int),
+      expireAt: dateSecondsSinceEpochJsonConverter
+          .fromJson((json['expireAt'] as num).toInt()),
       boc: json['boc'] as String,
     );
 

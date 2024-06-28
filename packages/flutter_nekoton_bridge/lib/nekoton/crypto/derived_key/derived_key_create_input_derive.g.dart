@@ -12,7 +12,7 @@ _$DerivedKeyCreateInputDeriveDeriveImpl
         _$DerivedKeyCreateInputDeriveDeriveImpl(
           keyName: json['key_name'] as String?,
           masterKey: PublicKey.fromJson(json['master_key'] as String),
-          accountId: json['account_id'] as int,
+          accountId: (json['account_id'] as num).toInt(),
           password: Password.fromJson(json['password'] as Map<String, dynamic>),
         );
 

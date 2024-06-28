@@ -9,7 +9,7 @@ part of 'gen_timings.dart';
 _$GenTimingsImpl _$$GenTimingsImplFromJson(Map<String, dynamic> json) =>
     _$GenTimingsImpl(
       genLt: json['genLt'] as String,
-      genUtime: json['genUtime'] as int,
+      genUtime: (json['genUtime'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$GenTimingsImplToJson(_$GenTimingsImpl instance) =>

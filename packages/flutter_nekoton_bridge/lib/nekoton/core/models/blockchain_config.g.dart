@@ -9,9 +9,9 @@ part of 'blockchain_config.dart';
 _$BlockchainConfigImpl _$$BlockchainConfigImplFromJson(
         Map<String, dynamic> json) =>
     _$BlockchainConfigImpl(
-      capabilities: json['capabilities'] as int,
-      globalId: json['globalId'] as int,
-      globalVersion: json['globalVersion'] as int,
+      capabilities: (json['capabilities'] as num).toInt(),
+      globalId: (json['globalId'] as num).toInt(),
+      globalVersion: (json['globalVersion'] as num).toInt(),
       config: json['config'] as String,
     );
 

@@ -9,7 +9,7 @@ part of 'symbol.dart';
 _$SymbolImpl _$$SymbolImplFromJson(Map<String, dynamic> json) => _$SymbolImpl(
       name: json['name'] as String,
       fullName: json['fullName'] as String,
-      decimals: json['decimals'] as int,
+      decimals: (json['decimals'] as num).toInt(),
       rootTokenContract: Address.fromJson(json['rootTokenContract'] as String),
     );
 

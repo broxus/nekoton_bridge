@@ -10,7 +10,7 @@ _$LedgerKeyCreateInputImpl _$$LedgerKeyCreateInputImplFromJson(
         Map<String, dynamic> json) =>
     _$LedgerKeyCreateInputImpl(
       name: json['name'] as String?,
-      accountId: json['accountId'] as int,
+      accountId: (json['accountId'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$LedgerKeyCreateInputImplToJson(

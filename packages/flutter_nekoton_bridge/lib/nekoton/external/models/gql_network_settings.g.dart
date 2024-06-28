@@ -11,9 +11,11 @@ _$GqlNetworkSettingsImpl _$$GqlNetworkSettingsImplFromJson(
     _$GqlNetworkSettingsImpl(
       endpoints:
           (json['endpoints'] as List<dynamic>).map((e) => e as String).toList(),
-      latencyDetectionInterval: json['latencyDetectionInterval'] as int,
-      maxLatency: json['maxLatency'] as int,
-      endpointSelectionRetryCount: json['endpointSelectionRetryCount'] as int,
+      latencyDetectionInterval:
+          (json['latencyDetectionInterval'] as num).toInt(),
+      maxLatency: (json['maxLatency'] as num).toInt(),
+      endpointSelectionRetryCount:
+          (json['endpointSelectionRetryCount'] as num).toInt(),
       local: json['local'] as bool,
     );
 

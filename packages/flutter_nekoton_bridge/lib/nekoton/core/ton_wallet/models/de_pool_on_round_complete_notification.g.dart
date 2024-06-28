@@ -18,7 +18,7 @@ _$DePoolOnRoundCompleteNotificationImpl
               amountJsonConverter.fromJson(json['vestingStake'] as String),
           lockStake: amountJsonConverter.fromJson(json['lockStake'] as String),
           reinvest: json['reinvest'] as bool,
-          reason: json['reason'] as int,
+          reason: (json['reason'] as num).toInt(),
         );
 
 Map<String, dynamic> _$$DePoolOnRoundCompleteNotificationImplToJson(

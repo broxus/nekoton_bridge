@@ -9,7 +9,7 @@ part of 'ledger_signature_context.dart';
 _$LedgerSignatureContextImpl _$$LedgerSignatureContextImplFromJson(
         Map<String, dynamic> json) =>
     _$LedgerSignatureContextImpl(
-      decimals: json['decimals'] as int,
+      decimals: (json['decimals'] as num).toInt(),
       asset: json['asset'] as String,
       amount: amountJsonConverter.fromJson(json['amount'] as String),
       address: Address.fromJson(json['address'] as String),

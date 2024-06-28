@@ -9,7 +9,7 @@ part of 'de_pool_receive_answer_notification.dart';
 _$DePoolReceiveAnswerNotificationImpl
     _$$DePoolReceiveAnswerNotificationImplFromJson(Map<String, dynamic> json) =>
         _$DePoolReceiveAnswerNotificationImpl(
-          errorCode: json['errorCode'] as int,
+          errorCode: (json['errorCode'] as num).toInt(),
           comment: json['comment'] as String,
         );
 
