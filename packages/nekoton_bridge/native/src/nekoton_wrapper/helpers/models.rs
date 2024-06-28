@@ -45,3 +45,17 @@ pub struct DecodedTransaction {
     pub input: serde_json::Value,
     pub output: serde_json::Value,
 }
+
+#[derive(Serialize, Deserialize)]
+pub struct StorageFeeInfo {
+    #[serde(rename = "storageFee")]
+    pub storage_fee: String,
+    #[serde(rename = "storageFeeDebt")]
+    pub storage_fee_debt: Option<String>,
+    #[serde(rename = "accountStatus")]
+    pub account_status: String,
+    #[serde(rename = "freezeDueLimit")]
+    pub freeze_due_limit: String,
+    #[serde(rename = "deleteDueLimit")]
+    pub delete_due_limit: String,
+}

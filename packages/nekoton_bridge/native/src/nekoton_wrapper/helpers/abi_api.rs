@@ -4,7 +4,7 @@ use crate::clock;
 use crate::nekoton_wrapper::crypto::crypto_api::UnsignedMessageImpl;
 use crate::nekoton_wrapper::crypto::models::UnsignedMessageBox;
 use crate::nekoton_wrapper::helpers::models::{
-    DecodedEvent, DecodedInput, DecodedOutput, DecodedTransaction, ExecutionOutput,
+    DecodedEvent, DecodedInput, DecodedOutput, DecodedTransaction, ExecutionOutput, StorageFeeInfo,
 };
 use crate::nekoton_wrapper::helpers::{
     make_boc, make_boc_with_hash, make_full_contract_state, parse_account_stuff, parse_cell,
@@ -911,20 +911,7 @@ pub fn compute_storage_fee(
     is_masterchain: bool,
 ) -> anyhow::Result<String> {
     use nekoton_abi::num_traits::*;
-    use serde::{Deserialize, Serialize};
-    #[derive(Serialize, Deserialize)]
-    pub struct StorageFeeInfo {
-        #[serde(rename = "storageFee")]
-        storage_fee: String,
-        #[serde(rename = "storageFeeDebt")]
-        storage_fee_debt: Option<String>,
-        #[serde(rename = "accountStatus")]
-        account_status: String,
-        #[serde(rename = "freezeDueLimit")]
-        freeze_due_limit: String,
-        #[serde(rename = "deleteDueLimit")]
-        delete_due_limit: String,
-    }
+    // use serde::{Deserialize, Serialize};
 
     let account = parse_account_stuff(account)?;
     let config = ton_executor::BlockchainConfig::with_config(

@@ -1874,6 +1874,35 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_parse_full_account_boc = _wire_parse_full_account_bocPtr
       .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
 
+  void wire_compute_storage_fee(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> config,
+    ffi.Pointer<wire_uint_8_list> account,
+    int utime,
+    bool is_masterchain,
+  ) {
+    return _wire_compute_storage_fee(
+      port_,
+      config,
+      account,
+      utime,
+      is_masterchain,
+    );
+  }
+
+  late final _wire_compute_storage_feePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Int64,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Uint32,
+              ffi.Bool)>>('wire_compute_storage_fee');
+  late final _wire_compute_storage_fee =
+      _wire_compute_storage_feePtr.asFunction<
+          void Function(int, ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>, int, bool)>();
+
   void wire_test_logger_info(
     int port_,
     ffi.Pointer<wire_uint_8_list> string,
@@ -2479,8 +2508,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
 
   late final _wire_get_accounts_by_code_hash__method__GqlTransportImplPtr =
       _lookup<
-              ffi
-              .NativeFunction<
+              ffi.NativeFunction<
                   ffi.Void Function(
                       ffi.Int64,
                       ffi.Pointer<wire_GqlTransportImpl>,
@@ -2766,8 +2794,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
 
   late final _wire_get_full_contract_state__method__ProtoTransportImplPtr =
       _lookup<
-              ffi
-              .NativeFunction<
+              ffi.NativeFunction<
                   ffi.Void Function(
                       ffi.Int64,
                       ffi.Pointer<wire_ProtoTransportImpl>,
@@ -5265,8 +5292,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
 
   late final _wire_get_custodians__static_method__TonWalletDartWrapperPtr =
       _lookup<
-              ffi
-              .NativeFunction<
+              ffi.NativeFunction<
                   ffi.Void Function(ffi.Int64, wire_ArcTransportBoxTrait,
                       ffi.Pointer<wire_uint_8_list>)>>(
           'wire_get_custodians__static_method__TonWalletDartWrapper');

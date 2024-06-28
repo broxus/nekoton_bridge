@@ -680,6 +680,9 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_parse_full_account_boc(
       NativePortType port_, String account);
 
+  external dynamic /* void */ wire_compute_storage_fee(NativePortType port_,
+      String config, String account, int utime, bool is_masterchain);
+
   external dynamic /* void */ wire_test_logger_info(
       NativePortType port_, String string);
 
@@ -1559,6 +1562,11 @@ class NekotonBridgeWire
 
   void wire_parse_full_account_boc(NativePortType port_, String account) =>
       wasmModule.wire_parse_full_account_boc(port_, account);
+
+  void wire_compute_storage_fee(NativePortType port_, String config,
+          String account, int utime, bool is_masterchain) =>
+      wasmModule.wire_compute_storage_fee(
+          port_, config, account, utime, is_masterchain);
 
   void wire_test_logger_info(NativePortType port_, String string) =>
       wasmModule.wire_test_logger_info(port_, string);

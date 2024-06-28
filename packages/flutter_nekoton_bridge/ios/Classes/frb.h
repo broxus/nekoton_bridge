@@ -444,6 +444,12 @@ void wire_make_full_account_boc(int64_t port_, struct wire_uint_8_list *account_
 
 void wire_parse_full_account_boc(int64_t port_, struct wire_uint_8_list *account);
 
+void wire_compute_storage_fee(int64_t port_,
+                              struct wire_uint_8_list *config,
+                              struct wire_uint_8_list *account,
+                              uint32_t utime,
+                              bool is_masterchain);
+
 void wire_test_logger_info(int64_t port_, struct wire_uint_8_list *string);
 
 void wire_test_logger_debug(int64_t port_, struct wire_uint_8_list *string);
@@ -1229,6 +1235,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_encode_internal_message);
     dummy_var ^= ((int64_t) (void*) wire_make_full_account_boc);
     dummy_var ^= ((int64_t) (void*) wire_parse_full_account_boc);
+    dummy_var ^= ((int64_t) (void*) wire_compute_storage_fee);
     dummy_var ^= ((int64_t) (void*) wire_test_logger_info);
     dummy_var ^= ((int64_t) (void*) wire_test_logger_debug);
     dummy_var ^= ((int64_t) (void*) wire_test_logger_warn);

@@ -446,3 +446,23 @@ Future<FullContractState?> parseFullAccountBoc(String account) async {
 
   return FullContractState.fromJson(jsonDecode(state));
 }
+
+/// [config] - value from [Transport.getBlockchainConfig]
+/// [account] - base64-encoded boc
+/// [utime] - seconds
+/// [isMasterchain] - default: false
+Future<StorageFeeInfo> computeStorageFee({
+  required String config,
+  required String account,
+  required int utime,
+  bool? isMasterchain,
+}) async {
+  final data = await createLib().computeStorageFee(
+    config: config,
+    account: account,
+    utime: utime,
+    isMasterchain: isMasterchain ?? false,
+  );
+
+  return StorageFeeInfo.fromJson(jsonDecode(data));
+}
