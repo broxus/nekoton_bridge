@@ -11,8 +11,8 @@ _$PendingTransactionImpl _$$PendingTransactionImplFromJson(
     _$PendingTransactionImpl(
       messageHash: json['messageHash'] as String,
       src: json['src'] == null ? null : Address.fromJson(json['src'] as String),
-      expireAt:
-          dateSecondsSinceEpochJsonConverter.fromJson(json['expireAt'] as int),
+      expireAt: dateSecondsSinceEpochJsonConverter
+          .fromJson((json['expireAt'] as num).toInt()),
     );
 
 Map<String, dynamic> _$$PendingTransactionImplToJson(

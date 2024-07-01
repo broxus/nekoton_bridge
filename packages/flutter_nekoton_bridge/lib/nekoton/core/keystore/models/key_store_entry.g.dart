@@ -12,7 +12,7 @@ _$KeyStoreEntryImpl _$$KeyStoreEntryImplFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       publicKey: PublicKey.fromJson(json['public_key'] as String),
       masterKey: PublicKey.fromJson(json['master_key'] as String),
-      accountId: json['account_id'] as int,
+      accountId: (json['account_id'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$KeyStoreEntryImplToJson(_$KeyStoreEntryImpl instance) =>

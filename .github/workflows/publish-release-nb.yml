@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.13.0'
+          flutter-version: '3.16.9'
           channel: 'stable'
           cache: true
           cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
@@ -31,7 +31,7 @@ jobs:
           version: "15"
       - uses: actions-rs/toolchain@v1
         with:
-          toolchain: stable
+          toolchain: 1.74.1
       - name: Set up cargo cache
         uses: actions/cache@v3
         continue-on-error: false
@@ -67,7 +67,7 @@ jobs:
       - uses: dart-lang/setup-dart@v1
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.13.0'
+          flutter-version: '3.16.9'
           channel: 'stable'
           cache: true
           cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}

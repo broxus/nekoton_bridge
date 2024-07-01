@@ -13,11 +13,11 @@ _$TransactionImpl _$$TransactionImplFromJson(Map<String, dynamic> json) =>
           ? null
           : TransactionId.fromJson(
               json['prevTransactionId'] as Map<String, dynamic>),
-      createdAt:
-          dateSecondsSinceEpochJsonConverter.fromJson(json['createdAt'] as int),
+      createdAt: dateSecondsSinceEpochJsonConverter
+          .fromJson((json['createdAt'] as num).toInt()),
       aborted: json['aborted'] as bool,
-      exitCode: json['exitCode'] as int?,
-      resultCode: json['resultCode'] as int?,
+      exitCode: (json['exitCode'] as num?)?.toInt(),
+      resultCode: (json['resultCode'] as num?)?.toInt(),
       origStatus: $enumDecode(_$AccountStatusEnumMap, json['origStatus']),
       endStatus: $enumDecode(_$AccountStatusEnumMap, json['endStatus']),
       totalFees: amountJsonConverter.fromJson(json['totalFees'] as String),

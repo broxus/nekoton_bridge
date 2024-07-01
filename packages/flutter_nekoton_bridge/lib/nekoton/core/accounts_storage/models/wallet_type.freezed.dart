@@ -12,7 +12,7 @@ part of 'wallet_type.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 WalletType _$WalletTypeFromJson(Map<String, dynamic> json) {
   switch (json['type']) {
@@ -156,7 +156,7 @@ class _$MultisigImpl implements _Multisig {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MultisigImpl &&
@@ -300,7 +300,7 @@ class _$WalletV3Impl implements _WalletV3 {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$WalletV3Impl);
   }
@@ -432,7 +432,7 @@ class _$HighloadWalletV2Impl implements _HighloadWalletV2 {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$HighloadWalletV2Impl);
   }
@@ -564,7 +564,7 @@ class _$WalletTypeEverWalletImpl implements _WalletTypeEverWallet {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$WalletTypeEverWalletImpl);

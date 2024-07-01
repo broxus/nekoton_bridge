@@ -10,7 +10,7 @@ _$ExecutionOutputImpl _$$ExecutionOutputImplFromJson(
         Map<String, dynamic> json) =>
     _$ExecutionOutputImpl(
       output: json['output'] as Map<String, dynamic>?,
-      code: json['code'] as int,
+      code: (json['code'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$ExecutionOutputImplToJson(

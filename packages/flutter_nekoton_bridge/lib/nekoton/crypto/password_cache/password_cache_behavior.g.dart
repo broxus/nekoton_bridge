@@ -7,7 +7,7 @@ part of 'password_cache_behavior.dart';
 // **************************************************************************
 
 _$StoreImpl _$$StoreImplFromJson(Map<String, dynamic> json) => _$StoreImpl(
-      json['data'] as int,
+      (json['data'] as num).toInt(),
       $type: json['type'] as String?,
     );
 

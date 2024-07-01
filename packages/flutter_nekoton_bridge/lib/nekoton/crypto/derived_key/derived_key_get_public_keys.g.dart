@@ -11,8 +11,8 @@ _$DerivedKeyGetPublicKeysRenameImpl
         _$DerivedKeyGetPublicKeysRenameImpl(
           masterKey: PublicKey.fromJson(json['master_key'] as String),
           password: Password.fromJson(json['password'] as Map<String, dynamic>),
-          limit: json['limit'] as int,
-          offset: json['offset'] as int,
+          limit: (json['limit'] as num).toInt(),
+          offset: (json['offset'] as num).toInt(),
         );
 
 Map<String, dynamic> _$$DerivedKeyGetPublicKeysRenameImplToJson(

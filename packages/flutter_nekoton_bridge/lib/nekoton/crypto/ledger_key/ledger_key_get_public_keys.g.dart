@@ -9,8 +9,8 @@ part of 'ledger_key_get_public_keys.dart';
 _$LedgerKeyGetPublicKeysRenameImpl _$$LedgerKeyGetPublicKeysRenameImplFromJson(
         Map<String, dynamic> json) =>
     _$LedgerKeyGetPublicKeysRenameImpl(
-      offset: json['offset'] as int,
-      limit: json['limit'] as int,
+      offset: (json['offset'] as num).toInt(),
+      limit: (json['limit'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$LedgerKeyGetPublicKeysRenameImplToJson(

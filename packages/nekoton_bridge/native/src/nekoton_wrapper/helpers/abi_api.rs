@@ -4,7 +4,7 @@ use crate::clock;
 use crate::nekoton_wrapper::crypto::crypto_api::UnsignedMessageImpl;
 use crate::nekoton_wrapper::crypto::models::UnsignedMessageBox;
 use crate::nekoton_wrapper::helpers::models::{
-    DecodedEvent, DecodedInput, DecodedOutput, DecodedTransaction, ExecutionOutput,
+    DecodedEvent, DecodedInput, DecodedOutput, DecodedTransaction, ExecutionOutput, StorageFeeInfo,
 };
 use crate::nekoton_wrapper::helpers::{
     make_boc, make_boc_with_hash, make_full_contract_state, parse_account_stuff, parse_cell,
@@ -902,4 +902,56 @@ pub fn parse_full_account_boc(account: String) -> anyhow::Result<Option<String>>
     };
 
     make_full_contract_state(account)
+}
+
+pub fn compute_storage_fee(
+    config: String,
+    account: String,
+    utime: u32,
+    is_masterchain: bool,
+) -> anyhow::Result<String> {
+    use nekoton_abi::num_traits::*;
+    // use serde::{Deserialize, Serialize};
+
+    let account = parse_account_stuff(account)?;
+    let config = ton_executor::BlockchainConfig::with_config(
+        ton_block::ConfigParams::construct_from_base64(&config)?,
+        0,
+    )?;
+    let utime = std::cmp::max(utime, account.storage_stat.last_paid);
+    let gas_config = config.get_gas_config(is_masterchain);
+
+    let mut account_status = match &account.storage.state {
+        ton_block::AccountState::AccountUninit => "Uninit",
+        ton_block::AccountState::AccountFrozen { .. } => "Frozen",
+        ton_block::AccountState::AccountActive { .. } => "Active",
+    };
+
+    let storage_fee = config.calc_storage_fee(&account.storage_stat, is_masterchain, utime)?;
+    let mut storage_fee_debt = account.storage_stat.due_payment;
+    let total_fee = storage_fee + storage_fee_debt.unwrap_or_default();
+
+    if let Some(total_fee) = total_fee.checked_sub(&account.storage.balance.grams) {
+        storage_fee_debt = Some(total_fee);
+
+        if account_status == "Active"
+            && total_fee > ton_block::Grams::from(gas_config.freeze_due_limit)
+        {
+            account_status = "Frozen";
+        } else if (account_status == "Uninit" || account_status == "Frozen")
+            && total_fee > ton_block::Grams::from(gas_config.delete_due_limit)
+        {
+            account_status = "Nonexist";
+        }
+    }
+
+    let data = serde_json::to_string(&StorageFeeInfo {
+        storage_fee: storage_fee.to_string(),
+        storage_fee_debt: storage_fee_debt.map(|e| e.to_string()),
+        account_status: account_status.to_owned(),
+        freeze_due_limit: gas_config.freeze_due_limit.to_string(),
+        delete_due_limit: gas_config.delete_due_limit.to_string(),
+    })?;
+
+    Ok(data)
 }

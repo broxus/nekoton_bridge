@@ -12,7 +12,7 @@ _$RootTokenContractDetailsImpl _$$RootTokenContractDetailsImplFromJson(
       version: $enumDecode(_$TokenWalletVersionEnumMap, json['version']),
       name: json['name'] as String,
       symbol: json['symbol'] as String,
-      decimals: json['decimals'] as int,
+      decimals: (json['decimals'] as num).toInt(),
       ownerAddress: Address.fromJson(json['owner_address'] as String),
       totalSupply: json['total_supply'] as String,
     );

@@ -11,7 +11,7 @@ _$AccountToAddImpl _$$AccountToAddImplFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       publicKey: PublicKey.fromJson(json['publicKey'] as String),
       contract: WalletType.fromJson(json['contract'] as Map<String, dynamic>),
-      workchain: json['workchain'] as int,
+      workchain: (json['workchain'] as num).toInt(),
       explicitAddress: json['explicitAddress'] == null
           ? null
           : Address.fromJson(json['explicitAddress'] as String),

@@ -343,6 +343,15 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kParseFullAccountBocConstMeta;
 
+  Future<String> computeStorageFee(
+      {required String config,
+      required String account,
+      required int utime,
+      required bool isMasterchain,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kComputeStorageFeeConstMeta;
+
   ///----------------------------
   /// CONTENT OF src/utils/tests_api.rs
   ///----------------------------
@@ -4543,6 +4552,32 @@ class NekotonBridgeImpl implements NekotonBridge {
       const FlutterRustBridgeTaskConstMeta(
         debugName: "parse_full_account_boc",
         argNames: ["account"],
+      );
+
+  Future<String> computeStorageFee(
+      {required String config,
+      required String account,
+      required int utime,
+      required bool isMasterchain,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(config);
+    var arg1 = _platform.api2wire_String(account);
+    var arg2 = api2wire_u32(utime);
+    var arg3 = isMasterchain;
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_compute_storage_fee(port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kComputeStorageFeeConstMeta,
+      argValues: [config, account, utime, isMasterchain],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kComputeStorageFeeConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "compute_storage_fee",
+        argNames: ["config", "account", "utime", "isMasterchain"],
       );
 
   Future<void> testLoggerInfo({required String string, dynamic hint}) {

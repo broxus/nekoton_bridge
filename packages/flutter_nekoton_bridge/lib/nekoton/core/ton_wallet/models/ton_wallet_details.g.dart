@@ -13,8 +13,8 @@ _$TonWalletDetailsImpl _$$TonWalletDetailsImplFromJson(
       minAmount: amountJsonConverter.fromJson(json['min_amount'] as String),
       supportsPayload: json['supports_payload'] as bool,
       supportsMultipleOwners: json['supports_multiple_owners'] as bool,
-      expirationTime: json['expiration_time'] as int,
-      requiredConfirmations: json['required_confirmations'] as int?,
+      expirationTime: (json['expiration_time'] as num).toInt(),
+      requiredConfirmations: (json['required_confirmations'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$TonWalletDetailsImplToJson(

@@ -25,3 +25,4 @@ export 'transactions_batch_type.dart';
 export 'transactions_list.dart';
 export 'address.dart';
 export 'public_key.dart';
+export 'storage_fee_info.dart';

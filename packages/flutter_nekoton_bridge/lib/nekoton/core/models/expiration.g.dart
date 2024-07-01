@@ -17,7 +17,7 @@ Map<String, dynamic> _$$NeverImplToJson(_$NeverImpl instance) =>
 
 _$TimeoutImpl _$$TimeoutImplFromJson(Map<String, dynamic> json) =>
     _$TimeoutImpl(
-      json['data'] as int,
+      (json['data'] as num).toInt(),
       $type: json['type'] as String?,
     );
 
@@ -29,7 +29,7 @@ Map<String, dynamic> _$$TimeoutImplToJson(_$TimeoutImpl instance) =>
 
 _$TimestampImpl _$$TimestampImplFromJson(Map<String, dynamic> json) =>
     _$TimestampImpl(
-      json['data'] as int,
+      (json['data'] as num).toInt(),
       $type: json['type'] as String?,
     );
 
