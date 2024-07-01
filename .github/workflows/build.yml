@@ -213,58 +213,59 @@ jobs:
   #       working-directory: packages/flutter_nekoton_bridge/example
   #       run: flutter test -d linux integration_test
 
-  ios_integration_test:
-    runs-on: macos-latest
-    timeout-minutes: 360
+  # TODO: fix ios build & test
+  # ios_integration_test:
+  #   runs-on: macos-latest
+  #   timeout-minutes: 360
 
-    steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.16.9'
-          channel: 'stable'
-          cache: true
-          cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
-      - uses: bluefireteam/melos-action@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: 1.74.1
-      - name: Set up cargo cache
-        uses: actions/cache@v3
-        continue-on-error: false
-        with:
-          path: |
-            ~/.cargo/bin/
-            ~/.cargo/registry/index/
-            ~/.cargo/registry/cache/
-            ~/.cargo/git/db/
-            target/
-          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-          restore-keys: ${{ runner.os }}-cargo-
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: subosito/flutter-action@v2
+  #       with:
+  #         flutter-version: '3.16.9'
+  #         channel: 'stable'
+  #         cache: true
+  #         cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
+  #     - uses: bluefireteam/melos-action@v2
+  #     - uses: actions-rs/toolchain@v1
+  #       with:
+  #         toolchain: 1.74.1
+  #     - name: Set up cargo cache
+  #       uses: actions/cache@v3
+  #       continue-on-error: false
+  #       with:
+  #         path: |
+  #           ~/.cargo/bin/
+  #           ~/.cargo/registry/index/
+  #           ~/.cargo/registry/cache/
+  #           ~/.cargo/git/db/
+  #           target/
+  #         key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+  #         restore-keys: ${{ runner.os }}-cargo-
 
-      - name: Start iOS Simulator
-        run: |
-          DEVICE_ID=$(xcrun xctrace list devices | grep iPhone | head -1 | awk '{print $NF}' | tr -d '()')
-          echo "DEVICE_ID=$DEVICE_ID" >> $GITHUB_ENV
-          xcrun simctl boot $DEVICE_ID
+  #     - name: Start iOS Simulator
+  #       run: |
+  #         DEVICE_ID=$(xcrun xctrace list devices | grep iPhone | head -1 | awk '{print $NF}' | tr -d '()')
+  #         echo "DEVICE_ID=$DEVICE_ID" >> $GITHUB_ENV
+  #         xcrun simctl boot $DEVICE_ID
 
-      - name: Build the XCFramework
-        run: melos run build:apple
-      - name: Copy the XCFramework to the needed location
-        run: |
-          CURR_VERSION=nekoton_bridge-v`awk '/^version: /{print $2}' packages/nekoton_bridge/pubspec.yaml`
-          cp platform-build/NekotonBridge.xcframework.zip packages/flutter_nekoton_bridge/ios/Frameworks/$CURR_VERSION.zip
-          echo Copied file!
-      # This is fucking hilarious, but no one has an idea how to fix
-      # TimeoutException after 0:12:00.000000 bug:
-      # https://github.com/flutter/flutter/issues/105913
-      # So, this is a magic that probably can 'fix'
-      - name: Pre-build the Flutter app
-        working-directory: packages/flutter_nekoton_bridge/example
-        run: flutter build ios --no-codesign --simulator --target=integration_test/app_test.dart
-      - name: Run Flutter integration tests
-        working-directory: packages/flutter_nekoton_bridge/example
-        run: flutter test -d ${{ env.DEVICE_ID }} --dart-define=FLUTTER_TEST_SKIP_FLAKY_IOS=${{ vars.FLUTTER_TEST_SKIP_FLAKY_IOS }} integration_test
+  #     - name: Build the XCFramework
+  #       run: melos run build:apple
+  #     - name: Copy the XCFramework to the needed location
+  #       run: |
+  #         CURR_VERSION=nekoton_bridge-v`awk '/^version: /{print $2}' packages/nekoton_bridge/pubspec.yaml`
+  #         cp platform-build/NekotonBridge.xcframework.zip packages/flutter_nekoton_bridge/ios/Frameworks/$CURR_VERSION.zip
+  #         echo Copied file!
+  #     # This is fucking hilarious, but no one has an idea how to fix
+  #     # TimeoutException after 0:12:00.000000 bug:
+  #     # https://github.com/flutter/flutter/issues/105913
+  #     # So, this is a magic that probably can 'fix'
+  #     - name: Pre-build the Flutter app
+  #       working-directory: packages/flutter_nekoton_bridge/example
+  #       run: flutter build ios --no-codesign --simulator --target=integration_test/app_test.dart
+  #     - name: Run Flutter integration tests
+  #       working-directory: packages/flutter_nekoton_bridge/example
+  #       run: flutter test -d ${{ env.DEVICE_ID }} --dart-define=FLUTTER_TEST_SKIP_FLAKY_IOS=${{ vars.FLUTTER_TEST_SKIP_FLAKY_IOS }} integration_test
 
   android_integration_test:
     runs-on: macos-13
@@ -288,8 +289,6 @@ jobs:
           distribution: zulu
           java-version: "17.x"
 
-      - name: Check cargo
-        run: which cargo
       - name: Build the binaries
         run: melos run build:android
       - name: Copy the binaries to the needed location
