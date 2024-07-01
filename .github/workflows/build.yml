@@ -5,9 +5,9 @@ on:
   push:
     branches:
       - main
-  schedule:
+  # schedule:
     # runs the CI everyday at 10AM
-    - cron: "0 10 * * *"
+    # - cron: "0 10 * * *"
 
 env:
   CARGO_INCREMENTAL: "1"
