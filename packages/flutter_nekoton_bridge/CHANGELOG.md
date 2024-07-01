@@ -1,3 +1,7 @@
+## 1.28.0-dev.0
+
+ - **FEAT**: add compute_storage_fee ([#245](https://github.com/broxus/nekoton_bridge/issues/245)). ([02e762a8](https://github.com/broxus/nekoton_bridge/commit/02e762a8ca2595e98056a4dae65c97cf07569df0))
+
 ## 1.27.3
 
  - **FIX**: added disposed flag to transport ([#243](https://github.com/broxus/nekoton_bridge/issues/243)). ([b49beb8c](https://github.com/broxus/nekoton_bridge/commit/b49beb8c2ef7aeae28d7456d8ff396647f8626b6))

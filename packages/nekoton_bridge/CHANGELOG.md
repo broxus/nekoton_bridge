@@ -1,3 +1,7 @@
+## 1.20.0-dev.0
+
+ - **FEAT**: add compute_storage_fee ([#245](https://github.com/broxus/nekoton_bridge/issues/245)). ([02e762a8](https://github.com/broxus/nekoton_bridge/commit/02e762a8ca2595e98056a4dae65c97cf07569df0))
+
 ## 1.19.1
 
  - **FIX**: abi methods ([#241](https://github.com/broxus/nekoton_bridge/issues/241)). ([d3f908aa](https://github.com/broxus/nekoton_bridge/commit/d3f908aada544a80b26d68a948eb349cc2591fc9))
