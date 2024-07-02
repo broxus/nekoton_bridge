@@ -1,3 +1,7 @@
+## 1.18.0-dev.1
+
+ - Update a dependency to the latest release.
+
 ## 1.18.0-dev.0
 
  - **FEAT**: add compute_storage_fee ([#245](https://github.com/broxus/nekoton_bridge/issues/245)). ([02e762a8](https://github.com/broxus/nekoton_bridge/commit/02e762a8ca2595e98056a4dae65c97cf07569df0))
