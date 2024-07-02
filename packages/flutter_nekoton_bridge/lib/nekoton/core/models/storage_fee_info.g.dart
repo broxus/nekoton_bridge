@@ -9,8 +9,8 @@ part of 'storage_fee_info.dart';
 _$StorageFeeInfoImpl _$$StorageFeeInfoImplFromJson(Map<String, dynamic> json) =>
     _$StorageFeeInfoImpl(
       storageFee: json['storageFee'] as String,
-      storageFeeDebt: json['storageFeeDebt'] as String,
-      accountStatus: json['accountStatus'] as String?,
+      storageFeeDebt: json['storageFeeDebt'] as String?,
+      accountStatus: json['accountStatus'] as String,
       freezeDueLimit: json['freezeDueLimit'] as String,
       deleteDueLimit: json['deleteDueLimit'] as String,
     );

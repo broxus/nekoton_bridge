@@ -7,8 +7,8 @@ part 'storage_fee_info.g.dart';
 sealed class StorageFeeInfo with _$StorageFeeInfo {
   const factory StorageFeeInfo({
     required final String storageFee,
-    required final String storageFeeDebt,
-    required final String? accountStatus,
+    required final String? storageFeeDebt,
+    required final String accountStatus,
     required final String freezeDueLimit,
     required final String deleteDueLimit,
   }) = _StorageFeeInfo;

@@ -21,8 +21,8 @@ StorageFeeInfo _$StorageFeeInfoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$StorageFeeInfo {
   String get storageFee => throw _privateConstructorUsedError;
-  String get storageFeeDebt => throw _privateConstructorUsedError;
-  String? get accountStatus => throw _privateConstructorUsedError;
+  String? get storageFeeDebt => throw _privateConstructorUsedError;
+  String get accountStatus => throw _privateConstructorUsedError;
   String get freezeDueLimit => throw _privateConstructorUsedError;
   String get deleteDueLimit => throw _privateConstructorUsedError;
 
@@ -40,8 +40,8 @@ abstract class $StorageFeeInfoCopyWith<$Res> {
   @useResult
   $Res call(
       {String storageFee,
-      String storageFeeDebt,
-      String? accountStatus,
+      String? storageFeeDebt,
+      String accountStatus,
       String freezeDueLimit,
       String deleteDueLimit});
 }
@@ -60,8 +60,8 @@ class _$StorageFeeInfoCopyWithImpl<$Res, $Val extends StorageFeeInfo>
   @override
   $Res call({
     Object? storageFee = null,
-    Object? storageFeeDebt = null,
-    Object? accountStatus = freezed,
+    Object? storageFeeDebt = freezed,
+    Object? accountStatus = null,
     Object? freezeDueLimit = null,
     Object? deleteDueLimit = null,
   }) {
@@ -70,14 +70,14 @@ class _$StorageFeeInfoCopyWithImpl<$Res, $Val extends StorageFeeInfo>
           ? _value.storageFee
           : storageFee // ignore: cast_nullable_to_non_nullable
               as String,
-      storageFeeDebt: null == storageFeeDebt
+      storageFeeDebt: freezed == storageFeeDebt
           ? _value.storageFeeDebt
           : storageFeeDebt // ignore: cast_nullable_to_non_nullable
-              as String,
-      accountStatus: freezed == accountStatus
+              as String?,
+      accountStatus: null == accountStatus
           ? _value.accountStatus
           : accountStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       freezeDueLimit: null == freezeDueLimit
           ? _value.freezeDueLimit
           : freezeDueLimit // ignore: cast_nullable_to_non_nullable
@@ -100,8 +100,8 @@ abstract class _$$StorageFeeInfoImplCopyWith<$Res>
   @useResult
   $Res call(
       {String storageFee,
-      String storageFeeDebt,
-      String? accountStatus,
+      String? storageFeeDebt,
+      String accountStatus,
       String freezeDueLimit,
       String deleteDueLimit});
 }
@@ -118,8 +118,8 @@ class __$$StorageFeeInfoImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? storageFee = null,
-    Object? storageFeeDebt = null,
-    Object? accountStatus = freezed,
+    Object? storageFeeDebt = freezed,
+    Object? accountStatus = null,
     Object? freezeDueLimit = null,
     Object? deleteDueLimit = null,
   }) {
@@ -128,14 +128,14 @@ class __$$StorageFeeInfoImplCopyWithImpl<$Res>
           ? _value.storageFee
           : storageFee // ignore: cast_nullable_to_non_nullable
               as String,
-      storageFeeDebt: null == storageFeeDebt
+      storageFeeDebt: freezed == storageFeeDebt
           ? _value.storageFeeDebt
           : storageFeeDebt // ignore: cast_nullable_to_non_nullable
-              as String,
-      accountStatus: freezed == accountStatus
+              as String?,
+      accountStatus: null == accountStatus
           ? _value.accountStatus
           : accountStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       freezeDueLimit: null == freezeDueLimit
           ? _value.freezeDueLimit
           : freezeDueLimit // ignore: cast_nullable_to_non_nullable
@@ -164,9 +164,9 @@ class _$StorageFeeInfoImpl implements _StorageFeeInfo {
   @override
   final String storageFee;
   @override
-  final String storageFeeDebt;
+  final String? storageFeeDebt;
   @override
-  final String? accountStatus;
+  final String accountStatus;
   @override
   final String freezeDueLimit;
   @override
@@ -217,8 +217,8 @@ class _$StorageFeeInfoImpl implements _StorageFeeInfo {
 abstract class _StorageFeeInfo implements StorageFeeInfo {
   const factory _StorageFeeInfo(
       {required final String storageFee,
-      required final String storageFeeDebt,
-      required final String? accountStatus,
+      required final String? storageFeeDebt,
+      required final String accountStatus,
       required final String freezeDueLimit,
       required final String deleteDueLimit}) = _$StorageFeeInfoImpl;
 
@@ -228,9 +228,9 @@ abstract class _StorageFeeInfo implements StorageFeeInfo {
   @override
   String get storageFee;
   @override
-  String get storageFeeDebt;
+  String? get storageFeeDebt;
   @override
-  String? get accountStatus;
+  String get accountStatus;
   @override
   String get freezeDueLimit;
   @override
