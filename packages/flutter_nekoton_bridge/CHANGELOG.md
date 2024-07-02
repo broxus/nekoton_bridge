@@ -1,3 +1,7 @@
+## 1.28.0-dev.1
+
+ - **FIX**: StorageFeeInfo model. ([de7d50ae](https://github.com/broxus/nekoton_bridge/commit/de7d50ae26cf1b77b062ba742ec217e402980f0e))
+
 ## 1.28.0-dev.0
 
  - **FEAT**: add compute_storage_fee ([#245](https://github.com/broxus/nekoton_bridge/issues/245)). ([02e762a8](https://github.com/broxus/nekoton_bridge/commit/02e762a8ca2595e98056a4dae65c97cf07569df0))
