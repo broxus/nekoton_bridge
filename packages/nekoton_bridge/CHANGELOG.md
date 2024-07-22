@@ -1,3 +1,7 @@
+## 1.20.0-dev.1
+
+ - **FEAT**: add `token_root_details` method ([#248](https://github.com/broxus/nekoton_bridge/issues/248)). ([b8d962b6](https://github.com/broxus/nekoton_bridge/commit/b8d962b68ecca51c50b906613ddad29132a4dcf5))
+
 ## 1.20.0-dev.0
 
  - **FEAT**: add compute_storage_fee ([#245](https://github.com/broxus/nekoton_bridge/issues/245)). ([02e762a8](https://github.com/broxus/nekoton_bridge/commit/02e762a8ca2595e98056a4dae65c97cf07569df0))
