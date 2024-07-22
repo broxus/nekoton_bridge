@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-07-22
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.28.0-dev.2`](#flutter_nekoton_bridge---v1280-dev2)
+ - [`flutter_nekoton_bridge_example` - `v1.18.0-dev.2`](#flutter_nekoton_bridge_example---v1180-dev2)
+ - [`nekoton_bridge` - `v1.20.0-dev.1`](#nekoton_bridge---v1200-dev1)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.28.0-dev.2`
+
+ - **FEAT**: add `token_root_details` method ([#248](https://github.com/broxus/nekoton_bridge/issues/248)). ([b8d962b6](https://github.com/broxus/nekoton_bridge/commit/b8d962b68ecca51c50b906613ddad29132a4dcf5))
+
+#### `flutter_nekoton_bridge_example` - `v1.18.0-dev.2`
+
+ - **FEAT**: add `token_root_details` method ([#248](https://github.com/broxus/nekoton_bridge/issues/248)). ([b8d962b6](https://github.com/broxus/nekoton_bridge/commit/b8d962b68ecca51c50b906613ddad29132a4dcf5))
+
+#### `nekoton_bridge` - `v1.20.0-dev.1`
+
+ - **FEAT**: add `token_root_details` method ([#248](https://github.com/broxus/nekoton_bridge/issues/248)). ([b8d962b6](https://github.com/broxus/nekoton_bridge/commit/b8d962b68ecca51c50b906613ddad29132a4dcf5))
+
+
 ## 2024-07-02
 
 ### Changes

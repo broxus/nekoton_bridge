@@ -1,3 +1,7 @@
+## 1.18.0-dev.2
+
+ - **FEAT**: add `token_root_details` method ([#248](https://github.com/broxus/nekoton_bridge/issues/248)). ([b8d962b6](https://github.com/broxus/nekoton_bridge/commit/b8d962b68ecca51c50b906613ddad29132a4dcf5))
+
 ## 1.18.0-dev.1
 
  - Update a dependency to the latest release.
