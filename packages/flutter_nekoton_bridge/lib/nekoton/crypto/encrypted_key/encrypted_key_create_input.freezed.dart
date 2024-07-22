@@ -45,7 +45,6 @@ abstract class $EncryptedKeyCreateInputCopyWith<$Res> {
       @mnemonicJsonConverter MnemonicType mnemonicType,
       Password password});
 
-  $MnemonicTypeCopyWith<$Res> get mnemonicType;
   $PasswordCopyWith<$Res> get password;
 }
 
@@ -65,7 +64,7 @@ class _$EncryptedKeyCreateInputCopyWithImpl<$Res,
   $Res call({
     Object? name = freezed,
     Object? phrase = null,
-    Object? mnemonicType = null,
+    Object? mnemonicType = freezed,
     Object? password = null,
   }) {
     return _then(_value.copyWith(
@@ -77,7 +76,7 @@ class _$EncryptedKeyCreateInputCopyWithImpl<$Res,
           ? _value.phrase
           : phrase // ignore: cast_nullable_to_non_nullable
               as String,
-      mnemonicType: null == mnemonicType
+      mnemonicType: freezed == mnemonicType
           ? _value.mnemonicType
           : mnemonicType // ignore: cast_nullable_to_non_nullable
               as MnemonicType,
@@ -86,14 +85,6 @@ class _$EncryptedKeyCreateInputCopyWithImpl<$Res,
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $MnemonicTypeCopyWith<$Res> get mnemonicType {
-    return $MnemonicTypeCopyWith<$Res>(_value.mnemonicType, (value) {
-      return _then(_value.copyWith(mnemonicType: value) as $Val);
-    });
   }
 
   @override
@@ -121,8 +112,6 @@ abstract class _$$EncryptedKeyCreateInputImplCopyWith<$Res>
       Password password});
 
   @override
-  $MnemonicTypeCopyWith<$Res> get mnemonicType;
-  @override
   $PasswordCopyWith<$Res> get password;
 }
 
@@ -141,7 +130,7 @@ class __$$EncryptedKeyCreateInputImplCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? phrase = null,
-    Object? mnemonicType = null,
+    Object? mnemonicType = freezed,
     Object? password = null,
   }) {
     return _then(_$EncryptedKeyCreateInputImpl(
@@ -153,7 +142,7 @@ class __$$EncryptedKeyCreateInputImplCopyWithImpl<$Res>
           ? _value.phrase
           : phrase // ignore: cast_nullable_to_non_nullable
               as String,
-      mnemonicType: null == mnemonicType
+      mnemonicType: freezed == mnemonicType
           ? _value.mnemonicType
           : mnemonicType // ignore: cast_nullable_to_non_nullable
               as MnemonicType,
@@ -199,16 +188,16 @@ class _$EncryptedKeyCreateInputImpl implements _EncryptedKeyCreateInput {
             other is _$EncryptedKeyCreateInputImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.phrase, phrase) || other.phrase == phrase) &&
-            (identical(other.mnemonicType, mnemonicType) ||
-                other.mnemonicType == mnemonicType) &&
+            const DeepCollectionEquality()
+                .equals(other.mnemonicType, mnemonicType) &&
             (identical(other.password, password) ||
                 other.password == password));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, phrase, mnemonicType, password);
+  int get hashCode => Object.hash(runtimeType, name, phrase,
+      const DeepCollectionEquality().hash(mnemonicType), password);
 
   @JsonKey(ignore: true)
   @override

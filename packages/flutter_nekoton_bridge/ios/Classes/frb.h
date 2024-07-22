@@ -709,6 +709,10 @@ void wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDa
                                                                                           struct wire_ArcTransportBoxTrait transport,
                                                                                           struct wire_uint_8_list *token_wallet_address);
 
+void wire_get_token_root_details__static_method__TokenWalletDartWrapper(int64_t port_,
+                                                                        struct wire_ArcTransportBoxTrait transport,
+                                                                        struct wire_uint_8_list *token_root_address);
+
 void wire_new__static_method__KeystoreDartWrapper(int64_t port_,
                                                   struct wire_StorageDartWrapper *storage,
                                                   struct wire_list_key_signer *signers,
@@ -1313,6 +1317,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_handle_block__method__TokenWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_get_token_wallet_details__static_method__TokenWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_get_token_root_details__static_method__TokenWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_new__static_method__KeystoreDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_get_entries__method__KeystoreDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_add_key__method__KeystoreDartWrapper);

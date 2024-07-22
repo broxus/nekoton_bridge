@@ -920,6 +920,17 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta
       get kGetTokenRootDetailsFromTokenWalletStaticMethodTokenWalletDartWrapperConstMeta;
 
+  /// Get details about root contract by address of TokenWallet
+  /// Return json-encoded RootTokenContractDetails
+  /// or throw error.
+  Future<String> getTokenRootDetailsStaticMethodTokenWalletDartWrapper(
+      {required ArcTransportBoxTrait transport,
+      required String tokenRootAddress,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTokenRootDetailsStaticMethodTokenWalletDartWrapperConstMeta;
+
   /// Create KeyStore or throw error
   Future<KeystoreDartWrapper> newStaticMethodKeystoreDartWrapper(
       {required StorageDartWrapper storage,
@@ -3353,6 +3364,17 @@ class TokenWalletDartWrapper {
               transport: transport,
               tokenWalletAddress: tokenWalletAddress,
               hint: hint);
+
+  /// Get details about root contract by address of TokenWallet
+  /// Return json-encoded RootTokenContractDetails
+  /// or throw error.
+  static Future<String> getTokenRootDetails(
+          {required NekotonBridge bridge,
+          required ArcTransportBoxTrait transport,
+          required String tokenRootAddress,
+          dynamic hint}) =>
+      bridge.getTokenRootDetailsStaticMethodTokenWalletDartWrapper(
+          transport: transport, tokenRootAddress: tokenRootAddress, hint: hint);
 }
 
 class TonWalletDartWrapper {
@@ -6206,6 +6228,32 @@ class NekotonBridgeImpl implements NekotonBridge {
             debugName:
                 "get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper",
             argNames: ["transport", "tokenWalletAddress"],
+          );
+
+  Future<String> getTokenRootDetailsStaticMethodTokenWalletDartWrapper(
+      {required ArcTransportBoxTrait transport,
+      required String tokenRootAddress,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_ArcTransportBoxTrait(transport);
+    var arg1 = _platform.api2wire_String(tokenRootAddress);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_get_token_root_details__static_method__TokenWalletDartWrapper(
+              port_, arg0, arg1),
+      parseSuccessData: _wire2api_String,
+      constMeta:
+          kGetTokenRootDetailsStaticMethodTokenWalletDartWrapperConstMeta,
+      argValues: [transport, tokenRootAddress],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kGetTokenRootDetailsStaticMethodTokenWalletDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName:
+                "get_token_root_details__static_method__TokenWalletDartWrapper",
+            argNames: ["transport", "tokenRootAddress"],
           );
 
   Future<KeystoreDartWrapper> newStaticMethodKeystoreDartWrapper(

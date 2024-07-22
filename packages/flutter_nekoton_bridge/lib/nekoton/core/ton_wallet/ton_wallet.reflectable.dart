@@ -451,7 +451,9 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'getTokenWalletDetails': () =>
                   prefix10.TokenWallet.getTokenWalletDetails,
               r'getTokenRootDetailsFromTokenWallet': () =>
-                  prefix10.TokenWallet.getTokenRootDetailsFromTokenWallet
+                  prefix10.TokenWallet.getTokenRootDetailsFromTokenWallet,
+              r'getTokenRootDetails': () =>
+                  prefix10.TokenWallet.getTokenRootDetails
             },
             {},
             {},
@@ -502,7 +504,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'refreshDescription': 0,
               r'subscribe': 19,
               r'getTokenWalletDetails': 1,
-              r'getTokenRootDetailsFromTokenWallet': 1
+              r'getTokenRootDetailsFromTokenWallet': 1,
+              r'getTokenRootDetails': 21
             })
       ],
       null,
@@ -755,6 +758,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
             #attachedAmount,
             #payload
           ]
+        ],
+        const [
+          0,
+          0,
+          const [#transport, #tokenRoot]
         ]
       ])
 };
