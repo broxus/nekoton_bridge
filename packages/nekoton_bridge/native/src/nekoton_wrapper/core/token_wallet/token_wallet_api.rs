@@ -1,10 +1,7 @@
 #![allow(clippy::too_many_arguments)]
 use crate::async_run;
 use crate::nekoton_wrapper::core::token_wallet::{
-    token_root_details_from_token_wallet,
-    token_root_details,
-    token_wallet_details,
-    TokenWalletBox,
+    token_root_details, token_root_details_from_token_wallet, token_wallet_details, TokenWalletBox,
     TokenWalletBoxTrait,
 };
 
@@ -164,10 +161,7 @@ impl TokenWalletDartWrapper {
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
         token_root_address: String,
     ) -> anyhow::Result<String> {
-        async_run!(
-            token_root_details(transport.get_transport(), token_root_address,)
-                .await
-        )
+        async_run!(token_root_details(transport.get_transport(), token_root_address,).await)
     }
 }
 

@@ -11,11 +11,8 @@ use async_trait::async_trait;
 use flutter_rust_bridge::RustOpaque;
 use nekoton::core::models::TransferRecipient;
 use nekoton::core::token_wallet::{
-    get_token_root_details_from_token_wallet,
-    get_token_root_details,
-    get_token_wallet_details,
-    TokenWallet,
-    TokenWalletSubscriptionHandler,
+    get_token_root_details, get_token_root_details_from_token_wallet, get_token_wallet_details,
+    TokenWallet, TokenWalletSubscriptionHandler,
 };
 use nekoton::transport::Transport;
 use nekoton_abi::create_boc_or_comment_payload;
@@ -293,13 +290,10 @@ pub async fn token_root_details(
 ) -> anyhow::Result<String> {
     let root_token_contract = parse_address(token_root_address)?;
 
-    let details = get_token_root_details(
-        clock!().as_ref(),
-        transport.as_ref(),
-        &root_token_contract,
-    )
-    .await
-    .handle_error()?;
+    let details =
+        get_token_root_details(clock!().as_ref(), transport.as_ref(), &root_token_contract)
+            .await
+            .handle_error()?;
 
     serde_json::to_string(&details).handle_error()
 }
