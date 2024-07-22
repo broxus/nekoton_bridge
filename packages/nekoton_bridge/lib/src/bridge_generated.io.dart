@@ -3524,6 +3524,30 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               void Function(int, wire_ArcTransportBoxTrait,
                   ffi.Pointer<wire_uint_8_list>)>();
 
+  void wire_get_token_root_details__static_method__TokenWalletDartWrapper(
+    int port_,
+    wire_ArcTransportBoxTrait transport,
+    ffi.Pointer<wire_uint_8_list> token_root_address,
+  ) {
+    return _wire_get_token_root_details__static_method__TokenWalletDartWrapper(
+      port_,
+      transport,
+      token_root_address,
+    );
+  }
+
+  late final _wire_get_token_root_details__static_method__TokenWalletDartWrapperPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Int64, wire_ArcTransportBoxTrait,
+                      ffi.Pointer<wire_uint_8_list>)>>(
+          'wire_get_token_root_details__static_method__TokenWalletDartWrapper');
+  late final _wire_get_token_root_details__static_method__TokenWalletDartWrapper =
+      _wire_get_token_root_details__static_method__TokenWalletDartWrapperPtr
+          .asFunction<
+              void Function(int, wire_ArcTransportBoxTrait,
+                  ffi.Pointer<wire_uint_8_list>)>();
+
   void wire_new__static_method__KeystoreDartWrapper(
     int port_,
     ffi.Pointer<wire_StorageDartWrapper> storage,

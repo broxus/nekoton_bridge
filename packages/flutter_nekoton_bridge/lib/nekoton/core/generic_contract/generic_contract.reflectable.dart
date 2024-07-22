@@ -363,7 +363,9 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'getTokenWalletDetails': () =>
                   prefix9.TokenWallet.getTokenWalletDetails,
               r'getTokenRootDetailsFromTokenWallet': () =>
-                  prefix9.TokenWallet.getTokenRootDetailsFromTokenWallet
+                  prefix9.TokenWallet.getTokenRootDetailsFromTokenWallet,
+              r'getTokenRootDetails': () =>
+                  prefix9.TokenWallet.getTokenRootDetails
             },
             {},
             {},
@@ -414,7 +416,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'refreshDescription': 0,
               r'subscribe': 10,
               r'getTokenWalletDetails': 0,
-              r'getTokenRootDetailsFromTokenWallet': 0
+              r'getTokenRootDetailsFromTokenWallet': 0,
+              r'getTokenRootDetails': 12
             }),
         r.NonGenericClassMirrorImpl(
             r'TonWallet',
@@ -460,10 +463,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'getPollingMethod': 0,
               r'getUnconfirmedTransactions': 0,
               r'getCustodians': 0,
-              r'prepareDeploy': 14,
-              r'prepareDeployWithMultipleOwners': 15,
-              r'prepareTransfer': 16,
-              r'prepareConfirmTransaction': 17,
+              r'prepareDeploy': 15,
+              r'prepareDeployWithMultipleOwners': 16,
+              r'prepareTransfer': 17,
+              r'prepareConfirmTransaction': 18,
               r'estimateFees': 1,
               r'send': 1,
               r'refresh': 0,
@@ -498,10 +501,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onStateChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'refreshDescription': 0,
-              r'subscribe': 12,
+              r'subscribe': 13,
               r'subscribeByAddress': 0,
-              r'subscribeByExistingWallet': 13,
-              r'findExistingWallets': 18,
+              r'subscribeByExistingWallet': 14,
+              r'findExistingWallets': 19,
               r'getExistingWalletInfo': 0,
               r'getWalletCustodians': 0
             })
@@ -703,6 +706,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
             #attachedAmount,
             #payload
           ]
+        ],
+        const [
+          0,
+          0,
+          const [#transport, #tokenRoot]
         ],
         const [
           0,

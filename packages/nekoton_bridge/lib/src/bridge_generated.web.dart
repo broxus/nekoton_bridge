@@ -963,6 +963,10 @@ class NekotonBridgeWasmModule implements WasmModule {
       wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper(
           NativePortType port_, Object transport, String token_wallet_address);
 
+  external dynamic /* void */
+      wire_get_token_root_details__static_method__TokenWalletDartWrapper(
+          NativePortType port_, Object transport, String token_root_address);
+
   external dynamic /* void */ wire_new__static_method__KeystoreDartWrapper(
       NativePortType port_,
       List<dynamic> storage,
@@ -1913,6 +1917,12 @@ class NekotonBridgeWire
       wasmModule
           .wire_get_token_root_details_from_token_wallet__static_method__TokenWalletDartWrapper(
               port_, transport, token_wallet_address);
+
+  void wire_get_token_root_details__static_method__TokenWalletDartWrapper(
+          NativePortType port_, Object transport, String token_root_address) =>
+      wasmModule
+          .wire_get_token_root_details__static_method__TokenWalletDartWrapper(
+              port_, transport, token_root_address);
 
   void wire_new__static_method__KeystoreDartWrapper(
           NativePortType port_,

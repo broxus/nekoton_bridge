@@ -277,6 +277,23 @@ class TokenWallet extends RustToDartMirrorInterface
     );
   }
 
+  /// Get details about root contract by address of TokenWallet
+  /// 0: Address of root contract
+  /// 1: RootTokenContractDetails of root contract
+  /// or throw error.
+  static Future<RootTokenContractDetails> getTokenRootDetails({
+    required Transport transport,
+    required Address tokenRoot,
+  }) async {
+    final lib = createLib();
+    final encoded =
+        await lib.getTokenRootDetailsStaticMethodTokenWalletDartWrapper(
+      tokenRootAddress: tokenRoot.address,
+      transport: transport.transportBox,
+    );
+    return RootTokenContractDetails.fromJson(jsonDecode(encoded));
+  }
+
   /// Calls from rust side when balance of wallet has been changed
   void onBalanceChanged(String balance) {
     _onBalanceChangedController.add(BigInt.parse(balance));

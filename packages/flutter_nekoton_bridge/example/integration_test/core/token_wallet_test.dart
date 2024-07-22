@@ -162,6 +162,27 @@ void main() {
       expect(details.item2.symbol, 'STEVER');
     });
 
+    testWidgets('TokenWallet getTokenRootDetails', (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      final details = await TokenWallet.getTokenRootDetails(
+        transport: transport,
+        tokenRoot: const Address(
+            address:
+                '0:09c0dda26e4e3f3a80a5a730e86bed8a557d3aaa1bf8e40be0e48ac544307477'),
+      );
+
+      expect(
+        details.ownerAddress,
+        const Address(
+            address:
+                '0:f9f575258120bff21afd8c798a5c9e9a2ef0b251e11d9c85fbf43bec968a57c6'),
+      );
+      expect(details.version, TokenWalletVersion.tip3);
+      expect(details.symbol, 'TEST');
+      expect(details.decimals, 9);
+    });
+
     testWidgets('TokenWallet refresh', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
