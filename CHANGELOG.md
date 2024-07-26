@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-07-26
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.28.0-dev.3`](#flutter_nekoton_bridge---v1280-dev3)
+ - [`flutter_nekoton_bridge_example` - `v1.18.0-dev.3`](#flutter_nekoton_bridge_example---v1180-dev3)
+ - [`nekoton_bridge` - `v1.20.0-dev.2`](#nekoton_bridge---v1200-dev2)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.28.0-dev.3`
+
+ - **FEAT**: `estimate_min_attached_amount` method ([#250](https://github.com/broxus/nekoton_bridge/issues/250)). ([f2b75c60](https://github.com/broxus/nekoton_bridge/commit/f2b75c6030a4d6e42b8f328ea2e2fbb112647dda))
+
+#### `flutter_nekoton_bridge_example` - `v1.18.0-dev.3`
+
+ - **FEAT**: `estimate_min_attached_amount` method ([#250](https://github.com/broxus/nekoton_bridge/issues/250)). ([f2b75c60](https://github.com/broxus/nekoton_bridge/commit/f2b75c6030a4d6e42b8f328ea2e2fbb112647dda))
+
+#### `nekoton_bridge` - `v1.20.0-dev.2`
+
+ - **FEAT**: `estimate_min_attached_amount` method ([#250](https://github.com/broxus/nekoton_bridge/issues/250)). ([f2b75c60](https://github.com/broxus/nekoton_bridge/commit/f2b75c6030a4d6e42b8f328ea2e2fbb112647dda))
+
+
 ## 2024-07-22
 
 ### Changes
