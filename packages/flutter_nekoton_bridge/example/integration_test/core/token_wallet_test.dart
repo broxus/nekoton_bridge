@@ -114,7 +114,7 @@ void main() {
       );
 
       expect(amount, isNotNull);
-      expect(amount, isNotEmpty);
+      expect(amount.isValidInt, isTrue);
     });
 
     testWidgets('TokenWallet prepareTransfer', (WidgetTester tester) async {
