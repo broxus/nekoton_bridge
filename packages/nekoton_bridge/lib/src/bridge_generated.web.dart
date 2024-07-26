@@ -936,6 +936,15 @@ class NekotonBridgeWasmModule implements WasmModule {
           NativePortType port_, List<dynamic> that);
 
   external dynamic /* void */
+      wire_estimate_min_attached_amount__method__TokenWalletDartWrapper(
+          NativePortType port_,
+          List<dynamic> that,
+          String destination,
+          String amount,
+          bool notify_receiver,
+          String? payload);
+
+  external dynamic /* void */
       wire_prepare_transfer__method__TokenWalletDartWrapper(
           NativePortType port_,
           List<dynamic> that,
@@ -1878,6 +1887,17 @@ class NekotonBridgeWire
           NativePortType port_, List<dynamic> that) =>
       wasmModule.wire_contract_state__method__TokenWalletDartWrapper(
           port_, that);
+
+  void wire_estimate_min_attached_amount__method__TokenWalletDartWrapper(
+          NativePortType port_,
+          List<dynamic> that,
+          String destination,
+          String amount,
+          bool notify_receiver,
+          String? payload) =>
+      wasmModule
+          .wire_estimate_min_attached_amount__method__TokenWalletDartWrapper(
+              port_, that, destination, amount, notify_receiver, payload);
 
   void wire_prepare_transfer__method__TokenWalletDartWrapper(
           NativePortType port_,

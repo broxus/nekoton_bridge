@@ -162,6 +162,20 @@ class TokenWallet extends RustToDartMirrorInterface
     return ContractState.fromJson(decoded);
   }
 
+  Future<String> estimateMinAttachedAmount({
+    required Address destination,
+    required BigInt amount,
+    bool notifyReceiver = false,
+    String? payload,
+  }) async {
+    return await wallet.estimateMinAttachedAmount(
+      destination: destination.address,
+      amount: amount.toString(),
+      payload: payload,
+      notifyReceiver: notifyReceiver,
+    );
+  }
+
   /// Prepare transferring tokens from this wallet to other.
   /// [destination] - address of account that should receive token
   /// [amount] - amount of tokens that should be transferred

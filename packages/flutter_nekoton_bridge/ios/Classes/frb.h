@@ -682,6 +682,13 @@ void wire_balance__method__TokenWalletDartWrapper(int64_t port_,
 void wire_contract_state__method__TokenWalletDartWrapper(int64_t port_,
                                                          struct wire_TokenWalletDartWrapper *that);
 
+void wire_estimate_min_attached_amount__method__TokenWalletDartWrapper(int64_t port_,
+                                                                       struct wire_TokenWalletDartWrapper *that,
+                                                                       struct wire_uint_8_list *destination,
+                                                                       struct wire_uint_8_list *amount,
+                                                                       bool notify_receiver,
+                                                                       struct wire_uint_8_list *payload);
+
 void wire_prepare_transfer__method__TokenWalletDartWrapper(int64_t port_,
                                                            struct wire_TokenWalletDartWrapper *that,
                                                            struct wire_uint_8_list *destination,
@@ -1311,6 +1318,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_version__method__TokenWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_balance__method__TokenWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_contract_state__method__TokenWalletDartWrapper);
+    dummy_var ^= ((int64_t) (void*) wire_estimate_min_attached_amount__method__TokenWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_prepare_transfer__method__TokenWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_refresh__method__TokenWalletDartWrapper);
     dummy_var ^= ((int64_t) (void*) wire_preload_transactions__method__TokenWalletDartWrapper);

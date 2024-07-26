@@ -90,6 +90,33 @@ void main() {
       expect(wallet.version, TokenWalletVersion.tip3);
     });
 
+    testWidgets('TokenWallet estimateMinAttachedAmount',
+        (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      const vault = Address(
+        address:
+            '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68',
+      );
+      const owner = Address(
+        address:
+            '0:f9f575258120bff21afd8c798a5c9e9a2ef0b251e11d9c85fbf43bec968a57c6',
+      );
+      final wallet = await TokenWallet.subscribe(
+        transport: transport,
+        owner: owner,
+        rootTokenContract: stEverRootContract,
+      );
+
+      final amount = await wallet.estimateMinAttachedAmount(
+        destination: vault,
+        amount: BigInt.parse('100000000'),
+      );
+
+      expect(amount, isNotNull);
+      expect(amount, isNotEmpty);
+    });
+
     testWidgets('TokenWallet prepareTransfer', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 

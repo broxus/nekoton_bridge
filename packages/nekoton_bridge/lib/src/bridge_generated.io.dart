@@ -3364,6 +3364,46 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       _wire_contract_state__method__TokenWalletDartWrapperPtr.asFunction<
           void Function(int, ffi.Pointer<wire_TokenWalletDartWrapper>)>();
 
+  void wire_estimate_min_attached_amount__method__TokenWalletDartWrapper(
+    int port_,
+    ffi.Pointer<wire_TokenWalletDartWrapper> that,
+    ffi.Pointer<wire_uint_8_list> destination,
+    ffi.Pointer<wire_uint_8_list> amount,
+    bool notify_receiver,
+    ffi.Pointer<wire_uint_8_list> payload,
+  ) {
+    return _wire_estimate_min_attached_amount__method__TokenWalletDartWrapper(
+      port_,
+      that,
+      destination,
+      amount,
+      notify_receiver,
+      payload,
+    );
+  }
+
+  late final _wire_estimate_min_attached_amount__method__TokenWalletDartWrapperPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(
+                      ffi.Int64,
+                      ffi.Pointer<wire_TokenWalletDartWrapper>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Bool,
+                      ffi.Pointer<wire_uint_8_list>)>>(
+          'wire_estimate_min_attached_amount__method__TokenWalletDartWrapper');
+  late final _wire_estimate_min_attached_amount__method__TokenWalletDartWrapper =
+      _wire_estimate_min_attached_amount__method__TokenWalletDartWrapperPtr
+          .asFunction<
+              void Function(
+                  int,
+                  ffi.Pointer<wire_TokenWalletDartWrapper>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  bool,
+                  ffi.Pointer<wire_uint_8_list>)>();
+
   void wire_prepare_transfer__method__TokenWalletDartWrapper(
     int port_,
     ffi.Pointer<wire_TokenWalletDartWrapper> that,

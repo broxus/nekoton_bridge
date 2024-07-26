@@ -472,7 +472,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'instanceHash': 0,
               r'avoidCall': 0,
               r'getContractState': 0,
-              r'prepareTransfer': 20,
+              r'estimateMinAttachedAmount': 20,
+              r'prepareTransfer': 21,
               r'refresh': 0,
               r'preloadTransactions': 8,
               r'handleBlock': 9,
@@ -505,7 +506,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'subscribe': 19,
               r'getTokenWalletDetails': 1,
               r'getTokenRootDetailsFromTokenWallet': 1,
-              r'getTokenRootDetails': 21
+              r'getTokenRootDetails': 22
             })
       ],
       null,
@@ -607,6 +608,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'executeTransactionLocally': (dynamic instance) =>
             instance.executeTransactionLocally,
         r'contract': (dynamic instance) => instance.contract,
+        r'estimateMinAttachedAmount': (dynamic instance) =>
+            instance.estimateMinAttachedAmount,
         r'onBalanceChanged': (dynamic instance) => instance.onBalanceChanged,
         r'balance': (dynamic instance) => instance.balance,
         r'rootTokenContract': (dynamic instance) => instance.rootTokenContract,
@@ -747,6 +750,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
           0,
           0,
           const [#transport, #owner, #rootTokenContract]
+        ],
+        const [
+          0,
+          0,
+          const [#destination, #amount, #notifyReceiver, #payload]
         ],
         const [
           0,

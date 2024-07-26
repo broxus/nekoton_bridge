@@ -77,6 +77,20 @@ impl TokenWalletDartWrapper {
         async_run!(self.inner_wallet.contract_state().await)
     }
 
+    pub fn estimate_min_attached_amount(
+        &self,
+        destination: String,
+        amount: String,
+        notify_receiver: bool,
+        payload: Option<String>,
+    ) -> anyhow::Result<String> {
+        async_run!(
+            self.inner_wallet
+                .estimate_min_attached_amount(destination, amount, notify_receiver, payload)
+                .await
+        )
+    }
+
     /// Prepare transferring tokens from this wallet to other.
     /// destination - address of account that should receive token
     /// amount - amount of tokens that should be transferred
