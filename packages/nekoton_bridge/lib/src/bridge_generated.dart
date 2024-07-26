@@ -842,6 +842,17 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta
       get kContractStateMethodTokenWalletDartWrapperConstMeta;
 
+  Future<String> estimateMinAttachedAmountMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that,
+      required String destination,
+      required String amount,
+      required bool notifyReceiver,
+      String? payload,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kEstimateMinAttachedAmountMethodTokenWalletDartWrapperConstMeta;
+
   /// Prepare transferring tokens from this wallet to other.
   /// destination - address of account that should receive token
   /// amount - amount of tokens that should be transferred
@@ -3284,6 +3295,20 @@ class TokenWalletDartWrapper {
   Future<String> contractState({dynamic hint}) =>
       bridge.contractStateMethodTokenWalletDartWrapper(
         that: this,
+      );
+
+  Future<String> estimateMinAttachedAmount(
+          {required String destination,
+          required String amount,
+          required bool notifyReceiver,
+          String? payload,
+          dynamic hint}) =>
+      bridge.estimateMinAttachedAmountMethodTokenWalletDartWrapper(
+        that: this,
+        destination: destination,
+        amount: amount,
+        notifyReceiver: notifyReceiver,
+        payload: payload,
       );
 
   /// Prepare transferring tokens from this wallet to other.
@@ -6062,6 +6087,44 @@ class NekotonBridgeImpl implements NekotonBridge {
           const FlutterRustBridgeTaskConstMeta(
             debugName: "contract_state__method__TokenWalletDartWrapper",
             argNames: ["that"],
+          );
+
+  Future<String> estimateMinAttachedAmountMethodTokenWalletDartWrapper(
+      {required TokenWalletDartWrapper that,
+      required String destination,
+      required String amount,
+      required bool notifyReceiver,
+      String? payload,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_token_wallet_dart_wrapper(that);
+    var arg1 = _platform.api2wire_String(destination);
+    var arg2 = _platform.api2wire_String(amount);
+    var arg3 = notifyReceiver;
+    var arg4 = _platform.api2wire_opt_String(payload);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_estimate_min_attached_amount__method__TokenWalletDartWrapper(
+              port_, arg0, arg1, arg2, arg3, arg4),
+      parseSuccessData: _wire2api_String,
+      constMeta:
+          kEstimateMinAttachedAmountMethodTokenWalletDartWrapperConstMeta,
+      argValues: [that, destination, amount, notifyReceiver, payload],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kEstimateMinAttachedAmountMethodTokenWalletDartWrapperConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName:
+                "estimate_min_attached_amount__method__TokenWalletDartWrapper",
+            argNames: [
+              "that",
+              "destination",
+              "amount",
+              "notifyReceiver",
+              "payload"
+            ],
           );
 
   Future<String> prepareTransferMethodTokenWalletDartWrapper(

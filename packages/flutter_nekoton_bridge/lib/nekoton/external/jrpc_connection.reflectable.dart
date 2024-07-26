@@ -384,7 +384,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'instanceHash': 0,
               r'avoidCall': 0,
               r'getContractState': 0,
-              r'prepareTransfer': 12,
+              r'estimateMinAttachedAmount': 12,
+              r'prepareTransfer': 13,
               r'refresh': 0,
               r'preloadTransactions': 9,
               r'handleBlock': 10,
@@ -417,7 +418,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'subscribe': 11,
               r'getTokenWalletDetails': 7,
               r'getTokenRootDetailsFromTokenWallet': 7,
-              r'getTokenRootDetails': 13
+              r'getTokenRootDetails': 14
             }),
         r.NonGenericClassMirrorImpl(
             r'TonWallet',
@@ -463,10 +464,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'getPollingMethod': 0,
               r'getUnconfirmedTransactions': 0,
               r'getCustodians': 0,
-              r'prepareDeploy': 16,
-              r'prepareDeployWithMultipleOwners': 17,
-              r'prepareTransfer': 18,
-              r'prepareConfirmTransaction': 19,
+              r'prepareDeploy': 17,
+              r'prepareDeployWithMultipleOwners': 18,
+              r'prepareTransfer': 19,
+              r'prepareConfirmTransaction': 20,
               r'estimateFees': 8,
               r'send': 8,
               r'refresh': 0,
@@ -501,10 +502,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onStateChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'refreshDescription': 0,
-              r'subscribe': 14,
+              r'subscribe': 15,
               r'subscribeByAddress': 7,
-              r'subscribeByExistingWallet': 15,
-              r'findExistingWallets': 20,
+              r'subscribeByExistingWallet': 16,
+              r'findExistingWallets': 21,
               r'getExistingWalletInfo': 7,
               r'getWalletCustodians': 7
             })
@@ -591,6 +592,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
             instance.onTransactionsFoundStream,
         r'refreshDescription': (dynamic instance) =>
             instance.refreshDescription,
+        r'estimateMinAttachedAmount': (dynamic instance) =>
+            instance.estimateMinAttachedAmount,
         r'prepareTransfer': (dynamic instance) => instance.prepareTransfer,
         r'onBalanceChanged': (dynamic instance) => instance.onBalanceChanged,
         r'wallet': (dynamic instance) => instance.wallet,
@@ -700,6 +703,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
           0,
           0,
           const [#transport, #owner, #rootTokenContract]
+        ],
+        const [
+          0,
+          0,
+          const [#destination, #amount, #notifyReceiver, #payload]
         ],
         const [
           0,

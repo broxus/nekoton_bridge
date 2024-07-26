@@ -6,6 +6,7 @@ use std::sync::Arc;
 
 pub mod token_wallet_api;
 use crate::clock;
+use crate::nekoton_wrapper::helpers::parse_slice;
 use crate::nekoton_wrapper::{parse_address, HandleError};
 use async_trait::async_trait;
 use flutter_rust_bridge::RustOpaque;
@@ -43,6 +44,14 @@ pub trait TokenWalletBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
 
     /// Get json-encoded ContractState or throw error.
     async fn contract_state(&self) -> anyhow::Result<String>;
+
+    async fn estimate_min_attached_amount(
+        &self,
+        destination: String,
+        amount: String,
+        notify_receiver: bool,
+        payload: Option<String>,
+    ) -> anyhow::Result<String>;
 
     /// Prepare transferring tokens from this wallet to other.
     /// destination - address of account that should receive token
@@ -145,6 +154,30 @@ impl TokenWalletBoxTrait for TokenWalletBox {
     async fn contract_state(&self) -> anyhow::Result<String> {
         let wallet = self.inner_wallet.lock().await;
         serde_json::to_string(&wallet.contract_state()).handle_error()
+    }
+
+    async fn estimate_min_attached_amount(
+        &self,
+        destination: String,
+        amount: String,
+        notify_receiver: bool,
+        payload: Option<String>,
+    ) -> anyhow::Result<String> {
+        let destination = parse_address(destination)?;
+        let destination = TransferRecipient::OwnerWallet(destination);
+        let tokens = BigUint::from_str(&amount).handle_error()?;
+        let payload = match payload {
+            Some(payload) => parse_slice(payload)?.into_cell(),
+            None => ton_types::Cell::default(),
+        };
+
+        let wallet = self.inner_wallet.lock().await;
+        let amount = wallet
+            .estimate_min_attached_amount(destination, tokens, notify_receiver, payload)
+            .await
+            .handle_error()?;
+
+        serde_json::to_string(&amount).handle_error()
     }
 
     /// Prepare transferring tokens from this wallet to other.
