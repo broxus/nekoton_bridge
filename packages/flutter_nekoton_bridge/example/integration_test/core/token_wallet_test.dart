@@ -94,23 +94,28 @@ void main() {
         (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      const vault = Address(
+      const destination = Address(
         address:
-            '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68',
+            '0:deaa615aad3828255ce6c4c5495a0590740f2ecdc187cfb434da8e4552cf8f3f',
       );
       const owner = Address(
         address:
             '0:f9f575258120bff21afd8c798a5c9e9a2ef0b251e11d9c85fbf43bec968a57c6',
       );
+      // USDT token root
+      const rootTokenContract = Address(
+        address:
+            '0:a519f99bb5d6d51ef958ed24d337ad75a1c770885dcd42d51d6663f9fcdacfb2',
+      );
       final wallet = await TokenWallet.subscribe(
         transport: transport,
         owner: owner,
-        rootTokenContract: stEverRootContract,
+        rootTokenContract: rootTokenContract,
       );
 
       final amount = await wallet.estimateMinAttachedAmount(
-        destination: vault,
-        amount: BigInt.parse('100000000'),
+        destination: destination,
+        amount: BigInt.parse('10000'),
       );
 
       expect(amount, isNotNull);
