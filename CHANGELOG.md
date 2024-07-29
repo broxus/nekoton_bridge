@@ -15,6 +15,32 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_nekoton_bridge` - `v1.28.0-dev.4`](#flutter_nekoton_bridge---v1280-dev4)
+ - [`flutter_nekoton_bridge_example` - `v1.18.0-dev.4`](#flutter_nekoton_bridge_example---v1180-dev4)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.28.0-dev.4`
+
+ - **FIX**: `estimate_min_attached_amount` return type. ([7fbcb2a1](https://github.com/broxus/nekoton_bridge/commit/7fbcb2a11bb5e3b52cb8b58f9ee56e7651bbcd99))
+
+#### `flutter_nekoton_bridge_example` - `v1.18.0-dev.4`
+
+ - **FIX**: `estimate_min_attached_amount` return type. ([7fbcb2a1](https://github.com/broxus/nekoton_bridge/commit/7fbcb2a11bb5e3b52cb8b58f9ee56e7651bbcd99))
+
+
+## 2024-07-26
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v1.28.0-dev.3`](#flutter_nekoton_bridge---v1280-dev3)
  - [`flutter_nekoton_bridge_example` - `v1.18.0-dev.3`](#flutter_nekoton_bridge_example---v1180-dev3)
  - [`nekoton_bridge` - `v1.20.0-dev.2`](#nekoton_bridge---v1200-dev2)

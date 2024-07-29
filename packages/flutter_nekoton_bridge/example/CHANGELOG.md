@@ -1,3 +1,7 @@
+## 1.18.0-dev.4
+
+ - **FIX**: `estimate_min_attached_amount` return type. ([7fbcb2a1](https://github.com/broxus/nekoton_bridge/commit/7fbcb2a11bb5e3b52cb8b58f9ee56e7651bbcd99))
+
 ## 1.18.0-dev.3
 
  - **FEAT**: `estimate_min_attached_amount` method ([#250](https://github.com/broxus/nekoton_bridge/issues/250)). ([f2b75c60](https://github.com/broxus/nekoton_bridge/commit/f2b75c6030a4d6e42b8f328ea2e2fbb112647dda))
