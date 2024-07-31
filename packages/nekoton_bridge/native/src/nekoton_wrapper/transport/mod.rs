@@ -748,8 +748,7 @@ async fn simulate_transaction_tree(
             };
 
             if let ton_block::TrComputePhase::Vm(compute) = descr.compute_ph {
-                if !compute.success && !ignored_compute_phase_codes.contains(&compute.exit_code)
-                {
+                if !compute.success && !ignored_compute_phase_codes.contains(&compute.exit_code) {
                     result.push((
                         address,
                         TxTreeSimulationError::ComputePhase {
