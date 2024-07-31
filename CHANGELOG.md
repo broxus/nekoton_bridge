@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-07-31
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v1.28.0-dev.6`](#flutter_nekoton_bridge---v1280-dev6)
+ - [`flutter_nekoton_bridge_example` - `v1.18.0-dev.6`](#flutter_nekoton_bridge_example---v1180-dev6)
+ - [`nekoton_bridge` - `v1.20.0-dev.4`](#nekoton_bridge---v1200-dev4)
+
+---
+
+#### `flutter_nekoton_bridge` - `v1.28.0-dev.6`
+
+ - **FIX**: rollback codegen files. ([99c57171](https://github.com/broxus/nekoton_bridge/commit/99c57171a4c6dd24f66ebf326e5b041e7406fe22))
+ - **FEAT**: add `simulateTransactionTree` method. ([2df468c3](https://github.com/broxus/nekoton_bridge/commit/2df468c350e1bf336ed87cce69121c38655c85f6))
+
+#### `flutter_nekoton_bridge_example` - `v1.18.0-dev.6`
+
+ - **FEAT**: add `simulateTransactionTree` method. ([2df468c3](https://github.com/broxus/nekoton_bridge/commit/2df468c350e1bf336ed87cce69121c38655c85f6))
+
+#### `nekoton_bridge` - `v1.20.0-dev.4`
+
+ - **FIX**: rust format. ([2bb48093](https://github.com/broxus/nekoton_bridge/commit/2bb48093775e1a54e50e87a504a7442d2c1bba38))
+ - **FEAT**: add `simulateTransactionTree` method. ([2df468c3](https://github.com/broxus/nekoton_bridge/commit/2df468c350e1bf336ed87cce69121c38655c85f6))
+
+
 ## 2024-07-29
 
 ### Changes
