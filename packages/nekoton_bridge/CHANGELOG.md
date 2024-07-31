@@ -1,3 +1,8 @@
+## 1.20.0-dev.4
+
+ - **FIX**: rust format. ([2bb48093](https://github.com/broxus/nekoton_bridge/commit/2bb48093775e1a54e50e87a504a7442d2c1bba38))
+ - **FEAT**: add `simulateTransactionTree` method. ([2df468c3](https://github.com/broxus/nekoton_bridge/commit/2df468c350e1bf336ed87cce69121c38655c85f6))
+
 ## 1.20.0-dev.3
 
  - **FIX**: update nekoton. ([bfc8837d](https://github.com/broxus/nekoton_bridge/commit/bfc8837d4fc94e8a8247341c4a8fbc8cfe1c1727))
