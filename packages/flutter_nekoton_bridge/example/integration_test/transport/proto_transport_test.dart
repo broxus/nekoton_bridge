@@ -350,5 +350,49 @@ void main() {
       expect(config.globalId, 42);
       expect(config.globalVersion, 32);
     });
+
+    testWidgets('ProtoTransport simulateTransactionTree ',
+        (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+      await initRustToDartCaller();
+
+      final connection = await ProtoConnection.create(
+        post: postTransportData,
+        settings: protoSettings,
+        name: name,
+        group: networkGroup,
+      );
+      final transport =
+          await ProtoTransport.create(protoConnection: connection);
+      const address = Address(
+        address:
+            '0:f9f575258120bff21afd8c798a5c9e9a2ef0b251e11d9c85fbf43bec968a57c6',
+      );
+      final wallet = await TonWallet.subscribeByAddress(
+        transport: transport,
+        address: address,
+      );
+      final message = await wallet.prepareTransfer(
+        contractState: await transport.getContractState(address),
+        publicKey: const PublicKey(
+            publicKey:
+                '6c2f9514c1c0f2ec54cffe1ac2ba0e85268e76442c14205581ebc808fe7ee52c'),
+        destination: const Address(
+            address:
+                '-1:06eec9c3a6f122c29697d27ae987e4b911d4dadc937e23c7aa58bbf1e484b20f'),
+        amount: BigInt.parse('1000000000'),
+        bounce: false,
+        expiration: const Expiration.timeout(60),
+      );
+      final signedMessage = await message.signFake();
+      final errors = await transport.simulateTransactionTree(
+        signedMessage: signedMessage,
+        ignoredComputePhaseCodes: Int32List.fromList([0, 1, 60, 100]),
+        ignoredActionPhaseCodes: Int32List.fromList([0, 1]),
+      );
+
+      expect(errors, isNotNull);
+      expect(errors, isNotEmpty);
+    });
   });
 }

@@ -12,6 +12,7 @@ use async_trait::async_trait;
 use duplicate::duplicate_item;
 use flutter_rust_bridge::RustOpaque;
 use nekoton::core::models::{Transaction, TransactionsBatchInfo, TransactionsBatchType};
+use nekoton::crypto::SignedMessage;
 use nekoton::external::{GqlConnection, JrpcConnection, ProtoConnection};
 use nekoton::transport::gql::LatestBlock;
 use nekoton::transport::{
@@ -97,6 +98,13 @@ pub trait TransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         current_block_id: String,
         address: String,
         timeout: u64,
+    ) -> anyhow::Result<String>;
+
+    async fn simulate_transaction_tree(
+        &self,
+        signed_message: String,
+        ignored_compute_phase_codes: Vec<i32>,
+        ignored_action_phase_codes: Vec<i32>,
     ) -> anyhow::Result<String>;
 }
 
@@ -353,6 +361,21 @@ impl TransportBoxTrait for name {
         Err(anyhow::Error::msg(
             "wait_for_next_block not implemented for ProtoTransportBox and JrpcTransportBox",
         ))
+    }
+
+    async fn simulate_transaction_tree(
+        &self,
+        signed_message: String,
+        ignored_compute_phase_codes: Vec<i32>,
+        ignored_action_phase_codes: Vec<i32>,
+    ) -> anyhow::Result<String> {
+        simulate_transaction_tree(
+            self.get_transport(),
+            signed_message,
+            ignored_compute_phase_codes,
+            ignored_action_phase_codes,
+        )
+        .await
     }
 }
 
@@ -614,6 +637,21 @@ impl TransportBoxTrait for GqlTransportBox {
 
         Ok(next_block_id)
     }
+
+    async fn simulate_transaction_tree(
+        &self,
+        signed_message: String,
+        ignored_compute_phase_codes: Vec<i32>,
+        ignored_action_phase_codes: Vec<i32>,
+    ) -> anyhow::Result<String> {
+        simulate_transaction_tree(
+            self.get_transport(),
+            signed_message,
+            ignored_compute_phase_codes,
+            ignored_action_phase_codes,
+        )
+        .await
+    }
 }
 
 pub fn convert_transaction_to_json(t: &Transaction) -> anyhow::Result<serde_json::Value> {
@@ -631,4 +669,137 @@ pub fn convert_transaction_to_json(t: &Transaction) -> anyhow::Result<serde_json
         "outMessages": t.out_msgs,
         "boc": make_boc(&t.raw)?,
     }))
+}
+
+enum TxTreeSimulationError {
+    ComputePhase { code: i32 },
+    ActionPhase { code: i32 },
+    Frozen,
+    Deleted,
+}
+
+fn make_tx_tree_simulation_error(
+    address: &ton_block::MsgAddressInt,
+    error: &TxTreeSimulationError,
+) -> anyhow::Result<serde_json::Value> {
+    let error = match error {
+        TxTreeSimulationError::ComputePhase { code } => serde_json::json!({
+            "type" : "compute_phase",
+            "code": *code,
+        }),
+        TxTreeSimulationError::ActionPhase { code } => serde_json::json!({
+            "type" : "action_phase",
+            "code": *code,
+        }),
+        TxTreeSimulationError::Frozen => serde_json::json!({
+            "type" : "frozen",
+        }),
+        TxTreeSimulationError::Deleted => serde_json::json!({
+            "type" : "deleted",
+        }),
+    };
+
+    Ok(serde_json::json!({
+        "address" : address.to_string(),
+        "error": error,
+    }))
+}
+
+async fn simulate_transaction_tree(
+    transport: Arc<dyn Transport>,
+    signed_message: String,
+    ignored_compute_phase_codes: Vec<i32>,
+    ignored_action_phase_codes: Vec<i32>,
+) -> anyhow::Result<String> {
+    let signed_message = serde_json::from_str::<SignedMessage>(&signed_message).handle_error()?;
+
+    async fn simulate_transaction_tree(
+        stream: &mut nekoton::core::transactions_tree::TransactionsTreeStream,
+        ignored_compute_phase_codes: &[i32],
+        ignored_action_phase_codes: &[i32],
+    ) -> anyhow::Result<Vec<(ton_block::MsgAddressInt, TxTreeSimulationError)>> {
+        let mut result = Vec::new();
+
+        // FIXME: disable only for the first message
+        stream.disable_signature_check();
+
+        'stream: while let Some(tx) = stream.next().await? {
+            let address = 'address: {
+                if let Some(in_msg) = &tx.in_msg {
+                    if let Some(dst) = in_msg.read_struct()?.dst() {
+                        break 'address dst;
+                    }
+                }
+                continue 'stream;
+            };
+
+            if tx.end_status == ton_block::AccountStatus::AccStateFrozen {
+                result.push((address, TxTreeSimulationError::Frozen));
+                continue;
+            } else if tx.orig_status == ton_block::AccountStatus::AccStateFrozen
+                && tx.end_status == ton_block::AccountStatus::AccStateNonexist
+            {
+                result.push((address, TxTreeSimulationError::Deleted));
+                continue;
+            }
+
+            let ton_block::TransactionDescr::Ordinary(descr) = tx.read_description()? else {
+                continue;
+            };
+
+            if let ton_block::TrComputePhase::Vm(compute) = descr.compute_ph {
+                if !compute.success && !ignored_compute_phase_codes.contains(&compute.exit_code)
+                {
+                    result.push((
+                        address,
+                        TxTreeSimulationError::ComputePhase {
+                            code: compute.exit_code,
+                        },
+                    ));
+                    continue;
+                }
+            }
+
+            if let Some(action) = descr.action {
+                if !action.success && !ignored_action_phase_codes.contains(&action.result_code) {
+                    result.push((
+                        address,
+                        TxTreeSimulationError::ActionPhase {
+                            code: action.result_code,
+                        },
+                    ));
+                    continue;
+                }
+            }
+        }
+
+        Ok(result)
+    }
+
+    let config = transport
+        .get_blockchain_config(clock!().as_ref(), false)
+        .await
+        .handle_error()?;
+
+    let mut transactions_tree = nekoton::core::transactions_tree::TransactionsTreeStream::new(
+        signed_message.message,
+        config,
+        transport,
+        clock!(),
+    );
+    let errors = simulate_transaction_tree(
+        &mut transactions_tree,
+        &ignored_compute_phase_codes,
+        &ignored_action_phase_codes,
+    )
+    .await
+    .handle_error()?;
+
+    let result = errors
+        .into_iter()
+        .map(|(address, error)| make_tx_tree_simulation_error(&address, &error))
+        .collect::<anyhow::Result<Vec<_>>>();
+    let result = result?;
+
+    serde_json::to_string(&result).handle_error()
 }

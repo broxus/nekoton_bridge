@@ -616,6 +616,16 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta
       get kWaitForNextBlockMethodGqlTransportImplConstMeta;
 
+  Future<String> simulateTransactionTreeMethodGqlTransportImpl(
+      {required GqlTransportImpl that,
+      required String signedMessage,
+      required Int32List ignoredComputePhaseCodes,
+      required Int32List ignoredActionPhaseCodes,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kSimulateTransactionTreeMethodGqlTransportImplConstMeta;
+
   Future<ProtoTransportImpl> newStaticMethodProtoTransportImpl(
       {required ProtoConnectionDartWrapper protoConnection, dynamic hint});
 
@@ -703,6 +713,16 @@ abstract class NekotonBridge {
   FlutterRustBridgeTaskConstMeta
       get kGetNetworkIdMethodProtoTransportImplConstMeta;
 
+  Future<String> simulateTransactionTreeMethodProtoTransportImpl(
+      {required ProtoTransportImpl that,
+      required String signedMessage,
+      required Int32List ignoredComputePhaseCodes,
+      required Int32List ignoredActionPhaseCodes,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kSimulateTransactionTreeMethodProtoTransportImplConstMeta;
+
   Future<JrpcTransportImpl> newStaticMethodJrpcTransportImpl(
       {required JrpcConnectionDartWrapper jrpcConnection, dynamic hint});
 
@@ -784,6 +804,16 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta
       get kGetNetworkIdMethodJrpcTransportImplConstMeta;
+
+  Future<String> simulateTransactionTreeMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String signedMessage,
+      required Int32List ignoredComputePhaseCodes,
+      required Int32List ignoredActionPhaseCodes,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta
+      get kSimulateTransactionTreeMethodJrpcTransportImplConstMeta;
 
   /// Create TokenWallet by subscribing to its instance.
   /// owner - address of account that is owner of wallet
@@ -2528,6 +2558,18 @@ class GqlTransportImpl {
         address: address,
         timeout: timeout,
       );
+
+  Future<String> simulateTransactionTree(
+          {required String signedMessage,
+          required Int32List ignoredComputePhaseCodes,
+          required Int32List ignoredActionPhaseCodes,
+          dynamic hint}) =>
+      bridge.simulateTransactionTreeMethodGqlTransportImpl(
+        that: this,
+        signedMessage: signedMessage,
+        ignoredComputePhaseCodes: ignoredComputePhaseCodes,
+        ignoredActionPhaseCodes: ignoredActionPhaseCodes,
+      );
 }
 
 ///----------------------------
@@ -2649,6 +2691,18 @@ class JrpcTransportImpl {
   Future<int> getNetworkId({dynamic hint}) =>
       bridge.getNetworkIdMethodJrpcTransportImpl(
         that: this,
+      );
+
+  Future<String> simulateTransactionTree(
+          {required String signedMessage,
+          required Int32List ignoredComputePhaseCodes,
+          required Int32List ignoredActionPhaseCodes,
+          dynamic hint}) =>
+      bridge.simulateTransactionTreeMethodJrpcTransportImpl(
+        that: this,
+        signedMessage: signedMessage,
+        ignoredComputePhaseCodes: ignoredComputePhaseCodes,
+        ignoredActionPhaseCodes: ignoredActionPhaseCodes,
       );
 }
 
@@ -3134,6 +3188,18 @@ class ProtoTransportImpl {
   Future<int> getNetworkId({dynamic hint}) =>
       bridge.getNetworkIdMethodProtoTransportImpl(
         that: this,
+      );
+
+  Future<String> simulateTransactionTree(
+          {required String signedMessage,
+          required Int32List ignoredComputePhaseCodes,
+          required Int32List ignoredActionPhaseCodes,
+          dynamic hint}) =>
+      bridge.simulateTransactionTreeMethodProtoTransportImpl(
+        that: this,
+        signedMessage: signedMessage,
+        ignoredComputePhaseCodes: ignoredComputePhaseCodes,
+        ignoredActionPhaseCodes: ignoredActionPhaseCodes,
       );
 }
 
@@ -5472,6 +5538,44 @@ class NekotonBridgeImpl implements NekotonBridge {
             argNames: ["that", "currentBlockId", "address", "timeout"],
           );
 
+  Future<String> simulateTransactionTreeMethodGqlTransportImpl(
+      {required GqlTransportImpl that,
+      required String signedMessage,
+      required Int32List ignoredComputePhaseCodes,
+      required Int32List ignoredActionPhaseCodes,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_gql_transport_impl(that);
+    var arg1 = _platform.api2wire_String(signedMessage);
+    var arg2 = _platform.api2wire_int_32_list(ignoredComputePhaseCodes);
+    var arg3 = _platform.api2wire_int_32_list(ignoredActionPhaseCodes);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_simulate_transaction_tree__method__GqlTransportImpl(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kSimulateTransactionTreeMethodGqlTransportImplConstMeta,
+      argValues: [
+        that,
+        signedMessage,
+        ignoredComputePhaseCodes,
+        ignoredActionPhaseCodes
+      ],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kSimulateTransactionTreeMethodGqlTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "simulate_transaction_tree__method__GqlTransportImpl",
+            argNames: [
+              "that",
+              "signedMessage",
+              "ignoredComputePhaseCodes",
+              "ignoredActionPhaseCodes"
+            ],
+          );
+
   Future<ProtoTransportImpl> newStaticMethodProtoTransportImpl(
       {required ProtoConnectionDartWrapper protoConnection, dynamic hint}) {
     var arg0 = _platform
@@ -5704,6 +5808,44 @@ class NekotonBridgeImpl implements NekotonBridge {
             argNames: ["that"],
           );
 
+  Future<String> simulateTransactionTreeMethodProtoTransportImpl(
+      {required ProtoTransportImpl that,
+      required String signedMessage,
+      required Int32List ignoredComputePhaseCodes,
+      required Int32List ignoredActionPhaseCodes,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_proto_transport_impl(that);
+    var arg1 = _platform.api2wire_String(signedMessage);
+    var arg2 = _platform.api2wire_int_32_list(ignoredComputePhaseCodes);
+    var arg3 = _platform.api2wire_int_32_list(ignoredActionPhaseCodes);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_simulate_transaction_tree__method__ProtoTransportImpl(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kSimulateTransactionTreeMethodProtoTransportImplConstMeta,
+      argValues: [
+        that,
+        signedMessage,
+        ignoredComputePhaseCodes,
+        ignoredActionPhaseCodes
+      ],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kSimulateTransactionTreeMethodProtoTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "simulate_transaction_tree__method__ProtoTransportImpl",
+            argNames: [
+              "that",
+              "signedMessage",
+              "ignoredComputePhaseCodes",
+              "ignoredActionPhaseCodes"
+            ],
+          );
+
   Future<JrpcTransportImpl> newStaticMethodJrpcTransportImpl(
       {required JrpcConnectionDartWrapper jrpcConnection, dynamic hint}) {
     var arg0 = _platform
@@ -5934,6 +6076,44 @@ class NekotonBridgeImpl implements NekotonBridge {
           const FlutterRustBridgeTaskConstMeta(
             debugName: "get_network_id__method__JrpcTransportImpl",
             argNames: ["that"],
+          );
+
+  Future<String> simulateTransactionTreeMethodJrpcTransportImpl(
+      {required JrpcTransportImpl that,
+      required String signedMessage,
+      required Int32List ignoredComputePhaseCodes,
+      required Int32List ignoredActionPhaseCodes,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_box_autoadd_jrpc_transport_impl(that);
+    var arg1 = _platform.api2wire_String(signedMessage);
+    var arg2 = _platform.api2wire_int_32_list(ignoredComputePhaseCodes);
+    var arg3 = _platform.api2wire_int_32_list(ignoredActionPhaseCodes);
+    return _platform.executeNormal(FlutterRustBridgeTask(
+      callFfi: (port_) => _platform.inner
+          .wire_simulate_transaction_tree__method__JrpcTransportImpl(
+              port_, arg0, arg1, arg2, arg3),
+      parseSuccessData: _wire2api_String,
+      constMeta: kSimulateTransactionTreeMethodJrpcTransportImplConstMeta,
+      argValues: [
+        that,
+        signedMessage,
+        ignoredComputePhaseCodes,
+        ignoredActionPhaseCodes
+      ],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta
+      get kSimulateTransactionTreeMethodJrpcTransportImplConstMeta =>
+          const FlutterRustBridgeTaskConstMeta(
+            debugName: "simulate_transaction_tree__method__JrpcTransportImpl",
+            argNames: [
+              "that",
+              "signedMessage",
+              "ignoredComputePhaseCodes",
+              "ignoredActionPhaseCodes"
+            ],
           );
 
   Future<TokenWalletDartWrapper> subscribeStaticMethodTokenWalletDartWrapper(

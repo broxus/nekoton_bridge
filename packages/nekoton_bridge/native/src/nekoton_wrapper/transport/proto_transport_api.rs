@@ -87,4 +87,21 @@ impl ProtoTransportImpl {
     pub fn get_network_id(&self) -> anyhow::Result<i32> {
         async_run!(self.inner_transport.get_network_id().await)
     }
+
+    pub fn simulate_transaction_tree(
+        &self,
+        signed_message: String,
+        ignored_compute_phase_codes: Vec<i32>,
+        ignored_action_phase_codes: Vec<i32>,
+    ) -> anyhow::Result<String> {
+        async_run!(
+            self.inner_transport
+                .simulate_transaction_tree(
+                    signed_message,
+                    ignored_compute_phase_codes,
+                    ignored_action_phase_codes
+                )
+                .await
+        )
+    }
 }

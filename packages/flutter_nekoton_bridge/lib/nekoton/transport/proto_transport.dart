@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
@@ -151,6 +152,26 @@ class ProtoTransport extends Transport {
     final config = await transport.getBlockchainConfig(force: force);
 
     return BlockchainConfig.fromJson(jsonDecode(config));
+  }
+
+  @override
+  Future<List<TxTreeSimulationErrorItem>> simulateTransactionTree({
+    required SignedMessage signedMessage,
+    required Int32List ignoredComputePhaseCodes,
+    required Int32List ignoredActionPhaseCodes,
+  }) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
+    final encoded = await transport.simulateTransactionTree(
+        signedMessage: jsonEncode(signedMessage),
+        ignoredComputePhaseCodes: ignoredComputePhaseCodes,
+        ignoredActionPhaseCodes: ignoredActionPhaseCodes);
+    final decoded = jsonDecode(encoded) as List<dynamic>;
+
+    return decoded
+        .map((e) =>
+            TxTreeSimulationErrorItem.fromJson(e as Map<String, dynamic>))
+        .toList();
   }
 
   @override

@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
 /// Exception that is thrown when transport is disposed and user calls its methods
@@ -70,6 +72,12 @@ abstract class Transport {
 
   /// Get blockchain config or throw error
   Future<BlockchainConfig> getBlockchainConfig({bool force = true});
+
+  Future<List<TxTreeSimulationErrorItem>> simulateTransactionTree({
+    required SignedMessage signedMessage,
+    required Int32List ignoredComputePhaseCodes,
+    required Int32List ignoredActionPhaseCodes,
+  });
 
   /// Used only for creating rust instances.
   ArcTransportBoxTrait get transportBox;
