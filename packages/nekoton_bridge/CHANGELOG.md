@@ -1,3 +1,7 @@
+## 2.0.0-dev.1
+
+Using money2_improver from git and money2: 5.2.1
+
 ## 1.20.0-dev.4
 
  - **FIX**: rust format. ([2bb48093](https://github.com/broxus/nekoton_bridge/commit/2bb48093775e1a54e50e87a504a7442d2c1bba38))
