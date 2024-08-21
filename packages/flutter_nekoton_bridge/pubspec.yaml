@@ -22,7 +22,8 @@ dependencies:
 #  nekoton_bridge: ^1.20.0-dev.4
   nekoton_bridge:
     git:
-      url: https://github.com/broxus/nekoton_bridge
+      url: https://github.com/broxus/nekoton_bridge.git
+      path: packages/nekoton_bridge
       ref: update-dependencies
       money2: ^5.0.0
   freezed_annotation: ^2.4.4
