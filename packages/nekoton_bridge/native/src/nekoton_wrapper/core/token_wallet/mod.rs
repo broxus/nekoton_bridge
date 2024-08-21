@@ -6,7 +6,6 @@ use std::sync::Arc;
 
 pub mod token_wallet_api;
 use crate::clock;
-use crate::nekoton_wrapper::helpers::parse_slice;
 use crate::nekoton_wrapper::{parse_address, HandleError};
 use async_trait::async_trait;
 use flutter_rust_bridge::RustOpaque;
@@ -167,7 +166,9 @@ impl TokenWalletBoxTrait for TokenWalletBox {
         let destination = TransferRecipient::OwnerWallet(destination);
         let tokens = BigUint::from_str(&amount).handle_error()?;
         let payload = match payload {
-            Some(payload) => parse_slice(payload)?.into_cell(),
+            Some(payload) => create_boc_or_comment_payload(&payload)
+                .handle_error()?
+                .into_cell(),
             None => ton_types::Cell::default(),
         };
 
