@@ -1,3 +1,7 @@
+## 2.0.0-dev.1
+
+Using money2_improver from git and money2: 5.2.1
+
 ## 1.28.0-dev.6
 
  - **FIX**: rollback codegen files. ([99c57171](https://github.com/broxus/nekoton_bridge/commit/99c57171a4c6dd24f66ebf326e5b041e7406fe22))
