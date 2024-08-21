@@ -1,3 +1,7 @@
+## 1.20.0-dev.5
+
+ - **FIX**: `estimate_min_attached_amount` payload fix. ([3c53957e](https://github.com/broxus/nekoton_bridge/commit/3c53957ef0c86ffa487d995142d5a4499bb33acc))
+
 ## 1.20.0-dev.4
 
  - **FIX**: rust format. ([2bb48093](https://github.com/broxus/nekoton_bridge/commit/2bb48093775e1a54e50e87a504a7442d2c1bba38))
