@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-08-21
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`nekoton_bridge` - `v1.20.0-dev.5`](#nekoton_bridge---v1200-dev5)
+ - [`flutter_nekoton_bridge` - `v1.28.0-dev.7`](#flutter_nekoton_bridge---v1280-dev7)
+ - [`flutter_nekoton_bridge_example` - `v1.18.0-dev.7`](#flutter_nekoton_bridge_example---v1180-dev7)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge` - `v1.28.0-dev.7`
+ - `flutter_nekoton_bridge_example` - `v1.18.0-dev.7`
+
+---
+
+#### `nekoton_bridge` - `v1.20.0-dev.5`
+
+ - **FIX**: `estimate_min_attached_amount` payload fix. ([3c53957e](https://github.com/broxus/nekoton_bridge/commit/3c53957ef0c86ffa487d995142d5a4499bb33acc))
+
+
 ## 2024-07-31
 
 ### Changes
