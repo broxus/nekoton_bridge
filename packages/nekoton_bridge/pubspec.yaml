@@ -21,7 +21,8 @@ dependencies:
   basic_utils: ^5.7.0
   flutter_lints: ^4.0.0
   money2_improver:
-    path: ../../../money2_improver
+    git:
+      url: https://github.com/broxus/money2_improver
   money2: ^5.0.0
   meta: ^1.15.0
   uuid: ^3.0.6
