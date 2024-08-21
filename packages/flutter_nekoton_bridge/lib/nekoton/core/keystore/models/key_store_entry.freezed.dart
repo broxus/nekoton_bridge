@@ -26,8 +26,12 @@ mixin _$KeyStoreEntry {
   PublicKey get masterKey => throw _privateConstructorUsedError;
   int get accountId => throw _privateConstructorUsedError;
 
+  /// Serializes this KeyStoreEntry to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of KeyStoreEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $KeyStoreEntryCopyWith<KeyStoreEntry> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -59,6 +63,8 @@ class _$KeyStoreEntryCopyWithImpl<$Res, $Val extends KeyStoreEntry>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of KeyStoreEntry
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,6 +98,8 @@ class _$KeyStoreEntryCopyWithImpl<$Res, $Val extends KeyStoreEntry>
     ) as $Val);
   }
 
+  /// Create a copy of KeyStoreEntry
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get publicKey {
@@ -100,6 +108,8 @@ class _$KeyStoreEntryCopyWithImpl<$Res, $Val extends KeyStoreEntry>
     });
   }
 
+  /// Create a copy of KeyStoreEntry
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get masterKey {
@@ -138,6 +148,8 @@ class __$$KeyStoreEntryImplCopyWithImpl<$Res>
       _$KeyStoreEntryImpl _value, $Res Function(_$KeyStoreEntryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of KeyStoreEntry
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -219,12 +231,14 @@ class _$KeyStoreEntryImpl extends _KeyStoreEntry {
                 other.accountId == accountId));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, signerName, name, publicKey, masterKey, accountId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of KeyStoreEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$KeyStoreEntryImplCopyWith<_$KeyStoreEntryImpl> get copyWith =>
@@ -260,8 +274,11 @@ abstract class _KeyStoreEntry extends KeyStoreEntry {
   PublicKey get masterKey;
   @override
   int get accountId;
+
+  /// Create a copy of KeyStoreEntry
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$KeyStoreEntryImplCopyWith<_$KeyStoreEntryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

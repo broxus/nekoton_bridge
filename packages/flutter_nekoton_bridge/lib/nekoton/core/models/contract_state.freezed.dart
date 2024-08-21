@@ -28,8 +28,12 @@ mixin _$ContractState {
   bool get isDeployed => throw _privateConstructorUsedError;
   String? get codeHash => throw _privateConstructorUsedError;
 
+  /// Serializes this ContractState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ContractState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ContractStateCopyWith<ContractState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -61,6 +65,8 @@ class _$ContractStateCopyWithImpl<$Res, $Val extends ContractState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ContractState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -94,6 +100,8 @@ class _$ContractStateCopyWithImpl<$Res, $Val extends ContractState>
     ) as $Val);
   }
 
+  /// Create a copy of ContractState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $GenTimingsCopyWith<$Res> get genTimings {
@@ -102,6 +110,8 @@ class _$ContractStateCopyWithImpl<$Res, $Val extends ContractState>
     });
   }
 
+  /// Create a copy of ContractState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LastTransactionIdCopyWith<$Res>? get lastTransactionId {
@@ -144,6 +154,8 @@ class __$$ContractStateImplCopyWithImpl<$Res>
       _$ContractStateImpl _value, $Res Function(_$ContractStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ContractState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -224,12 +236,14 @@ class _$ContractStateImpl implements _ContractState {
                 other.codeHash == codeHash));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, balance, genTimings,
       lastTransactionId, isDeployed, codeHash);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ContractState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ContractStateImplCopyWith<_$ContractStateImpl> get copyWith =>
@@ -265,8 +279,11 @@ abstract class _ContractState implements ContractState {
   bool get isDeployed;
   @override
   String? get codeHash;
+
+  /// Create a copy of ContractState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ContractStateImplCopyWith<_$ContractStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

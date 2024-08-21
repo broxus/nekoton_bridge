@@ -23,8 +23,12 @@ mixin _$DecodedOutput {
   String get method => throw _privateConstructorUsedError;
   Map<String, dynamic> get output => throw _privateConstructorUsedError;
 
+  /// Serializes this DecodedOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DecodedOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DecodedOutputCopyWith<DecodedOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$DecodedOutputCopyWithImpl<$Res, $Val extends DecodedOutput>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DecodedOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$DecodedOutputImplCopyWithImpl<$Res>
       _$DecodedOutputImpl _value, $Res Function(_$DecodedOutputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DecodedOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -139,12 +147,14 @@ class _$DecodedOutputImpl implements _DecodedOutput {
             const DeepCollectionEquality().equals(other._output, _output));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, method, const DeepCollectionEquality().hash(_output));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DecodedOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DecodedOutputImplCopyWith<_$DecodedOutputImpl> get copyWith =>
@@ -170,8 +180,11 @@ abstract class _DecodedOutput implements DecodedOutput {
   String get method;
   @override
   Map<String, dynamic> get output;
+
+  /// Create a copy of DecodedOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DecodedOutputImplCopyWith<_$DecodedOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

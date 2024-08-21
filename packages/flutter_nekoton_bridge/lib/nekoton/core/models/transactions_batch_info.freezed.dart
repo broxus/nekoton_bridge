@@ -25,8 +25,12 @@ mixin _$TransactionsBatchInfo {
   String get maxLt => throw _privateConstructorUsedError;
   TransactionsBatchType get batchType => throw _privateConstructorUsedError;
 
+  /// Serializes this TransactionsBatchInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TransactionsBatchInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TransactionsBatchInfoCopyWith<TransactionsBatchInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,6 +55,8 @@ class _$TransactionsBatchInfoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TransactionsBatchInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -96,6 +102,8 @@ class __$$TransactionsBatchInfoImplCopyWithImpl<$Res>
       $Res Function(_$TransactionsBatchInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TransactionsBatchInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -152,11 +160,13 @@ class _$TransactionsBatchInfoImpl implements _TransactionsBatchInfo {
                 other.batchType == batchType));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, minLt, maxLt, batchType);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TransactionsBatchInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TransactionsBatchInfoImplCopyWith<_$TransactionsBatchInfoImpl>
@@ -187,8 +197,11 @@ abstract class _TransactionsBatchInfo implements TransactionsBatchInfo {
   String get maxLt;
   @override
   TransactionsBatchType get batchType;
+
+  /// Create a copy of TransactionsBatchInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TransactionsBatchInfoImplCopyWith<_$TransactionsBatchInfoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -23,8 +23,12 @@ mixin _$AdditionalAssets {
   List<TokenWalletAsset> get tokenWallets => throw _privateConstructorUsedError;
   List<DePoolAsset> get depools => throw _privateConstructorUsedError;
 
+  /// Serializes this AdditionalAssets to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AdditionalAssets
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AdditionalAssetsCopyWith<AdditionalAssets> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$AdditionalAssetsCopyWithImpl<$Res, $Val extends AdditionalAssets>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AdditionalAssets
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$AdditionalAssetsImplCopyWithImpl<$Res>
       $Res Function(_$AdditionalAssetsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AdditionalAssets
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -149,14 +157,16 @@ class _$AdditionalAssetsImpl implements _AdditionalAssets {
             const DeepCollectionEquality().equals(other._depools, _depools));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_tokenWallets),
       const DeepCollectionEquality().hash(_depools));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AdditionalAssets
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AdditionalAssetsImplCopyWith<_$AdditionalAssetsImpl> get copyWith =>
@@ -183,8 +193,11 @@ abstract class _AdditionalAssets implements AdditionalAssets {
   List<TokenWalletAsset> get tokenWallets;
   @override
   List<DePoolAsset> get depools;
+
+  /// Create a copy of AdditionalAssets
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AdditionalAssetsImplCopyWith<_$AdditionalAssetsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

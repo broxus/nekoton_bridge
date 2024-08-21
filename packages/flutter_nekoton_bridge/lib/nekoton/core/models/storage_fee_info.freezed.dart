@@ -26,8 +26,12 @@ mixin _$StorageFeeInfo {
   String get freezeDueLimit => throw _privateConstructorUsedError;
   String get deleteDueLimit => throw _privateConstructorUsedError;
 
+  /// Serializes this StorageFeeInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StorageFeeInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $StorageFeeInfoCopyWith<StorageFeeInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +60,8 @@ class _$StorageFeeInfoCopyWithImpl<$Res, $Val extends StorageFeeInfo>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of StorageFeeInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,6 +120,8 @@ class __$$StorageFeeInfoImplCopyWithImpl<$Res>
       _$StorageFeeInfoImpl _value, $Res Function(_$StorageFeeInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of StorageFeeInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -194,12 +202,14 @@ class _$StorageFeeInfoImpl implements _StorageFeeInfo {
                 other.deleteDueLimit == deleteDueLimit));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, storageFee, storageFeeDebt,
       accountStatus, freezeDueLimit, deleteDueLimit);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StorageFeeInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StorageFeeInfoImplCopyWith<_$StorageFeeInfoImpl> get copyWith =>
@@ -235,8 +245,11 @@ abstract class _StorageFeeInfo implements StorageFeeInfo {
   String get freezeDueLimit;
   @override
   String get deleteDueLimit;
+
+  /// Create a copy of StorageFeeInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StorageFeeInfoImplCopyWith<_$StorageFeeInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

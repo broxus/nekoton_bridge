@@ -24,8 +24,12 @@ mixin _$OnMessageSentPayload {
       throw _privateConstructorUsedError;
   Transaction? get transaction => throw _privateConstructorUsedError;
 
+  /// Serializes this OnMessageSentPayload to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of OnMessageSentPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $OnMessageSentPayloadCopyWith<OnMessageSentPayload> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,6 +57,8 @@ class _$OnMessageSentPayloadCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of OnMessageSentPayload
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -71,6 +77,8 @@ class _$OnMessageSentPayloadCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of OnMessageSentPayload
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PendingTransactionCopyWith<$Res> get pendingTransaction {
@@ -80,6 +88,8 @@ class _$OnMessageSentPayloadCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of OnMessageSentPayload
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TransactionCopyWith<$Res>? get transaction {
@@ -117,6 +127,8 @@ class __$$OnMessageSentPayloadImplCopyWithImpl<$Res>
       $Res Function(_$OnMessageSentPayloadImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OnMessageSentPayload
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -167,11 +179,13 @@ class _$OnMessageSentPayloadImpl implements _OnMessageSentPayload {
                 other.transaction == transaction));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, pendingTransaction, transaction);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OnMessageSentPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$OnMessageSentPayloadImplCopyWith<_$OnMessageSentPayloadImpl>
@@ -199,8 +213,11 @@ abstract class _OnMessageSentPayload implements OnMessageSentPayload {
   PendingTransaction get pendingTransaction;
   @override
   Transaction? get transaction;
+
+  /// Create a copy of OnMessageSentPayload
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OnMessageSentPayloadImplCopyWith<_$OnMessageSentPayloadImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

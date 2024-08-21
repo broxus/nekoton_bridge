@@ -27,8 +27,12 @@ mixin _$InternalMessage {
   bool get bounce => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
 
+  /// Serializes this InternalMessage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of InternalMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $InternalMessageCopyWith<InternalMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -60,6 +64,8 @@ class _$InternalMessageCopyWithImpl<$Res, $Val extends InternalMessage>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of InternalMessage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -93,6 +99,8 @@ class _$InternalMessageCopyWithImpl<$Res, $Val extends InternalMessage>
     ) as $Val);
   }
 
+  /// Create a copy of InternalMessage
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res>? get source {
@@ -105,6 +113,8 @@ class _$InternalMessageCopyWithImpl<$Res, $Val extends InternalMessage>
     });
   }
 
+  /// Create a copy of InternalMessage
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get destination {
@@ -143,6 +153,8 @@ class __$$InternalMessageImplCopyWithImpl<$Res>
       _$InternalMessageImpl _value, $Res Function(_$InternalMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of InternalMessage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -220,12 +232,14 @@ class _$InternalMessageImpl implements _InternalMessage {
             (identical(other.body, body) || other.body == body));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, source, destination, amount, bounce, body);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of InternalMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$InternalMessageImplCopyWith<_$InternalMessageImpl> get copyWith =>
@@ -262,8 +276,11 @@ abstract class _InternalMessage implements InternalMessage {
   bool get bounce;
   @override
   String get body;
+
+  /// Create a copy of InternalMessage
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InternalMessageImplCopyWith<_$InternalMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

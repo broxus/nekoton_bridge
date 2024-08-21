@@ -23,8 +23,12 @@ mixin _$RawTransaction {
   String get hash => throw _privateConstructorUsedError;
   Transaction get data => throw _privateConstructorUsedError;
 
+  /// Serializes this RawTransaction to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RawTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RawTransactionCopyWith<RawTransaction> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$RawTransactionCopyWithImpl<$Res, $Val extends RawTransaction>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RawTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -68,6 +74,8 @@ class _$RawTransactionCopyWithImpl<$Res, $Val extends RawTransaction>
     ) as $Val);
   }
 
+  /// Create a copy of RawTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TransactionCopyWith<$Res> get data {
@@ -99,6 +107,8 @@ class __$$RawTransactionImplCopyWithImpl<$Res>
       _$RawTransactionImpl _value, $Res Function(_$RawTransactionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RawTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -145,11 +155,13 @@ class _$RawTransactionImpl implements _RawTransaction {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, hash, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RawTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RawTransactionImplCopyWith<_$RawTransactionImpl> get copyWith =>
@@ -176,8 +188,11 @@ abstract class _RawTransaction implements RawTransaction {
   String get hash;
   @override
   Transaction get data;
+
+  /// Create a copy of RawTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RawTransactionImplCopyWith<_$RawTransactionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

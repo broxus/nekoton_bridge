@@ -27,8 +27,12 @@ mixin _$LedgerSignatureContext {
   BigInt get amount => throw _privateConstructorUsedError;
   Address get address => throw _privateConstructorUsedError;
 
+  /// Serializes this LedgerSignatureContext to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LedgerSignatureContext
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LedgerSignatureContextCopyWith<LedgerSignatureContext> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -59,6 +63,8 @@ class _$LedgerSignatureContextCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LedgerSignatureContext
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -87,6 +93,8 @@ class _$LedgerSignatureContextCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of LedgerSignatureContext
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get address {
@@ -125,6 +133,8 @@ class __$$LedgerSignatureContextImplCopyWithImpl<$Res>
       $Res Function(_$LedgerSignatureContextImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LedgerSignatureContext
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -193,12 +203,14 @@ class _$LedgerSignatureContextImpl implements _LedgerSignatureContext {
             (identical(other.address, address) || other.address == address));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, decimals, asset, amount, address);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LedgerSignatureContext
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LedgerSignatureContextImplCopyWith<_$LedgerSignatureContextImpl>
@@ -232,8 +244,11 @@ abstract class _LedgerSignatureContext implements LedgerSignatureContext {
   BigInt get amount;
   @override
   Address get address;
+
+  /// Create a copy of LedgerSignatureContext
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LedgerSignatureContextImplCopyWith<_$LedgerSignatureContextImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -25,8 +25,12 @@ mixin _$Symbol {
   int get decimals => throw _privateConstructorUsedError;
   Address get rootTokenContract => throw _privateConstructorUsedError;
 
+  /// Serializes this Symbol to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Symbol
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SymbolCopyWith<Symbol> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -51,6 +55,8 @@ class _$SymbolCopyWithImpl<$Res, $Val extends Symbol>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Symbol
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -79,6 +85,8 @@ class _$SymbolCopyWithImpl<$Res, $Val extends Symbol>
     ) as $Val);
   }
 
+  /// Create a copy of Symbol
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get rootTokenContract {
@@ -110,6 +118,8 @@ class __$$SymbolImplCopyWithImpl<$Res>
       _$SymbolImpl _value, $Res Function(_$SymbolImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Symbol
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -179,12 +189,14 @@ class _$SymbolImpl implements _Symbol {
                 other.rootTokenContract == rootTokenContract));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, name, fullName, decimals, rootTokenContract);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Symbol
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SymbolImplCopyWith<_$SymbolImpl> get copyWith =>
@@ -215,8 +227,11 @@ abstract class _Symbol implements Symbol {
   int get decimals;
   @override
   Address get rootTokenContract;
+
+  /// Create a copy of Symbol
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SymbolImplCopyWith<_$SymbolImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

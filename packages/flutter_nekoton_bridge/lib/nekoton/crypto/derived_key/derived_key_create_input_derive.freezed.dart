@@ -26,8 +26,12 @@ mixin _$DerivedKeyCreateInputDerive {
   int get accountId => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
 
+  /// Serializes this DerivedKeyCreateInputDerive to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DerivedKeyCreateInputDerive
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DerivedKeyCreateInputDeriveCopyWith<DerivedKeyCreateInputDerive>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$DerivedKeyCreateInputDeriveCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DerivedKeyCreateInputDerive
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class _$DerivedKeyCreateInputDeriveCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of DerivedKeyCreateInputDerive
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get masterKey {
@@ -94,6 +102,8 @@ class _$DerivedKeyCreateInputDeriveCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of DerivedKeyCreateInputDerive
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
@@ -131,6 +141,8 @@ class __$$DerivedKeyCreateInputDeriveDeriveImplCopyWithImpl<$Res>
       $Res Function(_$DerivedKeyCreateInputDeriveDeriveImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DerivedKeyCreateInputDerive
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -203,12 +215,14 @@ class _$DerivedKeyCreateInputDeriveDeriveImpl
                 other.password == password));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, keyName, masterKey, accountId, password);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DerivedKeyCreateInputDerive
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DerivedKeyCreateInputDeriveDeriveImplCopyWith<
@@ -245,8 +259,11 @@ abstract class _DerivedKeyCreateInputDeriveDerive
   int get accountId;
   @override
   Password get password;
+
+  /// Create a copy of DerivedKeyCreateInputDerive
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DerivedKeyCreateInputDeriveDeriveImplCopyWith<
           _$DerivedKeyCreateInputDeriveDeriveImpl>
       get copyWith => throw _privateConstructorUsedError;

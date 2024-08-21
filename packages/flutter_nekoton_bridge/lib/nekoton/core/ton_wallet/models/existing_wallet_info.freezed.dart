@@ -25,8 +25,12 @@ mixin _$ExistingWalletInfo {
   WalletType get walletType => throw _privateConstructorUsedError;
   ContractState get contractState => throw _privateConstructorUsedError;
 
+  /// Serializes this ExistingWalletInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ExistingWalletInfoCopyWith<ExistingWalletInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -59,6 +63,8 @@ class _$ExistingWalletInfoCopyWithImpl<$Res, $Val extends ExistingWalletInfo>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -87,6 +93,8 @@ class _$ExistingWalletInfoCopyWithImpl<$Res, $Val extends ExistingWalletInfo>
     ) as $Val);
   }
 
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get address {
@@ -95,6 +103,8 @@ class _$ExistingWalletInfoCopyWithImpl<$Res, $Val extends ExistingWalletInfo>
     });
   }
 
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get publicKey {
@@ -103,6 +113,8 @@ class _$ExistingWalletInfoCopyWithImpl<$Res, $Val extends ExistingWalletInfo>
     });
   }
 
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $WalletTypeCopyWith<$Res> get walletType {
@@ -111,6 +123,8 @@ class _$ExistingWalletInfoCopyWithImpl<$Res, $Val extends ExistingWalletInfo>
     });
   }
 
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ContractStateCopyWith<$Res> get contractState {
@@ -152,6 +166,8 @@ class __$$ExistingWalletInfoImplCopyWithImpl<$Res>
       $Res Function(_$ExistingWalletInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -221,12 +237,14 @@ class _$ExistingWalletInfoImpl implements _ExistingWalletInfo {
                 other.contractState == contractState));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, address, publicKey, walletType, contractState);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ExistingWalletInfoImplCopyWith<_$ExistingWalletInfoImpl> get copyWith =>
@@ -259,8 +277,11 @@ abstract class _ExistingWalletInfo implements ExistingWalletInfo {
   WalletType get walletType;
   @override
   ContractState get contractState;
+
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ExistingWalletInfoImplCopyWith<_$ExistingWalletInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

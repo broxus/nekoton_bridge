@@ -24,8 +24,12 @@ mixin _$DecodedTransactionEvent {
   String get event => throw _privateConstructorUsedError;
   Map<String, dynamic> get data => throw _privateConstructorUsedError;
 
+  /// Serializes this DecodedTransactionEvent to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DecodedTransactionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DecodedTransactionEventCopyWith<DecodedTransactionEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$DecodedTransactionEventCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DecodedTransactionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class __$$DecodedTransactionEventImplCopyWithImpl<$Res>
       $Res Function(_$DecodedTransactionEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DecodedTransactionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -144,12 +152,14 @@ class _$DecodedTransactionEventImpl implements _DecodedTransactionEvent {
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, event, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DecodedTransactionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DecodedTransactionEventImplCopyWith<_$DecodedTransactionEventImpl>
@@ -177,8 +187,11 @@ abstract class _DecodedTransactionEvent implements DecodedTransactionEvent {
   String get event;
   @override
   Map<String, dynamic> get data;
+
+  /// Create a copy of DecodedTransactionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DecodedTransactionEventImplCopyWith<_$DecodedTransactionEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

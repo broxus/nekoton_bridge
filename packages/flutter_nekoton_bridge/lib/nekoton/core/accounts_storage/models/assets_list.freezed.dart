@@ -28,8 +28,12 @@ mixin _$AssetsList {
   Map<String, AdditionalAssets> get additionalAssets =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this AssetsList to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AssetsList
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AssetsListCopyWith<AssetsList> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$AssetsListCopyWithImpl<$Res, $Val extends AssetsList>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AssetsList
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -81,6 +87,8 @@ class _$AssetsListCopyWithImpl<$Res, $Val extends AssetsList>
     ) as $Val);
   }
 
+  /// Create a copy of AssetsList
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TonWalletAssetCopyWith<$Res> get tonWallet {
@@ -115,6 +123,8 @@ class __$$AssetsListImplCopyWithImpl<$Res>
       _$AssetsListImpl _value, $Res Function(_$AssetsListImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AssetsList
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -187,12 +197,14 @@ class _$AssetsListImpl extends _AssetsList {
                 .equals(other._additionalAssets, _additionalAssets));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, tonWallet,
       const DeepCollectionEquality().hash(_additionalAssets));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AssetsList
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AssetsListImplCopyWith<_$AssetsListImpl> get copyWith =>
@@ -220,13 +232,17 @@ abstract class _AssetsList extends AssetsList {
   @override
   String get name;
   @override
-  TonWalletAsset get tonWallet;
-  @override // List of Token assets that are owned by this wallet.
+  TonWalletAsset
+      get tonWallet; // List of Token assets that are owned by this wallet.
 // key - should be <Transport.group>, value - list of tokens.
 // key will be specified from <AccountsStorage.addTokenWallet> method
-  Map<String, AdditionalAssets> get additionalAssets;
   @override
-  @JsonKey(ignore: true)
+  Map<String, AdditionalAssets> get additionalAssets;
+
+  /// Create a copy of AssetsList
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AssetsListImplCopyWith<_$AssetsListImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

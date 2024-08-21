@@ -26,8 +26,12 @@ mixin _$GqlNetworkSettings {
   int get endpointSelectionRetryCount => throw _privateConstructorUsedError;
   bool get local => throw _privateConstructorUsedError;
 
+  /// Serializes this GqlNetworkSettings to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GqlNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GqlNetworkSettingsCopyWith<GqlNetworkSettings> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +60,8 @@ class _$GqlNetworkSettingsCopyWithImpl<$Res, $Val extends GqlNetworkSettings>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GqlNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,6 +120,8 @@ class __$$GqlNetworkSettingsImplCopyWithImpl<$Res>
       $Res Function(_$GqlNetworkSettingsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GqlNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -203,7 +211,7 @@ class _$GqlNetworkSettingsImpl implements _GqlNetworkSettings {
             (identical(other.local, local) || other.local == local));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -213,7 +221,9 @@ class _$GqlNetworkSettingsImpl implements _GqlNetworkSettings {
       endpointSelectionRetryCount,
       local);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GqlNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GqlNetworkSettingsImplCopyWith<_$GqlNetworkSettingsImpl> get copyWith =>
@@ -249,8 +259,11 @@ abstract class _GqlNetworkSettings implements GqlNetworkSettings {
   int get endpointSelectionRetryCount;
   @override
   bool get local;
+
+  /// Create a copy of GqlNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GqlNetworkSettingsImplCopyWith<_$GqlNetworkSettingsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

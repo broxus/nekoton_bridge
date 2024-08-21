@@ -29,8 +29,12 @@ mixin _$TonWalletDetails {
   int get expirationTime => throw _privateConstructorUsedError;
   int? get requiredConfirmations => throw _privateConstructorUsedError;
 
+  /// Serializes this TonWalletDetails to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TonWalletDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TonWalletDetailsCopyWith<TonWalletDetails> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -60,6 +64,8 @@ class _$TonWalletDetailsCopyWithImpl<$Res, $Val extends TonWalletDetails>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TonWalletDetails
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -124,6 +130,8 @@ class __$$TonWalletDetailsImplCopyWithImpl<$Res>
       $Res Function(_$TonWalletDetailsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TonWalletDetails
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -217,7 +225,7 @@ class _$TonWalletDetailsImpl implements _TonWalletDetails {
                 other.requiredConfirmations == requiredConfirmations));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -228,7 +236,9 @@ class _$TonWalletDetailsImpl implements _TonWalletDetails {
       expirationTime,
       requiredConfirmations);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TonWalletDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TonWalletDetailsImplCopyWith<_$TonWalletDetailsImpl> get copyWith =>
@@ -263,13 +273,16 @@ abstract class _TonWalletDetails implements TonWalletDetails {
   @override
   bool get supportsPayload;
   @override
-  bool get supportsMultipleOwners;
-  @override // expirationTime in seconds
+  bool get supportsMultipleOwners; // expirationTime in seconds
+  @override
   int get expirationTime;
   @override
   int? get requiredConfirmations;
+
+  /// Create a copy of TonWalletDetails
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TonWalletDetailsImplCopyWith<_$TonWalletDetailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

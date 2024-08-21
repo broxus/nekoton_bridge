@@ -19,7 +19,9 @@ mixin _$TransactionWithData<T> {
   Transaction get transaction => throw _privateConstructorUsedError;
   T? get data => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TransactionWithDataCopyWith<T, TransactionWithData<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -46,6 +48,8 @@ class _$TransactionWithDataCopyWithImpl<T, $Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -64,6 +68,8 @@ class _$TransactionWithDataCopyWithImpl<T, $Res,
     ) as $Val);
   }
 
+  /// Create a copy of TransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TransactionCopyWith<$Res> get transaction {
@@ -96,6 +102,8 @@ class __$$TransactionWithDataImplCopyWithImpl<T, $Res>
       $Res Function(_$TransactionWithDataImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of TransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -145,7 +153,9 @@ class _$TransactionWithDataImpl<T> extends _TransactionWithData<T> {
   int get hashCode => Object.hash(
       runtimeType, transaction, const DeepCollectionEquality().hash(data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TransactionWithDataImplCopyWith<T, _$TransactionWithDataImpl<T>>
@@ -163,8 +173,11 @@ abstract class _TransactionWithData<T> extends TransactionWithData<T> {
   Transaction get transaction;
   @override
   T? get data;
+
+  /// Create a copy of TransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TransactionWithDataImplCopyWith<T, _$TransactionWithDataImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -33,8 +33,12 @@ mixin _$DePoolOnRoundCompleteNotification {
   bool get reinvest => throw _privateConstructorUsedError;
   int get reason => throw _privateConstructorUsedError;
 
+  /// Serializes this DePoolOnRoundCompleteNotification to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DePoolOnRoundCompleteNotification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DePoolOnRoundCompleteNotificationCopyWith<DePoolOnRoundCompleteNotification>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -68,6 +72,8 @@ class _$DePoolOnRoundCompleteNotificationCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DePoolOnRoundCompleteNotification
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -141,6 +147,8 @@ class __$$DePoolOnRoundCompleteNotificationImplCopyWithImpl<$Res>
       $Res Function(_$DePoolOnRoundCompleteNotificationImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DePoolOnRoundCompleteNotification
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -244,12 +252,14 @@ class _$DePoolOnRoundCompleteNotificationImpl
             (identical(other.reason, reason) || other.reason == reason));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, roundId, reward, ordinaryStake,
       vestingStake, lockStake, reinvest, reason);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DePoolOnRoundCompleteNotification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DePoolOnRoundCompleteNotificationImplCopyWith<
@@ -298,8 +308,11 @@ abstract class _DePoolOnRoundCompleteNotification
   bool get reinvest;
   @override
   int get reason;
+
+  /// Create a copy of DePoolOnRoundCompleteNotification
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DePoolOnRoundCompleteNotificationImplCopyWith<
           _$DePoolOnRoundCompleteNotificationImpl>
       get copyWith => throw _privateConstructorUsedError;

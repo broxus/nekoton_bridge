@@ -24,8 +24,12 @@ mixin _$LedgerKeyGetPublicKeys {
   int get offset => throw _privateConstructorUsedError;
   int get limit => throw _privateConstructorUsedError;
 
+  /// Serializes this LedgerKeyGetPublicKeys to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LedgerKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LedgerKeyGetPublicKeysCopyWith<LedgerKeyGetPublicKeys> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$LedgerKeyGetPublicKeysCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LedgerKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class __$$LedgerKeyGetPublicKeysRenameImplCopyWithImpl<$Res>
       $Res Function(_$LedgerKeyGetPublicKeysRenameImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LedgerKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -140,11 +148,13 @@ class _$LedgerKeyGetPublicKeysRenameImpl
             (identical(other.limit, limit) || other.limit == limit));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, offset, limit);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LedgerKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LedgerKeyGetPublicKeysRenameImplCopyWith<
@@ -172,8 +182,11 @@ abstract class _LedgerKeyGetPublicKeysRename implements LedgerKeyGetPublicKeys {
   int get offset;
   @override
   int get limit;
+
+  /// Create a copy of LedgerKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LedgerKeyGetPublicKeysRenameImplCopyWith<
           _$LedgerKeyGetPublicKeysRenameImpl>
       get copyWith => throw _privateConstructorUsedError;

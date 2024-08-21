@@ -24,8 +24,12 @@ mixin _$TonWalletTransactionWithData {
   Transaction get transaction => throw _privateConstructorUsedError;
   TransactionAdditionalInfo? get data => throw _privateConstructorUsedError;
 
+  /// Serializes this TonWalletTransactionWithData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TonWalletTransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TonWalletTransactionWithDataCopyWith<TonWalletTransactionWithData>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$TonWalletTransactionWithDataCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TonWalletTransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -73,6 +79,8 @@ class _$TonWalletTransactionWithDataCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of TonWalletTransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TransactionCopyWith<$Res> get transaction {
@@ -81,6 +89,8 @@ class _$TonWalletTransactionWithDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of TonWalletTransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TransactionAdditionalInfoCopyWith<$Res>? get data {
@@ -121,6 +131,8 @@ class __$$TonWalletTransactionWithDataImplCopyWithImpl<$Res>
       $Res Function(_$TonWalletTransactionWithDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TonWalletTransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -171,11 +183,13 @@ class _$TonWalletTransactionWithDataImpl extends _TonWalletTransactionWithData {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, transaction, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TonWalletTransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TonWalletTransactionWithDataImplCopyWith<
@@ -206,8 +220,11 @@ abstract class _TonWalletTransactionWithData
   Transaction get transaction;
   @override
   TransactionAdditionalInfo? get data;
+
+  /// Create a copy of TonWalletTransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TonWalletTransactionWithDataImplCopyWith<
           _$TonWalletTransactionWithDataImpl>
       get copyWith => throw _privateConstructorUsedError;

@@ -24,8 +24,12 @@ mixin _$TxTreeSimulationErrorItem {
   Address get address => throw _privateConstructorUsedError;
   TxTreeSimulationError get error => throw _privateConstructorUsedError;
 
+  /// Serializes this TxTreeSimulationErrorItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TxTreeSimulationErrorItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TxTreeSimulationErrorItemCopyWith<TxTreeSimulationErrorItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,6 +57,8 @@ class _$TxTreeSimulationErrorItemCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TxTreeSimulationErrorItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -71,6 +77,8 @@ class _$TxTreeSimulationErrorItemCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of TxTreeSimulationErrorItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get address {
@@ -79,6 +87,8 @@ class _$TxTreeSimulationErrorItemCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of TxTreeSimulationErrorItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TxTreeSimulationErrorCopyWith<$Res> get error {
@@ -115,6 +125,8 @@ class __$$TxTreeSimulationErrorItemImplCopyWithImpl<$Res>
       $Res Function(_$TxTreeSimulationErrorItemImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TxTreeSimulationErrorItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -163,11 +175,13 @@ class _$TxTreeSimulationErrorItemImpl extends _TxTreeSimulationErrorItem {
             (identical(other.error, error) || other.error == error));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, address, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TxTreeSimulationErrorItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TxTreeSimulationErrorItemImplCopyWith<_$TxTreeSimulationErrorItemImpl>
@@ -196,8 +210,11 @@ abstract class _TxTreeSimulationErrorItem extends TxTreeSimulationErrorItem {
   Address get address;
   @override
   TxTreeSimulationError get error;
+
+  /// Create a copy of TxTreeSimulationErrorItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TxTreeSimulationErrorItemImplCopyWith<_$TxTreeSimulationErrorItemImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

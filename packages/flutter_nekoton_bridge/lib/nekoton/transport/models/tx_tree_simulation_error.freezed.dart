@@ -24,8 +24,12 @@ mixin _$TxTreeSimulationError {
   TxTreeSimulationErrorType get type => throw _privateConstructorUsedError;
   num? get code => throw _privateConstructorUsedError;
 
+  /// Serializes this TxTreeSimulationError to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TxTreeSimulationError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TxTreeSimulationErrorCopyWith<TxTreeSimulationError> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$TxTreeSimulationErrorCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TxTreeSimulationError
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -90,6 +96,8 @@ class __$$TxTreeSimulationErrorImplCopyWithImpl<$Res>
       $Res Function(_$TxTreeSimulationErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TxTreeSimulationError
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -137,11 +145,13 @@ class _$TxTreeSimulationErrorImpl extends _TxTreeSimulationError {
             (identical(other.code, code) || other.code == code));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, code);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TxTreeSimulationError
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TxTreeSimulationErrorImplCopyWith<_$TxTreeSimulationErrorImpl>
@@ -169,8 +179,11 @@ abstract class _TxTreeSimulationError extends TxTreeSimulationError {
   TxTreeSimulationErrorType get type;
   @override
   num? get code;
+
+  /// Create a copy of TxTreeSimulationError
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TxTreeSimulationErrorImplCopyWith<_$TxTreeSimulationErrorImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

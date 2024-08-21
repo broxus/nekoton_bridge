@@ -24,8 +24,12 @@ mixin _$LedgerUpdateKeyInputRename {
   PublicKey get publicKey => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
+  /// Serializes this LedgerUpdateKeyInputRename to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LedgerUpdateKeyInputRename
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LedgerUpdateKeyInputRenameCopyWith<LedgerUpdateKeyInputRename>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -53,6 +57,8 @@ class _$LedgerUpdateKeyInputRenameCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LedgerUpdateKeyInputRename
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -71,6 +77,8 @@ class _$LedgerUpdateKeyInputRenameCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of LedgerUpdateKeyInputRename
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get publicKey {
@@ -105,6 +113,8 @@ class __$$LedgerUpdateKeyInputRenameRenameImplCopyWithImpl<$Res>
       $Res Function(_$LedgerUpdateKeyInputRenameRenameImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LedgerUpdateKeyInputRename
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -156,11 +166,13 @@ class _$LedgerUpdateKeyInputRenameRenameImpl
             (identical(other.name, name) || other.name == name));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, publicKey, name);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LedgerUpdateKeyInputRename
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LedgerUpdateKeyInputRenameRenameImplCopyWith<
@@ -190,8 +202,11 @@ abstract class _LedgerUpdateKeyInputRenameRename
   PublicKey get publicKey;
   @override
   String get name;
+
+  /// Create a copy of LedgerUpdateKeyInputRename
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LedgerUpdateKeyInputRenameRenameImplCopyWith<
           _$LedgerUpdateKeyInputRenameRenameImpl>
       get copyWith => throw _privateConstructorUsedError;

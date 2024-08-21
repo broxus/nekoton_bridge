@@ -75,6 +75,8 @@ mixin _$Expiration {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this Expiration to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -94,6 +96,9 @@ class _$ExpirationCopyWithImpl<$Res, $Val extends Expiration>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of Expiration
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -110,6 +115,9 @@ class __$$NeverImplCopyWithImpl<$Res>
   __$$NeverImplCopyWithImpl(
       _$NeverImpl _value, $Res Function(_$NeverImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of Expiration
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -134,7 +142,7 @@ class _$NeverImpl implements _Never {
         (other.runtimeType == runtimeType && other is _$NeverImpl);
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -237,6 +245,8 @@ class __$$TimeoutImplCopyWithImpl<$Res>
       _$TimeoutImpl _value, $Res Function(_$TimeoutImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Expiration
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -279,11 +289,13 @@ class _$TimeoutImpl implements _Timeout {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Expiration
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TimeoutImplCopyWith<_$TimeoutImpl> get copyWith =>
@@ -371,7 +383,10 @@ abstract class _Timeout implements Expiration {
   factory _Timeout.fromJson(Map<String, dynamic> json) = _$TimeoutImpl.fromJson;
 
   int get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Expiration
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TimeoutImplCopyWith<_$TimeoutImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -393,6 +408,8 @@ class __$$TimestampImplCopyWithImpl<$Res>
       _$TimestampImpl _value, $Res Function(_$TimestampImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Expiration
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -435,11 +452,13 @@ class _$TimestampImpl implements _Timestamp {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Expiration
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TimestampImplCopyWith<_$TimestampImpl> get copyWith =>
@@ -528,7 +547,10 @@ abstract class _Timestamp implements Expiration {
       _$TimestampImpl.fromJson;
 
   int get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Expiration
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TimestampImplCopyWith<_$TimestampImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

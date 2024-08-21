@@ -24,8 +24,12 @@ mixin _$ExistingContract {
   GenTimings get timings => throw _privateConstructorUsedError;
   LastTransactionId get lastTransactionId => throw _privateConstructorUsedError;
 
+  /// Serializes this ExistingContract to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ExistingContract
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ExistingContractCopyWith<ExistingContract> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$ExistingContractCopyWithImpl<$Res, $Val extends ExistingContract>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ExistingContract
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -78,6 +84,8 @@ class _$ExistingContractCopyWithImpl<$Res, $Val extends ExistingContract>
     ) as $Val);
   }
 
+  /// Create a copy of ExistingContract
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $GenTimingsCopyWith<$Res> get timings {
@@ -86,6 +94,8 @@ class _$ExistingContractCopyWithImpl<$Res, $Val extends ExistingContract>
     });
   }
 
+  /// Create a copy of ExistingContract
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LastTransactionIdCopyWith<$Res> get lastTransactionId {
@@ -122,6 +132,8 @@ class __$$ExistingContractImplCopyWithImpl<$Res>
       $Res Function(_$ExistingContractImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ExistingContract
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -180,12 +192,14 @@ class _$ExistingContractImpl implements _ExistingContract {
                 other.lastTransactionId == lastTransactionId));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, account, timings, lastTransactionId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ExistingContract
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ExistingContractImplCopyWith<_$ExistingContractImpl> get copyWith =>
@@ -216,8 +230,11 @@ abstract class _ExistingContract implements ExistingContract {
   GenTimings get timings;
   @override
   LastTransactionId get lastTransactionId;
+
+  /// Create a copy of ExistingContract
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ExistingContractImplCopyWith<_$ExistingContractImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

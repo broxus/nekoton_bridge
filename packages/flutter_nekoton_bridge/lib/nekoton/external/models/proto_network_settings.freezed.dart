@@ -22,8 +22,12 @@ ProtoNetworkSettings _$ProtoNetworkSettingsFromJson(Map<String, dynamic> json) {
 mixin _$ProtoNetworkSettings {
   String get endpoint => throw _privateConstructorUsedError;
 
+  /// Serializes this ProtoNetworkSettings to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ProtoNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ProtoNetworkSettingsCopyWith<ProtoNetworkSettings> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$ProtoNetworkSettingsCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ProtoNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -81,6 +87,8 @@ class __$$ProtoNetworkSettingsImplCopyWithImpl<$Res>
       $Res Function(_$ProtoNetworkSettingsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ProtoNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -120,11 +128,13 @@ class _$ProtoNetworkSettingsImpl implements _ProtoNetworkSettings {
                 other.endpoint == endpoint));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, endpoint);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ProtoNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ProtoNetworkSettingsImplCopyWith<_$ProtoNetworkSettingsImpl>
@@ -149,8 +159,11 @@ abstract class _ProtoNetworkSettings implements ProtoNetworkSettings {
 
   @override
   String get endpoint;
+
+  /// Create a copy of ProtoNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ProtoNetworkSettingsImplCopyWith<_$ProtoNetworkSettingsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

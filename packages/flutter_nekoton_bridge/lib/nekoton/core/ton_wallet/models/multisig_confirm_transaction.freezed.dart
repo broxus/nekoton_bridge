@@ -24,8 +24,12 @@ mixin _$MultisigConfirmTransaction {
   PublicKey get custodian => throw _privateConstructorUsedError;
   String get transactionId => throw _privateConstructorUsedError;
 
+  /// Serializes this MultisigConfirmTransaction to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MultisigConfirmTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MultisigConfirmTransactionCopyWith<MultisigConfirmTransaction>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -53,6 +57,8 @@ class _$MultisigConfirmTransactionCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MultisigConfirmTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -71,6 +77,8 @@ class _$MultisigConfirmTransactionCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of MultisigConfirmTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get custodian {
@@ -105,6 +113,8 @@ class __$$MultisigConfirmTransactionImplCopyWithImpl<$Res>
       $Res Function(_$MultisigConfirmTransactionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MultisigConfirmTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -155,11 +165,13 @@ class _$MultisigConfirmTransactionImpl implements _MultisigConfirmTransaction {
                 other.transactionId == transactionId));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, custodian, transactionId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MultisigConfirmTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MultisigConfirmTransactionImplCopyWith<_$MultisigConfirmTransactionImpl>
@@ -187,8 +199,11 @@ abstract class _MultisigConfirmTransaction
   PublicKey get custodian;
   @override
   String get transactionId;
+
+  /// Create a copy of MultisigConfirmTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MultisigConfirmTransactionImplCopyWith<_$MultisigConfirmTransactionImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

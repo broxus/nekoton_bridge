@@ -68,6 +68,8 @@ mixin _$WalletInteractionMethod {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this WalletInteractionMethod to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -88,6 +90,9 @@ class _$WalletInteractionMethodCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of WalletInteractionMethod
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -104,6 +109,9 @@ class __$$WalletV3TransferImplCopyWithImpl<$Res>
   __$$WalletV3TransferImplCopyWithImpl(_$WalletV3TransferImpl _value,
       $Res Function(_$WalletV3TransferImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of WalletInteractionMethod
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -129,7 +137,7 @@ class _$WalletV3TransferImpl implements _WalletV3Transfer {
         (other.runtimeType == runtimeType && other is _$WalletV3TransferImpl);
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -229,6 +237,8 @@ class __$$MultisigImplCopyWithImpl<$Res>
       _$MultisigImpl _value, $Res Function(_$MultisigImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of WalletInteractionMethod
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -242,6 +252,8 @@ class __$$MultisigImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of WalletInteractionMethod
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MultisigTransactionCopyWith<$Res> get data {
@@ -279,11 +291,13 @@ class _$MultisigImpl implements _Multisig {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of WalletInteractionMethod
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MultisigImplCopyWith<_$MultisigImpl> get copyWith =>
@@ -366,7 +380,10 @@ abstract class _Multisig implements WalletInteractionMethod {
       _$MultisigImpl.fromJson;
 
   MultisigTransaction get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of WalletInteractionMethod
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MultisigImplCopyWith<_$MultisigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

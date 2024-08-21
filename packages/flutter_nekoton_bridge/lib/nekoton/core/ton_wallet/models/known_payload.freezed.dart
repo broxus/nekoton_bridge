@@ -77,6 +77,8 @@ mixin _$KnownPayload {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this KnownPayload to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -96,6 +98,9 @@ class _$KnownPayloadCopyWithImpl<$Res, $Val extends KnownPayload>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -115,6 +120,8 @@ class __$$CommentImplCopyWithImpl<$Res>
       _$CommentImpl _value, $Res Function(_$CommentImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -157,11 +164,13 @@ class _$CommentImpl implements _Comment {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
@@ -251,7 +260,10 @@ abstract class _Comment implements KnownPayload {
 
   @override
   String get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -276,6 +288,8 @@ class __$$TokenOutgoingTransferImplCopyWithImpl<$Res>
       $Res Function(_$TokenOutgoingTransferImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -289,6 +303,8 @@ class __$$TokenOutgoingTransferImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TokenOutgoingTransferCopyWith<$Res> get data {
@@ -326,11 +342,13 @@ class _$TokenOutgoingTransferImpl implements _TokenOutgoingTransfer {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TokenOutgoingTransferImplCopyWith<_$TokenOutgoingTransferImpl>
@@ -423,7 +441,10 @@ abstract class _TokenOutgoingTransfer implements KnownPayload {
 
   @override
   TokenOutgoingTransfer get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TokenOutgoingTransferImplCopyWith<_$TokenOutgoingTransferImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -447,6 +468,8 @@ class __$$TokenSwapBackImplCopyWithImpl<$Res>
       _$TokenSwapBackImpl _value, $Res Function(_$TokenSwapBackImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -460,6 +483,8 @@ class __$$TokenSwapBackImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TokenSwapBackCopyWith<$Res> get data {
@@ -497,11 +522,13 @@ class _$TokenSwapBackImpl implements _TokenSwapBack {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TokenSwapBackImplCopyWith<_$TokenSwapBackImpl> get copyWith =>
@@ -592,7 +619,10 @@ abstract class _TokenSwapBack implements KnownPayload {
 
   @override
   TokenSwapBack get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TokenSwapBackImplCopyWith<_$TokenSwapBackImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -25,8 +25,12 @@ mixin _$DerivedKeyCreateInputImport {
   String get phrase => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
 
+  /// Serializes this DerivedKeyCreateInputImport to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DerivedKeyCreateInputImport
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DerivedKeyCreateInputImportCopyWith<DerivedKeyCreateInputImport>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$DerivedKeyCreateInputImportCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DerivedKeyCreateInputImport
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -78,6 +84,8 @@ class _$DerivedKeyCreateInputImportCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of DerivedKeyCreateInputImport
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
@@ -112,6 +120,8 @@ class __$$DerivedKeyCreateInputImportImportImplCopyWithImpl<$Res>
       $Res Function(_$DerivedKeyCreateInputImportImportImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DerivedKeyCreateInputImport
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -171,11 +181,13 @@ class _$DerivedKeyCreateInputImportImportImpl
                 other.password == password));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, keyName, phrase, password);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DerivedKeyCreateInputImport
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DerivedKeyCreateInputImportImportImplCopyWith<
@@ -209,8 +221,11 @@ abstract class _DerivedKeyCreateInputImportImport
   String get phrase;
   @override
   Password get password;
+
+  /// Create a copy of DerivedKeyCreateInputImport
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DerivedKeyCreateInputImportImportImplCopyWith<
           _$DerivedKeyCreateInputImportImportImpl>
       get copyWith => throw _privateConstructorUsedError;

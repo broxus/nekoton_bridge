@@ -25,8 +25,12 @@ mixin _$PendingTransaction {
   @dateSecondsSinceEpochJsonConverter
   DateTime get expireAt => throw _privateConstructorUsedError;
 
+  /// Serializes this PendingTransaction to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PendingTransactionCopyWith<PendingTransaction> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$PendingTransactionCopyWithImpl<$Res, $Val extends PendingTransaction>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -78,6 +84,8 @@ class _$PendingTransactionCopyWithImpl<$Res, $Val extends PendingTransaction>
     ) as $Val);
   }
 
+  /// Create a copy of PendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res>? get src {
@@ -116,6 +124,8 @@ class __$$PendingTransactionImplCopyWithImpl<$Res>
       $Res Function(_$PendingTransactionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -177,11 +187,13 @@ class _$PendingTransactionImpl extends _PendingTransaction {
                 other.expireAt == expireAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, messageHash, src, expireAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PendingTransactionImplCopyWith<_$PendingTransactionImpl> get copyWith =>
@@ -214,8 +226,11 @@ abstract class _PendingTransaction extends PendingTransaction {
   @override
   @dateSecondsSinceEpochJsonConverter
   DateTime get expireAt;
+
+  /// Create a copy of PendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PendingTransactionImplCopyWith<_$PendingTransactionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -28,8 +28,12 @@ mixin _$MultisigSendTransaction {
   int get flags => throw _privateConstructorUsedError;
   String get payload => throw _privateConstructorUsedError;
 
+  /// Serializes this MultisigSendTransaction to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MultisigSendTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MultisigSendTransactionCopyWith<MultisigSendTransaction> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -61,6 +65,8 @@ class _$MultisigSendTransactionCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MultisigSendTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -94,6 +100,8 @@ class _$MultisigSendTransactionCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of MultisigSendTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get dest {
@@ -133,6 +141,8 @@ class __$$MultisigSendTransactionImplCopyWithImpl<$Res>
       $Res Function(_$MultisigSendTransactionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MultisigSendTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -209,12 +219,14 @@ class _$MultisigSendTransactionImpl implements _MultisigSendTransaction {
             (identical(other.payload, payload) || other.payload == payload));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, dest, value, bounce, flags, payload);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MultisigSendTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MultisigSendTransactionImplCopyWith<_$MultisigSendTransactionImpl>
@@ -251,8 +263,11 @@ abstract class _MultisigSendTransaction implements MultisigSendTransaction {
   int get flags;
   @override
   String get payload;
+
+  /// Create a copy of MultisigSendTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MultisigSendTransactionImplCopyWith<_$MultisigSendTransactionImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -25,8 +25,12 @@ mixin _$DerivedKeyUpdateParamsChangePassword {
   Password get oldPassword => throw _privateConstructorUsedError;
   Password get newPassword => throw _privateConstructorUsedError;
 
+  /// Serializes this DerivedKeyUpdateParamsChangePassword to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DerivedKeyUpdateParamsChangePassword
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DerivedKeyUpdateParamsChangePasswordCopyWith<
           DerivedKeyUpdateParamsChangePassword>
       get copyWith => throw _privateConstructorUsedError;
@@ -58,6 +62,8 @@ class _$DerivedKeyUpdateParamsChangePasswordCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DerivedKeyUpdateParamsChangePassword
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -81,6 +87,8 @@ class _$DerivedKeyUpdateParamsChangePasswordCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of DerivedKeyUpdateParamsChangePassword
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get masterKey {
@@ -89,6 +97,8 @@ class _$DerivedKeyUpdateParamsChangePasswordCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of DerivedKeyUpdateParamsChangePassword
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get oldPassword {
@@ -97,6 +107,8 @@ class _$DerivedKeyUpdateParamsChangePasswordCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of DerivedKeyUpdateParamsChangePassword
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get newPassword {
@@ -142,6 +154,8 @@ class __$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplCopyWithImpl<
           _then)
       : super(_value, _then);
 
+  /// Create a copy of DerivedKeyUpdateParamsChangePassword
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -205,12 +219,14 @@ class _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl
                 other.newPassword == newPassword));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, masterKey, oldPassword, newPassword);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DerivedKeyUpdateParamsChangePassword
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplCopyWith<
@@ -246,8 +262,11 @@ abstract class _DerivedKeyUpdateParamsChangePasswordChangePassword
   Password get oldPassword;
   @override
   Password get newPassword;
+
+  /// Create a copy of DerivedKeyUpdateParamsChangePassword
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DerivedKeyUpdateParamsChangePasswordChangePasswordImplCopyWith<
           _$DerivedKeyUpdateParamsChangePasswordChangePasswordImpl>
       get copyWith => throw _privateConstructorUsedError;

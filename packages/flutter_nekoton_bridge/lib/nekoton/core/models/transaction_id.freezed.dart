@@ -23,8 +23,12 @@ mixin _$TransactionId {
   String get lt => throw _privateConstructorUsedError;
   String get hash => throw _privateConstructorUsedError;
 
+  /// Serializes this TransactionId to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TransactionId
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TransactionIdCopyWith<TransactionId> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$TransactionIdCopyWithImpl<$Res, $Val extends TransactionId>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TransactionId
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$TransactionIdImplCopyWithImpl<$Res>
       _$TransactionIdImpl _value, $Res Function(_$TransactionIdImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TransactionId
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,11 +140,13 @@ class _$TransactionIdImpl implements _TransactionId {
             (identical(other.hash, hash) || other.hash == hash));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, lt, hash);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TransactionId
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TransactionIdImplCopyWith<_$TransactionIdImpl> get copyWith =>
@@ -162,8 +172,11 @@ abstract class _TransactionId implements TransactionId {
   String get lt;
   @override
   String get hash;
+
+  /// Create a copy of TransactionId
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TransactionIdImplCopyWith<_$TransactionIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
