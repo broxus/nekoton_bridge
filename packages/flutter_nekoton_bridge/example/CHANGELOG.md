@@ -1,3 +1,7 @@
+## 1.18.0-dev.7
+
+ - Update a dependency to the latest release.
+
 ## 1.18.0-dev.6
 
  - **FEAT**: add `simulateTransactionTree` method. ([2df468c3](https://github.com/broxus/nekoton_bridge/commit/2df468c350e1bf336ed87cce69121c38655c85f6))
