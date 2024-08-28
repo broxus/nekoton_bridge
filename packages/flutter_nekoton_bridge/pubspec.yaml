@@ -14,14 +14,13 @@ dependencies:
   plugin_platform_interface: ^2.1.8
   rxdart: ^0.27.7
   reflectable: ^4.0.9
-  money2_improver:
-    git:
-      url: https://github.com/broxus/money2_improver
+  money2_fixer: 2.0.0
   money2: ^5.2.1
   nekoton_bridge:
     git:
       url: https://github.com/broxus/nekoton_bridge.git
       path: packages/nekoton_bridge
+      ref: update-dependencies
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
   #  for generating mirror hash
