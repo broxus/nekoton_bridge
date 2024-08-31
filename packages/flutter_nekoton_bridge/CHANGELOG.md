@@ -1,3 +1,7 @@
+## 2.0.1-dev.0
+
+ - **FIX**: pubspec.yaml. ([69d3f686](https://github.com/broxus/nekoton_bridge/commit/69d3f686b07bc9b27dd77d2b5e3a4f0646ea7de2))
+
 ## 2.0.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.

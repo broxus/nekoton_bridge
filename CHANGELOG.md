@@ -11,6 +11,34 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 Packages with breaking changes:
 
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.0.1-dev.0`](#flutter_nekoton_bridge---v201-dev0)
+ - [`flutter_nekoton_bridge_example` - `v1.18.1-dev.0`](#flutter_nekoton_bridge_example---v1181-dev0)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.18.1-dev.0`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.0.1-dev.0`
+
+ - **FIX**: pubspec.yaml. ([69d3f686](https://github.com/broxus/nekoton_bridge/commit/69d3f686b07bc9b27dd77d2b5e3a4f0646ea7de2))
+
+
+## 2024-08-31
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
  - [`flutter_nekoton_bridge` - `v2.0.0`](#flutter_nekoton_bridge---v200)
  - [`nekoton_bridge` - `v2.0.0`](#nekoton_bridge---v200)
 

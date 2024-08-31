@@ -1,3 +1,7 @@
+## 1.18.1-dev.0
+
+ - Update a dependency to the latest release.
+
 ## 1.18.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
