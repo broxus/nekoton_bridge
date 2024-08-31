@@ -1,8 +1,10 @@
 #!/bin/bash
+set -e
+set -o pipefail
 
 # Setup
 BUILD_DIR=platform-build
-mkdir $BUILD_DIR
+mkdir -p $BUILD_DIR
 cd $BUILD_DIR
 
 # Create the jniLibs build directory

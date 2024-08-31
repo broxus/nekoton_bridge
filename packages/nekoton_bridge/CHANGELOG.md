@@ -1,3 +1,7 @@
+## 2.0.0
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
 ## 2.0.0-dev.1
 
 Using money2_improver from git and money2: 5.2.1
