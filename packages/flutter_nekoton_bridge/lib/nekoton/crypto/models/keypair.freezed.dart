@@ -23,8 +23,12 @@ mixin _$Keypair {
   PublicKey get public => throw _privateConstructorUsedError;
   PublicKey get secret => throw _privateConstructorUsedError;
 
+  /// Serializes this Keypair to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Keypair
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $KeypairCopyWith<Keypair> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -49,6 +53,8 @@ class _$KeypairCopyWithImpl<$Res, $Val extends Keypair>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Keypair
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -67,6 +73,8 @@ class _$KeypairCopyWithImpl<$Res, $Val extends Keypair>
     ) as $Val);
   }
 
+  /// Create a copy of Keypair
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get public {
@@ -75,6 +83,8 @@ class _$KeypairCopyWithImpl<$Res, $Val extends Keypair>
     });
   }
 
+  /// Create a copy of Keypair
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get secret {
@@ -107,6 +117,8 @@ class __$$KeypairImplCopyWithImpl<$Res>
       _$KeypairImpl _value, $Res Function(_$KeypairImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Keypair
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -153,11 +165,13 @@ class _$KeypairImpl implements _Keypair {
             (identical(other.secret, secret) || other.secret == secret));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, public, secret);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Keypair
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$KeypairImplCopyWith<_$KeypairImpl> get copyWith =>
@@ -182,8 +196,11 @@ abstract class _Keypair implements Keypair {
   PublicKey get public;
   @override
   PublicKey get secret;
+
+  /// Create a copy of Keypair
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$KeypairImplCopyWith<_$KeypairImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

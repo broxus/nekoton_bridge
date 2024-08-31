@@ -24,8 +24,12 @@ mixin _$OnTransactionsFoundPayload {
   List<Transaction> get transactions => throw _privateConstructorUsedError;
   TransactionsBatchInfo get batchInfo => throw _privateConstructorUsedError;
 
+  /// Serializes this OnTransactionsFoundPayload to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of OnTransactionsFoundPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $OnTransactionsFoundPayloadCopyWith<OnTransactionsFoundPayload>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -53,6 +57,8 @@ class _$OnTransactionsFoundPayloadCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of OnTransactionsFoundPayload
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -71,6 +77,8 @@ class _$OnTransactionsFoundPayloadCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of OnTransactionsFoundPayload
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TransactionsBatchInfoCopyWith<$Res> get batchInfo {
@@ -105,6 +113,8 @@ class __$$OnTransactionsFoundPayloadImplCopyWithImpl<$Res>
       $Res Function(_$OnTransactionsFoundPayloadImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OnTransactionsFoundPayload
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -163,12 +173,14 @@ class _$OnTransactionsFoundPayloadImpl implements _OnTransactionsFoundPayload {
                 other.batchInfo == batchInfo));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_transactions), batchInfo);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OnTransactionsFoundPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$OnTransactionsFoundPayloadImplCopyWith<_$OnTransactionsFoundPayloadImpl>
@@ -197,8 +209,11 @@ abstract class _OnTransactionsFoundPayload
   List<Transaction> get transactions;
   @override
   TransactionsBatchInfo get batchInfo;
+
+  /// Create a copy of OnTransactionsFoundPayload
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OnTransactionsFoundPayloadImplCopyWith<_$OnTransactionsFoundPayloadImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

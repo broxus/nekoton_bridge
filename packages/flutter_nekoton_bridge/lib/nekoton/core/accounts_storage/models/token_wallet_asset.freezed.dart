@@ -22,8 +22,12 @@ TokenWalletAsset _$TokenWalletAssetFromJson(Map<String, dynamic> json) {
 mixin _$TokenWalletAsset {
   Address get rootTokenContract => throw _privateConstructorUsedError;
 
+  /// Serializes this TokenWalletAsset to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TokenWalletAsset
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TokenWalletAssetCopyWith<TokenWalletAsset> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$TokenWalletAssetCopyWithImpl<$Res, $Val extends TokenWalletAsset>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TokenWalletAsset
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -62,6 +68,8 @@ class _$TokenWalletAssetCopyWithImpl<$Res, $Val extends TokenWalletAsset>
     ) as $Val);
   }
 
+  /// Create a copy of TokenWalletAsset
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get rootTokenContract {
@@ -93,6 +101,8 @@ class __$$TokenWalletAssetImplCopyWithImpl<$Res>
       $Res Function(_$TokenWalletAssetImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TokenWalletAsset
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -133,11 +143,13 @@ class _$TokenWalletAssetImpl implements _TokenWalletAsset {
                 other.rootTokenContract == rootTokenContract));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, rootTokenContract);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TokenWalletAsset
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TokenWalletAssetImplCopyWith<_$TokenWalletAssetImpl> get copyWith =>
@@ -161,8 +173,11 @@ abstract class _TokenWalletAsset implements TokenWalletAsset {
 
   @override
   Address get rootTokenContract;
+
+  /// Create a copy of TokenWalletAsset
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TokenWalletAssetImplCopyWith<_$TokenWalletAssetImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

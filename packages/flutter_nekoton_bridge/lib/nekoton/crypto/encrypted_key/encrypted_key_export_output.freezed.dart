@@ -25,8 +25,12 @@ mixin _$EncryptedKeyExportSeedOutput {
   @mnemonicJsonConverter
   MnemonicType get mnemonicType => throw _privateConstructorUsedError;
 
+  /// Serializes this EncryptedKeyExportSeedOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EncryptedKeyExportSeedOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EncryptedKeyExportSeedOutputCopyWith<EncryptedKeyExportSeedOutput>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$EncryptedKeyExportSeedOutputCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EncryptedKeyExportSeedOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -73,6 +79,8 @@ class _$EncryptedKeyExportSeedOutputCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of EncryptedKeyExportSeedOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MnemonicTypeCopyWith<$Res> get mnemonicType {
@@ -107,6 +115,8 @@ class __$$EncryptedKeyExportSeedOutputImplCopyWithImpl<$Res>
       $Res Function(_$EncryptedKeyExportSeedOutputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EncryptedKeyExportSeedOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -159,11 +169,13 @@ class _$EncryptedKeyExportSeedOutputImpl
                 other.mnemonicType == mnemonicType));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, phrase, mnemonicType);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EncryptedKeyExportSeedOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EncryptedKeyExportSeedOutputImplCopyWith<
@@ -194,8 +206,11 @@ abstract class _EncryptedKeyExportSeedOutput
   @override
   @mnemonicJsonConverter
   MnemonicType get mnemonicType;
+
+  /// Create a copy of EncryptedKeyExportSeedOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EncryptedKeyExportSeedOutputImplCopyWith<
           _$EncryptedKeyExportSeedOutputImpl>
       get copyWith => throw _privateConstructorUsedError;

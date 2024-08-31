@@ -25,8 +25,12 @@ mixin _$DerivedKeyUpdateParamsRenameKey {
   PublicKey get publicKey => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
+  /// Serializes this DerivedKeyUpdateParamsRenameKey to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DerivedKeyUpdateParamsRenameKey
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DerivedKeyUpdateParamsRenameKeyCopyWith<DerivedKeyUpdateParamsRenameKey>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -56,6 +60,8 @@ class _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DerivedKeyUpdateParamsRenameKey
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -79,6 +85,8 @@ class _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of DerivedKeyUpdateParamsRenameKey
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get masterKey {
@@ -87,6 +95,8 @@ class _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of DerivedKeyUpdateParamsRenameKey
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get publicKey {
@@ -123,6 +133,8 @@ class __$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWithImpl<$Res>
       $Res Function(_$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DerivedKeyUpdateParamsRenameKey
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -183,11 +195,13 @@ class _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl
             (identical(other.name, name) || other.name == name));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, masterKey, publicKey, name);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DerivedKeyUpdateParamsRenameKey
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWith<
@@ -222,8 +236,11 @@ abstract class _DerivedKeyUpdateParamsRenameKeyRenameKey
   PublicKey get publicKey;
   @override
   String get name;
+
+  /// Create a copy of DerivedKeyUpdateParamsRenameKey
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWith<
           _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl>
       get copyWith => throw _privateConstructorUsedError;

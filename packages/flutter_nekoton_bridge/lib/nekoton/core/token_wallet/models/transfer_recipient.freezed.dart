@@ -68,8 +68,13 @@ mixin _$TransferRecipient {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this TransferRecipient to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TransferRecipient
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TransferRecipientCopyWith<TransferRecipient> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -95,6 +100,8 @@ class _$TransferRecipientCopyWithImpl<$Res, $Val extends TransferRecipient>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TransferRecipient
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -108,6 +115,8 @@ class _$TransferRecipientCopyWithImpl<$Res, $Val extends TransferRecipient>
     ) as $Val);
   }
 
+  /// Create a copy of TransferRecipient
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get data {
@@ -139,6 +148,8 @@ class __$$OwnerWalletImplCopyWithImpl<$Res>
       _$OwnerWalletImpl _value, $Res Function(_$OwnerWalletImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TransferRecipient
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -181,11 +192,13 @@ class _$OwnerWalletImpl implements _OwnerWallet {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TransferRecipient
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$OwnerWalletImplCopyWith<_$OwnerWalletImpl> get copyWith =>
@@ -269,8 +282,11 @@ abstract class _OwnerWallet implements TransferRecipient {
 
   @override
   Address get data;
+
+  /// Create a copy of TransferRecipient
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OwnerWalletImplCopyWith<_$OwnerWalletImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -297,6 +313,8 @@ class __$$TokenWalletImplCopyWithImpl<$Res>
       _$TokenWalletImpl _value, $Res Function(_$TokenWalletImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TransferRecipient
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -339,11 +357,13 @@ class _$TokenWalletImpl implements _TokenWallet {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TransferRecipient
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TokenWalletImplCopyWith<_$TokenWalletImpl> get copyWith =>
@@ -427,8 +447,11 @@ abstract class _TokenWallet implements TransferRecipient {
 
   @override
   Address get data;
+
+  /// Create a copy of TransferRecipient
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TokenWalletImplCopyWith<_$TokenWalletImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

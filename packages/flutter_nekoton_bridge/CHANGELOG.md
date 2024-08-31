@@ -1,6 +1,11 @@
+## 2.0.0-dev.1
+
+Using money2_improver from git and money2: 5.2.1
+
 ## 1.28.0-dev.7
 
  - Update a dependency to the latest release.
+
 
 ## 1.28.0-dev.6
 

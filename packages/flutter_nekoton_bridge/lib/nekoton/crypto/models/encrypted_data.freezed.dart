@@ -26,8 +26,12 @@ mixin _$EncryptedData {
   String get data => throw _privateConstructorUsedError;
   String get nonce => throw _privateConstructorUsedError;
 
+  /// Serializes this EncryptedData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EncryptedData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EncryptedDataCopyWith<EncryptedData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -59,6 +63,8 @@ class _$EncryptedDataCopyWithImpl<$Res, $Val extends EncryptedData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EncryptedData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,6 +98,8 @@ class _$EncryptedDataCopyWithImpl<$Res, $Val extends EncryptedData>
     ) as $Val);
   }
 
+  /// Create a copy of EncryptedData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get sourcePublicKey {
@@ -100,6 +108,8 @@ class _$EncryptedDataCopyWithImpl<$Res, $Val extends EncryptedData>
     });
   }
 
+  /// Create a copy of EncryptedData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get recipientPublicKey {
@@ -138,6 +148,8 @@ class __$$EncryptedDataImplCopyWithImpl<$Res>
       _$EncryptedDataImpl _value, $Res Function(_$EncryptedDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EncryptedData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -216,12 +228,14 @@ class _$EncryptedDataImpl implements _EncryptedData {
             (identical(other.nonce, nonce) || other.nonce == nonce));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, algorithm, sourcePublicKey, recipientPublicKey, data, nonce);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EncryptedData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EncryptedDataImplCopyWith<_$EncryptedDataImpl> get copyWith =>
@@ -256,8 +270,11 @@ abstract class _EncryptedData implements EncryptedData {
   String get data;
   @override
   String get nonce;
+
+  /// Create a copy of EncryptedData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EncryptedDataImplCopyWith<_$EncryptedDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

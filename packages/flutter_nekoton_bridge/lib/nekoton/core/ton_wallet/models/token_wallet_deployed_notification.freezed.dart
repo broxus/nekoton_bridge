@@ -23,8 +23,12 @@ TokenWalletDeployedNotification _$TokenWalletDeployedNotificationFromJson(
 mixin _$TokenWalletDeployedNotification {
   Address get rootTokenContract => throw _privateConstructorUsedError;
 
+  /// Serializes this TokenWalletDeployedNotification to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TokenWalletDeployedNotification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TokenWalletDeployedNotificationCopyWith<TokenWalletDeployedNotification>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -53,6 +57,8 @@ class _$TokenWalletDeployedNotificationCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TokenWalletDeployedNotification
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -66,6 +72,8 @@ class _$TokenWalletDeployedNotificationCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of TokenWalletDeployedNotification
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get rootTokenContract {
@@ -100,6 +108,8 @@ class __$$TokenWalletDeployedNotificationImplCopyWithImpl<$Res>
       $Res Function(_$TokenWalletDeployedNotificationImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TokenWalletDeployedNotification
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -142,11 +152,13 @@ class _$TokenWalletDeployedNotificationImpl
                 other.rootTokenContract == rootTokenContract));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, rootTokenContract);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TokenWalletDeployedNotification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TokenWalletDeployedNotificationImplCopyWith<
@@ -173,8 +185,11 @@ abstract class _TokenWalletDeployedNotification
 
   @override
   Address get rootTokenContract;
+
+  /// Create a copy of TokenWalletDeployedNotification
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TokenWalletDeployedNotificationImplCopyWith<
           _$TokenWalletDeployedNotificationImpl>
       get copyWith => throw _privateConstructorUsedError;

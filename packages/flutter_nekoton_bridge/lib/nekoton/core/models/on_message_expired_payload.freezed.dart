@@ -24,8 +24,12 @@ mixin _$OnMessageExpiredPayload {
   PendingTransaction get pendingTransaction =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this OnMessageExpiredPayload to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of OnMessageExpiredPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $OnMessageExpiredPayloadCopyWith<OnMessageExpiredPayload> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -52,6 +56,8 @@ class _$OnMessageExpiredPayloadCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of OnMessageExpiredPayload
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -65,6 +71,8 @@ class _$OnMessageExpiredPayloadCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of OnMessageExpiredPayload
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PendingTransactionCopyWith<$Res> get pendingTransaction {
@@ -100,6 +108,8 @@ class __$$OnMessageExpiredPayloadImplCopyWithImpl<$Res>
       $Res Function(_$OnMessageExpiredPayloadImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OnMessageExpiredPayload
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -140,11 +150,13 @@ class _$OnMessageExpiredPayloadImpl implements _OnMessageExpiredPayload {
                 other.pendingTransaction == pendingTransaction));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, pendingTransaction);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OnMessageExpiredPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$OnMessageExpiredPayloadImplCopyWith<_$OnMessageExpiredPayloadImpl>
@@ -169,8 +181,11 @@ abstract class _OnMessageExpiredPayload implements OnMessageExpiredPayload {
 
   @override
   PendingTransaction get pendingTransaction;
+
+  /// Create a copy of OnMessageExpiredPayload
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OnMessageExpiredPayloadImplCopyWith<_$OnMessageExpiredPayloadImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

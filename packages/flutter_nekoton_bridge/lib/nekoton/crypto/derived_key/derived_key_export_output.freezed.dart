@@ -23,8 +23,12 @@ DerivedKeyExportOutput _$DerivedKeyExportOutputFromJson(
 mixin _$DerivedKeyExportOutput {
   String get phrase => throw _privateConstructorUsedError;
 
+  /// Serializes this DerivedKeyExportOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DerivedKeyExportOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DerivedKeyExportOutputCopyWith<DerivedKeyExportOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$DerivedKeyExportOutputCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DerivedKeyExportOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -85,6 +91,8 @@ class __$$DerivedKeyExportOutputImplCopyWithImpl<$Res>
       $Res Function(_$DerivedKeyExportOutputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DerivedKeyExportOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -123,11 +131,13 @@ class _$DerivedKeyExportOutputImpl implements _DerivedKeyExportOutput {
             (identical(other.phrase, phrase) || other.phrase == phrase));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, phrase);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DerivedKeyExportOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DerivedKeyExportOutputImplCopyWith<_$DerivedKeyExportOutputImpl>
@@ -151,8 +161,11 @@ abstract class _DerivedKeyExportOutput implements DerivedKeyExportOutput {
 
   @override
   String get phrase;
+
+  /// Create a copy of DerivedKeyExportOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DerivedKeyExportOutputImplCopyWith<_$DerivedKeyExportOutputImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

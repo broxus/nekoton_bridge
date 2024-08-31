@@ -23,8 +23,12 @@ mixin _$GenTimings {
   String get genLt => throw _privateConstructorUsedError;
   int get genUtime => throw _privateConstructorUsedError;
 
+  /// Serializes this GenTimings to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GenTimings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GenTimingsCopyWith<GenTimings> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$GenTimingsCopyWithImpl<$Res, $Val extends GenTimings>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GenTimings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$GenTimingsImplCopyWithImpl<$Res>
       _$GenTimingsImpl _value, $Res Function(_$GenTimingsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GenTimings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -133,11 +141,13 @@ class _$GenTimingsImpl implements _GenTimings {
                 other.genUtime == genUtime));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, genLt, genUtime);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GenTimings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GenTimingsImplCopyWith<_$GenTimingsImpl> get copyWith =>
@@ -163,8 +173,11 @@ abstract class _GenTimings implements GenTimings {
   String get genLt;
   @override
   int get genUtime;
+
+  /// Create a copy of GenTimings
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GenTimingsImplCopyWith<_$GenTimingsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

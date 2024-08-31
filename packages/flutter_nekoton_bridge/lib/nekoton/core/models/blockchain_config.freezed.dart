@@ -26,8 +26,12 @@ mixin _$BlockchainConfig {
       throw _privateConstructorUsedError; // base64-encoded ConfigParams
   String get config => throw _privateConstructorUsedError;
 
+  /// Serializes this BlockchainConfig to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BlockchainConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $BlockchainConfigCopyWith<BlockchainConfig> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,6 +55,8 @@ class _$BlockchainConfigCopyWithImpl<$Res, $Val extends BlockchainConfig>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of BlockchainConfig
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -99,6 +105,8 @@ class __$$BlockchainConfigImplCopyWithImpl<$Res>
       $Res Function(_$BlockchainConfigImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BlockchainConfig
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -169,12 +177,14 @@ class _$BlockchainConfigImpl implements _BlockchainConfig {
             (identical(other.config, config) || other.config == config));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, capabilities, globalId, globalVersion, config);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BlockchainConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$BlockchainConfigImplCopyWith<_$BlockchainConfigImpl> get copyWith =>
@@ -204,11 +214,14 @@ abstract class _BlockchainConfig implements BlockchainConfig {
   @override
   int get globalId;
   @override
-  int get globalVersion;
-  @override // base64-encoded ConfigParams
-  String get config;
+  int get globalVersion; // base64-encoded ConfigParams
   @override
-  @JsonKey(ignore: true)
+  String get config;
+
+  /// Create a copy of BlockchainConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BlockchainConfigImplCopyWith<_$BlockchainConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

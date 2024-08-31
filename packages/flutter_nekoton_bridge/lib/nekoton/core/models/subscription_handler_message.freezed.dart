@@ -24,8 +24,12 @@ mixin _$SubscriptionHandlerMessage {
   String get event => throw _privateConstructorUsedError;
   String get payload => throw _privateConstructorUsedError;
 
+  /// Serializes this SubscriptionHandlerMessage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscriptionHandlerMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SubscriptionHandlerMessageCopyWith<SubscriptionHandlerMessage>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -51,6 +55,8 @@ class _$SubscriptionHandlerMessageCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SubscriptionHandlerMessage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,6 +98,8 @@ class __$$SubscriptionHandlerMessageImplCopyWithImpl<$Res>
       $Res Function(_$SubscriptionHandlerMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscriptionHandlerMessage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -140,11 +148,13 @@ class _$SubscriptionHandlerMessageImpl implements _SubscriptionHandlerMessage {
             (identical(other.payload, payload) || other.payload == payload));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, event, payload);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscriptionHandlerMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SubscriptionHandlerMessageImplCopyWith<_$SubscriptionHandlerMessageImpl>
@@ -172,8 +182,11 @@ abstract class _SubscriptionHandlerMessage
   String get event;
   @override
   String get payload;
+
+  /// Create a copy of SubscriptionHandlerMessage
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SubscriptionHandlerMessageImplCopyWith<_$SubscriptionHandlerMessageImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

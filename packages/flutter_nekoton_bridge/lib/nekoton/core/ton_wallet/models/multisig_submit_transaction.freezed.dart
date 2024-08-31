@@ -30,8 +30,12 @@ mixin _$MultisigSubmitTransaction {
   String get payload => throw _privateConstructorUsedError;
   String get transId => throw _privateConstructorUsedError;
 
+  /// Serializes this MultisigSubmitTransaction to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MultisigSubmitTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MultisigSubmitTransactionCopyWith<MultisigSubmitTransaction> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -66,6 +70,8 @@ class _$MultisigSubmitTransactionCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MultisigSubmitTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -109,6 +115,8 @@ class _$MultisigSubmitTransactionCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of MultisigSubmitTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get custodian {
@@ -117,6 +125,8 @@ class _$MultisigSubmitTransactionCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MultisigSubmitTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get dest {
@@ -160,6 +170,8 @@ class __$$MultisigSubmitTransactionImplCopyWithImpl<$Res>
       $Res Function(_$MultisigSubmitTransactionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MultisigSubmitTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -256,12 +268,14 @@ class _$MultisigSubmitTransactionImpl implements _MultisigSubmitTransaction {
             (identical(other.transId, transId) || other.transId == transId));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, custodian, dest, value, bounce,
       allBalance, payload, transId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MultisigSubmitTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MultisigSubmitTransactionImplCopyWith<_$MultisigSubmitTransactionImpl>
@@ -304,8 +318,11 @@ abstract class _MultisigSubmitTransaction implements MultisigSubmitTransaction {
   String get payload;
   @override
   String get transId;
+
+  /// Create a copy of MultisigSubmitTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MultisigSubmitTransactionImplCopyWith<_$MultisigSubmitTransactionImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

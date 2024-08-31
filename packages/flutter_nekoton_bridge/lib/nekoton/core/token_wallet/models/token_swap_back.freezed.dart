@@ -25,8 +25,12 @@ mixin _$TokenSwapBack {
   Address get callbackAddress => throw _privateConstructorUsedError;
   String get callbackPayload => throw _privateConstructorUsedError;
 
+  /// Serializes this TokenSwapBack to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TokenSwapBack
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TokenSwapBackCopyWith<TokenSwapBack> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$TokenSwapBackCopyWithImpl<$Res, $Val extends TokenSwapBack>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TokenSwapBack
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -78,6 +84,8 @@ class _$TokenSwapBackCopyWithImpl<$Res, $Val extends TokenSwapBack>
     ) as $Val);
   }
 
+  /// Create a copy of TokenSwapBack
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get callbackAddress {
@@ -112,6 +120,8 @@ class __$$TokenSwapBackImplCopyWithImpl<$Res>
       _$TokenSwapBackImpl _value, $Res Function(_$TokenSwapBackImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TokenSwapBack
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -173,12 +183,14 @@ class _$TokenSwapBackImpl implements _TokenSwapBack {
                 other.callbackPayload == callbackPayload));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, tokens, callbackAddress, callbackPayload);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TokenSwapBack
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TokenSwapBackImplCopyWith<_$TokenSwapBackImpl> get copyWith =>
@@ -208,8 +220,11 @@ abstract class _TokenSwapBack implements TokenSwapBack {
   Address get callbackAddress;
   @override
   String get callbackPayload;
+
+  /// Create a copy of TokenSwapBack
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TokenSwapBackImplCopyWith<_$TokenSwapBackImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

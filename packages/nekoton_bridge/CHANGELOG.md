@@ -1,3 +1,7 @@
+## 2.0.0-dev.1
+
+Using money2_improver from git and money2: 5.2.1
+
 ## 1.20.0-dev.5
 
  - **FIX**: `estimate_min_attached_amount` payload fix. ([3c53957e](https://github.com/broxus/nekoton_bridge/commit/3c53957ef0c86ffa487d995142d5a4499bb33acc))

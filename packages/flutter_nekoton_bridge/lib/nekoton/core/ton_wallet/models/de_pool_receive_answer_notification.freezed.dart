@@ -24,8 +24,12 @@ mixin _$DePoolReceiveAnswerNotification {
   int get errorCode => throw _privateConstructorUsedError;
   String get comment => throw _privateConstructorUsedError;
 
+  /// Serializes this DePoolReceiveAnswerNotification to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DePoolReceiveAnswerNotification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DePoolReceiveAnswerNotificationCopyWith<DePoolReceiveAnswerNotification>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -52,6 +56,8 @@ class _$DePoolReceiveAnswerNotificationCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DePoolReceiveAnswerNotification
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -93,6 +99,8 @@ class __$$DePoolReceiveAnswerNotificationImplCopyWithImpl<$Res>
       $Res Function(_$DePoolReceiveAnswerNotificationImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DePoolReceiveAnswerNotification
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -143,11 +151,13 @@ class _$DePoolReceiveAnswerNotificationImpl
             (identical(other.comment, comment) || other.comment == comment));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, errorCode, comment);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DePoolReceiveAnswerNotification
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DePoolReceiveAnswerNotificationImplCopyWith<
@@ -176,8 +186,11 @@ abstract class _DePoolReceiveAnswerNotification
   int get errorCode;
   @override
   String get comment;
+
+  /// Create a copy of DePoolReceiveAnswerNotification
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DePoolReceiveAnswerNotificationImplCopyWith<
           _$DePoolReceiveAnswerNotificationImpl>
       get copyWith => throw _privateConstructorUsedError;

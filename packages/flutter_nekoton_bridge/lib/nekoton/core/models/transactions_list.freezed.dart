@@ -25,8 +25,12 @@ mixin _$TransactionsList {
   TransactionId? get continuation => throw _privateConstructorUsedError;
   TransactionsBatchInfo? get info => throw _privateConstructorUsedError;
 
+  /// Serializes this TransactionsList to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TransactionsList
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TransactionsListCopyWith<TransactionsList> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +60,8 @@ class _$TransactionsListCopyWithImpl<$Res, $Val extends TransactionsList>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TransactionsList
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -79,6 +85,8 @@ class _$TransactionsListCopyWithImpl<$Res, $Val extends TransactionsList>
     ) as $Val);
   }
 
+  /// Create a copy of TransactionsList
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TransactionIdCopyWith<$Res>? get continuation {
@@ -91,6 +99,8 @@ class _$TransactionsListCopyWithImpl<$Res, $Val extends TransactionsList>
     });
   }
 
+  /// Create a copy of TransactionsList
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TransactionsBatchInfoCopyWith<$Res>? get info {
@@ -131,6 +141,8 @@ class __$$TransactionsListImplCopyWithImpl<$Res>
       $Res Function(_$TransactionsListImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TransactionsList
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -198,12 +210,14 @@ class _$TransactionsListImpl implements _TransactionsList {
             (identical(other.info, info) || other.info == info));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_transactions), continuation, info);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TransactionsList
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TransactionsListImplCopyWith<_$TransactionsListImpl> get copyWith =>
@@ -234,8 +248,11 @@ abstract class _TransactionsList implements TransactionsList {
   TransactionId? get continuation;
   @override
   TransactionsBatchInfo? get info;
+
+  /// Create a copy of TransactionsList
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TransactionsListImplCopyWith<_$TransactionsListImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

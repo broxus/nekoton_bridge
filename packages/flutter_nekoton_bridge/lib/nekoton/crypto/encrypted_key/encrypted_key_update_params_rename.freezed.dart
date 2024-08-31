@@ -24,8 +24,12 @@ mixin _$EncryptedKeyUpdateParamsRename {
   PublicKey get publicKey => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
+  /// Serializes this EncryptedKeyUpdateParamsRename to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EncryptedKeyUpdateParamsRename
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EncryptedKeyUpdateParamsRenameCopyWith<EncryptedKeyUpdateParamsRename>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -54,6 +58,8 @@ class _$EncryptedKeyUpdateParamsRenameCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EncryptedKeyUpdateParamsRename
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -72,6 +78,8 @@ class _$EncryptedKeyUpdateParamsRenameCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of EncryptedKeyUpdateParamsRename
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get publicKey {
@@ -106,6 +114,8 @@ class __$$EncryptedKeyUpdateParamsRenameRenameImplCopyWithImpl<$Res>
       $Res Function(_$EncryptedKeyUpdateParamsRenameRenameImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EncryptedKeyUpdateParamsRename
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -157,11 +167,13 @@ class _$EncryptedKeyUpdateParamsRenameRenameImpl
             (identical(other.name, name) || other.name == name));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, publicKey, name);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EncryptedKeyUpdateParamsRename
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EncryptedKeyUpdateParamsRenameRenameImplCopyWith<
@@ -191,8 +203,11 @@ abstract class _EncryptedKeyUpdateParamsRenameRename
   PublicKey get publicKey;
   @override
   String get name;
+
+  /// Create a copy of EncryptedKeyUpdateParamsRename
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EncryptedKeyUpdateParamsRenameRenameImplCopyWith<
           _$EncryptedKeyUpdateParamsRenameRenameImpl>
       get copyWith => throw _privateConstructorUsedError;

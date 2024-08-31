@@ -29,8 +29,12 @@ mixin _$FullContractState {
   String? get codeHash => throw _privateConstructorUsedError;
   String get boc => throw _privateConstructorUsedError;
 
+  /// Serializes this FullContractState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FullContractState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FullContractStateCopyWith<FullContractState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -63,6 +67,8 @@ class _$FullContractStateCopyWithImpl<$Res, $Val extends FullContractState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FullContractState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -101,6 +107,8 @@ class _$FullContractStateCopyWithImpl<$Res, $Val extends FullContractState>
     ) as $Val);
   }
 
+  /// Create a copy of FullContractState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $GenTimingsCopyWith<$Res> get genTimings {
@@ -109,6 +117,8 @@ class _$FullContractStateCopyWithImpl<$Res, $Val extends FullContractState>
     });
   }
 
+  /// Create a copy of FullContractState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LastTransactionIdCopyWith<$Res>? get lastTransactionId {
@@ -152,6 +162,8 @@ class __$$FullContractStateImplCopyWithImpl<$Res>
       $Res Function(_$FullContractStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FullContractState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -241,12 +253,14 @@ class _$FullContractStateImpl implements _FullContractState {
             (identical(other.boc, boc) || other.boc == boc));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, balance, genTimings,
       lastTransactionId, isDeployed, codeHash, boc);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FullContractState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FullContractStateImplCopyWith<_$FullContractStateImpl> get copyWith =>
@@ -286,8 +300,11 @@ abstract class _FullContractState implements FullContractState {
   String? get codeHash;
   @override
   String get boc;
+
+  /// Create a copy of FullContractState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FullContractStateImplCopyWith<_$FullContractStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

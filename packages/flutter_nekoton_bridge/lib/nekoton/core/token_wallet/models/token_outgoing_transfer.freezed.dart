@@ -25,8 +25,12 @@ mixin _$TokenOutgoingTransfer {
   @amountJsonConverter
   BigInt get tokens => throw _privateConstructorUsedError;
 
+  /// Serializes this TokenOutgoingTransfer to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TokenOutgoingTransfer
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TokenOutgoingTransferCopyWith<TokenOutgoingTransfer> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,6 +57,8 @@ class _$TokenOutgoingTransferCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TokenOutgoingTransfer
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -71,6 +77,8 @@ class _$TokenOutgoingTransferCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of TokenOutgoingTransfer
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TransferRecipientCopyWith<$Res> get to {
@@ -104,6 +112,8 @@ class __$$TokenOutgoingTransferImplCopyWithImpl<$Res>
       $Res Function(_$TokenOutgoingTransferImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TokenOutgoingTransfer
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -152,11 +162,13 @@ class _$TokenOutgoingTransferImpl implements _TokenOutgoingTransfer {
             (identical(other.tokens, tokens) || other.tokens == tokens));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, to, tokens);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TokenOutgoingTransfer
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TokenOutgoingTransferImplCopyWith<_$TokenOutgoingTransferImpl>
@@ -185,8 +197,11 @@ abstract class _TokenOutgoingTransfer implements TokenOutgoingTransfer {
   @override
   @amountJsonConverter
   BigInt get tokens;
+
+  /// Create a copy of TokenOutgoingTransfer
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TokenOutgoingTransferImplCopyWith<_$TokenOutgoingTransferImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

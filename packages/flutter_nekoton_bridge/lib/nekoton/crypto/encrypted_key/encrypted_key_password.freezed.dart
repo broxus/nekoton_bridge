@@ -23,8 +23,12 @@ mixin _$EncryptedKeyPassword {
   PublicKey get publicKey => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
 
+  /// Serializes this EncryptedKeyPassword to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EncryptedKeyPassword
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EncryptedKeyPasswordCopyWith<EncryptedKeyPassword> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -52,6 +56,8 @@ class _$EncryptedKeyPasswordCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EncryptedKeyPassword
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -70,6 +76,8 @@ class _$EncryptedKeyPasswordCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of EncryptedKeyPassword
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get publicKey {
@@ -78,6 +86,8 @@ class _$EncryptedKeyPasswordCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of EncryptedKeyPassword
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
@@ -111,6 +121,8 @@ class __$$EncryptedKeyPasswordImplCopyWithImpl<$Res>
       $Res Function(_$EncryptedKeyPasswordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EncryptedKeyPassword
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -161,11 +173,13 @@ class _$EncryptedKeyPasswordImpl implements _EncryptedKeyPassword {
                 other.password == password));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, publicKey, password);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EncryptedKeyPassword
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EncryptedKeyPasswordImplCopyWith<_$EncryptedKeyPasswordImpl>
@@ -193,8 +207,11 @@ abstract class _EncryptedKeyPassword implements EncryptedKeyPassword {
   PublicKey get publicKey;
   @override
   Password get password;
+
+  /// Create a copy of EncryptedKeyPassword
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EncryptedKeyPasswordImplCopyWith<_$EncryptedKeyPasswordImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

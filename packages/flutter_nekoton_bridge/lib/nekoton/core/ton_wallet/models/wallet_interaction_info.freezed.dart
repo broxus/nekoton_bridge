@@ -28,8 +28,12 @@ mixin _$WalletInteractionInfo {
   KnownPayload? get knownPayload => throw _privateConstructorUsedError;
   WalletInteractionMethod get method => throw _privateConstructorUsedError;
 
+  /// Serializes this WalletInteractionInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of WalletInteractionInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $WalletInteractionInfoCopyWith<WalletInteractionInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -61,6 +65,8 @@ class _$WalletInteractionInfoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of WalletInteractionInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -84,6 +90,8 @@ class _$WalletInteractionInfoCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of WalletInteractionInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res>? get recipient {
@@ -96,6 +104,8 @@ class _$WalletInteractionInfoCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of WalletInteractionInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $KnownPayloadCopyWith<$Res>? get knownPayload {
@@ -108,6 +118,8 @@ class _$WalletInteractionInfoCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of WalletInteractionInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $WalletInteractionMethodCopyWith<$Res> get method {
@@ -148,6 +160,8 @@ class __$$WalletInteractionInfoImplCopyWithImpl<$Res>
       $Res Function(_$WalletInteractionInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of WalletInteractionInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -210,11 +224,13 @@ class _$WalletInteractionInfoImpl implements _WalletInteractionInfo {
             (identical(other.method, method) || other.method == method));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, recipient, knownPayload, method);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of WalletInteractionInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$WalletInteractionInfoImplCopyWith<_$WalletInteractionInfoImpl>
@@ -250,8 +266,11 @@ abstract class _WalletInteractionInfo implements WalletInteractionInfo {
   KnownPayload? get knownPayload;
   @override
   WalletInteractionMethod get method;
+
+  /// Create a copy of WalletInteractionInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$WalletInteractionInfoImplCopyWith<_$WalletInteractionInfoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

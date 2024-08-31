@@ -23,8 +23,12 @@ mixin _$DecodedInput {
   String get method => throw _privateConstructorUsedError;
   Map<String, dynamic> get input => throw _privateConstructorUsedError;
 
+  /// Serializes this DecodedInput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DecodedInput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DecodedInputCopyWith<DecodedInput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$DecodedInputCopyWithImpl<$Res, $Val extends DecodedInput>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DecodedInput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$DecodedInputImplCopyWithImpl<$Res>
       _$DecodedInputImpl _value, $Res Function(_$DecodedInputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DecodedInput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -139,12 +147,14 @@ class _$DecodedInputImpl implements _DecodedInput {
             const DeepCollectionEquality().equals(other._input, _input));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, method, const DeepCollectionEquality().hash(_input));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DecodedInput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DecodedInputImplCopyWith<_$DecodedInputImpl> get copyWith =>
@@ -170,8 +180,11 @@ abstract class _DecodedInput implements DecodedInput {
   String get method;
   @override
   Map<String, dynamic> get input;
+
+  /// Create a copy of DecodedInput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DecodedInputImplCopyWith<_$DecodedInputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

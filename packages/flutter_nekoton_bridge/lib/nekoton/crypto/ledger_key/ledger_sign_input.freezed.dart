@@ -23,8 +23,12 @@ mixin _$LedgerSignInput {
   PublicKey get publicKey => throw _privateConstructorUsedError;
   LedgerSignatureContext? get context => throw _privateConstructorUsedError;
 
+  /// Serializes this LedgerSignInput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LedgerSignInput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LedgerSignInputCopyWith<LedgerSignInput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,6 +55,8 @@ class _$LedgerSignInputCopyWithImpl<$Res, $Val extends LedgerSignInput>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LedgerSignInput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -69,6 +75,8 @@ class _$LedgerSignInputCopyWithImpl<$Res, $Val extends LedgerSignInput>
     ) as $Val);
   }
 
+  /// Create a copy of LedgerSignInput
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get publicKey {
@@ -77,6 +85,8 @@ class _$LedgerSignInputCopyWithImpl<$Res, $Val extends LedgerSignInput>
     });
   }
 
+  /// Create a copy of LedgerSignInput
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LedgerSignatureContextCopyWith<$Res>? get context {
@@ -114,6 +124,8 @@ class __$$LedgerSignInputImplCopyWithImpl<$Res>
       _$LedgerSignInputImpl _value, $Res Function(_$LedgerSignInputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LedgerSignInput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -161,11 +173,13 @@ class _$LedgerSignInputImpl implements _LedgerSignInput {
             (identical(other.context, context) || other.context == context));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, publicKey, context);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LedgerSignInput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LedgerSignInputImplCopyWith<_$LedgerSignInputImpl> get copyWith =>
@@ -192,8 +206,11 @@ abstract class _LedgerSignInput implements LedgerSignInput {
   PublicKey get publicKey;
   @override
   LedgerSignatureContext? get context;
+
+  /// Create a copy of LedgerSignInput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LedgerSignInputImplCopyWith<_$LedgerSignInputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -23,8 +23,12 @@ mixin _$LedgerKeyCreateInput {
   String? get name => throw _privateConstructorUsedError;
   int get accountId => throw _privateConstructorUsedError;
 
+  /// Serializes this LedgerKeyCreateInput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LedgerKeyCreateInput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LedgerKeyCreateInputCopyWith<LedgerKeyCreateInput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$LedgerKeyCreateInputCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LedgerKeyCreateInput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -87,6 +93,8 @@ class __$$LedgerKeyCreateInputImplCopyWithImpl<$Res>
       $Res Function(_$LedgerKeyCreateInputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LedgerKeyCreateInput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -134,11 +142,13 @@ class _$LedgerKeyCreateInputImpl implements _LedgerKeyCreateInput {
                 other.accountId == accountId));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, accountId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LedgerKeyCreateInput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LedgerKeyCreateInputImplCopyWith<_$LedgerKeyCreateInputImpl>
@@ -166,8 +176,11 @@ abstract class _LedgerKeyCreateInput implements LedgerKeyCreateInput {
   String? get name;
   @override
   int get accountId;
+
+  /// Create a copy of LedgerKeyCreateInput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LedgerKeyCreateInputImplCopyWith<_$LedgerKeyCreateInputImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -76,6 +76,8 @@ mixin _$PasswordCacheBehavior {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this PasswordCacheBehavior to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -96,6 +98,9 @@ class _$PasswordCacheBehaviorCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of PasswordCacheBehavior
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -115,6 +120,8 @@ class __$$StoreImplCopyWithImpl<$Res>
       _$StoreImpl _value, $Res Function(_$StoreImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PasswordCacheBehavior
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -157,11 +164,13 @@ class _$StoreImpl implements _Store {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PasswordCacheBehavior
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StoreImplCopyWith<_$StoreImpl> get copyWith =>
@@ -249,7 +258,10 @@ abstract class _Store implements PasswordCacheBehavior {
   factory _Store.fromJson(Map<String, dynamic> json) = _$StoreImpl.fromJson;
 
   int get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PasswordCacheBehavior
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StoreImplCopyWith<_$StoreImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -268,6 +280,9 @@ class __$$RemoveImplCopyWithImpl<$Res>
   __$$RemoveImplCopyWithImpl(
       _$RemoveImpl _value, $Res Function(_$RemoveImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of PasswordCacheBehavior
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -292,7 +307,7 @@ class _$RemoveImpl implements _Remove {
         (other.runtimeType == runtimeType && other is _$RemoveImpl);
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -390,6 +405,9 @@ class __$$NopImplCopyWithImpl<$Res>
     implements _$$NopImplCopyWith<$Res> {
   __$$NopImplCopyWithImpl(_$NopImpl _value, $Res Function(_$NopImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of PasswordCacheBehavior
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -414,7 +432,7 @@ class _$NopImpl implements _Nop {
         (other.runtimeType == runtimeType && other is _$NopImpl);
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
 

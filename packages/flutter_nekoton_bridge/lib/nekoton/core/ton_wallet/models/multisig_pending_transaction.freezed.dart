@@ -34,8 +34,12 @@ mixin _$MultisigPendingTransaction {
   String get payload => throw _privateConstructorUsedError;
   bool get bounce => throw _privateConstructorUsedError;
 
+  /// Serializes this MultisigPendingTransaction to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MultisigPendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MultisigPendingTransactionCopyWith<MultisigPendingTransaction>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -75,6 +79,8 @@ class _$MultisigPendingTransactionCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MultisigPendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -138,6 +144,8 @@ class _$MultisigPendingTransactionCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of MultisigPendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get creator {
@@ -146,6 +154,8 @@ class _$MultisigPendingTransactionCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MultisigPendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get dest {
@@ -193,6 +203,8 @@ class __$$MultisigPendingTransactionImplCopyWithImpl<$Res>
       $Res Function(_$MultisigPendingTransactionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MultisigPendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -336,7 +348,7 @@ class _$MultisigPendingTransactionImpl implements _MultisigPendingTransaction {
             (identical(other.bounce, bounce) || other.bounce == bounce));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -352,7 +364,9 @@ class _$MultisigPendingTransactionImpl implements _MultisigPendingTransaction {
       payload,
       bounce);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MultisigPendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MultisigPendingTransactionImplCopyWith<_$MultisigPendingTransactionImpl>
@@ -408,8 +422,11 @@ abstract class _MultisigPendingTransaction
   String get payload;
   @override
   bool get bounce;
+
+  /// Create a copy of MultisigPendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MultisigPendingTransactionImplCopyWith<_$MultisigPendingTransactionImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

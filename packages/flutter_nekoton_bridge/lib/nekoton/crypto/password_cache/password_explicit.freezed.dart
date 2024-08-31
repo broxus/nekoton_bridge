@@ -23,8 +23,12 @@ mixin _$PasswordExplicit {
   String get password => throw _privateConstructorUsedError;
   PasswordCacheBehavior get cacheBehavior => throw _privateConstructorUsedError;
 
+  /// Serializes this PasswordExplicit to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PasswordExplicit
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PasswordExplicitCopyWith<PasswordExplicit> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$PasswordExplicitCopyWithImpl<$Res, $Val extends PasswordExplicit>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PasswordExplicit
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -68,6 +74,8 @@ class _$PasswordExplicitCopyWithImpl<$Res, $Val extends PasswordExplicit>
     ) as $Val);
   }
 
+  /// Create a copy of PasswordExplicit
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PasswordCacheBehaviorCopyWith<$Res> get cacheBehavior {
@@ -101,6 +109,8 @@ class __$$PasswordExplicitExplicitImplCopyWithImpl<$Res>
       $Res Function(_$PasswordExplicitExplicitImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PasswordExplicit
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -151,11 +161,13 @@ class _$PasswordExplicitExplicitImpl implements _PasswordExplicitExplicit {
                 other.cacheBehavior == cacheBehavior));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, password, cacheBehavior);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PasswordExplicit
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PasswordExplicitExplicitImplCopyWith<_$PasswordExplicitExplicitImpl>
@@ -183,8 +195,11 @@ abstract class _PasswordExplicitExplicit implements PasswordExplicit {
   String get password;
   @override
   PasswordCacheBehavior get cacheBehavior;
+
+  /// Create a copy of PasswordExplicit
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PasswordExplicitExplicitImplCopyWith<_$PasswordExplicitExplicitImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

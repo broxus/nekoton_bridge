@@ -132,6 +132,9 @@ class _$DynamicValueCopyWithImpl<$Res, $Val extends DynamicValue>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -151,6 +154,8 @@ class __$$DynamicValue_U16ImplCopyWithImpl<$Res>
       $Res Function(_$DynamicValue_U16Impl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -189,7 +194,9 @@ class _$DynamicValue_U16Impl implements DynamicValue_U16 {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DynamicValue_U16ImplCopyWith<_$DynamicValue_U16Impl> get copyWith =>
@@ -323,7 +330,10 @@ abstract class DynamicValue_U16 implements DynamicValue {
   const factory DynamicValue_U16(final int field0) = _$DynamicValue_U16Impl;
 
   int get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DynamicValue_U16ImplCopyWith<_$DynamicValue_U16Impl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -345,6 +355,8 @@ class __$$DynamicValue_U32ImplCopyWithImpl<$Res>
       $Res Function(_$DynamicValue_U32Impl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -383,7 +395,9 @@ class _$DynamicValue_U32Impl implements DynamicValue_U32 {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DynamicValue_U32ImplCopyWith<_$DynamicValue_U32Impl> get copyWith =>
@@ -517,7 +531,10 @@ abstract class DynamicValue_U32 implements DynamicValue {
   const factory DynamicValue_U32(final int field0) = _$DynamicValue_U32Impl;
 
   int get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DynamicValue_U32ImplCopyWith<_$DynamicValue_U32Impl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -539,6 +556,8 @@ class __$$DynamicValue_I32ImplCopyWithImpl<$Res>
       $Res Function(_$DynamicValue_I32Impl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -577,7 +596,9 @@ class _$DynamicValue_I32Impl implements DynamicValue_I32 {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DynamicValue_I32ImplCopyWith<_$DynamicValue_I32Impl> get copyWith =>
@@ -711,7 +732,10 @@ abstract class DynamicValue_I32 implements DynamicValue {
   const factory DynamicValue_I32(final int field0) = _$DynamicValue_I32Impl;
 
   int get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DynamicValue_I32ImplCopyWith<_$DynamicValue_I32Impl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -733,6 +757,8 @@ class __$$DynamicValue_U64ImplCopyWithImpl<$Res>
       $Res Function(_$DynamicValue_U64Impl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -771,7 +797,9 @@ class _$DynamicValue_U64Impl implements DynamicValue_U64 {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DynamicValue_U64ImplCopyWith<_$DynamicValue_U64Impl> get copyWith =>
@@ -905,7 +933,10 @@ abstract class DynamicValue_U64 implements DynamicValue {
   const factory DynamicValue_U64(final int field0) = _$DynamicValue_U64Impl;
 
   int get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DynamicValue_U64ImplCopyWith<_$DynamicValue_U64Impl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -927,6 +958,8 @@ class __$$DynamicValue_I64ImplCopyWithImpl<$Res>
       $Res Function(_$DynamicValue_I64Impl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -965,7 +998,9 @@ class _$DynamicValue_I64Impl implements DynamicValue_I64 {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DynamicValue_I64ImplCopyWith<_$DynamicValue_I64Impl> get copyWith =>
@@ -1099,7 +1134,10 @@ abstract class DynamicValue_I64 implements DynamicValue {
   const factory DynamicValue_I64(final int field0) = _$DynamicValue_I64Impl;
 
   int get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DynamicValue_I64ImplCopyWith<_$DynamicValue_I64Impl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1121,6 +1159,8 @@ class __$$DynamicValue_F32ImplCopyWithImpl<$Res>
       $Res Function(_$DynamicValue_F32Impl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1159,7 +1199,9 @@ class _$DynamicValue_F32Impl implements DynamicValue_F32 {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DynamicValue_F32ImplCopyWith<_$DynamicValue_F32Impl> get copyWith =>
@@ -1293,7 +1335,10 @@ abstract class DynamicValue_F32 implements DynamicValue {
   const factory DynamicValue_F32(final double field0) = _$DynamicValue_F32Impl;
 
   double get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DynamicValue_F32ImplCopyWith<_$DynamicValue_F32Impl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1315,6 +1360,8 @@ class __$$DynamicValue_F64ImplCopyWithImpl<$Res>
       $Res Function(_$DynamicValue_F64Impl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1353,7 +1400,9 @@ class _$DynamicValue_F64Impl implements DynamicValue_F64 {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DynamicValue_F64ImplCopyWith<_$DynamicValue_F64Impl> get copyWith =>
@@ -1487,7 +1536,10 @@ abstract class DynamicValue_F64 implements DynamicValue {
   const factory DynamicValue_F64(final double field0) = _$DynamicValue_F64Impl;
 
   double get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DynamicValue_F64ImplCopyWith<_$DynamicValue_F64Impl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1509,6 +1561,8 @@ class __$$DynamicValue_StringImplCopyWithImpl<$Res>
       $Res Function(_$DynamicValue_StringImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1547,7 +1601,9 @@ class _$DynamicValue_StringImpl implements DynamicValue_String {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DynamicValue_StringImplCopyWith<_$DynamicValue_StringImpl> get copyWith =>
@@ -1682,7 +1738,10 @@ abstract class DynamicValue_String implements DynamicValue {
       _$DynamicValue_StringImpl;
 
   String get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DynamicValue_StringImplCopyWith<_$DynamicValue_StringImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1704,6 +1763,8 @@ class __$$DynamicValue_VecU8ImplCopyWithImpl<$Res>
       $Res Function(_$DynamicValue_VecU8Impl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1743,7 +1804,9 @@ class _$DynamicValue_VecU8Impl implements DynamicValue_VecU8 {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(field0));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DynamicValue_VecU8ImplCopyWith<_$DynamicValue_VecU8Impl> get copyWith =>
@@ -1878,7 +1941,10 @@ abstract class DynamicValue_VecU8 implements DynamicValue {
       _$DynamicValue_VecU8Impl;
 
   Uint8List get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DynamicValue_VecU8ImplCopyWith<_$DynamicValue_VecU8Impl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1902,6 +1968,8 @@ class __$$DynamicValue_MegaStructImplCopyWithImpl<$Res>
       $Res Function(_$DynamicValue_MegaStructImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1940,7 +2008,9 @@ class _$DynamicValue_MegaStructImpl implements DynamicValue_MegaStruct {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DynamicValue_MegaStructImplCopyWith<_$DynamicValue_MegaStructImpl>
@@ -2075,7 +2145,10 @@ abstract class DynamicValue_MegaStruct implements DynamicValue {
       _$DynamicValue_MegaStructImpl;
 
   String get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DynamicValue_MegaStructImplCopyWith<_$DynamicValue_MegaStructImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -2097,6 +2170,8 @@ class __$$DynamicValue_ErrorImplCopyWithImpl<$Res>
       $Res Function(_$DynamicValue_ErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2135,7 +2210,9 @@ class _$DynamicValue_ErrorImpl implements DynamicValue_Error {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DynamicValue_ErrorImplCopyWith<_$DynamicValue_ErrorImpl> get copyWith =>
@@ -2270,7 +2347,10 @@ abstract class DynamicValue_Error implements DynamicValue {
       _$DynamicValue_ErrorImpl;
 
   ErrorCode get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DynamicValue_ErrorImplCopyWith<_$DynamicValue_ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2289,6 +2369,9 @@ class __$$DynamicValue_NoneImplCopyWithImpl<$Res>
   __$$DynamicValue_NoneImplCopyWithImpl(_$DynamicValue_NoneImpl _value,
       $Res Function(_$DynamicValue_NoneImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of DynamicValue
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -2506,6 +2589,9 @@ class _$KeySignerCopyWithImpl<$Res, $Val extends KeySigner>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of KeySigner
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -2522,6 +2608,9 @@ class __$$KeySigner_EncryptedImplCopyWithImpl<$Res>
   __$$KeySigner_EncryptedImplCopyWithImpl(_$KeySigner_EncryptedImpl _value,
       $Res Function(_$KeySigner_EncryptedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of KeySigner
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -2637,6 +2726,9 @@ class __$$KeySigner_DerivedImplCopyWithImpl<$Res>
   __$$KeySigner_DerivedImplCopyWithImpl(_$KeySigner_DerivedImpl _value,
       $Res Function(_$KeySigner_DerivedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of KeySigner
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -2751,6 +2843,9 @@ class __$$KeySigner_LedgerImplCopyWithImpl<$Res>
   __$$KeySigner_LedgerImplCopyWithImpl(_$KeySigner_LedgerImpl _value,
       $Res Function(_$KeySigner_LedgerImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of KeySigner
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -2868,6 +2963,8 @@ class __$$KeySigner_StubImplCopyWithImpl<$Res>
       _$KeySigner_StubImpl _value, $Res Function(_$KeySigner_StubImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of KeySigner
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2906,7 +3003,9 @@ class _$KeySigner_StubImpl implements KeySigner_Stub {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of KeySigner
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$KeySigner_StubImplCopyWith<_$KeySigner_StubImpl> get copyWith =>
@@ -2992,7 +3091,10 @@ abstract class KeySigner_Stub implements KeySigner {
   const factory KeySigner_Stub(final bool field0) = _$KeySigner_StubImpl;
 
   bool get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of KeySigner
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$KeySigner_StubImplCopyWith<_$KeySigner_StubImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -3055,6 +3157,9 @@ class _$MnemonicTypeCopyWithImpl<$Res, $Val extends MnemonicType>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of MnemonicType
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -3071,6 +3176,9 @@ class __$$MnemonicType_LegacyImplCopyWithImpl<$Res>
   __$$MnemonicType_LegacyImplCopyWithImpl(_$MnemonicType_LegacyImpl _value,
       $Res Function(_$MnemonicType_LegacyImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of MnemonicType
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -3177,6 +3285,8 @@ class __$$MnemonicType_LabsImplCopyWithImpl<$Res>
       $Res Function(_$MnemonicType_LabsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MnemonicType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -3215,7 +3325,9 @@ class _$MnemonicType_LabsImpl implements MnemonicType_Labs {
   @override
   int get hashCode => Object.hash(runtimeType, field0);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MnemonicType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MnemonicType_LabsImplCopyWith<_$MnemonicType_LabsImpl> get copyWith =>
@@ -3289,7 +3401,10 @@ abstract class MnemonicType_Labs implements MnemonicType {
   const factory MnemonicType_Labs(final int field0) = _$MnemonicType_LabsImpl;
 
   int get field0;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MnemonicType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MnemonicType_LabsImplCopyWith<_$MnemonicType_LabsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

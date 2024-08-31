@@ -22,8 +22,12 @@ DePoolAsset _$DePoolAssetFromJson(Map<String, dynamic> json) {
 mixin _$DePoolAsset {
   Address get address => throw _privateConstructorUsedError;
 
+  /// Serializes this DePoolAsset to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DePoolAsset
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DePoolAssetCopyWith<DePoolAsset> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$DePoolAssetCopyWithImpl<$Res, $Val extends DePoolAsset>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DePoolAsset
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -62,6 +68,8 @@ class _$DePoolAssetCopyWithImpl<$Res, $Val extends DePoolAsset>
     ) as $Val);
   }
 
+  /// Create a copy of DePoolAsset
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get address {
@@ -93,6 +101,8 @@ class __$$DePoolAssetImplCopyWithImpl<$Res>
       _$DePoolAssetImpl _value, $Res Function(_$DePoolAssetImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DePoolAsset
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -131,11 +141,13 @@ class _$DePoolAssetImpl implements _DePoolAsset {
             (identical(other.address, address) || other.address == address));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, address);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DePoolAsset
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DePoolAssetImplCopyWith<_$DePoolAssetImpl> get copyWith =>
@@ -158,8 +170,11 @@ abstract class _DePoolAsset implements DePoolAsset {
 
   @override
   Address get address;
+
+  /// Create a copy of DePoolAsset
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DePoolAssetImplCopyWith<_$DePoolAssetImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

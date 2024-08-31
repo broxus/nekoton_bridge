@@ -24,8 +24,12 @@ mixin _$TonWalletAsset {
   PublicKey get publicKey => throw _privateConstructorUsedError;
   WalletType get contract => throw _privateConstructorUsedError;
 
+  /// Serializes this TonWalletAsset to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TonWalletAsset
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TonWalletAssetCopyWith<TonWalletAsset> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,6 +57,8 @@ class _$TonWalletAssetCopyWithImpl<$Res, $Val extends TonWalletAsset>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TonWalletAsset
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -76,6 +82,8 @@ class _$TonWalletAssetCopyWithImpl<$Res, $Val extends TonWalletAsset>
     ) as $Val);
   }
 
+  /// Create a copy of TonWalletAsset
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get address {
@@ -84,6 +92,8 @@ class _$TonWalletAssetCopyWithImpl<$Res, $Val extends TonWalletAsset>
     });
   }
 
+  /// Create a copy of TonWalletAsset
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get publicKey {
@@ -92,6 +102,8 @@ class _$TonWalletAssetCopyWithImpl<$Res, $Val extends TonWalletAsset>
     });
   }
 
+  /// Create a copy of TonWalletAsset
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $WalletTypeCopyWith<$Res> get contract {
@@ -127,6 +139,8 @@ class __$$TonWalletAssetImplCopyWithImpl<$Res>
       _$TonWalletAssetImpl _value, $Res Function(_$TonWalletAssetImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TonWalletAsset
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -185,11 +199,13 @@ class _$TonWalletAssetImpl extends _TonWalletAsset {
                 other.contract == contract));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, address, publicKey, contract);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TonWalletAsset
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TonWalletAssetImplCopyWith<_$TonWalletAssetImpl> get copyWith =>
@@ -220,8 +236,11 @@ abstract class _TonWalletAsset extends TonWalletAsset {
   PublicKey get publicKey;
   @override
   WalletType get contract;
+
+  /// Create a copy of TonWalletAsset
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TonWalletAssetImplCopyWith<_$TonWalletAssetImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

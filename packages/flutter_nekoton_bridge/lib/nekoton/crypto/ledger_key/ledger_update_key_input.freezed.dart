@@ -67,6 +67,8 @@ mixin _$LedgerUpdateKeyInput {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this LedgerUpdateKeyInput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -87,6 +89,9 @@ class _$LedgerUpdateKeyInputCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of LedgerUpdateKeyInput
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -103,6 +108,9 @@ class __$$LedgerUpdateKeyInputImplCopyWithImpl<$Res>
   __$$LedgerUpdateKeyInputImplCopyWithImpl(_$LedgerUpdateKeyInputImpl _value,
       $Res Function(_$LedgerUpdateKeyInputImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LedgerUpdateKeyInput
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -129,7 +137,7 @@ class _$LedgerUpdateKeyInputImpl implements _LedgerUpdateKeyInput {
             other is _$LedgerUpdateKeyInputImpl);
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -232,6 +240,8 @@ class __$$LedgerUpdateKeyInputRenameImplCopyWithImpl<$Res>
       $Res Function(_$LedgerUpdateKeyInputRenameImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LedgerUpdateKeyInput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -245,6 +255,8 @@ class __$$LedgerUpdateKeyInputRenameImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of LedgerUpdateKeyInput
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LedgerUpdateKeyInputRenameCopyWith<$Res> get data {
@@ -283,11 +295,13 @@ class _$LedgerUpdateKeyInputRenameImpl implements _LedgerUpdateKeyInputRename {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LedgerUpdateKeyInput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LedgerUpdateKeyInputRenameImplCopyWith<_$LedgerUpdateKeyInputRenameImpl>
@@ -372,7 +386,10 @@ abstract class _LedgerUpdateKeyInputRename implements LedgerUpdateKeyInput {
       _$LedgerUpdateKeyInputRenameImpl.fromJson;
 
   LedgerUpdateKeyInputRename get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LedgerUpdateKeyInput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LedgerUpdateKeyInputRenameImplCopyWith<_$LedgerUpdateKeyInputRenameImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

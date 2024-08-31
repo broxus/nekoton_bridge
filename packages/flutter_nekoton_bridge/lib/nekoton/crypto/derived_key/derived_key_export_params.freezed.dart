@@ -24,8 +24,12 @@ mixin _$DerivedKeyExportSeedParams {
   PublicKey get masterKey => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
 
+  /// Serializes this DerivedKeyExportSeedParams to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DerivedKeyExportSeedParams
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DerivedKeyExportSeedParamsCopyWith<DerivedKeyExportSeedParams>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -54,6 +58,8 @@ class _$DerivedKeyExportSeedParamsCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DerivedKeyExportSeedParams
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -72,6 +78,8 @@ class _$DerivedKeyExportSeedParamsCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of DerivedKeyExportSeedParams
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get masterKey {
@@ -80,6 +88,8 @@ class _$DerivedKeyExportSeedParamsCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of DerivedKeyExportSeedParams
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
@@ -116,6 +126,8 @@ class __$$DerivedKeyExportSeedParamsImplCopyWithImpl<$Res>
       $Res Function(_$DerivedKeyExportSeedParamsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DerivedKeyExportSeedParams
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -167,11 +179,13 @@ class _$DerivedKeyExportSeedParamsImpl implements _DerivedKeyExportSeedParams {
                 other.password == password));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, masterKey, password);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DerivedKeyExportSeedParams
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DerivedKeyExportSeedParamsImplCopyWith<_$DerivedKeyExportSeedParamsImpl>
@@ -199,8 +213,11 @@ abstract class _DerivedKeyExportSeedParams
   PublicKey get masterKey;
   @override
   Password get password;
+
+  /// Create a copy of DerivedKeyExportSeedParams
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DerivedKeyExportSeedParamsImplCopyWith<_$DerivedKeyExportSeedParamsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

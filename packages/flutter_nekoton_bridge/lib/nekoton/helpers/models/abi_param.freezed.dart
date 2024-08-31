@@ -24,8 +24,12 @@ mixin _$AbiParam {
   String get type => throw _privateConstructorUsedError;
   List<AbiParam>? get components => throw _privateConstructorUsedError;
 
+  /// Serializes this AbiParam to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AbiParam
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AbiParamCopyWith<AbiParam> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$AbiParamCopyWithImpl<$Res, $Val extends AbiParam>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AbiParam
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class __$$AbiParamImplCopyWithImpl<$Res>
       _$AbiParamImpl _value, $Res Function(_$AbiParamImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AbiParam
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -157,12 +165,14 @@ class _$AbiParamImpl implements _AbiParam {
                 .equals(other._components, _components));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, type,
       const DeepCollectionEquality().hash(_components));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AbiParam
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AbiParamImplCopyWith<_$AbiParamImpl> get copyWith =>
@@ -191,8 +201,11 @@ abstract class _AbiParam implements AbiParam {
   String get type;
   @override
   List<AbiParam>? get components;
+
+  /// Create a copy of AbiParam
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AbiParamImplCopyWith<_$AbiParamImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

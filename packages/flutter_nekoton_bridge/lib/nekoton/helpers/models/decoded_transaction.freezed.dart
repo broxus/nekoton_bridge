@@ -24,8 +24,12 @@ mixin _$DecodedTransaction {
   Map<String, dynamic> get input => throw _privateConstructorUsedError;
   Map<String, dynamic> get output => throw _privateConstructorUsedError;
 
+  /// Serializes this DecodedTransaction to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DecodedTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DecodedTransactionCopyWith<DecodedTransaction> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$DecodedTransactionCopyWithImpl<$Res, $Val extends DecodedTransaction>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DecodedTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -94,6 +100,8 @@ class __$$DecodedTransactionImplCopyWithImpl<$Res>
       $Res Function(_$DecodedTransactionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DecodedTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -164,7 +172,7 @@ class _$DecodedTransactionImpl implements _DecodedTransaction {
             const DeepCollectionEquality().equals(other._output, _output));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -172,7 +180,9 @@ class _$DecodedTransactionImpl implements _DecodedTransaction {
       const DeepCollectionEquality().hash(_input),
       const DeepCollectionEquality().hash(_output));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DecodedTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DecodedTransactionImplCopyWith<_$DecodedTransactionImpl> get copyWith =>
@@ -202,8 +212,11 @@ abstract class _DecodedTransaction implements DecodedTransaction {
   Map<String, dynamic> get input;
   @override
   Map<String, dynamic> get output;
+
+  /// Create a copy of DecodedTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DecodedTransactionImplCopyWith<_$DecodedTransactionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

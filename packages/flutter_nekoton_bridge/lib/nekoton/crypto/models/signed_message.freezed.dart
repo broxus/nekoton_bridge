@@ -25,8 +25,12 @@ mixin _$SignedMessage {
   DateTime get expireAt => throw _privateConstructorUsedError;
   String get boc => throw _privateConstructorUsedError;
 
+  /// Serializes this SignedMessage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SignedMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SignedMessageCopyWith<SignedMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,6 +57,8 @@ class _$SignedMessageCopyWithImpl<$Res, $Val extends SignedMessage>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SignedMessage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -99,6 +105,8 @@ class __$$SignedMessageImplCopyWithImpl<$Res>
       _$SignedMessageImpl _value, $Res Function(_$SignedMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SignedMessage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -158,11 +166,13 @@ class _$SignedMessageImpl implements _SignedMessage {
             (identical(other.boc, boc) || other.boc == boc));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, hash, expireAt, boc);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SignedMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SignedMessageImplCopyWith<_$SignedMessageImpl> get copyWith =>
@@ -192,8 +202,11 @@ abstract class _SignedMessage implements SignedMessage {
   DateTime get expireAt;
   @override
   String get boc;
+
+  /// Create a copy of SignedMessage
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SignedMessageImplCopyWith<_$SignedMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -24,8 +24,12 @@ mixin _$ExecutionOutput {
   Map<String, dynamic>? get output => throw _privateConstructorUsedError;
   int get code => throw _privateConstructorUsedError;
 
+  /// Serializes this ExecutionOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ExecutionOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ExecutionOutputCopyWith<ExecutionOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$ExecutionOutputCopyWithImpl<$Res, $Val extends ExecutionOutput>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ExecutionOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -89,6 +95,8 @@ class __$$ExecutionOutputImplCopyWithImpl<$Res>
       _$ExecutionOutputImpl _value, $Res Function(_$ExecutionOutputImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ExecutionOutput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -147,12 +155,14 @@ class _$ExecutionOutputImpl implements _ExecutionOutput {
             (identical(other.code, code) || other.code == code));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_output), code);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ExecutionOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ExecutionOutputImplCopyWith<_$ExecutionOutputImpl> get copyWith =>
@@ -180,8 +190,11 @@ abstract class _ExecutionOutput implements ExecutionOutput {
   Map<String, dynamic>? get output;
   @override
   int get code;
+
+  /// Create a copy of ExecutionOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ExecutionOutputImplCopyWith<_$ExecutionOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

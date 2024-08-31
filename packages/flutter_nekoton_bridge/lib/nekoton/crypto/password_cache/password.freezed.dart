@@ -67,6 +67,8 @@ mixin _$Password {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this Password to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -85,6 +87,9 @@ class _$PasswordCopyWithImpl<$Res, $Val extends Password>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of Password
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -106,6 +111,8 @@ class __$$ExplicitImplCopyWithImpl<$Res>
       _$ExplicitImpl _value, $Res Function(_$ExplicitImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Password
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,6 +126,8 @@ class __$$ExplicitImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of Password
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PasswordExplicitCopyWith<$Res> get data {
@@ -156,11 +165,13 @@ class _$ExplicitImpl implements _Explicit {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Password
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ExplicitImplCopyWith<_$ExplicitImpl> get copyWith =>
@@ -243,7 +254,10 @@ abstract class _Explicit implements Password {
       _$ExplicitImpl.fromJson;
 
   PasswordExplicit get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Password
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ExplicitImplCopyWith<_$ExplicitImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -262,6 +276,9 @@ class __$$FromCacheImplCopyWithImpl<$Res>
   __$$FromCacheImplCopyWithImpl(
       _$FromCacheImpl _value, $Res Function(_$FromCacheImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of Password
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -286,7 +303,7 @@ class _$FromCacheImpl implements _FromCache {
         (other.runtimeType == runtimeType && other is _$FromCacheImpl);
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
 

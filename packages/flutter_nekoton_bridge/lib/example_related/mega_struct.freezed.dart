@@ -24,8 +24,12 @@ mixin _$Coords {
   double get y => throw _privateConstructorUsedError;
   double get z => throw _privateConstructorUsedError;
 
+  /// Serializes this Coords to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Coords
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CoordsCopyWith<Coords> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -47,6 +51,8 @@ class _$CoordsCopyWithImpl<$Res, $Val extends Coords>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Coords
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -89,6 +95,8 @@ class __$$CoordsImplCopyWithImpl<$Res>
       _$CoordsImpl _value, $Res Function(_$CoordsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Coords
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -153,11 +161,13 @@ class _$CoordsImpl with DiagnosticableTreeMixin implements _Coords {
             (identical(other.z, z) || other.z == z));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, x, y, z);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Coords
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CoordsImplCopyWith<_$CoordsImpl> get copyWith =>
@@ -185,8 +195,11 @@ abstract class _Coords implements Coords {
   double get y;
   @override
   double get z;
+
+  /// Create a copy of Coords
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CoordsImplCopyWith<_$CoordsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -201,8 +214,12 @@ mixin _$MegaStruct {
   Coords get coords => throw _privateConstructorUsedError;
   Map<String, String> get props => throw _privateConstructorUsedError;
 
+  /// Serializes this MegaStruct to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MegaStruct
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MegaStructCopyWith<MegaStruct> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -228,6 +245,8 @@ class _$MegaStructCopyWithImpl<$Res, $Val extends MegaStruct>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MegaStruct
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -251,6 +270,8 @@ class _$MegaStructCopyWithImpl<$Res, $Val extends MegaStruct>
     ) as $Val);
   }
 
+  /// Create a copy of MegaStruct
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CoordsCopyWith<$Res> get coords {
@@ -282,6 +303,8 @@ class __$$MegaStructImplCopyWithImpl<$Res>
       _$MegaStructImpl _value, $Res Function(_$MegaStructImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MegaStruct
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -355,12 +378,14 @@ class _$MegaStructImpl with DiagnosticableTreeMixin implements _MegaStruct {
             const DeepCollectionEquality().equals(other._props, _props));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, name, coords, const DeepCollectionEquality().hash(_props));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MegaStruct
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MegaStructImplCopyWith<_$MegaStructImpl> get copyWith =>
@@ -389,8 +414,11 @@ abstract class _MegaStruct implements MegaStruct {
   Coords get coords;
   @override
   Map<String, String> get props;
+
+  /// Create a copy of MegaStruct
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MegaStructImplCopyWith<_$MegaStructImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

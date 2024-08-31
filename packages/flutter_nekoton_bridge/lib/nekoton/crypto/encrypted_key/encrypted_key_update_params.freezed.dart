@@ -72,6 +72,8 @@ mixin _$EncryptedKeyUpdateParams {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this EncryptedKeyUpdateParams to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -92,6 +94,9 @@ class _$EncryptedKeyUpdateParamsCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of EncryptedKeyUpdateParams
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -113,6 +118,8 @@ class __$$RenameImplCopyWithImpl<$Res>
       _$RenameImpl _value, $Res Function(_$RenameImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EncryptedKeyUpdateParams
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -126,6 +133,8 @@ class __$$RenameImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of EncryptedKeyUpdateParams
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EncryptedKeyUpdateParamsRenameCopyWith<$Res> get data {
@@ -163,11 +172,13 @@ class _$RenameImpl implements _Rename {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EncryptedKeyUpdateParams
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RenameImplCopyWith<_$RenameImpl> get copyWith =>
@@ -254,7 +265,10 @@ abstract class _Rename implements EncryptedKeyUpdateParams {
 
   @override
   EncryptedKeyUpdateParamsRename get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EncryptedKeyUpdateParams
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RenameImplCopyWith<_$RenameImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -278,6 +292,8 @@ class __$$ChangePasswordImplCopyWithImpl<$Res>
       _$ChangePasswordImpl _value, $Res Function(_$ChangePasswordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EncryptedKeyUpdateParams
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -291,6 +307,8 @@ class __$$ChangePasswordImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of EncryptedKeyUpdateParams
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EncryptedKeyUpdateParamsChangePasswordCopyWith<$Res> get data {
@@ -329,11 +347,13 @@ class _$ChangePasswordImpl implements _ChangePassword {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EncryptedKeyUpdateParams
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ChangePasswordImplCopyWith<_$ChangePasswordImpl> get copyWith =>
@@ -422,7 +442,10 @@ abstract class _ChangePassword implements EncryptedKeyUpdateParams {
 
   @override
   EncryptedKeyUpdateParamsChangePassword get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EncryptedKeyUpdateParams
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ChangePasswordImplCopyWith<_$ChangePasswordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

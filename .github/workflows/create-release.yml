@@ -31,17 +31,17 @@ jobs:
           git config user.email "odrin666@gmail.com"
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.16.9'
+          flutter-version: '3.24.0'
           channel: 'stable'
           cache: true
           cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
-      - uses: bluefireteam/melos-action@v2
+      - uses: bluefireteam/melos-action@v3
 
       - name: Create the new version(s)
         run: melos version -a --yes ${{ inputs.version_parameters }}
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5.0.1
+        uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.BOT_ACCESS_TOKEN }}
           commit-message: "chore: version bump"

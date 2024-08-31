@@ -25,8 +25,12 @@ mixin _$TokenIncomingTransfer {
   BigInt get tokens => throw _privateConstructorUsedError;
   Address get senderAddress => throw _privateConstructorUsedError;
 
+  /// Serializes this TokenIncomingTransfer to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TokenIncomingTransfer
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TokenIncomingTransferCopyWith<TokenIncomingTransfer> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,6 +57,8 @@ class _$TokenIncomingTransferCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TokenIncomingTransfer
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -71,6 +77,8 @@ class _$TokenIncomingTransferCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of TokenIncomingTransfer
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get senderAddress {
@@ -104,6 +112,8 @@ class __$$TokenIncomingTransferImplCopyWithImpl<$Res>
       $Res Function(_$TokenIncomingTransferImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TokenIncomingTransfer
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -153,11 +163,13 @@ class _$TokenIncomingTransferImpl implements _TokenIncomingTransfer {
                 other.senderAddress == senderAddress));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, tokens, senderAddress);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TokenIncomingTransfer
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TokenIncomingTransferImplCopyWith<_$TokenIncomingTransferImpl>
@@ -185,8 +197,11 @@ abstract class _TokenIncomingTransfer implements TokenIncomingTransfer {
   BigInt get tokens;
   @override
   Address get senderAddress;
+
+  /// Create a copy of TokenIncomingTransfer
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TokenIncomingTransferImplCopyWith<_$TokenIncomingTransferImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

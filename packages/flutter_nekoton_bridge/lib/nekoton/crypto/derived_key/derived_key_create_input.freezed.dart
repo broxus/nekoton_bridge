@@ -69,6 +69,8 @@ mixin _$DerivedKeyCreateInput {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this DerivedKeyCreateInput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -89,6 +91,9 @@ class _$DerivedKeyCreateInputCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of DerivedKeyCreateInput
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -110,6 +115,8 @@ class __$$ImportImplCopyWithImpl<$Res>
       _$ImportImpl _value, $Res Function(_$ImportImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DerivedKeyCreateInput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -123,6 +130,8 @@ class __$$ImportImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of DerivedKeyCreateInput
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $DerivedKeyCreateInputImportCopyWith<$Res> get data {
@@ -160,11 +169,13 @@ class _$ImportImpl implements _Import {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DerivedKeyCreateInput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ImportImplCopyWith<_$ImportImpl> get copyWith =>
@@ -247,7 +258,10 @@ abstract class _Import implements DerivedKeyCreateInput {
 
   @override
   DerivedKeyCreateInputImport get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DerivedKeyCreateInput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ImportImplCopyWith<_$ImportImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -271,6 +285,8 @@ class __$$DeriveImplCopyWithImpl<$Res>
       _$DeriveImpl _value, $Res Function(_$DeriveImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DerivedKeyCreateInput
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -284,6 +300,8 @@ class __$$DeriveImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of DerivedKeyCreateInput
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $DerivedKeyCreateInputDeriveCopyWith<$Res> get data {
@@ -321,11 +339,13 @@ class _$DeriveImpl implements _Derive {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DerivedKeyCreateInput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeriveImplCopyWith<_$DeriveImpl> get copyWith =>
@@ -408,7 +428,10 @@ abstract class _Derive implements DerivedKeyCreateInput {
 
   @override
   DerivedKeyCreateInputDerive get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DerivedKeyCreateInput
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeriveImplCopyWith<_$DeriveImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

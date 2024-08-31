@@ -28,8 +28,12 @@ mixin _$RootTokenContractDetails {
   Address get ownerAddress => throw _privateConstructorUsedError;
   String get totalSupply => throw _privateConstructorUsedError;
 
+  /// Serializes this RootTokenContractDetails to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RootTokenContractDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RootTokenContractDetailsCopyWith<RootTokenContractDetails> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -62,6 +66,8 @@ class _$RootTokenContractDetailsCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RootTokenContractDetails
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -100,6 +106,8 @@ class _$RootTokenContractDetailsCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of RootTokenContractDetails
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get ownerAddress {
@@ -140,6 +148,8 @@ class __$$RootTokenContractDetailsImplCopyWithImpl<$Res>
       $Res Function(_$RootTokenContractDetailsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RootTokenContractDetails
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -228,12 +238,14 @@ class _$RootTokenContractDetailsImpl implements _RootTokenContractDetails {
                 other.totalSupply == totalSupply));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, version, name, symbol, decimals, ownerAddress, totalSupply);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RootTokenContractDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RootTokenContractDetailsImplCopyWith<_$RootTokenContractDetailsImpl>
@@ -272,8 +284,11 @@ abstract class _RootTokenContractDetails implements RootTokenContractDetails {
   Address get ownerAddress;
   @override
   String get totalSupply;
+
+  /// Create a copy of RootTokenContractDetails
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RootTokenContractDetailsImplCopyWith<_$RootTokenContractDetailsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

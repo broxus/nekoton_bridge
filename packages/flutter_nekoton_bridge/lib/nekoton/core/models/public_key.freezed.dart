@@ -18,7 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PublicKey {
   String get publicKey => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PublicKey
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PublicKeyCopyWith<PublicKey> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -41,6 +43,8 @@ class _$PublicKeyCopyWithImpl<$Res, $Val extends PublicKey>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PublicKey
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -74,6 +78,8 @@ class __$$FromStringImplCopyWithImpl<$Res>
       _$FromStringImpl _value, $Res Function(_$FromStringImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PublicKey
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -108,7 +114,9 @@ class _$FromStringImpl extends _FromString {
   @override
   int get hashCode => Object.hash(runtimeType, publicKey);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PublicKey
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FromStringImplCopyWith<_$FromStringImpl> get copyWith =>
@@ -122,8 +130,11 @@ abstract class _FromString extends PublicKey {
 
   @override
   String get publicKey;
+
+  /// Create a copy of PublicKey
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FromStringImplCopyWith<_$FromStringImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

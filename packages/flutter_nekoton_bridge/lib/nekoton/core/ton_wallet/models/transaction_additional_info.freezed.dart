@@ -101,6 +101,8 @@ mixin _$TransactionAdditionalInfo {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this TransactionAdditionalInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -121,6 +123,9 @@ class _$TransactionAdditionalInfoCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -140,6 +145,8 @@ class __$$CommentImplCopyWithImpl<$Res>
       _$CommentImpl _value, $Res Function(_$CommentImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -182,11 +189,13 @@ class _$CommentImpl implements _Comment {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
@@ -295,7 +304,10 @@ abstract class _Comment implements TransactionAdditionalInfo {
 
   @override
   String get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -321,6 +333,8 @@ class __$$DePoolOnRoundCompleteImplCopyWithImpl<$Res>
       $Res Function(_$DePoolOnRoundCompleteImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -334,6 +348,8 @@ class __$$DePoolOnRoundCompleteImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $DePoolOnRoundCompleteNotificationCopyWith<$Res> get data {
@@ -372,11 +388,13 @@ class _$DePoolOnRoundCompleteImpl implements _DePoolOnRoundComplete {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DePoolOnRoundCompleteImplCopyWith<_$DePoolOnRoundCompleteImpl>
@@ -489,7 +507,10 @@ abstract class _DePoolOnRoundComplete implements TransactionAdditionalInfo {
 
   @override
   DePoolOnRoundCompleteNotification get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DePoolOnRoundCompleteImplCopyWith<_$DePoolOnRoundCompleteImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -514,6 +535,8 @@ class __$$DePoolReceiveAnswerImplCopyWithImpl<$Res>
       $Res Function(_$DePoolReceiveAnswerImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -527,6 +550,8 @@ class __$$DePoolReceiveAnswerImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $DePoolReceiveAnswerNotificationCopyWith<$Res> get data {
@@ -564,11 +589,13 @@ class _$DePoolReceiveAnswerImpl implements _DePoolReceiveAnswer {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DePoolReceiveAnswerImplCopyWith<_$DePoolReceiveAnswerImpl> get copyWith =>
@@ -680,7 +707,10 @@ abstract class _DePoolReceiveAnswer implements TransactionAdditionalInfo {
 
   @override
   DePoolReceiveAnswerNotification get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DePoolReceiveAnswerImplCopyWith<_$DePoolReceiveAnswerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -705,6 +735,8 @@ class __$$TokenWalletDeployedImplCopyWithImpl<$Res>
       $Res Function(_$TokenWalletDeployedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -718,6 +750,8 @@ class __$$TokenWalletDeployedImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TokenWalletDeployedNotificationCopyWith<$Res> get data {
@@ -755,11 +789,13 @@ class _$TokenWalletDeployedImpl implements _TokenWalletDeployed {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TokenWalletDeployedImplCopyWith<_$TokenWalletDeployedImpl> get copyWith =>
@@ -871,7 +907,10 @@ abstract class _TokenWalletDeployed implements TransactionAdditionalInfo {
 
   @override
   TokenWalletDeployedNotification get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TokenWalletDeployedImplCopyWith<_$TokenWalletDeployedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -896,6 +935,8 @@ class __$$WalletInteractionImplCopyWithImpl<$Res>
       $Res Function(_$WalletInteractionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -909,6 +950,8 @@ class __$$WalletInteractionImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $WalletInteractionInfoCopyWith<$Res> get data {
@@ -946,11 +989,13 @@ class _$WalletInteractionImpl implements _WalletInteraction {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$WalletInteractionImplCopyWith<_$WalletInteractionImpl> get copyWith =>
@@ -1062,7 +1107,10 @@ abstract class _WalletInteraction implements TransactionAdditionalInfo {
 
   @override
   WalletInteractionInfo get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$WalletInteractionImplCopyWith<_$WalletInteractionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

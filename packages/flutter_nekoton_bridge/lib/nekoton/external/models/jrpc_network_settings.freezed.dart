@@ -22,8 +22,12 @@ JrpcNetworkSettings _$JrpcNetworkSettingsFromJson(Map<String, dynamic> json) {
 mixin _$JrpcNetworkSettings {
   String get endpoint => throw _privateConstructorUsedError;
 
+  /// Serializes this JrpcNetworkSettings to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of JrpcNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $JrpcNetworkSettingsCopyWith<JrpcNetworkSettings> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$JrpcNetworkSettingsCopyWithImpl<$Res, $Val extends JrpcNetworkSettings>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of JrpcNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$JrpcNetworkSettingsImplCopyWithImpl<$Res>
       $Res Function(_$JrpcNetworkSettingsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of JrpcNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,11 +127,13 @@ class _$JrpcNetworkSettingsImpl implements _JrpcNetworkSettings {
                 other.endpoint == endpoint));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, endpoint);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of JrpcNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$JrpcNetworkSettingsImplCopyWith<_$JrpcNetworkSettingsImpl> get copyWith =>
@@ -147,8 +157,11 @@ abstract class _JrpcNetworkSettings implements JrpcNetworkSettings {
 
   @override
   String get endpoint;
+
+  /// Create a copy of JrpcNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$JrpcNetworkSettingsImplCopyWith<_$JrpcNetworkSettingsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

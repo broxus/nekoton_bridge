@@ -26,8 +26,12 @@ mixin _$AccountToAdd {
   int get workchain => throw _privateConstructorUsedError;
   Address? get explicitAddress => throw _privateConstructorUsedError;
 
+  /// Serializes this AccountToAdd to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AccountToAdd
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AccountToAddCopyWith<AccountToAdd> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -60,6 +64,8 @@ class _$AccountToAddCopyWithImpl<$Res, $Val extends AccountToAdd>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AccountToAdd
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -93,6 +99,8 @@ class _$AccountToAddCopyWithImpl<$Res, $Val extends AccountToAdd>
     ) as $Val);
   }
 
+  /// Create a copy of AccountToAdd
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get publicKey {
@@ -101,6 +109,8 @@ class _$AccountToAddCopyWithImpl<$Res, $Val extends AccountToAdd>
     });
   }
 
+  /// Create a copy of AccountToAdd
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $WalletTypeCopyWith<$Res> get contract {
@@ -109,6 +119,8 @@ class _$AccountToAddCopyWithImpl<$Res, $Val extends AccountToAdd>
     });
   }
 
+  /// Create a copy of AccountToAdd
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res>? get explicitAddress {
@@ -153,6 +165,8 @@ class __$$AccountToAddImplCopyWithImpl<$Res>
       _$AccountToAddImpl _value, $Res Function(_$AccountToAddImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AccountToAdd
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -232,12 +246,14 @@ class _$AccountToAddImpl implements _AccountToAdd {
                 other.explicitAddress == explicitAddress));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, name, publicKey, contract, workchain, explicitAddress);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AccountToAdd
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AccountToAddImplCopyWith<_$AccountToAddImpl> get copyWith =>
@@ -272,8 +288,11 @@ abstract class _AccountToAdd implements AccountToAdd {
   int get workchain;
   @override
   Address? get explicitAddress;
+
+  /// Create a copy of AccountToAdd
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AccountToAddImplCopyWith<_$AccountToAddImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -24,8 +24,12 @@ mixin _$AccountsList {
   @JsonKey(includeIfNull: false)
   String? get continuation => throw _privateConstructorUsedError;
 
+  /// Serializes this AccountsList to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AccountsList
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AccountsListCopyWith<AccountsList> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,6 +55,8 @@ class _$AccountsListCopyWithImpl<$Res, $Val extends AccountsList>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AccountsList
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class __$$AccountsListImplCopyWithImpl<$Res>
       _$AccountsListImpl _value, $Res Function(_$AccountsListImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AccountsList
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -148,12 +156,14 @@ class _$AccountsListImpl implements _AccountsList {
                 other.continuation == continuation));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_accounts), continuation);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AccountsList
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AccountsListImplCopyWith<_$AccountsListImpl> get copyWith =>
@@ -181,8 +191,11 @@ abstract class _AccountsList implements AccountsList {
   @override
   @JsonKey(includeIfNull: false)
   String? get continuation;
+
+  /// Create a copy of AccountsList
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AccountsListImplCopyWith<_$AccountsListImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

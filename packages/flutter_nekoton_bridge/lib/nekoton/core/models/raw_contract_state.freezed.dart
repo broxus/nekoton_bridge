@@ -67,6 +67,8 @@ mixin _$RawContractState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this RawContractState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -86,6 +88,9 @@ class _$RawContractStateCopyWithImpl<$Res, $Val extends RawContractState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of RawContractState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -107,6 +112,8 @@ class __$$NotExistsImplCopyWithImpl<$Res>
       _$NotExistsImpl _value, $Res Function(_$NotExistsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RawContractState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -120,6 +127,8 @@ class __$$NotExistsImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of RawContractState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $GenTimingsCopyWith<$Res> get timings {
@@ -157,11 +166,13 @@ class _$NotExistsImpl implements _NotExists {
             (identical(other.timings, timings) || other.timings == timings));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, timings);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RawContractState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$NotExistsImplCopyWith<_$NotExistsImpl> get copyWith =>
@@ -244,7 +255,10 @@ abstract class _NotExists implements RawContractState {
       _$NotExistsImpl.fromJson;
 
   GenTimings get timings;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RawContractState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NotExistsImplCopyWith<_$NotExistsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -268,6 +282,8 @@ class __$$ExistsImplCopyWithImpl<$Res>
       _$ExistsImpl _value, $Res Function(_$ExistsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RawContractState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -281,6 +297,8 @@ class __$$ExistsImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of RawContractState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ExistingContractCopyWith<$Res> get data {
@@ -318,11 +336,13 @@ class _$ExistsImpl implements _Exists {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RawContractState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ExistsImplCopyWith<_$ExistsImpl> get copyWith =>
@@ -404,7 +424,10 @@ abstract class _Exists implements RawContractState {
   factory _Exists.fromJson(Map<String, dynamic> json) = _$ExistsImpl.fromJson;
 
   ExistingContract get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RawContractState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ExistsImplCopyWith<_$ExistsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -24,8 +24,12 @@ mixin _$FunctionCall {
   String get method => throw _privateConstructorUsedError;
   Map<String, dynamic> get params => throw _privateConstructorUsedError;
 
+  /// Serializes this FunctionCall to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FunctionCall
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FunctionCallCopyWith<FunctionCall> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$FunctionCallCopyWithImpl<$Res, $Val extends FunctionCall>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FunctionCall
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,6 +98,8 @@ class __$$FunctionCallImplCopyWithImpl<$Res>
       _$FunctionCallImpl _value, $Res Function(_$FunctionCallImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FunctionCall
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -155,12 +163,14 @@ class _$FunctionCallImpl implements _FunctionCall {
             const DeepCollectionEquality().equals(other._params, _params));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, abi, method, const DeepCollectionEquality().hash(_params));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FunctionCall
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FunctionCallImplCopyWith<_$FunctionCallImpl> get copyWith =>
@@ -189,8 +199,11 @@ abstract class _FunctionCall implements FunctionCall {
   String get method;
   @override
   Map<String, dynamic> get params;
+
+  /// Create a copy of FunctionCall
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FunctionCallImplCopyWith<_$FunctionCallImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

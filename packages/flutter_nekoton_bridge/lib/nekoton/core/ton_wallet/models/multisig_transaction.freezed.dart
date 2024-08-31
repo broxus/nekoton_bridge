@@ -76,6 +76,8 @@ mixin _$MultisigTransaction {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this MultisigTransaction to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -95,6 +97,9 @@ class _$MultisigTransactionCopyWithImpl<$Res, $Val extends MultisigTransaction>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of MultisigTransaction
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -115,6 +120,8 @@ class __$$SendImplCopyWithImpl<$Res>
   __$$SendImplCopyWithImpl(_$SendImpl _value, $Res Function(_$SendImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MultisigTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -128,6 +135,8 @@ class __$$SendImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of MultisigTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MultisigSendTransactionCopyWith<$Res> get data {
@@ -164,11 +173,13 @@ class _$SendImpl implements _Send {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MultisigTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SendImplCopyWith<_$SendImpl> get copyWith =>
@@ -257,7 +268,10 @@ abstract class _Send implements MultisigTransaction {
 
   @override
   MultisigSendTransaction get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MultisigTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SendImplCopyWith<_$SendImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -281,6 +295,8 @@ class __$$SubmitImplCopyWithImpl<$Res>
       _$SubmitImpl _value, $Res Function(_$SubmitImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MultisigTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -294,6 +310,8 @@ class __$$SubmitImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of MultisigTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MultisigSubmitTransactionCopyWith<$Res> get data {
@@ -331,11 +349,13 @@ class _$SubmitImpl implements _Submit {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MultisigTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SubmitImplCopyWith<_$SubmitImpl> get copyWith =>
@@ -424,7 +444,10 @@ abstract class _Submit implements MultisigTransaction {
 
   @override
   MultisigSubmitTransaction get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MultisigTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SubmitImplCopyWith<_$SubmitImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -448,6 +471,8 @@ class __$$ConfirmImplCopyWithImpl<$Res>
       _$ConfirmImpl _value, $Res Function(_$ConfirmImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MultisigTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -461,6 +486,8 @@ class __$$ConfirmImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of MultisigTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MultisigConfirmTransactionCopyWith<$Res> get data {
@@ -498,11 +525,13 @@ class _$ConfirmImpl implements _Confirm {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MultisigTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ConfirmImplCopyWith<_$ConfirmImpl> get copyWith =>
@@ -591,7 +620,10 @@ abstract class _Confirm implements MultisigTransaction {
 
   @override
   MultisigConfirmTransaction get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MultisigTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ConfirmImplCopyWith<_$ConfirmImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

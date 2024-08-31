@@ -26,8 +26,12 @@ mixin _$DerivedKeyGetPublicKeys {
   int get limit => throw _privateConstructorUsedError;
   int get offset => throw _privateConstructorUsedError;
 
+  /// Serializes this DerivedKeyGetPublicKeys to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DerivedKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DerivedKeyGetPublicKeysCopyWith<DerivedKeyGetPublicKeys> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$DerivedKeyGetPublicKeysCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DerivedKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -83,6 +89,8 @@ class _$DerivedKeyGetPublicKeysCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of DerivedKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get masterKey {
@@ -91,6 +99,8 @@ class _$DerivedKeyGetPublicKeysCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of DerivedKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PasswordCopyWith<$Res> get password {
@@ -127,6 +137,8 @@ class __$$DerivedKeyGetPublicKeysRenameImplCopyWithImpl<$Res>
       $Res Function(_$DerivedKeyGetPublicKeysRenameImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DerivedKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -198,12 +210,14 @@ class _$DerivedKeyGetPublicKeysRenameImpl
             (identical(other.offset, offset) || other.offset == offset));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, masterKey, password, limit, offset);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DerivedKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DerivedKeyGetPublicKeysRenameImplCopyWith<
@@ -238,8 +252,11 @@ abstract class _DerivedKeyGetPublicKeysRename
   int get limit;
   @override
   int get offset;
+
+  /// Create a copy of DerivedKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DerivedKeyGetPublicKeysRenameImplCopyWith<
           _$DerivedKeyGetPublicKeysRenameImpl>
       get copyWith => throw _privateConstructorUsedError;
