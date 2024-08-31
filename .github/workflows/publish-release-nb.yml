@@ -24,16 +24,16 @@ jobs:
           channel: 'stable'
           cache: true
           cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
-      - uses: bluefireteam/melos-action@v2
+      - uses: bluefireteam/melos-action@v3
       - uses: goto-bus-stop/setup-zig@v2
-      - uses: KyleMayes/install-llvm-action@v1
+      - uses: KyleMayes/install-llvm-action@v2
         with:
           version: "15"
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: 1.74.1
       - name: Set up cargo cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         continue-on-error: false
         with:
           path: |
