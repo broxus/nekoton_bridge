@@ -50,6 +50,7 @@ jobs:
 
       # - name: Build all library binaries
       #   run: melos run build
+      
       # TMP: replace with bash
       - name: Build apple binaries
         shell: bash

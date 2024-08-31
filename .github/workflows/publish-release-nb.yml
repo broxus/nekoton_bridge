@@ -48,8 +48,16 @@ jobs:
         with:
           ndk-version: r25b
 
-      - name: Build all library binaries
-        run: melos run build
+      # - name: Build all library binaries
+      #   run: melos run build
+
+      # TMP: replace with bash
+      - name: Build apple binaries
+        shell: bash
+        run: scripts/build-apple.sh
+      - name: Build android binaries
+        shell: bash
+        run: scripts/build-android.sh
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
