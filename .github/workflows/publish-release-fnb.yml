@@ -29,35 +29,14 @@ jobs:
       - uses: KyleMayes/install-llvm-action@v2
         with:
           version: "15"
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: 1.74.1
-      # - name: Set up cargo cache
-      #   uses: actions/cache@v4
-      #   continue-on-error: false
-      #   with:
-      #     path: |
-      #       ~/.cargo/bin/
-      #       ~/.cargo/registry/index/
-      #       ~/.cargo/registry/cache/
-      #       ~/.cargo/git/db/
-      #       target/
-      #     key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-      #     restore-keys: ${{ runner.os }}-cargo-
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
       - uses: nttld/setup-ndk@v1
         with:
           ndk-version: r25b
 
-      # - name: Build all library binaries
-      #   run: melos run build
-
-      # TMP: replace with bash
-      - name: Build apple binaries
-        shell: bash
-        run: scripts/build-apple.sh
-      - name: Build android binaries
-        shell: bash
-        run: scripts/build-android.sh
+      - name: Build all library binaries
+        run: melos run build
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
@@ -79,7 +58,7 @@ jobs:
           channel: 'stable'
           cache: true
           cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
-      - uses: bluefireteam/melos-action@v2
+      - uses: bluefireteam/melos-action@v3
       - name: Dry-run publish to pub.dev
         run: melos publish -y --dry-run --scope="flutter_nekoton_bridge"
       - name: Publish to pub.dev
