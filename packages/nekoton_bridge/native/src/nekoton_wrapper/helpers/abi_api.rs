@@ -359,14 +359,26 @@ pub fn decode_transaction(
     contract_abi: String,
     method: Option<String>,
 ) -> anyhow::Result<String> {
-    let transaction = serde_json::from_str::<Transaction>(&transaction).handle_error()?;
+    let transaction = serde_json::from_str::<serde_json::Value>(&transaction).handle_error()?;
     let contract_abi = parse_contract_abi(contract_abi)?;
     let method = parse_method_name(method)?;
 
-    let internal = transaction.in_msg.src.is_some();
+    if !transaction.is_object() {
+        return Err("Object expected").handle_error();
+    }
 
-    let in_msg_body = match transaction.in_msg.body {
-        Some(body) => SliceData::load_cell(body.data)?,
+    let in_msg = transaction
+        .get("inMessage")
+        .ok_or_else(|| anyhow::anyhow!("Message expected"))?;
+
+    if !in_msg.is_object() {
+        return Err("Message expected").handle_error();
+    }
+
+    let internal = in_msg.get("src").map_or(false, |src| src.is_string());
+
+    let in_msg_body = match in_msg.get("body").and_then(|body| body.as_str()) {
+        Some(body) => parse_slice(body.to_string()).handle_error()?,
         None => return Ok(serde_json::Value::Null.to_string()),
     };
 
@@ -380,16 +392,26 @@ pub fn decode_transaction(
     let input = method.decode_input(in_msg_body, internal).handle_error()?;
     let input = nekoton_abi::make_abi_tokens(&input).handle_error()?;
 
-    let ext_out_msgs = transaction
-        .out_msgs
+    let out_msgs = transaction
+        .get("outMessages")
+        .ok_or_else(|| anyhow::anyhow!("Array expected"))?;
+
+    if !out_msgs.is_array() {
+        return Err("Array expected").handle_error();
+    }
+
+    let ext_out_msgs = out_msgs
+        .as_array()
+        .unwrap()
         .iter()
-        .filter_map(|e| {
-            if e.dst.is_some() {
-                return None;
+        .filter_map(|message| {
+            match message.get("dst") {
+                Some(dst) if dst.is_string() => return None,
+                _ => {}
             };
 
-            Some(match e.body.to_owned() {
-                Some(body) => Ok(SliceData::load_cell(body.data).ok()?),
+            Some(match message.get("body").and_then(|item| item.as_str()) {
+                Some(body) => Ok(parse_slice(body.to_string()).ok()?),
                 None => Err("Expected message body").handle_error(),
             })
         })
@@ -412,19 +434,33 @@ pub fn decode_transaction_events(
     transaction: String,
     contract_abi: String,
 ) -> anyhow::Result<String> {
-    let transaction = serde_json::from_str::<Transaction>(&transaction).handle_error()?;
+    let transaction = serde_json::from_str::<serde_json::Value>(&transaction).handle_error()?;
     let contract_abi = parse_contract_abi(contract_abi)?;
 
-    let ext_out_msgs = transaction
-        .out_msgs
+    if !transaction.is_object() {
+        return Err("Object expected").handle_error();
+    }
+
+    let out_msgs = transaction
+        .get("outMessages")
+        .ok_or_else(|| anyhow::anyhow!("Message expected"))?;
+
+    if !out_msgs.is_array() {
+        return Err("Array expected").handle_error();
+    }
+
+    let ext_out_msgs = out_msgs
+        .as_array()
+        .unwrap()
         .iter()
-        .filter_map(|e| {
-            if e.dst.is_some() {
-                return None;
+        .filter_map(|message| {
+            match message.get("dst") {
+                Some(dst) if dst.is_string() => return None,
+                _ => {}
             };
 
-            Some(match e.body.to_owned() {
-                Some(body) => Ok(SliceData::load_cell(body.data).ok()?),
+            Some(match message.get("body").and_then(|item| item.as_str()) {
+                Some(body) => Ok(parse_slice(body.to_string()).ok()?),
                 None => Err("Expected message body").handle_error(),
             })
         })
