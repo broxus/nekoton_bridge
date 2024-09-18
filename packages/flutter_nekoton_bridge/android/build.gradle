@@ -61,7 +61,7 @@ android {
     compileSdkVersion 31
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 19
     }
 
     // Trigger the binary download/update over in CMakeLists.txt
