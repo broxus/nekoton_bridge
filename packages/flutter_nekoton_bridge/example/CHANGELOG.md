@@ -1,3 +1,8 @@
+## 1.18.1-dev.1
+
+ - **FIX**: Transaction json parse. ([b1977e8e](https://github.com/broxus/nekoton_bridge/commit/b1977e8ef950206f4da5db57cc3ad49f43b1bd50))
+ - **FIX**: android build. ([a68fe9b9](https://github.com/broxus/nekoton_bridge/commit/a68fe9b90e91a65109df7919cb3fb1f0523cbbaa))
+
 ## 1.18.1-dev.0
 
  - Update a dependency to the latest release.
