@@ -1,3 +1,8 @@
+## 2.0.1-dev.1
+
+ - **FIX**: Transaction json parse. ([b1977e8e](https://github.com/broxus/nekoton_bridge/commit/b1977e8ef950206f4da5db57cc3ad49f43b1bd50))
+ - **FIX**: android build. ([a68fe9b9](https://github.com/broxus/nekoton_bridge/commit/a68fe9b90e91a65109df7919cb3fb1f0523cbbaa))
+
 ## 2.0.1-dev.0
 
  - **FIX**: pubspec.yaml. ([69d3f686](https://github.com/broxus/nekoton_bridge/commit/69d3f686b07bc9b27dd77d2b5e3a4f0646ea7de2))

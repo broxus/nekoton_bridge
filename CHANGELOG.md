@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-09-19
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.0.1-dev.1`](#flutter_nekoton_bridge---v201-dev1)
+ - [`flutter_nekoton_bridge_example` - `v1.18.1-dev.1`](#flutter_nekoton_bridge_example---v1181-dev1)
+ - [`nekoton_bridge` - `v2.0.1-dev.0`](#nekoton_bridge---v201-dev0)
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.0.1-dev.1`
+
+ - **FIX**: Transaction json parse. ([b1977e8e](https://github.com/broxus/nekoton_bridge/commit/b1977e8ef950206f4da5db57cc3ad49f43b1bd50))
+ - **FIX**: android build. ([a68fe9b9](https://github.com/broxus/nekoton_bridge/commit/a68fe9b90e91a65109df7919cb3fb1f0523cbbaa))
+
+#### `flutter_nekoton_bridge_example` - `v1.18.1-dev.1`
+
+ - **FIX**: Transaction json parse. ([b1977e8e](https://github.com/broxus/nekoton_bridge/commit/b1977e8ef950206f4da5db57cc3ad49f43b1bd50))
+ - **FIX**: android build. ([a68fe9b9](https://github.com/broxus/nekoton_bridge/commit/a68fe9b90e91a65109df7919cb3fb1f0523cbbaa))
+
+#### `nekoton_bridge` - `v2.0.1-dev.0`
+
+ - **REFACTOR**: use struct to parse json string. ([35999f74](https://github.com/broxus/nekoton_bridge/commit/35999f74c5613f9888b523f6e94a2658a8a32fb6))
+ - **FIX**: Transaction json parse. ([b1977e8e](https://github.com/broxus/nekoton_bridge/commit/b1977e8ef950206f4da5db57cc3ad49f43b1bd50))
+
+
 ## 2024-08-31
 
 ### Changes

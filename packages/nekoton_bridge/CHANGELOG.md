@@ -1,3 +1,8 @@
+## 2.0.1-dev.0
+
+ - **REFACTOR**: use struct to parse json string. ([35999f74](https://github.com/broxus/nekoton_bridge/commit/35999f74c5613f9888b523f6e94a2658a8a32fb6))
+ - **FIX**: Transaction json parse. ([b1977e8e](https://github.com/broxus/nekoton_bridge/commit/b1977e8ef950206f4da5db57cc3ad49f43b1bd50))
+
 ## 2.0.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
