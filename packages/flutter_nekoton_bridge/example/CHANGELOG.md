@@ -1,3 +1,7 @@
+## 1.18.1-dev.2
+
+ - Update a dependency to the latest release.
+
 ## 1.18.1-dev.1
 
  - **FIX**: Transaction json parse. ([b1977e8e](https://github.com/broxus/nekoton_bridge/commit/b1977e8ef950206f4da5db57cc3ad49f43b1bd50))
