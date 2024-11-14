@@ -1,3 +1,7 @@
+## 2.0.1-dev.2
+
+ - **FIX**: force `nekoton_bridge` version bump. ([8bb103d4](https://github.com/broxus/nekoton_bridge/commit/8bb103d42fc76c7d40138ba0cfede899a6165255))
+
 ## 2.0.1-dev.0
 
  - **REFACTOR**: use struct to parse json string. ([35999f74](https://github.com/broxus/nekoton_bridge/commit/35999f74c5613f9888b523f6e94a2658a8a32fb6))
