@@ -302,6 +302,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
   }
 
   @protected
+  ffi.Pointer<ffi.Uint32> api2wire_box_autoadd_u32(int raw) {
+    return inner.new_box_autoadd_u32_0(api2wire_u32(raw));
+  }
+
+  @protected
   ffi.Pointer<ffi.Uint64> api2wire_box_autoadd_u64(int raw) {
     return inner.new_box_autoadd_u64_0(api2wire_u64(raw));
   }
@@ -384,6 +389,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
     return raw == null
         ? ffi.nullptr
         : api2wire_box_autoadd_ledger_connection_dart_wrapper(raw);
+  }
+
+  @protected
+  ffi.Pointer<ffi.Uint32> api2wire_opt_box_autoadd_u32(int? raw) {
+    return raw == null ? ffi.nullptr : api2wire_box_autoadd_u32(raw);
   }
 
   @protected
@@ -5158,6 +5168,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     ffi.Pointer<wire_uint_8_list> expiration,
     ffi.Pointer<wire_StringList> custodians,
     int req_confirms,
+    ffi.Pointer<ffi.Uint32> expiration_time,
   ) {
     return _wire_prepare_deploy_with_multiple_owners__method__TonWalletDartWrapper(
       port_,
@@ -5165,6 +5176,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       expiration,
       custodians,
       req_confirms,
+      expiration_time,
     );
   }
 
@@ -5176,7 +5188,8 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
                       ffi.Pointer<wire_TonWalletDartWrapper>,
                       ffi.Pointer<wire_uint_8_list>,
                       ffi.Pointer<wire_StringList>,
-                      ffi.Uint8)>>(
+                      ffi.Uint8,
+                      ffi.Pointer<ffi.Uint32>)>>(
           'wire_prepare_deploy_with_multiple_owners__method__TonWalletDartWrapper');
   late final _wire_prepare_deploy_with_multiple_owners__method__TonWalletDartWrapper =
       _wire_prepare_deploy_with_multiple_owners__method__TonWalletDartWrapperPtr
@@ -5186,7 +5199,8 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
                   ffi.Pointer<wire_TonWalletDartWrapper>,
                   ffi.Pointer<wire_uint_8_list>,
                   ffi.Pointer<wire_StringList>,
-                  int)>();
+                  int,
+                  ffi.Pointer<ffi.Uint32>)>();
 
   void wire_prepare_transfer__method__TonWalletDartWrapper(
     int port_,
@@ -6083,6 +6097,20 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _new_box_autoadd_transaction_execution_options_0 =
       _new_box_autoadd_transaction_execution_options_0Ptr.asFunction<
           ffi.Pointer<wire_TransactionExecutionOptions> Function()>();
+
+  ffi.Pointer<ffi.Uint32> new_box_autoadd_u32_0(
+    int value,
+  ) {
+    return _new_box_autoadd_u32_0(
+      value,
+    );
+  }
+
+  late final _new_box_autoadd_u32_0Ptr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Uint32> Function(ffi.Uint32)>>(
+          'new_box_autoadd_u32_0');
+  late final _new_box_autoadd_u32_0 = _new_box_autoadd_u32_0Ptr
+      .asFunction<ffi.Pointer<ffi.Uint32> Function(int)>();
 
   ffi.Pointer<ffi.Uint64> new_box_autoadd_u64_0(
     int value,

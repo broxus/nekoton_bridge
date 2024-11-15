@@ -990,7 +990,8 @@ void wire_prepare_deploy_with_multiple_owners__method__TonWalletDartWrapper(int6
                                                                             struct wire_TonWalletDartWrapper *that,
                                                                             struct wire_uint_8_list *expiration,
                                                                             struct wire_StringList *custodians,
-                                                                            uint8_t req_confirms);
+                                                                            uint8_t req_confirms,
+                                                                            uint32_t *expiration_time);
 
 void wire_prepare_transfer__method__TonWalletDartWrapper(int64_t port_,
                                                          struct wire_TonWalletDartWrapper *that,
@@ -1142,6 +1143,8 @@ struct wire_TokenWalletDartWrapper *new_box_autoadd_token_wallet_dart_wrapper_0(
 struct wire_TonWalletDartWrapper *new_box_autoadd_ton_wallet_dart_wrapper_0(void);
 
 struct wire_TransactionExecutionOptions *new_box_autoadd_transaction_execution_options_0(void);
+
+uint32_t *new_box_autoadd_u32_0(uint32_t value);
 
 uint64_t *new_box_autoadd_u64_0(uint64_t value);
 
@@ -1468,6 +1471,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_token_wallet_dart_wrapper_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_ton_wallet_dart_wrapper_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_transaction_execution_options_0);
+    dummy_var ^= ((int64_t) (void*) new_box_autoadd_u32_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_u64_0);
     dummy_var ^= ((int64_t) (void*) new_box_autoadd_unsigned_message_impl_0);
     dummy_var ^= ((int64_t) (void*) new_int_32_list_0);
