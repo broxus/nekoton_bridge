@@ -256,12 +256,14 @@ class TonWallet extends RustToDartMirrorInterface
     required Expiration expiration,
     required List<PublicKey> custodians,
     required int reqConfirms,
+    int? expirationTime,
   }) async =>
       UnsignedMessage.create(
         message: await wallet.prepareDeployWithMultipleOwners(
           expiration: jsonEncode(expiration),
           custodians: custodians.map((key) => key.publicKey).toList(),
           reqConfirms: reqConfirms,
+          expirationTime: expirationTime,
         ),
       );
 

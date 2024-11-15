@@ -735,7 +735,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         const [
           0,
           0,
-          const [#expiration, #custodians, #reqConfirms]
+          const [#expiration, #custodians, #reqConfirms, #expirationTime]
         ],
         const [
           0,

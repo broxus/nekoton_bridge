@@ -219,6 +219,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
   }
 
   @protected
+  int api2wire_box_autoadd_u32(int raw) {
+    return api2wire_u32(raw);
+  }
+
+  @protected
   Object api2wire_box_autoadd_u64(int raw) {
     return api2wire_u64(raw);
   }
@@ -419,6 +424,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
     return raw == null
         ? null
         : api2wire_box_autoadd_ledger_connection_dart_wrapper(raw);
+  }
+
+  @protected
+  int? api2wire_opt_box_autoadd_u32(int? raw) {
+    return raw == null ? null : api2wire_box_autoadd_u32(raw);
   }
 
   @protected
@@ -1282,7 +1292,8 @@ class NekotonBridgeWasmModule implements WasmModule {
           List<dynamic> that,
           String expiration,
           List<String> custodians,
-          int req_confirms);
+          int req_confirms,
+          int? expiration_time);
 
   external dynamic /* void */
       wire_prepare_transfer__method__TonWalletDartWrapper(
@@ -2355,10 +2366,16 @@ class NekotonBridgeWire
           List<dynamic> that,
           String expiration,
           List<String> custodians,
-          int req_confirms) =>
+          int req_confirms,
+          int? expiration_time) =>
       wasmModule
           .wire_prepare_deploy_with_multiple_owners__method__TonWalletDartWrapper(
-              port_, that, expiration, custodians, req_confirms);
+              port_,
+              that,
+              expiration,
+              custodians,
+              req_confirms,
+              expiration_time);
 
   void wire_prepare_transfer__method__TonWalletDartWrapper(
           NativePortType port_,

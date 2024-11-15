@@ -1572,6 +1572,7 @@ abstract class NekotonBridge {
           required String expiration,
           required List<String> custodians,
           required int reqConfirms,
+          int? expirationTime,
           dynamic hint});
 
   FlutterRustBridgeTaskConstMeta
@@ -3603,12 +3604,14 @@ class TonWalletDartWrapper {
           {required String expiration,
           required List<String> custodians,
           required int reqConfirms,
+          int? expirationTime,
           dynamic hint}) =>
       bridge.prepareDeployWithMultipleOwnersMethodTonWalletDartWrapper(
         that: this,
         expiration: expiration,
         custodians: custodians,
         reqConfirms: reqConfirms,
+        expirationTime: expirationTime,
       );
 
   /// Prepare transferring tokens from this wallet to other.
@@ -7913,19 +7916,21 @@ class NekotonBridgeImpl implements NekotonBridge {
           required String expiration,
           required List<String> custodians,
           required int reqConfirms,
+          int? expirationTime,
           dynamic hint}) {
     var arg0 = _platform.api2wire_box_autoadd_ton_wallet_dart_wrapper(that);
     var arg1 = _platform.api2wire_String(expiration);
     var arg2 = _platform.api2wire_StringList(custodians);
     var arg3 = api2wire_u8(reqConfirms);
+    var arg4 = _platform.api2wire_opt_box_autoadd_u32(expirationTime);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
           .wire_prepare_deploy_with_multiple_owners__method__TonWalletDartWrapper(
-              port_, arg0, arg1, arg2, arg3),
+              port_, arg0, arg1, arg2, arg3, arg4),
       parseSuccessData: (d) => _wire2api_unsigned_message_impl(d),
       constMeta:
           kPrepareDeployWithMultipleOwnersMethodTonWalletDartWrapperConstMeta,
-      argValues: [that, expiration, custodians, reqConfirms],
+      argValues: [that, expiration, custodians, reqConfirms, expirationTime],
       hint: hint,
     ));
   }
@@ -7935,7 +7940,13 @@ class NekotonBridgeImpl implements NekotonBridge {
           const FlutterRustBridgeTaskConstMeta(
             debugName:
                 "prepare_deploy_with_multiple_owners__method__TonWalletDartWrapper",
-            argNames: ["that", "expiration", "custodians", "reqConfirms"],
+            argNames: [
+              "that",
+              "expiration",
+              "custodians",
+              "reqConfirms",
+              "expirationTime"
+            ],
           );
 
   Future<UnsignedMessageImpl> prepareTransferMethodTonWalletDartWrapper(

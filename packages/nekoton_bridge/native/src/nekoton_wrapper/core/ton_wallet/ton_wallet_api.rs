@@ -167,10 +167,11 @@ impl TonWalletDartWrapper {
         expiration: String,
         custodians: Vec<String>,
         req_confirms: u8,
+        expiration_time: Option<u32>,
     ) -> anyhow::Result<UnsignedMessageImpl> {
         async_run!(
             self.inner_wallet
-                .prepare_deploy_with_multiple_owners(expiration, custodians, req_confirms)
+                .prepare_deploy_with_multiple_owners(expiration, custodians, req_confirms, expiration_time)
                 .await
         )
         .map(|m| UnsignedMessageImpl { inner_message: m })
