@@ -328,7 +328,12 @@ impl TonWalletBoxTrait for TonWalletBox {
             .inner_wallet
             .lock()
             .await
-            .prepare_deploy_with_multiple_owners(expiration, &custodians, req_confirms, expiration_time)
+            .prepare_deploy_with_multiple_owners(
+                expiration,
+                &custodians,
+                req_confirms,
+                expiration_time,
+            )
             .handle_error()?;
 
         Ok(UnsignedMessageBox::create(unsigned_message))
