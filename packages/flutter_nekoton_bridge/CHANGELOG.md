@@ -1,3 +1,7 @@
+## 2.0.1-dev.4
+
+ - **FEAT**: add expiration time to multisig ([#267](https://github.com/broxus/nekoton_bridge/issues/267)). ([3cbf41ce](https://github.com/broxus/nekoton_bridge/commit/3cbf41ce902197784a9f20115965f46e76372317))
+
 ## 2.0.1-dev.2
 
  - **FIX**: force `nekoton_bridge` version bump. ([8bb103d4](https://github.com/broxus/nekoton_bridge/commit/8bb103d42fc76c7d40138ba0cfede899a6165255))
