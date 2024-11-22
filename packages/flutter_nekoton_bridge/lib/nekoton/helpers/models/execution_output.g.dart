@@ -14,16 +14,8 @@ _$ExecutionOutputImpl _$$ExecutionOutputImplFromJson(
     );
 
 Map<String, dynamic> _$$ExecutionOutputImplToJson(
-    _$ExecutionOutputImpl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('output', instance.output);
-  val['code'] = instance.code;
-  return val;
-}
+        _$ExecutionOutputImpl instance) =>
+    <String, dynamic>{
+      if (instance.output case final value?) 'output': value,
+      'code': instance.code,
+    };

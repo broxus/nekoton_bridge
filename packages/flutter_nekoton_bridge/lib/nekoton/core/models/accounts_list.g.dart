@@ -13,17 +13,8 @@ _$AccountsListImpl _$$AccountsListImplFromJson(Map<String, dynamic> json) =>
       continuation: json['continuation'] as String?,
     );
 
-Map<String, dynamic> _$$AccountsListImplToJson(_$AccountsListImpl instance) {
-  final val = <String, dynamic>{
-    'accounts': instance.accounts,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('continuation', instance.continuation);
-  return val;
-}
+Map<String, dynamic> _$$AccountsListImplToJson(_$AccountsListImpl instance) =>
+    <String, dynamic>{
+      'accounts': instance.accounts,
+      if (instance.continuation case final value?) 'continuation': value,
+    };

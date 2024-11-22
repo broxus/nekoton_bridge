@@ -23,18 +23,10 @@ _$TransactionsListImpl _$$TransactionsListImplFromJson(
     );
 
 Map<String, dynamic> _$$TransactionsListImplToJson(
-    _$TransactionsListImpl instance) {
-  final val = <String, dynamic>{
-    'transactions': instance.transactions.map((e) => e.toJson()).toList(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('continuation', instance.continuation?.toJson());
-  val['info'] = instance.info?.toJson();
-  return val;
-}
+        _$TransactionsListImpl instance) =>
+    <String, dynamic>{
+      'transactions': instance.transactions.map((e) => e.toJson()).toList(),
+      if (instance.continuation?.toJson() case final value?)
+        'continuation': value,
+      'info': instance.info?.toJson(),
+    };
