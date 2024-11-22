@@ -28,30 +28,22 @@ _$TransactionImpl _$$TransactionImplFromJson(Map<String, dynamic> json) =>
       boc: json['boc'] as String?,
     );
 
-Map<String, dynamic> _$$TransactionImplToJson(_$TransactionImpl instance) {
-  final val = <String, dynamic>{
-    'id': instance.id.toJson(),
-    'prevTransactionId': instance.prevTransactionId?.toJson(),
-    'createdAt': dateSecondsSinceEpochJsonConverter.toJson(instance.createdAt),
-    'aborted': instance.aborted,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('exitCode', instance.exitCode);
-  writeNotNull('resultCode', instance.resultCode);
-  val['origStatus'] = _$AccountStatusEnumMap[instance.origStatus]!;
-  val['endStatus'] = _$AccountStatusEnumMap[instance.endStatus]!;
-  val['totalFees'] = amountJsonConverter.toJson(instance.totalFees);
-  val['inMessage'] = instance.inMessage.toJson();
-  val['outMessages'] = instance.outMessages.map((e) => e.toJson()).toList();
-  val['boc'] = instance.boc;
-  return val;
-}
+Map<String, dynamic> _$$TransactionImplToJson(_$TransactionImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id.toJson(),
+      'prevTransactionId': instance.prevTransactionId?.toJson(),
+      'createdAt':
+          dateSecondsSinceEpochJsonConverter.toJson(instance.createdAt),
+      'aborted': instance.aborted,
+      if (instance.exitCode case final value?) 'exitCode': value,
+      if (instance.resultCode case final value?) 'resultCode': value,
+      'origStatus': _$AccountStatusEnumMap[instance.origStatus]!,
+      'endStatus': _$AccountStatusEnumMap[instance.endStatus]!,
+      'totalFees': amountJsonConverter.toJson(instance.totalFees),
+      'inMessage': instance.inMessage.toJson(),
+      'outMessages': instance.outMessages.map((e) => e.toJson()).toList(),
+      'boc': instance.boc,
+    };
 
 const _$AccountStatusEnumMap = {
   AccountStatus.uninit: 'uninit',

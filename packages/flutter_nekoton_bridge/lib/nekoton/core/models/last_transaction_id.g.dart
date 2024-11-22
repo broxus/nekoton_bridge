@@ -15,18 +15,9 @@ _$LastTransactionIdImpl _$$LastTransactionIdImplFromJson(
     );
 
 Map<String, dynamic> _$$LastTransactionIdImplToJson(
-    _$LastTransactionIdImpl instance) {
-  final val = <String, dynamic>{
-    'isExact': instance.isExact,
-    'lt': instance.lt,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('hash', instance.hash);
-  return val;
-}
+        _$LastTransactionIdImpl instance) =>
+    <String, dynamic>{
+      'isExact': instance.isExact,
+      'lt': instance.lt,
+      if (instance.hash case final value?) 'hash': value,
+    };

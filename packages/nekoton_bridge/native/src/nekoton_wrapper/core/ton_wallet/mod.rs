@@ -78,6 +78,7 @@ pub trait TonWalletBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         expiration: String,
         custodians: Vec<String>,
         req_confirms: u8,
+        expiration_time: Option<u32>,
     ) -> anyhow::Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>>;
 
     /// Prepare transferring tokens from this wallet to other.
@@ -313,6 +314,7 @@ impl TonWalletBoxTrait for TonWalletBox {
         expiration: String,
         custodians: Vec<String>,
         req_confirms: u8,
+        expiration_time: Option<u32>,
     ) -> anyhow::Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>> {
         let expiration = serde_json::from_str::<Expiration>(&expiration).handle_error()?;
 
@@ -326,7 +328,12 @@ impl TonWalletBoxTrait for TonWalletBox {
             .inner_wallet
             .lock()
             .await
-            .prepare_deploy_with_multiple_owners(expiration, &custodians, req_confirms, None)
+            .prepare_deploy_with_multiple_owners(
+                expiration,
+                &custodians,
+                req_confirms,
+                expiration_time,
+            )
             .handle_error()?;
 
         Ok(UnsignedMessageBox::create(unsigned_message))

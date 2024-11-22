@@ -20,17 +20,10 @@ _$WalletInteractionInfoImpl _$$WalletInteractionInfoImplFromJson(
     );
 
 Map<String, dynamic> _$$WalletInteractionInfoImplToJson(
-    _$WalletInteractionInfoImpl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('recipient', instance.recipient?.toJson());
-  writeNotNull('knownPayload', instance.knownPayload?.toJson());
-  val['method'] = instance.method.toJson();
-  return val;
-}
+        _$WalletInteractionInfoImpl instance) =>
+    <String, dynamic>{
+      if (instance.recipient?.toJson() case final value?) 'recipient': value,
+      if (instance.knownPayload?.toJson() case final value?)
+        'knownPayload': value,
+      'method': instance.method.toJson(),
+    };
