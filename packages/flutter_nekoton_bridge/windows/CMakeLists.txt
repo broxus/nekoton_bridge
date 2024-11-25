@@ -1,4 +1,4 @@
-set(LibraryVersion "nekoton_bridge-v2.0.1-dev.2") # generated; do not edit
+set(LibraryVersion "nekoton_bridge-v2.0.1-dev.4") # generated; do not edit
 # # installed that includes CMake 3.14 or later. You should not increase this
 # # version, as doing so will cause the plugin to fail to compile for some
 # # customers of the plugin.

@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-11-22
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.0.1-dev.4`](#flutter_nekoton_bridge---v201-dev4)
+ - [`nekoton_bridge` - `v2.0.1-dev.4`](#nekoton_bridge---v201-dev4)
+ - [`flutter_nekoton_bridge_example` - `v1.18.1-dev.3`](#flutter_nekoton_bridge_example---v1181-dev3)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.18.1-dev.3`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.0.1-dev.4`
+
+ - **FEAT**: add expiration time to multisig ([#267](https://github.com/broxus/nekoton_bridge/issues/267)). ([3cbf41ce](https://github.com/broxus/nekoton_bridge/commit/3cbf41ce902197784a9f20115965f46e76372317))
+
+#### `nekoton_bridge` - `v2.0.1-dev.4`
+
+ - **FEAT**: add expiration time to multisig ([#267](https://github.com/broxus/nekoton_bridge/issues/267)). ([3cbf41ce](https://github.com/broxus/nekoton_bridge/commit/3cbf41ce902197784a9f20115965f46e76372317))
+
+
 ## 2024-11-14
 
 ### Changes
