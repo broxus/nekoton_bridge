@@ -72,17 +72,19 @@ class TokenWallet extends RustToDartMirrorInterface
   }) async {
     final instance = TokenWallet._(transport, rootTokenContract);
 
-    final lib = createLib();
-    instance.wallet = await lib.subscribeStaticMethodTokenWalletDartWrapper(
-      instanceHash: instance.instanceHash,
-      transport: transport.transportBox,
-      rootTokenContract: rootTokenContract.address,
-      owner: owner.address,
-    );
+    return transport.use(() async {
+      final lib = createLib();
+      instance.wallet = await lib.subscribeStaticMethodTokenWalletDartWrapper(
+        instanceHash: instance.instanceHash,
+        transport: transport.transportBox,
+        rootTokenContract: rootTokenContract.address,
+        owner: owner.address,
+      );
 
-    await instance._initInstance();
+      await instance._initInstance();
 
-    return instance;
+      return instance;
+    });
   }
 
   /// If any error occurs during first initialization of wallet, it will dispose
@@ -221,8 +223,10 @@ class TokenWallet extends RustToDartMirrorInterface
 
     try {
       _isRefreshing = true;
-      await wallet.refresh();
-      await _updateData();
+      transport.use(() async {
+        await wallet.refresh();
+        await _updateData();
+      });
     } finally {
       _isRefreshing = false;
     }
@@ -258,12 +262,13 @@ class TokenWallet extends RustToDartMirrorInterface
     required Transport transport,
     required Address address,
   }) async {
-    final lib = createLib();
-    final encoded =
-        await lib.getTokenWalletDetailsStaticMethodTokenWalletDartWrapper(
-      address: address.address,
-      transport: transport.transportBox,
-    );
+    final encoded = await transport.use(() async {
+      final lib = createLib();
+      return lib.getTokenWalletDetailsStaticMethodTokenWalletDartWrapper(
+        address: address.address,
+        transport: transport.transportBox,
+      );
+    });
     final decoded = jsonDecode(encoded) as List<dynamic>;
     return Tuple2(
       TokenWalletDetails.fromJson(decoded.first as Map<String, dynamic>),
@@ -280,12 +285,14 @@ class TokenWallet extends RustToDartMirrorInterface
     required Transport transport,
     required Address address,
   }) async {
-    final lib = createLib();
-    final encoded = await lib
-        .getTokenRootDetailsFromTokenWalletStaticMethodTokenWalletDartWrapper(
-      tokenWalletAddress: address.address,
-      transport: transport.transportBox,
-    );
+    final encoded = await transport.use(() async {
+      final lib = createLib();
+      return lib
+          .getTokenRootDetailsFromTokenWalletStaticMethodTokenWalletDartWrapper(
+        tokenWalletAddress: address.address,
+        transport: transport.transportBox,
+      );
+    });
     final decoded = jsonDecode(encoded) as List<dynamic>;
     return Tuple2(
       Address(address: (decoded.first as String)),
@@ -301,12 +308,13 @@ class TokenWallet extends RustToDartMirrorInterface
     required Transport transport,
     required Address tokenRoot,
   }) async {
-    final lib = createLib();
-    final encoded =
-        await lib.getTokenRootDetailsStaticMethodTokenWalletDartWrapper(
-      tokenRootAddress: tokenRoot.address,
-      transport: transport.transportBox,
-    );
+    final encoded = await transport.use(() async {
+      final lib = createLib();
+      return lib.getTokenRootDetailsStaticMethodTokenWalletDartWrapper(
+        tokenRootAddress: tokenRoot.address,
+        transport: transport.transportBox,
+      );
+    });
     return RootTokenContractDetails.fromJson(jsonDecode(encoded));
   }
 
