@@ -1,12 +1,19 @@
 import 'dart:typed_data';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:mutex/mutex.dart';
 
 /// Exception that is thrown when transport is disposed and user calls its methods
 class TransportCallAfterDisposeError implements Exception {}
 
 /// Abstract class for transport, so we can combine both implementations into single list
 abstract class Transport {
+  @protected
+  final mutex = ReadWriteMutex();
+
+  Future<T> use<T>(Future<T> Function() fn) => mutex.protectRead(fn);
+
   String get name;
 
   late final int networkId;
@@ -82,5 +89,5 @@ abstract class Transport {
   /// Used only for creating rust instances.
   ArcTransportBoxTrait get transportBox;
 
-  void dispose();
+  Future<void> dispose();
 }

@@ -34,11 +34,11 @@ class GqlTransport extends Transport {
   }
 
   @override
-  void dispose() {
-    transport.innerTransport.dispose();
-    gqlConnection.dispose();
-    _disposed = true;
-  }
+  Future<void> dispose() => mutex.protectWrite(() async {
+        transport.innerTransport.dispose();
+        gqlConnection.dispose();
+        _disposed = true;
+      });
 
   @override
   Future<AccountsList> getAccountsByCodeHash({
@@ -48,30 +48,35 @@ class GqlTransport extends Transport {
   }) async {
     if (_disposed) throw TransportCallAfterDisposeError();
 
-    final res = await transport.getAccountsByCodeHash(
-      codeHash: codeHash,
-      limit: limit,
-      continuation: continuation,
-    );
-    return AccountsList.fromJson(jsonDecode(res));
+    return mutex.protectRead(() async {
+      final res = await transport.getAccountsByCodeHash(
+        codeHash: codeHash,
+        limit: limit,
+        continuation: continuation,
+      );
+      return AccountsList.fromJson(jsonDecode(res));
+    });
   }
 
   @override
   Future<RawContractState> getContractState(Address address) async {
     if (_disposed) throw TransportCallAfterDisposeError();
 
-    final res = await transport.getContractState(address: address.address);
-    return RawContractState.fromJson(jsonDecode(res));
+    return mutex.protectRead(() async {
+      final res = await transport.getContractState(address: address.address);
+      return RawContractState.fromJson(jsonDecode(res));
+    });
   }
 
   @override
   Future<FullContractState?> getFullContractState(Address address) async {
     if (_disposed) throw TransportCallAfterDisposeError();
 
-    final res = await transport.getFullContractState(address: address.address);
-    if (res == null) return null;
-
-    return FullContractState.fromJson(jsonDecode(res));
+    return mutex.protectRead(() async {
+      final res =
+          await transport.getFullContractState(address: address.address);
+      return res == null ? null : FullContractState.fromJson(jsonDecode(res));
+    });
   }
 
   @override
@@ -82,42 +87,45 @@ class GqlTransport extends Transport {
   }) async {
     if (_disposed) throw TransportCallAfterDisposeError();
 
-    final state = cachedState ?? await getFullContractState(address);
-    if (state == null) {
-      return (null, null);
-    }
+    return mutex.protectRead(() async {
+      final state = cachedState ?? await getFullContractState(address);
+      if (state == null) {
+        return (null, null);
+      }
 
-    return (
-      await unpackContractFields(
-        contractAbi: contractAbi,
-        boc: state.boc,
-        allowPartial: true,
-      ),
-      state,
-    );
+      return (
+        await unpackContractFields(
+          contractAbi: contractAbi,
+          boc: state.boc,
+          allowPartial: true,
+        ),
+        state,
+      );
+    });
   }
 
   @override
   Future<int?> getSignatureId() {
     if (_disposed) throw TransportCallAfterDisposeError();
 
-    return transport.getSignatureId();
+    return mutex.protectRead(() => transport.getSignatureId());
   }
 
   @override
   Future<int> getNetworkId() {
     if (_disposed) throw TransportCallAfterDisposeError();
 
-    return transport.getNetworkId();
+    return mutex.protectRead(() => transport.getNetworkId());
   }
 
   @override
   Future<Transaction?> getTransaction(String hash) async {
     if (_disposed) throw TransportCallAfterDisposeError();
 
-    final res = await transport.getTransaction(hash: hash);
-    if (res == null) return null;
-    return Transaction.fromJson(jsonDecode(res));
+    return mutex.protectRead(() async {
+      final res = await transport.getTransaction(hash: hash);
+      return res == null ? null : Transaction.fromJson(jsonDecode(res));
+    });
   }
 
   @override
@@ -128,35 +136,40 @@ class GqlTransport extends Transport {
   }) async {
     if (_disposed) throw TransportCallAfterDisposeError();
 
-    final res = await transport.getTransactions(
-      address: address.address,
-      count: count,
-      fromLt: fromLt,
-    );
-    return TransactionsList.fromJson(jsonDecode(res));
+    return mutex.protectRead(() async {
+      final res = await transport.getTransactions(
+        address: address.address,
+        count: count,
+        fromLt: fromLt,
+      );
+      return TransactionsList.fromJson(jsonDecode(res));
+    });
   }
 
   @override
   Future<RawTransaction?> getDstTransaction(String messageHash) async {
     if (_disposed) throw TransportCallAfterDisposeError();
 
-    final res = await transport.getDstTransaction(messageHash: messageHash);
-
-    return res == null ? null : RawTransaction.fromJson(jsonDecode(res));
+    return mutex.protectRead(() async {
+      final res = await transport.getDstTransaction(messageHash: messageHash);
+      return res == null ? null : RawTransaction.fromJson(jsonDecode(res));
+    });
   }
 
   /// Get latest block by address and return it or throw error
   Future<LatestBlock> getLatestBlock({required Address address}) {
     if (_disposed) throw TransportCallAfterDisposeError();
 
-    return transport.getLatestBlock(address: address.address);
+    return mutex.protectRead(
+      () => transport.getLatestBlock(address: address.address),
+    );
   }
 
   /// Get transport block by id and return base64 encoded block or throw error
   Future<String> getBlock({required String id}) {
     if (_disposed) throw TransportCallAfterDisposeError();
 
-    return transport.getBlock(id: id);
+    return mutex.protectRead(() => transport.getBlock(id: id));
   }
 
   /// Wait until next block will come to blockchain and return its id or throw error
@@ -167,20 +180,21 @@ class GqlTransport extends Transport {
   }) {
     if (_disposed) throw TransportCallAfterDisposeError();
 
-    return transport.waitForNextBlock(
-      currentBlockId: currentBlockId,
-      address: address.address,
-      timeout: timeout.inMilliseconds,
-    );
+    return mutex.protectRead(() => transport.waitForNextBlock(
+          currentBlockId: currentBlockId,
+          address: address.address,
+          timeout: timeout.inMilliseconds,
+        ));
   }
 
   @override
   Future<BlockchainConfig> getBlockchainConfig({bool force = true}) async {
     if (_disposed) throw TransportCallAfterDisposeError();
 
-    final config = await transport.getBlockchainConfig(force: force);
-
-    return BlockchainConfig.fromJson(jsonDecode(config));
+    return mutex.protectRead(() async {
+      final res = await transport.getBlockchainConfig(force: force);
+      return BlockchainConfig.fromJson(jsonDecode(res));
+    });
   }
 
   @override
@@ -191,16 +205,18 @@ class GqlTransport extends Transport {
   }) async {
     if (_disposed) throw TransportCallAfterDisposeError();
 
-    final encoded = await transport.simulateTransactionTree(
-        signedMessage: jsonEncode(signedMessage),
-        ignoredComputePhaseCodes: ignoredComputePhaseCodes,
-        ignoredActionPhaseCodes: ignoredActionPhaseCodes);
-    final decoded = jsonDecode(encoded) as List<dynamic>;
+    return mutex.protectRead(() async {
+      final encoded = await transport.simulateTransactionTree(
+          signedMessage: jsonEncode(signedMessage),
+          ignoredComputePhaseCodes: ignoredComputePhaseCodes,
+          ignoredActionPhaseCodes: ignoredActionPhaseCodes);
+      final decoded = jsonDecode(encoded) as List<dynamic>;
 
-    return decoded
-        .map((e) =>
-            TxTreeSimulationErrorItem.fromJson(e as Map<String, dynamic>))
-        .toList();
+      return decoded
+          .map((e) =>
+              TxTreeSimulationErrorItem.fromJson(e as Map<String, dynamic>))
+          .toList();
+    });
   }
 
   @override
