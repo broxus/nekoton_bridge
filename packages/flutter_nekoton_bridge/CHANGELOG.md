@@ -1,3 +1,8 @@
+## 2.0.1-dev.5
+
+ - **FEAT**: use transport mutex in ton/token wallets. ([5eaa8283](https://github.com/broxus/nekoton_bridge/commit/5eaa8283d8d657c12101cf507b8713519e5d75f0))
+ - **FEAT**: add transport mutex. ([0eaf93a2](https://github.com/broxus/nekoton_bridge/commit/0eaf93a28a5665018324a177151bc0da1da17c6a))
+
 ## 2.0.1-dev.4
 
  - **FEAT**: add expiration time to multisig ([#267](https://github.com/broxus/nekoton_bridge/issues/267)). ([3cbf41ce](https://github.com/broxus/nekoton_bridge/commit/3cbf41ce902197784a9f20115965f46e76372317))

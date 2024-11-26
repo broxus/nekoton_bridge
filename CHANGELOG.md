@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-11-26
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.0.1-dev.5`](#flutter_nekoton_bridge---v201-dev5)
+ - [`flutter_nekoton_bridge_example` - `v1.18.1-dev.4`](#flutter_nekoton_bridge_example---v1181-dev4)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.18.1-dev.4`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.0.1-dev.5`
+
+ - **FEAT**: use transport mutex in ton/token wallets. ([5eaa8283](https://github.com/broxus/nekoton_bridge/commit/5eaa8283d8d657c12101cf507b8713519e5d75f0))
+ - **FEAT**: add transport mutex. ([0eaf93a2](https://github.com/broxus/nekoton_bridge/commit/0eaf93a28a5665018324a177151bc0da1da17c6a))
+
+
 ## 2024-11-22
 
 ### Changes
