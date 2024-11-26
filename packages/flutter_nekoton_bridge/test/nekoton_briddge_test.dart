@@ -4,7 +4,10 @@ import 'package:mocktail/mocktail.dart';
 
 class MockBridge extends Mock implements NekotonBridge {}
 
-class MockTransport extends Mock implements Transport {}
+class MockTransport extends Mock implements Transport {
+  @override
+  use<T>(Future<T> Function() fn) => fn();
+}
 
 void main() {
   late MockBridge bridge;
