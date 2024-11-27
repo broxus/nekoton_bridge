@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-11-27
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.0.1-dev.6`](#flutter_nekoton_bridge---v201-dev6)
+ - [`nekoton_bridge` - `v2.0.1-dev.5`](#nekoton_bridge---v201-dev5)
+ - [`flutter_nekoton_bridge_example` - `v1.18.1-dev.5`](#flutter_nekoton_bridge_example---v1181-dev5)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.18.1-dev.5`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.0.1-dev.6`
+
+ - **FIX**: downgrade `money2` package. ([c5a70412](https://github.com/broxus/nekoton_bridge/commit/c5a7041219809b71b266620fbb3fd9279b309e2e))
+ - **FIX**: tests. ([04e17cc7](https://github.com/broxus/nekoton_bridge/commit/04e17cc763e29d6929292c202c7e2a6d016b7d5f))
+
+#### `nekoton_bridge` - `v2.0.1-dev.5`
+
+ - **FIX**: downgrade `money2` package. ([c5a70412](https://github.com/broxus/nekoton_bridge/commit/c5a7041219809b71b266620fbb3fd9279b309e2e))
+
+
 ## 2024-11-26
 
 ### Changes

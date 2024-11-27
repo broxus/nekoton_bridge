@@ -1,3 +1,8 @@
+## 2.0.1-dev.6
+
+ - **FIX**: downgrade `money2` package. ([c5a70412](https://github.com/broxus/nekoton_bridge/commit/c5a7041219809b71b266620fbb3fd9279b309e2e))
+ - **FIX**: tests. ([04e17cc7](https://github.com/broxus/nekoton_bridge/commit/04e17cc763e29d6929292c202c7e2a6d016b7d5f))
+
 ## 2.0.1-dev.5
 
  - **FEAT**: use transport mutex in ton/token wallets. ([5eaa8283](https://github.com/broxus/nekoton_bridge/commit/5eaa8283d8d657c12101cf507b8713519e5d75f0))
