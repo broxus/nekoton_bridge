@@ -21,6 +21,6 @@ dependencies:
   basic_utils: ^5.7.0
   flutter_lints: ^4.0.0
   money2_fixer: ^2.0.0
-  money2: ^5.4.0
+  money2: ^5.2.1
   meta: ^1.15.0
   uuid: ^3.0.7
