@@ -1,3 +1,7 @@
+## 2.0.1-dev.7
+
+ - **FEAT**: transport http client. ([67411462](https://github.com/broxus/nekoton_bridge/commit/67411462831486246d6e597f1d2af6d810632117))
+
 ## 2.0.1-dev.6
 
  - **FIX**: downgrade `money2` package. ([c5a70412](https://github.com/broxus/nekoton_bridge/commit/c5a7041219809b71b266620fbb3fd9279b309e2e))
