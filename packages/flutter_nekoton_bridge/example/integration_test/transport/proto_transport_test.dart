@@ -9,18 +9,24 @@ import 'package:http/http.dart' as http;
 import '../timeout_utils.dart';
 import 'contract_abi.dart';
 
-Future<Uint8List> postTransportData({
-  required String endpoint,
-  required Map<String, String> headers,
-  required Uint8List dataBytes,
-}) async {
-  final response = await http.post(
-    Uri.parse(endpoint),
-    headers: headers,
-    body: dataBytes,
-  );
+class HttpClient implements ProtoConnectionHttpClient {
+  @override
+  Future<Uint8List> post({
+    required String endpoint,
+    required Map<String, String> headers,
+    required Uint8List dataBytes,
+  }) async {
+    final response = await http.post(
+      Uri.parse(endpoint),
+      headers: headers,
+      body: dataBytes,
+    );
 
-  return response.bodyBytes;
+    return response.bodyBytes;
+  }
+
+  @override
+  void dispose() {}
 }
 
 void main() {
@@ -60,7 +66,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await ProtoConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: protoSettings,
         name: name,
         group: networkGroup,
@@ -77,7 +83,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await ProtoConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: protoSettings,
         name: name,
         group: networkGroup,
@@ -95,20 +101,20 @@ void main() {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
-      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/proto';
+      const venomEndpoint = 'https://jrpc.venom.foundation';
 
       final connection = await ProtoConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: const ProtoNetworkSettings(endpoint: venomEndpoint),
-        name: 'Testnet Venom',
-        group: 'testnet',
+        name: 'Venom',
+        group: 'venom',
       );
       final transport =
           await ProtoTransport.create(protoConnection: connection);
 
       final signature = await transport.getSignatureId();
 
-      expect(signature, 1000);
+      expect(signature, 1);
     });
 
     testWidgets('ProtoTransport getTransactions ', (WidgetTester tester) async {
@@ -117,7 +123,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await ProtoConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: protoSettings,
         name: name,
         group: networkGroup,
@@ -139,7 +145,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await ProtoConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: protoSettings,
         name: name,
         group: networkGroup,
@@ -163,7 +169,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await ProtoConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: protoSettings,
         name: name,
         group: networkGroup,
@@ -192,7 +198,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await ProtoConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: protoSettings,
         name: name,
         group: networkGroup,
@@ -228,7 +234,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await ProtoConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: protoSettings,
         name: name,
         group: networkGroup,
@@ -253,7 +259,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await ProtoConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: protoSettings,
         name: name,
         group: networkGroup,
@@ -276,7 +282,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await ProtoConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: protoSettings,
         name: name,
         group: networkGroup,
@@ -302,7 +308,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await ProtoConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: protoSettings,
         name: name,
         group: networkGroup,
@@ -317,18 +323,18 @@ void main() {
         (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
-      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/proto';
+      const venomEndpoint = 'https://jrpc.venom.foundation';
 
       final connection = await ProtoConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: const ProtoNetworkSettings(endpoint: venomEndpoint),
-        name: 'Testnet Venom',
-        group: 'testnet',
+        name: 'Venom',
+        group: 'venom',
       );
       final transport =
           await ProtoTransport.create(protoConnection: connection);
       final id = await transport.getNetworkId();
-      expect(id, 1000);
+      expect(id, 1);
     });
 
     testWidgets('ProtoTransport getBlockchainConfig ',
@@ -337,7 +343,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await ProtoConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: protoSettings,
         name: name,
         group: networkGroup,
@@ -357,7 +363,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await ProtoConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: protoSettings,
         name: name,
         group: networkGroup,

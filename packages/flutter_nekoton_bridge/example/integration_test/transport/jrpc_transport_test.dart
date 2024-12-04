@@ -9,18 +9,24 @@ import 'package:http/http.dart' as http;
 import '../timeout_utils.dart';
 import 'contract_abi.dart';
 
-Future<String> postTransportData({
-  required String endpoint,
-  required Map<String, String> headers,
-  required String data,
-}) async {
-  final response = await http.post(
-    Uri.parse(endpoint),
-    headers: headers,
-    body: data,
-  );
+class HttpClient implements JrpcConnectionHttpClient {
+  @override
+  Future<String> post({
+    required String endpoint,
+    required Map<String, String> headers,
+    required String data,
+  }) async {
+    final response = await http.post(
+      Uri.parse(endpoint),
+      headers: headers,
+      body: data,
+    );
 
-  return response.body;
+    return response.body;
+  }
+
+  @override
+  void dispose() {}
 }
 
 void main() {
@@ -60,7 +66,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await JrpcConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
@@ -76,7 +82,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await JrpcConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
@@ -93,10 +99,10 @@ void main() {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
-      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/rpc';
+      const venomEndpoint = 'https://jrpc.venom.foundation';
 
       final connection = await JrpcConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: const JrpcNetworkSettings(endpoint: venomEndpoint),
         name: 'Testnet Venom',
         group: 'testnet',
@@ -105,7 +111,7 @@ void main() {
 
       final signature = await transport.getSignatureId();
 
-      expect(signature, 1000);
+      expect(signature, 1);
     });
 
     testWidgets('JrpcTransport getTransactions ', (WidgetTester tester) async {
@@ -114,7 +120,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await JrpcConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
@@ -135,7 +141,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await JrpcConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
@@ -157,7 +163,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await JrpcConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
@@ -185,7 +191,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await JrpcConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
@@ -219,7 +225,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await JrpcConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
@@ -243,7 +249,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await JrpcConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
@@ -265,7 +271,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await JrpcConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
@@ -290,7 +296,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await JrpcConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
@@ -304,17 +310,17 @@ void main() {
         (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
-      const venomEndpoint = 'https://jrpc-testnet.venom.foundation/rpc';
+      const venomEndpoint = 'https://jrpc.venom.foundation';
 
       final connection = await JrpcConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: const JrpcNetworkSettings(endpoint: venomEndpoint),
         name: 'Testnet Venom',
         group: 'testnet',
       );
       final transport = await JrpcTransport.create(jrpcConnection: connection);
       final id = await transport.getNetworkId();
-      expect(id, 1000);
+      expect(id, 1);
     });
 
     testWidgets('JrpcTransport getBlockchainConfig ',
@@ -323,7 +329,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await JrpcConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: jrpcSettings,
         name: name,
         group: networkGroup,
@@ -342,7 +348,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await JrpcConnection.create(
-        post: postTransportData,
+        client: HttpClient(),
         settings: jrpcSettings,
         name: name,
         group: networkGroup,

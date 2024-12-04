@@ -9,24 +9,30 @@ import 'package:http/http.dart' as http;
 import '../timeout_utils.dart';
 import 'contract_abi.dart';
 
-Future<String> postTransportData({
-  required String endpoint,
-  required Map<String, String> headers,
-  required String data,
-}) async {
-  final response = await http.post(
-    Uri.parse(endpoint),
-    headers: headers,
-    body: data,
-  );
+class HttpClient implements GqlConnectionHttpClient {
+  @override
+  Future<String> post({
+    required String endpoint,
+    required Map<String, String> headers,
+    required String data,
+  }) async {
+    final response = await http.post(
+      Uri.parse(endpoint),
+      headers: headers,
+      body: data,
+    );
 
-  return response.body;
-}
+    return response.body;
+  }
 
-Future<String> getTransportData(String endpoint) async {
-  final response = await http.get(Uri.parse(endpoint));
+  @override
+  Future<String> get(String endpoint) async {
+    final response = await http.get(Uri.parse(endpoint));
+    return response.body;
+  }
 
-  return response.body;
+  @override
+  void dispose() {}
 }
 
 void main() {
@@ -79,8 +85,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await GqlConnection.create(
-        post: postTransportData,
-        get: getTransportData,
+        client: HttpClient(),
         settings: gqlSettings,
         name: name,
         group: networkGroup,
@@ -96,8 +101,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await GqlConnection.create(
-        post: postTransportData,
-        get: getTransportData,
+        client: HttpClient(),
         settings: gqlSettings,
         name: name,
         group: networkGroup,
@@ -115,8 +119,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await GqlConnection.create(
-        post: postTransportData,
-        get: getTransportData,
+        client: HttpClient(),
         settings: gqlSettings,
         name: name,
         group: networkGroup,
@@ -137,8 +140,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await GqlConnection.create(
-        post: postTransportData,
-        get: getTransportData,
+        client: HttpClient(),
         settings: gqlSettings,
         name: name,
         group: networkGroup,
@@ -160,8 +162,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await GqlConnection.create(
-        post: postTransportData,
-        get: getTransportData,
+        client: HttpClient(),
         settings: gqlSettings,
         name: name,
         group: networkGroup,
@@ -188,8 +189,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await GqlConnection.create(
-        post: postTransportData,
-        get: getTransportData,
+        client: HttpClient(),
         settings: gqlSettings,
         name: name,
         group: networkGroup,
@@ -223,8 +223,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await GqlConnection.create(
-        post: postTransportData,
-        get: getTransportData,
+        client: HttpClient(),
         settings: gqlSettings,
         name: name,
         group: networkGroup,
@@ -248,8 +247,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await GqlConnection.create(
-        post: postTransportData,
-        get: getTransportData,
+        client: HttpClient(),
         settings: gqlSettings,
         name: name,
         group: networkGroup,
@@ -271,8 +269,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await GqlConnection.create(
-        post: postTransportData,
-        get: getTransportData,
+        client: HttpClient(),
         settings: gqlSettings,
         name: name,
         group: networkGroup,
@@ -297,8 +294,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await GqlConnection.create(
-        post: postTransportData,
-        get: getTransportData,
+        client: HttpClient(),
         settings: gqlSettings,
         name: name,
         group: networkGroup,
@@ -314,8 +310,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await GqlConnection.create(
-        post: postTransportData,
-        get: getTransportData,
+        client: HttpClient(),
         settings: gqlSettings,
         name: name,
         group: networkGroup,
@@ -334,8 +329,7 @@ void main() {
       await initRustToDartCaller();
 
       final connection = await GqlConnection.create(
-        post: postTransportData,
-        get: getTransportData,
+        client: HttpClient(),
         settings: gqlSettings,
         name: name,
         group: networkGroup,

@@ -179,7 +179,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'type': 0,
               r'name': 0,
               r'group': 0,
-              r'create': 3
+              r'create': 0
             }),
         r.NonGenericClassMirrorImpl(
             r'JrpcConnection',
@@ -249,7 +249,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'initializeMirror': 0,
               r'connection': 0,
               r'connection=': 1,
-              r'create': 4
+              r'create': 3
             }),
         r.NonGenericClassMirrorImpl(
             r'Storage',
@@ -279,14 +279,14 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'instanceHash': 0,
               r'avoidCall': 0,
               r'get': 1,
-              r'set': 6,
-              r'setUnchecked': 6,
-              r'remove': 6,
-              r'removeUnchecked': 6,
+              r'set': 5,
+              r'setUnchecked': 5,
+              r'remove': 5,
+              r'removeUnchecked': 5,
               r'initializeMirror': 0,
               r'storage': 0,
               r'storage=': 1,
-              r'create': 5
+              r'create': 4
             }),
         r.NonGenericClassMirrorImpl(
             r'GenericContract',
@@ -318,12 +318,12 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'getContractState': 0,
               r'getPendingTransactions': 0,
               r'getPollingMethod': 0,
-              r'executeTransactionLocally': 8,
-              r'estimateFees': 8,
-              r'send': 8,
+              r'executeTransactionLocally': 7,
+              r'estimateFees': 7,
+              r'send': 7,
               r'refresh': 0,
-              r'preloadTransactions': 9,
-              r'handleBlock': 10,
+              r'preloadTransactions': 8,
+              r'handleBlock': 9,
               r'onMessageSent': 1,
               r'onMessageExpired': 1,
               r'onStateChanged': 1,
@@ -343,7 +343,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onStateChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'refreshDescription': 0,
-              r'subscribe': 7
+              r'subscribe': 6
             }),
         r.NonGenericClassMirrorImpl(
             r'TokenWallet',
@@ -381,11 +381,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'instanceHash': 0,
               r'avoidCall': 0,
               r'getContractState': 0,
-              r'estimateMinAttachedAmount': 12,
-              r'prepareTransfer': 13,
+              r'estimateMinAttachedAmount': 11,
+              r'prepareTransfer': 12,
               r'refresh': 0,
-              r'preloadTransactions': 9,
-              r'handleBlock': 10,
+              r'preloadTransactions': 8,
+              r'handleBlock': 9,
               r'onBalanceChanged': 1,
               r'onTransactionsFound': 1,
               r'initializeMirror': 0,
@@ -412,10 +412,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onMoneyBalanceChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'refreshDescription': 0,
-              r'subscribe': 11,
-              r'getTokenWalletDetails': 7,
-              r'getTokenRootDetailsFromTokenWallet': 7,
-              r'getTokenRootDetails': 14
+              r'subscribe': 10,
+              r'getTokenWalletDetails': 6,
+              r'getTokenRootDetailsFromTokenWallet': 6,
+              r'getTokenRootDetails': 13
             }),
         r.NonGenericClassMirrorImpl(
             r'TonWallet',
@@ -461,15 +461,15 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'getPollingMethod': 0,
               r'getUnconfirmedTransactions': 0,
               r'getCustodians': 0,
-              r'prepareDeploy': 17,
-              r'prepareDeployWithMultipleOwners': 18,
-              r'prepareTransfer': 19,
-              r'prepareConfirmTransaction': 20,
-              r'estimateFees': 8,
-              r'send': 8,
+              r'prepareDeploy': 16,
+              r'prepareDeployWithMultipleOwners': 17,
+              r'prepareTransfer': 18,
+              r'prepareConfirmTransaction': 19,
+              r'estimateFees': 7,
+              r'send': 7,
               r'refresh': 0,
-              r'preloadTransactions': 9,
-              r'handleBlock': 10,
+              r'preloadTransactions': 8,
+              r'handleBlock': 9,
               r'onMessageSent': 1,
               r'onMessageExpired': 1,
               r'onStateChanged': 1,
@@ -499,12 +499,12 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onStateChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'refreshDescription': 0,
-              r'subscribe': 15,
-              r'subscribeByAddress': 7,
-              r'subscribeByExistingWallet': 16,
-              r'findExistingWallets': 21,
-              r'getExistingWalletInfo': 7,
-              r'getWalletCustodians': 7
+              r'subscribe': 14,
+              r'subscribeByAddress': 6,
+              r'subscribeByExistingWallet': 15,
+              r'findExistingWallets': 20,
+              r'getExistingWalletInfo': 6,
+              r'getWalletCustodians': 6
             })
       ],
       null,
@@ -648,18 +648,13 @@ final _data = <r.Reflectable, r.ReflectorData>{
         const [
           0,
           0,
-          const [#post, #settings, #name, #group]
+          const [#client, #settings, #name, #group]
         ],
         const [1, 0, null],
         const [
           3,
           0,
           const [#arg0, #arg1]
-        ],
-        const [
-          0,
-          0,
-          const [#post, #get, #settings, #name, #group]
         ],
         const [
           0,

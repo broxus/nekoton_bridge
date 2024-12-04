@@ -7,20 +7,23 @@ import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/mirrors.dart';
 import 'gql_connection.reflectable.dart';
 
-typedef GqlConnectionPost = Future<String> Function({
-  required String endpoint,
-  required Map<String, String> headers,
-  required String data,
-});
+abstract interface class GqlConnectionHttpClient {
+  Future<String> post({
+    required String endpoint,
+    required Map<String, String> headers,
+    required String data,
+  });
 
-typedef GqlConnectionGet = Future<String> Function(String endpoint);
+  Future<String> get(String endpoint);
+
+  void dispose();
+}
 
 @reflector
 class GqlConnection extends RustToDartMirrorInterface {
   late GqlConnectionDartWrapper connection;
 
-  final GqlConnectionPost _post;
-  final GqlConnectionGet _get;
+  final GqlConnectionHttpClient _client;
 
   final String _name;
   final String _group;
@@ -31,21 +34,19 @@ class GqlConnection extends RustToDartMirrorInterface {
   String? _cachedEndpoint;
 
   GqlConnection._(
-    this._post,
-    this._get,
+    this._client,
     this.settings,
     this._name,
     this._group,
   );
 
   static Future<GqlConnection> create({
-    required GqlConnectionPost post,
-    required GqlConnectionGet get,
+    required GqlConnectionHttpClient client,
     required GqlNetworkSettings settings,
     required String name,
     required String group,
   }) async {
-    final instance = GqlConnection._(post, get, settings, name, group);
+    final instance = GqlConnection._(client, settings, name, group);
 
     final lib = createLib();
     instance.connection = await lib.newStaticMethodGqlConnectionDartWrapper(
@@ -71,7 +72,7 @@ class GqlConnection extends RustToDartMirrorInterface {
         endpoint = await _getEndpoint();
       }
 
-      return await _post(
+      return await _client.post(
         endpoint: endpoint,
         headers: {
           'Content-Type': 'application/json',
@@ -128,8 +129,9 @@ class GqlConnection extends RustToDartMirrorInterface {
   }
 
   Future<int> _checkLatency(String endpoint) async {
-    final response =
-        await _get('$endpoint?query=%7Binfo%7Bversion%20time%20latency%7D%7D');
+    final response = await _client.get(
+      '$endpoint?query=%7Binfo%7Bversion%20time%20latency%7D%7D',
+    );
 
     final json = jsonDecode(response) as Map<String, dynamic>;
 
@@ -143,6 +145,7 @@ class GqlConnection extends RustToDartMirrorInterface {
   @override
   void dispose() {
     connection.innerConnection.dispose();
+    _client.dispose();
     super.dispose();
   }
 

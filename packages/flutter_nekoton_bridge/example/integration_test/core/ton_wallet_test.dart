@@ -40,18 +40,24 @@ class MockedStorageMethods {
   }
 }
 
-Future<Uint8List> postTransportData({
-  required String endpoint,
-  required Map<String, String> headers,
-  required Uint8List dataBytes,
-}) async {
-  final response = await http.post(
-    Uri.parse(endpoint),
-    headers: headers,
-    body: dataBytes,
-  );
+class HttpClient implements ProtoConnectionHttpClient {
+  @override
+  Future<Uint8List> post({
+    required String endpoint,
+    required Map<String, String> headers,
+    required Uint8List dataBytes,
+  }) async {
+    final response = await http.post(
+      Uri.parse(endpoint),
+      headers: headers,
+      body: dataBytes,
+    );
 
-  return response.bodyBytes;
+    return response.bodyBytes;
+  }
+
+  @override
+  void dispose() {}
 }
 
 void main() {
@@ -92,7 +98,7 @@ void main() {
     await initRustToDartCaller();
 
     final connection = await ProtoConnection.create(
-      post: postTransportData,
+      client: HttpClient(),
       settings: jrpcSettings,
       name: name,
       group: networkGroup,

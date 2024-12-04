@@ -5,19 +5,22 @@ import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/mirrors.dart';
 import 'proto_connection.reflectable.dart';
 
-/// Callback to make post requrest in proto connection.
-/// Must return bytes.
-typedef ProtoConnectionPost = Future<Uint8List> Function({
-  required String endpoint,
-  required Map<String, String> headers,
-  required Uint8List dataBytes,
-});
+/// Interface for http client to make post requests.
+abstract interface class ProtoConnectionHttpClient {
+  Future<Uint8List> post({
+    required String endpoint,
+    required Map<String, String> headers,
+    required Uint8List dataBytes,
+  });
+
+  void dispose();
+}
 
 @reflector
 class ProtoConnection extends RustToDartMirrorInterface {
   late ProtoConnectionDartWrapper connection;
 
-  final ProtoConnectionPost _post;
+  final ProtoConnectionHttpClient _client;
 
   final String _name;
   final String _group;
@@ -26,19 +29,19 @@ class ProtoConnection extends RustToDartMirrorInterface {
   final type = TransportType.proto;
 
   ProtoConnection._(
-    this._post,
+    this._client,
     this.settings,
     this._name,
     this._group,
   );
 
   static Future<ProtoConnection> create({
-    required ProtoConnectionPost post,
+    required ProtoConnectionHttpClient client,
     required ProtoNetworkSettings settings,
     required String name,
     required String group,
   }) async {
-    final instance = ProtoConnection._(post, settings, name, group);
+    final instance = ProtoConnection._(client, settings, name, group);
 
     final lib = createLib();
     instance.connection = await lib.newStaticMethodProtoConnectionDartWrapper(
@@ -55,7 +58,7 @@ class ProtoConnection extends RustToDartMirrorInterface {
   /// Method to make post request. It's called from rust
   Future<Uint8List> post(Uint8List requestData) async {
     try {
-      return await _post(
+      return await _client.post(
         endpoint: settings.endpoint,
         headers: {
           'Content-Type': 'application/x-protobuf',
@@ -70,6 +73,7 @@ class ProtoConnection extends RustToDartMirrorInterface {
   @override
   void dispose() {
     connection.innerConnection.dispose();
+    _client.dispose();
     super.dispose();
   }
 
