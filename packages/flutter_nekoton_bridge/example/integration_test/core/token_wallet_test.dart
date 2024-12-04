@@ -89,7 +89,7 @@ void main() {
                 '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
       );
       expect(wallet.rootTokenContract, stEverRootContract);
-      expect(wallet.contractState.balance, BigInt.parse('0'));
+      expect(wallet.contractState.balance, BigInt.parse('100000000'));
       expect(wallet.symbol.decimals, 9);
       expect(wallet.symbol.rootTokenContract, stEverRootContract);
       expect(wallet.symbol.name, 'STEVER');
@@ -165,7 +165,7 @@ void main() {
                 '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
       );
 
-      expect(details.item1.balance, BigInt.parse('0'));
+      expect(details.item1.balance, BigInt.parse('1826241428'));
       expect(details.item1.ownerAddress, address);
       expect(details.item1.rootAddress, stEverRootContract);
       expect(
@@ -239,7 +239,7 @@ void main() {
                 '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
       );
       expect(wallet.rootTokenContract, stEverRootContract);
-      expect(wallet.contractState.balance, BigInt.parse('0'));
+      expect(wallet.contractState.balance, BigInt.parse('100000000'));
       expect(wallet.symbol.decimals, 9);
       expect(wallet.symbol.rootTokenContract, stEverRootContract);
       expect(wallet.symbol.name, 'STEVER');
@@ -259,7 +259,7 @@ void main() {
                 '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
       );
       expect(wallet.rootTokenContract, stEverRootContract);
-      expect(wallet.contractState.balance, BigInt.parse('0'));
+      expect(wallet.contractState.balance, BigInt.parse('100000000'));
       expect(wallet.symbol.decimals, 9);
       expect(wallet.symbol.rootTokenContract, stEverRootContract);
       expect(wallet.symbol.name, 'STEVER');
@@ -296,7 +296,7 @@ void main() {
                     '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
           );
           expect(wallet.rootTokenContract, stEverRootContract);
-          expect(wallet.contractState.balance, BigInt.parse('0'));
+          expect(wallet.contractState.balance, BigInt.parse('100000000'));
           expect(wallet.symbol.decimals, 9);
           expect(wallet.symbol.rootTokenContract, stEverRootContract);
           expect(wallet.symbol.name, 'STEVER');
