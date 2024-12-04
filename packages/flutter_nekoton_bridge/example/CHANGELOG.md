@@ -1,3 +1,7 @@
+## 1.18.1-dev.6
+
+ - **FEAT**: transport http client. ([67411462](https://github.com/broxus/nekoton_bridge/commit/67411462831486246d6e597f1d2af6d810632117))
+
 ## 1.18.1-dev.5
 
  - Update a dependency to the latest release.
