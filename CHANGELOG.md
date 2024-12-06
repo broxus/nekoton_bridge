@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-12-06
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.0.1-dev.8`](#flutter_nekoton_bridge---v201-dev8)
+ - [`flutter_nekoton_bridge_example` - `v1.18.1-dev.7`](#flutter_nekoton_bridge_example---v1181-dev7)
+ - [`nekoton_bridge` - `v2.0.1-dev.6`](#nekoton_bridge---v201-dev6)
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.0.1-dev.8`
+
+ - **FEAT**: add jetton wallet support ([#276](https://github.com/broxus/nekoton_bridge/issues/276)). ([6120e3c6](https://github.com/broxus/nekoton_bridge/commit/6120e3c638214a5271aa9a901beccd48fe910ff4))
+
+#### `flutter_nekoton_bridge_example` - `v1.18.1-dev.7`
+
+ - **FEAT**: add jetton wallet support ([#276](https://github.com/broxus/nekoton_bridge/issues/276)). ([6120e3c6](https://github.com/broxus/nekoton_bridge/commit/6120e3c638214a5271aa9a901beccd48fe910ff4))
+
+#### `nekoton_bridge` - `v2.0.1-dev.6`
+
+ - **FEAT**: add jetton wallet support ([#276](https://github.com/broxus/nekoton_bridge/issues/276)). ([6120e3c6](https://github.com/broxus/nekoton_bridge/commit/6120e3c638214a5271aa9a901beccd48fe910ff4))
+
+
 ## 2024-12-04
 
 ### Changes
