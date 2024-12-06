@@ -1,3 +1,7 @@
+## 2.0.1-dev.6
+
+ - **FEAT**: add jetton wallet support ([#276](https://github.com/broxus/nekoton_bridge/issues/276)). ([6120e3c6](https://github.com/broxus/nekoton_bridge/commit/6120e3c638214a5271aa9a901beccd48fe910ff4))
+
 ## 2.0.1-dev.5
 
  - **FIX**: downgrade `money2` package. ([c5a70412](https://github.com/broxus/nekoton_bridge/commit/c5a7041219809b71b266620fbb3fd9279b309e2e))
