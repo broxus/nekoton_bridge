@@ -36,6 +36,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
   }
 
   @protected
+  Object api2wire_ArcJettonWalletBoxTrait(ArcJettonWalletBoxTrait raw) {
+    return raw.shareOrMove();
+  }
+
+  @protected
   Object api2wire_ArcJrpcConnectionBoxTrait(ArcJrpcConnectionBoxTrait raw) {
     return raw.shareOrMove();
   }
@@ -141,6 +146,12 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
   @protected
   int api2wire_box_autoadd_i32(int raw) {
     return api2wire_i32(raw);
+  }
+
+  @protected
+  List<dynamic> api2wire_box_autoadd_jetton_wallet_dart_wrapper(
+      JettonWalletDartWrapper raw) {
+    return api2wire_jetton_wallet_dart_wrapper(raw);
   }
 
   @protected
@@ -327,6 +338,12 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
   }
 
   @protected
+  List<dynamic> api2wire_jetton_wallet_dart_wrapper(
+      JettonWalletDartWrapper raw) {
+    return [api2wire_ArcJettonWalletBoxTrait(raw.innerWallet)];
+  }
+
+  @protected
   List<dynamic> api2wire_jrpc_connection_dart_wrapper(
       JrpcConnectionDartWrapper raw) {
     return [api2wire_ArcJrpcConnectionBoxTrait(raw.innerConnection)];
@@ -499,6 +516,10 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire>
       Finalizer<PlatformPointer>(inner.drop_opaque_ArcGqlConnectionBoxTrait);
   Finalizer<PlatformPointer> get ArcGqlConnectionBoxTraitFinalizer =>
       _ArcGqlConnectionBoxTraitFinalizer;
+  late final Finalizer<PlatformPointer> _ArcJettonWalletBoxTraitFinalizer =
+      Finalizer<PlatformPointer>(inner.drop_opaque_ArcJettonWalletBoxTrait);
+  Finalizer<PlatformPointer> get ArcJettonWalletBoxTraitFinalizer =>
+      _ArcJettonWalletBoxTraitFinalizer;
   late final Finalizer<PlatformPointer> _ArcJrpcConnectionBoxTraitFinalizer =
       Finalizer<PlatformPointer>(inner.drop_opaque_ArcJrpcConnectionBoxTrait);
   Finalizer<PlatformPointer> get ArcJrpcConnectionBoxTraitFinalizer =>
@@ -1181,6 +1202,73 @@ class NekotonBridgeWasmModule implements WasmModule {
           NativePortType port_, String data);
 
   external dynamic /* void */
+      wire_subscribe__static_method__JettonWalletDartWrapper(
+          NativePortType port_,
+          String instance_hash,
+          String owner,
+          String root_token_contract,
+          Object transport);
+
+  external dynamic /* void */ wire_owner__method__JettonWalletDartWrapper(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */ wire_address__method__JettonWalletDartWrapper(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */ wire_balance__method__JettonWalletDartWrapper(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */
+      wire_contract_state__method__JettonWalletDartWrapper(
+          NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */
+      wire_estimate_min_attached_amount__method__JettonWalletDartWrapper(
+          NativePortType port_,
+          List<dynamic> that,
+          String amount,
+          String destination,
+          String remaining_gas_to,
+          String? custom_payload,
+          String callback_value,
+          String? callback_payload);
+
+  external dynamic /* void */
+      wire_prepare_transfer__method__JettonWalletDartWrapper(
+          NativePortType port_,
+          List<dynamic> that,
+          String amount,
+          String destination,
+          String remaining_gas_to,
+          String? custom_payload,
+          String callback_value,
+          String? callback_payload,
+          String? attached_amount);
+
+  external dynamic /* void */ wire_refresh__method__JettonWalletDartWrapper(
+      NativePortType port_, List<dynamic> that);
+
+  external dynamic /* void */
+      wire_preload_transactions__method__JettonWalletDartWrapper(
+          NativePortType port_, List<dynamic> that, String from_lt);
+
+  external dynamic /* void */
+      wire_handle_block__method__JettonWalletDartWrapper(
+          NativePortType port_, List<dynamic> that, String block);
+
+  external dynamic /* void */
+      wire_get_jetton_wallet_details__static_method__JettonWalletDartWrapper(
+          NativePortType port_, Object transport, String address);
+
+  external dynamic /* void */
+      wire_get_jetton_root_details_from_jetton_wallet__static_method__JettonWalletDartWrapper(
+          NativePortType port_, Object transport, String token_wallet_address);
+
+  external dynamic /* void */
+      wire_get_jetton_root_details__static_method__JettonWalletDartWrapper(
+          NativePortType port_, Object transport, String token_root_address);
+
+  external dynamic /* void */
       wire_subscribe__static_method__GenericContractDartWrapper(
           NativePortType port_,
           String instance_hash,
@@ -1395,6 +1483,10 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /*  */ drop_opaque_ArcGqlConnectionBoxTrait(ptr);
 
   external int /* *const c_void */ share_opaque_ArcGqlConnectionBoxTrait(ptr);
+
+  external dynamic /*  */ drop_opaque_ArcJettonWalletBoxTrait(ptr);
+
+  external int /* *const c_void */ share_opaque_ArcJettonWalletBoxTrait(ptr);
 
   external dynamic /*  */ drop_opaque_ArcJrpcConnectionBoxTrait(ptr);
 
@@ -2226,6 +2318,107 @@ class NekotonBridgeWire
       wasmModule.wire_verify_data__static_method__AccountsStorageImpl(
           port_, data);
 
+  void wire_subscribe__static_method__JettonWalletDartWrapper(
+          NativePortType port_,
+          String instance_hash,
+          String owner,
+          String root_token_contract,
+          Object transport) =>
+      wasmModule.wire_subscribe__static_method__JettonWalletDartWrapper(
+          port_, instance_hash, owner, root_token_contract, transport);
+
+  void wire_owner__method__JettonWalletDartWrapper(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_owner__method__JettonWalletDartWrapper(port_, that);
+
+  void wire_address__method__JettonWalletDartWrapper(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_address__method__JettonWalletDartWrapper(port_, that);
+
+  void wire_balance__method__JettonWalletDartWrapper(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_balance__method__JettonWalletDartWrapper(port_, that);
+
+  void wire_contract_state__method__JettonWalletDartWrapper(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_contract_state__method__JettonWalletDartWrapper(
+          port_, that);
+
+  void wire_estimate_min_attached_amount__method__JettonWalletDartWrapper(
+          NativePortType port_,
+          List<dynamic> that,
+          String amount,
+          String destination,
+          String remaining_gas_to,
+          String? custom_payload,
+          String callback_value,
+          String? callback_payload) =>
+      wasmModule
+          .wire_estimate_min_attached_amount__method__JettonWalletDartWrapper(
+              port_,
+              that,
+              amount,
+              destination,
+              remaining_gas_to,
+              custom_payload,
+              callback_value,
+              callback_payload);
+
+  void wire_prepare_transfer__method__JettonWalletDartWrapper(
+          NativePortType port_,
+          List<dynamic> that,
+          String amount,
+          String destination,
+          String remaining_gas_to,
+          String? custom_payload,
+          String callback_value,
+          String? callback_payload,
+          String? attached_amount) =>
+      wasmModule.wire_prepare_transfer__method__JettonWalletDartWrapper(
+          port_,
+          that,
+          amount,
+          destination,
+          remaining_gas_to,
+          custom_payload,
+          callback_value,
+          callback_payload,
+          attached_amount);
+
+  void wire_refresh__method__JettonWalletDartWrapper(
+          NativePortType port_, List<dynamic> that) =>
+      wasmModule.wire_refresh__method__JettonWalletDartWrapper(port_, that);
+
+  void wire_preload_transactions__method__JettonWalletDartWrapper(
+          NativePortType port_, List<dynamic> that, String from_lt) =>
+      wasmModule.wire_preload_transactions__method__JettonWalletDartWrapper(
+          port_, that, from_lt);
+
+  void wire_handle_block__method__JettonWalletDartWrapper(
+          NativePortType port_, List<dynamic> that, String block) =>
+      wasmModule.wire_handle_block__method__JettonWalletDartWrapper(
+          port_, that, block);
+
+  void wire_get_jetton_wallet_details__static_method__JettonWalletDartWrapper(
+          NativePortType port_, Object transport, String address) =>
+      wasmModule
+          .wire_get_jetton_wallet_details__static_method__JettonWalletDartWrapper(
+              port_, transport, address);
+
+  void wire_get_jetton_root_details_from_jetton_wallet__static_method__JettonWalletDartWrapper(
+          NativePortType port_,
+          Object transport,
+          String token_wallet_address) =>
+      wasmModule
+          .wire_get_jetton_root_details_from_jetton_wallet__static_method__JettonWalletDartWrapper(
+              port_, transport, token_wallet_address);
+
+  void wire_get_jetton_root_details__static_method__JettonWalletDartWrapper(
+          NativePortType port_, Object transport, String token_root_address) =>
+      wasmModule
+          .wire_get_jetton_root_details__static_method__JettonWalletDartWrapper(
+              port_, transport, token_root_address);
+
   void wire_subscribe__static_method__GenericContractDartWrapper(
           NativePortType port_,
           String instance_hash,
@@ -2520,6 +2713,12 @@ class NekotonBridgeWire
 
   int /* *const c_void */ share_opaque_ArcGqlConnectionBoxTrait(ptr) =>
       wasmModule.share_opaque_ArcGqlConnectionBoxTrait(ptr);
+
+  dynamic /*  */ drop_opaque_ArcJettonWalletBoxTrait(ptr) =>
+      wasmModule.drop_opaque_ArcJettonWalletBoxTrait(ptr);
+
+  int /* *const c_void */ share_opaque_ArcJettonWalletBoxTrait(ptr) =>
+      wasmModule.share_opaque_ArcJettonWalletBoxTrait(ptr);
 
   dynamic /*  */ drop_opaque_ArcJrpcConnectionBoxTrait(ptr) =>
       wasmModule.drop_opaque_ArcJrpcConnectionBoxTrait(ptr);

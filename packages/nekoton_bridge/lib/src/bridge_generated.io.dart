@@ -42,6 +42,14 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
   }
 
   @protected
+  wire_ArcJettonWalletBoxTrait api2wire_ArcJettonWalletBoxTrait(
+      ArcJettonWalletBoxTrait raw) {
+    final ptr = inner.new_ArcJettonWalletBoxTrait();
+    _api_fill_to_wire_ArcJettonWalletBoxTrait(raw, ptr);
+    return ptr;
+  }
+
+  @protected
   wire_ArcJrpcConnectionBoxTrait api2wire_ArcJrpcConnectionBoxTrait(
       ArcJrpcConnectionBoxTrait raw) {
     final ptr = inner.new_ArcJrpcConnectionBoxTrait();
@@ -192,6 +200,15 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
   @protected
   ffi.Pointer<ffi.Int32> api2wire_box_autoadd_i32(int raw) {
     return inner.new_box_autoadd_i32_0(api2wire_i32(raw));
+  }
+
+  @protected
+  ffi.Pointer<wire_JettonWalletDartWrapper>
+      api2wire_box_autoadd_jetton_wallet_dart_wrapper(
+          JettonWalletDartWrapper raw) {
+    final ptr = inner.new_box_autoadd_jetton_wallet_dart_wrapper_0();
+    _api_fill_to_wire_jetton_wallet_dart_wrapper(raw, ptr.ref);
+    return ptr;
   }
 
   @protected
@@ -427,6 +444,10 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
       OpaqueTypeFinalizer(inner._drop_opaque_ArcGqlConnectionBoxTraitPtr);
   OpaqueTypeFinalizer get ArcGqlConnectionBoxTraitFinalizer =>
       _ArcGqlConnectionBoxTraitFinalizer;
+  late final OpaqueTypeFinalizer _ArcJettonWalletBoxTraitFinalizer =
+      OpaqueTypeFinalizer(inner._drop_opaque_ArcJettonWalletBoxTraitPtr);
+  OpaqueTypeFinalizer get ArcJettonWalletBoxTraitFinalizer =>
+      _ArcJettonWalletBoxTraitFinalizer;
   late final OpaqueTypeFinalizer _ArcJrpcConnectionBoxTraitFinalizer =
       OpaqueTypeFinalizer(inner._drop_opaque_ArcJrpcConnectionBoxTraitPtr);
   OpaqueTypeFinalizer get ArcJrpcConnectionBoxTraitFinalizer =>
@@ -479,6 +500,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
 
   void _api_fill_to_wire_ArcGqlConnectionBoxTrait(
       ArcGqlConnectionBoxTrait apiObj, wire_ArcGqlConnectionBoxTrait wireObj) {
+    wireObj.ptr = apiObj.shareOrMove();
+  }
+
+  void _api_fill_to_wire_ArcJettonWalletBoxTrait(
+      ArcJettonWalletBoxTrait apiObj, wire_ArcJettonWalletBoxTrait wireObj) {
     wireObj.ptr = apiObj.shareOrMove();
   }
 
@@ -573,6 +599,12 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
   void _api_fill_to_wire_box_autoadd_gql_transport_impl(
       GqlTransportImpl apiObj, ffi.Pointer<wire_GqlTransportImpl> wireObj) {
     _api_fill_to_wire_gql_transport_impl(apiObj, wireObj.ref);
+  }
+
+  void _api_fill_to_wire_box_autoadd_jetton_wallet_dart_wrapper(
+      JettonWalletDartWrapper apiObj,
+      ffi.Pointer<wire_JettonWalletDartWrapper> wireObj) {
+    _api_fill_to_wire_jetton_wallet_dart_wrapper(apiObj, wireObj.ref);
   }
 
   void _api_fill_to_wire_box_autoadd_jrpc_connection_dart_wrapper(
@@ -775,6 +807,11 @@ class NekotonBridgePlatform extends FlutterRustBridgeBase<NekotonBridgeWire> {
       GqlTransportImpl apiObj, wire_GqlTransportImpl wireObj) {
     wireObj.inner_transport =
         api2wire_ArcTransportBoxTrait(apiObj.innerTransport);
+  }
+
+  void _api_fill_to_wire_jetton_wallet_dart_wrapper(
+      JettonWalletDartWrapper apiObj, wire_JettonWalletDartWrapper wireObj) {
+    wireObj.inner_wallet = api2wire_ArcJettonWalletBoxTrait(apiObj.innerWallet);
   }
 
   void _api_fill_to_wire_jrpc_connection_dart_wrapper(
@@ -4582,6 +4619,357 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       _wire_verify_data__static_method__AccountsStorageImplPtr
           .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
 
+  void wire_subscribe__static_method__JettonWalletDartWrapper(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> instance_hash,
+    ffi.Pointer<wire_uint_8_list> owner,
+    ffi.Pointer<wire_uint_8_list> root_token_contract,
+    wire_ArcTransportBoxTrait transport,
+  ) {
+    return _wire_subscribe__static_method__JettonWalletDartWrapper(
+      port_,
+      instance_hash,
+      owner,
+      root_token_contract,
+      transport,
+    );
+  }
+
+  late final _wire_subscribe__static_method__JettonWalletDartWrapperPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(
+                      ffi.Int64,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      wire_ArcTransportBoxTrait)>>(
+          'wire_subscribe__static_method__JettonWalletDartWrapper');
+  late final _wire_subscribe__static_method__JettonWalletDartWrapper =
+      _wire_subscribe__static_method__JettonWalletDartWrapperPtr.asFunction<
+          void Function(
+              int,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              wire_ArcTransportBoxTrait)>();
+
+  void wire_owner__method__JettonWalletDartWrapper(
+    int port_,
+    ffi.Pointer<wire_JettonWalletDartWrapper> that,
+  ) {
+    return _wire_owner__method__JettonWalletDartWrapper(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_owner__method__JettonWalletDartWrapperPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_JettonWalletDartWrapper>)>>(
+      'wire_owner__method__JettonWalletDartWrapper');
+  late final _wire_owner__method__JettonWalletDartWrapper =
+      _wire_owner__method__JettonWalletDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_JettonWalletDartWrapper>)>();
+
+  void wire_address__method__JettonWalletDartWrapper(
+    int port_,
+    ffi.Pointer<wire_JettonWalletDartWrapper> that,
+  ) {
+    return _wire_address__method__JettonWalletDartWrapper(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_address__method__JettonWalletDartWrapperPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_JettonWalletDartWrapper>)>>(
+      'wire_address__method__JettonWalletDartWrapper');
+  late final _wire_address__method__JettonWalletDartWrapper =
+      _wire_address__method__JettonWalletDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_JettonWalletDartWrapper>)>();
+
+  void wire_balance__method__JettonWalletDartWrapper(
+    int port_,
+    ffi.Pointer<wire_JettonWalletDartWrapper> that,
+  ) {
+    return _wire_balance__method__JettonWalletDartWrapper(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_balance__method__JettonWalletDartWrapperPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_JettonWalletDartWrapper>)>>(
+      'wire_balance__method__JettonWalletDartWrapper');
+  late final _wire_balance__method__JettonWalletDartWrapper =
+      _wire_balance__method__JettonWalletDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_JettonWalletDartWrapper>)>();
+
+  void wire_contract_state__method__JettonWalletDartWrapper(
+    int port_,
+    ffi.Pointer<wire_JettonWalletDartWrapper> that,
+  ) {
+    return _wire_contract_state__method__JettonWalletDartWrapper(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_contract_state__method__JettonWalletDartWrapperPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_JettonWalletDartWrapper>)>>(
+      'wire_contract_state__method__JettonWalletDartWrapper');
+  late final _wire_contract_state__method__JettonWalletDartWrapper =
+      _wire_contract_state__method__JettonWalletDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_JettonWalletDartWrapper>)>();
+
+  void wire_estimate_min_attached_amount__method__JettonWalletDartWrapper(
+    int port_,
+    ffi.Pointer<wire_JettonWalletDartWrapper> that,
+    ffi.Pointer<wire_uint_8_list> amount,
+    ffi.Pointer<wire_uint_8_list> destination,
+    ffi.Pointer<wire_uint_8_list> remaining_gas_to,
+    ffi.Pointer<wire_uint_8_list> custom_payload,
+    ffi.Pointer<wire_uint_8_list> callback_value,
+    ffi.Pointer<wire_uint_8_list> callback_payload,
+  ) {
+    return _wire_estimate_min_attached_amount__method__JettonWalletDartWrapper(
+      port_,
+      that,
+      amount,
+      destination,
+      remaining_gas_to,
+      custom_payload,
+      callback_value,
+      callback_payload,
+    );
+  }
+
+  late final _wire_estimate_min_attached_amount__method__JettonWalletDartWrapperPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(
+                      ffi.Int64,
+                      ffi.Pointer<wire_JettonWalletDartWrapper>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_uint_8_list>)>>(
+          'wire_estimate_min_attached_amount__method__JettonWalletDartWrapper');
+  late final _wire_estimate_min_attached_amount__method__JettonWalletDartWrapper =
+      _wire_estimate_min_attached_amount__method__JettonWalletDartWrapperPtr
+          .asFunction<
+              void Function(
+                  int,
+                  ffi.Pointer<wire_JettonWalletDartWrapper>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>,
+                  ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_prepare_transfer__method__JettonWalletDartWrapper(
+    int port_,
+    ffi.Pointer<wire_JettonWalletDartWrapper> that,
+    ffi.Pointer<wire_uint_8_list> amount,
+    ffi.Pointer<wire_uint_8_list> destination,
+    ffi.Pointer<wire_uint_8_list> remaining_gas_to,
+    ffi.Pointer<wire_uint_8_list> custom_payload,
+    ffi.Pointer<wire_uint_8_list> callback_value,
+    ffi.Pointer<wire_uint_8_list> callback_payload,
+    ffi.Pointer<wire_uint_8_list> attached_amount,
+  ) {
+    return _wire_prepare_transfer__method__JettonWalletDartWrapper(
+      port_,
+      that,
+      amount,
+      destination,
+      remaining_gas_to,
+      custom_payload,
+      callback_value,
+      callback_payload,
+      attached_amount,
+    );
+  }
+
+  late final _wire_prepare_transfer__method__JettonWalletDartWrapperPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(
+                      ffi.Int64,
+                      ffi.Pointer<wire_JettonWalletDartWrapper>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_uint_8_list>,
+                      ffi.Pointer<wire_uint_8_list>)>>(
+          'wire_prepare_transfer__method__JettonWalletDartWrapper');
+  late final _wire_prepare_transfer__method__JettonWalletDartWrapper =
+      _wire_prepare_transfer__method__JettonWalletDartWrapperPtr.asFunction<
+          void Function(
+              int,
+              ffi.Pointer<wire_JettonWalletDartWrapper>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_refresh__method__JettonWalletDartWrapper(
+    int port_,
+    ffi.Pointer<wire_JettonWalletDartWrapper> that,
+  ) {
+    return _wire_refresh__method__JettonWalletDartWrapper(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire_refresh__method__JettonWalletDartWrapperPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64, ffi.Pointer<wire_JettonWalletDartWrapper>)>>(
+      'wire_refresh__method__JettonWalletDartWrapper');
+  late final _wire_refresh__method__JettonWalletDartWrapper =
+      _wire_refresh__method__JettonWalletDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_JettonWalletDartWrapper>)>();
+
+  void wire_preload_transactions__method__JettonWalletDartWrapper(
+    int port_,
+    ffi.Pointer<wire_JettonWalletDartWrapper> that,
+    ffi.Pointer<wire_uint_8_list> from_lt,
+  ) {
+    return _wire_preload_transactions__method__JettonWalletDartWrapper(
+      port_,
+      that,
+      from_lt,
+    );
+  }
+
+  late final _wire_preload_transactions__method__JettonWalletDartWrapperPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(
+                      ffi.Int64,
+                      ffi.Pointer<wire_JettonWalletDartWrapper>,
+                      ffi.Pointer<wire_uint_8_list>)>>(
+          'wire_preload_transactions__method__JettonWalletDartWrapper');
+  late final _wire_preload_transactions__method__JettonWalletDartWrapper =
+      _wire_preload_transactions__method__JettonWalletDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_JettonWalletDartWrapper>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_handle_block__method__JettonWalletDartWrapper(
+    int port_,
+    ffi.Pointer<wire_JettonWalletDartWrapper> that,
+    ffi.Pointer<wire_uint_8_list> block,
+  ) {
+    return _wire_handle_block__method__JettonWalletDartWrapper(
+      port_,
+      that,
+      block,
+    );
+  }
+
+  late final _wire_handle_block__method__JettonWalletDartWrapperPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.Pointer<wire_JettonWalletDartWrapper>,
+                  ffi.Pointer<wire_uint_8_list>)>>(
+      'wire_handle_block__method__JettonWalletDartWrapper');
+  late final _wire_handle_block__method__JettonWalletDartWrapper =
+      _wire_handle_block__method__JettonWalletDartWrapperPtr.asFunction<
+          void Function(int, ffi.Pointer<wire_JettonWalletDartWrapper>,
+              ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_get_jetton_wallet_details__static_method__JettonWalletDartWrapper(
+    int port_,
+    wire_ArcTransportBoxTrait transport,
+    ffi.Pointer<wire_uint_8_list> address,
+  ) {
+    return _wire_get_jetton_wallet_details__static_method__JettonWalletDartWrapper(
+      port_,
+      transport,
+      address,
+    );
+  }
+
+  late final _wire_get_jetton_wallet_details__static_method__JettonWalletDartWrapperPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Int64, wire_ArcTransportBoxTrait,
+                      ffi.Pointer<wire_uint_8_list>)>>(
+          'wire_get_jetton_wallet_details__static_method__JettonWalletDartWrapper');
+  late final _wire_get_jetton_wallet_details__static_method__JettonWalletDartWrapper =
+      _wire_get_jetton_wallet_details__static_method__JettonWalletDartWrapperPtr
+          .asFunction<
+              void Function(int, wire_ArcTransportBoxTrait,
+                  ffi.Pointer<wire_uint_8_list>)>();
+
+  void
+      wire_get_jetton_root_details_from_jetton_wallet__static_method__JettonWalletDartWrapper(
+    int port_,
+    wire_ArcTransportBoxTrait transport,
+    ffi.Pointer<wire_uint_8_list> token_wallet_address,
+  ) {
+    return _wire_get_jetton_root_details_from_jetton_wallet__static_method__JettonWalletDartWrapper(
+      port_,
+      transport,
+      token_wallet_address,
+    );
+  }
+
+  late final _wire_get_jetton_root_details_from_jetton_wallet__static_method__JettonWalletDartWrapperPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Int64, wire_ArcTransportBoxTrait,
+                      ffi.Pointer<wire_uint_8_list>)>>(
+          'wire_get_jetton_root_details_from_jetton_wallet__static_method__JettonWalletDartWrapper');
+  late final _wire_get_jetton_root_details_from_jetton_wallet__static_method__JettonWalletDartWrapper =
+      _wire_get_jetton_root_details_from_jetton_wallet__static_method__JettonWalletDartWrapperPtr
+          .asFunction<
+              void Function(int, wire_ArcTransportBoxTrait,
+                  ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_get_jetton_root_details__static_method__JettonWalletDartWrapper(
+    int port_,
+    wire_ArcTransportBoxTrait transport,
+    ffi.Pointer<wire_uint_8_list> token_root_address,
+  ) {
+    return _wire_get_jetton_root_details__static_method__JettonWalletDartWrapper(
+      port_,
+      transport,
+      token_root_address,
+    );
+  }
+
+  late final _wire_get_jetton_root_details__static_method__JettonWalletDartWrapperPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Int64, wire_ArcTransportBoxTrait,
+                      ffi.Pointer<wire_uint_8_list>)>>(
+          'wire_get_jetton_root_details__static_method__JettonWalletDartWrapper');
+  late final _wire_get_jetton_root_details__static_method__JettonWalletDartWrapper =
+      _wire_get_jetton_root_details__static_method__JettonWalletDartWrapperPtr
+          .asFunction<
+              void Function(int, wire_ArcTransportBoxTrait,
+                  ffi.Pointer<wire_uint_8_list>)>();
+
   void wire_subscribe__static_method__GenericContractDartWrapper(
     int port_,
     ffi.Pointer<wire_uint_8_list> instance_hash,
@@ -5725,6 +6113,16 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _new_ArcGqlConnectionBoxTrait = _new_ArcGqlConnectionBoxTraitPtr
       .asFunction<wire_ArcGqlConnectionBoxTrait Function()>();
 
+  wire_ArcJettonWalletBoxTrait new_ArcJettonWalletBoxTrait() {
+    return _new_ArcJettonWalletBoxTrait();
+  }
+
+  late final _new_ArcJettonWalletBoxTraitPtr =
+      _lookup<ffi.NativeFunction<wire_ArcJettonWalletBoxTrait Function()>>(
+          'new_ArcJettonWalletBoxTrait');
+  late final _new_ArcJettonWalletBoxTrait = _new_ArcJettonWalletBoxTraitPtr
+      .asFunction<wire_ArcJettonWalletBoxTrait Function()>();
+
   wire_ArcJrpcConnectionBoxTrait new_ArcJrpcConnectionBoxTrait() {
     return _new_ArcJrpcConnectionBoxTrait();
   }
@@ -5941,6 +6339,19 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
           'new_box_autoadd_i32_0');
   late final _new_box_autoadd_i32_0 = _new_box_autoadd_i32_0Ptr
       .asFunction<ffi.Pointer<ffi.Int32> Function(int)>();
+
+  ffi.Pointer<wire_JettonWalletDartWrapper>
+      new_box_autoadd_jetton_wallet_dart_wrapper_0() {
+    return _new_box_autoadd_jetton_wallet_dart_wrapper_0();
+  }
+
+  late final _new_box_autoadd_jetton_wallet_dart_wrapper_0Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<wire_JettonWalletDartWrapper>
+              Function()>>('new_box_autoadd_jetton_wallet_dart_wrapper_0');
+  late final _new_box_autoadd_jetton_wallet_dart_wrapper_0 =
+      _new_box_autoadd_jetton_wallet_dart_wrapper_0Ptr
+          .asFunction<ffi.Pointer<wire_JettonWalletDartWrapper> Function()>();
 
   ffi.Pointer<wire_JrpcConnectionDartWrapper>
       new_box_autoadd_jrpc_connection_dart_wrapper_0() {
@@ -6305,6 +6716,37 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Pointer<ffi.Void>)>>('share_opaque_ArcGqlConnectionBoxTrait');
   late final _share_opaque_ArcGqlConnectionBoxTrait =
       _share_opaque_ArcGqlConnectionBoxTraitPtr
+          .asFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>();
+
+  void drop_opaque_ArcJettonWalletBoxTrait(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _drop_opaque_ArcJettonWalletBoxTrait(
+      ptr,
+    );
+  }
+
+  late final _drop_opaque_ArcJettonWalletBoxTraitPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'drop_opaque_ArcJettonWalletBoxTrait');
+  late final _drop_opaque_ArcJettonWalletBoxTrait =
+      _drop_opaque_ArcJettonWalletBoxTraitPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  ffi.Pointer<ffi.Void> share_opaque_ArcJettonWalletBoxTrait(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _share_opaque_ArcJettonWalletBoxTrait(
+      ptr,
+    );
+  }
+
+  late final _share_opaque_ArcJettonWalletBoxTraitPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(
+              ffi.Pointer<ffi.Void>)>>('share_opaque_ArcJettonWalletBoxTrait');
+  late final _share_opaque_ArcJettonWalletBoxTrait =
+      _share_opaque_ArcJettonWalletBoxTraitPtr
           .asFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>();
 
   void drop_opaque_ArcJrpcConnectionBoxTrait(
@@ -7013,6 +7455,14 @@ final class wire_ArcAccountsStorageBoxTrait extends ffi.Struct {
 
 final class wire_AccountsStorageImpl extends ffi.Struct {
   external wire_ArcAccountsStorageBoxTrait inner_storage;
+}
+
+final class wire_ArcJettonWalletBoxTrait extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> ptr;
+}
+
+final class wire_JettonWalletDartWrapper extends ffi.Struct {
+  external wire_ArcJettonWalletBoxTrait inner_wallet;
 }
 
 final class wire_ArcGenericContractBoxTrait extends ffi.Struct {

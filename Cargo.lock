@@ -1286,7 +1286,7 @@ dependencies = [
 [[package]]
 name = "nekoton"
 version = "0.13.1"
-source = "git+https://github.com/broxus/nekoton.git#561b60e7a47e994500dce9f25933dd8d8fb2987a"
+source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#a5ba0fda8fa954ba1b25a0f605a8b8bdb71ed781"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -1331,7 +1331,7 @@ dependencies = [
 [[package]]
 name = "nekoton-abi"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git#561b60e7a47e994500dce9f25933dd8d8fb2987a"
+source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#a5ba0fda8fa954ba1b25a0f605a8b8bdb71ed781"
 dependencies = [
  "anyhow",
  "base64",
@@ -1358,10 +1358,11 @@ dependencies = [
 [[package]]
 name = "nekoton-contracts"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git#561b60e7a47e994500dce9f25933dd8d8fb2987a"
+source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#a5ba0fda8fa954ba1b25a0f605a8b8bdb71ed781"
 dependencies = [
  "anyhow",
  "nekoton-abi",
+ "nekoton-jetton",
  "nekoton-utils",
  "once_cell",
  "serde",
@@ -1374,7 +1375,7 @@ dependencies = [
 [[package]]
 name = "nekoton-derive"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git#561b60e7a47e994500dce9f25933dd8d8fb2987a"
+source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#a5ba0fda8fa954ba1b25a0f605a8b8bdb71ed781"
 dependencies = [
  "either",
  "proc-macro2",
@@ -1383,9 +1384,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "nekoton-jetton"
+version = "0.13.0"
+source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#a5ba0fda8fa954ba1b25a0f605a8b8bdb71ed781"
+dependencies = [
+ "anyhow",
+ "lazy_static",
+ "nekoton-utils",
+ "num-bigint",
+ "num-traits",
+ "serde",
+ "sha2 0.10.8",
+ "ton_abi",
+ "ton_block",
+ "ton_types",
+]
+
+[[package]]
 name = "nekoton-proto"
 version = "0.1.0"
-source = "git+https://github.com/broxus/nekoton.git#561b60e7a47e994500dce9f25933dd8d8fb2987a"
+source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#a5ba0fda8fa954ba1b25a0f605a8b8bdb71ed781"
 dependencies = [
  "anyhow",
  "nekoton-abi",
@@ -1397,7 +1415,7 @@ dependencies = [
 [[package]]
 name = "nekoton-utils"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git#561b60e7a47e994500dce9f25933dd8d8fb2987a"
+source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#a5ba0fda8fa954ba1b25a0f605a8b8bdb71ed781"
 dependencies = [
  "anyhow",
  "base64",
@@ -1433,6 +1451,7 @@ dependencies = [
  "log-panics",
  "nekoton",
  "nekoton-abi",
+ "nekoton-jetton",
  "nekoton-utils",
  "oslog",
  "parking_lot",

@@ -21,6 +21,9 @@ pub enum WalletTypeDef {
     WalletV3,
     HighloadWalletV2,
     EverWallet,
+    WalletV4R1,
+    WalletV4R2,
+    WalletV5R1,
 }
 
 #[derive(Serialize, Deserialize)]
