@@ -7,8 +7,10 @@ import 'package:flutter_nekoton_bridge/example_related/caller_wrapper.dart'
     as prefix3;
 import 'package:flutter_nekoton_bridge/nekoton/core/generic_contract/generic_contract.dart'
     as prefix9;
-import 'package:flutter_nekoton_bridge/nekoton/core/ton_wallet/ton_wallet.dart'
+import 'package:flutter_nekoton_bridge/nekoton/core/jetton_wallet/jetton_wallet.dart'
     as prefix10;
+import 'package:flutter_nekoton_bridge/nekoton/core/ton_wallet/ton_wallet.dart'
+    as prefix11;
 import 'package:flutter_nekoton_bridge/nekoton/external/gql_connection.dart'
     as prefix4;
 import 'package:flutter_nekoton_bridge/nekoton/external/jrpc_connection.dart'
@@ -418,8 +420,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'subscribe': 13
             }),
         r.NonGenericClassMirrorImpl(
-            r'TonWallet',
-            r'.TonWallet',
+            r'JettonWallet',
+            r'.JettonWallet',
             134217735,
             9,
             const prefix0.Reflector(),
@@ -428,17 +430,81 @@ final _data = <r.Reflectable, r.ReflectorData>{
             null,
             -1,
             {
-              r'subscribe': () => prefix10.TonWallet.subscribe,
+              r'subscribe': () => prefix10.JettonWallet.subscribe,
+              r'getJettonWalletDetails': () =>
+                  prefix10.JettonWallet.getJettonWalletDetails,
+              r'getJettonRootDetailsFromJettonWallet': () =>
+                  prefix10.JettonWallet.getJettonRootDetailsFromJettonWallet,
+              r'getJettonRootDetails': () =>
+                  prefix10.JettonWallet.getJettonRootDetails
+            },
+            {},
+            {},
+            -1,
+            -1,
+            const <int>[-1],
+            null,
+            {
+              r'==': 7,
+              r'toString': 0,
+              r'noSuchMethod': 7,
+              r'hashCode': 0,
+              r'runtimeType': 0,
+              r'init': 0,
+              r'dispose': 0,
+              r'instanceHash': 0,
+              r'avoidCall': 0,
+              r'getContractState': 0,
+              r'estimateMinAttachedAmount': 15,
+              r'prepareTransfer': 16,
+              r'refresh': 0,
+              r'preloadTransactions': 3,
+              r'handleBlock': 4,
+              r'onBalanceChanged': 7,
+              r'onTransactionsFound': 7,
+              r'initializeMirror': 0,
+              r'wallet': 0,
+              r'wallet=': 7,
+              r'transport': 0,
+              r'balance': 0,
+              r'balance=': 7,
+              r'rootTokenContract': 0,
+              r'tokenAddress': 0,
+              r'tokenAddress=': 7,
+              r'owner': 0,
+              r'owner=': 7,
+              r'contractState': 0,
+              r'fieldUpdatesStream': 0,
+              r'onBalanceChangedStream': 0,
+              r'onTransactionsFoundStream': 0,
+              r'refreshDescription': 0,
+              r'subscribe': 0,
+              r'getJettonWalletDetails': 5,
+              r'getJettonRootDetailsFromJettonWallet': 5,
+              r'getJettonRootDetails': 6
+            }),
+        r.NonGenericClassMirrorImpl(
+            r'TonWallet',
+            r'.TonWallet',
+            134217735,
+            10,
+            const prefix0.Reflector(),
+            const <int>[-1],
+            null,
+            null,
+            -1,
+            {
+              r'subscribe': () => prefix11.TonWallet.subscribe,
               r'subscribeByAddress': () =>
-                  prefix10.TonWallet.subscribeByAddress,
+                  prefix11.TonWallet.subscribeByAddress,
               r'subscribeByExistingWallet': () =>
-                  prefix10.TonWallet.subscribeByExistingWallet,
+                  prefix11.TonWallet.subscribeByExistingWallet,
               r'findExistingWallets': () =>
-                  prefix10.TonWallet.findExistingWallets,
+                  prefix11.TonWallet.findExistingWallets,
               r'getExistingWalletInfo': () =>
-                  prefix10.TonWallet.getExistingWalletInfo,
+                  prefix11.TonWallet.getExistingWalletInfo,
               r'getWalletCustodians': () =>
-                  prefix10.TonWallet.getWalletCustodians
+                  prefix11.TonWallet.getWalletCustodians
             },
             {},
             {},
@@ -461,10 +527,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'getPollingMethod': 0,
               r'getUnconfirmedTransactions': 0,
               r'getCustodians': 0,
-              r'prepareDeploy': 17,
-              r'prepareDeployWithMultipleOwners': 18,
-              r'prepareTransfer': 19,
-              r'prepareConfirmTransaction': 20,
+              r'prepareDeploy': 19,
+              r'prepareDeployWithMultipleOwners': 20,
+              r'prepareTransfer': 21,
+              r'prepareConfirmTransaction': 22,
               r'estimateFees': 14,
               r'send': 14,
               r'refresh': 0,
@@ -499,10 +565,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onStateChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'refreshDescription': 0,
-              r'subscribe': 15,
+              r'subscribe': 17,
               r'subscribeByAddress': 5,
-              r'subscribeByExistingWallet': 16,
-              r'findExistingWallets': 21,
+              r'subscribeByExistingWallet': 18,
+              r'findExistingWallets': 23,
               r'getExistingWalletInfo': 5,
               r'getWalletCustodians': 5
             })
@@ -519,9 +585,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
         prefix7.LedgerConnection,
         prefix8.Storage,
         prefix9.GenericContract,
-        prefix10.TonWallet
+        prefix10.JettonWallet,
+        prefix11.TonWallet
       ],
-      10,
+      11,
       {
         r'==': (dynamic instance) => (x) => instance == x,
         r'toString': (dynamic instance) => instance.toString,
@@ -721,6 +788,31 @@ final _data = <r.Reflectable, r.ReflectorData>{
           0,
           0,
           const [#signedMessage, #options]
+        ],
+        const [
+          0,
+          0,
+          const [
+            #amount,
+            #destination,
+            #remainingGasTo,
+            #callbackValue,
+            #customPayload,
+            #callbackPayload
+          ]
+        ],
+        const [
+          0,
+          0,
+          const [
+            #amount,
+            #destination,
+            #remainingGasTo,
+            #callbackValue,
+            #customPayload,
+            #callbackPayload,
+            #attachedAmount
+          ]
         ],
         const [
           0,
