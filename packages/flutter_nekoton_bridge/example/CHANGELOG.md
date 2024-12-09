@@ -1,3 +1,9 @@
+## 1.18.1-dev.8
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **REFACTOR**: remove `tuple`. ([11d9efed](https://github.com/broxus/nekoton_bridge/commit/11d9efed69398b72beba14fedaa00213d82da7bc))
+
 ## 1.18.1-dev.7
 
  - **FEAT**: add jetton wallet support ([#276](https://github.com/broxus/nekoton_bridge/issues/276)). ([6120e3c6](https://github.com/broxus/nekoton_bridge/commit/6120e3c638214a5271aa9a901beccd48fe910ff4))

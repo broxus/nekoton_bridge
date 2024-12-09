@@ -1,3 +1,10 @@
+## 2.0.1-dev.9
+
+> Note: This release has breaking changes.
+
+ - **FEAT**: combine token & jetton transaction models. ([d22f1c48](https://github.com/broxus/nekoton_bridge/commit/d22f1c4886932666d8128fb6d9bb501f907434fd))
+ - **BREAKING** **REFACTOR**: remove `tuple`. ([11d9efed](https://github.com/broxus/nekoton_bridge/commit/11d9efed69398b72beba14fedaa00213d82da7bc))
+
 ## 2.0.1-dev.8
 
  - **FEAT**: add jetton wallet support ([#276](https://github.com/broxus/nekoton_bridge/issues/276)). ([6120e3c6](https://github.com/broxus/nekoton_bridge/commit/6120e3c638214a5271aa9a901beccd48fe910ff4))
