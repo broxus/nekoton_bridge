@@ -17,6 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 TokenWalletTransaction _$TokenWalletTransactionFromJson(
     Map<String, dynamic> json) {
   switch (json['type']) {
+    case 'transfer':
+      return _Transfer.fromJson(json);
+    case 'internal_transfer':
+      return _InternalTransfer.fromJson(json);
     case 'incoming_transfer':
       return _IncomingTransfer.fromJson(json);
     case 'outgoing_transfer':
@@ -41,6 +45,8 @@ mixin _$TokenWalletTransaction {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(JettonOutgoingTransfer data) transfer,
+    required TResult Function(JettonIncomingTransfer data) internalTransfer,
     required TResult Function(TokenIncomingTransfer data) incomingTransfer,
     required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
     required TResult Function(TokenSwapBack data) swapBack,
@@ -51,6 +57,8 @@ mixin _$TokenWalletTransaction {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(JettonOutgoingTransfer data)? transfer,
+    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
     TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult? Function(TokenSwapBack data)? swapBack,
@@ -61,6 +69,8 @@ mixin _$TokenWalletTransaction {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(JettonOutgoingTransfer data)? transfer,
+    TResult Function(JettonIncomingTransfer data)? internalTransfer,
     TResult Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult Function(TokenSwapBack data)? swapBack,
@@ -72,6 +82,8 @@ mixin _$TokenWalletTransaction {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Transfer value) transfer,
+    required TResult Function(_InternalTransfer value) internalTransfer,
     required TResult Function(_IncomingTransfer value) incomingTransfer,
     required TResult Function(_OutgoingTransfer value) outgoingTransfer,
     required TResult Function(_SwapBack value) swapBack,
@@ -82,6 +94,8 @@ mixin _$TokenWalletTransaction {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Transfer value)? transfer,
+    TResult? Function(_InternalTransfer value)? internalTransfer,
     TResult? Function(_IncomingTransfer value)? incomingTransfer,
     TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
     TResult? Function(_SwapBack value)? swapBack,
@@ -92,6 +106,8 @@ mixin _$TokenWalletTransaction {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Transfer value)? transfer,
+    TResult Function(_InternalTransfer value)? internalTransfer,
     TResult Function(_IncomingTransfer value)? incomingTransfer,
     TResult Function(_OutgoingTransfer value)? outgoingTransfer,
     TResult Function(_SwapBack value)? swapBack,
@@ -126,6 +142,422 @@ class _$TokenWalletTransactionCopyWithImpl<$Res,
 
   /// Create a copy of TokenWalletTransaction
   /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$TransferImplCopyWith<$Res> {
+  factory _$$TransferImplCopyWith(
+          _$TransferImpl value, $Res Function(_$TransferImpl) then) =
+      __$$TransferImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({JettonOutgoingTransfer data});
+
+  $JettonOutgoingTransferCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$TransferImplCopyWithImpl<$Res>
+    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$TransferImpl>
+    implements _$$TransferImplCopyWith<$Res> {
+  __$$TransferImplCopyWithImpl(
+      _$TransferImpl _value, $Res Function(_$TransferImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TokenWalletTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$TransferImpl(
+      null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as JettonOutgoingTransfer,
+    ));
+  }
+
+  /// Create a copy of TokenWalletTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $JettonOutgoingTransferCopyWith<$Res> get data {
+    return $JettonOutgoingTransferCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$TransferImpl implements _Transfer {
+  const _$TransferImpl(this.data, {final String? $type})
+      : $type = $type ?? 'transfer';
+
+  factory _$TransferImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TransferImplFromJson(json);
+
+  @override
+  final JettonOutgoingTransfer data;
+
+  @JsonKey(name: 'type')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'TokenWalletTransaction.transfer(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TransferImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  /// Create a copy of TokenWalletTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TransferImplCopyWith<_$TransferImpl> get copyWith =>
+      __$$TransferImplCopyWithImpl<_$TransferImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(JettonOutgoingTransfer data) transfer,
+    required TResult Function(JettonIncomingTransfer data) internalTransfer,
+    required TResult Function(TokenIncomingTransfer data) incomingTransfer,
+    required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
+    required TResult Function(TokenSwapBack data) swapBack,
+    required TResult Function(@amountJsonConverter BigInt data) accept,
+    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
+    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
+  }) {
+    return transfer(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(JettonOutgoingTransfer data)? transfer,
+    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
+    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
+    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
+    TResult? Function(TokenSwapBack data)? swapBack,
+    TResult? Function(@amountJsonConverter BigInt data)? accept,
+    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
+  }) {
+    return transfer?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(JettonOutgoingTransfer data)? transfer,
+    TResult Function(JettonIncomingTransfer data)? internalTransfer,
+    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
+    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
+    TResult Function(TokenSwapBack data)? swapBack,
+    TResult Function(@amountJsonConverter BigInt data)? accept,
+    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
+    required TResult orElse(),
+  }) {
+    if (transfer != null) {
+      return transfer(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Transfer value) transfer,
+    required TResult Function(_InternalTransfer value) internalTransfer,
+    required TResult Function(_IncomingTransfer value) incomingTransfer,
+    required TResult Function(_OutgoingTransfer value) outgoingTransfer,
+    required TResult Function(_SwapBack value) swapBack,
+    required TResult Function(_Accept value) accept,
+    required TResult Function(_TransferBounced value) transferBounced,
+    required TResult Function(_SwapBackBounced value) swapBackBounced,
+  }) {
+    return transfer(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Transfer value)? transfer,
+    TResult? Function(_InternalTransfer value)? internalTransfer,
+    TResult? Function(_IncomingTransfer value)? incomingTransfer,
+    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
+    TResult? Function(_SwapBack value)? swapBack,
+    TResult? Function(_Accept value)? accept,
+    TResult? Function(_TransferBounced value)? transferBounced,
+    TResult? Function(_SwapBackBounced value)? swapBackBounced,
+  }) {
+    return transfer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Transfer value)? transfer,
+    TResult Function(_InternalTransfer value)? internalTransfer,
+    TResult Function(_IncomingTransfer value)? incomingTransfer,
+    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
+    TResult Function(_SwapBack value)? swapBack,
+    TResult Function(_Accept value)? accept,
+    TResult Function(_TransferBounced value)? transferBounced,
+    TResult Function(_SwapBackBounced value)? swapBackBounced,
+    required TResult orElse(),
+  }) {
+    if (transfer != null) {
+      return transfer(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$TransferImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Transfer implements TokenWalletTransaction {
+  const factory _Transfer(final JettonOutgoingTransfer data) = _$TransferImpl;
+
+  factory _Transfer.fromJson(Map<String, dynamic> json) =
+      _$TransferImpl.fromJson;
+
+  @override
+  JettonOutgoingTransfer get data;
+
+  /// Create a copy of TokenWalletTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$TransferImplCopyWith<_$TransferImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$InternalTransferImplCopyWith<$Res> {
+  factory _$$InternalTransferImplCopyWith(_$InternalTransferImpl value,
+          $Res Function(_$InternalTransferImpl) then) =
+      __$$InternalTransferImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({JettonIncomingTransfer data});
+
+  $JettonIncomingTransferCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$InternalTransferImplCopyWithImpl<$Res>
+    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$InternalTransferImpl>
+    implements _$$InternalTransferImplCopyWith<$Res> {
+  __$$InternalTransferImplCopyWithImpl(_$InternalTransferImpl _value,
+      $Res Function(_$InternalTransferImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TokenWalletTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$InternalTransferImpl(
+      null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as JettonIncomingTransfer,
+    ));
+  }
+
+  /// Create a copy of TokenWalletTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $JettonIncomingTransferCopyWith<$Res> get data {
+    return $JettonIncomingTransferCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$InternalTransferImpl implements _InternalTransfer {
+  const _$InternalTransferImpl(this.data, {final String? $type})
+      : $type = $type ?? 'internal_transfer';
+
+  factory _$InternalTransferImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InternalTransferImplFromJson(json);
+
+  @override
+  final JettonIncomingTransfer data;
+
+  @JsonKey(name: 'type')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'TokenWalletTransaction.internalTransfer(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InternalTransferImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  /// Create a copy of TokenWalletTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InternalTransferImplCopyWith<_$InternalTransferImpl> get copyWith =>
+      __$$InternalTransferImplCopyWithImpl<_$InternalTransferImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(JettonOutgoingTransfer data) transfer,
+    required TResult Function(JettonIncomingTransfer data) internalTransfer,
+    required TResult Function(TokenIncomingTransfer data) incomingTransfer,
+    required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
+    required TResult Function(TokenSwapBack data) swapBack,
+    required TResult Function(@amountJsonConverter BigInt data) accept,
+    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
+    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
+  }) {
+    return internalTransfer(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(JettonOutgoingTransfer data)? transfer,
+    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
+    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
+    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
+    TResult? Function(TokenSwapBack data)? swapBack,
+    TResult? Function(@amountJsonConverter BigInt data)? accept,
+    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
+  }) {
+    return internalTransfer?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(JettonOutgoingTransfer data)? transfer,
+    TResult Function(JettonIncomingTransfer data)? internalTransfer,
+    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
+    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
+    TResult Function(TokenSwapBack data)? swapBack,
+    TResult Function(@amountJsonConverter BigInt data)? accept,
+    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
+    required TResult orElse(),
+  }) {
+    if (internalTransfer != null) {
+      return internalTransfer(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Transfer value) transfer,
+    required TResult Function(_InternalTransfer value) internalTransfer,
+    required TResult Function(_IncomingTransfer value) incomingTransfer,
+    required TResult Function(_OutgoingTransfer value) outgoingTransfer,
+    required TResult Function(_SwapBack value) swapBack,
+    required TResult Function(_Accept value) accept,
+    required TResult Function(_TransferBounced value) transferBounced,
+    required TResult Function(_SwapBackBounced value) swapBackBounced,
+  }) {
+    return internalTransfer(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Transfer value)? transfer,
+    TResult? Function(_InternalTransfer value)? internalTransfer,
+    TResult? Function(_IncomingTransfer value)? incomingTransfer,
+    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
+    TResult? Function(_SwapBack value)? swapBack,
+    TResult? Function(_Accept value)? accept,
+    TResult? Function(_TransferBounced value)? transferBounced,
+    TResult? Function(_SwapBackBounced value)? swapBackBounced,
+  }) {
+    return internalTransfer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Transfer value)? transfer,
+    TResult Function(_InternalTransfer value)? internalTransfer,
+    TResult Function(_IncomingTransfer value)? incomingTransfer,
+    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
+    TResult Function(_SwapBack value)? swapBack,
+    TResult Function(_Accept value)? accept,
+    TResult Function(_TransferBounced value)? transferBounced,
+    TResult Function(_SwapBackBounced value)? swapBackBounced,
+    required TResult orElse(),
+  }) {
+    if (internalTransfer != null) {
+      return internalTransfer(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$InternalTransferImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _InternalTransfer implements TokenWalletTransaction {
+  const factory _InternalTransfer(final JettonIncomingTransfer data) =
+      _$InternalTransferImpl;
+
+  factory _InternalTransfer.fromJson(Map<String, dynamic> json) =
+      _$InternalTransferImpl.fromJson;
+
+  @override
+  JettonIncomingTransfer get data;
+
+  /// Create a copy of TokenWalletTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$InternalTransferImplCopyWith<_$InternalTransferImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -217,6 +649,8 @@ class _$IncomingTransferImpl implements _IncomingTransfer {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(JettonOutgoingTransfer data) transfer,
+    required TResult Function(JettonIncomingTransfer data) internalTransfer,
     required TResult Function(TokenIncomingTransfer data) incomingTransfer,
     required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
     required TResult Function(TokenSwapBack data) swapBack,
@@ -230,6 +664,8 @@ class _$IncomingTransferImpl implements _IncomingTransfer {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(JettonOutgoingTransfer data)? transfer,
+    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
     TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult? Function(TokenSwapBack data)? swapBack,
@@ -243,6 +679,8 @@ class _$IncomingTransferImpl implements _IncomingTransfer {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(JettonOutgoingTransfer data)? transfer,
+    TResult Function(JettonIncomingTransfer data)? internalTransfer,
     TResult Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult Function(TokenSwapBack data)? swapBack,
@@ -260,6 +698,8 @@ class _$IncomingTransferImpl implements _IncomingTransfer {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Transfer value) transfer,
+    required TResult Function(_InternalTransfer value) internalTransfer,
     required TResult Function(_IncomingTransfer value) incomingTransfer,
     required TResult Function(_OutgoingTransfer value) outgoingTransfer,
     required TResult Function(_SwapBack value) swapBack,
@@ -273,6 +713,8 @@ class _$IncomingTransferImpl implements _IncomingTransfer {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Transfer value)? transfer,
+    TResult? Function(_InternalTransfer value)? internalTransfer,
     TResult? Function(_IncomingTransfer value)? incomingTransfer,
     TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
     TResult? Function(_SwapBack value)? swapBack,
@@ -286,6 +728,8 @@ class _$IncomingTransferImpl implements _IncomingTransfer {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Transfer value)? transfer,
+    TResult Function(_InternalTransfer value)? internalTransfer,
     TResult Function(_IncomingTransfer value)? incomingTransfer,
     TResult Function(_OutgoingTransfer value)? outgoingTransfer,
     TResult Function(_SwapBack value)? swapBack,
@@ -414,6 +858,8 @@ class _$OutgoingTransferImpl implements _OutgoingTransfer {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(JettonOutgoingTransfer data) transfer,
+    required TResult Function(JettonIncomingTransfer data) internalTransfer,
     required TResult Function(TokenIncomingTransfer data) incomingTransfer,
     required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
     required TResult Function(TokenSwapBack data) swapBack,
@@ -427,6 +873,8 @@ class _$OutgoingTransferImpl implements _OutgoingTransfer {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(JettonOutgoingTransfer data)? transfer,
+    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
     TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult? Function(TokenSwapBack data)? swapBack,
@@ -440,6 +888,8 @@ class _$OutgoingTransferImpl implements _OutgoingTransfer {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(JettonOutgoingTransfer data)? transfer,
+    TResult Function(JettonIncomingTransfer data)? internalTransfer,
     TResult Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult Function(TokenSwapBack data)? swapBack,
@@ -457,6 +907,8 @@ class _$OutgoingTransferImpl implements _OutgoingTransfer {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Transfer value) transfer,
+    required TResult Function(_InternalTransfer value) internalTransfer,
     required TResult Function(_IncomingTransfer value) incomingTransfer,
     required TResult Function(_OutgoingTransfer value) outgoingTransfer,
     required TResult Function(_SwapBack value) swapBack,
@@ -470,6 +922,8 @@ class _$OutgoingTransferImpl implements _OutgoingTransfer {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Transfer value)? transfer,
+    TResult? Function(_InternalTransfer value)? internalTransfer,
     TResult? Function(_IncomingTransfer value)? incomingTransfer,
     TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
     TResult? Function(_SwapBack value)? swapBack,
@@ -483,6 +937,8 @@ class _$OutgoingTransferImpl implements _OutgoingTransfer {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Transfer value)? transfer,
+    TResult Function(_InternalTransfer value)? internalTransfer,
     TResult Function(_IncomingTransfer value)? incomingTransfer,
     TResult Function(_OutgoingTransfer value)? outgoingTransfer,
     TResult Function(_SwapBack value)? swapBack,
@@ -610,6 +1066,8 @@ class _$SwapBackImpl implements _SwapBack {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(JettonOutgoingTransfer data) transfer,
+    required TResult Function(JettonIncomingTransfer data) internalTransfer,
     required TResult Function(TokenIncomingTransfer data) incomingTransfer,
     required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
     required TResult Function(TokenSwapBack data) swapBack,
@@ -623,6 +1081,8 @@ class _$SwapBackImpl implements _SwapBack {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(JettonOutgoingTransfer data)? transfer,
+    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
     TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult? Function(TokenSwapBack data)? swapBack,
@@ -636,6 +1096,8 @@ class _$SwapBackImpl implements _SwapBack {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(JettonOutgoingTransfer data)? transfer,
+    TResult Function(JettonIncomingTransfer data)? internalTransfer,
     TResult Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult Function(TokenSwapBack data)? swapBack,
@@ -653,6 +1115,8 @@ class _$SwapBackImpl implements _SwapBack {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Transfer value) transfer,
+    required TResult Function(_InternalTransfer value) internalTransfer,
     required TResult Function(_IncomingTransfer value) incomingTransfer,
     required TResult Function(_OutgoingTransfer value) outgoingTransfer,
     required TResult Function(_SwapBack value) swapBack,
@@ -666,6 +1130,8 @@ class _$SwapBackImpl implements _SwapBack {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Transfer value)? transfer,
+    TResult? Function(_InternalTransfer value)? internalTransfer,
     TResult? Function(_IncomingTransfer value)? incomingTransfer,
     TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
     TResult? Function(_SwapBack value)? swapBack,
@@ -679,6 +1145,8 @@ class _$SwapBackImpl implements _SwapBack {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Transfer value)? transfer,
+    TResult Function(_InternalTransfer value)? internalTransfer,
     TResult Function(_IncomingTransfer value)? incomingTransfer,
     TResult Function(_OutgoingTransfer value)? outgoingTransfer,
     TResult Function(_SwapBack value)? swapBack,
@@ -794,6 +1262,8 @@ class _$AcceptImpl implements _Accept {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(JettonOutgoingTransfer data) transfer,
+    required TResult Function(JettonIncomingTransfer data) internalTransfer,
     required TResult Function(TokenIncomingTransfer data) incomingTransfer,
     required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
     required TResult Function(TokenSwapBack data) swapBack,
@@ -807,6 +1277,8 @@ class _$AcceptImpl implements _Accept {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(JettonOutgoingTransfer data)? transfer,
+    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
     TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult? Function(TokenSwapBack data)? swapBack,
@@ -820,6 +1292,8 @@ class _$AcceptImpl implements _Accept {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(JettonOutgoingTransfer data)? transfer,
+    TResult Function(JettonIncomingTransfer data)? internalTransfer,
     TResult Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult Function(TokenSwapBack data)? swapBack,
@@ -837,6 +1311,8 @@ class _$AcceptImpl implements _Accept {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Transfer value) transfer,
+    required TResult Function(_InternalTransfer value) internalTransfer,
     required TResult Function(_IncomingTransfer value) incomingTransfer,
     required TResult Function(_OutgoingTransfer value) outgoingTransfer,
     required TResult Function(_SwapBack value) swapBack,
@@ -850,6 +1326,8 @@ class _$AcceptImpl implements _Accept {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Transfer value)? transfer,
+    TResult? Function(_InternalTransfer value)? internalTransfer,
     TResult? Function(_IncomingTransfer value)? incomingTransfer,
     TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
     TResult? Function(_SwapBack value)? swapBack,
@@ -863,6 +1341,8 @@ class _$AcceptImpl implements _Accept {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Transfer value)? transfer,
+    TResult Function(_InternalTransfer value)? internalTransfer,
     TResult Function(_IncomingTransfer value)? incomingTransfer,
     TResult Function(_OutgoingTransfer value)? outgoingTransfer,
     TResult Function(_SwapBack value)? swapBack,
@@ -980,6 +1460,8 @@ class _$TransferBouncedImpl implements _TransferBounced {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(JettonOutgoingTransfer data) transfer,
+    required TResult Function(JettonIncomingTransfer data) internalTransfer,
     required TResult Function(TokenIncomingTransfer data) incomingTransfer,
     required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
     required TResult Function(TokenSwapBack data) swapBack,
@@ -993,6 +1475,8 @@ class _$TransferBouncedImpl implements _TransferBounced {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(JettonOutgoingTransfer data)? transfer,
+    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
     TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult? Function(TokenSwapBack data)? swapBack,
@@ -1006,6 +1490,8 @@ class _$TransferBouncedImpl implements _TransferBounced {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(JettonOutgoingTransfer data)? transfer,
+    TResult Function(JettonIncomingTransfer data)? internalTransfer,
     TResult Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult Function(TokenSwapBack data)? swapBack,
@@ -1023,6 +1509,8 @@ class _$TransferBouncedImpl implements _TransferBounced {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Transfer value) transfer,
+    required TResult Function(_InternalTransfer value) internalTransfer,
     required TResult Function(_IncomingTransfer value) incomingTransfer,
     required TResult Function(_OutgoingTransfer value) outgoingTransfer,
     required TResult Function(_SwapBack value) swapBack,
@@ -1036,6 +1524,8 @@ class _$TransferBouncedImpl implements _TransferBounced {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Transfer value)? transfer,
+    TResult? Function(_InternalTransfer value)? internalTransfer,
     TResult? Function(_IncomingTransfer value)? incomingTransfer,
     TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
     TResult? Function(_SwapBack value)? swapBack,
@@ -1049,6 +1539,8 @@ class _$TransferBouncedImpl implements _TransferBounced {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Transfer value)? transfer,
+    TResult Function(_InternalTransfer value)? internalTransfer,
     TResult Function(_IncomingTransfer value)? incomingTransfer,
     TResult Function(_OutgoingTransfer value)? outgoingTransfer,
     TResult Function(_SwapBack value)? swapBack,
@@ -1168,6 +1660,8 @@ class _$SwapBackBouncedImpl implements _SwapBackBounced {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(JettonOutgoingTransfer data) transfer,
+    required TResult Function(JettonIncomingTransfer data) internalTransfer,
     required TResult Function(TokenIncomingTransfer data) incomingTransfer,
     required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
     required TResult Function(TokenSwapBack data) swapBack,
@@ -1181,6 +1675,8 @@ class _$SwapBackBouncedImpl implements _SwapBackBounced {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(JettonOutgoingTransfer data)? transfer,
+    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
     TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult? Function(TokenSwapBack data)? swapBack,
@@ -1194,6 +1690,8 @@ class _$SwapBackBouncedImpl implements _SwapBackBounced {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(JettonOutgoingTransfer data)? transfer,
+    TResult Function(JettonIncomingTransfer data)? internalTransfer,
     TResult Function(TokenIncomingTransfer data)? incomingTransfer,
     TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
     TResult Function(TokenSwapBack data)? swapBack,
@@ -1211,6 +1709,8 @@ class _$SwapBackBouncedImpl implements _SwapBackBounced {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Transfer value) transfer,
+    required TResult Function(_InternalTransfer value) internalTransfer,
     required TResult Function(_IncomingTransfer value) incomingTransfer,
     required TResult Function(_OutgoingTransfer value) outgoingTransfer,
     required TResult Function(_SwapBack value) swapBack,
@@ -1224,6 +1724,8 @@ class _$SwapBackBouncedImpl implements _SwapBackBounced {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Transfer value)? transfer,
+    TResult? Function(_InternalTransfer value)? internalTransfer,
     TResult? Function(_IncomingTransfer value)? incomingTransfer,
     TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
     TResult? Function(_SwapBack value)? swapBack,
@@ -1237,6 +1739,8 @@ class _$SwapBackBouncedImpl implements _SwapBackBounced {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Transfer value)? transfer,
+    TResult Function(_InternalTransfer value)? internalTransfer,
     TResult Function(_IncomingTransfer value)? incomingTransfer,
     TResult Function(_OutgoingTransfer value)? outgoingTransfer,
     TResult Function(_SwapBack value)? swapBack,

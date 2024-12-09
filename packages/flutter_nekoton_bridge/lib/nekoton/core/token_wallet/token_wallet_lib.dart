@@ -6,7 +6,5 @@ export 'models/token_incoming_transfer.dart';
 export 'models/token_outgoing_transfer.dart';
 export 'models/token_swap_back.dart';
 export 'models/token_wallet_details.dart';
-export 'models/token_wallet_transaction.dart';
-export 'models/token_wallet_transaction_with_data.dart';
 export 'models/token_wallet_version.dart';
 export 'models/transfer_recipient.dart';

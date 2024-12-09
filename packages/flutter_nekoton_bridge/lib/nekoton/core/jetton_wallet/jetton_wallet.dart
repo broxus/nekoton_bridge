@@ -28,7 +28,7 @@ class JettonWallet extends RustToDartMirrorInterface
   /// Controllers that contains data that emits from rust.
   final _onBalanceChangedController = BehaviorSubject<BigInt>();
   final _onTransactionsFoundController = BehaviorSubject<
-      Tuple2<List<TransactionWithData<JettonWalletTransaction?>>,
+      Tuple2<List<TransactionWithData<TokenWalletTransaction?>>,
           TransactionsBatchInfo>>();
 
   /// Description information about wallet that could be changed and updated
@@ -110,7 +110,7 @@ class JettonWallet extends RustToDartMirrorInterface
   ///
   /// To update data of this stream, wallet must be refreshed via [refresh].
   Stream<
-      Tuple2<List<TransactionWithData<JettonWalletTransaction?>>,
+      Tuple2<List<TransactionWithData<TokenWalletTransaction?>>,
           TransactionsBatchInfo>> get onTransactionsFoundStream =>
       _onTransactionsFoundController.stream;
 
@@ -334,10 +334,10 @@ class JettonWallet extends RustToDartMirrorInterface
     final transactions = transactionsJson
         .cast<Map<String, dynamic>>()
         .map(
-          (e) => TransactionWithData<JettonWalletTransaction?>.fromJson(
+          (e) => TransactionWithData<TokenWalletTransaction?>.fromJson(
             e,
             (json) => json != null
-                ? JettonWalletTransaction.fromJson(json as Map<String, dynamic>)
+                ? TokenWalletTransaction.fromJson(json as Map<String, dynamic>)
                 : null,
           ),
         )
