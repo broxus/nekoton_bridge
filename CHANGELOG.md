@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-12-09
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - [`flutter_nekoton_bridge` - `v2.0.1-dev.9`](#flutter_nekoton_bridge---v201-dev9)
+ - [`flutter_nekoton_bridge_example` - `v1.18.1-dev.8`](#flutter_nekoton_bridge_example---v1181-dev8)
+
+Packages with other changes:
+
+ - There are no other changes in this release.
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.0.1-dev.9`
+
+ - **FEAT**: combine token & jetton transaction models. ([d22f1c48](https://github.com/broxus/nekoton_bridge/commit/d22f1c4886932666d8128fb6d9bb501f907434fd))
+ - **BREAKING** **REFACTOR**: remove `tuple`. ([11d9efed](https://github.com/broxus/nekoton_bridge/commit/11d9efed69398b72beba14fedaa00213d82da7bc))
+
+#### `flutter_nekoton_bridge_example` - `v1.18.1-dev.8`
+
+ - **BREAKING** **REFACTOR**: remove `tuple`. ([11d9efed](https://github.com/broxus/nekoton_bridge/commit/11d9efed69398b72beba14fedaa00213d82da7bc))
+
+
 ## 2024-12-06
 
 ### Changes
