@@ -5,7 +5,6 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/mirrors.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:tuple/tuple.dart';
 
 import 'token_wallet.reflectable.dart';
 
@@ -29,8 +28,10 @@ class TokenWallet extends RustToDartMirrorInterface
   final _onBalanceChangedController = BehaviorSubject<BigInt>();
   final _onMoneyBalanceChangedController = BehaviorSubject<Money>();
   final _onTransactionsFoundController = BehaviorSubject<
-      Tuple2<List<TransactionWithData<TokenWalletTransaction?>>,
-          TransactionsBatchInfo>>();
+      (
+        List<TransactionWithData<TokenWalletTransaction?>>,
+        TransactionsBatchInfo
+      )>();
 
   /// Description information about wallet that could be changed and updated
   /// during [_updateData]. It means, that fields could be changed after any
@@ -127,9 +128,10 @@ class TokenWallet extends RustToDartMirrorInterface
   ///
   /// To update data of this stream, wallet must be refreshed via [refresh].
   Stream<
-      Tuple2<List<TransactionWithData<TokenWalletTransaction?>>,
-          TransactionsBatchInfo>> get onTransactionsFoundStream =>
-      _onTransactionsFoundController.stream;
+      (
+        List<TransactionWithData<TokenWalletTransaction?>>,
+        TransactionsBatchInfo
+      )> get onTransactionsFoundStream => _onTransactionsFoundController.stream;
 
   /// Get address of owner of wallet.
   Future<Address> _getOwner() async => Address(address: await wallet.owner());
@@ -257,7 +259,7 @@ class TokenWallet extends RustToDartMirrorInterface
   /// 0: TokenWalletDetails
   /// 1: RootTokenContractDetails
   /// or throw error
-  static Future<Tuple2<TokenWalletDetails, RootTokenContractDetails>>
+  static Future<(TokenWalletDetails, RootTokenContractDetails)>
       getTokenWalletDetails({
     required Transport transport,
     required Address address,
@@ -270,7 +272,7 @@ class TokenWallet extends RustToDartMirrorInterface
       );
     });
     final decoded = jsonDecode(encoded) as List<dynamic>;
-    return Tuple2(
+    return (
       TokenWalletDetails.fromJson(decoded.first as Map<String, dynamic>),
       RootTokenContractDetails.fromJson(decoded.last as Map<String, dynamic>),
     );
@@ -280,7 +282,7 @@ class TokenWallet extends RustToDartMirrorInterface
   /// 0: Address of root contract
   /// 1: RootTokenContractDetails of root contract
   /// or throw error.
-  static Future<Tuple2<Address, RootTokenContractDetails>>
+  static Future<(Address, RootTokenContractDetails)>
       getTokenRootDetailsFromTokenWallet({
     required Transport transport,
     required Address address,
@@ -294,7 +296,7 @@ class TokenWallet extends RustToDartMirrorInterface
       );
     });
     final decoded = jsonDecode(encoded) as List<dynamic>;
-    return Tuple2(
+    return (
       Address(address: (decoded.first as String)),
       RootTokenContractDetails.fromJson(decoded.last as Map<String, dynamic>),
     );
@@ -346,7 +348,7 @@ class TokenWallet extends RustToDartMirrorInterface
         .toList();
     final batchInfoJson = json.last as Map<String, dynamic>;
     final batchInfo = TransactionsBatchInfo.fromJson(batchInfoJson);
-    _onTransactionsFoundController.add(Tuple2(transactions, batchInfo));
+    _onTransactionsFoundController.add((transactions, batchInfo));
   }
 
   /// Method that updates all internal data and notify subscribers about it.

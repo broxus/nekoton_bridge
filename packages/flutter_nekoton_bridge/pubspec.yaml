@@ -21,7 +21,6 @@ dependencies:
   json_annotation: ^4.9.0
   #  for generating mirror hash
   uuid: ^3.0.7
-  tuple: ^2.0.2
   crypto: ^3.0.6
   mutex: ^3.1.0
 dev_dependencies:

@@ -5,7 +5,6 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/mirrors.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:tuple/tuple.dart';
 
 import 'ton_wallet.reflectable.dart';
 
@@ -27,12 +26,14 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// Controllers that contains data that emits from rust.
   final _onMessageSentController =
-      BehaviorSubject<Tuple2<PendingTransaction, Transaction?>>();
+      BehaviorSubject<(PendingTransaction, Transaction?)>();
   final _onMessageExpiredController = BehaviorSubject<PendingTransaction>();
   final _onStateChangedController = BehaviorSubject<ContractState>();
   final _onTransactionsFoundController = BehaviorSubject<
-      Tuple2<List<TransactionWithData<TransactionAdditionalInfo?>>,
-          TransactionsBatchInfo>>();
+      (
+        List<TransactionWithData<TransactionAdditionalInfo?>>,
+        TransactionsBatchInfo
+      )>();
 
   /// Description information about wallet that could be changed and updated
   /// during [_updateData]. It means, that fields could be changed after any
@@ -161,7 +162,7 @@ class TonWallet extends RustToDartMirrorInterface
   /// Stream that emits data when blockchain founds new transaction
   ///
   /// To update data of this stream, wallet must be refreshed via [refresh].
-  Stream<Tuple2<PendingTransaction, Transaction?>> get onMessageSentStream =>
+  Stream<(PendingTransaction, Transaction?)> get onMessageSentStream =>
       _onMessageSentController.stream;
 
   /// Stream that emits data when expired message come to wallet
@@ -180,9 +181,10 @@ class TonWallet extends RustToDartMirrorInterface
   ///
   /// To update data of this stream, wallet must be refreshed via [refresh].
   Stream<
-      Tuple2<List<TransactionWithData<TransactionAdditionalInfo?>>,
-          TransactionsBatchInfo>> get onTransactionsFoundStream =>
-      _onTransactionsFoundController.stream;
+      (
+        List<TransactionWithData<TransactionAdditionalInfo?>>,
+        TransactionsBatchInfo
+      )> get onTransactionsFoundStream => _onTransactionsFoundController.stream;
 
   /// Get workchain of wallet.
   Future<int> _getWorkchain() => wallet.workchain();
@@ -456,7 +458,7 @@ class TonWallet extends RustToDartMirrorInterface
     final transactionJson = json.last as Map<String, dynamic>?;
     final transaction =
         transactionJson != null ? Transaction.fromJson(transactionJson) : null;
-    _onMessageSentController.add(Tuple2(pendingTransaction, transaction));
+    _onMessageSentController.add((pendingTransaction, transaction));
   }
 
   /// Calls from rust side when message has been expired
@@ -497,7 +499,7 @@ class TonWallet extends RustToDartMirrorInterface
         .toList();
     final batchInfoJson = json.last as Map<String, dynamic>;
     final batchInfo = TransactionsBatchInfo.fromJson(batchInfoJson);
-    _onTransactionsFoundController.add(Tuple2(transactions, batchInfo));
+    _onTransactionsFoundController.add((transactions, batchInfo));
   }
 
   /// Method that updates all internal data and notify subscribers about it.

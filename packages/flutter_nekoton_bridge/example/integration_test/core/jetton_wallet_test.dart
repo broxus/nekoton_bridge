@@ -143,11 +143,11 @@ void main() {
         address: tokenWallet,
       );
 
-      expect(details.item1.balance, isNot(BigInt.zero));
-      expect(details.item1.ownerAddress, address);
-      expect(details.item1.rootAddress, usdtTokenRoot);
+      expect(details.$1.balance, isNot(BigInt.zero));
+      expect(details.$1.ownerAddress, address);
+      expect(details.$1.rootAddress, usdtTokenRoot);
       expect(
-        details.item2.adminAddress,
+        details.$2.adminAddress,
         const Address(
             address:
                 '0:6440fe3c69410383963945173c4b11479bf0b9b4d7090e58777bda581c2f9998'),
@@ -163,9 +163,9 @@ void main() {
         address: tokenWallet,
       );
 
-      expect(details.item1, usdtTokenRoot);
+      expect(details.$1, usdtTokenRoot);
       expect(
-        details.item2.adminAddress,
+        details.$2.adminAddress,
         const Address(
             address:
                 '0:6440fe3c69410383963945173c4b11479bf0b9b4d7090e58777bda581c2f9998'),

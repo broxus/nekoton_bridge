@@ -165,17 +165,17 @@ void main() {
                 '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
       );
 
-      expect(details.item1.balance, BigInt.parse('1826241428'));
-      expect(details.item1.ownerAddress, address);
-      expect(details.item1.rootAddress, stEverRootContract);
+      expect(details.$1.balance, BigInt.parse('1826241428'));
+      expect(details.$1.ownerAddress, address);
+      expect(details.$1.rootAddress, stEverRootContract);
       expect(
-        details.item2.ownerAddress,
+        details.$2.ownerAddress,
         const Address(
             address:
                 '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68'),
       );
-      expect(details.item2.version, TokenWalletVersion.tip3);
-      expect(details.item2.symbol, 'STEVER');
+      expect(details.$2.version, TokenWalletVersion.tip3);
+      expect(details.$2.symbol, 'STEVER');
     });
 
     testWidgets('TokenWallet getTokenRootDetailsFromTokenWallet',
@@ -189,15 +189,15 @@ void main() {
                 '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
       );
 
-      expect(details.item1, stEverRootContract);
+      expect(details.$1, stEverRootContract);
       expect(
-        details.item2.ownerAddress,
+        details.$2.ownerAddress,
         const Address(
             address:
                 '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68'),
       );
-      expect(details.item2.version, TokenWalletVersion.tip3);
-      expect(details.item2.symbol, 'STEVER');
+      expect(details.$2.version, TokenWalletVersion.tip3);
+      expect(details.$2.symbol, 'STEVER');
     });
 
     testWidgets('TokenWallet getTokenRootDetails', (WidgetTester tester) async {
