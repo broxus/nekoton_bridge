@@ -23,7 +23,7 @@ JettonIncomingTransfer _$JettonIncomingTransferFromJson(
 mixin _$JettonIncomingTransfer {
   @amountJsonConverter
   BigInt get tokens => throw _privateConstructorUsedError;
-  Address get to => throw _privateConstructorUsedError;
+  Address get from => throw _privateConstructorUsedError;
 
   /// Serializes this JettonIncomingTransfer to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,9 +41,9 @@ abstract class $JettonIncomingTransferCopyWith<$Res> {
           $Res Function(JettonIncomingTransfer) then) =
       _$JettonIncomingTransferCopyWithImpl<$Res, JettonIncomingTransfer>;
   @useResult
-  $Res call({@amountJsonConverter BigInt tokens, Address to});
+  $Res call({@amountJsonConverter BigInt tokens, Address from});
 
-  $AddressCopyWith<$Res> get to;
+  $AddressCopyWith<$Res> get from;
 }
 
 /// @nodoc
@@ -63,16 +63,16 @@ class _$JettonIncomingTransferCopyWithImpl<$Res,
   @override
   $Res call({
     Object? tokens = null,
-    Object? to = null,
+    Object? from = null,
   }) {
     return _then(_value.copyWith(
       tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
               as BigInt,
-      to: null == to
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
+      from: null == from
+          ? _value.from
+          : from // ignore: cast_nullable_to_non_nullable
               as Address,
     ) as $Val);
   }
@@ -81,9 +81,9 @@ class _$JettonIncomingTransferCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res> get to {
-    return $AddressCopyWith<$Res>(_value.to, (value) {
-      return _then(_value.copyWith(to: value) as $Val);
+  $AddressCopyWith<$Res> get from {
+    return $AddressCopyWith<$Res>(_value.from, (value) {
+      return _then(_value.copyWith(from: value) as $Val);
     });
   }
 }
@@ -97,10 +97,10 @@ abstract class _$$JettonIncomingTransferImplCopyWith<$Res>
       __$$JettonIncomingTransferImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@amountJsonConverter BigInt tokens, Address to});
+  $Res call({@amountJsonConverter BigInt tokens, Address from});
 
   @override
-  $AddressCopyWith<$Res> get to;
+  $AddressCopyWith<$Res> get from;
 }
 
 /// @nodoc
@@ -119,16 +119,16 @@ class __$$JettonIncomingTransferImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? tokens = null,
-    Object? to = null,
+    Object? from = null,
   }) {
     return _then(_$JettonIncomingTransferImpl(
       tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
               as BigInt,
-      to: null == to
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
+      from: null == from
+          ? _value.from
+          : from // ignore: cast_nullable_to_non_nullable
               as Address,
     ));
   }
@@ -138,7 +138,7 @@ class __$$JettonIncomingTransferImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$JettonIncomingTransferImpl implements _JettonIncomingTransfer {
   const _$JettonIncomingTransferImpl(
-      {@amountJsonConverter required this.tokens, required this.to});
+      {@amountJsonConverter required this.tokens, required this.from});
 
   factory _$JettonIncomingTransferImpl.fromJson(Map<String, dynamic> json) =>
       _$$JettonIncomingTransferImplFromJson(json);
@@ -147,11 +147,11 @@ class _$JettonIncomingTransferImpl implements _JettonIncomingTransfer {
   @amountJsonConverter
   final BigInt tokens;
   @override
-  final Address to;
+  final Address from;
 
   @override
   String toString() {
-    return 'JettonIncomingTransfer(tokens: $tokens, to: $to)';
+    return 'JettonIncomingTransfer(tokens: $tokens, from: $from)';
   }
 
   @override
@@ -160,12 +160,12 @@ class _$JettonIncomingTransferImpl implements _JettonIncomingTransfer {
         (other.runtimeType == runtimeType &&
             other is _$JettonIncomingTransferImpl &&
             (identical(other.tokens, tokens) || other.tokens == tokens) &&
-            (identical(other.to, to) || other.to == to));
+            (identical(other.from, from) || other.from == from));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, tokens, to);
+  int get hashCode => Object.hash(runtimeType, tokens, from);
 
   /// Create a copy of JettonIncomingTransfer
   /// with the given fields replaced by the non-null parameter values.
@@ -187,7 +187,7 @@ class _$JettonIncomingTransferImpl implements _JettonIncomingTransfer {
 abstract class _JettonIncomingTransfer implements JettonIncomingTransfer {
   const factory _JettonIncomingTransfer(
       {@amountJsonConverter required final BigInt tokens,
-      required final Address to}) = _$JettonIncomingTransferImpl;
+      required final Address from}) = _$JettonIncomingTransferImpl;
 
   factory _JettonIncomingTransfer.fromJson(Map<String, dynamic> json) =
       _$JettonIncomingTransferImpl.fromJson;
@@ -196,7 +196,7 @@ abstract class _JettonIncomingTransfer implements JettonIncomingTransfer {
   @amountJsonConverter
   BigInt get tokens;
   @override
-  Address get to;
+  Address get from;
 
   /// Create a copy of JettonIncomingTransfer
   /// with the given fields replaced by the non-null parameter values.

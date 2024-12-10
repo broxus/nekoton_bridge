@@ -8,7 +8,7 @@ part 'jetton_incoming_transfer.g.dart';
 sealed class JettonIncomingTransfer with _$JettonIncomingTransfer {
   const factory JettonIncomingTransfer({
     @amountJsonConverter required final BigInt tokens,
-    required final Address to,
+    required final Address from,
   }) = _JettonIncomingTransfer;
 
   factory JettonIncomingTransfer.fromJson(Map<String, dynamic> json) =>

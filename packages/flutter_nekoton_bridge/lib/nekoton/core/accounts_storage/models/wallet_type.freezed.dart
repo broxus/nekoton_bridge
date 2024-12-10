@@ -24,6 +24,12 @@ WalletType _$WalletTypeFromJson(Map<String, dynamic> json) {
       return _HighloadWalletV2.fromJson(json);
     case 'everWallet':
       return _WalletTypeEverWallet.fromJson(json);
+    case 'walletV4R1':
+      return _WalletTypeWalletV4R1.fromJson(json);
+    case 'walletV4R2':
+      return _WalletTypeWalletV4R2.fromJson(json);
+    case 'walletV5R1':
+      return _WalletTypeWalletV5R1.fromJson(json);
 
     default:
       throw CheckedFromJsonException(
@@ -39,6 +45,9 @@ mixin _$WalletType {
     required TResult Function() walletV3,
     required TResult Function() highloadWalletV2,
     required TResult Function() everWallet,
+    required TResult Function() walletV4R1,
+    required TResult Function() walletV4R2,
+    required TResult Function() walletV5R1,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +56,9 @@ mixin _$WalletType {
     TResult? Function()? walletV3,
     TResult? Function()? highloadWalletV2,
     TResult? Function()? everWallet,
+    TResult? Function()? walletV4R1,
+    TResult? Function()? walletV4R2,
+    TResult? Function()? walletV5R1,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +67,9 @@ mixin _$WalletType {
     TResult Function()? walletV3,
     TResult Function()? highloadWalletV2,
     TResult Function()? everWallet,
+    TResult Function()? walletV4R1,
+    TResult Function()? walletV4R2,
+    TResult Function()? walletV5R1,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +79,9 @@ mixin _$WalletType {
     required TResult Function(_WalletV3 value) walletV3,
     required TResult Function(_HighloadWalletV2 value) highloadWalletV2,
     required TResult Function(_WalletTypeEverWallet value) everWallet,
+    required TResult Function(_WalletTypeWalletV4R1 value) walletV4R1,
+    required TResult Function(_WalletTypeWalletV4R2 value) walletV4R2,
+    required TResult Function(_WalletTypeWalletV5R1 value) walletV5R1,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,6 +90,9 @@ mixin _$WalletType {
     TResult? Function(_WalletV3 value)? walletV3,
     TResult? Function(_HighloadWalletV2 value)? highloadWalletV2,
     TResult? Function(_WalletTypeEverWallet value)? everWallet,
+    TResult? Function(_WalletTypeWalletV4R1 value)? walletV4R1,
+    TResult? Function(_WalletTypeWalletV4R2 value)? walletV4R2,
+    TResult? Function(_WalletTypeWalletV5R1 value)? walletV5R1,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +101,9 @@ mixin _$WalletType {
     TResult Function(_WalletV3 value)? walletV3,
     TResult Function(_HighloadWalletV2 value)? highloadWalletV2,
     TResult Function(_WalletTypeEverWallet value)? everWallet,
+    TResult Function(_WalletTypeWalletV4R1 value)? walletV4R1,
+    TResult Function(_WalletTypeWalletV4R2 value)? walletV4R2,
+    TResult Function(_WalletTypeWalletV5R1 value)? walletV5R1,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -189,6 +213,9 @@ class _$MultisigImpl implements _Multisig {
     required TResult Function() walletV3,
     required TResult Function() highloadWalletV2,
     required TResult Function() everWallet,
+    required TResult Function() walletV4R1,
+    required TResult Function() walletV4R2,
+    required TResult Function() walletV5R1,
   }) {
     return multisig(data);
   }
@@ -200,6 +227,9 @@ class _$MultisigImpl implements _Multisig {
     TResult? Function()? walletV3,
     TResult? Function()? highloadWalletV2,
     TResult? Function()? everWallet,
+    TResult? Function()? walletV4R1,
+    TResult? Function()? walletV4R2,
+    TResult? Function()? walletV5R1,
   }) {
     return multisig?.call(data);
   }
@@ -211,6 +241,9 @@ class _$MultisigImpl implements _Multisig {
     TResult Function()? walletV3,
     TResult Function()? highloadWalletV2,
     TResult Function()? everWallet,
+    TResult Function()? walletV4R1,
+    TResult Function()? walletV4R2,
+    TResult Function()? walletV5R1,
     required TResult orElse(),
   }) {
     if (multisig != null) {
@@ -226,6 +259,9 @@ class _$MultisigImpl implements _Multisig {
     required TResult Function(_WalletV3 value) walletV3,
     required TResult Function(_HighloadWalletV2 value) highloadWalletV2,
     required TResult Function(_WalletTypeEverWallet value) everWallet,
+    required TResult Function(_WalletTypeWalletV4R1 value) walletV4R1,
+    required TResult Function(_WalletTypeWalletV4R2 value) walletV4R2,
+    required TResult Function(_WalletTypeWalletV5R1 value) walletV5R1,
   }) {
     return multisig(this);
   }
@@ -237,6 +273,9 @@ class _$MultisigImpl implements _Multisig {
     TResult? Function(_WalletV3 value)? walletV3,
     TResult? Function(_HighloadWalletV2 value)? highloadWalletV2,
     TResult? Function(_WalletTypeEverWallet value)? everWallet,
+    TResult? Function(_WalletTypeWalletV4R1 value)? walletV4R1,
+    TResult? Function(_WalletTypeWalletV4R2 value)? walletV4R2,
+    TResult? Function(_WalletTypeWalletV5R1 value)? walletV5R1,
   }) {
     return multisig?.call(this);
   }
@@ -248,6 +287,9 @@ class _$MultisigImpl implements _Multisig {
     TResult Function(_WalletV3 value)? walletV3,
     TResult Function(_HighloadWalletV2 value)? highloadWalletV2,
     TResult Function(_WalletTypeEverWallet value)? everWallet,
+    TResult Function(_WalletTypeWalletV4R1 value)? walletV4R1,
+    TResult Function(_WalletTypeWalletV4R2 value)? walletV4R2,
+    TResult Function(_WalletTypeWalletV5R1 value)? walletV5R1,
     required TResult orElse(),
   }) {
     if (multisig != null) {
@@ -331,6 +373,9 @@ class _$WalletV3Impl implements _WalletV3 {
     required TResult Function() walletV3,
     required TResult Function() highloadWalletV2,
     required TResult Function() everWallet,
+    required TResult Function() walletV4R1,
+    required TResult Function() walletV4R2,
+    required TResult Function() walletV5R1,
   }) {
     return walletV3();
   }
@@ -342,6 +387,9 @@ class _$WalletV3Impl implements _WalletV3 {
     TResult? Function()? walletV3,
     TResult? Function()? highloadWalletV2,
     TResult? Function()? everWallet,
+    TResult? Function()? walletV4R1,
+    TResult? Function()? walletV4R2,
+    TResult? Function()? walletV5R1,
   }) {
     return walletV3?.call();
   }
@@ -353,6 +401,9 @@ class _$WalletV3Impl implements _WalletV3 {
     TResult Function()? walletV3,
     TResult Function()? highloadWalletV2,
     TResult Function()? everWallet,
+    TResult Function()? walletV4R1,
+    TResult Function()? walletV4R2,
+    TResult Function()? walletV5R1,
     required TResult orElse(),
   }) {
     if (walletV3 != null) {
@@ -368,6 +419,9 @@ class _$WalletV3Impl implements _WalletV3 {
     required TResult Function(_WalletV3 value) walletV3,
     required TResult Function(_HighloadWalletV2 value) highloadWalletV2,
     required TResult Function(_WalletTypeEverWallet value) everWallet,
+    required TResult Function(_WalletTypeWalletV4R1 value) walletV4R1,
+    required TResult Function(_WalletTypeWalletV4R2 value) walletV4R2,
+    required TResult Function(_WalletTypeWalletV5R1 value) walletV5R1,
   }) {
     return walletV3(this);
   }
@@ -379,6 +433,9 @@ class _$WalletV3Impl implements _WalletV3 {
     TResult? Function(_WalletV3 value)? walletV3,
     TResult? Function(_HighloadWalletV2 value)? highloadWalletV2,
     TResult? Function(_WalletTypeEverWallet value)? everWallet,
+    TResult? Function(_WalletTypeWalletV4R1 value)? walletV4R1,
+    TResult? Function(_WalletTypeWalletV4R2 value)? walletV4R2,
+    TResult? Function(_WalletTypeWalletV5R1 value)? walletV5R1,
   }) {
     return walletV3?.call(this);
   }
@@ -390,6 +447,9 @@ class _$WalletV3Impl implements _WalletV3 {
     TResult Function(_WalletV3 value)? walletV3,
     TResult Function(_HighloadWalletV2 value)? highloadWalletV2,
     TResult Function(_WalletTypeEverWallet value)? everWallet,
+    TResult Function(_WalletTypeWalletV4R1 value)? walletV4R1,
+    TResult Function(_WalletTypeWalletV4R2 value)? walletV4R2,
+    TResult Function(_WalletTypeWalletV5R1 value)? walletV5R1,
     required TResult orElse(),
   }) {
     if (walletV3 != null) {
@@ -466,6 +526,9 @@ class _$HighloadWalletV2Impl implements _HighloadWalletV2 {
     required TResult Function() walletV3,
     required TResult Function() highloadWalletV2,
     required TResult Function() everWallet,
+    required TResult Function() walletV4R1,
+    required TResult Function() walletV4R2,
+    required TResult Function() walletV5R1,
   }) {
     return highloadWalletV2();
   }
@@ -477,6 +540,9 @@ class _$HighloadWalletV2Impl implements _HighloadWalletV2 {
     TResult? Function()? walletV3,
     TResult? Function()? highloadWalletV2,
     TResult? Function()? everWallet,
+    TResult? Function()? walletV4R1,
+    TResult? Function()? walletV4R2,
+    TResult? Function()? walletV5R1,
   }) {
     return highloadWalletV2?.call();
   }
@@ -488,6 +554,9 @@ class _$HighloadWalletV2Impl implements _HighloadWalletV2 {
     TResult Function()? walletV3,
     TResult Function()? highloadWalletV2,
     TResult Function()? everWallet,
+    TResult Function()? walletV4R1,
+    TResult Function()? walletV4R2,
+    TResult Function()? walletV5R1,
     required TResult orElse(),
   }) {
     if (highloadWalletV2 != null) {
@@ -503,6 +572,9 @@ class _$HighloadWalletV2Impl implements _HighloadWalletV2 {
     required TResult Function(_WalletV3 value) walletV3,
     required TResult Function(_HighloadWalletV2 value) highloadWalletV2,
     required TResult Function(_WalletTypeEverWallet value) everWallet,
+    required TResult Function(_WalletTypeWalletV4R1 value) walletV4R1,
+    required TResult Function(_WalletTypeWalletV4R2 value) walletV4R2,
+    required TResult Function(_WalletTypeWalletV5R1 value) walletV5R1,
   }) {
     return highloadWalletV2(this);
   }
@@ -514,6 +586,9 @@ class _$HighloadWalletV2Impl implements _HighloadWalletV2 {
     TResult? Function(_WalletV3 value)? walletV3,
     TResult? Function(_HighloadWalletV2 value)? highloadWalletV2,
     TResult? Function(_WalletTypeEverWallet value)? everWallet,
+    TResult? Function(_WalletTypeWalletV4R1 value)? walletV4R1,
+    TResult? Function(_WalletTypeWalletV4R2 value)? walletV4R2,
+    TResult? Function(_WalletTypeWalletV5R1 value)? walletV5R1,
   }) {
     return highloadWalletV2?.call(this);
   }
@@ -525,6 +600,9 @@ class _$HighloadWalletV2Impl implements _HighloadWalletV2 {
     TResult Function(_WalletV3 value)? walletV3,
     TResult Function(_HighloadWalletV2 value)? highloadWalletV2,
     TResult Function(_WalletTypeEverWallet value)? everWallet,
+    TResult Function(_WalletTypeWalletV4R1 value)? walletV4R1,
+    TResult Function(_WalletTypeWalletV4R2 value)? walletV4R2,
+    TResult Function(_WalletTypeWalletV5R1 value)? walletV5R1,
     required TResult orElse(),
   }) {
     if (highloadWalletV2 != null) {
@@ -602,6 +680,9 @@ class _$WalletTypeEverWalletImpl implements _WalletTypeEverWallet {
     required TResult Function() walletV3,
     required TResult Function() highloadWalletV2,
     required TResult Function() everWallet,
+    required TResult Function() walletV4R1,
+    required TResult Function() walletV4R2,
+    required TResult Function() walletV5R1,
   }) {
     return everWallet();
   }
@@ -613,6 +694,9 @@ class _$WalletTypeEverWalletImpl implements _WalletTypeEverWallet {
     TResult? Function()? walletV3,
     TResult? Function()? highloadWalletV2,
     TResult? Function()? everWallet,
+    TResult? Function()? walletV4R1,
+    TResult? Function()? walletV4R2,
+    TResult? Function()? walletV5R1,
   }) {
     return everWallet?.call();
   }
@@ -624,6 +708,9 @@ class _$WalletTypeEverWalletImpl implements _WalletTypeEverWallet {
     TResult Function()? walletV3,
     TResult Function()? highloadWalletV2,
     TResult Function()? everWallet,
+    TResult Function()? walletV4R1,
+    TResult Function()? walletV4R2,
+    TResult Function()? walletV5R1,
     required TResult orElse(),
   }) {
     if (everWallet != null) {
@@ -639,6 +726,9 @@ class _$WalletTypeEverWalletImpl implements _WalletTypeEverWallet {
     required TResult Function(_WalletV3 value) walletV3,
     required TResult Function(_HighloadWalletV2 value) highloadWalletV2,
     required TResult Function(_WalletTypeEverWallet value) everWallet,
+    required TResult Function(_WalletTypeWalletV4R1 value) walletV4R1,
+    required TResult Function(_WalletTypeWalletV4R2 value) walletV4R2,
+    required TResult Function(_WalletTypeWalletV5R1 value) walletV5R1,
   }) {
     return everWallet(this);
   }
@@ -650,6 +740,9 @@ class _$WalletTypeEverWalletImpl implements _WalletTypeEverWallet {
     TResult? Function(_WalletV3 value)? walletV3,
     TResult? Function(_HighloadWalletV2 value)? highloadWalletV2,
     TResult? Function(_WalletTypeEverWallet value)? everWallet,
+    TResult? Function(_WalletTypeWalletV4R1 value)? walletV4R1,
+    TResult? Function(_WalletTypeWalletV4R2 value)? walletV4R2,
+    TResult? Function(_WalletTypeWalletV5R1 value)? walletV5R1,
   }) {
     return everWallet?.call(this);
   }
@@ -661,6 +754,9 @@ class _$WalletTypeEverWalletImpl implements _WalletTypeEverWallet {
     TResult Function(_WalletV3 value)? walletV3,
     TResult Function(_HighloadWalletV2 value)? highloadWalletV2,
     TResult Function(_WalletTypeEverWallet value)? everWallet,
+    TResult Function(_WalletTypeWalletV4R1 value)? walletV4R1,
+    TResult Function(_WalletTypeWalletV4R2 value)? walletV4R2,
+    TResult Function(_WalletTypeWalletV5R1 value)? walletV5R1,
     required TResult orElse(),
   }) {
     if (everWallet != null) {
@@ -682,4 +778,466 @@ abstract class _WalletTypeEverWallet implements WalletType {
 
   factory _WalletTypeEverWallet.fromJson(Map<String, dynamic> json) =
       _$WalletTypeEverWalletImpl.fromJson;
+}
+
+/// @nodoc
+abstract class _$$WalletTypeWalletV4R1ImplCopyWith<$Res> {
+  factory _$$WalletTypeWalletV4R1ImplCopyWith(_$WalletTypeWalletV4R1Impl value,
+          $Res Function(_$WalletTypeWalletV4R1Impl) then) =
+      __$$WalletTypeWalletV4R1ImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$WalletTypeWalletV4R1ImplCopyWithImpl<$Res>
+    extends _$WalletTypeCopyWithImpl<$Res, _$WalletTypeWalletV4R1Impl>
+    implements _$$WalletTypeWalletV4R1ImplCopyWith<$Res> {
+  __$$WalletTypeWalletV4R1ImplCopyWithImpl(_$WalletTypeWalletV4R1Impl _value,
+      $Res Function(_$WalletTypeWalletV4R1Impl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of WalletType
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$WalletTypeWalletV4R1Impl implements _WalletTypeWalletV4R1 {
+  const _$WalletTypeWalletV4R1Impl({final String? $type})
+      : $type = $type ?? 'walletV4R1';
+
+  factory _$WalletTypeWalletV4R1Impl.fromJson(Map<String, dynamic> json) =>
+      _$$WalletTypeWalletV4R1ImplFromJson(json);
+
+  @JsonKey(name: 'type')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'WalletType.walletV4R1()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$WalletTypeWalletV4R1Impl);
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(MultisigType data) multisig,
+    required TResult Function() walletV3,
+    required TResult Function() highloadWalletV2,
+    required TResult Function() everWallet,
+    required TResult Function() walletV4R1,
+    required TResult Function() walletV4R2,
+    required TResult Function() walletV5R1,
+  }) {
+    return walletV4R1();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(MultisigType data)? multisig,
+    TResult? Function()? walletV3,
+    TResult? Function()? highloadWalletV2,
+    TResult? Function()? everWallet,
+    TResult? Function()? walletV4R1,
+    TResult? Function()? walletV4R2,
+    TResult? Function()? walletV5R1,
+  }) {
+    return walletV4R1?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(MultisigType data)? multisig,
+    TResult Function()? walletV3,
+    TResult Function()? highloadWalletV2,
+    TResult Function()? everWallet,
+    TResult Function()? walletV4R1,
+    TResult Function()? walletV4R2,
+    TResult Function()? walletV5R1,
+    required TResult orElse(),
+  }) {
+    if (walletV4R1 != null) {
+      return walletV4R1();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Multisig value) multisig,
+    required TResult Function(_WalletV3 value) walletV3,
+    required TResult Function(_HighloadWalletV2 value) highloadWalletV2,
+    required TResult Function(_WalletTypeEverWallet value) everWallet,
+    required TResult Function(_WalletTypeWalletV4R1 value) walletV4R1,
+    required TResult Function(_WalletTypeWalletV4R2 value) walletV4R2,
+    required TResult Function(_WalletTypeWalletV5R1 value) walletV5R1,
+  }) {
+    return walletV4R1(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Multisig value)? multisig,
+    TResult? Function(_WalletV3 value)? walletV3,
+    TResult? Function(_HighloadWalletV2 value)? highloadWalletV2,
+    TResult? Function(_WalletTypeEverWallet value)? everWallet,
+    TResult? Function(_WalletTypeWalletV4R1 value)? walletV4R1,
+    TResult? Function(_WalletTypeWalletV4R2 value)? walletV4R2,
+    TResult? Function(_WalletTypeWalletV5R1 value)? walletV5R1,
+  }) {
+    return walletV4R1?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Multisig value)? multisig,
+    TResult Function(_WalletV3 value)? walletV3,
+    TResult Function(_HighloadWalletV2 value)? highloadWalletV2,
+    TResult Function(_WalletTypeEverWallet value)? everWallet,
+    TResult Function(_WalletTypeWalletV4R1 value)? walletV4R1,
+    TResult Function(_WalletTypeWalletV4R2 value)? walletV4R2,
+    TResult Function(_WalletTypeWalletV5R1 value)? walletV5R1,
+    required TResult orElse(),
+  }) {
+    if (walletV4R1 != null) {
+      return walletV4R1(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$WalletTypeWalletV4R1ImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _WalletTypeWalletV4R1 implements WalletType {
+  const factory _WalletTypeWalletV4R1() = _$WalletTypeWalletV4R1Impl;
+
+  factory _WalletTypeWalletV4R1.fromJson(Map<String, dynamic> json) =
+      _$WalletTypeWalletV4R1Impl.fromJson;
+}
+
+/// @nodoc
+abstract class _$$WalletTypeWalletV4R2ImplCopyWith<$Res> {
+  factory _$$WalletTypeWalletV4R2ImplCopyWith(_$WalletTypeWalletV4R2Impl value,
+          $Res Function(_$WalletTypeWalletV4R2Impl) then) =
+      __$$WalletTypeWalletV4R2ImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$WalletTypeWalletV4R2ImplCopyWithImpl<$Res>
+    extends _$WalletTypeCopyWithImpl<$Res, _$WalletTypeWalletV4R2Impl>
+    implements _$$WalletTypeWalletV4R2ImplCopyWith<$Res> {
+  __$$WalletTypeWalletV4R2ImplCopyWithImpl(_$WalletTypeWalletV4R2Impl _value,
+      $Res Function(_$WalletTypeWalletV4R2Impl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of WalletType
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$WalletTypeWalletV4R2Impl implements _WalletTypeWalletV4R2 {
+  const _$WalletTypeWalletV4R2Impl({final String? $type})
+      : $type = $type ?? 'walletV4R2';
+
+  factory _$WalletTypeWalletV4R2Impl.fromJson(Map<String, dynamic> json) =>
+      _$$WalletTypeWalletV4R2ImplFromJson(json);
+
+  @JsonKey(name: 'type')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'WalletType.walletV4R2()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$WalletTypeWalletV4R2Impl);
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(MultisigType data) multisig,
+    required TResult Function() walletV3,
+    required TResult Function() highloadWalletV2,
+    required TResult Function() everWallet,
+    required TResult Function() walletV4R1,
+    required TResult Function() walletV4R2,
+    required TResult Function() walletV5R1,
+  }) {
+    return walletV4R2();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(MultisigType data)? multisig,
+    TResult? Function()? walletV3,
+    TResult? Function()? highloadWalletV2,
+    TResult? Function()? everWallet,
+    TResult? Function()? walletV4R1,
+    TResult? Function()? walletV4R2,
+    TResult? Function()? walletV5R1,
+  }) {
+    return walletV4R2?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(MultisigType data)? multisig,
+    TResult Function()? walletV3,
+    TResult Function()? highloadWalletV2,
+    TResult Function()? everWallet,
+    TResult Function()? walletV4R1,
+    TResult Function()? walletV4R2,
+    TResult Function()? walletV5R1,
+    required TResult orElse(),
+  }) {
+    if (walletV4R2 != null) {
+      return walletV4R2();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Multisig value) multisig,
+    required TResult Function(_WalletV3 value) walletV3,
+    required TResult Function(_HighloadWalletV2 value) highloadWalletV2,
+    required TResult Function(_WalletTypeEverWallet value) everWallet,
+    required TResult Function(_WalletTypeWalletV4R1 value) walletV4R1,
+    required TResult Function(_WalletTypeWalletV4R2 value) walletV4R2,
+    required TResult Function(_WalletTypeWalletV5R1 value) walletV5R1,
+  }) {
+    return walletV4R2(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Multisig value)? multisig,
+    TResult? Function(_WalletV3 value)? walletV3,
+    TResult? Function(_HighloadWalletV2 value)? highloadWalletV2,
+    TResult? Function(_WalletTypeEverWallet value)? everWallet,
+    TResult? Function(_WalletTypeWalletV4R1 value)? walletV4R1,
+    TResult? Function(_WalletTypeWalletV4R2 value)? walletV4R2,
+    TResult? Function(_WalletTypeWalletV5R1 value)? walletV5R1,
+  }) {
+    return walletV4R2?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Multisig value)? multisig,
+    TResult Function(_WalletV3 value)? walletV3,
+    TResult Function(_HighloadWalletV2 value)? highloadWalletV2,
+    TResult Function(_WalletTypeEverWallet value)? everWallet,
+    TResult Function(_WalletTypeWalletV4R1 value)? walletV4R1,
+    TResult Function(_WalletTypeWalletV4R2 value)? walletV4R2,
+    TResult Function(_WalletTypeWalletV5R1 value)? walletV5R1,
+    required TResult orElse(),
+  }) {
+    if (walletV4R2 != null) {
+      return walletV4R2(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$WalletTypeWalletV4R2ImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _WalletTypeWalletV4R2 implements WalletType {
+  const factory _WalletTypeWalletV4R2() = _$WalletTypeWalletV4R2Impl;
+
+  factory _WalletTypeWalletV4R2.fromJson(Map<String, dynamic> json) =
+      _$WalletTypeWalletV4R2Impl.fromJson;
+}
+
+/// @nodoc
+abstract class _$$WalletTypeWalletV5R1ImplCopyWith<$Res> {
+  factory _$$WalletTypeWalletV5R1ImplCopyWith(_$WalletTypeWalletV5R1Impl value,
+          $Res Function(_$WalletTypeWalletV5R1Impl) then) =
+      __$$WalletTypeWalletV5R1ImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$WalletTypeWalletV5R1ImplCopyWithImpl<$Res>
+    extends _$WalletTypeCopyWithImpl<$Res, _$WalletTypeWalletV5R1Impl>
+    implements _$$WalletTypeWalletV5R1ImplCopyWith<$Res> {
+  __$$WalletTypeWalletV5R1ImplCopyWithImpl(_$WalletTypeWalletV5R1Impl _value,
+      $Res Function(_$WalletTypeWalletV5R1Impl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of WalletType
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$WalletTypeWalletV5R1Impl implements _WalletTypeWalletV5R1 {
+  const _$WalletTypeWalletV5R1Impl({final String? $type})
+      : $type = $type ?? 'walletV5R1';
+
+  factory _$WalletTypeWalletV5R1Impl.fromJson(Map<String, dynamic> json) =>
+      _$$WalletTypeWalletV5R1ImplFromJson(json);
+
+  @JsonKey(name: 'type')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'WalletType.walletV5R1()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$WalletTypeWalletV5R1Impl);
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(MultisigType data) multisig,
+    required TResult Function() walletV3,
+    required TResult Function() highloadWalletV2,
+    required TResult Function() everWallet,
+    required TResult Function() walletV4R1,
+    required TResult Function() walletV4R2,
+    required TResult Function() walletV5R1,
+  }) {
+    return walletV5R1();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(MultisigType data)? multisig,
+    TResult? Function()? walletV3,
+    TResult? Function()? highloadWalletV2,
+    TResult? Function()? everWallet,
+    TResult? Function()? walletV4R1,
+    TResult? Function()? walletV4R2,
+    TResult? Function()? walletV5R1,
+  }) {
+    return walletV5R1?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(MultisigType data)? multisig,
+    TResult Function()? walletV3,
+    TResult Function()? highloadWalletV2,
+    TResult Function()? everWallet,
+    TResult Function()? walletV4R1,
+    TResult Function()? walletV4R2,
+    TResult Function()? walletV5R1,
+    required TResult orElse(),
+  }) {
+    if (walletV5R1 != null) {
+      return walletV5R1();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Multisig value) multisig,
+    required TResult Function(_WalletV3 value) walletV3,
+    required TResult Function(_HighloadWalletV2 value) highloadWalletV2,
+    required TResult Function(_WalletTypeEverWallet value) everWallet,
+    required TResult Function(_WalletTypeWalletV4R1 value) walletV4R1,
+    required TResult Function(_WalletTypeWalletV4R2 value) walletV4R2,
+    required TResult Function(_WalletTypeWalletV5R1 value) walletV5R1,
+  }) {
+    return walletV5R1(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Multisig value)? multisig,
+    TResult? Function(_WalletV3 value)? walletV3,
+    TResult? Function(_HighloadWalletV2 value)? highloadWalletV2,
+    TResult? Function(_WalletTypeEverWallet value)? everWallet,
+    TResult? Function(_WalletTypeWalletV4R1 value)? walletV4R1,
+    TResult? Function(_WalletTypeWalletV4R2 value)? walletV4R2,
+    TResult? Function(_WalletTypeWalletV5R1 value)? walletV5R1,
+  }) {
+    return walletV5R1?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Multisig value)? multisig,
+    TResult Function(_WalletV3 value)? walletV3,
+    TResult Function(_HighloadWalletV2 value)? highloadWalletV2,
+    TResult Function(_WalletTypeEverWallet value)? everWallet,
+    TResult Function(_WalletTypeWalletV4R1 value)? walletV4R1,
+    TResult Function(_WalletTypeWalletV4R2 value)? walletV4R2,
+    TResult Function(_WalletTypeWalletV5R1 value)? walletV5R1,
+    required TResult orElse(),
+  }) {
+    if (walletV5R1 != null) {
+      return walletV5R1(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$WalletTypeWalletV5R1ImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _WalletTypeWalletV5R1 implements WalletType {
+  const factory _WalletTypeWalletV5R1() = _$WalletTypeWalletV5R1Impl;
+
+  factory _WalletTypeWalletV5R1.fromJson(Map<String, dynamic> json) =
+      _$WalletTypeWalletV5R1Impl.fromJson;
 }

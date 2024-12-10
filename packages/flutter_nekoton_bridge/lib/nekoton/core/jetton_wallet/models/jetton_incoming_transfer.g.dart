@@ -10,12 +10,12 @@ _$JettonIncomingTransferImpl _$$JettonIncomingTransferImplFromJson(
         Map<String, dynamic> json) =>
     _$JettonIncomingTransferImpl(
       tokens: amountJsonConverter.fromJson(json['tokens'] as String),
-      to: Address.fromJson(json['to'] as String),
+      from: Address.fromJson(json['from'] as String),
     );
 
 Map<String, dynamic> _$$JettonIncomingTransferImplToJson(
         _$JettonIncomingTransferImpl instance) =>
     <String, dynamic>{
       'tokens': amountJsonConverter.toJson(instance.tokens),
-      'to': instance.to.toJson(),
+      'from': instance.from.toJson(),
     };
