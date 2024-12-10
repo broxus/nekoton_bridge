@@ -12,6 +12,7 @@ use crate::nekoton_wrapper::helpers::{
     parse_slice, serialize_into_boc, serialize_into_boc_with_hash, serialize_state_init_data_key,
 };
 use crate::nekoton_wrapper::{parse_address, parse_public_key, HandleError};
+use flutter_rust_bridge::SyncReturn;
 use nekoton::core::models::{Expiration, ExpireAt, Transaction};
 use nekoton::core::parsing::parse_payload;
 use nekoton::core::utils::make_labs_unsigned_message;
@@ -22,8 +23,10 @@ use serde::{Deserialize, Serialize};
 use std::borrow::Cow;
 use std::collections::HashMap;
 use std::convert::TryFrom;
+use std::str::FromStr;
 use std::sync::atomic::AtomicU64;
 use std::sync::Arc;
+use ton_block::MsgAddressInt;
 use ton_block::{Deserializable, GetRepresentationHash, Serializable};
 use ton_executor::TransactionExecutor;
 use ton_types::SliceData;
@@ -535,6 +538,19 @@ pub fn repack_address(address: String) -> anyhow::Result<String> {
         .to_string();
 
     serde_json::to_string(&address).handle_error()
+}
+
+pub fn pack_address(
+    address: String,
+    is_url_safe: bool,
+    bounceable: bool,
+) -> SyncReturn<String> {
+    let address = match MsgAddressInt::from_str(address.as_str()) {
+        Ok(address) => address,
+        Err(e) => nekoton_utils::unpack_std_smc_addr(address.as_str(), is_url_safe).unwrap(),
+    };
+
+    SyncReturn(nekoton_utils::pack_std_smc_addr(is_url_safe, &address, bounceable).unwrap())
 }
 
 /// Extract public key from boc and return it or throw error

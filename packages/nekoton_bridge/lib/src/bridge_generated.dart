@@ -231,6 +231,14 @@ abstract class NekotonBridge {
 
   FlutterRustBridgeTaskConstMeta get kRepackAddressConstMeta;
 
+  String packAddress(
+      {required String address,
+      required bool isUrlSafe,
+      required bool bounceable,
+      dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kPackAddressConstMeta;
+
   /// Extract public key from boc and return it or throw error
   Future<String> extractPublicKey({required String boc, dynamic hint});
 
@@ -4701,6 +4709,29 @@ class NekotonBridgeImpl implements NekotonBridge {
       const FlutterRustBridgeTaskConstMeta(
         debugName: "repack_address",
         argNames: ["address"],
+      );
+
+  String packAddress(
+      {required String address,
+      required bool isUrlSafe,
+      required bool bounceable,
+      dynamic hint}) {
+    var arg0 = _platform.api2wire_String(address);
+    var arg1 = isUrlSafe;
+    var arg2 = bounceable;
+    return _platform.executeSync(FlutterRustBridgeSyncTask(
+      callFfi: () => _platform.inner.wire_pack_address(arg0, arg1, arg2),
+      parseSuccessData: _wire2api_String,
+      constMeta: kPackAddressConstMeta,
+      argValues: [address, isUrlSafe, bounceable],
+      hint: hint,
+    ));
+  }
+
+  FlutterRustBridgeTaskConstMeta get kPackAddressConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "pack_address",
+        argNames: ["address", "isUrlSafe", "bounceable"],
       );
 
   Future<String> extractPublicKey({required String boc, dynamic hint}) {

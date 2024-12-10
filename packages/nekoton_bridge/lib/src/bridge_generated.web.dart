@@ -660,6 +660,9 @@ class NekotonBridgeWasmModule implements WasmModule {
   external dynamic /* void */ wire_repack_address(
       NativePortType port_, String address);
 
+  external dynamic /* String */ wire_pack_address(
+      String address, bool is_url_safe, bool bounceable);
+
   external dynamic /* void */ wire_extract_public_key(
       NativePortType port_, String boc);
 
@@ -1644,6 +1647,10 @@ class NekotonBridgeWire
 
   void wire_repack_address(NativePortType port_, String address) =>
       wasmModule.wire_repack_address(port_, address);
+
+  dynamic /* String */ wire_pack_address(
+          String address, bool is_url_safe, bool bounceable) =>
+      wasmModule.wire_pack_address(address, is_url_safe, bounceable);
 
   void wire_extract_public_key(NativePortType port_, String boc) =>
       wasmModule.wire_extract_public_key(port_, boc);

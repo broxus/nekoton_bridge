@@ -1618,6 +1618,25 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_repack_address = _wire_repack_addressPtr
       .asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>)>();
 
+  WireSyncReturn wire_pack_address(
+    ffi.Pointer<wire_uint_8_list> address,
+    bool is_url_safe,
+    bool bounceable,
+  ) {
+    return _wire_pack_address(
+      address,
+      is_url_safe,
+      bounceable,
+    );
+  }
+
+  late final _wire_pack_addressPtr = _lookup<
+      ffi.NativeFunction<
+          WireSyncReturn Function(ffi.Pointer<wire_uint_8_list>, ffi.Bool,
+              ffi.Bool)>>('wire_pack_address');
+  late final _wire_pack_address = _wire_pack_addressPtr.asFunction<
+      WireSyncReturn Function(ffi.Pointer<wire_uint_8_list>, bool, bool)>();
+
   void wire_extract_public_key(
     int port_,
     ffi.Pointer<wire_uint_8_list> boc,

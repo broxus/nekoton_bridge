@@ -269,6 +269,19 @@ Future<Address> repackAddress(Address address) async {
   return Address(address: addressString);
 }
 
+Address packAddress({
+  required Address address,
+  bool isUrlSafe = true,
+  bool bounceable = true,
+}) {
+  final addressString = jsonDecode(createLib().packAddress(
+    address: address.address,
+    isUrlSafe: isUrlSafe,
+    bounceable: bounceable,
+  )) as String;
+  return Address(address: addressString);
+}
+
 /// Extract public key from boc and return it or throw error
 Future<PublicKey> extractPublicKey(String boc) async {
   return PublicKey(publicKey: await createLib().extractPublicKey(boc: boc));

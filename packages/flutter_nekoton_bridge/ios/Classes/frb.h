@@ -406,6 +406,10 @@ void wire_validate_address(int64_t port_, struct wire_uint_8_list *address);
 
 void wire_repack_address(int64_t port_, struct wire_uint_8_list *address);
 
+WireSyncReturn wire_pack_address(struct wire_uint_8_list *address,
+                                 bool is_url_safe,
+                                 bool bounceable);
+
 void wire_extract_public_key(int64_t port_, struct wire_uint_8_list *boc);
 
 void wire_code_to_tvc(int64_t port_, struct wire_uint_8_list *code);
@@ -1337,6 +1341,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) wire_unpack_std_smc_addr);
     dummy_var ^= ((int64_t) (void*) wire_validate_address);
     dummy_var ^= ((int64_t) (void*) wire_repack_address);
+    dummy_var ^= ((int64_t) (void*) wire_pack_address);
     dummy_var ^= ((int64_t) (void*) wire_extract_public_key);
     dummy_var ^= ((int64_t) (void*) wire_code_to_tvc);
     dummy_var ^= ((int64_t) (void*) wire_merge_tvc);
