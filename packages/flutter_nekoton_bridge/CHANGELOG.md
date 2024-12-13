@@ -1,3 +1,7 @@
+## 2.0.1-dev.11
+
+ - **FIX**: ton `KnownPayload` support. ([e8628199](https://github.com/broxus/nekoton_bridge/commit/e8628199a642edc9477a93b3844a935846550b49))
+
 ## 2.0.1-dev.10
 
  - **FIX**: `JettonIncomingTransfer` field fix; add TON wallet types;. ([49a64af7](https://github.com/broxus/nekoton_bridge/commit/49a64af76be1550bf6b717adfab2bc2dc87fab92))

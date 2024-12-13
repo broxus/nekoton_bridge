@@ -15,6 +15,39 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_nekoton_bridge` - `v2.0.1-dev.11`](#flutter_nekoton_bridge---v201-dev11)
+ - [`nekoton_bridge` - `v2.0.1-dev.8`](#nekoton_bridge---v201-dev8)
+ - [`flutter_nekoton_bridge_example` - `v1.18.1-dev.10`](#flutter_nekoton_bridge_example---v1181-dev10)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.18.1-dev.10`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.0.1-dev.11`
+
+ - **FIX**: ton `KnownPayload` support. ([e8628199](https://github.com/broxus/nekoton_bridge/commit/e8628199a642edc9477a93b3844a935846550b49))
+
+#### `nekoton_bridge` - `v2.0.1-dev.8`
+
+ - **FIX**: rust-format. ([383d26d7](https://github.com/broxus/nekoton_bridge/commit/383d26d7ce88aee825fda8bbb6b8e434cab7b054))
+
+
+## 2024-12-13
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v2.0.1-dev.10`](#flutter_nekoton_bridge---v201-dev10)
  - [`nekoton_bridge` - `v2.0.1-dev.7`](#nekoton_bridge---v201-dev7)
  - [`flutter_nekoton_bridge_example` - `v1.18.1-dev.9`](#flutter_nekoton_bridge_example---v1181-dev9)

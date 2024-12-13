@@ -1,3 +1,7 @@
+## 2.0.1-dev.8
+
+ - **FIX**: rust-format. ([383d26d7](https://github.com/broxus/nekoton_bridge/commit/383d26d7ce88aee825fda8bbb6b8e434cab7b054))
+
 ## 2.0.1-dev.7
 
  - **FEAT**: add `pack_address`. ([47cf1763](https://github.com/broxus/nekoton_bridge/commit/47cf176373028c08dd24a51632d829d6987a0b5b))
