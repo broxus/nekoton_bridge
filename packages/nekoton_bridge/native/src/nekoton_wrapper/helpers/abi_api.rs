@@ -540,11 +540,7 @@ pub fn repack_address(address: String) -> anyhow::Result<String> {
     serde_json::to_string(&address).handle_error()
 }
 
-pub fn pack_address(
-    address: String,
-    is_url_safe: bool,
-    bounceable: bool,
-) -> SyncReturn<String> {
+pub fn pack_address(address: String, is_url_safe: bool, bounceable: bool) -> SyncReturn<String> {
     let address = match MsgAddressInt::from_str(address.as_str()) {
         Ok(address) => address,
         Err(e) => nekoton_utils::unpack_std_smc_addr(address.as_str(), is_url_safe).unwrap(),
