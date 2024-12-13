@@ -18,6 +18,18 @@ Map<String, dynamic> _$$WalletV3TransferImplToJson(
       'type': instance.$type,
     };
 
+_$TonWalletTransferImpl _$$TonWalletTransferImplFromJson(
+        Map<String, dynamic> json) =>
+    _$TonWalletTransferImpl(
+      $type: json['type'] as String?,
+    );
+
+Map<String, dynamic> _$$TonWalletTransferImplToJson(
+        _$TonWalletTransferImpl instance) =>
+    <String, dynamic>{
+      'type': instance.$type,
+    };
+
 _$MultisigImpl _$$MultisigImplFromJson(Map<String, dynamic> json) =>
     _$MultisigImpl(
       MultisigTransaction.fromJson(json['data'] as Map<String, dynamic>),

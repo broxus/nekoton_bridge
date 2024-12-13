@@ -9,6 +9,9 @@ part 'wallet_interaction_method.g.dart';
 class WalletInteractionMethod with _$WalletInteractionMethod {
   const factory WalletInteractionMethod.walletV3Transfer() = _WalletV3Transfer;
 
+  const factory WalletInteractionMethod.tonWalletTransfer() =
+      _TonWalletTransfer;
+
   const factory WalletInteractionMethod.multisig(
     final MultisigTransaction data,
   ) = _Multisig;

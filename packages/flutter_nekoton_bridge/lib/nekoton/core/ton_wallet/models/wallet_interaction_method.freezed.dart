@@ -19,6 +19,8 @@ WalletInteractionMethod _$WalletInteractionMethodFromJson(
   switch (json['type']) {
     case 'wallet_v3_transfer':
       return _WalletV3Transfer.fromJson(json);
+    case 'ton_wallet_transfer':
+      return _TonWalletTransfer.fromJson(json);
     case 'multisig':
       return _Multisig.fromJson(json);
 
@@ -33,18 +35,21 @@ mixin _$WalletInteractionMethod {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() walletV3Transfer,
+    required TResult Function() tonWalletTransfer,
     required TResult Function(MultisigTransaction data) multisig,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? walletV3Transfer,
+    TResult? Function()? tonWalletTransfer,
     TResult? Function(MultisigTransaction data)? multisig,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? walletV3Transfer,
+    TResult Function()? tonWalletTransfer,
     TResult Function(MultisigTransaction data)? multisig,
     required TResult orElse(),
   }) =>
@@ -52,18 +57,21 @@ mixin _$WalletInteractionMethod {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WalletV3Transfer value) walletV3Transfer,
+    required TResult Function(_TonWalletTransfer value) tonWalletTransfer,
     required TResult Function(_Multisig value) multisig,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WalletV3Transfer value)? walletV3Transfer,
+    TResult? Function(_TonWalletTransfer value)? tonWalletTransfer,
     TResult? Function(_Multisig value)? multisig,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WalletV3Transfer value)? walletV3Transfer,
+    TResult Function(_TonWalletTransfer value)? tonWalletTransfer,
     TResult Function(_Multisig value)? multisig,
     required TResult orElse(),
   }) =>
@@ -145,6 +153,7 @@ class _$WalletV3TransferImpl implements _WalletV3Transfer {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() walletV3Transfer,
+    required TResult Function() tonWalletTransfer,
     required TResult Function(MultisigTransaction data) multisig,
   }) {
     return walletV3Transfer();
@@ -154,6 +163,7 @@ class _$WalletV3TransferImpl implements _WalletV3Transfer {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? walletV3Transfer,
+    TResult? Function()? tonWalletTransfer,
     TResult? Function(MultisigTransaction data)? multisig,
   }) {
     return walletV3Transfer?.call();
@@ -163,6 +173,7 @@ class _$WalletV3TransferImpl implements _WalletV3Transfer {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? walletV3Transfer,
+    TResult Function()? tonWalletTransfer,
     TResult Function(MultisigTransaction data)? multisig,
     required TResult orElse(),
   }) {
@@ -176,6 +187,7 @@ class _$WalletV3TransferImpl implements _WalletV3Transfer {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WalletV3Transfer value) walletV3Transfer,
+    required TResult Function(_TonWalletTransfer value) tonWalletTransfer,
     required TResult Function(_Multisig value) multisig,
   }) {
     return walletV3Transfer(this);
@@ -185,6 +197,7 @@ class _$WalletV3TransferImpl implements _WalletV3Transfer {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WalletV3Transfer value)? walletV3Transfer,
+    TResult? Function(_TonWalletTransfer value)? tonWalletTransfer,
     TResult? Function(_Multisig value)? multisig,
   }) {
     return walletV3Transfer?.call(this);
@@ -194,6 +207,7 @@ class _$WalletV3TransferImpl implements _WalletV3Transfer {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WalletV3Transfer value)? walletV3Transfer,
+    TResult Function(_TonWalletTransfer value)? tonWalletTransfer,
     TResult Function(_Multisig value)? multisig,
     required TResult orElse(),
   }) {
@@ -216,6 +230,135 @@ abstract class _WalletV3Transfer implements WalletInteractionMethod {
 
   factory _WalletV3Transfer.fromJson(Map<String, dynamic> json) =
       _$WalletV3TransferImpl.fromJson;
+}
+
+/// @nodoc
+abstract class _$$TonWalletTransferImplCopyWith<$Res> {
+  factory _$$TonWalletTransferImplCopyWith(_$TonWalletTransferImpl value,
+          $Res Function(_$TonWalletTransferImpl) then) =
+      __$$TonWalletTransferImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$TonWalletTransferImplCopyWithImpl<$Res>
+    extends _$WalletInteractionMethodCopyWithImpl<$Res, _$TonWalletTransferImpl>
+    implements _$$TonWalletTransferImplCopyWith<$Res> {
+  __$$TonWalletTransferImplCopyWithImpl(_$TonWalletTransferImpl _value,
+      $Res Function(_$TonWalletTransferImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of WalletInteractionMethod
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$TonWalletTransferImpl implements _TonWalletTransfer {
+  const _$TonWalletTransferImpl({final String? $type})
+      : $type = $type ?? 'ton_wallet_transfer';
+
+  factory _$TonWalletTransferImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TonWalletTransferImplFromJson(json);
+
+  @JsonKey(name: 'type')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'WalletInteractionMethod.tonWalletTransfer()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$TonWalletTransferImpl);
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() walletV3Transfer,
+    required TResult Function() tonWalletTransfer,
+    required TResult Function(MultisigTransaction data) multisig,
+  }) {
+    return tonWalletTransfer();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? walletV3Transfer,
+    TResult? Function()? tonWalletTransfer,
+    TResult? Function(MultisigTransaction data)? multisig,
+  }) {
+    return tonWalletTransfer?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? walletV3Transfer,
+    TResult Function()? tonWalletTransfer,
+    TResult Function(MultisigTransaction data)? multisig,
+    required TResult orElse(),
+  }) {
+    if (tonWalletTransfer != null) {
+      return tonWalletTransfer();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WalletV3Transfer value) walletV3Transfer,
+    required TResult Function(_TonWalletTransfer value) tonWalletTransfer,
+    required TResult Function(_Multisig value) multisig,
+  }) {
+    return tonWalletTransfer(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_WalletV3Transfer value)? walletV3Transfer,
+    TResult? Function(_TonWalletTransfer value)? tonWalletTransfer,
+    TResult? Function(_Multisig value)? multisig,
+  }) {
+    return tonWalletTransfer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WalletV3Transfer value)? walletV3Transfer,
+    TResult Function(_TonWalletTransfer value)? tonWalletTransfer,
+    TResult Function(_Multisig value)? multisig,
+    required TResult orElse(),
+  }) {
+    if (tonWalletTransfer != null) {
+      return tonWalletTransfer(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$TonWalletTransferImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _TonWalletTransfer implements WalletInteractionMethod {
+  const factory _TonWalletTransfer() = _$TonWalletTransferImpl;
+
+  factory _TonWalletTransfer.fromJson(Map<String, dynamic> json) =
+      _$TonWalletTransferImpl.fromJson;
 }
 
 /// @nodoc
@@ -307,6 +450,7 @@ class _$MultisigImpl implements _Multisig {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() walletV3Transfer,
+    required TResult Function() tonWalletTransfer,
     required TResult Function(MultisigTransaction data) multisig,
   }) {
     return multisig(data);
@@ -316,6 +460,7 @@ class _$MultisigImpl implements _Multisig {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? walletV3Transfer,
+    TResult? Function()? tonWalletTransfer,
     TResult? Function(MultisigTransaction data)? multisig,
   }) {
     return multisig?.call(data);
@@ -325,6 +470,7 @@ class _$MultisigImpl implements _Multisig {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? walletV3Transfer,
+    TResult Function()? tonWalletTransfer,
     TResult Function(MultisigTransaction data)? multisig,
     required TResult orElse(),
   }) {
@@ -338,6 +484,7 @@ class _$MultisigImpl implements _Multisig {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WalletV3Transfer value) walletV3Transfer,
+    required TResult Function(_TonWalletTransfer value) tonWalletTransfer,
     required TResult Function(_Multisig value) multisig,
   }) {
     return multisig(this);
@@ -347,6 +494,7 @@ class _$MultisigImpl implements _Multisig {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WalletV3Transfer value)? walletV3Transfer,
+    TResult? Function(_TonWalletTransfer value)? tonWalletTransfer,
     TResult? Function(_Multisig value)? multisig,
   }) {
     return multisig?.call(this);
@@ -356,6 +504,7 @@ class _$MultisigImpl implements _Multisig {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WalletV3Transfer value)? walletV3Transfer,
+    TResult Function(_TonWalletTransfer value)? tonWalletTransfer,
     TResult Function(_Multisig value)? multisig,
     required TResult orElse(),
   }) {
