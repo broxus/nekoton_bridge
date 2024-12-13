@@ -1,3 +1,7 @@
+## 2.0.1-dev.7
+
+ - **FEAT**: add `pack_address`. ([47cf1763](https://github.com/broxus/nekoton_bridge/commit/47cf176373028c08dd24a51632d829d6987a0b5b))
+
 ## 2.0.1-dev.6
 
  - **FEAT**: add jetton wallet support ([#276](https://github.com/broxus/nekoton_bridge/issues/276)). ([6120e3c6](https://github.com/broxus/nekoton_bridge/commit/6120e3c638214a5271aa9a901beccd48fe910ff4))

@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-12-13
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.0.1-dev.10`](#flutter_nekoton_bridge---v201-dev10)
+ - [`nekoton_bridge` - `v2.0.1-dev.7`](#nekoton_bridge---v201-dev7)
+ - [`flutter_nekoton_bridge_example` - `v1.18.1-dev.9`](#flutter_nekoton_bridge_example---v1181-dev9)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.18.1-dev.9`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.0.1-dev.10`
+
+ - **FIX**: `JettonIncomingTransfer` field fix; add TON wallet types;. ([49a64af7](https://github.com/broxus/nekoton_bridge/commit/49a64af76be1550bf6b717adfab2bc2dc87fab92))
+ - **FEAT**: add `pack_address`. ([47cf1763](https://github.com/broxus/nekoton_bridge/commit/47cf176373028c08dd24a51632d829d6987a0b5b))
+
+#### `nekoton_bridge` - `v2.0.1-dev.7`
+
+ - **FEAT**: add `pack_address`. ([47cf1763](https://github.com/broxus/nekoton_bridge/commit/47cf176373028c08dd24a51632d829d6987a0b5b))
+
+
 ## 2024-12-09
 
 ### Changes
