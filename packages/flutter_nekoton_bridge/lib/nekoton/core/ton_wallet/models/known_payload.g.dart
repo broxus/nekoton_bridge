@@ -32,6 +32,20 @@ Map<String, dynamic> _$$TokenOutgoingTransferImplToJson(
       'type': instance.$type,
     };
 
+_$JettonOutgoingTransferImpl _$$JettonOutgoingTransferImplFromJson(
+        Map<String, dynamic> json) =>
+    _$JettonOutgoingTransferImpl(
+      JettonOutgoingTransfer.fromJson(json['data'] as Map<String, dynamic>),
+      $type: json['type'] as String?,
+    );
+
+Map<String, dynamic> _$$JettonOutgoingTransferImplToJson(
+        _$JettonOutgoingTransferImpl instance) =>
+    <String, dynamic>{
+      'data': instance.data.toJson(),
+      'type': instance.$type,
+    };
+
 _$TokenSwapBackImpl _$$TokenSwapBackImplFromJson(Map<String, dynamic> json) =>
     _$TokenSwapBackImpl(
       TokenSwapBack.fromJson(json['data'] as Map<String, dynamic>),

@@ -1,6 +1,7 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter_nekoton_bridge/nekoton/core/jetton_wallet/models/jetton_outgoing_transfer.dart';
 import 'package:flutter_nekoton_bridge/nekoton/core/token_wallet/models/token_outgoing_transfer.dart';
 import 'package:flutter_nekoton_bridge/nekoton/core/token_wallet/models/token_swap_back.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'known_payload.freezed.dart';
 part 'known_payload.g.dart';
@@ -11,6 +12,9 @@ sealed class KnownPayload with _$KnownPayload {
 
   const factory KnownPayload.tokenOutgoingTransfer(
       final TokenOutgoingTransfer data) = _TokenOutgoingTransfer;
+
+  const factory KnownPayload.jettonOutgoingTransfer(
+      final JettonOutgoingTransfer data) = _JettonOutgoingTransfer;
 
   const factory KnownPayload.tokenSwapBack(final TokenSwapBack data) =
       _TokenSwapBack;

@@ -20,6 +20,8 @@ KnownPayload _$KnownPayloadFromJson(Map<String, dynamic> json) {
       return _Comment.fromJson(json);
     case 'token_outgoing_transfer':
       return _TokenOutgoingTransfer.fromJson(json);
+    case 'jetton_outgoing_transfer':
+      return _JettonOutgoingTransfer.fromJson(json);
     case 'token_swap_back':
       return _TokenSwapBack.fromJson(json);
 
@@ -36,6 +38,8 @@ mixin _$KnownPayload {
   TResult when<TResult extends Object?>({
     required TResult Function(String data) comment,
     required TResult Function(TokenOutgoingTransfer data) tokenOutgoingTransfer,
+    required TResult Function(JettonOutgoingTransfer data)
+        jettonOutgoingTransfer,
     required TResult Function(TokenSwapBack data) tokenSwapBack,
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +47,7 @@ mixin _$KnownPayload {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String data)? comment,
     TResult? Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
+    TResult? Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
     TResult? Function(TokenSwapBack data)? tokenSwapBack,
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +55,7 @@ mixin _$KnownPayload {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String data)? comment,
     TResult Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
+    TResult Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
     TResult Function(TokenSwapBack data)? tokenSwapBack,
     required TResult orElse(),
   }) =>
@@ -59,6 +65,8 @@ mixin _$KnownPayload {
     required TResult Function(_Comment value) comment,
     required TResult Function(_TokenOutgoingTransfer value)
         tokenOutgoingTransfer,
+    required TResult Function(_JettonOutgoingTransfer value)
+        jettonOutgoingTransfer,
     required TResult Function(_TokenSwapBack value) tokenSwapBack,
   }) =>
       throw _privateConstructorUsedError;
@@ -66,6 +74,7 @@ mixin _$KnownPayload {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Comment value)? comment,
     TResult? Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
+    TResult? Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
     TResult? Function(_TokenSwapBack value)? tokenSwapBack,
   }) =>
       throw _privateConstructorUsedError;
@@ -73,6 +82,7 @@ mixin _$KnownPayload {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Comment value)? comment,
     TResult Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
+    TResult Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
     TResult Function(_TokenSwapBack value)? tokenSwapBack,
     required TResult orElse(),
   }) =>
@@ -181,6 +191,8 @@ class _$CommentImpl implements _Comment {
   TResult when<TResult extends Object?>({
     required TResult Function(String data) comment,
     required TResult Function(TokenOutgoingTransfer data) tokenOutgoingTransfer,
+    required TResult Function(JettonOutgoingTransfer data)
+        jettonOutgoingTransfer,
     required TResult Function(TokenSwapBack data) tokenSwapBack,
   }) {
     return comment(data);
@@ -191,6 +203,7 @@ class _$CommentImpl implements _Comment {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String data)? comment,
     TResult? Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
+    TResult? Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
     TResult? Function(TokenSwapBack data)? tokenSwapBack,
   }) {
     return comment?.call(data);
@@ -201,6 +214,7 @@ class _$CommentImpl implements _Comment {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String data)? comment,
     TResult Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
+    TResult Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
     TResult Function(TokenSwapBack data)? tokenSwapBack,
     required TResult orElse(),
   }) {
@@ -216,6 +230,8 @@ class _$CommentImpl implements _Comment {
     required TResult Function(_Comment value) comment,
     required TResult Function(_TokenOutgoingTransfer value)
         tokenOutgoingTransfer,
+    required TResult Function(_JettonOutgoingTransfer value)
+        jettonOutgoingTransfer,
     required TResult Function(_TokenSwapBack value) tokenSwapBack,
   }) {
     return comment(this);
@@ -226,6 +242,7 @@ class _$CommentImpl implements _Comment {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Comment value)? comment,
     TResult? Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
+    TResult? Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
     TResult? Function(_TokenSwapBack value)? tokenSwapBack,
   }) {
     return comment?.call(this);
@@ -236,6 +253,7 @@ class _$CommentImpl implements _Comment {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Comment value)? comment,
     TResult Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
+    TResult Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
     TResult Function(_TokenSwapBack value)? tokenSwapBack,
     required TResult orElse(),
   }) {
@@ -360,6 +378,8 @@ class _$TokenOutgoingTransferImpl implements _TokenOutgoingTransfer {
   TResult when<TResult extends Object?>({
     required TResult Function(String data) comment,
     required TResult Function(TokenOutgoingTransfer data) tokenOutgoingTransfer,
+    required TResult Function(JettonOutgoingTransfer data)
+        jettonOutgoingTransfer,
     required TResult Function(TokenSwapBack data) tokenSwapBack,
   }) {
     return tokenOutgoingTransfer(data);
@@ -370,6 +390,7 @@ class _$TokenOutgoingTransferImpl implements _TokenOutgoingTransfer {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String data)? comment,
     TResult? Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
+    TResult? Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
     TResult? Function(TokenSwapBack data)? tokenSwapBack,
   }) {
     return tokenOutgoingTransfer?.call(data);
@@ -380,6 +401,7 @@ class _$TokenOutgoingTransferImpl implements _TokenOutgoingTransfer {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String data)? comment,
     TResult Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
+    TResult Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
     TResult Function(TokenSwapBack data)? tokenSwapBack,
     required TResult orElse(),
   }) {
@@ -395,6 +417,8 @@ class _$TokenOutgoingTransferImpl implements _TokenOutgoingTransfer {
     required TResult Function(_Comment value) comment,
     required TResult Function(_TokenOutgoingTransfer value)
         tokenOutgoingTransfer,
+    required TResult Function(_JettonOutgoingTransfer value)
+        jettonOutgoingTransfer,
     required TResult Function(_TokenSwapBack value) tokenSwapBack,
   }) {
     return tokenOutgoingTransfer(this);
@@ -405,6 +429,7 @@ class _$TokenOutgoingTransferImpl implements _TokenOutgoingTransfer {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Comment value)? comment,
     TResult? Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
+    TResult? Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
     TResult? Function(_TokenSwapBack value)? tokenSwapBack,
   }) {
     return tokenOutgoingTransfer?.call(this);
@@ -415,6 +440,7 @@ class _$TokenOutgoingTransferImpl implements _TokenOutgoingTransfer {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Comment value)? comment,
     TResult Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
+    TResult Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
     TResult Function(_TokenSwapBack value)? tokenSwapBack,
     required TResult orElse(),
   }) {
@@ -446,6 +472,196 @@ abstract class _TokenOutgoingTransfer implements KnownPayload {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TokenOutgoingTransferImplCopyWith<_$TokenOutgoingTransferImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$JettonOutgoingTransferImplCopyWith<$Res> {
+  factory _$$JettonOutgoingTransferImplCopyWith(
+          _$JettonOutgoingTransferImpl value,
+          $Res Function(_$JettonOutgoingTransferImpl) then) =
+      __$$JettonOutgoingTransferImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({JettonOutgoingTransfer data});
+
+  $JettonOutgoingTransferCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$JettonOutgoingTransferImplCopyWithImpl<$Res>
+    extends _$KnownPayloadCopyWithImpl<$Res, _$JettonOutgoingTransferImpl>
+    implements _$$JettonOutgoingTransferImplCopyWith<$Res> {
+  __$$JettonOutgoingTransferImplCopyWithImpl(
+      _$JettonOutgoingTransferImpl _value,
+      $Res Function(_$JettonOutgoingTransferImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$JettonOutgoingTransferImpl(
+      null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as JettonOutgoingTransfer,
+    ));
+  }
+
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $JettonOutgoingTransferCopyWith<$Res> get data {
+    return $JettonOutgoingTransferCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$JettonOutgoingTransferImpl implements _JettonOutgoingTransfer {
+  const _$JettonOutgoingTransferImpl(this.data, {final String? $type})
+      : $type = $type ?? 'jetton_outgoing_transfer';
+
+  factory _$JettonOutgoingTransferImpl.fromJson(Map<String, dynamic> json) =>
+      _$$JettonOutgoingTransferImplFromJson(json);
+
+  @override
+  final JettonOutgoingTransfer data;
+
+  @JsonKey(name: 'type')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'KnownPayload.jettonOutgoingTransfer(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$JettonOutgoingTransferImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$JettonOutgoingTransferImplCopyWith<_$JettonOutgoingTransferImpl>
+      get copyWith => __$$JettonOutgoingTransferImplCopyWithImpl<
+          _$JettonOutgoingTransferImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String data) comment,
+    required TResult Function(TokenOutgoingTransfer data) tokenOutgoingTransfer,
+    required TResult Function(JettonOutgoingTransfer data)
+        jettonOutgoingTransfer,
+    required TResult Function(TokenSwapBack data) tokenSwapBack,
+  }) {
+    return jettonOutgoingTransfer(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String data)? comment,
+    TResult? Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
+    TResult? Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
+    TResult? Function(TokenSwapBack data)? tokenSwapBack,
+  }) {
+    return jettonOutgoingTransfer?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String data)? comment,
+    TResult Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
+    TResult Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
+    TResult Function(TokenSwapBack data)? tokenSwapBack,
+    required TResult orElse(),
+  }) {
+    if (jettonOutgoingTransfer != null) {
+      return jettonOutgoingTransfer(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Comment value) comment,
+    required TResult Function(_TokenOutgoingTransfer value)
+        tokenOutgoingTransfer,
+    required TResult Function(_JettonOutgoingTransfer value)
+        jettonOutgoingTransfer,
+    required TResult Function(_TokenSwapBack value) tokenSwapBack,
+  }) {
+    return jettonOutgoingTransfer(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Comment value)? comment,
+    TResult? Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
+    TResult? Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
+    TResult? Function(_TokenSwapBack value)? tokenSwapBack,
+  }) {
+    return jettonOutgoingTransfer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Comment value)? comment,
+    TResult Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
+    TResult Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
+    TResult Function(_TokenSwapBack value)? tokenSwapBack,
+    required TResult orElse(),
+  }) {
+    if (jettonOutgoingTransfer != null) {
+      return jettonOutgoingTransfer(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$JettonOutgoingTransferImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _JettonOutgoingTransfer implements KnownPayload {
+  const factory _JettonOutgoingTransfer(final JettonOutgoingTransfer data) =
+      _$JettonOutgoingTransferImpl;
+
+  factory _JettonOutgoingTransfer.fromJson(Map<String, dynamic> json) =
+      _$JettonOutgoingTransferImpl.fromJson;
+
+  @override
+  JettonOutgoingTransfer get data;
+
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$JettonOutgoingTransferImplCopyWith<_$JettonOutgoingTransferImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -539,6 +755,8 @@ class _$TokenSwapBackImpl implements _TokenSwapBack {
   TResult when<TResult extends Object?>({
     required TResult Function(String data) comment,
     required TResult Function(TokenOutgoingTransfer data) tokenOutgoingTransfer,
+    required TResult Function(JettonOutgoingTransfer data)
+        jettonOutgoingTransfer,
     required TResult Function(TokenSwapBack data) tokenSwapBack,
   }) {
     return tokenSwapBack(data);
@@ -549,6 +767,7 @@ class _$TokenSwapBackImpl implements _TokenSwapBack {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String data)? comment,
     TResult? Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
+    TResult? Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
     TResult? Function(TokenSwapBack data)? tokenSwapBack,
   }) {
     return tokenSwapBack?.call(data);
@@ -559,6 +778,7 @@ class _$TokenSwapBackImpl implements _TokenSwapBack {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String data)? comment,
     TResult Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
+    TResult Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
     TResult Function(TokenSwapBack data)? tokenSwapBack,
     required TResult orElse(),
   }) {
@@ -574,6 +794,8 @@ class _$TokenSwapBackImpl implements _TokenSwapBack {
     required TResult Function(_Comment value) comment,
     required TResult Function(_TokenOutgoingTransfer value)
         tokenOutgoingTransfer,
+    required TResult Function(_JettonOutgoingTransfer value)
+        jettonOutgoingTransfer,
     required TResult Function(_TokenSwapBack value) tokenSwapBack,
   }) {
     return tokenSwapBack(this);
@@ -584,6 +806,7 @@ class _$TokenSwapBackImpl implements _TokenSwapBack {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Comment value)? comment,
     TResult? Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
+    TResult? Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
     TResult? Function(_TokenSwapBack value)? tokenSwapBack,
   }) {
     return tokenSwapBack?.call(this);
@@ -594,6 +817,7 @@ class _$TokenSwapBackImpl implements _TokenSwapBack {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Comment value)? comment,
     TResult Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
+    TResult Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
     TResult Function(_TokenSwapBack value)? tokenSwapBack,
     required TResult orElse(),
   }) {

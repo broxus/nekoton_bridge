@@ -44,6 +44,8 @@ abstract class $EncryptedKeyExportSeedOutputCopyWith<$Res> {
           EncryptedKeyExportSeedOutput>;
   @useResult
   $Res call({String phrase, @mnemonicJsonConverter MnemonicType mnemonicType});
+
+  $MnemonicTypeCopyWith<$Res> get mnemonicType;
 }
 
 /// @nodoc
@@ -63,18 +65,28 @@ class _$EncryptedKeyExportSeedOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? phrase = null,
-    Object? mnemonicType = freezed,
+    Object? mnemonicType = null,
   }) {
     return _then(_value.copyWith(
       phrase: null == phrase
           ? _value.phrase
           : phrase // ignore: cast_nullable_to_non_nullable
               as String,
-      mnemonicType: freezed == mnemonicType
+      mnemonicType: null == mnemonicType
           ? _value.mnemonicType
           : mnemonicType // ignore: cast_nullable_to_non_nullable
               as MnemonicType,
     ) as $Val);
+  }
+
+  /// Create a copy of EncryptedKeyExportSeedOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MnemonicTypeCopyWith<$Res> get mnemonicType {
+    return $MnemonicTypeCopyWith<$Res>(_value.mnemonicType, (value) {
+      return _then(_value.copyWith(mnemonicType: value) as $Val);
+    });
   }
 }
 
@@ -88,6 +100,9 @@ abstract class _$$EncryptedKeyExportSeedOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call({String phrase, @mnemonicJsonConverter MnemonicType mnemonicType});
+
+  @override
+  $MnemonicTypeCopyWith<$Res> get mnemonicType;
 }
 
 /// @nodoc
@@ -106,14 +121,14 @@ class __$$EncryptedKeyExportSeedOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? phrase = null,
-    Object? mnemonicType = freezed,
+    Object? mnemonicType = null,
   }) {
     return _then(_$EncryptedKeyExportSeedOutputImpl(
       phrase: null == phrase
           ? _value.phrase
           : phrase // ignore: cast_nullable_to_non_nullable
               as String,
-      mnemonicType: freezed == mnemonicType
+      mnemonicType: null == mnemonicType
           ? _value.mnemonicType
           : mnemonicType // ignore: cast_nullable_to_non_nullable
               as MnemonicType,
@@ -150,14 +165,13 @@ class _$EncryptedKeyExportSeedOutputImpl
         (other.runtimeType == runtimeType &&
             other is _$EncryptedKeyExportSeedOutputImpl &&
             (identical(other.phrase, phrase) || other.phrase == phrase) &&
-            const DeepCollectionEquality()
-                .equals(other.mnemonicType, mnemonicType));
+            (identical(other.mnemonicType, mnemonicType) ||
+                other.mnemonicType == mnemonicType));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, phrase, const DeepCollectionEquality().hash(mnemonicType));
+  int get hashCode => Object.hash(runtimeType, phrase, mnemonicType);
 
   /// Create a copy of EncryptedKeyExportSeedOutput
   /// with the given fields replaced by the non-null parameter values.
