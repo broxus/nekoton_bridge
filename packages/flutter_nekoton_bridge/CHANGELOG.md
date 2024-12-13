@@ -1,3 +1,7 @@
+## 2.0.1-dev.12
+
+ - **FIX**: add `ton_wallet_transfer` wallet interaction method. ([7eeb6e02](https://github.com/broxus/nekoton_bridge/commit/7eeb6e024b55a206adacaa1bc156614477b615da))
+
 ## 2.0.1-dev.11
 
  - **FIX**: ton `KnownPayload` support. ([e8628199](https://github.com/broxus/nekoton_bridge/commit/e8628199a642edc9477a93b3844a935846550b49))
