@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-12-16
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.0.1-dev.13`](#flutter_nekoton_bridge---v201-dev13)
+ - [`nekoton_bridge` - `v2.0.1-dev.9`](#nekoton_bridge---v201-dev9)
+ - [`flutter_nekoton_bridge_example` - `v1.18.1-dev.12`](#flutter_nekoton_bridge_example---v1181-dev12)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.18.1-dev.12`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.0.1-dev.13`
+
+ - **FEAT**: add ton wallet callbacks (`on_details_changed`, `on_custodians_changed`, `on_unconfirmed_transactions_changed`). ([3b146cd4](https://github.com/broxus/nekoton_bridge/commit/3b146cd4fef3f524e0c1c5f518a32444eff1e3f3))
+
+#### `nekoton_bridge` - `v2.0.1-dev.9`
+
+ - **FEAT**: add ton wallet callbacks (`on_details_changed`, `on_custodians_changed`, `on_unconfirmed_transactions_changed`). ([3b146cd4](https://github.com/broxus/nekoton_bridge/commit/3b146cd4fef3f524e0c1c5f518a32444eff1e3f3))
+
+
 ## 2024-12-13
 
 ### Changes
