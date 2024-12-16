@@ -43,12 +43,12 @@ class TonWallet extends RustToDartMirrorInterface
   late PollingMethod _pollingMethod;
   late List<MultisigPendingTransaction> _unconfirmedTransactions;
   late List<PublicKey>? _custodians;
+  late TonWalletDetails _details;
 
   /// Triggers subscribers when [_updateData] completes
   final _fieldsUpdateController = BehaviorSubject<void>();
 
   /// Description information about wallet that do not change
-  late final TonWalletDetails details;
   late final PublicKey publicKey;
   late final Address address;
   late final WalletType walletType;
@@ -134,7 +134,6 @@ class TonWallet extends RustToDartMirrorInterface
       workchain = await _getWorkchain();
       publicKey = await _getPublicKey();
       address = await _getAddress();
-      details = await _getDetails();
 
       await _updateData();
       _isInitialized = true;
@@ -146,6 +145,8 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// For not multisig wallet custodians contains public key of wallet
   List<PublicKey>? get custodians => _custodians;
+
+  TonWalletDetails get details => _details;
 
   ContractState get contractState => _contractState;
 
@@ -502,6 +503,43 @@ class TonWallet extends RustToDartMirrorInterface
     _onTransactionsFoundController.add((transactions, batchInfo));
   }
 
+  /// Calls from rust side when details of wallet has been changed
+  void onDetailsChanged(String payload) {
+    final json = jsonDecode(payload) as Map<String, dynamic>;
+    final details = TonWalletDetails.fromJson(json);
+
+    _details = details;
+    _fieldsUpdateController.add(null);
+  }
+
+  /// Calls from rust side when custodians of wallet has been changed
+  void onCustodiansChanged(String payload) {
+    final json = jsonDecode(payload) as List<dynamic>;
+    final custodians = json
+        .map(
+          (key) => PublicKey(publicKey: key as String),
+        )
+        .toList();
+
+    _custodians = custodians;
+    _fieldsUpdateController.add(null);
+  }
+
+  /// Calls from rust side when unconfirmed transactions of wallet has been found
+  void onUnconfirmedTransactionsChanged(String payload) {
+    final json = jsonDecode(payload) as List<dynamic>;
+
+    final unconfirmedTransactions = json
+        .cast<Map<String, dynamic>>()
+        .map(
+          (e) => MultisigPendingTransaction.fromJson(e),
+        )
+        .toList();
+
+    _unconfirmedTransactions = unconfirmedTransactions;
+    _fieldsUpdateController.add(null);
+  }
+
   /// Method that updates all internal data and notify subscribers about it.
   ///
   /// This method should be awaited in internal calls to be sure, that dart
@@ -522,6 +560,8 @@ class TonWallet extends RustToDartMirrorInterface
     _unconfirmedTransactions = await getUnconfirmedTransactions();
     if (avoidCall) return;
     _custodians = await getCustodians();
+    if (avoidCall) return;
+    _details = await _getDetails();
 
     _fieldsUpdateController.add(null);
   }

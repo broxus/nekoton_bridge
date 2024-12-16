@@ -94,12 +94,13 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onMessageExpired': 11,
               r'onStateChanged': 11,
               r'onTransactionsFound': 11,
+              r'onDetailsChanged': 11,
+              r'onCustodiansChanged': 11,
+              r'onUnconfirmedTransactionsChanged': 11,
               r'initializeMirror': 0,
               r'wallet': 0,
               r'wallet=': 11,
               r'transport': 0,
-              r'details': 0,
-              r'details=': 11,
               r'publicKey': 0,
               r'publicKey=': 11,
               r'address': 0,
@@ -109,6 +110,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'workchain': 0,
               r'workchain=': 11,
               r'custodians': 0,
+              r'details': 0,
               r'contractState': 0,
               r'pendingTransactions': 0,
               r'pollingMethod': 0,
@@ -622,15 +624,20 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'onStateChanged': (dynamic instance) => instance.onStateChanged,
         r'onTransactionsFound': (dynamic instance) =>
             instance.onTransactionsFound,
+        r'onDetailsChanged': (dynamic instance) => instance.onDetailsChanged,
+        r'onCustodiansChanged': (dynamic instance) =>
+            instance.onCustodiansChanged,
+        r'onUnconfirmedTransactionsChanged': (dynamic instance) =>
+            instance.onUnconfirmedTransactionsChanged,
         r'initializeMirror': (dynamic instance) => instance.initializeMirror,
         r'wallet': (dynamic instance) => instance.wallet,
         r'transport': (dynamic instance) => instance.transport,
-        r'details': (dynamic instance) => instance.details,
         r'publicKey': (dynamic instance) => instance.publicKey,
         r'address': (dynamic instance) => instance.address,
         r'walletType': (dynamic instance) => instance.walletType,
         r'workchain': (dynamic instance) => instance.workchain,
         r'custodians': (dynamic instance) => instance.custodians,
+        r'details': (dynamic instance) => instance.details,
         r'contractState': (dynamic instance) => instance.contractState,
         r'pendingTransactions': (dynamic instance) =>
             instance.pendingTransactions,
@@ -690,7 +697,6 @@ final _data = <r.Reflectable, r.ReflectorData>{
       },
       {
         r'wallet=': (dynamic instance, value) => instance.wallet = value,
-        r'details=': (dynamic instance, value) => instance.details = value,
         r'publicKey=': (dynamic instance, value) => instance.publicKey = value,
         r'address=': (dynamic instance, value) => instance.address = value,
         r'walletType=': (dynamic instance, value) =>

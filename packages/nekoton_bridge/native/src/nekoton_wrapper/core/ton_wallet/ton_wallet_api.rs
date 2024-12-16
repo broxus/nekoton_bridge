@@ -13,7 +13,8 @@ pub use nekoton::core::models::{
     ContractState, PendingTransaction, PollingMethod, Transaction, TransactionAdditionalInfo,
     TransactionWithData, TransactionsBatchInfo,
 };
-use nekoton::core::ton_wallet::TonWalletSubscriptionHandler;
+use nekoton::core::ton_wallet::{TonWalletDetails, TonWalletSubscriptionHandler};
+use nekoton::models::MultisigPendingTransaction;
 use std::sync::Arc;
 
 #[frb(mirror(PollingMethod))]
@@ -372,6 +373,46 @@ impl TonWalletSubscriptionHandler for TonWalletSubscriptionHandlerImpl {
         let stub = caller::DartCallStub {
             instance_hash: self.instance_hash.clone(),
             fn_name: String::from("onTransactionsFound"),
+            args: vec![caller::DynamicValue::String(payload)],
+            named_args: vec![],
+        };
+        caller::call(stub, false);
+    }
+
+    fn on_details_changed(&self, details: TonWalletDetails) {
+        let payload = serde_json::to_string(&details).unwrap();
+        let stub = caller::DartCallStub {
+            instance_hash: self.instance_hash.clone(),
+            fn_name: String::from("onDetailsChanged"),
+            args: vec![caller::DynamicValue::String(payload)],
+            named_args: vec![],
+        };
+        caller::call(stub, false);
+    }
+
+    fn on_custodians_changed(&self, custodians: &[ton_types::UInt256]) {
+        let payload = custodians
+            .iter()
+            .map(|item| item.to_hex_string())
+            .collect::<Vec<String>>();
+        let payload = serde_json::to_string(&payload).unwrap();
+        let stub = caller::DartCallStub {
+            instance_hash: self.instance_hash.clone(),
+            fn_name: String::from("onCustodiansChanged"),
+            args: vec![caller::DynamicValue::String(payload)],
+            named_args: vec![],
+        };
+        caller::call(stub, false);
+    }
+
+    fn on_unconfirmed_transactions_changed(
+        &self,
+        unconfirmed_transactions: &[MultisigPendingTransaction],
+    ) {
+        let payload = serde_json::to_string(unconfirmed_transactions).unwrap();
+        let stub = caller::DartCallStub {
+            instance_hash: self.instance_hash.clone(),
+            fn_name: String::from("onUnconfirmedTransactionsChanged"),
             args: vec![caller::DynamicValue::String(payload)],
             named_args: vec![],
         };

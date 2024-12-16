@@ -540,12 +540,13 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onMessageExpired': 1,
               r'onStateChanged': 1,
               r'onTransactionsFound': 1,
+              r'onDetailsChanged': 1,
+              r'onCustodiansChanged': 1,
+              r'onUnconfirmedTransactionsChanged': 1,
               r'initializeMirror': 0,
               r'wallet': 0,
               r'wallet=': 1,
               r'transport': 0,
-              r'details': 0,
-              r'details=': 1,
               r'publicKey': 0,
               r'publicKey=': 1,
               r'address': 0,
@@ -555,6 +556,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'workchain': 0,
               r'workchain=': 1,
               r'custodians': 0,
+              r'details': 0,
               r'contractState': 0,
               r'pendingTransactions': 0,
               r'pollingMethod': 0,
@@ -681,11 +683,16 @@ final _data = <r.Reflectable, r.ReflectorData>{
             instance.prepareDeployWithMultipleOwners,
         r'prepareConfirmTransaction': (dynamic instance) =>
             instance.prepareConfirmTransaction,
-        r'details': (dynamic instance) => instance.details,
+        r'onDetailsChanged': (dynamic instance) => instance.onDetailsChanged,
+        r'onCustodiansChanged': (dynamic instance) =>
+            instance.onCustodiansChanged,
+        r'onUnconfirmedTransactionsChanged': (dynamic instance) =>
+            instance.onUnconfirmedTransactionsChanged,
         r'publicKey': (dynamic instance) => instance.publicKey,
         r'walletType': (dynamic instance) => instance.walletType,
         r'workchain': (dynamic instance) => instance.workchain,
         r'custodians': (dynamic instance) => instance.custodians,
+        r'details': (dynamic instance) => instance.details,
         r'unconfirmedTransactions': (dynamic instance) =>
             instance.unconfirmedTransactions
       },
@@ -704,7 +711,6 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'symbol=': (dynamic instance, value) => instance.symbol = value,
         r'currency=': (dynamic instance, value) => instance.currency = value,
         r'version=': (dynamic instance, value) => instance.version = value,
-        r'details=': (dynamic instance, value) => instance.details = value,
         r'publicKey=': (dynamic instance, value) => instance.publicKey = value,
         r'walletType=': (dynamic instance, value) =>
             instance.walletType = value,
