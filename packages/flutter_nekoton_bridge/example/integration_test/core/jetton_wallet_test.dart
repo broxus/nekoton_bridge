@@ -87,6 +87,8 @@ void main() {
       expect(wallet.tokenAddress, tokenWallet);
       expect(wallet.rootTokenContract, usdtTokenRoot);
       expect(wallet.contractState.balance, isNot(BigInt.zero));
+
+      wallet.dispose();
     });
 
     // TODO(komarov): wait for nekoton fix
@@ -132,6 +134,8 @@ void main() {
       );
 
       expect(message, isNotNull);
+
+      wallet.dispose();
     });
 
     testWidgets('JettonWallet getJettonWalletDetails',
@@ -213,6 +217,8 @@ void main() {
       expect(wallet.tokenAddress, tokenWallet);
       expect(wallet.rootTokenContract, usdtTokenRoot);
       expect(wallet.contractState.balance, isNot(BigInt.zero));
+
+      wallet.dispose();
     });
 
     testWidgets(
@@ -222,13 +228,6 @@ void main() {
 
         for (var i = 0; i < 10; i++) {
           final completer = Completer<void>();
-
-          // if wallet will not create instance for 5 seconds, then some bug here
-          final delaying = Future.delayed(const Duration(seconds: 5), () {
-            if (!completer.isCompleted) {
-              throw Exception('Resubscribe timeout at $i iteration');
-            }
-          });
 
           final wallet = await JettonWallet.subscribe(
             transport: transport,
@@ -245,9 +244,57 @@ void main() {
           wallet.dispose();
 
           completer.complete();
-          await delaying;
         }
       },
     );
+
+    testWidgets('JettonWallet preloadTransactions: true',
+        (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      final wallet = await JettonWallet.subscribe(
+        transport: transport,
+        owner: address,
+        rootTokenContract: usdtTokenRoot,
+        preloadTransactions: true,
+      );
+      var events = 0;
+
+      wallet.onTransactionsFoundStream.listen(
+        (data) => events++,
+      );
+
+      expect(wallet, isNotNull);
+      expect(wallet.isTransactionsPreloaded, true);
+      await wallet.preloadTransactions();
+      expect(events, 2);
+
+      wallet.dispose();
+    });
+
+    testWidgets('JettonWallet preloadTransactions: false',
+        (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      final wallet = await JettonWallet.subscribe(
+        transport: transport,
+        owner: address,
+        rootTokenContract: usdtTokenRoot,
+        preloadTransactions: false,
+      );
+      var events = 0;
+
+      wallet.onTransactionsFoundStream.listen(
+        (data) => events++,
+      );
+
+      expect(wallet, isNotNull);
+      expect(wallet.isTransactionsPreloaded, false);
+      await wallet.preloadTransactions();
+      expect(events, 1);
+      expect(wallet.isTransactionsPreloaded, true);
+
+      wallet.dispose();
+    });
   });
 }

@@ -117,14 +117,21 @@ impl JettonWalletBox {
         owner: String,
         root_token_contract: String,
         handler: Arc<dyn JettonWalletSubscriptionHandler>,
+        preload_transactions: bool,
     ) -> anyhow::Result<RustOpaque<Arc<dyn JettonWalletBoxTrait>>> {
         let owner = parse_address(owner)?;
         let root_token_contract = parse_address(root_token_contract)?;
 
-        let token_wallet =
-            JettonWallet::subscribe(clock!(), transport, owner, root_token_contract, handler)
-                .await
-                .handle_error()?;
+        let token_wallet = JettonWallet::subscribe(
+            clock!(),
+            transport,
+            owner,
+            root_token_contract,
+            handler,
+            preload_transactions,
+        )
+        .await
+        .handle_error()?;
 
         Ok(RustOpaque::new(Arc::new(JettonWalletBox {
             inner_wallet: Arc::new(Mutex::new(token_wallet)),

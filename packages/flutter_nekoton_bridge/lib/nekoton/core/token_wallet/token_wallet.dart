@@ -23,6 +23,7 @@ class TokenWallet extends RustToDartMirrorInterface
 
   /// Flag that display [onStateChanged] that [wallet] was initialized.
   bool _isInitialized = false;
+  bool _isTransactionsPreloaded = false;
 
   /// Controllers that contains data that emits from rust.
   final _onBalanceChangedController = BehaviorSubject<BigInt>();
@@ -61,6 +62,8 @@ class TokenWallet extends RustToDartMirrorInterface
   late final Currency currency;
   late final TokenWalletVersion version;
 
+  bool get isTransactionsPreloaded => _isTransactionsPreloaded;
+
   TokenWallet._(this.transport, this.rootTokenContract);
 
   /// Create TokenWallet by subscribing to its instance.
@@ -70,6 +73,7 @@ class TokenWallet extends RustToDartMirrorInterface
     required Transport transport,
     required Address owner,
     required Address rootTokenContract,
+    bool preloadTransactions = false,
   }) async {
     final instance = TokenWallet._(transport, rootTokenContract);
 
@@ -80,9 +84,11 @@ class TokenWallet extends RustToDartMirrorInterface
         transport: transport.transportBox,
         rootTokenContract: rootTokenContract.address,
         owner: owner.address,
+        preloadTransactions: preloadTransactions,
       );
 
       await instance._initInstance();
+      instance._isTransactionsPreloaded = preloadTransactions;
 
       return instance;
     });
@@ -241,8 +247,11 @@ class TokenWallet extends RustToDartMirrorInterface
   /// Preload transactions of wallet.
   /// [fromLt] - offset for loading data, string representation of u64
   /// May throw error.
-  Future<void> preloadTransactions({required String fromLt}) async {
-    await wallet.preloadTransactions(fromLt: fromLt);
+  Future<void> preloadTransactions([String? fromLt]) async {
+    _isTransactionsPreloaded = true;
+    await wallet.preloadTransactions(
+      fromLt: fromLt ?? contractState.lastTransactionId?.lt ?? '0',
+    );
     await _updateData();
   }
 

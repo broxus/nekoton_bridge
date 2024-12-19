@@ -92,6 +92,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'tokenAddress=': 7,
               r'owner': 0,
               r'owner=': 7,
+              r'isTransactionsPreloaded': 0,
               r'contractState': 0,
               r'fieldUpdatesStream': 0,
               r'onBalanceChangedStream': 0,
@@ -388,7 +389,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'estimateFees': 14,
               r'send': 14,
               r'refresh': 0,
-              r'preloadTransactions': 3,
+              r'preloadTransactions': 15,
               r'handleBlock': 4,
               r'onMessageSent': 7,
               r'onMessageExpired': 7,
@@ -447,8 +448,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'instanceHash': 0,
               r'avoidCall': 0,
               r'getContractState': 0,
-              r'estimateMinAttachedAmount': 15,
-              r'prepareTransfer': 16,
+              r'estimateMinAttachedAmount': 16,
+              r'prepareTransfer': 17,
               r'refresh': 0,
               r'preloadTransactions': 3,
               r'handleBlock': 4,
@@ -472,6 +473,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'version': 0,
               r'version=': 7,
               r'moneyBalance': 0,
+              r'isTransactionsPreloaded': 0,
               r'contractState': 0,
               r'fieldUpdatesStream': 0,
               r'onBalanceChangedStream': 0,
@@ -527,14 +529,14 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'getPollingMethod': 0,
               r'getUnconfirmedTransactions': 0,
               r'getCustodians': 0,
-              r'prepareDeploy': 19,
-              r'prepareDeployWithMultipleOwners': 20,
-              r'prepareTransfer': 21,
-              r'prepareConfirmTransaction': 22,
+              r'prepareDeploy': 20,
+              r'prepareDeployWithMultipleOwners': 21,
+              r'prepareTransfer': 22,
+              r'prepareConfirmTransaction': 23,
               r'estimateFees': 14,
               r'send': 14,
               r'refresh': 0,
-              r'preloadTransactions': 3,
+              r'preloadTransactions': 15,
               r'handleBlock': 4,
               r'onMessageSent': 7,
               r'onMessageExpired': 7,
@@ -567,10 +569,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onStateChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'refreshDescription': 0,
-              r'subscribe': 17,
+              r'subscribe': 18,
               r'subscribeByAddress': 5,
-              r'subscribeByExistingWallet': 18,
-              r'findExistingWallets': 23,
+              r'subscribeByExistingWallet': 19,
+              r'findExistingWallets': 24,
               r'getExistingWalletInfo': 5,
               r'getWalletCustodians': 5
             })
@@ -619,6 +621,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'rootTokenContract': (dynamic instance) => instance.rootTokenContract,
         r'tokenAddress': (dynamic instance) => instance.tokenAddress,
         r'owner': (dynamic instance) => instance.owner,
+        r'isTransactionsPreloaded': (dynamic instance) =>
+            instance.isTransactionsPreloaded,
         r'contractState': (dynamic instance) => instance.contractState,
         r'fieldUpdatesStream': (dynamic instance) =>
             instance.fieldUpdatesStream,
@@ -721,7 +725,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         const [
           0,
           0,
-          const [#transport, #owner, #rootTokenContract]
+          const [#transport, #owner, #rootTokenContract, #preloadTransactions]
         ],
         const [
           0,
@@ -748,11 +752,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
             #attachedAmount
           ]
         ],
-        const [
-          0,
-          0,
-          const [#fromLt]
-        ],
+        const [1, 1, null],
         const [
           0,
           0,
@@ -803,6 +803,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
           0,
           0,
           const [#signedMessage, #options]
+        ],
+        const [
+          0,
+          0,
+          const [#fromLt]
         ],
         const [
           0,
