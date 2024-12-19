@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-12-19
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.0.1-dev.14`](#flutter_nekoton_bridge---v201-dev14)
+ - [`flutter_nekoton_bridge_example` - `v1.18.1-dev.13`](#flutter_nekoton_bridge_example---v1181-dev13)
+ - [`nekoton_bridge` - `v2.0.1-dev.10`](#nekoton_bridge---v201-dev10)
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.0.1-dev.14`
+
+ - **FEAT**: token wallet preload transactions ([#286](https://github.com/broxus/nekoton_bridge/issues/286)). ([ff55c7a8](https://github.com/broxus/nekoton_bridge/commit/ff55c7a84d9b5e19ec2f137d26b81ba94ed721d6))
+
+#### `flutter_nekoton_bridge_example` - `v1.18.1-dev.13`
+
+ - **FEAT**: token wallet preload transactions ([#286](https://github.com/broxus/nekoton_bridge/issues/286)). ([ff55c7a8](https://github.com/broxus/nekoton_bridge/commit/ff55c7a84d9b5e19ec2f137d26b81ba94ed721d6))
+
+#### `nekoton_bridge` - `v2.0.1-dev.10`
+
+ - **FEAT**: token wallet preload transactions ([#286](https://github.com/broxus/nekoton_bridge/issues/286)). ([ff55c7a8](https://github.com/broxus/nekoton_bridge/commit/ff55c7a84d9b5e19ec2f137d26b81ba94ed721d6))
+
+
 ## 2024-12-16
 
 ### Changes
