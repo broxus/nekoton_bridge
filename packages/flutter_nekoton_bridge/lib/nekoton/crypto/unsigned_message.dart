@@ -20,13 +20,19 @@ class UnsignedMessage {
     final instance = UnsignedMessage._(message);
 
     instance.hash = await message.hash();
-    instance.expireAt =
-        dateSecondsSinceEpochJsonConverter.fromJson(await message.expireAt());
+    instance.expireAt = dateSecondsSinceEpochJsonConverter.fromJson(
+      await message.expireAt(),
+    );
 
     return instance;
   }
 
-  Future<void> refreshTimeout() => message.refreshTimeout();
+  Future<void> refreshTimeout() async {
+    await message.refreshTimeout();
+    expireAt = dateSecondsSinceEpochJsonConverter.fromJson(
+      await message.expireAt(),
+    );
+  }
 
   /// Sign message with signature and return SignedMessage.
   /// signature receives from [KeyStore.sign] where data is [UnsignedMessage.hash]

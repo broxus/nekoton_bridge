@@ -384,5 +384,32 @@ void main() {
         }
       },
     );
+
+    testWidgets('TonWallet refreshTimeout', (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      final wallet = await TonWallet.subscribeByAddress(
+        transport: transport,
+        address: address,
+      );
+
+      final contract = await transport.getContractState(stEverContractVault);
+      final repacked = await repackAddress(stEverContractVault);
+
+      final message = await wallet.prepareTransfer(
+        contractState: contract,
+        publicKey: publicKey,
+        destination: repacked,
+        amount: BigInt.parse('100000000'),
+        bounce: false,
+        expiration: expiration,
+      );
+      final expireAt = message.expireAt;
+
+      await Future<void>.delayed(const Duration(seconds: 1));
+      await message.refreshTimeout();
+
+      expect(message.expireAt, isNot(expireAt));
+    });
   });
 }
