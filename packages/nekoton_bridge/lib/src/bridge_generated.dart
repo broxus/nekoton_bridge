@@ -831,6 +831,7 @@ abstract class NekotonBridge {
       required String owner,
       required String rootTokenContract,
       required ArcTransportBoxTrait transport,
+      required bool preloadTransactions,
       dynamic hint});
 
   FlutterRustBridgeTaskConstMeta
@@ -1351,6 +1352,7 @@ abstract class NekotonBridge {
       required String owner,
       required String rootTokenContract,
       required ArcTransportBoxTrait transport,
+      required bool preloadTransactions,
       dynamic hint});
 
   FlutterRustBridgeTaskConstMeta
@@ -2768,12 +2770,14 @@ class JettonWalletDartWrapper {
           required String owner,
           required String rootTokenContract,
           required ArcTransportBoxTrait transport,
+          required bool preloadTransactions,
           dynamic hint}) =>
       bridge.subscribeStaticMethodJettonWalletDartWrapper(
           instanceHash: instanceHash,
           owner: owner,
           rootTokenContract: rootTokenContract,
           transport: transport,
+          preloadTransactions: preloadTransactions,
           hint: hint);
 
   /// Get address of owner of wallet.
@@ -3659,12 +3663,14 @@ class TokenWalletDartWrapper {
           required String owner,
           required String rootTokenContract,
           required ArcTransportBoxTrait transport,
+          required bool preloadTransactions,
           dynamic hint}) =>
       bridge.subscribeStaticMethodTokenWalletDartWrapper(
           instanceHash: instanceHash,
           owner: owner,
           rootTokenContract: rootTokenContract,
           transport: transport,
+          preloadTransactions: preloadTransactions,
           hint: hint);
 
   /// Get address of owner of wallet.
@@ -6488,18 +6494,26 @@ class NekotonBridgeImpl implements NekotonBridge {
       required String owner,
       required String rootTokenContract,
       required ArcTransportBoxTrait transport,
+      required bool preloadTransactions,
       dynamic hint}) {
     var arg0 = _platform.api2wire_String(instanceHash);
     var arg1 = _platform.api2wire_String(owner);
     var arg2 = _platform.api2wire_String(rootTokenContract);
     var arg3 = _platform.api2wire_ArcTransportBoxTrait(transport);
+    var arg4 = preloadTransactions;
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
           .wire_subscribe__static_method__TokenWalletDartWrapper(
-              port_, arg0, arg1, arg2, arg3),
+              port_, arg0, arg1, arg2, arg3, arg4),
       parseSuccessData: (d) => _wire2api_token_wallet_dart_wrapper(d),
       constMeta: kSubscribeStaticMethodTokenWalletDartWrapperConstMeta,
-      argValues: [instanceHash, owner, rootTokenContract, transport],
+      argValues: [
+        instanceHash,
+        owner,
+        rootTokenContract,
+        transport,
+        preloadTransactions
+      ],
       hint: hint,
     ));
   }
@@ -6512,7 +6526,8 @@ class NekotonBridgeImpl implements NekotonBridge {
               "instanceHash",
               "owner",
               "rootTokenContract",
-              "transport"
+              "transport",
+              "preloadTransactions"
             ],
           );
 
@@ -7692,18 +7707,26 @@ class NekotonBridgeImpl implements NekotonBridge {
       required String owner,
       required String rootTokenContract,
       required ArcTransportBoxTrait transport,
+      required bool preloadTransactions,
       dynamic hint}) {
     var arg0 = _platform.api2wire_String(instanceHash);
     var arg1 = _platform.api2wire_String(owner);
     var arg2 = _platform.api2wire_String(rootTokenContract);
     var arg3 = _platform.api2wire_ArcTransportBoxTrait(transport);
+    var arg4 = preloadTransactions;
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
           .wire_subscribe__static_method__JettonWalletDartWrapper(
-              port_, arg0, arg1, arg2, arg3),
+              port_, arg0, arg1, arg2, arg3, arg4),
       parseSuccessData: (d) => _wire2api_jetton_wallet_dart_wrapper(d),
       constMeta: kSubscribeStaticMethodJettonWalletDartWrapperConstMeta,
-      argValues: [instanceHash, owner, rootTokenContract, transport],
+      argValues: [
+        instanceHash,
+        owner,
+        rootTokenContract,
+        transport,
+        preloadTransactions
+      ],
       hint: hint,
     ));
   }
@@ -7716,7 +7739,8 @@ class NekotonBridgeImpl implements NekotonBridge {
               "instanceHash",
               "owner",
               "rootTokenContract",
-              "transport"
+              "transport",
+              "preloadTransactions"
             ],
           );
 

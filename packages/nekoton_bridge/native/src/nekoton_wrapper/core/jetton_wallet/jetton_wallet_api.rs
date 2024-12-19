@@ -28,13 +28,15 @@ impl JettonWalletDartWrapper {
         owner: String,
         root_token_contract: String,
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
+        preload_transactions: bool,
     ) -> anyhow::Result<JettonWalletDartWrapper> {
         let wallet = async_run!(
             JettonWalletBox::subscribe(
                 transport.get_transport(),
                 owner,
                 root_token_contract,
-                Arc::new(JettonWalletSubscriptionHandlerImpl { instance_hash })
+                Arc::new(JettonWalletSubscriptionHandlerImpl { instance_hash }),
+                preload_transactions,
             )
             .await
         )

@@ -1286,7 +1286,7 @@ dependencies = [
 [[package]]
 name = "nekoton"
 version = "0.13.1"
-source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#a5ba0fda8fa954ba1b25a0f605a8b8bdb71ed781"
+source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#961c7a38e04545ef158902bf99584ae62dbd5969"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -1331,7 +1331,7 @@ dependencies = [
 [[package]]
 name = "nekoton-abi"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#a5ba0fda8fa954ba1b25a0f605a8b8bdb71ed781"
+source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#961c7a38e04545ef158902bf99584ae62dbd5969"
 dependencies = [
  "anyhow",
  "base64",
@@ -1352,13 +1352,13 @@ dependencies = [
  "ton_block",
  "ton_executor",
  "ton_types",
- "ton_vm",
+ "ton_vm 1.8.29 (git+https://github.com/broxus/ton-labs-vm.git?branch=feature/jetton)",
 ]
 
 [[package]]
 name = "nekoton-contracts"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#a5ba0fda8fa954ba1b25a0f605a8b8bdb71ed781"
+source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#961c7a38e04545ef158902bf99584ae62dbd5969"
 dependencies = [
  "anyhow",
  "nekoton-abi",
@@ -1375,7 +1375,7 @@ dependencies = [
 [[package]]
 name = "nekoton-derive"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#a5ba0fda8fa954ba1b25a0f605a8b8bdb71ed781"
+source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#961c7a38e04545ef158902bf99584ae62dbd5969"
 dependencies = [
  "either",
  "proc-macro2",
@@ -1386,7 +1386,7 @@ dependencies = [
 [[package]]
 name = "nekoton-jetton"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#a5ba0fda8fa954ba1b25a0f605a8b8bdb71ed781"
+source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#961c7a38e04545ef158902bf99584ae62dbd5969"
 dependencies = [
  "anyhow",
  "lazy_static",
@@ -1403,7 +1403,7 @@ dependencies = [
 [[package]]
 name = "nekoton-proto"
 version = "0.1.0"
-source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#a5ba0fda8fa954ba1b25a0f605a8b8bdb71ed781"
+source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#961c7a38e04545ef158902bf99584ae62dbd5969"
 dependencies = [
  "anyhow",
  "nekoton-abi",
@@ -1415,7 +1415,7 @@ dependencies = [
 [[package]]
 name = "nekoton-utils"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#a5ba0fda8fa954ba1b25a0f605a8b8bdb71ed781"
+source = "git+https://github.com/broxus/nekoton.git?branch=feat/jetton-wallet#961c7a38e04545ef158902bf99584ae62dbd5969"
 dependencies = [
  "anyhow",
  "base64",
@@ -2363,7 +2363,7 @@ dependencies = [
  "thiserror",
  "ton_block",
  "ton_types",
- "ton_vm",
+ "ton_vm 1.8.29 (git+https://github.com/broxus/ton-labs-vm.git)",
 ]
 
 [[package]]
@@ -2386,6 +2386,27 @@ dependencies = [
  "sha2 0.9.9",
  "smallvec",
  "thiserror",
+]
+
+[[package]]
+name = "ton_vm"
+version = "1.8.29"
+source = "git+https://github.com/broxus/ton-labs-vm.git?branch=feature/jetton#e4ccbb7a6e90fa30c7ee55b85f2b9ad8be1518d2"
+dependencies = [
+ "anyhow",
+ "ed25519",
+ "ed25519-dalek",
+ "hex",
+ "lazy_static",
+ "log",
+ "num",
+ "num-traits",
+ "rand",
+ "sha2 0.9.9",
+ "smallvec",
+ "thiserror",
+ "ton_block",
+ "ton_types",
 ]
 
 [[package]]

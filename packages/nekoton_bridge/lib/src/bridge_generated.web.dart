@@ -977,7 +977,8 @@ class NekotonBridgeWasmModule implements WasmModule {
           String instance_hash,
           String owner,
           String root_token_contract,
-          Object transport);
+          Object transport,
+          bool preload_transactions);
 
   external dynamic /* void */ wire_owner__method__TokenWalletDartWrapper(
       NativePortType port_, List<dynamic> that);
@@ -1210,7 +1211,8 @@ class NekotonBridgeWasmModule implements WasmModule {
           String instance_hash,
           String owner,
           String root_token_contract,
-          Object transport);
+          Object transport,
+          bool preload_transactions);
 
   external dynamic /* void */ wire_owner__method__JettonWalletDartWrapper(
       NativePortType port_, List<dynamic> that);
@@ -2037,9 +2039,15 @@ class NekotonBridgeWire
           String instance_hash,
           String owner,
           String root_token_contract,
-          Object transport) =>
+          Object transport,
+          bool preload_transactions) =>
       wasmModule.wire_subscribe__static_method__TokenWalletDartWrapper(
-          port_, instance_hash, owner, root_token_contract, transport);
+          port_,
+          instance_hash,
+          owner,
+          root_token_contract,
+          transport,
+          preload_transactions);
 
   void wire_owner__method__TokenWalletDartWrapper(
           NativePortType port_, List<dynamic> that) =>
@@ -2330,9 +2338,15 @@ class NekotonBridgeWire
           String instance_hash,
           String owner,
           String root_token_contract,
-          Object transport) =>
+          Object transport,
+          bool preload_transactions) =>
       wasmModule.wire_subscribe__static_method__JettonWalletDartWrapper(
-          port_, instance_hash, owner, root_token_contract, transport);
+          port_,
+          instance_hash,
+          owner,
+          root_token_contract,
+          transport,
+          preload_transactions);
 
   void wire_owner__method__JettonWalletDartWrapper(
           NativePortType port_, List<dynamic> that) =>

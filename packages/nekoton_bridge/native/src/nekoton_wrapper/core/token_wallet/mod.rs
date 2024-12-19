@@ -97,12 +97,13 @@ impl TokenWalletBox {
         owner: String,
         root_token_contract: String,
         handler: Arc<dyn TokenWalletSubscriptionHandler>,
+        preload_transactions: bool,
     ) -> anyhow::Result<RustOpaque<Arc<dyn TokenWalletBoxTrait>>> {
         let owner = parse_address(owner)?;
         let root_token_contract = parse_address(root_token_contract)?;
 
         let token_wallet =
-            TokenWallet::subscribe(clock!(), transport, owner, root_token_contract, handler)
+            TokenWallet::subscribe(clock!(), transport, owner, root_token_contract, handler, preload_transactions)
                 .await
                 .handle_error()?;
 

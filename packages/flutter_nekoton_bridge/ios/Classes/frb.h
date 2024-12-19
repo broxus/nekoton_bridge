@@ -697,7 +697,8 @@ void wire_subscribe__static_method__TokenWalletDartWrapper(int64_t port_,
                                                            struct wire_uint_8_list *instance_hash,
                                                            struct wire_uint_8_list *owner,
                                                            struct wire_uint_8_list *root_token_contract,
-                                                           struct wire_ArcTransportBoxTrait transport);
+                                                           struct wire_ArcTransportBoxTrait transport,
+                                                           bool preload_transactions);
 
 void wire_owner__method__TokenWalletDartWrapper(int64_t port_,
                                                 struct wire_TokenWalletDartWrapper *that);
@@ -909,7 +910,8 @@ void wire_subscribe__static_method__JettonWalletDartWrapper(int64_t port_,
                                                             struct wire_uint_8_list *instance_hash,
                                                             struct wire_uint_8_list *owner,
                                                             struct wire_uint_8_list *root_token_contract,
-                                                            struct wire_ArcTransportBoxTrait transport);
+                                                            struct wire_ArcTransportBoxTrait transport,
+                                                            bool preload_transactions);
 
 void wire_owner__method__JettonWalletDartWrapper(int64_t port_,
                                                  struct wire_JettonWalletDartWrapper *that);
