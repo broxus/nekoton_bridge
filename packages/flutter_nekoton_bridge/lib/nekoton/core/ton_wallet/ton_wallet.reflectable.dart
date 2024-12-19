@@ -476,7 +476,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'estimateMinAttachedAmount': 20,
               r'prepareTransfer': 21,
               r'refresh': 0,
-              r'preloadTransactions': 8,
+              r'preloadTransactions': 22,
               r'handleBlock': 9,
               r'onBalanceChanged': 11,
               r'onTransactionsFound': 11,
@@ -498,6 +498,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'version': 0,
               r'version=': 11,
               r'moneyBalance': 0,
+              r'isTransactionsPreloaded': 0,
               r'contractState': 0,
               r'fieldUpdatesStream': 0,
               r'onBalanceChangedStream': 0,
@@ -507,7 +508,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'subscribe': 19,
               r'getTokenWalletDetails': 1,
               r'getTokenRootDetailsFromTokenWallet': 1,
-              r'getTokenRootDetails': 22
+              r'getTokenRootDetails': 23
             }),
         r.NonGenericClassMirrorImpl(
             r'JettonWallet',
@@ -545,10 +546,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'instanceHash': 0,
               r'avoidCall': 0,
               r'getContractState': 0,
-              r'estimateMinAttachedAmount': 23,
-              r'prepareTransfer': 24,
+              r'estimateMinAttachedAmount': 24,
+              r'prepareTransfer': 25,
               r'refresh': 0,
-              r'preloadTransactions': 8,
+              r'preloadTransactions': 22,
               r'handleBlock': 9,
               r'onBalanceChanged': 11,
               r'onTransactionsFound': 11,
@@ -563,6 +564,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'tokenAddress=': 11,
               r'owner': 0,
               r'owner=': 11,
+              r'isTransactionsPreloaded': 0,
               r'contractState': 0,
               r'fieldUpdatesStream': 0,
               r'onBalanceChangedStream': 0,
@@ -571,7 +573,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'subscribe': 19,
               r'getJettonWalletDetails': 1,
               r'getJettonRootDetailsFromJettonWallet': 1,
-              r'getJettonRootDetails': 22
+              r'getJettonRootDetails': 23
             })
       ],
       null,
@@ -690,6 +692,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'currency': (dynamic instance) => instance.currency,
         r'version': (dynamic instance) => instance.version,
         r'moneyBalance': (dynamic instance) => instance.moneyBalance,
+        r'isTransactionsPreloaded': (dynamic instance) =>
+            instance.isTransactionsPreloaded,
         r'onBalanceChangedStream': (dynamic instance) =>
             instance.onBalanceChangedStream,
         r'onMoneyBalanceChangedStream': (dynamic instance) =>
@@ -837,6 +841,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
             #payload
           ]
         ],
+        const [1, 1, null],
         const [
           0,
           0,
