@@ -3399,6 +3399,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     ffi.Pointer<wire_uint_8_list> owner,
     ffi.Pointer<wire_uint_8_list> root_token_contract,
     wire_ArcTransportBoxTrait transport,
+    bool preload_transactions,
   ) {
     return _wire_subscribe__static_method__TokenWalletDartWrapper(
       port_,
@@ -3406,6 +3407,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       owner,
       root_token_contract,
       transport,
+      preload_transactions,
     );
   }
 
@@ -3417,7 +3419,8 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
                       ffi.Pointer<wire_uint_8_list>,
                       ffi.Pointer<wire_uint_8_list>,
                       ffi.Pointer<wire_uint_8_list>,
-                      wire_ArcTransportBoxTrait)>>(
+                      wire_ArcTransportBoxTrait,
+                      ffi.Bool)>>(
           'wire_subscribe__static_method__TokenWalletDartWrapper');
   late final _wire_subscribe__static_method__TokenWalletDartWrapper =
       _wire_subscribe__static_method__TokenWalletDartWrapperPtr.asFunction<
@@ -3426,7 +3429,8 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
-              wire_ArcTransportBoxTrait)>();
+              wire_ArcTransportBoxTrait,
+              bool)>();
 
   void wire_owner__method__TokenWalletDartWrapper(
     int port_,
@@ -4644,6 +4648,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
     ffi.Pointer<wire_uint_8_list> owner,
     ffi.Pointer<wire_uint_8_list> root_token_contract,
     wire_ArcTransportBoxTrait transport,
+    bool preload_transactions,
   ) {
     return _wire_subscribe__static_method__JettonWalletDartWrapper(
       port_,
@@ -4651,6 +4656,7 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
       owner,
       root_token_contract,
       transport,
+      preload_transactions,
     );
   }
 
@@ -4662,7 +4668,8 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
                       ffi.Pointer<wire_uint_8_list>,
                       ffi.Pointer<wire_uint_8_list>,
                       ffi.Pointer<wire_uint_8_list>,
-                      wire_ArcTransportBoxTrait)>>(
+                      wire_ArcTransportBoxTrait,
+                      ffi.Bool)>>(
           'wire_subscribe__static_method__JettonWalletDartWrapper');
   late final _wire_subscribe__static_method__JettonWalletDartWrapper =
       _wire_subscribe__static_method__JettonWalletDartWrapperPtr.asFunction<
@@ -4671,7 +4678,8 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>,
-              wire_ArcTransportBoxTrait)>();
+              wire_ArcTransportBoxTrait,
+              bool)>();
 
   void wire_owner__method__JettonWalletDartWrapper(
     int port_,

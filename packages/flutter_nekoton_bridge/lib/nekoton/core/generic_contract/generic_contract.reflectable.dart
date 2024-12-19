@@ -767,7 +767,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         const [
           0,
           0,
-          const [#transport, #owner, #rootTokenContract]
+          const [#transport, #owner, #rootTokenContract, #preloadTransactions]
         ],
         const [
           0,
