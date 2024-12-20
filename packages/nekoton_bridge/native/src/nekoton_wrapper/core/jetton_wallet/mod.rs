@@ -43,25 +43,12 @@ pub trait JettonWalletBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     ///
     /// # Arguments
     ///
-    /// * `amount` - The amount of tokens to be transferred.
     /// * `destination` - The address of the account that should receive the tokens.
-    /// * `remaining_gas_to` - The address where remaining gas should be sent.
-    /// * `custom_payload` - Optional payload for the transfer.
-    /// * `callback_value` - The value to be used in the callback.
-    /// * `callback_payload` - Optional payload for the callback.
     ///
     /// # Returns
     ///
     /// A JSON-encoded string representing the estimated minimum attached amount or an error.
-    async fn estimate_min_attached_amount(
-        &self,
-        amount: String,
-        destination: String,
-        remaining_gas_to: String,
-        custom_payload: Option<String>,
-        callback_value: String,
-        callback_payload: Option<String>,
-    ) -> anyhow::Result<String>;
+    async fn estimate_min_attached_amount(&self, destination: String) -> anyhow::Result<String>;
 
     /// Prepare transferring tokens from this wallet to another.
     ///
@@ -169,46 +156,12 @@ impl JettonWalletBoxTrait for JettonWalletBox {
         serde_json::to_string(&wallet.contract_state()).handle_error()
     }
 
-    async fn estimate_min_attached_amount(
-        &self,
-        amount: String,
-        destination: String,
-        remaining_gas_to: String,
-        custom_payload: Option<String>,
-        callback_value: String,
-        callback_payload: Option<String>,
-    ) -> anyhow::Result<String> {
+    async fn estimate_min_attached_amount(&self, destination: String) -> anyhow::Result<String> {
         let destination = parse_address(destination)?;
-        let remaining_gas_to = parse_address(remaining_gas_to)?;
-        let callback_value = BigUint::from_str(&callback_value).handle_error()?;
-        let amount = BigUint::from_str(&amount).handle_error()?;
-        let custom_payload = match custom_payload {
-            Some(p) => Some(
-                create_boc_or_comment_payload(&p)
-                    .handle_error()?
-                    .into_cell(),
-            ),
-            None => None,
-        };
-        let callback_payload = match callback_payload {
-            Some(p) => Some(
-                create_boc_or_comment_payload(&p)
-                    .handle_error()?
-                    .into_cell(),
-            ),
-            None => None,
-        };
 
         let wallet = self.inner_wallet.lock().await;
         let amount = wallet
-            .estimate_min_attached_amount(
-                amount,
-                destination,
-                remaining_gas_to,
-                custom_payload,
-                callback_value,
-                callback_payload,
-            )
+            .estimate_min_attached_amount(destination)
             .await
             .handle_error()?;
 

@@ -156,20 +156,10 @@ class JettonWallet extends RustToDartMirrorInterface
   /// **Returns:**
   /// - A `Future<BigInt>` that completes with the estimated minimum attached amount.
   Future<BigInt> estimateMinAttachedAmount({
-    required BigInt amount,
     required Address destination,
-    required Address remainingGasTo,
-    required BigInt callbackValue,
-    String? customPayload,
-    String? callbackPayload,
   }) async {
     final value = await wallet.estimateMinAttachedAmount(
-      amount: amount.toString(),
       destination: destination.address,
-      remainingGasTo: remainingGasTo.address,
-      customPayload: customPayload,
-      callbackValue: callbackValue.toString(),
-      callbackPayload: callbackPayload,
     );
 
     return BigInt.parse(value);

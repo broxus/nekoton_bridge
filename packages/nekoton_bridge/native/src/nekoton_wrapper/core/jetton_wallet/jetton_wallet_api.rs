@@ -68,25 +68,10 @@ impl JettonWalletDartWrapper {
         async_run!(self.inner_wallet.contract_state().await)
     }
 
-    pub fn estimate_min_attached_amount(
-        &self,
-        amount: String,
-        destination: String,
-        remaining_gas_to: String,
-        custom_payload: Option<String>,
-        callback_value: String,
-        callback_payload: Option<String>,
-    ) -> anyhow::Result<String> {
+    pub fn estimate_min_attached_amount(&self, destination: String) -> anyhow::Result<String> {
         async_run!(
             self.inner_wallet
-                .estimate_min_attached_amount(
-                    amount,
-                    destination,
-                    remaining_gas_to,
-                    custom_payload,
-                    callback_value,
-                    callback_payload,
-                )
+                .estimate_min_attached_amount(destination)
                 .await
         )
     }

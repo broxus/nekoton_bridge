@@ -730,14 +730,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         const [
           0,
           0,
-          const [
-            #amount,
-            #destination,
-            #remainingGasTo,
-            #callbackValue,
-            #customPayload,
-            #callbackPayload
-          ]
+          const [#destination]
         ],
         const [
           0,

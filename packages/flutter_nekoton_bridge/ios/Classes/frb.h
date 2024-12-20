@@ -927,12 +927,7 @@ void wire_contract_state__method__JettonWalletDartWrapper(int64_t port_,
 
 void wire_estimate_min_attached_amount__method__JettonWalletDartWrapper(int64_t port_,
                                                                         struct wire_JettonWalletDartWrapper *that,
-                                                                        struct wire_uint_8_list *amount,
-                                                                        struct wire_uint_8_list *destination,
-                                                                        struct wire_uint_8_list *remaining_gas_to,
-                                                                        struct wire_uint_8_list *custom_payload,
-                                                                        struct wire_uint_8_list *callback_value,
-                                                                        struct wire_uint_8_list *callback_payload);
+                                                                        struct wire_uint_8_list *destination);
 
 void wire_prepare_transfer__method__JettonWalletDartWrapper(int64_t port_,
                                                             struct wire_JettonWalletDartWrapper *that,

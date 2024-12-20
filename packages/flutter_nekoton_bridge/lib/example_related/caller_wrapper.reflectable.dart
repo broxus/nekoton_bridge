@@ -456,8 +456,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'instanceHash': 2,
               r'avoidCall': 2,
               r'getContractState': 2,
-              r'estimateMinAttachedAmount': 16,
-              r'prepareTransfer': 17,
+              r'estimateMinAttachedAmount': 12,
+              r'prepareTransfer': 16,
               r'refresh': 2,
               r'preloadTransactions': 14,
               r'handleBlock': 10,
@@ -529,10 +529,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'getPollingMethod': 2,
               r'getUnconfirmedTransactions': 2,
               r'getCustodians': 2,
-              r'prepareDeploy': 20,
-              r'prepareDeployWithMultipleOwners': 21,
-              r'prepareTransfer': 22,
-              r'prepareConfirmTransaction': 23,
+              r'prepareDeploy': 19,
+              r'prepareDeployWithMultipleOwners': 20,
+              r'prepareTransfer': 21,
+              r'prepareConfirmTransaction': 22,
               r'estimateFees': 8,
               r'send': 8,
               r'refresh': 2,
@@ -569,10 +569,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onStateChangedStream': 2,
               r'onTransactionsFoundStream': 2,
               r'refreshDescription': 2,
-              r'subscribe': 18,
+              r'subscribe': 17,
               r'subscribeByAddress': 7,
-              r'subscribeByExistingWallet': 19,
-              r'findExistingWallets': 24,
+              r'subscribeByExistingWallet': 18,
+              r'findExistingWallets': 23,
               r'getExistingWalletInfo': 7,
               r'getWalletCustodians': 7
             })
@@ -795,18 +795,6 @@ final _data = <r.Reflectable, r.ReflectorData>{
           0,
           0,
           const [#transport, #tokenRoot]
-        ],
-        const [
-          0,
-          0,
-          const [
-            #amount,
-            #destination,
-            #remainingGasTo,
-            #callbackValue,
-            #customPayload,
-            #callbackPayload
-          ]
         ],
         const [
           0,

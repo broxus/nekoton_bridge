@@ -546,8 +546,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'instanceHash': 0,
               r'avoidCall': 0,
               r'getContractState': 0,
-              r'estimateMinAttachedAmount': 24,
-              r'prepareTransfer': 25,
+              r'estimateMinAttachedAmount': 5,
+              r'prepareTransfer': 24,
               r'refresh': 0,
               r'preloadTransactions': 22,
               r'handleBlock': 9,
@@ -846,18 +846,6 @@ final _data = <r.Reflectable, r.ReflectorData>{
           0,
           0,
           const [#transport, #tokenRoot]
-        ],
-        const [
-          0,
-          0,
-          const [
-            #amount,
-            #destination,
-            #remainingGasTo,
-            #callbackValue,
-            #customPayload,
-            #callbackPayload
-          ]
         ],
         const [
           0,
