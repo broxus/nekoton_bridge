@@ -1,3 +1,7 @@
+## 2.0.2
+
+ - **FIX**: specify nekoton rev. ([9a60c737](https://github.com/broxus/nekoton_bridge/commit/9a60c737f5d9fd67c0787419eced008f9695d86d))
+
 ## 2.0.1
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.

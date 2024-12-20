@@ -11,6 +11,36 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 Packages with breaking changes:
 
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`nekoton_bridge` - `v2.0.2`](#nekoton_bridge---v202)
+ - [`flutter_nekoton_bridge` - `v2.0.2`](#flutter_nekoton_bridge---v202)
+ - [`flutter_nekoton_bridge_example` - `v1.18.2`](#flutter_nekoton_bridge_example---v1182)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge` - `v2.0.2`
+ - `flutter_nekoton_bridge_example` - `v1.18.2`
+
+---
+
+#### `nekoton_bridge` - `v2.0.2`
+
+ - **FIX**: specify nekoton rev. ([9a60c737](https://github.com/broxus/nekoton_bridge/commit/9a60c737f5d9fd67c0787419eced008f9695d86d))
+
+
+## 2024-12-20
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
  - [`flutter_nekoton_bridge_example` - `v1.18.1`](#flutter_nekoton_bridge_example---v1181)
 
 Packages with other changes:
