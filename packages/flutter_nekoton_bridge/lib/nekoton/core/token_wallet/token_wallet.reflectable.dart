@@ -457,7 +457,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'avoidCall': 0,
               r'getContractState': 0,
               r'estimateMinAttachedAmount': 1,
-              r'prepareTransfer': 16,
+              r'prepareTransfer': 17,
               r'refresh': 0,
               r'preloadTransactions': 3,
               r'handleBlock': 4,
@@ -480,9 +480,9 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onBalanceChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'refreshDescription': 0,
-              r'subscribe': 0,
-              r'getJettonWalletDetails': 5,
-              r'getJettonRootDetailsFromJettonWallet': 5,
+              r'subscribe': 16,
+              r'getJettonWalletDetails': 18,
+              r'getJettonRootDetailsFromJettonWallet': 18,
               r'getJettonRootDetails': 6
             }),
         r.NonGenericClassMirrorImpl(
@@ -529,10 +529,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'getPollingMethod': 0,
               r'getUnconfirmedTransactions': 0,
               r'getCustodians': 0,
-              r'prepareDeploy': 19,
-              r'prepareDeployWithMultipleOwners': 20,
-              r'prepareTransfer': 21,
-              r'prepareConfirmTransaction': 22,
+              r'prepareDeploy': 21,
+              r'prepareDeployWithMultipleOwners': 22,
+              r'prepareTransfer': 23,
+              r'prepareConfirmTransaction': 24,
               r'estimateFees': 14,
               r'send': 14,
               r'refresh': 0,
@@ -569,10 +569,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onStateChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'refreshDescription': 0,
-              r'subscribe': 17,
+              r'subscribe': 19,
               r'subscribeByAddress': 5,
-              r'subscribeByExistingWallet': 18,
-              r'findExistingWallets': 23,
+              r'subscribeByExistingWallet': 20,
+              r'findExistingWallets': 25,
               r'getExistingWalletInfo': 5,
               r'getWalletCustodians': 5
             })
@@ -804,6 +804,17 @@ final _data = <r.Reflectable, r.ReflectorData>{
           0,
           0,
           const [
+            #transport,
+            #gqlConnection,
+            #owner,
+            #rootTokenContract,
+            #preloadTransactions
+          ]
+        ],
+        const [
+          0,
+          0,
+          const [
             #amount,
             #destination,
             #remainingGasTo,
@@ -812,6 +823,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
             #callbackPayload,
             #attachedAmount
           ]
+        ],
+        const [
+          0,
+          0,
+          const [#transport, #gqlConnection, #address]
         ],
         const [
           0,

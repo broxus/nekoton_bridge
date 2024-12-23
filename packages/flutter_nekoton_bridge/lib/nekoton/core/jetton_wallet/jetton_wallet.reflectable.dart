@@ -725,7 +725,13 @@ final _data = <r.Reflectable, r.ReflectorData>{
         const [
           0,
           0,
-          const [#transport, #owner, #rootTokenContract, #preloadTransactions]
+          const [
+            #transport,
+            #gqlConnection,
+            #owner,
+            #rootTokenContract,
+            #preloadTransactions
+          ]
         ],
         const [
           0,
@@ -754,7 +760,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         const [
           0,
           0,
-          const [#transport, #address]
+          const [#transport, #gqlConnection, #address]
         ],
         const [
           0,

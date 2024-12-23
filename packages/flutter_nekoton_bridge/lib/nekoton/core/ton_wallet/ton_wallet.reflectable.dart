@@ -547,7 +547,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'avoidCall': 0,
               r'getContractState': 0,
               r'estimateMinAttachedAmount': 5,
-              r'prepareTransfer': 24,
+              r'prepareTransfer': 25,
               r'refresh': 0,
               r'preloadTransactions': 22,
               r'handleBlock': 9,
@@ -570,9 +570,9 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onBalanceChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'refreshDescription': 0,
-              r'subscribe': 19,
-              r'getJettonWalletDetails': 1,
-              r'getJettonRootDetailsFromJettonWallet': 1,
+              r'subscribe': 24,
+              r'getJettonWalletDetails': 26,
+              r'getJettonRootDetailsFromJettonWallet': 26,
               r'getJettonRootDetails': 23
             })
       ],
@@ -851,6 +851,17 @@ final _data = <r.Reflectable, r.ReflectorData>{
           0,
           0,
           const [
+            #transport,
+            #gqlConnection,
+            #owner,
+            #rootTokenContract,
+            #preloadTransactions
+          ]
+        ],
+        const [
+          0,
+          0,
+          const [
             #amount,
             #destination,
             #remainingGasTo,
@@ -859,6 +870,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
             #callbackPayload,
             #attachedAmount
           ]
+        ],
+        const [
+          0,
+          0,
+          const [#transport, #gqlConnection, #address]
         ]
       ])
 };
