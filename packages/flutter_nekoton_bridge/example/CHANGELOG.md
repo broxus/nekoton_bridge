@@ -1,3 +1,7 @@
+## 1.19.0
+
+ - **FEAT**: update `nekoton`, add jetton `update_library_cell` support;. ([69576615](https://github.com/broxus/nekoton_bridge/commit/695766159ca82faf1c255755e48bfdbd949f6798))
+
 ## 1.18.2
 
  - Update a dependency to the latest release.
