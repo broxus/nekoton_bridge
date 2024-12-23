@@ -285,14 +285,10 @@ pub async fn jetton_wallet_details(
 ) -> anyhow::Result<String> {
     let token_wallet = parse_address(address)?;
 
-    let details = get_token_wallet_details(
-        clock!().as_ref(),
-        transport,
-        gql_connection,
-        &token_wallet,
-    )
-    .await
-    .handle_error()?;
+    let details =
+        get_token_wallet_details(clock!().as_ref(), transport, gql_connection, &token_wallet)
+            .await
+            .handle_error()?;
 
     let details = (
         JettonWalletData::from(details.0),
