@@ -23,15 +23,15 @@ parking_lot = "0.12.1"
 simplelog = "0.12.0"
 log = { version = "0.4.17", features = ["kv_unstable"] }
 log-panics = { version = "2.1.0", features = ["with-backtrace"] }
-nekoton = { git = "https://github.com/broxus/nekoton.git", rev = "9d9581c", features = [
+nekoton = { git = "https://github.com/broxus/nekoton.git", branch = "feat/jetton-wallet", features = [
     "gql_transport",
     "jrpc_transport",
     "proto_transport",
     "extended_models",
 ] }
-nekoton-abi = { git = "https://github.com/broxus/nekoton.git", rev = "9d9581c" }
-nekoton-utils = { git = "https://github.com/broxus/nekoton.git", rev = "9d9581c" }
-nekoton-jetton = { git = "https://github.com/broxus/nekoton.git", rev = "9d9581c" }
+nekoton-abi = { git = "https://github.com/broxus/nekoton.git", branch = "feat/jetton-wallet" }
+nekoton-utils = { git = "https://github.com/broxus/nekoton.git", branch = "feat/jetton-wallet" }
+nekoton-jetton = { git = "https://github.com/broxus/nekoton.git", branch = "feat/jetton-wallet" }
 ton_abi = { git = "https://github.com/broxus/ton-labs-abi" }
 ton_block = { git = "https://github.com/broxus/ton-labs-block.git", features = ["venom"] }
 ton_types = { git = "https://github.com/broxus/ton-labs-types.git" }

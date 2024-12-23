@@ -1212,6 +1212,7 @@ class NekotonBridgeWasmModule implements WasmModule {
           String owner,
           String root_token_contract,
           Object transport,
+          List<dynamic> gql_connection,
           bool preload_transactions);
 
   external dynamic /* void */ wire_owner__method__JettonWalletDartWrapper(
@@ -1256,11 +1257,17 @@ class NekotonBridgeWasmModule implements WasmModule {
 
   external dynamic /* void */
       wire_get_jetton_wallet_details__static_method__JettonWalletDartWrapper(
-          NativePortType port_, Object transport, String address);
+          NativePortType port_,
+          Object transport,
+          List<dynamic> gql_connection,
+          String address);
 
   external dynamic /* void */
       wire_get_jetton_root_details_from_jetton_wallet__static_method__JettonWalletDartWrapper(
-          NativePortType port_, Object transport, String token_wallet_address);
+          NativePortType port_,
+          Object transport,
+          List<dynamic> gql_connection,
+          String token_wallet_address);
 
   external dynamic /* void */
       wire_get_jetton_root_details__static_method__JettonWalletDartWrapper(
@@ -2332,6 +2339,7 @@ class NekotonBridgeWire
           String owner,
           String root_token_contract,
           Object transport,
+          List<dynamic> gql_connection,
           bool preload_transactions) =>
       wasmModule.wire_subscribe__static_method__JettonWalletDartWrapper(
           port_,
@@ -2339,6 +2347,7 @@ class NekotonBridgeWire
           owner,
           root_token_contract,
           transport,
+          gql_connection,
           preload_transactions);
 
   void wire_owner__method__JettonWalletDartWrapper(
@@ -2400,18 +2409,22 @@ class NekotonBridgeWire
           port_, that, block);
 
   void wire_get_jetton_wallet_details__static_method__JettonWalletDartWrapper(
-          NativePortType port_, Object transport, String address) =>
+          NativePortType port_,
+          Object transport,
+          List<dynamic> gql_connection,
+          String address) =>
       wasmModule
           .wire_get_jetton_wallet_details__static_method__JettonWalletDartWrapper(
-              port_, transport, address);
+              port_, transport, gql_connection, address);
 
   void wire_get_jetton_root_details_from_jetton_wallet__static_method__JettonWalletDartWrapper(
           NativePortType port_,
           Object transport,
+          List<dynamic> gql_connection,
           String token_wallet_address) =>
       wasmModule
           .wire_get_jetton_root_details_from_jetton_wallet__static_method__JettonWalletDartWrapper(
-              port_, transport, token_wallet_address);
+              port_, transport, gql_connection, token_wallet_address);
 
   void wire_get_jetton_root_details__static_method__JettonWalletDartWrapper(
           NativePortType port_, Object transport, String token_root_address) =>

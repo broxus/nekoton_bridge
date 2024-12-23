@@ -29,6 +29,26 @@ class HttpClient implements JrpcConnectionHttpClient {
   void dispose() {}
 }
 
+class GqlHttpClient implements GqlConnectionHttpClient {
+  @override
+  Future<String> post({
+    required String endpoint,
+    required Map<String, String> headers,
+    required String data,
+  }) =>
+      Future.value(
+          '{"data":{"get_lib":"te6ccuECDwEAA9EAABoAJAEkAS4CJgL+A5wEVAVSBkoGrgcsB1EHfAeiART/APSkE/S88sgLAQIBYgIDAvjQAdDTAwFxsI5IE18DgCDXIe1E0NMD+gD6QPpA0QTTHwGEDyGCEBeNRRm6AoIQe92X3roSsfL0gEDXIfoAMBKgQBMDyMsDWPoCAc8WAc8Wye1U4PpA+kAx+gAx9AH6ADH6AAExcPg6AtMfASCCEA+KfqW6joUwNFnbPOAzBAUCASANDgHyA9M/AQH6APpAIfpEMMAA8uFN7UTQ0wP6APpA+kDRUwnHBSRxsMAAIbHyrVIrxwVQCrHy4ElRFaEgwv/yr/gqVCWQcFRgBBMVA8jLA1j6AgHPFgHPFskhyMsBE/QAEvQAywDJIPkAcHTIywLKB8v/ydAE+kD0AfoAIAYC0CKCEBeNRRm6joQyWts84DQhghBZXwe8uo6EMQHbPOAyIIIQ7tI207qOLzABgEDXIdMD0e1E0NMD+gD6QPpA0TNRQscF8uBKQDMDyMsDWPoCAc8WAc8Wye1U4GwhghDTchWMutyED/LwCAkBmCDXCwCa10vAAQHAAbDysZEw4siCEBeNRRkByx9QCgHLP1AI+gIjzxYBzxYm+gJQB88WyciAGAHLBVAEzxZw+gJAY3dQA8trzMzJRTcHALQhkXKRceL4OSBuk4EkJ5Eg4iFulDGBKHORAeJQI6gToHOBA6Nw+DygAnD4NhKgAXD4NqBzgQQJghAJZgGAcPg3oLzysASAUPsAWAPIywNY+gIBzxYBzxbJ7VQD9O1E0NMD+gD6QPpA0SNysMAC8m0H0z8BAfoAUUGgBPpA+kBTuscF+CpUZOBwVGAEExUDyMsDWPoCAc8WAc8WySHIywET9AAS9ADLAMn5AHB0yMsCygfL/8nQUAzHBRux8uBKCfoAIZJfBOMNJtcLAcAAs5MwbDPjDVUCCgsMAfLtRNDTA/oA+kD6QNEG0z8BAfoA+kD0AdFRQaFSiMcF8uBJJsL/8q/IghB73ZfeAcsfWAHLPwH6AiHPFljPFsnIgBgBywUmzxZw+gIBcVjLaszJA/g5IG6UMIEWn95xgQLycPg4AXD4NqCBGndw+DagvPKwAoBQ+wADDABgyIIQc2LQnAHLHyUByz9QBPoCWM8WWM8WyciAEAHLBSTPFlj6AgFxWMtqzMmAEfsAAHpQVKH4L6BzgQQJghAJZgGAcPg3tgly+wLIgBABywVQBc8WcPoCcAHLaoIQ1TJ22wHLH1gByz/JgQCC+wBZACADyMsDWPoCAc8WAc8Wye1UACe/2BdqJoaYH9AH0gfSBomfwVIJhAAhvFCPaiaGmB/QB9IH0gaK+Bz+s3AU"},"errors":[]}');
+
+  @override
+  Future<String> get(String endpoint) async {
+    final response = await http.get(Uri.parse(endpoint));
+    return response.body;
+  }
+
+  @override
+  void dispose() {}
+}
+
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
@@ -48,6 +68,7 @@ void main() {
 
   const jrpcSettings = JrpcNetworkSettings(endpoint: endpoint);
   late JrpcTransport transport;
+  late GqlConnection gqlConnection;
 
   setUp(() async {
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
@@ -70,6 +91,23 @@ void main() {
       group: networkGroup,
     );
     transport = await JrpcTransport.create(jrpcConnection: connection);
+    gqlConnection = await GqlConnection.create(
+      name: 'jetton-gql',
+      group: 'jetton-gql',
+      client: GqlHttpClient(),
+      settings: const GqlNetworkSettings(
+        endpoints: ['https://dton.io/graphql/graphql'],
+        latencyDetectionInterval: 60000,
+        maxLatency: 60000,
+        endpointSelectionRetryCount: 5,
+        local: false,
+      ),
+    );
+  });
+
+  tearDown(() async {
+    await transport.dispose();
+    gqlConnection.dispose();
   });
 
   group('JettonWallet test', () {
@@ -78,6 +116,7 @@ void main() {
 
       final wallet = await JettonWallet.subscribe(
         transport: transport,
+        gqlConnection: gqlConnection,
         owner: address,
         rootTokenContract: usdtTokenRoot,
       );
@@ -91,37 +130,35 @@ void main() {
       wallet.dispose();
     });
 
-    // TODO(komarov): wait for nekoton fix
-    // testWidgets('JettonWallet estimateMinAttachedAmount',
-    //     (WidgetTester tester) async {
-    //   await tester.pumpAndSettleWithTimeout();
+    testWidgets('JettonWallet estimateMinAttachedAmount',
+        (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
 
-    //   const destination = Address(
-    //     address:
-    //         '0:4ae0972605f7425d46fa368e588098aa087129fc1d91b3a5f47a18f8d45f10d3',
-    //   );
-    //   final wallet = await JettonWallet.subscribe(
-    //     transport: transport,
-    //     owner: address,
-    //     rootTokenContract: usdtTokenRoot,
-    //   );
+      const destination = Address(
+        address:
+            '0:4ae0972605f7425d46fa368e588098aa087129fc1d91b3a5f47a18f8d45f10d3',
+      );
+      final wallet = await JettonWallet.subscribe(
+        transport: transport,
+        gqlConnection: gqlConnection,
+        owner: address,
+        rootTokenContract: usdtTokenRoot,
+      );
 
-    //   final amount = await wallet.estimateMinAttachedAmount(
-    //     destination: destination,
-    //     amount: BigInt.parse('10000'),
-    //     callbackValue: BigInt.one,
-    //     remainingGasTo: address,
-    //   );
+      final amount = await wallet.estimateMinAttachedAmount(
+        destination: destination,
+      );
 
-    //   expect(amount, isNotNull);
-    //   expect(amount.isValidInt, isTrue);
-    // });
+      expect(amount, isNotNull);
+      expect(amount.isValidInt, isTrue);
+    });
 
     testWidgets('JettonWallet prepareTransfer', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await JettonWallet.subscribe(
         transport: transport,
+        gqlConnection: gqlConnection,
         owner: address,
         rootTokenContract: usdtTokenRoot,
       );
@@ -144,6 +181,7 @@ void main() {
 
       final details = await JettonWallet.getJettonWalletDetails(
         transport: transport,
+        gqlConnection: gqlConnection,
         address: tokenWallet,
       );
 
@@ -164,6 +202,7 @@ void main() {
 
       final details = await JettonWallet.getJettonRootDetailsFromJettonWallet(
         transport: transport,
+        gqlConnection: gqlConnection,
         address: tokenWallet,
       );
 
@@ -198,6 +237,7 @@ void main() {
 
       final wallet = await JettonWallet.subscribe(
         transport: transport,
+        gqlConnection: gqlConnection,
         owner: address,
         rootTokenContract: usdtTokenRoot,
       );
@@ -231,6 +271,7 @@ void main() {
 
           final wallet = await JettonWallet.subscribe(
             transport: transport,
+            gqlConnection: gqlConnection,
             owner: address,
             rootTokenContract: usdtTokenRoot,
           );
@@ -254,6 +295,7 @@ void main() {
 
       final wallet = await JettonWallet.subscribe(
         transport: transport,
+        gqlConnection: gqlConnection,
         owner: address,
         rootTokenContract: usdtTokenRoot,
         preloadTransactions: true,
@@ -278,6 +320,7 @@ void main() {
 
       final wallet = await JettonWallet.subscribe(
         transport: transport,
+        gqlConnection: gqlConnection,
         owner: address,
         rootTokenContract: usdtTokenRoot,
         preloadTransactions: false,

@@ -1352,6 +1352,7 @@ abstract class NekotonBridge {
       required String owner,
       required String rootTokenContract,
       required ArcTransportBoxTrait transport,
+      required GqlConnectionDartWrapper gqlConnection,
       required bool preloadTransactions,
       dynamic hint});
 
@@ -1455,6 +1456,7 @@ abstract class NekotonBridge {
   /// or throw error
   Future<String> getJettonWalletDetailsStaticMethodJettonWalletDartWrapper(
       {required ArcTransportBoxTrait transport,
+      required GqlConnectionDartWrapper gqlConnection,
       required String address,
       dynamic hint});
 
@@ -1469,6 +1471,7 @@ abstract class NekotonBridge {
   Future<String>
       getJettonRootDetailsFromJettonWalletStaticMethodJettonWalletDartWrapper(
           {required ArcTransportBoxTrait transport,
+          required GqlConnectionDartWrapper gqlConnection,
           required String tokenWalletAddress,
           dynamic hint});
 
@@ -2765,6 +2768,7 @@ class JettonWalletDartWrapper {
           required String owner,
           required String rootTokenContract,
           required ArcTransportBoxTrait transport,
+          required GqlConnectionDartWrapper gqlConnection,
           required bool preloadTransactions,
           dynamic hint}) =>
       bridge.subscribeStaticMethodJettonWalletDartWrapper(
@@ -2772,6 +2776,7 @@ class JettonWalletDartWrapper {
           owner: owner,
           rootTokenContract: rootTokenContract,
           transport: transport,
+          gqlConnection: gqlConnection,
           preloadTransactions: preloadTransactions,
           hint: hint);
 
@@ -2869,10 +2874,14 @@ class JettonWalletDartWrapper {
   static Future<String> getJettonWalletDetails(
           {required NekotonBridge bridge,
           required ArcTransportBoxTrait transport,
+          required GqlConnectionDartWrapper gqlConnection,
           required String address,
           dynamic hint}) =>
       bridge.getJettonWalletDetailsStaticMethodJettonWalletDartWrapper(
-          transport: transport, address: address, hint: hint);
+          transport: transport,
+          gqlConnection: gqlConnection,
+          address: address,
+          hint: hint);
 
   /// Get details about root contract by address of JettonWallet
   /// Return json-encoded list with 2 positions:
@@ -2882,11 +2891,13 @@ class JettonWalletDartWrapper {
   static Future<String> getJettonRootDetailsFromJettonWallet(
           {required NekotonBridge bridge,
           required ArcTransportBoxTrait transport,
+          required GqlConnectionDartWrapper gqlConnection,
           required String tokenWalletAddress,
           dynamic hint}) =>
       bridge
           .getJettonRootDetailsFromJettonWalletStaticMethodJettonWalletDartWrapper(
               transport: transport,
+              gqlConnection: gqlConnection,
               tokenWalletAddress: tokenWalletAddress,
               hint: hint);
 
@@ -7691,17 +7702,20 @@ class NekotonBridgeImpl implements NekotonBridge {
       required String owner,
       required String rootTokenContract,
       required ArcTransportBoxTrait transport,
+      required GqlConnectionDartWrapper gqlConnection,
       required bool preloadTransactions,
       dynamic hint}) {
     var arg0 = _platform.api2wire_String(instanceHash);
     var arg1 = _platform.api2wire_String(owner);
     var arg2 = _platform.api2wire_String(rootTokenContract);
     var arg3 = _platform.api2wire_ArcTransportBoxTrait(transport);
-    var arg4 = preloadTransactions;
+    var arg4 = _platform
+        .api2wire_box_autoadd_gql_connection_dart_wrapper(gqlConnection);
+    var arg5 = preloadTransactions;
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
           .wire_subscribe__static_method__JettonWalletDartWrapper(
-              port_, arg0, arg1, arg2, arg3, arg4),
+              port_, arg0, arg1, arg2, arg3, arg4, arg5),
       parseSuccessData: (d) => _wire2api_jetton_wallet_dart_wrapper(d),
       constMeta: kSubscribeStaticMethodJettonWalletDartWrapperConstMeta,
       argValues: [
@@ -7709,6 +7723,7 @@ class NekotonBridgeImpl implements NekotonBridge {
         owner,
         rootTokenContract,
         transport,
+        gqlConnection,
         preloadTransactions
       ],
       hint: hint,
@@ -7724,6 +7739,7 @@ class NekotonBridgeImpl implements NekotonBridge {
               "owner",
               "rootTokenContract",
               "transport",
+              "gqlConnection",
               "preloadTransactions"
             ],
           );
@@ -7958,18 +7974,21 @@ class NekotonBridgeImpl implements NekotonBridge {
 
   Future<String> getJettonWalletDetailsStaticMethodJettonWalletDartWrapper(
       {required ArcTransportBoxTrait transport,
+      required GqlConnectionDartWrapper gqlConnection,
       required String address,
       dynamic hint}) {
     var arg0 = _platform.api2wire_ArcTransportBoxTrait(transport);
-    var arg1 = _platform.api2wire_String(address);
+    var arg1 = _platform
+        .api2wire_box_autoadd_gql_connection_dart_wrapper(gqlConnection);
+    var arg2 = _platform.api2wire_String(address);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
           .wire_get_jetton_wallet_details__static_method__JettonWalletDartWrapper(
-              port_, arg0, arg1),
+              port_, arg0, arg1, arg2),
       parseSuccessData: _wire2api_String,
       constMeta:
           kGetJettonWalletDetailsStaticMethodJettonWalletDartWrapperConstMeta,
-      argValues: [transport, address],
+      argValues: [transport, gqlConnection, address],
       hint: hint,
     ));
   }
@@ -7979,24 +7998,27 @@ class NekotonBridgeImpl implements NekotonBridge {
           const FlutterRustBridgeTaskConstMeta(
             debugName:
                 "get_jetton_wallet_details__static_method__JettonWalletDartWrapper",
-            argNames: ["transport", "address"],
+            argNames: ["transport", "gqlConnection", "address"],
           );
 
   Future<String>
       getJettonRootDetailsFromJettonWalletStaticMethodJettonWalletDartWrapper(
           {required ArcTransportBoxTrait transport,
+          required GqlConnectionDartWrapper gqlConnection,
           required String tokenWalletAddress,
           dynamic hint}) {
     var arg0 = _platform.api2wire_ArcTransportBoxTrait(transport);
-    var arg1 = _platform.api2wire_String(tokenWalletAddress);
+    var arg1 = _platform
+        .api2wire_box_autoadd_gql_connection_dart_wrapper(gqlConnection);
+    var arg2 = _platform.api2wire_String(tokenWalletAddress);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
           .wire_get_jetton_root_details_from_jetton_wallet__static_method__JettonWalletDartWrapper(
-              port_, arg0, arg1),
+              port_, arg0, arg1, arg2),
       parseSuccessData: _wire2api_String,
       constMeta:
           kGetJettonRootDetailsFromJettonWalletStaticMethodJettonWalletDartWrapperConstMeta,
-      argValues: [transport, tokenWalletAddress],
+      argValues: [transport, gqlConnection, tokenWalletAddress],
       hint: hint,
     ));
   }
@@ -8006,7 +8028,7 @@ class NekotonBridgeImpl implements NekotonBridge {
           const FlutterRustBridgeTaskConstMeta(
             debugName:
                 "get_jetton_root_details_from_jetton_wallet__static_method__JettonWalletDartWrapper",
-            argNames: ["transport", "tokenWalletAddress"],
+            argNames: ["transport", "gqlConnection", "tokenWalletAddress"],
           );
 
   Future<String> getJettonRootDetailsStaticMethodJettonWalletDartWrapper(

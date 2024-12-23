@@ -14,6 +14,7 @@ use nekoton::core::jetton_wallet::{
     get_token_root_details, get_token_root_details_from_token_wallet, get_token_wallet_details,
     JettonWallet, JettonWalletSubscriptionHandler,
 };
+use nekoton::external::GqlConnection;
 use nekoton::transport::Transport;
 use nekoton_abi::create_boc_or_comment_payload;
 use nekoton_abi::num_bigint::BigUint;
@@ -101,6 +102,7 @@ impl JettonWalletBox {
     /// root_token_contract - address of contract in blockchain
     pub async fn subscribe(
         transport: Arc<dyn Transport>,
+        gql_connection: Arc<dyn GqlConnection>,
         owner: String,
         root_token_contract: String,
         handler: Arc<dyn JettonWalletSubscriptionHandler>,
@@ -112,6 +114,7 @@ impl JettonWalletBox {
         let token_wallet = JettonWallet::subscribe(
             clock!(),
             transport,
+            Some(gql_connection),
             owner,
             root_token_contract,
             handler,
@@ -277,13 +280,19 @@ impl JettonWalletBoxTrait for JettonWalletBox {
 /// or throw error
 pub async fn jetton_wallet_details(
     transport: Arc<dyn Transport>,
+    gql_connection: Arc<dyn GqlConnection>,
     address: String,
 ) -> anyhow::Result<String> {
     let token_wallet = parse_address(address)?;
 
-    let details = get_token_wallet_details(clock!().as_ref(), transport.as_ref(), &token_wallet)
-        .await
-        .handle_error()?;
+    let details = get_token_wallet_details(
+        clock!().as_ref(),
+        transport,
+        gql_connection,
+        &token_wallet,
+    )
+    .await
+    .handle_error()?;
 
     let details = (
         JettonWalletData::from(details.0),
@@ -300,13 +309,15 @@ pub async fn jetton_wallet_details(
 /// or throw error.
 pub async fn jetton_root_details_from_jetton_wallet(
     transport: Arc<dyn Transport>,
+    gql_connection: Arc<dyn GqlConnection>,
     token_wallet_address: String,
 ) -> anyhow::Result<String> {
     let token_wallet_address = parse_address(token_wallet_address)?;
 
     let details = get_token_root_details_from_token_wallet(
         clock!().as_ref(),
-        transport.as_ref(),
+        transport,
+        gql_connection,
         &token_wallet_address,
     )
     .await
