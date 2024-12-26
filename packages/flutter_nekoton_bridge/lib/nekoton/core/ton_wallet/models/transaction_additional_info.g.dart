@@ -76,3 +76,15 @@ Map<String, dynamic> _$$WalletInteractionImplToJson(
       'data': instance.data.toJson(),
       'type': instance.$type,
     };
+
+_$JettonNotifyImpl _$$JettonNotifyImplFromJson(Map<String, dynamic> json) =>
+    _$JettonNotifyImpl(
+      JettonIncomingTransfer.fromJson(json['data'] as Map<String, dynamic>),
+      $type: json['type'] as String?,
+    );
+
+Map<String, dynamic> _$$JettonNotifyImplToJson(_$JettonNotifyImpl instance) =>
+    <String, dynamic>{
+      'data': instance.data.toJson(),
+      'type': instance.$type,
+    };

@@ -27,6 +27,8 @@ TransactionAdditionalInfo _$TransactionAdditionalInfoFromJson(
       return _TokenWalletDeployed.fromJson(json);
     case 'wallet_interaction':
       return _WalletInteraction.fromJson(json);
+    case 'jetton_notify':
+      return _JettonNotify.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'type', 'TransactionAdditionalInfo',
@@ -47,6 +49,7 @@ mixin _$TransactionAdditionalInfo {
     required TResult Function(TokenWalletDeployedNotification data)
         tokenWalletDeployed,
     required TResult Function(WalletInteractionInfo data) walletInteraction,
+    required TResult Function(JettonIncomingTransfer data) jettonNotify,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,6 +62,7 @@ mixin _$TransactionAdditionalInfo {
     TResult? Function(TokenWalletDeployedNotification data)?
         tokenWalletDeployed,
     TResult? Function(WalletInteractionInfo data)? walletInteraction,
+    TResult? Function(JettonIncomingTransfer data)? jettonNotify,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +73,7 @@ mixin _$TransactionAdditionalInfo {
     TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
     TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
     TResult Function(WalletInteractionInfo data)? walletInteraction,
+    TResult Function(JettonIncomingTransfer data)? jettonNotify,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -80,6 +85,7 @@ mixin _$TransactionAdditionalInfo {
     required TResult Function(_DePoolReceiveAnswer value) dePoolReceiveAnswer,
     required TResult Function(_TokenWalletDeployed value) tokenWalletDeployed,
     required TResult Function(_WalletInteraction value) walletInteraction,
+    required TResult Function(_JettonNotify value) jettonNotify,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -89,6 +95,7 @@ mixin _$TransactionAdditionalInfo {
     TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
     TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
     TResult? Function(_WalletInteraction value)? walletInteraction,
+    TResult? Function(_JettonNotify value)? jettonNotify,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -98,6 +105,7 @@ mixin _$TransactionAdditionalInfo {
     TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
     TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
     TResult Function(_WalletInteraction value)? walletInteraction,
+    TResult Function(_JettonNotify value)? jettonNotify,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -212,6 +220,7 @@ class _$CommentImpl implements _Comment {
     required TResult Function(TokenWalletDeployedNotification data)
         tokenWalletDeployed,
     required TResult Function(WalletInteractionInfo data) walletInteraction,
+    required TResult Function(JettonIncomingTransfer data) jettonNotify,
   }) {
     return comment(data);
   }
@@ -227,6 +236,7 @@ class _$CommentImpl implements _Comment {
     TResult? Function(TokenWalletDeployedNotification data)?
         tokenWalletDeployed,
     TResult? Function(WalletInteractionInfo data)? walletInteraction,
+    TResult? Function(JettonIncomingTransfer data)? jettonNotify,
   }) {
     return comment?.call(data);
   }
@@ -240,6 +250,7 @@ class _$CommentImpl implements _Comment {
     TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
     TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
     TResult Function(WalletInteractionInfo data)? walletInteraction,
+    TResult Function(JettonIncomingTransfer data)? jettonNotify,
     required TResult orElse(),
   }) {
     if (comment != null) {
@@ -257,6 +268,7 @@ class _$CommentImpl implements _Comment {
     required TResult Function(_DePoolReceiveAnswer value) dePoolReceiveAnswer,
     required TResult Function(_TokenWalletDeployed value) tokenWalletDeployed,
     required TResult Function(_WalletInteraction value) walletInteraction,
+    required TResult Function(_JettonNotify value) jettonNotify,
   }) {
     return comment(this);
   }
@@ -269,6 +281,7 @@ class _$CommentImpl implements _Comment {
     TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
     TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
     TResult? Function(_WalletInteraction value)? walletInteraction,
+    TResult? Function(_JettonNotify value)? jettonNotify,
   }) {
     return comment?.call(this);
   }
@@ -281,6 +294,7 @@ class _$CommentImpl implements _Comment {
     TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
     TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
     TResult Function(_WalletInteraction value)? walletInteraction,
+    TResult Function(_JettonNotify value)? jettonNotify,
     required TResult orElse(),
   }) {
     if (comment != null) {
@@ -412,6 +426,7 @@ class _$DePoolOnRoundCompleteImpl implements _DePoolOnRoundComplete {
     required TResult Function(TokenWalletDeployedNotification data)
         tokenWalletDeployed,
     required TResult Function(WalletInteractionInfo data) walletInteraction,
+    required TResult Function(JettonIncomingTransfer data) jettonNotify,
   }) {
     return dePoolOnRoundComplete(data);
   }
@@ -427,6 +442,7 @@ class _$DePoolOnRoundCompleteImpl implements _DePoolOnRoundComplete {
     TResult? Function(TokenWalletDeployedNotification data)?
         tokenWalletDeployed,
     TResult? Function(WalletInteractionInfo data)? walletInteraction,
+    TResult? Function(JettonIncomingTransfer data)? jettonNotify,
   }) {
     return dePoolOnRoundComplete?.call(data);
   }
@@ -440,6 +456,7 @@ class _$DePoolOnRoundCompleteImpl implements _DePoolOnRoundComplete {
     TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
     TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
     TResult Function(WalletInteractionInfo data)? walletInteraction,
+    TResult Function(JettonIncomingTransfer data)? jettonNotify,
     required TResult orElse(),
   }) {
     if (dePoolOnRoundComplete != null) {
@@ -457,6 +474,7 @@ class _$DePoolOnRoundCompleteImpl implements _DePoolOnRoundComplete {
     required TResult Function(_DePoolReceiveAnswer value) dePoolReceiveAnswer,
     required TResult Function(_TokenWalletDeployed value) tokenWalletDeployed,
     required TResult Function(_WalletInteraction value) walletInteraction,
+    required TResult Function(_JettonNotify value) jettonNotify,
   }) {
     return dePoolOnRoundComplete(this);
   }
@@ -469,6 +487,7 @@ class _$DePoolOnRoundCompleteImpl implements _DePoolOnRoundComplete {
     TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
     TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
     TResult? Function(_WalletInteraction value)? walletInteraction,
+    TResult? Function(_JettonNotify value)? jettonNotify,
   }) {
     return dePoolOnRoundComplete?.call(this);
   }
@@ -481,6 +500,7 @@ class _$DePoolOnRoundCompleteImpl implements _DePoolOnRoundComplete {
     TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
     TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
     TResult Function(_WalletInteraction value)? walletInteraction,
+    TResult Function(_JettonNotify value)? jettonNotify,
     required TResult orElse(),
   }) {
     if (dePoolOnRoundComplete != null) {
@@ -613,6 +633,7 @@ class _$DePoolReceiveAnswerImpl implements _DePoolReceiveAnswer {
     required TResult Function(TokenWalletDeployedNotification data)
         tokenWalletDeployed,
     required TResult Function(WalletInteractionInfo data) walletInteraction,
+    required TResult Function(JettonIncomingTransfer data) jettonNotify,
   }) {
     return dePoolReceiveAnswer(data);
   }
@@ -628,6 +649,7 @@ class _$DePoolReceiveAnswerImpl implements _DePoolReceiveAnswer {
     TResult? Function(TokenWalletDeployedNotification data)?
         tokenWalletDeployed,
     TResult? Function(WalletInteractionInfo data)? walletInteraction,
+    TResult? Function(JettonIncomingTransfer data)? jettonNotify,
   }) {
     return dePoolReceiveAnswer?.call(data);
   }
@@ -641,6 +663,7 @@ class _$DePoolReceiveAnswerImpl implements _DePoolReceiveAnswer {
     TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
     TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
     TResult Function(WalletInteractionInfo data)? walletInteraction,
+    TResult Function(JettonIncomingTransfer data)? jettonNotify,
     required TResult orElse(),
   }) {
     if (dePoolReceiveAnswer != null) {
@@ -658,6 +681,7 @@ class _$DePoolReceiveAnswerImpl implements _DePoolReceiveAnswer {
     required TResult Function(_DePoolReceiveAnswer value) dePoolReceiveAnswer,
     required TResult Function(_TokenWalletDeployed value) tokenWalletDeployed,
     required TResult Function(_WalletInteraction value) walletInteraction,
+    required TResult Function(_JettonNotify value) jettonNotify,
   }) {
     return dePoolReceiveAnswer(this);
   }
@@ -670,6 +694,7 @@ class _$DePoolReceiveAnswerImpl implements _DePoolReceiveAnswer {
     TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
     TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
     TResult? Function(_WalletInteraction value)? walletInteraction,
+    TResult? Function(_JettonNotify value)? jettonNotify,
   }) {
     return dePoolReceiveAnswer?.call(this);
   }
@@ -682,6 +707,7 @@ class _$DePoolReceiveAnswerImpl implements _DePoolReceiveAnswer {
     TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
     TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
     TResult Function(_WalletInteraction value)? walletInteraction,
+    TResult Function(_JettonNotify value)? jettonNotify,
     required TResult orElse(),
   }) {
     if (dePoolReceiveAnswer != null) {
@@ -813,6 +839,7 @@ class _$TokenWalletDeployedImpl implements _TokenWalletDeployed {
     required TResult Function(TokenWalletDeployedNotification data)
         tokenWalletDeployed,
     required TResult Function(WalletInteractionInfo data) walletInteraction,
+    required TResult Function(JettonIncomingTransfer data) jettonNotify,
   }) {
     return tokenWalletDeployed(data);
   }
@@ -828,6 +855,7 @@ class _$TokenWalletDeployedImpl implements _TokenWalletDeployed {
     TResult? Function(TokenWalletDeployedNotification data)?
         tokenWalletDeployed,
     TResult? Function(WalletInteractionInfo data)? walletInteraction,
+    TResult? Function(JettonIncomingTransfer data)? jettonNotify,
   }) {
     return tokenWalletDeployed?.call(data);
   }
@@ -841,6 +869,7 @@ class _$TokenWalletDeployedImpl implements _TokenWalletDeployed {
     TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
     TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
     TResult Function(WalletInteractionInfo data)? walletInteraction,
+    TResult Function(JettonIncomingTransfer data)? jettonNotify,
     required TResult orElse(),
   }) {
     if (tokenWalletDeployed != null) {
@@ -858,6 +887,7 @@ class _$TokenWalletDeployedImpl implements _TokenWalletDeployed {
     required TResult Function(_DePoolReceiveAnswer value) dePoolReceiveAnswer,
     required TResult Function(_TokenWalletDeployed value) tokenWalletDeployed,
     required TResult Function(_WalletInteraction value) walletInteraction,
+    required TResult Function(_JettonNotify value) jettonNotify,
   }) {
     return tokenWalletDeployed(this);
   }
@@ -870,6 +900,7 @@ class _$TokenWalletDeployedImpl implements _TokenWalletDeployed {
     TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
     TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
     TResult? Function(_WalletInteraction value)? walletInteraction,
+    TResult? Function(_JettonNotify value)? jettonNotify,
   }) {
     return tokenWalletDeployed?.call(this);
   }
@@ -882,6 +913,7 @@ class _$TokenWalletDeployedImpl implements _TokenWalletDeployed {
     TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
     TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
     TResult Function(_WalletInteraction value)? walletInteraction,
+    TResult Function(_JettonNotify value)? jettonNotify,
     required TResult orElse(),
   }) {
     if (tokenWalletDeployed != null) {
@@ -1013,6 +1045,7 @@ class _$WalletInteractionImpl implements _WalletInteraction {
     required TResult Function(TokenWalletDeployedNotification data)
         tokenWalletDeployed,
     required TResult Function(WalletInteractionInfo data) walletInteraction,
+    required TResult Function(JettonIncomingTransfer data) jettonNotify,
   }) {
     return walletInteraction(data);
   }
@@ -1028,6 +1061,7 @@ class _$WalletInteractionImpl implements _WalletInteraction {
     TResult? Function(TokenWalletDeployedNotification data)?
         tokenWalletDeployed,
     TResult? Function(WalletInteractionInfo data)? walletInteraction,
+    TResult? Function(JettonIncomingTransfer data)? jettonNotify,
   }) {
     return walletInteraction?.call(data);
   }
@@ -1041,6 +1075,7 @@ class _$WalletInteractionImpl implements _WalletInteraction {
     TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
     TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
     TResult Function(WalletInteractionInfo data)? walletInteraction,
+    TResult Function(JettonIncomingTransfer data)? jettonNotify,
     required TResult orElse(),
   }) {
     if (walletInteraction != null) {
@@ -1058,6 +1093,7 @@ class _$WalletInteractionImpl implements _WalletInteraction {
     required TResult Function(_DePoolReceiveAnswer value) dePoolReceiveAnswer,
     required TResult Function(_TokenWalletDeployed value) tokenWalletDeployed,
     required TResult Function(_WalletInteraction value) walletInteraction,
+    required TResult Function(_JettonNotify value) jettonNotify,
   }) {
     return walletInteraction(this);
   }
@@ -1070,6 +1106,7 @@ class _$WalletInteractionImpl implements _WalletInteraction {
     TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
     TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
     TResult? Function(_WalletInteraction value)? walletInteraction,
+    TResult? Function(_JettonNotify value)? jettonNotify,
   }) {
     return walletInteraction?.call(this);
   }
@@ -1082,6 +1119,7 @@ class _$WalletInteractionImpl implements _WalletInteraction {
     TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
     TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
     TResult Function(_WalletInteraction value)? walletInteraction,
+    TResult Function(_JettonNotify value)? jettonNotify,
     required TResult orElse(),
   }) {
     if (walletInteraction != null) {
@@ -1112,5 +1150,209 @@ abstract class _WalletInteraction implements TransactionAdditionalInfo {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$WalletInteractionImplCopyWith<_$WalletInteractionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$JettonNotifyImplCopyWith<$Res> {
+  factory _$$JettonNotifyImplCopyWith(
+          _$JettonNotifyImpl value, $Res Function(_$JettonNotifyImpl) then) =
+      __$$JettonNotifyImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({JettonIncomingTransfer data});
+
+  $JettonIncomingTransferCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$JettonNotifyImplCopyWithImpl<$Res>
+    extends _$TransactionAdditionalInfoCopyWithImpl<$Res, _$JettonNotifyImpl>
+    implements _$$JettonNotifyImplCopyWith<$Res> {
+  __$$JettonNotifyImplCopyWithImpl(
+      _$JettonNotifyImpl _value, $Res Function(_$JettonNotifyImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$JettonNotifyImpl(
+      null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as JettonIncomingTransfer,
+    ));
+  }
+
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $JettonIncomingTransferCopyWith<$Res> get data {
+    return $JettonIncomingTransferCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$JettonNotifyImpl implements _JettonNotify {
+  const _$JettonNotifyImpl(this.data, {final String? $type})
+      : $type = $type ?? 'jetton_notify';
+
+  factory _$JettonNotifyImpl.fromJson(Map<String, dynamic> json) =>
+      _$$JettonNotifyImplFromJson(json);
+
+  @override
+  final JettonIncomingTransfer data;
+
+  @JsonKey(name: 'type')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'TransactionAdditionalInfo.jettonNotify(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$JettonNotifyImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$JettonNotifyImplCopyWith<_$JettonNotifyImpl> get copyWith =>
+      __$$JettonNotifyImplCopyWithImpl<_$JettonNotifyImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String data) comment,
+    required TResult Function(DePoolOnRoundCompleteNotification data)
+        dePoolOnRoundComplete,
+    required TResult Function(DePoolReceiveAnswerNotification data)
+        dePoolReceiveAnswer,
+    required TResult Function(TokenWalletDeployedNotification data)
+        tokenWalletDeployed,
+    required TResult Function(WalletInteractionInfo data) walletInteraction,
+    required TResult Function(JettonIncomingTransfer data) jettonNotify,
+  }) {
+    return jettonNotify(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String data)? comment,
+    TResult? Function(DePoolOnRoundCompleteNotification data)?
+        dePoolOnRoundComplete,
+    TResult? Function(DePoolReceiveAnswerNotification data)?
+        dePoolReceiveAnswer,
+    TResult? Function(TokenWalletDeployedNotification data)?
+        tokenWalletDeployed,
+    TResult? Function(WalletInteractionInfo data)? walletInteraction,
+    TResult? Function(JettonIncomingTransfer data)? jettonNotify,
+  }) {
+    return jettonNotify?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String data)? comment,
+    TResult Function(DePoolOnRoundCompleteNotification data)?
+        dePoolOnRoundComplete,
+    TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
+    TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
+    TResult Function(WalletInteractionInfo data)? walletInteraction,
+    TResult Function(JettonIncomingTransfer data)? jettonNotify,
+    required TResult orElse(),
+  }) {
+    if (jettonNotify != null) {
+      return jettonNotify(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Comment value) comment,
+    required TResult Function(_DePoolOnRoundComplete value)
+        dePoolOnRoundComplete,
+    required TResult Function(_DePoolReceiveAnswer value) dePoolReceiveAnswer,
+    required TResult Function(_TokenWalletDeployed value) tokenWalletDeployed,
+    required TResult Function(_WalletInteraction value) walletInteraction,
+    required TResult Function(_JettonNotify value) jettonNotify,
+  }) {
+    return jettonNotify(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Comment value)? comment,
+    TResult? Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
+    TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
+    TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
+    TResult? Function(_WalletInteraction value)? walletInteraction,
+    TResult? Function(_JettonNotify value)? jettonNotify,
+  }) {
+    return jettonNotify?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Comment value)? comment,
+    TResult Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
+    TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
+    TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
+    TResult Function(_WalletInteraction value)? walletInteraction,
+    TResult Function(_JettonNotify value)? jettonNotify,
+    required TResult orElse(),
+  }) {
+    if (jettonNotify != null) {
+      return jettonNotify(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$JettonNotifyImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _JettonNotify implements TransactionAdditionalInfo {
+  const factory _JettonNotify(final JettonIncomingTransfer data) =
+      _$JettonNotifyImpl;
+
+  factory _JettonNotify.fromJson(Map<String, dynamic> json) =
+      _$JettonNotifyImpl.fromJson;
+
+  @override
+  JettonIncomingTransfer get data;
+
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$JettonNotifyImplCopyWith<_$JettonNotifyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

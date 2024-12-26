@@ -1,3 +1,4 @@
+import 'package:flutter_nekoton_bridge/nekoton/core/jetton_wallet/models/jetton_incoming_transfer.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/core/ton_wallet/models/de_pool_on_round_complete_notification.dart';
 import 'package:flutter_nekoton_bridge/nekoton/core/ton_wallet/models/de_pool_receive_answer_notification.dart';
@@ -25,6 +26,9 @@ sealed class TransactionAdditionalInfo with _$TransactionAdditionalInfo {
 
   const factory TransactionAdditionalInfo.walletInteraction(
       final WalletInteractionInfo data) = _WalletInteraction;
+
+  const factory TransactionAdditionalInfo.jettonNotify(
+      final JettonIncomingTransfer data) = _JettonNotify;
 
   factory TransactionAdditionalInfo.fromJson(Map<String, dynamic> json) =>
       _$TransactionAdditionalInfoFromJson(json);
