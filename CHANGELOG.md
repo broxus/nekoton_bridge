@@ -15,6 +15,37 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_nekoton_bridge` - `v2.2.0`](#flutter_nekoton_bridge---v220)
+ - [`flutter_nekoton_bridge_example` - `v1.20.0`](#flutter_nekoton_bridge_example---v1200)
+ - [`nekoton_bridge` - `v2.2.0`](#nekoton_bridge---v220)
+
+Packages graduated to a stable release (see pre-releases prior to the stable version for changelog entries):
+
+ - `flutter_nekoton_bridge` - `v2.2.0`
+ - `flutter_nekoton_bridge_example` - `v1.20.0`
+ - `nekoton_bridge` - `v2.2.0`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.2.0`
+
+#### `flutter_nekoton_bridge_example` - `v1.20.0`
+
+#### `nekoton_bridge` - `v2.2.0`
+
+
+## 2024-12-26
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v2.2.0-dev.0`](#flutter_nekoton_bridge---v220-dev0)
  - [`flutter_nekoton_bridge_example` - `v1.20.0-dev.0`](#flutter_nekoton_bridge_example---v1200-dev0)
  - [`nekoton_bridge` - `v2.2.0-dev.0`](#nekoton_bridge---v220-dev0)
