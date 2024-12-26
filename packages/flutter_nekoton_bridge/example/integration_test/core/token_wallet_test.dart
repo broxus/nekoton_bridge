@@ -1,33 +1,10 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
-import 'package:http/http.dart' as http;
-
+import '../test_helpers.dart';
 import '../timeout_utils.dart';
-
-class HttpClient implements JrpcConnectionHttpClient {
-  @override
-  Future<String> post({
-    required String endpoint,
-    required Map<String, String> headers,
-    required String data,
-  }) async {
-    final response = await http.post(
-      Uri.parse(endpoint),
-      headers: headers,
-      body: data,
-    );
-
-    return response.body;
-  }
-
-  @override
-  void dispose() {}
-}
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
@@ -43,8 +20,8 @@ void main() {
       address:
           '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2');
 
-  const jrpcSettings = JrpcNetworkSettings(endpoint: endpoint);
-  late JrpcTransport transport;
+  const jrpcSettings = ProtoNetworkSettings(endpoint: endpoint);
+  late ProtoTransport transport;
 
   setUp(() async {
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
@@ -60,13 +37,17 @@ void main() {
 
     await initRustToDartCaller();
 
-    final connection = await JrpcConnection.create(
-      client: HttpClient(),
+    final connection = await ProtoConnection.create(
+      client: TestProtoClient(),
       settings: jrpcSettings,
       name: name,
       group: networkGroup,
     );
-    transport = await JrpcTransport.create(jrpcConnection: connection);
+    transport = await ProtoTransport.create(protoConnection: connection);
+  });
+
+  tearDown(() async {
+    await transport.dispose();
   });
 
   group('TokenWallet test', () {
@@ -277,8 +258,6 @@ void main() {
         await tester.pumpAndSettleWithTimeout();
 
         for (var i = 0; i < 10; i++) {
-          final completer = Completer<void>();
-
           final wallet = await TokenWallet.subscribe(
             transport: transport,
             owner: address,
@@ -301,7 +280,6 @@ void main() {
           expect(wallet.version, TokenWalletVersion.tip3);
 
           wallet.dispose();
-          completer.complete();
         }
       },
     );

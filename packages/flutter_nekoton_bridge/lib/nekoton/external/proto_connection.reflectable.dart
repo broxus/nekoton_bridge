@@ -483,7 +483,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'subscribe': 15,
               r'getJettonWalletDetails': 17,
               r'getJettonRootDetailsFromJettonWallet': 17,
-              r'getJettonRootDetails': 14
+              r'getJettonRootDetails': 18
             }),
         r.NonGenericClassMirrorImpl(
             r'TonWallet',
@@ -529,10 +529,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'getPollingMethod': 0,
               r'getUnconfirmedTransactions': 0,
               r'getCustodians': 0,
-              r'prepareDeploy': 20,
-              r'prepareDeployWithMultipleOwners': 21,
-              r'prepareTransfer': 22,
-              r'prepareConfirmTransaction': 23,
+              r'prepareDeploy': 21,
+              r'prepareDeployWithMultipleOwners': 22,
+              r'prepareTransfer': 23,
+              r'prepareConfirmTransaction': 24,
               r'estimateFees': 7,
               r'send': 7,
               r'refresh': 0,
@@ -569,10 +569,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onStateChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'refreshDescription': 0,
-              r'subscribe': 18,
+              r'subscribe': 19,
               r'subscribeByAddress': 6,
-              r'subscribeByExistingWallet': 19,
-              r'findExistingWallets': 24,
+              r'subscribeByExistingWallet': 20,
+              r'findExistingWallets': 25,
               r'getExistingWalletInfo': 6,
               r'getWalletCustodians': 6
             })
@@ -823,6 +823,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
           0,
           0,
           const [#transport, #gqlConnection, #address]
+        ],
+        const [
+          0,
+          0,
+          const [#transport, #gqlConnection, #tokenRoot]
         ],
         const [
           0,

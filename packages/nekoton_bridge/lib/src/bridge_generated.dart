@@ -1483,6 +1483,7 @@ abstract class NekotonBridge {
   /// or throw error.
   Future<String> getJettonRootDetailsStaticMethodJettonWalletDartWrapper(
       {required ArcTransportBoxTrait transport,
+      required GqlConnectionDartWrapper gqlConnection,
       required String tokenRootAddress,
       dynamic hint});
 
@@ -2907,10 +2908,14 @@ class JettonWalletDartWrapper {
   static Future<String> getJettonRootDetails(
           {required NekotonBridge bridge,
           required ArcTransportBoxTrait transport,
+          required GqlConnectionDartWrapper gqlConnection,
           required String tokenRootAddress,
           dynamic hint}) =>
       bridge.getJettonRootDetailsStaticMethodJettonWalletDartWrapper(
-          transport: transport, tokenRootAddress: tokenRootAddress, hint: hint);
+          transport: transport,
+          gqlConnection: gqlConnection,
+          tokenRootAddress: tokenRootAddress,
+          hint: hint);
 }
 
 ///----------------------------
@@ -8033,18 +8038,21 @@ class NekotonBridgeImpl implements NekotonBridge {
 
   Future<String> getJettonRootDetailsStaticMethodJettonWalletDartWrapper(
       {required ArcTransportBoxTrait transport,
+      required GqlConnectionDartWrapper gqlConnection,
       required String tokenRootAddress,
       dynamic hint}) {
     var arg0 = _platform.api2wire_ArcTransportBoxTrait(transport);
-    var arg1 = _platform.api2wire_String(tokenRootAddress);
+    var arg1 = _platform
+        .api2wire_box_autoadd_gql_connection_dart_wrapper(gqlConnection);
+    var arg2 = _platform.api2wire_String(tokenRootAddress);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner
           .wire_get_jetton_root_details__static_method__JettonWalletDartWrapper(
-              port_, arg0, arg1),
+              port_, arg0, arg1, arg2),
       parseSuccessData: _wire2api_String,
       constMeta:
           kGetJettonRootDetailsStaticMethodJettonWalletDartWrapperConstMeta,
-      argValues: [transport, tokenRootAddress],
+      argValues: [transport, gqlConnection, tokenRootAddress],
       hint: hint,
     ));
   }
@@ -8054,7 +8062,7 @@ class NekotonBridgeImpl implements NekotonBridge {
           const FlutterRustBridgeTaskConstMeta(
             debugName:
                 "get_jetton_root_details__static_method__JettonWalletDartWrapper",
-            argNames: ["transport", "tokenRootAddress"],
+            argNames: ["transport", "gqlConnection", "tokenRootAddress"],
           );
 
   Future<GenericContractDartWrapper>

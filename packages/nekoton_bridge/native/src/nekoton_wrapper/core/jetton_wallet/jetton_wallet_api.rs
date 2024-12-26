@@ -178,9 +178,17 @@ impl JettonWalletDartWrapper {
     /// or throw error.
     pub fn get_jetton_root_details(
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
+        gql_connection: GqlConnectionDartWrapper,
         token_root_address: String,
     ) -> anyhow::Result<String> {
-        async_run!(jetton_root_details(transport.get_transport(), token_root_address,).await)
+        async_run!(
+            jetton_root_details(
+                transport.get_transport(),
+                gql_connection.get_connection().get_connection(),
+                token_root_address,
+            )
+            .await
+        )
     }
 }
 

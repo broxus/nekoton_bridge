@@ -963,6 +963,7 @@ void wire_get_jetton_root_details_from_jetton_wallet__static_method__JettonWalle
 
 void wire_get_jetton_root_details__static_method__JettonWalletDartWrapper(int64_t port_,
                                                                           struct wire_ArcTransportBoxTrait transport,
+                                                                          struct wire_GqlConnectionDartWrapper *gql_connection,
                                                                           struct wire_uint_8_list *token_root_address);
 
 void wire_subscribe__static_method__GenericContractDartWrapper(int64_t port_,

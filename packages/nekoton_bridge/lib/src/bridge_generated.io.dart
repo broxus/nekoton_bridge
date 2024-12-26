@@ -4974,11 +4974,13 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   void wire_get_jetton_root_details__static_method__JettonWalletDartWrapper(
     int port_,
     wire_ArcTransportBoxTrait transport,
+    ffi.Pointer<wire_GqlConnectionDartWrapper> gql_connection,
     ffi.Pointer<wire_uint_8_list> token_root_address,
   ) {
     return _wire_get_jetton_root_details__static_method__JettonWalletDartWrapper(
       port_,
       transport,
+      gql_connection,
       token_root_address,
     );
   }
@@ -4986,13 +4988,19 @@ class NekotonBridgeWire implements FlutterRustBridgeWireBase {
   late final _wire_get_jetton_root_details__static_method__JettonWalletDartWrapperPtr =
       _lookup<
               ffi.NativeFunction<
-                  ffi.Void Function(ffi.Int64, wire_ArcTransportBoxTrait,
+                  ffi.Void Function(
+                      ffi.Int64,
+                      wire_ArcTransportBoxTrait,
+                      ffi.Pointer<wire_GqlConnectionDartWrapper>,
                       ffi.Pointer<wire_uint_8_list>)>>(
           'wire_get_jetton_root_details__static_method__JettonWalletDartWrapper');
   late final _wire_get_jetton_root_details__static_method__JettonWalletDartWrapper =
       _wire_get_jetton_root_details__static_method__JettonWalletDartWrapperPtr
           .asFunction<
-              void Function(int, wire_ArcTransportBoxTrait,
+              void Function(
+                  int,
+                  wire_ArcTransportBoxTrait,
+                  ffi.Pointer<wire_GqlConnectionDartWrapper>,
                   ffi.Pointer<wire_uint_8_list>)>();
 
   void wire_subscribe__static_method__GenericContractDartWrapper(

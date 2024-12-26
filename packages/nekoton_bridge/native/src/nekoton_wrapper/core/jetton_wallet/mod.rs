@@ -329,14 +329,19 @@ pub async fn jetton_root_details_from_jetton_wallet(
 /// or throw error.
 pub async fn jetton_root_details(
     transport: Arc<dyn Transport>,
+    gql_connection: Arc<dyn GqlConnection>,
     token_root_address: String,
 ) -> anyhow::Result<String> {
     let root_token_contract = parse_address(token_root_address)?;
 
-    let details =
-        get_token_root_details(clock!().as_ref(), transport.as_ref(), &root_token_contract)
-            .await
-            .handle_error()?;
+    let details = get_token_root_details(
+        clock!().as_ref(),
+        transport.as_ref(),
+        gql_connection,
+        &root_token_contract,
+    )
+    .await
+    .handle_error()?;
 
     let details = JettonRootData::from(details);
 

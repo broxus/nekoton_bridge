@@ -765,7 +765,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         const [
           0,
           0,
-          const [#transport, #tokenRoot]
+          const [#transport, #gqlConnection, #tokenRoot]
         ],
         const [1, 0, null],
         const [

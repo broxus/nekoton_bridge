@@ -1271,7 +1271,10 @@ class NekotonBridgeWasmModule implements WasmModule {
 
   external dynamic /* void */
       wire_get_jetton_root_details__static_method__JettonWalletDartWrapper(
-          NativePortType port_, Object transport, String token_root_address);
+          NativePortType port_,
+          Object transport,
+          List<dynamic> gql_connection,
+          String token_root_address);
 
   external dynamic /* void */
       wire_subscribe__static_method__GenericContractDartWrapper(
@@ -2427,10 +2430,13 @@ class NekotonBridgeWire
               port_, transport, gql_connection, token_wallet_address);
 
   void wire_get_jetton_root_details__static_method__JettonWalletDartWrapper(
-          NativePortType port_, Object transport, String token_root_address) =>
+          NativePortType port_,
+          Object transport,
+          List<dynamic> gql_connection,
+          String token_root_address) =>
       wasmModule
           .wire_get_jetton_root_details__static_method__JettonWalletDartWrapper(
-              port_, transport, token_root_address);
+              port_, transport, gql_connection, token_root_address);
 
   void wire_subscribe__static_method__GenericContractDartWrapper(
           NativePortType port_,

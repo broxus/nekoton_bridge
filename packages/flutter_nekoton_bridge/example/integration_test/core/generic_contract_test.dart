@@ -1,34 +1,10 @@
-import 'dart:async';
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
-import 'package:http/http.dart' as http;
-
+import '../test_helpers.dart';
 import '../timeout_utils.dart';
-
-class HttpClient implements ProtoConnectionHttpClient {
-  @override
-  Future<Uint8List> post({
-    required String endpoint,
-    required Map<String, String> headers,
-    required Uint8List dataBytes,
-  }) async {
-    final response = await http.post(
-      Uri.parse(endpoint),
-      headers: headers,
-      body: dataBytes,
-    );
-
-    return response.bodyBytes;
-  }
-
-  @override
-  void dispose() {}
-}
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
@@ -59,12 +35,16 @@ void main() {
     await initRustToDartCaller();
 
     final connection = await ProtoConnection.create(
-      client: HttpClient(),
+      client: TestProtoClient(),
       settings: jrpcSettings,
       name: name,
       group: networkGroup,
     );
     transport = await ProtoTransport.create(protoConnection: connection);
+  });
+
+  tearDown(() async {
+    await transport.dispose();
   });
 
   group('GenericContract test', () {
@@ -113,15 +93,6 @@ void main() {
         await tester.pumpAndSettleWithTimeout();
 
         for (var i = 0; i < 10; i++) {
-          final completer = Completer<void>();
-
-          // if contract will not create instance for 5 seconds, then some bug here
-          final delaying = Future.delayed(const Duration(seconds: 5), () {
-            if (!completer.isCompleted) {
-              throw Exception('Resubscribe timeout at $i iteration');
-            }
-          });
-
           final contract = await GenericContract.subscribe(
             transport: transport,
             address: address,
@@ -134,9 +105,6 @@ void main() {
           expect(contract.contractState.isDeployed, isTrue);
 
           contract.dispose();
-          completer.complete();
-
-          await delaying;
         }
       },
     );

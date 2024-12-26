@@ -573,7 +573,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'subscribe': 24,
               r'getJettonWalletDetails': 26,
               r'getJettonRootDetailsFromJettonWallet': 26,
-              r'getJettonRootDetails': 23
+              r'getJettonRootDetails': 27
             })
       ],
       null,
@@ -875,6 +875,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
           0,
           0,
           const [#transport, #gqlConnection, #address]
+        ],
+        const [
+          0,
+          0,
+          const [#transport, #gqlConnection, #tokenRoot]
         ]
       ])
 };

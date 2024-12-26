@@ -310,6 +310,7 @@ class JettonWallet extends RustToDartMirrorInterface
   /// or throw error.
   static Future<JettonRootData> getJettonRootDetails({
     required Transport transport,
+    required GqlConnection gqlConnection,
     required Address tokenRoot,
   }) async {
     final encoded = await transport.use(() async {
@@ -317,6 +318,7 @@ class JettonWallet extends RustToDartMirrorInterface
       return lib.getJettonRootDetailsStaticMethodJettonWalletDartWrapper(
         tokenRootAddress: tokenRoot.address,
         transport: transport.transportBox,
+        gqlConnection: gqlConnection.connection,
       );
     });
     return JettonRootData.fromJson(jsonDecode(encoded));
