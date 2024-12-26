@@ -1,3 +1,7 @@
+## 2.2.0-dev.0
+
+ - **FEAT**: update `nekoton`. ([56addc96](https://github.com/broxus/nekoton_bridge/commit/56addc96b5690f8d81fd4e5ff97bd2dc83df05f9))
+
 ## 2.1.0
 
  - **FEAT**: update `nekoton`, add jetton `update_library_cell` support;. ([69576615](https://github.com/broxus/nekoton_bridge/commit/695766159ca82faf1c255755e48bfdbd949f6798))

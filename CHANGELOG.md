@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-12-26
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.2.0-dev.0`](#flutter_nekoton_bridge---v220-dev0)
+ - [`flutter_nekoton_bridge_example` - `v1.20.0-dev.0`](#flutter_nekoton_bridge_example---v1200-dev0)
+ - [`nekoton_bridge` - `v2.2.0-dev.0`](#nekoton_bridge---v220-dev0)
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.2.0-dev.0`
+
+ - **FEAT**: update `nekoton`. ([56addc96](https://github.com/broxus/nekoton_bridge/commit/56addc96b5690f8d81fd4e5ff97bd2dc83df05f9))
+
+#### `flutter_nekoton_bridge_example` - `v1.20.0-dev.0`
+
+ - **FEAT**: update `nekoton`. ([56addc96](https://github.com/broxus/nekoton_bridge/commit/56addc96b5690f8d81fd4e5ff97bd2dc83df05f9))
+
+#### `nekoton_bridge` - `v2.2.0-dev.0`
+
+ - **FEAT**: update `nekoton`. ([56addc96](https://github.com/broxus/nekoton_bridge/commit/56addc96b5690f8d81fd4e5ff97bd2dc83df05f9))
+
+
 ## 2024-12-23
 
 ### Changes
