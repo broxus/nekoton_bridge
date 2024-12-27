@@ -357,7 +357,7 @@ class TonWallet extends RustToDartMirrorInterface
   /// May throw error.
   @override
   Future<void> refresh() async {
-    if (_isRefreshing || transport.disposed) return;
+    if (_isRefreshing || transport.disposed || avoidCall) return;
 
     try {
       _isRefreshing = true;
@@ -377,6 +377,8 @@ class TonWallet extends RustToDartMirrorInterface
   /// [fromLt] - offset for loading data, string representation of u64
   /// May throw error.
   Future<void> preloadTransactions({required String fromLt}) async {
+    if (avoidCall) return;
+
     await wallet.preloadTransactions(fromLt: fromLt);
     await _updateData();
   }
@@ -385,6 +387,8 @@ class TonWallet extends RustToDartMirrorInterface
   /// [block] - base64-encoded Block that could be got from [GqlTransport.getBlock]
   /// May throw error.
   Future<void> handleBlock({required String block}) async {
+    if (avoidCall) return;
+
     await wallet.handleBlock(block: block);
     await _updateData();
   }

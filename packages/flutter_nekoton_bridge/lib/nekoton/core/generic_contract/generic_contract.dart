@@ -187,7 +187,7 @@ class GenericContract extends RustToDartMirrorInterface
   /// May throw error.
   @override
   Future<void> refresh() async {
-    if (_isRefreshing || transport.disposed) return;
+    if (_isRefreshing || transport.disposed || avoidCall) return;
 
     try {
       _isRefreshing = true;
@@ -205,6 +205,8 @@ class GenericContract extends RustToDartMirrorInterface
   /// [fromLt] - offset for loading data, string representation of u64
   /// May throw error.
   Future<void> preloadTransactions({required String fromLt}) async {
+    if (avoidCall) return;
+
     await contract.preloadTransactions(fromLt: fromLt);
     await _updateData();
   }
