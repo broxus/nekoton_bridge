@@ -1,3 +1,7 @@
+## 2.2.1
+
+ - **FIX**: check if contract was disposed. ([18828705](https://github.com/broxus/nekoton_bridge/commit/18828705bae9d83d34fd8e6dccf01b1bd84c663c))
+
 ## 2.2.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
