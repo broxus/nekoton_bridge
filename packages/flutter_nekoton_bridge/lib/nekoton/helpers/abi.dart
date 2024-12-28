@@ -274,11 +274,11 @@ Address packAddress({
   bool isUrlSafe = true,
   bool bounceable = true,
 }) {
-  final addressString = jsonDecode(createLib().packAddress(
+  final addressString = createLib().packAddress(
     address: address.address,
     isUrlSafe: isUrlSafe,
     bounceable: bounceable,
-  )) as String;
+  );
   return Address(address: addressString);
 }
 
