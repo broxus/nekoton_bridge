@@ -1,3 +1,7 @@
+## 2.2.3
+
+ - **FIX**: force version bump. ([945da3ee](https://github.com/broxus/nekoton_bridge/commit/945da3eedf79480f890fdf645f296b54dc36c72a))
+
 ## 2.2.1
 
  - **FIX**: check if contract was disposed. ([18828705](https://github.com/broxus/nekoton_bridge/commit/18828705bae9d83d34fd8e6dccf01b1bd84c663c))
