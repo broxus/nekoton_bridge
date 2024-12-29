@@ -258,6 +258,7 @@ and you will see duplicate. Better to put it inside other files of module and im
 7) If you have problems with implementing `dyn AnyTrait` of nekoton, then you need to make a hack with
    self-wrapped trait with implemented `UnwindSafe + RefUnwindSafe`, see `UnsignedMessageBoxTrait`
 
+
 [license_badge]: https://img.shields.io/badge/license-AGPLv3-blue.svg
 [license_link]: https://opensource.org/license/agpl-v3/
 [pubdev_link]: https://pub.dev/packages/flutter_nekoton_bridge
