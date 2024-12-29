@@ -279,6 +279,7 @@ Address packAddress({
     isUrlSafe: isUrlSafe,
     bounceable: bounceable,
   );
+
   return Address(address: addressString);
 }
 
