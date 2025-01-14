@@ -62,7 +62,7 @@ void main() {
   setUp(() async {
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
     setupLogger(
-      level: LogLevel.Trace,
+      level: LogLevel.trace,
       mobileLogger: false,
       logHandler: (logEntry) => debugPrint(
         'FromLib: ${logEntry.level} ${logEntry.tag} ${logEntry.msg} (lib_time=${logEntry.timeMillis})',
@@ -73,13 +73,17 @@ void main() {
 
     await initRustToDartCaller();
 
-    final connection = await ProtoConnection.create(
+    final connection = ProtoConnection.create(
       client: TestProtoClient(),
       settings: jrpcSettings,
       name: name,
       group: networkGroup,
     );
     transport = await ProtoTransport.create(protoConnection: connection);
+  });
+
+  setUpAll(() async {
+    await NekotonBridge.init();
   });
 
   tearDown(() async {

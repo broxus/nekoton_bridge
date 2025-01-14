@@ -54,8 +54,8 @@ Pod::Spec.new do |spec|
   spec.version       = '0.0.1'
   spec.license       = { :file => '../LICENSE' }
   spec.homepage      = 'https://github.com/broxus/nekoton_bridge'
-  spec.authors       = { 'nesquikm' => 'drapolyuk@gmail.com' }
-  spec.summary       = 'iOS/macOS Flutter bindings for nekoton_bridge'
+  spec.authors       = { 'Broxus' => 'hello@broxus.com' }
+  spec.summary       = 'iOS Flutter bindings for nekoton'
 
   spec.source              = { :path => '.' }
   spec.source_files        = 'Classes/**/*'
@@ -63,5 +63,4 @@ Pod::Spec.new do |spec|
   spec.vendored_frameworks = "Frameworks/#{framework_name}"
 
   spec.ios.deployment_target = '11.0'
-  spec.osx.deployment_target = '10.14'
 end

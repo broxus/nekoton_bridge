@@ -2,7 +2,6 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'key_store_entry.freezed.dart';
-
 part 'key_store_entry.g.dart';
 
 @freezed

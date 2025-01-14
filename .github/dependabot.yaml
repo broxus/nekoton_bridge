@@ -14,6 +14,6 @@ updates:
     schedule:
       interval: daily
   - package-ecosystem: cargo
-    directory: "/packages/nekoton_bridge/native"
+    directory: "/packages/nekoton_bridge/rust"
     schedule:
       interval: daily

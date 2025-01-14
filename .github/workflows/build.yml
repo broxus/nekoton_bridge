@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.27.1'
           channel: 'stable'
           cache: true
           cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
@@ -42,8 +42,8 @@ jobs:
       - name: Build Rust code for Dart tests
         run: cargo build -r
       - name: Check Rust format
-        working-directory: ./packages/nekoton_bridge/native/src
-        run: rustfmt --check lib.rs --edition 2018
+        working-directory: ./packages/nekoton_bridge/rust/src
+        run: rustfmt --check lib.rs --edition 2021
       # TODO: update flutter & flutter-rust-bridge
       # - name: Rust code analysis
       #   run: cargo clippy -- -D warnings
@@ -99,7 +99,7 @@ jobs:
   #         xcrun simctl boot $DEVICE_ID
 
   #     - name: Build the XCFramework
-  #       run: melos run build:apple
+  #       run: melos run build:ios
   #     - name: Copy the XCFramework to the needed location
   #       run: |
   #         CURR_VERSION=nekoton_bridge-v`awk '/^version: /{print $2}' packages/nekoton_bridge/pubspec.yaml`
@@ -125,7 +125,7 @@ jobs:
   #     - uses: actions/checkout@v4
   #     - uses: subosito/flutter-action@v2
   #       with:
-  #         flutter-version: '3.24.0'
+  #         flutter-version: '3.27.1'
   #         channel: 'stable'
   #         cache: true
   #         cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}

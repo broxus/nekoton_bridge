@@ -1,0 +1,60 @@
+[package]
+name = "nekoton_bridge"
+version = "0.0.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "staticlib"]
+
+[build-dependencies]
+flutter_rust_bridge_codegen = "=2.7.0"
+anyhow = "1.0.54"
+rerun_except = "1.0.0"
+
+[dependencies]
+flutter_rust_bridge = "=2.7.0"
+lazy_static = "1.4.0"
+anyhow = "1.0.54"
+thiserror = "1.0.39"
+async-trait = "0.1.52"
+hex = "0.4.3"
+parking_lot = "0.12.1"
+simplelog = "0.12.0"
+log = { version = "0.4.17", features = ["kv_unstable"] }
+log-panics = { version = "2.1.0", features = ["with-backtrace"] }
+nekoton = { git = "https://github.com/broxus/nekoton.git", branch = "feat/jetton-wallet", features = [
+    "gql_transport",
+    "jrpc_transport",
+    "proto_transport",
+    "extended_models",
+] }
+nekoton-abi = { git = "https://github.com/broxus/nekoton.git", branch = "feat/jetton-wallet" }
+nekoton-utils = { git = "https://github.com/broxus/nekoton.git", branch = "feat/jetton-wallet" }
+nekoton-jetton = { git = "https://github.com/broxus/nekoton.git", branch = "feat/jetton-wallet" }
+ton_abi = { git = "https://github.com/broxus/ton-labs-abi" }
+ton_block = { git = "https://github.com/broxus/ton-labs-block.git", features = ["venom"] }
+ton_types = { git = "https://github.com/broxus/ton-labs-types.git" }
+ton_executor = { git = "https://github.com/broxus/ton-labs-executor" }
+
+base64 = "0.13"
+ed25519-dalek = { git = "https://github.com/broxus/ed25519-dalek.git" }
+secstr = { version = "0.5.0", features = ["serde"] }
+serde = { version = "1.0.136", features = ["derive"] }
+serde_json = "1.0.79"
+sha2 = "0.9.9"
+tokio = { version = "1.26.0", features = ["full"] }
+duplicate = "1.0.0"
+
+[dependencies.uuid]
+version = "1.3.0"
+features = [
+    "v4", # Lets you generate random UUIDs
+    "fast-rng", # Use a faster (but still sufficiently random) RNG
+    "macro-diagnostics", # Enable better diagnostics for compile-time UUIDs
+]
+
+[target.'cfg(target_os = "ios")'.dependencies]
+oslog = "0.2.0"
+
+[target.'cfg(target_os = "android")'.dependencies]
+android_logger = "0.13.0"

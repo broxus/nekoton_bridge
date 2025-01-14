@@ -1,4 +1,5 @@
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:nekoton_bridge/nekoton_bridge.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'encrypted_key_export_output.freezed.dart';

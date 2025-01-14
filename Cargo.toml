@@ -1,2 +1,2 @@
 [workspace]
-members = ["packages/nekoton_bridge/native"]
+members = ["packages/nekoton_bridge/rust"]

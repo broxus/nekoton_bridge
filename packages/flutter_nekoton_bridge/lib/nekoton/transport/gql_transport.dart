@@ -2,11 +2,12 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:nekoton_bridge/nekoton_bridge.dart' as lib;
 
 /// Implementation of jrpc transport
 class GqlTransport extends Transport {
   final GqlConnection gqlConnection;
-  late GqlTransportImpl transport;
+  late lib.GqlTransportImpl transport;
 
   GqlTransport._(this.gqlConnection);
 
@@ -20,8 +21,7 @@ class GqlTransport extends Transport {
   }) async {
     final instance = GqlTransport._(gqlConnection);
 
-    final lib = createLib();
-    instance.transport = await lib.newStaticMethodGqlTransportImpl(
+    instance.transport = lib.GqlTransportImpl(
       gqlConnection: gqlConnection.connection,
     );
 
@@ -157,7 +157,7 @@ class GqlTransport extends Transport {
   }
 
   /// Get latest block by address and return it or throw error
-  Future<LatestBlock> getLatestBlock({required Address address}) {
+  Future<lib.LatestBlock> getLatestBlock({required Address address}) {
     if (_disposed) throw TransportCallAfterDisposeError();
 
     return mutex.protectRead(
@@ -183,7 +183,7 @@ class GqlTransport extends Transport {
     return mutex.protectRead(() => transport.waitForNextBlock(
           currentBlockId: currentBlockId,
           address: address.address,
-          timeout: timeout.inMilliseconds,
+          timeout: BigInt.from(timeout.inMilliseconds),
         ));
   }
 
@@ -229,5 +229,5 @@ class GqlTransport extends Transport {
   TransportType get type => gqlConnection.type;
 
   @override
-  ArcTransportBoxTrait get transportBox => transport.innerTransport;
+  lib.ArcTransportBoxTrait get transportBox => transport.innerTransport;
 }

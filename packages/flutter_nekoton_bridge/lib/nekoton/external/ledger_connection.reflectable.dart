@@ -2,26 +2,22 @@
 // https://github.com/dart-lang/reflectable.
 import 'dart:core';
 import 'ledger_connection.dart' as prefix1;
-import 'package:flutter_nekoton_bridge/example_related/caller_test_class_wrapper.dart'
-    as prefix2;
-import 'package:flutter_nekoton_bridge/example_related/caller_wrapper.dart'
-    as prefix3;
 import 'package:flutter_nekoton_bridge/nekoton/core/generic_contract/generic_contract.dart'
-    as prefix8;
-import 'package:flutter_nekoton_bridge/nekoton/core/jetton_wallet/jetton_wallet.dart'
-    as prefix10;
-import 'package:flutter_nekoton_bridge/nekoton/core/token_wallet/token_wallet.dart'
-    as prefix9;
-import 'package:flutter_nekoton_bridge/nekoton/core/ton_wallet/ton_wallet.dart'
-    as prefix11;
-import 'package:flutter_nekoton_bridge/nekoton/external/gql_connection.dart'
-    as prefix4;
-import 'package:flutter_nekoton_bridge/nekoton/external/jrpc_connection.dart'
     as prefix6;
-import 'package:flutter_nekoton_bridge/nekoton/external/proto_connection.dart'
-    as prefix5;
-import 'package:flutter_nekoton_bridge/nekoton/external/storage.dart'
+import 'package:flutter_nekoton_bridge/nekoton/core/jetton_wallet/jetton_wallet.dart'
+    as prefix8;
+import 'package:flutter_nekoton_bridge/nekoton/core/token_wallet/token_wallet.dart'
     as prefix7;
+import 'package:flutter_nekoton_bridge/nekoton/core/ton_wallet/ton_wallet.dart'
+    as prefix9;
+import 'package:flutter_nekoton_bridge/nekoton/external/gql_connection.dart'
+    as prefix2;
+import 'package:flutter_nekoton_bridge/nekoton/external/jrpc_connection.dart'
+    as prefix4;
+import 'package:flutter_nekoton_bridge/nekoton/external/proto_connection.dart'
+    as prefix3;
+import 'package:flutter_nekoton_bridge/nekoton/external/storage.dart'
+    as prefix5;
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart' as prefix0;
 
 // ignore_for_file: camel_case_types
@@ -72,8 +68,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'create': 0
             }),
         r.NonGenericClassMirrorImpl(
-            r'CallerTestClassWrapper',
-            r'.CallerTestClassWrapper',
+            r'GqlConnection',
+            r'.GqlConnection',
             134217735,
             1,
             const prefix0.Reflector(),
@@ -81,7 +77,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
             null,
             null,
             -1,
-            {r'create': () => prefix2.CallerTestClassWrapper.create},
+            {r'create': () => prefix2.GqlConnection.create},
             {},
             {},
             -1,
@@ -98,15 +94,19 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'dispose': 0,
               r'instanceHash': 0,
               r'avoidCall': 0,
-              r'request': 1,
+              r'post': 1,
               r'initializeMirror': 0,
-              r'caller': 0,
-              r'caller=': 1,
-              r'create': 1
+              r'connection': 0,
+              r'connection=': 1,
+              r'settings': 0,
+              r'type': 0,
+              r'name': 0,
+              r'group': 0,
+              r'create': 2
             }),
         r.NonGenericClassMirrorImpl(
-            r'CallerWrapper',
-            r'.CallerWrapper',
+            r'ProtoConnection',
+            r'.ProtoConnection',
             134217735,
             2,
             const prefix0.Reflector(),
@@ -114,12 +114,9 @@ final _data = <r.Reflectable, r.ReflectorData>{
             null,
             null,
             -1,
+            {r'create': () => prefix3.ProtoConnection.create},
             {},
             {},
-            {
-              r'': (bool b) =>
-                  (caller) => b ? prefix3.CallerWrapper(caller) : null
-            },
             -1,
             -1,
             const <int>[-1],
@@ -134,17 +131,19 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'dispose': 0,
               r'instanceHash': 0,
               r'avoidCall': 0,
-              r'func0': 2,
-              r'func1': 2,
-              r'func2': 1,
-              r'test0': 1,
-              r'test1': 1,
+              r'post': 1,
               r'initializeMirror': 0,
-              r'caller': 0
+              r'connection': 0,
+              r'connection=': 1,
+              r'settings': 0,
+              r'type': 0,
+              r'name': 0,
+              r'group': 0,
+              r'create': 2
             }),
         r.NonGenericClassMirrorImpl(
-            r'GqlConnection',
-            r'.GqlConnection',
+            r'JrpcConnection',
+            r'.JrpcConnection',
             134217735,
             3,
             const prefix0.Reflector(),
@@ -152,7 +151,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
             null,
             null,
             -1,
-            {r'create': () => prefix4.GqlConnection.create},
+            {r'create': () => prefix4.JrpcConnection.create},
             {},
             {},
             -1,
@@ -177,11 +176,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'type': 0,
               r'name': 0,
               r'group': 0,
-              r'create': 3
+              r'create': 2
             }),
         r.NonGenericClassMirrorImpl(
-            r'ProtoConnection',
-            r'.ProtoConnection',
+            r'Storage',
+            r'.Storage',
             134217735,
             4,
             const prefix0.Reflector(),
@@ -189,81 +188,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
             null,
             null,
             -1,
-            {r'create': () => prefix5.ProtoConnection.create},
-            {},
-            {},
-            -1,
-            -1,
-            const <int>[-1],
-            null,
-            {
-              r'==': 1,
-              r'toString': 0,
-              r'noSuchMethod': 1,
-              r'hashCode': 0,
-              r'runtimeType': 0,
-              r'init': 0,
-              r'dispose': 0,
-              r'instanceHash': 0,
-              r'avoidCall': 0,
-              r'post': 1,
-              r'initializeMirror': 0,
-              r'connection': 0,
-              r'connection=': 1,
-              r'settings': 0,
-              r'type': 0,
-              r'name': 0,
-              r'group': 0,
-              r'create': 3
-            }),
-        r.NonGenericClassMirrorImpl(
-            r'JrpcConnection',
-            r'.JrpcConnection',
-            134217735,
-            5,
-            const prefix0.Reflector(),
-            const <int>[-1],
-            null,
-            null,
-            -1,
-            {r'create': () => prefix6.JrpcConnection.create},
-            {},
-            {},
-            -1,
-            -1,
-            const <int>[-1],
-            null,
-            {
-              r'==': 1,
-              r'toString': 0,
-              r'noSuchMethod': 1,
-              r'hashCode': 0,
-              r'runtimeType': 0,
-              r'init': 0,
-              r'dispose': 0,
-              r'instanceHash': 0,
-              r'avoidCall': 0,
-              r'post': 1,
-              r'initializeMirror': 0,
-              r'connection': 0,
-              r'connection=': 1,
-              r'settings': 0,
-              r'type': 0,
-              r'name': 0,
-              r'group': 0,
-              r'create': 3
-            }),
-        r.NonGenericClassMirrorImpl(
-            r'Storage',
-            r'.Storage',
-            134217735,
-            6,
-            const prefix0.Reflector(),
-            const <int>[-1],
-            null,
-            null,
-            -1,
-            {r'create': () => prefix7.Storage.create},
+            {r'create': () => prefix5.Storage.create},
             {},
             {},
             -1,
@@ -281,26 +206,26 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'instanceHash': 0,
               r'avoidCall': 0,
               r'get': 1,
-              r'set': 5,
-              r'setUnchecked': 5,
-              r'remove': 5,
-              r'removeUnchecked': 5,
+              r'set': 4,
+              r'setUnchecked': 4,
+              r'remove': 4,
+              r'removeUnchecked': 4,
               r'initializeMirror': 0,
               r'storage': 0,
               r'storage=': 1,
-              r'create': 4
+              r'create': 3
             }),
         r.NonGenericClassMirrorImpl(
             r'GenericContract',
             r'.GenericContract',
             134217735,
-            7,
+            5,
             const prefix0.Reflector(),
             const <int>[-1],
             null,
             null,
             -1,
-            {r'subscribe': () => prefix8.GenericContract.subscribe},
+            {r'subscribe': () => prefix6.GenericContract.subscribe},
             {},
             {},
             -1,
@@ -320,12 +245,12 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'getContractState': 0,
               r'getPendingTransactions': 0,
               r'getPollingMethod': 0,
-              r'executeTransactionLocally': 7,
-              r'estimateFees': 7,
-              r'send': 7,
+              r'executeTransactionLocally': 6,
+              r'estimateFees': 6,
+              r'send': 6,
               r'refresh': 0,
-              r'preloadTransactions': 8,
-              r'handleBlock': 9,
+              r'preloadTransactions': 7,
+              r'handleBlock': 8,
               r'onMessageSent': 1,
               r'onMessageExpired': 1,
               r'onStateChanged': 1,
@@ -345,26 +270,26 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onStateChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'refreshDescription': 0,
-              r'subscribe': 6
+              r'subscribe': 5
             }),
         r.NonGenericClassMirrorImpl(
             r'TokenWallet',
             r'.TokenWallet',
             134217735,
-            8,
+            6,
             const prefix0.Reflector(),
             const <int>[-1],
             null,
             null,
             -1,
             {
-              r'subscribe': () => prefix9.TokenWallet.subscribe,
+              r'subscribe': () => prefix7.TokenWallet.subscribe,
               r'getTokenWalletDetails': () =>
-                  prefix9.TokenWallet.getTokenWalletDetails,
+                  prefix7.TokenWallet.getTokenWalletDetails,
               r'getTokenRootDetailsFromTokenWallet': () =>
-                  prefix9.TokenWallet.getTokenRootDetailsFromTokenWallet,
+                  prefix7.TokenWallet.getTokenRootDetailsFromTokenWallet,
               r'getTokenRootDetails': () =>
-                  prefix9.TokenWallet.getTokenRootDetails
+                  prefix7.TokenWallet.getTokenRootDetails
             },
             {},
             {},
@@ -383,11 +308,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'instanceHash': 0,
               r'avoidCall': 0,
               r'getContractState': 0,
-              r'estimateMinAttachedAmount': 11,
-              r'prepareTransfer': 12,
+              r'estimateMinAttachedAmount': 10,
+              r'prepareTransfer': 11,
               r'refresh': 0,
-              r'preloadTransactions': 13,
-              r'handleBlock': 9,
+              r'preloadTransactions': 12,
+              r'handleBlock': 8,
               r'onBalanceChanged': 1,
               r'onTransactionsFound': 1,
               r'initializeMirror': 0,
@@ -415,29 +340,29 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onMoneyBalanceChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'refreshDescription': 0,
-              r'subscribe': 10,
-              r'getTokenWalletDetails': 6,
-              r'getTokenRootDetailsFromTokenWallet': 6,
-              r'getTokenRootDetails': 14
+              r'subscribe': 9,
+              r'getTokenWalletDetails': 5,
+              r'getTokenRootDetailsFromTokenWallet': 5,
+              r'getTokenRootDetails': 13
             }),
         r.NonGenericClassMirrorImpl(
             r'JettonWallet',
             r'.JettonWallet',
             134217735,
-            9,
+            7,
             const prefix0.Reflector(),
             const <int>[-1],
             null,
             null,
             -1,
             {
-              r'subscribe': () => prefix10.JettonWallet.subscribe,
+              r'subscribe': () => prefix8.JettonWallet.subscribe,
               r'getJettonWalletDetails': () =>
-                  prefix10.JettonWallet.getJettonWalletDetails,
+                  prefix8.JettonWallet.getJettonWalletDetails,
               r'getJettonRootDetailsFromJettonWallet': () =>
-                  prefix10.JettonWallet.getJettonRootDetailsFromJettonWallet,
+                  prefix8.JettonWallet.getJettonRootDetailsFromJettonWallet,
               r'getJettonRootDetails': () =>
-                  prefix10.JettonWallet.getJettonRootDetails
+                  prefix8.JettonWallet.getJettonRootDetails
             },
             {},
             {},
@@ -456,11 +381,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'instanceHash': 0,
               r'avoidCall': 0,
               r'getContractState': 0,
-              r'estimateMinAttachedAmount': 11,
-              r'prepareTransfer': 16,
+              r'estimateMinAttachedAmount': 10,
+              r'prepareTransfer': 15,
               r'refresh': 0,
-              r'preloadTransactions': 13,
-              r'handleBlock': 9,
+              r'preloadTransactions': 12,
+              r'handleBlock': 8,
               r'onBalanceChanged': 1,
               r'onTransactionsFound': 1,
               r'initializeMirror': 0,
@@ -480,33 +405,32 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onBalanceChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'refreshDescription': 0,
-              r'subscribe': 15,
-              r'getJettonWalletDetails': 17,
-              r'getJettonRootDetailsFromJettonWallet': 17,
-              r'getJettonRootDetails': 18
+              r'subscribe': 14,
+              r'getJettonWalletDetails': 16,
+              r'getJettonRootDetailsFromJettonWallet': 16,
+              r'getJettonRootDetails': 17
             }),
         r.NonGenericClassMirrorImpl(
             r'TonWallet',
             r'.TonWallet',
             134217735,
-            10,
+            8,
             const prefix0.Reflector(),
             const <int>[-1],
             null,
             null,
             -1,
             {
-              r'subscribe': () => prefix11.TonWallet.subscribe,
-              r'subscribeByAddress': () =>
-                  prefix11.TonWallet.subscribeByAddress,
+              r'subscribe': () => prefix9.TonWallet.subscribe,
+              r'subscribeByAddress': () => prefix9.TonWallet.subscribeByAddress,
               r'subscribeByExistingWallet': () =>
-                  prefix11.TonWallet.subscribeByExistingWallet,
+                  prefix9.TonWallet.subscribeByExistingWallet,
               r'findExistingWallets': () =>
-                  prefix11.TonWallet.findExistingWallets,
+                  prefix9.TonWallet.findExistingWallets,
               r'getExistingWalletInfo': () =>
-                  prefix11.TonWallet.getExistingWalletInfo,
+                  prefix9.TonWallet.getExistingWalletInfo,
               r'getWalletCustodians': () =>
-                  prefix11.TonWallet.getWalletCustodians
+                  prefix9.TonWallet.getWalletCustodians
             },
             {},
             {},
@@ -529,15 +453,15 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'getPollingMethod': 0,
               r'getUnconfirmedTransactions': 0,
               r'getCustodians': 0,
-              r'prepareDeploy': 21,
-              r'prepareDeployWithMultipleOwners': 22,
-              r'prepareTransfer': 23,
-              r'prepareConfirmTransaction': 24,
-              r'estimateFees': 7,
-              r'send': 7,
+              r'prepareDeploy': 20,
+              r'prepareDeployWithMultipleOwners': 21,
+              r'prepareTransfer': 22,
+              r'prepareConfirmTransaction': 23,
+              r'estimateFees': 6,
+              r'send': 6,
               r'refresh': 0,
-              r'preloadTransactions': 8,
-              r'handleBlock': 9,
+              r'preloadTransactions': 7,
+              r'handleBlock': 8,
               r'onMessageSent': 1,
               r'onMessageExpired': 1,
               r'onStateChanged': 1,
@@ -569,30 +493,28 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'onStateChangedStream': 0,
               r'onTransactionsFoundStream': 0,
               r'refreshDescription': 0,
-              r'subscribe': 19,
-              r'subscribeByAddress': 6,
-              r'subscribeByExistingWallet': 20,
-              r'findExistingWallets': 25,
-              r'getExistingWalletInfo': 6,
-              r'getWalletCustodians': 6
+              r'subscribe': 18,
+              r'subscribeByAddress': 5,
+              r'subscribeByExistingWallet': 19,
+              r'findExistingWallets': 24,
+              r'getExistingWalletInfo': 5,
+              r'getWalletCustodians': 5
             })
       ],
       null,
       null,
       <Type>[
         prefix1.LedgerConnection,
-        prefix2.CallerTestClassWrapper,
-        prefix3.CallerWrapper,
-        prefix4.GqlConnection,
-        prefix5.ProtoConnection,
-        prefix6.JrpcConnection,
-        prefix7.Storage,
-        prefix8.GenericContract,
-        prefix9.TokenWallet,
-        prefix10.JettonWallet,
-        prefix11.TonWallet
+        prefix2.GqlConnection,
+        prefix3.ProtoConnection,
+        prefix4.JrpcConnection,
+        prefix5.Storage,
+        prefix6.GenericContract,
+        prefix7.TokenWallet,
+        prefix8.JettonWallet,
+        prefix9.TonWallet
       ],
-      11,
+      9,
       {
         r'==': (dynamic instance) => (x) => instance == x,
         r'toString': (dynamic instance) => instance.toString,
@@ -606,13 +528,6 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'getPublicKey': (dynamic instance) => instance.getPublicKey,
         r'initializeMirror': (dynamic instance) => instance.initializeMirror,
         r'connection': (dynamic instance) => instance.connection,
-        r'request': (dynamic instance) => instance.request,
-        r'caller': (dynamic instance) => instance.caller,
-        r'func0': (dynamic instance) => instance.func0,
-        r'func1': (dynamic instance) => instance.func1,
-        r'func2': (dynamic instance) => instance.func2,
-        r'test0': (dynamic instance) => instance.test0,
-        r'test1': (dynamic instance) => instance.test1,
         r'post': (dynamic instance) => instance.post,
         r'settings': (dynamic instance) => instance.settings,
         r'type': (dynamic instance) => instance.type,
@@ -703,7 +618,6 @@ final _data = <r.Reflectable, r.ReflectorData>{
       {
         r'connection=': (dynamic instance, value) =>
             instance.connection = value,
-        r'caller=': (dynamic instance, value) => instance.caller = value,
         r'storage=': (dynamic instance, value) => instance.storage = value,
         r'contract=': (dynamic instance, value) => instance.contract = value,
         r'address=': (dynamic instance, value) => instance.address = value,
@@ -728,11 +642,6 @@ final _data = <r.Reflectable, r.ReflectorData>{
           const [#getPublicKey, #connectionSign]
         ],
         const [1, 0, null],
-        const [
-          3,
-          0,
-          const [#arg0, #arg1]
-        ],
         const [
           0,
           0,

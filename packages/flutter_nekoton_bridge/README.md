@@ -161,7 +161,7 @@ $ melos run codegen
 The library consists of dart files and platform-specific binaries. pub.dev has a hard 100 MB upload limit, so we can't distribute platform-specific (they can be really huge!) this way. So, we should use something like Github releases for distribute it. Commands below will build everything for two platforms:
 
 ```
-melos run build:apple
+melos run build:ios
 melos run build:android
 
 # or just

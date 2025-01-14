@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mutex/mutex.dart';
+import 'package:nekoton_bridge/nekoton_bridge.dart';
 
 /// Exception that is thrown when transport is disposed and user calls its methods
 class TransportCallAfterDisposeError implements Exception {}

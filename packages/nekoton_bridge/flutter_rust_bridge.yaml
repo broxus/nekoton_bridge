@@ -1,0 +1,6 @@
+rust_input: crate::api
+rust_root: rust/
+dart_output: lib/src
+c_output: ../flutter_nekoton_bridge/ios/Classes/frb.h
+dart_entrypoint_class_name: NekotonBridge
+full_dep: true

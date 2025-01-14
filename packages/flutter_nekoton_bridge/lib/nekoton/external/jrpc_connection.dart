@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
+import 'package:nekoton_bridge/nekoton_bridge.dart';
 import 'package:reflectable/mirrors.dart';
 import 'jrpc_connection.reflectable.dart';
 
@@ -34,16 +35,15 @@ class JrpcConnection extends RustToDartMirrorInterface {
     this._group,
   );
 
-  static Future<JrpcConnection> create({
+  static JrpcConnection create({
     required JrpcConnectionHttpClient client,
     required JrpcNetworkSettings settings,
     required String name,
     required String group,
-  }) async {
+  }) {
     final instance = JrpcConnection._(client, settings, name, group);
 
-    final lib = createLib();
-    instance.connection = await lib.newStaticMethodJrpcConnectionDartWrapper(
+    instance.connection = JrpcConnectionDartWrapper(
       instanceHash: instance.instanceHash,
     );
 
@@ -65,7 +65,7 @@ class JrpcConnection extends RustToDartMirrorInterface {
         data: requestData,
       );
     } catch (error) {
-      throw ErrorCode.Network;
+      throw ErrorCode.network;
     }
   }
 

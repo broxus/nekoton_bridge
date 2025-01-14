@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart'
-    as flutter_nekoton_bridge;
-import 'package:flutter_nekoton_bridge/example_related/mega_struct.dart';
+import 'package:flutter_nekoton_bridge/example_related/example_related_lib.dart';
+import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
-class CallerImpl extends flutter_nekoton_bridge.AbstractCaller {
+class CallerImpl extends AbstractCaller {
   // TODO: remove all non-integration test related things FROM here
   @override
   String func0(String string, int i, double d,
@@ -29,7 +28,7 @@ class CallerImpl extends flutter_nekoton_bridge.AbstractCaller {
   }
 
   @override
-  flutter_nekoton_bridge.DynamicValue func2(MegaStruct megaStruct) {
+  DynamicValue func2(MegaStruct megaStruct) {
     debugPrint('---------Call: func2: $megaStruct');
     final toSendDynamicValue = MegaStruct(
         name: 'Seen in Dart ${megaStruct.name}',
@@ -38,21 +37,20 @@ class CallerImpl extends flutter_nekoton_bridge.AbstractCaller {
           ...megaStruct.props,
           ...{'KeyFromDart': 'ValFromDart'},
         });
-    return flutter_nekoton_bridge.DynamicValueConvert.megaStruct(
-        toSendDynamicValue);
+    return DynamicValueConvert.megaStruct(toSendDynamicValue);
   }
   // TODO: remove all non-integration test related things TO here
 
   // These methods SHOULD NOT be removed
   // or altered because it used in integration tests
   @override
-  Future<flutter_nekoton_bridge.DynamicValue> test0(String string) async {
-    return flutter_nekoton_bridge.DynamicValue.string(string);
+  Future<DynamicValue> test0(String string) async {
+    return DynamicValue.string(string);
   }
 
   @override
-  Future<flutter_nekoton_bridge.DynamicValue> test1(String string) async {
+  Future<DynamicValue> test1(String string) async {
     await Future.delayed(const Duration(milliseconds: 1000), () {});
-    return flutter_nekoton_bridge.DynamicValue.string(string);
+    return DynamicValue.string(string);
   }
 }

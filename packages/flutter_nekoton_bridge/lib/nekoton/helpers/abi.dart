@@ -6,7 +6,7 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 /// Return true or false
 Future<bool> checkPublicKey({required PublicKey publicKey}) async {
   try {
-    return await createLib().checkPublicKey(publicKey: publicKey.publicKey);
+    return await ntCheckPublicKey(publicKey: publicKey.publicKey);
   } catch (_) {
     return false;
   }
@@ -23,7 +23,7 @@ Future<ExecutionOutput> runLocal({
   required Map<String, dynamic> input,
   required bool responsible,
 }) async {
-  final res = await createLib().runLocal(
+  final res = await ntRunLocal(
     accountStuffBoc: accountStuffBoc,
     contractAbi: contractAbi,
     method: method,
@@ -42,7 +42,7 @@ Future<(Address, String, String)> getExpectedAddress({
   PublicKey? publicKey,
   required TokensObject initData,
 }) async {
-  final res = await createLib().getExpectedAddress(
+  final res = await ntGetExpectedAddress(
     tvc: tvc,
     contractAbi: contractAbi,
     workchainId: workchainId,
@@ -58,7 +58,7 @@ Future<String> encodeInternalInput({
   required String method,
   required TokensObject input,
 }) {
-  return createLib().encodeInternalInput(
+  return ntEncodeInternalInput(
     contractAbi: contractAbi,
     method: method,
     input: jsonEncode(input),
@@ -74,7 +74,7 @@ Future<SignedMessage> createExternalMessageWithoutSignature({
   required TokensObject input,
   required Duration timeout,
 }) async {
-  final res = await createLib().createExternalMessageWithoutSignature(
+  final res = await ntCreateExternalMessageWithoutSignature(
     dst: dst.address,
     contractAbi: contractAbi,
     method: method,
@@ -96,7 +96,7 @@ Future<UnsignedMessage> createExternalMessage({
   required Duration timeout,
 }) async {
   return UnsignedMessage.create(
-    message: await createLib().createExternalMessage(
+    message: await ntCreateExternalMessage(
       dst: dst,
       contractAbi: contractAbi,
       method: method,
@@ -110,7 +110,7 @@ Future<UnsignedMessage> createExternalMessage({
 
 /// Parse payload and return KnownPayload or throws error
 Future<KnownPayload?> parseKnownPayload(String payload) async {
-  final res = await createLib().parseKnownPayload(payload: payload);
+  final res = await ntParseKnownPayload(payload: payload);
   final decoded = jsonDecode(res);
   if (decoded == null) return null;
   return KnownPayload.fromJson(decoded);
@@ -123,7 +123,7 @@ Future<DecodedInput?> decodeInput({
   MethodName? method,
   required bool internal,
 }) async {
-  final res = await createLib().decodeInput(
+  final res = await ntDecodeInput(
     messageBody: messageBody,
     contractAbi: contractAbi,
     method: method == null ? null : jsonEncode(method),
@@ -140,7 +140,7 @@ Future<DecodedEvent?> decodeEvent({
   required String contractAbi,
   MethodName? event,
 }) async {
-  final res = await createLib().decodeEvent(
+  final res = await ntDecodeEvent(
     messageBody: messageBody,
     contractAbi: contractAbi,
     event: event == null ? null : jsonEncode(event),
@@ -156,7 +156,7 @@ Future<DecodedOutput?> decodeOutput({
   required String contractAbi,
   MethodName? method,
 }) async {
-  final res = await createLib().decodeOutput(
+  final res = await ntDecodeOutput(
     messageBody: messageBody,
     contractAbi: contractAbi,
     method: method == null ? null : jsonEncode(method),
@@ -172,7 +172,7 @@ Future<DecodedTransaction?> decodeTransaction({
   required String contractAbi,
   MethodName? method,
 }) async {
-  final res = await createLib().decodeTransaction(
+  final res = await ntDecodeTransaction(
     transaction: jsonEncode(transaction),
     contractAbi: contractAbi,
     method: method == null ? null : jsonEncode(method),
@@ -187,7 +187,7 @@ Future<List<DecodedEvent>> decodeTransactionEvents({
   required Transaction transaction,
   required String contractAbi,
 }) async {
-  final res = await createLib().decodeTransactionEvents(
+  final res = await ntDecodeTransactionEvents(
     transaction: jsonEncode(transaction),
     contractAbi: contractAbi,
   );
@@ -199,7 +199,7 @@ Future<List<DecodedEvent>> decodeTransactionEvents({
 
 /// Returns hash of decoded boc or throws error
 Future<String> getBocHash(String boc) {
-  return createLib().getBocHash(boc: boc);
+  return ntGetBocHash(boc: boc);
 }
 
 /// Return (base64 tvc, hash) or throws error
@@ -208,7 +208,7 @@ Future<(String, String)> packIntoCell({
   required TokensObject tokens,
   required String? abiVersion,
 }) async {
-  final data = await createLib().packIntoCell(
+  final data = await ntPackIntoCell(
     params: jsonEncode(params),
     tokens: jsonEncode(tokens),
     version: abiVersion,
@@ -224,7 +224,7 @@ Future<TokensObject> unpackFromCell({
   required bool allowPartial,
   required String? abiVersion,
 }) async {
-  return jsonDecode(await createLib().unpackFromCell(
+  return jsonDecode(await ntUnpackFromCell(
     params: jsonEncode(params),
     boc: boc,
     allowPartial: allowPartial,
@@ -239,7 +239,7 @@ Future<String> packStdSmcAddr({
   required bool base64Url,
   required bool bounceable,
 }) {
-  return createLib().packStdSmcAddr(
+  return ntPackStdSmcAddr(
     addr: address.address,
     base64Url: base64Url,
     bounceable: bounceable,
@@ -250,22 +250,21 @@ Future<String> unpackStdSmcAddr({
   required String packed,
   required bool base64Url,
 }) {
-  return createLib().unpackStdSmcAddr(
+  return ntUnpackStdSmcAddr(
     packed: packed,
     base64Url: base64Url,
   );
 }
 
 /// Return true if address is valid, false otherwise
-Future<bool> validateAddress(Address address) {
-  return createLib().validateAddress(address: address.address);
+bool validateAddress(Address address) {
+  return ntValidateAddress(address: address.address);
 }
 
 /// Repack address and return json-encoded MsgAddressInt or throw error
-Future<Address> repackAddress(Address address) async {
+Address repackAddress(Address address) {
   final addressString =
-      jsonDecode(await createLib().repackAddress(address: address.address))
-          as String;
+      jsonDecode(ntRepackAddress(address: address.address)) as String;
   return Address(address: addressString);
 }
 
@@ -274,7 +273,7 @@ Address packAddress({
   bool isUrlSafe = true,
   bool bounceable = true,
 }) {
-  final addressString = createLib().packAddress(
+  final addressString = ntPackAddress(
     address: address.address,
     isUrlSafe: isUrlSafe,
     bounceable: bounceable,
@@ -285,12 +284,12 @@ Address packAddress({
 
 /// Extract public key from boc and return it or throw error
 Future<PublicKey> extractPublicKey(String boc) async {
-  return PublicKey(publicKey: await createLib().extractPublicKey(boc: boc));
+  return PublicKey(publicKey: await ntExtractPublicKey(boc: boc));
 }
 
 /// Convert code to base64 tvc string and return (tvc, hash) or throw error
 Future<(String, String)> codeToTvc(String code) async {
-  final data = await createLib().codeToTvc(code: code);
+  final data = await ntCodeToTvc(code: code);
 
   return (data[0], data[1]);
 }
@@ -301,7 +300,7 @@ Future<(String, String)> mergeTvc({
   required String code,
   required String data,
 }) async {
-  final res = await createLib().mergeTvc(code: code, data: data);
+  final res = await ntMergeTvc(code: code, data: data);
 
   return (res[0], res[1]);
 }
@@ -309,7 +308,7 @@ Future<(String, String)> mergeTvc({
 /// Split base64 tvc string into data and code.
 /// Return (data, code) or throw error
 Future<(String?, String?)> splitTvc(String tvc) async {
-  final res = await createLib().splitTvc(tvc: tvc);
+  final res = await ntSplitTvc(tvc: tvc);
   return (res[0], res[1]);
 }
 
@@ -318,14 +317,14 @@ Future<(String, String)> setCodeSalt({
   required String code,
   required String salt,
 }) async {
-  final data = await createLib().setCodeSalt(code: code, salt: salt);
+  final data = await ntSetCodeSalt(code: code, salt: salt);
 
   return (data[0], data[1]);
 }
 
 /// Get salt from code if possible and return base64-encoded salt or throw error
 Future<String?> getCodeSalt(String code) {
-  return createLib().getCodeSalt(code: code);
+  return ntGetCodeSalt(code: code);
 }
 
 /// None code-related exception that means that [executeLocal] finished with
@@ -358,7 +357,7 @@ Future<(String, Transaction)> executeLocal({
   BigInt? overwriteBalance,
   int? globalId,
 }) async {
-  final result = await createLib().executeLocal(
+  final result = await ntExecuteLocal(
     account: account,
     message: message,
     utime: utime.millisecondsSinceEpoch,
@@ -381,7 +380,7 @@ Future<(PublicKey?, Map<String, dynamic>)> unpackInitData({
   required String contractAbi,
   required String data,
 }) async {
-  final result = await createLib().unpackInitData(
+  final result = await ntUnpackInitData(
     contractAbi: contractAbi,
     data: data,
   );
@@ -399,7 +398,7 @@ Future<Map<String, dynamic>?> unpackContractFields({
   required String boc,
   required bool allowPartial,
 }) async {
-  final result = await createLib().unpackContractFields(
+  final result = await ntUnpackContractFields(
     contractAbi: contractAbi,
     boc: boc,
     allowPartial: allowPartial,
@@ -416,7 +415,7 @@ Future<SignedMessage> createRawExternalMessage({
   String? stateInit,
   String? body,
 }) async {
-  final result = await createLib().createRawExternalMessage(
+  final result = await ntCreateRawExternalMessage(
     dst: dst.address,
     timeout: timeout.inMilliseconds,
     body: body,
@@ -436,7 +435,7 @@ Future<String> encodeInternalMessage({
   String? body,
   bool? bounced,
 }) async {
-  return createLib().encodeInternalMessage(
+  return ntEncodeInternalMessage(
     dst: dst.address,
     src: src?.address,
     body: body,
@@ -450,12 +449,12 @@ Future<String> encodeInternalMessage({
 /// Returns base-64 encoded Account or throws error
 /// [accountStuffBoc] - [FullContractState.boc]
 Future<String> makeFullAccountBoc(String? accountStuffBoc) {
-  return createLib().makeFullAccountBoc(accountStuffBoc: accountStuffBoc);
+  return ntMakeFullAccountBoc(accountStuffBoc: accountStuffBoc);
 }
 
 /// [account] - base64-encoded boc after [executeLocal]
 Future<FullContractState?> parseFullAccountBoc(String account) async {
-  final state = await createLib().parseFullAccountBoc(account: account);
+  final state = await ntParseFullAccountBoc(account: account);
   if (state == null) return null;
 
   return FullContractState.fromJson(jsonDecode(state));
@@ -471,7 +470,7 @@ Future<StorageFeeInfo> computeStorageFee({
   required int utime,
   bool? isMasterchain,
 }) async {
-  final data = await createLib().computeStorageFee(
+  final data = await ntComputeStorageFee(
     config: config,
     account: account,
     utime: utime,

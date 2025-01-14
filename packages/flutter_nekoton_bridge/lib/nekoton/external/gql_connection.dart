@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
+import 'package:nekoton_bridge/nekoton_bridge.dart';
 import 'package:reflectable/mirrors.dart';
 import 'gql_connection.reflectable.dart';
 
@@ -40,16 +41,15 @@ class GqlConnection extends RustToDartMirrorInterface {
     this._group,
   );
 
-  static Future<GqlConnection> create({
+  static GqlConnection create({
     required GqlConnectionHttpClient client,
     required GqlNetworkSettings settings,
     required String name,
     required String group,
-  }) async {
+  }) {
     final instance = GqlConnection._(client, settings, name, group);
 
-    final lib = createLib();
-    instance.connection = await lib.newStaticMethodGqlConnectionDartWrapper(
+    instance.connection = GqlConnectionDartWrapper(
       instanceHash: instance.instanceHash,
       isLocal: settings.local,
     );
@@ -80,7 +80,7 @@ class GqlConnection extends RustToDartMirrorInterface {
         data: requestData,
       );
     } catch (error) {
-      throw ErrorCode.Network;
+      throw ErrorCode.network;
     }
   }
 
@@ -89,7 +89,7 @@ class GqlConnection extends RustToDartMirrorInterface {
 
     _cachedEndpoint = await _selectQueryingEndpoint().timeout(
       Duration(milliseconds: settings.latencyDetectionInterval),
-      onTimeout: () => throw ErrorCode.Network,
+      onTimeout: () => throw ErrorCode.network,
     );
     return _cachedEndpoint!;
   }
@@ -125,7 +125,7 @@ class GqlConnection extends RustToDartMirrorInterface {
       }
     }
 
-    throw ErrorCode.Network;
+    throw ErrorCode.network;
   }
 
   Future<int> _checkLatency(String endpoint) async {

@@ -77,7 +77,7 @@ void main() {
     storageMethods = MockedStorageMethods();
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
     setupLogger(
-      level: LogLevel.Trace,
+      level: LogLevel.trace,
       mobileLogger: false,
       logHandler: (logEntry) => debugPrint(
         'FromLib: ${logEntry.level} ${logEntry.tag} ${logEntry.msg} (lib_time=${logEntry.timeMillis})',
@@ -87,6 +87,10 @@ void main() {
     runApp(Container());
 
     await initRustToDartCaller();
+  });
+
+  setUpAll(() async {
+    await NekotonBridge.init();
   });
 
   group('KeyStore test', () {

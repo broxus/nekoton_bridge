@@ -5,21 +5,21 @@ homepage: https://github.com/broxus/nekoton_bridge.git
 repository: https://github.com/broxus/nekoton_bridge.git
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: '>=3.4.0 <4.0.0'
 
 dev_dependencies:
   ffigen: ^8.0.2
-  lints: ^4.0.0
+  lints: ^5.1.0
   test: ^1.25.8
   freezed: ^2.5.7
   build_runner: ^2.4.13
 
 dependencies:
   ffi: ^2.1.3
-  flutter_rust_bridge: 1.78.0
+  flutter_rust_bridge: ^2.7.0
   freezed_annotation: ^2.4.4
   basic_utils: ^5.7.0
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
   money2_fixer: ^2.0.0
   money2: ^5.2.1
   meta: ^1.15.0

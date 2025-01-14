@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:nekoton_bridge/nekoton_bridge.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/mirrors.dart';
 import 'package:rxdart/rxdart.dart';
@@ -78,8 +79,7 @@ class TokenWallet extends RustToDartMirrorInterface
     final instance = TokenWallet._(transport, rootTokenContract);
 
     return transport.use(() async {
-      final lib = createLib();
-      instance.wallet = await lib.subscribeStaticMethodTokenWalletDartWrapper(
+      instance.wallet = await TokenWalletDartWrapper.subscribe(
         instanceHash: instance.instanceHash,
         transport: transport.transportBox,
         rootTokenContract: rootTokenContract.address,
@@ -278,8 +278,7 @@ class TokenWallet extends RustToDartMirrorInterface
     required Address address,
   }) async {
     final encoded = await transport.use(() async {
-      final lib = createLib();
-      return lib.getTokenWalletDetailsStaticMethodTokenWalletDartWrapper(
+      return TokenWalletDartWrapper.getTokenWalletDetails(
         address: address.address,
         transport: transport.transportBox,
       );
@@ -301,9 +300,7 @@ class TokenWallet extends RustToDartMirrorInterface
     required Address address,
   }) async {
     final encoded = await transport.use(() async {
-      final lib = createLib();
-      return lib
-          .getTokenRootDetailsFromTokenWalletStaticMethodTokenWalletDartWrapper(
+      return TokenWalletDartWrapper.getTokenRootDetailsFromTokenWallet(
         tokenWalletAddress: address.address,
         transport: transport.transportBox,
       );
@@ -324,8 +321,7 @@ class TokenWallet extends RustToDartMirrorInterface
     required Address tokenRoot,
   }) async {
     final encoded = await transport.use(() async {
-      final lib = createLib();
-      return lib.getTokenRootDetailsStaticMethodTokenWalletDartWrapper(
+      return TokenWalletDartWrapper.getTokenRootDetails(
         tokenRootAddress: tokenRoot.address,
         transport: transport.transportBox,
       );

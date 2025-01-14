@@ -64,10 +64,10 @@ void main() {
     local: false,
   );
 
-  setUp(() {
+  setUp(() async {
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
     setupLogger(
-      level: LogLevel.Trace,
+      level: LogLevel.trace,
       mobileLogger: false,
       logHandler: (logEntry) => debugPrint(
         'FromLib: ${logEntry.level} ${logEntry.tag} ${logEntry.msg} (lib_time=${logEntry.timeMillis})',
@@ -77,6 +77,10 @@ void main() {
     runApp(Container());
   });
 
+  setUpAll(() async {
+    await NekotonBridge.init();
+  });
+
   // TODO(nesquikm): it's not clear which test is causing flaky behavior
   group('GqlTransport tests', () {
     testWidgets('Create GqlTransport', (WidgetTester tester) async {
@@ -84,7 +88,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
         name: name,
@@ -100,7 +104,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
         name: name,
@@ -118,7 +122,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
         name: name,
@@ -139,7 +143,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
         name: name,
@@ -161,7 +165,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
         name: name,
@@ -188,7 +192,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
         name: name,
@@ -222,7 +226,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
         name: name,
@@ -246,7 +250,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
         name: name,
@@ -268,7 +272,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
         name: name,
@@ -293,7 +297,7 @@ void main() {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
         name: name,
@@ -309,7 +313,7 @@ void main() {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
         name: name,
@@ -328,7 +332,7 @@ void main() {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
-      final connection = await GqlConnection.create(
+      final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
         name: name,

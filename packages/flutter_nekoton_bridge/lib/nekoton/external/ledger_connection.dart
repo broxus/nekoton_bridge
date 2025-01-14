@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
+import 'package:nekoton_bridge/nekoton_bridge.dart';
 import 'package:reflectable/mirrors.dart';
 import 'ledger_connection.reflectable.dart';
 
@@ -28,14 +29,13 @@ class LedgerConnection extends RustToDartMirrorInterface {
     this._connectionSign,
   );
 
-  static Future<LedgerConnection> create({
+  static LedgerConnection create({
     required LedgerConnectionGetPublicKey getPublicKey,
     required LedgerConnectionSign connectionSign,
-  }) async {
+  }) {
     final instance = LedgerConnection._(getPublicKey, connectionSign);
 
-    final lib = createLib();
-    instance.connection = await lib.newStaticMethodLedgerConnectionDartWrapper(
+    instance.connection = LedgerConnectionDartWrapper(
       instanceHash: instance.instanceHash,
     );
 
@@ -47,7 +47,7 @@ class LedgerConnection extends RustToDartMirrorInterface {
     try {
       return await _getPublicKey(accountId);
     } catch (error) {
-      throw ErrorCode.Generic;
+      throw ErrorCode.generic;
     }
   }
 
