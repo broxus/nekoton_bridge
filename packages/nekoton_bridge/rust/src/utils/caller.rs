@@ -1,5 +1,6 @@
 #![allow(dead_code, unused_must_use)]
 
+use flutter_rust_bridge::frb;
 use std::{
     collections::HashMap,
     sync::{
@@ -7,7 +8,6 @@ use std::{
         Mutex,
     },
 };
-use flutter_rust_bridge::frb;
 use thiserror::Error;
 
 use lazy_static::lazy_static;

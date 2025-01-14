@@ -46,10 +46,7 @@ pub fn test_caller_call_test0_async(string: String, need_result: bool) -> caller
 }
 
 #[frb(sync)]
-pub fn test_caller_call_test0_sync(
-    string: String,
-    need_result: bool,
-) -> caller::DynamicValue {
+pub fn test_caller_call_test0_sync(string: String, need_result: bool) -> caller::DynamicValue {
     info!("test_caller_call_test0_sync {string}");
     let stub = caller::DartCallStub {
         instance_hash: String::from("0"),

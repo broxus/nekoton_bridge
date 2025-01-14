@@ -535,9 +535,7 @@ pub fn nt_validate_address(address: String) -> bool {
 /// Repack address and return json-encoded MsgAddressInt or throw error
 #[frb(sync)]
 pub fn nt_repack_address(address: String) -> String {
-    let address = nekoton_utils::repack_address(&address)
-        .unwrap()
-        .to_string();
+    let address = nekoton_utils::repack_address(&address).unwrap().to_string();
 
     serde_json::to_string(&address).unwrap()
 }
@@ -708,7 +706,10 @@ pub fn nt_execute_local(
 
 /// Unpack data by contract.
 /// Returns [option publicKey, json-encoded Map<String, Token>] or throw error
-pub fn nt_unpack_init_data(contract_abi: String, data: String) -> anyhow::Result<Vec<Option<String>>> {
+pub fn nt_unpack_init_data(
+    contract_abi: String,
+    data: String,
+) -> anyhow::Result<Vec<Option<String>>> {
     type UnpackedData = (Option<ed25519_dalek::PublicKey>, Vec<ton_abi::Token>);
 
     fn unpack_init_data_impl(

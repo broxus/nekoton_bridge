@@ -159,7 +159,7 @@ void main() {
       );
 
       final contract = await transport.getContractState(stEverContractVault);
-      final repacked = await repackAddress(stEverContractVault);
+      final repacked = repackAddress(stEverContractVault);
 
       final message = await wallet.prepareTransfer(
         contractState: contract,
@@ -222,7 +222,7 @@ void main() {
       );
 
       final contract = await transport.getContractState(stEverContractVault);
-      final repacked = await repackAddress(stEverContractVault);
+      final repacked = repackAddress(stEverContractVault);
 
       final message = await wallet.prepareTransfer(
         contractState: contract,

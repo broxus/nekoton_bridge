@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
-import 'package:nekoton_bridge/nekoton_bridge.dart';
 
 /// Wrapper above nekoton's UnsignedMessage
 class UnsignedMessage {

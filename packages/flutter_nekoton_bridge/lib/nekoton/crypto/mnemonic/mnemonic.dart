@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
-import 'package:nekoton_bridge/nekoton_bridge.dart';
 
 /// Generate seed phrase by specified mnemonic type
 Future<GeneratedKeyG> generateKey({required MnemonicType accountType}) {

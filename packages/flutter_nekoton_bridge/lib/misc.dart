@@ -2,7 +2,6 @@ import 'dart:typed_data';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart' hide Symbol;
 import 'package:flutter_nekoton_bridge/log_entry.dart';
-import 'package:nekoton_bridge/nekoton_bridge.dart';
 
 void Function(LogEntry logEntry)? _logHandler;
 const String _tag = 'flutter_nekoton_bridge';

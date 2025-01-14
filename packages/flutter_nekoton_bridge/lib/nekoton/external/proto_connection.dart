@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:typed_data';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
-import 'package:nekoton_bridge/nekoton_bridge.dart';
 import 'package:reflectable/mirrors.dart';
 import 'proto_connection.reflectable.dart';
 
