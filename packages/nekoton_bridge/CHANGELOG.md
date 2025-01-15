@@ -1,3 +1,7 @@
+## 2.3.0-dev.0
+
+ - **FEAT**: update `flutter_rust_bridge`. ([017a2403](https://github.com/broxus/nekoton_bridge/commit/017a2403d247c1eab81a7af3f34ccf04dcf3a22b))
+
 ## 2.2.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
