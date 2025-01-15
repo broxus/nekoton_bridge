@@ -5,7 +5,7 @@ homepage: https://github.com/broxus/nekoton_bridge.git
 repository: https://github.com/broxus/nekoton_bridge.git
 
 environment:
-  sdk: '>=3.4.0 <4.0.0'
+  sdk: '>=3.6.0 <4.0.0'
 
 dev_dependencies:
   ffigen: ^8.0.2
