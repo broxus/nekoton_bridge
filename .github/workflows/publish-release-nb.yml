@@ -1,4 +1,4 @@
-name: Publish Release(s)
+name: Publish NB Release
 
 on:
   push:
