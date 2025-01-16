@@ -263,13 +263,12 @@ bool validateAddress(Address address) {
 
 /// Repack address and return json-encoded MsgAddressInt or throw error
 Address repackAddress(Address address) {
-  final addressString =
-      jsonDecode(ntRepackAddress(address: address.address)) as String;
+  final addressString = ntRepackAddress(address: address.address);
   return Address(address: addressString);
 }
 
-Address packAddress({
-  required Address address,
+Address packAddress(
+  Address address, {
   bool isUrlSafe = true,
   bool bounceable = true,
 }) {

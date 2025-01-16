@@ -535,9 +535,7 @@ pub fn nt_validate_address(address: String) -> bool {
 /// Repack address and return json-encoded MsgAddressInt or throw error
 #[frb(sync)]
 pub fn nt_repack_address(address: String) -> String {
-    let address = nekoton_utils::repack_address(&address).unwrap().to_string();
-
-    serde_json::to_string(&address).unwrap()
+    nekoton_utils::repack_address(&address).unwrap().to_string()
 }
 
 #[frb(sync)]
