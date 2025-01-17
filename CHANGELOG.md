@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-01-16
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.3.0-dev.1`](#flutter_nekoton_bridge---v230-dev1)
+ - [`flutter_nekoton_bridge_example` - `v1.21.0-dev.1`](#flutter_nekoton_bridge_example---v1210-dev1)
+ - [`nekoton_bridge` - `v2.3.0-dev.1`](#nekoton_bridge---v230-dev1)
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.3.0-dev.1`
+
+ - **FEAT**: enhance Address model with new methods and integration tests. ([9e2bf7e7](https://github.com/broxus/nekoton_bridge/commit/9e2bf7e7ca55b141c6563e11c9e9a6a5f6e66d7c))
+
+#### `flutter_nekoton_bridge_example` - `v1.21.0-dev.1`
+
+ - **FEAT**: enhance Address model with new methods and integration tests. ([9e2bf7e7](https://github.com/broxus/nekoton_bridge/commit/9e2bf7e7ca55b141c6563e11c9e9a6a5f6e66d7c))
+
+#### `nekoton_bridge` - `v2.3.0-dev.1`
+
+ - **FEAT**: enhance Address model with new methods and integration tests. ([9e2bf7e7](https://github.com/broxus/nekoton_bridge/commit/9e2bf7e7ca55b141c6563e11c9e9a6a5f6e66d7c))
+
+
 ## 2025-01-15
 
 ### Changes
