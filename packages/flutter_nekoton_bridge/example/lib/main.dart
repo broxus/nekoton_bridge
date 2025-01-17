@@ -1,17 +1,14 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_nekoton_bridge/example_related/caller_test_class_wrapper.dart';
-import 'dart:async';
+import 'package:flutter_nekoton_bridge/example_related/example_related_lib.dart';
+import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
-import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart'
-    as flutter_nekoton_bridge;
-
-import 'package:flutter_nekoton_bridge/example_related/caller_wrapper.dart'
-    as caller;
 import 'caller_impl.dart';
 
-void main() {
+Future<void> main() async {
+  await NekotonBridge.init();
   runApp(const MyApp());
 }
 
@@ -30,12 +27,12 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    sumResult = flutter_nekoton_bridge.simpleAdderSync(1, 2);
-    sumAsyncResult = flutter_nekoton_bridge.simpleAdder(3, 4);
+    sumResult = simpleAdderSync(a: 1, b: 2);
+    sumAsyncResult = simpleAdder(a: 3, b: 4);
 
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
-    flutter_nekoton_bridge.setupLogger(
-      level: flutter_nekoton_bridge.LogLevel.Trace,
+    setupLogger(
+      level: LogLevel.trace,
       mobileLogger: false,
       logHandler: (logEntry) => debugPrint(
         'FromLib: ${logEntry.level} ${logEntry.tag} ${logEntry.msg} (lib_time=${logEntry.timeMillis})',
@@ -46,34 +43,33 @@ class _MyAppState extends State<MyApp> {
   // TODO: remove all non-integration test related things FROM here
 
   void _onPressed() async {
-    fromMyClass = await flutter_nekoton_bridge.queryMyClass();
+    fromMyClass = await queryMyClass();
     setState(() {});
   }
 
   void _onPressedLog() async {
     debugPrint('Log!');
-    flutter_nekoton_bridge.simpleLog();
+    simpleLog(string: 'From dart: ${DateTime.now().toIso8601String()}');
   }
 
   void _onPressedPanic() async {
     debugPrint('Panic!');
-    flutter_nekoton_bridge.simplePanic();
+    simplePanic();
   }
 
   /// Cached instance
   /// ignore: unused_field
-  caller.CallerWrapper? _caller;
+  CallerWrapper? _caller;
 
   void _onPressedInitDartCaller() async {
-    flutter_nekoton_bridge.initRustToDartCaller();
-    _caller = flutter_nekoton_bridge.initCallerWrapper(CallerImpl());
+    initRustToDartCaller();
+    _caller = initCallerWrapper(CallerImpl());
   }
 
   List<CallerTestClassWrapper> testCallers = [];
 
   void _onPressedAddTestCaller() async {
-    testCallers.add(await flutter_nekoton_bridge
-        .initCallerTestClassWrapper(Random().nextInt(1000)));
+    testCallers.add(await initCallerTestClassWrapper(Random().nextInt(1000)));
     setState(() {});
   }
 
@@ -84,30 +80,30 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _onPressedDartCallFunc0(bool needResult) async {
-    flutter_nekoton_bridge.simpleCallFunc0(needResult: needResult);
+    simpleCallFunc0(needResult: needResult);
   }
 
   void _onPressedDartCallFunc1(bool needResult) async {
-    flutter_nekoton_bridge.simpleCallFunc1(needResult: needResult);
+    simpleCallFunc1(needResult: needResult);
   }
 
   void _onPressedDartCallFunc2() async {
-    flutter_nekoton_bridge.simpleCallFunc2();
+    simpleCallFunc2();
   }
 
   void _onPressedDartCallFunc3() async {
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
-    flutter_nekoton_bridge.simpleCallFunc3();
+    simpleCallFunc3();
+    simpleCallFunc3();
+    simpleCallFunc3();
+    simpleCallFunc3();
+    simpleCallFunc3();
+    simpleCallFunc3();
+    simpleCallFunc3();
+    simpleCallFunc3();
+    simpleCallFunc3();
+    simpleCallFunc3();
+    simpleCallFunc3();
+    simpleCallFunc3();
   }
 
   // TODO: remove all non-integration test related things TO here
@@ -115,42 +111,48 @@ class _MyAppState extends State<MyApp> {
   // These buttons (with *Test* callbacks) SHOULD NOT be removed
   // or altered because it used in integration tests
   void _onPressedTestInfo() async {
-    flutter_nekoton_bridge.testLoggerInfo('test logger: info');
+    testLoggerInfo(string: 'test logger: info');
   }
 
   void _onPressedTestDebug() async {
-    flutter_nekoton_bridge.testLoggerDebug('test logger: debug');
+    testLoggerDebug(string: 'test logger: debug');
   }
 
   void _onPressedTestWarn() async {
-    flutter_nekoton_bridge.testLoggerWarn('test logger: warn');
+    testLoggerWarn(string: 'test logger: warn');
   }
 
   void _onPressedTestError() async {
-    flutter_nekoton_bridge.testLoggerError('test logger: error');
+    testLoggerError(string: 'test logger: error');
   }
 
   void _onPressedTestPanic() async {
-    flutter_nekoton_bridge.testLoggerPanic('test logger: panic');
+    testLoggerPanic(string: 'test logger: panic');
   }
 
   void _testCallerCallTest0Async(bool needResult) async {
-    final result = await flutter_nekoton_bridge.testCallerCallTest0Async(
-        'testCallerCallTest0Async $needResult', needResult);
+    final result = await testCallerCallTest0Async(
+      string: 'testCallerCallTest0Async $needResult',
+      needResult: needResult,
+    );
     debugPrint('result ${result.toDynamic()}');
   }
 
-  void _testCallerCallTest0Sync(bool needResult) async {
-    final result = await flutter_nekoton_bridge.testCallerCallTest0Sync(
-        'testCallerCallTest0Sync $needResult', needResult);
+  void _testCallerCallTest0Sync(bool needResult) {
+    final result = testCallerCallTest0Sync(
+      string: 'testCallerCallTest0Sync $needResult',
+      needResult: needResult,
+    );
     debugPrint('result ${result.toDynamic()}');
   }
 
   void _testCallerCallTest1Async(bool needResult) async {
-    final futures = <Future<flutter_nekoton_bridge.DynamicValue>>[];
+    final futures = <Future<DynamicValue>>[];
     for (int i = 0; i < 7; i++) {
-      futures.add(flutter_nekoton_bridge.testCallerCallTest1Async(
-          'testCallerCallTest1Async $needResult', needResult));
+      futures.add(testCallerCallTest1Async(
+        string: 'testCallerCallTest1Async $needResult',
+        needResult: needResult,
+      ));
     }
     final results = await Future.wait(futures);
     for (var result in results) {

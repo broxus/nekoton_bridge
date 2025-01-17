@@ -1,4 +1,6 @@
+import 'package:flutter_nekoton_bridge/example_related/example_related_lib.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:nekoton_bridge/nekoton_bridge.dart';
 
 abstract class AbstractCaller {
   // TODO: remove all non-integration test related things FROM here

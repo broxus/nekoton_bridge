@@ -45,10 +45,10 @@ void main() {
 
   const jrpcSettings = JrpcNetworkSettings(endpoint: endpoint);
 
-  setUp(() {
+  setUp(() async {
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
     setupLogger(
-      level: LogLevel.Trace,
+      level: LogLevel.trace,
       mobileLogger: false,
       logHandler: (logEntry) => debugPrint(
         'FromLib: ${logEntry.level} ${logEntry.tag} ${logEntry.msg} (lib_time=${logEntry.timeMillis})',
@@ -58,6 +58,10 @@ void main() {
     runApp(Container());
   });
 
+  setUpAll(() async {
+    await NekotonBridge.init();
+  });
+
   // TODO(nesquikm): it's not clear which test is causing flaky behavior
   group('JrpcTransport tests', () {
     testWidgets('Create JrpcTransport', (WidgetTester tester) async {
@@ -65,7 +69,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
         name: name,
@@ -81,7 +85,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
         name: name,
@@ -101,7 +105,7 @@ void main() {
       await initRustToDartCaller();
       const venomEndpoint = 'https://jrpc.venom.foundation';
 
-      final connection = await JrpcConnection.create(
+      final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: const JrpcNetworkSettings(endpoint: venomEndpoint),
         name: 'Testnet Venom',
@@ -119,7 +123,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
         name: name,
@@ -140,7 +144,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
         name: name,
@@ -162,7 +166,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
         name: name,
@@ -190,7 +194,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
         name: name,
@@ -224,7 +228,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
         name: name,
@@ -248,7 +252,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
         name: name,
@@ -270,7 +274,7 @@ void main() {
 
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
         name: name,
@@ -295,7 +299,7 @@ void main() {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
         name: name,
@@ -312,7 +316,7 @@ void main() {
       await initRustToDartCaller();
       const venomEndpoint = 'https://jrpc.venom.foundation';
 
-      final connection = await JrpcConnection.create(
+      final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: const JrpcNetworkSettings(endpoint: venomEndpoint),
         name: 'Testnet Venom',
@@ -328,7 +332,7 @@ void main() {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
         name: name,
@@ -347,7 +351,7 @@ void main() {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
-      final connection = await JrpcConnection.create(
+      final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
         name: name,

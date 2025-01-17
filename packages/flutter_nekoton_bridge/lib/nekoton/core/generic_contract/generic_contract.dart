@@ -57,9 +57,7 @@ class GenericContract extends RustToDartMirrorInterface
   }) async {
     final instance = GenericContract._(transport);
 
-    final lib = createLib();
-    instance.contract =
-        await lib.subscribeStaticMethodGenericContractDartWrapper(
+    instance.contract = await GenericContractDartWrapper.subscribe(
       instanceHash: instance.instanceHash,
       transport: transport.transportBox,
       address: address.address,

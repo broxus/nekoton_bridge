@@ -2,7 +2,6 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'encrypted_key_create_input.freezed.dart';
-
 part 'encrypted_key_create_input.g.dart';
 
 /// Input for creating legacy key

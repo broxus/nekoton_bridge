@@ -2,11 +2,12 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:nekoton_bridge/nekoton_bridge.dart' as lib;
 
 /// Implementation of proto transport
 class ProtoTransport extends Transport {
   final ProtoConnection protoConnection;
-  late ProtoTransportImpl transport;
+  late lib.ProtoTransportImpl transport;
 
   ProtoTransport._(this.protoConnection);
 
@@ -20,8 +21,7 @@ class ProtoTransport extends Transport {
   }) async {
     final instance = ProtoTransport._(protoConnection);
 
-    final lib = createLib();
-    instance.transport = await lib.newStaticMethodProtoTransportImpl(
+    instance.transport = lib.ProtoTransportImpl(
       protoConnection: protoConnection.connection,
     );
 
@@ -198,5 +198,5 @@ class ProtoTransport extends Transport {
   TransportType get type => protoConnection.type;
 
   @override
-  ArcTransportBoxTrait get transportBox => transport.innerTransport;
+  lib.ArcTransportBoxTrait get transportBox => transport.innerTransport;
 }

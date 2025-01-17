@@ -1,7 +1,0 @@
-# Rust library related
-Cargo.lock
-target
-
-# TODO: Uncomment when CI will be configured to ingore missed imports for rust
-#bridge_generated.rs
-#merged.rs

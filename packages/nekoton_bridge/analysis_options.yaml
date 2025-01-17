@@ -1,2 +1,5 @@
 include: ../flutter_nekoton_bridge/analysis_options.yaml
+analyzer:
+  errors:
+    unintended_html_in_doc_comment: ignore
 

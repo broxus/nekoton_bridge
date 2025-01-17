@@ -16,7 +16,7 @@ Future<bool> verifySignature({
   required String signature,
   required int? signatureId,
 }) {
-  return createLib().verifySignature(
+  return ntVerifySignature(
     publicKey: publicKey.publicKey,
     data: data,
     signature: signature,

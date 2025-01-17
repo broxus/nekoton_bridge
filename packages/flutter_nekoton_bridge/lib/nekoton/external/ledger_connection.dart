@@ -28,14 +28,13 @@ class LedgerConnection extends RustToDartMirrorInterface {
     this._connectionSign,
   );
 
-  static Future<LedgerConnection> create({
+  static LedgerConnection create({
     required LedgerConnectionGetPublicKey getPublicKey,
     required LedgerConnectionSign connectionSign,
-  }) async {
+  }) {
     final instance = LedgerConnection._(getPublicKey, connectionSign);
 
-    final lib = createLib();
-    instance.connection = await lib.newStaticMethodLedgerConnectionDartWrapper(
+    instance.connection = LedgerConnectionDartWrapper(
       instanceHash: instance.instanceHash,
     );
 
@@ -47,7 +46,7 @@ class LedgerConnection extends RustToDartMirrorInterface {
     try {
       return await _getPublicKey(accountId);
     } catch (error) {
-      throw ErrorCode.Generic;
+      throw ErrorCode.generic;
     }
   }
 

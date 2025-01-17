@@ -72,8 +72,7 @@ class JettonWallet extends RustToDartMirrorInterface
     final instance = JettonWallet._(transport, rootTokenContract);
 
     return transport.use(() async {
-      final lib = createLib();
-      instance.wallet = await lib.subscribeStaticMethodJettonWalletDartWrapper(
+      instance.wallet = await JettonWalletDartWrapper.subscribe(
         instanceHash: instance.instanceHash,
         transport: transport.transportBox,
         gqlConnection: gqlConnection.connection,
@@ -268,8 +267,7 @@ class JettonWallet extends RustToDartMirrorInterface
     required Address address,
   }) async {
     final encoded = await transport.use(() async {
-      final lib = createLib();
-      return lib.getJettonWalletDetailsStaticMethodJettonWalletDartWrapper(
+      return JettonWalletDartWrapper.getJettonWalletDetails(
         address: address.address,
         transport: transport.transportBox,
         gqlConnection: gqlConnection.connection,
@@ -293,9 +291,7 @@ class JettonWallet extends RustToDartMirrorInterface
     required Address address,
   }) async {
     final encoded = await transport.use(() async {
-      final lib = createLib();
-      return lib
-          .getJettonRootDetailsFromJettonWalletStaticMethodJettonWalletDartWrapper(
+      return JettonWalletDartWrapper.getJettonRootDetailsFromJettonWallet(
         tokenWalletAddress: address.address,
         transport: transport.transportBox,
         gqlConnection: gqlConnection.connection,
@@ -318,8 +314,7 @@ class JettonWallet extends RustToDartMirrorInterface
     required Address tokenRoot,
   }) async {
     final encoded = await transport.use(() async {
-      final lib = createLib();
-      return lib.getJettonRootDetailsStaticMethodJettonWalletDartWrapper(
+      return JettonWalletDartWrapper.getJettonRootDetails(
         tokenRootAddress: tokenRoot.address,
         transport: transport.transportBox,
         gqlConnection: gqlConnection.connection,

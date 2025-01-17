@@ -34,16 +34,15 @@ class JrpcConnection extends RustToDartMirrorInterface {
     this._group,
   );
 
-  static Future<JrpcConnection> create({
+  static JrpcConnection create({
     required JrpcConnectionHttpClient client,
     required JrpcNetworkSettings settings,
     required String name,
     required String group,
-  }) async {
+  }) {
     final instance = JrpcConnection._(client, settings, name, group);
 
-    final lib = createLib();
-    instance.connection = await lib.newStaticMethodJrpcConnectionDartWrapper(
+    instance.connection = JrpcConnectionDartWrapper(
       instanceHash: instance.instanceHash,
     );
 
@@ -65,7 +64,7 @@ class JrpcConnection extends RustToDartMirrorInterface {
         data: requestData,
       );
     } catch (error) {
-      throw ErrorCode.Network;
+      throw ErrorCode.network;
     }
   }
 

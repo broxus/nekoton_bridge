@@ -14,10 +14,10 @@ final subCratesParserReg =
     RegExp(r'((\w+::)+({.+}|\w+(,|)))|(\w+( \w+)*[^\w+::\w+])');
 
 /// This runs automatically in the beginning of build.rs script
-/// [Directory.current] must be /nekoton_bridge/native
+/// [Directory.current] must be /nekoton_bridge/rust
 void main() async {
   final nativeSrcDir = Directory('${Directory.current.path}/src');
-  final mergedFile = File('${nativeSrcDir.path}/$mergedFileName.rs');
+  final mergedFile = File('${nativeSrcDir.path}/api/$mergedFileName.rs');
   final mergedFileSink = mergedFile.openWrite();
 
   final contentBuffer = StringBuffer();
@@ -73,17 +73,8 @@ void main() async {
   await mergedFileSink.flush();
   await mergedFileSink.close();
 
-  /// Add created mod to root lib if absent
-  final libFile = File('${nativeSrcDir.path}/lib.rs');
-  final mods = libFile.readAsStringSync().split('\n').toSet();
-  const mergedMod = 'mod $mergedFileName;';
-  if (!mods.contains(mergedMod)) {
-    mods.add(mergedMod);
-    libFile.writeAsStringSync(mods.join('\n'));
-  }
-
   /// Format result file
-  await Process.start('rustfmt', [mergedFile.path, '--edition', '2018']);
+  await Process.start('rustfmt', [mergedFile.path, '--edition', '2021']);
 }
 
 /// Parse single use of rust code into hierarchy.

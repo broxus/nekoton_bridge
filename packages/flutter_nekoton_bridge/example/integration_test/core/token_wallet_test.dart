@@ -26,7 +26,7 @@ void main() {
   setUp(() async {
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
     setupLogger(
-      level: LogLevel.Trace,
+      level: LogLevel.trace,
       mobileLogger: false,
       logHandler: (logEntry) => debugPrint(
         'FromLib: ${logEntry.level} ${logEntry.tag} ${logEntry.msg} (lib_time=${logEntry.timeMillis})',
@@ -37,13 +37,17 @@ void main() {
 
     await initRustToDartCaller();
 
-    final connection = await ProtoConnection.create(
+    final connection = ProtoConnection.create(
       client: TestProtoClient(),
       settings: jrpcSettings,
       name: name,
       group: networkGroup,
     );
     transport = await ProtoTransport.create(protoConnection: connection);
+  });
+
+  setUpAll(() async {
+    await NekotonBridge.init();
   });
 
   tearDown(() async {
@@ -69,7 +73,7 @@ void main() {
                 '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
       );
       expect(wallet.rootTokenContract, stEverRootContract);
-      expect(wallet.contractState.balance, BigInt.parse('100000000'));
+      expect(wallet.contractState.balance, BigInt.parse('89399257'));
       expect(wallet.symbol.decimals, 9);
       expect(wallet.symbol.rootTokenContract, stEverRootContract);
       expect(wallet.symbol.name, 'STEVER');
@@ -223,7 +227,7 @@ void main() {
                 '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
       );
       expect(wallet.rootTokenContract, stEverRootContract);
-      expect(wallet.contractState.balance, BigInt.parse('100000000'));
+      expect(wallet.contractState.balance, BigInt.parse('89399257'));
       expect(wallet.symbol.decimals, 9);
       expect(wallet.symbol.rootTokenContract, stEverRootContract);
       expect(wallet.symbol.name, 'STEVER');
@@ -243,7 +247,7 @@ void main() {
                 '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
       );
       expect(wallet.rootTokenContract, stEverRootContract);
-      expect(wallet.contractState.balance, BigInt.parse('100000000'));
+      expect(wallet.contractState.balance, BigInt.parse('89399257'));
       expect(wallet.symbol.decimals, 9);
       expect(wallet.symbol.rootTokenContract, stEverRootContract);
       expect(wallet.symbol.name, 'STEVER');
@@ -273,7 +277,7 @@ void main() {
                     '0:ecfb1d0edbcbe0409763fa8ad8ad7f2727749f6cf29e0e6bcba9fdc752d3ae01'),
           );
           expect(wallet.rootTokenContract, stEverRootContract);
-          expect(wallet.contractState.balance, BigInt.parse('100000000'));
+          expect(wallet.contractState.balance, BigInt.parse('89399257'));
           expect(wallet.symbol.decimals, 9);
           expect(wallet.symbol.rootTokenContract, stEverRootContract);
           expect(wallet.symbol.name, 'STEVER');

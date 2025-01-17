@@ -15,8 +15,7 @@ class AccountsStorage {
   static Future<AccountsStorage> create({required Storage storage}) async {
     final instance = AccountsStorage._(storage);
 
-    final lib = createLib();
-    instance.accountsStorage = await lib.newStaticMethodAccountsStorageImpl(
+    instance.accountsStorage = await AccountsStorageImpl.newInstance(
       storage: storage.storage,
     );
 
@@ -188,8 +187,7 @@ class AccountsStorage {
 
   /// Check if [data] is correct for storage.
   static Future<bool> verifyData(String data) {
-    final lib = createLib();
-    return lib.verifyDataStaticMethodAccountsStorageImpl(data: data);
+    return AccountsStorageImpl.verifyData(data: data);
   }
 
   Future<void> _updateData() async {

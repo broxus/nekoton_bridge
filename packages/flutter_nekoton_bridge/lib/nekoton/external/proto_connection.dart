@@ -35,16 +35,15 @@ class ProtoConnection extends RustToDartMirrorInterface {
     this._group,
   );
 
-  static Future<ProtoConnection> create({
+  static ProtoConnection create({
     required ProtoConnectionHttpClient client,
     required ProtoNetworkSettings settings,
     required String name,
     required String group,
-  }) async {
+  }) {
     final instance = ProtoConnection._(client, settings, name, group);
 
-    final lib = createLib();
-    instance.connection = await lib.newStaticMethodProtoConnectionDartWrapper(
+    instance.connection = ProtoConnectionDartWrapper(
       instanceHash: instance.instanceHash,
     );
 
@@ -66,7 +65,7 @@ class ProtoConnection extends RustToDartMirrorInterface {
         dataBytes: requestData,
       );
     } catch (error) {
-      throw ErrorCode.Network;
+      throw ErrorCode.network;
     }
   }
 

@@ -22,8 +22,7 @@ class KeyStore {
   }) async {
     final instance = KeyStore._(storage);
 
-    final lib = createLib();
-    instance.keystore = await lib.newStaticMethodKeystoreDartWrapper(
+    instance.keystore = await KeystoreDartWrapper.newInstance(
       signers: signers,
       storage: storage.storage,
       ledgerConnection: ledgerConnection?.connection,
@@ -226,7 +225,7 @@ class KeyStore {
   }) async {
     return await keystore.isPasswordCached(
       publicKey: publicKey.publicKey,
-      duration: duration.inMilliseconds,
+      duration: BigInt.from(duration.inMilliseconds),
     );
   }
 
@@ -249,8 +248,7 @@ class KeyStore {
     required String data,
     LedgerConnection? ledgerConnection,
   }) async {
-    final lib = createLib();
-    return await lib.verifyDataStaticMethodKeystoreDartWrapper(
+    return await KeystoreDartWrapper.verifyData(
       signers: signers,
       data: data,
       ledgerConnection: ledgerConnection?.connection,

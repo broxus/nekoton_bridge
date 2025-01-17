@@ -16,8 +16,7 @@ class CallerTestClassWrapper extends RustToDartMirrorInterface {
   static Future<CallerTestClassWrapper> create(int value) async {
     final instance = CallerTestClassWrapper._();
 
-    final lib = createLib();
-    instance.caller = await lib.newStaticMethodCallerTestClass(
+    instance.caller = await CallerTestClass.newInstance(
       instanceHash: instance.instanceHash,
       value: value,
     );

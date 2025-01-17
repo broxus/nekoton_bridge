@@ -67,8 +67,7 @@ class TonWallet extends RustToDartMirrorInterface
     final instance = TonWallet._(transport);
 
     return transport.use(() async {
-      final lib = createLib();
-      instance.wallet = await lib.subscribeStaticMethodTonWalletDartWrapper(
+      instance.wallet = await TonWalletDartWrapper.subscribe(
         instanceHash: instance.instanceHash,
         publicKey: publicKey.publicKey,
         walletType: jsonEncode(walletType),
@@ -90,9 +89,7 @@ class TonWallet extends RustToDartMirrorInterface
     final instance = TonWallet._(transport);
 
     return transport.use(() async {
-      final lib = createLib();
-      instance.wallet =
-          await lib.subscribeByAddressStaticMethodTonWalletDartWrapper(
+      instance.wallet = await TonWalletDartWrapper.subscribeByAddress(
         instanceHash: instance.instanceHash,
         address: address.address,
         transport: transport.transportBox,
@@ -112,9 +109,7 @@ class TonWallet extends RustToDartMirrorInterface
     final instance = TonWallet._(transport);
 
     return transport.use(() async {
-      final lib = createLib();
-      instance.wallet =
-          await lib.subscribeByExistingStaticMethodTonWalletDartWrapper(
+      instance.wallet = await TonWalletDartWrapper.subscribeByExisting(
         instanceHash: instance.instanceHash,
         existingWallet: jsonEncode(existingWallet),
         transport: transport.transportBox,
@@ -404,8 +399,7 @@ class TonWallet extends RustToDartMirrorInterface
     required List<WalletType> walletTypes,
   }) async {
     final encoded = await transport.use(() {
-      final lib = createLib();
-      return lib.findExistingWalletsStaticMethodTonWalletDartWrapper(
+      return TonWalletDartWrapper.findExistingWallets(
         publicKey: publicKey.publicKey,
         walletTypes: jsonEncode(walletTypes),
         workchainId: workchainId,
@@ -425,8 +419,7 @@ class TonWallet extends RustToDartMirrorInterface
     required Address address,
   }) async {
     final encoded = await transport.use(() {
-      final lib = createLib();
-      return lib.getExistingWalletInfoStaticMethodTonWalletDartWrapper(
+      return TonWalletDartWrapper.getExistingWalletInfo(
         address: address.address,
         transport: transport.transportBox,
       );
@@ -443,8 +436,7 @@ class TonWallet extends RustToDartMirrorInterface
     required Address address,
   }) async {
     final encoded = await transport.use(() {
-      final lib = createLib();
-      return lib.getCustodiansStaticMethodTonWalletDartWrapper(
+      return TonWalletDartWrapper.getCustodians(
         address: address.address,
         transport: transport.transportBox,
       );

@@ -101,17 +101,6 @@ class _$FromStringImpl extends _FromString {
   @override
   final String address;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FromStringImpl &&
-            (identical(other.address, address) || other.address == address));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, address);
-
   /// Create a copy of Address
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)

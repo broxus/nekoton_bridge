@@ -1,3 +1,11 @@
+## 2.3.0-dev.1
+
+ - **FEAT**: enhance Address model with new methods and integration tests. ([9e2bf7e7](https://github.com/broxus/nekoton_bridge/commit/9e2bf7e7ca55b141c6563e11c9e9a6a5f6e66d7c))
+
+## 2.3.0-dev.0
+
+ - **FEAT**: update `flutter_rust_bridge`. ([017a2403](https://github.com/broxus/nekoton_bridge/commit/017a2403d247c1eab81a7af3f34ccf04dcf3a22b))
+
 ## 2.2.3
 
  - **FIX**: force version bump. ([945da3ee](https://github.com/broxus/nekoton_bridge/commit/945da3eedf79480f890fdf645f296b54dc36c72a))

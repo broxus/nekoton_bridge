@@ -1,5 +1,5 @@
 import 'package:crypto/crypto.dart';
-import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:nekoton_bridge/nekoton_bridge.dart' as lib;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 /// Json converter of amount value from string to BigInt (without currency
@@ -47,7 +47,7 @@ class _DateTimeJsonConverter extends JsonConverter<DateTime, int> {
 }
 
 /// Get name of KeySigner, same as in rust side
-extension KeySignerName on KeySigner {
+extension KeySignerName on lib.KeySigner {
   String get name {
     return maybeWhen(
       encrypted: () => 'EncryptedKeySigner',
