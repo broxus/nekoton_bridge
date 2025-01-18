@@ -10,6 +10,8 @@ use crate::nekoton_wrapper::{
     parse_address, parse_hash, HandleError,
 };
 use async_trait::async_trait;
+use base64::engine::general_purpose;
+use base64::Engine;
 use duplicate::duplicate_item;
 use nekoton::core::models::{Transaction, TransactionsBatchInfo, TransactionsBatchType};
 use nekoton::crypto::SignedMessage;
@@ -611,7 +613,7 @@ impl TransportBoxTrait for GqlTransportBox {
             .as_ref()
             .map(ton_types::serialize_toc)
             .handle_error()?
-            .map(base64::encode)
+            .map(|data| general_purpose::STANDARD.encode(data))
             .handle_error()?;
 
         Ok(block)

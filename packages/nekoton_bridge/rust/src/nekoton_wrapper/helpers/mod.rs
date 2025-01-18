@@ -3,6 +3,7 @@
 use crate::nekoton_wrapper::helpers::models::AbiParam;
 use crate::nekoton_wrapper::transport::models::FullContractState;
 use crate::nekoton_wrapper::HandleError;
+use base64::{engine::general_purpose, Engine};
 use nekoton::transport::models::RawContractState;
 use nekoton_abi::MethodName;
 use std::{convert::TryFrom, str::FromStr};
@@ -24,7 +25,7 @@ pub enum AbiError {
 
 /// Parse account stuff and return its instance or throw error
 pub fn parse_account_stuff(boc: String) -> anyhow::Result<ton_block::AccountStuff> {
-    let bytes = base64::decode(boc).handle_error()?;
+    let bytes = general_purpose::STANDARD.decode(boc).handle_error()?;
     ton_types::deserialize_tree_of_cells(&mut bytes.as_slice())
         .and_then(|cell| {
             let mut slice = SliceData::load_cell(cell)?;
@@ -52,7 +53,7 @@ pub fn parse_cell(boc: String) -> anyhow::Result<Cell> {
     if boc.is_empty() {
         Ok(Cell::default())
     } else {
-        let body = base64::decode(boc).handle_error()?;
+        let body = general_purpose::STANDARD.decode(boc).handle_error()?;
         ton_types::deserialize_tree_of_cells(&mut body.as_slice()).handle_error()
     }
 }
@@ -80,7 +81,7 @@ pub fn parse_method_name(value: Option<String>) -> anyhow::Result<MethodName> {
 
 /// Parse boc to slice and return its instance or throws error
 pub fn parse_slice(boc: String) -> anyhow::Result<ton_types::SliceData> {
-    let body = base64::decode(boc)?;
+    let body = general_purpose::STANDARD.decode(boc)?;
     let cell = ton_types::deserialize_tree_of_cells(&mut body.as_slice())?;
     SliceData::load_cell(cell)
 }
@@ -211,7 +212,7 @@ pub fn parse_param_type(kind: &str) -> anyhow::Result<ton_abi::ParamType, AbiErr
 pub fn make_boc(data: &Cell) -> anyhow::Result<String> {
     ton_types::serialize_toc(data)
         .handle_error()
-        .map(base64::encode)
+        .map(|data| general_purpose::STANDARD.encode(data))
 }
 
 /// Parse string abi version into struct
@@ -255,7 +256,7 @@ pub fn parse_hex_or_base64_bytes(data: String) -> anyhow::Result<Vec<u8>> {
 
     match parse_hex_bytes(data) {
         Ok(signature) => Ok(signature),
-        Err(e) => match base64::decode(data) {
+        Err(e) => match general_purpose::STANDARD.decode(data) {
             Ok(signature) => Ok(signature),
             Err(_) => Err(e),
         },
@@ -270,7 +271,7 @@ pub fn parse_base64_or_hex_bytes(data: String) -> Result<Vec<u8>, base64::Decode
         return Ok(Default::default());
     }
 
-    match base64::decode(data) {
+    match general_purpose::STANDARD.decode(data) {
         Ok(signature) => Ok(signature),
         Err(e) => match parse_hex_bytes(data) {
             Ok(signature) => Ok(signature),
@@ -349,7 +350,7 @@ pub fn get_code_hash(account: &AccountStuff) -> anyhow::Result<String> {
         ton_block::AccountState::AccountActive { state_init, .. } => {
             let toc = state_init.code.as_ref().map(ton_types::serialize_toc);
             match toc {
-                Some(t) => Ok(t.map(base64::encode).handle_error()?),
+                Some(t) => Ok(t.map(|toc| general_purpose::STANDARD.encode(toc)).handle_error()?),
                 None => Err("WalletNotDeployed").handle_error()?,
             }
         }

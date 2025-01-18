@@ -12,6 +12,8 @@ use crate::nekoton_wrapper::helpers::{
     parse_slice, serialize_into_boc, serialize_into_boc_with_hash, serialize_state_init_data_key,
 };
 use crate::nekoton_wrapper::{parse_address, parse_public_key, HandleError};
+use base64::engine::general_purpose;
+use base64::Engine;
 use flutter_rust_bridge::frb;
 use nekoton::core::models::{Expiration, ExpireAt, Transaction};
 use nekoton::core::parsing::parse_payload;
@@ -151,7 +153,7 @@ pub fn nt_encode_internal_input(
 
     let body = ton_types::serialize_toc(&body).handle_error()?;
 
-    Ok(base64::encode(body))
+    Ok(general_purpose::STANDARD.encode(body))
 }
 
 /// Returns json-encoded SignedMessage from nekoton or throws error
@@ -458,7 +460,7 @@ pub fn nt_decode_transaction_events(
 
 /// Returns hash of decoded boc or throws error
 pub fn nt_get_boc_hash(boc: String) -> anyhow::Result<String> {
-    let body = base64::decode(boc).handle_error()?;
+    let body = general_purpose::STANDARD.decode(boc).handle_error()?;
 
     let hash = ton_types::deserialize_tree_of_cells(&mut body.as_slice())
         .handle_error()?
@@ -492,7 +494,7 @@ pub fn nt_unpack_from_cell(
     version: Option<String>,
 ) -> anyhow::Result<String> {
     let params = parse_params_list(params)?;
-    let body = base64::decode(boc).handle_error()?;
+    let body = general_purpose::STANDARD.decode(boc).handle_error()?;
     let cell = ton_types::deserialize_tree_of_cells(&mut body.as_slice()).handle_error()?;
     let version = parse_optional_abi_version(version)?;
 
@@ -586,7 +588,7 @@ pub fn nt_split_tvc(tvc: String) -> anyhow::Result<Vec<Option<String>>> {
         Some(data) => {
             let data = ton_types::serialize_toc(&data).handle_error()?;
 
-            Some(base64::encode(data))
+            Some(general_purpose::STANDARD.encode(data))
         }
         None => None,
     };
@@ -595,7 +597,7 @@ pub fn nt_split_tvc(tvc: String) -> anyhow::Result<Vec<Option<String>>> {
         Some(code) => {
             let code = ton_types::serialize_toc(&code).handle_error()?;
 
-            Some(base64::encode(code))
+            Some(general_purpose::STANDARD.encode(code))
         }
         None => None,
     };
@@ -613,7 +615,7 @@ pub fn nt_set_code_salt(code: String, salt: String) -> anyhow::Result<Vec<String
 /// Get salt from code if possible and return base64-encoded salt or throw error
 pub fn nt_get_code_salt(code: String) -> anyhow::Result<Option<String>> {
     let salt = match nekoton_abi::get_code_salt(parse_cell(code)?).handle_error()? {
-        Some(salt) => Some(base64::encode(
+        Some(salt) => Some(general_purpose::STANDARD.encode(
             ton_types::serialize_toc(&salt).handle_error()?,
         )),
         None => None,

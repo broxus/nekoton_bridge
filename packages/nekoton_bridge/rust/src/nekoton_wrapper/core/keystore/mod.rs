@@ -9,6 +9,8 @@ use crate::nekoton_wrapper::crypto::models::KeySigner;
 use crate::nekoton_wrapper::{parse_public_key, HandleError};
 use anyhow::Context;
 use async_trait::async_trait;
+use base64::engine::general_purpose;
+use base64::Engine;
 use nekoton::core::keystore::{KeyStore, KeyStoreBuilder};
 use nekoton::crypto::{
     DerivedKeyCreateInput, DerivedKeyExportSeedParams, DerivedKeyGetPublicKeys, DerivedKeyPassword,
@@ -407,7 +409,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
         algorithm: String,
         input: String,
     ) -> anyhow::Result<String> {
-        let data = base64::decode(data).handle_error()?;
+        let data = general_purpose::STANDARD.decode(data).handle_error()?;
 
         let public_keys = public_keys
             .into_iter()
@@ -501,7 +503,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
             }
         };
 
-        Ok(base64::encode(data))
+        Ok(general_purpose::STANDARD.encode(data))
     }
 
     /// Sign data and return base64-encoded signature or throw error.
@@ -516,7 +518,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
         input: String,
         signature_id: Option<i32>,
     ) -> anyhow::Result<String> {
-        let data = base64::decode(&data).handle_error()?;
+        let data = general_purpose::STANDARD.decode(&data).handle_error()?;
         let signature = sign(
             self.inner_keystore.clone(),
             signer,
@@ -526,7 +528,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
         )
         .await?;
 
-        Ok(base64::encode(signature))
+        Ok(general_purpose::STANDARD.encode(signature))
     }
 
     /// Same method as sign but data is base64-encoded string that is used as hash via Sha256 algo.
@@ -538,7 +540,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
         input: String,
         signature_id: Option<i32>,
     ) -> anyhow::Result<SignedData> {
-        let data = base64::decode(data).handle_error()?;
+        let data = general_purpose::STANDARD.decode(data).handle_error()?;
         let hash: [u8; 32] = sha2::Sha256::digest(&data).into();
 
         let signature = sign(
@@ -552,7 +554,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
 
         Ok(SignedData {
             data_hash: hex::encode(hash),
-            signature: base64::encode(signature),
+            signature: general_purpose::STANDARD.encode(signature),
             signature_hex: hex::encode(signature),
             signature_parts: SignatureParts {
                 high: format!("0x{}", hex::encode(&signature[..32])),
@@ -571,7 +573,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
         input: String,
         signature_id: Option<i32>,
     ) -> anyhow::Result<SignedDataRaw> {
-        let data = base64::decode(data).handle_error()?;
+        let data = general_purpose::STANDARD.decode(data).handle_error()?;
 
         let signature = sign(
             self.inner_keystore.clone(),
@@ -583,7 +585,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
         .await?;
 
         Ok(SignedDataRaw {
-            signature: base64::encode(signature),
+            signature: general_purpose::STANDARD.encode(signature),
             signature_hex: hex::encode(signature),
             signature_parts: SignatureParts {
                 high: format!("0x{}", hex::encode(&signature[..32])),

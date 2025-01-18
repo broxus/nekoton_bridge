@@ -2,6 +2,8 @@
 
 use crate::clock;
 use crate::frb_generated::RustOpaque;
+use base64::engine::general_purpose;
+use base64::Engine;
 pub use nekoton::crypto;
 use nekoton_utils::serde_uint256;
 use serde::{Deserialize, Serialize};
@@ -158,13 +160,13 @@ impl UnsignedMessageBoxTrait for UnsignedMessageBox {
 
     /// Returns base64 encoded hash string of UnsignedMessage
     fn hash(&self) -> String {
-        base64::encode(self.inner_message.hash())
+        general_purpose::STANDARD.encode(self.inner_message.hash())
     }
 
     /// Sign message with signature and return json-encoded SignedMessage.
     /// signature receives from UnsignedMessage.hash
     fn sign(&self, signature: String) -> anyhow::Result<String> {
-        let signature: [u8; ed25519_dalek::SIGNATURE_LENGTH] = base64::decode(signature)
+        let signature: [u8; ed25519_dalek::SIGNATURE_LENGTH] = general_purpose::STANDARD.decode(signature)
             .handle_error()?
             .as_slice()
             .try_into()
