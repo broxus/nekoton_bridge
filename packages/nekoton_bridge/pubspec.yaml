@@ -1,6 +1,6 @@
 name: nekoton_bridge
 description: Nekoton bridge
-version: 2.3.0-dev.1
+version: 2.3.0-dev.2
 homepage: https://github.com/broxus/nekoton_bridge.git
 repository: https://github.com/broxus/nekoton_bridge.git
 
@@ -21,6 +21,6 @@ dependencies:
   basic_utils: ^5.7.0
   flutter_lints: ^5.0.0
   money2_fixer: ^2.0.0
-  money2: ^5.2.1
+  money2: '>=5.2.1 <5.4.0' # do not update to 5.4.0 due to json serialization issues
   meta: ^1.15.0
   uuid: ^4.5.1
