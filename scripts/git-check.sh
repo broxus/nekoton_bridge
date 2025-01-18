@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if git diff --exit-code ':!packages/nekoton_bridge/lib/src/bridge_generated*.dart' ':!*.lock'; then
+if git diff --exit-code ':!packages/nekoton_bridge/lib/src/frb_generated*.dart' ':!*.lock' ':!**/*/merged.dart'; then
     echo "No changes, all ok"
     exit 0
 else
