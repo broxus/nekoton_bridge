@@ -350,7 +350,9 @@ pub fn get_code_hash(account: &AccountStuff) -> anyhow::Result<String> {
         ton_block::AccountState::AccountActive { state_init, .. } => {
             let toc = state_init.code.as_ref().map(ton_types::serialize_toc);
             match toc {
-                Some(t) => Ok(t.map(|toc| general_purpose::STANDARD.encode(toc)).handle_error()?),
+                Some(t) => Ok(t
+                    .map(|toc| general_purpose::STANDARD.encode(toc))
+                    .handle_error()?),
                 None => Err("WalletNotDeployed").handle_error()?,
             }
         }

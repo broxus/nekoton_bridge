@@ -615,9 +615,9 @@ pub fn nt_set_code_salt(code: String, salt: String) -> anyhow::Result<Vec<String
 /// Get salt from code if possible and return base64-encoded salt or throw error
 pub fn nt_get_code_salt(code: String) -> anyhow::Result<Option<String>> {
     let salt = match nekoton_abi::get_code_salt(parse_cell(code)?).handle_error()? {
-        Some(salt) => Some(general_purpose::STANDARD.encode(
-            ton_types::serialize_toc(&salt).handle_error()?,
-        )),
+        Some(salt) => {
+            Some(general_purpose::STANDARD.encode(ton_types::serialize_toc(&salt).handle_error()?))
+        }
         None => None,
     };
     Ok(salt)

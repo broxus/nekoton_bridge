@@ -166,7 +166,8 @@ impl UnsignedMessageBoxTrait for UnsignedMessageBox {
     /// Sign message with signature and return json-encoded SignedMessage.
     /// signature receives from UnsignedMessage.hash
     fn sign(&self, signature: String) -> anyhow::Result<String> {
-        let signature: [u8; ed25519_dalek::SIGNATURE_LENGTH] = general_purpose::STANDARD.decode(signature)
+        let signature: [u8; ed25519_dalek::SIGNATURE_LENGTH] = general_purpose::STANDARD
+            .decode(signature)
             .handle_error()?
             .as_slice()
             .try_into()
