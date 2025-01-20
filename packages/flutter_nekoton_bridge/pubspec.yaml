@@ -1,6 +1,6 @@
 name: flutter_nekoton_bridge
 description: Flutter Nekoton bridge.
-version: 2.3.0-dev.2
+version: 2.3.0-dev.3
 homepage: https://github.com/broxus/nekoton_bridge.git
 repository: https://github.com/broxus/nekoton_bridge.git
 
@@ -16,7 +16,7 @@ dependencies:
   reflectable: ^4.0.10
   money2_fixer: ^2.0.0
   money2: '>=5.2.1 <5.4.0' # do not update to 5.4.0 due to json serialization issues
-  nekoton_bridge: ^2.3.0-dev.2
+  nekoton_bridge: ^2.3.0-dev.3
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
   #  for generating mirror hash

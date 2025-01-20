@@ -1,3 +1,7 @@
+## 1.21.0-dev.3
+
+ - Update a dependency to the latest release.
+
 ## 1.21.0-dev.2
 
  - **FEAT**: update `flutter_rust_bridge` ([#297](https://github.com/broxus/nekoton_bridge/issues/297)). ([f5803e51](https://github.com/broxus/nekoton_bridge/commit/f5803e51d85cb423a8563ce02ebd35c6a92ca4b1))

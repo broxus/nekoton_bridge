@@ -1,3 +1,7 @@
+## 2.3.0-dev.3
+
+ - Update a dependency to the latest release.
+
 ## 2.3.0-dev.2
 
  - **FIX**: restrict `money2` version to avoid json serialization issues. ([3ac64f36](https://github.com/broxus/nekoton_bridge/commit/3ac64f3636078f53b42c6f54c2d5443e3b951aa5))
