@@ -233,6 +233,7 @@ impl TokenWalletBoxTrait for TokenWalletBox {
                 payload,
                 attached_amount,
             )
+            .await
             .handle_error()?;
 
         serde_json::to_string(&internal_message).handle_error()
