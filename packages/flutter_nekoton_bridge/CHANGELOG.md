@@ -1,3 +1,7 @@
+## 2.3.0-dev.4
+
+ - **FIX**(ios): rename nekoton_bridge to flutter_nekoton_bridge. ([c30e409f](https://github.com/broxus/nekoton_bridge/commit/c30e409ff982cce2a0c2025061a6489ee78271af))
+
 ## 2.3.0-dev.3
 
  - Update a dependency to the latest release.
