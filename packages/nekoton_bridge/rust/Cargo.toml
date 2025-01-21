@@ -1,5 +1,5 @@
 [package]
-name = "nekoton_bridge"
+name = "flutter_nekoton_bridge"
 version = "0.0.0"
 edition = "2021"
 

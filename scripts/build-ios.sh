@@ -17,7 +17,7 @@ done
 
 # Create XCFramework zip
 FRAMEWORK="NekotonBridge.xcframework"
-LIBNAME=libnekoton_bridge.a
+LIBNAME=libflutter_nekoton_bridge.a
 mkdir ios-sim-lipo
 IOS_SIM_LIPO=ios-sim-lipo/$LIBNAME
 lipo -create -output $IOS_SIM_LIPO \

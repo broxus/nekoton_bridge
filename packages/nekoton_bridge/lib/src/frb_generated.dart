@@ -75,7 +75,7 @@ class NekotonBridge extends BaseEntrypoint<NekotonBridgeApi,
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
-    stem: 'nekoton_bridge',
+    stem: 'flutter_nekoton_bridge',
     ioDirectory: 'rust/target/release/',
     webPrefix: 'pkg/',
   );
