@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-01-21
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.3.0-dev.4`](#flutter_nekoton_bridge---v230-dev4)
+ - [`flutter_nekoton_bridge_example` - `v1.21.0-dev.4`](#flutter_nekoton_bridge_example---v1210-dev4)
+ - [`nekoton_bridge` - `v2.3.0-dev.4`](#nekoton_bridge---v230-dev4)
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.3.0-dev.4`
+
+ - **FIX**(ios): rename nekoton_bridge to flutter_nekoton_bridge. ([c30e409f](https://github.com/broxus/nekoton_bridge/commit/c30e409ff982cce2a0c2025061a6489ee78271af))
+
+#### `flutter_nekoton_bridge_example` - `v1.21.0-dev.4`
+
+ - **FIX**(ios): rename nekoton_bridge to flutter_nekoton_bridge. ([c30e409f](https://github.com/broxus/nekoton_bridge/commit/c30e409ff982cce2a0c2025061a6489ee78271af))
+
+#### `nekoton_bridge` - `v2.3.0-dev.4`
+
+ - **FIX**(ios): rename nekoton_bridge to flutter_nekoton_bridge. ([c30e409f](https://github.com/broxus/nekoton_bridge/commit/c30e409ff982cce2a0c2025061a6489ee78271af))
+
+
 ## 2025-01-20
 
 ### Changes
