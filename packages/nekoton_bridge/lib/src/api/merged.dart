@@ -722,6 +722,9 @@ class GeneratedKeyG {
           accountType == other.accountType;
 }
 
+///----------------------------
+/// CONTENT OF src/nekoton_wrapper/core/generic_contract/generic_contract_api.rs
+///----------------------------
 class GenericContractDartWrapper {
   final ArcGenericContractBoxTrait innerContract;
 
@@ -754,8 +757,7 @@ class GenericContractDartWrapper {
   /// options - additional info for execution
   /// Return json-encoded Transaction or throw error.
   Future<String> executeTransactionLocally(
-          {required String signedMessage,
-          required TransactionExecutionOptions options}) =>
+          {required String signedMessage, required String options}) =>
       NekotonBridge.instance.api
           .crateApiMergedGenericContractDartWrapperExecuteTransactionLocally(
               that: this, signedMessage: signedMessage, options: options);
@@ -1969,10 +1971,14 @@ class TonWalletDartWrapper {
 
   /// Calculate fees for transaction.
   /// signed_message - json-encoded SignedMessage.
+  /// execution_options - json-encoded ExecutionOptions.
   /// Returns fees as string representation of u128 or throw error.
-  Future<String> estimateFees({required String signedMessage}) =>
+  Future<String> estimateFees(
+          {required String signedMessage, String? executionOptions}) =>
       NekotonBridge.instance.api.crateApiMergedTonWalletDartWrapperEstimateFees(
-          that: this, signedMessage: signedMessage);
+          that: this,
+          signedMessage: signedMessage,
+          executionOptions: executionOptions);
 
   /// Find list of wallets of public_key and return them.
   /// wallet_types - json-encoded list of WalletType.
@@ -2192,30 +2198,6 @@ class TonWalletDartWrapper {
       other is TonWalletDartWrapper &&
           runtimeType == other.runtimeType &&
           innerWallet == other.innerWallet;
-}
-
-///----------------------------
-/// CONTENT OF src/nekoton_wrapper/core/generic_contract/generic_contract_api.rs
-///----------------------------
-class TransactionExecutionOptions {
-  final bool disableSignatureCheck;
-  final BigInt? overrideBalance;
-
-  const TransactionExecutionOptions({
-    required this.disableSignatureCheck,
-    this.overrideBalance,
-  });
-
-  @override
-  int get hashCode => disableSignatureCheck.hashCode ^ overrideBalance.hashCode;
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is TransactionExecutionOptions &&
-          runtimeType == other.runtimeType &&
-          disableSignatureCheck == other.disableSignatureCheck &&
-          overrideBalance == other.overrideBalance;
 }
 
 /// This struct creates only in rust side and describes UnsignedMessage

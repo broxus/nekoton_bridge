@@ -682,7 +682,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         const [
           0,
           0,
-          const [#signedMessage]
+          const [#signedMessage, #executionOptions]
         ],
         const [
           0,

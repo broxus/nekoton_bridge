@@ -104,11 +104,6 @@ typedef struct wire_cst_generic_contract_dart_wrapper {
   uintptr_t inner_contract;
 } wire_cst_generic_contract_dart_wrapper;
 
-typedef struct wire_cst_transaction_execution_options {
-  bool disable_signature_check;
-  uint64_t *override_balance;
-} wire_cst_transaction_execution_options;
-
 typedef struct wire_cst_gql_transport_impl {
   uintptr_t inner_transport;
 } wire_cst_gql_transport_impl;
@@ -365,7 +360,7 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__generic_contract_dart_wrapp
 void frbgen_nekoton_bridge_wire__crate__api__merged__generic_contract_dart_wrapper_execute_transaction_locally(int64_t port_,
                                                                                                                struct wire_cst_generic_contract_dart_wrapper *that,
                                                                                                                struct wire_cst_list_prim_u_8_strict *signed_message,
-                                                                                                               struct wire_cst_transaction_execution_options *options);
+                                                                                                               struct wire_cst_list_prim_u_8_strict *options);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__generic_contract_dart_wrapper_handle_block(int64_t port_,
                                                                                                 struct wire_cst_generic_contract_dart_wrapper *that,
@@ -1045,7 +1040,8 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_det
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_estimate_fees(int64_t port_,
                                                                                            struct wire_cst_ton_wallet_dart_wrapper *that,
-                                                                                           struct wire_cst_list_prim_u_8_strict *signed_message);
+                                                                                           struct wire_cst_list_prim_u_8_strict *signed_message,
+                                                                                           struct wire_cst_list_prim_u_8_strict *execution_options);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_find_existing_wallets(int64_t port_,
                                                                                                    uintptr_t transport,
@@ -1251,11 +1247,7 @@ struct wire_cst_token_wallet_dart_wrapper *frbgen_nekoton_bridge_cst_new_box_aut
 
 struct wire_cst_ton_wallet_dart_wrapper *frbgen_nekoton_bridge_cst_new_box_autoadd_ton_wallet_dart_wrapper(void);
 
-struct wire_cst_transaction_execution_options *frbgen_nekoton_bridge_cst_new_box_autoadd_transaction_execution_options(void);
-
 uint32_t *frbgen_nekoton_bridge_cst_new_box_autoadd_u_32(uint32_t value);
-
-uint64_t *frbgen_nekoton_bridge_cst_new_box_autoadd_u_64(uint64_t value);
 
 struct wire_cst_unsigned_message_impl *frbgen_nekoton_bridge_cst_new_box_autoadd_unsigned_message_impl(void);
 
@@ -1298,9 +1290,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_storage_dart_wrapper);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_token_wallet_dart_wrapper);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_ton_wallet_dart_wrapper);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_transaction_execution_options);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_u_32);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_u_64);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_unsigned_message_impl);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_list_String);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_list_dynamic_named_value);

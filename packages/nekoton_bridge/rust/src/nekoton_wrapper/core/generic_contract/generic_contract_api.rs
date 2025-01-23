@@ -6,19 +6,11 @@ use crate::nekoton_wrapper::core::generic_contract::{GenericContractBox, Generic
 use crate::nekoton_wrapper::transport::TransportBoxTrait;
 use crate::nekoton_wrapper::HandleError;
 use crate::utils::caller;
-use flutter_rust_bridge::frb;
 use nekoton::core::generic_contract::GenericContractSubscriptionHandler;
 use nekoton::core::models::{
     ContractState, PendingTransaction, PollingMethod, Transaction, TransactionsBatchInfo,
 };
-use nekoton::core::TransactionExecutionOptions;
 use std::sync::Arc;
-
-#[frb(mirror(TransactionExecutionOptions))]
-pub struct _TransactionExecutionOptions {
-    pub disable_signature_check: bool,
-    pub override_balance: Option<u64>,
-}
 
 pub struct GenericContractDartWrapper {
     pub inner_contract: RustOpaque<Arc<dyn GenericContractBoxTrait>>,
@@ -76,7 +68,7 @@ impl GenericContractDartWrapper {
     pub fn execute_transaction_locally(
         &self,
         signed_message: String,
-        options: TransactionExecutionOptions,
+        options: String,
     ) -> anyhow::Result<String> {
         async_run!(
             self.inner_contract

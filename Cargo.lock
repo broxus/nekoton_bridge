@@ -1580,7 +1580,7 @@ dependencies = [
 [[package]]
 name = "nekoton"
 version = "0.13.1"
-source = "git+https://github.com/broxus/nekoton.git?branch=feature/initial-fee#6c2e23404a420c8bea7074c0b8619e9a549049ce"
+source = "git+https://github.com/broxus/nekoton.git?branch=feature/initial-fee#f3c22a334cacc8788abf2590d750baf6f9473866"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -1625,7 +1625,7 @@ dependencies = [
 [[package]]
 name = "nekoton-abi"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git?branch=feature/initial-fee#6c2e23404a420c8bea7074c0b8619e9a549049ce"
+source = "git+https://github.com/broxus/nekoton.git?branch=feature/initial-fee#f3c22a334cacc8788abf2590d750baf6f9473866"
 dependencies = [
  "anyhow",
  "base64 0.13.1",
@@ -1652,7 +1652,7 @@ dependencies = [
 [[package]]
 name = "nekoton-contracts"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git?branch=feature/initial-fee#6c2e23404a420c8bea7074c0b8619e9a549049ce"
+source = "git+https://github.com/broxus/nekoton.git?branch=feature/initial-fee#f3c22a334cacc8788abf2590d750baf6f9473866"
 dependencies = [
  "anyhow",
  "nekoton-abi",
@@ -1669,7 +1669,7 @@ dependencies = [
 [[package]]
 name = "nekoton-derive"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git?branch=feature/initial-fee#6c2e23404a420c8bea7074c0b8619e9a549049ce"
+source = "git+https://github.com/broxus/nekoton.git?branch=feature/initial-fee#f3c22a334cacc8788abf2590d750baf6f9473866"
 dependencies = [
  "either",
  "proc-macro2",
@@ -1680,7 +1680,7 @@ dependencies = [
 [[package]]
 name = "nekoton-jetton"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git?branch=feature/initial-fee#6c2e23404a420c8bea7074c0b8619e9a549049ce"
+source = "git+https://github.com/broxus/nekoton.git?branch=feature/initial-fee#f3c22a334cacc8788abf2590d750baf6f9473866"
 dependencies = [
  "anyhow",
  "lazy_static",
@@ -1697,7 +1697,7 @@ dependencies = [
 [[package]]
 name = "nekoton-proto"
 version = "0.1.0"
-source = "git+https://github.com/broxus/nekoton.git?branch=feature/initial-fee#6c2e23404a420c8bea7074c0b8619e9a549049ce"
+source = "git+https://github.com/broxus/nekoton.git?branch=feature/initial-fee#f3c22a334cacc8788abf2590d750baf6f9473866"
 dependencies = [
  "anyhow",
  "nekoton-abi",
@@ -1709,7 +1709,7 @@ dependencies = [
 [[package]]
 name = "nekoton-utils"
 version = "0.13.0"
-source = "git+https://github.com/broxus/nekoton.git?branch=feature/initial-fee#6c2e23404a420c8bea7074c0b8619e9a549049ce"
+source = "git+https://github.com/broxus/nekoton.git?branch=feature/initial-fee#f3c22a334cacc8788abf2590d750baf6f9473866"
 dependencies = [
  "anyhow",
  "base64 0.13.1",
@@ -2838,9 +2838,9 @@ checksum = "42ff0bf0c66b8238c6f3b578df37d0b7848e55df8577b3f74f92a69acceeb825"
 
 [[package]]
 name = "unicode-ident"
-version = "1.0.14"
+version = "1.0.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "adb9e6ca4f869e1180728b7950e35922a7fc6397f7b641499e8f3ef06e50dc83"
+checksum = "11cd88e12b17c6494200a9c1b683a04fcac9573ed74cd1b62aeb2727c5592243"
 
 [[package]]
 name = "unicode-normalization"
