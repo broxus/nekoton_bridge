@@ -223,14 +223,7 @@ abstract class NekotonBridgeApiImplPlatform
       dynamic raw);
 
   @protected
-  TransactionExecutionOptions
-      dco_decode_box_autoadd_transaction_execution_options(dynamic raw);
-
-  @protected
   int dco_decode_box_autoadd_u_32(dynamic raw);
-
-  @protected
-  BigInt dco_decode_box_autoadd_u_64(dynamic raw);
 
   @protected
   UnsignedMessageImpl dco_decode_box_autoadd_unsigned_message_impl(dynamic raw);
@@ -363,9 +356,6 @@ abstract class NekotonBridgeApiImplPlatform
   int? dco_decode_opt_box_autoadd_u_32(dynamic raw);
 
   @protected
-  BigInt? dco_decode_opt_box_autoadd_u_64(dynamic raw);
-
-  @protected
   List<String>? dco_decode_opt_list_String(dynamic raw);
 
   @protected
@@ -398,10 +388,6 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   TonWalletDartWrapper dco_decode_ton_wallet_dart_wrapper(dynamic raw);
-
-  @protected
-  TransactionExecutionOptions dco_decode_transaction_execution_options(
-      dynamic raw);
 
   @protected
   int dco_decode_u_16(dynamic raw);
@@ -591,15 +577,7 @@ abstract class NekotonBridgeApiImplPlatform
       SseDeserializer deserializer);
 
   @protected
-  TransactionExecutionOptions
-      sse_decode_box_autoadd_transaction_execution_options(
-          SseDeserializer deserializer);
-
-  @protected
   int sse_decode_box_autoadd_u_32(SseDeserializer deserializer);
-
-  @protected
-  BigInt sse_decode_box_autoadd_u_64(SseDeserializer deserializer);
 
   @protected
   UnsignedMessageImpl sse_decode_box_autoadd_unsigned_message_impl(
@@ -744,9 +722,6 @@ abstract class NekotonBridgeApiImplPlatform
   int? sse_decode_opt_box_autoadd_u_32(SseDeserializer deserializer);
 
   @protected
-  BigInt? sse_decode_opt_box_autoadd_u_64(SseDeserializer deserializer);
-
-  @protected
   List<String>? sse_decode_opt_list_String(SseDeserializer deserializer);
 
   @protected
@@ -782,10 +757,6 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   TonWalletDartWrapper sse_decode_ton_wallet_dart_wrapper(
-      SseDeserializer deserializer);
-
-  @protected
-  TransactionExecutionOptions sse_decode_transaction_execution_options(
       SseDeserializer deserializer);
 
   @protected
@@ -1045,25 +1016,9 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
-  ffi.Pointer<wire_cst_transaction_execution_options>
-      cst_encode_box_autoadd_transaction_execution_options(
-          TransactionExecutionOptions raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    final ptr = wire.cst_new_box_autoadd_transaction_execution_options();
-    cst_api_fill_to_wire_transaction_execution_options(raw, ptr.ref);
-    return ptr;
-  }
-
-  @protected
   ffi.Pointer<ffi.Uint32> cst_encode_box_autoadd_u_32(int raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return wire.cst_new_box_autoadd_u_32(cst_encode_u_32(raw));
-  }
-
-  @protected
-  ffi.Pointer<ffi.Uint64> cst_encode_box_autoadd_u_64(BigInt raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return wire.cst_new_box_autoadd_u_64(cst_encode_u_64(raw));
   }
 
   @protected
@@ -1204,12 +1159,6 @@ abstract class NekotonBridgeApiImplPlatform
   ffi.Pointer<ffi.Uint32> cst_encode_opt_box_autoadd_u_32(int? raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return raw == null ? ffi.nullptr : cst_encode_box_autoadd_u_32(raw);
-  }
-
-  @protected
-  ffi.Pointer<ffi.Uint64> cst_encode_opt_box_autoadd_u_64(BigInt? raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw == null ? ffi.nullptr : cst_encode_box_autoadd_u_64(raw);
   }
 
   @protected
@@ -1370,13 +1319,6 @@ abstract class NekotonBridgeApiImplPlatform
       TonWalletDartWrapper apiObj,
       ffi.Pointer<wire_cst_ton_wallet_dart_wrapper> wireObj) {
     cst_api_fill_to_wire_ton_wallet_dart_wrapper(apiObj, wireObj.ref);
-  }
-
-  @protected
-  void cst_api_fill_to_wire_box_autoadd_transaction_execution_options(
-      TransactionExecutionOptions apiObj,
-      ffi.Pointer<wire_cst_transaction_execution_options> wireObj) {
-    cst_api_fill_to_wire_transaction_execution_options(apiObj, wireObj.ref);
   }
 
   @protected
@@ -1703,16 +1645,6 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
-  void cst_api_fill_to_wire_transaction_execution_options(
-      TransactionExecutionOptions apiObj,
-      wire_cst_transaction_execution_options wireObj) {
-    wireObj.disable_signature_check =
-        cst_encode_bool(apiObj.disableSignatureCheck);
-    wireObj.override_balance =
-        cst_encode_opt_box_autoadd_u_64(apiObj.overrideBalance);
-  }
-
-  @protected
   void cst_api_fill_to_wire_unsigned_message_impl(
       UnsignedMessageImpl apiObj, wire_cst_unsigned_message_impl wireObj) {
     wireObj.inner_message = cst_encode_RustOpaque_ArcdynUnsignedMessageBoxTrait(
@@ -1964,14 +1896,7 @@ abstract class NekotonBridgeApiImplPlatform
       TonWalletDartWrapper self, SseSerializer serializer);
 
   @protected
-  void sse_encode_box_autoadd_transaction_execution_options(
-      TransactionExecutionOptions self, SseSerializer serializer);
-
-  @protected
   void sse_encode_box_autoadd_u_32(int self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_box_autoadd_u_64(BigInt self, SseSerializer serializer);
 
   @protected
   void sse_encode_box_autoadd_unsigned_message_impl(
@@ -2121,9 +2046,6 @@ abstract class NekotonBridgeApiImplPlatform
   void sse_encode_opt_box_autoadd_u_32(int? self, SseSerializer serializer);
 
   @protected
-  void sse_encode_opt_box_autoadd_u_64(BigInt? self, SseSerializer serializer);
-
-  @protected
   void sse_encode_opt_list_String(List<String>? self, SseSerializer serializer);
 
   @protected
@@ -2161,10 +2083,6 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   void sse_encode_ton_wallet_dart_wrapper(
       TonWalletDartWrapper self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_transaction_execution_options(
-      TransactionExecutionOptions self, SseSerializer serializer);
 
   @protected
   void sse_encode_u_16(int self, SseSerializer serializer);
@@ -2770,7 +2688,7 @@ class NekotonBridgeWire implements BaseWire {
     int port_,
     ffi.Pointer<wire_cst_generic_contract_dart_wrapper> that,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> signed_message,
-    ffi.Pointer<wire_cst_transaction_execution_options> options,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> options,
   ) {
     return _wire__crate__api__merged__generic_contract_dart_wrapper_execute_transaction_locally(
       port_,
@@ -2787,7 +2705,7 @@ class NekotonBridgeWire implements BaseWire {
                       ffi.Int64,
                       ffi.Pointer<wire_cst_generic_contract_dart_wrapper>,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                      ffi.Pointer<wire_cst_transaction_execution_options>)>>(
+                      ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__generic_contract_dart_wrapper_execute_transaction_locally');
   late final _wire__crate__api__merged__generic_contract_dart_wrapper_execute_transaction_locally =
       _wire__crate__api__merged__generic_contract_dart_wrapper_execute_transaction_locallyPtr
@@ -2796,7 +2714,7 @@ class NekotonBridgeWire implements BaseWire {
                   int,
                   ffi.Pointer<wire_cst_generic_contract_dart_wrapper>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                  ffi.Pointer<wire_cst_transaction_execution_options>)>();
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
 
   void wire__crate__api__merged__generic_contract_dart_wrapper_handle_block(
     int port_,
@@ -7040,11 +6958,13 @@ class NekotonBridgeWire implements BaseWire {
     int port_,
     ffi.Pointer<wire_cst_ton_wallet_dart_wrapper> that,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> signed_message,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> execution_options,
   ) {
     return _wire__crate__api__merged__ton_wallet_dart_wrapper_estimate_fees(
       port_,
       that,
       signed_message,
+      execution_options,
     );
   }
 
@@ -7054,12 +6974,16 @@ class NekotonBridgeWire implements BaseWire {
                   ffi.Void Function(
                       ffi.Int64,
                       ffi.Pointer<wire_cst_ton_wallet_dart_wrapper>,
+                      ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_estimate_fees');
   late final _wire__crate__api__merged__ton_wallet_dart_wrapper_estimate_fees =
       _wire__crate__api__merged__ton_wallet_dart_wrapper_estimate_feesPtr
           .asFunction<
-              void Function(int, ffi.Pointer<wire_cst_ton_wallet_dart_wrapper>,
+              void Function(
+                  int,
+                  ffi.Pointer<wire_cst_ton_wallet_dart_wrapper>,
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
 
   void wire__crate__api__merged__ton_wallet_dart_wrapper_find_existing_wallets(
@@ -8408,19 +8332,6 @@ class NekotonBridgeWire implements BaseWire {
       _cst_new_box_autoadd_ton_wallet_dart_wrapperPtr.asFunction<
           ffi.Pointer<wire_cst_ton_wallet_dart_wrapper> Function()>();
 
-  ffi.Pointer<wire_cst_transaction_execution_options>
-      cst_new_box_autoadd_transaction_execution_options() {
-    return _cst_new_box_autoadd_transaction_execution_options();
-  }
-
-  late final _cst_new_box_autoadd_transaction_execution_optionsPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Pointer<wire_cst_transaction_execution_options> Function()>>(
-      'frbgen_nekoton_bridge_cst_new_box_autoadd_transaction_execution_options');
-  late final _cst_new_box_autoadd_transaction_execution_options =
-      _cst_new_box_autoadd_transaction_execution_optionsPtr.asFunction<
-          ffi.Pointer<wire_cst_transaction_execution_options> Function()>();
-
   ffi.Pointer<ffi.Uint32> cst_new_box_autoadd_u_32(
     int value,
   ) {
@@ -8434,20 +8345,6 @@ class NekotonBridgeWire implements BaseWire {
           'frbgen_nekoton_bridge_cst_new_box_autoadd_u_32');
   late final _cst_new_box_autoadd_u_32 = _cst_new_box_autoadd_u_32Ptr
       .asFunction<ffi.Pointer<ffi.Uint32> Function(int)>();
-
-  ffi.Pointer<ffi.Uint64> cst_new_box_autoadd_u_64(
-    int value,
-  ) {
-    return _cst_new_box_autoadd_u_64(
-      value,
-    );
-  }
-
-  late final _cst_new_box_autoadd_u_64Ptr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Uint64> Function(ffi.Uint64)>>(
-          'frbgen_nekoton_bridge_cst_new_box_autoadd_u_64');
-  late final _cst_new_box_autoadd_u_64 = _cst_new_box_autoadd_u_64Ptr
-      .asFunction<ffi.Pointer<ffi.Uint64> Function(int)>();
 
   ffi.Pointer<wire_cst_unsigned_message_impl>
       cst_new_box_autoadd_unsigned_message_impl() {
@@ -8722,13 +8619,6 @@ final class wire_cst_caller_test_class extends ffi.Struct {
 final class wire_cst_generic_contract_dart_wrapper extends ffi.Struct {
   @ffi.UintPtr()
   external int inner_contract;
-}
-
-final class wire_cst_transaction_execution_options extends ffi.Struct {
-  @ffi.Bool()
-  external bool disable_signature_check;
-
-  external ffi.Pointer<ffi.Uint64> override_balance;
 }
 
 final class wire_cst_gql_transport_impl extends ffi.Struct {

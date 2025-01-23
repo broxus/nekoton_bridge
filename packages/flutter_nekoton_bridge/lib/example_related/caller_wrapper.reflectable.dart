@@ -533,7 +533,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'prepareDeployWithMultipleOwners': 23,
               r'prepareTransfer': 24,
               r'prepareConfirmTransaction': 25,
-              r'estimateFees': 8,
+              r'estimateFees': 26,
               r'send': 8,
               r'refresh': 2,
               r'preloadTransactions': 9,
@@ -572,7 +572,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'subscribe': 20,
               r'subscribeByAddress': 7,
               r'subscribeByExistingWallet': 21,
-              r'findExistingWallets': 26,
+              r'findExistingWallets': 27,
               r'getExistingWalletInfo': 7,
               r'getWalletCustodians': 7
             })
@@ -867,6 +867,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
           0,
           0,
           const [#contractState, #publicKey, #transactionId, #expiration]
+        ],
+        const [
+          0,
+          0,
+          const [#signedMessage, #executionOptions]
         ],
         const [
           0,

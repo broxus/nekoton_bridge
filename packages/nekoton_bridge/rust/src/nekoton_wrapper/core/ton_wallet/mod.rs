@@ -19,9 +19,11 @@ use nekoton::core::ton_wallet::{
     extract_wallet_init_data, find_existing_wallets, get_wallet_custodians, ExistingWalletInfo,
     Gift, TonWallet, TonWalletSubscriptionHandler, TransferAction,
 };
+use nekoton::core::TransactionExecutionOptions;
 use nekoton::crypto::SignedMessage;
 use nekoton::transport::Transport;
 use nekoton_abi::create_boc_or_comment_payload;
+use nekoton_utils::compute_total_transaction_fees;
 use tokio::sync::Mutex;
 use ton_block::{Block, Deserializable};
 
@@ -117,8 +119,13 @@ pub trait TonWalletBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
 
     /// Calculate fees for transaction.
     /// signed_message - json-encoded SignedMessage.
+    /// execution_options - json-encoded TransactionExecutionOptions.
     /// Returns fees as string representation of u128 or throw error.
-    async fn estimate_fees(&self, signed_message: String) -> anyhow::Result<String>;
+    async fn estimate_fees(
+        &self,
+        signed_message: String,
+        execution_options: Option<String>,
+    ) -> anyhow::Result<String>;
 
     /// Send message to blockchain and receive transaction of send.
     /// signed_message - json-encoded SignedMessage.
@@ -448,22 +455,44 @@ impl TonWalletBoxTrait for TonWalletBox {
 
     /// Calculate fees for transaction.
     /// signed_message - json-encoded SignedMessage.
+    /// execution_options - json-encoded TransactionExecutionOptions.
     /// Returns fees as string representation of u128 or throw error.
-    async fn estimate_fees(&self, signed_message: String) -> anyhow::Result<String> {
+    async fn estimate_fees(
+        &self,
+        signed_message: String,
+        execution_options: Option<String>,
+    ) -> anyhow::Result<String> {
         let message = serde_json::from_str::<SignedMessage>(&signed_message)
             .handle_error()?
             .message;
+        let execution_options = match execution_options {
+            Some(execution_options) => {
+                serde_json::from_str::<TransactionExecutionOptions>(&execution_options)
+                    .handle_error()?
+            }
+            None => TransactionExecutionOptions {
+                disable_signature_check: true,
+                override_balance: None,
+            },
+        };
 
-        let fees = self
+        let transaction = self
             .inner_wallet
             .lock()
             .await
-            .estimate_fees(&message)
+            .contract_subscription()
+            .execute_transaction_locally(&message, execution_options)
             .await
-            .handle_error()?
-            .to_string();
+            .handle_error()?;
 
-        Ok(fees)
+        let descr = transaction.read_description().handle_error()?;
+        let fees = if let ton_block::TransactionDescr::Ordinary(descr) = descr {
+            compute_total_transaction_fees(&transaction, &descr)
+        } else {
+            transaction.total_fees.grams.as_u128()
+        };
+
+        Ok(fees.to_string())
     }
 
     /// Send message to blockchain and receive transaction of send.

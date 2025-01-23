@@ -241,9 +241,14 @@ impl TonWalletDartWrapper {
 
     /// Calculate fees for transaction.
     /// signed_message - json-encoded SignedMessage.
+    /// execution_options - json-encoded ExecutionOptions.
     /// Returns fees as string representation of u128 or throw error.
-    pub fn estimate_fees(&self, signed_message: String) -> anyhow::Result<String> {
-        async_run!(self.inner_wallet.estimate_fees(signed_message).await)
+    pub fn estimate_fees(
+        &self,
+        signed_message: String,
+        execution_options: Option<String>,
+    ) -> anyhow::Result<String> {
+        async_run!(self.inner_wallet.estimate_fees(signed_message, execution_options).await)
     }
 
     /// Send message to blockchain and receive transaction of send.

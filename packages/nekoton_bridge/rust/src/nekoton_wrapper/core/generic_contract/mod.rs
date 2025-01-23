@@ -39,7 +39,7 @@ pub trait GenericContractBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     async fn execute_transaction_locally(
         &self,
         signed_message: String,
-        options: TransactionExecutionOptions,
+        options: String,
     ) -> anyhow::Result<String>;
 
     /// Calculate fees for transaction.
@@ -131,11 +131,13 @@ impl GenericContractBoxTrait for GenericContractBox {
     async fn execute_transaction_locally(
         &self,
         signed_message: String,
-        options: TransactionExecutionOptions,
+        options: String,
     ) -> anyhow::Result<String> {
         let message = serde_json::from_str::<SignedMessage>(&signed_message)
             .handle_error()?
             .message;
+        let options = serde_json::from_str::<TransactionExecutionOptions>(&options)
+            .handle_error()?;
 
         let transaction = self
             .inner_contract

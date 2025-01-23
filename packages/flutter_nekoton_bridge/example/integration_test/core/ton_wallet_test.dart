@@ -157,14 +157,11 @@ void main() {
         transport: transport,
         address: address,
       );
-
-      final contract = await transport.getContractState(stEverContractVault);
-      final repacked = repackAddress(stEverContractVault);
-
+      final contract = await transport.getContractState(address);
       final message = await wallet.prepareTransfer(
         contractState: contract,
         publicKey: publicKey,
-        destination: repacked,
+        destination: stEverContractVault,
         amount: BigInt.parse('100000000'),
         bounce: false,
         expiration: expiration,
@@ -220,14 +217,11 @@ void main() {
         transport: transport,
         address: address,
       );
-
-      final contract = await transport.getContractState(stEverContractVault);
-      final repacked = repackAddress(stEverContractVault);
-
+      final contract = await transport.getContractState(address);
       final message = await wallet.prepareTransfer(
         contractState: contract,
         publicKey: publicKey,
-        destination: repacked,
+        destination: stEverContractVault,
         amount: BigInt.parse('100000000'),
         bounce: false,
         expiration: expiration,
@@ -357,5 +351,56 @@ void main() {
         }
       },
     );
+
+    testWidgets('TonWallet estimateFees', (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      final wallet = await TonWallet.subscribeByAddress(
+        transport: transport,
+        address: address,
+      );
+      final contract = await transport.getContractState(address);
+      final message = await wallet.prepareTransfer(
+        contractState: contract,
+        publicKey: publicKey,
+        destination: stEverContractVault,
+        amount: BigInt.parse('100000000'),
+        bounce: false,
+        expiration: expiration,
+      );
+
+      final signedMessage = await message.signFake();
+      final fees = await wallet.estimateFees(signedMessage: signedMessage);
+
+      expect(fees, isNotNull);
+      expect(fees, isNot(BigInt.zero));
+    });
+
+    testWidgets('TonWallet estimate deployment fees',
+        (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      final wallet = await TonWallet.subscribe(
+        transport: transport,
+        workchainId: workchainId,
+        publicKey: const PublicKey(
+          publicKey:
+              '6902c9935554195529d92d08a0fe3705b4e1e65ea880caa88ac0e5f47a85017d',
+        ),
+        walletType: const WalletType.multisig(MultisigType.multisig2_1),
+      );
+      final message = await wallet.prepareDeploy(expiration: expiration);
+      final signedMessage = await message.signFake();
+      final fees = await wallet.estimateFees(
+        signedMessage: signedMessage,
+        executionOptions: TransactionExecutionOptions(
+          disableSignatureCheck: true,
+          overrideBalance: BigInt.parse('100000000000'),
+        ),
+      );
+
+      expect(fees, isNotNull);
+      expect(fees, isNot(BigInt.zero));
+    });
   });
 }

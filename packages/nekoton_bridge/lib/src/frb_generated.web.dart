@@ -225,14 +225,7 @@ abstract class NekotonBridgeApiImplPlatform
       dynamic raw);
 
   @protected
-  TransactionExecutionOptions
-      dco_decode_box_autoadd_transaction_execution_options(dynamic raw);
-
-  @protected
   int dco_decode_box_autoadd_u_32(dynamic raw);
-
-  @protected
-  BigInt dco_decode_box_autoadd_u_64(dynamic raw);
 
   @protected
   UnsignedMessageImpl dco_decode_box_autoadd_unsigned_message_impl(dynamic raw);
@@ -365,9 +358,6 @@ abstract class NekotonBridgeApiImplPlatform
   int? dco_decode_opt_box_autoadd_u_32(dynamic raw);
 
   @protected
-  BigInt? dco_decode_opt_box_autoadd_u_64(dynamic raw);
-
-  @protected
   List<String>? dco_decode_opt_list_String(dynamic raw);
 
   @protected
@@ -400,10 +390,6 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   TonWalletDartWrapper dco_decode_ton_wallet_dart_wrapper(dynamic raw);
-
-  @protected
-  TransactionExecutionOptions dco_decode_transaction_execution_options(
-      dynamic raw);
 
   @protected
   int dco_decode_u_16(dynamic raw);
@@ -593,15 +579,7 @@ abstract class NekotonBridgeApiImplPlatform
       SseDeserializer deserializer);
 
   @protected
-  TransactionExecutionOptions
-      sse_decode_box_autoadd_transaction_execution_options(
-          SseDeserializer deserializer);
-
-  @protected
   int sse_decode_box_autoadd_u_32(SseDeserializer deserializer);
-
-  @protected
-  BigInt sse_decode_box_autoadd_u_64(SseDeserializer deserializer);
 
   @protected
   UnsignedMessageImpl sse_decode_box_autoadd_unsigned_message_impl(
@@ -746,9 +724,6 @@ abstract class NekotonBridgeApiImplPlatform
   int? sse_decode_opt_box_autoadd_u_32(SseDeserializer deserializer);
 
   @protected
-  BigInt? sse_decode_opt_box_autoadd_u_64(SseDeserializer deserializer);
-
-  @protected
   List<String>? sse_decode_opt_list_String(SseDeserializer deserializer);
 
   @protected
@@ -784,10 +759,6 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   TonWalletDartWrapper sse_decode_ton_wallet_dart_wrapper(
-      SseDeserializer deserializer);
-
-  @protected
-  TransactionExecutionOptions sse_decode_transaction_execution_options(
       SseDeserializer deserializer);
 
   @protected
@@ -994,22 +965,9 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
-  JSAny cst_encode_box_autoadd_transaction_execution_options(
-      TransactionExecutionOptions raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_transaction_execution_options(raw);
-  }
-
-  @protected
   int cst_encode_box_autoadd_u_32(int raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_u_32(raw);
-  }
-
-  @protected
-  JSAny cst_encode_box_autoadd_u_64(BigInt raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_u_64(raw);
   }
 
   @protected
@@ -1326,12 +1284,6 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
-  JSAny? cst_encode_opt_box_autoadd_u_64(BigInt? raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw == null ? null : cst_encode_box_autoadd_u_64(raw);
-  }
-
-  @protected
   JSAny? cst_encode_opt_list_String(List<String>? raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return raw == null ? null : cst_encode_list_String(raw);
@@ -1405,16 +1357,6 @@ abstract class NekotonBridgeApiImplPlatform
     // Codec=Cst (C-struct based), see doc to use other codecs
     return [cst_encode_RustOpaque_ArcdynTonWalletBoxTrait(raw.innerWallet)]
         .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_transaction_execution_options(
-      TransactionExecutionOptions raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_bool(raw.disableSignatureCheck),
-      cst_encode_opt_box_autoadd_u_64(raw.overrideBalance)
-    ].jsify()!;
   }
 
   @protected
@@ -1682,14 +1624,7 @@ abstract class NekotonBridgeApiImplPlatform
       TonWalletDartWrapper self, SseSerializer serializer);
 
   @protected
-  void sse_encode_box_autoadd_transaction_execution_options(
-      TransactionExecutionOptions self, SseSerializer serializer);
-
-  @protected
   void sse_encode_box_autoadd_u_32(int self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_box_autoadd_u_64(BigInt self, SseSerializer serializer);
 
   @protected
   void sse_encode_box_autoadd_unsigned_message_impl(
@@ -1839,9 +1774,6 @@ abstract class NekotonBridgeApiImplPlatform
   void sse_encode_opt_box_autoadd_u_32(int? self, SseSerializer serializer);
 
   @protected
-  void sse_encode_opt_box_autoadd_u_64(BigInt? self, SseSerializer serializer);
-
-  @protected
   void sse_encode_opt_list_String(List<String>? self, SseSerializer serializer);
 
   @protected
@@ -1879,10 +1811,6 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   void sse_encode_ton_wallet_dart_wrapper(
       TonWalletDartWrapper self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_transaction_execution_options(
-      TransactionExecutionOptions self, SseSerializer serializer);
 
   @protected
   void sse_encode_u_16(int self, SseSerializer serializer);
@@ -2054,7 +1982,7 @@ class NekotonBridgeWire implements BaseWire {
           NativePortType port_,
           JSAny that,
           String signed_message,
-          JSAny options) =>
+          String options) =>
       wasmModule
           .wire__crate__api__merged__generic_contract_dart_wrapper_execute_transaction_locally(
               port_, that, signed_message, options);
@@ -3107,10 +3035,13 @@ class NekotonBridgeWire implements BaseWire {
           port_, that);
 
   void wire__crate__api__merged__ton_wallet_dart_wrapper_estimate_fees(
-          NativePortType port_, JSAny that, String signed_message) =>
+          NativePortType port_,
+          JSAny that,
+          String signed_message,
+          String? execution_options) =>
       wasmModule
           .wire__crate__api__merged__ton_wallet_dart_wrapper_estimate_fees(
-              port_, that, signed_message);
+              port_, that, signed_message, execution_options);
 
   void wire__crate__api__merged__ton_wallet_dart_wrapper_find_existing_wallets(
           NativePortType port_,
@@ -3560,7 +3491,7 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
           NativePortType port_,
           JSAny that,
           String signed_message,
-          JSAny options);
+          String options);
 
   external void
       wire__crate__api__merged__generic_contract_dart_wrapper_handle_block(
@@ -4274,7 +4205,10 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
       NativePortType port_, JSAny that);
 
   external void wire__crate__api__merged__ton_wallet_dart_wrapper_estimate_fees(
-      NativePortType port_, JSAny that, String signed_message);
+      NativePortType port_,
+      JSAny that,
+      String signed_message,
+      String? execution_options);
 
   external void
       wire__crate__api__merged__ton_wallet_dart_wrapper_find_existing_wallets(

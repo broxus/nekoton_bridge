@@ -148,7 +148,7 @@ class GenericContract extends RustToDartMirrorInterface
   }) async {
     final encoded = await contract.executeTransactionLocally(
       signedMessage: jsonEncode(signedMessage),
-      options: options,
+      options: jsonEncode(options),
     );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
     return Transaction.fromJson(decoded);

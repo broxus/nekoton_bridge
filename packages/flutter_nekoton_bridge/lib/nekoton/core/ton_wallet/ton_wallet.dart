@@ -323,9 +323,13 @@ class TonWallet extends RustToDartMirrorInterface
   /// Returns representation of u128 or throw error.
   Future<BigInt> estimateFees({
     required SignedMessage signedMessage,
+    TransactionExecutionOptions? executionOptions,
   }) async {
-    final fee =
-        await wallet.estimateFees(signedMessage: jsonEncode(signedMessage));
+    final fee = await wallet.estimateFees(
+      signedMessage: jsonEncode(signedMessage),
+      executionOptions:
+          executionOptions != null ? jsonEncode(executionOptions) : null,
+    );
     return BigInt.parse(fee);
   }
 
