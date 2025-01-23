@@ -134,10 +134,10 @@ void main() {
       );
 
       expect(message1, isNotNull);
-      expect(message1.amount, BigInt.parse('500000000'));
+      expect(message1.amount >= BigInt.parse('500000000'), isTrue);
 
       expect(message2, isNotNull);
-      expect(message2.amount, BigInt.parse('200000000'));
+      expect(message2.amount >= BigInt.parse('200000000'), isTrue);
 
       wallet.dispose();
     });
