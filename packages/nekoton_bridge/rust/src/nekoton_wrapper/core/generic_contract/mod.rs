@@ -136,8 +136,8 @@ impl GenericContractBoxTrait for GenericContractBox {
         let message = serde_json::from_str::<SignedMessage>(&signed_message)
             .handle_error()?
             .message;
-        let options = serde_json::from_str::<TransactionExecutionOptions>(&options)
-            .handle_error()?;
+        let options =
+            serde_json::from_str::<TransactionExecutionOptions>(&options).handle_error()?;
 
         let transaction = self
             .inner_contract

@@ -248,7 +248,11 @@ impl TonWalletDartWrapper {
         signed_message: String,
         execution_options: Option<String>,
     ) -> anyhow::Result<String> {
-        async_run!(self.inner_wallet.estimate_fees(signed_message, execution_options).await)
+        async_run!(
+            self.inner_wallet
+                .estimate_fees(signed_message, execution_options)
+                .await
+        )
     }
 
     /// Send message to blockchain and receive transaction of send.
