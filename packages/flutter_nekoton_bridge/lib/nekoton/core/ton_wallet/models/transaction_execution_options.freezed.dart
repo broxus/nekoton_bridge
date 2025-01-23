@@ -23,7 +23,7 @@ TransactionExecutionOptions _$TransactionExecutionOptionsFromJson(
 mixin _$TransactionExecutionOptions {
   bool get disableSignatureCheck => throw _privateConstructorUsedError;
   @amountJsonConverter
-  BigInt get overrideBalance => throw _privateConstructorUsedError;
+  BigInt? get overrideBalance => throw _privateConstructorUsedError;
 
   /// Serializes this TransactionExecutionOptions to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,7 +45,7 @@ abstract class $TransactionExecutionOptionsCopyWith<$Res> {
   @useResult
   $Res call(
       {bool disableSignatureCheck,
-      @amountJsonConverter BigInt overrideBalance});
+      @amountJsonConverter BigInt? overrideBalance});
 }
 
 /// @nodoc
@@ -65,17 +65,17 @@ class _$TransactionExecutionOptionsCopyWithImpl<$Res,
   @override
   $Res call({
     Object? disableSignatureCheck = null,
-    Object? overrideBalance = null,
+    Object? overrideBalance = freezed,
   }) {
     return _then(_value.copyWith(
       disableSignatureCheck: null == disableSignatureCheck
           ? _value.disableSignatureCheck
           : disableSignatureCheck // ignore: cast_nullable_to_non_nullable
               as bool,
-      overrideBalance: null == overrideBalance
+      overrideBalance: freezed == overrideBalance
           ? _value.overrideBalance
           : overrideBalance // ignore: cast_nullable_to_non_nullable
-              as BigInt,
+              as BigInt?,
     ) as $Val);
   }
 }
@@ -91,7 +91,7 @@ abstract class _$$TransactionExecutionOptionsImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool disableSignatureCheck,
-      @amountJsonConverter BigInt overrideBalance});
+      @amountJsonConverter BigInt? overrideBalance});
 }
 
 /// @nodoc
@@ -110,17 +110,17 @@ class __$$TransactionExecutionOptionsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? disableSignatureCheck = null,
-    Object? overrideBalance = null,
+    Object? overrideBalance = freezed,
   }) {
     return _then(_$TransactionExecutionOptionsImpl(
       disableSignatureCheck: null == disableSignatureCheck
           ? _value.disableSignatureCheck
           : disableSignatureCheck // ignore: cast_nullable_to_non_nullable
               as bool,
-      overrideBalance: null == overrideBalance
+      overrideBalance: freezed == overrideBalance
           ? _value.overrideBalance
           : overrideBalance // ignore: cast_nullable_to_non_nullable
-              as BigInt,
+              as BigInt?,
     ));
   }
 }
@@ -131,7 +131,7 @@ class _$TransactionExecutionOptionsImpl
     implements _TransactionExecutionOptions {
   const _$TransactionExecutionOptionsImpl(
       {required this.disableSignatureCheck,
-      @amountJsonConverter required this.overrideBalance});
+      @amountJsonConverter this.overrideBalance});
 
   factory _$TransactionExecutionOptionsImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -141,7 +141,7 @@ class _$TransactionExecutionOptionsImpl
   final bool disableSignatureCheck;
   @override
   @amountJsonConverter
-  final BigInt overrideBalance;
+  final BigInt? overrideBalance;
 
   @override
   String toString() {
@@ -185,7 +185,7 @@ abstract class _TransactionExecutionOptions
     implements TransactionExecutionOptions {
   const factory _TransactionExecutionOptions(
           {required final bool disableSignatureCheck,
-          @amountJsonConverter required final BigInt overrideBalance}) =
+          @amountJsonConverter final BigInt? overrideBalance}) =
       _$TransactionExecutionOptionsImpl;
 
   factory _TransactionExecutionOptions.fromJson(Map<String, dynamic> json) =
@@ -195,7 +195,7 @@ abstract class _TransactionExecutionOptions
   bool get disableSignatureCheck;
   @override
   @amountJsonConverter
-  BigInt get overrideBalance;
+  BigInt? get overrideBalance;
 
   /// Create a copy of TransactionExecutionOptions
   /// with the given fields replaced by the non-null parameter values.
