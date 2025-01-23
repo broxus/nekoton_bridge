@@ -1,3 +1,7 @@
+## 2.3.0
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
 ## 2.3.0-dev.4
 
  - **FIX**(ios): rename nekoton_bridge to flutter_nekoton_bridge. ([c30e409f](https://github.com/broxus/nekoton_bridge/commit/c30e409ff982cce2a0c2025061a6489ee78271af))
