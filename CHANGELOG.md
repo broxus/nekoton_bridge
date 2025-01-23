@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_nekoton_bridge` - `v2.4.1`](#flutter_nekoton_bridge---v241)
+ - [`flutter_nekoton_bridge_example` - `v1.22.1`](#flutter_nekoton_bridge_example---v1221)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.22.1`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.4.1`
+
+ - **FIX**: make overrideBalance nullable in TransactionExecutionOptions model. ([4e6ab696](https://github.com/broxus/nekoton_bridge/commit/4e6ab696c9e337101b7069b20cfe960a3117764c))
+
+
+## 2025-01-23
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v2.4.0`](#flutter_nekoton_bridge---v240)
  - [`flutter_nekoton_bridge_example` - `v1.22.0`](#flutter_nekoton_bridge_example---v1220)
  - [`nekoton_bridge` - `v2.4.0`](#nekoton_bridge---v240)
