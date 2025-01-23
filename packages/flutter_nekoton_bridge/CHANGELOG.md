@@ -1,3 +1,7 @@
+## 2.3.1
+
+ - **FIX**: downgrade rxdart version to 0.27.7 in flutter_nekoton_bridge. ([197b0b9f](https://github.com/broxus/nekoton_bridge/commit/197b0b9ffaf633c3d387d251d441d5ad71fe5c31))
+
 ## 2.3.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
