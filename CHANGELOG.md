@@ -15,6 +15,37 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_nekoton_bridge` - `v2.4.0`](#flutter_nekoton_bridge---v240)
+ - [`flutter_nekoton_bridge_example` - `v1.22.0`](#flutter_nekoton_bridge_example---v1220)
+ - [`nekoton_bridge` - `v2.4.0`](#nekoton_bridge---v240)
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.4.0`
+
+ - **FEAT**: add execution options to estimateFees and update related models ([#317](https://github.com/broxus/nekoton_bridge/issues/317)). ([48106400](https://github.com/broxus/nekoton_bridge/commit/48106400aa4929d1c48e7f60dd20e00659114db2))
+
+#### `flutter_nekoton_bridge_example` - `v1.22.0`
+
+ - **FEAT**: add execution options to estimateFees and update related models ([#317](https://github.com/broxus/nekoton_bridge/issues/317)). ([48106400](https://github.com/broxus/nekoton_bridge/commit/48106400aa4929d1c48e7f60dd20e00659114db2))
+
+#### `nekoton_bridge` - `v2.4.0`
+
+ - **FEAT**: add execution options to estimateFees and update related models ([#317](https://github.com/broxus/nekoton_bridge/issues/317)). ([48106400](https://github.com/broxus/nekoton_bridge/commit/48106400aa4929d1c48e7f60dd20e00659114db2))
+
+
+## 2025-01-23
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v2.3.1`](#flutter_nekoton_bridge---v231)
  - [`flutter_nekoton_bridge_example` - `v1.21.1`](#flutter_nekoton_bridge_example---v1211)
 

@@ -1,3 +1,7 @@
+## 2.4.0
+
+ - **FEAT**: add execution options to estimateFees and update related models ([#317](https://github.com/broxus/nekoton_bridge/issues/317)). ([48106400](https://github.com/broxus/nekoton_bridge/commit/48106400aa4929d1c48e7f60dd20e00659114db2))
+
 ## 2.3.1
 
  - **FIX**: downgrade rxdart version to 0.27.7 in flutter_nekoton_bridge. ([197b0b9f](https://github.com/broxus/nekoton_bridge/commit/197b0b9ffaf633c3d387d251d441d5ad71fe5c31))

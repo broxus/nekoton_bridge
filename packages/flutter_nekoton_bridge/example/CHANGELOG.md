@@ -1,3 +1,7 @@
+## 1.22.0
+
+ - **FEAT**: add execution options to estimateFees and update related models ([#317](https://github.com/broxus/nekoton_bridge/issues/317)). ([48106400](https://github.com/broxus/nekoton_bridge/commit/48106400aa4929d1c48e7f60dd20e00659114db2))
+
 ## 1.21.1
 
  - Update a dependency to the latest release.
