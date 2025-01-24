@@ -534,10 +534,10 @@ pub fn nt_validate_address(address: String) -> bool {
     nekoton_utils::validate_address(&address)
 }
 
-/// Repack address and return json-encoded MsgAddressInt or throw error
+/// Repack address and return MsgAddressInt string or original string if failed
 #[frb(sync)]
 pub fn nt_repack_address(address: String) -> String {
-    nekoton_utils::repack_address(&address).unwrap().to_string()
+    nekoton_utils::repack_address(&address).map_or(address, |addr| addr.to_string())
 }
 
 #[frb(sync)]

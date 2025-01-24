@@ -227,7 +227,7 @@ Future<String> ntUnpackStdSmcAddr(
 bool ntValidateAddress({required String address}) => NekotonBridge.instance.api
     .crateApiMergedNtValidateAddress(address: address);
 
-/// Repack address and return json-encoded MsgAddressInt or throw error
+/// Repack address and return MsgAddressInt string or original string if failed
 String ntRepackAddress({required String address}) =>
     NekotonBridge.instance.api.crateApiMergedNtRepackAddress(address: address);
 

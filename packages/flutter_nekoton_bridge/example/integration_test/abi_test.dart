@@ -99,8 +99,15 @@ void main() {
       );
     });
 
+    test('isValid', () {
+      expect(const Address(address: raw1).isValid, isTrue);
+      expect(const Address(address: bounceable1).isValid, isTrue);
+      expect(const Address(address: 'abcdefg').isValid, isFalse);
+    });
+
     test('isRaw', () {
       expect(const Address(address: raw1).isRaw, isTrue);
+      expect(Address(address: raw1.toUpperCase()).isRaw, isTrue);
       expect(const Address(address: bounceable1).isRaw, isFalse);
     });
 

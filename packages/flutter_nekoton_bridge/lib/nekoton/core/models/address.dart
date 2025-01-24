@@ -17,6 +17,8 @@ sealed class Address with _$Address {
 
   bool get isZeroState => _zerostate.contains(toRaw());
 
+  bool get isValid => ntValidateAddress(address: address);
+
   String toJson() => toRaw();
 
   String toRaw() => isRaw ? address : ntRepackAddress(address: address);
