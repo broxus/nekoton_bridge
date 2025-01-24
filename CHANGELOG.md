@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-01-24
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.4.2`](#flutter_nekoton_bridge---v242)
+ - [`flutter_nekoton_bridge_example` - `v1.22.2`](#flutter_nekoton_bridge_example---v1222)
+ - [`nekoton_bridge` - `v2.4.1`](#nekoton_bridge---v241)
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.4.2`
+
+ - **FIX**: add address validation and update related methods. ([cbfa998f](https://github.com/broxus/nekoton_bridge/commit/cbfa998fdd4861d25cc995ecb65b03d8b663e7c9))
+
+#### `flutter_nekoton_bridge_example` - `v1.22.2`
+
+ - **FIX**: add address validation and update related methods. ([cbfa998f](https://github.com/broxus/nekoton_bridge/commit/cbfa998fdd4861d25cc995ecb65b03d8b663e7c9))
+
+#### `nekoton_bridge` - `v2.4.1`
+
+ - **FIX**: add address validation and update related methods. ([cbfa998f](https://github.com/broxus/nekoton_bridge/commit/cbfa998fdd4861d25cc995ecb65b03d8b663e7c9))
+
+
 ## 2025-01-23
 
 ### Changes

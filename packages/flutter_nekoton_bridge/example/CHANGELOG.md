@@ -1,3 +1,7 @@
+## 1.22.2
+
+ - **FIX**: add address validation and update related methods. ([cbfa998f](https://github.com/broxus/nekoton_bridge/commit/cbfa998fdd4861d25cc995ecb65b03d8b663e7c9))
+
 ## 1.22.1
 
  - Update a dependency to the latest release.

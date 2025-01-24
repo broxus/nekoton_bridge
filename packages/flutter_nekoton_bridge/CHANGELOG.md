@@ -1,3 +1,7 @@
+## 2.4.2
+
+ - **FIX**: add address validation and update related methods. ([cbfa998f](https://github.com/broxus/nekoton_bridge/commit/cbfa998fdd4861d25cc995ecb65b03d8b663e7c9))
+
 ## 2.4.1
 
  - **FIX**: make overrideBalance nullable in TransactionExecutionOptions model. ([4e6ab696](https://github.com/broxus/nekoton_bridge/commit/4e6ab696c9e337101b7069b20cfe960a3117764c))
