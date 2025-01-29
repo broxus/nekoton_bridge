@@ -214,8 +214,8 @@ impl TransportBoxTrait for name {
     ) -> anyhow::Result<String> {
         let address = parse_address(address)?;
         let from_lt = match from_lt {
-            None => u64::MAX,
-            Some(amount) => amount.parse::<u64>().handle_error()?,
+            None => u128::MAX,
+            Some(amount) => amount.parse::<u128>().handle_error()?,
         };
 
         let raw_transactions = self
@@ -468,7 +468,7 @@ impl TransportBoxTrait for GqlTransportBox {
 
         let from_lt = match from_lt {
             None => u64::MAX,
-            Some(amount) => amount.parse::<u64>().handle_error()?,
+            Some(amount) => amount.parse::<u128>().handle_error()?,
         };
 
         let raw_transactions = self

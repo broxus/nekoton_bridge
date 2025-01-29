@@ -849,7 +849,7 @@ pub fn nt_encode_internal_message(
 
     let dst = parse_address(dst)?;
 
-    let amount = amount.parse::<u64>().handle_error()?;
+    let amount = amount.parse::<u128>().handle_error()?;
 
     let mut message = ton_block::Message::with_int_header(ton_block::InternalMessageHeader {
         ihr_disabled: true,

@@ -219,7 +219,7 @@ impl TokenWalletBoxTrait for TokenWalletBox {
 
         let attached_amount = match attached_amount {
             None => 400000000,
-            Some(amount) => amount.parse::<u64>().handle_error()?,
+            Some(amount) => amount.parse::<u128>().handle_error()?,
         };
 
         let internal_message = self
