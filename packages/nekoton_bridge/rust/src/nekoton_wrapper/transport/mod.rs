@@ -467,7 +467,7 @@ impl TransportBoxTrait for GqlTransportBox {
         let address = parse_address(address)?;
 
         let from_lt = match from_lt {
-            None => u64::MAX,
+            None => u128::MAX,
             Some(amount) => amount.parse::<u128>().handle_error()?,
         };
 
