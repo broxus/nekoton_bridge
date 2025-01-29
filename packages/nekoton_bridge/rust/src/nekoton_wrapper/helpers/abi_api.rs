@@ -647,7 +647,7 @@ pub fn nt_execute_local(
         .unwrap_or_default();
     let message = ton_block::Message::construct_from_base64(&message).handle_error()?;
     if let Some(amount) = overwrite_balance {
-        let amount = amount.trim().parse::<u64>().handle_error()?;
+        let amount = amount.trim().parse::<u128>().handle_error()?;
         let balance = ton_block::CurrencyCollection::with_grams(amount);
 
         let mut new_account = ton_block::Account::construct_from_cell(account).handle_error()?;
