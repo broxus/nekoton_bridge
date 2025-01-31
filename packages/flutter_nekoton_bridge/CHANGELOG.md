@@ -1,3 +1,7 @@
+## 2.5.0-dev.0
+
+ - **FEAT**: implemented moving from u64 to u128 ([#323](https://github.com/broxus/nekoton_bridge/issues/323)). ([c4c3234c](https://github.com/broxus/nekoton_bridge/commit/c4c3234c2a9d09ce5c43fa78af119fa041f15583))
+
 ## 2.4.2
 
  - **FIX**: add address validation and update related methods. ([cbfa998f](https://github.com/broxus/nekoton_bridge/commit/cbfa998fdd4861d25cc995ecb65b03d8b663e7c9))
