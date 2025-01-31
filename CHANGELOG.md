@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-01-31
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.5.0-dev.0`](#flutter_nekoton_bridge---v250-dev0)
+ - [`nekoton_bridge` - `v2.5.0-dev.0`](#nekoton_bridge---v250-dev0)
+ - [`flutter_nekoton_bridge_example` - `v1.22.3-dev.0`](#flutter_nekoton_bridge_example---v1223-dev0)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.22.3-dev.0`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.5.0-dev.0`
+
+ - **FEAT**: implemented moving from u64 to u128 ([#323](https://github.com/broxus/nekoton_bridge/issues/323)). ([c4c3234c](https://github.com/broxus/nekoton_bridge/commit/c4c3234c2a9d09ce5c43fa78af119fa041f15583))
+
+#### `nekoton_bridge` - `v2.5.0-dev.0`
+
+ - **FEAT**: implemented moving from u64 to u128 ([#323](https://github.com/broxus/nekoton_bridge/issues/323)). ([c4c3234c](https://github.com/broxus/nekoton_bridge/commit/c4c3234c2a9d09ce5c43fa78af119fa041f15583))
+
+
 ## 2025-01-24
 
 ### Changes
