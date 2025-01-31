@@ -380,7 +380,7 @@ impl TonWalletBoxTrait for TonWalletBox {
 
         let destination = parse_address(destination)?;
 
-        let amount = amount.parse::<u64>().handle_error()?;
+        let amount = amount.parse::<u128>().handle_error()?;
 
         let body = body
             .map(|e| create_boc_or_comment_payload(&e))

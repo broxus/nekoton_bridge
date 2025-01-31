@@ -190,7 +190,7 @@ impl JettonWalletBoxTrait for JettonWalletBox {
         attached_amount: Option<String>,
     ) -> anyhow::Result<String> {
         let attached_amount = attached_amount.unwrap_or("100000000".to_string()); // DEFAULT if 0.1 TON
-        let attached_amount = u64::from_str(&attached_amount).handle_error()?;
+        let attached_amount = u128::from_str(&attached_amount).handle_error()?;
 
         let destination = parse_address(destination)?;
         let remaining_gas_to = parse_address(remaining_gas_to)?;

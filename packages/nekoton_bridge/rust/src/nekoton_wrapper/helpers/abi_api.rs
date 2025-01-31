@@ -647,8 +647,8 @@ pub fn nt_execute_local(
         .unwrap_or_default();
     let message = ton_block::Message::construct_from_base64(&message).handle_error()?;
     if let Some(amount) = overwrite_balance {
-        let amount = amount.trim().parse::<u64>().handle_error()?;
-        let balance = ton_block::CurrencyCollection::with_grams(amount);
+        let amount = amount.trim().parse::<u128>().handle_error()?;
+        let balance = ton_block::CurrencyCollection::from_grams(ton_block::Grams::new(amount)?);
 
         let mut new_account = ton_block::Account::construct_from_cell(account).handle_error()?;
         match &mut new_account {
@@ -849,14 +849,15 @@ pub fn nt_encode_internal_message(
 
     let dst = parse_address(dst)?;
 
-    let amount = amount.parse::<u64>().handle_error()?;
+    let amount = amount.parse::<u128>().handle_error()?;
+    let value = ton_block::CurrencyCollection::from_grams(ton_block::Grams::new(amount)?);
 
     let mut message = ton_block::Message::with_int_header(ton_block::InternalMessageHeader {
         ihr_disabled: true,
         bounce,
         src,
         dst,
-        value: amount.into(),
+        value: value,
         bounced: bounced.unwrap_or_default(),
         ..Default::default()
     });
