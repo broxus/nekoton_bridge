@@ -1,3 +1,7 @@
+## 2.5.0-dev.1
+
+ - **FEAT**: change async functions to synchronous in mnemonic API. ([e147f7b7](https://github.com/broxus/nekoton_bridge/commit/e147f7b70298f5b1c7aa921b9518d06899485d06))
+
 ## 2.5.0-dev.0
 
  - **FEAT**: implemented moving from u64 to u128 ([#323](https://github.com/broxus/nekoton_bridge/issues/323)). ([c4c3234c](https://github.com/broxus/nekoton_bridge/commit/c4c3234c2a9d09ce5c43fa78af119fa041f15583))
