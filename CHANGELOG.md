@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-02-10
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.5.0-dev.1`](#flutter_nekoton_bridge---v250-dev1)
+ - [`nekoton_bridge` - `v2.5.0-dev.1`](#nekoton_bridge---v250-dev1)
+ - [`flutter_nekoton_bridge_example` - `v1.22.3-dev.1`](#flutter_nekoton_bridge_example---v1223-dev1)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.22.3-dev.1`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.5.0-dev.1`
+
+ - **FEAT**: change async functions to synchronous in mnemonic API. ([e147f7b7](https://github.com/broxus/nekoton_bridge/commit/e147f7b70298f5b1c7aa921b9518d06899485d06))
+
+#### `nekoton_bridge` - `v2.5.0-dev.1`
+
+ - **FEAT**: change async functions to synchronous in mnemonic API. ([e147f7b7](https://github.com/broxus/nekoton_bridge/commit/e147f7b70298f5b1c7aa921b9518d06899485d06))
+
+
 ## 2025-01-31
 
 ### Changes
