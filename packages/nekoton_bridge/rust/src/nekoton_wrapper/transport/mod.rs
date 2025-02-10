@@ -172,7 +172,7 @@ impl TransportBoxTrait for name {
 
         let prices = config.raw_config().storage_prices().handle_error()?;
         let now = clock.now_sec_u64();
-        let mut storage_bit_price = 0;
+        let mut storage_bit_price:i32 = 0;
 
         for price in prices {
             if price.utime_since as u64 <= now {
@@ -482,9 +482,9 @@ impl TransportBoxTrait for GqlTransportBox {
 
         let prices = config.raw_config().storage_prices().handle_error()?;
         let now = clock.now_sec_u64();
-        let mut storage_bit_price = 0;
+        let mut storage_bit_price:i32 = 0;
 
-        for price in prices {
+        prices.iter().for_each(|price| {
             if price.utime_since as u64 <= now {
                 storage_bit_price = if is_masterchain {
                     price.mc_bit_price_ps
@@ -492,7 +492,7 @@ impl TransportBoxTrait for GqlTransportBox {
                     price.bit_price_ps
                 };
             }
-        }
+        });        
 
         let storage_fee_factor: u64 = storage_bit_price.div_ceil(base_storage_price);
 
