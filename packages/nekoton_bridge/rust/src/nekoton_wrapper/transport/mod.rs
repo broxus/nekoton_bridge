@@ -23,6 +23,7 @@ use nekoton::transport::{
 use nekoton_abi::TransactionId;
 use nekoton_utils::Clock;
 use nekoton_utils::SimpleClock;
+use serde_json::json;
 use std::convert::TryFrom;
 use std::panic::{RefUnwindSafe, UnwindSafe};
 use std::sync::Arc;
