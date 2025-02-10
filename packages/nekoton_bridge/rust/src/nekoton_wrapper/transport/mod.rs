@@ -170,19 +170,22 @@ impl TransportBoxTrait for name {
             .await
             .handle_error()?;
 
-        let prices = config.raw_config().storage_prices().handle_error()?;
+        let prices_param = config.raw_config().storage_prices().handle_error()?;
+        let prices_len = prices_param.len()?;
         let now = clock.now_sec_u64();
         let mut storage_bit_price:u64 = 0;
 
-        for price in prices {
-            if price.utime_since as u64 <= now {
-                storage_bit_price = if is_masterchain {
-                    price.mc_bit_price_ps
-                } else {
-                    price.bit_price_ps
-                };
+        for index in 0..prices_len as u32 {
+            if let Ok(price) = prices_param.get(index) {
+                if price.utime_since as u64 <= now {
+                    storage_bit_price = if is_masterchain {
+                        price.mc_bit_price_ps
+                    } else {
+                        price.bit_price_ps
+                    };
+                }
             }
-        }
+        }        
 
         let storage_fee_factor: u64 = storage_bit_price.div_ceil(base_storage_price);
 
