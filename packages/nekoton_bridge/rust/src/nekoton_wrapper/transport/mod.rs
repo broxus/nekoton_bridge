@@ -21,6 +21,7 @@ use nekoton::transport::{
     gql::GqlTransport, jrpc::JrpcTransport, proto::ProtoTransport, Transport,
 };
 use nekoton_abi::TransactionId;
+use nekoton_utils::Clock;
 use nekoton_utils::SimpleClock;
 use std::convert::TryFrom;
 use std::panic::{RefUnwindSafe, UnwindSafe};
