@@ -183,7 +183,7 @@ impl TransportBoxTrait for name {
             }
         }
 
-        let storage_fee_factor = storage_bit_price.div_ceil(base_storage_price);
+        let storage_fee_factor: u64 = storage_bit_price.div_ceil(base_storage_price);
 
         let gas_fees = config.get_gas_config(is_masterchain);
         let gas_fee_factor = gas_fees
@@ -493,7 +493,7 @@ impl TransportBoxTrait for GqlTransportBox {
             }
         }
 
-        let storage_fee_factor = storage_bit_price.div_ceil(base_storage_price);
+        let storage_fee_factor: u64 = storage_bit_price.div_ceil(base_storage_price);
 
         let gas_fees = config.get_gas_config(is_masterchain);
         let gas_fee_factor = gas_fees
