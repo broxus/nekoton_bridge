@@ -1,5 +1,6 @@
 #![allow(unused_variables, dead_code)]
 
+use flutter_rust_bridge::frb;
 use nekoton::crypto::{derive_from_phrase, dict, generate_key};
 
 use crate::nekoton_wrapper::{
@@ -10,6 +11,7 @@ use crate::nekoton_wrapper::{
 pub use nekoton::crypto::MnemonicType;
 
 /// Generate seed phrase by specified mnemonic type
+#[frb(sync)]
 pub fn nt_generate_key(account_type: MnemonicType) -> GeneratedKeyG {
     let key = generate_key(account_type);
     GeneratedKeyG {
@@ -21,6 +23,7 @@ pub fn nt_generate_key(account_type: MnemonicType) -> GeneratedKeyG {
 /// Get hints for input part of word of seed phrase to get possible words
 /// input: acco
 /// returns [account, accommodate, ...]
+#[frb(sync)]
 pub fn nt_get_hints(input: String) -> Vec<String> {
     str_list_to_string_vec(dict::get_hints(input.as_str()))
 }
@@ -28,6 +31,7 @@ pub fn nt_get_hints(input: String) -> Vec<String> {
 /// Generate public and secret keys from seed phrase and mnemonic type
 /// Returns json {'public': '...', 'secret': '...'}
 /// or throws Exception
+#[frb(sync)]
 pub fn nt_derive_from_phrase(
     phrase: String,
     mnemonic_type: MnemonicType,

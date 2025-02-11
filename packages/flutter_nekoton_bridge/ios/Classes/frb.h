@@ -730,9 +730,8 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_transaction_event
                                                                                   struct wire_cst_list_prim_u_8_strict *transaction,
                                                                                   struct wire_cst_list_prim_u_8_strict *contract_abi);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_derive_from_phrase(int64_t port_,
-                                                                           struct wire_cst_list_prim_u_8_strict *phrase,
-                                                                           struct wire_cst_mnemonic_type *mnemonic_type);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_derive_from_phrase(struct wire_cst_list_prim_u_8_strict *phrase,
+                                                                                           struct wire_cst_mnemonic_type *mnemonic_type);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_encode_internal_input(int64_t port_,
                                                                               struct wire_cst_list_prim_u_8_strict *contract_abi,
@@ -760,8 +759,7 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__nt_execute_local(int64_t po
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_extract_public_key(int64_t port_,
                                                                            struct wire_cst_list_prim_u_8_strict *boc);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_generate_key(int64_t port_,
-                                                                     struct wire_cst_mnemonic_type *account_type);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_generate_key(struct wire_cst_mnemonic_type *account_type);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_boc_hash(int64_t port_,
                                                                      struct wire_cst_list_prim_u_8_strict *boc);
@@ -776,8 +774,7 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_expected_address(int
                                                                              struct wire_cst_list_prim_u_8_strict *public_key,
                                                                              struct wire_cst_list_prim_u_8_strict *init_data);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_hints(int64_t port_,
-                                                                  struct wire_cst_list_prim_u_8_strict *input);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_hints(struct wire_cst_list_prim_u_8_strict *input);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_make_full_account_boc(int64_t port_,
                                                                               struct wire_cst_list_prim_u_8_strict *account_stuff_boc);
