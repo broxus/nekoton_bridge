@@ -161,10 +161,10 @@ impl TransportBoxTrait for name {
 
     async fn get_fee_factors(&self, is_masterchain: bool) -> anyhow::Result<serde_json::Value> {
         let base_storage_price = if is_masterchain { 1000 } else { 1 };
-        let base_gas_price = if is_masterchain { 
-            10_000 << 16 
-        } else { 
-            1_000 << 16 
+        let base_gas_price = if is_masterchain {
+            10_000 << 16
+        } else {
+            1_000 << 16
         };
 
         let handle = self.get_transport();
@@ -478,10 +478,10 @@ impl TransportBoxTrait for GqlTransportBox {
 
     async fn get_fee_factors(&self, is_masterchain: bool) -> anyhow::Result<serde_json::Value> {
         let base_storage_price = if is_masterchain { 1000 } else { 1 };
-        let base_gas_price = if is_masterchain { 
-            10_000 << 16 
-        } else { 
-            1_000 << 16 
+        let base_gas_price = if is_masterchain {
+            10_000 << 16
+        } else {
+            1_000 << 16
         };
 
         let handle = self.get_transport();
@@ -496,7 +496,7 @@ impl TransportBoxTrait for GqlTransportBox {
         let prices_len = prices_param.len()?;
         let now = clock.now_sec_u64();
         let mut storage_bit_price: u64 = 0;
-    
+
         for index in 0..prices_len as u32 {
             if let Ok(price) = prices_param.get(index) {
                 if price.utime_since as u64 <= now {
