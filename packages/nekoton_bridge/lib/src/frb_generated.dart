@@ -71,7 +71,7 @@ class NekotonBridge extends BaseEntrypoint<NekotonBridgeApi,
   String get codegenVersion => '2.7.1';
 
   @override
-  int get rustContentHash => -1772436067;
+  int get rustContentHash => 1514881619;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -213,6 +213,9 @@ abstract class NekotonBridgeApi extends BaseApi {
   Future<String?> crateApiMergedGqlTransportImplGetDstTransaction(
       {required GqlTransportImpl that, required String messageHash});
 
+  Future<Value> crateApiMergedGqlTransportImplGetFeeFactors(
+      {required GqlTransportImpl that, required bool isMasterchain});
+
   Future<String?> crateApiMergedGqlTransportImplGetFullContractState(
       {required GqlTransportImpl that, required String address});
 
@@ -332,6 +335,9 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   Future<String?> crateApiMergedJrpcTransportImplGetDstTransaction(
       {required JrpcTransportImpl that, required String messageHash});
+
+  Future<Value> crateApiMergedJrpcTransportImplGetFeeFactors(
+      {required JrpcTransportImpl that, required bool isMasterchain});
 
   Future<String?> crateApiMergedJrpcTransportImplGetFullContractState(
       {required JrpcTransportImpl that, required String address});
@@ -640,6 +646,9 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   Future<String?> crateApiMergedProtoTransportImplGetDstTransaction(
       {required ProtoTransportImpl that, required String messageHash});
+
+  Future<Value> crateApiMergedProtoTransportImplGetFeeFactors(
+      {required ProtoTransportImpl that, required bool isMasterchain});
 
   Future<String?> crateApiMergedProtoTransportImplGetFullContractState(
       {required ProtoTransportImpl that, required String address});
@@ -1018,6 +1027,12 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   CrossPlatformFinalizerArg
       get rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTraitPtr;
+
+  RustArcIncrementStrongCountFnType get rust_arc_increment_strong_count_Value;
+
+  RustArcDecrementStrongCountFnType get rust_arc_decrement_strong_count_Value;
+
+  CrossPlatformFinalizerArg get rust_arc_decrement_strong_count_ValuePtr;
 }
 
 class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
@@ -2035,6 +2050,34 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
+  Future<Value> crateApiMergedGqlTransportImplGetFeeFactors(
+      {required GqlTransportImpl that, required bool isMasterchain}) {
+    return handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
+        var arg1 = cst_encode_bool(isMasterchain);
+        return wire
+            .wire__crate__api__merged__gql_transport_impl_get_fee_factors(
+                port_, arg0, arg1);
+      },
+      codec: DcoCodec(
+        decodeSuccessData:
+            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue,
+        decodeErrorData: dco_decode_AnyhowException,
+      ),
+      constMeta: kCrateApiMergedGqlTransportImplGetFeeFactorsConstMeta,
+      argValues: [that, isMasterchain],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiMergedGqlTransportImplGetFeeFactorsConstMeta =>
+      const TaskConstMeta(
+        debugName: "gql_transport_impl_get_fee_factors",
+        argNames: ["that", "isMasterchain"],
+      );
+
+  @override
   Future<String?> crateApiMergedGqlTransportImplGetFullContractState(
       {required GqlTransportImpl that, required String address}) {
     return handler.executeNormal(NormalTask(
@@ -2939,6 +2982,34 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
             debugName: "jrpc_transport_impl_get_dst_transaction",
             argNames: ["that", "messageHash"],
           );
+
+  @override
+  Future<Value> crateApiMergedJrpcTransportImplGetFeeFactors(
+      {required JrpcTransportImpl that, required bool isMasterchain}) {
+    return handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
+        var arg1 = cst_encode_bool(isMasterchain);
+        return wire
+            .wire__crate__api__merged__jrpc_transport_impl_get_fee_factors(
+                port_, arg0, arg1);
+      },
+      codec: DcoCodec(
+        decodeSuccessData:
+            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue,
+        decodeErrorData: dco_decode_AnyhowException,
+      ),
+      constMeta: kCrateApiMergedJrpcTransportImplGetFeeFactorsConstMeta,
+      argValues: [that, isMasterchain],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiMergedJrpcTransportImplGetFeeFactorsConstMeta =>
+      const TaskConstMeta(
+        debugName: "jrpc_transport_impl_get_fee_factors",
+        argNames: ["that", "isMasterchain"],
+      );
 
   @override
   Future<String?> crateApiMergedJrpcTransportImplGetFullContractState(
@@ -5034,6 +5105,34 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
             debugName: "proto_transport_impl_get_dst_transaction",
             argNames: ["that", "messageHash"],
           );
+
+  @override
+  Future<Value> crateApiMergedProtoTransportImplGetFeeFactors(
+      {required ProtoTransportImpl that, required bool isMasterchain}) {
+    return handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
+        var arg1 = cst_encode_bool(isMasterchain);
+        return wire
+            .wire__crate__api__merged__proto_transport_impl_get_fee_factors(
+                port_, arg0, arg1);
+      },
+      codec: DcoCodec(
+        decodeSuccessData:
+            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue,
+        decodeErrorData: dco_decode_AnyhowException,
+      ),
+      constMeta: kCrateApiMergedProtoTransportImplGetFeeFactorsConstMeta,
+      argValues: [that, isMasterchain],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiMergedProtoTransportImplGetFeeFactorsConstMeta =>
+      const TaskConstMeta(
+        debugName: "proto_transport_impl_get_fee_factors",
+        argNames: ["that", "isMasterchain"],
+      );
 
   @override
   Future<String?> crateApiMergedProtoTransportImplGetFullContractState(
@@ -7233,10 +7332,24 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       get rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTrait => wire
           .rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait;
 
+  RustArcIncrementStrongCountFnType get rust_arc_increment_strong_count_Value =>
+      wire.rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue;
+
+  RustArcDecrementStrongCountFnType get rust_arc_decrement_strong_count_Value =>
+      wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue;
+
   @protected
   AnyhowException dco_decode_AnyhowException(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return AnyhowException(raw as String);
+  }
+
+  @protected
+  Value
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+          dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return ValueImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
@@ -7337,6 +7450,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcUnsignedMessageBoxTraitImpl.frbInternalDcoDecode(
         raw as List<dynamic>);
+  }
+
+  @protected
+  Value
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+          dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return ValueImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
@@ -8135,6 +8256,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  Value
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+          SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return ValueImpl.frbInternalSseDecode(
+        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+  }
+
+  @protected
   ArcAccountsStorageBoxTrait
       sse_decode_RustOpaque_ArcdynAccountsStorageBoxTrait(
           SseDeserializer deserializer) {
@@ -8240,6 +8370,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcUnsignedMessageBoxTraitImpl.frbInternalSseDecode(
+        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+  }
+
+  @protected
+  Value
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+          SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return ValueImpl.frbInternalSseDecode(
         sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
   }
 
@@ -9034,6 +9173,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+      Value raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+// ignore: invalid_use_of_internal_member
+    return (raw as ValueImpl).frbInternalCstEncode(move: true);
+  }
+
+  @protected
   int cst_encode_RustOpaque_ArcdynAccountsStorageBoxTrait(
       ArcAccountsStorageBoxTrait raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
@@ -9135,6 +9282,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+      Value raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+// ignore: invalid_use_of_internal_member
+    return (raw as ValueImpl).frbInternalCstEncode();
+  }
+
+  @protected
   bool cst_encode_bool(bool raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return raw;
@@ -9211,6 +9366,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       AnyhowException self, SseSerializer serializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_String(self.message, serializer);
+  }
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+          Value self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_usize(
+        (self as ValueImpl).frbInternalSseEncode(move: true), serializer);
   }
 
   @protected
@@ -9334,6 +9498,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         (self as ArcUnsignedMessageBoxTraitImpl)
             .frbInternalSseEncode(move: null),
         serializer);
+  }
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+          Value self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_usize(
+        (self as ValueImpl).frbInternalSseEncode(move: null), serializer);
   }
 
   @protected
@@ -10343,5 +10516,25 @@ class ArcUnsignedMessageBoxTraitImpl extends RustOpaque
         .rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTrait,
     rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
         .rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTraitPtr,
+  );
+}
+
+@sealed
+class ValueImpl extends RustOpaque implements Value {
+  // Not to be used by end users
+  ValueImpl.frbInternalDcoDecode(List<dynamic> wire)
+      : super.frbInternalDcoDecode(wire, _kStaticData);
+
+  // Not to be used by end users
+  ValueImpl.frbInternalSseDecode(BigInt ptr, int externalSizeOnNative)
+      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+
+  static final _kStaticData = RustArcStaticData(
+    rustArcIncrementStrongCount:
+        NekotonBridge.instance.api.rust_arc_increment_strong_count_Value,
+    rustArcDecrementStrongCount:
+        NekotonBridge.instance.api.rust_arc_decrement_strong_count_Value,
+    rustArcDecrementStrongCountPtr:
+        NekotonBridge.instance.api.rust_arc_decrement_strong_count_ValuePtr,
   );
 }

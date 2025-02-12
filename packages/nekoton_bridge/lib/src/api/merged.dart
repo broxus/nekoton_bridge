@@ -901,6 +901,10 @@ class GqlTransportImpl {
           .crateApiMergedGqlTransportImplGetDstTransaction(
               that: this, messageHash: messageHash);
 
+  Future<Value> getFeeFactors({required bool isMasterchain}) =>
+      NekotonBridge.instance.api.crateApiMergedGqlTransportImplGetFeeFactors(
+          that: this, isMasterchain: isMasterchain);
+
   /// Get full contract state of address and return json-encoded FullContractState or throw error
   Future<String?> getFullContractState({required String address}) =>
       NekotonBridge.instance.api

@@ -414,6 +414,10 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_dst_
                                                                                             struct wire_cst_gql_transport_impl *that,
                                                                                             struct wire_cst_list_prim_u_8_strict *message_hash);
 
+void frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_fee_factors(int64_t port_,
+                                                                                        struct wire_cst_gql_transport_impl *that,
+                                                                                        bool is_masterchain);
+
 void frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_full_contract_state(int64_t port_,
                                                                                                 struct wire_cst_gql_transport_impl *that,
                                                                                                 struct wire_cst_list_prim_u_8_strict *address);
@@ -540,6 +544,10 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_con
 void frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_dst_transaction(int64_t port_,
                                                                                              struct wire_cst_jrpc_transport_impl *that,
                                                                                              struct wire_cst_list_prim_u_8_strict *message_hash);
+
+void frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_fee_factors(int64_t port_,
+                                                                                         struct wire_cst_jrpc_transport_impl *that,
+                                                                                         bool is_masterchain);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_full_contract_state(int64_t port_,
                                                                                                  struct wire_cst_jrpc_transport_impl *that,
@@ -865,6 +873,10 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_co
 void frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_dst_transaction(int64_t port_,
                                                                                               struct wire_cst_proto_transport_impl *that,
                                                                                               struct wire_cst_list_prim_u_8_strict *message_hash);
+
+void frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_fee_factors(int64_t port_,
+                                                                                          struct wire_cst_proto_transport_impl *that,
+                                                                                          bool is_masterchain);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_full_contract_state(int64_t port_,
                                                                                                   struct wire_cst_proto_transport_impl *that,
@@ -1200,6 +1212,10 @@ void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynUnsi
 
 void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait(const void *ptr);
 
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(const void *ptr);
+
 struct wire_cst_accounts_storage_impl *frbgen_nekoton_bridge_cst_new_box_autoadd_accounts_storage_impl(void);
 
 bool *frbgen_nekoton_bridge_cst_new_box_autoadd_bool(bool value);
@@ -1310,6 +1326,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ArcdynTonWalletBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ArcdynTransportBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynAccountsStorageBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynGenericContractBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynGqlConnectionBoxTrait);
@@ -1323,6 +1340,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynTonWalletBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynTransportBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__accounts_storage_impl_add_account);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__accounts_storage_impl_add_accounts);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__accounts_storage_impl_add_token_wallet);
@@ -1358,6 +1376,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_blockchain_config);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_contract_state);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_dst_transaction);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_fee_factors);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_full_contract_state);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_latest_block);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_network_id);
@@ -1388,6 +1407,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_blockchain_config);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_contract_state);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_dst_transaction);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_fee_factors);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_full_contract_state);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_network_id);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_signature_id);
@@ -1460,6 +1480,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_blockchain_config);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_contract_state);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_dst_transaction);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_fee_factors);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_full_contract_state);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_network_id);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_signature_id);

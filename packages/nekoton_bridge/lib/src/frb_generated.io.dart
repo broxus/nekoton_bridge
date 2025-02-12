@@ -75,8 +75,16 @@ abstract class NekotonBridgeApiImplPlatform
       get rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTraitPtr => wire
           ._rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTraitPtr;
 
+  CrossPlatformFinalizerArg get rust_arc_decrement_strong_count_ValuePtr => wire
+      ._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValuePtr;
+
   @protected
   AnyhowException dco_decode_AnyhowException(dynamic raw);
+
+  @protected
+  Value
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+          dynamic raw);
 
   @protected
   ArcAccountsStorageBoxTrait
@@ -128,6 +136,11 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   ArcUnsignedMessageBoxTrait
       dco_decode_RustOpaque_ArcdynUnsignedMessageBoxTrait(dynamic raw);
+
+  @protected
+  Value
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+          dynamic raw);
 
   @protected
   RustStreamSink<DartCallStubRegistred>
@@ -414,6 +427,11 @@ abstract class NekotonBridgeApiImplPlatform
   AnyhowException sse_decode_AnyhowException(SseDeserializer deserializer);
 
   @protected
+  Value
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+          SseDeserializer deserializer);
+
+  @protected
   ArcAccountsStorageBoxTrait
       sse_decode_RustOpaque_ArcdynAccountsStorageBoxTrait(
           SseDeserializer deserializer);
@@ -468,6 +486,11 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   ArcUnsignedMessageBoxTrait
       sse_decode_RustOpaque_ArcdynUnsignedMessageBoxTrait(
+          SseDeserializer deserializer);
+
+  @protected
+  Value
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
           SseDeserializer deserializer);
 
   @protected
@@ -1652,6 +1675,10 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+      Value raw);
+
+  @protected
   int cst_encode_RustOpaque_ArcdynAccountsStorageBoxTrait(
       ArcAccountsStorageBoxTrait raw);
 
@@ -1701,6 +1728,10 @@ abstract class NekotonBridgeApiImplPlatform
       ArcUnsignedMessageBoxTrait raw);
 
   @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+      Value raw);
+
+  @protected
   bool cst_encode_bool(bool raw);
 
   @protected
@@ -1739,6 +1770,11 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   void sse_encode_AnyhowException(
       AnyhowException self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+          Value self, SseSerializer serializer);
 
   @protected
   void sse_encode_RustOpaque_ArcdynAccountsStorageBoxTrait(
@@ -1791,6 +1827,11 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   void sse_encode_RustOpaque_ArcdynUnsignedMessageBoxTrait(
       ArcUnsignedMessageBoxTrait self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+          Value self, SseSerializer serializer);
 
   @protected
   void sse_encode_StreamSink_dart_call_stub_registred_Dco(
@@ -3058,6 +3099,30 @@ class NekotonBridgeWire implements BaseWire {
               void Function(int, ffi.Pointer<wire_cst_gql_transport_impl>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
 
+  void wire__crate__api__merged__gql_transport_impl_get_fee_factors(
+    int port_,
+    ffi.Pointer<wire_cst_gql_transport_impl> that,
+    bool is_masterchain,
+  ) {
+    return _wire__crate__api__merged__gql_transport_impl_get_fee_factors(
+      port_,
+      that,
+      is_masterchain,
+    );
+  }
+
+  late final _wire__crate__api__merged__gql_transport_impl_get_fee_factorsPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Int64,
+                      ffi.Pointer<wire_cst_gql_transport_impl>, ffi.Bool)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_fee_factors');
+  late final _wire__crate__api__merged__gql_transport_impl_get_fee_factors =
+      _wire__crate__api__merged__gql_transport_impl_get_fee_factorsPtr
+          .asFunction<
+              void Function(
+                  int, ffi.Pointer<wire_cst_gql_transport_impl>, bool)>();
+
   void wire__crate__api__merged__gql_transport_impl_get_full_contract_state(
     int port_,
     ffi.Pointer<wire_cst_gql_transport_impl> that,
@@ -3879,6 +3944,30 @@ class NekotonBridgeWire implements BaseWire {
           .asFunction<
               void Function(int, ffi.Pointer<wire_cst_jrpc_transport_impl>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+
+  void wire__crate__api__merged__jrpc_transport_impl_get_fee_factors(
+    int port_,
+    ffi.Pointer<wire_cst_jrpc_transport_impl> that,
+    bool is_masterchain,
+  ) {
+    return _wire__crate__api__merged__jrpc_transport_impl_get_fee_factors(
+      port_,
+      that,
+      is_masterchain,
+    );
+  }
+
+  late final _wire__crate__api__merged__jrpc_transport_impl_get_fee_factorsPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Int64,
+                      ffi.Pointer<wire_cst_jrpc_transport_impl>, ffi.Bool)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_fee_factors');
+  late final _wire__crate__api__merged__jrpc_transport_impl_get_fee_factors =
+      _wire__crate__api__merged__jrpc_transport_impl_get_fee_factorsPtr
+          .asFunction<
+              void Function(
+                  int, ffi.Pointer<wire_cst_jrpc_transport_impl>, bool)>();
 
   void wire__crate__api__merged__jrpc_transport_impl_get_full_contract_state(
     int port_,
@@ -5860,6 +5949,30 @@ class NekotonBridgeWire implements BaseWire {
           .asFunction<
               void Function(int, ffi.Pointer<wire_cst_proto_transport_impl>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+
+  void wire__crate__api__merged__proto_transport_impl_get_fee_factors(
+    int port_,
+    ffi.Pointer<wire_cst_proto_transport_impl> that,
+    bool is_masterchain,
+  ) {
+    return _wire__crate__api__merged__proto_transport_impl_get_fee_factors(
+      port_,
+      that,
+      is_masterchain,
+    );
+  }
+
+  late final _wire__crate__api__merged__proto_transport_impl_get_fee_factorsPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Int64,
+                      ffi.Pointer<wire_cst_proto_transport_impl>, ffi.Bool)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_fee_factors');
+  late final _wire__crate__api__merged__proto_transport_impl_get_fee_factors =
+      _wire__crate__api__merged__proto_transport_impl_get_fee_factorsPtr
+          .asFunction<
+              void Function(
+                  int, ffi.Pointer<wire_cst_proto_transport_impl>, bool)>();
 
   void wire__crate__api__merged__proto_transport_impl_get_full_contract_state(
     int port_,
@@ -8048,6 +8161,38 @@ class NekotonBridgeWire implements BaseWire {
           'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait');
   late final _rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait =
       _rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTraitPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValuePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValuePtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValuePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValuePtr
           .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
 
   ffi.Pointer<wire_cst_accounts_storage_impl>
