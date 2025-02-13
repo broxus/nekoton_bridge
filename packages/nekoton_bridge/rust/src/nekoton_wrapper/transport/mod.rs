@@ -24,6 +24,7 @@ use nekoton_abi::TransactionId;
 use nekoton_utils::Clock;
 use nekoton_utils::SimpleClock;
 use serde_json::json;
+use serde::{Deserialize, Serialize};
 use std::convert::TryFrom;
 use std::panic::{RefUnwindSafe, UnwindSafe};
 use std::sync::Arc;
@@ -203,7 +204,7 @@ impl TransportBoxTrait for name {
 
         let fee_factors = FeeFactors::new(storage_fee_factor, gas_fee_factor);
 
-        fee_factors.to_json()
+        serde_json::to_string(&fee_factors).handle_error()
     }
 
     /// Get contract state of address and return json-encoded RawContractState or throw error
@@ -436,6 +437,9 @@ impl TransportBoxTrait for name {
 pub struct GqlTransportBox {
     inner_transport: Arc<GqlTransport>,
 }
+
+#[derive(Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct FeeFactors {
     storage_fee_factor: String,
     gas_fee_factor: String,
@@ -455,7 +459,7 @@ impl FeeFactors {
             "gasFeeFactor": self.gas_fee_factor,
         }))
         .map_err(|e| anyhow::Error::msg(format!("JSON serialization error: {}", e)))
-    }    
+    }
 }
 
 impl UnwindSafe for GqlTransportBox {}
@@ -486,7 +490,7 @@ impl TransportBoxTrait for GqlTransportBox {
         } else {
             1_000 << 16
         };
-    
+
         let handle = self.get_transport();
         let clock = clock!();
 
@@ -523,8 +527,8 @@ impl TransportBoxTrait for GqlTransportBox {
 
         let fee_factors = FeeFactors::new(storage_fee_factor, gas_fee_factor);
 
-        fee_factors.to_json()
-    }    
+        serde_json::to_string(&fee_factors).handle_error()
+    }
 
     /// Get contract state of address and return json-encoded RawContractState or throw error
     async fn get_contract_state(&self, address: String) -> anyhow::Result<String> {
