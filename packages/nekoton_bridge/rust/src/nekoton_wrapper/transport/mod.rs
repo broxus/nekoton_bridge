@@ -166,20 +166,20 @@ impl TransportBoxTrait for name {
         } else {
             1_000 << 16
         };
-    
+
         let handle = self.get_transport();
         let clock = clock!();
-    
+
         let config = handle
             .get_blockchain_config(clock.as_ref(), false)
             .await
             .handle_error()?;
-    
+
         let prices_param = config.raw_config().storage_prices().handle_error()?;
         let prices_len = prices_param.len()?;
         let now = clock.now_sec_u64();
         let mut storage_bit_price: u64 = 0;
-    
+
         for index in 0..prices_len as u32 {
             if let Ok(price) = prices_param.get(index) {
                 if price.utime_since as u64 <= now {
@@ -191,16 +191,16 @@ impl TransportBoxTrait for name {
                 }
             }
         }
-    
+
         let storage_fee_factor: u64 = storage_bit_price.div_ceil(base_storage_price);
-    
+
         let gas_fees = config.get_gas_config(is_masterchain);
         let gas_fee_factor = gas_fees
             .gas_price
             .checked_shl(16)
             .ok_or_else(|| anyhow::Error::msg("gas price is too big"))?
             .div_ceil(base_gas_price);
-    
+
         let fee_factors = FeeFactors::new(storage_fee_factor, gas_fee_factor);
 
         fee_factors.to_json()
@@ -489,17 +489,17 @@ impl TransportBoxTrait for GqlTransportBox {
     
         let handle = self.get_transport();
         let clock = clock!();
-    
+
         let config = handle
             .get_blockchain_config(clock.as_ref(), false)
             .await
             .handle_error()?;
-    
+
         let prices_param = config.raw_config().storage_prices().handle_error()?;
         let prices_len = prices_param.len()?;
         let now = clock.now_sec_u64();
         let mut storage_bit_price: u64 = 0;
-    
+
         for index in 0..prices_len as u32 {
             if let Ok(price) = prices_param.get(index) {
                 if price.utime_since as u64 <= now {
@@ -511,16 +511,16 @@ impl TransportBoxTrait for GqlTransportBox {
                 }
             }
         }
-    
+
         let storage_fee_factor: u64 = storage_bit_price.div_ceil(base_storage_price);
-    
+
         let gas_fees = config.get_gas_config(is_masterchain);
         let gas_fee_factor = gas_fees
             .gas_price
             .checked_shl(16)
             .ok_or_else(|| anyhow::Error::msg("gas price is too big"))?
             .div_ceil(base_gas_price);
-    
+
         let fee_factors = FeeFactors::new(storage_fee_factor, gas_fee_factor);
 
         fee_factors.to_json()
