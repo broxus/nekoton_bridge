@@ -77,16 +77,8 @@ abstract class NekotonBridgeApiImplPlatform
       get rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTraitPtr => wire
           .rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait;
 
-  CrossPlatformFinalizerArg get rust_arc_decrement_strong_count_ValuePtr => wire
-      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue;
-
   @protected
   AnyhowException dco_decode_AnyhowException(dynamic raw);
-
-  @protected
-  Value
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
-          dynamic raw);
 
   @protected
   ArcAccountsStorageBoxTrait
@@ -138,11 +130,6 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   ArcUnsignedMessageBoxTrait
       dco_decode_RustOpaque_ArcdynUnsignedMessageBoxTrait(dynamic raw);
-
-  @protected
-  Value
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
-          dynamic raw);
 
   @protected
   RustStreamSink<DartCallStubRegistred>
@@ -429,11 +416,6 @@ abstract class NekotonBridgeApiImplPlatform
   AnyhowException sse_decode_AnyhowException(SseDeserializer deserializer);
 
   @protected
-  Value
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
-          SseDeserializer deserializer);
-
-  @protected
   ArcAccountsStorageBoxTrait
       sse_decode_RustOpaque_ArcdynAccountsStorageBoxTrait(
           SseDeserializer deserializer);
@@ -488,11 +470,6 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   ArcUnsignedMessageBoxTrait
       sse_decode_RustOpaque_ArcdynUnsignedMessageBoxTrait(
-          SseDeserializer deserializer);
-
-  @protected
-  Value
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
           SseDeserializer deserializer);
 
   @protected
@@ -1403,10 +1380,6 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
-      Value raw);
-
-  @protected
   int cst_encode_RustOpaque_ArcdynAccountsStorageBoxTrait(
       ArcAccountsStorageBoxTrait raw);
 
@@ -1456,10 +1429,6 @@ abstract class NekotonBridgeApiImplPlatform
       ArcUnsignedMessageBoxTrait raw);
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
-      Value raw);
-
-  @protected
   bool cst_encode_bool(bool raw);
 
   @protected
@@ -1498,11 +1467,6 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   void sse_encode_AnyhowException(
       AnyhowException self, SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
-          Value self, SseSerializer serializer);
 
   @protected
   void sse_encode_RustOpaque_ArcdynAccountsStorageBoxTrait(
@@ -1555,11 +1519,6 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   void sse_encode_RustOpaque_ArcdynUnsignedMessageBoxTrait(
       ArcUnsignedMessageBoxTrait self, SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
-          Value self, SseSerializer serializer);
 
   @protected
   void sse_encode_StreamSink_dart_call_stub_registred_Dco(
@@ -3450,18 +3409,6 @@ class NekotonBridgeWire implements BaseWire {
       wasmModule
           .rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait(
               ptr);
-
-  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
-          int ptr) =>
-      wasmModule
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
-              ptr);
-
-  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
-          int ptr) =>
-      wasmModule
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
-              ptr);
 }
 
 @JS('wasm_bindgen')
@@ -4510,13 +4457,5 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
 
   external void
       rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait(
-          int ptr);
-
-  external void
-      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
-          int ptr);
-
-  external void
-      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerValue(
           int ptr);
 }

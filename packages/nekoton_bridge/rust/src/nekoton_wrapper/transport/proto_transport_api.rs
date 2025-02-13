@@ -108,7 +108,7 @@ impl ProtoTransportImpl {
         )
     }
 
-    pub fn get_fee_factors(&self, is_masterchain: bool) -> anyhow::Result<serde_json::Value> {
+    pub fn get_fee_factors(&self, is_masterchain: bool) -> anyhow::Result<String> {
         async_run!(self.inner_transport.get_fee_factors(is_masterchain).await)
     }
 }

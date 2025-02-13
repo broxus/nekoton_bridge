@@ -76,7 +76,7 @@ pub trait TransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     async fn get_transaction(&self, id: String) -> anyhow::Result<Option<String>>;
 
     /// Get fee factors (storage and gas) for the given chain type.
-    async fn get_fee_factors(&self, is_masterchain: bool) -> anyhow::Result<serde_json::Value>;
+    async fn get_fee_factors(&self, is_masterchain: bool) -> anyhow::Result<String>;
 
     /// Call get_dst_transaction of nekoton's transport and
     /// return option json-encoded RawTransaction or throw error
@@ -159,7 +159,7 @@ impl TransportBoxTrait for name {
         self.inner_transport.clone()
     }
 
-    async fn get_fee_factors(&self, is_masterchain: bool) -> anyhow::Result<serde_json::Value> {
+    async fn get_fee_factors(&self, is_masterchain: bool) -> anyhow::Result<String> {
         let base_storage_price = if is_masterchain { 1000 } else { 1 };
         let base_gas_price = if is_masterchain {
             10_000 << 16
