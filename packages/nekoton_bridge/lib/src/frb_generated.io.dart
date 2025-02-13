@@ -3058,6 +3058,30 @@ class NekotonBridgeWire implements BaseWire {
               void Function(int, ffi.Pointer<wire_cst_gql_transport_impl>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
 
+  void wire__crate__api__merged__gql_transport_impl_get_fee_factors(
+    int port_,
+    ffi.Pointer<wire_cst_gql_transport_impl> that,
+    bool is_masterchain,
+  ) {
+    return _wire__crate__api__merged__gql_transport_impl_get_fee_factors(
+      port_,
+      that,
+      is_masterchain,
+    );
+  }
+
+  late final _wire__crate__api__merged__gql_transport_impl_get_fee_factorsPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Int64,
+                      ffi.Pointer<wire_cst_gql_transport_impl>, ffi.Bool)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_fee_factors');
+  late final _wire__crate__api__merged__gql_transport_impl_get_fee_factors =
+      _wire__crate__api__merged__gql_transport_impl_get_fee_factorsPtr
+          .asFunction<
+              void Function(
+                  int, ffi.Pointer<wire_cst_gql_transport_impl>, bool)>();
+
   void wire__crate__api__merged__gql_transport_impl_get_full_contract_state(
     int port_,
     ffi.Pointer<wire_cst_gql_transport_impl> that,
@@ -3851,6 +3875,30 @@ class NekotonBridgeWire implements BaseWire {
           .asFunction<
               void Function(int, ffi.Pointer<wire_cst_jrpc_transport_impl>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+
+  void wire__crate__api__merged__jrpc_transport_impl_get_fee_factors(
+    int port_,
+    ffi.Pointer<wire_cst_jrpc_transport_impl> that,
+    bool is_masterchain,
+  ) {
+    return _wire__crate__api__merged__jrpc_transport_impl_get_fee_factors(
+      port_,
+      that,
+      is_masterchain,
+    );
+  }
+
+  late final _wire__crate__api__merged__jrpc_transport_impl_get_fee_factorsPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Int64,
+                      ffi.Pointer<wire_cst_jrpc_transport_impl>, ffi.Bool)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_fee_factors');
+  late final _wire__crate__api__merged__jrpc_transport_impl_get_fee_factors =
+      _wire__crate__api__merged__jrpc_transport_impl_get_fee_factorsPtr
+          .asFunction<
+              void Function(
+                  int, ffi.Pointer<wire_cst_jrpc_transport_impl>, bool)>();
 
   void wire__crate__api__merged__jrpc_transport_impl_get_full_contract_state(
     int port_,
@@ -5832,6 +5880,30 @@ class NekotonBridgeWire implements BaseWire {
           .asFunction<
               void Function(int, ffi.Pointer<wire_cst_proto_transport_impl>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+
+  void wire__crate__api__merged__proto_transport_impl_get_fee_factors(
+    int port_,
+    ffi.Pointer<wire_cst_proto_transport_impl> that,
+    bool is_masterchain,
+  ) {
+    return _wire__crate__api__merged__proto_transport_impl_get_fee_factors(
+      port_,
+      that,
+      is_masterchain,
+    );
+  }
+
+  late final _wire__crate__api__merged__proto_transport_impl_get_fee_factorsPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Int64,
+                      ffi.Pointer<wire_cst_proto_transport_impl>, ffi.Bool)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_fee_factors');
+  late final _wire__crate__api__merged__proto_transport_impl_get_fee_factors =
+      _wire__crate__api__merged__proto_transport_impl_get_fee_factorsPtr
+          .asFunction<
+              void Function(
+                  int, ffi.Pointer<wire_cst_proto_transport_impl>, bool)>();
 
   void wire__crate__api__merged__proto_transport_impl_get_full_contract_state(
     int port_,
