@@ -64,7 +64,6 @@ class JettonWallet extends RustToDartMirrorInterface
   /// [rootTokenContract] - address of contract in blockchain
   static Future<JettonWallet> subscribe({
     required Transport transport,
-    required GqlConnection gqlConnection,
     required Address owner,
     required Address rootTokenContract,
     bool preloadTransactions = false,
@@ -75,7 +74,6 @@ class JettonWallet extends RustToDartMirrorInterface
       instance.wallet = await JettonWalletDartWrapper.subscribe(
         instanceHash: instance.instanceHash,
         transport: transport.transportBox,
-        gqlConnection: gqlConnection.connection,
         rootTokenContract: rootTokenContract.address,
         owner: owner.address,
         preloadTransactions: preloadTransactions,
@@ -263,14 +261,12 @@ class JettonWallet extends RustToDartMirrorInterface
   /// or throw error
   static Future<(JettonWalletData, JettonRootData)> getJettonWalletDetails({
     required Transport transport,
-    required GqlConnection gqlConnection,
     required Address address,
   }) async {
     final encoded = await transport.use(() async {
       return JettonWalletDartWrapper.getJettonWalletDetails(
         address: address.address,
         transport: transport.transportBox,
-        gqlConnection: gqlConnection.connection,
       );
     });
     final decoded = jsonDecode(encoded) as List<dynamic>;
@@ -287,14 +283,12 @@ class JettonWallet extends RustToDartMirrorInterface
   static Future<(Address, JettonRootData)>
       getJettonRootDetailsFromJettonWallet({
     required Transport transport,
-    required GqlConnection gqlConnection,
     required Address address,
   }) async {
     final encoded = await transport.use(() async {
       return JettonWalletDartWrapper.getJettonRootDetailsFromJettonWallet(
         tokenWalletAddress: address.address,
         transport: transport.transportBox,
-        gqlConnection: gqlConnection.connection,
       );
     });
     final decoded = jsonDecode(encoded) as List<dynamic>;
@@ -310,14 +304,12 @@ class JettonWallet extends RustToDartMirrorInterface
   /// or throw error.
   static Future<JettonRootData> getJettonRootDetails({
     required Transport transport,
-    required GqlConnection gqlConnection,
     required Address tokenRoot,
   }) async {
     final encoded = await transport.use(() async {
       return JettonWalletDartWrapper.getJettonRootDetails(
         tokenRootAddress: tokenRoot.address,
         transport: transport.transportBox,
-        gqlConnection: gqlConnection.connection,
       );
     });
     return JettonRootData.fromJson(jsonDecode(encoded));

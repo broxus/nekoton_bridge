@@ -3481,13 +3481,11 @@ class NekotonBridgeWire implements BaseWire {
       wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details(
     int port_,
     int transport,
-    ffi.Pointer<wire_cst_gql_connection_dart_wrapper> gql_connection,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> token_root_address,
   ) {
     return _wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details(
       port_,
       transport,
-      gql_connection,
       token_root_address,
     );
   }
@@ -3495,32 +3493,24 @@ class NekotonBridgeWire implements BaseWire {
   late final _wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_detailsPtr =
       _lookup<
               ffi.NativeFunction<
-                  ffi.Void Function(
-                      ffi.Int64,
-                      ffi.UintPtr,
-                      ffi.Pointer<wire_cst_gql_connection_dart_wrapper>,
+                  ffi.Void Function(ffi.Int64, ffi.UintPtr,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details');
   late final _wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details =
       _wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_detailsPtr
           .asFunction<
               void Function(
-                  int,
-                  int,
-                  ffi.Pointer<wire_cst_gql_connection_dart_wrapper>,
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+                  int, int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
 
   void
       wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details_from_jetton_wallet(
     int port_,
     int transport,
-    ffi.Pointer<wire_cst_gql_connection_dart_wrapper> gql_connection,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> token_wallet_address,
   ) {
     return _wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details_from_jetton_wallet(
       port_,
       transport,
-      gql_connection,
       token_wallet_address,
     );
   }
@@ -3528,32 +3518,24 @@ class NekotonBridgeWire implements BaseWire {
   late final _wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details_from_jetton_walletPtr =
       _lookup<
               ffi.NativeFunction<
-                  ffi.Void Function(
-                      ffi.Int64,
-                      ffi.UintPtr,
-                      ffi.Pointer<wire_cst_gql_connection_dart_wrapper>,
+                  ffi.Void Function(ffi.Int64, ffi.UintPtr,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details_from_jetton_wallet');
   late final _wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details_from_jetton_wallet =
       _wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details_from_jetton_walletPtr
           .asFunction<
               void Function(
-                  int,
-                  int,
-                  ffi.Pointer<wire_cst_gql_connection_dart_wrapper>,
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+                  int, int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
 
   void
       wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_wallet_details(
     int port_,
     int transport,
-    ffi.Pointer<wire_cst_gql_connection_dart_wrapper> gql_connection,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> address,
   ) {
     return _wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_wallet_details(
       port_,
       transport,
-      gql_connection,
       address,
     );
   }
@@ -3561,20 +3543,14 @@ class NekotonBridgeWire implements BaseWire {
   late final _wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_wallet_detailsPtr =
       _lookup<
               ffi.NativeFunction<
-                  ffi.Void Function(
-                      ffi.Int64,
-                      ffi.UintPtr,
-                      ffi.Pointer<wire_cst_gql_connection_dart_wrapper>,
+                  ffi.Void Function(ffi.Int64, ffi.UintPtr,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_wallet_details');
   late final _wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_wallet_details =
       _wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_wallet_detailsPtr
           .asFunction<
               void Function(
-                  int,
-                  int,
-                  ffi.Pointer<wire_cst_gql_connection_dart_wrapper>,
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+                  int, int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
 
   void wire__crate__api__merged__jetton_wallet_dart_wrapper_handle_block(
     int port_,
@@ -3734,7 +3710,6 @@ class NekotonBridgeWire implements BaseWire {
     ffi.Pointer<wire_cst_list_prim_u_8_strict> owner,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> root_token_contract,
     int transport,
-    ffi.Pointer<wire_cst_gql_connection_dart_wrapper> gql_connection,
     bool preload_transactions,
   ) {
     return _wire__crate__api__merged__jetton_wallet_dart_wrapper_subscribe(
@@ -3743,7 +3718,6 @@ class NekotonBridgeWire implements BaseWire {
       owner,
       root_token_contract,
       transport,
-      gql_connection,
       preload_transactions,
     );
   }
@@ -3757,7 +3731,6 @@ class NekotonBridgeWire implements BaseWire {
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                       ffi.UintPtr,
-                      ffi.Pointer<wire_cst_gql_connection_dart_wrapper>,
                       ffi.Bool)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_subscribe');
   late final _wire__crate__api__merged__jetton_wallet_dart_wrapper_subscribe =
@@ -3769,7 +3742,6 @@ class NekotonBridgeWire implements BaseWire {
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   int,
-                  ffi.Pointer<wire_cst_gql_connection_dart_wrapper>,
                   bool)>();
 
   WireSyncRust2DartDco

@@ -1018,13 +1018,10 @@ class JettonWalletDartWrapper {
   /// or throw error.
   static Future<String> getJettonRootDetails(
           {required ArcTransportBoxTrait transport,
-          required GqlConnectionDartWrapper gqlConnection,
           required String tokenRootAddress}) =>
       NekotonBridge.instance.api
           .crateApiMergedJettonWalletDartWrapperGetJettonRootDetails(
-              transport: transport,
-              gqlConnection: gqlConnection,
-              tokenRootAddress: tokenRootAddress);
+              transport: transport, tokenRootAddress: tokenRootAddress);
 
   /// Get details about root contract by address of JettonWallet
   /// Return json-encoded list with 2 positions:
@@ -1033,13 +1030,10 @@ class JettonWalletDartWrapper {
   /// or throw error.
   static Future<String> getJettonRootDetailsFromJettonWallet(
           {required ArcTransportBoxTrait transport,
-          required GqlConnectionDartWrapper gqlConnection,
           required String tokenWalletAddress}) =>
       NekotonBridge.instance.api
           .crateApiMergedJettonWalletDartWrapperGetJettonRootDetailsFromJettonWallet(
-              transport: transport,
-              gqlConnection: gqlConnection,
-              tokenWalletAddress: tokenWalletAddress);
+              transport: transport, tokenWalletAddress: tokenWalletAddress);
 
   /// Get details about token wallet by address of wallet
   /// address - address of wallet
@@ -1048,14 +1042,10 @@ class JettonWalletDartWrapper {
   /// 1: RootJettonContractDetails
   /// or throw error
   static Future<String> getJettonWalletDetails(
-          {required ArcTransportBoxTrait transport,
-          required GqlConnectionDartWrapper gqlConnection,
-          required String address}) =>
+          {required ArcTransportBoxTrait transport, required String address}) =>
       NekotonBridge.instance.api
           .crateApiMergedJettonWalletDartWrapperGetJettonWalletDetails(
-              transport: transport,
-              gqlConnection: gqlConnection,
-              address: address);
+              transport: transport, address: address);
 
   /// Handle block of blockchain.
   /// block - base64-encoded Block.
@@ -1121,14 +1111,12 @@ class JettonWalletDartWrapper {
           required String owner,
           required String rootTokenContract,
           required ArcTransportBoxTrait transport,
-          required GqlConnectionDartWrapper gqlConnection,
           required bool preloadTransactions}) =>
       NekotonBridge.instance.api.crateApiMergedJettonWalletDartWrapperSubscribe(
           instanceHash: instanceHash,
           owner: owner,
           rootTokenContract: rootTokenContract,
           transport: transport,
-          gqlConnection: gqlConnection,
           preloadTransactions: preloadTransactions);
 
   @override

@@ -480,17 +480,14 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details(int64_t port_,
                                                                                                         uintptr_t transport,
-                                                                                                        struct wire_cst_gql_connection_dart_wrapper *gql_connection,
                                                                                                         struct wire_cst_list_prim_u_8_strict *token_root_address);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details_from_jetton_wallet(int64_t port_,
                                                                                                                            uintptr_t transport,
-                                                                                                                           struct wire_cst_gql_connection_dart_wrapper *gql_connection,
                                                                                                                            struct wire_cst_list_prim_u_8_strict *token_wallet_address);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_wallet_details(int64_t port_,
                                                                                                           uintptr_t transport,
-                                                                                                          struct wire_cst_gql_connection_dart_wrapper *gql_connection,
                                                                                                           struct wire_cst_list_prim_u_8_strict *address);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_handle_block(int64_t port_,
@@ -522,7 +519,6 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_
                                                                                           struct wire_cst_list_prim_u_8_strict *owner,
                                                                                           struct wire_cst_list_prim_u_8_strict *root_token_contract,
                                                                                           uintptr_t transport,
-                                                                                          struct wire_cst_gql_connection_dart_wrapper *gql_connection,
                                                                                           bool preload_transactions);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_connection_dart_wrapper_new(struct wire_cst_list_prim_u_8_strict *instance_hash);
