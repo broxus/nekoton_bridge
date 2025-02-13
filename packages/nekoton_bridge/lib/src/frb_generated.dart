@@ -270,19 +270,15 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   Future<String> crateApiMergedJettonWalletDartWrapperGetJettonRootDetails(
       {required ArcTransportBoxTrait transport,
-      required GqlConnectionDartWrapper gqlConnection,
       required String tokenRootAddress});
 
   Future<String>
       crateApiMergedJettonWalletDartWrapperGetJettonRootDetailsFromJettonWallet(
           {required ArcTransportBoxTrait transport,
-          required GqlConnectionDartWrapper gqlConnection,
           required String tokenWalletAddress});
 
   Future<String> crateApiMergedJettonWalletDartWrapperGetJettonWalletDetails(
-      {required ArcTransportBoxTrait transport,
-      required GqlConnectionDartWrapper gqlConnection,
-      required String address});
+      {required ArcTransportBoxTrait transport, required String address});
 
   Future<bool> crateApiMergedJettonWalletDartWrapperHandleBlock(
       {required JettonWalletDartWrapper that, required String block});
@@ -312,7 +308,6 @@ abstract class NekotonBridgeApi extends BaseApi {
           required String owner,
           required String rootTokenContract,
           required ArcTransportBoxTrait transport,
-          required GqlConnectionDartWrapper gqlConnection,
           required bool preloadTransactions});
 
   JrpcConnectionDartWrapper crateApiMergedJrpcConnectionDartWrapperNew(
@@ -2482,17 +2477,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   @override
   Future<String> crateApiMergedJettonWalletDartWrapperGetJettonRootDetails(
       {required ArcTransportBoxTrait transport,
-      required GqlConnectionDartWrapper gqlConnection,
       required String tokenRootAddress}) {
     return handler.executeNormal(NormalTask(
       callFfi: (port_) {
         var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg1 =
-            cst_encode_box_autoadd_gql_connection_dart_wrapper(gqlConnection);
-        var arg2 = cst_encode_String(tokenRootAddress);
+        var arg1 = cst_encode_String(tokenRootAddress);
         return wire
             .wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details(
-                port_, arg0, arg1, arg2);
+                port_, arg0, arg1);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -2500,7 +2492,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       ),
       constMeta:
           kCrateApiMergedJettonWalletDartWrapperGetJettonRootDetailsConstMeta,
-      argValues: [transport, gqlConnection, tokenRootAddress],
+      argValues: [transport, tokenRootAddress],
       apiImpl: this,
     ));
   }
@@ -2509,24 +2501,21 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       get kCrateApiMergedJettonWalletDartWrapperGetJettonRootDetailsConstMeta =>
           const TaskConstMeta(
             debugName: "jetton_wallet_dart_wrapper_get_jetton_root_details",
-            argNames: ["transport", "gqlConnection", "tokenRootAddress"],
+            argNames: ["transport", "tokenRootAddress"],
           );
 
   @override
   Future<String>
       crateApiMergedJettonWalletDartWrapperGetJettonRootDetailsFromJettonWallet(
           {required ArcTransportBoxTrait transport,
-          required GqlConnectionDartWrapper gqlConnection,
           required String tokenWalletAddress}) {
     return handler.executeNormal(NormalTask(
       callFfi: (port_) {
         var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg1 =
-            cst_encode_box_autoadd_gql_connection_dart_wrapper(gqlConnection);
-        var arg2 = cst_encode_String(tokenWalletAddress);
+        var arg1 = cst_encode_String(tokenWalletAddress);
         return wire
             .wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details_from_jetton_wallet(
-                port_, arg0, arg1, arg2);
+                port_, arg0, arg1);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -2534,7 +2523,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       ),
       constMeta:
           kCrateApiMergedJettonWalletDartWrapperGetJettonRootDetailsFromJettonWalletConstMeta,
-      argValues: [transport, gqlConnection, tokenWalletAddress],
+      argValues: [transport, tokenWalletAddress],
       apiImpl: this,
     ));
   }
@@ -2544,23 +2533,19 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           const TaskConstMeta(
             debugName:
                 "jetton_wallet_dart_wrapper_get_jetton_root_details_from_jetton_wallet",
-            argNames: ["transport", "gqlConnection", "tokenWalletAddress"],
+            argNames: ["transport", "tokenWalletAddress"],
           );
 
   @override
   Future<String> crateApiMergedJettonWalletDartWrapperGetJettonWalletDetails(
-      {required ArcTransportBoxTrait transport,
-      required GqlConnectionDartWrapper gqlConnection,
-      required String address}) {
+      {required ArcTransportBoxTrait transport, required String address}) {
     return handler.executeNormal(NormalTask(
       callFfi: (port_) {
         var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg1 =
-            cst_encode_box_autoadd_gql_connection_dart_wrapper(gqlConnection);
-        var arg2 = cst_encode_String(address);
+        var arg1 = cst_encode_String(address);
         return wire
             .wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_wallet_details(
-                port_, arg0, arg1, arg2);
+                port_, arg0, arg1);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -2568,7 +2553,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       ),
       constMeta:
           kCrateApiMergedJettonWalletDartWrapperGetJettonWalletDetailsConstMeta,
-      argValues: [transport, gqlConnection, address],
+      argValues: [transport, address],
       apiImpl: this,
     ));
   }
@@ -2577,7 +2562,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       get kCrateApiMergedJettonWalletDartWrapperGetJettonWalletDetailsConstMeta =>
           const TaskConstMeta(
             debugName: "jetton_wallet_dart_wrapper_get_jetton_wallet_details",
-            argNames: ["transport", "gqlConnection", "address"],
+            argNames: ["transport", "address"],
           );
 
   @override
@@ -2754,7 +2739,6 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           required String owner,
           required String rootTokenContract,
           required ArcTransportBoxTrait transport,
-          required GqlConnectionDartWrapper gqlConnection,
           required bool preloadTransactions}) {
     return handler.executeNormal(NormalTask(
       callFfi: (port_) {
@@ -2762,12 +2746,10 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         var arg1 = cst_encode_String(owner);
         var arg2 = cst_encode_String(rootTokenContract);
         var arg3 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg4 =
-            cst_encode_box_autoadd_gql_connection_dart_wrapper(gqlConnection);
-        var arg5 = cst_encode_bool(preloadTransactions);
+        var arg4 = cst_encode_bool(preloadTransactions);
         return wire
             .wire__crate__api__merged__jetton_wallet_dart_wrapper_subscribe(
-                port_, arg0, arg1, arg2, arg3, arg4, arg5);
+                port_, arg0, arg1, arg2, arg3, arg4);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_jetton_wallet_dart_wrapper,
@@ -2779,7 +2761,6 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         owner,
         rootTokenContract,
         transport,
-        gqlConnection,
         preloadTransactions
       ],
       apiImpl: this,
@@ -2794,7 +2775,6 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           "owner",
           "rootTokenContract",
           "transport",
-          "gqlConnection",
           "preloadTransactions"
         ],
       );

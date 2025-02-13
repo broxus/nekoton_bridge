@@ -25,7 +25,6 @@ void main() {
 
   const jrpcSettings = ProtoNetworkSettings(endpoint: endpoint);
   late ProtoTransport transport;
-  late GqlConnection gqlConnection;
 
   setUp(() async {
     // This setup thing SHOULD NOT be removed or altered because it used in integration tests
@@ -48,18 +47,6 @@ void main() {
       group: networkGroup,
     );
     transport = await ProtoTransport.create(protoConnection: connection);
-    gqlConnection = GqlConnection.create(
-      name: 'jetton-gql',
-      group: 'jetton-gql',
-      client: TestGqlClient(),
-      settings: const GqlNetworkSettings(
-        endpoints: ['https://dton.io/graphql/graphql'],
-        latencyDetectionInterval: 60000,
-        maxLatency: 60000,
-        endpointSelectionRetryCount: 5,
-        local: false,
-      ),
-    );
   });
 
   setUpAll(() async {
@@ -68,7 +55,6 @@ void main() {
 
   tearDown(() async {
     await transport.dispose();
-    gqlConnection.dispose();
   });
 
   group('JettonWallet test', () {
@@ -77,7 +63,6 @@ void main() {
 
       final wallet = await JettonWallet.subscribe(
         transport: transport,
-        gqlConnection: gqlConnection,
         owner: address,
         rootTokenContract: usdtTokenRoot,
       );
@@ -101,7 +86,6 @@ void main() {
       );
       final wallet = await JettonWallet.subscribe(
         transport: transport,
-        gqlConnection: gqlConnection,
         owner: address,
         rootTokenContract: usdtTokenRoot,
       );
@@ -119,7 +103,6 @@ void main() {
 
       final wallet = await JettonWallet.subscribe(
         transport: transport,
-        gqlConnection: gqlConnection,
         owner: address,
         rootTokenContract: usdtTokenRoot,
       );
@@ -142,7 +125,6 @@ void main() {
 
       final details = await JettonWallet.getJettonWalletDetails(
         transport: transport,
-        gqlConnection: gqlConnection,
         address: tokenWallet,
       );
 
@@ -163,7 +145,6 @@ void main() {
 
       final details = await JettonWallet.getJettonRootDetailsFromJettonWallet(
         transport: transport,
-        gqlConnection: gqlConnection,
         address: tokenWallet,
       );
 
@@ -182,7 +163,6 @@ void main() {
 
       final details = await JettonWallet.getJettonRootDetails(
         transport: transport,
-        gqlConnection: gqlConnection,
         tokenRoot: usdtTokenRoot,
       );
 
@@ -199,7 +179,6 @@ void main() {
 
       final wallet = await JettonWallet.subscribe(
         transport: transport,
-        gqlConnection: gqlConnection,
         owner: address,
         rootTokenContract: usdtTokenRoot,
       );
@@ -231,7 +210,6 @@ void main() {
         for (var i = 0; i < 10; i++) {
           final wallet = await JettonWallet.subscribe(
             transport: transport,
-            gqlConnection: gqlConnection,
             owner: address,
             rootTokenContract: usdtTokenRoot,
           );
@@ -253,7 +231,6 @@ void main() {
 
       final wallet = await JettonWallet.subscribe(
         transport: transport,
-        gqlConnection: gqlConnection,
         owner: address,
         rootTokenContract: usdtTokenRoot,
         preloadTransactions: true,
@@ -278,7 +255,6 @@ void main() {
 
       final wallet = await JettonWallet.subscribe(
         transport: transport,
-        gqlConnection: gqlConnection,
         owner: address,
         rootTokenContract: usdtTokenRoot,
         preloadTransactions: false,

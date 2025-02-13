@@ -2170,31 +2170,22 @@ class NekotonBridgeWire implements BaseWire {
               port_, that, destination);
 
   void wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details(
-          NativePortType port_,
-          int transport,
-          JSAny gql_connection,
-          String token_root_address) =>
+          NativePortType port_, int transport, String token_root_address) =>
       wasmModule
           .wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details(
-              port_, transport, gql_connection, token_root_address);
+              port_, transport, token_root_address);
 
   void wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details_from_jetton_wallet(
-          NativePortType port_,
-          int transport,
-          JSAny gql_connection,
-          String token_wallet_address) =>
+          NativePortType port_, int transport, String token_wallet_address) =>
       wasmModule
           .wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details_from_jetton_wallet(
-              port_, transport, gql_connection, token_wallet_address);
+              port_, transport, token_wallet_address);
 
   void wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_wallet_details(
-          NativePortType port_,
-          int transport,
-          JSAny gql_connection,
-          String address) =>
+          NativePortType port_, int transport, String address) =>
       wasmModule
           .wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_wallet_details(
-              port_, transport, gql_connection, address);
+              port_, transport, address);
 
   void wire__crate__api__merged__jetton_wallet_dart_wrapper_handle_block(
           NativePortType port_, JSAny that, String block) =>
@@ -2246,7 +2237,6 @@ class NekotonBridgeWire implements BaseWire {
           String owner,
           String root_token_contract,
           int transport,
-          JSAny gql_connection,
           bool preload_transactions) =>
       wasmModule.wire__crate__api__merged__jetton_wallet_dart_wrapper_subscribe(
           port_,
@@ -2254,7 +2244,6 @@ class NekotonBridgeWire implements BaseWire {
           owner,
           root_token_contract,
           transport,
-          gql_connection,
           preload_transactions);
 
   JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
@@ -3616,24 +3605,15 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
 
   external void
       wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details(
-          NativePortType port_,
-          int transport,
-          JSAny gql_connection,
-          String token_root_address);
+          NativePortType port_, int transport, String token_root_address);
 
   external void
       wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details_from_jetton_wallet(
-          NativePortType port_,
-          int transport,
-          JSAny gql_connection,
-          String token_wallet_address);
+          NativePortType port_, int transport, String token_wallet_address);
 
   external void
       wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_wallet_details(
-          NativePortType port_,
-          int transport,
-          JSAny gql_connection,
-          String address);
+          NativePortType port_, int transport, String address);
 
   external void
       wire__crate__api__merged__jetton_wallet_dart_wrapper_handle_block(
@@ -3667,7 +3647,6 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
       String owner,
       String root_token_contract,
       int transport,
-      JSAny gql_connection,
       bool preload_transactions);
 
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
