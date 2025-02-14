@@ -414,6 +414,10 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_dst_
                                                                                             struct wire_cst_gql_transport_impl *that,
                                                                                             struct wire_cst_list_prim_u_8_strict *message_hash);
 
+void frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_fee_factors(int64_t port_,
+                                                                                        struct wire_cst_gql_transport_impl *that,
+                                                                                        bool is_masterchain);
+
 void frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_full_contract_state(int64_t port_,
                                                                                                 struct wire_cst_gql_transport_impl *that,
                                                                                                 struct wire_cst_list_prim_u_8_strict *address);
@@ -536,6 +540,10 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_con
 void frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_dst_transaction(int64_t port_,
                                                                                              struct wire_cst_jrpc_transport_impl *that,
                                                                                              struct wire_cst_list_prim_u_8_strict *message_hash);
+
+void frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_fee_factors(int64_t port_,
+                                                                                         struct wire_cst_jrpc_transport_impl *that,
+                                                                                         bool is_masterchain);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_full_contract_state(int64_t port_,
                                                                                                  struct wire_cst_jrpc_transport_impl *that,
@@ -861,6 +869,10 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_co
 void frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_dst_transaction(int64_t port_,
                                                                                               struct wire_cst_proto_transport_impl *that,
                                                                                               struct wire_cst_list_prim_u_8_strict *message_hash);
+
+void frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_fee_factors(int64_t port_,
+                                                                                          struct wire_cst_proto_transport_impl *that,
+                                                                                          bool is_masterchain);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_full_contract_state(int64_t port_,
                                                                                                   struct wire_cst_proto_transport_impl *that,
@@ -1354,6 +1366,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_blockchain_config);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_contract_state);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_dst_transaction);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_fee_factors);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_full_contract_state);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_latest_block);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_network_id);
@@ -1384,6 +1397,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_blockchain_config);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_contract_state);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_dst_transaction);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_fee_factors);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_full_contract_state);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_network_id);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_signature_id);
@@ -1456,6 +1470,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_blockchain_config);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_contract_state);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_dst_transaction);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_fee_factors);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_full_contract_state);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_network_id);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_signature_id);

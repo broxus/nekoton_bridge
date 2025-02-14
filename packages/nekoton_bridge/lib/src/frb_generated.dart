@@ -71,7 +71,7 @@ class NekotonBridge extends BaseEntrypoint<NekotonBridgeApi,
   String get codegenVersion => '2.7.1';
 
   @override
-  int get rustContentHash => -1772436067;
+  int get rustContentHash => 1514881619;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -213,6 +213,9 @@ abstract class NekotonBridgeApi extends BaseApi {
   Future<String?> crateApiMergedGqlTransportImplGetDstTransaction(
       {required GqlTransportImpl that, required String messageHash});
 
+  Future<String> crateApiMergedGqlTransportImplGetFeeFactors(
+      {required GqlTransportImpl that, required bool isMasterchain});
+
   Future<String?> crateApiMergedGqlTransportImplGetFullContractState(
       {required GqlTransportImpl that, required String address});
 
@@ -327,6 +330,9 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   Future<String?> crateApiMergedJrpcTransportImplGetDstTransaction(
       {required JrpcTransportImpl that, required String messageHash});
+
+  Future<String> crateApiMergedJrpcTransportImplGetFeeFactors(
+      {required JrpcTransportImpl that, required bool isMasterchain});
 
   Future<String?> crateApiMergedJrpcTransportImplGetFullContractState(
       {required JrpcTransportImpl that, required String address});
@@ -635,6 +641,9 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   Future<String?> crateApiMergedProtoTransportImplGetDstTransaction(
       {required ProtoTransportImpl that, required String messageHash});
+
+  Future<String> crateApiMergedProtoTransportImplGetFeeFactors(
+      {required ProtoTransportImpl that, required bool isMasterchain});
 
   Future<String?> crateApiMergedProtoTransportImplGetFullContractState(
       {required ProtoTransportImpl that, required String address});
@@ -2030,6 +2039,33 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
+  Future<String> crateApiMergedGqlTransportImplGetFeeFactors(
+      {required GqlTransportImpl that, required bool isMasterchain}) {
+    return handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
+        var arg1 = cst_encode_bool(isMasterchain);
+        return wire
+            .wire__crate__api__merged__gql_transport_impl_get_fee_factors(
+                port_, arg0, arg1);
+      },
+      codec: DcoCodec(
+        decodeSuccessData: dco_decode_String,
+        decodeErrorData: dco_decode_AnyhowException,
+      ),
+      constMeta: kCrateApiMergedGqlTransportImplGetFeeFactorsConstMeta,
+      argValues: [that, isMasterchain],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiMergedGqlTransportImplGetFeeFactorsConstMeta =>
+      const TaskConstMeta(
+        debugName: "gql_transport_impl_get_fee_factors",
+        argNames: ["that", "isMasterchain"],
+      );
+
+  @override
   Future<String?> crateApiMergedGqlTransportImplGetFullContractState(
       {required GqlTransportImpl that, required String address}) {
     return handler.executeNormal(NormalTask(
@@ -2919,6 +2955,33 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
             debugName: "jrpc_transport_impl_get_dst_transaction",
             argNames: ["that", "messageHash"],
           );
+
+  @override
+  Future<String> crateApiMergedJrpcTransportImplGetFeeFactors(
+      {required JrpcTransportImpl that, required bool isMasterchain}) {
+    return handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
+        var arg1 = cst_encode_bool(isMasterchain);
+        return wire
+            .wire__crate__api__merged__jrpc_transport_impl_get_fee_factors(
+                port_, arg0, arg1);
+      },
+      codec: DcoCodec(
+        decodeSuccessData: dco_decode_String,
+        decodeErrorData: dco_decode_AnyhowException,
+      ),
+      constMeta: kCrateApiMergedJrpcTransportImplGetFeeFactorsConstMeta,
+      argValues: [that, isMasterchain],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiMergedJrpcTransportImplGetFeeFactorsConstMeta =>
+      const TaskConstMeta(
+        debugName: "jrpc_transport_impl_get_fee_factors",
+        argNames: ["that", "isMasterchain"],
+      );
 
   @override
   Future<String?> crateApiMergedJrpcTransportImplGetFullContractState(
@@ -5014,6 +5077,33 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
             debugName: "proto_transport_impl_get_dst_transaction",
             argNames: ["that", "messageHash"],
           );
+
+  @override
+  Future<String> crateApiMergedProtoTransportImplGetFeeFactors(
+      {required ProtoTransportImpl that, required bool isMasterchain}) {
+    return handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
+        var arg1 = cst_encode_bool(isMasterchain);
+        return wire
+            .wire__crate__api__merged__proto_transport_impl_get_fee_factors(
+                port_, arg0, arg1);
+      },
+      codec: DcoCodec(
+        decodeSuccessData: dco_decode_String,
+        decodeErrorData: dco_decode_AnyhowException,
+      ),
+      constMeta: kCrateApiMergedProtoTransportImplGetFeeFactorsConstMeta,
+      argValues: [that, isMasterchain],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiMergedProtoTransportImplGetFeeFactorsConstMeta =>
+      const TaskConstMeta(
+        debugName: "proto_transport_impl_get_fee_factors",
+        argNames: ["that", "isMasterchain"],
+      );
 
   @override
   Future<String?> crateApiMergedProtoTransportImplGetFullContractState(
