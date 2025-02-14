@@ -139,13 +139,7 @@ impl JettonWalletDartWrapper {
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
         address: String,
     ) -> anyhow::Result<String> {
-        async_run!(
-            jetton_wallet_details(
-                transport.get_transport(),
-                address,
-            )
-            .await
-        )
+        async_run!(jetton_wallet_details(transport.get_transport(), address,).await)
     }
 
     /// Get details about root contract by address of JettonWallet
@@ -173,13 +167,7 @@ impl JettonWalletDartWrapper {
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
         token_root_address: String,
     ) -> anyhow::Result<String> {
-        async_run!(
-            jetton_root_details(
-                transport.get_transport(),
-                token_root_address,
-            )
-            .await
-        )
+        async_run!(jetton_root_details(transport.get_transport(), token_root_address,).await)
     }
 }
 
