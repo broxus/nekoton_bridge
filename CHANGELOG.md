@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-02-17
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.5.0-dev.2`](#flutter_nekoton_bridge---v250-dev2)
+ - [`flutter_nekoton_bridge_example` - `v1.22.3-dev.2`](#flutter_nekoton_bridge_example---v1223-dev2)
+ - [`nekoton_bridge` - `v2.5.0-dev.2`](#nekoton_bridge---v250-dev2)
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.5.0-dev.2`
+
+ - **FIX**: update nekoton & remove gqlConnection parameter from JettonWallet methods. ([71778866](https://github.com/broxus/nekoton_bridge/commit/717788663fce536f1e28603919bec5894a9d965c))
+ - **FEAT**: update fee method ([#327](https://github.com/broxus/nekoton_bridge/issues/327)). ([f621674d](https://github.com/broxus/nekoton_bridge/commit/f621674d143ff90442fb971414eef4bf7fe5ceef))
+
+#### `flutter_nekoton_bridge_example` - `v1.22.3-dev.2`
+
+ - **FIX**: update nekoton & remove gqlConnection parameter from JettonWallet methods. ([71778866](https://github.com/broxus/nekoton_bridge/commit/717788663fce536f1e28603919bec5894a9d965c))
+ - **FEAT**: update fee method ([#327](https://github.com/broxus/nekoton_bridge/issues/327)). ([f621674d](https://github.com/broxus/nekoton_bridge/commit/f621674d143ff90442fb971414eef4bf7fe5ceef))
+
+#### `nekoton_bridge` - `v2.5.0-dev.2`
+
+ - **FIX**: update nekoton & remove gqlConnection parameter from JettonWallet methods. ([71778866](https://github.com/broxus/nekoton_bridge/commit/717788663fce536f1e28603919bec5894a9d965c))
+ - **FEAT**: update fee method ([#327](https://github.com/broxus/nekoton_bridge/issues/327)). ([f621674d](https://github.com/broxus/nekoton_bridge/commit/f621674d143ff90442fb971414eef4bf7fe5ceef))
+
+
 ## 2025-02-10
 
 ### Changes

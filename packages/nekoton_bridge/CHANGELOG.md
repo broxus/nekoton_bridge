@@ -1,3 +1,8 @@
+## 2.5.0-dev.2
+
+ - **FIX**: update nekoton & remove gqlConnection parameter from JettonWallet methods. ([71778866](https://github.com/broxus/nekoton_bridge/commit/717788663fce536f1e28603919bec5894a9d965c))
+ - **FEAT**: update fee method ([#327](https://github.com/broxus/nekoton_bridge/issues/327)). ([f621674d](https://github.com/broxus/nekoton_bridge/commit/f621674d143ff90442fb971414eef4bf7fe5ceef))
+
 ## 2.5.0-dev.1
 
  - **FEAT**: change async functions to synchronous in mnemonic API. ([e147f7b7](https://github.com/broxus/nekoton_bridge/commit/e147f7b70298f5b1c7aa921b9518d06899485d06))
