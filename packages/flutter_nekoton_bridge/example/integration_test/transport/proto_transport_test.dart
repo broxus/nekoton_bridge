@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:flutter_nekoton_bridge/nekoton/transport/models/fee_factor.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:http/http.dart' as http;
@@ -421,25 +422,15 @@ void main() {
           await ProtoTransport.create(protoConnection: connection);
       const bool isMasterchain = true;
 
-      final String rawFeeFactors =
-          await transport.getFeeFactor(isMasterchain: isMasterchain);
+      final FeeFactors feeFactors =
+      await transport.getFeeFactor(isMasterchain: isMasterchain);
 
-      expect(rawFeeFactors, isNotNull);
-      expect(rawFeeFactors, isNotEmpty);
+      expect(feeFactors, isNotNull);
+      expect(feeFactors.storageFeeFactor, isNotNull);
+      expect(feeFactors.gasFeeFactor, isNotNull);
 
-      final Map<String, dynamic> feeFactors = jsonDecode(rawFeeFactors);
-
-      expect(feeFactors.containsKey('storageFeeFactor'), isTrue);
-      expect(feeFactors.containsKey('gasFeeFactor'), isTrue);
-
-      expect(
-        int.tryParse(feeFactors['storageFeeFactor'].toString()),
-        isNotNull,
-      );
-      expect(
-        int.tryParse(feeFactors['gasFeeFactor'].toString()),
-        isNotNull,
-      );
+      expect(feeFactors.storageFeeFactor, greaterThan(0));
+      expect(feeFactors.gasFeeFactor, greaterThan(0));
     });
   });
 }

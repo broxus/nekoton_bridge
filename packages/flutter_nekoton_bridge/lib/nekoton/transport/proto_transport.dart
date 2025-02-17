@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:flutter_nekoton_bridge/nekoton/transport/models/fee_factor.dart';
 import 'package:nekoton_bridge/nekoton_bridge.dart' as lib;
 
 /// Implementation of proto transport
@@ -189,12 +190,12 @@ class ProtoTransport extends Transport {
   }
 
   @override
-  Future<String> getFeeFactor({required bool isMasterchain}) async {
+  Future<FeeFactors> getFeeFactor({required bool isMasterchain}) async {
     if (_disposed) throw TransportCallAfterDisposeError();
 
     return mutex.protectRead(() async {
       final res = await transport.getFeeFactors(isMasterchain: isMasterchain);
-      return res;
+      return FeeFactors.fromJson(jsonDecode(res));
     });
   }
 
