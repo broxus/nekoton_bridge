@@ -388,7 +388,7 @@ void main() {
       const bool isMasterchain = true;
 
       final FeeFactors feeFactors =
-      await transport.getFeeFactor(isMasterchain: isMasterchain);
+          await transport.getFeeFactor(isMasterchain: isMasterchain);
 
       expect(feeFactors, isNotNull);
       expect(feeFactors.storageFeeFactor, isNotNull);
