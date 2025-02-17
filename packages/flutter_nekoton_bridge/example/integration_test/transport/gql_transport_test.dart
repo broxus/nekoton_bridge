@@ -394,15 +394,15 @@ void main() {
 
       final Map<String, dynamic> feeFactors = jsonDecode(rawFeeFactors);
 
-      expect(feeFactors.containsKey("storageFeeFactor"), isTrue);
-      expect(feeFactors.containsKey("gasFeeFactor"), isTrue);
+      expect(feeFactors.containsKey('storageFeeFactor'), isTrue);
+      expect(feeFactors.containsKey('gasFeeFactor'), isTrue);
 
       expect(
-        int.tryParse(feeFactors["storageFeeFactor"].toString()),
+        int.tryParse(feeFactors['storageFeeFactor'].toString()),
         isNotNull,
       );
       expect(
-        int.tryParse(feeFactors["gasFeeFactor"].toString()),
+        int.tryParse(feeFactors['gasFeeFactor'].toString()),
         isNotNull,
       );
     });

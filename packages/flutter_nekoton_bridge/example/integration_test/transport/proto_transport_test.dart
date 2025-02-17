@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/cupertino.dart';
@@ -403,6 +404,42 @@ void main() {
 
       expect(errors, isNotNull);
       expect(errors, isNotEmpty);
+    });
+
+    testWidgets('GqlTransport getFeeFactors', (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      await initRustToDartCaller();
+
+      final connection = ProtoConnection.create(
+        client: HttpClient(),
+        settings: protoSettings,
+        name: name,
+        group: networkGroup,
+      );
+      final transport =
+          await ProtoTransport.create(protoConnection: connection);
+      const bool isMasterchain = true;
+
+      final String rawFeeFactors =
+          await transport.getFeeFactors(isMasterchain: isMasterchain);
+
+      expect(rawFeeFactors, isNotNull);
+      expect(rawFeeFactors, isNotEmpty);
+
+      final Map<String, dynamic> feeFactors = jsonDecode(rawFeeFactors);
+
+      expect(feeFactors.containsKey('storageFeeFactor'), isTrue);
+      expect(feeFactors.containsKey('gasFeeFactor'), isTrue);
+
+      expect(
+        int.tryParse(feeFactors['storageFeeFactor'].toString()),
+        isNotNull,
+      );
+      expect(
+        int.tryParse(feeFactors['gasFeeFactor'].toString()),
+        isNotNull,
+      );
     });
   });
 }
