@@ -21,7 +21,10 @@ use nekoton::transport::{
     gql::GqlTransport, jrpc::JrpcTransport, proto::ProtoTransport, Transport,
 };
 use nekoton_abi::TransactionId;
+use nekoton_utils::Clock;
 use nekoton_utils::SimpleClock;
+use serde::{Deserialize, Serialize};
+use serde_json::json;
 use std::convert::TryFrom;
 use std::panic::{RefUnwindSafe, UnwindSafe};
 use std::sync::Arc;
@@ -72,6 +75,9 @@ pub trait TransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     /// Get single transaction by its id.
     /// Return json-encoded Transaction or throw error
     async fn get_transaction(&self, id: String) -> anyhow::Result<Option<String>>;
+
+    /// Get fee factors (storage and gas) for the given chain type.
+    async fn get_fee_factors(&self, is_masterchain: bool) -> anyhow::Result<String>;
 
     /// Call get_dst_transaction of nekoton's transport and
     /// return option json-encoded RawTransaction or throw error
@@ -152,6 +158,53 @@ impl TransportBoxTrait for name {
     /// Get nekoton's transport. For rust side only
     fn get_transport(&self) -> Arc<dyn Transport> {
         self.inner_transport.clone()
+    }
+
+    async fn get_fee_factors(&self, is_masterchain: bool) -> anyhow::Result<String> {
+        let base_storage_price = if is_masterchain { 1000 } else { 1 };
+        let base_gas_price = if is_masterchain {
+            10_000 << 16
+        } else {
+            1_000 << 16
+        };
+
+        let handle = self.get_transport();
+        let clock = clock!();
+
+        let config = handle
+            .get_blockchain_config(clock.as_ref(), false)
+            .await
+            .handle_error()?;
+
+        let prices_param = config.raw_config().storage_prices().handle_error()?;
+        let prices_len = prices_param.len()?;
+        let now = clock.now_sec_u64();
+        let mut storage_bit_price: u64 = 0;
+
+        for index in 0..prices_len as u32 {
+            if let Ok(price) = prices_param.get(index) {
+                if price.utime_since as u64 <= now {
+                    storage_bit_price = if is_masterchain {
+                        price.mc_bit_price_ps
+                    } else {
+                        price.bit_price_ps
+                    };
+                }
+            }
+        }
+
+        let storage_fee_factor: u64 = storage_bit_price.div_ceil(base_storage_price);
+
+        let gas_fees = config.get_gas_config(is_masterchain);
+        let gas_fee_factor = gas_fees
+            .gas_price
+            .checked_shl(16)
+            .ok_or_else(|| anyhow::Error::msg("gas price is too big"))?
+            .div_ceil(base_gas_price);
+
+        let fee_factors = FeeFactors::new(storage_fee_factor, gas_fee_factor);
+
+        serde_json::to_string(&fee_factors).handle_error()
     }
 
     /// Get contract state of address and return json-encoded RawContractState or throw error
@@ -385,6 +438,30 @@ pub struct GqlTransportBox {
     inner_transport: Arc<GqlTransport>,
 }
 
+#[derive(Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct FeeFactors {
+    storage_fee_factor: String,
+    gas_fee_factor: String,
+}
+
+impl FeeFactors {
+    pub fn new(storage_fee_factor: u64, gas_fee_factor: u64) -> Self {
+        Self {
+            storage_fee_factor: storage_fee_factor.to_string(),
+            gas_fee_factor: gas_fee_factor.to_string(),
+        }
+    }
+
+    pub fn to_json(&self) -> anyhow::Result<String> {
+        serde_json::to_string(&json!({
+            "storageFeeFactor": self.storage_fee_factor,
+            "gasFeeFactor": self.gas_fee_factor,
+        }))
+        .map_err(|e| anyhow::Error::msg(format!("JSON serialization error: {}", e)))
+    }
+}
+
 impl UnwindSafe for GqlTransportBox {}
 
 impl RefUnwindSafe for GqlTransportBox {}
@@ -404,6 +481,53 @@ impl TransportBoxTrait for GqlTransportBox {
     /// Get nekoton's transport. For rust side only
     fn get_transport(&self) -> Arc<dyn Transport> {
         self.inner_transport.clone()
+    }
+
+    async fn get_fee_factors(&self, is_masterchain: bool) -> anyhow::Result<String> {
+        let base_storage_price = if is_masterchain { 1000 } else { 1 };
+        let base_gas_price = if is_masterchain {
+            10_000 << 16
+        } else {
+            1_000 << 16
+        };
+
+        let handle = self.get_transport();
+        let clock = clock!();
+
+        let config = handle
+            .get_blockchain_config(clock.as_ref(), false)
+            .await
+            .handle_error()?;
+
+        let prices_param = config.raw_config().storage_prices().handle_error()?;
+        let prices_len = prices_param.len()?;
+        let now = clock.now_sec_u64();
+        let mut storage_bit_price: u64 = 0;
+
+        for index in 0..prices_len as u32 {
+            if let Ok(price) = prices_param.get(index) {
+                if price.utime_since as u64 <= now {
+                    storage_bit_price = if is_masterchain {
+                        price.mc_bit_price_ps
+                    } else {
+                        price.bit_price_ps
+                    };
+                }
+            }
+        }
+
+        let storage_fee_factor: u64 = storage_bit_price.div_ceil(base_storage_price);
+
+        let gas_fees = config.get_gas_config(is_masterchain);
+        let gas_fee_factor = gas_fees
+            .gas_price
+            .checked_shl(16)
+            .ok_or_else(|| anyhow::Error::msg("gas price is too big"))?
+            .div_ceil(base_gas_price);
+
+        let fee_factors = FeeFactors::new(storage_fee_factor, gas_fee_factor);
+
+        serde_json::to_string(&fee_factors).handle_error()
     }
 
     /// Get contract state of address and return json-encoded RawContractState or throw error

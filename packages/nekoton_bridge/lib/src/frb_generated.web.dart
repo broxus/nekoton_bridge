@@ -2071,6 +2071,11 @@ class NekotonBridgeWire implements BaseWire {
           .wire__crate__api__merged__gql_transport_impl_get_dst_transaction(
               port_, that, message_hash);
 
+  void wire__crate__api__merged__gql_transport_impl_get_fee_factors(
+          NativePortType port_, JSAny that, bool is_masterchain) =>
+      wasmModule.wire__crate__api__merged__gql_transport_impl_get_fee_factors(
+          port_, that, is_masterchain);
+
   void wire__crate__api__merged__gql_transport_impl_get_full_contract_state(
           NativePortType port_, JSAny that, String address) =>
       wasmModule
@@ -2279,6 +2284,11 @@ class NekotonBridgeWire implements BaseWire {
       wasmModule
           .wire__crate__api__merged__jrpc_transport_impl_get_dst_transaction(
               port_, that, message_hash);
+
+  void wire__crate__api__merged__jrpc_transport_impl_get_fee_factors(
+          NativePortType port_, JSAny that, bool is_masterchain) =>
+      wasmModule.wire__crate__api__merged__jrpc_transport_impl_get_fee_factors(
+          port_, that, is_masterchain);
 
   void wire__crate__api__merged__jrpc_transport_impl_get_full_contract_state(
           NativePortType port_, JSAny that, String address) =>
@@ -2746,6 +2756,11 @@ class NekotonBridgeWire implements BaseWire {
       wasmModule
           .wire__crate__api__merged__proto_transport_impl_get_dst_transaction(
               port_, that, message_hash);
+
+  void wire__crate__api__merged__proto_transport_impl_get_fee_factors(
+          NativePortType port_, JSAny that, bool is_masterchain) =>
+      wasmModule.wire__crate__api__merged__proto_transport_impl_get_fee_factors(
+          port_, that, is_masterchain);
 
   void wire__crate__api__merged__proto_transport_impl_get_full_contract_state(
           NativePortType port_, JSAny that, String address) =>
@@ -3539,6 +3554,9 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
       wire__crate__api__merged__gql_transport_impl_get_dst_transaction(
           NativePortType port_, JSAny that, String message_hash);
 
+  external void wire__crate__api__merged__gql_transport_impl_get_fee_factors(
+      NativePortType port_, JSAny that, bool is_masterchain);
+
   external void
       wire__crate__api__merged__gql_transport_impl_get_full_contract_state(
           NativePortType port_, JSAny that, String address);
@@ -3672,6 +3690,9 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
   external void
       wire__crate__api__merged__jrpc_transport_impl_get_dst_transaction(
           NativePortType port_, JSAny that, String message_hash);
+
+  external void wire__crate__api__merged__jrpc_transport_impl_get_fee_factors(
+      NativePortType port_, JSAny that, bool is_masterchain);
 
   external void
       wire__crate__api__merged__jrpc_transport_impl_get_full_contract_state(
@@ -4003,6 +4024,9 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
   external void
       wire__crate__api__merged__proto_transport_impl_get_dst_transaction(
           NativePortType port_, JSAny that, String message_hash);
+
+  external void wire__crate__api__merged__proto_transport_impl_get_fee_factors(
+      NativePortType port_, JSAny that, bool is_masterchain);
 
   external void
       wire__crate__api__merged__proto_transport_impl_get_full_contract_state(

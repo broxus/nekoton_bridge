@@ -901,6 +901,10 @@ class GqlTransportImpl {
           .crateApiMergedGqlTransportImplGetDstTransaction(
               that: this, messageHash: messageHash);
 
+  Future<String> getFeeFactors({required bool isMasterchain}) =>
+      NekotonBridge.instance.api.crateApiMergedGqlTransportImplGetFeeFactors(
+          that: this, isMasterchain: isMasterchain);
+
   /// Get full contract state of address and return json-encoded FullContractState or throw error
   Future<String?> getFullContractState({required String address}) =>
       NekotonBridge.instance.api
@@ -1195,6 +1199,10 @@ class JrpcTransportImpl {
       NekotonBridge.instance.api
           .crateApiMergedJrpcTransportImplGetDstTransaction(
               that: this, messageHash: messageHash);
+
+  Future<String> getFeeFactors({required bool isMasterchain}) =>
+      NekotonBridge.instance.api.crateApiMergedJrpcTransportImplGetFeeFactors(
+          that: this, isMasterchain: isMasterchain);
 
   /// Get full contract state of address and return json-encoded FullContractState or throw error
   Future<String?> getFullContractState({required String address}) =>
@@ -1645,6 +1653,10 @@ class ProtoTransportImpl {
       NekotonBridge.instance.api
           .crateApiMergedProtoTransportImplGetDstTransaction(
               that: this, messageHash: messageHash);
+
+  Future<String> getFeeFactors({required bool isMasterchain}) =>
+      NekotonBridge.instance.api.crateApiMergedProtoTransportImplGetFeeFactors(
+          that: this, isMasterchain: isMasterchain);
 
   /// Get full contract state of address and return json-encoded FullContractState or throw error
   Future<String?> getFullContractState({required String address}) =>

@@ -139,4 +139,8 @@ impl GqlTransportImpl {
                 .await
         )
     }
+
+    pub fn get_fee_factors(&self, is_masterchain: bool) -> anyhow::Result<String> {
+        async_run!(self.inner_transport.get_fee_factors(is_masterchain).await)
+    }
 }
