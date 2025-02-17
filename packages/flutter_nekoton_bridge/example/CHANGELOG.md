@@ -1,3 +1,8 @@
+## 1.22.3-dev.2
+
+ - **FIX**: update nekoton & remove gqlConnection parameter from JettonWallet methods. ([71778866](https://github.com/broxus/nekoton_bridge/commit/717788663fce536f1e28603919bec5894a9d965c))
+ - **FEAT**: update fee method ([#327](https://github.com/broxus/nekoton_bridge/issues/327)). ([f621674d](https://github.com/broxus/nekoton_bridge/commit/f621674d143ff90442fb971414eef4bf7fe5ceef))
+
 ## 1.22.3-dev.1
 
  - Update a dependency to the latest release.
