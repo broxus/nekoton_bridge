@@ -86,6 +86,9 @@ abstract class Transport {
     required Int32List ignoredActionPhaseCodes,
   });
 
+  /// Get fee factor or throw error
+  Future<String> getFeeFactor({required bool isMasterchain});
+
   /// Used only for creating rust instances.
   ArcTransportBoxTrait get transportBox;
 

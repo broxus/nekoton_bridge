@@ -406,7 +406,7 @@ void main() {
       const bool isMasterchain = true;
 
       final String rawFeeFactors =
-          await transport.getFeeFactors(isMasterchain: isMasterchain);
+          await transport.getFeeFactor(isMasterchain: isMasterchain);
 
       expect(rawFeeFactors, isNotNull);
       expect(rawFeeFactors, isNotEmpty);

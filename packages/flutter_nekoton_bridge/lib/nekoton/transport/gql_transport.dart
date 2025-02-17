@@ -220,6 +220,16 @@ class GqlTransport extends Transport {
   }
 
   @override
+  Future<String> getFeeFactor({required bool isMasterchain}) async {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
+    return mutex.protectRead(() async {
+      final res = await transport.getFeeFactors(isMasterchain: isMasterchain);
+      return res;
+    });
+  }
+
+  @override
   String get group => gqlConnection.group;
 
   @override
