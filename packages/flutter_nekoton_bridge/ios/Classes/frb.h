@@ -1098,11 +1098,8 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_pre
                                                                                               struct wire_cst_ton_wallet_dart_wrapper *that,
                                                                                               struct wire_cst_list_prim_u_8_strict *contract_state,
                                                                                               struct wire_cst_list_prim_u_8_strict *public_key,
-                                                                                              struct wire_cst_list_prim_u_8_strict *destination,
-                                                                                              struct wire_cst_list_prim_u_8_strict *amount,
-                                                                                              bool bounce,
-                                                                                              struct wire_cst_list_prim_u_8_strict *body,
-                                                                                              struct wire_cst_list_prim_u_8_strict *expiration);
+                                                                                              struct wire_cst_list_prim_u_8_strict *expiration,
+                                                                                              struct wire_cst_list_prim_u_8_strict *params);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_public_key(int64_t port_,
                                                                                         struct wire_cst_ton_wallet_dart_wrapper *that);

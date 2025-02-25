@@ -471,7 +471,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'instanceHash': 0,
               r'avoidCall': 0,
               r'getContractState': 0,
-              r'estimateMinAttachedAmount': 5,
+              r'estimateMinAttachedAmount': 19,
               r'prepareTransfer': 23,
               r'refresh': 0,
               r'preloadTransactions': 21,
@@ -664,15 +664,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         const [
           0,
           0,
-          const [
-            #contractState,
-            #publicKey,
-            #destination,
-            #amount,
-            #bounce,
-            #body,
-            #expiration
-          ]
+          const [#contractState, #publicKey, #expiration, #params]
         ],
         const [
           0,

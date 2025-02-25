@@ -42,3 +42,17 @@ pub struct ExistingWalletInfoDef {
     pub wallet_type: WalletType,
     pub contract_state: ContractState,
 }
+
+#[derive(Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct TonWalletTransferParams {
+    /// address of account that should receive token
+    pub destination: String,
+    /// amount of tokens that should be transferred
+    pub amount: String,
+    /// nekoton's bounce param
+    pub bounce: bool,
+    /// body of transfer aka comment
+    pub body: Option<String>,
+    pub state_init: Option<String>,
+}

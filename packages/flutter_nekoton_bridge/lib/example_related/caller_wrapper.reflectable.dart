@@ -832,15 +832,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         const [
           0,
           0,
-          const [
-            #contractState,
-            #publicKey,
-            #destination,
-            #amount,
-            #bounce,
-            #body,
-            #expiration
-          ]
+          const [#contractState, #publicKey, #expiration, #params]
         ],
         const [
           0,

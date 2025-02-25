@@ -7319,22 +7319,16 @@ class NekotonBridgeWire implements BaseWire {
     ffi.Pointer<wire_cst_ton_wallet_dart_wrapper> that,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_state,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> public_key,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> destination,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> amount,
-    bool bounce,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> body,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> expiration,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> params,
   ) {
     return _wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_transfer(
       port_,
       that,
       contract_state,
       public_key,
-      destination,
-      amount,
-      bounce,
-      body,
       expiration,
+      params,
     );
   }
 
@@ -7347,9 +7341,6 @@ class NekotonBridgeWire implements BaseWire {
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                      ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                      ffi.Bool,
-                      ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_transfer');
   late final _wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_transfer =
@@ -7360,9 +7351,6 @@ class NekotonBridgeWire implements BaseWire {
                   ffi.Pointer<wire_cst_ton_wallet_dart_wrapper>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                  bool,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
 

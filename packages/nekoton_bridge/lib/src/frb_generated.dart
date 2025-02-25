@@ -848,11 +848,8 @@ abstract class NekotonBridgeApi extends BaseApi {
       {required TonWalletDartWrapper that,
       required String contractState,
       required String publicKey,
-      required String destination,
-      required String amount,
-      required bool bounce,
-      String? body,
-      required String expiration});
+      required String expiration,
+      required String params});
 
   Future<String> crateApiMergedTonWalletDartWrapperPublicKey(
       {required TonWalletDartWrapper that});
@@ -6758,40 +6755,25 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       {required TonWalletDartWrapper that,
       required String contractState,
       required String publicKey,
-      required String destination,
-      required String amount,
-      required bool bounce,
-      String? body,
-      required String expiration}) {
+      required String expiration,
+      required String params}) {
     return handler.executeNormal(NormalTask(
       callFfi: (port_) {
         var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
         var arg1 = cst_encode_String(contractState);
         var arg2 = cst_encode_String(publicKey);
-        var arg3 = cst_encode_String(destination);
-        var arg4 = cst_encode_String(amount);
-        var arg5 = cst_encode_bool(bounce);
-        var arg6 = cst_encode_opt_String(body);
-        var arg7 = cst_encode_String(expiration);
+        var arg3 = cst_encode_String(expiration);
+        var arg4 = cst_encode_String(params);
         return wire
             .wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_transfer(
-                port_, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+                port_, arg0, arg1, arg2, arg3, arg4);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_unsigned_message_impl,
         decodeErrorData: dco_decode_AnyhowException,
       ),
       constMeta: kCrateApiMergedTonWalletDartWrapperPrepareTransferConstMeta,
-      argValues: [
-        that,
-        contractState,
-        publicKey,
-        destination,
-        amount,
-        bounce,
-        body,
-        expiration
-      ],
+      argValues: [that, contractState, publicKey, expiration, params],
       apiImpl: this,
     ));
   }
@@ -6804,11 +6786,8 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
               "that",
               "contractState",
               "publicKey",
-              "destination",
-              "amount",
-              "bounce",
-              "body",
-              "expiration"
+              "expiration",
+              "params"
             ],
           );
 

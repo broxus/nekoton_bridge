@@ -272,29 +272,22 @@ class TonWallet extends RustToDartMirrorInterface
       );
 
   /// Prepare transferring tokens from this wallet to other.
+  /// [contractState] - wallet contract state
   /// [publicKey] - key of account that had initiated transfer
-  /// [destination] - address of account that should receive token
-  /// [amount] - amount of tokens that should be transferred
-  /// [bounce] - nekoton's bounce param
-  /// [body] - body of transfer aka comment
+  /// [expiration] - expiration of message
+  /// [params] - list of TonWalletTransferParams
   /// Returns UnsignedMessage or throw error.
   Future<UnsignedMessage> prepareTransfer({
     required RawContractState contractState,
     required PublicKey publicKey,
-    required Address destination,
-    required BigInt amount,
-    required bool bounce,
-    String? body,
     required Expiration expiration,
+    required List<TonWalletTransferParams> params,
   }) async {
     final message = await wallet.prepareTransfer(
       contractState: jsonEncode(contractState),
       publicKey: publicKey.publicKey,
-      destination: destination.address,
-      amount: amount.toString(),
-      bounce: bounce,
-      body: body,
       expiration: jsonEncode(expiration),
+      params: jsonEncode(params),
     );
     await _updateData();
     return UnsignedMessage.create(message: message);

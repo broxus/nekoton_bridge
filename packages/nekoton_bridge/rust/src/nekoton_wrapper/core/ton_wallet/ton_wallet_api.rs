@@ -186,33 +186,19 @@ impl TonWalletDartWrapper {
     /// Prepare transferring tokens from this wallet to other.
     /// contract_state - json-encoded RawContractState
     /// public_key - key of account that had initiated transfer
-    /// destination - address of account that should receive token
-    /// amount - amount of tokens that should be transferred
-    /// bounce - nekoton's bounce param
-    /// body - body of transfer aka comment
     /// expiration - json-encoded Expiration
+    /// params - json-encoded list of TonWalletTransferParams
     /// Returns UnsignedMessage or throw error.
     pub fn prepare_transfer(
         &self,
         contract_state: String,
         public_key: String,
-        destination: String,
-        amount: String,
-        bounce: bool,
-        body: Option<String>,
         expiration: String,
+        params: String,
     ) -> anyhow::Result<UnsignedMessageImpl> {
         async_run!(
             self.inner_wallet
-                .prepare_transfer(
-                    contract_state,
-                    public_key,
-                    destination,
-                    amount,
-                    bounce,
-                    body,
-                    expiration,
-                )
+                .prepare_transfer(contract_state, public_key, expiration, params)
                 .await
         )
         .map(|m| UnsignedMessageImpl { inner_message: m })

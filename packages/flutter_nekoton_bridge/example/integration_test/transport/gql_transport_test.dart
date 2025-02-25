@@ -353,12 +353,16 @@ void main() {
         publicKey: const PublicKey(
             publicKey:
                 '6c2f9514c1c0f2ec54cffe1ac2ba0e85268e76442c14205581ebc808fe7ee52c'),
-        destination: const Address(
-            address:
-                '-1:06eec9c3a6f122c29697d27ae987e4b911d4dadc937e23c7aa58bbf1e484b20f'),
-        amount: BigInt.parse('1000000000'),
-        bounce: false,
         expiration: const Expiration.timeout(60),
+        params: [
+          TonWalletTransferParams(
+            destination: const Address(
+                address:
+                    '-1:06eec9c3a6f122c29697d27ae987e4b911d4dadc937e23c7aa58bbf1e484b20f'),
+            amount: BigInt.parse('1000000000'),
+            bounce: false,
+          ),
+        ],
       );
       final signedMessage = await message.signFake();
       final errors = await transport.simulateTransactionTree(

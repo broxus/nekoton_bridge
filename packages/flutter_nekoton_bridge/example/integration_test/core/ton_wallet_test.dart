@@ -161,10 +161,14 @@ void main() {
       final message = await wallet.prepareTransfer(
         contractState: contract,
         publicKey: publicKey,
-        destination: stEverContractVault,
-        amount: BigInt.parse('100000000'),
-        bounce: false,
         expiration: expiration,
+        params: [
+          TonWalletTransferParams(
+            destination: stEverContractVault,
+            amount: BigInt.parse('100000000'),
+            bounce: false,
+          ),
+        ],
       );
       expect(message, isNotNull);
     });
@@ -221,10 +225,14 @@ void main() {
       final message = await wallet.prepareTransfer(
         contractState: contract,
         publicKey: publicKey,
-        destination: stEverContractVault,
-        amount: BigInt.parse('100000000'),
-        bounce: false,
         expiration: expiration,
+        params: [
+          TonWalletTransferParams(
+            destination: stEverContractVault,
+            amount: BigInt.parse('100000000'),
+            bounce: false,
+          ),
+        ],
       );
       await message.refreshTimeout();
 
@@ -363,10 +371,14 @@ void main() {
       final message = await wallet.prepareTransfer(
         contractState: contract,
         publicKey: publicKey,
-        destination: stEverContractVault,
-        amount: BigInt.parse('100000000'),
-        bounce: false,
         expiration: expiration,
+        params: [
+          TonWalletTransferParams(
+            destination: stEverContractVault,
+            amount: BigInt.parse('100000000'),
+            bounce: false,
+          ),
+        ],
       );
 
       final signedMessage = await message.signFake();

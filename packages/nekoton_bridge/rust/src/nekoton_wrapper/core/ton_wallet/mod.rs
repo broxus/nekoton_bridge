@@ -14,6 +14,7 @@ use crate::nekoton_wrapper::crypto::models::{UnsignedMessageBox, UnsignedMessage
 use crate::nekoton_wrapper::transport::models::RawContractStateHelper;
 use crate::nekoton_wrapper::{parse_address, parse_public_key, HandleError};
 use async_trait::async_trait;
+use models::TonWalletTransferParams;
 use nekoton::core::models::{Expiration, MessageFlags, PollingMethod};
 use nekoton::core::ton_wallet::{
     extract_wallet_init_data, find_existing_wallets, get_wallet_custodians, ExistingWalletInfo,
@@ -86,21 +87,15 @@ pub trait TonWalletBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     /// Prepare transferring tokens from this wallet to other.
     /// contract_state - json-encoded RawContractState
     /// public_key - key of account that had initiated transfer
-    /// destination - address of account that should receive token
-    /// amount - amount of tokens that should be transferred
-    /// bounce - nekoton's bounce param
-    /// body - body of transfer aka comment
     /// expiration - json-encoded Expiration
+    /// params - json-encoded list of TonWalletTransferParams
     /// Returns UnsignedMessage or throw error.
     async fn prepare_transfer(
         &self,
         contract_state: String,
         public_key: String,
-        destination: String,
-        amount: String,
-        bounce: bool,
-        body: Option<String>,
         expiration: String,
+        params: String,
     ) -> anyhow::Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>>;
 
     /// Prepare transaction for confirmation.
@@ -349,21 +344,15 @@ impl TonWalletBoxTrait for TonWalletBox {
     /// Prepare transferring tokens from this wallet to other.
     /// contract_state - json-encoded RawContractState
     /// public_key - key of account that had initiated transfer
-    /// destination - address of account that should receive token
-    /// amount - amount of tokens that should be transferred
-    /// bounce - nekoton's bounce param
-    /// body - body of transfer aka comment
     /// expiration - json-encoded Expiration
+    /// params - json-encoded list of TonWalletTransferParams
     /// Returns UnsignedMessage or throw error.
     async fn prepare_transfer(
         &self,
         contract_state: String,
         public_key: String,
-        destination: String,
-        amount: String,
-        bounce: bool,
-        body: Option<String>,
         expiration: String,
+        params: String,
     ) -> anyhow::Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>> {
         let contract_state = serde_json::from_str::<RawContractStateHelper>(&contract_state)
             .map(|RawContractStateHelper(raw_contract_state)| raw_contract_state)
@@ -377,32 +366,43 @@ impl TonWalletBoxTrait for TonWalletBox {
         };
 
         let public_key = parse_public_key(public_key).handle_error()?;
-
-        let destination = parse_address(destination)?;
-
-        let amount = amount.parse::<u128>().handle_error()?;
-
-        let body = body
-            .map(|e| create_boc_or_comment_payload(&e))
-            .transpose()
-            .handle_error()?;
-
         let expiration = serde_json::from_str::<Expiration>(&expiration).handle_error()?;
 
-        let gift = Gift {
-            flags: MessageFlags::default().into(),
-            bounce,
-            destination,
-            amount,
-            body,
-            state_init: None,
-        };
+        let gifts = serde_json::from_str::<Vec<TonWalletTransferParams>>(&params)
+            .handle_error()?
+            .into_iter()
+            .map(|p| {
+                let destination = parse_address(p.destination)?;
+                let amount = p.amount.parse::<u128>().handle_error()?;
+                let body = p
+                    .body
+                    .map(|e| create_boc_or_comment_payload(&e))
+                    .transpose()
+                    .handle_error()?;
+                let state_init = p
+                    .state_init
+                    .as_deref()
+                    .map(ton_block::StateInit::construct_from_base64)
+                    .transpose()
+                    .handle_error()?;
+
+                Ok(Gift {
+                    flags: MessageFlags::default().into(),
+                    bounce: p.bounce,
+                    destination,
+                    amount,
+                    body,
+                    state_init,
+                })
+            })
+            .collect::<anyhow::Result<Vec<_>>>()
+            .handle_error()?;
 
         let action = self
             .inner_wallet
             .lock()
             .await
-            .prepare_transfer(&current_state, &public_key, gift, expiration)
+            .prepare_transfer(&current_state, &public_key, gifts, expiration)
             .handle_error()?;
 
         let unsigned_message = match action {

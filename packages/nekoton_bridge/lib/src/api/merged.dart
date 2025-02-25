@@ -2087,30 +2087,21 @@ class TonWalletDartWrapper {
   /// Prepare transferring tokens from this wallet to other.
   /// contract_state - json-encoded RawContractState
   /// public_key - key of account that had initiated transfer
-  /// destination - address of account that should receive token
-  /// amount - amount of tokens that should be transferred
-  /// bounce - nekoton's bounce param
-  /// body - body of transfer aka comment
   /// expiration - json-encoded Expiration
+  /// params - json-encoded list of TonWalletTransferParams
   /// Returns UnsignedMessage or throw error.
   Future<UnsignedMessageImpl> prepareTransfer(
           {required String contractState,
           required String publicKey,
-          required String destination,
-          required String amount,
-          required bool bounce,
-          String? body,
-          required String expiration}) =>
+          required String expiration,
+          required String params}) =>
       NekotonBridge.instance.api
           .crateApiMergedTonWalletDartWrapperPrepareTransfer(
               that: this,
               contractState: contractState,
               publicKey: publicKey,
-              destination: destination,
-              amount: amount,
-              bounce: bounce,
-              body: body,
-              expiration: expiration);
+              expiration: expiration,
+              params: params);
 
   /// Get public key of wallet.
   Future<String> publicKey() =>

@@ -10,6 +10,7 @@ export 'multisig_transaction.dart';
 export 'token_wallet_deployed_notification.dart';
 export 'ton_wallet_details.dart';
 export 'ton_wallet_transaction_with_data.dart';
+export 'ton_wallet_transfer_params.dart';
 export 'transaction_additional_info.dart';
 export 'transaction_execution_options.dart';
 export 'wallet_interaction_info.dart';
