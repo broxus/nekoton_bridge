@@ -13,6 +13,7 @@ use async_trait::async_trait;
 use base64::engine::general_purpose;
 use base64::Engine;
 use duplicate::duplicate_item;
+use models::FeeFactors;
 use nekoton::core::models::{Transaction, TransactionsBatchInfo, TransactionsBatchType};
 use nekoton::crypto::SignedMessage;
 use nekoton::external::{GqlConnection, JrpcConnection, ProtoConnection};
@@ -23,8 +24,6 @@ use nekoton::transport::{
 use nekoton_abi::TransactionId;
 use nekoton_utils::Clock;
 use nekoton_utils::SimpleClock;
-use serde::{Deserialize, Serialize};
-use serde_json::json;
 use std::convert::TryFrom;
 use std::panic::{RefUnwindSafe, UnwindSafe};
 use std::sync::Arc;
@@ -202,7 +201,10 @@ impl TransportBoxTrait for name {
             .ok_or_else(|| anyhow::Error::msg("gas price is too big"))?
             .div_ceil(base_gas_price);
 
-        let fee_factors = FeeFactors::new(storage_fee_factor, gas_fee_factor);
+        let fee_factors = FeeFactors {
+            storage_fee_factor,
+            gas_fee_factor,
+        };
 
         serde_json::to_string(&fee_factors).handle_error()
     }
@@ -438,30 +440,6 @@ pub struct GqlTransportBox {
     inner_transport: Arc<GqlTransport>,
 }
 
-#[derive(Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct FeeFactors {
-    storage_fee_factor: String,
-    gas_fee_factor: String,
-}
-
-impl FeeFactors {
-    pub fn new(storage_fee_factor: u64, gas_fee_factor: u64) -> Self {
-        Self {
-            storage_fee_factor: storage_fee_factor.to_string(),
-            gas_fee_factor: gas_fee_factor.to_string(),
-        }
-    }
-
-    pub fn to_json(&self) -> anyhow::Result<String> {
-        serde_json::to_string(&json!({
-            "storageFeeFactor": self.storage_fee_factor,
-            "gasFeeFactor": self.gas_fee_factor,
-        }))
-        .map_err(|e| anyhow::Error::msg(format!("JSON serialization error: {}", e)))
-    }
-}
-
 impl UnwindSafe for GqlTransportBox {}
 
 impl RefUnwindSafe for GqlTransportBox {}
@@ -525,7 +503,10 @@ impl TransportBoxTrait for GqlTransportBox {
             .ok_or_else(|| anyhow::Error::msg("gas price is too big"))?
             .div_ceil(base_gas_price);
 
-        let fee_factors = FeeFactors::new(storage_fee_factor, gas_fee_factor);
+        let fee_factors = FeeFactors {
+            storage_fee_factor,
+            gas_fee_factor,
+        };
 
         serde_json::to_string(&fee_factors).handle_error()
     }

@@ -2,7 +2,6 @@ import 'dart:typed_data';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
-import 'package:flutter_nekoton_bridge/nekoton/transport/models/fee_factor.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:integration_test/integration_test.dart';
@@ -423,10 +422,7 @@ void main() {
       );
       final transport =
           await ProtoTransport.create(protoConnection: connection);
-      const bool isMasterchain = true;
-
-      final FeeFactors feeFactors =
-          await transport.getFeeFactor(isMasterchain: isMasterchain);
+      final feeFactors = await transport.getFeeFactors(isMasterchain: true);
 
       expect(feeFactors, isNotNull);
       expect(feeFactors.storageFeeFactor, isNotNull);

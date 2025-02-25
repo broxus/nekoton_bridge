@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'fee_factor.dart';
+part of 'fee_factors.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -8,8 +8,8 @@ part of 'fee_factor.dart';
 
 _$FeeFactorsImpl _$$FeeFactorsImplFromJson(Map<String, dynamic> json) =>
     _$FeeFactorsImpl(
-      storageFeeFactor: json['storageFeeFactor'] as String,
-      gasFeeFactor: json['gasFeeFactor'] as String,
+      storageFeeFactor: (json['storageFeeFactor'] as num).toInt(),
+      gasFeeFactor: (json['gasFeeFactor'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$FeeFactorsImplToJson(_$FeeFactorsImpl instance) =>

@@ -73,3 +73,10 @@ pub struct BlockchainConfigDef {
     #[serde(with = "serde_ton_block")]
     pub config: ConfigParams,
 }
+
+#[derive(Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct FeeFactors {
+    pub storage_fee_factor: u64,
+    pub gas_fee_factor: u64,
+}

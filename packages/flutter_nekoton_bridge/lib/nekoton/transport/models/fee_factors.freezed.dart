@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'fee_factor.dart';
+part of 'fee_factors.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -20,8 +20,8 @@ FeeFactors _$FeeFactorsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeeFactors {
-  String get storageFeeFactor => throw _privateConstructorUsedError;
-  String get gasFeeFactor => throw _privateConstructorUsedError;
+  int get storageFeeFactor => throw _privateConstructorUsedError;
+  int get gasFeeFactor => throw _privateConstructorUsedError;
 
   /// Serializes this FeeFactors to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ abstract class $FeeFactorsCopyWith<$Res> {
           FeeFactors value, $Res Function(FeeFactors) then) =
       _$FeeFactorsCopyWithImpl<$Res, FeeFactors>;
   @useResult
-  $Res call({String storageFeeFactor, String gasFeeFactor});
+  $Res call({int storageFeeFactor, int gasFeeFactor});
 }
 
 /// @nodoc
@@ -64,11 +64,11 @@ class _$FeeFactorsCopyWithImpl<$Res, $Val extends FeeFactors>
       storageFeeFactor: null == storageFeeFactor
           ? _value.storageFeeFactor
           : storageFeeFactor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       gasFeeFactor: null == gasFeeFactor
           ? _value.gasFeeFactor
           : gasFeeFactor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ) as $Val);
   }
 }
@@ -81,7 +81,7 @@ abstract class _$$FeeFactorsImplCopyWith<$Res>
       __$$FeeFactorsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String storageFeeFactor, String gasFeeFactor});
+  $Res call({int storageFeeFactor, int gasFeeFactor});
 }
 
 /// @nodoc
@@ -104,29 +104,28 @@ class __$$FeeFactorsImplCopyWithImpl<$Res>
       storageFeeFactor: null == storageFeeFactor
           ? _value.storageFeeFactor
           : storageFeeFactor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       gasFeeFactor: null == gasFeeFactor
           ? _value.gasFeeFactor
           : gasFeeFactor // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$FeeFactorsImpl extends _FeeFactors {
+class _$FeeFactorsImpl implements _FeeFactors {
   const _$FeeFactorsImpl(
-      {required this.storageFeeFactor, required this.gasFeeFactor})
-      : super._();
+      {required this.storageFeeFactor, required this.gasFeeFactor});
 
   factory _$FeeFactorsImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeeFactorsImplFromJson(json);
 
   @override
-  final String storageFeeFactor;
+  final int storageFeeFactor;
   @override
-  final String gasFeeFactor;
+  final int gasFeeFactor;
 
   @override
   String toString() {
@@ -164,19 +163,18 @@ class _$FeeFactorsImpl extends _FeeFactors {
   }
 }
 
-abstract class _FeeFactors extends FeeFactors {
+abstract class _FeeFactors implements FeeFactors {
   const factory _FeeFactors(
-      {required final String storageFeeFactor,
-      required final String gasFeeFactor}) = _$FeeFactorsImpl;
-  const _FeeFactors._() : super._();
+      {required final int storageFeeFactor,
+      required final int gasFeeFactor}) = _$FeeFactorsImpl;
 
   factory _FeeFactors.fromJson(Map<String, dynamic> json) =
       _$FeeFactorsImpl.fromJson;
 
   @override
-  String get storageFeeFactor;
+  int get storageFeeFactor;
   @override
-  String get gasFeeFactor;
+  int get gasFeeFactor;
 
   /// Create a copy of FeeFactors
   /// with the given fields replaced by the non-null parameter values.
