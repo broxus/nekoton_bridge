@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
-import 'package:flutter_nekoton_bridge/nekoton/transport/models/fee_factors.dart';
 import 'package:nekoton_bridge/nekoton_bridge.dart' as lib;
 
 /// Implementation of proto transport

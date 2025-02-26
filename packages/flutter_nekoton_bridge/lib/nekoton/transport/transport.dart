@@ -1,7 +1,6 @@
 import 'dart:typed_data';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
-import 'package:flutter_nekoton_bridge/nekoton/transport/models/fee_factors.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mutex/mutex.dart';
 
