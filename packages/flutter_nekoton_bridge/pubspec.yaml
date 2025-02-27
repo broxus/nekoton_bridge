@@ -33,7 +33,7 @@ dev_dependencies:
     sdk: flutter
   mocktail: ^1.0.4
   build_runner: ^2.4.13
-  freezed: ^2.5.7
+  freezed: ">=2.5.7 <4.0.0"
   json_serializable: ^6.9.0
 
 # For information on the generic Dart part of this file, see the
