@@ -317,6 +317,8 @@ class JettonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when balance of wallet has been changed
   void onBalanceChanged(String balance) {
+    if (avoidCall) return;
+
     _onBalanceChangedController.add(BigInt.parse(balance));
 
     /// For some strange reason, rust calls this method before creation completes
@@ -327,6 +329,8 @@ class JettonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when transactions of wallet has been found
   void onTransactionsFound(String payload) {
+    if (avoidCall) return;
+
     final json = jsonDecode(payload) as List<dynamic>;
 
     final transactionsJson = json.first as List<dynamic>;
@@ -360,7 +364,7 @@ class JettonWallet extends RustToDartMirrorInterface
     _contractState = await getContractState();
     if (avoidCall) return;
     balance = BigInt.parse(await _getBalance());
-
+    if (avoidCall) return;
     _fieldsUpdateController.add(null);
   }
 
@@ -369,6 +373,7 @@ class JettonWallet extends RustToDartMirrorInterface
     wallet.innerWallet.dispose();
     _onBalanceChangedController.close();
     _onTransactionsFoundController.close();
+    _fieldsUpdateController.close();
     super.dispose();
   }
 

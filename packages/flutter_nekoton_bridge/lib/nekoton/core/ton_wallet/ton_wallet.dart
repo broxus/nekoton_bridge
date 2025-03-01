@@ -444,6 +444,8 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when message has been sent to blockchain
   void onMessageSent(String payload) {
+    if (avoidCall) return;
+
     final json = jsonDecode(payload) as List<dynamic>;
 
     final pendingTransactionJson = json.first as Map<String, dynamic>;
@@ -457,6 +459,8 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when message has been expired
   void onMessageExpired(String payload) {
+    if (avoidCall) return;
+
     final json = jsonDecode(payload) as Map<String, dynamic>;
     final pendingTransaction = PendingTransaction.fromJson(json);
     _onMessageExpiredController.add(pendingTransaction);
@@ -464,6 +468,8 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when state of wallet has been changed
   void onStateChanged(String payload) {
+    if (avoidCall) return;
+
     final json = jsonDecode(payload) as Map<String, dynamic>;
     final contractState = ContractState.fromJson(json);
     _onStateChangedController.add(contractState);
@@ -475,6 +481,8 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when transactions of wallet has been found
   void onTransactionsFound(String payload) {
+    if (avoidCall) return;
+
     final json = jsonDecode(payload) as List<dynamic>;
 
     final transactionsJson = json.first as List<dynamic>;
@@ -498,6 +506,8 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when details of wallet has been changed
   void onDetailsChanged(String payload) {
+    if (avoidCall) return;
+
     final json = jsonDecode(payload) as Map<String, dynamic>;
     final details = TonWalletDetails.fromJson(json);
 
@@ -507,6 +517,8 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when custodians of wallet has been changed
   void onCustodiansChanged(String payload) {
+    if (avoidCall) return;
+
     final json = jsonDecode(payload) as List<dynamic>;
     final custodians = json
         .map(
@@ -520,6 +532,8 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when unconfirmed transactions of wallet has been found
   void onUnconfirmedTransactionsChanged(String payload) {
+    if (avoidCall) return;
+
     final json = jsonDecode(payload) as List<dynamic>;
 
     final unconfirmedTransactions = json
@@ -555,7 +569,7 @@ class TonWallet extends RustToDartMirrorInterface
     _custodians = await getCustodians();
     if (avoidCall) return;
     _details = await _getDetails();
-
+    if (avoidCall) return;
     _fieldsUpdateController.add(null);
   }
 
@@ -566,6 +580,7 @@ class TonWallet extends RustToDartMirrorInterface
     _onMessageExpiredController.close();
     _onStateChangedController.close();
     _onTransactionsFoundController.close();
+    _fieldsUpdateController.close();
     super.dispose();
   }
 
