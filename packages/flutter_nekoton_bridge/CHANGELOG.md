@@ -1,3 +1,8 @@
+## 2.5.0-dev.4
+
+ - **FIX**(SPARX-80): prevent unnecessary calls in wallet event handlers. ([a50d03e2](https://github.com/broxus/nekoton_bridge/commit/a50d03e218e07d3d0f8b6e26865fd850cb386926))
+ - **FEAT**: update nekoton and mnemonic format. ([1460bc24](https://github.com/broxus/nekoton_bridge/commit/1460bc2497464e416e4f22119c278e9bbeca9174))
+
 ## 2.5.0-dev.3
 
  - **REFACTOR**: `FeeFactors` model & `getFeeFactors` methods. ([e9760638](https://github.com/broxus/nekoton_bridge/commit/e976063801f05510515dcd1ae600311fe7418c88))
