@@ -1,3 +1,7 @@
+## 2.5.0-dev.5
+
+ - Update a dependency to the latest release.
+
 ## 2.5.0-dev.4
 
  - **FIX**(SPARX-80): prevent unnecessary calls in wallet event handlers. ([a50d03e2](https://github.com/broxus/nekoton_bridge/commit/a50d03e218e07d3d0f8b6e26865fd850cb386926))
