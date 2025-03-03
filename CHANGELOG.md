@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-03-03
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.5.0-dev.4`](#flutter_nekoton_bridge---v250-dev4)
+ - [`flutter_nekoton_bridge_example` - `v1.22.3-dev.4`](#flutter_nekoton_bridge_example---v1223-dev4)
+ - [`nekoton_bridge` - `v2.5.0-dev.4`](#nekoton_bridge---v250-dev4)
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.5.0-dev.4`
+
+ - **FIX**(SPARX-80): prevent unnecessary calls in wallet event handlers. ([a50d03e2](https://github.com/broxus/nekoton_bridge/commit/a50d03e218e07d3d0f8b6e26865fd850cb386926))
+ - **FEAT**: update nekoton and mnemonic format. ([1460bc24](https://github.com/broxus/nekoton_bridge/commit/1460bc2497464e416e4f22119c278e9bbeca9174))
+
+#### `flutter_nekoton_bridge_example` - `v1.22.3-dev.4`
+
+ - **FEAT**: update nekoton and mnemonic format. ([1460bc24](https://github.com/broxus/nekoton_bridge/commit/1460bc2497464e416e4f22119c278e9bbeca9174))
+
+#### `nekoton_bridge` - `v2.5.0-dev.4`
+
+ - **FEAT**: update nekoton and mnemonic format. ([1460bc24](https://github.com/broxus/nekoton_bridge/commit/1460bc2497464e416e4f22119c278e9bbeca9174))
+
+
 ## 2025-02-25
 
 ### Changes
