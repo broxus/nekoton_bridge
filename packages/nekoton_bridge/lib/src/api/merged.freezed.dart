@@ -19,38 +19,38 @@ mixin _$MnemonicType {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() legacy,
-    required TResult Function(int field0) labs,
+    required TResult Function(Bip39MnemonicData field0) bip39,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? legacy,
-    TResult? Function(int field0)? labs,
+    TResult? Function(Bip39MnemonicData field0)? bip39,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? legacy,
-    TResult Function(int field0)? labs,
+    TResult Function(Bip39MnemonicData field0)? bip39,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(MnemonicType_Legacy value) legacy,
-    required TResult Function(MnemonicType_Labs value) labs,
+    required TResult Function(MnemonicType_Bip39 value) bip39,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MnemonicType_Legacy value)? legacy,
-    TResult? Function(MnemonicType_Labs value)? labs,
+    TResult? Function(MnemonicType_Bip39 value)? bip39,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MnemonicType_Legacy value)? legacy,
-    TResult Function(MnemonicType_Labs value)? labs,
+    TResult Function(MnemonicType_Bip39 value)? bip39,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,7 +120,7 @@ class _$MnemonicType_LegacyImpl extends MnemonicType_Legacy {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() legacy,
-    required TResult Function(int field0) labs,
+    required TResult Function(Bip39MnemonicData field0) bip39,
   }) {
     return legacy();
   }
@@ -129,7 +129,7 @@ class _$MnemonicType_LegacyImpl extends MnemonicType_Legacy {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? legacy,
-    TResult? Function(int field0)? labs,
+    TResult? Function(Bip39MnemonicData field0)? bip39,
   }) {
     return legacy?.call();
   }
@@ -138,7 +138,7 @@ class _$MnemonicType_LegacyImpl extends MnemonicType_Legacy {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? legacy,
-    TResult Function(int field0)? labs,
+    TResult Function(Bip39MnemonicData field0)? bip39,
     required TResult orElse(),
   }) {
     if (legacy != null) {
@@ -151,7 +151,7 @@ class _$MnemonicType_LegacyImpl extends MnemonicType_Legacy {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(MnemonicType_Legacy value) legacy,
-    required TResult Function(MnemonicType_Labs value) labs,
+    required TResult Function(MnemonicType_Bip39 value) bip39,
   }) {
     return legacy(this);
   }
@@ -160,7 +160,7 @@ class _$MnemonicType_LegacyImpl extends MnemonicType_Legacy {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MnemonicType_Legacy value)? legacy,
-    TResult? Function(MnemonicType_Labs value)? labs,
+    TResult? Function(MnemonicType_Bip39 value)? bip39,
   }) {
     return legacy?.call(this);
   }
@@ -169,7 +169,7 @@ class _$MnemonicType_LegacyImpl extends MnemonicType_Legacy {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MnemonicType_Legacy value)? legacy,
-    TResult Function(MnemonicType_Labs value)? labs,
+    TResult Function(MnemonicType_Bip39 value)? bip39,
     required TResult orElse(),
   }) {
     if (legacy != null) {
@@ -185,20 +185,20 @@ abstract class MnemonicType_Legacy extends MnemonicType {
 }
 
 /// @nodoc
-abstract class _$$MnemonicType_LabsImplCopyWith<$Res> {
-  factory _$$MnemonicType_LabsImplCopyWith(_$MnemonicType_LabsImpl value,
-          $Res Function(_$MnemonicType_LabsImpl) then) =
-      __$$MnemonicType_LabsImplCopyWithImpl<$Res>;
+abstract class _$$MnemonicType_Bip39ImplCopyWith<$Res> {
+  factory _$$MnemonicType_Bip39ImplCopyWith(_$MnemonicType_Bip39Impl value,
+          $Res Function(_$MnemonicType_Bip39Impl) then) =
+      __$$MnemonicType_Bip39ImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int field0});
+  $Res call({Bip39MnemonicData field0});
 }
 
 /// @nodoc
-class __$$MnemonicType_LabsImplCopyWithImpl<$Res>
-    extends _$MnemonicTypeCopyWithImpl<$Res, _$MnemonicType_LabsImpl>
-    implements _$$MnemonicType_LabsImplCopyWith<$Res> {
-  __$$MnemonicType_LabsImplCopyWithImpl(_$MnemonicType_LabsImpl _value,
-      $Res Function(_$MnemonicType_LabsImpl) _then)
+class __$$MnemonicType_Bip39ImplCopyWithImpl<$Res>
+    extends _$MnemonicTypeCopyWithImpl<$Res, _$MnemonicType_Bip39Impl>
+    implements _$$MnemonicType_Bip39ImplCopyWith<$Res> {
+  __$$MnemonicType_Bip39ImplCopyWithImpl(_$MnemonicType_Bip39Impl _value,
+      $Res Function(_$MnemonicType_Bip39Impl) _then)
       : super(_value, _then);
 
   /// Create a copy of MnemonicType
@@ -208,33 +208,33 @@ class __$$MnemonicType_LabsImplCopyWithImpl<$Res>
   $Res call({
     Object? field0 = null,
   }) {
-    return _then(_$MnemonicType_LabsImpl(
+    return _then(_$MnemonicType_Bip39Impl(
       null == field0
           ? _value.field0
           : field0 // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Bip39MnemonicData,
     ));
   }
 }
 
 /// @nodoc
 
-class _$MnemonicType_LabsImpl extends MnemonicType_Labs {
-  const _$MnemonicType_LabsImpl(this.field0) : super._();
+class _$MnemonicType_Bip39Impl extends MnemonicType_Bip39 {
+  const _$MnemonicType_Bip39Impl(this.field0) : super._();
 
   @override
-  final int field0;
+  final Bip39MnemonicData field0;
 
   @override
   String toString() {
-    return 'MnemonicType.labs(field0: $field0)';
+    return 'MnemonicType.bip39(field0: $field0)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MnemonicType_LabsImpl &&
+            other is _$MnemonicType_Bip39Impl &&
             (identical(other.field0, field0) || other.field0 == field0));
   }
 
@@ -246,37 +246,37 @@ class _$MnemonicType_LabsImpl extends MnemonicType_Labs {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$MnemonicType_LabsImplCopyWith<_$MnemonicType_LabsImpl> get copyWith =>
-      __$$MnemonicType_LabsImplCopyWithImpl<_$MnemonicType_LabsImpl>(
+  _$$MnemonicType_Bip39ImplCopyWith<_$MnemonicType_Bip39Impl> get copyWith =>
+      __$$MnemonicType_Bip39ImplCopyWithImpl<_$MnemonicType_Bip39Impl>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() legacy,
-    required TResult Function(int field0) labs,
+    required TResult Function(Bip39MnemonicData field0) bip39,
   }) {
-    return labs(field0);
+    return bip39(field0);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? legacy,
-    TResult? Function(int field0)? labs,
+    TResult? Function(Bip39MnemonicData field0)? bip39,
   }) {
-    return labs?.call(field0);
+    return bip39?.call(field0);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? legacy,
-    TResult Function(int field0)? labs,
+    TResult Function(Bip39MnemonicData field0)? bip39,
     required TResult orElse(),
   }) {
-    if (labs != null) {
-      return labs(field0);
+    if (bip39 != null) {
+      return bip39(field0);
     }
     return orElse();
   }
@@ -285,43 +285,44 @@ class _$MnemonicType_LabsImpl extends MnemonicType_Labs {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(MnemonicType_Legacy value) legacy,
-    required TResult Function(MnemonicType_Labs value) labs,
+    required TResult Function(MnemonicType_Bip39 value) bip39,
   }) {
-    return labs(this);
+    return bip39(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MnemonicType_Legacy value)? legacy,
-    TResult? Function(MnemonicType_Labs value)? labs,
+    TResult? Function(MnemonicType_Bip39 value)? bip39,
   }) {
-    return labs?.call(this);
+    return bip39?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MnemonicType_Legacy value)? legacy,
-    TResult Function(MnemonicType_Labs value)? labs,
+    TResult Function(MnemonicType_Bip39 value)? bip39,
     required TResult orElse(),
   }) {
-    if (labs != null) {
-      return labs(this);
+    if (bip39 != null) {
+      return bip39(this);
     }
     return orElse();
   }
 }
 
-abstract class MnemonicType_Labs extends MnemonicType {
-  const factory MnemonicType_Labs(final int field0) = _$MnemonicType_LabsImpl;
-  const MnemonicType_Labs._() : super._();
+abstract class MnemonicType_Bip39 extends MnemonicType {
+  const factory MnemonicType_Bip39(final Bip39MnemonicData field0) =
+      _$MnemonicType_Bip39Impl;
+  const MnemonicType_Bip39._() : super._();
 
-  int get field0;
+  Bip39MnemonicData get field0;
 
   /// Create a copy of MnemonicType
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MnemonicType_LabsImplCopyWith<_$MnemonicType_LabsImpl> get copyWith =>
+  _$$MnemonicType_Bip39ImplCopyWith<_$MnemonicType_Bip39Impl> get copyWith =>
       throw _privateConstructorUsedError;
 }

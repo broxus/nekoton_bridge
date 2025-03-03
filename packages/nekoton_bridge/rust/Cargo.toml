@@ -7,12 +7,12 @@ edition = "2021"
 crate-type = ["cdylib", "staticlib"]
 
 [build-dependencies]
-flutter_rust_bridge_codegen = "=2.7.1"
+flutter_rust_bridge_codegen = "=2.8.0"
 anyhow = "1.0.54"
 rerun_except = "1.0.0"
 
 [dependencies]
-flutter_rust_bridge = "=2.7.1"
+flutter_rust_bridge = "=2.8.0"
 lazy_static = "1.4.0"
 anyhow = "1.0.54"
 thiserror = "2.0.11"
@@ -22,15 +22,15 @@ parking_lot = "0.12.1"
 simplelog = "0.12.0"
 log = { version = "0.4.17", features = ["kv_unstable"] }
 log-panics = { version = "2.1.0", features = ["with-backtrace"] }
-nekoton = { git = "https://github.com/broxus/nekoton.git", features = [
+nekoton = { git = "https://github.com/broxus/nekoton.git", branch = "feat/crypto", features = [
     "gql_transport",
     "jrpc_transport",
     "proto_transport",
     "extended_models",
 ] }
-nekoton-abi = { git = "https://github.com/broxus/nekoton.git" }
-nekoton-utils = { git = "https://github.com/broxus/nekoton.git" }
-nekoton-jetton = { git = "https://github.com/broxus/nekoton.git" }
+nekoton-abi = { git = "https://github.com/broxus/nekoton.git", branch = "feat/crypto" }
+nekoton-utils = { git = "https://github.com/broxus/nekoton.git", branch = "feat/crypto" }
+nekoton-jetton = { git = "https://github.com/broxus/nekoton.git", branch = "feat/crypto" }
 ton_abi = { git = "https://github.com/broxus/ton-labs-abi" }
 ton_block = { git = "https://github.com/broxus/ton-labs-block.git", features = ["venom"] }
 ton_types = { git = "https://github.com/broxus/ton-labs-types.git" }

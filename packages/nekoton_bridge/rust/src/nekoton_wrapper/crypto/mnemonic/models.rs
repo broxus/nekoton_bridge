@@ -1,5 +1,5 @@
 #![allow(unused_variables, dead_code)]
-use nekoton::crypto::MnemonicType;
+use nekoton::crypto::{Bip39MnemonicData, MnemonicType};
 use nekoton_utils::{serde_public_key, serde_secret_key};
 use serde::{Deserialize, Serialize};
 
@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 )]
 pub enum MnemonicTypeDef {
     Legacy,
-    Labs(u16),
+    Bip39(Bip39MnemonicData),
 }
 
 #[derive(Serialize)]

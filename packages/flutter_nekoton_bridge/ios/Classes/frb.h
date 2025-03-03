@@ -159,12 +159,18 @@ typedef struct wire_cst_my_class {
   int32_t val;
 } wire_cst_my_class;
 
-typedef struct wire_cst_MnemonicType_Labs {
-  uint16_t field0;
-} wire_cst_MnemonicType_Labs;
+typedef struct wire_cst_bip_39_mnemonic_data {
+  uint16_t account_id;
+  int32_t path;
+  int32_t entropy;
+} wire_cst_bip_39_mnemonic_data;
+
+typedef struct wire_cst_MnemonicType_Bip39 {
+  struct wire_cst_bip_39_mnemonic_data *field0;
+} wire_cst_MnemonicType_Bip39;
 
 typedef union MnemonicTypeKind {
-  struct wire_cst_MnemonicType_Labs Labs;
+  struct wire_cst_MnemonicType_Bip39 Bip39;
 } MnemonicTypeKind;
 
 typedef struct wire_cst_mnemonic_type {
@@ -1207,6 +1213,8 @@ void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsi
 
 struct wire_cst_accounts_storage_impl *frbgen_nekoton_bridge_cst_new_box_autoadd_accounts_storage_impl(void);
 
+struct wire_cst_bip_39_mnemonic_data *frbgen_nekoton_bridge_cst_new_box_autoadd_bip_39_mnemonic_data(void);
+
 bool *frbgen_nekoton_bridge_cst_new_box_autoadd_bool(bool value);
 
 struct wire_cst_caller_test_class *frbgen_nekoton_bridge_cst_new_box_autoadd_caller_test_class(void);
@@ -1271,6 +1279,7 @@ struct wire_cst_list_prim_u_8_strict *frbgen_nekoton_bridge_cst_new_list_prim_u_
 static int64_t dummy_method_to_enforce_bundling(void) {
     int64_t dummy_var = 0;
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_accounts_storage_impl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_bip_39_mnemonic_data);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_bool);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_caller_test_class);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_dart_call_stub);
