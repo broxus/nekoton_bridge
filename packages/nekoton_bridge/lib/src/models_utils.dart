@@ -13,7 +13,7 @@ class MnemonicTypeJsonConverter
     switch (json['type']) {
       case 'legacy':
         return const MnemonicType.legacy();
-      case 'labs':
+      case 'bip39':
         return MnemonicType.bip39(
           Bip39MnemonicData(
             accountId: json['data']['account_id'] as int,
