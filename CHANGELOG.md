@@ -15,6 +15,36 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`nekoton_bridge` - `v2.5.0-dev.5`](#nekoton_bridge---v250-dev5)
+ - [`flutter_nekoton_bridge` - `v2.5.0-dev.5`](#flutter_nekoton_bridge---v250-dev5)
+ - [`flutter_nekoton_bridge_example` - `v1.22.3-dev.5`](#flutter_nekoton_bridge_example---v1223-dev5)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge` - `v2.5.0-dev.5`
+ - `flutter_nekoton_bridge_example` - `v1.22.3-dev.5`
+
+---
+
+#### `nekoton_bridge` - `v2.5.0-dev.5`
+
+ - **FIX**: `MnemonicTypeJsonConverter`. ([aaa261cf](https://github.com/broxus/nekoton_bridge/commit/aaa261cf418e065404ce9c818a6e8c396e6d97d2))
+
+
+## 2025-03-03
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v2.5.0-dev.4`](#flutter_nekoton_bridge---v250-dev4)
  - [`flutter_nekoton_bridge_example` - `v1.22.3-dev.4`](#flutter_nekoton_bridge_example---v1223-dev4)
  - [`nekoton_bridge` - `v2.5.0-dev.4`](#nekoton_bridge---v250-dev4)

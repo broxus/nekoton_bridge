@@ -1,3 +1,7 @@
+## 1.22.3-dev.5
+
+ - Update a dependency to the latest release.
+
 ## 1.22.3-dev.4
 
  - **FEAT**: update nekoton and mnemonic format. ([1460bc24](https://github.com/broxus/nekoton_bridge/commit/1460bc2497464e416e4f22119c278e9bbeca9174))
