@@ -1,6 +1,5 @@
-import 'package:money2_fixer/money2_fixer.dart';
-import 'package:test/test.dart';
-import 'package:money2/money2.dart';
+import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('test default currency formatting', () {

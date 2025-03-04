@@ -14,8 +14,8 @@ dependencies:
   plugin_platform_interface: ^2.1.8
   rxdart: ^0.27.7
   reflectable: ^4.0.10
-  money2_fixer: ^2.0.0
-  money2: '>=5.2.1 <5.4.0' # do not update to 5.4.0 due to json serialization issues
+  money2_fixer: ^3.0.0
+  money2: ^5.4.0
   nekoton_bridge: ^2.5.0-dev.5
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
