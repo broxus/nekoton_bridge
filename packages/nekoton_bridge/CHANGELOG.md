@@ -1,3 +1,7 @@
+## 2.5.0
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
 ## 2.5.0-dev.5
 
  - **FIX**: `MnemonicTypeJsonConverter`. ([aaa261cf](https://github.com/broxus/nekoton_bridge/commit/aaa261cf418e065404ce9c818a6e8c396e6d97d2))
