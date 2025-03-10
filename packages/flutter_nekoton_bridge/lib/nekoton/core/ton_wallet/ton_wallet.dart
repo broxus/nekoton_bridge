@@ -63,63 +63,60 @@ class TonWallet extends RustToDartMirrorInterface
     required int workchainId,
     required PublicKey publicKey,
     required WalletType walletType,
-  }) async {
-    final instance = TonWallet._(transport);
+  }) =>
+      transport.use(() async {
+        final instance = TonWallet._(transport);
 
-    return transport.use(() async {
-      instance.wallet = await TonWalletDartWrapper.subscribe(
-        instanceHash: instance.instanceHash,
-        publicKey: publicKey.publicKey,
-        walletType: jsonEncode(walletType),
-        workchainId: workchainId,
-        transport: transport.transportBox,
-      );
+        instance.wallet = await TonWalletDartWrapper.subscribe(
+          instanceHash: instance.instanceHash,
+          publicKey: publicKey.publicKey,
+          walletType: jsonEncode(walletType),
+          workchainId: workchainId,
+          transport: transport.transportBox,
+        );
 
-      await instance._initInstance();
+        await instance._initInstance();
 
-      return instance;
-    });
-  }
+        return instance;
+      });
 
   /// Create TonWallet by subscribing to its instance by address of wallet.
   static Future<TonWallet> subscribeByAddress({
     required Transport transport,
     required Address address,
-  }) async {
-    final instance = TonWallet._(transport);
+  }) =>
+      transport.use(() async {
+        final instance = TonWallet._(transport);
 
-    return transport.use(() async {
-      instance.wallet = await TonWalletDartWrapper.subscribeByAddress(
-        instanceHash: instance.instanceHash,
-        address: address.address,
-        transport: transport.transportBox,
-      );
+        instance.wallet = await TonWalletDartWrapper.subscribeByAddress(
+          instanceHash: instance.instanceHash,
+          address: address.address,
+          transport: transport.transportBox,
+        );
 
-      await instance._initInstance();
+        await instance._initInstance();
 
-      return instance;
-    });
-  }
+        return instance;
+      });
 
   /// Create TonWallet by subscribing to its instance by existed instance.
   static Future<TonWallet> subscribeByExistingWallet({
     required Transport transport,
     required ExistingWalletInfo existingWallet,
-  }) async {
-    final instance = TonWallet._(transport);
+  }) =>
+      transport.use(() async {
+        final instance = TonWallet._(transport);
 
-    return transport.use(() async {
-      instance.wallet = await TonWalletDartWrapper.subscribeByExisting(
-        instanceHash: instance.instanceHash,
-        existingWallet: jsonEncode(existingWallet),
-        transport: transport.transportBox,
-      );
+        instance.wallet = await TonWalletDartWrapper.subscribeByExisting(
+          instanceHash: instance.instanceHash,
+          existingWallet: jsonEncode(existingWallet),
+          transport: transport.transportBox,
+        );
 
-      await instance._initInstance();
+        await instance._initInstance();
 
-      return instance;
-    });
-  }
+        return instance;
+      });
 
   /// If any error occurs during first initialization of wallet, it will dispose
   /// wallet and rethrow error;

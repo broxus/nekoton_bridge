@@ -67,24 +67,23 @@ class JettonWallet extends RustToDartMirrorInterface
     required Address owner,
     required Address rootTokenContract,
     bool preloadTransactions = false,
-  }) async {
-    final instance = JettonWallet._(transport, rootTokenContract);
+  }) =>
+      transport.use(() async {
+        final instance = JettonWallet._(transport, rootTokenContract);
 
-    return transport.use(() async {
-      instance.wallet = await JettonWalletDartWrapper.subscribe(
-        instanceHash: instance.instanceHash,
-        transport: transport.transportBox,
-        rootTokenContract: rootTokenContract.address,
-        owner: owner.address,
-        preloadTransactions: preloadTransactions,
-      );
+        instance.wallet = await JettonWalletDartWrapper.subscribe(
+          instanceHash: instance.instanceHash,
+          transport: transport.transportBox,
+          rootTokenContract: rootTokenContract.address,
+          owner: owner.address,
+          preloadTransactions: preloadTransactions,
+        );
 
-      await instance._initInstance();
-      instance._isTransactionsPreloaded = preloadTransactions;
+        await instance._initInstance();
+        instance._isTransactionsPreloaded = preloadTransactions;
 
-      return instance;
-    });
-  }
+        return instance;
+      });
 
   /// If any error occurs during first initialization of wallet, it will dispose
   /// wallet and rethrow error;
