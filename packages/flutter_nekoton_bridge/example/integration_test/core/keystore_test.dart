@@ -182,10 +182,9 @@ void main() {
       );
 
       final keyLegacy = await keystore.addKey(addKeyInputLegacy);
-      final keyBip39 = await keystore.addKey(addKeyInputBip39);
-
       expect(keyLegacy, isNotNull);
       expect(keyLegacy, legacyKey);
+
       final keysEntry = keystore.keys.first;
       expect(keysEntry.name, addKeyInputLegacy.name);
       expect(keysEntry.isLegacy, true);
@@ -193,6 +192,7 @@ void main() {
       expect(keysEntry.signerName, const KeySigner.encrypted().name);
       expect(keyLegacy, keysEntry.publicKey);
 
+      final keyBip39 = await keystore.addKey(addKeyInputBip39);
       expect(keyBip39, isNotNull);
       expect(keyBip39, labsKey);
 

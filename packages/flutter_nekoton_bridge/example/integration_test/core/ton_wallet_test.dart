@@ -414,5 +414,19 @@ void main() {
       expect(fees, isNotNull);
       expect(fees, isNot(BigInt.zero));
     });
+
+    testWidgets('TonWallet make state init', (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      final wallet = await TonWallet.subscribe(
+        transport: transport,
+        workchainId: workchainId,
+        publicKey: publicKey,
+        walletType: walletType,
+      );
+      final stateInit = await wallet.makeStateInit();
+
+      expect(stateInit, isNotEmpty);
+    });
   });
 }

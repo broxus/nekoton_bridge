@@ -13,6 +13,7 @@ use crate::nekoton_wrapper::core::ton_wallet::models::{
 use crate::nekoton_wrapper::crypto::models::{UnsignedMessageBox, UnsignedMessageBoxTrait};
 use crate::nekoton_wrapper::transport::models::RawContractStateHelper;
 use crate::nekoton_wrapper::{parse_address, parse_public_key, HandleError};
+use crate::nekoton_wrapper::helpers::serialize_into_boc;
 use async_trait::async_trait;
 use models::TonWalletTransferParams;
 use nekoton::core::models::{Expiration, MessageFlags, PollingMethod};
@@ -140,6 +141,8 @@ pub trait TonWalletBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     /// block - base64-encoded Block.
     /// Return true or throw error.
     async fn handle_block(&self, block: String) -> anyhow::Result<bool>;
+
+    async fn make_state_init(&self) -> anyhow::Result<String>;
 }
 
 pub struct TonWalletBox {
@@ -551,6 +554,17 @@ impl TonWalletBoxTrait for TonWalletBox {
             .await
             .handle_error()?;
         Ok(true)
+    }
+
+    async fn make_state_init(&self) -> anyhow::Result<String> {
+        let state_init = self
+            .inner_wallet
+            .lock()
+            .await
+            .make_state_init()
+            .handle_error()?;
+        
+        serialize_into_boc(&state_init)
     }
 }
 

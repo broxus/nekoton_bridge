@@ -1072,6 +1072,9 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_han
                                                                                           struct wire_cst_ton_wallet_dart_wrapper *that,
                                                                                           struct wire_cst_list_prim_u_8_strict *block);
 
+void frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_make_state_init(int64_t port_,
+                                                                                             struct wire_cst_ton_wallet_dart_wrapper *that);
+
 void frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_pending_transactions(int64_t port_,
                                                                                                   struct wire_cst_ton_wallet_dart_wrapper *that);
 
@@ -1531,6 +1534,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_get_custodians);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_get_existing_wallet_info);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_handle_block);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_make_state_init);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_pending_transactions);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_polling_method);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_preload_transactions);

@@ -3138,6 +3138,12 @@ class NekotonBridgeWire implements BaseWire {
       wasmModule.wire__crate__api__merged__ton_wallet_dart_wrapper_handle_block(
           port_, that, block);
 
+  void wire__crate__api__merged__ton_wallet_dart_wrapper_make_state_init(
+          NativePortType port_, JSAny that) =>
+      wasmModule
+          .wire__crate__api__merged__ton_wallet_dart_wrapper_make_state_init(
+              port_, that);
+
   void wire__crate__api__merged__ton_wallet_dart_wrapper_pending_transactions(
           NativePortType port_, JSAny that) =>
       wasmModule
@@ -4285,6 +4291,10 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
 
   external void wire__crate__api__merged__ton_wallet_dart_wrapper_handle_block(
       NativePortType port_, JSAny that, String block);
+
+  external void
+      wire__crate__api__merged__ton_wallet_dart_wrapper_make_state_init(
+          NativePortType port_, JSAny that);
 
   external void
       wire__crate__api__merged__ton_wallet_dart_wrapper_pending_transactions(

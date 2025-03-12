@@ -306,6 +306,10 @@ impl TonWalletDartWrapper {
     ) -> anyhow::Result<Vec<String>> {
         async_run!(ton_wallet_get_custodians(transport.get_transport(), address,).await)
     }
+
+    pub fn make_state_init(&self) -> anyhow::Result<String> {
+        async_run!(self.inner_wallet.make_state_init().await)
+    }
 }
 
 /// Handler for TonWallet that calls dart methods and sends data

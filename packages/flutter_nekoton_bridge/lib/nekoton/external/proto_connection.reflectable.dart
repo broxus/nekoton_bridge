@@ -462,6 +462,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'refresh': 0,
               r'preloadTransactions': 7,
               r'handleBlock': 8,
+              r'makeStateInit': 0,
               r'onMessageSent': 1,
               r'onMessageExpired': 1,
               r'onStateChanged': 1,
@@ -602,6 +603,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
             instance.prepareDeployWithMultipleOwners,
         r'prepareConfirmTransaction': (dynamic instance) =>
             instance.prepareConfirmTransaction,
+        r'makeStateInit': (dynamic instance) => instance.makeStateInit,
         r'onDetailsChanged': (dynamic instance) => instance.onDetailsChanged,
         r'onCustodiansChanged': (dynamic instance) =>
             instance.onCustodiansChanged,

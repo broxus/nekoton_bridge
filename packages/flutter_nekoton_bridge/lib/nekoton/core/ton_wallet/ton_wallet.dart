@@ -382,6 +382,8 @@ class TonWallet extends RustToDartMirrorInterface
     await _updateData();
   }
 
+  Future<String> makeStateInit() => wallet.makeStateInit();
+
   /// Find list of wallets of [publicKey] and return them.
   /// [walletTypes] - list of WalletType we accept for searching.
   /// [publicKey] - key of account where wallets must be found.

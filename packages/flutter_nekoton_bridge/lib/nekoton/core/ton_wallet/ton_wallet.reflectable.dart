@@ -86,6 +86,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
               r'refresh': 0,
               r'preloadTransactions': 8,
               r'handleBlock': 9,
+              r'makeStateInit': 0,
               r'onMessageSent': 11,
               r'onMessageExpired': 11,
               r'onStateChanged': 11,
@@ -544,6 +545,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
         r'preloadTransactions': (dynamic instance) =>
             instance.preloadTransactions,
         r'handleBlock': (dynamic instance) => instance.handleBlock,
+        r'makeStateInit': (dynamic instance) => instance.makeStateInit,
         r'onMessageSent': (dynamic instance) => instance.onMessageSent,
         r'onMessageExpired': (dynamic instance) => instance.onMessageExpired,
         r'onStateChanged': (dynamic instance) => instance.onStateChanged,

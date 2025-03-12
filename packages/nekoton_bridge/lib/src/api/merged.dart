@@ -2056,6 +2056,11 @@ class TonWalletDartWrapper {
       .instance.api
       .crateApiMergedTonWalletDartWrapperHandleBlock(that: this, block: block);
 
+  Future<String> makeStateInit() => NekotonBridge.instance.api
+          .crateApiMergedTonWalletDartWrapperMakeStateInit(
+        that: this,
+      );
+
   /// Get list of json-encoded PendingTransaction or throw error.
   Future<String> pendingTransactions() => NekotonBridge.instance.api
           .crateApiMergedTonWalletDartWrapperPendingTransactions(

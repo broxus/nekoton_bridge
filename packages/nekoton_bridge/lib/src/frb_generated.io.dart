@@ -7207,6 +7207,28 @@ class NekotonBridgeWire implements BaseWire {
               void Function(int, ffi.Pointer<wire_cst_ton_wallet_dart_wrapper>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
 
+  void wire__crate__api__merged__ton_wallet_dart_wrapper_make_state_init(
+    int port_,
+    ffi.Pointer<wire_cst_ton_wallet_dart_wrapper> that,
+  ) {
+    return _wire__crate__api__merged__ton_wallet_dart_wrapper_make_state_init(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__ton_wallet_dart_wrapper_make_state_initPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Int64,
+                      ffi.Pointer<wire_cst_ton_wallet_dart_wrapper>)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_make_state_init');
+  late final _wire__crate__api__merged__ton_wallet_dart_wrapper_make_state_init =
+      _wire__crate__api__merged__ton_wallet_dart_wrapper_make_state_initPtr
+          .asFunction<
+              void Function(
+                  int, ffi.Pointer<wire_cst_ton_wallet_dart_wrapper>)>();
+
   void wire__crate__api__merged__ton_wallet_dart_wrapper_pending_transactions(
     int port_,
     ffi.Pointer<wire_cst_ton_wallet_dart_wrapper> that,

@@ -71,7 +71,7 @@ class NekotonBridge extends BaseEntrypoint<NekotonBridgeApi,
   String get codegenVersion => '2.9.0';
 
   @override
-  int get rustContentHash => 1514881619;
+  int get rustContentHash => 576643821;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -815,6 +815,9 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   Future<bool> crateApiMergedTonWalletDartWrapperHandleBlock(
       {required TonWalletDartWrapper that, required String block});
+
+  Future<String> crateApiMergedTonWalletDartWrapperMakeStateInit(
+      {required TonWalletDartWrapper that});
 
   Future<String> crateApiMergedTonWalletDartWrapperPendingTransactions(
       {required TonWalletDartWrapper that});
@@ -6551,6 +6554,32 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       const TaskConstMeta(
         debugName: "ton_wallet_dart_wrapper_handle_block",
         argNames: ["that", "block"],
+      );
+
+  @override
+  Future<String> crateApiMergedTonWalletDartWrapperMakeStateInit(
+      {required TonWalletDartWrapper that}) {
+    return handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+        return wire
+            .wire__crate__api__merged__ton_wallet_dart_wrapper_make_state_init(
+                port_, arg0);
+      },
+      codec: DcoCodec(
+        decodeSuccessData: dco_decode_String,
+        decodeErrorData: dco_decode_AnyhowException,
+      ),
+      constMeta: kCrateApiMergedTonWalletDartWrapperMakeStateInitConstMeta,
+      argValues: [that],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiMergedTonWalletDartWrapperMakeStateInitConstMeta =>
+      const TaskConstMeta(
+        debugName: "ton_wallet_dart_wrapper_make_state_init",
+        argNames: ["that"],
       );
 
   @override
