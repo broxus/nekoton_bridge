@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-03-12
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.6.0`](#flutter_nekoton_bridge---v260)
+ - [`flutter_nekoton_bridge_example` - `v1.23.0`](#flutter_nekoton_bridge_example---v1230)
+ - [`nekoton_bridge` - `v2.6.0`](#nekoton_bridge---v260)
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.6.0`
+
+ - **FIX**(SPARX-FQ): improve mutex usage. ([1e6a053f](https://github.com/broxus/nekoton_bridge/commit/1e6a053f57563ffb74c20bc0d781833c375e7f3f))
+ - **FEAT**: add makeStateInit method to TonWallet and update related tests. ([b099d504](https://github.com/broxus/nekoton_bridge/commit/b099d504040002178f9451afba64d050c95b2e06))
+
+#### `flutter_nekoton_bridge_example` - `v1.23.0`
+
+ - **FEAT**: add makeStateInit method to TonWallet and update related tests. ([b099d504](https://github.com/broxus/nekoton_bridge/commit/b099d504040002178f9451afba64d050c95b2e06))
+
+#### `nekoton_bridge` - `v2.6.0`
+
+ - **FIX**: rust format. ([63a2543c](https://github.com/broxus/nekoton_bridge/commit/63a2543c1504aa39ca197be72f0a34b4cb5cd332))
+ - **FEAT**: add makeStateInit method to TonWallet and update related tests. ([b099d504](https://github.com/broxus/nekoton_bridge/commit/b099d504040002178f9451afba64d050c95b2e06))
+
+
 ## 2025-03-04
 
 ### Changes
