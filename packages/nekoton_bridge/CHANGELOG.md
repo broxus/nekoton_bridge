@@ -1,3 +1,8 @@
+## 2.6.0
+
+ - **FIX**: rust format. ([63a2543c](https://github.com/broxus/nekoton_bridge/commit/63a2543c1504aa39ca197be72f0a34b4cb5cd332))
+ - **FEAT**: add makeStateInit method to TonWallet and update related tests. ([b099d504](https://github.com/broxus/nekoton_bridge/commit/b099d504040002178f9451afba64d050c95b2e06))
+
 ## 2.5.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.

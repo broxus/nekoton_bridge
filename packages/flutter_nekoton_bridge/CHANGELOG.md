@@ -1,3 +1,8 @@
+## 2.6.0
+
+ - **FIX**(SPARX-FQ): improve mutex usage. ([1e6a053f](https://github.com/broxus/nekoton_bridge/commit/1e6a053f57563ffb74c20bc0d781833c375e7f3f))
+ - **FEAT**: add makeStateInit method to TonWallet and update related tests. ([b099d504](https://github.com/broxus/nekoton_bridge/commit/b099d504040002178f9451afba64d050c95b2e06))
+
 ## 2.5.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
