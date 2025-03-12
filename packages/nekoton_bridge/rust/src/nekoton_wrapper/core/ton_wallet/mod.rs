@@ -11,9 +11,9 @@ use crate::nekoton_wrapper::core::ton_wallet::models::{
     ExistingWalletInfoHelper, WalletTypeHelper,
 };
 use crate::nekoton_wrapper::crypto::models::{UnsignedMessageBox, UnsignedMessageBoxTrait};
+use crate::nekoton_wrapper::helpers::serialize_into_boc;
 use crate::nekoton_wrapper::transport::models::RawContractStateHelper;
 use crate::nekoton_wrapper::{parse_address, parse_public_key, HandleError};
-use crate::nekoton_wrapper::helpers::serialize_into_boc;
 use async_trait::async_trait;
 use models::TonWalletTransferParams;
 use nekoton::core::models::{Expiration, MessageFlags, PollingMethod};
@@ -563,7 +563,7 @@ impl TonWalletBoxTrait for TonWalletBox {
             .await
             .make_state_init()
             .handle_error()?;
-        
+
         serialize_into_boc(&state_init)
     }
 }
