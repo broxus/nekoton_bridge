@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-03-19
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.7.0`](#flutter_nekoton_bridge---v270)
+ - [`nekoton_bridge` - `v2.7.0`](#nekoton_bridge---v270)
+ - [`flutter_nekoton_bridge_example` - `v1.23.1`](#flutter_nekoton_bridge_example---v1231)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.23.1`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.7.0`
+
+ - **FEAT**(EWM-484): add WalletV3R1 and WalletV3R2 types to wallet models. ([38f0fac9](https://github.com/broxus/nekoton_bridge/commit/38f0fac93eb0834785af02d15f0ef8789c07c352))
+
+#### `nekoton_bridge` - `v2.7.0`
+
+ - **FEAT**(EWM-484): add WalletV3R1 and WalletV3R2 types to wallet models. ([38f0fac9](https://github.com/broxus/nekoton_bridge/commit/38f0fac93eb0834785af02d15f0ef8789c07c352))
+
+
 ## 2025-03-12
 
 ### Changes
