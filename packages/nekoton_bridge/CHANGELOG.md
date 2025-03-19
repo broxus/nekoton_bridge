@@ -1,3 +1,7 @@
+## 2.7.0
+
+ - **FEAT**(EWM-484): add WalletV3R1 and WalletV3R2 types to wallet models. ([38f0fac9](https://github.com/broxus/nekoton_bridge/commit/38f0fac93eb0834785af02d15f0ef8789c07c352))
+
 ## 2.6.0
 
  - **FIX**: rust format. ([63a2543c](https://github.com/broxus/nekoton_bridge/commit/63a2543c1504aa39ca197be72f0a34b4cb5cd332))

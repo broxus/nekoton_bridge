@@ -1,3 +1,7 @@
+## 1.23.1
+
+ - Update a dependency to the latest release.
+
 ## 1.23.0
 
  - **FEAT**: add makeStateInit method to TonWallet and update related tests. ([b099d504](https://github.com/broxus/nekoton_bridge/commit/b099d504040002178f9451afba64d050c95b2e06))
