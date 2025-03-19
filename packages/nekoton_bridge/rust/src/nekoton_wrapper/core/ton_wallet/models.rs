@@ -21,6 +21,8 @@ pub enum WalletTypeDef {
     WalletV3,
     HighloadWalletV2,
     EverWallet,
+    WalletV3R1,
+    WalletV3R2,
     WalletV4R1,
     WalletV4R2,
     WalletV5R1,

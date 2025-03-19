@@ -14,6 +14,10 @@ sealed class WalletType with _$WalletType {
 
   const factory WalletType.everWallet() = _WalletTypeEverWallet;
 
+  const factory WalletType.walletV3R1() = _WalletTypeWalletV3R1;
+
+  const factory WalletType.walletV3R2() = _WalletTypeWalletV3R2;
+
   const factory WalletType.walletV4R1() = _WalletTypeWalletV4R1;
 
   const factory WalletType.walletV4R2() = _WalletTypeWalletV4R2;

@@ -63,6 +63,30 @@ Map<String, dynamic> _$$WalletTypeEverWalletImplToJson(
       'type': instance.$type,
     };
 
+_$WalletTypeWalletV3R1Impl _$$WalletTypeWalletV3R1ImplFromJson(
+        Map<String, dynamic> json) =>
+    _$WalletTypeWalletV3R1Impl(
+      $type: json['type'] as String?,
+    );
+
+Map<String, dynamic> _$$WalletTypeWalletV3R1ImplToJson(
+        _$WalletTypeWalletV3R1Impl instance) =>
+    <String, dynamic>{
+      'type': instance.$type,
+    };
+
+_$WalletTypeWalletV3R2Impl _$$WalletTypeWalletV3R2ImplFromJson(
+        Map<String, dynamic> json) =>
+    _$WalletTypeWalletV3R2Impl(
+      $type: json['type'] as String?,
+    );
+
+Map<String, dynamic> _$$WalletTypeWalletV3R2ImplToJson(
+        _$WalletTypeWalletV3R2Impl instance) =>
+    <String, dynamic>{
+      'type': instance.$type,
+    };
+
 _$WalletTypeWalletV4R1Impl _$$WalletTypeWalletV4R1ImplFromJson(
         Map<String, dynamic> json) =>
     _$WalletTypeWalletV4R1Impl(
