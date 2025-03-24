@@ -1,3 +1,7 @@
+## 2.8.0-dev.0
+
+ - **FEAT**: add encodeComment function ([#346](https://github.com/broxus/nekoton_bridge/issues/346)). ([d4b0e1fd](https://github.com/broxus/nekoton_bridge/commit/d4b0e1fd3fb31f8c24c838f9e7dd1105183326e3))
+
 ## 2.7.0
 
  - **FEAT**(EWM-484): add WalletV3R1 and WalletV3R2 types to wallet models. ([38f0fac9](https://github.com/broxus/nekoton_bridge/commit/38f0fac93eb0834785af02d15f0ef8789c07c352))

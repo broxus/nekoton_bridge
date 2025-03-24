@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-03-24
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.8.0-dev.0`](#flutter_nekoton_bridge---v280-dev0)
+ - [`flutter_nekoton_bridge_example` - `v1.24.0-dev.0`](#flutter_nekoton_bridge_example---v1240-dev0)
+ - [`nekoton_bridge` - `v2.8.0-dev.0`](#nekoton_bridge---v280-dev0)
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.8.0-dev.0`
+
+ - **FEAT**: add encodeComment function ([#346](https://github.com/broxus/nekoton_bridge/issues/346)). ([d4b0e1fd](https://github.com/broxus/nekoton_bridge/commit/d4b0e1fd3fb31f8c24c838f9e7dd1105183326e3))
+
+#### `flutter_nekoton_bridge_example` - `v1.24.0-dev.0`
+
+ - **FEAT**: add encodeComment function ([#346](https://github.com/broxus/nekoton_bridge/issues/346)). ([d4b0e1fd](https://github.com/broxus/nekoton_bridge/commit/d4b0e1fd3fb31f8c24c838f9e7dd1105183326e3))
+
+#### `nekoton_bridge` - `v2.8.0-dev.0`
+
+ - **FEAT**: add encodeComment function ([#346](https://github.com/broxus/nekoton_bridge/issues/346)). ([d4b0e1fd](https://github.com/broxus/nekoton_bridge/commit/d4b0e1fd3fb31f8c24c838f9e7dd1105183326e3))
+
+
 ## 2025-03-19
 
 ### Changes
