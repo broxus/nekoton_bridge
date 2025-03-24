@@ -2629,6 +2629,11 @@ class NekotonBridgeWire implements BaseWire {
           wasmModule.wire__crate__api__merged__nt_derive_from_phrase(
               phrase, mnemonic_type);
 
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_encode_comment(String comment, bool plain) =>
+          wasmModule.wire__crate__api__merged__nt_encode_comment(
+              comment, plain);
+
   void wire__crate__api__merged__nt_encode_internal_input(NativePortType port_,
           String contract_abi, String method, String input) =>
       wasmModule.wire__crate__api__merged__nt_encode_internal_input(
@@ -3944,6 +3949,9 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_derive_from_phrase(
           String phrase, JSAny mnemonic_type);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_encode_comment(String comment, bool plain);
 
   external void wire__crate__api__merged__nt_encode_internal_input(
       NativePortType port_, String contract_abi, String method, String input);

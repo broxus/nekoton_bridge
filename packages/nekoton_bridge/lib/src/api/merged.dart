@@ -363,6 +363,10 @@ Future<String> ntComputeStorageFee(
         utime: utime,
         isMasterchain: isMasterchain);
 
+String ntEncodeComment({required String comment, required bool plain}) =>
+    NekotonBridge.instance.api
+        .crateApiMergedNtEncodeComment(comment: comment, plain: plain);
+
 ///----------------------------
 /// CONTENT OF src/utils/tests_api.rs
 ///----------------------------

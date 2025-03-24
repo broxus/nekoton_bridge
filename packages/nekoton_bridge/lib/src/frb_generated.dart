@@ -71,7 +71,7 @@ class NekotonBridge extends BaseEntrypoint<NekotonBridgeApi,
   String get codegenVersion => '2.9.0';
 
   @override
-  int get rustContentHash => 576643821;
+  int get rustContentHash => 348361624;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -520,6 +520,9 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   String crateApiMergedNtDeriveFromPhrase(
       {required String phrase, required MnemonicType mnemonicType});
+
+  String crateApiMergedNtEncodeComment(
+      {required String comment, required bool plain});
 
   Future<String> crateApiMergedNtEncodeInternalInput(
       {required String contractAbi,
@@ -4196,6 +4199,31 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       const TaskConstMeta(
         debugName: "nt_derive_from_phrase",
         argNames: ["phrase", "mnemonicType"],
+      );
+
+  @override
+  String crateApiMergedNtEncodeComment(
+      {required String comment, required bool plain}) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
+        var arg0 = cst_encode_String(comment);
+        var arg1 = cst_encode_bool(plain);
+        return wire.wire__crate__api__merged__nt_encode_comment(arg0, arg1);
+      },
+      codec: DcoCodec(
+        decodeSuccessData: dco_decode_String,
+        decodeErrorData: dco_decode_AnyhowException,
+      ),
+      constMeta: kCrateApiMergedNtEncodeCommentConstMeta,
+      argValues: [comment, plain],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiMergedNtEncodeCommentConstMeta =>
+      const TaskConstMeta(
+        debugName: "nt_encode_comment",
+        argNames: ["comment", "plain"],
       );
 
   @override

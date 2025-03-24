@@ -743,6 +743,9 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_transaction_event
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_derive_from_phrase(struct wire_cst_list_prim_u_8_strict *phrase,
                                                                                            struct wire_cst_mnemonic_type *mnemonic_type);
 
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_encode_comment(struct wire_cst_list_prim_u_8_strict *comment,
+                                                                                       bool plain);
+
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_encode_internal_input(int64_t port_,
                                                                               struct wire_cst_list_prim_u_8_strict *contract_abi,
                                                                               struct wire_cst_list_prim_u_8_strict *method,
@@ -1448,6 +1451,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_transaction);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_transaction_events);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_derive_from_phrase);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_encode_comment);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_encode_internal_input);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_encode_internal_message);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_execute_local);
