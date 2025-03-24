@@ -359,3 +359,20 @@ pub fn get_code_hash(account: &AccountStuff) -> anyhow::Result<String> {
         _ => Err("WalletNotDeployed").handle_error()?,
     }
 }
+
+pub fn create_plain_comment_playload(comment: &str) -> anyhow::Result<Cell> {
+    use ton_types::IBitstring;
+
+    const MAX_LEN: usize = 127 - 4; // At most 127 bytes in cell, 4 reserved for tag.
+
+    let comment = comment.as_bytes();
+    anyhow::ensure!(
+        comment.len() <= MAX_LEN,
+        "Comment is too large to fit into cell"
+    );
+
+    let mut b = ton_types::BuilderData::new();
+    b.append_u32(0x00000000)?;
+    b.append_raw(comment, comment.len() * 8)?;
+    b.into_cell()
+}

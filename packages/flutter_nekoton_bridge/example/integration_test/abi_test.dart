@@ -59,6 +59,16 @@ void main() {
 
       expect(packed.address, withBounce.address);
     });
+
+    testWidgets('encodeComment', (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+      await initRustToDartCaller();
+
+      final encoded = encodeComment('test comment');
+
+      expect(encoded, isNotNull);
+      expect(encoded, isNotEmpty);
+    });
   });
 
   // Moved to integration tests due to the need to call native methods (packAddress, repackAddress)

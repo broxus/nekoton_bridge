@@ -478,3 +478,9 @@ Future<StorageFeeInfo> computeStorageFee({
 
   return StorageFeeInfo.fromJson(jsonDecode(data));
 }
+
+/// [comment] - comment to encode
+/// [plain] - if true, then return plain comment payload (used for TON)
+String encodeComment(String comment, {bool plain = false}) {
+  return ntEncodeComment(comment: comment, plain: plain);
+}

@@ -7,9 +7,10 @@ use crate::nekoton_wrapper::helpers::models::{
     DecodedEvent, DecodedInput, DecodedOutput, DecodedTransaction, ExecutionOutput, StorageFeeInfo,
 };
 use crate::nekoton_wrapper::helpers::{
-    make_boc, make_boc_with_hash, make_full_contract_state, parse_account_stuff, parse_cell,
-    parse_contract_abi, parse_method_name, parse_optional_abi_version, parse_params_list,
-    parse_slice, serialize_into_boc, serialize_into_boc_with_hash, serialize_state_init_data_key,
+    create_plain_comment_playload, make_boc, make_boc_with_hash, make_full_contract_state,
+    parse_account_stuff, parse_cell, parse_contract_abi, parse_method_name,
+    parse_optional_abi_version, parse_params_list, parse_slice, serialize_into_boc,
+    serialize_into_boc_with_hash, serialize_state_init_data_key,
 };
 use crate::nekoton_wrapper::{parse_address, parse_public_key, HandleError};
 use base64::engine::general_purpose;
@@ -929,7 +930,6 @@ pub fn nt_compute_storage_fee(
     is_masterchain: bool,
 ) -> anyhow::Result<String> {
     use nekoton_abi::num_traits::*;
-    // use serde::{Deserialize, Serialize};
 
     let account = parse_account_stuff(account)?;
     let config = ton_executor::BlockchainConfig::with_config(
@@ -972,6 +972,25 @@ pub fn nt_compute_storage_fee(
     })?;
 
     Ok(data)
+}
+
+#[frb(sync)]
+pub fn nt_encode_comment(comment: String, plain: bool) -> anyhow::Result<String> {
+    let body = if plain {
+        create_plain_comment_playload(&comment).handle_error()
+    } else {
+        general_purpose::STANDARD
+            .decode(comment.trim())
+            .ok()
+            .and_then(|bytes| ton_types::deserialize_tree_of_cells(&mut bytes.as_slice()).ok())
+            .map(anyhow::Result::Ok) // Convert Cell to Result<Cell, anyhow::Error>
+            .unwrap_or_else(|| {
+                nekoton::abi::create_comment_payload(&comment)
+                    .handle_error()
+                    .map(|slice| slice.into_cell())
+            })
+    }?;
+    make_boc(&body)
 }
 
 #[derive(Serialize, Deserialize)]
