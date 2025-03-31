@@ -275,9 +275,8 @@ pub fn nt_parse_known_payload(payload: String) -> Option<String> {
         Ok(slice) => slice,
         Err(_) => return None,
     };
-    
-    let known_payload = parse_payload(payload.clone())
-        .or_else(|| parse_jetton_payload(payload));
+
+    let known_payload = parse_payload(payload.clone()).or_else(|| parse_jetton_payload(payload));
 
     match serde_json::to_string(&known_payload) {
         Ok(json) => Some(json),
