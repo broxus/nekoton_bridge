@@ -813,8 +813,7 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__nt_pack_std_smc_addr(int64_
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_parse_full_account_boc(int64_t port_,
                                                                                struct wire_cst_list_prim_u_8_strict *account);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_parse_known_payload(int64_t port_,
-                                                                            struct wire_cst_list_prim_u_8_strict *payload);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_parse_known_payload(struct wire_cst_list_prim_u_8_strict *payload);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_repack_address(struct wire_cst_list_prim_u_8_strict *address);
 

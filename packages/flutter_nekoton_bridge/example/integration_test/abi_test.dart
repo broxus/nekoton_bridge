@@ -22,6 +22,11 @@ void main() {
     address: 'EQCVnoRAcypBvfVhKhUZM4vfJwlpqV0CQVAZrLvutrEkmrZO',
   );
 
+  const tokenTransferPayload =
+      'te6ccgEBAwEAcAABi3PiIUMAAAAAAAAAAAAAAAA7msoAgA2oWheJTK0CQdURfshdtsp65Pn3prDRiPDuplvCUc4+QAAAAAAAAAAAAAAAAPf0kDABAUOAGyWSMMDEPWpy8q/cfoTQwcWEOvqIIMTRC+a7cRSNUPhIAgAA';
+  const jettonTransferPayload =
+      'te6ccgEBAQEAVQAApg+KfqUAAAGV62nSEiJxCAFiJ1MpagSULOM+0icmUdbrKy2HFEvrIFFijf2bhsQ7/QAbKNSc4kliLTF9K6JjcGYPuyWYt/+vqzb6CEDodHcrGAIC';
+
   setUpAll(() async {
     await NekotonBridge.init();
   });
@@ -69,6 +74,47 @@ void main() {
       expect(encoded, isNotNull);
       expect(encoded, isNotEmpty);
     });
+  });
+
+  testWidgets('parseKnownPayload', (WidgetTester tester) async {
+    await tester.pumpAndSettleWithTimeout();
+    await initRustToDartCaller();
+
+    final knownTokenTransactionPayload =
+        parseKnownPayload(tokenTransferPayload);
+    final knownJettonTransactionPayload =
+        parseKnownPayload(jettonTransferPayload);
+    final unknownPayload = parseKnownPayload(r'!@#$%^&*()_+invalid_base64');
+
+    expect(unknownPayload, isNull);
+
+    expect(knownTokenTransactionPayload, isNotNull);
+    expect(
+      knownTokenTransactionPayload!.whenOrNull(
+        tokenOutgoingTransfer: (data) => data,
+      ),
+      isNotNull,
+    );
+    expect(
+      knownTokenTransactionPayload.whenOrNull(
+        tokenOutgoingTransfer: (data) => data.tokens,
+      ),
+      BigInt.parse('1000000000'),
+    );
+
+    expect(knownJettonTransactionPayload, isNotNull);
+    expect(
+      knownJettonTransactionPayload!.whenOrNull(
+        jettonOutgoingTransfer: (data) => data,
+      ),
+      isNotNull,
+    );
+    expect(
+      knownJettonTransactionPayload.whenOrNull(
+        jettonOutgoingTransfer: (data) => data.tokens,
+      ),
+      BigInt.parse('10000'),
+    );
   });
 
   // Moved to integration tests due to the need to call native methods (packAddress, repackAddress)

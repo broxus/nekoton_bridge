@@ -2730,10 +2730,9 @@ class NekotonBridgeWire implements BaseWire {
       wasmModule.wire__crate__api__merged__nt_parse_full_account_boc(
           port_, account);
 
-  void wire__crate__api__merged__nt_parse_known_payload(
-          NativePortType port_, String payload) =>
-      wasmModule.wire__crate__api__merged__nt_parse_known_payload(
-          port_, payload);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_parse_known_payload(String payload) =>
+          wasmModule.wire__crate__api__merged__nt_parse_known_payload(payload);
 
   JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_repack_address(String address) =>
@@ -4018,8 +4017,8 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
   external void wire__crate__api__merged__nt_parse_full_account_boc(
       NativePortType port_, String account);
 
-  external void wire__crate__api__merged__nt_parse_known_payload(
-      NativePortType port_, String payload);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_parse_known_payload(String payload);
 
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_repack_address(String address);

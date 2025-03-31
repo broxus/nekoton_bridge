@@ -109,8 +109,9 @@ Future<UnsignedMessage> createExternalMessage({
 }
 
 /// Parse payload and return KnownPayload or throws error
-Future<KnownPayload?> parseKnownPayload(String payload) async {
-  final res = await ntParseKnownPayload(payload: payload);
+KnownPayload? parseKnownPayload(String payload) {
+  final res = ntParseKnownPayload(payload: payload);
+  if (res == null) return null;
   final decoded = jsonDecode(res);
   if (decoded == null) return null;
   return KnownPayload.fromJson(decoded);

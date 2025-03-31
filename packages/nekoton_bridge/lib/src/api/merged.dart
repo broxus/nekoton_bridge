@@ -141,7 +141,7 @@ Future<UnsignedMessageImpl> ntCreateExternalMessage(
         timeout: timeout);
 
 /// Parse payload and return optional json-encoded KnownPayload or throws error
-Future<String> ntParseKnownPayload({required String payload}) =>
+String? ntParseKnownPayload({required String payload}) =>
     NekotonBridge.instance.api
         .crateApiMergedNtParseKnownPayload(payload: payload);
 

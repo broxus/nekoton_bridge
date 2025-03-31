@@ -586,7 +586,7 @@ abstract class NekotonBridgeApi extends BaseApi {
   Future<String?> crateApiMergedNtParseFullAccountBoc(
       {required String account});
 
-  Future<String> crateApiMergedNtParseKnownPayload({required String payload});
+  String? crateApiMergedNtParseKnownPayload({required String payload});
 
   String crateApiMergedNtRepackAddress({required String address});
 
@@ -4665,16 +4665,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtParseKnownPayload({required String payload}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+  String? crateApiMergedNtParseKnownPayload({required String payload}) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(payload);
-        return wire.wire__crate__api__merged__nt_parse_known_payload(
-            port_, arg0);
+        return wire.wire__crate__api__merged__nt_parse_known_payload(arg0);
       },
       codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+        decodeSuccessData: dco_decode_opt_String,
+        decodeErrorData: null,
       ),
       constMeta: kCrateApiMergedNtParseKnownPayloadConstMeta,
       argValues: [payload],

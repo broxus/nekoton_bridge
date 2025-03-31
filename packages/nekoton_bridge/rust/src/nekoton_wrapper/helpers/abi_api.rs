@@ -17,7 +17,7 @@ use base64::engine::general_purpose;
 use base64::Engine;
 use flutter_rust_bridge::frb;
 use nekoton::core::models::{Expiration, ExpireAt, Transaction};
-use nekoton::core::parsing::parse_payload;
+use nekoton::core::parsing::{parse_jetton_payload, parse_payload};
 use nekoton::core::utils::make_labs_unsigned_message;
 use nekoton::crypto::SignedMessage;
 use nekoton_abi::{guess_method_by_input, insert_state_init_data, make_abi_tokens, FunctionExt};
@@ -269,12 +269,20 @@ pub fn nt_create_external_message(
 }
 
 /// Parse payload and return optional json-encoded KnownPayload or throws error
-pub fn nt_parse_known_payload(payload: String) -> anyhow::Result<String> {
-    let payload = parse_slice(payload)?;
+#[frb(sync)]
+pub fn nt_parse_known_payload(payload: String) -> Option<String> {
+    let payload = match parse_slice(payload) {
+        Ok(slice) => slice,
+        Err(_) => return None,
+    };
+    
+    let known_payload = parse_payload(payload.clone())
+        .or_else(|| parse_jetton_payload(payload));
 
-    let known_payload = parse_payload(payload);
-
-    serde_json::to_string(&known_payload).handle_error()
+    match serde_json::to_string(&known_payload) {
+        Ok(json) => Some(json),
+        Err(_) => None,
+    }
 }
 
 /// Decode input data and return json-encoded DecodedInput or throws error
