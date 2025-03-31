@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-03-31
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.8.0-dev.1`](#flutter_nekoton_bridge---v280-dev1)
+ - [`flutter_nekoton_bridge_example` - `v1.24.0-dev.1`](#flutter_nekoton_bridge_example---v1240-dev1)
+ - [`nekoton_bridge` - `v2.8.0-dev.1`](#nekoton_bridge---v280-dev1)
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.8.0-dev.1`
+
+ - **FEAT**: update payload parsing to support jetton transfers. ([1ca7f1f3](https://github.com/broxus/nekoton_bridge/commit/1ca7f1f315ed16b004db40cef3102f37cb9d05f4))
+
+#### `flutter_nekoton_bridge_example` - `v1.24.0-dev.1`
+
+ - **FEAT**: update payload parsing to support jetton transfers. ([1ca7f1f3](https://github.com/broxus/nekoton_bridge/commit/1ca7f1f315ed16b004db40cef3102f37cb9d05f4))
+
+#### `nekoton_bridge` - `v2.8.0-dev.1`
+
+ - **FEAT**: update payload parsing to support jetton transfers. ([1ca7f1f3](https://github.com/broxus/nekoton_bridge/commit/1ca7f1f315ed16b004db40cef3102f37cb9d05f4))
+
+
 ## 2025-03-24
 
 ### Changes
