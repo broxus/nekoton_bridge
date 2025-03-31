@@ -1,3 +1,9 @@
+## 1.24.0-dev.2
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **PERF**: make all `abi_api.rs` functions sync. ([1c19c1f9](https://github.com/broxus/nekoton_bridge/commit/1c19c1f982b2bf476bdaa641065a3b12d1711fda))
+
 ## 1.24.0-dev.1
 
  - **FEAT**: update payload parsing to support jetton transfers. ([1ca7f1f3](https://github.com/broxus/nekoton_bridge/commit/1ca7f1f315ed16b004db40cef3102f37cb9d05f4))

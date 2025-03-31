@@ -11,6 +11,37 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 Packages with breaking changes:
 
+ - [`flutter_nekoton_bridge` - `v2.8.0-dev.2`](#flutter_nekoton_bridge---v280-dev2)
+ - [`flutter_nekoton_bridge_example` - `v1.24.0-dev.2`](#flutter_nekoton_bridge_example---v1240-dev2)
+ - [`nekoton_bridge` - `v2.8.0-dev.2`](#nekoton_bridge---v280-dev2)
+
+Packages with other changes:
+
+ - There are no other changes in this release.
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.8.0-dev.2`
+
+ - **BREAKING** **PERF**: make all `abi_api.rs` functions sync. ([1c19c1f9](https://github.com/broxus/nekoton_bridge/commit/1c19c1f982b2bf476bdaa641065a3b12d1711fda))
+
+#### `flutter_nekoton_bridge_example` - `v1.24.0-dev.2`
+
+ - **BREAKING** **PERF**: make all `abi_api.rs` functions sync. ([1c19c1f9](https://github.com/broxus/nekoton_bridge/commit/1c19c1f982b2bf476bdaa641065a3b12d1711fda))
+
+#### `nekoton_bridge` - `v2.8.0-dev.2`
+
+ - **BREAKING** **PERF**: make all `abi_api.rs` functions sync. ([1c19c1f9](https://github.com/broxus/nekoton_bridge/commit/1c19c1f982b2bf476bdaa641065a3b12d1711fda))
+
+
+## 2025-03-31
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
  - There are no breaking changes in this release.
 
 Packages with other changes:
