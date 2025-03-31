@@ -2547,81 +2547,79 @@ class NekotonBridgeWire implements BaseWire {
   void wire__crate__api__merged__my_class_new(NativePortType port_, int a) =>
       wasmModule.wire__crate__api__merged__my_class_new(port_, a);
 
-  void wire__crate__api__merged__nt_check_public_key(
-          NativePortType port_, String public_key) =>
-      wasmModule.wire__crate__api__merged__nt_check_public_key(
-          port_, public_key);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_check_public_key(String public_key) =>
+          wasmModule.wire__crate__api__merged__nt_check_public_key(public_key);
 
-  void wire__crate__api__merged__nt_code_to_tvc(
-          NativePortType port_, String code) =>
-      wasmModule.wire__crate__api__merged__nt_code_to_tvc(port_, code);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_code_to_tvc(String code) =>
+          wasmModule.wire__crate__api__merged__nt_code_to_tvc(code);
 
-  void wire__crate__api__merged__nt_compute_storage_fee(NativePortType port_,
-          String config, String account, int utime, bool is_masterchain) =>
-      wasmModule.wire__crate__api__merged__nt_compute_storage_fee(
-          port_, config, account, utime, is_masterchain);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_compute_storage_fee(
+              String config, String account, int utime, bool is_masterchain) =>
+          wasmModule.wire__crate__api__merged__nt_compute_storage_fee(
+              config, account, utime, is_masterchain);
 
-  void wire__crate__api__merged__nt_create_external_message(
-          NativePortType port_,
-          String dst,
-          String contract_abi,
-          String method,
-          String? state_init,
-          String input,
-          String public_key,
-          int timeout) =>
-      wasmModule.wire__crate__api__merged__nt_create_external_message(port_,
-          dst, contract_abi, method, state_init, input, public_key, timeout);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_create_external_message(
+              String dst,
+              String contract_abi,
+              String method,
+              String? state_init,
+              String input,
+              String public_key,
+              int timeout) =>
+          wasmModule.wire__crate__api__merged__nt_create_external_message(dst,
+              contract_abi, method, state_init, input, public_key, timeout);
 
-  void wire__crate__api__merged__nt_create_external_message_without_signature(
-          NativePortType port_,
-          String dst,
-          String contract_abi,
-          String method,
-          String? state_init,
-          String input,
-          int timeout) =>
-      wasmModule
-          .wire__crate__api__merged__nt_create_external_message_without_signature(
-              port_, dst, contract_abi, method, state_init, input, timeout);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_create_external_message_without_signature(
+              String dst,
+              String contract_abi,
+              String method,
+              String? state_init,
+              String input,
+              int timeout) =>
+          wasmModule
+              .wire__crate__api__merged__nt_create_external_message_without_signature(
+                  dst, contract_abi, method, state_init, input, timeout);
 
-  void wire__crate__api__merged__nt_create_raw_external_message(
-          NativePortType port_,
-          String dst,
-          String? state_init,
-          String? body,
-          int timeout) =>
-      wasmModule.wire__crate__api__merged__nt_create_raw_external_message(
-          port_, dst, state_init, body, timeout);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_create_raw_external_message(
+              String dst, String? state_init, String? body, int timeout) =>
+          wasmModule.wire__crate__api__merged__nt_create_raw_external_message(
+              dst, state_init, body, timeout);
 
-  void wire__crate__api__merged__nt_decode_event(NativePortType port_,
-          String message_body, String contract_abi, String? event) =>
-      wasmModule.wire__crate__api__merged__nt_decode_event(
-          port_, message_body, contract_abi, event);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_decode_event(
+              String message_body, String contract_abi, String? event) =>
+          wasmModule.wire__crate__api__merged__nt_decode_event(
+              message_body, contract_abi, event);
 
-  void wire__crate__api__merged__nt_decode_input(
-          NativePortType port_,
-          String message_body,
-          String contract_abi,
-          String? method,
-          bool internal) =>
-      wasmModule.wire__crate__api__merged__nt_decode_input(
-          port_, message_body, contract_abi, method, internal);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_decode_input(String message_body,
+              String contract_abi, String? method, bool internal) =>
+          wasmModule.wire__crate__api__merged__nt_decode_input(
+              message_body, contract_abi, method, internal);
 
-  void wire__crate__api__merged__nt_decode_output(NativePortType port_,
-          String message_body, String contract_abi, String? method) =>
-      wasmModule.wire__crate__api__merged__nt_decode_output(
-          port_, message_body, contract_abi, method);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_decode_output(
+              String message_body, String contract_abi, String? method) =>
+          wasmModule.wire__crate__api__merged__nt_decode_output(
+              message_body, contract_abi, method);
 
-  void wire__crate__api__merged__nt_decode_transaction(NativePortType port_,
-          String transaction, String contract_abi, String? method) =>
-      wasmModule.wire__crate__api__merged__nt_decode_transaction(
-          port_, transaction, contract_abi, method);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_decode_transaction(
+              String transaction, String contract_abi, String? method) =>
+          wasmModule.wire__crate__api__merged__nt_decode_transaction(
+              transaction, contract_abi, method);
 
-  void wire__crate__api__merged__nt_decode_transaction_events(
-          NativePortType port_, String transaction, String contract_abi) =>
-      wasmModule.wire__crate__api__merged__nt_decode_transaction_events(
-          port_, transaction, contract_abi);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_decode_transaction_events(
+              String transaction, String contract_abi) =>
+          wasmModule.wire__crate__api__merged__nt_decode_transaction_events(
+              transaction, contract_abi);
 
   JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_derive_from_phrase(
@@ -2634,80 +2632,81 @@ class NekotonBridgeWire implements BaseWire {
           wasmModule.wire__crate__api__merged__nt_encode_comment(
               comment, plain);
 
-  void wire__crate__api__merged__nt_encode_internal_input(NativePortType port_,
-          String contract_abi, String method, String input) =>
-      wasmModule.wire__crate__api__merged__nt_encode_internal_input(
-          port_, contract_abi, method, input);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_encode_internal_input(
+              String contract_abi, String method, String input) =>
+          wasmModule.wire__crate__api__merged__nt_encode_internal_input(
+              contract_abi, method, input);
 
-  void wire__crate__api__merged__nt_encode_internal_message(
-          NativePortType port_,
-          String? src,
-          String dst,
-          bool bounce,
-          String? state_init,
-          String? body,
-          String amount,
-          bool? bounced) =>
-      wasmModule.wire__crate__api__merged__nt_encode_internal_message(
-          port_, src, dst, bounce, state_init, body, amount, bounced);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_encode_internal_message(
+              String? src,
+              String dst,
+              bool bounce,
+              String? state_init,
+              String? body,
+              String amount,
+              bool? bounced) =>
+          wasmModule.wire__crate__api__merged__nt_encode_internal_message(
+              src, dst, bounce, state_init, body, amount, bounced);
 
-  void wire__crate__api__merged__nt_execute_local(
-          NativePortType port_,
-          String config,
-          String account,
-          String message,
-          int utime,
-          bool disable_signature_check,
-          String? overwrite_balance,
-          int? global_id) =>
-      wasmModule.wire__crate__api__merged__nt_execute_local(
-          port_,
-          config,
-          account,
-          message,
-          utime,
-          disable_signature_check,
-          overwrite_balance,
-          global_id);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_execute_local(
+              String config,
+              String account,
+              String message,
+              int utime,
+              bool disable_signature_check,
+              String? overwrite_balance,
+              int? global_id) =>
+          wasmModule.wire__crate__api__merged__nt_execute_local(
+              config,
+              account,
+              message,
+              utime,
+              disable_signature_check,
+              overwrite_balance,
+              global_id);
 
-  void wire__crate__api__merged__nt_extract_public_key(
-          NativePortType port_, String boc) =>
-      wasmModule.wire__crate__api__merged__nt_extract_public_key(port_, boc);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_extract_public_key(String boc) =>
+          wasmModule.wire__crate__api__merged__nt_extract_public_key(boc);
 
   JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_generate_key(JSAny account_type) =>
           wasmModule.wire__crate__api__merged__nt_generate_key(account_type);
 
-  void wire__crate__api__merged__nt_get_boc_hash(
-          NativePortType port_, String boc) =>
-      wasmModule.wire__crate__api__merged__nt_get_boc_hash(port_, boc);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_get_boc_hash(String boc) =>
+          wasmModule.wire__crate__api__merged__nt_get_boc_hash(boc);
 
-  void wire__crate__api__merged__nt_get_code_salt(
-          NativePortType port_, String code) =>
-      wasmModule.wire__crate__api__merged__nt_get_code_salt(port_, code);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_get_code_salt(String code) =>
+          wasmModule.wire__crate__api__merged__nt_get_code_salt(code);
 
-  void wire__crate__api__merged__nt_get_expected_address(
-          NativePortType port_,
-          String tvc,
-          String contract_abi,
-          int workchain_id,
-          String? public_key,
-          String init_data) =>
-      wasmModule.wire__crate__api__merged__nt_get_expected_address(
-          port_, tvc, contract_abi, workchain_id, public_key, init_data);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_get_expected_address(
+              String tvc,
+              String contract_abi,
+              int workchain_id,
+              String? public_key,
+              String init_data) =>
+          wasmModule.wire__crate__api__merged__nt_get_expected_address(
+              tvc, contract_abi, workchain_id, public_key, init_data);
 
   JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_get_hints(String input) =>
           wasmModule.wire__crate__api__merged__nt_get_hints(input);
 
-  void wire__crate__api__merged__nt_make_full_account_boc(
-          NativePortType port_, String? account_stuff_boc) =>
-      wasmModule.wire__crate__api__merged__nt_make_full_account_boc(
-          port_, account_stuff_boc);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_make_full_account_boc(
+              String? account_stuff_boc) =>
+          wasmModule.wire__crate__api__merged__nt_make_full_account_boc(
+              account_stuff_boc);
 
-  void wire__crate__api__merged__nt_merge_tvc(
-          NativePortType port_, String code, String data) =>
-      wasmModule.wire__crate__api__merged__nt_merge_tvc(port_, code, data);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_merge_tvc(String code, String data) =>
+          wasmModule.wire__crate__api__merged__nt_merge_tvc(code, data);
 
   JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_pack_address(
@@ -2715,20 +2714,22 @@ class NekotonBridgeWire implements BaseWire {
           wasmModule.wire__crate__api__merged__nt_pack_address(
               address, is_url_safe, bounceable);
 
-  void wire__crate__api__merged__nt_pack_into_cell(NativePortType port_,
-          String params, String tokens, String? version) =>
-      wasmModule.wire__crate__api__merged__nt_pack_into_cell(
-          port_, params, tokens, version);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_pack_into_cell(
+              String params, String tokens, String? version) =>
+          wasmModule.wire__crate__api__merged__nt_pack_into_cell(
+              params, tokens, version);
 
-  void wire__crate__api__merged__nt_pack_std_smc_addr(NativePortType port_,
-          String addr, bool base64_url, bool bounceable) =>
-      wasmModule.wire__crate__api__merged__nt_pack_std_smc_addr(
-          port_, addr, base64_url, bounceable);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_pack_std_smc_addr(
+              String addr, bool base64_url, bool bounceable) =>
+          wasmModule.wire__crate__api__merged__nt_pack_std_smc_addr(
+              addr, base64_url, bounceable);
 
-  void wire__crate__api__merged__nt_parse_full_account_boc(
-          NativePortType port_, String account) =>
-      wasmModule.wire__crate__api__merged__nt_parse_full_account_boc(
-          port_, account);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_parse_full_account_boc(String account) =>
+          wasmModule
+              .wire__crate__api__merged__nt_parse_full_account_boc(account);
 
   JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_parse_known_payload(String payload) =>
@@ -2738,43 +2739,47 @@ class NekotonBridgeWire implements BaseWire {
       wire__crate__api__merged__nt_repack_address(String address) =>
           wasmModule.wire__crate__api__merged__nt_repack_address(address);
 
-  void wire__crate__api__merged__nt_run_local(
-          NativePortType port_,
-          String account_stuff_boc,
-          String contract_abi,
-          String method,
-          String input,
-          bool responsible) =>
-      wasmModule.wire__crate__api__merged__nt_run_local(
-          port_, account_stuff_boc, contract_abi, method, input, responsible);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_run_local(
+              String account_stuff_boc,
+              String contract_abi,
+              String method,
+              String input,
+              bool responsible) =>
+          wasmModule.wire__crate__api__merged__nt_run_local(
+              account_stuff_boc, contract_abi, method, input, responsible);
 
-  void wire__crate__api__merged__nt_set_code_salt(
-          NativePortType port_, String code, String salt) =>
-      wasmModule.wire__crate__api__merged__nt_set_code_salt(port_, code, salt);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_set_code_salt(String code, String salt) =>
+          wasmModule.wire__crate__api__merged__nt_set_code_salt(code, salt);
 
-  void wire__crate__api__merged__nt_split_tvc(
-          NativePortType port_, String tvc) =>
-      wasmModule.wire__crate__api__merged__nt_split_tvc(port_, tvc);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_split_tvc(String tvc) =>
+          wasmModule.wire__crate__api__merged__nt_split_tvc(tvc);
 
-  void wire__crate__api__merged__nt_unpack_contract_fields(NativePortType port_,
-          String contract_abi, String boc, bool allow_partial) =>
-      wasmModule.wire__crate__api__merged__nt_unpack_contract_fields(
-          port_, contract_abi, boc, allow_partial);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_unpack_contract_fields(
+              String contract_abi, String boc, bool allow_partial) =>
+          wasmModule.wire__crate__api__merged__nt_unpack_contract_fields(
+              contract_abi, boc, allow_partial);
 
-  void wire__crate__api__merged__nt_unpack_from_cell(NativePortType port_,
-          String params, String boc, bool allow_partial, String? version) =>
-      wasmModule.wire__crate__api__merged__nt_unpack_from_cell(
-          port_, params, boc, allow_partial, version);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_unpack_from_cell(
+              String params, String boc, bool allow_partial, String? version) =>
+          wasmModule.wire__crate__api__merged__nt_unpack_from_cell(
+              params, boc, allow_partial, version);
 
-  void wire__crate__api__merged__nt_unpack_init_data(
-          NativePortType port_, String contract_abi, String data) =>
-      wasmModule.wire__crate__api__merged__nt_unpack_init_data(
-          port_, contract_abi, data);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_unpack_init_data(
+              String contract_abi, String data) =>
+          wasmModule.wire__crate__api__merged__nt_unpack_init_data(
+              contract_abi, data);
 
-  void wire__crate__api__merged__nt_unpack_std_smc_addr(
-          NativePortType port_, String packed, bool base64_url) =>
-      wasmModule.wire__crate__api__merged__nt_unpack_std_smc_addr(
-          port_, packed, base64_url);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_unpack_std_smc_addr(
+              String packed, bool base64_url) =>
+          wasmModule.wire__crate__api__merged__nt_unpack_std_smc_addr(
+              packed, base64_url);
 
   JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_validate_address(String address) =>
@@ -3887,32 +3892,28 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
   external void wire__crate__api__merged__my_class_new(
       NativePortType port_, int a);
 
-  external void wire__crate__api__merged__nt_check_public_key(
-      NativePortType port_, String public_key);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_check_public_key(String public_key);
 
-  external void wire__crate__api__merged__nt_code_to_tvc(
-      NativePortType port_, String code);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_code_to_tvc(String code);
 
-  external void wire__crate__api__merged__nt_compute_storage_fee(
-      NativePortType port_,
-      String config,
-      String account,
-      int utime,
-      bool is_masterchain);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_compute_storage_fee(
+          String config, String account, int utime, bool is_masterchain);
 
-  external void wire__crate__api__merged__nt_create_external_message(
-      NativePortType port_,
-      String dst,
-      String contract_abi,
-      String method,
-      String? state_init,
-      String input,
-      String public_key,
-      int timeout);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_create_external_message(
+          String dst,
+          String contract_abi,
+          String method,
+          String? state_init,
+          String input,
+          String public_key,
+          int timeout);
 
-  external void
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_create_external_message_without_signature(
-          NativePortType port_,
           String dst,
           String contract_abi,
           String method,
@@ -3920,30 +3921,29 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
           String input,
           int timeout);
 
-  external void wire__crate__api__merged__nt_create_raw_external_message(
-      NativePortType port_,
-      String dst,
-      String? state_init,
-      String? body,
-      int timeout);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_create_raw_external_message(
+          String dst, String? state_init, String? body, int timeout);
 
-  external void wire__crate__api__merged__nt_decode_event(NativePortType port_,
-      String message_body, String contract_abi, String? event);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_decode_event(
+          String message_body, String contract_abi, String? event);
 
-  external void wire__crate__api__merged__nt_decode_input(NativePortType port_,
-      String message_body, String contract_abi, String? method, bool internal);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_decode_input(String message_body,
+          String contract_abi, String? method, bool internal);
 
-  external void wire__crate__api__merged__nt_decode_output(NativePortType port_,
-      String message_body, String contract_abi, String? method);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_decode_output(
+          String message_body, String contract_abi, String? method);
 
-  external void wire__crate__api__merged__nt_decode_transaction(
-      NativePortType port_,
-      String transaction,
-      String contract_abi,
-      String? method);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_decode_transaction(
+          String transaction, String contract_abi, String? method);
 
-  external void wire__crate__api__merged__nt_decode_transaction_events(
-      NativePortType port_, String transaction, String contract_abi);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_decode_transaction_events(
+          String transaction, String contract_abi);
 
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_derive_from_phrase(
@@ -3952,70 +3952,74 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_encode_comment(String comment, bool plain);
 
-  external void wire__crate__api__merged__nt_encode_internal_input(
-      NativePortType port_, String contract_abi, String method, String input);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_encode_internal_input(
+          String contract_abi, String method, String input);
 
-  external void wire__crate__api__merged__nt_encode_internal_message(
-      NativePortType port_,
-      String? src,
-      String dst,
-      bool bounce,
-      String? state_init,
-      String? body,
-      String amount,
-      bool? bounced);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_encode_internal_message(
+          String? src,
+          String dst,
+          bool bounce,
+          String? state_init,
+          String? body,
+          String amount,
+          bool? bounced);
 
-  external void wire__crate__api__merged__nt_execute_local(
-      NativePortType port_,
-      String config,
-      String account,
-      String message,
-      int utime,
-      bool disable_signature_check,
-      String? overwrite_balance,
-      int? global_id);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_execute_local(
+          String config,
+          String account,
+          String message,
+          int utime,
+          bool disable_signature_check,
+          String? overwrite_balance,
+          int? global_id);
 
-  external void wire__crate__api__merged__nt_extract_public_key(
-      NativePortType port_, String boc);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_extract_public_key(String boc);
 
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_generate_key(JSAny account_type);
 
-  external void wire__crate__api__merged__nt_get_boc_hash(
-      NativePortType port_, String boc);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_get_boc_hash(String boc);
 
-  external void wire__crate__api__merged__nt_get_code_salt(
-      NativePortType port_, String code);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_get_code_salt(String code);
 
-  external void wire__crate__api__merged__nt_get_expected_address(
-      NativePortType port_,
-      String tvc,
-      String contract_abi,
-      int workchain_id,
-      String? public_key,
-      String init_data);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_get_expected_address(
+          String tvc,
+          String contract_abi,
+          int workchain_id,
+          String? public_key,
+          String init_data);
 
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_get_hints(String input);
 
-  external void wire__crate__api__merged__nt_make_full_account_boc(
-      NativePortType port_, String? account_stuff_boc);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_make_full_account_boc(
+          String? account_stuff_boc);
 
-  external void wire__crate__api__merged__nt_merge_tvc(
-      NativePortType port_, String code, String data);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_merge_tvc(String code, String data);
 
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_pack_address(
           String address, bool is_url_safe, bool bounceable);
 
-  external void wire__crate__api__merged__nt_pack_into_cell(
-      NativePortType port_, String params, String tokens, String? version);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_pack_into_cell(
+          String params, String tokens, String? version);
 
-  external void wire__crate__api__merged__nt_pack_std_smc_addr(
-      NativePortType port_, String addr, bool base64_url, bool bounceable);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_pack_std_smc_addr(
+          String addr, bool base64_url, bool bounceable);
 
-  external void wire__crate__api__merged__nt_parse_full_account_boc(
-      NativePortType port_, String account);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_parse_full_account_boc(String account);
 
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_parse_known_payload(String payload);
@@ -4023,38 +4027,31 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_repack_address(String address);
 
-  external void wire__crate__api__merged__nt_run_local(
-      NativePortType port_,
-      String account_stuff_boc,
-      String contract_abi,
-      String method,
-      String input,
-      bool responsible);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_run_local(String account_stuff_boc,
+          String contract_abi, String method, String input, bool responsible);
 
-  external void wire__crate__api__merged__nt_set_code_salt(
-      NativePortType port_, String code, String salt);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_set_code_salt(String code, String salt);
 
-  external void wire__crate__api__merged__nt_split_tvc(
-      NativePortType port_, String tvc);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_split_tvc(String tvc);
 
-  external void wire__crate__api__merged__nt_unpack_contract_fields(
-      NativePortType port_,
-      String contract_abi,
-      String boc,
-      bool allow_partial);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_unpack_contract_fields(
+          String contract_abi, String boc, bool allow_partial);
 
-  external void wire__crate__api__merged__nt_unpack_from_cell(
-      NativePortType port_,
-      String params,
-      String boc,
-      bool allow_partial,
-      String? version);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_unpack_from_cell(
+          String params, String boc, bool allow_partial, String? version);
 
-  external void wire__crate__api__merged__nt_unpack_init_data(
-      NativePortType port_, String contract_abi, String data);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_unpack_init_data(
+          String contract_abi, String data);
 
-  external void wire__crate__api__merged__nt_unpack_std_smc_addr(
-      NativePortType port_, String packed, bool base64_url);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_unpack_std_smc_addr(
+          String packed, bool base64_url);
 
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_validate_address(String address);

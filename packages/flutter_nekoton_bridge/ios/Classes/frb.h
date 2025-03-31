@@ -680,65 +680,54 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__my_class_my_format(int64_t 
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__my_class_new(int64_t port_, int32_t a);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_check_public_key(int64_t port_,
-                                                                         struct wire_cst_list_prim_u_8_strict *public_key);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_check_public_key(struct wire_cst_list_prim_u_8_strict *public_key);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_code_to_tvc(int64_t port_,
-                                                                    struct wire_cst_list_prim_u_8_strict *code);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_code_to_tvc(struct wire_cst_list_prim_u_8_strict *code);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_compute_storage_fee(int64_t port_,
-                                                                            struct wire_cst_list_prim_u_8_strict *config,
-                                                                            struct wire_cst_list_prim_u_8_strict *account,
-                                                                            uint32_t utime,
-                                                                            bool is_masterchain);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_compute_storage_fee(struct wire_cst_list_prim_u_8_strict *config,
+                                                                                            struct wire_cst_list_prim_u_8_strict *account,
+                                                                                            uint32_t utime,
+                                                                                            bool is_masterchain);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_create_external_message(int64_t port_,
-                                                                                struct wire_cst_list_prim_u_8_strict *dst,
-                                                                                struct wire_cst_list_prim_u_8_strict *contract_abi,
-                                                                                struct wire_cst_list_prim_u_8_strict *method,
-                                                                                struct wire_cst_list_prim_u_8_strict *state_init,
-                                                                                struct wire_cst_list_prim_u_8_strict *input,
-                                                                                struct wire_cst_list_prim_u_8_strict *public_key,
-                                                                                uint32_t timeout);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_create_external_message(struct wire_cst_list_prim_u_8_strict *dst,
+                                                                                                struct wire_cst_list_prim_u_8_strict *contract_abi,
+                                                                                                struct wire_cst_list_prim_u_8_strict *method,
+                                                                                                struct wire_cst_list_prim_u_8_strict *state_init,
+                                                                                                struct wire_cst_list_prim_u_8_strict *input,
+                                                                                                struct wire_cst_list_prim_u_8_strict *public_key,
+                                                                                                uint32_t timeout);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_create_external_message_without_signature(int64_t port_,
-                                                                                                  struct wire_cst_list_prim_u_8_strict *dst,
-                                                                                                  struct wire_cst_list_prim_u_8_strict *contract_abi,
-                                                                                                  struct wire_cst_list_prim_u_8_strict *method,
-                                                                                                  struct wire_cst_list_prim_u_8_strict *state_init,
-                                                                                                  struct wire_cst_list_prim_u_8_strict *input,
-                                                                                                  uint32_t timeout);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_create_external_message_without_signature(struct wire_cst_list_prim_u_8_strict *dst,
+                                                                                                                  struct wire_cst_list_prim_u_8_strict *contract_abi,
+                                                                                                                  struct wire_cst_list_prim_u_8_strict *method,
+                                                                                                                  struct wire_cst_list_prim_u_8_strict *state_init,
+                                                                                                                  struct wire_cst_list_prim_u_8_strict *input,
+                                                                                                                  uint32_t timeout);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_create_raw_external_message(int64_t port_,
-                                                                                    struct wire_cst_list_prim_u_8_strict *dst,
-                                                                                    struct wire_cst_list_prim_u_8_strict *state_init,
-                                                                                    struct wire_cst_list_prim_u_8_strict *body,
-                                                                                    uint32_t timeout);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_create_raw_external_message(struct wire_cst_list_prim_u_8_strict *dst,
+                                                                                                    struct wire_cst_list_prim_u_8_strict *state_init,
+                                                                                                    struct wire_cst_list_prim_u_8_strict *body,
+                                                                                                    uint32_t timeout);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_event(int64_t port_,
-                                                                     struct wire_cst_list_prim_u_8_strict *message_body,
-                                                                     struct wire_cst_list_prim_u_8_strict *contract_abi,
-                                                                     struct wire_cst_list_prim_u_8_strict *event);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_event(struct wire_cst_list_prim_u_8_strict *message_body,
+                                                                                     struct wire_cst_list_prim_u_8_strict *contract_abi,
+                                                                                     struct wire_cst_list_prim_u_8_strict *event);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_input(int64_t port_,
-                                                                     struct wire_cst_list_prim_u_8_strict *message_body,
-                                                                     struct wire_cst_list_prim_u_8_strict *contract_abi,
-                                                                     struct wire_cst_list_prim_u_8_strict *method,
-                                                                     bool internal);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_input(struct wire_cst_list_prim_u_8_strict *message_body,
+                                                                                     struct wire_cst_list_prim_u_8_strict *contract_abi,
+                                                                                     struct wire_cst_list_prim_u_8_strict *method,
+                                                                                     bool internal);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_output(int64_t port_,
-                                                                      struct wire_cst_list_prim_u_8_strict *message_body,
-                                                                      struct wire_cst_list_prim_u_8_strict *contract_abi,
-                                                                      struct wire_cst_list_prim_u_8_strict *method);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_output(struct wire_cst_list_prim_u_8_strict *message_body,
+                                                                                      struct wire_cst_list_prim_u_8_strict *contract_abi,
+                                                                                      struct wire_cst_list_prim_u_8_strict *method);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_transaction(int64_t port_,
-                                                                           struct wire_cst_list_prim_u_8_strict *transaction,
-                                                                           struct wire_cst_list_prim_u_8_strict *contract_abi,
-                                                                           struct wire_cst_list_prim_u_8_strict *method);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_transaction(struct wire_cst_list_prim_u_8_strict *transaction,
+                                                                                           struct wire_cst_list_prim_u_8_strict *contract_abi,
+                                                                                           struct wire_cst_list_prim_u_8_strict *method);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_transaction_events(int64_t port_,
-                                                                                  struct wire_cst_list_prim_u_8_strict *transaction,
-                                                                                  struct wire_cst_list_prim_u_8_strict *contract_abi);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_transaction_events(struct wire_cst_list_prim_u_8_strict *transaction,
+                                                                                                  struct wire_cst_list_prim_u_8_strict *contract_abi);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_derive_from_phrase(struct wire_cst_list_prim_u_8_strict *phrase,
                                                                                            struct wire_cst_mnemonic_type *mnemonic_type);
@@ -746,109 +735,90 @@ WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_derive_f
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_encode_comment(struct wire_cst_list_prim_u_8_strict *comment,
                                                                                        bool plain);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_encode_internal_input(int64_t port_,
-                                                                              struct wire_cst_list_prim_u_8_strict *contract_abi,
-                                                                              struct wire_cst_list_prim_u_8_strict *method,
-                                                                              struct wire_cst_list_prim_u_8_strict *input);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_encode_internal_input(struct wire_cst_list_prim_u_8_strict *contract_abi,
+                                                                                              struct wire_cst_list_prim_u_8_strict *method,
+                                                                                              struct wire_cst_list_prim_u_8_strict *input);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_encode_internal_message(int64_t port_,
-                                                                                struct wire_cst_list_prim_u_8_strict *src,
-                                                                                struct wire_cst_list_prim_u_8_strict *dst,
-                                                                                bool bounce,
-                                                                                struct wire_cst_list_prim_u_8_strict *state_init,
-                                                                                struct wire_cst_list_prim_u_8_strict *body,
-                                                                                struct wire_cst_list_prim_u_8_strict *amount,
-                                                                                bool *bounced);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_encode_internal_message(struct wire_cst_list_prim_u_8_strict *src,
+                                                                                                struct wire_cst_list_prim_u_8_strict *dst,
+                                                                                                bool bounce,
+                                                                                                struct wire_cst_list_prim_u_8_strict *state_init,
+                                                                                                struct wire_cst_list_prim_u_8_strict *body,
+                                                                                                struct wire_cst_list_prim_u_8_strict *amount,
+                                                                                                bool *bounced);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_execute_local(int64_t port_,
-                                                                      struct wire_cst_list_prim_u_8_strict *config,
-                                                                      struct wire_cst_list_prim_u_8_strict *account,
-                                                                      struct wire_cst_list_prim_u_8_strict *message,
-                                                                      uint32_t utime,
-                                                                      bool disable_signature_check,
-                                                                      struct wire_cst_list_prim_u_8_strict *overwrite_balance,
-                                                                      int32_t *global_id);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_execute_local(struct wire_cst_list_prim_u_8_strict *config,
+                                                                                      struct wire_cst_list_prim_u_8_strict *account,
+                                                                                      struct wire_cst_list_prim_u_8_strict *message,
+                                                                                      uint32_t utime,
+                                                                                      bool disable_signature_check,
+                                                                                      struct wire_cst_list_prim_u_8_strict *overwrite_balance,
+                                                                                      int32_t *global_id);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_extract_public_key(int64_t port_,
-                                                                           struct wire_cst_list_prim_u_8_strict *boc);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_extract_public_key(struct wire_cst_list_prim_u_8_strict *boc);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_generate_key(struct wire_cst_mnemonic_type *account_type);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_boc_hash(int64_t port_,
-                                                                     struct wire_cst_list_prim_u_8_strict *boc);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_boc_hash(struct wire_cst_list_prim_u_8_strict *boc);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_code_salt(int64_t port_,
-                                                                      struct wire_cst_list_prim_u_8_strict *code);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_code_salt(struct wire_cst_list_prim_u_8_strict *code);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_expected_address(int64_t port_,
-                                                                             struct wire_cst_list_prim_u_8_strict *tvc,
-                                                                             struct wire_cst_list_prim_u_8_strict *contract_abi,
-                                                                             int8_t workchain_id,
-                                                                             struct wire_cst_list_prim_u_8_strict *public_key,
-                                                                             struct wire_cst_list_prim_u_8_strict *init_data);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_expected_address(struct wire_cst_list_prim_u_8_strict *tvc,
+                                                                                             struct wire_cst_list_prim_u_8_strict *contract_abi,
+                                                                                             int8_t workchain_id,
+                                                                                             struct wire_cst_list_prim_u_8_strict *public_key,
+                                                                                             struct wire_cst_list_prim_u_8_strict *init_data);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_hints(struct wire_cst_list_prim_u_8_strict *input);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_make_full_account_boc(int64_t port_,
-                                                                              struct wire_cst_list_prim_u_8_strict *account_stuff_boc);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_make_full_account_boc(struct wire_cst_list_prim_u_8_strict *account_stuff_boc);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_merge_tvc(int64_t port_,
-                                                                  struct wire_cst_list_prim_u_8_strict *code,
-                                                                  struct wire_cst_list_prim_u_8_strict *data);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_merge_tvc(struct wire_cst_list_prim_u_8_strict *code,
+                                                                                  struct wire_cst_list_prim_u_8_strict *data);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_pack_address(struct wire_cst_list_prim_u_8_strict *address,
                                                                                      bool is_url_safe,
                                                                                      bool bounceable);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_pack_into_cell(int64_t port_,
-                                                                       struct wire_cst_list_prim_u_8_strict *params,
-                                                                       struct wire_cst_list_prim_u_8_strict *tokens,
-                                                                       struct wire_cst_list_prim_u_8_strict *version);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_pack_into_cell(struct wire_cst_list_prim_u_8_strict *params,
+                                                                                       struct wire_cst_list_prim_u_8_strict *tokens,
+                                                                                       struct wire_cst_list_prim_u_8_strict *version);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_pack_std_smc_addr(int64_t port_,
-                                                                          struct wire_cst_list_prim_u_8_strict *addr,
-                                                                          bool base64_url,
-                                                                          bool bounceable);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_pack_std_smc_addr(struct wire_cst_list_prim_u_8_strict *addr,
+                                                                                          bool base64_url,
+                                                                                          bool bounceable);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_parse_full_account_boc(int64_t port_,
-                                                                               struct wire_cst_list_prim_u_8_strict *account);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_parse_full_account_boc(struct wire_cst_list_prim_u_8_strict *account);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_parse_known_payload(struct wire_cst_list_prim_u_8_strict *payload);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_repack_address(struct wire_cst_list_prim_u_8_strict *address);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local(int64_t port_,
-                                                                  struct wire_cst_list_prim_u_8_strict *account_stuff_boc,
-                                                                  struct wire_cst_list_prim_u_8_strict *contract_abi,
-                                                                  struct wire_cst_list_prim_u_8_strict *method,
-                                                                  struct wire_cst_list_prim_u_8_strict *input,
-                                                                  bool responsible);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local(struct wire_cst_list_prim_u_8_strict *account_stuff_boc,
+                                                                                  struct wire_cst_list_prim_u_8_strict *contract_abi,
+                                                                                  struct wire_cst_list_prim_u_8_strict *method,
+                                                                                  struct wire_cst_list_prim_u_8_strict *input,
+                                                                                  bool responsible);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_set_code_salt(int64_t port_,
-                                                                      struct wire_cst_list_prim_u_8_strict *code,
-                                                                      struct wire_cst_list_prim_u_8_strict *salt);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_set_code_salt(struct wire_cst_list_prim_u_8_strict *code,
+                                                                                      struct wire_cst_list_prim_u_8_strict *salt);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_split_tvc(int64_t port_,
-                                                                  struct wire_cst_list_prim_u_8_strict *tvc);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_split_tvc(struct wire_cst_list_prim_u_8_strict *tvc);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_contract_fields(int64_t port_,
-                                                                               struct wire_cst_list_prim_u_8_strict *contract_abi,
-                                                                               struct wire_cst_list_prim_u_8_strict *boc,
-                                                                               bool allow_partial);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_contract_fields(struct wire_cst_list_prim_u_8_strict *contract_abi,
+                                                                                               struct wire_cst_list_prim_u_8_strict *boc,
+                                                                                               bool allow_partial);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_from_cell(int64_t port_,
-                                                                         struct wire_cst_list_prim_u_8_strict *params,
-                                                                         struct wire_cst_list_prim_u_8_strict *boc,
-                                                                         bool allow_partial,
-                                                                         struct wire_cst_list_prim_u_8_strict *version);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_from_cell(struct wire_cst_list_prim_u_8_strict *params,
+                                                                                         struct wire_cst_list_prim_u_8_strict *boc,
+                                                                                         bool allow_partial,
+                                                                                         struct wire_cst_list_prim_u_8_strict *version);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_init_data(int64_t port_,
-                                                                         struct wire_cst_list_prim_u_8_strict *contract_abi,
-                                                                         struct wire_cst_list_prim_u_8_strict *data);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_init_data(struct wire_cst_list_prim_u_8_strict *contract_abi,
+                                                                                         struct wire_cst_list_prim_u_8_strict *data);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_std_smc_addr(int64_t port_,
-                                                                            struct wire_cst_list_prim_u_8_strict *packed,
-                                                                            bool base64_url);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_std_smc_addr(struct wire_cst_list_prim_u_8_strict *packed,
+                                                                                            bool base64_url);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_validate_address(struct wire_cst_list_prim_u_8_strict *address);
 

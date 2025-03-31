@@ -59,15 +59,14 @@ String ntDeriveFromPhrase(
 ///----------------------------
 /// Check if public key is correct.
 /// If no - throws error, if ok - return true
-Future<bool> ntCheckPublicKey({required String publicKey}) =>
-    NekotonBridge.instance.api
-        .crateApiMergedNtCheckPublicKey(publicKey: publicKey);
+bool ntCheckPublicKey({required String publicKey}) => NekotonBridge.instance.api
+    .crateApiMergedNtCheckPublicKey(publicKey: publicKey);
 
 /// Run contract local.
 /// Return json-encoded ExecutionOutput or throws error.
 ///
 /// input - is json-encoded AbiToken
-Future<String> ntRunLocal(
+String ntRunLocal(
         {required String accountStuffBoc,
         required String contractAbi,
         required String method,
@@ -82,7 +81,7 @@ Future<String> ntRunLocal(
 
 /// Get address of tvc and contract_abi.
 /// Returns list of [address, boc of state_init, hash] or throws error
-Future<List<String>> ntGetExpectedAddress(
+List<String> ntGetExpectedAddress(
         {required String tvc,
         required String contractAbi,
         required int workchainId,
@@ -96,7 +95,7 @@ Future<List<String>> ntGetExpectedAddress(
         initData: initData);
 
 /// Returns base64-encoded body that was encoded or throws error
-Future<String> ntEncodeInternalInput(
+String ntEncodeInternalInput(
         {required String contractAbi,
         required String method,
         required String input}) =>
@@ -105,7 +104,7 @@ Future<String> ntEncodeInternalInput(
 
 /// Returns json-encoded SignedMessage from nekoton or throws error
 /// timeout - milliseconds
-Future<String> ntCreateExternalMessageWithoutSignature(
+String ntCreateExternalMessageWithoutSignature(
         {required String dst,
         required String contractAbi,
         required String method,
@@ -123,7 +122,7 @@ Future<String> ntCreateExternalMessageWithoutSignature(
 
 /// Create external unsigned message that can be listened and handled or throws error
 /// timeout - milliseconds
-Future<UnsignedMessageImpl> ntCreateExternalMessage(
+UnsignedMessageImpl ntCreateExternalMessage(
         {required String dst,
         required String contractAbi,
         required String method,
@@ -146,7 +145,7 @@ String? ntParseKnownPayload({required String payload}) =>
         .crateApiMergedNtParseKnownPayload(payload: payload);
 
 /// Decode input data and return json-encoded DecodedInput or throws error
-Future<String> ntDecodeInput(
+String ntDecodeInput(
         {required String messageBody,
         required String contractAbi,
         String? method,
@@ -158,7 +157,7 @@ Future<String> ntDecodeInput(
         internal: internal);
 
 /// Decode input data and return json-encoded DecodedEvent or throws error
-Future<String> ntDecodeEvent(
+String ntDecodeEvent(
         {required String messageBody,
         required String contractAbi,
         String? event}) =>
@@ -166,7 +165,7 @@ Future<String> ntDecodeEvent(
         messageBody: messageBody, contractAbi: contractAbi, event: event);
 
 /// Decode output data and return json-encoded DecodedOutput or throws error
-Future<String> ntDecodeOutput(
+String ntDecodeOutput(
         {required String messageBody,
         required String contractAbi,
         String? method}) =>
@@ -174,7 +173,7 @@ Future<String> ntDecodeOutput(
         messageBody: messageBody, contractAbi: contractAbi, method: method);
 
 /// Decode transaction and return json-encoded DecodedTransaction or throws error
-Future<String> ntDecodeTransaction(
+String ntDecodeTransaction(
         {required String transaction,
         required String contractAbi,
         String? method}) =>
@@ -182,24 +181,24 @@ Future<String> ntDecodeTransaction(
         transaction: transaction, contractAbi: contractAbi, method: method);
 
 /// Decode events of transaction and return json-encoded list of DecodedEvent or throws error
-Future<String> ntDecodeTransactionEvents(
+String ntDecodeTransactionEvents(
         {required String transaction, required String contractAbi}) =>
     NekotonBridge.instance.api.crateApiMergedNtDecodeTransactionEvents(
         transaction: transaction, contractAbi: contractAbi);
 
 /// Returns hash of decoded boc or throws error
-Future<String> ntGetBocHash({required String boc}) =>
+String ntGetBocHash({required String boc}) =>
     NekotonBridge.instance.api.crateApiMergedNtGetBocHash(boc: boc);
 
 /// Return base64 encoded bytes of tokens or throws error
 /// returns [tvc, hash]
-Future<List<String>> ntPackIntoCell(
+List<String> ntPackIntoCell(
         {required String params, required String tokens, String? version}) =>
     NekotonBridge.instance.api.crateApiMergedNtPackIntoCell(
         params: params, tokens: tokens, version: version);
 
 /// Parse list of params and return json-encoded Tokens or throws error
-Future<String> ntUnpackFromCell(
+String ntUnpackFromCell(
         {required String params,
         required String boc,
         required bool allowPartial,
@@ -209,7 +208,7 @@ Future<String> ntUnpackFromCell(
 
 /// Pack address std smd or throw error
 /// Returns new packed address as string
-Future<String> ntPackStdSmcAddr(
+String ntPackStdSmcAddr(
         {required String addr,
         required bool base64Url,
         required bool bounceable}) =>
@@ -218,8 +217,7 @@ Future<String> ntPackStdSmcAddr(
 
 /// Unpack address std smd or throw error.
 /// Returns json-encoded MsgAddressInt
-Future<String> ntUnpackStdSmcAddr(
-        {required String packed, required bool base64Url}) =>
+String ntUnpackStdSmcAddr({required String packed, required bool base64Url}) =>
     NekotonBridge.instance.api
         .crateApiMergedNtUnpackStdSmcAddr(packed: packed, base64Url: base64Url);
 
@@ -239,33 +237,32 @@ String ntPackAddress(
         address: address, isUrlSafe: isUrlSafe, bounceable: bounceable);
 
 /// Extract public key from boc and return it or throw error
-Future<String> ntExtractPublicKey({required String boc}) =>
+String ntExtractPublicKey({required String boc}) =>
     NekotonBridge.instance.api.crateApiMergedNtExtractPublicKey(boc: boc);
 
 /// Convert code to base64 tvc string and return it or throw error
 /// returns [tvc, hash]
-Future<List<String>> ntCodeToTvc({required String code}) =>
+List<String> ntCodeToTvc({required String code}) =>
     NekotonBridge.instance.api.crateApiMergedNtCodeToTvc(code: code);
 
 /// Merge code and data to tvc base64 string and return it or throw error
 /// returns [tvc, hash]
-Future<List<String>> ntMergeTvc({required String code, required String data}) =>
+List<String> ntMergeTvc({required String code, required String data}) =>
     NekotonBridge.instance.api.crateApiMergedNtMergeTvc(code: code, data: data);
 
 /// Split base64 tvc string into data and code.
 /// Return vec![data, code] or throw error
-Future<List<String?>> ntSplitTvc({required String tvc}) =>
+List<String?> ntSplitTvc({required String tvc}) =>
     NekotonBridge.instance.api.crateApiMergedNtSplitTvc(tvc: tvc);
 
 /// Set salt to code and return base64-encoded string or throw error
 /// returns [tvc, hash]
-Future<List<String>> ntSetCodeSalt(
-        {required String code, required String salt}) =>
+List<String> ntSetCodeSalt({required String code, required String salt}) =>
     NekotonBridge.instance.api
         .crateApiMergedNtSetCodeSalt(code: code, salt: salt);
 
 /// Get salt from code if possible and return base64-encoded salt or throw error
-Future<String?> ntGetCodeSalt({required String code}) =>
+String? ntGetCodeSalt({required String code}) =>
     NekotonBridge.instance.api.crateApiMergedNtGetCodeSalt(code: code);
 
 /// Run contract locally.
@@ -276,7 +273,7 @@ Future<String?> ntGetCodeSalt({required String code}) =>
 /// Returns [boc, transaction] if everything is ok or
 /// [error_code] if transaction failed
 /// or throws error
-Future<List<String>> ntExecuteLocal(
+List<String> ntExecuteLocal(
         {required String config,
         required String account,
         required String message,
@@ -295,14 +292,14 @@ Future<List<String>> ntExecuteLocal(
 
 /// Unpack data by contract.
 /// Returns [option publicKey, json-encoded Map<String, Token>] or throw error
-Future<List<String?>> ntUnpackInitData(
+List<String?> ntUnpackInitData(
         {required String contractAbi, required String data}) =>
     NekotonBridge.instance.api
         .crateApiMergedNtUnpackInitData(contractAbi: contractAbi, data: data);
 
 /// Unpack contract fields.
 /// Returns optional json-encoded Map<String, Token> or throw error
-Future<String?> ntUnpackContractFields(
+String? ntUnpackContractFields(
         {required String contractAbi,
         required String boc,
         required bool allowPartial}) =>
@@ -312,7 +309,7 @@ Future<String?> ntUnpackContractFields(
 /// Returns json-encoded SignedMessage or throws error
 /// dst - destination address
 /// timeout - milliseconds
-Future<String> ntCreateRawExternalMessage(
+String ntCreateRawExternalMessage(
         {required String dst,
         String? stateInit,
         String? body,
@@ -324,7 +321,7 @@ Future<String> ntCreateRawExternalMessage(
 /// src - address of sender
 /// dst - address of destination
 /// body - base64-encoded data
-Future<String> ntEncodeInternalMessage(
+String ntEncodeInternalMessage(
         {String? src,
         required String dst,
         required bool bounce,
@@ -342,17 +339,17 @@ Future<String> ntEncodeInternalMessage(
         bounced: bounced);
 
 /// Returns base-64 encoded Account or throws error
-Future<String> ntMakeFullAccountBoc({String? accountStuffBoc}) =>
+String ntMakeFullAccountBoc({String? accountStuffBoc}) =>
     NekotonBridge.instance.api
         .crateApiMergedNtMakeFullAccountBoc(accountStuffBoc: accountStuffBoc);
 
 /// Returns optional json-encoded FullContractState or throws error
 /// account - base64-encoded boc after execute_local
-Future<String?> ntParseFullAccountBoc({required String account}) =>
+String? ntParseFullAccountBoc({required String account}) =>
     NekotonBridge.instance.api
         .crateApiMergedNtParseFullAccountBoc(account: account);
 
-Future<String> ntComputeStorageFee(
+String ntComputeStorageFee(
         {required String config,
         required String account,
         required int utime,

@@ -4,9 +4,9 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
 /// Check if public key is correct.
 /// Return true or false
-Future<bool> checkPublicKey({required PublicKey publicKey}) async {
+bool checkPublicKey({required PublicKey publicKey}) {
   try {
-    return await ntCheckPublicKey(publicKey: publicKey.publicKey);
+    return ntCheckPublicKey(publicKey: publicKey.publicKey);
   } catch (_) {
     return false;
   }
@@ -16,14 +16,14 @@ Future<bool> checkPublicKey({required PublicKey publicKey}) async {
 /// Return json-encoded ExecutionOutput or throws error.
 ///
 /// input - is json-encoded AbiToken
-Future<ExecutionOutput> runLocal({
+ExecutionOutput runLocal({
   required String accountStuffBoc,
   required String contractAbi,
   required String method,
   required Map<String, dynamic> input,
   required bool responsible,
-}) async {
-  final res = await ntRunLocal(
+}) {
+  final res = ntRunLocal(
     accountStuffBoc: accountStuffBoc,
     contractAbi: contractAbi,
     method: method,
@@ -35,14 +35,14 @@ Future<ExecutionOutput> runLocal({
 
 /// Get address of tvc and contract_abi.
 /// Returns list of [address, state_init, hash] or throws error
-Future<(Address, String, String)> getExpectedAddress({
+(Address, String, String) getExpectedAddress({
   required String tvc,
   required String contractAbi,
   required int workchainId,
   PublicKey? publicKey,
   required TokensObject initData,
-}) async {
-  final res = await ntGetExpectedAddress(
+}) {
+  final res = ntGetExpectedAddress(
     tvc: tvc,
     contractAbi: contractAbi,
     workchainId: workchainId,
@@ -53,7 +53,7 @@ Future<(Address, String, String)> getExpectedAddress({
 }
 
 /// Returns base64-encoded body that was encoded or throws error
-Future<String> encodeInternalInput({
+String encodeInternalInput({
   required String contractAbi,
   required String method,
   required TokensObject input,
@@ -66,15 +66,15 @@ Future<String> encodeInternalInput({
 }
 
 /// Returns SignedMessage from nekoton or throws error
-Future<SignedMessage> createExternalMessageWithoutSignature({
+SignedMessage createExternalMessageWithoutSignature({
   required Address dst,
   required String contractAbi,
   required String method,
   String? stateInit,
   required TokensObject input,
   required Duration timeout,
-}) async {
-  final res = await ntCreateExternalMessageWithoutSignature(
+}) {
+  final res = ntCreateExternalMessageWithoutSignature(
     dst: dst.address,
     contractAbi: contractAbi,
     method: method,
@@ -94,9 +94,9 @@ Future<UnsignedMessage> createExternalMessage({
   required TokensObject input,
   required PublicKey publicKey,
   required Duration timeout,
-}) async {
+}) {
   return UnsignedMessage.create(
-    message: await ntCreateExternalMessage(
+    message: ntCreateExternalMessage(
       dst: dst,
       contractAbi: contractAbi,
       method: method,
@@ -118,13 +118,13 @@ KnownPayload? parseKnownPayload(String payload) {
 }
 
 /// Decode input data and return DecodedInput or throws error
-Future<DecodedInput?> decodeInput({
+DecodedInput? decodeInput({
   required String messageBody,
   required String contractAbi,
   MethodName? method,
   required bool internal,
-}) async {
-  final res = await ntDecodeInput(
+}) {
+  final res = ntDecodeInput(
     messageBody: messageBody,
     contractAbi: contractAbi,
     method: method == null ? null : jsonEncode(method),
@@ -136,12 +136,12 @@ Future<DecodedInput?> decodeInput({
 }
 
 /// Decode input data and return DecodedEvent or throws error
-Future<DecodedEvent?> decodeEvent({
+DecodedEvent? decodeEvent({
   required String messageBody,
   required String contractAbi,
   MethodName? event,
-}) async {
-  final res = await ntDecodeEvent(
+}) {
+  final res = ntDecodeEvent(
     messageBody: messageBody,
     contractAbi: contractAbi,
     event: event == null ? null : jsonEncode(event),
@@ -152,12 +152,12 @@ Future<DecodedEvent?> decodeEvent({
 }
 
 /// Decode output data and return DecodedOutput or throws error
-Future<DecodedOutput?> decodeOutput({
+DecodedOutput? decodeOutput({
   required String messageBody,
   required String contractAbi,
   MethodName? method,
-}) async {
-  final res = await ntDecodeOutput(
+}) {
+  final res = ntDecodeOutput(
     messageBody: messageBody,
     contractAbi: contractAbi,
     method: method == null ? null : jsonEncode(method),
@@ -168,12 +168,12 @@ Future<DecodedOutput?> decodeOutput({
 }
 
 /// Decode transaction and return DecodedTransaction or throws error
-Future<DecodedTransaction?> decodeTransaction({
+DecodedTransaction? decodeTransaction({
   required Transaction transaction,
   required String contractAbi,
   MethodName? method,
-}) async {
-  final res = await ntDecodeTransaction(
+}) {
+  final res = ntDecodeTransaction(
     transaction: jsonEncode(transaction),
     contractAbi: contractAbi,
     method: method == null ? null : jsonEncode(method),
@@ -184,11 +184,11 @@ Future<DecodedTransaction?> decodeTransaction({
 }
 
 /// Decode events of transaction and return list of DecodedEvent or throws error
-Future<List<DecodedEvent>> decodeTransactionEvents({
+List<DecodedEvent> decodeTransactionEvents({
   required Transaction transaction,
   required String contractAbi,
-}) async {
-  final res = await ntDecodeTransactionEvents(
+}) {
+  final res = ntDecodeTransactionEvents(
     transaction: jsonEncode(transaction),
     contractAbi: contractAbi,
   );
@@ -199,17 +199,17 @@ Future<List<DecodedEvent>> decodeTransactionEvents({
 }
 
 /// Returns hash of decoded boc or throws error
-Future<String> getBocHash(String boc) {
+String getBocHash(String boc) {
   return ntGetBocHash(boc: boc);
 }
 
 /// Return (base64 tvc, hash) or throws error
-Future<(String, String)> packIntoCell({
+(String, String) packIntoCell({
   required List<AbiParam> params,
   required TokensObject tokens,
   required String? abiVersion,
-}) async {
-  final data = await ntPackIntoCell(
+}) {
+  final data = ntPackIntoCell(
     params: jsonEncode(params),
     tokens: jsonEncode(tokens),
     version: abiVersion,
@@ -219,13 +219,13 @@ Future<(String, String)> packIntoCell({
 }
 
 /// Parse list of params and return json-encoded Tokens or throws error
-Future<TokensObject> unpackFromCell({
+TokensObject unpackFromCell({
   required List<AbiParam> params,
   required String boc,
   required bool allowPartial,
   required String? abiVersion,
-}) async {
-  return jsonDecode(await ntUnpackFromCell(
+}) {
+  return jsonDecode(ntUnpackFromCell(
     params: jsonEncode(params),
     boc: boc,
     allowPartial: allowPartial,
@@ -235,7 +235,7 @@ Future<TokensObject> unpackFromCell({
 
 /// Pack address std smd or throw error
 /// Returns new packed address as string
-Future<String> packStdSmcAddr({
+String packStdSmcAddr({
   required Address address,
   required bool base64Url,
   required bool bounceable,
@@ -247,7 +247,7 @@ Future<String> packStdSmcAddr({
   );
 }
 
-Future<String> unpackStdSmcAddr({
+String unpackStdSmcAddr({
   required String packed,
   required bool base64Url,
 }) {
@@ -283,47 +283,47 @@ Address packAddress(
 }
 
 /// Extract public key from boc and return it or throw error
-Future<PublicKey> extractPublicKey(String boc) async {
-  return PublicKey(publicKey: await ntExtractPublicKey(boc: boc));
+PublicKey extractPublicKey(String boc) {
+  return PublicKey(publicKey: ntExtractPublicKey(boc: boc));
 }
 
 /// Convert code to base64 tvc string and return (tvc, hash) or throw error
-Future<(String, String)> codeToTvc(String code) async {
-  final data = await ntCodeToTvc(code: code);
+(String, String) codeToTvc(String code) {
+  final data = ntCodeToTvc(code: code);
 
   return (data[0], data[1]);
 }
 
 /// Merge code and data to tvc base64 string and return (tvc, hash)
 /// or throw error
-Future<(String, String)> mergeTvc({
+(String, String) mergeTvc({
   required String code,
   required String data,
-}) async {
-  final res = await ntMergeTvc(code: code, data: data);
+}) {
+  final res = ntMergeTvc(code: code, data: data);
 
   return (res[0], res[1]);
 }
 
 /// Split base64 tvc string into data and code.
 /// Return (data, code) or throw error
-Future<(String?, String?)> splitTvc(String tvc) async {
-  final res = await ntSplitTvc(tvc: tvc);
+(String?, String?) splitTvc(String tvc) {
+  final res = ntSplitTvc(tvc: tvc);
   return (res[0], res[1]);
 }
 
 /// Set salt to code and return (tvc, hash) or throw error
-Future<(String, String)> setCodeSalt({
+(String, String) setCodeSalt({
   required String code,
   required String salt,
-}) async {
-  final data = await ntSetCodeSalt(code: code, salt: salt);
+}) {
+  final data = ntSetCodeSalt(code: code, salt: salt);
 
   return (data[0], data[1]);
 }
 
 /// Get salt from code if possible and return base64-encoded salt or throw error
-Future<String?> getCodeSalt(String code) {
+String? getCodeSalt(String code) {
   return ntGetCodeSalt(code: code);
 }
 
@@ -348,7 +348,7 @@ class ExecuteLocalException implements Exception {
 /// throws [ExecuteLocalException] if transaction failed, this is not
 ///   code-related problem.
 /// or throws error
-Future<(String, Transaction)> executeLocal({
+(String, Transaction) executeLocal({
   required String config,
   required String account,
   required String message,
@@ -356,8 +356,8 @@ Future<(String, Transaction)> executeLocal({
   required bool disableSignatureCheck,
   BigInt? overwriteBalance,
   int? globalId,
-}) async {
-  final result = await ntExecuteLocal(
+}) {
+  final result = ntExecuteLocal(
     account: account,
     message: message,
     utime: utime.millisecondsSinceEpoch,
@@ -376,11 +376,11 @@ Future<(String, Transaction)> executeLocal({
 /// Unpack data from [contractAbi].
 /// Returns optional public key and json-encoded Map<String, Token>
 /// or throws error.
-Future<(PublicKey?, Map<String, dynamic>)> unpackInitData({
+(PublicKey?, Map<String, dynamic>) unpackInitData({
   required String contractAbi,
   required String data,
-}) async {
-  final result = await ntUnpackInitData(
+}) {
+  final result = ntUnpackInitData(
     contractAbi: contractAbi,
     data: data,
   );
@@ -393,12 +393,12 @@ Future<(PublicKey?, Map<String, dynamic>)> unpackInitData({
 
 /// Unpack contract fields.
 /// Returns optional json-encoded Map<String, Token> or throw error
-Future<Map<String, dynamic>?> unpackContractFields({
+Map<String, dynamic>? unpackContractFields({
   required String contractAbi,
   required String boc,
   required bool allowPartial,
-}) async {
-  final result = await ntUnpackContractFields(
+}) {
+  final result = ntUnpackContractFields(
     contractAbi: contractAbi,
     boc: boc,
     allowPartial: allowPartial,
@@ -409,13 +409,13 @@ Future<Map<String, dynamic>?> unpackContractFields({
 }
 
 /// Create raw external message without real signing or throws error
-Future<SignedMessage> createRawExternalMessage({
+SignedMessage createRawExternalMessage({
   required Address dst,
   required Duration timeout,
   String? stateInit,
   String? body,
-}) async {
-  final result = await ntCreateRawExternalMessage(
+}) {
+  final result = ntCreateRawExternalMessage(
     dst: dst.address,
     timeout: timeout.inMilliseconds,
     body: body,
@@ -426,7 +426,7 @@ Future<SignedMessage> createRawExternalMessage({
 }
 
 /// Returns base-64 encoded Message or throws error
-Future<String> encodeInternalMessage({
+String encodeInternalMessage({
   required Address dst,
   required bool bounce,
   required BigInt amount,
@@ -434,7 +434,7 @@ Future<String> encodeInternalMessage({
   String? stateInit,
   String? body,
   bool? bounced,
-}) async {
+}) {
   return ntEncodeInternalMessage(
     dst: dst.address,
     src: src?.address,
@@ -448,13 +448,13 @@ Future<String> encodeInternalMessage({
 
 /// Returns base-64 encoded Account or throws error
 /// [accountStuffBoc] - [FullContractState.boc]
-Future<String> makeFullAccountBoc(String? accountStuffBoc) {
+String makeFullAccountBoc(String? accountStuffBoc) {
   return ntMakeFullAccountBoc(accountStuffBoc: accountStuffBoc);
 }
 
 /// [account] - base64-encoded boc after [executeLocal]
-Future<FullContractState?> parseFullAccountBoc(String account) async {
-  final state = await ntParseFullAccountBoc(account: account);
+FullContractState? parseFullAccountBoc(String account) {
+  final state = ntParseFullAccountBoc(account: account);
   if (state == null) return null;
 
   return FullContractState.fromJson(jsonDecode(state));
@@ -464,13 +464,13 @@ Future<FullContractState?> parseFullAccountBoc(String account) async {
 /// [account] - base64-encoded boc
 /// [utime] - seconds
 /// [isMasterchain] - default: false
-Future<StorageFeeInfo> computeStorageFee({
+StorageFeeInfo computeStorageFee({
   required String config,
   required String account,
   required int utime,
   bool? isMasterchain,
-}) async {
-  final data = await ntComputeStorageFee(
+}) {
+  final data = ntComputeStorageFee(
     config: config,
     account: account,
     utime: utime,

@@ -36,7 +36,7 @@ void main() {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
-      final decoded = await decodeTransaction(
+      final decoded = decodeTransaction(
         transaction: Transaction.fromJson(jsonDecode(json)),
         contractAbi: abi,
       );

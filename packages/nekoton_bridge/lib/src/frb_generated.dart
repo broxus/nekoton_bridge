@@ -461,17 +461,17 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   Future<MyClass> crateApiMergedMyClassNew({required int a});
 
-  Future<bool> crateApiMergedNtCheckPublicKey({required String publicKey});
+  bool crateApiMergedNtCheckPublicKey({required String publicKey});
 
-  Future<List<String>> crateApiMergedNtCodeToTvc({required String code});
+  List<String> crateApiMergedNtCodeToTvc({required String code});
 
-  Future<String> crateApiMergedNtComputeStorageFee(
+  String crateApiMergedNtComputeStorageFee(
       {required String config,
       required String account,
       required int utime,
       required bool isMasterchain});
 
-  Future<UnsignedMessageImpl> crateApiMergedNtCreateExternalMessage(
+  UnsignedMessageImpl crateApiMergedNtCreateExternalMessage(
       {required String dst,
       required String contractAbi,
       required String method,
@@ -480,7 +480,7 @@ abstract class NekotonBridgeApi extends BaseApi {
       required String publicKey,
       required int timeout});
 
-  Future<String> crateApiMergedNtCreateExternalMessageWithoutSignature(
+  String crateApiMergedNtCreateExternalMessageWithoutSignature(
       {required String dst,
       required String contractAbi,
       required String method,
@@ -488,34 +488,34 @@ abstract class NekotonBridgeApi extends BaseApi {
       required String input,
       required int timeout});
 
-  Future<String> crateApiMergedNtCreateRawExternalMessage(
+  String crateApiMergedNtCreateRawExternalMessage(
       {required String dst,
       String? stateInit,
       String? body,
       required int timeout});
 
-  Future<String> crateApiMergedNtDecodeEvent(
+  String crateApiMergedNtDecodeEvent(
       {required String messageBody,
       required String contractAbi,
       String? event});
 
-  Future<String> crateApiMergedNtDecodeInput(
+  String crateApiMergedNtDecodeInput(
       {required String messageBody,
       required String contractAbi,
       String? method,
       required bool internal});
 
-  Future<String> crateApiMergedNtDecodeOutput(
+  String crateApiMergedNtDecodeOutput(
       {required String messageBody,
       required String contractAbi,
       String? method});
 
-  Future<String> crateApiMergedNtDecodeTransaction(
+  String crateApiMergedNtDecodeTransaction(
       {required String transaction,
       required String contractAbi,
       String? method});
 
-  Future<String> crateApiMergedNtDecodeTransactionEvents(
+  String crateApiMergedNtDecodeTransactionEvents(
       {required String transaction, required String contractAbi});
 
   String crateApiMergedNtDeriveFromPhrase(
@@ -524,12 +524,12 @@ abstract class NekotonBridgeApi extends BaseApi {
   String crateApiMergedNtEncodeComment(
       {required String comment, required bool plain});
 
-  Future<String> crateApiMergedNtEncodeInternalInput(
+  String crateApiMergedNtEncodeInternalInput(
       {required String contractAbi,
       required String method,
       required String input});
 
-  Future<String> crateApiMergedNtEncodeInternalMessage(
+  String crateApiMergedNtEncodeInternalMessage(
       {String? src,
       required String dst,
       required bool bounce,
@@ -538,7 +538,7 @@ abstract class NekotonBridgeApi extends BaseApi {
       required String amount,
       bool? bounced});
 
-  Future<List<String>> crateApiMergedNtExecuteLocal(
+  List<String> crateApiMergedNtExecuteLocal(
       {required String config,
       required String account,
       required String message,
@@ -547,16 +547,16 @@ abstract class NekotonBridgeApi extends BaseApi {
       String? overwriteBalance,
       int? globalId});
 
-  Future<String> crateApiMergedNtExtractPublicKey({required String boc});
+  String crateApiMergedNtExtractPublicKey({required String boc});
 
   GeneratedKeyG crateApiMergedNtGenerateKey(
       {required MnemonicType accountType});
 
-  Future<String> crateApiMergedNtGetBocHash({required String boc});
+  String crateApiMergedNtGetBocHash({required String boc});
 
-  Future<String?> crateApiMergedNtGetCodeSalt({required String code});
+  String? crateApiMergedNtGetCodeSalt({required String code});
 
-  Future<List<String>> crateApiMergedNtGetExpectedAddress(
+  List<String> crateApiMergedNtGetExpectedAddress(
       {required String tvc,
       required String contractAbi,
       required int workchainId,
@@ -565,9 +565,9 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   List<String> crateApiMergedNtGetHints({required String input});
 
-  Future<String> crateApiMergedNtMakeFullAccountBoc({String? accountStuffBoc});
+  String crateApiMergedNtMakeFullAccountBoc({String? accountStuffBoc});
 
-  Future<List<String>> crateApiMergedNtMergeTvc(
+  List<String> crateApiMergedNtMergeTvc(
       {required String code, required String data});
 
   String crateApiMergedNtPackAddress(
@@ -575,48 +575,47 @@ abstract class NekotonBridgeApi extends BaseApi {
       required bool isUrlSafe,
       required bool bounceable});
 
-  Future<List<String>> crateApiMergedNtPackIntoCell(
+  List<String> crateApiMergedNtPackIntoCell(
       {required String params, required String tokens, String? version});
 
-  Future<String> crateApiMergedNtPackStdSmcAddr(
+  String crateApiMergedNtPackStdSmcAddr(
       {required String addr,
       required bool base64Url,
       required bool bounceable});
 
-  Future<String?> crateApiMergedNtParseFullAccountBoc(
-      {required String account});
+  String? crateApiMergedNtParseFullAccountBoc({required String account});
 
   String? crateApiMergedNtParseKnownPayload({required String payload});
 
   String crateApiMergedNtRepackAddress({required String address});
 
-  Future<String> crateApiMergedNtRunLocal(
+  String crateApiMergedNtRunLocal(
       {required String accountStuffBoc,
       required String contractAbi,
       required String method,
       required String input,
       required bool responsible});
 
-  Future<List<String>> crateApiMergedNtSetCodeSalt(
+  List<String> crateApiMergedNtSetCodeSalt(
       {required String code, required String salt});
 
-  Future<List<String?>> crateApiMergedNtSplitTvc({required String tvc});
+  List<String?> crateApiMergedNtSplitTvc({required String tvc});
 
-  Future<String?> crateApiMergedNtUnpackContractFields(
+  String? crateApiMergedNtUnpackContractFields(
       {required String contractAbi,
       required String boc,
       required bool allowPartial});
 
-  Future<String> crateApiMergedNtUnpackFromCell(
+  String crateApiMergedNtUnpackFromCell(
       {required String params,
       required String boc,
       required bool allowPartial,
       String? version});
 
-  Future<List<String?>> crateApiMergedNtUnpackInitData(
+  List<String?> crateApiMergedNtUnpackInitData(
       {required String contractAbi, required String data});
 
-  Future<String> crateApiMergedNtUnpackStdSmcAddr(
+  String crateApiMergedNtUnpackStdSmcAddr(
       {required String packed, required bool base64Url});
 
   bool crateApiMergedNtValidateAddress({required String address});
@@ -3828,15 +3827,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<bool> crateApiMergedNtCheckPublicKey({required String publicKey}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+  bool crateApiMergedNtCheckPublicKey({required String publicKey}) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(publicKey);
-        return wire.wire__crate__api__merged__nt_check_public_key(port_, arg0);
+        return wire.wire__crate__api__merged__nt_check_public_key(arg0);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+        decodeErrorData: null,
       ),
       constMeta: kCrateApiMergedNtCheckPublicKeyConstMeta,
       argValues: [publicKey],
@@ -3851,11 +3850,11 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<List<String>> crateApiMergedNtCodeToTvc({required String code}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+  List<String> crateApiMergedNtCodeToTvc({required String code}) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(code);
-        return wire.wire__crate__api__merged__nt_code_to_tvc(port_, arg0);
+        return wire.wire__crate__api__merged__nt_code_to_tvc(arg0);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_list_String,
@@ -3873,19 +3872,19 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtComputeStorageFee(
+  String crateApiMergedNtComputeStorageFee(
       {required String config,
       required String account,
       required int utime,
       required bool isMasterchain}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(config);
         var arg1 = cst_encode_String(account);
         var arg2 = cst_encode_u_32(utime);
         var arg3 = cst_encode_bool(isMasterchain);
         return wire.wire__crate__api__merged__nt_compute_storage_fee(
-            port_, arg0, arg1, arg2, arg3);
+            arg0, arg1, arg2, arg3);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -3904,7 +3903,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<UnsignedMessageImpl> crateApiMergedNtCreateExternalMessage(
+  UnsignedMessageImpl crateApiMergedNtCreateExternalMessage(
       {required String dst,
       required String contractAbi,
       required String method,
@@ -3912,8 +3911,8 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       required String input,
       required String publicKey,
       required int timeout}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(dst);
         var arg1 = cst_encode_String(contractAbi);
         var arg2 = cst_encode_String(method);
@@ -3922,7 +3921,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         var arg5 = cst_encode_String(publicKey);
         var arg6 = cst_encode_u_32(timeout);
         return wire.wire__crate__api__merged__nt_create_external_message(
-            port_, arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+            arg0, arg1, arg2, arg3, arg4, arg5, arg6);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_unsigned_message_impl,
@@ -3957,15 +3956,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtCreateExternalMessageWithoutSignature(
+  String crateApiMergedNtCreateExternalMessageWithoutSignature(
       {required String dst,
       required String contractAbi,
       required String method,
       String? stateInit,
       required String input,
       required int timeout}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(dst);
         var arg1 = cst_encode_String(contractAbi);
         var arg2 = cst_encode_String(method);
@@ -3974,7 +3973,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         var arg5 = cst_encode_u_32(timeout);
         return wire
             .wire__crate__api__merged__nt_create_external_message_without_signature(
-                port_, arg0, arg1, arg2, arg3, arg4, arg5);
+                arg0, arg1, arg2, arg3, arg4, arg5);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -4002,19 +4001,19 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           );
 
   @override
-  Future<String> crateApiMergedNtCreateRawExternalMessage(
+  String crateApiMergedNtCreateRawExternalMessage(
       {required String dst,
       String? stateInit,
       String? body,
       required int timeout}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(dst);
         var arg1 = cst_encode_opt_String(stateInit);
         var arg2 = cst_encode_opt_String(body);
         var arg3 = cst_encode_u_32(timeout);
         return wire.wire__crate__api__merged__nt_create_raw_external_message(
-            port_, arg0, arg1, arg2, arg3);
+            arg0, arg1, arg2, arg3);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -4033,17 +4032,16 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtDecodeEvent(
+  String crateApiMergedNtDecodeEvent(
       {required String messageBody,
       required String contractAbi,
       String? event}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(messageBody);
         var arg1 = cst_encode_String(contractAbi);
         var arg2 = cst_encode_opt_String(event);
-        return wire.wire__crate__api__merged__nt_decode_event(
-            port_, arg0, arg1, arg2);
+        return wire.wire__crate__api__merged__nt_decode_event(arg0, arg1, arg2);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -4062,19 +4060,19 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtDecodeInput(
+  String crateApiMergedNtDecodeInput(
       {required String messageBody,
       required String contractAbi,
       String? method,
       required bool internal}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(messageBody);
         var arg1 = cst_encode_String(contractAbi);
         var arg2 = cst_encode_opt_String(method);
         var arg3 = cst_encode_bool(internal);
         return wire.wire__crate__api__merged__nt_decode_input(
-            port_, arg0, arg1, arg2, arg3);
+            arg0, arg1, arg2, arg3);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -4093,17 +4091,17 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtDecodeOutput(
+  String crateApiMergedNtDecodeOutput(
       {required String messageBody,
       required String contractAbi,
       String? method}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(messageBody);
         var arg1 = cst_encode_String(contractAbi);
         var arg2 = cst_encode_opt_String(method);
         return wire.wire__crate__api__merged__nt_decode_output(
-            port_, arg0, arg1, arg2);
+            arg0, arg1, arg2);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -4122,17 +4120,17 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtDecodeTransaction(
+  String crateApiMergedNtDecodeTransaction(
       {required String transaction,
       required String contractAbi,
       String? method}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(transaction);
         var arg1 = cst_encode_String(contractAbi);
         var arg2 = cst_encode_opt_String(method);
         return wire.wire__crate__api__merged__nt_decode_transaction(
-            port_, arg0, arg1, arg2);
+            arg0, arg1, arg2);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -4151,14 +4149,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtDecodeTransactionEvents(
+  String crateApiMergedNtDecodeTransactionEvents(
       {required String transaction, required String contractAbi}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(transaction);
         var arg1 = cst_encode_String(contractAbi);
         return wire.wire__crate__api__merged__nt_decode_transaction_events(
-            port_, arg0, arg1);
+            arg0, arg1);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -4227,17 +4225,17 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtEncodeInternalInput(
+  String crateApiMergedNtEncodeInternalInput(
       {required String contractAbi,
       required String method,
       required String input}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(contractAbi);
         var arg1 = cst_encode_String(method);
         var arg2 = cst_encode_String(input);
         return wire.wire__crate__api__merged__nt_encode_internal_input(
-            port_, arg0, arg1, arg2);
+            arg0, arg1, arg2);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -4256,7 +4254,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtEncodeInternalMessage(
+  String crateApiMergedNtEncodeInternalMessage(
       {String? src,
       required String dst,
       required bool bounce,
@@ -4264,8 +4262,8 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       String? body,
       required String amount,
       bool? bounced}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_opt_String(src);
         var arg1 = cst_encode_String(dst);
         var arg2 = cst_encode_bool(bounce);
@@ -4274,7 +4272,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         var arg5 = cst_encode_String(amount);
         var arg6 = cst_encode_opt_box_autoadd_bool(bounced);
         return wire.wire__crate__api__merged__nt_encode_internal_message(
-            port_, arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+            arg0, arg1, arg2, arg3, arg4, arg5, arg6);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -4301,7 +4299,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<List<String>> crateApiMergedNtExecuteLocal(
+  List<String> crateApiMergedNtExecuteLocal(
       {required String config,
       required String account,
       required String message,
@@ -4309,8 +4307,8 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       required bool disableSignatureCheck,
       String? overwriteBalance,
       int? globalId}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(config);
         var arg1 = cst_encode_String(account);
         var arg2 = cst_encode_String(message);
@@ -4319,7 +4317,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         var arg5 = cst_encode_opt_String(overwriteBalance);
         var arg6 = cst_encode_opt_box_autoadd_i_32(globalId);
         return wire.wire__crate__api__merged__nt_execute_local(
-            port_, arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+            arg0, arg1, arg2, arg3, arg4, arg5, arg6);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_list_String,
@@ -4354,12 +4352,11 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtExtractPublicKey({required String boc}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+  String crateApiMergedNtExtractPublicKey({required String boc}) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(boc);
-        return wire.wire__crate__api__merged__nt_extract_public_key(
-            port_, arg0);
+        return wire.wire__crate__api__merged__nt_extract_public_key(arg0);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -4402,11 +4399,11 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtGetBocHash({required String boc}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+  String crateApiMergedNtGetBocHash({required String boc}) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(boc);
-        return wire.wire__crate__api__merged__nt_get_boc_hash(port_, arg0);
+        return wire.wire__crate__api__merged__nt_get_boc_hash(arg0);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -4424,11 +4421,11 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String?> crateApiMergedNtGetCodeSalt({required String code}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+  String? crateApiMergedNtGetCodeSalt({required String code}) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(code);
-        return wire.wire__crate__api__merged__nt_get_code_salt(port_, arg0);
+        return wire.wire__crate__api__merged__nt_get_code_salt(arg0);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_opt_String,
@@ -4447,21 +4444,21 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<List<String>> crateApiMergedNtGetExpectedAddress(
+  List<String> crateApiMergedNtGetExpectedAddress(
       {required String tvc,
       required String contractAbi,
       required int workchainId,
       String? publicKey,
       required String initData}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(tvc);
         var arg1 = cst_encode_String(contractAbi);
         var arg2 = cst_encode_i_8(workchainId);
         var arg3 = cst_encode_opt_String(publicKey);
         var arg4 = cst_encode_String(initData);
         return wire.wire__crate__api__merged__nt_get_expected_address(
-            port_, arg0, arg1, arg2, arg3, arg4);
+            arg0, arg1, arg2, arg3, arg4);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_list_String,
@@ -4508,12 +4505,11 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtMakeFullAccountBoc({String? accountStuffBoc}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+  String crateApiMergedNtMakeFullAccountBoc({String? accountStuffBoc}) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_opt_String(accountStuffBoc);
-        return wire.wire__crate__api__merged__nt_make_full_account_boc(
-            port_, arg0);
+        return wire.wire__crate__api__merged__nt_make_full_account_boc(arg0);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -4532,13 +4528,13 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<List<String>> crateApiMergedNtMergeTvc(
+  List<String> crateApiMergedNtMergeTvc(
       {required String code, required String data}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(code);
         var arg1 = cst_encode_String(data);
-        return wire.wire__crate__api__merged__nt_merge_tvc(port_, arg0, arg1);
+        return wire.wire__crate__api__merged__nt_merge_tvc(arg0, arg1);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_list_String,
@@ -4584,15 +4580,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<List<String>> crateApiMergedNtPackIntoCell(
+  List<String> crateApiMergedNtPackIntoCell(
       {required String params, required String tokens, String? version}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(params);
         var arg1 = cst_encode_String(tokens);
         var arg2 = cst_encode_opt_String(version);
         return wire.wire__crate__api__merged__nt_pack_into_cell(
-            port_, arg0, arg1, arg2);
+            arg0, arg1, arg2);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_list_String,
@@ -4611,17 +4607,17 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtPackStdSmcAddr(
+  String crateApiMergedNtPackStdSmcAddr(
       {required String addr,
       required bool base64Url,
       required bool bounceable}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(addr);
         var arg1 = cst_encode_bool(base64Url);
         var arg2 = cst_encode_bool(bounceable);
         return wire.wire__crate__api__merged__nt_pack_std_smc_addr(
-            port_, arg0, arg1, arg2);
+            arg0, arg1, arg2);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -4640,13 +4636,11 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String?> crateApiMergedNtParseFullAccountBoc(
-      {required String account}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+  String? crateApiMergedNtParseFullAccountBoc({required String account}) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(account);
-        return wire.wire__crate__api__merged__nt_parse_full_account_boc(
-            port_, arg0);
+        return wire.wire__crate__api__merged__nt_parse_full_account_boc(arg0);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_opt_String,
@@ -4711,21 +4705,21 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtRunLocal(
+  String crateApiMergedNtRunLocal(
       {required String accountStuffBoc,
       required String contractAbi,
       required String method,
       required String input,
       required bool responsible}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(accountStuffBoc);
         var arg1 = cst_encode_String(contractAbi);
         var arg2 = cst_encode_String(method);
         var arg3 = cst_encode_String(input);
         var arg4 = cst_encode_bool(responsible);
         return wire.wire__crate__api__merged__nt_run_local(
-            port_, arg0, arg1, arg2, arg3, arg4);
+            arg0, arg1, arg2, arg3, arg4);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -4749,14 +4743,13 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<List<String>> crateApiMergedNtSetCodeSalt(
+  List<String> crateApiMergedNtSetCodeSalt(
       {required String code, required String salt}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(code);
         var arg1 = cst_encode_String(salt);
-        return wire.wire__crate__api__merged__nt_set_code_salt(
-            port_, arg0, arg1);
+        return wire.wire__crate__api__merged__nt_set_code_salt(arg0, arg1);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_list_String,
@@ -4775,11 +4768,11 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<List<String?>> crateApiMergedNtSplitTvc({required String tvc}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+  List<String?> crateApiMergedNtSplitTvc({required String tvc}) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(tvc);
-        return wire.wire__crate__api__merged__nt_split_tvc(port_, arg0);
+        return wire.wire__crate__api__merged__nt_split_tvc(arg0);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_list_opt_String,
@@ -4797,17 +4790,17 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String?> crateApiMergedNtUnpackContractFields(
+  String? crateApiMergedNtUnpackContractFields(
       {required String contractAbi,
       required String boc,
       required bool allowPartial}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(contractAbi);
         var arg1 = cst_encode_String(boc);
         var arg2 = cst_encode_bool(allowPartial);
         return wire.wire__crate__api__merged__nt_unpack_contract_fields(
-            port_, arg0, arg1, arg2);
+            arg0, arg1, arg2);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_opt_String,
@@ -4826,19 +4819,19 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtUnpackFromCell(
+  String crateApiMergedNtUnpackFromCell(
       {required String params,
       required String boc,
       required bool allowPartial,
       String? version}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(params);
         var arg1 = cst_encode_String(boc);
         var arg2 = cst_encode_bool(allowPartial);
         var arg3 = cst_encode_opt_String(version);
         return wire.wire__crate__api__merged__nt_unpack_from_cell(
-            port_, arg0, arg1, arg2, arg3);
+            arg0, arg1, arg2, arg3);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -4857,14 +4850,13 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<List<String?>> crateApiMergedNtUnpackInitData(
+  List<String?> crateApiMergedNtUnpackInitData(
       {required String contractAbi, required String data}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(contractAbi);
         var arg1 = cst_encode_String(data);
-        return wire.wire__crate__api__merged__nt_unpack_init_data(
-            port_, arg0, arg1);
+        return wire.wire__crate__api__merged__nt_unpack_init_data(arg0, arg1);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_list_opt_String,
@@ -4883,14 +4875,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtUnpackStdSmcAddr(
+  String crateApiMergedNtUnpackStdSmcAddr(
       {required String packed, required bool base64Url}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(packed);
         var arg1 = cst_encode_bool(base64Url);
         return wire.wire__crate__api__merged__nt_unpack_std_smc_addr(
-            port_, arg0, arg1);
+            arg0, arg1);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,

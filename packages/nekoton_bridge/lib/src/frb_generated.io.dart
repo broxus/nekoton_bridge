@@ -5061,47 +5061,47 @@ class NekotonBridgeWire implements BaseWire {
       _wire__crate__api__merged__my_class_newPtr
           .asFunction<void Function(int, int)>();
 
-  void wire__crate__api__merged__nt_check_public_key(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_check_public_key(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> public_key,
   ) {
-    return _wire__crate__api__merged__nt_check_public_key(port_, public_key);
+    return _wire__crate__api__merged__nt_check_public_key(public_key);
   }
 
   late final _wire__crate__api__merged__nt_check_public_keyPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
+              WireSyncRust2DartDco Function(
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_check_public_key');
   late final _wire__crate__api__merged__nt_check_public_key =
       _wire__crate__api__merged__nt_check_public_keyPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+          WireSyncRust2DartDco Function(
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+          )>();
 
-  void wire__crate__api__merged__nt_code_to_tvc(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_code_to_tvc(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> code,
   ) {
-    return _wire__crate__api__merged__nt_code_to_tvc(port_, code);
+    return _wire__crate__api__merged__nt_code_to_tvc(code);
   }
 
   late final _wire__crate__api__merged__nt_code_to_tvcPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
+              WireSyncRust2DartDco Function(
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_code_to_tvc');
   late final _wire__crate__api__merged__nt_code_to_tvc =
       _wire__crate__api__merged__nt_code_to_tvcPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+          WireSyncRust2DartDco Function(
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+          )>();
 
-  void wire__crate__api__merged__nt_compute_storage_fee(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_compute_storage_fee(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> config,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> account,
     int utime,
     bool is_masterchain,
   ) {
     return _wire__crate__api__merged__nt_compute_storage_fee(
-      port_,
       config,
       account,
       utime,
@@ -5111,8 +5111,7 @@ class NekotonBridgeWire implements BaseWire {
 
   late final _wire__crate__api__merged__nt_compute_storage_feePtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Int64,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Uint32,
@@ -5121,16 +5120,14 @@ class NekotonBridgeWire implements BaseWire {
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_compute_storage_fee');
   late final _wire__crate__api__merged__nt_compute_storage_fee =
       _wire__crate__api__merged__nt_compute_storage_feePtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             int,
             bool,
           )>();
 
-  void wire__crate__api__merged__nt_create_external_message(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_create_external_message(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> dst,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> method,
@@ -5140,7 +5137,6 @@ class NekotonBridgeWire implements BaseWire {
     int timeout,
   ) {
     return _wire__crate__api__merged__nt_create_external_message(
-      port_,
       dst,
       contract_abi,
       method,
@@ -5153,8 +5149,7 @@ class NekotonBridgeWire implements BaseWire {
 
   late final _wire__crate__api__merged__nt_create_external_messagePtr = _lookup<
       ffi.NativeFunction<
-          ffi.Void Function(
-            ffi.Int64,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
@@ -5167,8 +5162,7 @@ class NekotonBridgeWire implements BaseWire {
   );
   late final _wire__crate__api__merged__nt_create_external_message =
       _wire__crate__api__merged__nt_create_external_messagePtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
@@ -5178,8 +5172,8 @@ class NekotonBridgeWire implements BaseWire {
             int,
           )>();
 
-  void wire__crate__api__merged__nt_create_external_message_without_signature(
-    int port_,
+  WireSyncRust2DartDco
+      wire__crate__api__merged__nt_create_external_message_without_signature(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> dst,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> method,
@@ -5188,7 +5182,6 @@ class NekotonBridgeWire implements BaseWire {
     int timeout,
   ) {
     return _wire__crate__api__merged__nt_create_external_message_without_signature(
-      port_,
       dst,
       contract_abi,
       method,
@@ -5201,8 +5194,7 @@ class NekotonBridgeWire implements BaseWire {
   late final _wire__crate__api__merged__nt_create_external_message_without_signaturePtr =
       _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Int64,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
@@ -5215,8 +5207,7 @@ class NekotonBridgeWire implements BaseWire {
   late final _wire__crate__api__merged__nt_create_external_message_without_signature =
       _wire__crate__api__merged__nt_create_external_message_without_signaturePtr
           .asFunction<
-              void Function(
-                int,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
@@ -5225,15 +5216,13 @@ class NekotonBridgeWire implements BaseWire {
                 int,
               )>();
 
-  void wire__crate__api__merged__nt_create_raw_external_message(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_create_raw_external_message(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> dst,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> state_init,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> body,
     int timeout,
   ) {
     return _wire__crate__api__merged__nt_create_raw_external_message(
-      port_,
       dst,
       state_init,
       body,
@@ -5244,8 +5233,7 @@ class NekotonBridgeWire implements BaseWire {
   late final _wire__crate__api__merged__nt_create_raw_external_messagePtr =
       _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Int64,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
@@ -5255,22 +5243,19 @@ class NekotonBridgeWire implements BaseWire {
   );
   late final _wire__crate__api__merged__nt_create_raw_external_message =
       _wire__crate__api__merged__nt_create_raw_external_messagePtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             int,
           )>();
 
-  void wire__crate__api__merged__nt_decode_event(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_decode_event(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> message_body,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> event,
   ) {
     return _wire__crate__api__merged__nt_decode_event(
-      port_,
       message_body,
       contract_abi,
       event,
@@ -5279,8 +5264,7 @@ class NekotonBridgeWire implements BaseWire {
 
   late final _wire__crate__api__merged__nt_decode_eventPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Int64,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
@@ -5288,22 +5272,19 @@ class NekotonBridgeWire implements BaseWire {
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_event');
   late final _wire__crate__api__merged__nt_decode_event =
       _wire__crate__api__merged__nt_decode_eventPtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
           )>();
 
-  void wire__crate__api__merged__nt_decode_input(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_decode_input(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> message_body,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> method,
     bool internal,
   ) {
     return _wire__crate__api__merged__nt_decode_input(
-      port_,
       message_body,
       contract_abi,
       method,
@@ -5313,8 +5294,7 @@ class NekotonBridgeWire implements BaseWire {
 
   late final _wire__crate__api__merged__nt_decode_inputPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Int64,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
@@ -5323,22 +5303,19 @@ class NekotonBridgeWire implements BaseWire {
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_input');
   late final _wire__crate__api__merged__nt_decode_input =
       _wire__crate__api__merged__nt_decode_inputPtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             bool,
           )>();
 
-  void wire__crate__api__merged__nt_decode_output(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_decode_output(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> message_body,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> method,
   ) {
     return _wire__crate__api__merged__nt_decode_output(
-      port_,
       message_body,
       contract_abi,
       method,
@@ -5347,8 +5324,7 @@ class NekotonBridgeWire implements BaseWire {
 
   late final _wire__crate__api__merged__nt_decode_outputPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Int64,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
@@ -5356,21 +5332,18 @@ class NekotonBridgeWire implements BaseWire {
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_output');
   late final _wire__crate__api__merged__nt_decode_output =
       _wire__crate__api__merged__nt_decode_outputPtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
           )>();
 
-  void wire__crate__api__merged__nt_decode_transaction(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_decode_transaction(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> transaction,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> method,
   ) {
     return _wire__crate__api__merged__nt_decode_transaction(
-      port_,
       transaction,
       contract_abi,
       method,
@@ -5379,8 +5352,7 @@ class NekotonBridgeWire implements BaseWire {
 
   late final _wire__crate__api__merged__nt_decode_transactionPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Int64,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
@@ -5388,20 +5360,17 @@ class NekotonBridgeWire implements BaseWire {
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_decode_transaction');
   late final _wire__crate__api__merged__nt_decode_transaction =
       _wire__crate__api__merged__nt_decode_transactionPtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
           )>();
 
-  void wire__crate__api__merged__nt_decode_transaction_events(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_decode_transaction_events(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> transaction,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
   ) {
     return _wire__crate__api__merged__nt_decode_transaction_events(
-      port_,
       transaction,
       contract_abi,
     );
@@ -5410,8 +5379,7 @@ class NekotonBridgeWire implements BaseWire {
   late final _wire__crate__api__merged__nt_decode_transaction_eventsPtr =
       _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Int64,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               )>>(
@@ -5419,8 +5387,7 @@ class NekotonBridgeWire implements BaseWire {
   );
   late final _wire__crate__api__merged__nt_decode_transaction_events =
       _wire__crate__api__merged__nt_decode_transaction_eventsPtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
           )>();
@@ -5470,14 +5437,12 @@ class NekotonBridgeWire implements BaseWire {
             bool,
           )>();
 
-  void wire__crate__api__merged__nt_encode_internal_input(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_encode_internal_input(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> method,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> input,
   ) {
     return _wire__crate__api__merged__nt_encode_internal_input(
-      port_,
       contract_abi,
       method,
       input,
@@ -5486,8 +5451,7 @@ class NekotonBridgeWire implements BaseWire {
 
   late final _wire__crate__api__merged__nt_encode_internal_inputPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Int64,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
@@ -5495,15 +5459,13 @@ class NekotonBridgeWire implements BaseWire {
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_encode_internal_input');
   late final _wire__crate__api__merged__nt_encode_internal_input =
       _wire__crate__api__merged__nt_encode_internal_inputPtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
           )>();
 
-  void wire__crate__api__merged__nt_encode_internal_message(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_encode_internal_message(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> src,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> dst,
     bool bounce,
@@ -5513,7 +5475,6 @@ class NekotonBridgeWire implements BaseWire {
     ffi.Pointer<ffi.Bool> bounced,
   ) {
     return _wire__crate__api__merged__nt_encode_internal_message(
-      port_,
       src,
       dst,
       bounce,
@@ -5526,8 +5487,7 @@ class NekotonBridgeWire implements BaseWire {
 
   late final _wire__crate__api__merged__nt_encode_internal_messagePtr = _lookup<
       ffi.NativeFunction<
-          ffi.Void Function(
-            ffi.Int64,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Bool,
@@ -5540,8 +5500,7 @@ class NekotonBridgeWire implements BaseWire {
   );
   late final _wire__crate__api__merged__nt_encode_internal_message =
       _wire__crate__api__merged__nt_encode_internal_messagePtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             bool,
@@ -5551,8 +5510,7 @@ class NekotonBridgeWire implements BaseWire {
             ffi.Pointer<ffi.Bool>,
           )>();
 
-  void wire__crate__api__merged__nt_execute_local(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_execute_local(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> config,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> account,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> message,
@@ -5562,7 +5520,6 @@ class NekotonBridgeWire implements BaseWire {
     ffi.Pointer<ffi.Int32> global_id,
   ) {
     return _wire__crate__api__merged__nt_execute_local(
-      port_,
       config,
       account,
       message,
@@ -5575,8 +5532,7 @@ class NekotonBridgeWire implements BaseWire {
 
   late final _wire__crate__api__merged__nt_execute_localPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Int64,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
@@ -5588,8 +5544,7 @@ class NekotonBridgeWire implements BaseWire {
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_execute_local');
   late final _wire__crate__api__merged__nt_execute_local =
       _wire__crate__api__merged__nt_execute_localPtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
@@ -5599,21 +5554,22 @@ class NekotonBridgeWire implements BaseWire {
             ffi.Pointer<ffi.Int32>,
           )>();
 
-  void wire__crate__api__merged__nt_extract_public_key(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_extract_public_key(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> boc,
   ) {
-    return _wire__crate__api__merged__nt_extract_public_key(port_, boc);
+    return _wire__crate__api__merged__nt_extract_public_key(boc);
   }
 
   late final _wire__crate__api__merged__nt_extract_public_keyPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
+              WireSyncRust2DartDco Function(
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_extract_public_key');
   late final _wire__crate__api__merged__nt_extract_public_key =
       _wire__crate__api__merged__nt_extract_public_keyPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+          WireSyncRust2DartDco Function(
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+          )>();
 
   WireSyncRust2DartDco wire__crate__api__merged__nt_generate_key(
     ffi.Pointer<wire_cst_mnemonic_type> account_type,
@@ -5630,40 +5586,41 @@ class NekotonBridgeWire implements BaseWire {
       _wire__crate__api__merged__nt_generate_keyPtr.asFunction<
           WireSyncRust2DartDco Function(ffi.Pointer<wire_cst_mnemonic_type>)>();
 
-  void wire__crate__api__merged__nt_get_boc_hash(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_get_boc_hash(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> boc,
   ) {
-    return _wire__crate__api__merged__nt_get_boc_hash(port_, boc);
+    return _wire__crate__api__merged__nt_get_boc_hash(boc);
   }
 
   late final _wire__crate__api__merged__nt_get_boc_hashPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
+              WireSyncRust2DartDco Function(
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_boc_hash');
   late final _wire__crate__api__merged__nt_get_boc_hash =
       _wire__crate__api__merged__nt_get_boc_hashPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+          WireSyncRust2DartDco Function(
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+          )>();
 
-  void wire__crate__api__merged__nt_get_code_salt(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_get_code_salt(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> code,
   ) {
-    return _wire__crate__api__merged__nt_get_code_salt(port_, code);
+    return _wire__crate__api__merged__nt_get_code_salt(code);
   }
 
   late final _wire__crate__api__merged__nt_get_code_saltPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
+              WireSyncRust2DartDco Function(
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_code_salt');
   late final _wire__crate__api__merged__nt_get_code_salt =
       _wire__crate__api__merged__nt_get_code_saltPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+          WireSyncRust2DartDco Function(
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+          )>();
 
-  void wire__crate__api__merged__nt_get_expected_address(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_get_expected_address(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> tvc,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
     int workchain_id,
@@ -5671,7 +5628,6 @@ class NekotonBridgeWire implements BaseWire {
     ffi.Pointer<wire_cst_list_prim_u_8_strict> init_data,
   ) {
     return _wire__crate__api__merged__nt_get_expected_address(
-      port_,
       tvc,
       contract_abi,
       workchain_id,
@@ -5682,8 +5638,7 @@ class NekotonBridgeWire implements BaseWire {
 
   late final _wire__crate__api__merged__nt_get_expected_addressPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Int64,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Int8,
@@ -5693,8 +5648,7 @@ class NekotonBridgeWire implements BaseWire {
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_expected_address');
   late final _wire__crate__api__merged__nt_get_expected_address =
       _wire__crate__api__merged__nt_get_expected_addressPtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             int,
@@ -5719,44 +5673,41 @@ class NekotonBridgeWire implements BaseWire {
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
           )>();
 
-  void wire__crate__api__merged__nt_make_full_account_boc(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_make_full_account_boc(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> account_stuff_boc,
   ) {
     return _wire__crate__api__merged__nt_make_full_account_boc(
-      port_,
       account_stuff_boc,
     );
   }
 
   late final _wire__crate__api__merged__nt_make_full_account_bocPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
+              WireSyncRust2DartDco Function(
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_make_full_account_boc');
   late final _wire__crate__api__merged__nt_make_full_account_boc =
       _wire__crate__api__merged__nt_make_full_account_bocPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+          WireSyncRust2DartDco Function(
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+          )>();
 
-  void wire__crate__api__merged__nt_merge_tvc(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_merge_tvc(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> code,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> data,
   ) {
-    return _wire__crate__api__merged__nt_merge_tvc(port_, code, data);
+    return _wire__crate__api__merged__nt_merge_tvc(code, data);
   }
 
   late final _wire__crate__api__merged__nt_merge_tvcPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Void Function(
-            ffi.Int64,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
           )>>('frbgen_nekoton_bridge_wire__crate__api__merged__nt_merge_tvc');
   late final _wire__crate__api__merged__nt_merge_tvc =
       _wire__crate__api__merged__nt_merge_tvcPtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
           )>();
@@ -5789,14 +5740,12 @@ class NekotonBridgeWire implements BaseWire {
             bool,
           )>();
 
-  void wire__crate__api__merged__nt_pack_into_cell(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_pack_into_cell(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> params,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> tokens,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> version,
   ) {
     return _wire__crate__api__merged__nt_pack_into_cell(
-      port_,
       params,
       tokens,
       version,
@@ -5805,8 +5754,7 @@ class NekotonBridgeWire implements BaseWire {
 
   late final _wire__crate__api__merged__nt_pack_into_cellPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Int64,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
@@ -5814,21 +5762,18 @@ class NekotonBridgeWire implements BaseWire {
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_pack_into_cell');
   late final _wire__crate__api__merged__nt_pack_into_cell =
       _wire__crate__api__merged__nt_pack_into_cellPtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
           )>();
 
-  void wire__crate__api__merged__nt_pack_std_smc_addr(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_pack_std_smc_addr(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> addr,
     bool base64_url,
     bool bounceable,
   ) {
     return _wire__crate__api__merged__nt_pack_std_smc_addr(
-      port_,
       addr,
       base64_url,
       bounceable,
@@ -5837,8 +5782,7 @@ class NekotonBridgeWire implements BaseWire {
 
   late final _wire__crate__api__merged__nt_pack_std_smc_addrPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Int64,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Bool,
                 ffi.Bool,
@@ -5846,29 +5790,29 @@ class NekotonBridgeWire implements BaseWire {
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_pack_std_smc_addr');
   late final _wire__crate__api__merged__nt_pack_std_smc_addr =
       _wire__crate__api__merged__nt_pack_std_smc_addrPtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             bool,
             bool,
           )>();
 
-  void wire__crate__api__merged__nt_parse_full_account_boc(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_parse_full_account_boc(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> account,
   ) {
-    return _wire__crate__api__merged__nt_parse_full_account_boc(port_, account);
+    return _wire__crate__api__merged__nt_parse_full_account_boc(account);
   }
 
   late final _wire__crate__api__merged__nt_parse_full_account_bocPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Void Function(
-              ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
+          WireSyncRust2DartDco Function(
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
     'frbgen_nekoton_bridge_wire__crate__api__merged__nt_parse_full_account_boc',
   );
   late final _wire__crate__api__merged__nt_parse_full_account_boc =
       _wire__crate__api__merged__nt_parse_full_account_bocPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+          WireSyncRust2DartDco Function(
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+          )>();
 
   WireSyncRust2DartDco wire__crate__api__merged__nt_parse_known_payload(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> payload,
@@ -5904,8 +5848,7 @@ class NekotonBridgeWire implements BaseWire {
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
           )>();
 
-  void wire__crate__api__merged__nt_run_local(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_run_local(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> account_stuff_boc,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> method,
@@ -5913,7 +5856,6 @@ class NekotonBridgeWire implements BaseWire {
     bool responsible,
   ) {
     return _wire__crate__api__merged__nt_run_local(
-      port_,
       account_stuff_boc,
       contract_abi,
       method,
@@ -5924,8 +5866,7 @@ class NekotonBridgeWire implements BaseWire {
 
   late final _wire__crate__api__merged__nt_run_localPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Void Function(
-            ffi.Int64,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
@@ -5934,8 +5875,7 @@ class NekotonBridgeWire implements BaseWire {
           )>>('frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local');
   late final _wire__crate__api__merged__nt_run_local =
       _wire__crate__api__merged__nt_run_localPtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
@@ -5943,54 +5883,50 @@ class NekotonBridgeWire implements BaseWire {
             bool,
           )>();
 
-  void wire__crate__api__merged__nt_set_code_salt(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_set_code_salt(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> code,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> salt,
   ) {
-    return _wire__crate__api__merged__nt_set_code_salt(port_, code, salt);
+    return _wire__crate__api__merged__nt_set_code_salt(code, salt);
   }
 
   late final _wire__crate__api__merged__nt_set_code_saltPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Int64,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               )>>(
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_set_code_salt');
   late final _wire__crate__api__merged__nt_set_code_salt =
       _wire__crate__api__merged__nt_set_code_saltPtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
           )>();
 
-  void wire__crate__api__merged__nt_split_tvc(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_split_tvc(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> tvc,
   ) {
-    return _wire__crate__api__merged__nt_split_tvc(port_, tvc);
+    return _wire__crate__api__merged__nt_split_tvc(tvc);
   }
 
   late final _wire__crate__api__merged__nt_split_tvcPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
+              WireSyncRust2DartDco Function(
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_split_tvc');
   late final _wire__crate__api__merged__nt_split_tvc =
       _wire__crate__api__merged__nt_split_tvcPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+          WireSyncRust2DartDco Function(
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+          )>();
 
-  void wire__crate__api__merged__nt_unpack_contract_fields(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_unpack_contract_fields(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> boc,
     bool allow_partial,
   ) {
     return _wire__crate__api__merged__nt_unpack_contract_fields(
-      port_,
       contract_abi,
       boc,
       allow_partial,
@@ -5999,8 +5935,7 @@ class NekotonBridgeWire implements BaseWire {
 
   late final _wire__crate__api__merged__nt_unpack_contract_fieldsPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Void Function(
-            ffi.Int64,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Bool,
@@ -6009,22 +5944,19 @@ class NekotonBridgeWire implements BaseWire {
   );
   late final _wire__crate__api__merged__nt_unpack_contract_fields =
       _wire__crate__api__merged__nt_unpack_contract_fieldsPtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             bool,
           )>();
 
-  void wire__crate__api__merged__nt_unpack_from_cell(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_unpack_from_cell(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> params,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> boc,
     bool allow_partial,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> version,
   ) {
     return _wire__crate__api__merged__nt_unpack_from_cell(
-      port_,
       params,
       boc,
       allow_partial,
@@ -6034,8 +5966,7 @@ class NekotonBridgeWire implements BaseWire {
 
   late final _wire__crate__api__merged__nt_unpack_from_cellPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Int64,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Bool,
@@ -6044,49 +5975,39 @@ class NekotonBridgeWire implements BaseWire {
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_from_cell');
   late final _wire__crate__api__merged__nt_unpack_from_cell =
       _wire__crate__api__merged__nt_unpack_from_cellPtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             bool,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
           )>();
 
-  void wire__crate__api__merged__nt_unpack_init_data(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_unpack_init_data(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> data,
   ) {
-    return _wire__crate__api__merged__nt_unpack_init_data(
-      port_,
-      contract_abi,
-      data,
-    );
+    return _wire__crate__api__merged__nt_unpack_init_data(contract_abi, data);
   }
 
   late final _wire__crate__api__merged__nt_unpack_init_dataPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Int64,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               )>>(
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_init_data');
   late final _wire__crate__api__merged__nt_unpack_init_data =
       _wire__crate__api__merged__nt_unpack_init_dataPtr.asFunction<
-          void Function(
-            int,
+          WireSyncRust2DartDco Function(
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
           )>();
 
-  void wire__crate__api__merged__nt_unpack_std_smc_addr(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_unpack_std_smc_addr(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> packed,
     bool base64_url,
   ) {
     return _wire__crate__api__merged__nt_unpack_std_smc_addr(
-      port_,
       packed,
       base64_url,
     );
@@ -6094,16 +6015,17 @@ class NekotonBridgeWire implements BaseWire {
 
   late final _wire__crate__api__merged__nt_unpack_std_smc_addrPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                ffi.Int64,
+              WireSyncRust2DartDco Function(
                 ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                 ffi.Bool,
               )>>(
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_std_smc_addr');
   late final _wire__crate__api__merged__nt_unpack_std_smc_addr =
       _wire__crate__api__merged__nt_unpack_std_smc_addrPtr.asFunction<
-          void Function(
-              int, ffi.Pointer<wire_cst_list_prim_u_8_strict>, bool)>();
+          WireSyncRust2DartDco Function(
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            bool,
+          )>();
 
   WireSyncRust2DartDco wire__crate__api__merged__nt_validate_address(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> address,

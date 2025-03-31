@@ -36,15 +36,16 @@ use ton_types::SliceData;
 
 /// Check if public key is correct.
 /// If no - throws error, if ok - return true
-pub fn nt_check_public_key(public_key: String) -> anyhow::Result<bool> {
-    let _ = parse_public_key(public_key).handle_error();
-    Ok(true)
+#[frb(sync)]
+pub fn nt_check_public_key(public_key: String) -> bool {
+    parse_public_key(public_key).is_ok()
 }
 
 /// Run contract local.
 /// Return json-encoded ExecutionOutput or throws error.
 ///
 /// input - is json-encoded AbiToken
+#[frb(sync)]
 pub fn nt_run_local(
     account_stuff_boc: String,
     contract_abi: String,
@@ -84,6 +85,7 @@ pub fn nt_run_local(
 
 /// Get address of tvc and contract_abi.
 /// Returns list of [address, boc of state_init, hash] or throws error
+#[frb(sync)]
 pub fn nt_get_expected_address(
     tvc: String,
     contract_abi: String,
@@ -135,6 +137,7 @@ pub fn nt_get_expected_address(
 }
 
 /// Returns base64-encoded body that was encoded or throws error
+#[frb(sync)]
 pub fn nt_encode_internal_input(
     contract_abi: String,
     method: String,
@@ -159,6 +162,7 @@ pub fn nt_encode_internal_input(
 
 /// Returns json-encoded SignedMessage from nekoton or throws error
 /// timeout - milliseconds
+#[frb(sync)]
 pub fn nt_create_external_message_without_signature(
     dst: String,
     contract_abi: String,
@@ -219,6 +223,7 @@ pub fn nt_create_external_message_without_signature(
 
 /// Create external unsigned message that can be listened and handled or throws error
 /// timeout - milliseconds
+#[frb(sync)]
 pub fn nt_create_external_message(
     dst: String,
     contract_abi: String,
@@ -285,6 +290,7 @@ pub fn nt_parse_known_payload(payload: String) -> Option<String> {
 }
 
 /// Decode input data and return json-encoded DecodedInput or throws error
+#[frb(sync)]
 pub fn nt_decode_input(
     message_body: String,
     contract_abi: String,
@@ -314,6 +320,7 @@ pub fn nt_decode_input(
 }
 
 /// Decode input data and return json-encoded DecodedEvent or throws error
+#[frb(sync)]
 pub fn nt_decode_event(
     message_body: String,
     contract_abi: String,
@@ -341,6 +348,7 @@ pub fn nt_decode_event(
 }
 
 /// Decode output data and return json-encoded DecodedOutput or throws error
+#[frb(sync)]
 pub fn nt_decode_output(
     message_body: String,
     contract_abi: String,
@@ -368,6 +376,7 @@ pub fn nt_decode_output(
 }
 
 /// Decode transaction and return json-encoded DecodedTransaction or throws error
+#[frb(sync)]
 pub fn nt_decode_transaction(
     transaction: String,
     contract_abi: String,
@@ -422,6 +431,7 @@ pub fn nt_decode_transaction(
 }
 
 /// Decode events of transaction and return json-encoded list of DecodedEvent or throws error
+#[frb(sync)]
 pub fn nt_decode_transaction_events(
     transaction: String,
     contract_abi: String,
@@ -467,6 +477,7 @@ pub fn nt_decode_transaction_events(
 }
 
 /// Returns hash of decoded boc or throws error
+#[frb(sync)]
 pub fn nt_get_boc_hash(boc: String) -> anyhow::Result<String> {
     let body = general_purpose::STANDARD.decode(boc).handle_error()?;
 
@@ -480,6 +491,7 @@ pub fn nt_get_boc_hash(boc: String) -> anyhow::Result<String> {
 
 /// Return base64 encoded bytes of tokens or throws error
 /// returns [tvc, hash]
+#[frb(sync)]
 pub fn nt_pack_into_cell(
     params: String,
     tokens: String,
@@ -495,6 +507,7 @@ pub fn nt_pack_into_cell(
 }
 
 /// Parse list of params and return json-encoded Tokens or throws error
+#[frb(sync)]
 pub fn nt_unpack_from_cell(
     params: String,
     boc: String,
@@ -515,6 +528,7 @@ pub fn nt_unpack_from_cell(
 
 /// Pack address std smd or throw error
 /// Returns new packed address as string
+#[frb(sync)]
 pub fn nt_pack_std_smc_addr(
     addr: String,
     base64_url: bool,
@@ -528,6 +542,7 @@ pub fn nt_pack_std_smc_addr(
 
 /// Unpack address std smd or throw error.
 /// Returns json-encoded MsgAddressInt
+#[frb(sync)]
 pub fn nt_unpack_std_smc_addr(packed: String, base64_url: bool) -> anyhow::Result<String> {
     let unpacked_addr = nekoton_utils::unpack_std_smc_addr(&packed, base64_url)
         .handle_error()?
@@ -559,6 +574,7 @@ pub fn nt_pack_address(address: String, is_url_safe: bool, bounceable: bool) -> 
 }
 
 /// Extract public key from boc and return it or throw error
+#[frb(sync)]
 pub fn nt_extract_public_key(boc: String) -> anyhow::Result<String> {
     let public_key = parse_account_stuff(boc)
         .and_then(|e| nekoton_abi::extract_public_key(&e).handle_error())
@@ -569,6 +585,7 @@ pub fn nt_extract_public_key(boc: String) -> anyhow::Result<String> {
 
 /// Convert code to base64 tvc string and return it or throw error
 /// returns [tvc, hash]
+#[frb(sync)]
 pub fn nt_code_to_tvc(code: String) -> anyhow::Result<Vec<String>> {
     let cell = parse_cell(code).handle_error()?;
     let state_init = nekoton_abi::code_to_tvc(cell).handle_error()?;
@@ -577,6 +594,7 @@ pub fn nt_code_to_tvc(code: String) -> anyhow::Result<Vec<String>> {
 
 /// Merge code and data to tvc base64 string and return it or throw error
 /// returns [tvc, hash]
+#[frb(sync)]
 pub fn nt_merge_tvc(code: String, data: String) -> anyhow::Result<Vec<String>> {
     let state_init = ton_block::StateInit {
         code: Some(parse_cell(code)?),
@@ -589,6 +607,7 @@ pub fn nt_merge_tvc(code: String, data: String) -> anyhow::Result<Vec<String>> {
 
 /// Split base64 tvc string into data and code.
 /// Return vec![data, code] or throw error
+#[frb(sync)]
 pub fn nt_split_tvc(tvc: String) -> anyhow::Result<Vec<Option<String>>> {
     let state_init = ton_block::StateInit::construct_from_base64(&tvc).handle_error()?;
 
@@ -615,12 +634,14 @@ pub fn nt_split_tvc(tvc: String) -> anyhow::Result<Vec<Option<String>>> {
 
 /// Set salt to code and return base64-encoded string or throw error
 /// returns [tvc, hash]
+#[frb(sync)]
 pub fn nt_set_code_salt(code: String, salt: String) -> anyhow::Result<Vec<String>> {
     let cell = nekoton_abi::set_code_salt(parse_cell(code)?, parse_cell(salt)?)?;
     make_boc_with_hash(cell)
 }
 
 /// Get salt from code if possible and return base64-encoded salt or throw error
+#[frb(sync)]
 pub fn nt_get_code_salt(code: String) -> anyhow::Result<Option<String>> {
     let salt = match nekoton_abi::get_code_salt(parse_cell(code)?).handle_error()? {
         Some(salt) => {
@@ -639,6 +660,7 @@ pub fn nt_get_code_salt(code: String) -> anyhow::Result<Option<String>> {
 /// Returns [boc, transaction] if everything is ok or
 /// [error_code] if transaction failed
 /// or throws error
+#[frb(sync)]
 pub fn nt_execute_local(
     config: String,
     account: String,
@@ -714,6 +736,7 @@ pub fn nt_execute_local(
 
 /// Unpack data by contract.
 /// Returns [option publicKey, json-encoded Map<String, Token>] or throw error
+#[frb(sync)]
 pub fn nt_unpack_init_data(
     contract_abi: String,
     data: String,
@@ -766,6 +789,7 @@ pub fn nt_unpack_init_data(
 
 /// Unpack contract fields.
 /// Returns optional json-encoded Map<String, Token> or throw error
+#[frb(sync)]
 pub fn nt_unpack_contract_fields(
     contract_abi: String,
     boc: String,
@@ -796,6 +820,7 @@ pub fn nt_unpack_contract_fields(
 /// Returns json-encoded SignedMessage or throws error
 /// dst - destination address
 /// timeout - milliseconds
+#[frb(sync)]
 pub fn nt_create_raw_external_message(
     dst: String,
     state_init: Option<String>,
@@ -841,6 +866,7 @@ pub fn nt_create_raw_external_message(
 /// src - address of sender
 /// dst - address of destination
 /// body - base64-encoded data
+#[frb(sync)]
 pub fn nt_encode_internal_message(
     src: Option<String>,
     dst: String,
@@ -888,6 +914,7 @@ pub fn nt_encode_internal_message(
 }
 
 /// Returns base-64 encoded Account or throws error
+#[frb(sync)]
 pub fn nt_make_full_account_boc(account_stuff_boc: Option<String>) -> anyhow::Result<String> {
     let account = match account_stuff_boc {
         Some(stuff) => ton_block::Account::Account(parse_account_stuff(stuff)?),
@@ -899,6 +926,7 @@ pub fn nt_make_full_account_boc(account_stuff_boc: Option<String>) -> anyhow::Re
 
 /// Returns optional json-encoded FullContractState or throws error
 /// account - base64-encoded boc after execute_local
+#[frb(sync)]
 pub fn nt_parse_full_account_boc(account: String) -> anyhow::Result<Option<String>> {
     let account = parse_cell(account)?;
     let account = if nekoton::utils::is_empty_cell(&account.repr_hash()) {
@@ -930,6 +958,7 @@ pub fn nt_parse_full_account_boc(account: String) -> anyhow::Result<Option<Strin
     make_full_contract_state(account)
 }
 
+#[frb(sync)]
 pub fn nt_compute_storage_fee(
     config: String,
     account: String,
