@@ -1,3 +1,7 @@
+## 2.8.0
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
 ## 2.8.0-dev.1
 
  - **FEAT**: update payload parsing to support jetton transfers. ([1ca7f1f3](https://github.com/broxus/nekoton_bridge/commit/1ca7f1f315ed16b004db40cef3102f37cb9d05f4))
