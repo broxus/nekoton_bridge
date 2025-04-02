@@ -680,8 +680,7 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__my_class_my_format(int64_t 
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__my_class_new(int64_t port_, int32_t a);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_check_public_key(int64_t port_,
-                                                                         struct wire_cst_list_prim_u_8_strict *public_key);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_check_public_key(struct wire_cst_list_prim_u_8_strict *public_key);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_code_to_tvc(int64_t port_,
                                                                     struct wire_cst_list_prim_u_8_strict *code);

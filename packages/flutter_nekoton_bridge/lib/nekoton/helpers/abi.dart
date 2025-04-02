@@ -4,13 +4,8 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
 /// Check if public key is correct.
 /// Return true or false
-Future<bool> checkPublicKey({required PublicKey publicKey}) async {
-  try {
-    return await ntCheckPublicKey(publicKey: publicKey.publicKey);
-  } catch (_) {
-    return false;
-  }
-}
+bool checkPublicKey(PublicKey publicKey) =>
+    ntCheckPublicKey(publicKey: publicKey.publicKey);
 
 /// Run contract local.
 /// Return json-encoded ExecutionOutput or throws error.

@@ -461,7 +461,7 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   Future<MyClass> crateApiMergedMyClassNew({required int a});
 
-  Future<bool> crateApiMergedNtCheckPublicKey({required String publicKey});
+  bool crateApiMergedNtCheckPublicKey({required String publicKey});
 
   Future<List<String>> crateApiMergedNtCodeToTvc({required String code});
 
@@ -3828,15 +3828,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<bool> crateApiMergedNtCheckPublicKey({required String publicKey}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+  bool crateApiMergedNtCheckPublicKey({required String publicKey}) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(publicKey);
-        return wire.wire__crate__api__merged__nt_check_public_key(port_, arg0);
+        return wire.wire__crate__api__merged__nt_check_public_key(arg0);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+        decodeErrorData: null,
       ),
       constMeta: kCrateApiMergedNtCheckPublicKeyConstMeta,
       argValues: [publicKey],

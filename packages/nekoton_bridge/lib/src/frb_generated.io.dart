@@ -5061,21 +5061,22 @@ class NekotonBridgeWire implements BaseWire {
       _wire__crate__api__merged__my_class_newPtr
           .asFunction<void Function(int, int)>();
 
-  void wire__crate__api__merged__nt_check_public_key(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__nt_check_public_key(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> public_key,
   ) {
-    return _wire__crate__api__merged__nt_check_public_key(port_, public_key);
+    return _wire__crate__api__merged__nt_check_public_key(public_key);
   }
 
   late final _wire__crate__api__merged__nt_check_public_keyPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
+              WireSyncRust2DartDco Function(
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_check_public_key');
   late final _wire__crate__api__merged__nt_check_public_key =
       _wire__crate__api__merged__nt_check_public_keyPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+          WireSyncRust2DartDco Function(
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+          )>();
 
   void wire__crate__api__merged__nt_code_to_tvc(
     int port_,

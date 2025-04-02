@@ -36,9 +36,9 @@ use ton_types::SliceData;
 
 /// Check if public key is correct.
 /// If no - throws error, if ok - return true
-pub fn nt_check_public_key(public_key: String) -> anyhow::Result<bool> {
-    let _ = parse_public_key(public_key).handle_error();
-    Ok(true)
+#[frb(sync)]
+pub fn nt_check_public_key(public_key: String) -> bool {
+    parse_public_key(public_key).is_ok()
 }
 
 /// Run contract local.

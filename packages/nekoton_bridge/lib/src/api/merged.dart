@@ -59,9 +59,8 @@ String ntDeriveFromPhrase(
 ///----------------------------
 /// Check if public key is correct.
 /// If no - throws error, if ok - return true
-Future<bool> ntCheckPublicKey({required String publicKey}) =>
-    NekotonBridge.instance.api
-        .crateApiMergedNtCheckPublicKey(publicKey: publicKey);
+bool ntCheckPublicKey({required String publicKey}) => NekotonBridge.instance.api
+    .crateApiMergedNtCheckPublicKey(publicKey: publicKey);
 
 /// Run contract local.
 /// Return json-encoded ExecutionOutput or throws error.
