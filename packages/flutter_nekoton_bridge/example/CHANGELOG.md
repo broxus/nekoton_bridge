@@ -1,3 +1,9 @@
+## 2.0.0
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **CHORE**: update dependencies. ([4c05f56c](https://github.com/broxus/nekoton_bridge/commit/4c05f56c838b585fcb2f129e63c3ea6d64c486c6))
+
 ## 1.24.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
