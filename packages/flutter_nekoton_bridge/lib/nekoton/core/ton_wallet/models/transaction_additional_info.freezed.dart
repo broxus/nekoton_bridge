@@ -16,7 +16,7 @@ TransactionAdditionalInfo _$TransactionAdditionalInfoFromJson(
     Map<String, dynamic> json) {
   switch (json['type']) {
     case 'comment':
-      return _Comment.fromJson(json);
+      return TransactionAdditionalInfoComment.fromJson(json);
     case 'de_pool_on_round_complete':
       return TransactionAdditionalInfoDePoolOnRoundComplete.fromJson(json);
     case 'de_pool_receive_answer':
@@ -68,10 +68,12 @@ class $TransactionAdditionalInfoCopyWith<$Res> {
 
 /// @nodoc
 @JsonSerializable()
-class _Comment implements TransactionAdditionalInfo {
-  const _Comment(this.data, {final String? $type}) : $type = $type ?? 'comment';
-  factory _Comment.fromJson(Map<String, dynamic> json) =>
-      _$CommentFromJson(json);
+class TransactionAdditionalInfoComment implements TransactionAdditionalInfo {
+  const TransactionAdditionalInfoComment(this.data, {final String? $type})
+      : $type = $type ?? 'comment';
+  factory TransactionAdditionalInfoComment.fromJson(
+          Map<String, dynamic> json) =>
+      _$TransactionAdditionalInfoCommentFromJson(json);
 
   @override
   final String data;
@@ -83,12 +85,13 @@ class _Comment implements TransactionAdditionalInfo {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$CommentCopyWith<_Comment> get copyWith =>
-      __$CommentCopyWithImpl<_Comment>(this, _$identity);
+  $TransactionAdditionalInfoCommentCopyWith<TransactionAdditionalInfoComment>
+      get copyWith => _$TransactionAdditionalInfoCommentCopyWithImpl<
+          TransactionAdditionalInfoComment>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$CommentToJson(
+    return _$TransactionAdditionalInfoCommentToJson(
       this,
     );
   }
@@ -97,7 +100,7 @@ class _Comment implements TransactionAdditionalInfo {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Comment &&
+            other is TransactionAdditionalInfoComment &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -112,20 +115,23 @@ class _Comment implements TransactionAdditionalInfo {
 }
 
 /// @nodoc
-abstract mixin class _$CommentCopyWith<$Res>
+abstract mixin class $TransactionAdditionalInfoCommentCopyWith<$Res>
     implements $TransactionAdditionalInfoCopyWith<$Res> {
-  factory _$CommentCopyWith(_Comment value, $Res Function(_Comment) _then) =
-      __$CommentCopyWithImpl;
+  factory $TransactionAdditionalInfoCommentCopyWith(
+          TransactionAdditionalInfoComment value,
+          $Res Function(TransactionAdditionalInfoComment) _then) =
+      _$TransactionAdditionalInfoCommentCopyWithImpl;
   @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class __$CommentCopyWithImpl<$Res> implements _$CommentCopyWith<$Res> {
-  __$CommentCopyWithImpl(this._self, this._then);
+class _$TransactionAdditionalInfoCommentCopyWithImpl<$Res>
+    implements $TransactionAdditionalInfoCommentCopyWith<$Res> {
+  _$TransactionAdditionalInfoCommentCopyWithImpl(this._self, this._then);
 
-  final _Comment _self;
-  final $Res Function(_Comment) _then;
+  final TransactionAdditionalInfoComment _self;
+  final $Res Function(TransactionAdditionalInfoComment) _then;
 
   /// Create a copy of TransactionAdditionalInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -133,7 +139,7 @@ class __$CommentCopyWithImpl<$Res> implements _$CommentCopyWith<$Res> {
   $Res call({
     Object? data = null,
   }) {
-    return _then(_Comment(
+    return _then(TransactionAdditionalInfoComment(
       null == data
           ? _self.data
           : data // ignore: cast_nullable_to_non_nullable

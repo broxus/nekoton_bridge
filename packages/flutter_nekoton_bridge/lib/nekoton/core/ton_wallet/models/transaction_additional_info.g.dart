@@ -6,12 +6,16 @@ part of 'transaction_additional_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_Comment _$CommentFromJson(Map<String, dynamic> json) => _Comment(
+TransactionAdditionalInfoComment _$TransactionAdditionalInfoCommentFromJson(
+        Map<String, dynamic> json) =>
+    TransactionAdditionalInfoComment(
       json['data'] as String,
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$CommentToJson(_Comment instance) => <String, dynamic>{
+Map<String, dynamic> _$TransactionAdditionalInfoCommentToJson(
+        TransactionAdditionalInfoComment instance) =>
+    <String, dynamic>{
       'data': instance.data,
       'type': instance.$type,
     };
