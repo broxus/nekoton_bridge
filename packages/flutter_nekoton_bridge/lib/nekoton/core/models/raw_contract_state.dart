@@ -6,9 +6,11 @@ part 'raw_contract_state.g.dart';
 
 @Freezed(unionKey: 'type')
 sealed class RawContractState with _$RawContractState {
-  const factory RawContractState.notExists(GenTimings timings) = _NotExists;
+  const factory RawContractState.notExists(GenTimings timings) =
+      RawContractStateNotExists;
 
-  const factory RawContractState.exists(ExistingContract data) = _Exists;
+  const factory RawContractState.exists(ExistingContract data) =
+      RawContractStateExists;
 
   factory RawContractState.fromJson(Map<String, dynamic> json) =>
       _$RawContractStateFromJson(json);

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,141 +10,27 @@ part of 'mega_struct.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Coords _$CoordsFromJson(Map<String, dynamic> json) {
-  return _Coords.fromJson(json);
-}
-
 /// @nodoc
-mixin _$Coords {
-  double get x => throw _privateConstructorUsedError;
-  double get y => throw _privateConstructorUsedError;
-  double get z => throw _privateConstructorUsedError;
-
-  /// Serializes this Coords to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+mixin _$Coords implements DiagnosticableTreeMixin {
+  double get x;
+  double get y;
+  double get z;
 
   /// Create a copy of Coords
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CoordsCopyWith<Coords> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CoordsCopyWith<$Res> {
-  factory $CoordsCopyWith(Coords value, $Res Function(Coords) then) =
-      _$CoordsCopyWithImpl<$Res, Coords>;
-  @useResult
-  $Res call({double x, double y, double z});
-}
-
-/// @nodoc
-class _$CoordsCopyWithImpl<$Res, $Val extends Coords>
-    implements $CoordsCopyWith<$Res> {
-  _$CoordsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Coords
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? x = null,
-    Object? y = null,
-    Object? z = null,
-  }) {
-    return _then(_value.copyWith(
-      x: null == x
-          ? _value.x
-          : x // ignore: cast_nullable_to_non_nullable
-              as double,
-      y: null == y
-          ? _value.y
-          : y // ignore: cast_nullable_to_non_nullable
-              as double,
-      z: null == z
-          ? _value.z
-          : z // ignore: cast_nullable_to_non_nullable
-              as double,
-    ) as $Val);
-  }
-}
+  $CoordsCopyWith<Coords> get copyWith =>
+      _$CoordsCopyWithImpl<Coords>(this as Coords, _$identity);
 
-/// @nodoc
-abstract class _$$CoordsImplCopyWith<$Res> implements $CoordsCopyWith<$Res> {
-  factory _$$CoordsImplCopyWith(
-          _$CoordsImpl value, $Res Function(_$CoordsImpl) then) =
-      __$$CoordsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({double x, double y, double z});
-}
-
-/// @nodoc
-class __$$CoordsImplCopyWithImpl<$Res>
-    extends _$CoordsCopyWithImpl<$Res, _$CoordsImpl>
-    implements _$$CoordsImplCopyWith<$Res> {
-  __$$CoordsImplCopyWithImpl(
-      _$CoordsImpl _value, $Res Function(_$CoordsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Coords
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? x = null,
-    Object? y = null,
-    Object? z = null,
-  }) {
-    return _then(_$CoordsImpl(
-      x: null == x
-          ? _value.x
-          : x // ignore: cast_nullable_to_non_nullable
-              as double,
-      y: null == y
-          ? _value.y
-          : y // ignore: cast_nullable_to_non_nullable
-              as double,
-      z: null == z
-          ? _value.z
-          : z // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$CoordsImpl with DiagnosticableTreeMixin implements _Coords {
-  const _$CoordsImpl({required this.x, required this.y, required this.z});
-
-  factory _$CoordsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CoordsImplFromJson(json);
-
-  @override
-  final double x;
-  @override
-  final double y;
-  @override
-  final double z;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Coords(x: $x, y: $y, z: $z)';
-  }
+  /// Serializes this Coords to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'Coords'))
       ..add(DiagnosticsProperty('x', x))
@@ -155,7 +42,7 @@ class _$CoordsImpl with DiagnosticableTreeMixin implements _Coords {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CoordsImpl &&
+            other is Coords &&
             (identical(other.x, x) || other.x == x) &&
             (identical(other.y, y) || other.y == y) &&
             (identical(other.z, z) || other.z == z));
@@ -165,70 +52,203 @@ class _$CoordsImpl with DiagnosticableTreeMixin implements _Coords {
   @override
   int get hashCode => Object.hash(runtimeType, x, y, z);
 
-  /// Create a copy of Coords
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$CoordsImplCopyWith<_$CoordsImpl> get copyWith =>
-      __$$CoordsImplCopyWithImpl<_$CoordsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CoordsImplToJson(
-      this,
-    );
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Coords(x: $x, y: $y, z: $z)';
   }
 }
 
-abstract class _Coords implements Coords {
-  const factory _Coords(
-      {required final double x,
-      required final double y,
-      required final double z}) = _$CoordsImpl;
+/// @nodoc
+abstract mixin class $CoordsCopyWith<$Res> {
+  factory $CoordsCopyWith(Coords value, $Res Function(Coords) _then) =
+      _$CoordsCopyWithImpl;
+  @useResult
+  $Res call({double x, double y, double z});
+}
 
-  factory _Coords.fromJson(Map<String, dynamic> json) = _$CoordsImpl.fromJson;
+/// @nodoc
+class _$CoordsCopyWithImpl<$Res> implements $CoordsCopyWith<$Res> {
+  _$CoordsCopyWithImpl(this._self, this._then);
+
+  final Coords _self;
+  final $Res Function(Coords) _then;
+
+  /// Create a copy of Coords
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? x = null,
+    Object? y = null,
+    Object? z = null,
+  }) {
+    return _then(_self.copyWith(
+      x: null == x
+          ? _self.x
+          : x // ignore: cast_nullable_to_non_nullable
+              as double,
+      y: null == y
+          ? _self.y
+          : y // ignore: cast_nullable_to_non_nullable
+              as double,
+      z: null == z
+          ? _self.z
+          : z // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _Coords with DiagnosticableTreeMixin implements Coords {
+  const _Coords({required this.x, required this.y, required this.z});
+  factory _Coords.fromJson(Map<String, dynamic> json) => _$CoordsFromJson(json);
 
   @override
-  double get x;
+  final double x;
   @override
-  double get y;
+  final double y;
   @override
-  double get z;
+  final double z;
 
   /// Create a copy of Coords
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CoordsImplCopyWith<_$CoordsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+  @pragma('vm:prefer-inline')
+  _$CoordsCopyWith<_Coords> get copyWith =>
+      __$CoordsCopyWithImpl<_Coords>(this, _$identity);
 
-MegaStruct _$MegaStructFromJson(Map<String, dynamic> json) {
-  return _MegaStruct.fromJson(json);
+  @override
+  Map<String, dynamic> toJson() {
+    return _$CoordsToJson(
+      this,
+    );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'Coords'))
+      ..add(DiagnosticsProperty('x', x))
+      ..add(DiagnosticsProperty('y', y))
+      ..add(DiagnosticsProperty('z', z));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Coords &&
+            (identical(other.x, x) || other.x == x) &&
+            (identical(other.y, y) || other.y == y) &&
+            (identical(other.z, z) || other.z == z));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, x, y, z);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Coords(x: $x, y: $y, z: $z)';
+  }
 }
 
 /// @nodoc
-mixin _$MegaStruct {
-  String get name => throw _privateConstructorUsedError;
-  Coords get coords => throw _privateConstructorUsedError;
-  Map<String, String> get props => throw _privateConstructorUsedError;
+abstract mixin class _$CoordsCopyWith<$Res> implements $CoordsCopyWith<$Res> {
+  factory _$CoordsCopyWith(_Coords value, $Res Function(_Coords) _then) =
+      __$CoordsCopyWithImpl;
+  @override
+  @useResult
+  $Res call({double x, double y, double z});
+}
 
-  /// Serializes this MegaStruct to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+/// @nodoc
+class __$CoordsCopyWithImpl<$Res> implements _$CoordsCopyWith<$Res> {
+  __$CoordsCopyWithImpl(this._self, this._then);
+
+  final _Coords _self;
+  final $Res Function(_Coords) _then;
+
+  /// Create a copy of Coords
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? x = null,
+    Object? y = null,
+    Object? z = null,
+  }) {
+    return _then(_Coords(
+      x: null == x
+          ? _self.x
+          : x // ignore: cast_nullable_to_non_nullable
+              as double,
+      y: null == y
+          ? _self.y
+          : y // ignore: cast_nullable_to_non_nullable
+              as double,
+      z: null == z
+          ? _self.z
+          : z // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+mixin _$MegaStruct implements DiagnosticableTreeMixin {
+  String get name;
+  Coords get coords;
+  Map<String, String> get props;
 
   /// Create a copy of MegaStruct
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $MegaStructCopyWith<MegaStruct> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$MegaStructCopyWithImpl<MegaStruct>(this as MegaStruct, _$identity);
+
+  /// Serializes this MegaStruct to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'MegaStruct'))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('coords', coords))
+      ..add(DiagnosticsProperty('props', props));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MegaStruct &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.coords, coords) || other.coords == coords) &&
+            const DeepCollectionEquality().equals(other.props, props));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, name, coords, const DeepCollectionEquality().hash(props));
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'MegaStruct(name: $name, coords: $coords, props: $props)';
+  }
 }
 
 /// @nodoc
-abstract class $MegaStructCopyWith<$Res> {
+abstract mixin class $MegaStructCopyWith<$Res> {
   factory $MegaStructCopyWith(
-          MegaStruct value, $Res Function(MegaStruct) then) =
-      _$MegaStructCopyWithImpl<$Res, MegaStruct>;
+          MegaStruct value, $Res Function(MegaStruct) _then) =
+      _$MegaStructCopyWithImpl;
   @useResult
   $Res call({String name, Coords coords, Map<String, String> props});
 
@@ -236,14 +256,11 @@ abstract class $MegaStructCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MegaStructCopyWithImpl<$Res, $Val extends MegaStruct>
-    implements $MegaStructCopyWith<$Res> {
-  _$MegaStructCopyWithImpl(this._value, this._then);
+class _$MegaStructCopyWithImpl<$Res> implements $MegaStructCopyWith<$Res> {
+  _$MegaStructCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final MegaStruct _self;
+  final $Res Function(MegaStruct) _then;
 
   /// Create a copy of MegaStruct
   /// with the given fields replaced by the non-null parameter values.
@@ -254,20 +271,20 @@ class _$MegaStructCopyWithImpl<$Res, $Val extends MegaStruct>
     Object? coords = null,
     Object? props = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       coords: null == coords
-          ? _value.coords
+          ? _self.coords
           : coords // ignore: cast_nullable_to_non_nullable
               as Coords,
       props: null == props
-          ? _value.props
+          ? _self.props
           : props // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of MegaStruct
@@ -275,71 +292,22 @@ class _$MegaStructCopyWithImpl<$Res, $Val extends MegaStruct>
   @override
   @pragma('vm:prefer-inline')
   $CoordsCopyWith<$Res> get coords {
-    return $CoordsCopyWith<$Res>(_value.coords, (value) {
-      return _then(_value.copyWith(coords: value) as $Val);
+    return $CoordsCopyWith<$Res>(_self.coords, (value) {
+      return _then(_self.copyWith(coords: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$MegaStructImplCopyWith<$Res>
-    implements $MegaStructCopyWith<$Res> {
-  factory _$$MegaStructImplCopyWith(
-          _$MegaStructImpl value, $Res Function(_$MegaStructImpl) then) =
-      __$$MegaStructImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String name, Coords coords, Map<String, String> props});
-
-  @override
-  $CoordsCopyWith<$Res> get coords;
-}
-
-/// @nodoc
-class __$$MegaStructImplCopyWithImpl<$Res>
-    extends _$MegaStructCopyWithImpl<$Res, _$MegaStructImpl>
-    implements _$$MegaStructImplCopyWith<$Res> {
-  __$$MegaStructImplCopyWithImpl(
-      _$MegaStructImpl _value, $Res Function(_$MegaStructImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MegaStruct
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? coords = null,
-    Object? props = null,
-  }) {
-    return _then(_$MegaStructImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      coords: null == coords
-          ? _value.coords
-          : coords // ignore: cast_nullable_to_non_nullable
-              as Coords,
-      props: null == props
-          ? _value._props
-          : props // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$MegaStructImpl with DiagnosticableTreeMixin implements _MegaStruct {
-  const _$MegaStructImpl(
+class _MegaStruct with DiagnosticableTreeMixin implements MegaStruct {
+  const _MegaStruct(
       {required this.name,
       required this.coords,
       required final Map<String, String> props})
       : _props = props;
-
-  factory _$MegaStructImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MegaStructImplFromJson(json);
+  factory _MegaStruct.fromJson(Map<String, dynamic> json) =>
+      _$MegaStructFromJson(json);
 
   @override
   final String name;
@@ -353,14 +321,23 @@ class _$MegaStructImpl with DiagnosticableTreeMixin implements _MegaStruct {
     return EqualUnmodifiableMapView(_props);
   }
 
+  /// Create a copy of MegaStruct
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MegaStruct(name: $name, coords: $coords, props: $props)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MegaStructCopyWith<_MegaStruct> get copyWith =>
+      __$MegaStructCopyWithImpl<_MegaStruct>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$MegaStructToJson(
+      this,
+    );
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'MegaStruct'))
       ..add(DiagnosticsProperty('name', name))
@@ -372,7 +349,7 @@ class _$MegaStructImpl with DiagnosticableTreeMixin implements _MegaStruct {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MegaStructImpl &&
+            other is _MegaStruct &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.coords, coords) || other.coords == coords) &&
             const DeepCollectionEquality().equals(other._props, _props));
@@ -383,42 +360,67 @@ class _$MegaStructImpl with DiagnosticableTreeMixin implements _MegaStruct {
   int get hashCode => Object.hash(
       runtimeType, name, coords, const DeepCollectionEquality().hash(_props));
 
-  /// Create a copy of MegaStruct
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MegaStructImplCopyWith<_$MegaStructImpl> get copyWith =>
-      __$$MegaStructImplCopyWithImpl<_$MegaStructImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MegaStructImplToJson(
-      this,
-    );
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'MegaStruct(name: $name, coords: $coords, props: $props)';
   }
 }
 
-abstract class _MegaStruct implements MegaStruct {
-  const factory _MegaStruct(
-      {required final String name,
-      required final Coords coords,
-      required final Map<String, String> props}) = _$MegaStructImpl;
+/// @nodoc
+abstract mixin class _$MegaStructCopyWith<$Res>
+    implements $MegaStructCopyWith<$Res> {
+  factory _$MegaStructCopyWith(
+          _MegaStruct value, $Res Function(_MegaStruct) _then) =
+      __$MegaStructCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String name, Coords coords, Map<String, String> props});
 
-  factory _MegaStruct.fromJson(Map<String, dynamic> json) =
-      _$MegaStructImpl.fromJson;
+  @override
+  $CoordsCopyWith<$Res> get coords;
+}
 
-  @override
-  String get name;
-  @override
-  Coords get coords;
-  @override
-  Map<String, String> get props;
+/// @nodoc
+class __$MegaStructCopyWithImpl<$Res> implements _$MegaStructCopyWith<$Res> {
+  __$MegaStructCopyWithImpl(this._self, this._then);
+
+  final _MegaStruct _self;
+  final $Res Function(_MegaStruct) _then;
 
   /// Create a copy of MegaStruct
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MegaStructImplCopyWith<_$MegaStructImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? name = null,
+    Object? coords = null,
+    Object? props = null,
+  }) {
+    return _then(_MegaStruct(
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      coords: null == coords
+          ? _self.coords
+          : coords // ignore: cast_nullable_to_non_nullable
+              as Coords,
+      props: null == props
+          ? _self._props
+          : props // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+    ));
+  }
+
+  /// Create a copy of MegaStruct
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CoordsCopyWith<$Res> get coords {
+    return $CoordsCopyWith<$Res>(_self.coords, (value) {
+      return _then(_self.copyWith(coords: value));
+    });
+  }
 }
+
+// dart format on

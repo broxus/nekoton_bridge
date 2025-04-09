@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,11 +10,8 @@ part of 'derived_key_sign_params_by_account_id.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 DerivedKeyPasswordByAccountId _$DerivedKeyPasswordByAccountIdFromJson(
     Map<String, dynamic> json) {
   return _DerivedKeyPasswordByAccountIdByAccountId.fromJson(json);
@@ -21,175 +19,27 @@ DerivedKeyPasswordByAccountId _$DerivedKeyPasswordByAccountIdFromJson(
 
 /// @nodoc
 mixin _$DerivedKeyPasswordByAccountId {
-  PublicKey get masterKey => throw _privateConstructorUsedError;
-  int get accountId => throw _privateConstructorUsedError;
-  Password get password => throw _privateConstructorUsedError;
-
-  /// Serializes this DerivedKeyPasswordByAccountId to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  PublicKey get masterKey;
+  int get accountId;
+  Password get password;
 
   /// Create a copy of DerivedKeyPasswordByAccountId
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $DerivedKeyPasswordByAccountIdCopyWith<DerivedKeyPasswordByAccountId>
-      get copyWith => throw _privateConstructorUsedError;
-}
+      get copyWith => _$DerivedKeyPasswordByAccountIdCopyWithImpl<
+              DerivedKeyPasswordByAccountId>(
+          this as DerivedKeyPasswordByAccountId, _$identity);
 
-/// @nodoc
-abstract class $DerivedKeyPasswordByAccountIdCopyWith<$Res> {
-  factory $DerivedKeyPasswordByAccountIdCopyWith(
-          DerivedKeyPasswordByAccountId value,
-          $Res Function(DerivedKeyPasswordByAccountId) then) =
-      _$DerivedKeyPasswordByAccountIdCopyWithImpl<$Res,
-          DerivedKeyPasswordByAccountId>;
-  @useResult
-  $Res call({PublicKey masterKey, int accountId, Password password});
-
-  $PublicKeyCopyWith<$Res> get masterKey;
-  $PasswordCopyWith<$Res> get password;
-}
-
-/// @nodoc
-class _$DerivedKeyPasswordByAccountIdCopyWithImpl<$Res,
-        $Val extends DerivedKeyPasswordByAccountId>
-    implements $DerivedKeyPasswordByAccountIdCopyWith<$Res> {
-  _$DerivedKeyPasswordByAccountIdCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of DerivedKeyPasswordByAccountId
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? masterKey = null,
-    Object? accountId = null,
-    Object? password = null,
-  }) {
-    return _then(_value.copyWith(
-      masterKey: null == masterKey
-          ? _value.masterKey
-          : masterKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      accountId: null == accountId
-          ? _value.accountId
-          : accountId // ignore: cast_nullable_to_non_nullable
-              as int,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as Password,
-    ) as $Val);
-  }
-
-  /// Create a copy of DerivedKeyPasswordByAccountId
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get masterKey {
-    return $PublicKeyCopyWith<$Res>(_value.masterKey, (value) {
-      return _then(_value.copyWith(masterKey: value) as $Val);
-    });
-  }
-
-  /// Create a copy of DerivedKeyPasswordByAccountId
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PasswordCopyWith<$Res> get password {
-    return $PasswordCopyWith<$Res>(_value.password, (value) {
-      return _then(_value.copyWith(password: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWith<$Res>
-    implements $DerivedKeyPasswordByAccountIdCopyWith<$Res> {
-  factory _$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWith(
-          _$DerivedKeyPasswordByAccountIdByAccountIdImpl value,
-          $Res Function(_$DerivedKeyPasswordByAccountIdByAccountIdImpl) then) =
-      __$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({PublicKey masterKey, int accountId, Password password});
-
-  @override
-  $PublicKeyCopyWith<$Res> get masterKey;
-  @override
-  $PasswordCopyWith<$Res> get password;
-}
-
-/// @nodoc
-class __$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWithImpl<$Res>
-    extends _$DerivedKeyPasswordByAccountIdCopyWithImpl<$Res,
-        _$DerivedKeyPasswordByAccountIdByAccountIdImpl>
-    implements _$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWith<$Res> {
-  __$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWithImpl(
-      _$DerivedKeyPasswordByAccountIdByAccountIdImpl _value,
-      $Res Function(_$DerivedKeyPasswordByAccountIdByAccountIdImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of DerivedKeyPasswordByAccountId
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? masterKey = null,
-    Object? accountId = null,
-    Object? password = null,
-  }) {
-    return _then(_$DerivedKeyPasswordByAccountIdByAccountIdImpl(
-      masterKey: null == masterKey
-          ? _value.masterKey
-          : masterKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      accountId: null == accountId
-          ? _value.accountId
-          : accountId // ignore: cast_nullable_to_non_nullable
-              as int,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as Password,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(fieldRename: FieldRename.snake)
-class _$DerivedKeyPasswordByAccountIdByAccountIdImpl
-    implements _DerivedKeyPasswordByAccountIdByAccountId {
-  const _$DerivedKeyPasswordByAccountIdByAccountIdImpl(
-      {required this.masterKey,
-      required this.accountId,
-      required this.password});
-
-  factory _$DerivedKeyPasswordByAccountIdByAccountIdImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$DerivedKeyPasswordByAccountIdByAccountIdImplFromJson(json);
-
-  @override
-  final PublicKey masterKey;
-  @override
-  final int accountId;
-  @override
-  final Password password;
-
-  @override
-  String toString() {
-    return 'DerivedKeyPasswordByAccountId(masterKey: $masterKey, accountId: $accountId, password: $password)';
-  }
+  /// Serializes this DerivedKeyPasswordByAccountId to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DerivedKeyPasswordByAccountIdByAccountIdImpl &&
+            other is DerivedKeyPasswordByAccountId &&
             (identical(other.masterKey, masterKey) ||
                 other.masterKey == masterKey) &&
             (identical(other.accountId, accountId) ||
@@ -202,49 +52,209 @@ class _$DerivedKeyPasswordByAccountIdByAccountIdImpl
   @override
   int get hashCode => Object.hash(runtimeType, masterKey, accountId, password);
 
-  /// Create a copy of DerivedKeyPasswordByAccountId
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWith<
-          _$DerivedKeyPasswordByAccountIdByAccountIdImpl>
-      get copyWith =>
-          __$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWithImpl<
-              _$DerivedKeyPasswordByAccountIdByAccountIdImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DerivedKeyPasswordByAccountIdByAccountIdImplToJson(
-      this,
-    );
+  String toString() {
+    return 'DerivedKeyPasswordByAccountId(masterKey: $masterKey, accountId: $accountId, password: $password)';
   }
 }
 
-abstract class _DerivedKeyPasswordByAccountIdByAccountId
+/// @nodoc
+abstract mixin class $DerivedKeyPasswordByAccountIdCopyWith<$Res> {
+  factory $DerivedKeyPasswordByAccountIdCopyWith(
+          DerivedKeyPasswordByAccountId value,
+          $Res Function(DerivedKeyPasswordByAccountId) _then) =
+      _$DerivedKeyPasswordByAccountIdCopyWithImpl;
+  @useResult
+  $Res call({PublicKey masterKey, int accountId, Password password});
+
+  $PublicKeyCopyWith<$Res> get masterKey;
+  $PasswordCopyWith<$Res> get password;
+}
+
+/// @nodoc
+class _$DerivedKeyPasswordByAccountIdCopyWithImpl<$Res>
+    implements $DerivedKeyPasswordByAccountIdCopyWith<$Res> {
+  _$DerivedKeyPasswordByAccountIdCopyWithImpl(this._self, this._then);
+
+  final DerivedKeyPasswordByAccountId _self;
+  final $Res Function(DerivedKeyPasswordByAccountId) _then;
+
+  /// Create a copy of DerivedKeyPasswordByAccountId
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? masterKey = null,
+    Object? accountId = null,
+    Object? password = null,
+  }) {
+    return _then(_self.copyWith(
+      masterKey: null == masterKey
+          ? _self.masterKey
+          : masterKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      accountId: null == accountId
+          ? _self.accountId
+          : accountId // ignore: cast_nullable_to_non_nullable
+              as int,
+      password: null == password
+          ? _self.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+    ));
+  }
+
+  /// Create a copy of DerivedKeyPasswordByAccountId
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get masterKey {
+    return $PublicKeyCopyWith<$Res>(_self.masterKey, (value) {
+      return _then(_self.copyWith(masterKey: value));
+    });
+  }
+
+  /// Create a copy of DerivedKeyPasswordByAccountId
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PasswordCopyWith<$Res> get password {
+    return $PasswordCopyWith<$Res>(_self.password, (value) {
+      return _then(_self.copyWith(password: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _DerivedKeyPasswordByAccountIdByAccountId
     implements DerivedKeyPasswordByAccountId {
-  const factory _DerivedKeyPasswordByAccountIdByAccountId(
-          {required final PublicKey masterKey,
-          required final int accountId,
-          required final Password password}) =
-      _$DerivedKeyPasswordByAccountIdByAccountIdImpl;
-
+  const _DerivedKeyPasswordByAccountIdByAccountId(
+      {required this.masterKey,
+      required this.accountId,
+      required this.password});
   factory _DerivedKeyPasswordByAccountIdByAccountId.fromJson(
-          Map<String, dynamic> json) =
-      _$DerivedKeyPasswordByAccountIdByAccountIdImpl.fromJson;
+          Map<String, dynamic> json) =>
+      _$DerivedKeyPasswordByAccountIdByAccountIdFromJson(json);
 
   @override
-  PublicKey get masterKey;
+  final PublicKey masterKey;
   @override
-  int get accountId;
+  final int accountId;
   @override
-  Password get password;
+  final Password password;
 
   /// Create a copy of DerivedKeyPasswordByAccountId
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DerivedKeyPasswordByAccountIdByAccountIdImplCopyWith<
-          _$DerivedKeyPasswordByAccountIdByAccountIdImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$DerivedKeyPasswordByAccountIdByAccountIdCopyWith<
+          _DerivedKeyPasswordByAccountIdByAccountId>
+      get copyWith => __$DerivedKeyPasswordByAccountIdByAccountIdCopyWithImpl<
+          _DerivedKeyPasswordByAccountIdByAccountId>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$DerivedKeyPasswordByAccountIdByAccountIdToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _DerivedKeyPasswordByAccountIdByAccountId &&
+            (identical(other.masterKey, masterKey) ||
+                other.masterKey == masterKey) &&
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId) &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, masterKey, accountId, password);
+
+  @override
+  String toString() {
+    return 'DerivedKeyPasswordByAccountId(masterKey: $masterKey, accountId: $accountId, password: $password)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$DerivedKeyPasswordByAccountIdByAccountIdCopyWith<$Res>
+    implements $DerivedKeyPasswordByAccountIdCopyWith<$Res> {
+  factory _$DerivedKeyPasswordByAccountIdByAccountIdCopyWith(
+          _DerivedKeyPasswordByAccountIdByAccountId value,
+          $Res Function(_DerivedKeyPasswordByAccountIdByAccountId) _then) =
+      __$DerivedKeyPasswordByAccountIdByAccountIdCopyWithImpl;
+  @override
+  @useResult
+  $Res call({PublicKey masterKey, int accountId, Password password});
+
+  @override
+  $PublicKeyCopyWith<$Res> get masterKey;
+  @override
+  $PasswordCopyWith<$Res> get password;
+}
+
+/// @nodoc
+class __$DerivedKeyPasswordByAccountIdByAccountIdCopyWithImpl<$Res>
+    implements _$DerivedKeyPasswordByAccountIdByAccountIdCopyWith<$Res> {
+  __$DerivedKeyPasswordByAccountIdByAccountIdCopyWithImpl(
+      this._self, this._then);
+
+  final _DerivedKeyPasswordByAccountIdByAccountId _self;
+  final $Res Function(_DerivedKeyPasswordByAccountIdByAccountId) _then;
+
+  /// Create a copy of DerivedKeyPasswordByAccountId
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? masterKey = null,
+    Object? accountId = null,
+    Object? password = null,
+  }) {
+    return _then(_DerivedKeyPasswordByAccountIdByAccountId(
+      masterKey: null == masterKey
+          ? _self.masterKey
+          : masterKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      accountId: null == accountId
+          ? _self.accountId
+          : accountId // ignore: cast_nullable_to_non_nullable
+              as int,
+      password: null == password
+          ? _self.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+    ));
+  }
+
+  /// Create a copy of DerivedKeyPasswordByAccountId
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get masterKey {
+    return $PublicKeyCopyWith<$Res>(_self.masterKey, (value) {
+      return _then(_self.copyWith(masterKey: value));
+    });
+  }
+
+  /// Create a copy of DerivedKeyPasswordByAccountId
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PasswordCopyWith<$Res> get password {
+    return $PasswordCopyWith<$Res>(_self.password, (value) {
+      return _then(_self.copyWith(password: value));
+    });
+  }
+}
+
+// dart format on

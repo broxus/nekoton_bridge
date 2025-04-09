@@ -6,13 +6,13 @@ part of 'decoded_output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DecodedOutputImpl _$$DecodedOutputImplFromJson(Map<String, dynamic> json) =>
-    _$DecodedOutputImpl(
+_DecodedOutput _$DecodedOutputFromJson(Map<String, dynamic> json) =>
+    _DecodedOutput(
       method: json['method'] as String,
       output: json['output'] as Map<String, dynamic>,
     );
 
-Map<String, dynamic> _$$DecodedOutputImplToJson(_$DecodedOutputImpl instance) =>
+Map<String, dynamic> _$DecodedOutputToJson(_DecodedOutput instance) =>
     <String, dynamic>{
       'method': instance.method,
       'output': instance.output,

@@ -6,8 +6,8 @@ part of 'jetton_meta_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$JettonMetaDataImpl _$$JettonMetaDataImplFromJson(Map<String, dynamic> json) =>
-    _$JettonMetaDataImpl(
+_JettonMetaData _$JettonMetaDataFromJson(Map<String, dynamic> json) =>
+    _JettonMetaData(
       name: json['name'] as String?,
       uri: json['uri'] as String?,
       symbol: json['symbol'] as String?,
@@ -16,8 +16,7 @@ _$JettonMetaDataImpl _$$JettonMetaDataImplFromJson(Map<String, dynamic> json) =>
       decimals: (json['decimals'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$$JettonMetaDataImplToJson(
-        _$JettonMetaDataImpl instance) =>
+Map<String, dynamic> _$JettonMetaDataToJson(_JettonMetaData instance) =>
     <String, dynamic>{
       'name': instance.name,
       'uri': instance.uri,

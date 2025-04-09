@@ -10,15 +10,15 @@ part 'multisig_transaction.g.dart';
 @Freezed(unionKey: 'type')
 sealed class MultisigTransaction with _$MultisigTransaction {
   const factory MultisigTransaction.send(final MultisigSendTransaction data) =
-      _Send;
+      MultisigTransactionSend;
 
   const factory MultisigTransaction.submit(
     final MultisigSubmitTransaction data,
-  ) = _Submit;
+  ) = MultisigTransactionSubmit;
 
   const factory MultisigTransaction.confirm(
     final MultisigConfirmTransaction data,
-  ) = _Confirm;
+  ) = MultisigTransactionConfirm;
 
   factory MultisigTransaction.fromJson(Map<String, dynamic> json) =>
       _$MultisigTransactionFromJson(json);

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,173 +10,32 @@ part of 'token_swap_back.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-TokenSwapBack _$TokenSwapBackFromJson(Map<String, dynamic> json) {
-  return _TokenSwapBack.fromJson(json);
-}
 
 /// @nodoc
 mixin _$TokenSwapBack {
   @amountJsonConverter
-  BigInt get tokens => throw _privateConstructorUsedError;
-  Address get callbackAddress => throw _privateConstructorUsedError;
-  String get callbackPayload => throw _privateConstructorUsedError;
-
-  /// Serializes this TokenSwapBack to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  BigInt get tokens;
+  Address get callbackAddress;
+  String get callbackPayload;
 
   /// Create a copy of TokenSwapBack
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $TokenSwapBackCopyWith<TokenSwapBack> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$TokenSwapBackCopyWithImpl<TokenSwapBack>(
+          this as TokenSwapBack, _$identity);
 
-/// @nodoc
-abstract class $TokenSwapBackCopyWith<$Res> {
-  factory $TokenSwapBackCopyWith(
-          TokenSwapBack value, $Res Function(TokenSwapBack) then) =
-      _$TokenSwapBackCopyWithImpl<$Res, TokenSwapBack>;
-  @useResult
-  $Res call(
-      {@amountJsonConverter BigInt tokens,
-      Address callbackAddress,
-      String callbackPayload});
-
-  $AddressCopyWith<$Res> get callbackAddress;
-}
-
-/// @nodoc
-class _$TokenSwapBackCopyWithImpl<$Res, $Val extends TokenSwapBack>
-    implements $TokenSwapBackCopyWith<$Res> {
-  _$TokenSwapBackCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of TokenSwapBack
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? tokens = null,
-    Object? callbackAddress = null,
-    Object? callbackPayload = null,
-  }) {
-    return _then(_value.copyWith(
-      tokens: null == tokens
-          ? _value.tokens
-          : tokens // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-      callbackAddress: null == callbackAddress
-          ? _value.callbackAddress
-          : callbackAddress // ignore: cast_nullable_to_non_nullable
-              as Address,
-      callbackPayload: null == callbackPayload
-          ? _value.callbackPayload
-          : callbackPayload // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-
-  /// Create a copy of TokenSwapBack
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res> get callbackAddress {
-    return $AddressCopyWith<$Res>(_value.callbackAddress, (value) {
-      return _then(_value.copyWith(callbackAddress: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$TokenSwapBackImplCopyWith<$Res>
-    implements $TokenSwapBackCopyWith<$Res> {
-  factory _$$TokenSwapBackImplCopyWith(
-          _$TokenSwapBackImpl value, $Res Function(_$TokenSwapBackImpl) then) =
-      __$$TokenSwapBackImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@amountJsonConverter BigInt tokens,
-      Address callbackAddress,
-      String callbackPayload});
-
-  @override
-  $AddressCopyWith<$Res> get callbackAddress;
-}
-
-/// @nodoc
-class __$$TokenSwapBackImplCopyWithImpl<$Res>
-    extends _$TokenSwapBackCopyWithImpl<$Res, _$TokenSwapBackImpl>
-    implements _$$TokenSwapBackImplCopyWith<$Res> {
-  __$$TokenSwapBackImplCopyWithImpl(
-      _$TokenSwapBackImpl _value, $Res Function(_$TokenSwapBackImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TokenSwapBack
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? tokens = null,
-    Object? callbackAddress = null,
-    Object? callbackPayload = null,
-  }) {
-    return _then(_$TokenSwapBackImpl(
-      tokens: null == tokens
-          ? _value.tokens
-          : tokens // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-      callbackAddress: null == callbackAddress
-          ? _value.callbackAddress
-          : callbackAddress // ignore: cast_nullable_to_non_nullable
-              as Address,
-      callbackPayload: null == callbackPayload
-          ? _value.callbackPayload
-          : callbackPayload // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(fieldRename: FieldRename.snake)
-class _$TokenSwapBackImpl implements _TokenSwapBack {
-  const _$TokenSwapBackImpl(
-      {@amountJsonConverter required this.tokens,
-      required this.callbackAddress,
-      required this.callbackPayload});
-
-  factory _$TokenSwapBackImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TokenSwapBackImplFromJson(json);
-
-  @override
-  @amountJsonConverter
-  final BigInt tokens;
-  @override
-  final Address callbackAddress;
-  @override
-  final String callbackPayload;
-
-  @override
-  String toString() {
-    return 'TokenSwapBack(tokens: $tokens, callbackAddress: $callbackAddress, callbackPayload: $callbackPayload)';
-  }
+  /// Serializes this TokenSwapBack to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TokenSwapBackImpl &&
+            other is TokenSwapBack &&
             (identical(other.tokens, tokens) || other.tokens == tokens) &&
             (identical(other.callbackAddress, callbackAddress) ||
                 other.callbackAddress == callbackAddress) &&
@@ -188,43 +48,186 @@ class _$TokenSwapBackImpl implements _TokenSwapBack {
   int get hashCode =>
       Object.hash(runtimeType, tokens, callbackAddress, callbackPayload);
 
-  /// Create a copy of TokenSwapBack
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TokenSwapBackImplCopyWith<_$TokenSwapBackImpl> get copyWith =>
-      __$$TokenSwapBackImplCopyWithImpl<_$TokenSwapBackImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TokenSwapBackImplToJson(
-      this,
-    );
+  String toString() {
+    return 'TokenSwapBack(tokens: $tokens, callbackAddress: $callbackAddress, callbackPayload: $callbackPayload)';
   }
 }
 
-abstract class _TokenSwapBack implements TokenSwapBack {
-  const factory _TokenSwapBack(
-      {@amountJsonConverter required final BigInt tokens,
-      required final Address callbackAddress,
-      required final String callbackPayload}) = _$TokenSwapBackImpl;
+/// @nodoc
+abstract mixin class $TokenSwapBackCopyWith<$Res> {
+  factory $TokenSwapBackCopyWith(
+          TokenSwapBack value, $Res Function(TokenSwapBack) _then) =
+      _$TokenSwapBackCopyWithImpl;
+  @useResult
+  $Res call(
+      {@amountJsonConverter BigInt tokens,
+      Address callbackAddress,
+      String callbackPayload});
 
-  factory _TokenSwapBack.fromJson(Map<String, dynamic> json) =
-      _$TokenSwapBackImpl.fromJson;
+  $AddressCopyWith<$Res> get callbackAddress;
+}
+
+/// @nodoc
+class _$TokenSwapBackCopyWithImpl<$Res>
+    implements $TokenSwapBackCopyWith<$Res> {
+  _$TokenSwapBackCopyWithImpl(this._self, this._then);
+
+  final TokenSwapBack _self;
+  final $Res Function(TokenSwapBack) _then;
+
+  /// Create a copy of TokenSwapBack
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? tokens = null,
+    Object? callbackAddress = null,
+    Object? callbackPayload = null,
+  }) {
+    return _then(_self.copyWith(
+      tokens: null == tokens
+          ? _self.tokens
+          : tokens // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      callbackAddress: null == callbackAddress
+          ? _self.callbackAddress
+          : callbackAddress // ignore: cast_nullable_to_non_nullable
+              as Address,
+      callbackPayload: null == callbackPayload
+          ? _self.callbackPayload
+          : callbackPayload // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+
+  /// Create a copy of TokenSwapBack
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get callbackAddress {
+    return $AddressCopyWith<$Res>(_self.callbackAddress, (value) {
+      return _then(_self.copyWith(callbackAddress: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _TokenSwapBack implements TokenSwapBack {
+  const _TokenSwapBack(
+      {@amountJsonConverter required this.tokens,
+      required this.callbackAddress,
+      required this.callbackPayload});
+  factory _TokenSwapBack.fromJson(Map<String, dynamic> json) =>
+      _$TokenSwapBackFromJson(json);
 
   @override
   @amountJsonConverter
-  BigInt get tokens;
+  final BigInt tokens;
   @override
-  Address get callbackAddress;
+  final Address callbackAddress;
   @override
-  String get callbackPayload;
+  final String callbackPayload;
 
   /// Create a copy of TokenSwapBack
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TokenSwapBackImplCopyWith<_$TokenSwapBackImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$TokenSwapBackCopyWith<_TokenSwapBack> get copyWith =>
+      __$TokenSwapBackCopyWithImpl<_TokenSwapBack>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TokenSwapBackToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _TokenSwapBack &&
+            (identical(other.tokens, tokens) || other.tokens == tokens) &&
+            (identical(other.callbackAddress, callbackAddress) ||
+                other.callbackAddress == callbackAddress) &&
+            (identical(other.callbackPayload, callbackPayload) ||
+                other.callbackPayload == callbackPayload));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, tokens, callbackAddress, callbackPayload);
+
+  @override
+  String toString() {
+    return 'TokenSwapBack(tokens: $tokens, callbackAddress: $callbackAddress, callbackPayload: $callbackPayload)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$TokenSwapBackCopyWith<$Res>
+    implements $TokenSwapBackCopyWith<$Res> {
+  factory _$TokenSwapBackCopyWith(
+          _TokenSwapBack value, $Res Function(_TokenSwapBack) _then) =
+      __$TokenSwapBackCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@amountJsonConverter BigInt tokens,
+      Address callbackAddress,
+      String callbackPayload});
+
+  @override
+  $AddressCopyWith<$Res> get callbackAddress;
+}
+
+/// @nodoc
+class __$TokenSwapBackCopyWithImpl<$Res>
+    implements _$TokenSwapBackCopyWith<$Res> {
+  __$TokenSwapBackCopyWithImpl(this._self, this._then);
+
+  final _TokenSwapBack _self;
+  final $Res Function(_TokenSwapBack) _then;
+
+  /// Create a copy of TokenSwapBack
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? tokens = null,
+    Object? callbackAddress = null,
+    Object? callbackPayload = null,
+  }) {
+    return _then(_TokenSwapBack(
+      tokens: null == tokens
+          ? _self.tokens
+          : tokens // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      callbackAddress: null == callbackAddress
+          ? _self.callbackAddress
+          : callbackAddress // ignore: cast_nullable_to_non_nullable
+              as Address,
+      callbackPayload: null == callbackPayload
+          ? _self.callbackPayload
+          : callbackPayload // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+
+  /// Create a copy of TokenSwapBack
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get callbackAddress {
+    return $AddressCopyWith<$Res>(_self.callbackAddress, (value) {
+      return _then(_self.copyWith(callbackAddress: value));
+    });
+  }
+}
+
+// dart format on

@@ -2,12 +2,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_nekoton_bridge/nekoton/core/models/transaction.dart';
 
 part 'transaction_with_data.freezed.dart';
-
 part 'transaction_with_data.g.dart';
 
-@freezed
-@JsonSerializable(genericArgumentFactories: true)
-class TransactionWithData<T>
+@Freezed(genericArgumentFactories: true)
+abstract class TransactionWithData<T>
     with _$TransactionWithData<T>
     implements Comparable<TransactionWithData<T>> {
   const factory TransactionWithData({
@@ -20,13 +18,8 @@ class TransactionWithData<T>
   factory TransactionWithData.fromJson(
     Map<String, dynamic> json,
     T Function(Object? json) fromJsonT,
-  ) {
-    return _$TransactionWithDataFromJson<T>(json, fromJsonT);
-  }
-
-  Map<String, dynamic> toJson(Object? Function(T value) toJsonT) {
-    return _$TransactionWithDataToJson<T>(this, toJsonT);
-  }
+  ) =>
+      _$TransactionWithDataFromJson<T>(json, fromJsonT);
 
   @override
   int compareTo(TransactionWithData<T> other) =>

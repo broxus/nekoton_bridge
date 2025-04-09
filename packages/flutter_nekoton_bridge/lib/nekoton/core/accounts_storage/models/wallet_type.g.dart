@@ -6,13 +6,13 @@ part of 'wallet_type.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MultisigImpl _$$MultisigImplFromJson(Map<String, dynamic> json) =>
-    _$MultisigImpl(
+WalletTypeMultisig _$WalletTypeMultisigFromJson(Map<String, dynamic> json) =>
+    WalletTypeMultisig(
       $enumDecode(_$MultisigTypeEnumMap, json['data']),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$MultisigImplToJson(_$MultisigImpl instance) =>
+Map<String, dynamic> _$WalletTypeMultisigToJson(WalletTypeMultisig instance) =>
     <String, dynamic>{
       'data': _$MultisigTypeEnumMap[instance.data]!,
       'type': instance.$type,
@@ -29,96 +29,96 @@ const _$MultisigTypeEnumMap = {
   MultisigType.multisig2_1: 'Multisig2_1',
 };
 
-_$WalletV3Impl _$$WalletV3ImplFromJson(Map<String, dynamic> json) =>
-    _$WalletV3Impl(
+WalletTypeWalletV3 _$WalletTypeWalletV3FromJson(Map<String, dynamic> json) =>
+    WalletTypeWalletV3(
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$WalletV3ImplToJson(_$WalletV3Impl instance) =>
+Map<String, dynamic> _$WalletTypeWalletV3ToJson(WalletTypeWalletV3 instance) =>
     <String, dynamic>{
       'type': instance.$type,
     };
 
-_$HighloadWalletV2Impl _$$HighloadWalletV2ImplFromJson(
+WalletTypeHighloadWalletV2 _$WalletTypeHighloadWalletV2FromJson(
         Map<String, dynamic> json) =>
-    _$HighloadWalletV2Impl(
+    WalletTypeHighloadWalletV2(
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$HighloadWalletV2ImplToJson(
-        _$HighloadWalletV2Impl instance) =>
+Map<String, dynamic> _$WalletTypeHighloadWalletV2ToJson(
+        WalletTypeHighloadWalletV2 instance) =>
     <String, dynamic>{
       'type': instance.$type,
     };
 
-_$WalletTypeEverWalletImpl _$$WalletTypeEverWalletImplFromJson(
+WalletTypeEverWallet _$WalletTypeEverWalletFromJson(
         Map<String, dynamic> json) =>
-    _$WalletTypeEverWalletImpl(
+    WalletTypeEverWallet(
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$WalletTypeEverWalletImplToJson(
-        _$WalletTypeEverWalletImpl instance) =>
+Map<String, dynamic> _$WalletTypeEverWalletToJson(
+        WalletTypeEverWallet instance) =>
     <String, dynamic>{
       'type': instance.$type,
     };
 
-_$WalletTypeWalletV3R1Impl _$$WalletTypeWalletV3R1ImplFromJson(
+WalletTypeWalletV3R1 _$WalletTypeWalletV3R1FromJson(
         Map<String, dynamic> json) =>
-    _$WalletTypeWalletV3R1Impl(
+    WalletTypeWalletV3R1(
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$WalletTypeWalletV3R1ImplToJson(
-        _$WalletTypeWalletV3R1Impl instance) =>
+Map<String, dynamic> _$WalletTypeWalletV3R1ToJson(
+        WalletTypeWalletV3R1 instance) =>
     <String, dynamic>{
       'type': instance.$type,
     };
 
-_$WalletTypeWalletV3R2Impl _$$WalletTypeWalletV3R2ImplFromJson(
+WalletTypeWalletV3R2 _$WalletTypeWalletV3R2FromJson(
         Map<String, dynamic> json) =>
-    _$WalletTypeWalletV3R2Impl(
+    WalletTypeWalletV3R2(
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$WalletTypeWalletV3R2ImplToJson(
-        _$WalletTypeWalletV3R2Impl instance) =>
+Map<String, dynamic> _$WalletTypeWalletV3R2ToJson(
+        WalletTypeWalletV3R2 instance) =>
     <String, dynamic>{
       'type': instance.$type,
     };
 
-_$WalletTypeWalletV4R1Impl _$$WalletTypeWalletV4R1ImplFromJson(
+WalletTypeWalletV4R1 _$WalletTypeWalletV4R1FromJson(
         Map<String, dynamic> json) =>
-    _$WalletTypeWalletV4R1Impl(
+    WalletTypeWalletV4R1(
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$WalletTypeWalletV4R1ImplToJson(
-        _$WalletTypeWalletV4R1Impl instance) =>
+Map<String, dynamic> _$WalletTypeWalletV4R1ToJson(
+        WalletTypeWalletV4R1 instance) =>
     <String, dynamic>{
       'type': instance.$type,
     };
 
-_$WalletTypeWalletV4R2Impl _$$WalletTypeWalletV4R2ImplFromJson(
+WalletTypeWalletV4R2 _$WalletTypeWalletV4R2FromJson(
         Map<String, dynamic> json) =>
-    _$WalletTypeWalletV4R2Impl(
+    WalletTypeWalletV4R2(
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$WalletTypeWalletV4R2ImplToJson(
-        _$WalletTypeWalletV4R2Impl instance) =>
+Map<String, dynamic> _$WalletTypeWalletV4R2ToJson(
+        WalletTypeWalletV4R2 instance) =>
     <String, dynamic>{
       'type': instance.$type,
     };
 
-_$WalletTypeWalletV5R1Impl _$$WalletTypeWalletV5R1ImplFromJson(
+WalletTypeWalletV5R1 _$WalletTypeWalletV5R1FromJson(
         Map<String, dynamic> json) =>
-    _$WalletTypeWalletV5R1Impl(
+    WalletTypeWalletV5R1(
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$WalletTypeWalletV5R1ImplToJson(
-        _$WalletTypeWalletV5R1Impl instance) =>
+Map<String, dynamic> _$WalletTypeWalletV5R1ToJson(
+        WalletTypeWalletV5R1 instance) =>
     <String, dynamic>{
       'type': instance.$type,
     };

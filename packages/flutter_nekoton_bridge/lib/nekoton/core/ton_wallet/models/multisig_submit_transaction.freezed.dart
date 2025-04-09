@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,42 +10,63 @@ part of 'multisig_submit_transaction.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-MultisigSubmitTransaction _$MultisigSubmitTransactionFromJson(
-    Map<String, dynamic> json) {
-  return _MultisigSubmitTransaction.fromJson(json);
-}
 
 /// @nodoc
 mixin _$MultisigSubmitTransaction {
-  PublicKey get custodian => throw _privateConstructorUsedError;
-  Address get dest => throw _privateConstructorUsedError;
+  PublicKey get custodian;
+  Address get dest;
   @amountJsonConverter
-  BigInt get value => throw _privateConstructorUsedError;
-  bool get bounce => throw _privateConstructorUsedError;
-  bool get allBalance => throw _privateConstructorUsedError;
-  String get payload => throw _privateConstructorUsedError;
-  String get transId => throw _privateConstructorUsedError;
-
-  /// Serializes this MultisigSubmitTransaction to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  BigInt get value;
+  bool get bounce;
+  bool get allBalance;
+  String get payload;
+  String get transId;
 
   /// Create a copy of MultisigSubmitTransaction
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $MultisigSubmitTransactionCopyWith<MultisigSubmitTransaction> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$MultisigSubmitTransactionCopyWithImpl<MultisigSubmitTransaction>(
+          this as MultisigSubmitTransaction, _$identity);
+
+  /// Serializes this MultisigSubmitTransaction to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MultisigSubmitTransaction &&
+            (identical(other.custodian, custodian) ||
+                other.custodian == custodian) &&
+            (identical(other.dest, dest) || other.dest == dest) &&
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.bounce, bounce) || other.bounce == bounce) &&
+            (identical(other.allBalance, allBalance) ||
+                other.allBalance == allBalance) &&
+            (identical(other.payload, payload) || other.payload == payload) &&
+            (identical(other.transId, transId) || other.transId == transId));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, custodian, dest, value, bounce,
+      allBalance, payload, transId);
+
+  @override
+  String toString() {
+    return 'MultisigSubmitTransaction(custodian: $custodian, dest: $dest, value: $value, bounce: $bounce, allBalance: $allBalance, payload: $payload, transId: $transId)';
+  }
 }
 
 /// @nodoc
-abstract class $MultisigSubmitTransactionCopyWith<$Res> {
+abstract mixin class $MultisigSubmitTransactionCopyWith<$Res> {
   factory $MultisigSubmitTransactionCopyWith(MultisigSubmitTransaction value,
-          $Res Function(MultisigSubmitTransaction) then) =
-      _$MultisigSubmitTransactionCopyWithImpl<$Res, MultisigSubmitTransaction>;
+          $Res Function(MultisigSubmitTransaction) _then) =
+      _$MultisigSubmitTransactionCopyWithImpl;
   @useResult
   $Res call(
       {PublicKey custodian,
@@ -60,15 +82,12 @@ abstract class $MultisigSubmitTransactionCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MultisigSubmitTransactionCopyWithImpl<$Res,
-        $Val extends MultisigSubmitTransaction>
+class _$MultisigSubmitTransactionCopyWithImpl<$Res>
     implements $MultisigSubmitTransactionCopyWith<$Res> {
-  _$MultisigSubmitTransactionCopyWithImpl(this._value, this._then);
+  _$MultisigSubmitTransactionCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final MultisigSubmitTransaction _self;
+  final $Res Function(MultisigSubmitTransaction) _then;
 
   /// Create a copy of MultisigSubmitTransaction
   /// with the given fields replaced by the non-null parameter values.
@@ -83,36 +102,36 @@ class _$MultisigSubmitTransactionCopyWithImpl<$Res,
     Object? payload = null,
     Object? transId = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       custodian: null == custodian
-          ? _value.custodian
+          ? _self.custodian
           : custodian // ignore: cast_nullable_to_non_nullable
               as PublicKey,
       dest: null == dest
-          ? _value.dest
+          ? _self.dest
           : dest // ignore: cast_nullable_to_non_nullable
               as Address,
       value: null == value
-          ? _value.value
+          ? _self.value
           : value // ignore: cast_nullable_to_non_nullable
               as BigInt,
       bounce: null == bounce
-          ? _value.bounce
+          ? _self.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
               as bool,
       allBalance: null == allBalance
-          ? _value.allBalance
+          ? _self.allBalance
           : allBalance // ignore: cast_nullable_to_non_nullable
               as bool,
       payload: null == payload
-          ? _value.payload
+          ? _self.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as String,
       transId: null == transId
-          ? _value.transId
+          ? _self.transId
           : transId // ignore: cast_nullable_to_non_nullable
               as String,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of MultisigSubmitTransaction
@@ -120,8 +139,8 @@ class _$MultisigSubmitTransactionCopyWithImpl<$Res,
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get custodian {
-    return $PublicKeyCopyWith<$Res>(_value.custodian, (value) {
-      return _then(_value.copyWith(custodian: value) as $Val);
+    return $PublicKeyCopyWith<$Res>(_self.custodian, (value) {
+      return _then(_self.copyWith(custodian: value));
     });
   }
 
@@ -130,96 +149,16 @@ class _$MultisigSubmitTransactionCopyWithImpl<$Res,
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get dest {
-    return $AddressCopyWith<$Res>(_value.dest, (value) {
-      return _then(_value.copyWith(dest: value) as $Val);
+    return $AddressCopyWith<$Res>(_self.dest, (value) {
+      return _then(_self.copyWith(dest: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$MultisigSubmitTransactionImplCopyWith<$Res>
-    implements $MultisigSubmitTransactionCopyWith<$Res> {
-  factory _$$MultisigSubmitTransactionImplCopyWith(
-          _$MultisigSubmitTransactionImpl value,
-          $Res Function(_$MultisigSubmitTransactionImpl) then) =
-      __$$MultisigSubmitTransactionImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {PublicKey custodian,
-      Address dest,
-      @amountJsonConverter BigInt value,
-      bool bounce,
-      bool allBalance,
-      String payload,
-      String transId});
-
-  @override
-  $PublicKeyCopyWith<$Res> get custodian;
-  @override
-  $AddressCopyWith<$Res> get dest;
-}
-
-/// @nodoc
-class __$$MultisigSubmitTransactionImplCopyWithImpl<$Res>
-    extends _$MultisigSubmitTransactionCopyWithImpl<$Res,
-        _$MultisigSubmitTransactionImpl>
-    implements _$$MultisigSubmitTransactionImplCopyWith<$Res> {
-  __$$MultisigSubmitTransactionImplCopyWithImpl(
-      _$MultisigSubmitTransactionImpl _value,
-      $Res Function(_$MultisigSubmitTransactionImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MultisigSubmitTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? custodian = null,
-    Object? dest = null,
-    Object? value = null,
-    Object? bounce = null,
-    Object? allBalance = null,
-    Object? payload = null,
-    Object? transId = null,
-  }) {
-    return _then(_$MultisigSubmitTransactionImpl(
-      custodian: null == custodian
-          ? _value.custodian
-          : custodian // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      dest: null == dest
-          ? _value.dest
-          : dest // ignore: cast_nullable_to_non_nullable
-              as Address,
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-      bounce: null == bounce
-          ? _value.bounce
-          : bounce // ignore: cast_nullable_to_non_nullable
-              as bool,
-      allBalance: null == allBalance
-          ? _value.allBalance
-          : allBalance // ignore: cast_nullable_to_non_nullable
-              as bool,
-      payload: null == payload
-          ? _value.payload
-          : payload // ignore: cast_nullable_to_non_nullable
-              as String,
-      transId: null == transId
-          ? _value.transId
-          : transId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$MultisigSubmitTransactionImpl implements _MultisigSubmitTransaction {
-  const _$MultisigSubmitTransactionImpl(
+class _MultisigSubmitTransaction implements MultisigSubmitTransaction {
+  const _MultisigSubmitTransaction(
       {required this.custodian,
       required this.dest,
       @amountJsonConverter required this.value,
@@ -227,9 +166,8 @@ class _$MultisigSubmitTransactionImpl implements _MultisigSubmitTransaction {
       required this.allBalance,
       required this.payload,
       required this.transId});
-
-  factory _$MultisigSubmitTransactionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MultisigSubmitTransactionImplFromJson(json);
+  factory _MultisigSubmitTransaction.fromJson(Map<String, dynamic> json) =>
+      _$MultisigSubmitTransactionFromJson(json);
 
   @override
   final PublicKey custodian;
@@ -247,16 +185,28 @@ class _$MultisigSubmitTransactionImpl implements _MultisigSubmitTransaction {
   @override
   final String transId;
 
+  /// Create a copy of MultisigSubmitTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'MultisigSubmitTransaction(custodian: $custodian, dest: $dest, value: $value, bounce: $bounce, allBalance: $allBalance, payload: $payload, transId: $transId)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MultisigSubmitTransactionCopyWith<_MultisigSubmitTransaction>
+      get copyWith =>
+          __$MultisigSubmitTransactionCopyWithImpl<_MultisigSubmitTransaction>(
+              this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$MultisigSubmitTransactionToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MultisigSubmitTransactionImpl &&
+            other is _MultisigSubmitTransaction &&
             (identical(other.custodian, custodian) ||
                 other.custodian == custodian) &&
             (identical(other.dest, dest) || other.dest == dest) &&
@@ -273,56 +223,107 @@ class _$MultisigSubmitTransactionImpl implements _MultisigSubmitTransaction {
   int get hashCode => Object.hash(runtimeType, custodian, dest, value, bounce,
       allBalance, payload, transId);
 
-  /// Create a copy of MultisigSubmitTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MultisigSubmitTransactionImplCopyWith<_$MultisigSubmitTransactionImpl>
-      get copyWith => __$$MultisigSubmitTransactionImplCopyWithImpl<
-          _$MultisigSubmitTransactionImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MultisigSubmitTransactionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'MultisigSubmitTransaction(custodian: $custodian, dest: $dest, value: $value, bounce: $bounce, allBalance: $allBalance, payload: $payload, transId: $transId)';
   }
 }
 
-abstract class _MultisigSubmitTransaction implements MultisigSubmitTransaction {
-  const factory _MultisigSubmitTransaction(
-      {required final PublicKey custodian,
-      required final Address dest,
-      @amountJsonConverter required final BigInt value,
-      required final bool bounce,
-      required final bool allBalance,
-      required final String payload,
-      required final String transId}) = _$MultisigSubmitTransactionImpl;
+/// @nodoc
+abstract mixin class _$MultisigSubmitTransactionCopyWith<$Res>
+    implements $MultisigSubmitTransactionCopyWith<$Res> {
+  factory _$MultisigSubmitTransactionCopyWith(_MultisigSubmitTransaction value,
+          $Res Function(_MultisigSubmitTransaction) _then) =
+      __$MultisigSubmitTransactionCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {PublicKey custodian,
+      Address dest,
+      @amountJsonConverter BigInt value,
+      bool bounce,
+      bool allBalance,
+      String payload,
+      String transId});
 
-  factory _MultisigSubmitTransaction.fromJson(Map<String, dynamic> json) =
-      _$MultisigSubmitTransactionImpl.fromJson;
+  @override
+  $PublicKeyCopyWith<$Res> get custodian;
+  @override
+  $AddressCopyWith<$Res> get dest;
+}
 
-  @override
-  PublicKey get custodian;
-  @override
-  Address get dest;
-  @override
-  @amountJsonConverter
-  BigInt get value;
-  @override
-  bool get bounce;
-  @override
-  bool get allBalance;
-  @override
-  String get payload;
-  @override
-  String get transId;
+/// @nodoc
+class __$MultisigSubmitTransactionCopyWithImpl<$Res>
+    implements _$MultisigSubmitTransactionCopyWith<$Res> {
+  __$MultisigSubmitTransactionCopyWithImpl(this._self, this._then);
+
+  final _MultisigSubmitTransaction _self;
+  final $Res Function(_MultisigSubmitTransaction) _then;
 
   /// Create a copy of MultisigSubmitTransaction
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MultisigSubmitTransactionImplCopyWith<_$MultisigSubmitTransactionImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? custodian = null,
+    Object? dest = null,
+    Object? value = null,
+    Object? bounce = null,
+    Object? allBalance = null,
+    Object? payload = null,
+    Object? transId = null,
+  }) {
+    return _then(_MultisigSubmitTransaction(
+      custodian: null == custodian
+          ? _self.custodian
+          : custodian // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      dest: null == dest
+          ? _self.dest
+          : dest // ignore: cast_nullable_to_non_nullable
+              as Address,
+      value: null == value
+          ? _self.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      bounce: null == bounce
+          ? _self.bounce
+          : bounce // ignore: cast_nullable_to_non_nullable
+              as bool,
+      allBalance: null == allBalance
+          ? _self.allBalance
+          : allBalance // ignore: cast_nullable_to_non_nullable
+              as bool,
+      payload: null == payload
+          ? _self.payload
+          : payload // ignore: cast_nullable_to_non_nullable
+              as String,
+      transId: null == transId
+          ? _self.transId
+          : transId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+
+  /// Create a copy of MultisigSubmitTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get custodian {
+    return $PublicKeyCopyWith<$Res>(_self.custodian, (value) {
+      return _then(_self.copyWith(custodian: value));
+    });
+  }
+
+  /// Create a copy of MultisigSubmitTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get dest {
+    return $AddressCopyWith<$Res>(_self.dest, (value) {
+      return _then(_self.copyWith(dest: value));
+    });
+  }
 }
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,40 +10,62 @@ part of 'message.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Message _$MessageFromJson(Map<String, dynamic> json) {
-  return _Message.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Message {
-  String get hash => throw _privateConstructorUsedError;
-  Address? get src => throw _privateConstructorUsedError;
-  Address? get dst => throw _privateConstructorUsedError;
+  String get hash;
+  Address? get src;
+  Address? get dst;
   @amountJsonConverter
-  BigInt get value => throw _privateConstructorUsedError;
-  bool get bounce => throw _privateConstructorUsedError;
-  bool get bounced => throw _privateConstructorUsedError;
-  String? get body => throw _privateConstructorUsedError;
-  String? get bodyHash => throw _privateConstructorUsedError;
-
-  /// Serializes this Message to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  BigInt get value;
+  bool get bounce;
+  bool get bounced;
+  String? get body;
+  String? get bodyHash;
 
   /// Create a copy of Message
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $MessageCopyWith<Message> get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $MessageCopyWith<Message> get copyWith =>
+      _$MessageCopyWithImpl<Message>(this as Message, _$identity);
+
+  /// Serializes this Message to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Message &&
+            (identical(other.hash, hash) || other.hash == hash) &&
+            (identical(other.src, src) || other.src == src) &&
+            (identical(other.dst, dst) || other.dst == dst) &&
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.bounce, bounce) || other.bounce == bounce) &&
+            (identical(other.bounced, bounced) || other.bounced == bounced) &&
+            (identical(other.body, body) || other.body == body) &&
+            (identical(other.bodyHash, bodyHash) ||
+                other.bodyHash == bodyHash));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, hash, src, dst, value, bounce, bounced, body, bodyHash);
+
+  @override
+  String toString() {
+    return 'Message(hash: $hash, src: $src, dst: $dst, value: $value, bounce: $bounce, bounced: $bounced, body: $body, bodyHash: $bodyHash)';
+  }
 }
 
 /// @nodoc
-abstract class $MessageCopyWith<$Res> {
-  factory $MessageCopyWith(Message value, $Res Function(Message) then) =
-      _$MessageCopyWithImpl<$Res, Message>;
+abstract mixin class $MessageCopyWith<$Res> {
+  factory $MessageCopyWith(Message value, $Res Function(Message) _then) =
+      _$MessageCopyWithImpl;
   @useResult
   $Res call(
       {String hash,
@@ -59,14 +82,11 @@ abstract class $MessageCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MessageCopyWithImpl<$Res, $Val extends Message>
-    implements $MessageCopyWith<$Res> {
-  _$MessageCopyWithImpl(this._value, this._then);
+class _$MessageCopyWithImpl<$Res> implements $MessageCopyWith<$Res> {
+  _$MessageCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Message _self;
+  final $Res Function(Message) _then;
 
   /// Create a copy of Message
   /// with the given fields replaced by the non-null parameter values.
@@ -82,40 +102,40 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
     Object? body = freezed,
     Object? bodyHash = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       hash: null == hash
-          ? _value.hash
+          ? _self.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as String,
       src: freezed == src
-          ? _value.src
+          ? _self.src
           : src // ignore: cast_nullable_to_non_nullable
               as Address?,
       dst: freezed == dst
-          ? _value.dst
+          ? _self.dst
           : dst // ignore: cast_nullable_to_non_nullable
               as Address?,
       value: null == value
-          ? _value.value
+          ? _self.value
           : value // ignore: cast_nullable_to_non_nullable
               as BigInt,
       bounce: null == bounce
-          ? _value.bounce
+          ? _self.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
               as bool,
       bounced: null == bounced
-          ? _value.bounced
+          ? _self.bounced
           : bounced // ignore: cast_nullable_to_non_nullable
               as bool,
       body: freezed == body
-          ? _value.body
+          ? _self.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
       bodyHash: freezed == bodyHash
-          ? _value.bodyHash
+          ? _self.bodyHash
           : bodyHash // ignore: cast_nullable_to_non_nullable
               as String?,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of Message
@@ -123,12 +143,12 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res>? get src {
-    if (_value.src == null) {
+    if (_self.src == null) {
       return null;
     }
 
-    return $AddressCopyWith<$Res>(_value.src!, (value) {
-      return _then(_value.copyWith(src: value) as $Val);
+    return $AddressCopyWith<$Res>(_self.src!, (value) {
+      return _then(_self.copyWith(src: value));
     });
   }
 
@@ -137,102 +157,20 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res>? get dst {
-    if (_value.dst == null) {
+    if (_self.dst == null) {
       return null;
     }
 
-    return $AddressCopyWith<$Res>(_value.dst!, (value) {
-      return _then(_value.copyWith(dst: value) as $Val);
+    return $AddressCopyWith<$Res>(_self.dst!, (value) {
+      return _then(_self.copyWith(dst: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$MessageImplCopyWith<$Res> implements $MessageCopyWith<$Res> {
-  factory _$$MessageImplCopyWith(
-          _$MessageImpl value, $Res Function(_$MessageImpl) then) =
-      __$$MessageImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String hash,
-      Address? src,
-      Address? dst,
-      @amountJsonConverter BigInt value,
-      bool bounce,
-      bool bounced,
-      String? body,
-      String? bodyHash});
-
-  @override
-  $AddressCopyWith<$Res>? get src;
-  @override
-  $AddressCopyWith<$Res>? get dst;
-}
-
-/// @nodoc
-class __$$MessageImplCopyWithImpl<$Res>
-    extends _$MessageCopyWithImpl<$Res, _$MessageImpl>
-    implements _$$MessageImplCopyWith<$Res> {
-  __$$MessageImplCopyWithImpl(
-      _$MessageImpl _value, $Res Function(_$MessageImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Message
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? hash = null,
-    Object? src = freezed,
-    Object? dst = freezed,
-    Object? value = null,
-    Object? bounce = null,
-    Object? bounced = null,
-    Object? body = freezed,
-    Object? bodyHash = freezed,
-  }) {
-    return _then(_$MessageImpl(
-      hash: null == hash
-          ? _value.hash
-          : hash // ignore: cast_nullable_to_non_nullable
-              as String,
-      src: freezed == src
-          ? _value.src
-          : src // ignore: cast_nullable_to_non_nullable
-              as Address?,
-      dst: freezed == dst
-          ? _value.dst
-          : dst // ignore: cast_nullable_to_non_nullable
-              as Address?,
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-      bounce: null == bounce
-          ? _value.bounce
-          : bounce // ignore: cast_nullable_to_non_nullable
-              as bool,
-      bounced: null == bounced
-          ? _value.bounced
-          : bounced // ignore: cast_nullable_to_non_nullable
-              as bool,
-      body: freezed == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as String?,
-      bodyHash: freezed == bodyHash
-          ? _value.bodyHash
-          : bodyHash // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$MessageImpl implements _Message {
-  const _$MessageImpl(
+class _Message implements Message {
+  const _Message(
       {required this.hash,
       this.src,
       this.dst,
@@ -241,9 +179,8 @@ class _$MessageImpl implements _Message {
       required this.bounced,
       this.body,
       this.bodyHash});
-
-  factory _$MessageImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MessageImplFromJson(json);
+  factory _Message.fromJson(Map<String, dynamic> json) =>
+      _$MessageFromJson(json);
 
   @override
   final String hash;
@@ -263,16 +200,26 @@ class _$MessageImpl implements _Message {
   @override
   final String? bodyHash;
 
+  /// Create a copy of Message
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Message(hash: $hash, src: $src, dst: $dst, value: $value, bounce: $bounce, bounced: $bounced, body: $body, bodyHash: $bodyHash)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MessageCopyWith<_Message> get copyWith =>
+      __$MessageCopyWithImpl<_Message>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$MessageToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MessageImpl &&
+            other is _Message &&
             (identical(other.hash, hash) || other.hash == hash) &&
             (identical(other.src, src) || other.src == src) &&
             (identical(other.dst, dst) || other.dst == dst) &&
@@ -289,57 +236,118 @@ class _$MessageImpl implements _Message {
   int get hashCode => Object.hash(
       runtimeType, hash, src, dst, value, bounce, bounced, body, bodyHash);
 
-  /// Create a copy of Message
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MessageImplCopyWith<_$MessageImpl> get copyWith =>
-      __$$MessageImplCopyWithImpl<_$MessageImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MessageImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Message(hash: $hash, src: $src, dst: $dst, value: $value, bounce: $bounce, bounced: $bounced, body: $body, bodyHash: $bodyHash)';
   }
 }
 
-abstract class _Message implements Message {
-  const factory _Message(
-      {required final String hash,
-      final Address? src,
-      final Address? dst,
-      @amountJsonConverter required final BigInt value,
-      required final bool bounce,
-      required final bool bounced,
-      final String? body,
-      final String? bodyHash}) = _$MessageImpl;
+/// @nodoc
+abstract mixin class _$MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
+  factory _$MessageCopyWith(_Message value, $Res Function(_Message) _then) =
+      __$MessageCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String hash,
+      Address? src,
+      Address? dst,
+      @amountJsonConverter BigInt value,
+      bool bounce,
+      bool bounced,
+      String? body,
+      String? bodyHash});
 
-  factory _Message.fromJson(Map<String, dynamic> json) = _$MessageImpl.fromJson;
+  @override
+  $AddressCopyWith<$Res>? get src;
+  @override
+  $AddressCopyWith<$Res>? get dst;
+}
 
-  @override
-  String get hash;
-  @override
-  Address? get src;
-  @override
-  Address? get dst;
-  @override
-  @amountJsonConverter
-  BigInt get value;
-  @override
-  bool get bounce;
-  @override
-  bool get bounced;
-  @override
-  String? get body;
-  @override
-  String? get bodyHash;
+/// @nodoc
+class __$MessageCopyWithImpl<$Res> implements _$MessageCopyWith<$Res> {
+  __$MessageCopyWithImpl(this._self, this._then);
+
+  final _Message _self;
+  final $Res Function(_Message) _then;
 
   /// Create a copy of Message
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MessageImplCopyWith<_$MessageImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? hash = null,
+    Object? src = freezed,
+    Object? dst = freezed,
+    Object? value = null,
+    Object? bounce = null,
+    Object? bounced = null,
+    Object? body = freezed,
+    Object? bodyHash = freezed,
+  }) {
+    return _then(_Message(
+      hash: null == hash
+          ? _self.hash
+          : hash // ignore: cast_nullable_to_non_nullable
+              as String,
+      src: freezed == src
+          ? _self.src
+          : src // ignore: cast_nullable_to_non_nullable
+              as Address?,
+      dst: freezed == dst
+          ? _self.dst
+          : dst // ignore: cast_nullable_to_non_nullable
+              as Address?,
+      value: null == value
+          ? _self.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      bounce: null == bounce
+          ? _self.bounce
+          : bounce // ignore: cast_nullable_to_non_nullable
+              as bool,
+      bounced: null == bounced
+          ? _self.bounced
+          : bounced // ignore: cast_nullable_to_non_nullable
+              as bool,
+      body: freezed == body
+          ? _self.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bodyHash: freezed == bodyHash
+          ? _self.bodyHash
+          : bodyHash // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+
+  /// Create a copy of Message
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res>? get src {
+    if (_self.src == null) {
+      return null;
+    }
+
+    return $AddressCopyWith<$Res>(_self.src!, (value) {
+      return _then(_self.copyWith(src: value));
+    });
+  }
+
+  /// Create a copy of Message
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res>? get dst {
+    if (_self.dst == null) {
+      return null;
+    }
+
+    return $AddressCopyWith<$Res>(_self.dst!, (value) {
+      return _then(_self.copyWith(dst: value));
+    });
+  }
 }
+
+// dart format on

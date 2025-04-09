@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,26 +10,23 @@ part of 'transaction_additional_info.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 TransactionAdditionalInfo _$TransactionAdditionalInfoFromJson(
     Map<String, dynamic> json) {
   switch (json['type']) {
     case 'comment':
       return _Comment.fromJson(json);
     case 'de_pool_on_round_complete':
-      return _DePoolOnRoundComplete.fromJson(json);
+      return TransactionAdditionalInfoDePoolOnRoundComplete.fromJson(json);
     case 'de_pool_receive_answer':
-      return _DePoolReceiveAnswer.fromJson(json);
+      return TransactionAdditionalInfoDePoolReceiveAnswer.fromJson(json);
     case 'token_wallet_deployed':
-      return _TokenWalletDeployed.fromJson(json);
+      return TransactionAdditionalInfoTokenWalletDeployed.fromJson(json);
     case 'wallet_interaction':
-      return _WalletInteraction.fromJson(json);
+      return TransactionAdditionalInfoWalletInteraction.fromJson(json);
     case 'jetton_notify':
-      return _JettonNotify.fromJson(json);
+      return TransactionAdditionalInfoJettonNotify.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'type', 'TransactionAdditionalInfo',
@@ -38,131 +36,106 @@ TransactionAdditionalInfo _$TransactionAdditionalInfoFromJson(
 
 /// @nodoc
 mixin _$TransactionAdditionalInfo {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String data) comment,
-    required TResult Function(DePoolOnRoundCompleteNotification data)
-        dePoolOnRoundComplete,
-    required TResult Function(DePoolReceiveAnswerNotification data)
-        dePoolReceiveAnswer,
-    required TResult Function(TokenWalletDeployedNotification data)
-        tokenWalletDeployed,
-    required TResult Function(WalletInteractionInfo data) walletInteraction,
-    required TResult Function(JettonIncomingTransfer data) jettonNotify,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String data)? comment,
-    TResult? Function(DePoolOnRoundCompleteNotification data)?
-        dePoolOnRoundComplete,
-    TResult? Function(DePoolReceiveAnswerNotification data)?
-        dePoolReceiveAnswer,
-    TResult? Function(TokenWalletDeployedNotification data)?
-        tokenWalletDeployed,
-    TResult? Function(WalletInteractionInfo data)? walletInteraction,
-    TResult? Function(JettonIncomingTransfer data)? jettonNotify,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(DePoolOnRoundCompleteNotification data)?
-        dePoolOnRoundComplete,
-    TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
-    TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
-    TResult Function(WalletInteractionInfo data)? walletInteraction,
-    TResult Function(JettonIncomingTransfer data)? jettonNotify,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Comment value) comment,
-    required TResult Function(_DePoolOnRoundComplete value)
-        dePoolOnRoundComplete,
-    required TResult Function(_DePoolReceiveAnswer value) dePoolReceiveAnswer,
-    required TResult Function(_TokenWalletDeployed value) tokenWalletDeployed,
-    required TResult Function(_WalletInteraction value) walletInteraction,
-    required TResult Function(_JettonNotify value) jettonNotify,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Comment value)? comment,
-    TResult? Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult? Function(_WalletInteraction value)? walletInteraction,
-    TResult? Function(_JettonNotify value)? jettonNotify,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult Function(_WalletInteraction value)? walletInteraction,
-    TResult Function(_JettonNotify value)? jettonNotify,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Object get data;
 
   /// Serializes this TransactionAdditionalInfo to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TransactionAdditionalInfo &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'TransactionAdditionalInfo(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $TransactionAdditionalInfoCopyWith<$Res> {
-  factory $TransactionAdditionalInfoCopyWith(TransactionAdditionalInfo value,
-          $Res Function(TransactionAdditionalInfo) then) =
-      _$TransactionAdditionalInfoCopyWithImpl<$Res, TransactionAdditionalInfo>;
+class $TransactionAdditionalInfoCopyWith<$Res> {
+  $TransactionAdditionalInfoCopyWith(
+      TransactionAdditionalInfo _, $Res Function(TransactionAdditionalInfo) __);
 }
 
 /// @nodoc
-class _$TransactionAdditionalInfoCopyWithImpl<$Res,
-        $Val extends TransactionAdditionalInfo>
-    implements $TransactionAdditionalInfoCopyWith<$Res> {
-  _$TransactionAdditionalInfoCopyWithImpl(this._value, this._then);
+@JsonSerializable()
+class _Comment implements TransactionAdditionalInfo {
+  const _Comment(this.data, {final String? $type}) : $type = $type ?? 'comment';
+  factory _Comment.fromJson(Map<String, dynamic> json) =>
+      _$CommentFromJson(json);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  @override
+  final String data;
+
+  @JsonKey(name: 'type')
+  final String $type;
 
   /// Create a copy of TransactionAdditionalInfo
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CommentCopyWith<_Comment> get copyWith =>
+      __$CommentCopyWithImpl<_Comment>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$CommentToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Comment &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'TransactionAdditionalInfo.comment(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$CommentImplCopyWith<$Res> {
-  factory _$$CommentImplCopyWith(
-          _$CommentImpl value, $Res Function(_$CommentImpl) then) =
-      __$$CommentImplCopyWithImpl<$Res>;
+abstract mixin class _$CommentCopyWith<$Res>
+    implements $TransactionAdditionalInfoCopyWith<$Res> {
+  factory _$CommentCopyWith(_Comment value, $Res Function(_Comment) _then) =
+      __$CommentCopyWithImpl;
   @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class __$$CommentImplCopyWithImpl<$Res>
-    extends _$TransactionAdditionalInfoCopyWithImpl<$Res, _$CommentImpl>
-    implements _$$CommentImplCopyWith<$Res> {
-  __$$CommentImplCopyWithImpl(
-      _$CommentImpl _value, $Res Function(_$CommentImpl) _then)
-      : super(_value, _then);
+class __$CommentCopyWithImpl<$Res> implements _$CommentCopyWith<$Res> {
+  __$CommentCopyWithImpl(this._self, this._then);
+
+  final _Comment _self;
+  final $Res Function(_Comment) _then;
 
   /// Create a copy of TransactionAdditionalInfo
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$CommentImpl(
+    return _then(_Comment(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -171,29 +144,43 @@ class __$$CommentImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CommentImpl implements _Comment {
-  const _$CommentImpl(this.data, {final String? $type})
-      : $type = $type ?? 'comment';
-
-  factory _$CommentImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CommentImplFromJson(json);
+class TransactionAdditionalInfoDePoolOnRoundComplete
+    implements TransactionAdditionalInfo {
+  const TransactionAdditionalInfoDePoolOnRoundComplete(this.data,
+      {final String? $type})
+      : $type = $type ?? 'de_pool_on_round_complete';
+  factory TransactionAdditionalInfoDePoolOnRoundComplete.fromJson(
+          Map<String, dynamic> json) =>
+      _$TransactionAdditionalInfoDePoolOnRoundCompleteFromJson(json);
 
   @override
-  final String data;
+  final DePoolOnRoundCompleteNotification data;
 
   @JsonKey(name: 'type')
   final String $type;
 
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TransactionAdditionalInfoDePoolOnRoundCompleteCopyWith<
+          TransactionAdditionalInfoDePoolOnRoundComplete>
+      get copyWith =>
+          _$TransactionAdditionalInfoDePoolOnRoundCompleteCopyWithImpl<
+              TransactionAdditionalInfoDePoolOnRoundComplete>(this, _$identity);
+
   @override
-  String toString() {
-    return 'TransactionAdditionalInfo.comment(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$TransactionAdditionalInfoDePoolOnRoundCompleteToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CommentImpl &&
+            other is TransactionAdditionalInfoDePoolOnRoundComplete &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -201,137 +188,19 @@ class _$CommentImpl implements _Comment {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of TransactionAdditionalInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
-      __$$CommentImplCopyWithImpl<_$CommentImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String data) comment,
-    required TResult Function(DePoolOnRoundCompleteNotification data)
-        dePoolOnRoundComplete,
-    required TResult Function(DePoolReceiveAnswerNotification data)
-        dePoolReceiveAnswer,
-    required TResult Function(TokenWalletDeployedNotification data)
-        tokenWalletDeployed,
-    required TResult Function(WalletInteractionInfo data) walletInteraction,
-    required TResult Function(JettonIncomingTransfer data) jettonNotify,
-  }) {
-    return comment(data);
+  String toString() {
+    return 'TransactionAdditionalInfo.dePoolOnRoundComplete(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String data)? comment,
-    TResult? Function(DePoolOnRoundCompleteNotification data)?
-        dePoolOnRoundComplete,
-    TResult? Function(DePoolReceiveAnswerNotification data)?
-        dePoolReceiveAnswer,
-    TResult? Function(TokenWalletDeployedNotification data)?
-        tokenWalletDeployed,
-    TResult? Function(WalletInteractionInfo data)? walletInteraction,
-    TResult? Function(JettonIncomingTransfer data)? jettonNotify,
-  }) {
-    return comment?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(DePoolOnRoundCompleteNotification data)?
-        dePoolOnRoundComplete,
-    TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
-    TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
-    TResult Function(WalletInteractionInfo data)? walletInteraction,
-    TResult Function(JettonIncomingTransfer data)? jettonNotify,
-    required TResult orElse(),
-  }) {
-    if (comment != null) {
-      return comment(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Comment value) comment,
-    required TResult Function(_DePoolOnRoundComplete value)
-        dePoolOnRoundComplete,
-    required TResult Function(_DePoolReceiveAnswer value) dePoolReceiveAnswer,
-    required TResult Function(_TokenWalletDeployed value) tokenWalletDeployed,
-    required TResult Function(_WalletInteraction value) walletInteraction,
-    required TResult Function(_JettonNotify value) jettonNotify,
-  }) {
-    return comment(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Comment value)? comment,
-    TResult? Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult? Function(_WalletInteraction value)? walletInteraction,
-    TResult? Function(_JettonNotify value)? jettonNotify,
-  }) {
-    return comment?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult Function(_WalletInteraction value)? walletInteraction,
-    TResult Function(_JettonNotify value)? jettonNotify,
-    required TResult orElse(),
-  }) {
-    if (comment != null) {
-      return comment(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CommentImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Comment implements TransactionAdditionalInfo {
-  const factory _Comment(final String data) = _$CommentImpl;
-
-  factory _Comment.fromJson(Map<String, dynamic> json) = _$CommentImpl.fromJson;
-
-  @override
-  String get data;
-
-  /// Create a copy of TransactionAdditionalInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DePoolOnRoundCompleteImplCopyWith<$Res> {
-  factory _$$DePoolOnRoundCompleteImplCopyWith(
-          _$DePoolOnRoundCompleteImpl value,
-          $Res Function(_$DePoolOnRoundCompleteImpl) then) =
-      __$$DePoolOnRoundCompleteImplCopyWithImpl<$Res>;
+abstract mixin class $TransactionAdditionalInfoDePoolOnRoundCompleteCopyWith<
+    $Res> implements $TransactionAdditionalInfoCopyWith<$Res> {
+  factory $TransactionAdditionalInfoDePoolOnRoundCompleteCopyWith(
+          TransactionAdditionalInfoDePoolOnRoundComplete value,
+          $Res Function(TransactionAdditionalInfoDePoolOnRoundComplete) _then) =
+      _$TransactionAdditionalInfoDePoolOnRoundCompleteCopyWithImpl;
   @useResult
   $Res call({DePoolOnRoundCompleteNotification data});
 
@@ -339,24 +208,23 @@ abstract class _$$DePoolOnRoundCompleteImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$DePoolOnRoundCompleteImplCopyWithImpl<$Res>
-    extends _$TransactionAdditionalInfoCopyWithImpl<$Res,
-        _$DePoolOnRoundCompleteImpl>
-    implements _$$DePoolOnRoundCompleteImplCopyWith<$Res> {
-  __$$DePoolOnRoundCompleteImplCopyWithImpl(_$DePoolOnRoundCompleteImpl _value,
-      $Res Function(_$DePoolOnRoundCompleteImpl) _then)
-      : super(_value, _then);
+class _$TransactionAdditionalInfoDePoolOnRoundCompleteCopyWithImpl<$Res>
+    implements $TransactionAdditionalInfoDePoolOnRoundCompleteCopyWith<$Res> {
+  _$TransactionAdditionalInfoDePoolOnRoundCompleteCopyWithImpl(
+      this._self, this._then);
+
+  final TransactionAdditionalInfoDePoolOnRoundComplete _self;
+  final $Res Function(TransactionAdditionalInfoDePoolOnRoundComplete) _then;
 
   /// Create a copy of TransactionAdditionalInfo
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$DePoolOnRoundCompleteImpl(
+    return _then(TransactionAdditionalInfoDePoolOnRoundComplete(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as DePoolOnRoundCompleteNotification,
     ));
@@ -367,38 +235,52 @@ class __$$DePoolOnRoundCompleteImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $DePoolOnRoundCompleteNotificationCopyWith<$Res> get data {
-    return $DePoolOnRoundCompleteNotificationCopyWith<$Res>(_value.data,
+    return $DePoolOnRoundCompleteNotificationCopyWith<$Res>(_self.data,
         (value) {
-      return _then(_value.copyWith(data: value));
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$DePoolOnRoundCompleteImpl implements _DePoolOnRoundComplete {
-  const _$DePoolOnRoundCompleteImpl(this.data, {final String? $type})
-      : $type = $type ?? 'de_pool_on_round_complete';
-
-  factory _$DePoolOnRoundCompleteImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DePoolOnRoundCompleteImplFromJson(json);
+class TransactionAdditionalInfoDePoolReceiveAnswer
+    implements TransactionAdditionalInfo {
+  const TransactionAdditionalInfoDePoolReceiveAnswer(this.data,
+      {final String? $type})
+      : $type = $type ?? 'de_pool_receive_answer';
+  factory TransactionAdditionalInfoDePoolReceiveAnswer.fromJson(
+          Map<String, dynamic> json) =>
+      _$TransactionAdditionalInfoDePoolReceiveAnswerFromJson(json);
 
   @override
-  final DePoolOnRoundCompleteNotification data;
+  final DePoolReceiveAnswerNotification data;
 
   @JsonKey(name: 'type')
   final String $type;
 
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TransactionAdditionalInfoDePoolReceiveAnswerCopyWith<
+          TransactionAdditionalInfoDePoolReceiveAnswer>
+      get copyWith =>
+          _$TransactionAdditionalInfoDePoolReceiveAnswerCopyWithImpl<
+              TransactionAdditionalInfoDePoolReceiveAnswer>(this, _$identity);
+
   @override
-  String toString() {
-    return 'TransactionAdditionalInfo.dePoolOnRoundComplete(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$TransactionAdditionalInfoDePoolReceiveAnswerToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DePoolOnRoundCompleteImpl &&
+            other is TransactionAdditionalInfoDePoolReceiveAnswer &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -406,140 +288,19 @@ class _$DePoolOnRoundCompleteImpl implements _DePoolOnRoundComplete {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of TransactionAdditionalInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DePoolOnRoundCompleteImplCopyWith<_$DePoolOnRoundCompleteImpl>
-      get copyWith => __$$DePoolOnRoundCompleteImplCopyWithImpl<
-          _$DePoolOnRoundCompleteImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String data) comment,
-    required TResult Function(DePoolOnRoundCompleteNotification data)
-        dePoolOnRoundComplete,
-    required TResult Function(DePoolReceiveAnswerNotification data)
-        dePoolReceiveAnswer,
-    required TResult Function(TokenWalletDeployedNotification data)
-        tokenWalletDeployed,
-    required TResult Function(WalletInteractionInfo data) walletInteraction,
-    required TResult Function(JettonIncomingTransfer data) jettonNotify,
-  }) {
-    return dePoolOnRoundComplete(data);
+  String toString() {
+    return 'TransactionAdditionalInfo.dePoolReceiveAnswer(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String data)? comment,
-    TResult? Function(DePoolOnRoundCompleteNotification data)?
-        dePoolOnRoundComplete,
-    TResult? Function(DePoolReceiveAnswerNotification data)?
-        dePoolReceiveAnswer,
-    TResult? Function(TokenWalletDeployedNotification data)?
-        tokenWalletDeployed,
-    TResult? Function(WalletInteractionInfo data)? walletInteraction,
-    TResult? Function(JettonIncomingTransfer data)? jettonNotify,
-  }) {
-    return dePoolOnRoundComplete?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(DePoolOnRoundCompleteNotification data)?
-        dePoolOnRoundComplete,
-    TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
-    TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
-    TResult Function(WalletInteractionInfo data)? walletInteraction,
-    TResult Function(JettonIncomingTransfer data)? jettonNotify,
-    required TResult orElse(),
-  }) {
-    if (dePoolOnRoundComplete != null) {
-      return dePoolOnRoundComplete(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Comment value) comment,
-    required TResult Function(_DePoolOnRoundComplete value)
-        dePoolOnRoundComplete,
-    required TResult Function(_DePoolReceiveAnswer value) dePoolReceiveAnswer,
-    required TResult Function(_TokenWalletDeployed value) tokenWalletDeployed,
-    required TResult Function(_WalletInteraction value) walletInteraction,
-    required TResult Function(_JettonNotify value) jettonNotify,
-  }) {
-    return dePoolOnRoundComplete(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Comment value)? comment,
-    TResult? Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult? Function(_WalletInteraction value)? walletInteraction,
-    TResult? Function(_JettonNotify value)? jettonNotify,
-  }) {
-    return dePoolOnRoundComplete?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult Function(_WalletInteraction value)? walletInteraction,
-    TResult Function(_JettonNotify value)? jettonNotify,
-    required TResult orElse(),
-  }) {
-    if (dePoolOnRoundComplete != null) {
-      return dePoolOnRoundComplete(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DePoolOnRoundCompleteImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _DePoolOnRoundComplete implements TransactionAdditionalInfo {
-  const factory _DePoolOnRoundComplete(
-          final DePoolOnRoundCompleteNotification data) =
-      _$DePoolOnRoundCompleteImpl;
-
-  factory _DePoolOnRoundComplete.fromJson(Map<String, dynamic> json) =
-      _$DePoolOnRoundCompleteImpl.fromJson;
-
-  @override
-  DePoolOnRoundCompleteNotification get data;
-
-  /// Create a copy of TransactionAdditionalInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DePoolOnRoundCompleteImplCopyWith<_$DePoolOnRoundCompleteImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DePoolReceiveAnswerImplCopyWith<$Res> {
-  factory _$$DePoolReceiveAnswerImplCopyWith(_$DePoolReceiveAnswerImpl value,
-          $Res Function(_$DePoolReceiveAnswerImpl) then) =
-      __$$DePoolReceiveAnswerImplCopyWithImpl<$Res>;
+abstract mixin class $TransactionAdditionalInfoDePoolReceiveAnswerCopyWith<$Res>
+    implements $TransactionAdditionalInfoCopyWith<$Res> {
+  factory $TransactionAdditionalInfoDePoolReceiveAnswerCopyWith(
+          TransactionAdditionalInfoDePoolReceiveAnswer value,
+          $Res Function(TransactionAdditionalInfoDePoolReceiveAnswer) _then) =
+      _$TransactionAdditionalInfoDePoolReceiveAnswerCopyWithImpl;
   @useResult
   $Res call({DePoolReceiveAnswerNotification data});
 
@@ -547,24 +308,23 @@ abstract class _$$DePoolReceiveAnswerImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$DePoolReceiveAnswerImplCopyWithImpl<$Res>
-    extends _$TransactionAdditionalInfoCopyWithImpl<$Res,
-        _$DePoolReceiveAnswerImpl>
-    implements _$$DePoolReceiveAnswerImplCopyWith<$Res> {
-  __$$DePoolReceiveAnswerImplCopyWithImpl(_$DePoolReceiveAnswerImpl _value,
-      $Res Function(_$DePoolReceiveAnswerImpl) _then)
-      : super(_value, _then);
+class _$TransactionAdditionalInfoDePoolReceiveAnswerCopyWithImpl<$Res>
+    implements $TransactionAdditionalInfoDePoolReceiveAnswerCopyWith<$Res> {
+  _$TransactionAdditionalInfoDePoolReceiveAnswerCopyWithImpl(
+      this._self, this._then);
+
+  final TransactionAdditionalInfoDePoolReceiveAnswer _self;
+  final $Res Function(TransactionAdditionalInfoDePoolReceiveAnswer) _then;
 
   /// Create a copy of TransactionAdditionalInfo
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$DePoolReceiveAnswerImpl(
+    return _then(TransactionAdditionalInfoDePoolReceiveAnswer(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as DePoolReceiveAnswerNotification,
     ));
@@ -575,37 +335,51 @@ class __$$DePoolReceiveAnswerImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $DePoolReceiveAnswerNotificationCopyWith<$Res> get data {
-    return $DePoolReceiveAnswerNotificationCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $DePoolReceiveAnswerNotificationCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$DePoolReceiveAnswerImpl implements _DePoolReceiveAnswer {
-  const _$DePoolReceiveAnswerImpl(this.data, {final String? $type})
-      : $type = $type ?? 'de_pool_receive_answer';
-
-  factory _$DePoolReceiveAnswerImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DePoolReceiveAnswerImplFromJson(json);
+class TransactionAdditionalInfoTokenWalletDeployed
+    implements TransactionAdditionalInfo {
+  const TransactionAdditionalInfoTokenWalletDeployed(this.data,
+      {final String? $type})
+      : $type = $type ?? 'token_wallet_deployed';
+  factory TransactionAdditionalInfoTokenWalletDeployed.fromJson(
+          Map<String, dynamic> json) =>
+      _$TransactionAdditionalInfoTokenWalletDeployedFromJson(json);
 
   @override
-  final DePoolReceiveAnswerNotification data;
+  final TokenWalletDeployedNotification data;
 
   @JsonKey(name: 'type')
   final String $type;
 
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TransactionAdditionalInfoTokenWalletDeployedCopyWith<
+          TransactionAdditionalInfoTokenWalletDeployed>
+      get copyWith =>
+          _$TransactionAdditionalInfoTokenWalletDeployedCopyWithImpl<
+              TransactionAdditionalInfoTokenWalletDeployed>(this, _$identity);
+
   @override
-  String toString() {
-    return 'TransactionAdditionalInfo.dePoolReceiveAnswer(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$TransactionAdditionalInfoTokenWalletDeployedToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DePoolReceiveAnswerImpl &&
+            other is TransactionAdditionalInfoTokenWalletDeployed &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -613,139 +387,19 @@ class _$DePoolReceiveAnswerImpl implements _DePoolReceiveAnswer {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of TransactionAdditionalInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DePoolReceiveAnswerImplCopyWith<_$DePoolReceiveAnswerImpl> get copyWith =>
-      __$$DePoolReceiveAnswerImplCopyWithImpl<_$DePoolReceiveAnswerImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String data) comment,
-    required TResult Function(DePoolOnRoundCompleteNotification data)
-        dePoolOnRoundComplete,
-    required TResult Function(DePoolReceiveAnswerNotification data)
-        dePoolReceiveAnswer,
-    required TResult Function(TokenWalletDeployedNotification data)
-        tokenWalletDeployed,
-    required TResult Function(WalletInteractionInfo data) walletInteraction,
-    required TResult Function(JettonIncomingTransfer data) jettonNotify,
-  }) {
-    return dePoolReceiveAnswer(data);
+  String toString() {
+    return 'TransactionAdditionalInfo.tokenWalletDeployed(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String data)? comment,
-    TResult? Function(DePoolOnRoundCompleteNotification data)?
-        dePoolOnRoundComplete,
-    TResult? Function(DePoolReceiveAnswerNotification data)?
-        dePoolReceiveAnswer,
-    TResult? Function(TokenWalletDeployedNotification data)?
-        tokenWalletDeployed,
-    TResult? Function(WalletInteractionInfo data)? walletInteraction,
-    TResult? Function(JettonIncomingTransfer data)? jettonNotify,
-  }) {
-    return dePoolReceiveAnswer?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(DePoolOnRoundCompleteNotification data)?
-        dePoolOnRoundComplete,
-    TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
-    TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
-    TResult Function(WalletInteractionInfo data)? walletInteraction,
-    TResult Function(JettonIncomingTransfer data)? jettonNotify,
-    required TResult orElse(),
-  }) {
-    if (dePoolReceiveAnswer != null) {
-      return dePoolReceiveAnswer(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Comment value) comment,
-    required TResult Function(_DePoolOnRoundComplete value)
-        dePoolOnRoundComplete,
-    required TResult Function(_DePoolReceiveAnswer value) dePoolReceiveAnswer,
-    required TResult Function(_TokenWalletDeployed value) tokenWalletDeployed,
-    required TResult Function(_WalletInteraction value) walletInteraction,
-    required TResult Function(_JettonNotify value) jettonNotify,
-  }) {
-    return dePoolReceiveAnswer(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Comment value)? comment,
-    TResult? Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult? Function(_WalletInteraction value)? walletInteraction,
-    TResult? Function(_JettonNotify value)? jettonNotify,
-  }) {
-    return dePoolReceiveAnswer?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult Function(_WalletInteraction value)? walletInteraction,
-    TResult Function(_JettonNotify value)? jettonNotify,
-    required TResult orElse(),
-  }) {
-    if (dePoolReceiveAnswer != null) {
-      return dePoolReceiveAnswer(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DePoolReceiveAnswerImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _DePoolReceiveAnswer implements TransactionAdditionalInfo {
-  const factory _DePoolReceiveAnswer(
-      final DePoolReceiveAnswerNotification data) = _$DePoolReceiveAnswerImpl;
-
-  factory _DePoolReceiveAnswer.fromJson(Map<String, dynamic> json) =
-      _$DePoolReceiveAnswerImpl.fromJson;
-
-  @override
-  DePoolReceiveAnswerNotification get data;
-
-  /// Create a copy of TransactionAdditionalInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DePoolReceiveAnswerImplCopyWith<_$DePoolReceiveAnswerImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TokenWalletDeployedImplCopyWith<$Res> {
-  factory _$$TokenWalletDeployedImplCopyWith(_$TokenWalletDeployedImpl value,
-          $Res Function(_$TokenWalletDeployedImpl) then) =
-      __$$TokenWalletDeployedImplCopyWithImpl<$Res>;
+abstract mixin class $TransactionAdditionalInfoTokenWalletDeployedCopyWith<$Res>
+    implements $TransactionAdditionalInfoCopyWith<$Res> {
+  factory $TransactionAdditionalInfoTokenWalletDeployedCopyWith(
+          TransactionAdditionalInfoTokenWalletDeployed value,
+          $Res Function(TransactionAdditionalInfoTokenWalletDeployed) _then) =
+      _$TransactionAdditionalInfoTokenWalletDeployedCopyWithImpl;
   @useResult
   $Res call({TokenWalletDeployedNotification data});
 
@@ -753,24 +407,23 @@ abstract class _$$TokenWalletDeployedImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$TokenWalletDeployedImplCopyWithImpl<$Res>
-    extends _$TransactionAdditionalInfoCopyWithImpl<$Res,
-        _$TokenWalletDeployedImpl>
-    implements _$$TokenWalletDeployedImplCopyWith<$Res> {
-  __$$TokenWalletDeployedImplCopyWithImpl(_$TokenWalletDeployedImpl _value,
-      $Res Function(_$TokenWalletDeployedImpl) _then)
-      : super(_value, _then);
+class _$TransactionAdditionalInfoTokenWalletDeployedCopyWithImpl<$Res>
+    implements $TransactionAdditionalInfoTokenWalletDeployedCopyWith<$Res> {
+  _$TransactionAdditionalInfoTokenWalletDeployedCopyWithImpl(
+      this._self, this._then);
+
+  final TransactionAdditionalInfoTokenWalletDeployed _self;
+  final $Res Function(TransactionAdditionalInfoTokenWalletDeployed) _then;
 
   /// Create a copy of TransactionAdditionalInfo
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$TokenWalletDeployedImpl(
+    return _then(TransactionAdditionalInfoTokenWalletDeployed(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as TokenWalletDeployedNotification,
     ));
@@ -781,37 +434,50 @@ class __$$TokenWalletDeployedImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $TokenWalletDeployedNotificationCopyWith<$Res> get data {
-    return $TokenWalletDeployedNotificationCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $TokenWalletDeployedNotificationCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$TokenWalletDeployedImpl implements _TokenWalletDeployed {
-  const _$TokenWalletDeployedImpl(this.data, {final String? $type})
-      : $type = $type ?? 'token_wallet_deployed';
-
-  factory _$TokenWalletDeployedImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TokenWalletDeployedImplFromJson(json);
+class TransactionAdditionalInfoWalletInteraction
+    implements TransactionAdditionalInfo {
+  const TransactionAdditionalInfoWalletInteraction(this.data,
+      {final String? $type})
+      : $type = $type ?? 'wallet_interaction';
+  factory TransactionAdditionalInfoWalletInteraction.fromJson(
+          Map<String, dynamic> json) =>
+      _$TransactionAdditionalInfoWalletInteractionFromJson(json);
 
   @override
-  final TokenWalletDeployedNotification data;
+  final WalletInteractionInfo data;
 
   @JsonKey(name: 'type')
   final String $type;
 
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TransactionAdditionalInfoWalletInteractionCopyWith<
+          TransactionAdditionalInfoWalletInteraction>
+      get copyWith => _$TransactionAdditionalInfoWalletInteractionCopyWithImpl<
+          TransactionAdditionalInfoWalletInteraction>(this, _$identity);
+
   @override
-  String toString() {
-    return 'TransactionAdditionalInfo.tokenWalletDeployed(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$TransactionAdditionalInfoWalletInteractionToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TokenWalletDeployedImpl &&
+            other is TransactionAdditionalInfoWalletInteraction &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -819,139 +485,19 @@ class _$TokenWalletDeployedImpl implements _TokenWalletDeployed {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of TransactionAdditionalInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TokenWalletDeployedImplCopyWith<_$TokenWalletDeployedImpl> get copyWith =>
-      __$$TokenWalletDeployedImplCopyWithImpl<_$TokenWalletDeployedImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String data) comment,
-    required TResult Function(DePoolOnRoundCompleteNotification data)
-        dePoolOnRoundComplete,
-    required TResult Function(DePoolReceiveAnswerNotification data)
-        dePoolReceiveAnswer,
-    required TResult Function(TokenWalletDeployedNotification data)
-        tokenWalletDeployed,
-    required TResult Function(WalletInteractionInfo data) walletInteraction,
-    required TResult Function(JettonIncomingTransfer data) jettonNotify,
-  }) {
-    return tokenWalletDeployed(data);
+  String toString() {
+    return 'TransactionAdditionalInfo.walletInteraction(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String data)? comment,
-    TResult? Function(DePoolOnRoundCompleteNotification data)?
-        dePoolOnRoundComplete,
-    TResult? Function(DePoolReceiveAnswerNotification data)?
-        dePoolReceiveAnswer,
-    TResult? Function(TokenWalletDeployedNotification data)?
-        tokenWalletDeployed,
-    TResult? Function(WalletInteractionInfo data)? walletInteraction,
-    TResult? Function(JettonIncomingTransfer data)? jettonNotify,
-  }) {
-    return tokenWalletDeployed?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(DePoolOnRoundCompleteNotification data)?
-        dePoolOnRoundComplete,
-    TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
-    TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
-    TResult Function(WalletInteractionInfo data)? walletInteraction,
-    TResult Function(JettonIncomingTransfer data)? jettonNotify,
-    required TResult orElse(),
-  }) {
-    if (tokenWalletDeployed != null) {
-      return tokenWalletDeployed(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Comment value) comment,
-    required TResult Function(_DePoolOnRoundComplete value)
-        dePoolOnRoundComplete,
-    required TResult Function(_DePoolReceiveAnswer value) dePoolReceiveAnswer,
-    required TResult Function(_TokenWalletDeployed value) tokenWalletDeployed,
-    required TResult Function(_WalletInteraction value) walletInteraction,
-    required TResult Function(_JettonNotify value) jettonNotify,
-  }) {
-    return tokenWalletDeployed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Comment value)? comment,
-    TResult? Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult? Function(_WalletInteraction value)? walletInteraction,
-    TResult? Function(_JettonNotify value)? jettonNotify,
-  }) {
-    return tokenWalletDeployed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult Function(_WalletInteraction value)? walletInteraction,
-    TResult Function(_JettonNotify value)? jettonNotify,
-    required TResult orElse(),
-  }) {
-    if (tokenWalletDeployed != null) {
-      return tokenWalletDeployed(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TokenWalletDeployedImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _TokenWalletDeployed implements TransactionAdditionalInfo {
-  const factory _TokenWalletDeployed(
-      final TokenWalletDeployedNotification data) = _$TokenWalletDeployedImpl;
-
-  factory _TokenWalletDeployed.fromJson(Map<String, dynamic> json) =
-      _$TokenWalletDeployedImpl.fromJson;
-
-  @override
-  TokenWalletDeployedNotification get data;
-
-  /// Create a copy of TransactionAdditionalInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TokenWalletDeployedImplCopyWith<_$TokenWalletDeployedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$WalletInteractionImplCopyWith<$Res> {
-  factory _$$WalletInteractionImplCopyWith(_$WalletInteractionImpl value,
-          $Res Function(_$WalletInteractionImpl) then) =
-      __$$WalletInteractionImplCopyWithImpl<$Res>;
+abstract mixin class $TransactionAdditionalInfoWalletInteractionCopyWith<$Res>
+    implements $TransactionAdditionalInfoCopyWith<$Res> {
+  factory $TransactionAdditionalInfoWalletInteractionCopyWith(
+          TransactionAdditionalInfoWalletInteraction value,
+          $Res Function(TransactionAdditionalInfoWalletInteraction) _then) =
+      _$TransactionAdditionalInfoWalletInteractionCopyWithImpl;
   @useResult
   $Res call({WalletInteractionInfo data});
 
@@ -959,24 +505,23 @@ abstract class _$$WalletInteractionImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$WalletInteractionImplCopyWithImpl<$Res>
-    extends _$TransactionAdditionalInfoCopyWithImpl<$Res,
-        _$WalletInteractionImpl>
-    implements _$$WalletInteractionImplCopyWith<$Res> {
-  __$$WalletInteractionImplCopyWithImpl(_$WalletInteractionImpl _value,
-      $Res Function(_$WalletInteractionImpl) _then)
-      : super(_value, _then);
+class _$TransactionAdditionalInfoWalletInteractionCopyWithImpl<$Res>
+    implements $TransactionAdditionalInfoWalletInteractionCopyWith<$Res> {
+  _$TransactionAdditionalInfoWalletInteractionCopyWithImpl(
+      this._self, this._then);
+
+  final TransactionAdditionalInfoWalletInteraction _self;
+  final $Res Function(TransactionAdditionalInfoWalletInteraction) _then;
 
   /// Create a copy of TransactionAdditionalInfo
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$WalletInteractionImpl(
+    return _then(TransactionAdditionalInfoWalletInteraction(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as WalletInteractionInfo,
     ));
@@ -987,37 +532,49 @@ class __$$WalletInteractionImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $WalletInteractionInfoCopyWith<$Res> get data {
-    return $WalletInteractionInfoCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $WalletInteractionInfoCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$WalletInteractionImpl implements _WalletInteraction {
-  const _$WalletInteractionImpl(this.data, {final String? $type})
-      : $type = $type ?? 'wallet_interaction';
-
-  factory _$WalletInteractionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$WalletInteractionImplFromJson(json);
+class TransactionAdditionalInfoJettonNotify
+    implements TransactionAdditionalInfo {
+  const TransactionAdditionalInfoJettonNotify(this.data, {final String? $type})
+      : $type = $type ?? 'jetton_notify';
+  factory TransactionAdditionalInfoJettonNotify.fromJson(
+          Map<String, dynamic> json) =>
+      _$TransactionAdditionalInfoJettonNotifyFromJson(json);
 
   @override
-  final WalletInteractionInfo data;
+  final JettonIncomingTransfer data;
 
   @JsonKey(name: 'type')
   final String $type;
 
+  /// Create a copy of TransactionAdditionalInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TransactionAdditionalInfoJettonNotifyCopyWith<
+          TransactionAdditionalInfoJettonNotify>
+      get copyWith => _$TransactionAdditionalInfoJettonNotifyCopyWithImpl<
+          TransactionAdditionalInfoJettonNotify>(this, _$identity);
+
   @override
-  String toString() {
-    return 'TransactionAdditionalInfo.walletInteraction(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$TransactionAdditionalInfoJettonNotifyToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WalletInteractionImpl &&
+            other is TransactionAdditionalInfoJettonNotify &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -1025,139 +582,19 @@ class _$WalletInteractionImpl implements _WalletInteraction {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of TransactionAdditionalInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$WalletInteractionImplCopyWith<_$WalletInteractionImpl> get copyWith =>
-      __$$WalletInteractionImplCopyWithImpl<_$WalletInteractionImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String data) comment,
-    required TResult Function(DePoolOnRoundCompleteNotification data)
-        dePoolOnRoundComplete,
-    required TResult Function(DePoolReceiveAnswerNotification data)
-        dePoolReceiveAnswer,
-    required TResult Function(TokenWalletDeployedNotification data)
-        tokenWalletDeployed,
-    required TResult Function(WalletInteractionInfo data) walletInteraction,
-    required TResult Function(JettonIncomingTransfer data) jettonNotify,
-  }) {
-    return walletInteraction(data);
+  String toString() {
+    return 'TransactionAdditionalInfo.jettonNotify(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String data)? comment,
-    TResult? Function(DePoolOnRoundCompleteNotification data)?
-        dePoolOnRoundComplete,
-    TResult? Function(DePoolReceiveAnswerNotification data)?
-        dePoolReceiveAnswer,
-    TResult? Function(TokenWalletDeployedNotification data)?
-        tokenWalletDeployed,
-    TResult? Function(WalletInteractionInfo data)? walletInteraction,
-    TResult? Function(JettonIncomingTransfer data)? jettonNotify,
-  }) {
-    return walletInteraction?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(DePoolOnRoundCompleteNotification data)?
-        dePoolOnRoundComplete,
-    TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
-    TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
-    TResult Function(WalletInteractionInfo data)? walletInteraction,
-    TResult Function(JettonIncomingTransfer data)? jettonNotify,
-    required TResult orElse(),
-  }) {
-    if (walletInteraction != null) {
-      return walletInteraction(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Comment value) comment,
-    required TResult Function(_DePoolOnRoundComplete value)
-        dePoolOnRoundComplete,
-    required TResult Function(_DePoolReceiveAnswer value) dePoolReceiveAnswer,
-    required TResult Function(_TokenWalletDeployed value) tokenWalletDeployed,
-    required TResult Function(_WalletInteraction value) walletInteraction,
-    required TResult Function(_JettonNotify value) jettonNotify,
-  }) {
-    return walletInteraction(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Comment value)? comment,
-    TResult? Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult? Function(_WalletInteraction value)? walletInteraction,
-    TResult? Function(_JettonNotify value)? jettonNotify,
-  }) {
-    return walletInteraction?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult Function(_WalletInteraction value)? walletInteraction,
-    TResult Function(_JettonNotify value)? jettonNotify,
-    required TResult orElse(),
-  }) {
-    if (walletInteraction != null) {
-      return walletInteraction(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$WalletInteractionImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _WalletInteraction implements TransactionAdditionalInfo {
-  const factory _WalletInteraction(final WalletInteractionInfo data) =
-      _$WalletInteractionImpl;
-
-  factory _WalletInteraction.fromJson(Map<String, dynamic> json) =
-      _$WalletInteractionImpl.fromJson;
-
-  @override
-  WalletInteractionInfo get data;
-
-  /// Create a copy of TransactionAdditionalInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$WalletInteractionImplCopyWith<_$WalletInteractionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$JettonNotifyImplCopyWith<$Res> {
-  factory _$$JettonNotifyImplCopyWith(
-          _$JettonNotifyImpl value, $Res Function(_$JettonNotifyImpl) then) =
-      __$$JettonNotifyImplCopyWithImpl<$Res>;
+abstract mixin class $TransactionAdditionalInfoJettonNotifyCopyWith<$Res>
+    implements $TransactionAdditionalInfoCopyWith<$Res> {
+  factory $TransactionAdditionalInfoJettonNotifyCopyWith(
+          TransactionAdditionalInfoJettonNotify value,
+          $Res Function(TransactionAdditionalInfoJettonNotify) _then) =
+      _$TransactionAdditionalInfoJettonNotifyCopyWithImpl;
   @useResult
   $Res call({JettonIncomingTransfer data});
 
@@ -1165,23 +602,22 @@ abstract class _$$JettonNotifyImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$JettonNotifyImplCopyWithImpl<$Res>
-    extends _$TransactionAdditionalInfoCopyWithImpl<$Res, _$JettonNotifyImpl>
-    implements _$$JettonNotifyImplCopyWith<$Res> {
-  __$$JettonNotifyImplCopyWithImpl(
-      _$JettonNotifyImpl _value, $Res Function(_$JettonNotifyImpl) _then)
-      : super(_value, _then);
+class _$TransactionAdditionalInfoJettonNotifyCopyWithImpl<$Res>
+    implements $TransactionAdditionalInfoJettonNotifyCopyWith<$Res> {
+  _$TransactionAdditionalInfoJettonNotifyCopyWithImpl(this._self, this._then);
+
+  final TransactionAdditionalInfoJettonNotify _self;
+  final $Res Function(TransactionAdditionalInfoJettonNotify) _then;
 
   /// Create a copy of TransactionAdditionalInfo
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$JettonNotifyImpl(
+    return _then(TransactionAdditionalInfoJettonNotify(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as JettonIncomingTransfer,
     ));
@@ -1192,167 +628,10 @@ class __$$JettonNotifyImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $JettonIncomingTransferCopyWith<$Res> get data {
-    return $JettonIncomingTransferCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $JettonIncomingTransferCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
-/// @nodoc
-@JsonSerializable()
-class _$JettonNotifyImpl implements _JettonNotify {
-  const _$JettonNotifyImpl(this.data, {final String? $type})
-      : $type = $type ?? 'jetton_notify';
-
-  factory _$JettonNotifyImpl.fromJson(Map<String, dynamic> json) =>
-      _$$JettonNotifyImplFromJson(json);
-
-  @override
-  final JettonIncomingTransfer data;
-
-  @JsonKey(name: 'type')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'TransactionAdditionalInfo.jettonNotify(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$JettonNotifyImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of TransactionAdditionalInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$JettonNotifyImplCopyWith<_$JettonNotifyImpl> get copyWith =>
-      __$$JettonNotifyImplCopyWithImpl<_$JettonNotifyImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String data) comment,
-    required TResult Function(DePoolOnRoundCompleteNotification data)
-        dePoolOnRoundComplete,
-    required TResult Function(DePoolReceiveAnswerNotification data)
-        dePoolReceiveAnswer,
-    required TResult Function(TokenWalletDeployedNotification data)
-        tokenWalletDeployed,
-    required TResult Function(WalletInteractionInfo data) walletInteraction,
-    required TResult Function(JettonIncomingTransfer data) jettonNotify,
-  }) {
-    return jettonNotify(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String data)? comment,
-    TResult? Function(DePoolOnRoundCompleteNotification data)?
-        dePoolOnRoundComplete,
-    TResult? Function(DePoolReceiveAnswerNotification data)?
-        dePoolReceiveAnswer,
-    TResult? Function(TokenWalletDeployedNotification data)?
-        tokenWalletDeployed,
-    TResult? Function(WalletInteractionInfo data)? walletInteraction,
-    TResult? Function(JettonIncomingTransfer data)? jettonNotify,
-  }) {
-    return jettonNotify?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(DePoolOnRoundCompleteNotification data)?
-        dePoolOnRoundComplete,
-    TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
-    TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
-    TResult Function(WalletInteractionInfo data)? walletInteraction,
-    TResult Function(JettonIncomingTransfer data)? jettonNotify,
-    required TResult orElse(),
-  }) {
-    if (jettonNotify != null) {
-      return jettonNotify(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Comment value) comment,
-    required TResult Function(_DePoolOnRoundComplete value)
-        dePoolOnRoundComplete,
-    required TResult Function(_DePoolReceiveAnswer value) dePoolReceiveAnswer,
-    required TResult Function(_TokenWalletDeployed value) tokenWalletDeployed,
-    required TResult Function(_WalletInteraction value) walletInteraction,
-    required TResult Function(_JettonNotify value) jettonNotify,
-  }) {
-    return jettonNotify(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Comment value)? comment,
-    TResult? Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult? Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult? Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult? Function(_WalletInteraction value)? walletInteraction,
-    TResult? Function(_JettonNotify value)? jettonNotify,
-  }) {
-    return jettonNotify?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_DePoolOnRoundComplete value)? dePoolOnRoundComplete,
-    TResult Function(_DePoolReceiveAnswer value)? dePoolReceiveAnswer,
-    TResult Function(_TokenWalletDeployed value)? tokenWalletDeployed,
-    TResult Function(_WalletInteraction value)? walletInteraction,
-    TResult Function(_JettonNotify value)? jettonNotify,
-    required TResult orElse(),
-  }) {
-    if (jettonNotify != null) {
-      return jettonNotify(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$JettonNotifyImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _JettonNotify implements TransactionAdditionalInfo {
-  const factory _JettonNotify(final JettonIncomingTransfer data) =
-      _$JettonNotifyImpl;
-
-  factory _JettonNotify.fromJson(Map<String, dynamic> json) =
-      _$JettonNotifyImpl.fromJson;
-
-  @override
-  JettonIncomingTransfer get data;
-
-  /// Create a copy of TransactionAdditionalInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$JettonNotifyImplCopyWith<_$JettonNotifyImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

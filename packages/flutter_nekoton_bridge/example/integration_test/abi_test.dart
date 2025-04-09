@@ -90,29 +90,33 @@ void main() {
 
     expect(knownTokenTransactionPayload, isNotNull);
     expect(
-      knownTokenTransactionPayload!.whenOrNull(
-        tokenOutgoingTransfer: (data) => data,
-      ),
+      switch (knownTokenTransactionPayload!) {
+        KnownPayloadTokenOutgoingTransfer(data: final data) => data,
+        _ => null,
+      },
       isNotNull,
     );
     expect(
-      knownTokenTransactionPayload.whenOrNull(
-        tokenOutgoingTransfer: (data) => data.tokens,
-      ),
+      switch (knownTokenTransactionPayload) {
+        KnownPayloadTokenOutgoingTransfer(data: final data) => data.tokens,
+        _ => null,
+      },
       BigInt.parse('1000000000'),
     );
 
     expect(knownJettonTransactionPayload, isNotNull);
     expect(
-      knownJettonTransactionPayload!.whenOrNull(
-        jettonOutgoingTransfer: (data) => data,
-      ),
+      switch (knownJettonTransactionPayload!) {
+        KnownPayloadJettonOutgoingTransfer(data: final data) => data,
+        _ => null,
+      },
       isNotNull,
     );
     expect(
-      knownJettonTransactionPayload.whenOrNull(
-        jettonOutgoingTransfer: (data) => data.tokens,
-      ),
+      switch (knownJettonTransactionPayload) {
+        KnownPayloadJettonOutgoingTransfer(data: final data) => data.tokens,
+        _ => null,
+      },
       BigInt.parse('10000'),
     );
   });

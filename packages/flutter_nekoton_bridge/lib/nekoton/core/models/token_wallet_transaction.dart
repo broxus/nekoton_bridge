@@ -8,32 +8,34 @@ part 'token_wallet_transaction.g.dart';
 sealed class TokenWalletTransaction with _$TokenWalletTransaction {
   const factory TokenWalletTransaction.transfer(
     final JettonOutgoingTransfer data,
-  ) = _Transfer;
+  ) = TokenWalletTransactionTransfer;
 
   const factory TokenWalletTransaction.internalTransfer(
     final JettonIncomingTransfer data,
-  ) = _InternalTransfer;
+  ) = TokenWalletTransactionInternalTransfer;
 
   const factory TokenWalletTransaction.incomingTransfer(
-      final TokenIncomingTransfer data) = _IncomingTransfer;
+          final TokenIncomingTransfer data) =
+      TokenWalletTransactionIncomingTransfer;
 
   const factory TokenWalletTransaction.outgoingTransfer(
-      final TokenOutgoingTransfer data) = _OutgoingTransfer;
+          final TokenOutgoingTransfer data) =
+      TokenWalletTransactionOutgoingTransfer;
 
   const factory TokenWalletTransaction.swapBack(final TokenSwapBack data) =
-      _SwapBack;
+      TokenWalletTransactionSwapBack;
 
   const factory TokenWalletTransaction.accept(
     @amountJsonConverter final BigInt data,
-  ) = _Accept;
+  ) = TokenWalletTransactionAccept;
 
   const factory TokenWalletTransaction.transferBounced(
     @amountJsonConverter final BigInt data,
-  ) = _TransferBounced;
+  ) = TokenWalletTransactionTransferBounced;
 
   const factory TokenWalletTransaction.swapBackBounced(
     @amountJsonConverter final BigInt data,
-  ) = _SwapBackBounced;
+  ) = TokenWalletTransactionSwapBackBounced;
 
   factory TokenWalletTransaction.fromJson(Map<String, dynamic> json) =>
       _$TokenWalletTransactionFromJson(json);

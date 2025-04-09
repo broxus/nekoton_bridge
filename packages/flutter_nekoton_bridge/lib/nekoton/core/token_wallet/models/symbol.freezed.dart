@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,177 +10,31 @@ part of 'symbol.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Symbol _$SymbolFromJson(Map<String, dynamic> json) {
-  return _Symbol.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Symbol {
-  String get name => throw _privateConstructorUsedError;
-  String get fullName => throw _privateConstructorUsedError;
-  int get decimals => throw _privateConstructorUsedError;
-  Address get rootTokenContract => throw _privateConstructorUsedError;
-
-  /// Serializes this Symbol to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get name;
+  String get fullName;
+  int get decimals;
+  Address get rootTokenContract;
 
   /// Create a copy of Symbol
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SymbolCopyWith<Symbol> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SymbolCopyWith<$Res> {
-  factory $SymbolCopyWith(Symbol value, $Res Function(Symbol) then) =
-      _$SymbolCopyWithImpl<$Res, Symbol>;
-  @useResult
-  $Res call(
-      {String name, String fullName, int decimals, Address rootTokenContract});
-
-  $AddressCopyWith<$Res> get rootTokenContract;
-}
-
-/// @nodoc
-class _$SymbolCopyWithImpl<$Res, $Val extends Symbol>
-    implements $SymbolCopyWith<$Res> {
-  _$SymbolCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Symbol
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? fullName = null,
-    Object? decimals = null,
-    Object? rootTokenContract = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      fullName: null == fullName
-          ? _value.fullName
-          : fullName // ignore: cast_nullable_to_non_nullable
-              as String,
-      decimals: null == decimals
-          ? _value.decimals
-          : decimals // ignore: cast_nullable_to_non_nullable
-              as int,
-      rootTokenContract: null == rootTokenContract
-          ? _value.rootTokenContract
-          : rootTokenContract // ignore: cast_nullable_to_non_nullable
-              as Address,
-    ) as $Val);
-  }
+  $SymbolCopyWith<Symbol> get copyWith =>
+      _$SymbolCopyWithImpl<Symbol>(this as Symbol, _$identity);
 
-  /// Create a copy of Symbol
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res> get rootTokenContract {
-    return $AddressCopyWith<$Res>(_value.rootTokenContract, (value) {
-      return _then(_value.copyWith(rootTokenContract: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$SymbolImplCopyWith<$Res> implements $SymbolCopyWith<$Res> {
-  factory _$$SymbolImplCopyWith(
-          _$SymbolImpl value, $Res Function(_$SymbolImpl) then) =
-      __$$SymbolImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String name, String fullName, int decimals, Address rootTokenContract});
-
-  @override
-  $AddressCopyWith<$Res> get rootTokenContract;
-}
-
-/// @nodoc
-class __$$SymbolImplCopyWithImpl<$Res>
-    extends _$SymbolCopyWithImpl<$Res, _$SymbolImpl>
-    implements _$$SymbolImplCopyWith<$Res> {
-  __$$SymbolImplCopyWithImpl(
-      _$SymbolImpl _value, $Res Function(_$SymbolImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Symbol
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? fullName = null,
-    Object? decimals = null,
-    Object? rootTokenContract = null,
-  }) {
-    return _then(_$SymbolImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      fullName: null == fullName
-          ? _value.fullName
-          : fullName // ignore: cast_nullable_to_non_nullable
-              as String,
-      decimals: null == decimals
-          ? _value.decimals
-          : decimals // ignore: cast_nullable_to_non_nullable
-              as int,
-      rootTokenContract: null == rootTokenContract
-          ? _value.rootTokenContract
-          : rootTokenContract // ignore: cast_nullable_to_non_nullable
-              as Address,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$SymbolImpl implements _Symbol {
-  const _$SymbolImpl(
-      {required this.name,
-      required this.fullName,
-      required this.decimals,
-      required this.rootTokenContract});
-
-  factory _$SymbolImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SymbolImplFromJson(json);
-
-  @override
-  final String name;
-  @override
-  final String fullName;
-  @override
-  final int decimals;
-  @override
-  final Address rootTokenContract;
-
-  @override
-  String toString() {
-    return 'Symbol(name: $name, fullName: $fullName, decimals: $decimals, rootTokenContract: $rootTokenContract)';
-  }
+  /// Serializes this Symbol to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SymbolImpl &&
+            other is Symbol &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.fullName, fullName) ||
                 other.fullName == fullName) &&
@@ -194,44 +49,189 @@ class _$SymbolImpl implements _Symbol {
   int get hashCode =>
       Object.hash(runtimeType, name, fullName, decimals, rootTokenContract);
 
-  /// Create a copy of Symbol
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SymbolImplCopyWith<_$SymbolImpl> get copyWith =>
-      __$$SymbolImplCopyWithImpl<_$SymbolImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SymbolImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Symbol(name: $name, fullName: $fullName, decimals: $decimals, rootTokenContract: $rootTokenContract)';
   }
 }
 
-abstract class _Symbol implements Symbol {
-  const factory _Symbol(
-      {required final String name,
-      required final String fullName,
-      required final int decimals,
-      required final Address rootTokenContract}) = _$SymbolImpl;
+/// @nodoc
+abstract mixin class $SymbolCopyWith<$Res> {
+  factory $SymbolCopyWith(Symbol value, $Res Function(Symbol) _then) =
+      _$SymbolCopyWithImpl;
+  @useResult
+  $Res call(
+      {String name, String fullName, int decimals, Address rootTokenContract});
 
-  factory _Symbol.fromJson(Map<String, dynamic> json) = _$SymbolImpl.fromJson;
+  $AddressCopyWith<$Res> get rootTokenContract;
+}
+
+/// @nodoc
+class _$SymbolCopyWithImpl<$Res> implements $SymbolCopyWith<$Res> {
+  _$SymbolCopyWithImpl(this._self, this._then);
+
+  final Symbol _self;
+  final $Res Function(Symbol) _then;
+
+  /// Create a copy of Symbol
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? fullName = null,
+    Object? decimals = null,
+    Object? rootTokenContract = null,
+  }) {
+    return _then(_self.copyWith(
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      fullName: null == fullName
+          ? _self.fullName
+          : fullName // ignore: cast_nullable_to_non_nullable
+              as String,
+      decimals: null == decimals
+          ? _self.decimals
+          : decimals // ignore: cast_nullable_to_non_nullable
+              as int,
+      rootTokenContract: null == rootTokenContract
+          ? _self.rootTokenContract
+          : rootTokenContract // ignore: cast_nullable_to_non_nullable
+              as Address,
+    ));
+  }
+
+  /// Create a copy of Symbol
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get rootTokenContract {
+    return $AddressCopyWith<$Res>(_self.rootTokenContract, (value) {
+      return _then(_self.copyWith(rootTokenContract: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _Symbol implements Symbol {
+  const _Symbol(
+      {required this.name,
+      required this.fullName,
+      required this.decimals,
+      required this.rootTokenContract});
+  factory _Symbol.fromJson(Map<String, dynamic> json) => _$SymbolFromJson(json);
 
   @override
-  String get name;
+  final String name;
   @override
-  String get fullName;
+  final String fullName;
   @override
-  int get decimals;
+  final int decimals;
   @override
-  Address get rootTokenContract;
+  final Address rootTokenContract;
 
   /// Create a copy of Symbol
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SymbolImplCopyWith<_$SymbolImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$SymbolCopyWith<_Symbol> get copyWith =>
+      __$SymbolCopyWithImpl<_Symbol>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SymbolToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Symbol &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.fullName, fullName) ||
+                other.fullName == fullName) &&
+            (identical(other.decimals, decimals) ||
+                other.decimals == decimals) &&
+            (identical(other.rootTokenContract, rootTokenContract) ||
+                other.rootTokenContract == rootTokenContract));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, name, fullName, decimals, rootTokenContract);
+
+  @override
+  String toString() {
+    return 'Symbol(name: $name, fullName: $fullName, decimals: $decimals, rootTokenContract: $rootTokenContract)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$SymbolCopyWith<$Res> implements $SymbolCopyWith<$Res> {
+  factory _$SymbolCopyWith(_Symbol value, $Res Function(_Symbol) _then) =
+      __$SymbolCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String name, String fullName, int decimals, Address rootTokenContract});
+
+  @override
+  $AddressCopyWith<$Res> get rootTokenContract;
+}
+
+/// @nodoc
+class __$SymbolCopyWithImpl<$Res> implements _$SymbolCopyWith<$Res> {
+  __$SymbolCopyWithImpl(this._self, this._then);
+
+  final _Symbol _self;
+  final $Res Function(_Symbol) _then;
+
+  /// Create a copy of Symbol
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? name = null,
+    Object? fullName = null,
+    Object? decimals = null,
+    Object? rootTokenContract = null,
+  }) {
+    return _then(_Symbol(
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      fullName: null == fullName
+          ? _self.fullName
+          : fullName // ignore: cast_nullable_to_non_nullable
+              as String,
+      decimals: null == decimals
+          ? _self.decimals
+          : decimals // ignore: cast_nullable_to_non_nullable
+              as int,
+      rootTokenContract: null == rootTokenContract
+          ? _self.rootTokenContract
+          : rootTokenContract // ignore: cast_nullable_to_non_nullable
+              as Address,
+    ));
+  }
+
+  /// Create a copy of Symbol
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get rootTokenContract {
+    return $AddressCopyWith<$Res>(_self.rootTokenContract, (value) {
+      return _then(_self.copyWith(rootTokenContract: value));
+    });
+  }
+}
+
+// dart format on

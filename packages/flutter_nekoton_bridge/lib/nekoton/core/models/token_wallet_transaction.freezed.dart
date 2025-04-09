@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,30 +10,27 @@ part of 'token_wallet_transaction.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 TokenWalletTransaction _$TokenWalletTransactionFromJson(
     Map<String, dynamic> json) {
   switch (json['type']) {
     case 'transfer':
-      return _Transfer.fromJson(json);
+      return TokenWalletTransactionTransfer.fromJson(json);
     case 'internal_transfer':
-      return _InternalTransfer.fromJson(json);
+      return TokenWalletTransactionInternalTransfer.fromJson(json);
     case 'incoming_transfer':
-      return _IncomingTransfer.fromJson(json);
+      return TokenWalletTransactionIncomingTransfer.fromJson(json);
     case 'outgoing_transfer':
-      return _OutgoingTransfer.fromJson(json);
+      return TokenWalletTransactionOutgoingTransfer.fromJson(json);
     case 'swap_back':
-      return _SwapBack.fromJson(json);
+      return TokenWalletTransactionSwapBack.fromJson(json);
     case 'accept':
-      return _Accept.fromJson(json);
+      return TokenWalletTransactionAccept.fromJson(json);
     case 'transfer_bounced':
-      return _TransferBounced.fromJson(json);
+      return TokenWalletTransactionTransferBounced.fromJson(json);
     case 'swap_back_bounced':
-      return _SwapBackBounced.fromJson(json);
+      return TokenWalletTransactionSwapBackBounced.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'type', 'TokenWalletTransaction',
@@ -42,113 +40,91 @@ TokenWalletTransaction _$TokenWalletTransactionFromJson(
 
 /// @nodoc
 mixin _$TokenWalletTransaction {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(JettonOutgoingTransfer data) transfer,
-    required TResult Function(JettonIncomingTransfer data) internalTransfer,
-    required TResult Function(TokenIncomingTransfer data) incomingTransfer,
-    required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
-    required TResult Function(TokenSwapBack data) swapBack,
-    required TResult Function(@amountJsonConverter BigInt data) accept,
-    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
-    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(JettonOutgoingTransfer data)? transfer,
-    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult? Function(TokenSwapBack data)? swapBack,
-    TResult? Function(@amountJsonConverter BigInt data)? accept,
-    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(JettonOutgoingTransfer data)? transfer,
-    TResult Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(@amountJsonConverter BigInt data)? accept,
-    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Transfer value) transfer,
-    required TResult Function(_InternalTransfer value) internalTransfer,
-    required TResult Function(_IncomingTransfer value) incomingTransfer,
-    required TResult Function(_OutgoingTransfer value) outgoingTransfer,
-    required TResult Function(_SwapBack value) swapBack,
-    required TResult Function(_Accept value) accept,
-    required TResult Function(_TransferBounced value) transferBounced,
-    required TResult Function(_SwapBackBounced value) swapBackBounced,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Transfer value)? transfer,
-    TResult? Function(_InternalTransfer value)? internalTransfer,
-    TResult? Function(_IncomingTransfer value)? incomingTransfer,
-    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult? Function(_SwapBack value)? swapBack,
-    TResult? Function(_Accept value)? accept,
-    TResult? Function(_TransferBounced value)? transferBounced,
-    TResult? Function(_SwapBackBounced value)? swapBackBounced,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Transfer value)? transfer,
-    TResult Function(_InternalTransfer value)? internalTransfer,
-    TResult Function(_IncomingTransfer value)? incomingTransfer,
-    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult Function(_SwapBack value)? swapBack,
-    TResult Function(_Accept value)? accept,
-    TResult Function(_TransferBounced value)? transferBounced,
-    TResult Function(_SwapBackBounced value)? swapBackBounced,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  @amountJsonConverter
+  Object get data;
 
   /// Serializes this TokenWalletTransaction to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TokenWalletTransaction &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'TokenWalletTransaction(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $TokenWalletTransactionCopyWith<$Res> {
-  factory $TokenWalletTransactionCopyWith(TokenWalletTransaction value,
-          $Res Function(TokenWalletTransaction) then) =
-      _$TokenWalletTransactionCopyWithImpl<$Res, TokenWalletTransaction>;
+class $TokenWalletTransactionCopyWith<$Res> {
+  $TokenWalletTransactionCopyWith(
+      TokenWalletTransaction _, $Res Function(TokenWalletTransaction) __);
 }
 
 /// @nodoc
-class _$TokenWalletTransactionCopyWithImpl<$Res,
-        $Val extends TokenWalletTransaction>
-    implements $TokenWalletTransactionCopyWith<$Res> {
-  _$TokenWalletTransactionCopyWithImpl(this._value, this._then);
+@JsonSerializable()
+class TokenWalletTransactionTransfer implements TokenWalletTransaction {
+  const TokenWalletTransactionTransfer(this.data, {final String? $type})
+      : $type = $type ?? 'transfer';
+  factory TokenWalletTransactionTransfer.fromJson(Map<String, dynamic> json) =>
+      _$TokenWalletTransactionTransferFromJson(json);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  @override
+  final JettonOutgoingTransfer data;
+
+  @JsonKey(name: 'type')
+  final String $type;
 
   /// Create a copy of TokenWalletTransaction
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TokenWalletTransactionTransferCopyWith<TokenWalletTransactionTransfer>
+      get copyWith => _$TokenWalletTransactionTransferCopyWithImpl<
+          TokenWalletTransactionTransfer>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TokenWalletTransactionTransferToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TokenWalletTransactionTransfer &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'TokenWalletTransaction.transfer(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$TransferImplCopyWith<$Res> {
-  factory _$$TransferImplCopyWith(
-          _$TransferImpl value, $Res Function(_$TransferImpl) then) =
-      __$$TransferImplCopyWithImpl<$Res>;
+abstract mixin class $TokenWalletTransactionTransferCopyWith<$Res>
+    implements $TokenWalletTransactionCopyWith<$Res> {
+  factory $TokenWalletTransactionTransferCopyWith(
+          TokenWalletTransactionTransfer value,
+          $Res Function(TokenWalletTransactionTransfer) _then) =
+      _$TokenWalletTransactionTransferCopyWithImpl;
   @useResult
   $Res call({JettonOutgoingTransfer data});
 
@@ -156,23 +132,22 @@ abstract class _$$TransferImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$TransferImplCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$TransferImpl>
-    implements _$$TransferImplCopyWith<$Res> {
-  __$$TransferImplCopyWithImpl(
-      _$TransferImpl _value, $Res Function(_$TransferImpl) _then)
-      : super(_value, _then);
+class _$TokenWalletTransactionTransferCopyWithImpl<$Res>
+    implements $TokenWalletTransactionTransferCopyWith<$Res> {
+  _$TokenWalletTransactionTransferCopyWithImpl(this._self, this._then);
+
+  final TokenWalletTransactionTransfer _self;
+  final $Res Function(TokenWalletTransactionTransfer) _then;
 
   /// Create a copy of TokenWalletTransaction
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$TransferImpl(
+    return _then(TokenWalletTransactionTransfer(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as JettonOutgoingTransfer,
     ));
@@ -183,37 +158,48 @@ class __$$TransferImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $JettonOutgoingTransferCopyWith<$Res> get data {
-    return $JettonOutgoingTransferCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $JettonOutgoingTransferCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$TransferImpl implements _Transfer {
-  const _$TransferImpl(this.data, {final String? $type})
-      : $type = $type ?? 'transfer';
-
-  factory _$TransferImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TransferImplFromJson(json);
+class TokenWalletTransactionInternalTransfer implements TokenWalletTransaction {
+  const TokenWalletTransactionInternalTransfer(this.data, {final String? $type})
+      : $type = $type ?? 'internal_transfer';
+  factory TokenWalletTransactionInternalTransfer.fromJson(
+          Map<String, dynamic> json) =>
+      _$TokenWalletTransactionInternalTransferFromJson(json);
 
   @override
-  final JettonOutgoingTransfer data;
+  final JettonIncomingTransfer data;
 
   @JsonKey(name: 'type')
   final String $type;
 
+  /// Create a copy of TokenWalletTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TokenWalletTransactionInternalTransferCopyWith<
+          TokenWalletTransactionInternalTransfer>
+      get copyWith => _$TokenWalletTransactionInternalTransferCopyWithImpl<
+          TokenWalletTransactionInternalTransfer>(this, _$identity);
+
   @override
-  String toString() {
-    return 'TokenWalletTransaction.transfer(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$TokenWalletTransactionInternalTransferToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TransferImpl &&
+            other is TokenWalletTransactionInternalTransfer &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -221,141 +207,19 @@ class _$TransferImpl implements _Transfer {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of TokenWalletTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TransferImplCopyWith<_$TransferImpl> get copyWith =>
-      __$$TransferImplCopyWithImpl<_$TransferImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(JettonOutgoingTransfer data) transfer,
-    required TResult Function(JettonIncomingTransfer data) internalTransfer,
-    required TResult Function(TokenIncomingTransfer data) incomingTransfer,
-    required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
-    required TResult Function(TokenSwapBack data) swapBack,
-    required TResult Function(@amountJsonConverter BigInt data) accept,
-    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
-    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
-  }) {
-    return transfer(data);
+  String toString() {
+    return 'TokenWalletTransaction.internalTransfer(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(JettonOutgoingTransfer data)? transfer,
-    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult? Function(TokenSwapBack data)? swapBack,
-    TResult? Function(@amountJsonConverter BigInt data)? accept,
-    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
-  }) {
-    return transfer?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(JettonOutgoingTransfer data)? transfer,
-    TResult Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(@amountJsonConverter BigInt data)? accept,
-    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
-    required TResult orElse(),
-  }) {
-    if (transfer != null) {
-      return transfer(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Transfer value) transfer,
-    required TResult Function(_InternalTransfer value) internalTransfer,
-    required TResult Function(_IncomingTransfer value) incomingTransfer,
-    required TResult Function(_OutgoingTransfer value) outgoingTransfer,
-    required TResult Function(_SwapBack value) swapBack,
-    required TResult Function(_Accept value) accept,
-    required TResult Function(_TransferBounced value) transferBounced,
-    required TResult Function(_SwapBackBounced value) swapBackBounced,
-  }) {
-    return transfer(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Transfer value)? transfer,
-    TResult? Function(_InternalTransfer value)? internalTransfer,
-    TResult? Function(_IncomingTransfer value)? incomingTransfer,
-    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult? Function(_SwapBack value)? swapBack,
-    TResult? Function(_Accept value)? accept,
-    TResult? Function(_TransferBounced value)? transferBounced,
-    TResult? Function(_SwapBackBounced value)? swapBackBounced,
-  }) {
-    return transfer?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Transfer value)? transfer,
-    TResult Function(_InternalTransfer value)? internalTransfer,
-    TResult Function(_IncomingTransfer value)? incomingTransfer,
-    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult Function(_SwapBack value)? swapBack,
-    TResult Function(_Accept value)? accept,
-    TResult Function(_TransferBounced value)? transferBounced,
-    TResult Function(_SwapBackBounced value)? swapBackBounced,
-    required TResult orElse(),
-  }) {
-    if (transfer != null) {
-      return transfer(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TransferImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Transfer implements TokenWalletTransaction {
-  const factory _Transfer(final JettonOutgoingTransfer data) = _$TransferImpl;
-
-  factory _Transfer.fromJson(Map<String, dynamic> json) =
-      _$TransferImpl.fromJson;
-
-  @override
-  JettonOutgoingTransfer get data;
-
-  /// Create a copy of TokenWalletTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TransferImplCopyWith<_$TransferImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$InternalTransferImplCopyWith<$Res> {
-  factory _$$InternalTransferImplCopyWith(_$InternalTransferImpl value,
-          $Res Function(_$InternalTransferImpl) then) =
-      __$$InternalTransferImplCopyWithImpl<$Res>;
+abstract mixin class $TokenWalletTransactionInternalTransferCopyWith<$Res>
+    implements $TokenWalletTransactionCopyWith<$Res> {
+  factory $TokenWalletTransactionInternalTransferCopyWith(
+          TokenWalletTransactionInternalTransfer value,
+          $Res Function(TokenWalletTransactionInternalTransfer) _then) =
+      _$TokenWalletTransactionInternalTransferCopyWithImpl;
   @useResult
   $Res call({JettonIncomingTransfer data});
 
@@ -363,23 +227,22 @@ abstract class _$$InternalTransferImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$InternalTransferImplCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$InternalTransferImpl>
-    implements _$$InternalTransferImplCopyWith<$Res> {
-  __$$InternalTransferImplCopyWithImpl(_$InternalTransferImpl _value,
-      $Res Function(_$InternalTransferImpl) _then)
-      : super(_value, _then);
+class _$TokenWalletTransactionInternalTransferCopyWithImpl<$Res>
+    implements $TokenWalletTransactionInternalTransferCopyWith<$Res> {
+  _$TokenWalletTransactionInternalTransferCopyWithImpl(this._self, this._then);
+
+  final TokenWalletTransactionInternalTransfer _self;
+  final $Res Function(TokenWalletTransactionInternalTransfer) _then;
 
   /// Create a copy of TokenWalletTransaction
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$InternalTransferImpl(
+    return _then(TokenWalletTransactionInternalTransfer(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as JettonIncomingTransfer,
     ));
@@ -390,37 +253,48 @@ class __$$InternalTransferImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $JettonIncomingTransferCopyWith<$Res> get data {
-    return $JettonIncomingTransferCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $JettonIncomingTransferCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$InternalTransferImpl implements _InternalTransfer {
-  const _$InternalTransferImpl(this.data, {final String? $type})
-      : $type = $type ?? 'internal_transfer';
-
-  factory _$InternalTransferImpl.fromJson(Map<String, dynamic> json) =>
-      _$$InternalTransferImplFromJson(json);
+class TokenWalletTransactionIncomingTransfer implements TokenWalletTransaction {
+  const TokenWalletTransactionIncomingTransfer(this.data, {final String? $type})
+      : $type = $type ?? 'incoming_transfer';
+  factory TokenWalletTransactionIncomingTransfer.fromJson(
+          Map<String, dynamic> json) =>
+      _$TokenWalletTransactionIncomingTransferFromJson(json);
 
   @override
-  final JettonIncomingTransfer data;
+  final TokenIncomingTransfer data;
 
   @JsonKey(name: 'type')
   final String $type;
 
+  /// Create a copy of TokenWalletTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TokenWalletTransactionIncomingTransferCopyWith<
+          TokenWalletTransactionIncomingTransfer>
+      get copyWith => _$TokenWalletTransactionIncomingTransferCopyWithImpl<
+          TokenWalletTransactionIncomingTransfer>(this, _$identity);
+
   @override
-  String toString() {
-    return 'TokenWalletTransaction.internalTransfer(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$TokenWalletTransactionIncomingTransferToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InternalTransferImpl &&
+            other is TokenWalletTransactionIncomingTransfer &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -428,143 +302,19 @@ class _$InternalTransferImpl implements _InternalTransfer {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of TokenWalletTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$InternalTransferImplCopyWith<_$InternalTransferImpl> get copyWith =>
-      __$$InternalTransferImplCopyWithImpl<_$InternalTransferImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(JettonOutgoingTransfer data) transfer,
-    required TResult Function(JettonIncomingTransfer data) internalTransfer,
-    required TResult Function(TokenIncomingTransfer data) incomingTransfer,
-    required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
-    required TResult Function(TokenSwapBack data) swapBack,
-    required TResult Function(@amountJsonConverter BigInt data) accept,
-    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
-    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
-  }) {
-    return internalTransfer(data);
+  String toString() {
+    return 'TokenWalletTransaction.incomingTransfer(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(JettonOutgoingTransfer data)? transfer,
-    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult? Function(TokenSwapBack data)? swapBack,
-    TResult? Function(@amountJsonConverter BigInt data)? accept,
-    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
-  }) {
-    return internalTransfer?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(JettonOutgoingTransfer data)? transfer,
-    TResult Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(@amountJsonConverter BigInt data)? accept,
-    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
-    required TResult orElse(),
-  }) {
-    if (internalTransfer != null) {
-      return internalTransfer(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Transfer value) transfer,
-    required TResult Function(_InternalTransfer value) internalTransfer,
-    required TResult Function(_IncomingTransfer value) incomingTransfer,
-    required TResult Function(_OutgoingTransfer value) outgoingTransfer,
-    required TResult Function(_SwapBack value) swapBack,
-    required TResult Function(_Accept value) accept,
-    required TResult Function(_TransferBounced value) transferBounced,
-    required TResult Function(_SwapBackBounced value) swapBackBounced,
-  }) {
-    return internalTransfer(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Transfer value)? transfer,
-    TResult? Function(_InternalTransfer value)? internalTransfer,
-    TResult? Function(_IncomingTransfer value)? incomingTransfer,
-    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult? Function(_SwapBack value)? swapBack,
-    TResult? Function(_Accept value)? accept,
-    TResult? Function(_TransferBounced value)? transferBounced,
-    TResult? Function(_SwapBackBounced value)? swapBackBounced,
-  }) {
-    return internalTransfer?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Transfer value)? transfer,
-    TResult Function(_InternalTransfer value)? internalTransfer,
-    TResult Function(_IncomingTransfer value)? incomingTransfer,
-    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult Function(_SwapBack value)? swapBack,
-    TResult Function(_Accept value)? accept,
-    TResult Function(_TransferBounced value)? transferBounced,
-    TResult Function(_SwapBackBounced value)? swapBackBounced,
-    required TResult orElse(),
-  }) {
-    if (internalTransfer != null) {
-      return internalTransfer(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$InternalTransferImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _InternalTransfer implements TokenWalletTransaction {
-  const factory _InternalTransfer(final JettonIncomingTransfer data) =
-      _$InternalTransferImpl;
-
-  factory _InternalTransfer.fromJson(Map<String, dynamic> json) =
-      _$InternalTransferImpl.fromJson;
-
-  @override
-  JettonIncomingTransfer get data;
-
-  /// Create a copy of TokenWalletTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$InternalTransferImplCopyWith<_$InternalTransferImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$IncomingTransferImplCopyWith<$Res> {
-  factory _$$IncomingTransferImplCopyWith(_$IncomingTransferImpl value,
-          $Res Function(_$IncomingTransferImpl) then) =
-      __$$IncomingTransferImplCopyWithImpl<$Res>;
+abstract mixin class $TokenWalletTransactionIncomingTransferCopyWith<$Res>
+    implements $TokenWalletTransactionCopyWith<$Res> {
+  factory $TokenWalletTransactionIncomingTransferCopyWith(
+          TokenWalletTransactionIncomingTransfer value,
+          $Res Function(TokenWalletTransactionIncomingTransfer) _then) =
+      _$TokenWalletTransactionIncomingTransferCopyWithImpl;
   @useResult
   $Res call({TokenIncomingTransfer data});
 
@@ -572,23 +322,22 @@ abstract class _$$IncomingTransferImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$IncomingTransferImplCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$IncomingTransferImpl>
-    implements _$$IncomingTransferImplCopyWith<$Res> {
-  __$$IncomingTransferImplCopyWithImpl(_$IncomingTransferImpl _value,
-      $Res Function(_$IncomingTransferImpl) _then)
-      : super(_value, _then);
+class _$TokenWalletTransactionIncomingTransferCopyWithImpl<$Res>
+    implements $TokenWalletTransactionIncomingTransferCopyWith<$Res> {
+  _$TokenWalletTransactionIncomingTransferCopyWithImpl(this._self, this._then);
+
+  final TokenWalletTransactionIncomingTransfer _self;
+  final $Res Function(TokenWalletTransactionIncomingTransfer) _then;
 
   /// Create a copy of TokenWalletTransaction
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$IncomingTransferImpl(
+    return _then(TokenWalletTransactionIncomingTransfer(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as TokenIncomingTransfer,
     ));
@@ -599,37 +348,48 @@ class __$$IncomingTransferImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $TokenIncomingTransferCopyWith<$Res> get data {
-    return $TokenIncomingTransferCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $TokenIncomingTransferCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$IncomingTransferImpl implements _IncomingTransfer {
-  const _$IncomingTransferImpl(this.data, {final String? $type})
-      : $type = $type ?? 'incoming_transfer';
-
-  factory _$IncomingTransferImpl.fromJson(Map<String, dynamic> json) =>
-      _$$IncomingTransferImplFromJson(json);
+class TokenWalletTransactionOutgoingTransfer implements TokenWalletTransaction {
+  const TokenWalletTransactionOutgoingTransfer(this.data, {final String? $type})
+      : $type = $type ?? 'outgoing_transfer';
+  factory TokenWalletTransactionOutgoingTransfer.fromJson(
+          Map<String, dynamic> json) =>
+      _$TokenWalletTransactionOutgoingTransferFromJson(json);
 
   @override
-  final TokenIncomingTransfer data;
+  final TokenOutgoingTransfer data;
 
   @JsonKey(name: 'type')
   final String $type;
 
+  /// Create a copy of TokenWalletTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TokenWalletTransactionOutgoingTransferCopyWith<
+          TokenWalletTransactionOutgoingTransfer>
+      get copyWith => _$TokenWalletTransactionOutgoingTransferCopyWithImpl<
+          TokenWalletTransactionOutgoingTransfer>(this, _$identity);
+
   @override
-  String toString() {
-    return 'TokenWalletTransaction.incomingTransfer(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$TokenWalletTransactionOutgoingTransferToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$IncomingTransferImpl &&
+            other is TokenWalletTransactionOutgoingTransfer &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -637,143 +397,19 @@ class _$IncomingTransferImpl implements _IncomingTransfer {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of TokenWalletTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$IncomingTransferImplCopyWith<_$IncomingTransferImpl> get copyWith =>
-      __$$IncomingTransferImplCopyWithImpl<_$IncomingTransferImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(JettonOutgoingTransfer data) transfer,
-    required TResult Function(JettonIncomingTransfer data) internalTransfer,
-    required TResult Function(TokenIncomingTransfer data) incomingTransfer,
-    required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
-    required TResult Function(TokenSwapBack data) swapBack,
-    required TResult Function(@amountJsonConverter BigInt data) accept,
-    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
-    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
-  }) {
-    return incomingTransfer(data);
+  String toString() {
+    return 'TokenWalletTransaction.outgoingTransfer(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(JettonOutgoingTransfer data)? transfer,
-    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult? Function(TokenSwapBack data)? swapBack,
-    TResult? Function(@amountJsonConverter BigInt data)? accept,
-    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
-  }) {
-    return incomingTransfer?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(JettonOutgoingTransfer data)? transfer,
-    TResult Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(@amountJsonConverter BigInt data)? accept,
-    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
-    required TResult orElse(),
-  }) {
-    if (incomingTransfer != null) {
-      return incomingTransfer(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Transfer value) transfer,
-    required TResult Function(_InternalTransfer value) internalTransfer,
-    required TResult Function(_IncomingTransfer value) incomingTransfer,
-    required TResult Function(_OutgoingTransfer value) outgoingTransfer,
-    required TResult Function(_SwapBack value) swapBack,
-    required TResult Function(_Accept value) accept,
-    required TResult Function(_TransferBounced value) transferBounced,
-    required TResult Function(_SwapBackBounced value) swapBackBounced,
-  }) {
-    return incomingTransfer(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Transfer value)? transfer,
-    TResult? Function(_InternalTransfer value)? internalTransfer,
-    TResult? Function(_IncomingTransfer value)? incomingTransfer,
-    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult? Function(_SwapBack value)? swapBack,
-    TResult? Function(_Accept value)? accept,
-    TResult? Function(_TransferBounced value)? transferBounced,
-    TResult? Function(_SwapBackBounced value)? swapBackBounced,
-  }) {
-    return incomingTransfer?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Transfer value)? transfer,
-    TResult Function(_InternalTransfer value)? internalTransfer,
-    TResult Function(_IncomingTransfer value)? incomingTransfer,
-    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult Function(_SwapBack value)? swapBack,
-    TResult Function(_Accept value)? accept,
-    TResult Function(_TransferBounced value)? transferBounced,
-    TResult Function(_SwapBackBounced value)? swapBackBounced,
-    required TResult orElse(),
-  }) {
-    if (incomingTransfer != null) {
-      return incomingTransfer(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$IncomingTransferImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _IncomingTransfer implements TokenWalletTransaction {
-  const factory _IncomingTransfer(final TokenIncomingTransfer data) =
-      _$IncomingTransferImpl;
-
-  factory _IncomingTransfer.fromJson(Map<String, dynamic> json) =
-      _$IncomingTransferImpl.fromJson;
-
-  @override
-  TokenIncomingTransfer get data;
-
-  /// Create a copy of TokenWalletTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$IncomingTransferImplCopyWith<_$IncomingTransferImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$OutgoingTransferImplCopyWith<$Res> {
-  factory _$$OutgoingTransferImplCopyWith(_$OutgoingTransferImpl value,
-          $Res Function(_$OutgoingTransferImpl) then) =
-      __$$OutgoingTransferImplCopyWithImpl<$Res>;
+abstract mixin class $TokenWalletTransactionOutgoingTransferCopyWith<$Res>
+    implements $TokenWalletTransactionCopyWith<$Res> {
+  factory $TokenWalletTransactionOutgoingTransferCopyWith(
+          TokenWalletTransactionOutgoingTransfer value,
+          $Res Function(TokenWalletTransactionOutgoingTransfer) _then) =
+      _$TokenWalletTransactionOutgoingTransferCopyWithImpl;
   @useResult
   $Res call({TokenOutgoingTransfer data});
 
@@ -781,23 +417,22 @@ abstract class _$$OutgoingTransferImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$OutgoingTransferImplCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$OutgoingTransferImpl>
-    implements _$$OutgoingTransferImplCopyWith<$Res> {
-  __$$OutgoingTransferImplCopyWithImpl(_$OutgoingTransferImpl _value,
-      $Res Function(_$OutgoingTransferImpl) _then)
-      : super(_value, _then);
+class _$TokenWalletTransactionOutgoingTransferCopyWithImpl<$Res>
+    implements $TokenWalletTransactionOutgoingTransferCopyWith<$Res> {
+  _$TokenWalletTransactionOutgoingTransferCopyWithImpl(this._self, this._then);
+
+  final TokenWalletTransactionOutgoingTransfer _self;
+  final $Res Function(TokenWalletTransactionOutgoingTransfer) _then;
 
   /// Create a copy of TokenWalletTransaction
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$OutgoingTransferImpl(
+    return _then(TokenWalletTransactionOutgoingTransfer(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as TokenOutgoingTransfer,
     ));
@@ -808,37 +443,46 @@ class __$$OutgoingTransferImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $TokenOutgoingTransferCopyWith<$Res> get data {
-    return $TokenOutgoingTransferCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $TokenOutgoingTransferCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$OutgoingTransferImpl implements _OutgoingTransfer {
-  const _$OutgoingTransferImpl(this.data, {final String? $type})
-      : $type = $type ?? 'outgoing_transfer';
-
-  factory _$OutgoingTransferImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OutgoingTransferImplFromJson(json);
+class TokenWalletTransactionSwapBack implements TokenWalletTransaction {
+  const TokenWalletTransactionSwapBack(this.data, {final String? $type})
+      : $type = $type ?? 'swap_back';
+  factory TokenWalletTransactionSwapBack.fromJson(Map<String, dynamic> json) =>
+      _$TokenWalletTransactionSwapBackFromJson(json);
 
   @override
-  final TokenOutgoingTransfer data;
+  final TokenSwapBack data;
 
   @JsonKey(name: 'type')
   final String $type;
 
+  /// Create a copy of TokenWalletTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TokenWalletTransactionSwapBackCopyWith<TokenWalletTransactionSwapBack>
+      get copyWith => _$TokenWalletTransactionSwapBackCopyWithImpl<
+          TokenWalletTransactionSwapBack>(this, _$identity);
+
   @override
-  String toString() {
-    return 'TokenWalletTransaction.outgoingTransfer(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$TokenWalletTransactionSwapBackToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OutgoingTransferImpl &&
+            other is TokenWalletTransactionSwapBack &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -846,143 +490,19 @@ class _$OutgoingTransferImpl implements _OutgoingTransfer {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of TokenWalletTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$OutgoingTransferImplCopyWith<_$OutgoingTransferImpl> get copyWith =>
-      __$$OutgoingTransferImplCopyWithImpl<_$OutgoingTransferImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(JettonOutgoingTransfer data) transfer,
-    required TResult Function(JettonIncomingTransfer data) internalTransfer,
-    required TResult Function(TokenIncomingTransfer data) incomingTransfer,
-    required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
-    required TResult Function(TokenSwapBack data) swapBack,
-    required TResult Function(@amountJsonConverter BigInt data) accept,
-    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
-    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
-  }) {
-    return outgoingTransfer(data);
+  String toString() {
+    return 'TokenWalletTransaction.swapBack(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(JettonOutgoingTransfer data)? transfer,
-    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult? Function(TokenSwapBack data)? swapBack,
-    TResult? Function(@amountJsonConverter BigInt data)? accept,
-    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
-  }) {
-    return outgoingTransfer?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(JettonOutgoingTransfer data)? transfer,
-    TResult Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(@amountJsonConverter BigInt data)? accept,
-    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
-    required TResult orElse(),
-  }) {
-    if (outgoingTransfer != null) {
-      return outgoingTransfer(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Transfer value) transfer,
-    required TResult Function(_InternalTransfer value) internalTransfer,
-    required TResult Function(_IncomingTransfer value) incomingTransfer,
-    required TResult Function(_OutgoingTransfer value) outgoingTransfer,
-    required TResult Function(_SwapBack value) swapBack,
-    required TResult Function(_Accept value) accept,
-    required TResult Function(_TransferBounced value) transferBounced,
-    required TResult Function(_SwapBackBounced value) swapBackBounced,
-  }) {
-    return outgoingTransfer(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Transfer value)? transfer,
-    TResult? Function(_InternalTransfer value)? internalTransfer,
-    TResult? Function(_IncomingTransfer value)? incomingTransfer,
-    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult? Function(_SwapBack value)? swapBack,
-    TResult? Function(_Accept value)? accept,
-    TResult? Function(_TransferBounced value)? transferBounced,
-    TResult? Function(_SwapBackBounced value)? swapBackBounced,
-  }) {
-    return outgoingTransfer?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Transfer value)? transfer,
-    TResult Function(_InternalTransfer value)? internalTransfer,
-    TResult Function(_IncomingTransfer value)? incomingTransfer,
-    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult Function(_SwapBack value)? swapBack,
-    TResult Function(_Accept value)? accept,
-    TResult Function(_TransferBounced value)? transferBounced,
-    TResult Function(_SwapBackBounced value)? swapBackBounced,
-    required TResult orElse(),
-  }) {
-    if (outgoingTransfer != null) {
-      return outgoingTransfer(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$OutgoingTransferImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _OutgoingTransfer implements TokenWalletTransaction {
-  const factory _OutgoingTransfer(final TokenOutgoingTransfer data) =
-      _$OutgoingTransferImpl;
-
-  factory _OutgoingTransfer.fromJson(Map<String, dynamic> json) =
-      _$OutgoingTransferImpl.fromJson;
-
-  @override
-  TokenOutgoingTransfer get data;
-
-  /// Create a copy of TokenWalletTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$OutgoingTransferImplCopyWith<_$OutgoingTransferImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SwapBackImplCopyWith<$Res> {
-  factory _$$SwapBackImplCopyWith(
-          _$SwapBackImpl value, $Res Function(_$SwapBackImpl) then) =
-      __$$SwapBackImplCopyWithImpl<$Res>;
+abstract mixin class $TokenWalletTransactionSwapBackCopyWith<$Res>
+    implements $TokenWalletTransactionCopyWith<$Res> {
+  factory $TokenWalletTransactionSwapBackCopyWith(
+          TokenWalletTransactionSwapBack value,
+          $Res Function(TokenWalletTransactionSwapBack) _then) =
+      _$TokenWalletTransactionSwapBackCopyWithImpl;
   @useResult
   $Res call({TokenSwapBack data});
 
@@ -990,23 +510,22 @@ abstract class _$$SwapBackImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$SwapBackImplCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$SwapBackImpl>
-    implements _$$SwapBackImplCopyWith<$Res> {
-  __$$SwapBackImplCopyWithImpl(
-      _$SwapBackImpl _value, $Res Function(_$SwapBackImpl) _then)
-      : super(_value, _then);
+class _$TokenWalletTransactionSwapBackCopyWithImpl<$Res>
+    implements $TokenWalletTransactionSwapBackCopyWith<$Res> {
+  _$TokenWalletTransactionSwapBackCopyWithImpl(this._self, this._then);
+
+  final TokenWalletTransactionSwapBack _self;
+  final $Res Function(TokenWalletTransactionSwapBack) _then;
 
   /// Create a copy of TokenWalletTransaction
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$SwapBackImpl(
+    return _then(TokenWalletTransactionSwapBack(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as TokenSwapBack,
     ));
@@ -1017,215 +536,20 @@ class __$$SwapBackImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $TokenSwapBackCopyWith<$Res> get data {
-    return $TokenSwapBackCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $TokenSwapBackCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$SwapBackImpl implements _SwapBack {
-  const _$SwapBackImpl(this.data, {final String? $type})
-      : $type = $type ?? 'swap_back';
-
-  factory _$SwapBackImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SwapBackImplFromJson(json);
-
-  @override
-  final TokenSwapBack data;
-
-  @JsonKey(name: 'type')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'TokenWalletTransaction.swapBack(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SwapBackImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of TokenWalletTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SwapBackImplCopyWith<_$SwapBackImpl> get copyWith =>
-      __$$SwapBackImplCopyWithImpl<_$SwapBackImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(JettonOutgoingTransfer data) transfer,
-    required TResult Function(JettonIncomingTransfer data) internalTransfer,
-    required TResult Function(TokenIncomingTransfer data) incomingTransfer,
-    required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
-    required TResult Function(TokenSwapBack data) swapBack,
-    required TResult Function(@amountJsonConverter BigInt data) accept,
-    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
-    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
-  }) {
-    return swapBack(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(JettonOutgoingTransfer data)? transfer,
-    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult? Function(TokenSwapBack data)? swapBack,
-    TResult? Function(@amountJsonConverter BigInt data)? accept,
-    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
-  }) {
-    return swapBack?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(JettonOutgoingTransfer data)? transfer,
-    TResult Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(@amountJsonConverter BigInt data)? accept,
-    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
-    required TResult orElse(),
-  }) {
-    if (swapBack != null) {
-      return swapBack(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Transfer value) transfer,
-    required TResult Function(_InternalTransfer value) internalTransfer,
-    required TResult Function(_IncomingTransfer value) incomingTransfer,
-    required TResult Function(_OutgoingTransfer value) outgoingTransfer,
-    required TResult Function(_SwapBack value) swapBack,
-    required TResult Function(_Accept value) accept,
-    required TResult Function(_TransferBounced value) transferBounced,
-    required TResult Function(_SwapBackBounced value) swapBackBounced,
-  }) {
-    return swapBack(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Transfer value)? transfer,
-    TResult? Function(_InternalTransfer value)? internalTransfer,
-    TResult? Function(_IncomingTransfer value)? incomingTransfer,
-    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult? Function(_SwapBack value)? swapBack,
-    TResult? Function(_Accept value)? accept,
-    TResult? Function(_TransferBounced value)? transferBounced,
-    TResult? Function(_SwapBackBounced value)? swapBackBounced,
-  }) {
-    return swapBack?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Transfer value)? transfer,
-    TResult Function(_InternalTransfer value)? internalTransfer,
-    TResult Function(_IncomingTransfer value)? incomingTransfer,
-    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult Function(_SwapBack value)? swapBack,
-    TResult Function(_Accept value)? accept,
-    TResult Function(_TransferBounced value)? transferBounced,
-    TResult Function(_SwapBackBounced value)? swapBackBounced,
-    required TResult orElse(),
-  }) {
-    if (swapBack != null) {
-      return swapBack(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SwapBackImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _SwapBack implements TokenWalletTransaction {
-  const factory _SwapBack(final TokenSwapBack data) = _$SwapBackImpl;
-
-  factory _SwapBack.fromJson(Map<String, dynamic> json) =
-      _$SwapBackImpl.fromJson;
-
-  @override
-  TokenSwapBack get data;
-
-  /// Create a copy of TokenWalletTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SwapBackImplCopyWith<_$SwapBackImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$AcceptImplCopyWith<$Res> {
-  factory _$$AcceptImplCopyWith(
-          _$AcceptImpl value, $Res Function(_$AcceptImpl) then) =
-      __$$AcceptImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({@amountJsonConverter BigInt data});
-}
-
-/// @nodoc
-class __$$AcceptImplCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$AcceptImpl>
-    implements _$$AcceptImplCopyWith<$Res> {
-  __$$AcceptImplCopyWithImpl(
-      _$AcceptImpl _value, $Res Function(_$AcceptImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TokenWalletTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$AcceptImpl(
-      null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$AcceptImpl implements _Accept {
-  const _$AcceptImpl(@amountJsonConverter this.data, {final String? $type})
+class TokenWalletTransactionAccept implements TokenWalletTransaction {
+  const TokenWalletTransactionAccept(@amountJsonConverter this.data,
+      {final String? $type})
       : $type = $type ?? 'accept';
-
-  factory _$AcceptImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AcceptImplFromJson(json);
+  factory TokenWalletTransactionAccept.fromJson(Map<String, dynamic> json) =>
+      _$TokenWalletTransactionAcceptFromJson(json);
 
   @override
   @amountJsonConverter
@@ -1233,181 +557,68 @@ class _$AcceptImpl implements _Accept {
 
   @JsonKey(name: 'type')
   final String $type;
+
+  /// Create a copy of TokenWalletTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TokenWalletTransactionAcceptCopyWith<TokenWalletTransactionAccept>
+      get copyWith => _$TokenWalletTransactionAcceptCopyWithImpl<
+          TokenWalletTransactionAccept>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TokenWalletTransactionAcceptToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TokenWalletTransactionAccept &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
 
   @override
   String toString() {
     return 'TokenWalletTransaction.accept(data: $data)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AcceptImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of TokenWalletTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AcceptImplCopyWith<_$AcceptImpl> get copyWith =>
-      __$$AcceptImplCopyWithImpl<_$AcceptImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(JettonOutgoingTransfer data) transfer,
-    required TResult Function(JettonIncomingTransfer data) internalTransfer,
-    required TResult Function(TokenIncomingTransfer data) incomingTransfer,
-    required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
-    required TResult Function(TokenSwapBack data) swapBack,
-    required TResult Function(@amountJsonConverter BigInt data) accept,
-    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
-    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
-  }) {
-    return accept(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(JettonOutgoingTransfer data)? transfer,
-    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult? Function(TokenSwapBack data)? swapBack,
-    TResult? Function(@amountJsonConverter BigInt data)? accept,
-    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
-  }) {
-    return accept?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(JettonOutgoingTransfer data)? transfer,
-    TResult Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(@amountJsonConverter BigInt data)? accept,
-    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
-    required TResult orElse(),
-  }) {
-    if (accept != null) {
-      return accept(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Transfer value) transfer,
-    required TResult Function(_InternalTransfer value) internalTransfer,
-    required TResult Function(_IncomingTransfer value) incomingTransfer,
-    required TResult Function(_OutgoingTransfer value) outgoingTransfer,
-    required TResult Function(_SwapBack value) swapBack,
-    required TResult Function(_Accept value) accept,
-    required TResult Function(_TransferBounced value) transferBounced,
-    required TResult Function(_SwapBackBounced value) swapBackBounced,
-  }) {
-    return accept(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Transfer value)? transfer,
-    TResult? Function(_InternalTransfer value)? internalTransfer,
-    TResult? Function(_IncomingTransfer value)? incomingTransfer,
-    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult? Function(_SwapBack value)? swapBack,
-    TResult? Function(_Accept value)? accept,
-    TResult? Function(_TransferBounced value)? transferBounced,
-    TResult? Function(_SwapBackBounced value)? swapBackBounced,
-  }) {
-    return accept?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Transfer value)? transfer,
-    TResult Function(_InternalTransfer value)? internalTransfer,
-    TResult Function(_IncomingTransfer value)? incomingTransfer,
-    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult Function(_SwapBack value)? swapBack,
-    TResult Function(_Accept value)? accept,
-    TResult Function(_TransferBounced value)? transferBounced,
-    TResult Function(_SwapBackBounced value)? swapBackBounced,
-    required TResult orElse(),
-  }) {
-    if (accept != null) {
-      return accept(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AcceptImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Accept implements TokenWalletTransaction {
-  const factory _Accept(@amountJsonConverter final BigInt data) = _$AcceptImpl;
-
-  factory _Accept.fromJson(Map<String, dynamic> json) = _$AcceptImpl.fromJson;
-
-  @override
-  @amountJsonConverter
-  BigInt get data;
-
-  /// Create a copy of TokenWalletTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AcceptImplCopyWith<_$AcceptImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TransferBouncedImplCopyWith<$Res> {
-  factory _$$TransferBouncedImplCopyWith(_$TransferBouncedImpl value,
-          $Res Function(_$TransferBouncedImpl) then) =
-      __$$TransferBouncedImplCopyWithImpl<$Res>;
+abstract mixin class $TokenWalletTransactionAcceptCopyWith<$Res>
+    implements $TokenWalletTransactionCopyWith<$Res> {
+  factory $TokenWalletTransactionAcceptCopyWith(
+          TokenWalletTransactionAccept value,
+          $Res Function(TokenWalletTransactionAccept) _then) =
+      _$TokenWalletTransactionAcceptCopyWithImpl;
   @useResult
   $Res call({@amountJsonConverter BigInt data});
 }
 
 /// @nodoc
-class __$$TransferBouncedImplCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$TransferBouncedImpl>
-    implements _$$TransferBouncedImplCopyWith<$Res> {
-  __$$TransferBouncedImplCopyWithImpl(
-      _$TransferBouncedImpl _value, $Res Function(_$TransferBouncedImpl) _then)
-      : super(_value, _then);
+class _$TokenWalletTransactionAcceptCopyWithImpl<$Res>
+    implements $TokenWalletTransactionAcceptCopyWith<$Res> {
+  _$TokenWalletTransactionAcceptCopyWithImpl(this._self, this._then);
+
+  final TokenWalletTransactionAccept _self;
+  final $Res Function(TokenWalletTransactionAccept) _then;
 
   /// Create a copy of TokenWalletTransaction
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$TransferBouncedImpl(
+    return _then(TokenWalletTransactionAccept(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as BigInt,
     ));
@@ -1416,13 +627,13 @@ class __$$TransferBouncedImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TransferBouncedImpl implements _TransferBounced {
-  const _$TransferBouncedImpl(@amountJsonConverter this.data,
+class TokenWalletTransactionTransferBounced implements TokenWalletTransaction {
+  const TokenWalletTransactionTransferBounced(@amountJsonConverter this.data,
       {final String? $type})
       : $type = $type ?? 'transfer_bounced';
-
-  factory _$TransferBouncedImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TransferBouncedImplFromJson(json);
+  factory TokenWalletTransactionTransferBounced.fromJson(
+          Map<String, dynamic> json) =>
+      _$TokenWalletTransactionTransferBouncedFromJson(json);
 
   @override
   @amountJsonConverter
@@ -1430,184 +641,69 @@ class _$TransferBouncedImpl implements _TransferBounced {
 
   @JsonKey(name: 'type')
   final String $type;
+
+  /// Create a copy of TokenWalletTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TokenWalletTransactionTransferBouncedCopyWith<
+          TokenWalletTransactionTransferBounced>
+      get copyWith => _$TokenWalletTransactionTransferBouncedCopyWithImpl<
+          TokenWalletTransactionTransferBounced>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TokenWalletTransactionTransferBouncedToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TokenWalletTransactionTransferBounced &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
 
   @override
   String toString() {
     return 'TokenWalletTransaction.transferBounced(data: $data)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransferBouncedImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of TokenWalletTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TransferBouncedImplCopyWith<_$TransferBouncedImpl> get copyWith =>
-      __$$TransferBouncedImplCopyWithImpl<_$TransferBouncedImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(JettonOutgoingTransfer data) transfer,
-    required TResult Function(JettonIncomingTransfer data) internalTransfer,
-    required TResult Function(TokenIncomingTransfer data) incomingTransfer,
-    required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
-    required TResult Function(TokenSwapBack data) swapBack,
-    required TResult Function(@amountJsonConverter BigInt data) accept,
-    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
-    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
-  }) {
-    return transferBounced(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(JettonOutgoingTransfer data)? transfer,
-    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult? Function(TokenSwapBack data)? swapBack,
-    TResult? Function(@amountJsonConverter BigInt data)? accept,
-    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
-  }) {
-    return transferBounced?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(JettonOutgoingTransfer data)? transfer,
-    TResult Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(@amountJsonConverter BigInt data)? accept,
-    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
-    required TResult orElse(),
-  }) {
-    if (transferBounced != null) {
-      return transferBounced(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Transfer value) transfer,
-    required TResult Function(_InternalTransfer value) internalTransfer,
-    required TResult Function(_IncomingTransfer value) incomingTransfer,
-    required TResult Function(_OutgoingTransfer value) outgoingTransfer,
-    required TResult Function(_SwapBack value) swapBack,
-    required TResult Function(_Accept value) accept,
-    required TResult Function(_TransferBounced value) transferBounced,
-    required TResult Function(_SwapBackBounced value) swapBackBounced,
-  }) {
-    return transferBounced(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Transfer value)? transfer,
-    TResult? Function(_InternalTransfer value)? internalTransfer,
-    TResult? Function(_IncomingTransfer value)? incomingTransfer,
-    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult? Function(_SwapBack value)? swapBack,
-    TResult? Function(_Accept value)? accept,
-    TResult? Function(_TransferBounced value)? transferBounced,
-    TResult? Function(_SwapBackBounced value)? swapBackBounced,
-  }) {
-    return transferBounced?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Transfer value)? transfer,
-    TResult Function(_InternalTransfer value)? internalTransfer,
-    TResult Function(_IncomingTransfer value)? incomingTransfer,
-    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult Function(_SwapBack value)? swapBack,
-    TResult Function(_Accept value)? accept,
-    TResult Function(_TransferBounced value)? transferBounced,
-    TResult Function(_SwapBackBounced value)? swapBackBounced,
-    required TResult orElse(),
-  }) {
-    if (transferBounced != null) {
-      return transferBounced(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TransferBouncedImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _TransferBounced implements TokenWalletTransaction {
-  const factory _TransferBounced(@amountJsonConverter final BigInt data) =
-      _$TransferBouncedImpl;
-
-  factory _TransferBounced.fromJson(Map<String, dynamic> json) =
-      _$TransferBouncedImpl.fromJson;
-
-  @override
-  @amountJsonConverter
-  BigInt get data;
-
-  /// Create a copy of TokenWalletTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TransferBouncedImplCopyWith<_$TransferBouncedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SwapBackBouncedImplCopyWith<$Res> {
-  factory _$$SwapBackBouncedImplCopyWith(_$SwapBackBouncedImpl value,
-          $Res Function(_$SwapBackBouncedImpl) then) =
-      __$$SwapBackBouncedImplCopyWithImpl<$Res>;
+abstract mixin class $TokenWalletTransactionTransferBouncedCopyWith<$Res>
+    implements $TokenWalletTransactionCopyWith<$Res> {
+  factory $TokenWalletTransactionTransferBouncedCopyWith(
+          TokenWalletTransactionTransferBounced value,
+          $Res Function(TokenWalletTransactionTransferBounced) _then) =
+      _$TokenWalletTransactionTransferBouncedCopyWithImpl;
   @useResult
   $Res call({@amountJsonConverter BigInt data});
 }
 
 /// @nodoc
-class __$$SwapBackBouncedImplCopyWithImpl<$Res>
-    extends _$TokenWalletTransactionCopyWithImpl<$Res, _$SwapBackBouncedImpl>
-    implements _$$SwapBackBouncedImplCopyWith<$Res> {
-  __$$SwapBackBouncedImplCopyWithImpl(
-      _$SwapBackBouncedImpl _value, $Res Function(_$SwapBackBouncedImpl) _then)
-      : super(_value, _then);
+class _$TokenWalletTransactionTransferBouncedCopyWithImpl<$Res>
+    implements $TokenWalletTransactionTransferBouncedCopyWith<$Res> {
+  _$TokenWalletTransactionTransferBouncedCopyWithImpl(this._self, this._then);
+
+  final TokenWalletTransactionTransferBounced _self;
+  final $Res Function(TokenWalletTransactionTransferBounced) _then;
 
   /// Create a copy of TokenWalletTransaction
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$SwapBackBouncedImpl(
+    return _then(TokenWalletTransactionTransferBounced(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as BigInt,
     ));
@@ -1616,13 +712,13 @@ class __$$SwapBackBouncedImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SwapBackBouncedImpl implements _SwapBackBounced {
-  const _$SwapBackBouncedImpl(@amountJsonConverter this.data,
+class TokenWalletTransactionSwapBackBounced implements TokenWalletTransaction {
+  const TokenWalletTransactionSwapBackBounced(@amountJsonConverter this.data,
       {final String? $type})
       : $type = $type ?? 'swap_back_bounced';
-
-  factory _$SwapBackBouncedImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SwapBackBouncedImplFromJson(json);
+  factory TokenWalletTransactionSwapBackBounced.fromJson(
+          Map<String, dynamic> json) =>
+      _$TokenWalletTransactionSwapBackBouncedFromJson(json);
 
   @override
   @amountJsonConverter
@@ -1631,16 +727,27 @@ class _$SwapBackBouncedImpl implements _SwapBackBounced {
   @JsonKey(name: 'type')
   final String $type;
 
+  /// Create a copy of TokenWalletTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TokenWalletTransactionSwapBackBouncedCopyWith<
+          TokenWalletTransactionSwapBackBounced>
+      get copyWith => _$TokenWalletTransactionSwapBackBouncedCopyWithImpl<
+          TokenWalletTransactionSwapBackBounced>(this, _$identity);
+
   @override
-  String toString() {
-    return 'TokenWalletTransaction.swapBackBounced(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$TokenWalletTransactionSwapBackBouncedToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SwapBackBouncedImpl &&
+            other is TokenWalletTransactionSwapBackBounced &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -1648,135 +755,44 @@ class _$SwapBackBouncedImpl implements _SwapBackBounced {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
+  @override
+  String toString() {
+    return 'TokenWalletTransaction.swapBackBounced(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $TokenWalletTransactionSwapBackBouncedCopyWith<$Res>
+    implements $TokenWalletTransactionCopyWith<$Res> {
+  factory $TokenWalletTransactionSwapBackBouncedCopyWith(
+          TokenWalletTransactionSwapBackBounced value,
+          $Res Function(TokenWalletTransactionSwapBackBounced) _then) =
+      _$TokenWalletTransactionSwapBackBouncedCopyWithImpl;
+  @useResult
+  $Res call({@amountJsonConverter BigInt data});
+}
+
+/// @nodoc
+class _$TokenWalletTransactionSwapBackBouncedCopyWithImpl<$Res>
+    implements $TokenWalletTransactionSwapBackBouncedCopyWith<$Res> {
+  _$TokenWalletTransactionSwapBackBouncedCopyWithImpl(this._self, this._then);
+
+  final TokenWalletTransactionSwapBackBounced _self;
+  final $Res Function(TokenWalletTransactionSwapBackBounced) _then;
+
   /// Create a copy of TokenWalletTransaction
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$SwapBackBouncedImplCopyWith<_$SwapBackBouncedImpl> get copyWith =>
-      __$$SwapBackBouncedImplCopyWithImpl<_$SwapBackBouncedImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(JettonOutgoingTransfer data) transfer,
-    required TResult Function(JettonIncomingTransfer data) internalTransfer,
-    required TResult Function(TokenIncomingTransfer data) incomingTransfer,
-    required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
-    required TResult Function(TokenSwapBack data) swapBack,
-    required TResult Function(@amountJsonConverter BigInt data) accept,
-    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
-    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
+  $Res call({
+    Object? data = null,
   }) {
-    return swapBackBounced(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(JettonOutgoingTransfer data)? transfer,
-    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult? Function(TokenSwapBack data)? swapBack,
-    TResult? Function(@amountJsonConverter BigInt data)? accept,
-    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
-  }) {
-    return swapBackBounced?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(JettonOutgoingTransfer data)? transfer,
-    TResult Function(JettonIncomingTransfer data)? internalTransfer,
-    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
-    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
-    TResult Function(TokenSwapBack data)? swapBack,
-    TResult Function(@amountJsonConverter BigInt data)? accept,
-    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
-    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
-    required TResult orElse(),
-  }) {
-    if (swapBackBounced != null) {
-      return swapBackBounced(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Transfer value) transfer,
-    required TResult Function(_InternalTransfer value) internalTransfer,
-    required TResult Function(_IncomingTransfer value) incomingTransfer,
-    required TResult Function(_OutgoingTransfer value) outgoingTransfer,
-    required TResult Function(_SwapBack value) swapBack,
-    required TResult Function(_Accept value) accept,
-    required TResult Function(_TransferBounced value) transferBounced,
-    required TResult Function(_SwapBackBounced value) swapBackBounced,
-  }) {
-    return swapBackBounced(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Transfer value)? transfer,
-    TResult? Function(_InternalTransfer value)? internalTransfer,
-    TResult? Function(_IncomingTransfer value)? incomingTransfer,
-    TResult? Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult? Function(_SwapBack value)? swapBack,
-    TResult? Function(_Accept value)? accept,
-    TResult? Function(_TransferBounced value)? transferBounced,
-    TResult? Function(_SwapBackBounced value)? swapBackBounced,
-  }) {
-    return swapBackBounced?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Transfer value)? transfer,
-    TResult Function(_InternalTransfer value)? internalTransfer,
-    TResult Function(_IncomingTransfer value)? incomingTransfer,
-    TResult Function(_OutgoingTransfer value)? outgoingTransfer,
-    TResult Function(_SwapBack value)? swapBack,
-    TResult Function(_Accept value)? accept,
-    TResult Function(_TransferBounced value)? transferBounced,
-    TResult Function(_SwapBackBounced value)? swapBackBounced,
-    required TResult orElse(),
-  }) {
-    if (swapBackBounced != null) {
-      return swapBackBounced(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SwapBackBouncedImplToJson(
-      this,
-    );
+    return _then(TokenWalletTransactionSwapBackBounced(
+      null == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+    ));
   }
 }
 
-abstract class _SwapBackBounced implements TokenWalletTransaction {
-  const factory _SwapBackBounced(@amountJsonConverter final BigInt data) =
-      _$SwapBackBouncedImpl;
-
-  factory _SwapBackBounced.fromJson(Map<String, dynamic> json) =
-      _$SwapBackBouncedImpl.fromJson;
-
-  @override
-  @amountJsonConverter
-  BigInt get data;
-
-  /// Create a copy of TokenWalletTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SwapBackBouncedImplCopyWith<_$SwapBackBouncedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

@@ -6,13 +6,13 @@ part 'expiration.g.dart';
 
 @Freezed(unionKey: 'type')
 sealed class Expiration with _$Expiration {
-  const factory Expiration.never() = _Never;
+  const factory Expiration.never() = ExpirationNever;
 
   /// In seconds
-  const factory Expiration.timeout(int data) = _Timeout;
+  const factory Expiration.timeout(int data) = ExpirationTimeout;
 
   /// In milliseconds
-  const factory Expiration.timestamp(int data) = _Timestamp;
+  const factory Expiration.timestamp(int data) = ExpirationTimestamp;
 
   factory Expiration.fromJson(Map<String, dynamic> json) =>
       _$ExpirationFromJson(json);

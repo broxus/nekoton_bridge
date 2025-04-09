@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,11 +10,8 @@ part of 'derived_key_get_public_keys.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 DerivedKeyGetPublicKeys _$DerivedKeyGetPublicKeysFromJson(
     Map<String, dynamic> json) {
   return _DerivedKeyGetPublicKeysRename.fromJson(json);
@@ -21,187 +19,27 @@ DerivedKeyGetPublicKeys _$DerivedKeyGetPublicKeysFromJson(
 
 /// @nodoc
 mixin _$DerivedKeyGetPublicKeys {
-  PublicKey get masterKey => throw _privateConstructorUsedError;
-  Password get password => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
-  int get offset => throw _privateConstructorUsedError;
-
-  /// Serializes this DerivedKeyGetPublicKeys to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  PublicKey get masterKey;
+  Password get password;
+  int get limit;
+  int get offset;
 
   /// Create a copy of DerivedKeyGetPublicKeys
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $DerivedKeyGetPublicKeysCopyWith<DerivedKeyGetPublicKeys> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$DerivedKeyGetPublicKeysCopyWithImpl<DerivedKeyGetPublicKeys>(
+          this as DerivedKeyGetPublicKeys, _$identity);
 
-/// @nodoc
-abstract class $DerivedKeyGetPublicKeysCopyWith<$Res> {
-  factory $DerivedKeyGetPublicKeysCopyWith(DerivedKeyGetPublicKeys value,
-          $Res Function(DerivedKeyGetPublicKeys) then) =
-      _$DerivedKeyGetPublicKeysCopyWithImpl<$Res, DerivedKeyGetPublicKeys>;
-  @useResult
-  $Res call({PublicKey masterKey, Password password, int limit, int offset});
-
-  $PublicKeyCopyWith<$Res> get masterKey;
-  $PasswordCopyWith<$Res> get password;
-}
-
-/// @nodoc
-class _$DerivedKeyGetPublicKeysCopyWithImpl<$Res,
-        $Val extends DerivedKeyGetPublicKeys>
-    implements $DerivedKeyGetPublicKeysCopyWith<$Res> {
-  _$DerivedKeyGetPublicKeysCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of DerivedKeyGetPublicKeys
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? masterKey = null,
-    Object? password = null,
-    Object? limit = null,
-    Object? offset = null,
-  }) {
-    return _then(_value.copyWith(
-      masterKey: null == masterKey
-          ? _value.masterKey
-          : masterKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as Password,
-      limit: null == limit
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int,
-      offset: null == offset
-          ? _value.offset
-          : offset // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
-
-  /// Create a copy of DerivedKeyGetPublicKeys
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get masterKey {
-    return $PublicKeyCopyWith<$Res>(_value.masterKey, (value) {
-      return _then(_value.copyWith(masterKey: value) as $Val);
-    });
-  }
-
-  /// Create a copy of DerivedKeyGetPublicKeys
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PasswordCopyWith<$Res> get password {
-    return $PasswordCopyWith<$Res>(_value.password, (value) {
-      return _then(_value.copyWith(password: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$DerivedKeyGetPublicKeysRenameImplCopyWith<$Res>
-    implements $DerivedKeyGetPublicKeysCopyWith<$Res> {
-  factory _$$DerivedKeyGetPublicKeysRenameImplCopyWith(
-          _$DerivedKeyGetPublicKeysRenameImpl value,
-          $Res Function(_$DerivedKeyGetPublicKeysRenameImpl) then) =
-      __$$DerivedKeyGetPublicKeysRenameImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({PublicKey masterKey, Password password, int limit, int offset});
-
-  @override
-  $PublicKeyCopyWith<$Res> get masterKey;
-  @override
-  $PasswordCopyWith<$Res> get password;
-}
-
-/// @nodoc
-class __$$DerivedKeyGetPublicKeysRenameImplCopyWithImpl<$Res>
-    extends _$DerivedKeyGetPublicKeysCopyWithImpl<$Res,
-        _$DerivedKeyGetPublicKeysRenameImpl>
-    implements _$$DerivedKeyGetPublicKeysRenameImplCopyWith<$Res> {
-  __$$DerivedKeyGetPublicKeysRenameImplCopyWithImpl(
-      _$DerivedKeyGetPublicKeysRenameImpl _value,
-      $Res Function(_$DerivedKeyGetPublicKeysRenameImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of DerivedKeyGetPublicKeys
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? masterKey = null,
-    Object? password = null,
-    Object? limit = null,
-    Object? offset = null,
-  }) {
-    return _then(_$DerivedKeyGetPublicKeysRenameImpl(
-      masterKey: null == masterKey
-          ? _value.masterKey
-          : masterKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as Password,
-      limit: null == limit
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int,
-      offset: null == offset
-          ? _value.offset
-          : offset // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(fieldRename: FieldRename.snake)
-class _$DerivedKeyGetPublicKeysRenameImpl
-    implements _DerivedKeyGetPublicKeysRename {
-  const _$DerivedKeyGetPublicKeysRenameImpl(
-      {required this.masterKey,
-      required this.password,
-      required this.limit,
-      required this.offset});
-
-  factory _$DerivedKeyGetPublicKeysRenameImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$DerivedKeyGetPublicKeysRenameImplFromJson(json);
-
-  @override
-  final PublicKey masterKey;
-  @override
-  final Password password;
-  @override
-  final int limit;
-  @override
-  final int offset;
-
-  @override
-  String toString() {
-    return 'DerivedKeyGetPublicKeys(masterKey: $masterKey, password: $password, limit: $limit, offset: $offset)';
-  }
+  /// Serializes this DerivedKeyGetPublicKeys to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DerivedKeyGetPublicKeysRenameImpl &&
+            other is DerivedKeyGetPublicKeys &&
             (identical(other.masterKey, masterKey) ||
                 other.masterKey == masterKey) &&
             (identical(other.password, password) ||
@@ -215,49 +53,218 @@ class _$DerivedKeyGetPublicKeysRenameImpl
   int get hashCode =>
       Object.hash(runtimeType, masterKey, password, limit, offset);
 
-  /// Create a copy of DerivedKeyGetPublicKeys
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DerivedKeyGetPublicKeysRenameImplCopyWith<
-          _$DerivedKeyGetPublicKeysRenameImpl>
-      get copyWith => __$$DerivedKeyGetPublicKeysRenameImplCopyWithImpl<
-          _$DerivedKeyGetPublicKeysRenameImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DerivedKeyGetPublicKeysRenameImplToJson(
-      this,
-    );
+  String toString() {
+    return 'DerivedKeyGetPublicKeys(masterKey: $masterKey, password: $password, limit: $limit, offset: $offset)';
   }
 }
 
-abstract class _DerivedKeyGetPublicKeysRename
-    implements DerivedKeyGetPublicKeys {
-  const factory _DerivedKeyGetPublicKeysRename(
-      {required final PublicKey masterKey,
-      required final Password password,
-      required final int limit,
-      required final int offset}) = _$DerivedKeyGetPublicKeysRenameImpl;
+/// @nodoc
+abstract mixin class $DerivedKeyGetPublicKeysCopyWith<$Res> {
+  factory $DerivedKeyGetPublicKeysCopyWith(DerivedKeyGetPublicKeys value,
+          $Res Function(DerivedKeyGetPublicKeys) _then) =
+      _$DerivedKeyGetPublicKeysCopyWithImpl;
+  @useResult
+  $Res call({PublicKey masterKey, Password password, int limit, int offset});
 
-  factory _DerivedKeyGetPublicKeysRename.fromJson(Map<String, dynamic> json) =
-      _$DerivedKeyGetPublicKeysRenameImpl.fromJson;
+  $PublicKeyCopyWith<$Res> get masterKey;
+  $PasswordCopyWith<$Res> get password;
+}
+
+/// @nodoc
+class _$DerivedKeyGetPublicKeysCopyWithImpl<$Res>
+    implements $DerivedKeyGetPublicKeysCopyWith<$Res> {
+  _$DerivedKeyGetPublicKeysCopyWithImpl(this._self, this._then);
+
+  final DerivedKeyGetPublicKeys _self;
+  final $Res Function(DerivedKeyGetPublicKeys) _then;
+
+  /// Create a copy of DerivedKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? masterKey = null,
+    Object? password = null,
+    Object? limit = null,
+    Object? offset = null,
+  }) {
+    return _then(_self.copyWith(
+      masterKey: null == masterKey
+          ? _self.masterKey
+          : masterKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      password: null == password
+          ? _self.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+      limit: null == limit
+          ? _self.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int,
+      offset: null == offset
+          ? _self.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+
+  /// Create a copy of DerivedKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get masterKey {
+    return $PublicKeyCopyWith<$Res>(_self.masterKey, (value) {
+      return _then(_self.copyWith(masterKey: value));
+    });
+  }
+
+  /// Create a copy of DerivedKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PasswordCopyWith<$Res> get password {
+    return $PasswordCopyWith<$Res>(_self.password, (value) {
+      return _then(_self.copyWith(password: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _DerivedKeyGetPublicKeysRename implements DerivedKeyGetPublicKeys {
+  const _DerivedKeyGetPublicKeysRename(
+      {required this.masterKey,
+      required this.password,
+      required this.limit,
+      required this.offset});
+  factory _DerivedKeyGetPublicKeysRename.fromJson(Map<String, dynamic> json) =>
+      _$DerivedKeyGetPublicKeysRenameFromJson(json);
 
   @override
-  PublicKey get masterKey;
+  final PublicKey masterKey;
   @override
-  Password get password;
+  final Password password;
   @override
-  int get limit;
+  final int limit;
   @override
-  int get offset;
+  final int offset;
 
   /// Create a copy of DerivedKeyGetPublicKeys
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DerivedKeyGetPublicKeysRenameImplCopyWith<
-          _$DerivedKeyGetPublicKeysRenameImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$DerivedKeyGetPublicKeysRenameCopyWith<_DerivedKeyGetPublicKeysRename>
+      get copyWith => __$DerivedKeyGetPublicKeysRenameCopyWithImpl<
+          _DerivedKeyGetPublicKeysRename>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$DerivedKeyGetPublicKeysRenameToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _DerivedKeyGetPublicKeysRename &&
+            (identical(other.masterKey, masterKey) ||
+                other.masterKey == masterKey) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.limit, limit) || other.limit == limit) &&
+            (identical(other.offset, offset) || other.offset == offset));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, masterKey, password, limit, offset);
+
+  @override
+  String toString() {
+    return 'DerivedKeyGetPublicKeys(masterKey: $masterKey, password: $password, limit: $limit, offset: $offset)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$DerivedKeyGetPublicKeysRenameCopyWith<$Res>
+    implements $DerivedKeyGetPublicKeysCopyWith<$Res> {
+  factory _$DerivedKeyGetPublicKeysRenameCopyWith(
+          _DerivedKeyGetPublicKeysRename value,
+          $Res Function(_DerivedKeyGetPublicKeysRename) _then) =
+      __$DerivedKeyGetPublicKeysRenameCopyWithImpl;
+  @override
+  @useResult
+  $Res call({PublicKey masterKey, Password password, int limit, int offset});
+
+  @override
+  $PublicKeyCopyWith<$Res> get masterKey;
+  @override
+  $PasswordCopyWith<$Res> get password;
+}
+
+/// @nodoc
+class __$DerivedKeyGetPublicKeysRenameCopyWithImpl<$Res>
+    implements _$DerivedKeyGetPublicKeysRenameCopyWith<$Res> {
+  __$DerivedKeyGetPublicKeysRenameCopyWithImpl(this._self, this._then);
+
+  final _DerivedKeyGetPublicKeysRename _self;
+  final $Res Function(_DerivedKeyGetPublicKeysRename) _then;
+
+  /// Create a copy of DerivedKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? masterKey = null,
+    Object? password = null,
+    Object? limit = null,
+    Object? offset = null,
+  }) {
+    return _then(_DerivedKeyGetPublicKeysRename(
+      masterKey: null == masterKey
+          ? _self.masterKey
+          : masterKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      password: null == password
+          ? _self.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+      limit: null == limit
+          ? _self.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int,
+      offset: null == offset
+          ? _self.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+
+  /// Create a copy of DerivedKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get masterKey {
+    return $PublicKeyCopyWith<$Res>(_self.masterKey, (value) {
+      return _then(_self.copyWith(masterKey: value));
+    });
+  }
+
+  /// Create a copy of DerivedKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PasswordCopyWith<$Res> get password {
+    return $PasswordCopyWith<$Res>(_self.password, (value) {
+      return _then(_self.copyWith(password: value));
+    });
+  }
+}
+
+// dart format on

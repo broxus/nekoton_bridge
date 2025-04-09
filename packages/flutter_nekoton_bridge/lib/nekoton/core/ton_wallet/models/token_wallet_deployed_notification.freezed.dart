@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,145 +10,30 @@ part of 'token_wallet_deployed_notification.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-TokenWalletDeployedNotification _$TokenWalletDeployedNotificationFromJson(
-    Map<String, dynamic> json) {
-  return _TokenWalletDeployedNotification.fromJson(json);
-}
 
 /// @nodoc
 mixin _$TokenWalletDeployedNotification {
-  Address get rootTokenContract => throw _privateConstructorUsedError;
-
-  /// Serializes this TokenWalletDeployedNotification to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Address get rootTokenContract;
 
   /// Create a copy of TokenWalletDeployedNotification
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $TokenWalletDeployedNotificationCopyWith<TokenWalletDeployedNotification>
-      get copyWith => throw _privateConstructorUsedError;
-}
+      get copyWith => _$TokenWalletDeployedNotificationCopyWithImpl<
+              TokenWalletDeployedNotification>(
+          this as TokenWalletDeployedNotification, _$identity);
 
-/// @nodoc
-abstract class $TokenWalletDeployedNotificationCopyWith<$Res> {
-  factory $TokenWalletDeployedNotificationCopyWith(
-          TokenWalletDeployedNotification value,
-          $Res Function(TokenWalletDeployedNotification) then) =
-      _$TokenWalletDeployedNotificationCopyWithImpl<$Res,
-          TokenWalletDeployedNotification>;
-  @useResult
-  $Res call({Address rootTokenContract});
-
-  $AddressCopyWith<$Res> get rootTokenContract;
-}
-
-/// @nodoc
-class _$TokenWalletDeployedNotificationCopyWithImpl<$Res,
-        $Val extends TokenWalletDeployedNotification>
-    implements $TokenWalletDeployedNotificationCopyWith<$Res> {
-  _$TokenWalletDeployedNotificationCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of TokenWalletDeployedNotification
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? rootTokenContract = null,
-  }) {
-    return _then(_value.copyWith(
-      rootTokenContract: null == rootTokenContract
-          ? _value.rootTokenContract
-          : rootTokenContract // ignore: cast_nullable_to_non_nullable
-              as Address,
-    ) as $Val);
-  }
-
-  /// Create a copy of TokenWalletDeployedNotification
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res> get rootTokenContract {
-    return $AddressCopyWith<$Res>(_value.rootTokenContract, (value) {
-      return _then(_value.copyWith(rootTokenContract: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$TokenWalletDeployedNotificationImplCopyWith<$Res>
-    implements $TokenWalletDeployedNotificationCopyWith<$Res> {
-  factory _$$TokenWalletDeployedNotificationImplCopyWith(
-          _$TokenWalletDeployedNotificationImpl value,
-          $Res Function(_$TokenWalletDeployedNotificationImpl) then) =
-      __$$TokenWalletDeployedNotificationImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Address rootTokenContract});
-
-  @override
-  $AddressCopyWith<$Res> get rootTokenContract;
-}
-
-/// @nodoc
-class __$$TokenWalletDeployedNotificationImplCopyWithImpl<$Res>
-    extends _$TokenWalletDeployedNotificationCopyWithImpl<$Res,
-        _$TokenWalletDeployedNotificationImpl>
-    implements _$$TokenWalletDeployedNotificationImplCopyWith<$Res> {
-  __$$TokenWalletDeployedNotificationImplCopyWithImpl(
-      _$TokenWalletDeployedNotificationImpl _value,
-      $Res Function(_$TokenWalletDeployedNotificationImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TokenWalletDeployedNotification
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? rootTokenContract = null,
-  }) {
-    return _then(_$TokenWalletDeployedNotificationImpl(
-      rootTokenContract: null == rootTokenContract
-          ? _value.rootTokenContract
-          : rootTokenContract // ignore: cast_nullable_to_non_nullable
-              as Address,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$TokenWalletDeployedNotificationImpl
-    implements _TokenWalletDeployedNotification {
-  const _$TokenWalletDeployedNotificationImpl(
-      {required this.rootTokenContract});
-
-  factory _$TokenWalletDeployedNotificationImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$TokenWalletDeployedNotificationImplFromJson(json);
-
-  @override
-  final Address rootTokenContract;
-
-  @override
-  String toString() {
-    return 'TokenWalletDeployedNotification(rootTokenContract: $rootTokenContract)';
-  }
+  /// Serializes this TokenWalletDeployedNotification to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TokenWalletDeployedNotificationImpl &&
+            other is TokenWalletDeployedNotification &&
             (identical(other.rootTokenContract, rootTokenContract) ||
                 other.rootTokenContract == rootTokenContract));
   }
@@ -156,41 +42,152 @@ class _$TokenWalletDeployedNotificationImpl
   @override
   int get hashCode => Object.hash(runtimeType, rootTokenContract);
 
-  /// Create a copy of TokenWalletDeployedNotification
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TokenWalletDeployedNotificationImplCopyWith<
-          _$TokenWalletDeployedNotificationImpl>
-      get copyWith => __$$TokenWalletDeployedNotificationImplCopyWithImpl<
-          _$TokenWalletDeployedNotificationImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TokenWalletDeployedNotificationImplToJson(
-      this,
-    );
+  String toString() {
+    return 'TokenWalletDeployedNotification(rootTokenContract: $rootTokenContract)';
   }
 }
 
-abstract class _TokenWalletDeployedNotification
-    implements TokenWalletDeployedNotification {
-  const factory _TokenWalletDeployedNotification(
-          {required final Address rootTokenContract}) =
-      _$TokenWalletDeployedNotificationImpl;
+/// @nodoc
+abstract mixin class $TokenWalletDeployedNotificationCopyWith<$Res> {
+  factory $TokenWalletDeployedNotificationCopyWith(
+          TokenWalletDeployedNotification value,
+          $Res Function(TokenWalletDeployedNotification) _then) =
+      _$TokenWalletDeployedNotificationCopyWithImpl;
+  @useResult
+  $Res call({Address rootTokenContract});
 
-  factory _TokenWalletDeployedNotification.fromJson(Map<String, dynamic> json) =
-      _$TokenWalletDeployedNotificationImpl.fromJson;
+  $AddressCopyWith<$Res> get rootTokenContract;
+}
+
+/// @nodoc
+class _$TokenWalletDeployedNotificationCopyWithImpl<$Res>
+    implements $TokenWalletDeployedNotificationCopyWith<$Res> {
+  _$TokenWalletDeployedNotificationCopyWithImpl(this._self, this._then);
+
+  final TokenWalletDeployedNotification _self;
+  final $Res Function(TokenWalletDeployedNotification) _then;
+
+  /// Create a copy of TokenWalletDeployedNotification
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? rootTokenContract = null,
+  }) {
+    return _then(_self.copyWith(
+      rootTokenContract: null == rootTokenContract
+          ? _self.rootTokenContract
+          : rootTokenContract // ignore: cast_nullable_to_non_nullable
+              as Address,
+    ));
+  }
+
+  /// Create a copy of TokenWalletDeployedNotification
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get rootTokenContract {
+    return $AddressCopyWith<$Res>(_self.rootTokenContract, (value) {
+      return _then(_self.copyWith(rootTokenContract: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _TokenWalletDeployedNotification
+    implements TokenWalletDeployedNotification {
+  const _TokenWalletDeployedNotification({required this.rootTokenContract});
+  factory _TokenWalletDeployedNotification.fromJson(
+          Map<String, dynamic> json) =>
+      _$TokenWalletDeployedNotificationFromJson(json);
 
   @override
-  Address get rootTokenContract;
+  final Address rootTokenContract;
 
   /// Create a copy of TokenWalletDeployedNotification
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TokenWalletDeployedNotificationImplCopyWith<
-          _$TokenWalletDeployedNotificationImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$TokenWalletDeployedNotificationCopyWith<_TokenWalletDeployedNotification>
+      get copyWith => __$TokenWalletDeployedNotificationCopyWithImpl<
+          _TokenWalletDeployedNotification>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TokenWalletDeployedNotificationToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _TokenWalletDeployedNotification &&
+            (identical(other.rootTokenContract, rootTokenContract) ||
+                other.rootTokenContract == rootTokenContract));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, rootTokenContract);
+
+  @override
+  String toString() {
+    return 'TokenWalletDeployedNotification(rootTokenContract: $rootTokenContract)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$TokenWalletDeployedNotificationCopyWith<$Res>
+    implements $TokenWalletDeployedNotificationCopyWith<$Res> {
+  factory _$TokenWalletDeployedNotificationCopyWith(
+          _TokenWalletDeployedNotification value,
+          $Res Function(_TokenWalletDeployedNotification) _then) =
+      __$TokenWalletDeployedNotificationCopyWithImpl;
+  @override
+  @useResult
+  $Res call({Address rootTokenContract});
+
+  @override
+  $AddressCopyWith<$Res> get rootTokenContract;
+}
+
+/// @nodoc
+class __$TokenWalletDeployedNotificationCopyWithImpl<$Res>
+    implements _$TokenWalletDeployedNotificationCopyWith<$Res> {
+  __$TokenWalletDeployedNotificationCopyWithImpl(this._self, this._then);
+
+  final _TokenWalletDeployedNotification _self;
+  final $Res Function(_TokenWalletDeployedNotification) _then;
+
+  /// Create a copy of TokenWalletDeployedNotification
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? rootTokenContract = null,
+  }) {
+    return _then(_TokenWalletDeployedNotification(
+      rootTokenContract: null == rootTokenContract
+          ? _self.rootTokenContract
+          : rootTokenContract // ignore: cast_nullable_to_non_nullable
+              as Address,
+    ));
+  }
+
+  /// Create a copy of TokenWalletDeployedNotification
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get rootTokenContract {
+    return $AddressCopyWith<$Res>(_self.rootTokenContract, (value) {
+      return _then(_self.copyWith(rootTokenContract: value));
+    });
+  }
+}
+
+// dart format on

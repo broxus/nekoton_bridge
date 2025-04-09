@@ -6,15 +6,16 @@ part 'wallet_interaction_method.freezed.dart';
 part 'wallet_interaction_method.g.dart';
 
 @Freezed(unionKey: 'type', unionValueCase: FreezedUnionCase.snake)
-class WalletInteractionMethod with _$WalletInteractionMethod {
-  const factory WalletInteractionMethod.walletV3Transfer() = _WalletV3Transfer;
+sealed class WalletInteractionMethod with _$WalletInteractionMethod {
+  const factory WalletInteractionMethod.walletV3Transfer() =
+      WalletInteractionMethodWalletV3Transfer;
 
   const factory WalletInteractionMethod.tonWalletTransfer() =
-      _TonWalletTransfer;
+      WalletInteractionMethodTonWalletTransfer;
 
   const factory WalletInteractionMethod.multisig(
     final MultisigTransaction data,
-  ) = _Multisig;
+  ) = WalletInteractionMethodMultisig;
 
   factory WalletInteractionMethod.fromJson(Map<String, dynamic> json) =>
       _$WalletInteractionMethodFromJson(json);

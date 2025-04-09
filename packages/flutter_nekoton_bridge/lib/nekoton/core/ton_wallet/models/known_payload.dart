@@ -8,16 +8,16 @@ part 'known_payload.g.dart';
 
 @Freezed(unionKey: 'type', unionValueCase: FreezedUnionCase.snake)
 sealed class KnownPayload with _$KnownPayload {
-  const factory KnownPayload.comment(final String data) = _Comment;
+  const factory KnownPayload.comment(final String data) = KnownPayloadComment;
 
   const factory KnownPayload.tokenOutgoingTransfer(
-      final TokenOutgoingTransfer data) = _TokenOutgoingTransfer;
+      final TokenOutgoingTransfer data) = KnownPayloadTokenOutgoingTransfer;
 
   const factory KnownPayload.jettonOutgoingTransfer(
-      final JettonOutgoingTransfer data) = _JettonOutgoingTransfer;
+      final JettonOutgoingTransfer data) = KnownPayloadJettonOutgoingTransfer;
 
   const factory KnownPayload.tokenSwapBack(final TokenSwapBack data) =
-      _TokenSwapBack;
+      KnownPayloadTokenSwapBack;
 
   factory KnownPayload.fromJson(Map<String, dynamic> json) =>
       _$KnownPayloadFromJson(json);

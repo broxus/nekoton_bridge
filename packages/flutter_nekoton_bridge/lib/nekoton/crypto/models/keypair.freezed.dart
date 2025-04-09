@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,158 +10,29 @@ part of 'keypair.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Keypair _$KeypairFromJson(Map<String, dynamic> json) {
-  return _Keypair.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Keypair {
-  PublicKey get public => throw _privateConstructorUsedError;
-  PublicKey get secret => throw _privateConstructorUsedError;
-
-  /// Serializes this Keypair to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  PublicKey get public;
+  PublicKey get secret;
 
   /// Create a copy of Keypair
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $KeypairCopyWith<Keypair> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $KeypairCopyWith<$Res> {
-  factory $KeypairCopyWith(Keypair value, $Res Function(Keypair) then) =
-      _$KeypairCopyWithImpl<$Res, Keypair>;
-  @useResult
-  $Res call({PublicKey public, PublicKey secret});
-
-  $PublicKeyCopyWith<$Res> get public;
-  $PublicKeyCopyWith<$Res> get secret;
-}
-
-/// @nodoc
-class _$KeypairCopyWithImpl<$Res, $Val extends Keypair>
-    implements $KeypairCopyWith<$Res> {
-  _$KeypairCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Keypair
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? public = null,
-    Object? secret = null,
-  }) {
-    return _then(_value.copyWith(
-      public: null == public
-          ? _value.public
-          : public // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      secret: null == secret
-          ? _value.secret
-          : secret // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-    ) as $Val);
-  }
+  $KeypairCopyWith<Keypair> get copyWith =>
+      _$KeypairCopyWithImpl<Keypair>(this as Keypair, _$identity);
 
-  /// Create a copy of Keypair
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get public {
-    return $PublicKeyCopyWith<$Res>(_value.public, (value) {
-      return _then(_value.copyWith(public: value) as $Val);
-    });
-  }
-
-  /// Create a copy of Keypair
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get secret {
-    return $PublicKeyCopyWith<$Res>(_value.secret, (value) {
-      return _then(_value.copyWith(secret: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$KeypairImplCopyWith<$Res> implements $KeypairCopyWith<$Res> {
-  factory _$$KeypairImplCopyWith(
-          _$KeypairImpl value, $Res Function(_$KeypairImpl) then) =
-      __$$KeypairImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({PublicKey public, PublicKey secret});
-
-  @override
-  $PublicKeyCopyWith<$Res> get public;
-  @override
-  $PublicKeyCopyWith<$Res> get secret;
-}
-
-/// @nodoc
-class __$$KeypairImplCopyWithImpl<$Res>
-    extends _$KeypairCopyWithImpl<$Res, _$KeypairImpl>
-    implements _$$KeypairImplCopyWith<$Res> {
-  __$$KeypairImplCopyWithImpl(
-      _$KeypairImpl _value, $Res Function(_$KeypairImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Keypair
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? public = null,
-    Object? secret = null,
-  }) {
-    return _then(_$KeypairImpl(
-      public: null == public
-          ? _value.public
-          : public // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      secret: null == secret
-          ? _value.secret
-          : secret // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$KeypairImpl implements _Keypair {
-  const _$KeypairImpl({required this.public, required this.secret});
-
-  factory _$KeypairImpl.fromJson(Map<String, dynamic> json) =>
-      _$$KeypairImplFromJson(json);
-
-  @override
-  final PublicKey public;
-  @override
-  final PublicKey secret;
-
-  @override
-  String toString() {
-    return 'Keypair(public: $public, secret: $secret)';
-  }
+  /// Serializes this Keypair to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$KeypairImpl &&
+            other is Keypair &&
             (identical(other.public, public) || other.public == public) &&
             (identical(other.secret, secret) || other.secret == secret));
   }
@@ -169,38 +41,177 @@ class _$KeypairImpl implements _Keypair {
   @override
   int get hashCode => Object.hash(runtimeType, public, secret);
 
-  /// Create a copy of Keypair
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$KeypairImplCopyWith<_$KeypairImpl> get copyWith =>
-      __$$KeypairImplCopyWithImpl<_$KeypairImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$KeypairImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Keypair(public: $public, secret: $secret)';
   }
 }
 
-abstract class _Keypair implements Keypair {
-  const factory _Keypair(
-      {required final PublicKey public,
-      required final PublicKey secret}) = _$KeypairImpl;
+/// @nodoc
+abstract mixin class $KeypairCopyWith<$Res> {
+  factory $KeypairCopyWith(Keypair value, $Res Function(Keypair) _then) =
+      _$KeypairCopyWithImpl;
+  @useResult
+  $Res call({PublicKey public, PublicKey secret});
 
-  factory _Keypair.fromJson(Map<String, dynamic> json) = _$KeypairImpl.fromJson;
+  $PublicKeyCopyWith<$Res> get public;
+  $PublicKeyCopyWith<$Res> get secret;
+}
+
+/// @nodoc
+class _$KeypairCopyWithImpl<$Res> implements $KeypairCopyWith<$Res> {
+  _$KeypairCopyWithImpl(this._self, this._then);
+
+  final Keypair _self;
+  final $Res Function(Keypair) _then;
+
+  /// Create a copy of Keypair
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? public = null,
+    Object? secret = null,
+  }) {
+    return _then(_self.copyWith(
+      public: null == public
+          ? _self.public
+          : public // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      secret: null == secret
+          ? _self.secret
+          : secret // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+    ));
+  }
+
+  /// Create a copy of Keypair
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get public {
+    return $PublicKeyCopyWith<$Res>(_self.public, (value) {
+      return _then(_self.copyWith(public: value));
+    });
+  }
+
+  /// Create a copy of Keypair
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get secret {
+    return $PublicKeyCopyWith<$Res>(_self.secret, (value) {
+      return _then(_self.copyWith(secret: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _Keypair implements Keypair {
+  const _Keypair({required this.public, required this.secret});
+  factory _Keypair.fromJson(Map<String, dynamic> json) =>
+      _$KeypairFromJson(json);
 
   @override
-  PublicKey get public;
+  final PublicKey public;
   @override
-  PublicKey get secret;
+  final PublicKey secret;
 
   /// Create a copy of Keypair
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$KeypairImplCopyWith<_$KeypairImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$KeypairCopyWith<_Keypair> get copyWith =>
+      __$KeypairCopyWithImpl<_Keypair>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$KeypairToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Keypair &&
+            (identical(other.public, public) || other.public == public) &&
+            (identical(other.secret, secret) || other.secret == secret));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, public, secret);
+
+  @override
+  String toString() {
+    return 'Keypair(public: $public, secret: $secret)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$KeypairCopyWith<$Res> implements $KeypairCopyWith<$Res> {
+  factory _$KeypairCopyWith(_Keypair value, $Res Function(_Keypair) _then) =
+      __$KeypairCopyWithImpl;
+  @override
+  @useResult
+  $Res call({PublicKey public, PublicKey secret});
+
+  @override
+  $PublicKeyCopyWith<$Res> get public;
+  @override
+  $PublicKeyCopyWith<$Res> get secret;
+}
+
+/// @nodoc
+class __$KeypairCopyWithImpl<$Res> implements _$KeypairCopyWith<$Res> {
+  __$KeypairCopyWithImpl(this._self, this._then);
+
+  final _Keypair _self;
+  final $Res Function(_Keypair) _then;
+
+  /// Create a copy of Keypair
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? public = null,
+    Object? secret = null,
+  }) {
+    return _then(_Keypair(
+      public: null == public
+          ? _self.public
+          : public // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      secret: null == secret
+          ? _self.secret
+          : secret // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+    ));
+  }
+
+  /// Create a copy of Keypair
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get public {
+    return $PublicKeyCopyWith<$Res>(_self.public, (value) {
+      return _then(_self.copyWith(public: value));
+    });
+  }
+
+  /// Create a copy of Keypair
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get secret {
+    return $PublicKeyCopyWith<$Res>(_self.secret, (value) {
+      return _then(_self.copyWith(secret: value));
+    });
+  }
+}
+
+// dart format on

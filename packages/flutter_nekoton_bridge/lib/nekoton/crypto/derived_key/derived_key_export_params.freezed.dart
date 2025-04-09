@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,170 +10,31 @@ part of 'derived_key_export_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-DerivedKeyExportSeedParams _$DerivedKeyExportSeedParamsFromJson(
-    Map<String, dynamic> json) {
-  return _DerivedKeyExportSeedParams.fromJson(json);
-}
 
 /// @nodoc
 mixin _$DerivedKeyExportSeedParams {
-  PublicKey get masterKey => throw _privateConstructorUsedError;
-  Password get password => throw _privateConstructorUsedError;
-
-  /// Serializes this DerivedKeyExportSeedParams to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  PublicKey get masterKey;
+  Password get password;
 
   /// Create a copy of DerivedKeyExportSeedParams
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $DerivedKeyExportSeedParamsCopyWith<DerivedKeyExportSeedParams>
-      get copyWith => throw _privateConstructorUsedError;
-}
+      get copyWith =>
+          _$DerivedKeyExportSeedParamsCopyWithImpl<DerivedKeyExportSeedParams>(
+              this as DerivedKeyExportSeedParams, _$identity);
 
-/// @nodoc
-abstract class $DerivedKeyExportSeedParamsCopyWith<$Res> {
-  factory $DerivedKeyExportSeedParamsCopyWith(DerivedKeyExportSeedParams value,
-          $Res Function(DerivedKeyExportSeedParams) then) =
-      _$DerivedKeyExportSeedParamsCopyWithImpl<$Res,
-          DerivedKeyExportSeedParams>;
-  @useResult
-  $Res call({PublicKey masterKey, Password password});
-
-  $PublicKeyCopyWith<$Res> get masterKey;
-  $PasswordCopyWith<$Res> get password;
-}
-
-/// @nodoc
-class _$DerivedKeyExportSeedParamsCopyWithImpl<$Res,
-        $Val extends DerivedKeyExportSeedParams>
-    implements $DerivedKeyExportSeedParamsCopyWith<$Res> {
-  _$DerivedKeyExportSeedParamsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of DerivedKeyExportSeedParams
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? masterKey = null,
-    Object? password = null,
-  }) {
-    return _then(_value.copyWith(
-      masterKey: null == masterKey
-          ? _value.masterKey
-          : masterKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as Password,
-    ) as $Val);
-  }
-
-  /// Create a copy of DerivedKeyExportSeedParams
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get masterKey {
-    return $PublicKeyCopyWith<$Res>(_value.masterKey, (value) {
-      return _then(_value.copyWith(masterKey: value) as $Val);
-    });
-  }
-
-  /// Create a copy of DerivedKeyExportSeedParams
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PasswordCopyWith<$Res> get password {
-    return $PasswordCopyWith<$Res>(_value.password, (value) {
-      return _then(_value.copyWith(password: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$DerivedKeyExportSeedParamsImplCopyWith<$Res>
-    implements $DerivedKeyExportSeedParamsCopyWith<$Res> {
-  factory _$$DerivedKeyExportSeedParamsImplCopyWith(
-          _$DerivedKeyExportSeedParamsImpl value,
-          $Res Function(_$DerivedKeyExportSeedParamsImpl) then) =
-      __$$DerivedKeyExportSeedParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({PublicKey masterKey, Password password});
-
-  @override
-  $PublicKeyCopyWith<$Res> get masterKey;
-  @override
-  $PasswordCopyWith<$Res> get password;
-}
-
-/// @nodoc
-class __$$DerivedKeyExportSeedParamsImplCopyWithImpl<$Res>
-    extends _$DerivedKeyExportSeedParamsCopyWithImpl<$Res,
-        _$DerivedKeyExportSeedParamsImpl>
-    implements _$$DerivedKeyExportSeedParamsImplCopyWith<$Res> {
-  __$$DerivedKeyExportSeedParamsImplCopyWithImpl(
-      _$DerivedKeyExportSeedParamsImpl _value,
-      $Res Function(_$DerivedKeyExportSeedParamsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of DerivedKeyExportSeedParams
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? masterKey = null,
-    Object? password = null,
-  }) {
-    return _then(_$DerivedKeyExportSeedParamsImpl(
-      masterKey: null == masterKey
-          ? _value.masterKey
-          : masterKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as Password,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(fieldRename: FieldRename.snake)
-class _$DerivedKeyExportSeedParamsImpl implements _DerivedKeyExportSeedParams {
-  const _$DerivedKeyExportSeedParamsImpl(
-      {required this.masterKey, required this.password});
-
-  factory _$DerivedKeyExportSeedParamsImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$DerivedKeyExportSeedParamsImplFromJson(json);
-
-  @override
-  final PublicKey masterKey;
-  @override
-  final Password password;
-
-  @override
-  String toString() {
-    return 'DerivedKeyExportSeedParams(masterKey: $masterKey, password: $password)';
-  }
+  /// Serializes this DerivedKeyExportSeedParams to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DerivedKeyExportSeedParamsImpl &&
+            other is DerivedKeyExportSeedParams &&
             (identical(other.masterKey, masterKey) ||
                 other.masterKey == masterKey) &&
             (identical(other.password, password) ||
@@ -183,41 +45,188 @@ class _$DerivedKeyExportSeedParamsImpl implements _DerivedKeyExportSeedParams {
   @override
   int get hashCode => Object.hash(runtimeType, masterKey, password);
 
-  /// Create a copy of DerivedKeyExportSeedParams
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DerivedKeyExportSeedParamsImplCopyWith<_$DerivedKeyExportSeedParamsImpl>
-      get copyWith => __$$DerivedKeyExportSeedParamsImplCopyWithImpl<
-          _$DerivedKeyExportSeedParamsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DerivedKeyExportSeedParamsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'DerivedKeyExportSeedParams(masterKey: $masterKey, password: $password)';
   }
 }
 
-abstract class _DerivedKeyExportSeedParams
-    implements DerivedKeyExportSeedParams {
-  const factory _DerivedKeyExportSeedParams(
-      {required final PublicKey masterKey,
-      required final Password password}) = _$DerivedKeyExportSeedParamsImpl;
+/// @nodoc
+abstract mixin class $DerivedKeyExportSeedParamsCopyWith<$Res> {
+  factory $DerivedKeyExportSeedParamsCopyWith(DerivedKeyExportSeedParams value,
+          $Res Function(DerivedKeyExportSeedParams) _then) =
+      _$DerivedKeyExportSeedParamsCopyWithImpl;
+  @useResult
+  $Res call({PublicKey masterKey, Password password});
 
-  factory _DerivedKeyExportSeedParams.fromJson(Map<String, dynamic> json) =
-      _$DerivedKeyExportSeedParamsImpl.fromJson;
+  $PublicKeyCopyWith<$Res> get masterKey;
+  $PasswordCopyWith<$Res> get password;
+}
+
+/// @nodoc
+class _$DerivedKeyExportSeedParamsCopyWithImpl<$Res>
+    implements $DerivedKeyExportSeedParamsCopyWith<$Res> {
+  _$DerivedKeyExportSeedParamsCopyWithImpl(this._self, this._then);
+
+  final DerivedKeyExportSeedParams _self;
+  final $Res Function(DerivedKeyExportSeedParams) _then;
+
+  /// Create a copy of DerivedKeyExportSeedParams
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? masterKey = null,
+    Object? password = null,
+  }) {
+    return _then(_self.copyWith(
+      masterKey: null == masterKey
+          ? _self.masterKey
+          : masterKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      password: null == password
+          ? _self.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+    ));
+  }
+
+  /// Create a copy of DerivedKeyExportSeedParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get masterKey {
+    return $PublicKeyCopyWith<$Res>(_self.masterKey, (value) {
+      return _then(_self.copyWith(masterKey: value));
+    });
+  }
+
+  /// Create a copy of DerivedKeyExportSeedParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PasswordCopyWith<$Res> get password {
+    return $PasswordCopyWith<$Res>(_self.password, (value) {
+      return _then(_self.copyWith(password: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _DerivedKeyExportSeedParams implements DerivedKeyExportSeedParams {
+  const _DerivedKeyExportSeedParams(
+      {required this.masterKey, required this.password});
+  factory _DerivedKeyExportSeedParams.fromJson(Map<String, dynamic> json) =>
+      _$DerivedKeyExportSeedParamsFromJson(json);
 
   @override
-  PublicKey get masterKey;
+  final PublicKey masterKey;
   @override
-  Password get password;
+  final Password password;
 
   /// Create a copy of DerivedKeyExportSeedParams
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DerivedKeyExportSeedParamsImplCopyWith<_$DerivedKeyExportSeedParamsImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$DerivedKeyExportSeedParamsCopyWith<_DerivedKeyExportSeedParams>
+      get copyWith => __$DerivedKeyExportSeedParamsCopyWithImpl<
+          _DerivedKeyExportSeedParams>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$DerivedKeyExportSeedParamsToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _DerivedKeyExportSeedParams &&
+            (identical(other.masterKey, masterKey) ||
+                other.masterKey == masterKey) &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, masterKey, password);
+
+  @override
+  String toString() {
+    return 'DerivedKeyExportSeedParams(masterKey: $masterKey, password: $password)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$DerivedKeyExportSeedParamsCopyWith<$Res>
+    implements $DerivedKeyExportSeedParamsCopyWith<$Res> {
+  factory _$DerivedKeyExportSeedParamsCopyWith(
+          _DerivedKeyExportSeedParams value,
+          $Res Function(_DerivedKeyExportSeedParams) _then) =
+      __$DerivedKeyExportSeedParamsCopyWithImpl;
+  @override
+  @useResult
+  $Res call({PublicKey masterKey, Password password});
+
+  @override
+  $PublicKeyCopyWith<$Res> get masterKey;
+  @override
+  $PasswordCopyWith<$Res> get password;
+}
+
+/// @nodoc
+class __$DerivedKeyExportSeedParamsCopyWithImpl<$Res>
+    implements _$DerivedKeyExportSeedParamsCopyWith<$Res> {
+  __$DerivedKeyExportSeedParamsCopyWithImpl(this._self, this._then);
+
+  final _DerivedKeyExportSeedParams _self;
+  final $Res Function(_DerivedKeyExportSeedParams) _then;
+
+  /// Create a copy of DerivedKeyExportSeedParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? masterKey = null,
+    Object? password = null,
+  }) {
+    return _then(_DerivedKeyExportSeedParams(
+      masterKey: null == masterKey
+          ? _self.masterKey
+          : masterKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      password: null == password
+          ? _self.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+    ));
+  }
+
+  /// Create a copy of DerivedKeyExportSeedParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get masterKey {
+    return $PublicKeyCopyWith<$Res>(_self.masterKey, (value) {
+      return _then(_self.copyWith(masterKey: value));
+    });
+  }
+
+  /// Create a copy of DerivedKeyExportSeedParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PasswordCopyWith<$Res> get password {
+    return $PasswordCopyWith<$Res>(_self.password, (value) {
+      return _then(_self.copyWith(password: value));
+    });
+  }
+}
+
+// dart format on

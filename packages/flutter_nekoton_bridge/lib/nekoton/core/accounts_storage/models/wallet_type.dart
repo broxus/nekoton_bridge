@@ -6,23 +6,24 @@ part 'wallet_type.g.dart';
 
 @Freezed(unionKey: 'type')
 sealed class WalletType with _$WalletType {
-  const factory WalletType.multisig(final MultisigType data) = _Multisig;
+  const factory WalletType.multisig(final MultisigType data) =
+      WalletTypeMultisig;
 
-  const factory WalletType.walletV3() = _WalletV3;
+  const factory WalletType.walletV3() = WalletTypeWalletV3;
 
-  const factory WalletType.highloadWalletV2() = _HighloadWalletV2;
+  const factory WalletType.highloadWalletV2() = WalletTypeHighloadWalletV2;
 
-  const factory WalletType.everWallet() = _WalletTypeEverWallet;
+  const factory WalletType.everWallet() = WalletTypeEverWallet;
 
-  const factory WalletType.walletV3R1() = _WalletTypeWalletV3R1;
+  const factory WalletType.walletV3R1() = WalletTypeWalletV3R1;
 
-  const factory WalletType.walletV3R2() = _WalletTypeWalletV3R2;
+  const factory WalletType.walletV3R2() = WalletTypeWalletV3R2;
 
-  const factory WalletType.walletV4R1() = _WalletTypeWalletV4R1;
+  const factory WalletType.walletV4R1() = WalletTypeWalletV4R1;
 
-  const factory WalletType.walletV4R2() = _WalletTypeWalletV4R2;
+  const factory WalletType.walletV4R2() = WalletTypeWalletV4R2;
 
-  const factory WalletType.walletV5R1() = _WalletTypeWalletV5R1;
+  const factory WalletType.walletV5R1() = WalletTypeWalletV5R1;
 
   factory WalletType.fromJson(Map<String, dynamic> json) =>
       _$WalletTypeFromJson(json);

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,203 +10,34 @@ part of 'jetton_meta_data.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-JettonMetaData _$JettonMetaDataFromJson(Map<String, dynamic> json) {
-  return _JettonMetaData.fromJson(json);
-}
 
 /// @nodoc
 mixin _$JettonMetaData {
-  String? get name => throw _privateConstructorUsedError;
-  String? get uri => throw _privateConstructorUsedError;
-  String? get symbol => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
-  int? get decimals => throw _privateConstructorUsedError;
-
-  /// Serializes this JettonMetaData to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get name;
+  String? get uri;
+  String? get symbol;
+  String? get description;
+  String? get image;
+  int? get decimals;
 
   /// Create a copy of JettonMetaData
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $JettonMetaDataCopyWith<JettonMetaData> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$JettonMetaDataCopyWithImpl<JettonMetaData>(
+          this as JettonMetaData, _$identity);
 
-/// @nodoc
-abstract class $JettonMetaDataCopyWith<$Res> {
-  factory $JettonMetaDataCopyWith(
-          JettonMetaData value, $Res Function(JettonMetaData) then) =
-      _$JettonMetaDataCopyWithImpl<$Res, JettonMetaData>;
-  @useResult
-  $Res call(
-      {String? name,
-      String? uri,
-      String? symbol,
-      String? description,
-      String? image,
-      int? decimals});
-}
-
-/// @nodoc
-class _$JettonMetaDataCopyWithImpl<$Res, $Val extends JettonMetaData>
-    implements $JettonMetaDataCopyWith<$Res> {
-  _$JettonMetaDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of JettonMetaData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = freezed,
-    Object? uri = freezed,
-    Object? symbol = freezed,
-    Object? description = freezed,
-    Object? image = freezed,
-    Object? decimals = freezed,
-  }) {
-    return _then(_value.copyWith(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      uri: freezed == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as String?,
-      symbol: freezed == symbol
-          ? _value.symbol
-          : symbol // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-      decimals: freezed == decimals
-          ? _value.decimals
-          : decimals // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$JettonMetaDataImplCopyWith<$Res>
-    implements $JettonMetaDataCopyWith<$Res> {
-  factory _$$JettonMetaDataImplCopyWith(_$JettonMetaDataImpl value,
-          $Res Function(_$JettonMetaDataImpl) then) =
-      __$$JettonMetaDataImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String? name,
-      String? uri,
-      String? symbol,
-      String? description,
-      String? image,
-      int? decimals});
-}
-
-/// @nodoc
-class __$$JettonMetaDataImplCopyWithImpl<$Res>
-    extends _$JettonMetaDataCopyWithImpl<$Res, _$JettonMetaDataImpl>
-    implements _$$JettonMetaDataImplCopyWith<$Res> {
-  __$$JettonMetaDataImplCopyWithImpl(
-      _$JettonMetaDataImpl _value, $Res Function(_$JettonMetaDataImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of JettonMetaData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = freezed,
-    Object? uri = freezed,
-    Object? symbol = freezed,
-    Object? description = freezed,
-    Object? image = freezed,
-    Object? decimals = freezed,
-  }) {
-    return _then(_$JettonMetaDataImpl(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      uri: freezed == uri
-          ? _value.uri
-          : uri // ignore: cast_nullable_to_non_nullable
-              as String?,
-      symbol: freezed == symbol
-          ? _value.symbol
-          : symbol // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-      decimals: freezed == decimals
-          ? _value.decimals
-          : decimals // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$JettonMetaDataImpl implements _JettonMetaData {
-  const _$JettonMetaDataImpl(
-      {this.name,
-      this.uri,
-      this.symbol,
-      this.description,
-      this.image,
-      this.decimals});
-
-  factory _$JettonMetaDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$JettonMetaDataImplFromJson(json);
-
-  @override
-  final String? name;
-  @override
-  final String? uri;
-  @override
-  final String? symbol;
-  @override
-  final String? description;
-  @override
-  final String? image;
-  @override
-  final int? decimals;
-
-  @override
-  String toString() {
-    return 'JettonMetaData(name: $name, uri: $uri, symbol: $symbol, description: $description, image: $image, decimals: $decimals)';
-  }
+  /// Serializes this JettonMetaData to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$JettonMetaDataImpl &&
+            other is JettonMetaData &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.symbol, symbol) || other.symbol == symbol) &&
@@ -221,52 +53,207 @@ class _$JettonMetaDataImpl implements _JettonMetaData {
   int get hashCode =>
       Object.hash(runtimeType, name, uri, symbol, description, image, decimals);
 
-  /// Create a copy of JettonMetaData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$JettonMetaDataImplCopyWith<_$JettonMetaDataImpl> get copyWith =>
-      __$$JettonMetaDataImplCopyWithImpl<_$JettonMetaDataImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$JettonMetaDataImplToJson(
-      this,
-    );
+  String toString() {
+    return 'JettonMetaData(name: $name, uri: $uri, symbol: $symbol, description: $description, image: $image, decimals: $decimals)';
   }
 }
 
-abstract class _JettonMetaData implements JettonMetaData {
-  const factory _JettonMetaData(
-      {final String? name,
-      final String? uri,
-      final String? symbol,
-      final String? description,
-      final String? image,
-      final int? decimals}) = _$JettonMetaDataImpl;
+/// @nodoc
+abstract mixin class $JettonMetaDataCopyWith<$Res> {
+  factory $JettonMetaDataCopyWith(
+          JettonMetaData value, $Res Function(JettonMetaData) _then) =
+      _$JettonMetaDataCopyWithImpl;
+  @useResult
+  $Res call(
+      {String? name,
+      String? uri,
+      String? symbol,
+      String? description,
+      String? image,
+      int? decimals});
+}
 
-  factory _JettonMetaData.fromJson(Map<String, dynamic> json) =
-      _$JettonMetaDataImpl.fromJson;
+/// @nodoc
+class _$JettonMetaDataCopyWithImpl<$Res>
+    implements $JettonMetaDataCopyWith<$Res> {
+  _$JettonMetaDataCopyWithImpl(this._self, this._then);
+
+  final JettonMetaData _self;
+  final $Res Function(JettonMetaData) _then;
+
+  /// Create a copy of JettonMetaData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? uri = freezed,
+    Object? symbol = freezed,
+    Object? description = freezed,
+    Object? image = freezed,
+    Object? decimals = freezed,
+  }) {
+    return _then(_self.copyWith(
+      name: freezed == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      uri: freezed == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as String?,
+      symbol: freezed == symbol
+          ? _self.symbol
+          : symbol // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image: freezed == image
+          ? _self.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+      decimals: freezed == decimals
+          ? _self.decimals
+          : decimals // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _JettonMetaData implements JettonMetaData {
+  const _JettonMetaData(
+      {this.name,
+      this.uri,
+      this.symbol,
+      this.description,
+      this.image,
+      this.decimals});
+  factory _JettonMetaData.fromJson(Map<String, dynamic> json) =>
+      _$JettonMetaDataFromJson(json);
 
   @override
-  String? get name;
+  final String? name;
   @override
-  String? get uri;
+  final String? uri;
   @override
-  String? get symbol;
+  final String? symbol;
   @override
-  String? get description;
+  final String? description;
   @override
-  String? get image;
+  final String? image;
   @override
-  int? get decimals;
+  final int? decimals;
 
   /// Create a copy of JettonMetaData
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$JettonMetaDataImplCopyWith<_$JettonMetaDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$JettonMetaDataCopyWith<_JettonMetaData> get copyWith =>
+      __$JettonMetaDataCopyWithImpl<_JettonMetaData>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$JettonMetaDataToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _JettonMetaData &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.symbol, symbol) || other.symbol == symbol) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.decimals, decimals) ||
+                other.decimals == decimals));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, name, uri, symbol, description, image, decimals);
+
+  @override
+  String toString() {
+    return 'JettonMetaData(name: $name, uri: $uri, symbol: $symbol, description: $description, image: $image, decimals: $decimals)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$JettonMetaDataCopyWith<$Res>
+    implements $JettonMetaDataCopyWith<$Res> {
+  factory _$JettonMetaDataCopyWith(
+          _JettonMetaData value, $Res Function(_JettonMetaData) _then) =
+      __$JettonMetaDataCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String? name,
+      String? uri,
+      String? symbol,
+      String? description,
+      String? image,
+      int? decimals});
+}
+
+/// @nodoc
+class __$JettonMetaDataCopyWithImpl<$Res>
+    implements _$JettonMetaDataCopyWith<$Res> {
+  __$JettonMetaDataCopyWithImpl(this._self, this._then);
+
+  final _JettonMetaData _self;
+  final $Res Function(_JettonMetaData) _then;
+
+  /// Create a copy of JettonMetaData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? name = freezed,
+    Object? uri = freezed,
+    Object? symbol = freezed,
+    Object? description = freezed,
+    Object? image = freezed,
+    Object? decimals = freezed,
+  }) {
+    return _then(_JettonMetaData(
+      name: freezed == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      uri: freezed == uri
+          ? _self.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as String?,
+      symbol: freezed == symbol
+          ? _self.symbol
+          : symbol // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image: freezed == image
+          ? _self.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+      decimals: freezed == decimals
+          ? _self.decimals
+          : decimals // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+// dart format on

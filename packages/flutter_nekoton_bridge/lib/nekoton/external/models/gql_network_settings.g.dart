@@ -6,9 +6,8 @@ part of 'gql_network_settings.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GqlNetworkSettingsImpl _$$GqlNetworkSettingsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$GqlNetworkSettingsImpl(
+_GqlNetworkSettings _$GqlNetworkSettingsFromJson(Map<String, dynamic> json) =>
+    _GqlNetworkSettings(
       endpoints:
           (json['endpoints'] as List<dynamic>).map((e) => e as String).toList(),
       latencyDetectionInterval:
@@ -19,8 +18,7 @@ _$GqlNetworkSettingsImpl _$$GqlNetworkSettingsImplFromJson(
       local: json['local'] as bool,
     );
 
-Map<String, dynamic> _$$GqlNetworkSettingsImplToJson(
-        _$GqlNetworkSettingsImpl instance) =>
+Map<String, dynamic> _$GqlNetworkSettingsToJson(_GqlNetworkSettings instance) =>
     <String, dynamic>{
       'endpoints': instance.endpoints,
       'latencyDetectionInterval': instance.latencyDetectionInterval,

@@ -6,8 +6,8 @@ part of 'storage_fee_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StorageFeeInfoImpl _$$StorageFeeInfoImplFromJson(Map<String, dynamic> json) =>
-    _$StorageFeeInfoImpl(
+_StorageFeeInfo _$StorageFeeInfoFromJson(Map<String, dynamic> json) =>
+    _StorageFeeInfo(
       storageFee: json['storageFee'] as String,
       storageFeeDebt: json['storageFeeDebt'] as String?,
       accountStatus: json['accountStatus'] as String,
@@ -15,8 +15,7 @@ _$StorageFeeInfoImpl _$$StorageFeeInfoImplFromJson(Map<String, dynamic> json) =>
       deleteDueLimit: json['deleteDueLimit'] as String,
     );
 
-Map<String, dynamic> _$$StorageFeeInfoImplToJson(
-        _$StorageFeeInfoImpl instance) =>
+Map<String, dynamic> _$StorageFeeInfoToJson(_StorageFeeInfo instance) =>
     <String, dynamic>{
       'storageFee': instance.storageFee,
       'storageFeeDebt': instance.storageFeeDebt,

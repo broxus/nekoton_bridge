@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,49 +10,94 @@ part of 'transaction.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Transaction _$TransactionFromJson(Map<String, dynamic> json) {
-  return _Transaction.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Transaction {
-  TransactionId get id => throw _privateConstructorUsedError;
-  TransactionId? get prevTransactionId => throw _privateConstructorUsedError;
+  TransactionId get id;
+  TransactionId? get prevTransactionId;
   @dateSecondsSinceEpochJsonConverter
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  bool get aborted => throw _privateConstructorUsedError;
+  DateTime get createdAt;
+  bool get aborted;
   @JsonKey(includeIfNull: false)
-  int? get exitCode => throw _privateConstructorUsedError;
+  int? get exitCode;
   @JsonKey(includeIfNull: false)
-  int? get resultCode => throw _privateConstructorUsedError;
-  AccountStatus get origStatus => throw _privateConstructorUsedError;
-  AccountStatus get endStatus => throw _privateConstructorUsedError;
+  int? get resultCode;
+  AccountStatus get origStatus;
+  AccountStatus get endStatus;
   @amountJsonConverter
-  BigInt get totalFees => throw _privateConstructorUsedError;
-  Message get inMessage => throw _privateConstructorUsedError;
-  List<Message> get outMessages => throw _privateConstructorUsedError;
-  String? get boc => throw _privateConstructorUsedError;
-
-  /// Serializes this Transaction to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  BigInt get totalFees;
+  Message get inMessage;
+  List<Message> get outMessages;
+  String? get boc;
 
   /// Create a copy of Transaction
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $TransactionCopyWith<Transaction> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$TransactionCopyWithImpl<Transaction>(this as Transaction, _$identity);
+
+  /// Serializes this Transaction to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Transaction &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.prevTransactionId, prevTransactionId) ||
+                other.prevTransactionId == prevTransactionId) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.aborted, aborted) || other.aborted == aborted) &&
+            (identical(other.exitCode, exitCode) ||
+                other.exitCode == exitCode) &&
+            (identical(other.resultCode, resultCode) ||
+                other.resultCode == resultCode) &&
+            (identical(other.origStatus, origStatus) ||
+                other.origStatus == origStatus) &&
+            (identical(other.endStatus, endStatus) ||
+                other.endStatus == endStatus) &&
+            (identical(other.totalFees, totalFees) ||
+                other.totalFees == totalFees) &&
+            (identical(other.inMessage, inMessage) ||
+                other.inMessage == inMessage) &&
+            const DeepCollectionEquality()
+                .equals(other.outMessages, outMessages) &&
+            (identical(other.boc, boc) || other.boc == boc));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      prevTransactionId,
+      createdAt,
+      aborted,
+      exitCode,
+      resultCode,
+      origStatus,
+      endStatus,
+      totalFees,
+      inMessage,
+      const DeepCollectionEquality().hash(outMessages),
+      boc);
+
+  @override
+  String toString() {
+    return 'Transaction(id: $id, prevTransactionId: $prevTransactionId, createdAt: $createdAt, aborted: $aborted, exitCode: $exitCode, resultCode: $resultCode, origStatus: $origStatus, endStatus: $endStatus, totalFees: $totalFees, inMessage: $inMessage, outMessages: $outMessages, boc: $boc)';
+  }
 }
 
 /// @nodoc
-abstract class $TransactionCopyWith<$Res> {
+abstract mixin class $TransactionCopyWith<$Res> {
   factory $TransactionCopyWith(
-          Transaction value, $Res Function(Transaction) then) =
-      _$TransactionCopyWithImpl<$Res, Transaction>;
+          Transaction value, $Res Function(Transaction) _then) =
+      _$TransactionCopyWithImpl;
   @useResult
   $Res call(
       {TransactionId id,
@@ -73,14 +119,11 @@ abstract class $TransactionCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
-    implements $TransactionCopyWith<$Res> {
-  _$TransactionCopyWithImpl(this._value, this._then);
+class _$TransactionCopyWithImpl<$Res> implements $TransactionCopyWith<$Res> {
+  _$TransactionCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Transaction _self;
+  final $Res Function(Transaction) _then;
 
   /// Create a copy of Transaction
   /// with the given fields replaced by the non-null parameter values.
@@ -100,56 +143,56 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
     Object? outMessages = null,
     Object? boc = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as TransactionId,
       prevTransactionId: freezed == prevTransactionId
-          ? _value.prevTransactionId
+          ? _self.prevTransactionId
           : prevTransactionId // ignore: cast_nullable_to_non_nullable
               as TransactionId?,
       createdAt: null == createdAt
-          ? _value.createdAt
+          ? _self.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
       aborted: null == aborted
-          ? _value.aborted
+          ? _self.aborted
           : aborted // ignore: cast_nullable_to_non_nullable
               as bool,
       exitCode: freezed == exitCode
-          ? _value.exitCode
+          ? _self.exitCode
           : exitCode // ignore: cast_nullable_to_non_nullable
               as int?,
       resultCode: freezed == resultCode
-          ? _value.resultCode
+          ? _self.resultCode
           : resultCode // ignore: cast_nullable_to_non_nullable
               as int?,
       origStatus: null == origStatus
-          ? _value.origStatus
+          ? _self.origStatus
           : origStatus // ignore: cast_nullable_to_non_nullable
               as AccountStatus,
       endStatus: null == endStatus
-          ? _value.endStatus
+          ? _self.endStatus
           : endStatus // ignore: cast_nullable_to_non_nullable
               as AccountStatus,
       totalFees: null == totalFees
-          ? _value.totalFees
+          ? _self.totalFees
           : totalFees // ignore: cast_nullable_to_non_nullable
               as BigInt,
       inMessage: null == inMessage
-          ? _value.inMessage
+          ? _self.inMessage
           : inMessage // ignore: cast_nullable_to_non_nullable
               as Message,
       outMessages: null == outMessages
-          ? _value.outMessages
+          ? _self.outMessages
           : outMessages // ignore: cast_nullable_to_non_nullable
               as List<Message>,
       boc: freezed == boc
-          ? _value.boc
+          ? _self.boc
           : boc // ignore: cast_nullable_to_non_nullable
               as String?,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of Transaction
@@ -157,8 +200,8 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
   @override
   @pragma('vm:prefer-inline')
   $TransactionIdCopyWith<$Res> get id {
-    return $TransactionIdCopyWith<$Res>(_value.id, (value) {
-      return _then(_value.copyWith(id: value) as $Val);
+    return $TransactionIdCopyWith<$Res>(_self.id, (value) {
+      return _then(_self.copyWith(id: value));
     });
   }
 
@@ -167,12 +210,12 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
   @override
   @pragma('vm:prefer-inline')
   $TransactionIdCopyWith<$Res>? get prevTransactionId {
-    if (_value.prevTransactionId == null) {
+    if (_self.prevTransactionId == null) {
       return null;
     }
 
-    return $TransactionIdCopyWith<$Res>(_value.prevTransactionId!, (value) {
-      return _then(_value.copyWith(prevTransactionId: value) as $Val);
+    return $TransactionIdCopyWith<$Res>(_self.prevTransactionId!, (value) {
+      return _then(_self.copyWith(prevTransactionId: value));
     });
   }
 
@@ -181,125 +224,16 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
   @override
   @pragma('vm:prefer-inline')
   $MessageCopyWith<$Res> get inMessage {
-    return $MessageCopyWith<$Res>(_value.inMessage, (value) {
-      return _then(_value.copyWith(inMessage: value) as $Val);
+    return $MessageCopyWith<$Res>(_self.inMessage, (value) {
+      return _then(_self.copyWith(inMessage: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$TransactionImplCopyWith<$Res>
-    implements $TransactionCopyWith<$Res> {
-  factory _$$TransactionImplCopyWith(
-          _$TransactionImpl value, $Res Function(_$TransactionImpl) then) =
-      __$$TransactionImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {TransactionId id,
-      TransactionId? prevTransactionId,
-      @dateSecondsSinceEpochJsonConverter DateTime createdAt,
-      bool aborted,
-      @JsonKey(includeIfNull: false) int? exitCode,
-      @JsonKey(includeIfNull: false) int? resultCode,
-      AccountStatus origStatus,
-      AccountStatus endStatus,
-      @amountJsonConverter BigInt totalFees,
-      Message inMessage,
-      List<Message> outMessages,
-      String? boc});
-
-  @override
-  $TransactionIdCopyWith<$Res> get id;
-  @override
-  $TransactionIdCopyWith<$Res>? get prevTransactionId;
-  @override
-  $MessageCopyWith<$Res> get inMessage;
-}
-
-/// @nodoc
-class __$$TransactionImplCopyWithImpl<$Res>
-    extends _$TransactionCopyWithImpl<$Res, _$TransactionImpl>
-    implements _$$TransactionImplCopyWith<$Res> {
-  __$$TransactionImplCopyWithImpl(
-      _$TransactionImpl _value, $Res Function(_$TransactionImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Transaction
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? prevTransactionId = freezed,
-    Object? createdAt = null,
-    Object? aborted = null,
-    Object? exitCode = freezed,
-    Object? resultCode = freezed,
-    Object? origStatus = null,
-    Object? endStatus = null,
-    Object? totalFees = null,
-    Object? inMessage = null,
-    Object? outMessages = null,
-    Object? boc = freezed,
-  }) {
-    return _then(_$TransactionImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as TransactionId,
-      prevTransactionId: freezed == prevTransactionId
-          ? _value.prevTransactionId
-          : prevTransactionId // ignore: cast_nullable_to_non_nullable
-              as TransactionId?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      aborted: null == aborted
-          ? _value.aborted
-          : aborted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      exitCode: freezed == exitCode
-          ? _value.exitCode
-          : exitCode // ignore: cast_nullable_to_non_nullable
-              as int?,
-      resultCode: freezed == resultCode
-          ? _value.resultCode
-          : resultCode // ignore: cast_nullable_to_non_nullable
-              as int?,
-      origStatus: null == origStatus
-          ? _value.origStatus
-          : origStatus // ignore: cast_nullable_to_non_nullable
-              as AccountStatus,
-      endStatus: null == endStatus
-          ? _value.endStatus
-          : endStatus // ignore: cast_nullable_to_non_nullable
-              as AccountStatus,
-      totalFees: null == totalFees
-          ? _value.totalFees
-          : totalFees // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-      inMessage: null == inMessage
-          ? _value.inMessage
-          : inMessage // ignore: cast_nullable_to_non_nullable
-              as Message,
-      outMessages: null == outMessages
-          ? _value._outMessages
-          : outMessages // ignore: cast_nullable_to_non_nullable
-              as List<Message>,
-      boc: freezed == boc
-          ? _value.boc
-          : boc // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$TransactionImpl extends _Transaction {
-  const _$TransactionImpl(
+class _Transaction extends Transaction {
+  const _Transaction(
       {required this.id,
       this.prevTransactionId,
       @dateSecondsSinceEpochJsonConverter required this.createdAt,
@@ -314,9 +248,8 @@ class _$TransactionImpl extends _Transaction {
       required this.boc})
       : _outMessages = outMessages,
         super._();
-
-  factory _$TransactionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TransactionImplFromJson(json);
+  factory _Transaction.fromJson(Map<String, dynamic> json) =>
+      _$TransactionFromJson(json);
 
   @override
   final TransactionId id;
@@ -353,16 +286,26 @@ class _$TransactionImpl extends _Transaction {
   @override
   final String? boc;
 
+  /// Create a copy of Transaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Transaction(id: $id, prevTransactionId: $prevTransactionId, createdAt: $createdAt, aborted: $aborted, exitCode: $exitCode, resultCode: $resultCode, origStatus: $origStatus, endStatus: $endStatus, totalFees: $totalFees, inMessage: $inMessage, outMessages: $outMessages, boc: $boc)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$TransactionCopyWith<_Transaction> get copyWith =>
+      __$TransactionCopyWithImpl<_Transaction>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TransactionToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TransactionImpl &&
+            other is _Transaction &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.prevTransactionId, prevTransactionId) ||
                 other.prevTransactionId == prevTransactionId) &&
@@ -403,74 +346,152 @@ class _$TransactionImpl extends _Transaction {
       const DeepCollectionEquality().hash(_outMessages),
       boc);
 
-  /// Create a copy of Transaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TransactionImplCopyWith<_$TransactionImpl> get copyWith =>
-      __$$TransactionImplCopyWithImpl<_$TransactionImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TransactionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Transaction(id: $id, prevTransactionId: $prevTransactionId, createdAt: $createdAt, aborted: $aborted, exitCode: $exitCode, resultCode: $resultCode, origStatus: $origStatus, endStatus: $endStatus, totalFees: $totalFees, inMessage: $inMessage, outMessages: $outMessages, boc: $boc)';
   }
 }
 
-abstract class _Transaction extends Transaction {
-  const factory _Transaction(
-      {required final TransactionId id,
-      final TransactionId? prevTransactionId,
-      @dateSecondsSinceEpochJsonConverter required final DateTime createdAt,
-      required final bool aborted,
-      @JsonKey(includeIfNull: false) final int? exitCode,
-      @JsonKey(includeIfNull: false) final int? resultCode,
-      required final AccountStatus origStatus,
-      required final AccountStatus endStatus,
-      @amountJsonConverter required final BigInt totalFees,
-      required final Message inMessage,
-      required final List<Message> outMessages,
-      required final String? boc}) = _$TransactionImpl;
-  const _Transaction._() : super._();
+/// @nodoc
+abstract mixin class _$TransactionCopyWith<$Res>
+    implements $TransactionCopyWith<$Res> {
+  factory _$TransactionCopyWith(
+          _Transaction value, $Res Function(_Transaction) _then) =
+      __$TransactionCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {TransactionId id,
+      TransactionId? prevTransactionId,
+      @dateSecondsSinceEpochJsonConverter DateTime createdAt,
+      bool aborted,
+      @JsonKey(includeIfNull: false) int? exitCode,
+      @JsonKey(includeIfNull: false) int? resultCode,
+      AccountStatus origStatus,
+      AccountStatus endStatus,
+      @amountJsonConverter BigInt totalFees,
+      Message inMessage,
+      List<Message> outMessages,
+      String? boc});
 
-  factory _Transaction.fromJson(Map<String, dynamic> json) =
-      _$TransactionImpl.fromJson;
+  @override
+  $TransactionIdCopyWith<$Res> get id;
+  @override
+  $TransactionIdCopyWith<$Res>? get prevTransactionId;
+  @override
+  $MessageCopyWith<$Res> get inMessage;
+}
 
-  @override
-  TransactionId get id;
-  @override
-  TransactionId? get prevTransactionId;
-  @override
-  @dateSecondsSinceEpochJsonConverter
-  DateTime get createdAt;
-  @override
-  bool get aborted;
-  @override
-  @JsonKey(includeIfNull: false)
-  int? get exitCode;
-  @override
-  @JsonKey(includeIfNull: false)
-  int? get resultCode;
-  @override
-  AccountStatus get origStatus;
-  @override
-  AccountStatus get endStatus;
-  @override
-  @amountJsonConverter
-  BigInt get totalFees;
-  @override
-  Message get inMessage;
-  @override
-  List<Message> get outMessages;
-  @override
-  String? get boc;
+/// @nodoc
+class __$TransactionCopyWithImpl<$Res> implements _$TransactionCopyWith<$Res> {
+  __$TransactionCopyWithImpl(this._self, this._then);
+
+  final _Transaction _self;
+  final $Res Function(_Transaction) _then;
 
   /// Create a copy of Transaction
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TransactionImplCopyWith<_$TransactionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? prevTransactionId = freezed,
+    Object? createdAt = null,
+    Object? aborted = null,
+    Object? exitCode = freezed,
+    Object? resultCode = freezed,
+    Object? origStatus = null,
+    Object? endStatus = null,
+    Object? totalFees = null,
+    Object? inMessage = null,
+    Object? outMessages = null,
+    Object? boc = freezed,
+  }) {
+    return _then(_Transaction(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as TransactionId,
+      prevTransactionId: freezed == prevTransactionId
+          ? _self.prevTransactionId
+          : prevTransactionId // ignore: cast_nullable_to_non_nullable
+              as TransactionId?,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      aborted: null == aborted
+          ? _self.aborted
+          : aborted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      exitCode: freezed == exitCode
+          ? _self.exitCode
+          : exitCode // ignore: cast_nullable_to_non_nullable
+              as int?,
+      resultCode: freezed == resultCode
+          ? _self.resultCode
+          : resultCode // ignore: cast_nullable_to_non_nullable
+              as int?,
+      origStatus: null == origStatus
+          ? _self.origStatus
+          : origStatus // ignore: cast_nullable_to_non_nullable
+              as AccountStatus,
+      endStatus: null == endStatus
+          ? _self.endStatus
+          : endStatus // ignore: cast_nullable_to_non_nullable
+              as AccountStatus,
+      totalFees: null == totalFees
+          ? _self.totalFees
+          : totalFees // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      inMessage: null == inMessage
+          ? _self.inMessage
+          : inMessage // ignore: cast_nullable_to_non_nullable
+              as Message,
+      outMessages: null == outMessages
+          ? _self._outMessages
+          : outMessages // ignore: cast_nullable_to_non_nullable
+              as List<Message>,
+      boc: freezed == boc
+          ? _self.boc
+          : boc // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+
+  /// Create a copy of Transaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TransactionIdCopyWith<$Res> get id {
+    return $TransactionIdCopyWith<$Res>(_self.id, (value) {
+      return _then(_self.copyWith(id: value));
+    });
+  }
+
+  /// Create a copy of Transaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TransactionIdCopyWith<$Res>? get prevTransactionId {
+    if (_self.prevTransactionId == null) {
+      return null;
+    }
+
+    return $TransactionIdCopyWith<$Res>(_self.prevTransactionId!, (value) {
+      return _then(_self.copyWith(prevTransactionId: value));
+    });
+  }
+
+  /// Create a copy of Transaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MessageCopyWith<$Res> get inMessage {
+    return $MessageCopyWith<$Res>(_self.inMessage, (value) {
+      return _then(_self.copyWith(inMessage: value));
+    });
+  }
 }
+
+// dart format on

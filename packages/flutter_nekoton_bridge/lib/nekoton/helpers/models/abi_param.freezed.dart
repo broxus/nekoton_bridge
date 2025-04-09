@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,93 +10,61 @@ part of 'abi_param.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-AbiParam _$AbiParamFromJson(Map<String, dynamic> json) {
-  return _AbiParam.fromJson(json);
-}
 
 /// @nodoc
 mixin _$AbiParam {
-  String get name => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
-  List<AbiParam>? get components => throw _privateConstructorUsedError;
-
-  /// Serializes this AbiParam to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get name;
+  String get type;
+  List<AbiParam>? get components;
 
   /// Create a copy of AbiParam
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $AbiParamCopyWith<AbiParam> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $AbiParamCopyWith<$Res> {
-  factory $AbiParamCopyWith(AbiParam value, $Res Function(AbiParam) then) =
-      _$AbiParamCopyWithImpl<$Res, AbiParam>;
-  @useResult
-  $Res call({String name, String type, List<AbiParam>? components});
-}
-
-/// @nodoc
-class _$AbiParamCopyWithImpl<$Res, $Val extends AbiParam>
-    implements $AbiParamCopyWith<$Res> {
-  _$AbiParamCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of AbiParam
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $AbiParamCopyWith<AbiParam> get copyWith =>
+      _$AbiParamCopyWithImpl<AbiParam>(this as AbiParam, _$identity);
+
+  /// Serializes this AbiParam to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? name = null,
-    Object? type = null,
-    Object? components = freezed,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      components: freezed == components
-          ? _value.components
-          : components // ignore: cast_nullable_to_non_nullable
-              as List<AbiParam>?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is AbiParam &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.type, type) || other.type == type) &&
+            const DeepCollectionEquality()
+                .equals(other.components, components));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, name, type, const DeepCollectionEquality().hash(components));
+
+  @override
+  String toString() {
+    return 'AbiParam(name: $name, type: $type, components: $components)';
   }
 }
 
 /// @nodoc
-abstract class _$$AbiParamImplCopyWith<$Res>
-    implements $AbiParamCopyWith<$Res> {
-  factory _$$AbiParamImplCopyWith(
-          _$AbiParamImpl value, $Res Function(_$AbiParamImpl) then) =
-      __$$AbiParamImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $AbiParamCopyWith<$Res> {
+  factory $AbiParamCopyWith(AbiParam value, $Res Function(AbiParam) _then) =
+      _$AbiParamCopyWithImpl;
   @useResult
   $Res call({String name, String type, List<AbiParam>? components});
 }
 
 /// @nodoc
-class __$$AbiParamImplCopyWithImpl<$Res>
-    extends _$AbiParamCopyWithImpl<$Res, _$AbiParamImpl>
-    implements _$$AbiParamImplCopyWith<$Res> {
-  __$$AbiParamImplCopyWithImpl(
-      _$AbiParamImpl _value, $Res Function(_$AbiParamImpl) _then)
-      : super(_value, _then);
+class _$AbiParamCopyWithImpl<$Res> implements $AbiParamCopyWith<$Res> {
+  _$AbiParamCopyWithImpl(this._self, this._then);
+
+  final AbiParam _self;
+  final $Res Function(AbiParam) _then;
 
   /// Create a copy of AbiParam
   /// with the given fields replaced by the non-null parameter values.
@@ -106,17 +75,17 @@ class __$$AbiParamImplCopyWithImpl<$Res>
     Object? type = null,
     Object? components = freezed,
   }) {
-    return _then(_$AbiParamImpl(
+    return _then(_self.copyWith(
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       components: freezed == components
-          ? _value._components
+          ? _self.components
           : components // ignore: cast_nullable_to_non_nullable
               as List<AbiParam>?,
     ));
@@ -125,15 +94,14 @@ class __$$AbiParamImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AbiParamImpl implements _AbiParam {
-  const _$AbiParamImpl(
+class _AbiParam implements AbiParam {
+  const _AbiParam(
       {required this.name,
       required this.type,
       final List<AbiParam>? components})
       : _components = components;
-
-  factory _$AbiParamImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AbiParamImplFromJson(json);
+  factory _AbiParam.fromJson(Map<String, dynamic> json) =>
+      _$AbiParamFromJson(json);
 
   @override
   final String name;
@@ -149,16 +117,26 @@ class _$AbiParamImpl implements _AbiParam {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Create a copy of AbiParam
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'AbiParam(name: $name, type: $type, components: $components)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$AbiParamCopyWith<_AbiParam> get copyWith =>
+      __$AbiParamCopyWithImpl<_AbiParam>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$AbiParamToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AbiParamImpl &&
+            other is _AbiParam &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality()
@@ -170,42 +148,53 @@ class _$AbiParamImpl implements _AbiParam {
   int get hashCode => Object.hash(runtimeType, name, type,
       const DeepCollectionEquality().hash(_components));
 
-  /// Create a copy of AbiParam
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$AbiParamImplCopyWith<_$AbiParamImpl> get copyWith =>
-      __$$AbiParamImplCopyWithImpl<_$AbiParamImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AbiParamImplToJson(
-      this,
-    );
+  String toString() {
+    return 'AbiParam(name: $name, type: $type, components: $components)';
   }
 }
 
-abstract class _AbiParam implements AbiParam {
-  const factory _AbiParam(
-      {required final String name,
-      required final String type,
-      final List<AbiParam>? components}) = _$AbiParamImpl;
+/// @nodoc
+abstract mixin class _$AbiParamCopyWith<$Res>
+    implements $AbiParamCopyWith<$Res> {
+  factory _$AbiParamCopyWith(_AbiParam value, $Res Function(_AbiParam) _then) =
+      __$AbiParamCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String name, String type, List<AbiParam>? components});
+}
 
-  factory _AbiParam.fromJson(Map<String, dynamic> json) =
-      _$AbiParamImpl.fromJson;
+/// @nodoc
+class __$AbiParamCopyWithImpl<$Res> implements _$AbiParamCopyWith<$Res> {
+  __$AbiParamCopyWithImpl(this._self, this._then);
 
-  @override
-  String get name;
-  @override
-  String get type;
-  @override
-  List<AbiParam>? get components;
+  final _AbiParam _self;
+  final $Res Function(_AbiParam) _then;
 
   /// Create a copy of AbiParam
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AbiParamImplCopyWith<_$AbiParamImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? name = null,
+    Object? type = null,
+    Object? components = freezed,
+  }) {
+    return _then(_AbiParam(
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      components: freezed == components
+          ? _self._components
+          : components // ignore: cast_nullable_to_non_nullable
+              as List<AbiParam>?,
+    ));
+  }
 }
+
+// dart format on

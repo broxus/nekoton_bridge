@@ -6,18 +6,18 @@ part of 'transaction_with_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-TransactionWithData<T> _$TransactionWithDataFromJson<T>(
+_TransactionWithData<T> _$TransactionWithDataFromJson<T>(
   Map<String, dynamic> json,
   T Function(Object? json) fromJsonT,
 ) =>
-    TransactionWithData<T>(
+    _TransactionWithData<T>(
       transaction:
           Transaction.fromJson(json['transaction'] as Map<String, dynamic>),
       data: _$nullableGenericFromJson(json['data'], fromJsonT),
     );
 
 Map<String, dynamic> _$TransactionWithDataToJson<T>(
-  TransactionWithData<T> instance,
+  _TransactionWithData<T> instance,
   Object? Function(T value) toJsonT,
 ) =>
     <String, dynamic>{

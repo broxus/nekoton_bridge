@@ -6,15 +6,14 @@ part of 'token_wallet_deployed_notification.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TokenWalletDeployedNotificationImpl
-    _$$TokenWalletDeployedNotificationImplFromJson(Map<String, dynamic> json) =>
-        _$TokenWalletDeployedNotificationImpl(
-          rootTokenContract:
-              Address.fromJson(json['rootTokenContract'] as String),
-        );
+_TokenWalletDeployedNotification _$TokenWalletDeployedNotificationFromJson(
+        Map<String, dynamic> json) =>
+    _TokenWalletDeployedNotification(
+      rootTokenContract: Address.fromJson(json['rootTokenContract'] as String),
+    );
 
-Map<String, dynamic> _$$TokenWalletDeployedNotificationImplToJson(
-        _$TokenWalletDeployedNotificationImpl instance) =>
+Map<String, dynamic> _$TokenWalletDeployedNotificationToJson(
+        _TokenWalletDeployedNotification instance) =>
     <String, dynamic>{
       'rootTokenContract': instance.rootTokenContract.toJson(),
     };

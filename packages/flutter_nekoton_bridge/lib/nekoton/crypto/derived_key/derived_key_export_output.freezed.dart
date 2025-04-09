@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,87 +10,58 @@ part of 'derived_key_export_output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-DerivedKeyExportOutput _$DerivedKeyExportOutputFromJson(
-    Map<String, dynamic> json) {
-  return _DerivedKeyExportOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$DerivedKeyExportOutput {
-  String get phrase => throw _privateConstructorUsedError;
-
-  /// Serializes this DerivedKeyExportOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get phrase;
 
   /// Create a copy of DerivedKeyExportOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $DerivedKeyExportOutputCopyWith<DerivedKeyExportOutput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $DerivedKeyExportOutputCopyWith<$Res> {
-  factory $DerivedKeyExportOutputCopyWith(DerivedKeyExportOutput value,
-          $Res Function(DerivedKeyExportOutput) then) =
-      _$DerivedKeyExportOutputCopyWithImpl<$Res, DerivedKeyExportOutput>;
-  @useResult
-  $Res call({String phrase});
-}
-
-/// @nodoc
-class _$DerivedKeyExportOutputCopyWithImpl<$Res,
-        $Val extends DerivedKeyExportOutput>
-    implements $DerivedKeyExportOutputCopyWith<$Res> {
-  _$DerivedKeyExportOutputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of DerivedKeyExportOutput
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $DerivedKeyExportOutputCopyWith<DerivedKeyExportOutput> get copyWith =>
+      _$DerivedKeyExportOutputCopyWithImpl<DerivedKeyExportOutput>(
+          this as DerivedKeyExportOutput, _$identity);
+
+  /// Serializes this DerivedKeyExportOutput to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? phrase = null,
-  }) {
-    return _then(_value.copyWith(
-      phrase: null == phrase
-          ? _value.phrase
-          : phrase // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DerivedKeyExportOutput &&
+            (identical(other.phrase, phrase) || other.phrase == phrase));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, phrase);
+
+  @override
+  String toString() {
+    return 'DerivedKeyExportOutput(phrase: $phrase)';
   }
 }
 
 /// @nodoc
-abstract class _$$DerivedKeyExportOutputImplCopyWith<$Res>
-    implements $DerivedKeyExportOutputCopyWith<$Res> {
-  factory _$$DerivedKeyExportOutputImplCopyWith(
-          _$DerivedKeyExportOutputImpl value,
-          $Res Function(_$DerivedKeyExportOutputImpl) then) =
-      __$$DerivedKeyExportOutputImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $DerivedKeyExportOutputCopyWith<$Res> {
+  factory $DerivedKeyExportOutputCopyWith(DerivedKeyExportOutput value,
+          $Res Function(DerivedKeyExportOutput) _then) =
+      _$DerivedKeyExportOutputCopyWithImpl;
   @useResult
   $Res call({String phrase});
 }
 
 /// @nodoc
-class __$$DerivedKeyExportOutputImplCopyWithImpl<$Res>
-    extends _$DerivedKeyExportOutputCopyWithImpl<$Res,
-        _$DerivedKeyExportOutputImpl>
-    implements _$$DerivedKeyExportOutputImplCopyWith<$Res> {
-  __$$DerivedKeyExportOutputImplCopyWithImpl(
-      _$DerivedKeyExportOutputImpl _value,
-      $Res Function(_$DerivedKeyExportOutputImpl) _then)
-      : super(_value, _then);
+class _$DerivedKeyExportOutputCopyWithImpl<$Res>
+    implements $DerivedKeyExportOutputCopyWith<$Res> {
+  _$DerivedKeyExportOutputCopyWithImpl(this._self, this._then);
+
+  final DerivedKeyExportOutput _self;
+  final $Res Function(DerivedKeyExportOutput) _then;
 
   /// Create a copy of DerivedKeyExportOutput
   /// with the given fields replaced by the non-null parameter values.
@@ -98,9 +70,9 @@ class __$$DerivedKeyExportOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? phrase = null,
   }) {
-    return _then(_$DerivedKeyExportOutputImpl(
+    return _then(_self.copyWith(
       phrase: null == phrase
-          ? _value.phrase
+          ? _self.phrase
           : phrase // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -109,25 +81,35 @@ class __$$DerivedKeyExportOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$DerivedKeyExportOutputImpl implements _DerivedKeyExportOutput {
-  const _$DerivedKeyExportOutputImpl({required this.phrase});
-
-  factory _$DerivedKeyExportOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DerivedKeyExportOutputImplFromJson(json);
+class _DerivedKeyExportOutput implements DerivedKeyExportOutput {
+  const _DerivedKeyExportOutput({required this.phrase});
+  factory _DerivedKeyExportOutput.fromJson(Map<String, dynamic> json) =>
+      _$DerivedKeyExportOutputFromJson(json);
 
   @override
   final String phrase;
 
+  /// Create a copy of DerivedKeyExportOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'DerivedKeyExportOutput(phrase: $phrase)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$DerivedKeyExportOutputCopyWith<_DerivedKeyExportOutput> get copyWith =>
+      __$DerivedKeyExportOutputCopyWithImpl<_DerivedKeyExportOutput>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$DerivedKeyExportOutputToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DerivedKeyExportOutputImpl &&
+            other is _DerivedKeyExportOutput &&
             (identical(other.phrase, phrase) || other.phrase == phrase));
   }
 
@@ -135,37 +117,45 @@ class _$DerivedKeyExportOutputImpl implements _DerivedKeyExportOutput {
   @override
   int get hashCode => Object.hash(runtimeType, phrase);
 
-  /// Create a copy of DerivedKeyExportOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DerivedKeyExportOutputImplCopyWith<_$DerivedKeyExportOutputImpl>
-      get copyWith => __$$DerivedKeyExportOutputImplCopyWithImpl<
-          _$DerivedKeyExportOutputImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DerivedKeyExportOutputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'DerivedKeyExportOutput(phrase: $phrase)';
   }
 }
 
-abstract class _DerivedKeyExportOutput implements DerivedKeyExportOutput {
-  const factory _DerivedKeyExportOutput({required final String phrase}) =
-      _$DerivedKeyExportOutputImpl;
-
-  factory _DerivedKeyExportOutput.fromJson(Map<String, dynamic> json) =
-      _$DerivedKeyExportOutputImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$DerivedKeyExportOutputCopyWith<$Res>
+    implements $DerivedKeyExportOutputCopyWith<$Res> {
+  factory _$DerivedKeyExportOutputCopyWith(_DerivedKeyExportOutput value,
+          $Res Function(_DerivedKeyExportOutput) _then) =
+      __$DerivedKeyExportOutputCopyWithImpl;
   @override
-  String get phrase;
+  @useResult
+  $Res call({String phrase});
+}
+
+/// @nodoc
+class __$DerivedKeyExportOutputCopyWithImpl<$Res>
+    implements _$DerivedKeyExportOutputCopyWith<$Res> {
+  __$DerivedKeyExportOutputCopyWithImpl(this._self, this._then);
+
+  final _DerivedKeyExportOutput _self;
+  final $Res Function(_DerivedKeyExportOutput) _then;
 
   /// Create a copy of DerivedKeyExportOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DerivedKeyExportOutputImplCopyWith<_$DerivedKeyExportOutputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? phrase = null,
+  }) {
+    return _then(_DerivedKeyExportOutput(
+      phrase: null == phrase
+          ? _self.phrase
+          : phrase // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

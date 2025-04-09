@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,121 +10,29 @@ part of 'proto_network_settings.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ProtoNetworkSettings _$ProtoNetworkSettingsFromJson(Map<String, dynamic> json) {
-  return _ProtoNetworkSettings.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ProtoNetworkSettings {
-  String get endpoint => throw _privateConstructorUsedError;
-
-  /// Serializes this ProtoNetworkSettings to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get endpoint;
 
   /// Create a copy of ProtoNetworkSettings
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ProtoNetworkSettingsCopyWith<ProtoNetworkSettings> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$ProtoNetworkSettingsCopyWithImpl<ProtoNetworkSettings>(
+          this as ProtoNetworkSettings, _$identity);
 
-/// @nodoc
-abstract class $ProtoNetworkSettingsCopyWith<$Res> {
-  factory $ProtoNetworkSettingsCopyWith(ProtoNetworkSettings value,
-          $Res Function(ProtoNetworkSettings) then) =
-      _$ProtoNetworkSettingsCopyWithImpl<$Res, ProtoNetworkSettings>;
-  @useResult
-  $Res call({String endpoint});
-}
-
-/// @nodoc
-class _$ProtoNetworkSettingsCopyWithImpl<$Res,
-        $Val extends ProtoNetworkSettings>
-    implements $ProtoNetworkSettingsCopyWith<$Res> {
-  _$ProtoNetworkSettingsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ProtoNetworkSettings
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? endpoint = null,
-  }) {
-    return _then(_value.copyWith(
-      endpoint: null == endpoint
-          ? _value.endpoint
-          : endpoint // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$ProtoNetworkSettingsImplCopyWith<$Res>
-    implements $ProtoNetworkSettingsCopyWith<$Res> {
-  factory _$$ProtoNetworkSettingsImplCopyWith(_$ProtoNetworkSettingsImpl value,
-          $Res Function(_$ProtoNetworkSettingsImpl) then) =
-      __$$ProtoNetworkSettingsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String endpoint});
-}
-
-/// @nodoc
-class __$$ProtoNetworkSettingsImplCopyWithImpl<$Res>
-    extends _$ProtoNetworkSettingsCopyWithImpl<$Res, _$ProtoNetworkSettingsImpl>
-    implements _$$ProtoNetworkSettingsImplCopyWith<$Res> {
-  __$$ProtoNetworkSettingsImplCopyWithImpl(_$ProtoNetworkSettingsImpl _value,
-      $Res Function(_$ProtoNetworkSettingsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ProtoNetworkSettings
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? endpoint = null,
-  }) {
-    return _then(_$ProtoNetworkSettingsImpl(
-      endpoint: null == endpoint
-          ? _value.endpoint
-          : endpoint // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ProtoNetworkSettingsImpl implements _ProtoNetworkSettings {
-  const _$ProtoNetworkSettingsImpl({required this.endpoint});
-
-  factory _$ProtoNetworkSettingsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ProtoNetworkSettingsImplFromJson(json);
-
-  @override
-  final String endpoint;
-
-  @override
-  String toString() {
-    return 'ProtoNetworkSettings(endpoint: $endpoint)';
-  }
+  /// Serializes this ProtoNetworkSettings to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProtoNetworkSettingsImpl &&
+            other is ProtoNetworkSettings &&
             (identical(other.endpoint, endpoint) ||
                 other.endpoint == endpoint));
   }
@@ -132,38 +41,123 @@ class _$ProtoNetworkSettingsImpl implements _ProtoNetworkSettings {
   @override
   int get hashCode => Object.hash(runtimeType, endpoint);
 
-  /// Create a copy of ProtoNetworkSettings
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ProtoNetworkSettingsImplCopyWith<_$ProtoNetworkSettingsImpl>
-      get copyWith =>
-          __$$ProtoNetworkSettingsImplCopyWithImpl<_$ProtoNetworkSettingsImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ProtoNetworkSettingsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ProtoNetworkSettings(endpoint: $endpoint)';
   }
 }
 
-abstract class _ProtoNetworkSettings implements ProtoNetworkSettings {
-  const factory _ProtoNetworkSettings({required final String endpoint}) =
-      _$ProtoNetworkSettingsImpl;
+/// @nodoc
+abstract mixin class $ProtoNetworkSettingsCopyWith<$Res> {
+  factory $ProtoNetworkSettingsCopyWith(ProtoNetworkSettings value,
+          $Res Function(ProtoNetworkSettings) _then) =
+      _$ProtoNetworkSettingsCopyWithImpl;
+  @useResult
+  $Res call({String endpoint});
+}
 
-  factory _ProtoNetworkSettings.fromJson(Map<String, dynamic> json) =
-      _$ProtoNetworkSettingsImpl.fromJson;
+/// @nodoc
+class _$ProtoNetworkSettingsCopyWithImpl<$Res>
+    implements $ProtoNetworkSettingsCopyWith<$Res> {
+  _$ProtoNetworkSettingsCopyWithImpl(this._self, this._then);
+
+  final ProtoNetworkSettings _self;
+  final $Res Function(ProtoNetworkSettings) _then;
+
+  /// Create a copy of ProtoNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? endpoint = null,
+  }) {
+    return _then(_self.copyWith(
+      endpoint: null == endpoint
+          ? _self.endpoint
+          : endpoint // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _ProtoNetworkSettings implements ProtoNetworkSettings {
+  const _ProtoNetworkSettings({required this.endpoint});
+  factory _ProtoNetworkSettings.fromJson(Map<String, dynamic> json) =>
+      _$ProtoNetworkSettingsFromJson(json);
 
   @override
-  String get endpoint;
+  final String endpoint;
 
   /// Create a copy of ProtoNetworkSettings
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ProtoNetworkSettingsImplCopyWith<_$ProtoNetworkSettingsImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$ProtoNetworkSettingsCopyWith<_ProtoNetworkSettings> get copyWith =>
+      __$ProtoNetworkSettingsCopyWithImpl<_ProtoNetworkSettings>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ProtoNetworkSettingsToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ProtoNetworkSettings &&
+            (identical(other.endpoint, endpoint) ||
+                other.endpoint == endpoint));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, endpoint);
+
+  @override
+  String toString() {
+    return 'ProtoNetworkSettings(endpoint: $endpoint)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$ProtoNetworkSettingsCopyWith<$Res>
+    implements $ProtoNetworkSettingsCopyWith<$Res> {
+  factory _$ProtoNetworkSettingsCopyWith(_ProtoNetworkSettings value,
+          $Res Function(_ProtoNetworkSettings) _then) =
+      __$ProtoNetworkSettingsCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String endpoint});
+}
+
+/// @nodoc
+class __$ProtoNetworkSettingsCopyWithImpl<$Res>
+    implements _$ProtoNetworkSettingsCopyWith<$Res> {
+  __$ProtoNetworkSettingsCopyWithImpl(this._self, this._then);
+
+  final _ProtoNetworkSettings _self;
+  final $Res Function(_ProtoNetworkSettings) _then;
+
+  /// Create a copy of ProtoNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? endpoint = null,
+  }) {
+    return _then(_ProtoNetworkSettings(
+      endpoint: null == endpoint
+          ? _self.endpoint
+          : endpoint // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

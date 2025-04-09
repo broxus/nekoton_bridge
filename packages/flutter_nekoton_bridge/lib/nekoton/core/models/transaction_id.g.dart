@@ -6,13 +6,13 @@ part of 'transaction_id.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TransactionIdImpl _$$TransactionIdImplFromJson(Map<String, dynamic> json) =>
-    _$TransactionIdImpl(
+_TransactionId _$TransactionIdFromJson(Map<String, dynamic> json) =>
+    _TransactionId(
       lt: json['lt'] as String,
       hash: json['hash'] as String,
     );
 
-Map<String, dynamic> _$$TransactionIdImplToJson(_$TransactionIdImpl instance) =>
+Map<String, dynamic> _$TransactionIdToJson(_TransactionId instance) =>
     <String, dynamic>{
       'lt': instance.lt,
       'hash': instance.hash,

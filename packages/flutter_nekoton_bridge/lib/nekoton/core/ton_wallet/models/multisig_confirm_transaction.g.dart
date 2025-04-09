@@ -6,15 +6,15 @@ part of 'multisig_confirm_transaction.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MultisigConfirmTransactionImpl _$$MultisigConfirmTransactionImplFromJson(
+_MultisigConfirmTransaction _$MultisigConfirmTransactionFromJson(
         Map<String, dynamic> json) =>
-    _$MultisigConfirmTransactionImpl(
+    _MultisigConfirmTransaction(
       custodian: PublicKey.fromJson(json['custodian'] as String),
       transactionId: json['transactionId'] as String,
     );
 
-Map<String, dynamic> _$$MultisigConfirmTransactionImplToJson(
-        _$MultisigConfirmTransactionImpl instance) =>
+Map<String, dynamic> _$MultisigConfirmTransactionToJson(
+        _MultisigConfirmTransaction instance) =>
     <String, dynamic>{
       'custodian': instance.custodian.toJson(),
       'transactionId': instance.transactionId,

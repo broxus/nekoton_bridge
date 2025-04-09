@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,177 +10,32 @@ part of 'pending_transaction.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-PendingTransaction _$PendingTransactionFromJson(Map<String, dynamic> json) {
-  return _PendingTransaction.fromJson(json);
-}
 
 /// @nodoc
 mixin _$PendingTransaction {
-  String get messageHash => throw _privateConstructorUsedError;
-  Address? get src => throw _privateConstructorUsedError;
+  String get messageHash;
+  Address? get src;
   @dateSecondsSinceEpochJsonConverter
-  DateTime get expireAt => throw _privateConstructorUsedError;
-
-  /// Serializes this PendingTransaction to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  DateTime get expireAt;
 
   /// Create a copy of PendingTransaction
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $PendingTransactionCopyWith<PendingTransaction> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$PendingTransactionCopyWithImpl<PendingTransaction>(
+          this as PendingTransaction, _$identity);
 
-/// @nodoc
-abstract class $PendingTransactionCopyWith<$Res> {
-  factory $PendingTransactionCopyWith(
-          PendingTransaction value, $Res Function(PendingTransaction) then) =
-      _$PendingTransactionCopyWithImpl<$Res, PendingTransaction>;
-  @useResult
-  $Res call(
-      {String messageHash,
-      Address? src,
-      @dateSecondsSinceEpochJsonConverter DateTime expireAt});
-
-  $AddressCopyWith<$Res>? get src;
-}
-
-/// @nodoc
-class _$PendingTransactionCopyWithImpl<$Res, $Val extends PendingTransaction>
-    implements $PendingTransactionCopyWith<$Res> {
-  _$PendingTransactionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of PendingTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? messageHash = null,
-    Object? src = freezed,
-    Object? expireAt = null,
-  }) {
-    return _then(_value.copyWith(
-      messageHash: null == messageHash
-          ? _value.messageHash
-          : messageHash // ignore: cast_nullable_to_non_nullable
-              as String,
-      src: freezed == src
-          ? _value.src
-          : src // ignore: cast_nullable_to_non_nullable
-              as Address?,
-      expireAt: null == expireAt
-          ? _value.expireAt
-          : expireAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
-  }
-
-  /// Create a copy of PendingTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res>? get src {
-    if (_value.src == null) {
-      return null;
-    }
-
-    return $AddressCopyWith<$Res>(_value.src!, (value) {
-      return _then(_value.copyWith(src: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$PendingTransactionImplCopyWith<$Res>
-    implements $PendingTransactionCopyWith<$Res> {
-  factory _$$PendingTransactionImplCopyWith(_$PendingTransactionImpl value,
-          $Res Function(_$PendingTransactionImpl) then) =
-      __$$PendingTransactionImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String messageHash,
-      Address? src,
-      @dateSecondsSinceEpochJsonConverter DateTime expireAt});
-
-  @override
-  $AddressCopyWith<$Res>? get src;
-}
-
-/// @nodoc
-class __$$PendingTransactionImplCopyWithImpl<$Res>
-    extends _$PendingTransactionCopyWithImpl<$Res, _$PendingTransactionImpl>
-    implements _$$PendingTransactionImplCopyWith<$Res> {
-  __$$PendingTransactionImplCopyWithImpl(_$PendingTransactionImpl _value,
-      $Res Function(_$PendingTransactionImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of PendingTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? messageHash = null,
-    Object? src = freezed,
-    Object? expireAt = null,
-  }) {
-    return _then(_$PendingTransactionImpl(
-      messageHash: null == messageHash
-          ? _value.messageHash
-          : messageHash // ignore: cast_nullable_to_non_nullable
-              as String,
-      src: freezed == src
-          ? _value.src
-          : src // ignore: cast_nullable_to_non_nullable
-              as Address?,
-      expireAt: null == expireAt
-          ? _value.expireAt
-          : expireAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$PendingTransactionImpl extends _PendingTransaction {
-  const _$PendingTransactionImpl(
-      {required this.messageHash,
-      this.src,
-      @dateSecondsSinceEpochJsonConverter required this.expireAt})
-      : super._();
-
-  factory _$PendingTransactionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PendingTransactionImplFromJson(json);
-
-  @override
-  final String messageHash;
-  @override
-  final Address? src;
-  @override
-  @dateSecondsSinceEpochJsonConverter
-  final DateTime expireAt;
-
-  @override
-  String toString() {
-    return 'PendingTransaction(messageHash: $messageHash, src: $src, expireAt: $expireAt)';
-  }
+  /// Serializes this PendingTransaction to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PendingTransactionImpl &&
+            other is PendingTransaction &&
             (identical(other.messageHash, messageHash) ||
                 other.messageHash == messageHash) &&
             (identical(other.src, src) || other.src == src) &&
@@ -191,46 +47,193 @@ class _$PendingTransactionImpl extends _PendingTransaction {
   @override
   int get hashCode => Object.hash(runtimeType, messageHash, src, expireAt);
 
-  /// Create a copy of PendingTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$PendingTransactionImplCopyWith<_$PendingTransactionImpl> get copyWith =>
-      __$$PendingTransactionImplCopyWithImpl<_$PendingTransactionImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PendingTransactionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'PendingTransaction(messageHash: $messageHash, src: $src, expireAt: $expireAt)';
   }
 }
 
-abstract class _PendingTransaction extends PendingTransaction {
-  const factory _PendingTransaction(
-      {required final String messageHash,
-      final Address? src,
-      @dateSecondsSinceEpochJsonConverter
-      required final DateTime expireAt}) = _$PendingTransactionImpl;
-  const _PendingTransaction._() : super._();
+/// @nodoc
+abstract mixin class $PendingTransactionCopyWith<$Res> {
+  factory $PendingTransactionCopyWith(
+          PendingTransaction value, $Res Function(PendingTransaction) _then) =
+      _$PendingTransactionCopyWithImpl;
+  @useResult
+  $Res call(
+      {String messageHash,
+      Address? src,
+      @dateSecondsSinceEpochJsonConverter DateTime expireAt});
 
-  factory _PendingTransaction.fromJson(Map<String, dynamic> json) =
-      _$PendingTransactionImpl.fromJson;
+  $AddressCopyWith<$Res>? get src;
+}
+
+/// @nodoc
+class _$PendingTransactionCopyWithImpl<$Res>
+    implements $PendingTransactionCopyWith<$Res> {
+  _$PendingTransactionCopyWithImpl(this._self, this._then);
+
+  final PendingTransaction _self;
+  final $Res Function(PendingTransaction) _then;
+
+  /// Create a copy of PendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? messageHash = null,
+    Object? src = freezed,
+    Object? expireAt = null,
+  }) {
+    return _then(_self.copyWith(
+      messageHash: null == messageHash
+          ? _self.messageHash
+          : messageHash // ignore: cast_nullable_to_non_nullable
+              as String,
+      src: freezed == src
+          ? _self.src
+          : src // ignore: cast_nullable_to_non_nullable
+              as Address?,
+      expireAt: null == expireAt
+          ? _self.expireAt
+          : expireAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+
+  /// Create a copy of PendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res>? get src {
+    if (_self.src == null) {
+      return null;
+    }
+
+    return $AddressCopyWith<$Res>(_self.src!, (value) {
+      return _then(_self.copyWith(src: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _PendingTransaction extends PendingTransaction {
+  const _PendingTransaction(
+      {required this.messageHash,
+      this.src,
+      @dateSecondsSinceEpochJsonConverter required this.expireAt})
+      : super._();
+  factory _PendingTransaction.fromJson(Map<String, dynamic> json) =>
+      _$PendingTransactionFromJson(json);
 
   @override
-  String get messageHash;
+  final String messageHash;
   @override
-  Address? get src;
+  final Address? src;
   @override
   @dateSecondsSinceEpochJsonConverter
-  DateTime get expireAt;
+  final DateTime expireAt;
 
   /// Create a copy of PendingTransaction
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PendingTransactionImplCopyWith<_$PendingTransactionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$PendingTransactionCopyWith<_PendingTransaction> get copyWith =>
+      __$PendingTransactionCopyWithImpl<_PendingTransaction>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$PendingTransactionToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _PendingTransaction &&
+            (identical(other.messageHash, messageHash) ||
+                other.messageHash == messageHash) &&
+            (identical(other.src, src) || other.src == src) &&
+            (identical(other.expireAt, expireAt) ||
+                other.expireAt == expireAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, messageHash, src, expireAt);
+
+  @override
+  String toString() {
+    return 'PendingTransaction(messageHash: $messageHash, src: $src, expireAt: $expireAt)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$PendingTransactionCopyWith<$Res>
+    implements $PendingTransactionCopyWith<$Res> {
+  factory _$PendingTransactionCopyWith(
+          _PendingTransaction value, $Res Function(_PendingTransaction) _then) =
+      __$PendingTransactionCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String messageHash,
+      Address? src,
+      @dateSecondsSinceEpochJsonConverter DateTime expireAt});
+
+  @override
+  $AddressCopyWith<$Res>? get src;
+}
+
+/// @nodoc
+class __$PendingTransactionCopyWithImpl<$Res>
+    implements _$PendingTransactionCopyWith<$Res> {
+  __$PendingTransactionCopyWithImpl(this._self, this._then);
+
+  final _PendingTransaction _self;
+  final $Res Function(_PendingTransaction) _then;
+
+  /// Create a copy of PendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? messageHash = null,
+    Object? src = freezed,
+    Object? expireAt = null,
+  }) {
+    return _then(_PendingTransaction(
+      messageHash: null == messageHash
+          ? _self.messageHash
+          : messageHash // ignore: cast_nullable_to_non_nullable
+              as String,
+      src: freezed == src
+          ? _self.src
+          : src // ignore: cast_nullable_to_non_nullable
+              as Address?,
+      expireAt: null == expireAt
+          ? _self.expireAt
+          : expireAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+
+  /// Create a copy of PendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res>? get src {
+    if (_self.src == null) {
+      return null;
+    }
+
+    return $AddressCopyWith<$Res>(_self.src!, (value) {
+      return _then(_self.copyWith(src: value));
+    });
+  }
+}
+
+// dart format on

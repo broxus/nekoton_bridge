@@ -6,9 +6,9 @@ part of 'encrypted_key_create_input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EncryptedKeyCreateInputImpl _$$EncryptedKeyCreateInputImplFromJson(
+_EncryptedKeyCreateInput _$EncryptedKeyCreateInputFromJson(
         Map<String, dynamic> json) =>
-    _$EncryptedKeyCreateInputImpl(
+    _EncryptedKeyCreateInput(
       name: json['name'] as String?,
       phrase: json['phrase'] as String,
       mnemonicType: mnemonicJsonConverter
@@ -16,8 +16,8 @@ _$EncryptedKeyCreateInputImpl _$$EncryptedKeyCreateInputImplFromJson(
       password: Password.fromJson(json['password'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$EncryptedKeyCreateInputImplToJson(
-        _$EncryptedKeyCreateInputImpl instance) =>
+Map<String, dynamic> _$EncryptedKeyCreateInputToJson(
+        _EncryptedKeyCreateInput instance) =>
     <String, dynamic>{
       'name': instance.name,
       'phrase': instance.phrase,

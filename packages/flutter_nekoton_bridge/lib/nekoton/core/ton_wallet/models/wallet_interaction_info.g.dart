@@ -6,9 +6,9 @@ part of 'wallet_interaction_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$WalletInteractionInfoImpl _$$WalletInteractionInfoImplFromJson(
+_WalletInteractionInfo _$WalletInteractionInfoFromJson(
         Map<String, dynamic> json) =>
-    _$WalletInteractionInfoImpl(
+    _WalletInteractionInfo(
       recipient: json['recipient'] == null
           ? null
           : Address.fromJson(json['recipient'] as String),
@@ -19,8 +19,8 @@ _$WalletInteractionInfoImpl _$$WalletInteractionInfoImplFromJson(
           json['method'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$WalletInteractionInfoImplToJson(
-        _$WalletInteractionInfoImpl instance) =>
+Map<String, dynamic> _$WalletInteractionInfoToJson(
+        _WalletInteractionInfo instance) =>
     <String, dynamic>{
       if (instance.recipient?.toJson() case final value?) 'recipient': value,
       if (instance.knownPayload?.toJson() case final value?)

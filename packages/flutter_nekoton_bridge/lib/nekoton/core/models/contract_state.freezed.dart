@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,222 +10,34 @@ part of 'contract_state.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ContractState _$ContractStateFromJson(Map<String, dynamic> json) {
-  return _ContractState.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ContractState {
   @amountJsonConverter
-  BigInt get balance => throw _privateConstructorUsedError;
-  GenTimings get genTimings => throw _privateConstructorUsedError;
-  LastTransactionId? get lastTransactionId =>
-      throw _privateConstructorUsedError;
-  bool get isDeployed => throw _privateConstructorUsedError;
-  String? get codeHash => throw _privateConstructorUsedError;
-
-  /// Serializes this ContractState to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  BigInt get balance;
+  GenTimings get genTimings;
+  LastTransactionId? get lastTransactionId;
+  bool get isDeployed;
+  String? get codeHash;
 
   /// Create a copy of ContractState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ContractStateCopyWith<ContractState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$ContractStateCopyWithImpl<ContractState>(
+          this as ContractState, _$identity);
 
-/// @nodoc
-abstract class $ContractStateCopyWith<$Res> {
-  factory $ContractStateCopyWith(
-          ContractState value, $Res Function(ContractState) then) =
-      _$ContractStateCopyWithImpl<$Res, ContractState>;
-  @useResult
-  $Res call(
-      {@amountJsonConverter BigInt balance,
-      GenTimings genTimings,
-      LastTransactionId? lastTransactionId,
-      bool isDeployed,
-      String? codeHash});
-
-  $GenTimingsCopyWith<$Res> get genTimings;
-  $LastTransactionIdCopyWith<$Res>? get lastTransactionId;
-}
-
-/// @nodoc
-class _$ContractStateCopyWithImpl<$Res, $Val extends ContractState>
-    implements $ContractStateCopyWith<$Res> {
-  _$ContractStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ContractState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? balance = null,
-    Object? genTimings = null,
-    Object? lastTransactionId = freezed,
-    Object? isDeployed = null,
-    Object? codeHash = freezed,
-  }) {
-    return _then(_value.copyWith(
-      balance: null == balance
-          ? _value.balance
-          : balance // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-      genTimings: null == genTimings
-          ? _value.genTimings
-          : genTimings // ignore: cast_nullable_to_non_nullable
-              as GenTimings,
-      lastTransactionId: freezed == lastTransactionId
-          ? _value.lastTransactionId
-          : lastTransactionId // ignore: cast_nullable_to_non_nullable
-              as LastTransactionId?,
-      isDeployed: null == isDeployed
-          ? _value.isDeployed
-          : isDeployed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      codeHash: freezed == codeHash
-          ? _value.codeHash
-          : codeHash // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
-
-  /// Create a copy of ContractState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $GenTimingsCopyWith<$Res> get genTimings {
-    return $GenTimingsCopyWith<$Res>(_value.genTimings, (value) {
-      return _then(_value.copyWith(genTimings: value) as $Val);
-    });
-  }
-
-  /// Create a copy of ContractState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LastTransactionIdCopyWith<$Res>? get lastTransactionId {
-    if (_value.lastTransactionId == null) {
-      return null;
-    }
-
-    return $LastTransactionIdCopyWith<$Res>(_value.lastTransactionId!, (value) {
-      return _then(_value.copyWith(lastTransactionId: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$ContractStateImplCopyWith<$Res>
-    implements $ContractStateCopyWith<$Res> {
-  factory _$$ContractStateImplCopyWith(
-          _$ContractStateImpl value, $Res Function(_$ContractStateImpl) then) =
-      __$$ContractStateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@amountJsonConverter BigInt balance,
-      GenTimings genTimings,
-      LastTransactionId? lastTransactionId,
-      bool isDeployed,
-      String? codeHash});
-
-  @override
-  $GenTimingsCopyWith<$Res> get genTimings;
-  @override
-  $LastTransactionIdCopyWith<$Res>? get lastTransactionId;
-}
-
-/// @nodoc
-class __$$ContractStateImplCopyWithImpl<$Res>
-    extends _$ContractStateCopyWithImpl<$Res, _$ContractStateImpl>
-    implements _$$ContractStateImplCopyWith<$Res> {
-  __$$ContractStateImplCopyWithImpl(
-      _$ContractStateImpl _value, $Res Function(_$ContractStateImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ContractState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? balance = null,
-    Object? genTimings = null,
-    Object? lastTransactionId = freezed,
-    Object? isDeployed = null,
-    Object? codeHash = freezed,
-  }) {
-    return _then(_$ContractStateImpl(
-      balance: null == balance
-          ? _value.balance
-          : balance // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-      genTimings: null == genTimings
-          ? _value.genTimings
-          : genTimings // ignore: cast_nullable_to_non_nullable
-              as GenTimings,
-      lastTransactionId: freezed == lastTransactionId
-          ? _value.lastTransactionId
-          : lastTransactionId // ignore: cast_nullable_to_non_nullable
-              as LastTransactionId?,
-      isDeployed: null == isDeployed
-          ? _value.isDeployed
-          : isDeployed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      codeHash: freezed == codeHash
-          ? _value.codeHash
-          : codeHash // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ContractStateImpl implements _ContractState {
-  const _$ContractStateImpl(
-      {@amountJsonConverter required this.balance,
-      required this.genTimings,
-      this.lastTransactionId,
-      required this.isDeployed,
-      this.codeHash});
-
-  factory _$ContractStateImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ContractStateImplFromJson(json);
-
-  @override
-  @amountJsonConverter
-  final BigInt balance;
-  @override
-  final GenTimings genTimings;
-  @override
-  final LastTransactionId? lastTransactionId;
-  @override
-  final bool isDeployed;
-  @override
-  final String? codeHash;
-
-  @override
-  String toString() {
-    return 'ContractState(balance: $balance, genTimings: $genTimings, lastTransactionId: $lastTransactionId, isDeployed: $isDeployed, codeHash: $codeHash)';
-  }
+  /// Serializes this ContractState to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ContractStateImpl &&
+            other is ContractState &&
             (identical(other.balance, balance) || other.balance == balance) &&
             (identical(other.genTimings, genTimings) ||
                 other.genTimings == genTimings) &&
@@ -241,49 +54,250 @@ class _$ContractStateImpl implements _ContractState {
   int get hashCode => Object.hash(runtimeType, balance, genTimings,
       lastTransactionId, isDeployed, codeHash);
 
-  /// Create a copy of ContractState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ContractStateImplCopyWith<_$ContractStateImpl> get copyWith =>
-      __$$ContractStateImplCopyWithImpl<_$ContractStateImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ContractStateImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ContractState(balance: $balance, genTimings: $genTimings, lastTransactionId: $lastTransactionId, isDeployed: $isDeployed, codeHash: $codeHash)';
   }
 }
 
-abstract class _ContractState implements ContractState {
-  const factory _ContractState(
-      {@amountJsonConverter required final BigInt balance,
-      required final GenTimings genTimings,
-      final LastTransactionId? lastTransactionId,
-      required final bool isDeployed,
-      final String? codeHash}) = _$ContractStateImpl;
+/// @nodoc
+abstract mixin class $ContractStateCopyWith<$Res> {
+  factory $ContractStateCopyWith(
+          ContractState value, $Res Function(ContractState) _then) =
+      _$ContractStateCopyWithImpl;
+  @useResult
+  $Res call(
+      {@amountJsonConverter BigInt balance,
+      GenTimings genTimings,
+      LastTransactionId? lastTransactionId,
+      bool isDeployed,
+      String? codeHash});
 
-  factory _ContractState.fromJson(Map<String, dynamic> json) =
-      _$ContractStateImpl.fromJson;
+  $GenTimingsCopyWith<$Res> get genTimings;
+  $LastTransactionIdCopyWith<$Res>? get lastTransactionId;
+}
+
+/// @nodoc
+class _$ContractStateCopyWithImpl<$Res>
+    implements $ContractStateCopyWith<$Res> {
+  _$ContractStateCopyWithImpl(this._self, this._then);
+
+  final ContractState _self;
+  final $Res Function(ContractState) _then;
+
+  /// Create a copy of ContractState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? balance = null,
+    Object? genTimings = null,
+    Object? lastTransactionId = freezed,
+    Object? isDeployed = null,
+    Object? codeHash = freezed,
+  }) {
+    return _then(_self.copyWith(
+      balance: null == balance
+          ? _self.balance
+          : balance // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      genTimings: null == genTimings
+          ? _self.genTimings
+          : genTimings // ignore: cast_nullable_to_non_nullable
+              as GenTimings,
+      lastTransactionId: freezed == lastTransactionId
+          ? _self.lastTransactionId
+          : lastTransactionId // ignore: cast_nullable_to_non_nullable
+              as LastTransactionId?,
+      isDeployed: null == isDeployed
+          ? _self.isDeployed
+          : isDeployed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      codeHash: freezed == codeHash
+          ? _self.codeHash
+          : codeHash // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+
+  /// Create a copy of ContractState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $GenTimingsCopyWith<$Res> get genTimings {
+    return $GenTimingsCopyWith<$Res>(_self.genTimings, (value) {
+      return _then(_self.copyWith(genTimings: value));
+    });
+  }
+
+  /// Create a copy of ContractState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LastTransactionIdCopyWith<$Res>? get lastTransactionId {
+    if (_self.lastTransactionId == null) {
+      return null;
+    }
+
+    return $LastTransactionIdCopyWith<$Res>(_self.lastTransactionId!, (value) {
+      return _then(_self.copyWith(lastTransactionId: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _ContractState implements ContractState {
+  const _ContractState(
+      {@amountJsonConverter required this.balance,
+      required this.genTimings,
+      this.lastTransactionId,
+      required this.isDeployed,
+      this.codeHash});
+  factory _ContractState.fromJson(Map<String, dynamic> json) =>
+      _$ContractStateFromJson(json);
 
   @override
   @amountJsonConverter
-  BigInt get balance;
+  final BigInt balance;
   @override
-  GenTimings get genTimings;
+  final GenTimings genTimings;
   @override
-  LastTransactionId? get lastTransactionId;
+  final LastTransactionId? lastTransactionId;
   @override
-  bool get isDeployed;
+  final bool isDeployed;
   @override
-  String? get codeHash;
+  final String? codeHash;
 
   /// Create a copy of ContractState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ContractStateImplCopyWith<_$ContractStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$ContractStateCopyWith<_ContractState> get copyWith =>
+      __$ContractStateCopyWithImpl<_ContractState>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ContractStateToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ContractState &&
+            (identical(other.balance, balance) || other.balance == balance) &&
+            (identical(other.genTimings, genTimings) ||
+                other.genTimings == genTimings) &&
+            (identical(other.lastTransactionId, lastTransactionId) ||
+                other.lastTransactionId == lastTransactionId) &&
+            (identical(other.isDeployed, isDeployed) ||
+                other.isDeployed == isDeployed) &&
+            (identical(other.codeHash, codeHash) ||
+                other.codeHash == codeHash));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, balance, genTimings,
+      lastTransactionId, isDeployed, codeHash);
+
+  @override
+  String toString() {
+    return 'ContractState(balance: $balance, genTimings: $genTimings, lastTransactionId: $lastTransactionId, isDeployed: $isDeployed, codeHash: $codeHash)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$ContractStateCopyWith<$Res>
+    implements $ContractStateCopyWith<$Res> {
+  factory _$ContractStateCopyWith(
+          _ContractState value, $Res Function(_ContractState) _then) =
+      __$ContractStateCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@amountJsonConverter BigInt balance,
+      GenTimings genTimings,
+      LastTransactionId? lastTransactionId,
+      bool isDeployed,
+      String? codeHash});
+
+  @override
+  $GenTimingsCopyWith<$Res> get genTimings;
+  @override
+  $LastTransactionIdCopyWith<$Res>? get lastTransactionId;
+}
+
+/// @nodoc
+class __$ContractStateCopyWithImpl<$Res>
+    implements _$ContractStateCopyWith<$Res> {
+  __$ContractStateCopyWithImpl(this._self, this._then);
+
+  final _ContractState _self;
+  final $Res Function(_ContractState) _then;
+
+  /// Create a copy of ContractState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? balance = null,
+    Object? genTimings = null,
+    Object? lastTransactionId = freezed,
+    Object? isDeployed = null,
+    Object? codeHash = freezed,
+  }) {
+    return _then(_ContractState(
+      balance: null == balance
+          ? _self.balance
+          : balance // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      genTimings: null == genTimings
+          ? _self.genTimings
+          : genTimings // ignore: cast_nullable_to_non_nullable
+              as GenTimings,
+      lastTransactionId: freezed == lastTransactionId
+          ? _self.lastTransactionId
+          : lastTransactionId // ignore: cast_nullable_to_non_nullable
+              as LastTransactionId?,
+      isDeployed: null == isDeployed
+          ? _self.isDeployed
+          : isDeployed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      codeHash: freezed == codeHash
+          ? _self.codeHash
+          : codeHash // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+
+  /// Create a copy of ContractState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $GenTimingsCopyWith<$Res> get genTimings {
+    return $GenTimingsCopyWith<$Res>(_self.genTimings, (value) {
+      return _then(_self.copyWith(genTimings: value));
+    });
+  }
+
+  /// Create a copy of ContractState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LastTransactionIdCopyWith<$Res>? get lastTransactionId {
+    if (_self.lastTransactionId == null) {
+      return null;
+    }
+
+    return $LastTransactionIdCopyWith<$Res>(_self.lastTransactionId!, (value) {
+      return _then(_self.copyWith(lastTransactionId: value));
+    });
+  }
+}
+
+// dart format on

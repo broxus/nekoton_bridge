@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,143 +10,29 @@ part of 'on_message_expired_payload.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-OnMessageExpiredPayload _$OnMessageExpiredPayloadFromJson(
-    Map<String, dynamic> json) {
-  return _OnMessageExpiredPayload.fromJson(json);
-}
 
 /// @nodoc
 mixin _$OnMessageExpiredPayload {
-  PendingTransaction get pendingTransaction =>
-      throw _privateConstructorUsedError;
-
-  /// Serializes this OnMessageExpiredPayload to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  PendingTransaction get pendingTransaction;
 
   /// Create a copy of OnMessageExpiredPayload
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $OnMessageExpiredPayloadCopyWith<OnMessageExpiredPayload> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$OnMessageExpiredPayloadCopyWithImpl<OnMessageExpiredPayload>(
+          this as OnMessageExpiredPayload, _$identity);
 
-/// @nodoc
-abstract class $OnMessageExpiredPayloadCopyWith<$Res> {
-  factory $OnMessageExpiredPayloadCopyWith(OnMessageExpiredPayload value,
-          $Res Function(OnMessageExpiredPayload) then) =
-      _$OnMessageExpiredPayloadCopyWithImpl<$Res, OnMessageExpiredPayload>;
-  @useResult
-  $Res call({PendingTransaction pendingTransaction});
-
-  $PendingTransactionCopyWith<$Res> get pendingTransaction;
-}
-
-/// @nodoc
-class _$OnMessageExpiredPayloadCopyWithImpl<$Res,
-        $Val extends OnMessageExpiredPayload>
-    implements $OnMessageExpiredPayloadCopyWith<$Res> {
-  _$OnMessageExpiredPayloadCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of OnMessageExpiredPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? pendingTransaction = null,
-  }) {
-    return _then(_value.copyWith(
-      pendingTransaction: null == pendingTransaction
-          ? _value.pendingTransaction
-          : pendingTransaction // ignore: cast_nullable_to_non_nullable
-              as PendingTransaction,
-    ) as $Val);
-  }
-
-  /// Create a copy of OnMessageExpiredPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PendingTransactionCopyWith<$Res> get pendingTransaction {
-    return $PendingTransactionCopyWith<$Res>(_value.pendingTransaction,
-        (value) {
-      return _then(_value.copyWith(pendingTransaction: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$OnMessageExpiredPayloadImplCopyWith<$Res>
-    implements $OnMessageExpiredPayloadCopyWith<$Res> {
-  factory _$$OnMessageExpiredPayloadImplCopyWith(
-          _$OnMessageExpiredPayloadImpl value,
-          $Res Function(_$OnMessageExpiredPayloadImpl) then) =
-      __$$OnMessageExpiredPayloadImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({PendingTransaction pendingTransaction});
-
-  @override
-  $PendingTransactionCopyWith<$Res> get pendingTransaction;
-}
-
-/// @nodoc
-class __$$OnMessageExpiredPayloadImplCopyWithImpl<$Res>
-    extends _$OnMessageExpiredPayloadCopyWithImpl<$Res,
-        _$OnMessageExpiredPayloadImpl>
-    implements _$$OnMessageExpiredPayloadImplCopyWith<$Res> {
-  __$$OnMessageExpiredPayloadImplCopyWithImpl(
-      _$OnMessageExpiredPayloadImpl _value,
-      $Res Function(_$OnMessageExpiredPayloadImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of OnMessageExpiredPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? pendingTransaction = null,
-  }) {
-    return _then(_$OnMessageExpiredPayloadImpl(
-      pendingTransaction: null == pendingTransaction
-          ? _value.pendingTransaction
-          : pendingTransaction // ignore: cast_nullable_to_non_nullable
-              as PendingTransaction,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
-class _$OnMessageExpiredPayloadImpl implements _OnMessageExpiredPayload {
-  const _$OnMessageExpiredPayloadImpl({required this.pendingTransaction});
-
-  factory _$OnMessageExpiredPayloadImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OnMessageExpiredPayloadImplFromJson(json);
-
-  @override
-  final PendingTransaction pendingTransaction;
-
-  @override
-  String toString() {
-    return 'OnMessageExpiredPayload(pendingTransaction: $pendingTransaction)';
-  }
+  /// Serializes this OnMessageExpiredPayload to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OnMessageExpiredPayloadImpl &&
+            other is OnMessageExpiredPayload &&
             (identical(other.pendingTransaction, pendingTransaction) ||
                 other.pendingTransaction == pendingTransaction));
   }
@@ -154,38 +41,149 @@ class _$OnMessageExpiredPayloadImpl implements _OnMessageExpiredPayload {
   @override
   int get hashCode => Object.hash(runtimeType, pendingTransaction);
 
-  /// Create a copy of OnMessageExpiredPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$OnMessageExpiredPayloadImplCopyWith<_$OnMessageExpiredPayloadImpl>
-      get copyWith => __$$OnMessageExpiredPayloadImplCopyWithImpl<
-          _$OnMessageExpiredPayloadImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$OnMessageExpiredPayloadImplToJson(
-      this,
-    );
+  String toString() {
+    return 'OnMessageExpiredPayload(pendingTransaction: $pendingTransaction)';
   }
 }
 
-abstract class _OnMessageExpiredPayload implements OnMessageExpiredPayload {
-  const factory _OnMessageExpiredPayload(
-          {required final PendingTransaction pendingTransaction}) =
-      _$OnMessageExpiredPayloadImpl;
+/// @nodoc
+abstract mixin class $OnMessageExpiredPayloadCopyWith<$Res> {
+  factory $OnMessageExpiredPayloadCopyWith(OnMessageExpiredPayload value,
+          $Res Function(OnMessageExpiredPayload) _then) =
+      _$OnMessageExpiredPayloadCopyWithImpl;
+  @useResult
+  $Res call({PendingTransaction pendingTransaction});
 
-  factory _OnMessageExpiredPayload.fromJson(Map<String, dynamic> json) =
-      _$OnMessageExpiredPayloadImpl.fromJson;
+  $PendingTransactionCopyWith<$Res> get pendingTransaction;
+}
+
+/// @nodoc
+class _$OnMessageExpiredPayloadCopyWithImpl<$Res>
+    implements $OnMessageExpiredPayloadCopyWith<$Res> {
+  _$OnMessageExpiredPayloadCopyWithImpl(this._self, this._then);
+
+  final OnMessageExpiredPayload _self;
+  final $Res Function(OnMessageExpiredPayload) _then;
+
+  /// Create a copy of OnMessageExpiredPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pendingTransaction = null,
+  }) {
+    return _then(_self.copyWith(
+      pendingTransaction: null == pendingTransaction
+          ? _self.pendingTransaction
+          : pendingTransaction // ignore: cast_nullable_to_non_nullable
+              as PendingTransaction,
+    ));
+  }
+
+  /// Create a copy of OnMessageExpiredPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PendingTransactionCopyWith<$Res> get pendingTransaction {
+    return $PendingTransactionCopyWith<$Res>(_self.pendingTransaction, (value) {
+      return _then(_self.copyWith(pendingTransaction: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
+class _OnMessageExpiredPayload implements OnMessageExpiredPayload {
+  const _OnMessageExpiredPayload({required this.pendingTransaction});
+  factory _OnMessageExpiredPayload.fromJson(Map<String, dynamic> json) =>
+      _$OnMessageExpiredPayloadFromJson(json);
 
   @override
-  PendingTransaction get pendingTransaction;
+  final PendingTransaction pendingTransaction;
 
   /// Create a copy of OnMessageExpiredPayload
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$OnMessageExpiredPayloadImplCopyWith<_$OnMessageExpiredPayloadImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$OnMessageExpiredPayloadCopyWith<_OnMessageExpiredPayload> get copyWith =>
+      __$OnMessageExpiredPayloadCopyWithImpl<_OnMessageExpiredPayload>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$OnMessageExpiredPayloadToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _OnMessageExpiredPayload &&
+            (identical(other.pendingTransaction, pendingTransaction) ||
+                other.pendingTransaction == pendingTransaction));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, pendingTransaction);
+
+  @override
+  String toString() {
+    return 'OnMessageExpiredPayload(pendingTransaction: $pendingTransaction)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$OnMessageExpiredPayloadCopyWith<$Res>
+    implements $OnMessageExpiredPayloadCopyWith<$Res> {
+  factory _$OnMessageExpiredPayloadCopyWith(_OnMessageExpiredPayload value,
+          $Res Function(_OnMessageExpiredPayload) _then) =
+      __$OnMessageExpiredPayloadCopyWithImpl;
+  @override
+  @useResult
+  $Res call({PendingTransaction pendingTransaction});
+
+  @override
+  $PendingTransactionCopyWith<$Res> get pendingTransaction;
+}
+
+/// @nodoc
+class __$OnMessageExpiredPayloadCopyWithImpl<$Res>
+    implements _$OnMessageExpiredPayloadCopyWith<$Res> {
+  __$OnMessageExpiredPayloadCopyWithImpl(this._self, this._then);
+
+  final _OnMessageExpiredPayload _self;
+  final $Res Function(_OnMessageExpiredPayload) _then;
+
+  /// Create a copy of OnMessageExpiredPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? pendingTransaction = null,
+  }) {
+    return _then(_OnMessageExpiredPayload(
+      pendingTransaction: null == pendingTransaction
+          ? _self.pendingTransaction
+          : pendingTransaction // ignore: cast_nullable_to_non_nullable
+              as PendingTransaction,
+    ));
+  }
+
+  /// Create a copy of OnMessageExpiredPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PendingTransactionCopyWith<$Res> get pendingTransaction {
+    return $PendingTransactionCopyWith<$Res>(_self.pendingTransaction, (value) {
+      return _then(_self.copyWith(pendingTransaction: value));
+    });
+  }
+}
+
+// dart format on

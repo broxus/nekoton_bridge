@@ -6,9 +6,8 @@ part of 'ton_wallet_details.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TonWalletDetailsImpl _$$TonWalletDetailsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$TonWalletDetailsImpl(
+_TonWalletDetails _$TonWalletDetailsFromJson(Map<String, dynamic> json) =>
+    _TonWalletDetails(
       requiresSeparateDeploy: json['requires_separate_deploy'] as bool,
       minAmount: amountJsonConverter.fromJson(json['min_amount'] as String),
       supportsPayload: json['supports_payload'] as bool,
@@ -17,8 +16,7 @@ _$TonWalletDetailsImpl _$$TonWalletDetailsImplFromJson(
       requiredConfirmations: (json['required_confirmations'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$$TonWalletDetailsImplToJson(
-        _$TonWalletDetailsImpl instance) =>
+Map<String, dynamic> _$TonWalletDetailsToJson(_TonWalletDetails instance) =>
     <String, dynamic>{
       'requires_separate_deploy': instance.requiresSeparateDeploy,
       'min_amount': amountJsonConverter.toJson(instance.minAmount),

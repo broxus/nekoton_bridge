@@ -6,16 +6,16 @@ part of 'password_explicit.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PasswordExplicitExplicitImpl _$$PasswordExplicitExplicitImplFromJson(
+_PasswordExplicitExplicit _$PasswordExplicitExplicitFromJson(
         Map<String, dynamic> json) =>
-    _$PasswordExplicitExplicitImpl(
+    _PasswordExplicitExplicit(
       password: json['password'] as String,
       cacheBehavior: PasswordCacheBehavior.fromJson(
           json['cache_behavior'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$PasswordExplicitExplicitImplToJson(
-        _$PasswordExplicitExplicitImpl instance) =>
+Map<String, dynamic> _$PasswordExplicitExplicitToJson(
+        _PasswordExplicitExplicit instance) =>
     <String, dynamic>{
       'password': instance.password,
       'cache_behavior': instance.cacheBehavior.toJson(),

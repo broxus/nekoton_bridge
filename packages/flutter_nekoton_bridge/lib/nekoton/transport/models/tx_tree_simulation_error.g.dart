@@ -6,15 +6,15 @@ part of 'tx_tree_simulation_error.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TxTreeSimulationErrorImpl _$$TxTreeSimulationErrorImplFromJson(
+_TxTreeSimulationError _$TxTreeSimulationErrorFromJson(
         Map<String, dynamic> json) =>
-    _$TxTreeSimulationErrorImpl(
+    _TxTreeSimulationError(
       type: $enumDecode(_$TxTreeSimulationErrorTypeEnumMap, json['type']),
       code: json['code'] as num?,
     );
 
-Map<String, dynamic> _$$TxTreeSimulationErrorImplToJson(
-        _$TxTreeSimulationErrorImpl instance) =>
+Map<String, dynamic> _$TxTreeSimulationErrorToJson(
+        _TxTreeSimulationError instance) =>
     <String, dynamic>{
       'type': _$TxTreeSimulationErrorTypeEnumMap[instance.type]!,
       'code': instance.code,

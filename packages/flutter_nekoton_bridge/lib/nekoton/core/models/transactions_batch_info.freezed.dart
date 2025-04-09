@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,151 +10,31 @@ part of 'transactions_batch_info.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-TransactionsBatchInfo _$TransactionsBatchInfoFromJson(
-    Map<String, dynamic> json) {
-  return _TransactionsBatchInfo.fromJson(json);
-}
 
 /// @nodoc
 mixin _$TransactionsBatchInfo {
-  String get minLt => throw _privateConstructorUsedError;
-  String get maxLt => throw _privateConstructorUsedError;
-  TransactionsBatchType get batchType => throw _privateConstructorUsedError;
-
-  /// Serializes this TransactionsBatchInfo to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get minLt;
+  String get maxLt;
+  TransactionsBatchType get batchType;
 
   /// Create a copy of TransactionsBatchInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $TransactionsBatchInfoCopyWith<TransactionsBatchInfo> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$TransactionsBatchInfoCopyWithImpl<TransactionsBatchInfo>(
+          this as TransactionsBatchInfo, _$identity);
 
-/// @nodoc
-abstract class $TransactionsBatchInfoCopyWith<$Res> {
-  factory $TransactionsBatchInfoCopyWith(TransactionsBatchInfo value,
-          $Res Function(TransactionsBatchInfo) then) =
-      _$TransactionsBatchInfoCopyWithImpl<$Res, TransactionsBatchInfo>;
-  @useResult
-  $Res call({String minLt, String maxLt, TransactionsBatchType batchType});
-}
-
-/// @nodoc
-class _$TransactionsBatchInfoCopyWithImpl<$Res,
-        $Val extends TransactionsBatchInfo>
-    implements $TransactionsBatchInfoCopyWith<$Res> {
-  _$TransactionsBatchInfoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of TransactionsBatchInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? minLt = null,
-    Object? maxLt = null,
-    Object? batchType = null,
-  }) {
-    return _then(_value.copyWith(
-      minLt: null == minLt
-          ? _value.minLt
-          : minLt // ignore: cast_nullable_to_non_nullable
-              as String,
-      maxLt: null == maxLt
-          ? _value.maxLt
-          : maxLt // ignore: cast_nullable_to_non_nullable
-              as String,
-      batchType: null == batchType
-          ? _value.batchType
-          : batchType // ignore: cast_nullable_to_non_nullable
-              as TransactionsBatchType,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$TransactionsBatchInfoImplCopyWith<$Res>
-    implements $TransactionsBatchInfoCopyWith<$Res> {
-  factory _$$TransactionsBatchInfoImplCopyWith(
-          _$TransactionsBatchInfoImpl value,
-          $Res Function(_$TransactionsBatchInfoImpl) then) =
-      __$$TransactionsBatchInfoImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String minLt, String maxLt, TransactionsBatchType batchType});
-}
-
-/// @nodoc
-class __$$TransactionsBatchInfoImplCopyWithImpl<$Res>
-    extends _$TransactionsBatchInfoCopyWithImpl<$Res,
-        _$TransactionsBatchInfoImpl>
-    implements _$$TransactionsBatchInfoImplCopyWith<$Res> {
-  __$$TransactionsBatchInfoImplCopyWithImpl(_$TransactionsBatchInfoImpl _value,
-      $Res Function(_$TransactionsBatchInfoImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TransactionsBatchInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? minLt = null,
-    Object? maxLt = null,
-    Object? batchType = null,
-  }) {
-    return _then(_$TransactionsBatchInfoImpl(
-      minLt: null == minLt
-          ? _value.minLt
-          : minLt // ignore: cast_nullable_to_non_nullable
-              as String,
-      maxLt: null == maxLt
-          ? _value.maxLt
-          : maxLt // ignore: cast_nullable_to_non_nullable
-              as String,
-      batchType: null == batchType
-          ? _value.batchType
-          : batchType // ignore: cast_nullable_to_non_nullable
-              as TransactionsBatchType,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$TransactionsBatchInfoImpl implements _TransactionsBatchInfo {
-  const _$TransactionsBatchInfoImpl(
-      {required this.minLt, required this.maxLt, required this.batchType});
-
-  factory _$TransactionsBatchInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TransactionsBatchInfoImplFromJson(json);
-
-  @override
-  final String minLt;
-  @override
-  final String maxLt;
-  @override
-  final TransactionsBatchType batchType;
-
-  @override
-  String toString() {
-    return 'TransactionsBatchInfo(minLt: $minLt, maxLt: $maxLt, batchType: $batchType)';
-  }
+  /// Serializes this TransactionsBatchInfo to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TransactionsBatchInfoImpl &&
+            other is TransactionsBatchInfo &&
             (identical(other.minLt, minLt) || other.minLt == minLt) &&
             (identical(other.maxLt, maxLt) || other.maxLt == maxLt) &&
             (identical(other.batchType, batchType) ||
@@ -164,44 +45,150 @@ class _$TransactionsBatchInfoImpl implements _TransactionsBatchInfo {
   @override
   int get hashCode => Object.hash(runtimeType, minLt, maxLt, batchType);
 
-  /// Create a copy of TransactionsBatchInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TransactionsBatchInfoImplCopyWith<_$TransactionsBatchInfoImpl>
-      get copyWith => __$$TransactionsBatchInfoImplCopyWithImpl<
-          _$TransactionsBatchInfoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TransactionsBatchInfoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'TransactionsBatchInfo(minLt: $minLt, maxLt: $maxLt, batchType: $batchType)';
   }
 }
 
-abstract class _TransactionsBatchInfo implements TransactionsBatchInfo {
-  const factory _TransactionsBatchInfo(
-          {required final String minLt,
-          required final String maxLt,
-          required final TransactionsBatchType batchType}) =
-      _$TransactionsBatchInfoImpl;
+/// @nodoc
+abstract mixin class $TransactionsBatchInfoCopyWith<$Res> {
+  factory $TransactionsBatchInfoCopyWith(TransactionsBatchInfo value,
+          $Res Function(TransactionsBatchInfo) _then) =
+      _$TransactionsBatchInfoCopyWithImpl;
+  @useResult
+  $Res call({String minLt, String maxLt, TransactionsBatchType batchType});
+}
 
-  factory _TransactionsBatchInfo.fromJson(Map<String, dynamic> json) =
-      _$TransactionsBatchInfoImpl.fromJson;
+/// @nodoc
+class _$TransactionsBatchInfoCopyWithImpl<$Res>
+    implements $TransactionsBatchInfoCopyWith<$Res> {
+  _$TransactionsBatchInfoCopyWithImpl(this._self, this._then);
+
+  final TransactionsBatchInfo _self;
+  final $Res Function(TransactionsBatchInfo) _then;
+
+  /// Create a copy of TransactionsBatchInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? minLt = null,
+    Object? maxLt = null,
+    Object? batchType = null,
+  }) {
+    return _then(_self.copyWith(
+      minLt: null == minLt
+          ? _self.minLt
+          : minLt // ignore: cast_nullable_to_non_nullable
+              as String,
+      maxLt: null == maxLt
+          ? _self.maxLt
+          : maxLt // ignore: cast_nullable_to_non_nullable
+              as String,
+      batchType: null == batchType
+          ? _self.batchType
+          : batchType // ignore: cast_nullable_to_non_nullable
+              as TransactionsBatchType,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _TransactionsBatchInfo implements TransactionsBatchInfo {
+  const _TransactionsBatchInfo(
+      {required this.minLt, required this.maxLt, required this.batchType});
+  factory _TransactionsBatchInfo.fromJson(Map<String, dynamic> json) =>
+      _$TransactionsBatchInfoFromJson(json);
 
   @override
-  String get minLt;
+  final String minLt;
   @override
-  String get maxLt;
+  final String maxLt;
   @override
-  TransactionsBatchType get batchType;
+  final TransactionsBatchType batchType;
 
   /// Create a copy of TransactionsBatchInfo
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TransactionsBatchInfoImplCopyWith<_$TransactionsBatchInfoImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$TransactionsBatchInfoCopyWith<_TransactionsBatchInfo> get copyWith =>
+      __$TransactionsBatchInfoCopyWithImpl<_TransactionsBatchInfo>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TransactionsBatchInfoToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _TransactionsBatchInfo &&
+            (identical(other.minLt, minLt) || other.minLt == minLt) &&
+            (identical(other.maxLt, maxLt) || other.maxLt == maxLt) &&
+            (identical(other.batchType, batchType) ||
+                other.batchType == batchType));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, minLt, maxLt, batchType);
+
+  @override
+  String toString() {
+    return 'TransactionsBatchInfo(minLt: $minLt, maxLt: $maxLt, batchType: $batchType)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$TransactionsBatchInfoCopyWith<$Res>
+    implements $TransactionsBatchInfoCopyWith<$Res> {
+  factory _$TransactionsBatchInfoCopyWith(_TransactionsBatchInfo value,
+          $Res Function(_TransactionsBatchInfo) _then) =
+      __$TransactionsBatchInfoCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String minLt, String maxLt, TransactionsBatchType batchType});
+}
+
+/// @nodoc
+class __$TransactionsBatchInfoCopyWithImpl<$Res>
+    implements _$TransactionsBatchInfoCopyWith<$Res> {
+  __$TransactionsBatchInfoCopyWithImpl(this._self, this._then);
+
+  final _TransactionsBatchInfo _self;
+  final $Res Function(_TransactionsBatchInfo) _then;
+
+  /// Create a copy of TransactionsBatchInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? minLt = null,
+    Object? maxLt = null,
+    Object? batchType = null,
+  }) {
+    return _then(_TransactionsBatchInfo(
+      minLt: null == minLt
+          ? _self.minLt
+          : minLt // ignore: cast_nullable_to_non_nullable
+              as String,
+      maxLt: null == maxLt
+          ? _self.maxLt
+          : maxLt // ignore: cast_nullable_to_non_nullable
+              as String,
+      batchType: null == batchType
+          ? _self.batchType
+          : batchType // ignore: cast_nullable_to_non_nullable
+              as TransactionsBatchType,
+    ));
+  }
+}
+
+// dart format on

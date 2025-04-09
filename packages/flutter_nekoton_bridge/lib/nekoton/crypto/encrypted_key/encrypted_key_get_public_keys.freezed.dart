@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,11 +10,8 @@ part of 'encrypted_key_get_public_keys.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 EncryptedKeyGetPublicKeys _$EncryptedKeyGetPublicKeysFromJson(
     Map<String, dynamic> json) {
   return _EncryptedKeyGetPublicKeysRename.fromJson(json);
@@ -21,131 +19,24 @@ EncryptedKeyGetPublicKeys _$EncryptedKeyGetPublicKeysFromJson(
 
 /// @nodoc
 mixin _$EncryptedKeyGetPublicKeys {
-  PublicKey get publicKey => throw _privateConstructorUsedError;
-
-  /// Serializes this EncryptedKeyGetPublicKeys to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  PublicKey get publicKey;
 
   /// Create a copy of EncryptedKeyGetPublicKeys
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $EncryptedKeyGetPublicKeysCopyWith<EncryptedKeyGetPublicKeys> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$EncryptedKeyGetPublicKeysCopyWithImpl<EncryptedKeyGetPublicKeys>(
+          this as EncryptedKeyGetPublicKeys, _$identity);
 
-/// @nodoc
-abstract class $EncryptedKeyGetPublicKeysCopyWith<$Res> {
-  factory $EncryptedKeyGetPublicKeysCopyWith(EncryptedKeyGetPublicKeys value,
-          $Res Function(EncryptedKeyGetPublicKeys) then) =
-      _$EncryptedKeyGetPublicKeysCopyWithImpl<$Res, EncryptedKeyGetPublicKeys>;
-  @useResult
-  $Res call({PublicKey publicKey});
-
-  $PublicKeyCopyWith<$Res> get publicKey;
-}
-
-/// @nodoc
-class _$EncryptedKeyGetPublicKeysCopyWithImpl<$Res,
-        $Val extends EncryptedKeyGetPublicKeys>
-    implements $EncryptedKeyGetPublicKeysCopyWith<$Res> {
-  _$EncryptedKeyGetPublicKeysCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of EncryptedKeyGetPublicKeys
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? publicKey = null,
-  }) {
-    return _then(_value.copyWith(
-      publicKey: null == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-    ) as $Val);
-  }
-
-  /// Create a copy of EncryptedKeyGetPublicKeys
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get publicKey {
-    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
-      return _then(_value.copyWith(publicKey: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$EncryptedKeyGetPublicKeysRenameImplCopyWith<$Res>
-    implements $EncryptedKeyGetPublicKeysCopyWith<$Res> {
-  factory _$$EncryptedKeyGetPublicKeysRenameImplCopyWith(
-          _$EncryptedKeyGetPublicKeysRenameImpl value,
-          $Res Function(_$EncryptedKeyGetPublicKeysRenameImpl) then) =
-      __$$EncryptedKeyGetPublicKeysRenameImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({PublicKey publicKey});
-
-  @override
-  $PublicKeyCopyWith<$Res> get publicKey;
-}
-
-/// @nodoc
-class __$$EncryptedKeyGetPublicKeysRenameImplCopyWithImpl<$Res>
-    extends _$EncryptedKeyGetPublicKeysCopyWithImpl<$Res,
-        _$EncryptedKeyGetPublicKeysRenameImpl>
-    implements _$$EncryptedKeyGetPublicKeysRenameImplCopyWith<$Res> {
-  __$$EncryptedKeyGetPublicKeysRenameImplCopyWithImpl(
-      _$EncryptedKeyGetPublicKeysRenameImpl _value,
-      $Res Function(_$EncryptedKeyGetPublicKeysRenameImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of EncryptedKeyGetPublicKeys
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? publicKey = null,
-  }) {
-    return _then(_$EncryptedKeyGetPublicKeysRenameImpl(
-      publicKey: null == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(fieldRename: FieldRename.snake)
-class _$EncryptedKeyGetPublicKeysRenameImpl
-    implements _EncryptedKeyGetPublicKeysRename {
-  const _$EncryptedKeyGetPublicKeysRenameImpl({required this.publicKey});
-
-  factory _$EncryptedKeyGetPublicKeysRenameImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$EncryptedKeyGetPublicKeysRenameImplFromJson(json);
-
-  @override
-  final PublicKey publicKey;
-
-  @override
-  String toString() {
-    return 'EncryptedKeyGetPublicKeys(publicKey: $publicKey)';
-  }
+  /// Serializes this EncryptedKeyGetPublicKeys to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EncryptedKeyGetPublicKeysRenameImpl &&
+            other is EncryptedKeyGetPublicKeys &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey));
   }
@@ -154,41 +45,151 @@ class _$EncryptedKeyGetPublicKeysRenameImpl
   @override
   int get hashCode => Object.hash(runtimeType, publicKey);
 
-  /// Create a copy of EncryptedKeyGetPublicKeys
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$EncryptedKeyGetPublicKeysRenameImplCopyWith<
-          _$EncryptedKeyGetPublicKeysRenameImpl>
-      get copyWith => __$$EncryptedKeyGetPublicKeysRenameImplCopyWithImpl<
-          _$EncryptedKeyGetPublicKeysRenameImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$EncryptedKeyGetPublicKeysRenameImplToJson(
-      this,
-    );
+  String toString() {
+    return 'EncryptedKeyGetPublicKeys(publicKey: $publicKey)';
   }
 }
 
-abstract class _EncryptedKeyGetPublicKeysRename
-    implements EncryptedKeyGetPublicKeys {
-  const factory _EncryptedKeyGetPublicKeysRename(
-          {required final PublicKey publicKey}) =
-      _$EncryptedKeyGetPublicKeysRenameImpl;
+/// @nodoc
+abstract mixin class $EncryptedKeyGetPublicKeysCopyWith<$Res> {
+  factory $EncryptedKeyGetPublicKeysCopyWith(EncryptedKeyGetPublicKeys value,
+          $Res Function(EncryptedKeyGetPublicKeys) _then) =
+      _$EncryptedKeyGetPublicKeysCopyWithImpl;
+  @useResult
+  $Res call({PublicKey publicKey});
 
-  factory _EncryptedKeyGetPublicKeysRename.fromJson(Map<String, dynamic> json) =
-      _$EncryptedKeyGetPublicKeysRenameImpl.fromJson;
+  $PublicKeyCopyWith<$Res> get publicKey;
+}
+
+/// @nodoc
+class _$EncryptedKeyGetPublicKeysCopyWithImpl<$Res>
+    implements $EncryptedKeyGetPublicKeysCopyWith<$Res> {
+  _$EncryptedKeyGetPublicKeysCopyWithImpl(this._self, this._then);
+
+  final EncryptedKeyGetPublicKeys _self;
+  final $Res Function(EncryptedKeyGetPublicKeys) _then;
+
+  /// Create a copy of EncryptedKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? publicKey = null,
+  }) {
+    return _then(_self.copyWith(
+      publicKey: null == publicKey
+          ? _self.publicKey
+          : publicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+    ));
+  }
+
+  /// Create a copy of EncryptedKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_self.publicKey, (value) {
+      return _then(_self.copyWith(publicKey: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _EncryptedKeyGetPublicKeysRename implements EncryptedKeyGetPublicKeys {
+  const _EncryptedKeyGetPublicKeysRename({required this.publicKey});
+  factory _EncryptedKeyGetPublicKeysRename.fromJson(
+          Map<String, dynamic> json) =>
+      _$EncryptedKeyGetPublicKeysRenameFromJson(json);
 
   @override
-  PublicKey get publicKey;
+  final PublicKey publicKey;
 
   /// Create a copy of EncryptedKeyGetPublicKeys
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$EncryptedKeyGetPublicKeysRenameImplCopyWith<
-          _$EncryptedKeyGetPublicKeysRenameImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$EncryptedKeyGetPublicKeysRenameCopyWith<_EncryptedKeyGetPublicKeysRename>
+      get copyWith => __$EncryptedKeyGetPublicKeysRenameCopyWithImpl<
+          _EncryptedKeyGetPublicKeysRename>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$EncryptedKeyGetPublicKeysRenameToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _EncryptedKeyGetPublicKeysRename &&
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, publicKey);
+
+  @override
+  String toString() {
+    return 'EncryptedKeyGetPublicKeys(publicKey: $publicKey)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$EncryptedKeyGetPublicKeysRenameCopyWith<$Res>
+    implements $EncryptedKeyGetPublicKeysCopyWith<$Res> {
+  factory _$EncryptedKeyGetPublicKeysRenameCopyWith(
+          _EncryptedKeyGetPublicKeysRename value,
+          $Res Function(_EncryptedKeyGetPublicKeysRename) _then) =
+      __$EncryptedKeyGetPublicKeysRenameCopyWithImpl;
+  @override
+  @useResult
+  $Res call({PublicKey publicKey});
+
+  @override
+  $PublicKeyCopyWith<$Res> get publicKey;
+}
+
+/// @nodoc
+class __$EncryptedKeyGetPublicKeysRenameCopyWithImpl<$Res>
+    implements _$EncryptedKeyGetPublicKeysRenameCopyWith<$Res> {
+  __$EncryptedKeyGetPublicKeysRenameCopyWithImpl(this._self, this._then);
+
+  final _EncryptedKeyGetPublicKeysRename _self;
+  final $Res Function(_EncryptedKeyGetPublicKeysRename) _then;
+
+  /// Create a copy of EncryptedKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? publicKey = null,
+  }) {
+    return _then(_EncryptedKeyGetPublicKeysRename(
+      publicKey: null == publicKey
+          ? _self.publicKey
+          : publicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+    ));
+  }
+
+  /// Create a copy of EncryptedKeyGetPublicKeys
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_self.publicKey, (value) {
+      return _then(_self.copyWith(publicKey: value));
+    });
+  }
+}
+
+// dart format on

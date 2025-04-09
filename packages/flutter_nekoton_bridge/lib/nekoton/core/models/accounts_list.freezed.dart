@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,80 +10,52 @@ part of 'accounts_list.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-AccountsList _$AccountsListFromJson(Map<String, dynamic> json) {
-  return _AccountsList.fromJson(json);
-}
 
 /// @nodoc
 mixin _$AccountsList {
-  List<String> get accounts => throw _privateConstructorUsedError;
+  List<String> get accounts;
   @JsonKey(includeIfNull: false)
-  String? get continuation => throw _privateConstructorUsedError;
-
-  /// Serializes this AccountsList to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get continuation;
 
   /// Create a copy of AccountsList
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $AccountsListCopyWith<AccountsList> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $AccountsListCopyWith<$Res> {
-  factory $AccountsListCopyWith(
-          AccountsList value, $Res Function(AccountsList) then) =
-      _$AccountsListCopyWithImpl<$Res, AccountsList>;
-  @useResult
-  $Res call(
-      {List<String> accounts,
-      @JsonKey(includeIfNull: false) String? continuation});
-}
-
-/// @nodoc
-class _$AccountsListCopyWithImpl<$Res, $Val extends AccountsList>
-    implements $AccountsListCopyWith<$Res> {
-  _$AccountsListCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of AccountsList
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $AccountsListCopyWith<AccountsList> get copyWith =>
+      _$AccountsListCopyWithImpl<AccountsList>(
+          this as AccountsList, _$identity);
+
+  /// Serializes this AccountsList to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? accounts = null,
-    Object? continuation = freezed,
-  }) {
-    return _then(_value.copyWith(
-      accounts: null == accounts
-          ? _value.accounts
-          : accounts // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      continuation: freezed == continuation
-          ? _value.continuation
-          : continuation // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is AccountsList &&
+            const DeepCollectionEquality().equals(other.accounts, accounts) &&
+            (identical(other.continuation, continuation) ||
+                other.continuation == continuation));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(accounts), continuation);
+
+  @override
+  String toString() {
+    return 'AccountsList(accounts: $accounts, continuation: $continuation)';
   }
 }
 
 /// @nodoc
-abstract class _$$AccountsListImplCopyWith<$Res>
-    implements $AccountsListCopyWith<$Res> {
-  factory _$$AccountsListImplCopyWith(
-          _$AccountsListImpl value, $Res Function(_$AccountsListImpl) then) =
-      __$$AccountsListImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $AccountsListCopyWith<$Res> {
+  factory $AccountsListCopyWith(
+          AccountsList value, $Res Function(AccountsList) _then) =
+      _$AccountsListCopyWithImpl;
   @useResult
   $Res call(
       {List<String> accounts,
@@ -90,12 +63,11 @@ abstract class _$$AccountsListImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$AccountsListImplCopyWithImpl<$Res>
-    extends _$AccountsListCopyWithImpl<$Res, _$AccountsListImpl>
-    implements _$$AccountsListImplCopyWith<$Res> {
-  __$$AccountsListImplCopyWithImpl(
-      _$AccountsListImpl _value, $Res Function(_$AccountsListImpl) _then)
-      : super(_value, _then);
+class _$AccountsListCopyWithImpl<$Res> implements $AccountsListCopyWith<$Res> {
+  _$AccountsListCopyWithImpl(this._self, this._then);
+
+  final AccountsList _self;
+  final $Res Function(AccountsList) _then;
 
   /// Create a copy of AccountsList
   /// with the given fields replaced by the non-null parameter values.
@@ -105,13 +77,13 @@ class __$$AccountsListImplCopyWithImpl<$Res>
     Object? accounts = null,
     Object? continuation = freezed,
   }) {
-    return _then(_$AccountsListImpl(
+    return _then(_self.copyWith(
       accounts: null == accounts
-          ? _value._accounts
+          ? _self.accounts
           : accounts // ignore: cast_nullable_to_non_nullable
               as List<String>,
       continuation: freezed == continuation
-          ? _value.continuation
+          ? _self.continuation
           : continuation // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -120,14 +92,13 @@ class __$$AccountsListImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AccountsListImpl implements _AccountsList {
-  const _$AccountsListImpl(
+class _AccountsList implements AccountsList {
+  const _AccountsList(
       {required final List<String> accounts,
       @JsonKey(includeIfNull: false) this.continuation})
       : _accounts = accounts;
-
-  factory _$AccountsListImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AccountsListImplFromJson(json);
+  factory _AccountsList.fromJson(Map<String, dynamic> json) =>
+      _$AccountsListFromJson(json);
 
   final List<String> _accounts;
   @override
@@ -141,16 +112,26 @@ class _$AccountsListImpl implements _AccountsList {
   @JsonKey(includeIfNull: false)
   final String? continuation;
 
+  /// Create a copy of AccountsList
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'AccountsList(accounts: $accounts, continuation: $continuation)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$AccountsListCopyWith<_AccountsList> get copyWith =>
+      __$AccountsListCopyWithImpl<_AccountsList>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$AccountsListToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AccountsListImpl &&
+            other is _AccountsList &&
             const DeepCollectionEquality().equals(other._accounts, _accounts) &&
             (identical(other.continuation, continuation) ||
                 other.continuation == continuation));
@@ -161,41 +142,52 @@ class _$AccountsListImpl implements _AccountsList {
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_accounts), continuation);
 
-  /// Create a copy of AccountsList
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$AccountsListImplCopyWith<_$AccountsListImpl> get copyWith =>
-      __$$AccountsListImplCopyWithImpl<_$AccountsListImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AccountsListImplToJson(
-      this,
-    );
+  String toString() {
+    return 'AccountsList(accounts: $accounts, continuation: $continuation)';
   }
 }
 
-abstract class _AccountsList implements AccountsList {
-  const factory _AccountsList(
-          {required final List<String> accounts,
-          @JsonKey(includeIfNull: false) final String? continuation}) =
-      _$AccountsListImpl;
-
-  factory _AccountsList.fromJson(Map<String, dynamic> json) =
-      _$AccountsListImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$AccountsListCopyWith<$Res>
+    implements $AccountsListCopyWith<$Res> {
+  factory _$AccountsListCopyWith(
+          _AccountsList value, $Res Function(_AccountsList) _then) =
+      __$AccountsListCopyWithImpl;
   @override
-  List<String> get accounts;
-  @override
-  @JsonKey(includeIfNull: false)
-  String? get continuation;
+  @useResult
+  $Res call(
+      {List<String> accounts,
+      @JsonKey(includeIfNull: false) String? continuation});
+}
+
+/// @nodoc
+class __$AccountsListCopyWithImpl<$Res>
+    implements _$AccountsListCopyWith<$Res> {
+  __$AccountsListCopyWithImpl(this._self, this._then);
+
+  final _AccountsList _self;
+  final $Res Function(_AccountsList) _then;
 
   /// Create a copy of AccountsList
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AccountsListImplCopyWith<_$AccountsListImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? accounts = null,
+    Object? continuation = freezed,
+  }) {
+    return _then(_AccountsList(
+      accounts: null == accounts
+          ? _self._accounts
+          : accounts // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      continuation: freezed == continuation
+          ? _self.continuation
+          : continuation // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

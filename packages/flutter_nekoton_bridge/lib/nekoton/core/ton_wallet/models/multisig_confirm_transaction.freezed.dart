@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,156 +10,31 @@ part of 'multisig_confirm_transaction.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-MultisigConfirmTransaction _$MultisigConfirmTransactionFromJson(
-    Map<String, dynamic> json) {
-  return _MultisigConfirmTransaction.fromJson(json);
-}
 
 /// @nodoc
 mixin _$MultisigConfirmTransaction {
-  PublicKey get custodian => throw _privateConstructorUsedError;
-  String get transactionId => throw _privateConstructorUsedError;
-
-  /// Serializes this MultisigConfirmTransaction to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  PublicKey get custodian;
+  String get transactionId;
 
   /// Create a copy of MultisigConfirmTransaction
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $MultisigConfirmTransactionCopyWith<MultisigConfirmTransaction>
-      get copyWith => throw _privateConstructorUsedError;
-}
+      get copyWith =>
+          _$MultisigConfirmTransactionCopyWithImpl<MultisigConfirmTransaction>(
+              this as MultisigConfirmTransaction, _$identity);
 
-/// @nodoc
-abstract class $MultisigConfirmTransactionCopyWith<$Res> {
-  factory $MultisigConfirmTransactionCopyWith(MultisigConfirmTransaction value,
-          $Res Function(MultisigConfirmTransaction) then) =
-      _$MultisigConfirmTransactionCopyWithImpl<$Res,
-          MultisigConfirmTransaction>;
-  @useResult
-  $Res call({PublicKey custodian, String transactionId});
-
-  $PublicKeyCopyWith<$Res> get custodian;
-}
-
-/// @nodoc
-class _$MultisigConfirmTransactionCopyWithImpl<$Res,
-        $Val extends MultisigConfirmTransaction>
-    implements $MultisigConfirmTransactionCopyWith<$Res> {
-  _$MultisigConfirmTransactionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of MultisigConfirmTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? custodian = null,
-    Object? transactionId = null,
-  }) {
-    return _then(_value.copyWith(
-      custodian: null == custodian
-          ? _value.custodian
-          : custodian // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      transactionId: null == transactionId
-          ? _value.transactionId
-          : transactionId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-
-  /// Create a copy of MultisigConfirmTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get custodian {
-    return $PublicKeyCopyWith<$Res>(_value.custodian, (value) {
-      return _then(_value.copyWith(custodian: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$MultisigConfirmTransactionImplCopyWith<$Res>
-    implements $MultisigConfirmTransactionCopyWith<$Res> {
-  factory _$$MultisigConfirmTransactionImplCopyWith(
-          _$MultisigConfirmTransactionImpl value,
-          $Res Function(_$MultisigConfirmTransactionImpl) then) =
-      __$$MultisigConfirmTransactionImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({PublicKey custodian, String transactionId});
-
-  @override
-  $PublicKeyCopyWith<$Res> get custodian;
-}
-
-/// @nodoc
-class __$$MultisigConfirmTransactionImplCopyWithImpl<$Res>
-    extends _$MultisigConfirmTransactionCopyWithImpl<$Res,
-        _$MultisigConfirmTransactionImpl>
-    implements _$$MultisigConfirmTransactionImplCopyWith<$Res> {
-  __$$MultisigConfirmTransactionImplCopyWithImpl(
-      _$MultisigConfirmTransactionImpl _value,
-      $Res Function(_$MultisigConfirmTransactionImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MultisigConfirmTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? custodian = null,
-    Object? transactionId = null,
-  }) {
-    return _then(_$MultisigConfirmTransactionImpl(
-      custodian: null == custodian
-          ? _value.custodian
-          : custodian // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      transactionId: null == transactionId
-          ? _value.transactionId
-          : transactionId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$MultisigConfirmTransactionImpl implements _MultisigConfirmTransaction {
-  const _$MultisigConfirmTransactionImpl(
-      {required this.custodian, required this.transactionId});
-
-  factory _$MultisigConfirmTransactionImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$MultisigConfirmTransactionImplFromJson(json);
-
-  @override
-  final PublicKey custodian;
-  @override
-  final String transactionId;
-
-  @override
-  String toString() {
-    return 'MultisigConfirmTransaction(custodian: $custodian, transactionId: $transactionId)';
-  }
+  /// Serializes this MultisigConfirmTransaction to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MultisigConfirmTransactionImpl &&
+            other is MultisigConfirmTransaction &&
             (identical(other.custodian, custodian) ||
                 other.custodian == custodian) &&
             (identical(other.transactionId, transactionId) ||
@@ -169,41 +45,164 @@ class _$MultisigConfirmTransactionImpl implements _MultisigConfirmTransaction {
   @override
   int get hashCode => Object.hash(runtimeType, custodian, transactionId);
 
-  /// Create a copy of MultisigConfirmTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MultisigConfirmTransactionImplCopyWith<_$MultisigConfirmTransactionImpl>
-      get copyWith => __$$MultisigConfirmTransactionImplCopyWithImpl<
-          _$MultisigConfirmTransactionImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MultisigConfirmTransactionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'MultisigConfirmTransaction(custodian: $custodian, transactionId: $transactionId)';
   }
 }
 
-abstract class _MultisigConfirmTransaction
-    implements MultisigConfirmTransaction {
-  const factory _MultisigConfirmTransaction(
-      {required final PublicKey custodian,
-      required final String transactionId}) = _$MultisigConfirmTransactionImpl;
+/// @nodoc
+abstract mixin class $MultisigConfirmTransactionCopyWith<$Res> {
+  factory $MultisigConfirmTransactionCopyWith(MultisigConfirmTransaction value,
+          $Res Function(MultisigConfirmTransaction) _then) =
+      _$MultisigConfirmTransactionCopyWithImpl;
+  @useResult
+  $Res call({PublicKey custodian, String transactionId});
 
-  factory _MultisigConfirmTransaction.fromJson(Map<String, dynamic> json) =
-      _$MultisigConfirmTransactionImpl.fromJson;
+  $PublicKeyCopyWith<$Res> get custodian;
+}
+
+/// @nodoc
+class _$MultisigConfirmTransactionCopyWithImpl<$Res>
+    implements $MultisigConfirmTransactionCopyWith<$Res> {
+  _$MultisigConfirmTransactionCopyWithImpl(this._self, this._then);
+
+  final MultisigConfirmTransaction _self;
+  final $Res Function(MultisigConfirmTransaction) _then;
+
+  /// Create a copy of MultisigConfirmTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? custodian = null,
+    Object? transactionId = null,
+  }) {
+    return _then(_self.copyWith(
+      custodian: null == custodian
+          ? _self.custodian
+          : custodian // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      transactionId: null == transactionId
+          ? _self.transactionId
+          : transactionId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+
+  /// Create a copy of MultisigConfirmTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get custodian {
+    return $PublicKeyCopyWith<$Res>(_self.custodian, (value) {
+      return _then(_self.copyWith(custodian: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _MultisigConfirmTransaction implements MultisigConfirmTransaction {
+  const _MultisigConfirmTransaction(
+      {required this.custodian, required this.transactionId});
+  factory _MultisigConfirmTransaction.fromJson(Map<String, dynamic> json) =>
+      _$MultisigConfirmTransactionFromJson(json);
 
   @override
-  PublicKey get custodian;
+  final PublicKey custodian;
   @override
-  String get transactionId;
+  final String transactionId;
 
   /// Create a copy of MultisigConfirmTransaction
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MultisigConfirmTransactionImplCopyWith<_$MultisigConfirmTransactionImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$MultisigConfirmTransactionCopyWith<_MultisigConfirmTransaction>
+      get copyWith => __$MultisigConfirmTransactionCopyWithImpl<
+          _MultisigConfirmTransaction>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$MultisigConfirmTransactionToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _MultisigConfirmTransaction &&
+            (identical(other.custodian, custodian) ||
+                other.custodian == custodian) &&
+            (identical(other.transactionId, transactionId) ||
+                other.transactionId == transactionId));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, custodian, transactionId);
+
+  @override
+  String toString() {
+    return 'MultisigConfirmTransaction(custodian: $custodian, transactionId: $transactionId)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$MultisigConfirmTransactionCopyWith<$Res>
+    implements $MultisigConfirmTransactionCopyWith<$Res> {
+  factory _$MultisigConfirmTransactionCopyWith(
+          _MultisigConfirmTransaction value,
+          $Res Function(_MultisigConfirmTransaction) _then) =
+      __$MultisigConfirmTransactionCopyWithImpl;
+  @override
+  @useResult
+  $Res call({PublicKey custodian, String transactionId});
+
+  @override
+  $PublicKeyCopyWith<$Res> get custodian;
+}
+
+/// @nodoc
+class __$MultisigConfirmTransactionCopyWithImpl<$Res>
+    implements _$MultisigConfirmTransactionCopyWith<$Res> {
+  __$MultisigConfirmTransactionCopyWithImpl(this._self, this._then);
+
+  final _MultisigConfirmTransaction _self;
+  final $Res Function(_MultisigConfirmTransaction) _then;
+
+  /// Create a copy of MultisigConfirmTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? custodian = null,
+    Object? transactionId = null,
+  }) {
+    return _then(_MultisigConfirmTransaction(
+      custodian: null == custodian
+          ? _self.custodian
+          : custodian // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      transactionId: null == transactionId
+          ? _self.transactionId
+          : transactionId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+
+  /// Create a copy of MultisigConfirmTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get custodian {
+    return $PublicKeyCopyWith<$Res>(_self.custodian, (value) {
+      return _then(_self.copyWith(custodian: value));
+    });
+  }
+}
+
+// dart format on

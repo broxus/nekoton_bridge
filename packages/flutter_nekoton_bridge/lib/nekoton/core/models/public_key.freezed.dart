@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,74 +10,47 @@ part of 'public_key.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PublicKey {
-  String get publicKey => throw _privateConstructorUsedError;
+  String get publicKey;
 
   /// Create a copy of PublicKey
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<PublicKey> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$PublicKeyCopyWithImpl<PublicKey>(this as PublicKey, _$identity);
 
-/// @nodoc
-abstract class $PublicKeyCopyWith<$Res> {
-  factory $PublicKeyCopyWith(PublicKey value, $Res Function(PublicKey) then) =
-      _$PublicKeyCopyWithImpl<$Res, PublicKey>;
-  @useResult
-  $Res call({String publicKey});
-}
-
-/// @nodoc
-class _$PublicKeyCopyWithImpl<$Res, $Val extends PublicKey>
-    implements $PublicKeyCopyWith<$Res> {
-  _$PublicKeyCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of PublicKey
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? publicKey = null,
-  }) {
-    return _then(_value.copyWith(
-      publicKey: null == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PublicKey &&
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey));
   }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, publicKey);
 }
 
 /// @nodoc
-abstract class _$$FromStringImplCopyWith<$Res>
-    implements $PublicKeyCopyWith<$Res> {
-  factory _$$FromStringImplCopyWith(
-          _$FromStringImpl value, $Res Function(_$FromStringImpl) then) =
-      __$$FromStringImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $PublicKeyCopyWith<$Res> {
+  factory $PublicKeyCopyWith(PublicKey value, $Res Function(PublicKey) _then) =
+      _$PublicKeyCopyWithImpl;
   @useResult
   $Res call({String publicKey});
 }
 
 /// @nodoc
-class __$$FromStringImplCopyWithImpl<$Res>
-    extends _$PublicKeyCopyWithImpl<$Res, _$FromStringImpl>
-    implements _$$FromStringImplCopyWith<$Res> {
-  __$$FromStringImplCopyWithImpl(
-      _$FromStringImpl _value, $Res Function(_$FromStringImpl) _then)
-      : super(_value, _then);
+class _$PublicKeyCopyWithImpl<$Res> implements $PublicKeyCopyWith<$Res> {
+  _$PublicKeyCopyWithImpl(this._self, this._then);
+
+  final PublicKey _self;
+  final $Res Function(PublicKey) _then;
 
   /// Create a copy of PublicKey
   /// with the given fields replaced by the non-null parameter values.
@@ -85,9 +59,9 @@ class __$$FromStringImplCopyWithImpl<$Res>
   $Res call({
     Object? publicKey = null,
   }) {
-    return _then(_$FromStringImpl(
+    return _then(_self.copyWith(
       publicKey: null == publicKey
-          ? _value.publicKey
+          ? _self.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -96,45 +70,65 @@ class __$$FromStringImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FromStringImpl extends _FromString {
-  const _$FromStringImpl({required this.publicKey}) : super._();
+class _FromString extends PublicKey {
+  const _FromString({required this.publicKey}) : super._();
 
   @override
   final String publicKey;
+
+  /// Create a copy of PublicKey
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$FromStringCopyWith<_FromString> get copyWith =>
+      __$FromStringCopyWithImpl<_FromString>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FromStringImpl &&
+            other is _FromString &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, publicKey);
+}
+
+/// @nodoc
+abstract mixin class _$FromStringCopyWith<$Res>
+    implements $PublicKeyCopyWith<$Res> {
+  factory _$FromStringCopyWith(
+          _FromString value, $Res Function(_FromString) _then) =
+      __$FromStringCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String publicKey});
+}
+
+/// @nodoc
+class __$FromStringCopyWithImpl<$Res> implements _$FromStringCopyWith<$Res> {
+  __$FromStringCopyWithImpl(this._self, this._then);
+
+  final _FromString _self;
+  final $Res Function(_FromString) _then;
 
   /// Create a copy of PublicKey
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$FromStringImplCopyWith<_$FromStringImpl> get copyWith =>
-      __$$FromStringImplCopyWithImpl<_$FromStringImpl>(this, _$identity);
+  $Res call({
+    Object? publicKey = null,
+  }) {
+    return _then(_FromString(
+      publicKey: null == publicKey
+          ? _self.publicKey
+          : publicKey // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
-abstract class _FromString extends PublicKey {
-  const factory _FromString({required final String publicKey}) =
-      _$FromStringImpl;
-  const _FromString._() : super._();
-
-  @override
-  String get publicKey;
-
-  /// Create a copy of PublicKey
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FromStringImplCopyWith<_$FromStringImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

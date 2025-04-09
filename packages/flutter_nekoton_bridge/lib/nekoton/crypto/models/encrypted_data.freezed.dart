@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,215 +10,33 @@ part of 'encrypted_data.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-EncryptedData _$EncryptedDataFromJson(Map<String, dynamic> json) {
-  return _EncryptedData.fromJson(json);
-}
 
 /// @nodoc
 mixin _$EncryptedData {
-  EncryptionAlgorithm get algorithm => throw _privateConstructorUsedError;
-  PublicKey get sourcePublicKey => throw _privateConstructorUsedError;
-  PublicKey get recipientPublicKey => throw _privateConstructorUsedError;
-  String get data => throw _privateConstructorUsedError;
-  String get nonce => throw _privateConstructorUsedError;
-
-  /// Serializes this EncryptedData to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  EncryptionAlgorithm get algorithm;
+  PublicKey get sourcePublicKey;
+  PublicKey get recipientPublicKey;
+  String get data;
+  String get nonce;
 
   /// Create a copy of EncryptedData
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $EncryptedDataCopyWith<EncryptedData> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$EncryptedDataCopyWithImpl<EncryptedData>(
+          this as EncryptedData, _$identity);
 
-/// @nodoc
-abstract class $EncryptedDataCopyWith<$Res> {
-  factory $EncryptedDataCopyWith(
-          EncryptedData value, $Res Function(EncryptedData) then) =
-      _$EncryptedDataCopyWithImpl<$Res, EncryptedData>;
-  @useResult
-  $Res call(
-      {EncryptionAlgorithm algorithm,
-      PublicKey sourcePublicKey,
-      PublicKey recipientPublicKey,
-      String data,
-      String nonce});
-
-  $PublicKeyCopyWith<$Res> get sourcePublicKey;
-  $PublicKeyCopyWith<$Res> get recipientPublicKey;
-}
-
-/// @nodoc
-class _$EncryptedDataCopyWithImpl<$Res, $Val extends EncryptedData>
-    implements $EncryptedDataCopyWith<$Res> {
-  _$EncryptedDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of EncryptedData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? algorithm = null,
-    Object? sourcePublicKey = null,
-    Object? recipientPublicKey = null,
-    Object? data = null,
-    Object? nonce = null,
-  }) {
-    return _then(_value.copyWith(
-      algorithm: null == algorithm
-          ? _value.algorithm
-          : algorithm // ignore: cast_nullable_to_non_nullable
-              as EncryptionAlgorithm,
-      sourcePublicKey: null == sourcePublicKey
-          ? _value.sourcePublicKey
-          : sourcePublicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      recipientPublicKey: null == recipientPublicKey
-          ? _value.recipientPublicKey
-          : recipientPublicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as String,
-      nonce: null == nonce
-          ? _value.nonce
-          : nonce // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-
-  /// Create a copy of EncryptedData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get sourcePublicKey {
-    return $PublicKeyCopyWith<$Res>(_value.sourcePublicKey, (value) {
-      return _then(_value.copyWith(sourcePublicKey: value) as $Val);
-    });
-  }
-
-  /// Create a copy of EncryptedData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get recipientPublicKey {
-    return $PublicKeyCopyWith<$Res>(_value.recipientPublicKey, (value) {
-      return _then(_value.copyWith(recipientPublicKey: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$EncryptedDataImplCopyWith<$Res>
-    implements $EncryptedDataCopyWith<$Res> {
-  factory _$$EncryptedDataImplCopyWith(
-          _$EncryptedDataImpl value, $Res Function(_$EncryptedDataImpl) then) =
-      __$$EncryptedDataImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {EncryptionAlgorithm algorithm,
-      PublicKey sourcePublicKey,
-      PublicKey recipientPublicKey,
-      String data,
-      String nonce});
-
-  @override
-  $PublicKeyCopyWith<$Res> get sourcePublicKey;
-  @override
-  $PublicKeyCopyWith<$Res> get recipientPublicKey;
-}
-
-/// @nodoc
-class __$$EncryptedDataImplCopyWithImpl<$Res>
-    extends _$EncryptedDataCopyWithImpl<$Res, _$EncryptedDataImpl>
-    implements _$$EncryptedDataImplCopyWith<$Res> {
-  __$$EncryptedDataImplCopyWithImpl(
-      _$EncryptedDataImpl _value, $Res Function(_$EncryptedDataImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of EncryptedData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? algorithm = null,
-    Object? sourcePublicKey = null,
-    Object? recipientPublicKey = null,
-    Object? data = null,
-    Object? nonce = null,
-  }) {
-    return _then(_$EncryptedDataImpl(
-      algorithm: null == algorithm
-          ? _value.algorithm
-          : algorithm // ignore: cast_nullable_to_non_nullable
-              as EncryptionAlgorithm,
-      sourcePublicKey: null == sourcePublicKey
-          ? _value.sourcePublicKey
-          : sourcePublicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      recipientPublicKey: null == recipientPublicKey
-          ? _value.recipientPublicKey
-          : recipientPublicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as String,
-      nonce: null == nonce
-          ? _value.nonce
-          : nonce // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$EncryptedDataImpl implements _EncryptedData {
-  const _$EncryptedDataImpl(
-      {required this.algorithm,
-      required this.sourcePublicKey,
-      required this.recipientPublicKey,
-      required this.data,
-      required this.nonce});
-
-  factory _$EncryptedDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EncryptedDataImplFromJson(json);
-
-  @override
-  final EncryptionAlgorithm algorithm;
-  @override
-  final PublicKey sourcePublicKey;
-  @override
-  final PublicKey recipientPublicKey;
-  @override
-  final String data;
-  @override
-  final String nonce;
-
-  @override
-  String toString() {
-    return 'EncryptedData(algorithm: $algorithm, sourcePublicKey: $sourcePublicKey, recipientPublicKey: $recipientPublicKey, data: $data, nonce: $nonce)';
-  }
+  /// Serializes this EncryptedData to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EncryptedDataImpl &&
+            other is EncryptedData &&
             (identical(other.algorithm, algorithm) ||
                 other.algorithm == algorithm) &&
             (identical(other.sourcePublicKey, sourcePublicKey) ||
@@ -233,48 +52,240 @@ class _$EncryptedDataImpl implements _EncryptedData {
   int get hashCode => Object.hash(
       runtimeType, algorithm, sourcePublicKey, recipientPublicKey, data, nonce);
 
-  /// Create a copy of EncryptedData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$EncryptedDataImplCopyWith<_$EncryptedDataImpl> get copyWith =>
-      __$$EncryptedDataImplCopyWithImpl<_$EncryptedDataImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$EncryptedDataImplToJson(
-      this,
-    );
+  String toString() {
+    return 'EncryptedData(algorithm: $algorithm, sourcePublicKey: $sourcePublicKey, recipientPublicKey: $recipientPublicKey, data: $data, nonce: $nonce)';
   }
 }
 
-abstract class _EncryptedData implements EncryptedData {
-  const factory _EncryptedData(
-      {required final EncryptionAlgorithm algorithm,
-      required final PublicKey sourcePublicKey,
-      required final PublicKey recipientPublicKey,
-      required final String data,
-      required final String nonce}) = _$EncryptedDataImpl;
+/// @nodoc
+abstract mixin class $EncryptedDataCopyWith<$Res> {
+  factory $EncryptedDataCopyWith(
+          EncryptedData value, $Res Function(EncryptedData) _then) =
+      _$EncryptedDataCopyWithImpl;
+  @useResult
+  $Res call(
+      {EncryptionAlgorithm algorithm,
+      PublicKey sourcePublicKey,
+      PublicKey recipientPublicKey,
+      String data,
+      String nonce});
 
-  factory _EncryptedData.fromJson(Map<String, dynamic> json) =
-      _$EncryptedDataImpl.fromJson;
+  $PublicKeyCopyWith<$Res> get sourcePublicKey;
+  $PublicKeyCopyWith<$Res> get recipientPublicKey;
+}
+
+/// @nodoc
+class _$EncryptedDataCopyWithImpl<$Res>
+    implements $EncryptedDataCopyWith<$Res> {
+  _$EncryptedDataCopyWithImpl(this._self, this._then);
+
+  final EncryptedData _self;
+  final $Res Function(EncryptedData) _then;
+
+  /// Create a copy of EncryptedData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? algorithm = null,
+    Object? sourcePublicKey = null,
+    Object? recipientPublicKey = null,
+    Object? data = null,
+    Object? nonce = null,
+  }) {
+    return _then(_self.copyWith(
+      algorithm: null == algorithm
+          ? _self.algorithm
+          : algorithm // ignore: cast_nullable_to_non_nullable
+              as EncryptionAlgorithm,
+      sourcePublicKey: null == sourcePublicKey
+          ? _self.sourcePublicKey
+          : sourcePublicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      recipientPublicKey: null == recipientPublicKey
+          ? _self.recipientPublicKey
+          : recipientPublicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      data: null == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as String,
+      nonce: null == nonce
+          ? _self.nonce
+          : nonce // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+
+  /// Create a copy of EncryptedData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get sourcePublicKey {
+    return $PublicKeyCopyWith<$Res>(_self.sourcePublicKey, (value) {
+      return _then(_self.copyWith(sourcePublicKey: value));
+    });
+  }
+
+  /// Create a copy of EncryptedData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get recipientPublicKey {
+    return $PublicKeyCopyWith<$Res>(_self.recipientPublicKey, (value) {
+      return _then(_self.copyWith(recipientPublicKey: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _EncryptedData implements EncryptedData {
+  const _EncryptedData(
+      {required this.algorithm,
+      required this.sourcePublicKey,
+      required this.recipientPublicKey,
+      required this.data,
+      required this.nonce});
+  factory _EncryptedData.fromJson(Map<String, dynamic> json) =>
+      _$EncryptedDataFromJson(json);
 
   @override
-  EncryptionAlgorithm get algorithm;
+  final EncryptionAlgorithm algorithm;
   @override
-  PublicKey get sourcePublicKey;
+  final PublicKey sourcePublicKey;
   @override
-  PublicKey get recipientPublicKey;
+  final PublicKey recipientPublicKey;
   @override
-  String get data;
+  final String data;
   @override
-  String get nonce;
+  final String nonce;
 
   /// Create a copy of EncryptedData
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$EncryptedDataImplCopyWith<_$EncryptedDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$EncryptedDataCopyWith<_EncryptedData> get copyWith =>
+      __$EncryptedDataCopyWithImpl<_EncryptedData>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$EncryptedDataToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _EncryptedData &&
+            (identical(other.algorithm, algorithm) ||
+                other.algorithm == algorithm) &&
+            (identical(other.sourcePublicKey, sourcePublicKey) ||
+                other.sourcePublicKey == sourcePublicKey) &&
+            (identical(other.recipientPublicKey, recipientPublicKey) ||
+                other.recipientPublicKey == recipientPublicKey) &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.nonce, nonce) || other.nonce == nonce));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, algorithm, sourcePublicKey, recipientPublicKey, data, nonce);
+
+  @override
+  String toString() {
+    return 'EncryptedData(algorithm: $algorithm, sourcePublicKey: $sourcePublicKey, recipientPublicKey: $recipientPublicKey, data: $data, nonce: $nonce)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$EncryptedDataCopyWith<$Res>
+    implements $EncryptedDataCopyWith<$Res> {
+  factory _$EncryptedDataCopyWith(
+          _EncryptedData value, $Res Function(_EncryptedData) _then) =
+      __$EncryptedDataCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {EncryptionAlgorithm algorithm,
+      PublicKey sourcePublicKey,
+      PublicKey recipientPublicKey,
+      String data,
+      String nonce});
+
+  @override
+  $PublicKeyCopyWith<$Res> get sourcePublicKey;
+  @override
+  $PublicKeyCopyWith<$Res> get recipientPublicKey;
+}
+
+/// @nodoc
+class __$EncryptedDataCopyWithImpl<$Res>
+    implements _$EncryptedDataCopyWith<$Res> {
+  __$EncryptedDataCopyWithImpl(this._self, this._then);
+
+  final _EncryptedData _self;
+  final $Res Function(_EncryptedData) _then;
+
+  /// Create a copy of EncryptedData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? algorithm = null,
+    Object? sourcePublicKey = null,
+    Object? recipientPublicKey = null,
+    Object? data = null,
+    Object? nonce = null,
+  }) {
+    return _then(_EncryptedData(
+      algorithm: null == algorithm
+          ? _self.algorithm
+          : algorithm // ignore: cast_nullable_to_non_nullable
+              as EncryptionAlgorithm,
+      sourcePublicKey: null == sourcePublicKey
+          ? _self.sourcePublicKey
+          : sourcePublicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      recipientPublicKey: null == recipientPublicKey
+          ? _self.recipientPublicKey
+          : recipientPublicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      data: null == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as String,
+      nonce: null == nonce
+          ? _self.nonce
+          : nonce // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+
+  /// Create a copy of EncryptedData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get sourcePublicKey {
+    return $PublicKeyCopyWith<$Res>(_self.sourcePublicKey, (value) {
+      return _then(_self.copyWith(sourcePublicKey: value));
+    });
+  }
+
+  /// Create a copy of EncryptedData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get recipientPublicKey {
+    return $PublicKeyCopyWith<$Res>(_self.recipientPublicKey, (value) {
+      return _then(_self.copyWith(recipientPublicKey: value));
+    });
+  }
+}
+
+// dart format on

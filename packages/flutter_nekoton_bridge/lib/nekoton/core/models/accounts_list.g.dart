@@ -6,14 +6,14 @@ part of 'accounts_list.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AccountsListImpl _$$AccountsListImplFromJson(Map<String, dynamic> json) =>
-    _$AccountsListImpl(
+_AccountsList _$AccountsListFromJson(Map<String, dynamic> json) =>
+    _AccountsList(
       accounts:
           (json['accounts'] as List<dynamic>).map((e) => e as String).toList(),
       continuation: json['continuation'] as String?,
     );
 
-Map<String, dynamic> _$$AccountsListImplToJson(_$AccountsListImpl instance) =>
+Map<String, dynamic> _$AccountsListToJson(_AccountsList instance) =>
     <String, dynamic>{
       'accounts': instance.accounts,
       if (instance.continuation case final value?) 'continuation': value,

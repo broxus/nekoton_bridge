@@ -6,8 +6,7 @@ part of 'assets_list.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AssetsListImpl _$$AssetsListImplFromJson(Map<String, dynamic> json) =>
-    _$AssetsListImpl(
+_AssetsList _$AssetsListFromJson(Map<String, dynamic> json) => _AssetsList(
       name: json['name'] as String,
       tonWallet:
           TonWalletAsset.fromJson(json['tonWallet'] as Map<String, dynamic>),
@@ -17,7 +16,7 @@ _$AssetsListImpl _$$AssetsListImplFromJson(Map<String, dynamic> json) =>
       ),
     );
 
-Map<String, dynamic> _$$AssetsListImplToJson(_$AssetsListImpl instance) =>
+Map<String, dynamic> _$AssetsListToJson(_AssetsList instance) =>
     <String, dynamic>{
       'name': instance.name,
       'tonWallet': instance.tonWallet.toJson(),

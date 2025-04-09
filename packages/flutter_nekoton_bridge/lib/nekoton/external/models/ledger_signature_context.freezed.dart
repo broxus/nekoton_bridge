@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,193 +10,33 @@ part of 'ledger_signature_context.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LedgerSignatureContext _$LedgerSignatureContextFromJson(
-    Map<String, dynamic> json) {
-  return _LedgerSignatureContext.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LedgerSignatureContext {
-  int get decimals => throw _privateConstructorUsedError;
-  String get asset => throw _privateConstructorUsedError;
+  int get decimals;
+  String get asset;
   @amountJsonConverter
-  BigInt get amount => throw _privateConstructorUsedError;
-  Address get address => throw _privateConstructorUsedError;
-
-  /// Serializes this LedgerSignatureContext to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  BigInt get amount;
+  Address get address;
 
   /// Create a copy of LedgerSignatureContext
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $LedgerSignatureContextCopyWith<LedgerSignatureContext> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$LedgerSignatureContextCopyWithImpl<LedgerSignatureContext>(
+          this as LedgerSignatureContext, _$identity);
 
-/// @nodoc
-abstract class $LedgerSignatureContextCopyWith<$Res> {
-  factory $LedgerSignatureContextCopyWith(LedgerSignatureContext value,
-          $Res Function(LedgerSignatureContext) then) =
-      _$LedgerSignatureContextCopyWithImpl<$Res, LedgerSignatureContext>;
-  @useResult
-  $Res call(
-      {int decimals,
-      String asset,
-      @amountJsonConverter BigInt amount,
-      Address address});
-
-  $AddressCopyWith<$Res> get address;
-}
-
-/// @nodoc
-class _$LedgerSignatureContextCopyWithImpl<$Res,
-        $Val extends LedgerSignatureContext>
-    implements $LedgerSignatureContextCopyWith<$Res> {
-  _$LedgerSignatureContextCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of LedgerSignatureContext
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? decimals = null,
-    Object? asset = null,
-    Object? amount = null,
-    Object? address = null,
-  }) {
-    return _then(_value.copyWith(
-      decimals: null == decimals
-          ? _value.decimals
-          : decimals // ignore: cast_nullable_to_non_nullable
-              as int,
-      asset: null == asset
-          ? _value.asset
-          : asset // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as Address,
-    ) as $Val);
-  }
-
-  /// Create a copy of LedgerSignatureContext
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res> get address {
-    return $AddressCopyWith<$Res>(_value.address, (value) {
-      return _then(_value.copyWith(address: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$LedgerSignatureContextImplCopyWith<$Res>
-    implements $LedgerSignatureContextCopyWith<$Res> {
-  factory _$$LedgerSignatureContextImplCopyWith(
-          _$LedgerSignatureContextImpl value,
-          $Res Function(_$LedgerSignatureContextImpl) then) =
-      __$$LedgerSignatureContextImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {int decimals,
-      String asset,
-      @amountJsonConverter BigInt amount,
-      Address address});
-
-  @override
-  $AddressCopyWith<$Res> get address;
-}
-
-/// @nodoc
-class __$$LedgerSignatureContextImplCopyWithImpl<$Res>
-    extends _$LedgerSignatureContextCopyWithImpl<$Res,
-        _$LedgerSignatureContextImpl>
-    implements _$$LedgerSignatureContextImplCopyWith<$Res> {
-  __$$LedgerSignatureContextImplCopyWithImpl(
-      _$LedgerSignatureContextImpl _value,
-      $Res Function(_$LedgerSignatureContextImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of LedgerSignatureContext
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? decimals = null,
-    Object? asset = null,
-    Object? amount = null,
-    Object? address = null,
-  }) {
-    return _then(_$LedgerSignatureContextImpl(
-      decimals: null == decimals
-          ? _value.decimals
-          : decimals // ignore: cast_nullable_to_non_nullable
-              as int,
-      asset: null == asset
-          ? _value.asset
-          : asset // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as Address,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$LedgerSignatureContextImpl implements _LedgerSignatureContext {
-  const _$LedgerSignatureContextImpl(
-      {required this.decimals,
-      required this.asset,
-      @amountJsonConverter required this.amount,
-      required this.address});
-
-  factory _$LedgerSignatureContextImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LedgerSignatureContextImplFromJson(json);
-
-  @override
-  final int decimals;
-  @override
-  final String asset;
-  @override
-  @amountJsonConverter
-  final BigInt amount;
-  @override
-  final Address address;
-
-  @override
-  String toString() {
-    return 'LedgerSignatureContext(decimals: $decimals, asset: $asset, amount: $amount, address: $address)';
-  }
+  /// Serializes this LedgerSignatureContext to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LedgerSignatureContextImpl &&
+            other is LedgerSignatureContext &&
             (identical(other.decimals, decimals) ||
                 other.decimals == decimals) &&
             (identical(other.asset, asset) || other.asset == asset) &&
@@ -208,47 +49,201 @@ class _$LedgerSignatureContextImpl implements _LedgerSignatureContext {
   int get hashCode =>
       Object.hash(runtimeType, decimals, asset, amount, address);
 
-  /// Create a copy of LedgerSignatureContext
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LedgerSignatureContextImplCopyWith<_$LedgerSignatureContextImpl>
-      get copyWith => __$$LedgerSignatureContextImplCopyWithImpl<
-          _$LedgerSignatureContextImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LedgerSignatureContextImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LedgerSignatureContext(decimals: $decimals, asset: $asset, amount: $amount, address: $address)';
   }
 }
 
-abstract class _LedgerSignatureContext implements LedgerSignatureContext {
-  const factory _LedgerSignatureContext(
-      {required final int decimals,
-      required final String asset,
-      @amountJsonConverter required final BigInt amount,
-      required final Address address}) = _$LedgerSignatureContextImpl;
+/// @nodoc
+abstract mixin class $LedgerSignatureContextCopyWith<$Res> {
+  factory $LedgerSignatureContextCopyWith(LedgerSignatureContext value,
+          $Res Function(LedgerSignatureContext) _then) =
+      _$LedgerSignatureContextCopyWithImpl;
+  @useResult
+  $Res call(
+      {int decimals,
+      String asset,
+      @amountJsonConverter BigInt amount,
+      Address address});
 
-  factory _LedgerSignatureContext.fromJson(Map<String, dynamic> json) =
-      _$LedgerSignatureContextImpl.fromJson;
+  $AddressCopyWith<$Res> get address;
+}
+
+/// @nodoc
+class _$LedgerSignatureContextCopyWithImpl<$Res>
+    implements $LedgerSignatureContextCopyWith<$Res> {
+  _$LedgerSignatureContextCopyWithImpl(this._self, this._then);
+
+  final LedgerSignatureContext _self;
+  final $Res Function(LedgerSignatureContext) _then;
+
+  /// Create a copy of LedgerSignatureContext
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? decimals = null,
+    Object? asset = null,
+    Object? amount = null,
+    Object? address = null,
+  }) {
+    return _then(_self.copyWith(
+      decimals: null == decimals
+          ? _self.decimals
+          : decimals // ignore: cast_nullable_to_non_nullable
+              as int,
+      asset: null == asset
+          ? _self.asset
+          : asset // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: null == amount
+          ? _self.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      address: null == address
+          ? _self.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as Address,
+    ));
+  }
+
+  /// Create a copy of LedgerSignatureContext
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get address {
+    return $AddressCopyWith<$Res>(_self.address, (value) {
+      return _then(_self.copyWith(address: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _LedgerSignatureContext implements LedgerSignatureContext {
+  const _LedgerSignatureContext(
+      {required this.decimals,
+      required this.asset,
+      @amountJsonConverter required this.amount,
+      required this.address});
+  factory _LedgerSignatureContext.fromJson(Map<String, dynamic> json) =>
+      _$LedgerSignatureContextFromJson(json);
 
   @override
-  int get decimals;
+  final int decimals;
   @override
-  String get asset;
+  final String asset;
   @override
   @amountJsonConverter
-  BigInt get amount;
+  final BigInt amount;
   @override
-  Address get address;
+  final Address address;
 
   /// Create a copy of LedgerSignatureContext
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LedgerSignatureContextImplCopyWith<_$LedgerSignatureContextImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$LedgerSignatureContextCopyWith<_LedgerSignatureContext> get copyWith =>
+      __$LedgerSignatureContextCopyWithImpl<_LedgerSignatureContext>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LedgerSignatureContextToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _LedgerSignatureContext &&
+            (identical(other.decimals, decimals) ||
+                other.decimals == decimals) &&
+            (identical(other.asset, asset) || other.asset == asset) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.address, address) || other.address == address));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, decimals, asset, amount, address);
+
+  @override
+  String toString() {
+    return 'LedgerSignatureContext(decimals: $decimals, asset: $asset, amount: $amount, address: $address)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$LedgerSignatureContextCopyWith<$Res>
+    implements $LedgerSignatureContextCopyWith<$Res> {
+  factory _$LedgerSignatureContextCopyWith(_LedgerSignatureContext value,
+          $Res Function(_LedgerSignatureContext) _then) =
+      __$LedgerSignatureContextCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {int decimals,
+      String asset,
+      @amountJsonConverter BigInt amount,
+      Address address});
+
+  @override
+  $AddressCopyWith<$Res> get address;
+}
+
+/// @nodoc
+class __$LedgerSignatureContextCopyWithImpl<$Res>
+    implements _$LedgerSignatureContextCopyWith<$Res> {
+  __$LedgerSignatureContextCopyWithImpl(this._self, this._then);
+
+  final _LedgerSignatureContext _self;
+  final $Res Function(_LedgerSignatureContext) _then;
+
+  /// Create a copy of LedgerSignatureContext
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? decimals = null,
+    Object? asset = null,
+    Object? amount = null,
+    Object? address = null,
+  }) {
+    return _then(_LedgerSignatureContext(
+      decimals: null == decimals
+          ? _self.decimals
+          : decimals // ignore: cast_nullable_to_non_nullable
+              as int,
+      asset: null == asset
+          ? _self.asset
+          : asset // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: null == amount
+          ? _self.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      address: null == address
+          ? _self.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as Address,
+    ));
+  }
+
+  /// Create a copy of LedgerSignatureContext
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get address {
+    return $AddressCopyWith<$Res>(_self.address, (value) {
+      return _then(_self.copyWith(address: value));
+    });
+  }
+}
+
+// dart format on

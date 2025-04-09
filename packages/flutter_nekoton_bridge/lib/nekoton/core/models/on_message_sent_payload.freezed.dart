@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,170 +10,30 @@ part of 'on_message_sent_payload.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-OnMessageSentPayload _$OnMessageSentPayloadFromJson(Map<String, dynamic> json) {
-  return _OnMessageSentPayload.fromJson(json);
-}
 
 /// @nodoc
 mixin _$OnMessageSentPayload {
-  PendingTransaction get pendingTransaction =>
-      throw _privateConstructorUsedError;
-  Transaction? get transaction => throw _privateConstructorUsedError;
-
-  /// Serializes this OnMessageSentPayload to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  PendingTransaction get pendingTransaction;
+  Transaction? get transaction;
 
   /// Create a copy of OnMessageSentPayload
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $OnMessageSentPayloadCopyWith<OnMessageSentPayload> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$OnMessageSentPayloadCopyWithImpl<OnMessageSentPayload>(
+          this as OnMessageSentPayload, _$identity);
 
-/// @nodoc
-abstract class $OnMessageSentPayloadCopyWith<$Res> {
-  factory $OnMessageSentPayloadCopyWith(OnMessageSentPayload value,
-          $Res Function(OnMessageSentPayload) then) =
-      _$OnMessageSentPayloadCopyWithImpl<$Res, OnMessageSentPayload>;
-  @useResult
-  $Res call({PendingTransaction pendingTransaction, Transaction? transaction});
-
-  $PendingTransactionCopyWith<$Res> get pendingTransaction;
-  $TransactionCopyWith<$Res>? get transaction;
-}
-
-/// @nodoc
-class _$OnMessageSentPayloadCopyWithImpl<$Res,
-        $Val extends OnMessageSentPayload>
-    implements $OnMessageSentPayloadCopyWith<$Res> {
-  _$OnMessageSentPayloadCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of OnMessageSentPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? pendingTransaction = null,
-    Object? transaction = freezed,
-  }) {
-    return _then(_value.copyWith(
-      pendingTransaction: null == pendingTransaction
-          ? _value.pendingTransaction
-          : pendingTransaction // ignore: cast_nullable_to_non_nullable
-              as PendingTransaction,
-      transaction: freezed == transaction
-          ? _value.transaction
-          : transaction // ignore: cast_nullable_to_non_nullable
-              as Transaction?,
-    ) as $Val);
-  }
-
-  /// Create a copy of OnMessageSentPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PendingTransactionCopyWith<$Res> get pendingTransaction {
-    return $PendingTransactionCopyWith<$Res>(_value.pendingTransaction,
-        (value) {
-      return _then(_value.copyWith(pendingTransaction: value) as $Val);
-    });
-  }
-
-  /// Create a copy of OnMessageSentPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $TransactionCopyWith<$Res>? get transaction {
-    if (_value.transaction == null) {
-      return null;
-    }
-
-    return $TransactionCopyWith<$Res>(_value.transaction!, (value) {
-      return _then(_value.copyWith(transaction: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$OnMessageSentPayloadImplCopyWith<$Res>
-    implements $OnMessageSentPayloadCopyWith<$Res> {
-  factory _$$OnMessageSentPayloadImplCopyWith(_$OnMessageSentPayloadImpl value,
-          $Res Function(_$OnMessageSentPayloadImpl) then) =
-      __$$OnMessageSentPayloadImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({PendingTransaction pendingTransaction, Transaction? transaction});
-
-  @override
-  $PendingTransactionCopyWith<$Res> get pendingTransaction;
-  @override
-  $TransactionCopyWith<$Res>? get transaction;
-}
-
-/// @nodoc
-class __$$OnMessageSentPayloadImplCopyWithImpl<$Res>
-    extends _$OnMessageSentPayloadCopyWithImpl<$Res, _$OnMessageSentPayloadImpl>
-    implements _$$OnMessageSentPayloadImplCopyWith<$Res> {
-  __$$OnMessageSentPayloadImplCopyWithImpl(_$OnMessageSentPayloadImpl _value,
-      $Res Function(_$OnMessageSentPayloadImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of OnMessageSentPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? pendingTransaction = null,
-    Object? transaction = freezed,
-  }) {
-    return _then(_$OnMessageSentPayloadImpl(
-      pendingTransaction: null == pendingTransaction
-          ? _value.pendingTransaction
-          : pendingTransaction // ignore: cast_nullable_to_non_nullable
-              as PendingTransaction,
-      transaction: freezed == transaction
-          ? _value.transaction
-          : transaction // ignore: cast_nullable_to_non_nullable
-              as Transaction?,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
-class _$OnMessageSentPayloadImpl implements _OnMessageSentPayload {
-  const _$OnMessageSentPayloadImpl(
-      {required this.pendingTransaction, this.transaction});
-
-  factory _$OnMessageSentPayloadImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OnMessageSentPayloadImplFromJson(json);
-
-  @override
-  final PendingTransaction pendingTransaction;
-  @override
-  final Transaction? transaction;
-
-  @override
-  String toString() {
-    return 'OnMessageSentPayload(pendingTransaction: $pendingTransaction, transaction: $transaction)';
-  }
+  /// Serializes this OnMessageSentPayload to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OnMessageSentPayloadImpl &&
+            other is OnMessageSentPayload &&
             (identical(other.pendingTransaction, pendingTransaction) ||
                 other.pendingTransaction == pendingTransaction) &&
             (identical(other.transaction, transaction) ||
@@ -183,41 +44,195 @@ class _$OnMessageSentPayloadImpl implements _OnMessageSentPayload {
   @override
   int get hashCode => Object.hash(runtimeType, pendingTransaction, transaction);
 
-  /// Create a copy of OnMessageSentPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$OnMessageSentPayloadImplCopyWith<_$OnMessageSentPayloadImpl>
-      get copyWith =>
-          __$$OnMessageSentPayloadImplCopyWithImpl<_$OnMessageSentPayloadImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$OnMessageSentPayloadImplToJson(
-      this,
-    );
+  String toString() {
+    return 'OnMessageSentPayload(pendingTransaction: $pendingTransaction, transaction: $transaction)';
   }
 }
 
-abstract class _OnMessageSentPayload implements OnMessageSentPayload {
-  const factory _OnMessageSentPayload(
-      {required final PendingTransaction pendingTransaction,
-      final Transaction? transaction}) = _$OnMessageSentPayloadImpl;
+/// @nodoc
+abstract mixin class $OnMessageSentPayloadCopyWith<$Res> {
+  factory $OnMessageSentPayloadCopyWith(OnMessageSentPayload value,
+          $Res Function(OnMessageSentPayload) _then) =
+      _$OnMessageSentPayloadCopyWithImpl;
+  @useResult
+  $Res call({PendingTransaction pendingTransaction, Transaction? transaction});
 
-  factory _OnMessageSentPayload.fromJson(Map<String, dynamic> json) =
-      _$OnMessageSentPayloadImpl.fromJson;
+  $PendingTransactionCopyWith<$Res> get pendingTransaction;
+  $TransactionCopyWith<$Res>? get transaction;
+}
+
+/// @nodoc
+class _$OnMessageSentPayloadCopyWithImpl<$Res>
+    implements $OnMessageSentPayloadCopyWith<$Res> {
+  _$OnMessageSentPayloadCopyWithImpl(this._self, this._then);
+
+  final OnMessageSentPayload _self;
+  final $Res Function(OnMessageSentPayload) _then;
+
+  /// Create a copy of OnMessageSentPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pendingTransaction = null,
+    Object? transaction = freezed,
+  }) {
+    return _then(_self.copyWith(
+      pendingTransaction: null == pendingTransaction
+          ? _self.pendingTransaction
+          : pendingTransaction // ignore: cast_nullable_to_non_nullable
+              as PendingTransaction,
+      transaction: freezed == transaction
+          ? _self.transaction
+          : transaction // ignore: cast_nullable_to_non_nullable
+              as Transaction?,
+    ));
+  }
+
+  /// Create a copy of OnMessageSentPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PendingTransactionCopyWith<$Res> get pendingTransaction {
+    return $PendingTransactionCopyWith<$Res>(_self.pendingTransaction, (value) {
+      return _then(_self.copyWith(pendingTransaction: value));
+    });
+  }
+
+  /// Create a copy of OnMessageSentPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TransactionCopyWith<$Res>? get transaction {
+    if (_self.transaction == null) {
+      return null;
+    }
+
+    return $TransactionCopyWith<$Res>(_self.transaction!, (value) {
+      return _then(_self.copyWith(transaction: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
+class _OnMessageSentPayload implements OnMessageSentPayload {
+  const _OnMessageSentPayload(
+      {required this.pendingTransaction, this.transaction});
+  factory _OnMessageSentPayload.fromJson(Map<String, dynamic> json) =>
+      _$OnMessageSentPayloadFromJson(json);
 
   @override
-  PendingTransaction get pendingTransaction;
+  final PendingTransaction pendingTransaction;
   @override
-  Transaction? get transaction;
+  final Transaction? transaction;
 
   /// Create a copy of OnMessageSentPayload
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$OnMessageSentPayloadImplCopyWith<_$OnMessageSentPayloadImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$OnMessageSentPayloadCopyWith<_OnMessageSentPayload> get copyWith =>
+      __$OnMessageSentPayloadCopyWithImpl<_OnMessageSentPayload>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$OnMessageSentPayloadToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _OnMessageSentPayload &&
+            (identical(other.pendingTransaction, pendingTransaction) ||
+                other.pendingTransaction == pendingTransaction) &&
+            (identical(other.transaction, transaction) ||
+                other.transaction == transaction));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, pendingTransaction, transaction);
+
+  @override
+  String toString() {
+    return 'OnMessageSentPayload(pendingTransaction: $pendingTransaction, transaction: $transaction)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$OnMessageSentPayloadCopyWith<$Res>
+    implements $OnMessageSentPayloadCopyWith<$Res> {
+  factory _$OnMessageSentPayloadCopyWith(_OnMessageSentPayload value,
+          $Res Function(_OnMessageSentPayload) _then) =
+      __$OnMessageSentPayloadCopyWithImpl;
+  @override
+  @useResult
+  $Res call({PendingTransaction pendingTransaction, Transaction? transaction});
+
+  @override
+  $PendingTransactionCopyWith<$Res> get pendingTransaction;
+  @override
+  $TransactionCopyWith<$Res>? get transaction;
+}
+
+/// @nodoc
+class __$OnMessageSentPayloadCopyWithImpl<$Res>
+    implements _$OnMessageSentPayloadCopyWith<$Res> {
+  __$OnMessageSentPayloadCopyWithImpl(this._self, this._then);
+
+  final _OnMessageSentPayload _self;
+  final $Res Function(_OnMessageSentPayload) _then;
+
+  /// Create a copy of OnMessageSentPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? pendingTransaction = null,
+    Object? transaction = freezed,
+  }) {
+    return _then(_OnMessageSentPayload(
+      pendingTransaction: null == pendingTransaction
+          ? _self.pendingTransaction
+          : pendingTransaction // ignore: cast_nullable_to_non_nullable
+              as PendingTransaction,
+      transaction: freezed == transaction
+          ? _self.transaction
+          : transaction // ignore: cast_nullable_to_non_nullable
+              as Transaction?,
+    ));
+  }
+
+  /// Create a copy of OnMessageSentPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PendingTransactionCopyWith<$Res> get pendingTransaction {
+    return $PendingTransactionCopyWith<$Res>(_self.pendingTransaction, (value) {
+      return _then(_self.copyWith(pendingTransaction: value));
+    });
+  }
+
+  /// Create a copy of OnMessageSentPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TransactionCopyWith<$Res>? get transaction {
+    if (_self.transaction == null) {
+      return null;
+    }
+
+    return $TransactionCopyWith<$Res>(_self.transaction!, (value) {
+      return _then(_self.copyWith(transaction: value));
+    });
+  }
+}
+
+// dart format on

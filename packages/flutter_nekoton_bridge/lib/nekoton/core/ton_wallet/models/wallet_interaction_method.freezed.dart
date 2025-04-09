@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,20 +10,17 @@ part of 'wallet_interaction_method.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 WalletInteractionMethod _$WalletInteractionMethodFromJson(
     Map<String, dynamic> json) {
   switch (json['type']) {
     case 'wallet_v3_transfer':
-      return _WalletV3Transfer.fromJson(json);
+      return WalletInteractionMethodWalletV3Transfer.fromJson(json);
     case 'ton_wallet_transfer':
-      return _TonWalletTransfer.fromJson(json);
+      return WalletInteractionMethodTonWalletTransfer.fromJson(json);
     case 'multisig':
-      return _Multisig.fromJson(json);
+      return WalletInteractionMethodMultisig.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'type', 'WalletInteractionMethod',
@@ -32,246 +30,93 @@ WalletInteractionMethod _$WalletInteractionMethodFromJson(
 
 /// @nodoc
 mixin _$WalletInteractionMethod {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() walletV3Transfer,
-    required TResult Function() tonWalletTransfer,
-    required TResult Function(MultisigTransaction data) multisig,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? walletV3Transfer,
-    TResult? Function()? tonWalletTransfer,
-    TResult? Function(MultisigTransaction data)? multisig,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? walletV3Transfer,
-    TResult Function()? tonWalletTransfer,
-    TResult Function(MultisigTransaction data)? multisig,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WalletV3Transfer value) walletV3Transfer,
-    required TResult Function(_TonWalletTransfer value) tonWalletTransfer,
-    required TResult Function(_Multisig value) multisig,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_WalletV3Transfer value)? walletV3Transfer,
-    TResult? Function(_TonWalletTransfer value)? tonWalletTransfer,
-    TResult? Function(_Multisig value)? multisig,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WalletV3Transfer value)? walletV3Transfer,
-    TResult Function(_TonWalletTransfer value)? tonWalletTransfer,
-    TResult Function(_Multisig value)? multisig,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-
   /// Serializes this WalletInteractionMethod to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is WalletInteractionMethod);
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'WalletInteractionMethod()';
+  }
 }
 
 /// @nodoc
-abstract class $WalletInteractionMethodCopyWith<$Res> {
-  factory $WalletInteractionMethodCopyWith(WalletInteractionMethod value,
-          $Res Function(WalletInteractionMethod) then) =
-      _$WalletInteractionMethodCopyWithImpl<$Res, WalletInteractionMethod>;
-}
-
-/// @nodoc
-class _$WalletInteractionMethodCopyWithImpl<$Res,
-        $Val extends WalletInteractionMethod>
-    implements $WalletInteractionMethodCopyWith<$Res> {
-  _$WalletInteractionMethodCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of WalletInteractionMethod
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$WalletV3TransferImplCopyWith<$Res> {
-  factory _$$WalletV3TransferImplCopyWith(_$WalletV3TransferImpl value,
-          $Res Function(_$WalletV3TransferImpl) then) =
-      __$$WalletV3TransferImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$WalletV3TransferImplCopyWithImpl<$Res>
-    extends _$WalletInteractionMethodCopyWithImpl<$Res, _$WalletV3TransferImpl>
-    implements _$$WalletV3TransferImplCopyWith<$Res> {
-  __$$WalletV3TransferImplCopyWithImpl(_$WalletV3TransferImpl _value,
-      $Res Function(_$WalletV3TransferImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WalletInteractionMethod
-  /// with the given fields replaced by the non-null parameter values.
+class $WalletInteractionMethodCopyWith<$Res> {
+  $WalletInteractionMethodCopyWith(
+      WalletInteractionMethod _, $Res Function(WalletInteractionMethod) __);
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$WalletV3TransferImpl implements _WalletV3Transfer {
-  const _$WalletV3TransferImpl({final String? $type})
+class WalletInteractionMethodWalletV3Transfer
+    implements WalletInteractionMethod {
+  const WalletInteractionMethodWalletV3Transfer({final String? $type})
       : $type = $type ?? 'wallet_v3_transfer';
-
-  factory _$WalletV3TransferImpl.fromJson(Map<String, dynamic> json) =>
-      _$$WalletV3TransferImplFromJson(json);
+  factory WalletInteractionMethodWalletV3Transfer.fromJson(
+          Map<String, dynamic> json) =>
+      _$WalletInteractionMethodWalletV3TransferFromJson(json);
 
   @JsonKey(name: 'type')
   final String $type;
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$WalletInteractionMethodWalletV3TransferToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is WalletInteractionMethodWalletV3Transfer);
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => runtimeType.hashCode;
 
   @override
   String toString() {
     return 'WalletInteractionMethod.walletV3Transfer()';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$WalletV3TransferImpl);
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() walletV3Transfer,
-    required TResult Function() tonWalletTransfer,
-    required TResult Function(MultisigTransaction data) multisig,
-  }) {
-    return walletV3Transfer();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? walletV3Transfer,
-    TResult? Function()? tonWalletTransfer,
-    TResult? Function(MultisigTransaction data)? multisig,
-  }) {
-    return walletV3Transfer?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? walletV3Transfer,
-    TResult Function()? tonWalletTransfer,
-    TResult Function(MultisigTransaction data)? multisig,
-    required TResult orElse(),
-  }) {
-    if (walletV3Transfer != null) {
-      return walletV3Transfer();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WalletV3Transfer value) walletV3Transfer,
-    required TResult Function(_TonWalletTransfer value) tonWalletTransfer,
-    required TResult Function(_Multisig value) multisig,
-  }) {
-    return walletV3Transfer(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_WalletV3Transfer value)? walletV3Transfer,
-    TResult? Function(_TonWalletTransfer value)? tonWalletTransfer,
-    TResult? Function(_Multisig value)? multisig,
-  }) {
-    return walletV3Transfer?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WalletV3Transfer value)? walletV3Transfer,
-    TResult Function(_TonWalletTransfer value)? tonWalletTransfer,
-    TResult Function(_Multisig value)? multisig,
-    required TResult orElse(),
-  }) {
-    if (walletV3Transfer != null) {
-      return walletV3Transfer(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$WalletV3TransferImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _WalletV3Transfer implements WalletInteractionMethod {
-  const factory _WalletV3Transfer() = _$WalletV3TransferImpl;
-
-  factory _WalletV3Transfer.fromJson(Map<String, dynamic> json) =
-      _$WalletV3TransferImpl.fromJson;
-}
-
-/// @nodoc
-abstract class _$$TonWalletTransferImplCopyWith<$Res> {
-  factory _$$TonWalletTransferImplCopyWith(_$TonWalletTransferImpl value,
-          $Res Function(_$TonWalletTransferImpl) then) =
-      __$$TonWalletTransferImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$TonWalletTransferImplCopyWithImpl<$Res>
-    extends _$WalletInteractionMethodCopyWithImpl<$Res, _$TonWalletTransferImpl>
-    implements _$$TonWalletTransferImplCopyWith<$Res> {
-  __$$TonWalletTransferImplCopyWithImpl(_$TonWalletTransferImpl _value,
-      $Res Function(_$TonWalletTransferImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WalletInteractionMethod
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$TonWalletTransferImpl implements _TonWalletTransfer {
-  const _$TonWalletTransferImpl({final String? $type})
+class WalletInteractionMethodTonWalletTransfer
+    implements WalletInteractionMethod {
+  const WalletInteractionMethodTonWalletTransfer({final String? $type})
       : $type = $type ?? 'ton_wallet_transfer';
-
-  factory _$TonWalletTransferImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TonWalletTransferImplFromJson(json);
+  factory WalletInteractionMethodTonWalletTransfer.fromJson(
+          Map<String, dynamic> json) =>
+      _$WalletInteractionMethodTonWalletTransferFromJson(json);
 
   @JsonKey(name: 'type')
   final String $type;
 
   @override
-  String toString() {
-    return 'WalletInteractionMethod.tonWalletTransfer()';
+  Map<String, dynamic> toJson() {
+    return _$WalletInteractionMethodTonWalletTransferToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$TonWalletTransferImpl);
+        (other.runtimeType == runtimeType &&
+            other is WalletInteractionMethodTonWalletTransfer);
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -279,93 +124,64 @@ class _$TonWalletTransferImpl implements _TonWalletTransfer {
   int get hashCode => runtimeType.hashCode;
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() walletV3Transfer,
-    required TResult Function() tonWalletTransfer,
-    required TResult Function(MultisigTransaction data) multisig,
-  }) {
-    return tonWalletTransfer();
+  String toString() {
+    return 'WalletInteractionMethod.tonWalletTransfer()';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? walletV3Transfer,
-    TResult? Function()? tonWalletTransfer,
-    TResult? Function(MultisigTransaction data)? multisig,
-  }) {
-    return tonWalletTransfer?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? walletV3Transfer,
-    TResult Function()? tonWalletTransfer,
-    TResult Function(MultisigTransaction data)? multisig,
-    required TResult orElse(),
-  }) {
-    if (tonWalletTransfer != null) {
-      return tonWalletTransfer();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WalletV3Transfer value) walletV3Transfer,
-    required TResult Function(_TonWalletTransfer value) tonWalletTransfer,
-    required TResult Function(_Multisig value) multisig,
-  }) {
-    return tonWalletTransfer(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_WalletV3Transfer value)? walletV3Transfer,
-    TResult? Function(_TonWalletTransfer value)? tonWalletTransfer,
-    TResult? Function(_Multisig value)? multisig,
-  }) {
-    return tonWalletTransfer?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WalletV3Transfer value)? walletV3Transfer,
-    TResult Function(_TonWalletTransfer value)? tonWalletTransfer,
-    TResult Function(_Multisig value)? multisig,
-    required TResult orElse(),
-  }) {
-    if (tonWalletTransfer != null) {
-      return tonWalletTransfer(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TonWalletTransferImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _TonWalletTransfer implements WalletInteractionMethod {
-  const factory _TonWalletTransfer() = _$TonWalletTransferImpl;
-
-  factory _TonWalletTransfer.fromJson(Map<String, dynamic> json) =
-      _$TonWalletTransferImpl.fromJson;
 }
 
 /// @nodoc
-abstract class _$$MultisigImplCopyWith<$Res> {
-  factory _$$MultisigImplCopyWith(
-          _$MultisigImpl value, $Res Function(_$MultisigImpl) then) =
-      __$$MultisigImplCopyWithImpl<$Res>;
+@JsonSerializable()
+class WalletInteractionMethodMultisig implements WalletInteractionMethod {
+  const WalletInteractionMethodMultisig(this.data, {final String? $type})
+      : $type = $type ?? 'multisig';
+  factory WalletInteractionMethodMultisig.fromJson(Map<String, dynamic> json) =>
+      _$WalletInteractionMethodMultisigFromJson(json);
+
+  final MultisigTransaction data;
+
+  @JsonKey(name: 'type')
+  final String $type;
+
+  /// Create a copy of WalletInteractionMethod
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $WalletInteractionMethodMultisigCopyWith<WalletInteractionMethodMultisig>
+      get copyWith => _$WalletInteractionMethodMultisigCopyWithImpl<
+          WalletInteractionMethodMultisig>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$WalletInteractionMethodMultisigToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is WalletInteractionMethodMultisig &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'WalletInteractionMethod.multisig(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $WalletInteractionMethodMultisigCopyWith<$Res>
+    implements $WalletInteractionMethodCopyWith<$Res> {
+  factory $WalletInteractionMethodMultisigCopyWith(
+          WalletInteractionMethodMultisig value,
+          $Res Function(WalletInteractionMethodMultisig) _then) =
+      _$WalletInteractionMethodMultisigCopyWithImpl;
   @useResult
   $Res call({MultisigTransaction data});
 
@@ -373,23 +189,22 @@ abstract class _$$MultisigImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$MultisigImplCopyWithImpl<$Res>
-    extends _$WalletInteractionMethodCopyWithImpl<$Res, _$MultisigImpl>
-    implements _$$MultisigImplCopyWith<$Res> {
-  __$$MultisigImplCopyWithImpl(
-      _$MultisigImpl _value, $Res Function(_$MultisigImpl) _then)
-      : super(_value, _then);
+class _$WalletInteractionMethodMultisigCopyWithImpl<$Res>
+    implements $WalletInteractionMethodMultisigCopyWith<$Res> {
+  _$WalletInteractionMethodMultisigCopyWithImpl(this._self, this._then);
+
+  final WalletInteractionMethodMultisig _self;
+  final $Res Function(WalletInteractionMethodMultisig) _then;
 
   /// Create a copy of WalletInteractionMethod
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$MultisigImpl(
+    return _then(WalletInteractionMethodMultisig(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as MultisigTransaction,
     ));
@@ -400,139 +215,10 @@ class __$$MultisigImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $MultisigTransactionCopyWith<$Res> get data {
-    return $MultisigTransactionCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $MultisigTransactionCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
-/// @nodoc
-@JsonSerializable()
-class _$MultisigImpl implements _Multisig {
-  const _$MultisigImpl(this.data, {final String? $type})
-      : $type = $type ?? 'multisig';
-
-  factory _$MultisigImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MultisigImplFromJson(json);
-
-  @override
-  final MultisigTransaction data;
-
-  @JsonKey(name: 'type')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'WalletInteractionMethod.multisig(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$MultisigImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of WalletInteractionMethod
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$MultisigImplCopyWith<_$MultisigImpl> get copyWith =>
-      __$$MultisigImplCopyWithImpl<_$MultisigImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() walletV3Transfer,
-    required TResult Function() tonWalletTransfer,
-    required TResult Function(MultisigTransaction data) multisig,
-  }) {
-    return multisig(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? walletV3Transfer,
-    TResult? Function()? tonWalletTransfer,
-    TResult? Function(MultisigTransaction data)? multisig,
-  }) {
-    return multisig?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? walletV3Transfer,
-    TResult Function()? tonWalletTransfer,
-    TResult Function(MultisigTransaction data)? multisig,
-    required TResult orElse(),
-  }) {
-    if (multisig != null) {
-      return multisig(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WalletV3Transfer value) walletV3Transfer,
-    required TResult Function(_TonWalletTransfer value) tonWalletTransfer,
-    required TResult Function(_Multisig value) multisig,
-  }) {
-    return multisig(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_WalletV3Transfer value)? walletV3Transfer,
-    TResult? Function(_TonWalletTransfer value)? tonWalletTransfer,
-    TResult? Function(_Multisig value)? multisig,
-  }) {
-    return multisig?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WalletV3Transfer value)? walletV3Transfer,
-    TResult Function(_TonWalletTransfer value)? tonWalletTransfer,
-    TResult Function(_Multisig value)? multisig,
-    required TResult orElse(),
-  }) {
-    if (multisig != null) {
-      return multisig(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MultisigImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Multisig implements WalletInteractionMethod {
-  const factory _Multisig(final MultisigTransaction data) = _$MultisigImpl;
-
-  factory _Multisig.fromJson(Map<String, dynamic> json) =
-      _$MultisigImpl.fromJson;
-
-  MultisigTransaction get data;
-
-  /// Create a copy of WalletInteractionMethod
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MultisigImplCopyWith<_$MultisigImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

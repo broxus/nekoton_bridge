@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,11 +10,8 @@ part of 'derived_key_update_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 DerivedKeyUpdateParams _$DerivedKeyUpdateParamsFromJson(
     Map<String, dynamic> json) {
   switch (json['type']) {
@@ -30,79 +28,88 @@ DerivedKeyUpdateParams _$DerivedKeyUpdateParamsFromJson(
 
 /// @nodoc
 mixin _$DerivedKeyUpdateParams {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(DerivedKeyUpdateParamsRenameKey data) renameKey,
-    required TResult Function(DerivedKeyUpdateParamsChangePassword data)
-        changePassword,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DerivedKeyUpdateParamsRenameKey data)? renameKey,
-    TResult? Function(DerivedKeyUpdateParamsChangePassword data)?
-        changePassword,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DerivedKeyUpdateParamsRenameKey data)? renameKey,
-    TResult Function(DerivedKeyUpdateParamsChangePassword data)? changePassword,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_RenameKey value) renameKey,
-    required TResult Function(_ChangePassword value) changePassword,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_RenameKey value)? renameKey,
-    TResult? Function(_ChangePassword value)? changePassword,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_RenameKey value)? renameKey,
-    TResult Function(_ChangePassword value)? changePassword,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Object get data;
 
   /// Serializes this DerivedKeyUpdateParams to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DerivedKeyUpdateParams &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'DerivedKeyUpdateParams(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $DerivedKeyUpdateParamsCopyWith<$Res> {
-  factory $DerivedKeyUpdateParamsCopyWith(DerivedKeyUpdateParams value,
-          $Res Function(DerivedKeyUpdateParams) then) =
-      _$DerivedKeyUpdateParamsCopyWithImpl<$Res, DerivedKeyUpdateParams>;
+class $DerivedKeyUpdateParamsCopyWith<$Res> {
+  $DerivedKeyUpdateParamsCopyWith(
+      DerivedKeyUpdateParams _, $Res Function(DerivedKeyUpdateParams) __);
 }
 
 /// @nodoc
-class _$DerivedKeyUpdateParamsCopyWithImpl<$Res,
-        $Val extends DerivedKeyUpdateParams>
-    implements $DerivedKeyUpdateParamsCopyWith<$Res> {
-  _$DerivedKeyUpdateParamsCopyWithImpl(this._value, this._then);
+@JsonSerializable()
+class _RenameKey implements DerivedKeyUpdateParams {
+  const _RenameKey(this.data, {final String? $type})
+      : $type = $type ?? 'rename_key';
+  factory _RenameKey.fromJson(Map<String, dynamic> json) =>
+      _$RenameKeyFromJson(json);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  @override
+  final DerivedKeyUpdateParamsRenameKey data;
+
+  @JsonKey(name: 'type')
+  final String $type;
 
   /// Create a copy of DerivedKeyUpdateParams
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$RenameKeyCopyWith<_RenameKey> get copyWith =>
+      __$RenameKeyCopyWithImpl<_RenameKey>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$RenameKeyToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _RenameKey &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'DerivedKeyUpdateParams.renameKey(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$RenameKeyImplCopyWith<$Res> {
-  factory _$$RenameKeyImplCopyWith(
-          _$RenameKeyImpl value, $Res Function(_$RenameKeyImpl) then) =
-      __$$RenameKeyImplCopyWithImpl<$Res>;
+abstract mixin class _$RenameKeyCopyWith<$Res>
+    implements $DerivedKeyUpdateParamsCopyWith<$Res> {
+  factory _$RenameKeyCopyWith(
+          _RenameKey value, $Res Function(_RenameKey) _then) =
+      __$RenameKeyCopyWithImpl;
   @useResult
   $Res call({DerivedKeyUpdateParamsRenameKey data});
 
@@ -110,23 +117,21 @@ abstract class _$$RenameKeyImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$RenameKeyImplCopyWithImpl<$Res>
-    extends _$DerivedKeyUpdateParamsCopyWithImpl<$Res, _$RenameKeyImpl>
-    implements _$$RenameKeyImplCopyWith<$Res> {
-  __$$RenameKeyImplCopyWithImpl(
-      _$RenameKeyImpl _value, $Res Function(_$RenameKeyImpl) _then)
-      : super(_value, _then);
+class __$RenameKeyCopyWithImpl<$Res> implements _$RenameKeyCopyWith<$Res> {
+  __$RenameKeyCopyWithImpl(this._self, this._then);
+
+  final _RenameKey _self;
+  final $Res Function(_RenameKey) _then;
 
   /// Create a copy of DerivedKeyUpdateParams
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$RenameKeyImpl(
+    return _then(_RenameKey(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as DerivedKeyUpdateParamsRenameKey,
     ));
@@ -137,37 +142,45 @@ class __$$RenameKeyImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $DerivedKeyUpdateParamsRenameKeyCopyWith<$Res> get data {
-    return $DerivedKeyUpdateParamsRenameKeyCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $DerivedKeyUpdateParamsRenameKeyCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$RenameKeyImpl implements _RenameKey {
-  const _$RenameKeyImpl(this.data, {final String? $type})
-      : $type = $type ?? 'rename_key';
-
-  factory _$RenameKeyImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RenameKeyImplFromJson(json);
+class _ChangePassword implements DerivedKeyUpdateParams {
+  const _ChangePassword(this.data, {final String? $type})
+      : $type = $type ?? 'change_password';
+  factory _ChangePassword.fromJson(Map<String, dynamic> json) =>
+      _$ChangePasswordFromJson(json);
 
   @override
-  final DerivedKeyUpdateParamsRenameKey data;
+  final DerivedKeyUpdateParamsChangePassword data;
 
   @JsonKey(name: 'type')
   final String $type;
 
+  /// Create a copy of DerivedKeyUpdateParams
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ChangePasswordCopyWith<_ChangePassword> get copyWith =>
+      __$ChangePasswordCopyWithImpl<_ChangePassword>(this, _$identity);
+
   @override
-  String toString() {
-    return 'DerivedKeyUpdateParams.renameKey(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$ChangePasswordToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RenameKeyImpl &&
+            other is _ChangePassword &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -175,108 +188,18 @@ class _$RenameKeyImpl implements _RenameKey {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of DerivedKeyUpdateParams
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$RenameKeyImplCopyWith<_$RenameKeyImpl> get copyWith =>
-      __$$RenameKeyImplCopyWithImpl<_$RenameKeyImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(DerivedKeyUpdateParamsRenameKey data) renameKey,
-    required TResult Function(DerivedKeyUpdateParamsChangePassword data)
-        changePassword,
-  }) {
-    return renameKey(data);
+  String toString() {
+    return 'DerivedKeyUpdateParams.changePassword(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DerivedKeyUpdateParamsRenameKey data)? renameKey,
-    TResult? Function(DerivedKeyUpdateParamsChangePassword data)?
-        changePassword,
-  }) {
-    return renameKey?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DerivedKeyUpdateParamsRenameKey data)? renameKey,
-    TResult Function(DerivedKeyUpdateParamsChangePassword data)? changePassword,
-    required TResult orElse(),
-  }) {
-    if (renameKey != null) {
-      return renameKey(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_RenameKey value) renameKey,
-    required TResult Function(_ChangePassword value) changePassword,
-  }) {
-    return renameKey(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_RenameKey value)? renameKey,
-    TResult? Function(_ChangePassword value)? changePassword,
-  }) {
-    return renameKey?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_RenameKey value)? renameKey,
-    TResult Function(_ChangePassword value)? changePassword,
-    required TResult orElse(),
-  }) {
-    if (renameKey != null) {
-      return renameKey(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RenameKeyImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _RenameKey implements DerivedKeyUpdateParams {
-  const factory _RenameKey(final DerivedKeyUpdateParamsRenameKey data) =
-      _$RenameKeyImpl;
-
-  factory _RenameKey.fromJson(Map<String, dynamic> json) =
-      _$RenameKeyImpl.fromJson;
-
-  @override
-  DerivedKeyUpdateParamsRenameKey get data;
-
-  /// Create a copy of DerivedKeyUpdateParams
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RenameKeyImplCopyWith<_$RenameKeyImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangePasswordImplCopyWith<$Res> {
-  factory _$$ChangePasswordImplCopyWith(_$ChangePasswordImpl value,
-          $Res Function(_$ChangePasswordImpl) then) =
-      __$$ChangePasswordImplCopyWithImpl<$Res>;
+abstract mixin class _$ChangePasswordCopyWith<$Res>
+    implements $DerivedKeyUpdateParamsCopyWith<$Res> {
+  factory _$ChangePasswordCopyWith(
+          _ChangePassword value, $Res Function(_ChangePassword) _then) =
+      __$ChangePasswordCopyWithImpl;
   @useResult
   $Res call({DerivedKeyUpdateParamsChangePassword data});
 
@@ -284,23 +207,22 @@ abstract class _$$ChangePasswordImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ChangePasswordImplCopyWithImpl<$Res>
-    extends _$DerivedKeyUpdateParamsCopyWithImpl<$Res, _$ChangePasswordImpl>
-    implements _$$ChangePasswordImplCopyWith<$Res> {
-  __$$ChangePasswordImplCopyWithImpl(
-      _$ChangePasswordImpl _value, $Res Function(_$ChangePasswordImpl) _then)
-      : super(_value, _then);
+class __$ChangePasswordCopyWithImpl<$Res>
+    implements _$ChangePasswordCopyWith<$Res> {
+  __$ChangePasswordCopyWithImpl(this._self, this._then);
+
+  final _ChangePassword _self;
+  final $Res Function(_ChangePassword) _then;
 
   /// Create a copy of DerivedKeyUpdateParams
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ChangePasswordImpl(
+    return _then(_ChangePassword(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as DerivedKeyUpdateParamsChangePassword,
     ));
@@ -311,139 +233,11 @@ class __$$ChangePasswordImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $DerivedKeyUpdateParamsChangePasswordCopyWith<$Res> get data {
-    return $DerivedKeyUpdateParamsChangePasswordCopyWith<$Res>(_value.data,
+    return $DerivedKeyUpdateParamsChangePasswordCopyWith<$Res>(_self.data,
         (value) {
-      return _then(_value.copyWith(data: value));
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
-/// @nodoc
-@JsonSerializable()
-class _$ChangePasswordImpl implements _ChangePassword {
-  const _$ChangePasswordImpl(this.data, {final String? $type})
-      : $type = $type ?? 'change_password';
-
-  factory _$ChangePasswordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ChangePasswordImplFromJson(json);
-
-  @override
-  final DerivedKeyUpdateParamsChangePassword data;
-
-  @JsonKey(name: 'type')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'DerivedKeyUpdateParams.changePassword(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChangePasswordImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of DerivedKeyUpdateParams
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ChangePasswordImplCopyWith<_$ChangePasswordImpl> get copyWith =>
-      __$$ChangePasswordImplCopyWithImpl<_$ChangePasswordImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(DerivedKeyUpdateParamsRenameKey data) renameKey,
-    required TResult Function(DerivedKeyUpdateParamsChangePassword data)
-        changePassword,
-  }) {
-    return changePassword(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DerivedKeyUpdateParamsRenameKey data)? renameKey,
-    TResult? Function(DerivedKeyUpdateParamsChangePassword data)?
-        changePassword,
-  }) {
-    return changePassword?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DerivedKeyUpdateParamsRenameKey data)? renameKey,
-    TResult Function(DerivedKeyUpdateParamsChangePassword data)? changePassword,
-    required TResult orElse(),
-  }) {
-    if (changePassword != null) {
-      return changePassword(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_RenameKey value) renameKey,
-    required TResult Function(_ChangePassword value) changePassword,
-  }) {
-    return changePassword(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_RenameKey value)? renameKey,
-    TResult? Function(_ChangePassword value)? changePassword,
-  }) {
-    return changePassword?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_RenameKey value)? renameKey,
-    TResult Function(_ChangePassword value)? changePassword,
-    required TResult orElse(),
-  }) {
-    if (changePassword != null) {
-      return changePassword(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ChangePasswordImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _ChangePassword implements DerivedKeyUpdateParams {
-  const factory _ChangePassword(
-      final DerivedKeyUpdateParamsChangePassword data) = _$ChangePasswordImpl;
-
-  factory _ChangePassword.fromJson(Map<String, dynamic> json) =
-      _$ChangePasswordImpl.fromJson;
-
-  @override
-  DerivedKeyUpdateParamsChangePassword get data;
-
-  /// Create a copy of DerivedKeyUpdateParams
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ChangePasswordImplCopyWith<_$ChangePasswordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

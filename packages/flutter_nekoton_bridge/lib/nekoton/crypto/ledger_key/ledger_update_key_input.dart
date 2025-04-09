@@ -9,7 +9,7 @@ part 'ledger_update_key_input.g.dart';
 sealed class LedgerUpdateKeyInput
     with _$LedgerUpdateKeyInput
     implements UpdateKeyInput {
-  const factory LedgerUpdateKeyInput() = _LedgerUpdateKeyInput;
+  const factory LedgerUpdateKeyInput() = _LedgerUpdateKeyInputDefault;
 
   const factory LedgerUpdateKeyInput.rename(
       final LedgerUpdateKeyInputRename data) = _LedgerUpdateKeyInputRename;

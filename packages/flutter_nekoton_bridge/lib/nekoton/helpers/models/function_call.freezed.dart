@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,94 +10,62 @@ part of 'function_call.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-FunctionCall _$FunctionCallFromJson(Map<String, dynamic> json) {
-  return _FunctionCall.fromJson(json);
-}
 
 /// @nodoc
 mixin _$FunctionCall {
-  String get abi => throw _privateConstructorUsedError;
-  String get method => throw _privateConstructorUsedError;
-  Map<String, dynamic> get params => throw _privateConstructorUsedError;
-
-  /// Serializes this FunctionCall to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get abi;
+  String get method;
+  TokensObject get params;
 
   /// Create a copy of FunctionCall
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $FunctionCallCopyWith<FunctionCall> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $FunctionCallCopyWith<$Res> {
-  factory $FunctionCallCopyWith(
-          FunctionCall value, $Res Function(FunctionCall) then) =
-      _$FunctionCallCopyWithImpl<$Res, FunctionCall>;
-  @useResult
-  $Res call({String abi, String method, Map<String, dynamic> params});
-}
-
-/// @nodoc
-class _$FunctionCallCopyWithImpl<$Res, $Val extends FunctionCall>
-    implements $FunctionCallCopyWith<$Res> {
-  _$FunctionCallCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of FunctionCall
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $FunctionCallCopyWith<FunctionCall> get copyWith =>
+      _$FunctionCallCopyWithImpl<FunctionCall>(
+          this as FunctionCall, _$identity);
+
+  /// Serializes this FunctionCall to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? abi = null,
-    Object? method = null,
-    Object? params = null,
-  }) {
-    return _then(_value.copyWith(
-      abi: null == abi
-          ? _value.abi
-          : abi // ignore: cast_nullable_to_non_nullable
-              as String,
-      method: null == method
-          ? _value.method
-          : method // ignore: cast_nullable_to_non_nullable
-              as String,
-      params: null == params
-          ? _value.params
-          : params // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FunctionCall &&
+            (identical(other.abi, abi) || other.abi == abi) &&
+            (identical(other.method, method) || other.method == method) &&
+            const DeepCollectionEquality().equals(other.params, params));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, abi, method, const DeepCollectionEquality().hash(params));
+
+  @override
+  String toString() {
+    return 'FunctionCall(abi: $abi, method: $method, params: $params)';
   }
 }
 
 /// @nodoc
-abstract class _$$FunctionCallImplCopyWith<$Res>
-    implements $FunctionCallCopyWith<$Res> {
-  factory _$$FunctionCallImplCopyWith(
-          _$FunctionCallImpl value, $Res Function(_$FunctionCallImpl) then) =
-      __$$FunctionCallImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $FunctionCallCopyWith<$Res> {
+  factory $FunctionCallCopyWith(
+          FunctionCall value, $Res Function(FunctionCall) _then) =
+      _$FunctionCallCopyWithImpl;
   @useResult
-  $Res call({String abi, String method, Map<String, dynamic> params});
+  $Res call({String abi, String method, TokensObject params});
 }
 
 /// @nodoc
-class __$$FunctionCallImplCopyWithImpl<$Res>
-    extends _$FunctionCallCopyWithImpl<$Res, _$FunctionCallImpl>
-    implements _$$FunctionCallImplCopyWith<$Res> {
-  __$$FunctionCallImplCopyWithImpl(
-      _$FunctionCallImpl _value, $Res Function(_$FunctionCallImpl) _then)
-      : super(_value, _then);
+class _$FunctionCallCopyWithImpl<$Res> implements $FunctionCallCopyWith<$Res> {
+  _$FunctionCallCopyWithImpl(this._self, this._then);
+
+  final FunctionCall _self;
+  final $Res Function(FunctionCall) _then;
 
   /// Create a copy of FunctionCall
   /// with the given fields replaced by the non-null parameter values.
@@ -107,57 +76,66 @@ class __$$FunctionCallImplCopyWithImpl<$Res>
     Object? method = null,
     Object? params = null,
   }) {
-    return _then(_$FunctionCallImpl(
+    return _then(_self.copyWith(
       abi: null == abi
-          ? _value.abi
+          ? _self.abi
           : abi // ignore: cast_nullable_to_non_nullable
               as String,
       method: null == method
-          ? _value.method
+          ? _self.method
           : method // ignore: cast_nullable_to_non_nullable
               as String,
       params: null == params
-          ? _value._params
+          ? _self.params
           : params // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as TokensObject,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$FunctionCallImpl implements _FunctionCall {
-  const _$FunctionCallImpl(
+class _FunctionCall implements FunctionCall {
+  const _FunctionCall(
       {required this.abi,
       required this.method,
-      required final Map<String, dynamic> params})
+      required final TokensObject params})
       : _params = params;
-
-  factory _$FunctionCallImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FunctionCallImplFromJson(json);
+  factory _FunctionCall.fromJson(Map<String, dynamic> json) =>
+      _$FunctionCallFromJson(json);
 
   @override
   final String abi;
   @override
   final String method;
-  final Map<String, dynamic> _params;
+  final TokensObject _params;
   @override
-  Map<String, dynamic> get params {
+  TokensObject get params {
     if (_params is EqualUnmodifiableMapView) return _params;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_params);
   }
 
+  /// Create a copy of FunctionCall
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'FunctionCall(abi: $abi, method: $method, params: $params)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$FunctionCallCopyWith<_FunctionCall> get copyWith =>
+      __$FunctionCallCopyWithImpl<_FunctionCall>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$FunctionCallToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FunctionCallImpl &&
+            other is _FunctionCall &&
             (identical(other.abi, abi) || other.abi == abi) &&
             (identical(other.method, method) || other.method == method) &&
             const DeepCollectionEquality().equals(other._params, _params));
@@ -168,42 +146,55 @@ class _$FunctionCallImpl implements _FunctionCall {
   int get hashCode => Object.hash(
       runtimeType, abi, method, const DeepCollectionEquality().hash(_params));
 
-  /// Create a copy of FunctionCall
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$FunctionCallImplCopyWith<_$FunctionCallImpl> get copyWith =>
-      __$$FunctionCallImplCopyWithImpl<_$FunctionCallImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FunctionCallImplToJson(
-      this,
-    );
+  String toString() {
+    return 'FunctionCall(abi: $abi, method: $method, params: $params)';
   }
 }
 
-abstract class _FunctionCall implements FunctionCall {
-  const factory _FunctionCall(
-      {required final String abi,
-      required final String method,
-      required final Map<String, dynamic> params}) = _$FunctionCallImpl;
+/// @nodoc
+abstract mixin class _$FunctionCallCopyWith<$Res>
+    implements $FunctionCallCopyWith<$Res> {
+  factory _$FunctionCallCopyWith(
+          _FunctionCall value, $Res Function(_FunctionCall) _then) =
+      __$FunctionCallCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String abi, String method, TokensObject params});
+}
 
-  factory _FunctionCall.fromJson(Map<String, dynamic> json) =
-      _$FunctionCallImpl.fromJson;
+/// @nodoc
+class __$FunctionCallCopyWithImpl<$Res>
+    implements _$FunctionCallCopyWith<$Res> {
+  __$FunctionCallCopyWithImpl(this._self, this._then);
 
-  @override
-  String get abi;
-  @override
-  String get method;
-  @override
-  Map<String, dynamic> get params;
+  final _FunctionCall _self;
+  final $Res Function(_FunctionCall) _then;
 
   /// Create a copy of FunctionCall
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FunctionCallImplCopyWith<_$FunctionCallImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? abi = null,
+    Object? method = null,
+    Object? params = null,
+  }) {
+    return _then(_FunctionCall(
+      abi: null == abi
+          ? _self.abi
+          : abi // ignore: cast_nullable_to_non_nullable
+              as String,
+      method: null == method
+          ? _self.method
+          : method // ignore: cast_nullable_to_non_nullable
+              as String,
+      params: null == params
+          ? _self._params
+          : params // ignore: cast_nullable_to_non_nullable
+              as TokensObject,
+    ));
+  }
 }
+
+// dart format on

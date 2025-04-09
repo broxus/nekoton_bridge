@@ -6,13 +6,12 @@ part of 'gen_timings.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GenTimingsImpl _$$GenTimingsImplFromJson(Map<String, dynamic> json) =>
-    _$GenTimingsImpl(
+_GenTimings _$GenTimingsFromJson(Map<String, dynamic> json) => _GenTimings(
       genLt: json['genLt'] as String,
       genUtime: (json['genUtime'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$GenTimingsImplToJson(_$GenTimingsImpl instance) =>
+Map<String, dynamic> _$GenTimingsToJson(_GenTimings instance) =>
     <String, dynamic>{
       'genLt': instance.genLt,
       'genUtime': instance.genUtime,

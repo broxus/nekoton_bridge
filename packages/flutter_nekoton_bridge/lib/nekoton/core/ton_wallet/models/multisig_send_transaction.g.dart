@@ -6,9 +6,9 @@ part of 'multisig_send_transaction.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MultisigSendTransactionImpl _$$MultisigSendTransactionImplFromJson(
+_MultisigSendTransaction _$MultisigSendTransactionFromJson(
         Map<String, dynamic> json) =>
-    _$MultisigSendTransactionImpl(
+    _MultisigSendTransaction(
       dest: Address.fromJson(json['dest'] as String),
       value: amountJsonConverter.fromJson(json['value'] as String),
       bounce: json['bounce'] as bool,
@@ -16,8 +16,8 @@ _$MultisigSendTransactionImpl _$$MultisigSendTransactionImplFromJson(
       payload: json['payload'] as String,
     );
 
-Map<String, dynamic> _$$MultisigSendTransactionImplToJson(
-        _$MultisigSendTransactionImpl instance) =>
+Map<String, dynamic> _$MultisigSendTransactionToJson(
+        _MultisigSendTransaction instance) =>
     <String, dynamic>{
       'dest': instance.dest.toJson(),
       'value': amountJsonConverter.toJson(instance.value),

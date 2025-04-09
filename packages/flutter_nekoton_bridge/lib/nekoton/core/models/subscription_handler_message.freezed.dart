@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,141 +10,31 @@ part of 'subscription_handler_message.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SubscriptionHandlerMessage _$SubscriptionHandlerMessageFromJson(
-    Map<String, dynamic> json) {
-  return _SubscriptionHandlerMessage.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SubscriptionHandlerMessage {
-  String get event => throw _privateConstructorUsedError;
-  String get payload => throw _privateConstructorUsedError;
-
-  /// Serializes this SubscriptionHandlerMessage to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get event;
+  String get payload;
 
   /// Create a copy of SubscriptionHandlerMessage
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $SubscriptionHandlerMessageCopyWith<SubscriptionHandlerMessage>
-      get copyWith => throw _privateConstructorUsedError;
-}
+      get copyWith =>
+          _$SubscriptionHandlerMessageCopyWithImpl<SubscriptionHandlerMessage>(
+              this as SubscriptionHandlerMessage, _$identity);
 
-/// @nodoc
-abstract class $SubscriptionHandlerMessageCopyWith<$Res> {
-  factory $SubscriptionHandlerMessageCopyWith(SubscriptionHandlerMessage value,
-          $Res Function(SubscriptionHandlerMessage) then) =
-      _$SubscriptionHandlerMessageCopyWithImpl<$Res,
-          SubscriptionHandlerMessage>;
-  @useResult
-  $Res call({String event, String payload});
-}
-
-/// @nodoc
-class _$SubscriptionHandlerMessageCopyWithImpl<$Res,
-        $Val extends SubscriptionHandlerMessage>
-    implements $SubscriptionHandlerMessageCopyWith<$Res> {
-  _$SubscriptionHandlerMessageCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SubscriptionHandlerMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? event = null,
-    Object? payload = null,
-  }) {
-    return _then(_value.copyWith(
-      event: null == event
-          ? _value.event
-          : event // ignore: cast_nullable_to_non_nullable
-              as String,
-      payload: null == payload
-          ? _value.payload
-          : payload // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$SubscriptionHandlerMessageImplCopyWith<$Res>
-    implements $SubscriptionHandlerMessageCopyWith<$Res> {
-  factory _$$SubscriptionHandlerMessageImplCopyWith(
-          _$SubscriptionHandlerMessageImpl value,
-          $Res Function(_$SubscriptionHandlerMessageImpl) then) =
-      __$$SubscriptionHandlerMessageImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String event, String payload});
-}
-
-/// @nodoc
-class __$$SubscriptionHandlerMessageImplCopyWithImpl<$Res>
-    extends _$SubscriptionHandlerMessageCopyWithImpl<$Res,
-        _$SubscriptionHandlerMessageImpl>
-    implements _$$SubscriptionHandlerMessageImplCopyWith<$Res> {
-  __$$SubscriptionHandlerMessageImplCopyWithImpl(
-      _$SubscriptionHandlerMessageImpl _value,
-      $Res Function(_$SubscriptionHandlerMessageImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SubscriptionHandlerMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? event = null,
-    Object? payload = null,
-  }) {
-    return _then(_$SubscriptionHandlerMessageImpl(
-      event: null == event
-          ? _value.event
-          : event // ignore: cast_nullable_to_non_nullable
-              as String,
-      payload: null == payload
-          ? _value.payload
-          : payload // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$SubscriptionHandlerMessageImpl implements _SubscriptionHandlerMessage {
-  const _$SubscriptionHandlerMessageImpl(
-      {required this.event, required this.payload});
-
-  factory _$SubscriptionHandlerMessageImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$SubscriptionHandlerMessageImplFromJson(json);
-
-  @override
-  final String event;
-  @override
-  final String payload;
-
-  @override
-  String toString() {
-    return 'SubscriptionHandlerMessage(event: $event, payload: $payload)';
-  }
+  /// Serializes this SubscriptionHandlerMessage to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SubscriptionHandlerMessageImpl &&
+            other is SubscriptionHandlerMessage &&
             (identical(other.event, event) || other.event == event) &&
             (identical(other.payload, payload) || other.payload == payload));
   }
@@ -152,41 +43,137 @@ class _$SubscriptionHandlerMessageImpl implements _SubscriptionHandlerMessage {
   @override
   int get hashCode => Object.hash(runtimeType, event, payload);
 
-  /// Create a copy of SubscriptionHandlerMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SubscriptionHandlerMessageImplCopyWith<_$SubscriptionHandlerMessageImpl>
-      get copyWith => __$$SubscriptionHandlerMessageImplCopyWithImpl<
-          _$SubscriptionHandlerMessageImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SubscriptionHandlerMessageImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SubscriptionHandlerMessage(event: $event, payload: $payload)';
   }
 }
 
-abstract class _SubscriptionHandlerMessage
-    implements SubscriptionHandlerMessage {
-  const factory _SubscriptionHandlerMessage(
-      {required final String event,
-      required final String payload}) = _$SubscriptionHandlerMessageImpl;
+/// @nodoc
+abstract mixin class $SubscriptionHandlerMessageCopyWith<$Res> {
+  factory $SubscriptionHandlerMessageCopyWith(SubscriptionHandlerMessage value,
+          $Res Function(SubscriptionHandlerMessage) _then) =
+      _$SubscriptionHandlerMessageCopyWithImpl;
+  @useResult
+  $Res call({String event, String payload});
+}
 
-  factory _SubscriptionHandlerMessage.fromJson(Map<String, dynamic> json) =
-      _$SubscriptionHandlerMessageImpl.fromJson;
+/// @nodoc
+class _$SubscriptionHandlerMessageCopyWithImpl<$Res>
+    implements $SubscriptionHandlerMessageCopyWith<$Res> {
+  _$SubscriptionHandlerMessageCopyWithImpl(this._self, this._then);
+
+  final SubscriptionHandlerMessage _self;
+  final $Res Function(SubscriptionHandlerMessage) _then;
+
+  /// Create a copy of SubscriptionHandlerMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? event = null,
+    Object? payload = null,
+  }) {
+    return _then(_self.copyWith(
+      event: null == event
+          ? _self.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as String,
+      payload: null == payload
+          ? _self.payload
+          : payload // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _SubscriptionHandlerMessage implements SubscriptionHandlerMessage {
+  const _SubscriptionHandlerMessage(
+      {required this.event, required this.payload});
+  factory _SubscriptionHandlerMessage.fromJson(Map<String, dynamic> json) =>
+      _$SubscriptionHandlerMessageFromJson(json);
 
   @override
-  String get event;
+  final String event;
   @override
-  String get payload;
+  final String payload;
 
   /// Create a copy of SubscriptionHandlerMessage
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SubscriptionHandlerMessageImplCopyWith<_$SubscriptionHandlerMessageImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$SubscriptionHandlerMessageCopyWith<_SubscriptionHandlerMessage>
+      get copyWith => __$SubscriptionHandlerMessageCopyWithImpl<
+          _SubscriptionHandlerMessage>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SubscriptionHandlerMessageToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _SubscriptionHandlerMessage &&
+            (identical(other.event, event) || other.event == event) &&
+            (identical(other.payload, payload) || other.payload == payload));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, event, payload);
+
+  @override
+  String toString() {
+    return 'SubscriptionHandlerMessage(event: $event, payload: $payload)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$SubscriptionHandlerMessageCopyWith<$Res>
+    implements $SubscriptionHandlerMessageCopyWith<$Res> {
+  factory _$SubscriptionHandlerMessageCopyWith(
+          _SubscriptionHandlerMessage value,
+          $Res Function(_SubscriptionHandlerMessage) _then) =
+      __$SubscriptionHandlerMessageCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String event, String payload});
+}
+
+/// @nodoc
+class __$SubscriptionHandlerMessageCopyWithImpl<$Res>
+    implements _$SubscriptionHandlerMessageCopyWith<$Res> {
+  __$SubscriptionHandlerMessageCopyWithImpl(this._self, this._then);
+
+  final _SubscriptionHandlerMessage _self;
+  final $Res Function(_SubscriptionHandlerMessage) _then;
+
+  /// Create a copy of SubscriptionHandlerMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? event = null,
+    Object? payload = null,
+  }) {
+    return _then(_SubscriptionHandlerMessage(
+      event: null == event
+          ? _self.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as String,
+      payload: null == payload
+          ? _self.payload
+          : payload // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,165 +10,30 @@ part of 'ledger_sign_input.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LedgerSignInput _$LedgerSignInputFromJson(Map<String, dynamic> json) {
-  return _LedgerSignInput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LedgerSignInput {
-  PublicKey get publicKey => throw _privateConstructorUsedError;
-  LedgerSignatureContext? get context => throw _privateConstructorUsedError;
-
-  /// Serializes this LedgerSignInput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  PublicKey get publicKey;
+  LedgerSignatureContext? get context;
 
   /// Create a copy of LedgerSignInput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $LedgerSignInputCopyWith<LedgerSignInput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$LedgerSignInputCopyWithImpl<LedgerSignInput>(
+          this as LedgerSignInput, _$identity);
 
-/// @nodoc
-abstract class $LedgerSignInputCopyWith<$Res> {
-  factory $LedgerSignInputCopyWith(
-          LedgerSignInput value, $Res Function(LedgerSignInput) then) =
-      _$LedgerSignInputCopyWithImpl<$Res, LedgerSignInput>;
-  @useResult
-  $Res call({PublicKey publicKey, LedgerSignatureContext? context});
-
-  $PublicKeyCopyWith<$Res> get publicKey;
-  $LedgerSignatureContextCopyWith<$Res>? get context;
-}
-
-/// @nodoc
-class _$LedgerSignInputCopyWithImpl<$Res, $Val extends LedgerSignInput>
-    implements $LedgerSignInputCopyWith<$Res> {
-  _$LedgerSignInputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of LedgerSignInput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? publicKey = null,
-    Object? context = freezed,
-  }) {
-    return _then(_value.copyWith(
-      publicKey: null == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      context: freezed == context
-          ? _value.context
-          : context // ignore: cast_nullable_to_non_nullable
-              as LedgerSignatureContext?,
-    ) as $Val);
-  }
-
-  /// Create a copy of LedgerSignInput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get publicKey {
-    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
-      return _then(_value.copyWith(publicKey: value) as $Val);
-    });
-  }
-
-  /// Create a copy of LedgerSignInput
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LedgerSignatureContextCopyWith<$Res>? get context {
-    if (_value.context == null) {
-      return null;
-    }
-
-    return $LedgerSignatureContextCopyWith<$Res>(_value.context!, (value) {
-      return _then(_value.copyWith(context: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$LedgerSignInputImplCopyWith<$Res>
-    implements $LedgerSignInputCopyWith<$Res> {
-  factory _$$LedgerSignInputImplCopyWith(_$LedgerSignInputImpl value,
-          $Res Function(_$LedgerSignInputImpl) then) =
-      __$$LedgerSignInputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({PublicKey publicKey, LedgerSignatureContext? context});
-
-  @override
-  $PublicKeyCopyWith<$Res> get publicKey;
-  @override
-  $LedgerSignatureContextCopyWith<$Res>? get context;
-}
-
-/// @nodoc
-class __$$LedgerSignInputImplCopyWithImpl<$Res>
-    extends _$LedgerSignInputCopyWithImpl<$Res, _$LedgerSignInputImpl>
-    implements _$$LedgerSignInputImplCopyWith<$Res> {
-  __$$LedgerSignInputImplCopyWithImpl(
-      _$LedgerSignInputImpl _value, $Res Function(_$LedgerSignInputImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of LedgerSignInput
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? publicKey = null,
-    Object? context = freezed,
-  }) {
-    return _then(_$LedgerSignInputImpl(
-      publicKey: null == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      context: freezed == context
-          ? _value.context
-          : context // ignore: cast_nullable_to_non_nullable
-              as LedgerSignatureContext?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$LedgerSignInputImpl implements _LedgerSignInput {
-  const _$LedgerSignInputImpl({required this.publicKey, this.context});
-
-  factory _$LedgerSignInputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LedgerSignInputImplFromJson(json);
-
-  @override
-  final PublicKey publicKey;
-  @override
-  final LedgerSignatureContext? context;
-
-  @override
-  String toString() {
-    return 'LedgerSignInput(publicKey: $publicKey, context: $context)';
-  }
+  /// Serializes this LedgerSignInput to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LedgerSignInputImpl &&
+            other is LedgerSignInput &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey) &&
             (identical(other.context, context) || other.context == context));
@@ -177,40 +43,191 @@ class _$LedgerSignInputImpl implements _LedgerSignInput {
   @override
   int get hashCode => Object.hash(runtimeType, publicKey, context);
 
-  /// Create a copy of LedgerSignInput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LedgerSignInputImplCopyWith<_$LedgerSignInputImpl> get copyWith =>
-      __$$LedgerSignInputImplCopyWithImpl<_$LedgerSignInputImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LedgerSignInputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LedgerSignInput(publicKey: $publicKey, context: $context)';
   }
 }
 
-abstract class _LedgerSignInput implements LedgerSignInput {
-  const factory _LedgerSignInput(
-      {required final PublicKey publicKey,
-      final LedgerSignatureContext? context}) = _$LedgerSignInputImpl;
+/// @nodoc
+abstract mixin class $LedgerSignInputCopyWith<$Res> {
+  factory $LedgerSignInputCopyWith(
+          LedgerSignInput value, $Res Function(LedgerSignInput) _then) =
+      _$LedgerSignInputCopyWithImpl;
+  @useResult
+  $Res call({PublicKey publicKey, LedgerSignatureContext? context});
 
-  factory _LedgerSignInput.fromJson(Map<String, dynamic> json) =
-      _$LedgerSignInputImpl.fromJson;
+  $PublicKeyCopyWith<$Res> get publicKey;
+  $LedgerSignatureContextCopyWith<$Res>? get context;
+}
+
+/// @nodoc
+class _$LedgerSignInputCopyWithImpl<$Res>
+    implements $LedgerSignInputCopyWith<$Res> {
+  _$LedgerSignInputCopyWithImpl(this._self, this._then);
+
+  final LedgerSignInput _self;
+  final $Res Function(LedgerSignInput) _then;
+
+  /// Create a copy of LedgerSignInput
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? publicKey = null,
+    Object? context = freezed,
+  }) {
+    return _then(_self.copyWith(
+      publicKey: null == publicKey
+          ? _self.publicKey
+          : publicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      context: freezed == context
+          ? _self.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as LedgerSignatureContext?,
+    ));
+  }
+
+  /// Create a copy of LedgerSignInput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_self.publicKey, (value) {
+      return _then(_self.copyWith(publicKey: value));
+    });
+  }
+
+  /// Create a copy of LedgerSignInput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSignatureContextCopyWith<$Res>? get context {
+    if (_self.context == null) {
+      return null;
+    }
+
+    return $LedgerSignatureContextCopyWith<$Res>(_self.context!, (value) {
+      return _then(_self.copyWith(context: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _LedgerSignInput implements LedgerSignInput {
+  const _LedgerSignInput({required this.publicKey, this.context});
+  factory _LedgerSignInput.fromJson(Map<String, dynamic> json) =>
+      _$LedgerSignInputFromJson(json);
 
   @override
-  PublicKey get publicKey;
+  final PublicKey publicKey;
   @override
-  LedgerSignatureContext? get context;
+  final LedgerSignatureContext? context;
 
   /// Create a copy of LedgerSignInput
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LedgerSignInputImplCopyWith<_$LedgerSignInputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$LedgerSignInputCopyWith<_LedgerSignInput> get copyWith =>
+      __$LedgerSignInputCopyWithImpl<_LedgerSignInput>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LedgerSignInputToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _LedgerSignInput &&
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey) &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, publicKey, context);
+
+  @override
+  String toString() {
+    return 'LedgerSignInput(publicKey: $publicKey, context: $context)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$LedgerSignInputCopyWith<$Res>
+    implements $LedgerSignInputCopyWith<$Res> {
+  factory _$LedgerSignInputCopyWith(
+          _LedgerSignInput value, $Res Function(_LedgerSignInput) _then) =
+      __$LedgerSignInputCopyWithImpl;
+  @override
+  @useResult
+  $Res call({PublicKey publicKey, LedgerSignatureContext? context});
+
+  @override
+  $PublicKeyCopyWith<$Res> get publicKey;
+  @override
+  $LedgerSignatureContextCopyWith<$Res>? get context;
+}
+
+/// @nodoc
+class __$LedgerSignInputCopyWithImpl<$Res>
+    implements _$LedgerSignInputCopyWith<$Res> {
+  __$LedgerSignInputCopyWithImpl(this._self, this._then);
+
+  final _LedgerSignInput _self;
+  final $Res Function(_LedgerSignInput) _then;
+
+  /// Create a copy of LedgerSignInput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? publicKey = null,
+    Object? context = freezed,
+  }) {
+    return _then(_LedgerSignInput(
+      publicKey: null == publicKey
+          ? _self.publicKey
+          : publicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      context: freezed == context
+          ? _self.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as LedgerSignatureContext?,
+    ));
+  }
+
+  /// Create a copy of LedgerSignInput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_self.publicKey, (value) {
+      return _then(_self.copyWith(publicKey: value));
+    });
+  }
+
+  /// Create a copy of LedgerSignInput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSignatureContextCopyWith<$Res>? get context {
+    if (_self.context == null) {
+      return null;
+    }
+
+    return $LedgerSignatureContextCopyWith<$Res>(_self.context!, (value) {
+      return _then(_self.copyWith(context: value));
+    });
+  }
+}
+
+// dart format on

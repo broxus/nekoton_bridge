@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,88 +10,61 @@ part of 'decoded_output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-DecodedOutput _$DecodedOutputFromJson(Map<String, dynamic> json) {
-  return _DecodedOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$DecodedOutput {
-  String get method => throw _privateConstructorUsedError;
-  Map<String, dynamic> get output => throw _privateConstructorUsedError;
-
-  /// Serializes this DecodedOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get method;
+  TokensObject get output;
 
   /// Create a copy of DecodedOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $DecodedOutputCopyWith<DecodedOutput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $DecodedOutputCopyWith<$Res> {
-  factory $DecodedOutputCopyWith(
-          DecodedOutput value, $Res Function(DecodedOutput) then) =
-      _$DecodedOutputCopyWithImpl<$Res, DecodedOutput>;
-  @useResult
-  $Res call({String method, Map<String, dynamic> output});
-}
-
-/// @nodoc
-class _$DecodedOutputCopyWithImpl<$Res, $Val extends DecodedOutput>
-    implements $DecodedOutputCopyWith<$Res> {
-  _$DecodedOutputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of DecodedOutput
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $DecodedOutputCopyWith<DecodedOutput> get copyWith =>
+      _$DecodedOutputCopyWithImpl<DecodedOutput>(
+          this as DecodedOutput, _$identity);
+
+  /// Serializes this DecodedOutput to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? method = null,
-    Object? output = null,
-  }) {
-    return _then(_value.copyWith(
-      method: null == method
-          ? _value.method
-          : method // ignore: cast_nullable_to_non_nullable
-              as String,
-      output: null == output
-          ? _value.output
-          : output // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DecodedOutput &&
+            (identical(other.method, method) || other.method == method) &&
+            const DeepCollectionEquality().equals(other.output, output));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, method, const DeepCollectionEquality().hash(output));
+
+  @override
+  String toString() {
+    return 'DecodedOutput(method: $method, output: $output)';
   }
 }
 
 /// @nodoc
-abstract class _$$DecodedOutputImplCopyWith<$Res>
-    implements $DecodedOutputCopyWith<$Res> {
-  factory _$$DecodedOutputImplCopyWith(
-          _$DecodedOutputImpl value, $Res Function(_$DecodedOutputImpl) then) =
-      __$$DecodedOutputImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $DecodedOutputCopyWith<$Res> {
+  factory $DecodedOutputCopyWith(
+          DecodedOutput value, $Res Function(DecodedOutput) _then) =
+      _$DecodedOutputCopyWithImpl;
   @useResult
-  $Res call({String method, Map<String, dynamic> output});
+  $Res call({String method, TokensObject output});
 }
 
 /// @nodoc
-class __$$DecodedOutputImplCopyWithImpl<$Res>
-    extends _$DecodedOutputCopyWithImpl<$Res, _$DecodedOutputImpl>
-    implements _$$DecodedOutputImplCopyWith<$Res> {
-  __$$DecodedOutputImplCopyWithImpl(
-      _$DecodedOutputImpl _value, $Res Function(_$DecodedOutputImpl) _then)
-      : super(_value, _then);
+class _$DecodedOutputCopyWithImpl<$Res>
+    implements $DecodedOutputCopyWith<$Res> {
+  _$DecodedOutputCopyWithImpl(this._self, this._then);
+
+  final DecodedOutput _self;
+  final $Res Function(DecodedOutput) _then;
 
   /// Create a copy of DecodedOutput
   /// with the given fields replaced by the non-null parameter values.
@@ -100,49 +74,58 @@ class __$$DecodedOutputImplCopyWithImpl<$Res>
     Object? method = null,
     Object? output = null,
   }) {
-    return _then(_$DecodedOutputImpl(
+    return _then(_self.copyWith(
       method: null == method
-          ? _value.method
+          ? _self.method
           : method // ignore: cast_nullable_to_non_nullable
               as String,
       output: null == output
-          ? _value._output
+          ? _self.output
           : output // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as TokensObject,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$DecodedOutputImpl implements _DecodedOutput {
-  const _$DecodedOutputImpl(
-      {required this.method, required final Map<String, dynamic> output})
+class _DecodedOutput implements DecodedOutput {
+  const _DecodedOutput(
+      {required this.method, required final TokensObject output})
       : _output = output;
-
-  factory _$DecodedOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DecodedOutputImplFromJson(json);
+  factory _DecodedOutput.fromJson(Map<String, dynamic> json) =>
+      _$DecodedOutputFromJson(json);
 
   @override
   final String method;
-  final Map<String, dynamic> _output;
+  final TokensObject _output;
   @override
-  Map<String, dynamic> get output {
+  TokensObject get output {
     if (_output is EqualUnmodifiableMapView) return _output;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_output);
   }
 
+  /// Create a copy of DecodedOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'DecodedOutput(method: $method, output: $output)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$DecodedOutputCopyWith<_DecodedOutput> get copyWith =>
+      __$DecodedOutputCopyWithImpl<_DecodedOutput>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$DecodedOutputToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DecodedOutputImpl &&
+            other is _DecodedOutput &&
             (identical(other.method, method) || other.method == method) &&
             const DeepCollectionEquality().equals(other._output, _output));
   }
@@ -152,39 +135,50 @@ class _$DecodedOutputImpl implements _DecodedOutput {
   int get hashCode => Object.hash(
       runtimeType, method, const DeepCollectionEquality().hash(_output));
 
-  /// Create a copy of DecodedOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DecodedOutputImplCopyWith<_$DecodedOutputImpl> get copyWith =>
-      __$$DecodedOutputImplCopyWithImpl<_$DecodedOutputImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DecodedOutputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'DecodedOutput(method: $method, output: $output)';
   }
 }
 
-abstract class _DecodedOutput implements DecodedOutput {
-  const factory _DecodedOutput(
-      {required final String method,
-      required final Map<String, dynamic> output}) = _$DecodedOutputImpl;
-
-  factory _DecodedOutput.fromJson(Map<String, dynamic> json) =
-      _$DecodedOutputImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$DecodedOutputCopyWith<$Res>
+    implements $DecodedOutputCopyWith<$Res> {
+  factory _$DecodedOutputCopyWith(
+          _DecodedOutput value, $Res Function(_DecodedOutput) _then) =
+      __$DecodedOutputCopyWithImpl;
   @override
-  String get method;
-  @override
-  Map<String, dynamic> get output;
+  @useResult
+  $Res call({String method, TokensObject output});
+}
+
+/// @nodoc
+class __$DecodedOutputCopyWithImpl<$Res>
+    implements _$DecodedOutputCopyWith<$Res> {
+  __$DecodedOutputCopyWithImpl(this._self, this._then);
+
+  final _DecodedOutput _self;
+  final $Res Function(_DecodedOutput) _then;
 
   /// Create a copy of DecodedOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DecodedOutputImplCopyWith<_$DecodedOutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? method = null,
+    Object? output = null,
+  }) {
+    return _then(_DecodedOutput(
+      method: null == method
+          ? _self.method
+          : method // ignore: cast_nullable_to_non_nullable
+              as String,
+      output: null == output
+          ? _self._output
+          : output // ignore: cast_nullable_to_non_nullable
+              as TokensObject,
+    ));
+  }
 }
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,47 +10,85 @@ part of 'multisig_pending_transaction.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-MultisigPendingTransaction _$MultisigPendingTransactionFromJson(
-    Map<String, dynamic> json) {
-  return _MultisigPendingTransaction.fromJson(json);
-}
 
 /// @nodoc
 mixin _$MultisigPendingTransaction {
-  String get id => throw _privateConstructorUsedError;
-  List<PublicKey> get confirmations => throw _privateConstructorUsedError;
-  int get signsRequired => throw _privateConstructorUsedError;
-  int get signsReceived => throw _privateConstructorUsedError;
-  PublicKey get creator => throw _privateConstructorUsedError;
-  int get index => throw _privateConstructorUsedError;
-  Address get dest => throw _privateConstructorUsedError;
+  String get id;
+  List<PublicKey> get confirmations;
+  int get signsRequired;
+  int get signsReceived;
+  PublicKey get creator;
+  int get index;
+  Address get dest;
   @amountJsonConverter
-  BigInt get value => throw _privateConstructorUsedError;
-  int get sendFlags => throw _privateConstructorUsedError;
-  String get payload => throw _privateConstructorUsedError;
-  bool get bounce => throw _privateConstructorUsedError;
-
-  /// Serializes this MultisigPendingTransaction to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  BigInt get value;
+  int get sendFlags;
+  String get payload;
+  bool get bounce;
 
   /// Create a copy of MultisigPendingTransaction
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $MultisigPendingTransactionCopyWith<MultisigPendingTransaction>
-      get copyWith => throw _privateConstructorUsedError;
+      get copyWith =>
+          _$MultisigPendingTransactionCopyWithImpl<MultisigPendingTransaction>(
+              this as MultisigPendingTransaction, _$identity);
+
+  /// Serializes this MultisigPendingTransaction to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MultisigPendingTransaction &&
+            (identical(other.id, id) || other.id == id) &&
+            const DeepCollectionEquality()
+                .equals(other.confirmations, confirmations) &&
+            (identical(other.signsRequired, signsRequired) ||
+                other.signsRequired == signsRequired) &&
+            (identical(other.signsReceived, signsReceived) ||
+                other.signsReceived == signsReceived) &&
+            (identical(other.creator, creator) || other.creator == creator) &&
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.dest, dest) || other.dest == dest) &&
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.sendFlags, sendFlags) ||
+                other.sendFlags == sendFlags) &&
+            (identical(other.payload, payload) || other.payload == payload) &&
+            (identical(other.bounce, bounce) || other.bounce == bounce));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      const DeepCollectionEquality().hash(confirmations),
+      signsRequired,
+      signsReceived,
+      creator,
+      index,
+      dest,
+      value,
+      sendFlags,
+      payload,
+      bounce);
+
+  @override
+  String toString() {
+    return 'MultisigPendingTransaction(id: $id, confirmations: $confirmations, signsRequired: $signsRequired, signsReceived: $signsReceived, creator: $creator, index: $index, dest: $dest, value: $value, sendFlags: $sendFlags, payload: $payload, bounce: $bounce)';
+  }
 }
 
 /// @nodoc
-abstract class $MultisigPendingTransactionCopyWith<$Res> {
+abstract mixin class $MultisigPendingTransactionCopyWith<$Res> {
   factory $MultisigPendingTransactionCopyWith(MultisigPendingTransaction value,
-          $Res Function(MultisigPendingTransaction) then) =
-      _$MultisigPendingTransactionCopyWithImpl<$Res,
-          MultisigPendingTransaction>;
+          $Res Function(MultisigPendingTransaction) _then) =
+      _$MultisigPendingTransactionCopyWithImpl;
   @useResult
   $Res call(
       {String id,
@@ -69,15 +108,12 @@ abstract class $MultisigPendingTransactionCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MultisigPendingTransactionCopyWithImpl<$Res,
-        $Val extends MultisigPendingTransaction>
+class _$MultisigPendingTransactionCopyWithImpl<$Res>
     implements $MultisigPendingTransactionCopyWith<$Res> {
-  _$MultisigPendingTransactionCopyWithImpl(this._value, this._then);
+  _$MultisigPendingTransactionCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final MultisigPendingTransaction _self;
+  final $Res Function(MultisigPendingTransaction) _then;
 
   /// Create a copy of MultisigPendingTransaction
   /// with the given fields replaced by the non-null parameter values.
@@ -96,52 +132,52 @@ class _$MultisigPendingTransactionCopyWithImpl<$Res,
     Object? payload = null,
     Object? bounce = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
       confirmations: null == confirmations
-          ? _value.confirmations
+          ? _self.confirmations
           : confirmations // ignore: cast_nullable_to_non_nullable
               as List<PublicKey>,
       signsRequired: null == signsRequired
-          ? _value.signsRequired
+          ? _self.signsRequired
           : signsRequired // ignore: cast_nullable_to_non_nullable
               as int,
       signsReceived: null == signsReceived
-          ? _value.signsReceived
+          ? _self.signsReceived
           : signsReceived // ignore: cast_nullable_to_non_nullable
               as int,
       creator: null == creator
-          ? _value.creator
+          ? _self.creator
           : creator // ignore: cast_nullable_to_non_nullable
               as PublicKey,
       index: null == index
-          ? _value.index
+          ? _self.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
       dest: null == dest
-          ? _value.dest
+          ? _self.dest
           : dest // ignore: cast_nullable_to_non_nullable
               as Address,
       value: null == value
-          ? _value.value
+          ? _self.value
           : value // ignore: cast_nullable_to_non_nullable
               as BigInt,
       sendFlags: null == sendFlags
-          ? _value.sendFlags
+          ? _self.sendFlags
           : sendFlags // ignore: cast_nullable_to_non_nullable
               as int,
       payload: null == payload
-          ? _value.payload
+          ? _self.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as String,
       bounce: null == bounce
-          ? _value.bounce
+          ? _self.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
               as bool,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of MultisigPendingTransaction
@@ -149,8 +185,8 @@ class _$MultisigPendingTransactionCopyWithImpl<$Res,
   @override
   @pragma('vm:prefer-inline')
   $PublicKeyCopyWith<$Res> get creator {
-    return $PublicKeyCopyWith<$Res>(_value.creator, (value) {
-      return _then(_value.copyWith(creator: value) as $Val);
+    return $PublicKeyCopyWith<$Res>(_self.creator, (value) {
+      return _then(_self.copyWith(creator: value));
     });
   }
 
@@ -159,121 +195,17 @@ class _$MultisigPendingTransactionCopyWithImpl<$Res,
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get dest {
-    return $AddressCopyWith<$Res>(_value.dest, (value) {
-      return _then(_value.copyWith(dest: value) as $Val);
+    return $AddressCopyWith<$Res>(_self.dest, (value) {
+      return _then(_self.copyWith(dest: value));
     });
-  }
-}
-
-/// @nodoc
-abstract class _$$MultisigPendingTransactionImplCopyWith<$Res>
-    implements $MultisigPendingTransactionCopyWith<$Res> {
-  factory _$$MultisigPendingTransactionImplCopyWith(
-          _$MultisigPendingTransactionImpl value,
-          $Res Function(_$MultisigPendingTransactionImpl) then) =
-      __$$MultisigPendingTransactionImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String id,
-      List<PublicKey> confirmations,
-      int signsRequired,
-      int signsReceived,
-      PublicKey creator,
-      int index,
-      Address dest,
-      @amountJsonConverter BigInt value,
-      int sendFlags,
-      String payload,
-      bool bounce});
-
-  @override
-  $PublicKeyCopyWith<$Res> get creator;
-  @override
-  $AddressCopyWith<$Res> get dest;
-}
-
-/// @nodoc
-class __$$MultisigPendingTransactionImplCopyWithImpl<$Res>
-    extends _$MultisigPendingTransactionCopyWithImpl<$Res,
-        _$MultisigPendingTransactionImpl>
-    implements _$$MultisigPendingTransactionImplCopyWith<$Res> {
-  __$$MultisigPendingTransactionImplCopyWithImpl(
-      _$MultisigPendingTransactionImpl _value,
-      $Res Function(_$MultisigPendingTransactionImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MultisigPendingTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? confirmations = null,
-    Object? signsRequired = null,
-    Object? signsReceived = null,
-    Object? creator = null,
-    Object? index = null,
-    Object? dest = null,
-    Object? value = null,
-    Object? sendFlags = null,
-    Object? payload = null,
-    Object? bounce = null,
-  }) {
-    return _then(_$MultisigPendingTransactionImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      confirmations: null == confirmations
-          ? _value._confirmations
-          : confirmations // ignore: cast_nullable_to_non_nullable
-              as List<PublicKey>,
-      signsRequired: null == signsRequired
-          ? _value.signsRequired
-          : signsRequired // ignore: cast_nullable_to_non_nullable
-              as int,
-      signsReceived: null == signsReceived
-          ? _value.signsReceived
-          : signsReceived // ignore: cast_nullable_to_non_nullable
-              as int,
-      creator: null == creator
-          ? _value.creator
-          : creator // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      index: null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int,
-      dest: null == dest
-          ? _value.dest
-          : dest // ignore: cast_nullable_to_non_nullable
-              as Address,
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-      sendFlags: null == sendFlags
-          ? _value.sendFlags
-          : sendFlags // ignore: cast_nullable_to_non_nullable
-              as int,
-      payload: null == payload
-          ? _value.payload
-          : payload // ignore: cast_nullable_to_non_nullable
-              as String,
-      bounce: null == bounce
-          ? _value.bounce
-          : bounce // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
   }
 }
 
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$MultisigPendingTransactionImpl implements _MultisigPendingTransaction {
-  const _$MultisigPendingTransactionImpl(
+class _MultisigPendingTransaction implements MultisigPendingTransaction {
+  const _MultisigPendingTransaction(
       {required this.id,
       required final List<PublicKey> confirmations,
       required this.signsRequired,
@@ -286,10 +218,8 @@ class _$MultisigPendingTransactionImpl implements _MultisigPendingTransaction {
       required this.payload,
       required this.bounce})
       : _confirmations = confirmations;
-
-  factory _$MultisigPendingTransactionImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$MultisigPendingTransactionImplFromJson(json);
+  factory _MultisigPendingTransaction.fromJson(Map<String, dynamic> json) =>
+      _$MultisigPendingTransactionFromJson(json);
 
   @override
   final String id;
@@ -321,16 +251,27 @@ class _$MultisigPendingTransactionImpl implements _MultisigPendingTransaction {
   @override
   final bool bounce;
 
+  /// Create a copy of MultisigPendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'MultisigPendingTransaction(id: $id, confirmations: $confirmations, signsRequired: $signsRequired, signsReceived: $signsReceived, creator: $creator, index: $index, dest: $dest, value: $value, sendFlags: $sendFlags, payload: $payload, bounce: $bounce)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MultisigPendingTransactionCopyWith<_MultisigPendingTransaction>
+      get copyWith => __$MultisigPendingTransactionCopyWithImpl<
+          _MultisigPendingTransaction>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$MultisigPendingTransactionToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MultisigPendingTransactionImpl &&
+            other is _MultisigPendingTransaction &&
             (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality()
                 .equals(other._confirmations, _confirmations) &&
@@ -364,69 +305,132 @@ class _$MultisigPendingTransactionImpl implements _MultisigPendingTransaction {
       payload,
       bounce);
 
-  /// Create a copy of MultisigPendingTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MultisigPendingTransactionImplCopyWith<_$MultisigPendingTransactionImpl>
-      get copyWith => __$$MultisigPendingTransactionImplCopyWithImpl<
-          _$MultisigPendingTransactionImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MultisigPendingTransactionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'MultisigPendingTransaction(id: $id, confirmations: $confirmations, signsRequired: $signsRequired, signsReceived: $signsReceived, creator: $creator, index: $index, dest: $dest, value: $value, sendFlags: $sendFlags, payload: $payload, bounce: $bounce)';
   }
 }
 
-abstract class _MultisigPendingTransaction
-    implements MultisigPendingTransaction {
-  const factory _MultisigPendingTransaction(
-      {required final String id,
-      required final List<PublicKey> confirmations,
-      required final int signsRequired,
-      required final int signsReceived,
-      required final PublicKey creator,
-      required final int index,
-      required final Address dest,
-      @amountJsonConverter required final BigInt value,
-      required final int sendFlags,
-      required final String payload,
-      required final bool bounce}) = _$MultisigPendingTransactionImpl;
+/// @nodoc
+abstract mixin class _$MultisigPendingTransactionCopyWith<$Res>
+    implements $MultisigPendingTransactionCopyWith<$Res> {
+  factory _$MultisigPendingTransactionCopyWith(
+          _MultisigPendingTransaction value,
+          $Res Function(_MultisigPendingTransaction) _then) =
+      __$MultisigPendingTransactionCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String id,
+      List<PublicKey> confirmations,
+      int signsRequired,
+      int signsReceived,
+      PublicKey creator,
+      int index,
+      Address dest,
+      @amountJsonConverter BigInt value,
+      int sendFlags,
+      String payload,
+      bool bounce});
 
-  factory _MultisigPendingTransaction.fromJson(Map<String, dynamic> json) =
-      _$MultisigPendingTransactionImpl.fromJson;
+  @override
+  $PublicKeyCopyWith<$Res> get creator;
+  @override
+  $AddressCopyWith<$Res> get dest;
+}
 
-  @override
-  String get id;
-  @override
-  List<PublicKey> get confirmations;
-  @override
-  int get signsRequired;
-  @override
-  int get signsReceived;
-  @override
-  PublicKey get creator;
-  @override
-  int get index;
-  @override
-  Address get dest;
-  @override
-  @amountJsonConverter
-  BigInt get value;
-  @override
-  int get sendFlags;
-  @override
-  String get payload;
-  @override
-  bool get bounce;
+/// @nodoc
+class __$MultisigPendingTransactionCopyWithImpl<$Res>
+    implements _$MultisigPendingTransactionCopyWith<$Res> {
+  __$MultisigPendingTransactionCopyWithImpl(this._self, this._then);
+
+  final _MultisigPendingTransaction _self;
+  final $Res Function(_MultisigPendingTransaction) _then;
 
   /// Create a copy of MultisigPendingTransaction
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MultisigPendingTransactionImplCopyWith<_$MultisigPendingTransactionImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? confirmations = null,
+    Object? signsRequired = null,
+    Object? signsReceived = null,
+    Object? creator = null,
+    Object? index = null,
+    Object? dest = null,
+    Object? value = null,
+    Object? sendFlags = null,
+    Object? payload = null,
+    Object? bounce = null,
+  }) {
+    return _then(_MultisigPendingTransaction(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      confirmations: null == confirmations
+          ? _self._confirmations
+          : confirmations // ignore: cast_nullable_to_non_nullable
+              as List<PublicKey>,
+      signsRequired: null == signsRequired
+          ? _self.signsRequired
+          : signsRequired // ignore: cast_nullable_to_non_nullable
+              as int,
+      signsReceived: null == signsReceived
+          ? _self.signsReceived
+          : signsReceived // ignore: cast_nullable_to_non_nullable
+              as int,
+      creator: null == creator
+          ? _self.creator
+          : creator // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      index: null == index
+          ? _self.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+      dest: null == dest
+          ? _self.dest
+          : dest // ignore: cast_nullable_to_non_nullable
+              as Address,
+      value: null == value
+          ? _self.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      sendFlags: null == sendFlags
+          ? _self.sendFlags
+          : sendFlags // ignore: cast_nullable_to_non_nullable
+              as int,
+      payload: null == payload
+          ? _self.payload
+          : payload // ignore: cast_nullable_to_non_nullable
+              as String,
+      bounce: null == bounce
+          ? _self.bounce
+          : bounce // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+
+  /// Create a copy of MultisigPendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get creator {
+    return $PublicKeyCopyWith<$Res>(_self.creator, (value) {
+      return _then(_self.copyWith(creator: value));
+    });
+  }
+
+  /// Create a copy of MultisigPendingTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get dest {
+    return $AddressCopyWith<$Res>(_self.dest, (value) {
+      return _then(_self.copyWith(dest: value));
+    });
+  }
 }
+
+// dart format on

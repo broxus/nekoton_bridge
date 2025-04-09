@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,135 +10,28 @@ part of 'depool_asset.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-DePoolAsset _$DePoolAssetFromJson(Map<String, dynamic> json) {
-  return _DePoolAsset.fromJson(json);
-}
 
 /// @nodoc
 mixin _$DePoolAsset {
-  Address get address => throw _privateConstructorUsedError;
-
-  /// Serializes this DePoolAsset to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Address get address;
 
   /// Create a copy of DePoolAsset
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $DePoolAssetCopyWith<DePoolAsset> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$DePoolAssetCopyWithImpl<DePoolAsset>(this as DePoolAsset, _$identity);
 
-/// @nodoc
-abstract class $DePoolAssetCopyWith<$Res> {
-  factory $DePoolAssetCopyWith(
-          DePoolAsset value, $Res Function(DePoolAsset) then) =
-      _$DePoolAssetCopyWithImpl<$Res, DePoolAsset>;
-  @useResult
-  $Res call({Address address});
-
-  $AddressCopyWith<$Res> get address;
-}
-
-/// @nodoc
-class _$DePoolAssetCopyWithImpl<$Res, $Val extends DePoolAsset>
-    implements $DePoolAssetCopyWith<$Res> {
-  _$DePoolAssetCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of DePoolAsset
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? address = null,
-  }) {
-    return _then(_value.copyWith(
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as Address,
-    ) as $Val);
-  }
-
-  /// Create a copy of DePoolAsset
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res> get address {
-    return $AddressCopyWith<$Res>(_value.address, (value) {
-      return _then(_value.copyWith(address: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$DePoolAssetImplCopyWith<$Res>
-    implements $DePoolAssetCopyWith<$Res> {
-  factory _$$DePoolAssetImplCopyWith(
-          _$DePoolAssetImpl value, $Res Function(_$DePoolAssetImpl) then) =
-      __$$DePoolAssetImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Address address});
-
-  @override
-  $AddressCopyWith<$Res> get address;
-}
-
-/// @nodoc
-class __$$DePoolAssetImplCopyWithImpl<$Res>
-    extends _$DePoolAssetCopyWithImpl<$Res, _$DePoolAssetImpl>
-    implements _$$DePoolAssetImplCopyWith<$Res> {
-  __$$DePoolAssetImplCopyWithImpl(
-      _$DePoolAssetImpl _value, $Res Function(_$DePoolAssetImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of DePoolAsset
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? address = null,
-  }) {
-    return _then(_$DePoolAssetImpl(
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as Address,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$DePoolAssetImpl implements _DePoolAsset {
-  const _$DePoolAssetImpl({required this.address});
-
-  factory _$DePoolAssetImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DePoolAssetImplFromJson(json);
-
-  @override
-  final Address address;
-
-  @override
-  String toString() {
-    return 'DePoolAsset(address: $address)';
-  }
+  /// Serializes this DePoolAsset to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DePoolAssetImpl &&
+            other is DePoolAsset &&
             (identical(other.address, address) || other.address == address));
   }
 
@@ -145,36 +39,144 @@ class _$DePoolAssetImpl implements _DePoolAsset {
   @override
   int get hashCode => Object.hash(runtimeType, address);
 
-  /// Create a copy of DePoolAsset
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DePoolAssetImplCopyWith<_$DePoolAssetImpl> get copyWith =>
-      __$$DePoolAssetImplCopyWithImpl<_$DePoolAssetImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DePoolAssetImplToJson(
-      this,
-    );
+  String toString() {
+    return 'DePoolAsset(address: $address)';
   }
 }
 
-abstract class _DePoolAsset implements DePoolAsset {
-  const factory _DePoolAsset({required final Address address}) =
-      _$DePoolAssetImpl;
+/// @nodoc
+abstract mixin class $DePoolAssetCopyWith<$Res> {
+  factory $DePoolAssetCopyWith(
+          DePoolAsset value, $Res Function(DePoolAsset) _then) =
+      _$DePoolAssetCopyWithImpl;
+  @useResult
+  $Res call({Address address});
 
-  factory _DePoolAsset.fromJson(Map<String, dynamic> json) =
-      _$DePoolAssetImpl.fromJson;
+  $AddressCopyWith<$Res> get address;
+}
+
+/// @nodoc
+class _$DePoolAssetCopyWithImpl<$Res> implements $DePoolAssetCopyWith<$Res> {
+  _$DePoolAssetCopyWithImpl(this._self, this._then);
+
+  final DePoolAsset _self;
+  final $Res Function(DePoolAsset) _then;
+
+  /// Create a copy of DePoolAsset
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? address = null,
+  }) {
+    return _then(_self.copyWith(
+      address: null == address
+          ? _self.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as Address,
+    ));
+  }
+
+  /// Create a copy of DePoolAsset
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get address {
+    return $AddressCopyWith<$Res>(_self.address, (value) {
+      return _then(_self.copyWith(address: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _DePoolAsset implements DePoolAsset {
+  const _DePoolAsset({required this.address});
+  factory _DePoolAsset.fromJson(Map<String, dynamic> json) =>
+      _$DePoolAssetFromJson(json);
 
   @override
-  Address get address;
+  final Address address;
 
   /// Create a copy of DePoolAsset
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DePoolAssetImplCopyWith<_$DePoolAssetImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$DePoolAssetCopyWith<_DePoolAsset> get copyWith =>
+      __$DePoolAssetCopyWithImpl<_DePoolAsset>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$DePoolAssetToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _DePoolAsset &&
+            (identical(other.address, address) || other.address == address));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, address);
+
+  @override
+  String toString() {
+    return 'DePoolAsset(address: $address)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$DePoolAssetCopyWith<$Res>
+    implements $DePoolAssetCopyWith<$Res> {
+  factory _$DePoolAssetCopyWith(
+          _DePoolAsset value, $Res Function(_DePoolAsset) _then) =
+      __$DePoolAssetCopyWithImpl;
+  @override
+  @useResult
+  $Res call({Address address});
+
+  @override
+  $AddressCopyWith<$Res> get address;
+}
+
+/// @nodoc
+class __$DePoolAssetCopyWithImpl<$Res> implements _$DePoolAssetCopyWith<$Res> {
+  __$DePoolAssetCopyWithImpl(this._self, this._then);
+
+  final _DePoolAsset _self;
+  final $Res Function(_DePoolAsset) _then;
+
+  /// Create a copy of DePoolAsset
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? address = null,
+  }) {
+    return _then(_DePoolAsset(
+      address: null == address
+          ? _self.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as Address,
+    ));
+  }
+
+  /// Create a copy of DePoolAsset
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get address {
+    return $AddressCopyWith<$Res>(_self.address, (value) {
+      return _then(_self.copyWith(address: value));
+    });
+  }
+}
+
+// dart format on

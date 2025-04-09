@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,165 +10,32 @@ part of 'blockchain_config.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-BlockchainConfig _$BlockchainConfigFromJson(Map<String, dynamic> json) {
-  return _BlockchainConfig.fromJson(json);
-}
 
 /// @nodoc
 mixin _$BlockchainConfig {
-  int get capabilities => throw _privateConstructorUsedError;
-  int get globalId => throw _privateConstructorUsedError;
-  int get globalVersion =>
-      throw _privateConstructorUsedError; // base64-encoded ConfigParams
-  String get config => throw _privateConstructorUsedError;
-
-  /// Serializes this BlockchainConfig to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  int get capabilities;
+  int get globalId;
+  int get globalVersion; // base64-encoded ConfigParams
+  String get config;
 
   /// Create a copy of BlockchainConfig
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $BlockchainConfigCopyWith<BlockchainConfig> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$BlockchainConfigCopyWithImpl<BlockchainConfig>(
+          this as BlockchainConfig, _$identity);
 
-/// @nodoc
-abstract class $BlockchainConfigCopyWith<$Res> {
-  factory $BlockchainConfigCopyWith(
-          BlockchainConfig value, $Res Function(BlockchainConfig) then) =
-      _$BlockchainConfigCopyWithImpl<$Res, BlockchainConfig>;
-  @useResult
-  $Res call({int capabilities, int globalId, int globalVersion, String config});
-}
-
-/// @nodoc
-class _$BlockchainConfigCopyWithImpl<$Res, $Val extends BlockchainConfig>
-    implements $BlockchainConfigCopyWith<$Res> {
-  _$BlockchainConfigCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of BlockchainConfig
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? capabilities = null,
-    Object? globalId = null,
-    Object? globalVersion = null,
-    Object? config = null,
-  }) {
-    return _then(_value.copyWith(
-      capabilities: null == capabilities
-          ? _value.capabilities
-          : capabilities // ignore: cast_nullable_to_non_nullable
-              as int,
-      globalId: null == globalId
-          ? _value.globalId
-          : globalId // ignore: cast_nullable_to_non_nullable
-              as int,
-      globalVersion: null == globalVersion
-          ? _value.globalVersion
-          : globalVersion // ignore: cast_nullable_to_non_nullable
-              as int,
-      config: null == config
-          ? _value.config
-          : config // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$BlockchainConfigImplCopyWith<$Res>
-    implements $BlockchainConfigCopyWith<$Res> {
-  factory _$$BlockchainConfigImplCopyWith(_$BlockchainConfigImpl value,
-          $Res Function(_$BlockchainConfigImpl) then) =
-      __$$BlockchainConfigImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int capabilities, int globalId, int globalVersion, String config});
-}
-
-/// @nodoc
-class __$$BlockchainConfigImplCopyWithImpl<$Res>
-    extends _$BlockchainConfigCopyWithImpl<$Res, _$BlockchainConfigImpl>
-    implements _$$BlockchainConfigImplCopyWith<$Res> {
-  __$$BlockchainConfigImplCopyWithImpl(_$BlockchainConfigImpl _value,
-      $Res Function(_$BlockchainConfigImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of BlockchainConfig
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? capabilities = null,
-    Object? globalId = null,
-    Object? globalVersion = null,
-    Object? config = null,
-  }) {
-    return _then(_$BlockchainConfigImpl(
-      capabilities: null == capabilities
-          ? _value.capabilities
-          : capabilities // ignore: cast_nullable_to_non_nullable
-              as int,
-      globalId: null == globalId
-          ? _value.globalId
-          : globalId // ignore: cast_nullable_to_non_nullable
-              as int,
-      globalVersion: null == globalVersion
-          ? _value.globalVersion
-          : globalVersion // ignore: cast_nullable_to_non_nullable
-              as int,
-      config: null == config
-          ? _value.config
-          : config // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$BlockchainConfigImpl implements _BlockchainConfig {
-  const _$BlockchainConfigImpl(
-      {required this.capabilities,
-      required this.globalId,
-      required this.globalVersion,
-      required this.config});
-
-  factory _$BlockchainConfigImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BlockchainConfigImplFromJson(json);
-
-  @override
-  final int capabilities;
-  @override
-  final int globalId;
-  @override
-  final int globalVersion;
-// base64-encoded ConfigParams
-  @override
-  final String config;
-
-  @override
-  String toString() {
-    return 'BlockchainConfig(capabilities: $capabilities, globalId: $globalId, globalVersion: $globalVersion, config: $config)';
-  }
+  /// Serializes this BlockchainConfig to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BlockchainConfigImpl &&
+            other is BlockchainConfig &&
             (identical(other.capabilities, capabilities) ||
                 other.capabilities == capabilities) &&
             (identical(other.globalId, globalId) ||
@@ -182,46 +50,169 @@ class _$BlockchainConfigImpl implements _BlockchainConfig {
   int get hashCode =>
       Object.hash(runtimeType, capabilities, globalId, globalVersion, config);
 
-  /// Create a copy of BlockchainConfig
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$BlockchainConfigImplCopyWith<_$BlockchainConfigImpl> get copyWith =>
-      __$$BlockchainConfigImplCopyWithImpl<_$BlockchainConfigImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BlockchainConfigImplToJson(
-      this,
-    );
+  String toString() {
+    return 'BlockchainConfig(capabilities: $capabilities, globalId: $globalId, globalVersion: $globalVersion, config: $config)';
   }
 }
 
-abstract class _BlockchainConfig implements BlockchainConfig {
-  const factory _BlockchainConfig(
-      {required final int capabilities,
-      required final int globalId,
-      required final int globalVersion,
-      required final String config}) = _$BlockchainConfigImpl;
+/// @nodoc
+abstract mixin class $BlockchainConfigCopyWith<$Res> {
+  factory $BlockchainConfigCopyWith(
+          BlockchainConfig value, $Res Function(BlockchainConfig) _then) =
+      _$BlockchainConfigCopyWithImpl;
+  @useResult
+  $Res call({int capabilities, int globalId, int globalVersion, String config});
+}
 
-  factory _BlockchainConfig.fromJson(Map<String, dynamic> json) =
-      _$BlockchainConfigImpl.fromJson;
+/// @nodoc
+class _$BlockchainConfigCopyWithImpl<$Res>
+    implements $BlockchainConfigCopyWith<$Res> {
+  _$BlockchainConfigCopyWithImpl(this._self, this._then);
+
+  final BlockchainConfig _self;
+  final $Res Function(BlockchainConfig) _then;
+
+  /// Create a copy of BlockchainConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? capabilities = null,
+    Object? globalId = null,
+    Object? globalVersion = null,
+    Object? config = null,
+  }) {
+    return _then(_self.copyWith(
+      capabilities: null == capabilities
+          ? _self.capabilities
+          : capabilities // ignore: cast_nullable_to_non_nullable
+              as int,
+      globalId: null == globalId
+          ? _self.globalId
+          : globalId // ignore: cast_nullable_to_non_nullable
+              as int,
+      globalVersion: null == globalVersion
+          ? _self.globalVersion
+          : globalVersion // ignore: cast_nullable_to_non_nullable
+              as int,
+      config: null == config
+          ? _self.config
+          : config // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _BlockchainConfig implements BlockchainConfig {
+  const _BlockchainConfig(
+      {required this.capabilities,
+      required this.globalId,
+      required this.globalVersion,
+      required this.config});
+  factory _BlockchainConfig.fromJson(Map<String, dynamic> json) =>
+      _$BlockchainConfigFromJson(json);
 
   @override
-  int get capabilities;
+  final int capabilities;
   @override
-  int get globalId;
+  final int globalId;
   @override
-  int get globalVersion; // base64-encoded ConfigParams
+  final int globalVersion;
+// base64-encoded ConfigParams
   @override
-  String get config;
+  final String config;
 
   /// Create a copy of BlockchainConfig
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BlockchainConfigImplCopyWith<_$BlockchainConfigImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$BlockchainConfigCopyWith<_BlockchainConfig> get copyWith =>
+      __$BlockchainConfigCopyWithImpl<_BlockchainConfig>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$BlockchainConfigToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _BlockchainConfig &&
+            (identical(other.capabilities, capabilities) ||
+                other.capabilities == capabilities) &&
+            (identical(other.globalId, globalId) ||
+                other.globalId == globalId) &&
+            (identical(other.globalVersion, globalVersion) ||
+                other.globalVersion == globalVersion) &&
+            (identical(other.config, config) || other.config == config));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, capabilities, globalId, globalVersion, config);
+
+  @override
+  String toString() {
+    return 'BlockchainConfig(capabilities: $capabilities, globalId: $globalId, globalVersion: $globalVersion, config: $config)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$BlockchainConfigCopyWith<$Res>
+    implements $BlockchainConfigCopyWith<$Res> {
+  factory _$BlockchainConfigCopyWith(
+          _BlockchainConfig value, $Res Function(_BlockchainConfig) _then) =
+      __$BlockchainConfigCopyWithImpl;
+  @override
+  @useResult
+  $Res call({int capabilities, int globalId, int globalVersion, String config});
+}
+
+/// @nodoc
+class __$BlockchainConfigCopyWithImpl<$Res>
+    implements _$BlockchainConfigCopyWith<$Res> {
+  __$BlockchainConfigCopyWithImpl(this._self, this._then);
+
+  final _BlockchainConfig _self;
+  final $Res Function(_BlockchainConfig) _then;
+
+  /// Create a copy of BlockchainConfig
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? capabilities = null,
+    Object? globalId = null,
+    Object? globalVersion = null,
+    Object? config = null,
+  }) {
+    return _then(_BlockchainConfig(
+      capabilities: null == capabilities
+          ? _self.capabilities
+          : capabilities // ignore: cast_nullable_to_non_nullable
+              as int,
+      globalId: null == globalId
+          ? _self.globalId
+          : globalId // ignore: cast_nullable_to_non_nullable
+              as int,
+      globalVersion: null == globalVersion
+          ? _self.globalVersion
+          : globalVersion // ignore: cast_nullable_to_non_nullable
+              as int,
+      config: null == config
+          ? _self.config
+          : config // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

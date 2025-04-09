@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,91 +10,62 @@ part of 'execution_output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ExecutionOutput _$ExecutionOutputFromJson(Map<String, dynamic> json) {
-  return _ExecutionOutput.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ExecutionOutput {
   @JsonKey(includeIfNull: false)
-  Map<String, dynamic>? get output => throw _privateConstructorUsedError;
-  int get code => throw _privateConstructorUsedError;
-
-  /// Serializes this ExecutionOutput to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  TokensObject? get output;
+  int get code;
 
   /// Create a copy of ExecutionOutput
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ExecutionOutputCopyWith<ExecutionOutput> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ExecutionOutputCopyWith<$Res> {
-  factory $ExecutionOutputCopyWith(
-          ExecutionOutput value, $Res Function(ExecutionOutput) then) =
-      _$ExecutionOutputCopyWithImpl<$Res, ExecutionOutput>;
-  @useResult
-  $Res call(
-      {@JsonKey(includeIfNull: false) Map<String, dynamic>? output, int code});
-}
-
-/// @nodoc
-class _$ExecutionOutputCopyWithImpl<$Res, $Val extends ExecutionOutput>
-    implements $ExecutionOutputCopyWith<$Res> {
-  _$ExecutionOutputCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ExecutionOutput
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ExecutionOutputCopyWith<ExecutionOutput> get copyWith =>
+      _$ExecutionOutputCopyWithImpl<ExecutionOutput>(
+          this as ExecutionOutput, _$identity);
+
+  /// Serializes this ExecutionOutput to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? output = freezed,
-    Object? code = null,
-  }) {
-    return _then(_value.copyWith(
-      output: freezed == output
-          ? _value.output
-          : output // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      code: null == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ExecutionOutput &&
+            const DeepCollectionEquality().equals(other.output, output) &&
+            (identical(other.code, code) || other.code == code));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(output), code);
+
+  @override
+  String toString() {
+    return 'ExecutionOutput(output: $output, code: $code)';
   }
 }
 
 /// @nodoc
-abstract class _$$ExecutionOutputImplCopyWith<$Res>
-    implements $ExecutionOutputCopyWith<$Res> {
-  factory _$$ExecutionOutputImplCopyWith(_$ExecutionOutputImpl value,
-          $Res Function(_$ExecutionOutputImpl) then) =
-      __$$ExecutionOutputImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ExecutionOutputCopyWith<$Res> {
+  factory $ExecutionOutputCopyWith(
+          ExecutionOutput value, $Res Function(ExecutionOutput) _then) =
+      _$ExecutionOutputCopyWithImpl;
   @useResult
-  $Res call(
-      {@JsonKey(includeIfNull: false) Map<String, dynamic>? output, int code});
+  $Res call({@JsonKey(includeIfNull: false) TokensObject? output, int code});
 }
 
 /// @nodoc
-class __$$ExecutionOutputImplCopyWithImpl<$Res>
-    extends _$ExecutionOutputCopyWithImpl<$Res, _$ExecutionOutputImpl>
-    implements _$$ExecutionOutputImplCopyWith<$Res> {
-  __$$ExecutionOutputImplCopyWithImpl(
-      _$ExecutionOutputImpl _value, $Res Function(_$ExecutionOutputImpl) _then)
-      : super(_value, _then);
+class _$ExecutionOutputCopyWithImpl<$Res>
+    implements $ExecutionOutputCopyWith<$Res> {
+  _$ExecutionOutputCopyWithImpl(this._self, this._then);
+
+  final ExecutionOutput _self;
+  final $Res Function(ExecutionOutput) _then;
 
   /// Create a copy of ExecutionOutput
   /// with the given fields replaced by the non-null parameter values.
@@ -103,13 +75,13 @@ class __$$ExecutionOutputImplCopyWithImpl<$Res>
     Object? output = freezed,
     Object? code = null,
   }) {
-    return _then(_$ExecutionOutputImpl(
+    return _then(_self.copyWith(
       output: freezed == output
-          ? _value._output
+          ? _self.output
           : output // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as TokensObject?,
       code: null == code
-          ? _value.code
+          ? _self.code
           : code // ignore: cast_nullable_to_non_nullable
               as int,
     ));
@@ -118,19 +90,18 @@ class __$$ExecutionOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ExecutionOutputImpl implements _ExecutionOutput {
-  const _$ExecutionOutputImpl(
-      {@JsonKey(includeIfNull: false) final Map<String, dynamic>? output,
+class _ExecutionOutput implements ExecutionOutput {
+  const _ExecutionOutput(
+      {@JsonKey(includeIfNull: false) final TokensObject? output,
       required this.code})
       : _output = output;
+  factory _ExecutionOutput.fromJson(Map<String, dynamic> json) =>
+      _$ExecutionOutputFromJson(json);
 
-  factory _$ExecutionOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ExecutionOutputImplFromJson(json);
-
-  final Map<String, dynamic>? _output;
+  final TokensObject? _output;
   @override
   @JsonKey(includeIfNull: false)
-  Map<String, dynamic>? get output {
+  TokensObject? get output {
     final value = _output;
     if (value == null) return null;
     if (_output is EqualUnmodifiableMapView) return _output;
@@ -141,16 +112,26 @@ class _$ExecutionOutputImpl implements _ExecutionOutput {
   @override
   final int code;
 
+  /// Create a copy of ExecutionOutput
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ExecutionOutput(output: $output, code: $code)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ExecutionOutputCopyWith<_ExecutionOutput> get copyWith =>
+      __$ExecutionOutputCopyWithImpl<_ExecutionOutput>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ExecutionOutputToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ExecutionOutputImpl &&
+            other is _ExecutionOutput &&
             const DeepCollectionEquality().equals(other._output, _output) &&
             (identical(other.code, code) || other.code == code));
   }
@@ -160,41 +141,50 @@ class _$ExecutionOutputImpl implements _ExecutionOutput {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_output), code);
 
-  /// Create a copy of ExecutionOutput
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ExecutionOutputImplCopyWith<_$ExecutionOutputImpl> get copyWith =>
-      __$$ExecutionOutputImplCopyWithImpl<_$ExecutionOutputImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ExecutionOutputImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ExecutionOutput(output: $output, code: $code)';
   }
 }
 
-abstract class _ExecutionOutput implements ExecutionOutput {
-  const factory _ExecutionOutput(
-      {@JsonKey(includeIfNull: false) final Map<String, dynamic>? output,
-      required final int code}) = _$ExecutionOutputImpl;
-
-  factory _ExecutionOutput.fromJson(Map<String, dynamic> json) =
-      _$ExecutionOutputImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$ExecutionOutputCopyWith<$Res>
+    implements $ExecutionOutputCopyWith<$Res> {
+  factory _$ExecutionOutputCopyWith(
+          _ExecutionOutput value, $Res Function(_ExecutionOutput) _then) =
+      __$ExecutionOutputCopyWithImpl;
   @override
-  @JsonKey(includeIfNull: false)
-  Map<String, dynamic>? get output;
-  @override
-  int get code;
+  @useResult
+  $Res call({@JsonKey(includeIfNull: false) TokensObject? output, int code});
+}
+
+/// @nodoc
+class __$ExecutionOutputCopyWithImpl<$Res>
+    implements _$ExecutionOutputCopyWith<$Res> {
+  __$ExecutionOutputCopyWithImpl(this._self, this._then);
+
+  final _ExecutionOutput _self;
+  final $Res Function(_ExecutionOutput) _then;
 
   /// Create a copy of ExecutionOutput
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ExecutionOutputImplCopyWith<_$ExecutionOutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? output = freezed,
+    Object? code = null,
+  }) {
+    return _then(_ExecutionOutput(
+      output: freezed == output
+          ? _self._output
+          : output // ignore: cast_nullable_to_non_nullable
+              as TokensObject?,
+      code: null == code
+          ? _self.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
+
+// dart format on

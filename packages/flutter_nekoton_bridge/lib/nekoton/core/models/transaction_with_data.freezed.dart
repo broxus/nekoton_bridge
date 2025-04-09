@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,28 +10,51 @@ part of 'transaction_with_data.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TransactionWithData<T> {
-  Transaction get transaction => throw _privateConstructorUsedError;
-  T? get data => throw _privateConstructorUsedError;
+  Transaction get transaction;
+  T? get data;
 
   /// Create a copy of TransactionWithData
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $TransactionWithDataCopyWith<T, TransactionWithData<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$TransactionWithDataCopyWithImpl<T, TransactionWithData<T>>(
+          this as TransactionWithData<T>, _$identity);
+
+  /// Serializes this TransactionWithData to a JSON map.
+  Map<String, dynamic> toJson(Object? Function(T) toJsonT);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TransactionWithData<T> &&
+            (identical(other.transaction, transaction) ||
+                other.transaction == transaction) &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, transaction, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'TransactionWithData<$T>(transaction: $transaction, data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $TransactionWithDataCopyWith<T, $Res> {
+abstract mixin class $TransactionWithDataCopyWith<T, $Res> {
   factory $TransactionWithDataCopyWith(TransactionWithData<T> value,
-          $Res Function(TransactionWithData<T>) then) =
-      _$TransactionWithDataCopyWithImpl<T, $Res, TransactionWithData<T>>;
+          $Res Function(TransactionWithData<T>) _then) =
+      _$TransactionWithDataCopyWithImpl;
   @useResult
   $Res call({Transaction transaction, T? data});
 
@@ -38,15 +62,12 @@ abstract class $TransactionWithDataCopyWith<T, $Res> {
 }
 
 /// @nodoc
-class _$TransactionWithDataCopyWithImpl<T, $Res,
-        $Val extends TransactionWithData<T>>
+class _$TransactionWithDataCopyWithImpl<T, $Res>
     implements $TransactionWithDataCopyWith<T, $Res> {
-  _$TransactionWithDataCopyWithImpl(this._value, this._then);
+  _$TransactionWithDataCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final TransactionWithData<T> _self;
+  final $Res Function(TransactionWithData<T>) _then;
 
   /// Create a copy of TransactionWithData
   /// with the given fields replaced by the non-null parameter values.
@@ -56,16 +77,16 @@ class _$TransactionWithDataCopyWithImpl<T, $Res,
     Object? transaction = null,
     Object? data = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       transaction: null == transaction
-          ? _value.transaction
+          ? _self.transaction
           : transaction // ignore: cast_nullable_to_non_nullable
               as Transaction,
       data: freezed == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as T?,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of TransactionWithData
@@ -73,18 +94,67 @@ class _$TransactionWithDataCopyWithImpl<T, $Res,
   @override
   @pragma('vm:prefer-inline')
   $TransactionCopyWith<$Res> get transaction {
-    return $TransactionCopyWith<$Res>(_value.transaction, (value) {
-      return _then(_value.copyWith(transaction: value) as $Val);
+    return $TransactionCopyWith<$Res>(_self.transaction, (value) {
+      return _then(_self.copyWith(transaction: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$TransactionWithDataImplCopyWith<T, $Res>
+@JsonSerializable(genericArgumentFactories: true)
+class _TransactionWithData<T> extends TransactionWithData<T> {
+  const _TransactionWithData({required this.transaction, this.data})
+      : super._();
+  factory _TransactionWithData.fromJson(
+          Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
+      _$TransactionWithDataFromJson(json, fromJsonT);
+
+  @override
+  final Transaction transaction;
+  @override
+  final T? data;
+
+  /// Create a copy of TransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$TransactionWithDataCopyWith<T, _TransactionWithData<T>> get copyWith =>
+      __$TransactionWithDataCopyWithImpl<T, _TransactionWithData<T>>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson(Object? Function(T) toJsonT) {
+    return _$TransactionWithDataToJson<T>(this, toJsonT);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _TransactionWithData<T> &&
+            (identical(other.transaction, transaction) ||
+                other.transaction == transaction) &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, transaction, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'TransactionWithData<$T>(transaction: $transaction, data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$TransactionWithDataCopyWith<T, $Res>
     implements $TransactionWithDataCopyWith<T, $Res> {
-  factory _$$TransactionWithDataImplCopyWith(_$TransactionWithDataImpl<T> value,
-          $Res Function(_$TransactionWithDataImpl<T>) then) =
-      __$$TransactionWithDataImplCopyWithImpl<T, $Res>;
+  factory _$TransactionWithDataCopyWith(_TransactionWithData<T> value,
+          $Res Function(_TransactionWithData<T>) _then) =
+      __$TransactionWithDataCopyWithImpl;
   @override
   @useResult
   $Res call({Transaction transaction, T? data});
@@ -94,90 +164,42 @@ abstract class _$$TransactionWithDataImplCopyWith<T, $Res>
 }
 
 /// @nodoc
-class __$$TransactionWithDataImplCopyWithImpl<T, $Res>
-    extends _$TransactionWithDataCopyWithImpl<T, $Res,
-        _$TransactionWithDataImpl<T>>
-    implements _$$TransactionWithDataImplCopyWith<T, $Res> {
-  __$$TransactionWithDataImplCopyWithImpl(_$TransactionWithDataImpl<T> _value,
-      $Res Function(_$TransactionWithDataImpl<T>) _then)
-      : super(_value, _then);
+class __$TransactionWithDataCopyWithImpl<T, $Res>
+    implements _$TransactionWithDataCopyWith<T, $Res> {
+  __$TransactionWithDataCopyWithImpl(this._self, this._then);
+
+  final _TransactionWithData<T> _self;
+  final $Res Function(_TransactionWithData<T>) _then;
 
   /// Create a copy of TransactionWithData
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? transaction = null,
     Object? data = freezed,
   }) {
-    return _then(_$TransactionWithDataImpl<T>(
+    return _then(_TransactionWithData<T>(
       transaction: null == transaction
-          ? _value.transaction
+          ? _self.transaction
           : transaction // ignore: cast_nullable_to_non_nullable
               as Transaction,
       data: freezed == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as T?,
     ));
   }
-}
-
-/// @nodoc
-
-class _$TransactionWithDataImpl<T> extends _TransactionWithData<T> {
-  const _$TransactionWithDataImpl({required this.transaction, this.data})
-      : super._();
-
-  @override
-  final Transaction transaction;
-  @override
-  final T? data;
-
-  @override
-  String toString() {
-    return 'TransactionWithData<$T>(transaction: $transaction, data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TransactionWithDataImpl<T> &&
-            (identical(other.transaction, transaction) ||
-                other.transaction == transaction) &&
-            const DeepCollectionEquality().equals(other.data, data));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, transaction, const DeepCollectionEquality().hash(data));
 
   /// Create a copy of TransactionWithData
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$TransactionWithDataImplCopyWith<T, _$TransactionWithDataImpl<T>>
-      get copyWith => __$$TransactionWithDataImplCopyWithImpl<T,
-          _$TransactionWithDataImpl<T>>(this, _$identity);
+  $TransactionCopyWith<$Res> get transaction {
+    return $TransactionCopyWith<$Res>(_self.transaction, (value) {
+      return _then(_self.copyWith(transaction: value));
+    });
+  }
 }
 
-abstract class _TransactionWithData<T> extends TransactionWithData<T> {
-  const factory _TransactionWithData(
-      {required final Transaction transaction,
-      final T? data}) = _$TransactionWithDataImpl<T>;
-  const _TransactionWithData._() : super._();
-
-  @override
-  Transaction get transaction;
-  @override
-  T? get data;
-
-  /// Create a copy of TransactionWithData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TransactionWithDataImplCopyWith<T, _$TransactionWithDataImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

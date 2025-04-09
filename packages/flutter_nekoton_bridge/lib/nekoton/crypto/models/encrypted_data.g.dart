@@ -6,8 +6,8 @@ part of 'encrypted_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EncryptedDataImpl _$$EncryptedDataImplFromJson(Map<String, dynamic> json) =>
-    _$EncryptedDataImpl(
+_EncryptedData _$EncryptedDataFromJson(Map<String, dynamic> json) =>
+    _EncryptedData(
       algorithm: $enumDecode(_$EncryptionAlgorithmEnumMap, json['algorithm']),
       sourcePublicKey: PublicKey.fromJson(json['sourcePublicKey'] as String),
       recipientPublicKey:
@@ -16,7 +16,7 @@ _$EncryptedDataImpl _$$EncryptedDataImplFromJson(Map<String, dynamic> json) =>
       nonce: json['nonce'] as String,
     );
 
-Map<String, dynamic> _$$EncryptedDataImplToJson(_$EncryptedDataImpl instance) =>
+Map<String, dynamic> _$EncryptedDataToJson(_EncryptedData instance) =>
     <String, dynamic>{
       'algorithm': _$EncryptionAlgorithmEnumMap[instance.algorithm]!,
       'sourcePublicKey': instance.sourcePublicKey.toJson(),

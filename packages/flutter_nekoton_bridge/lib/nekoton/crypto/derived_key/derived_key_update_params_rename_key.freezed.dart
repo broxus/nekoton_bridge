@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,11 +10,8 @@ part of 'derived_key_update_params_rename_key.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 DerivedKeyUpdateParamsRenameKey _$DerivedKeyUpdateParamsRenameKeyFromJson(
     Map<String, dynamic> json) {
   return _DerivedKeyUpdateParamsRenameKeyRenameKey.fromJson(json);
@@ -21,173 +19,27 @@ DerivedKeyUpdateParamsRenameKey _$DerivedKeyUpdateParamsRenameKeyFromJson(
 
 /// @nodoc
 mixin _$DerivedKeyUpdateParamsRenameKey {
-  PublicKey get masterKey => throw _privateConstructorUsedError;
-  PublicKey get publicKey => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-
-  /// Serializes this DerivedKeyUpdateParamsRenameKey to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  PublicKey get masterKey;
+  PublicKey get publicKey;
+  String get name;
 
   /// Create a copy of DerivedKeyUpdateParamsRenameKey
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $DerivedKeyUpdateParamsRenameKeyCopyWith<DerivedKeyUpdateParamsRenameKey>
-      get copyWith => throw _privateConstructorUsedError;
-}
+      get copyWith => _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<
+              DerivedKeyUpdateParamsRenameKey>(
+          this as DerivedKeyUpdateParamsRenameKey, _$identity);
 
-/// @nodoc
-abstract class $DerivedKeyUpdateParamsRenameKeyCopyWith<$Res> {
-  factory $DerivedKeyUpdateParamsRenameKeyCopyWith(
-          DerivedKeyUpdateParamsRenameKey value,
-          $Res Function(DerivedKeyUpdateParamsRenameKey) then) =
-      _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res,
-          DerivedKeyUpdateParamsRenameKey>;
-  @useResult
-  $Res call({PublicKey masterKey, PublicKey publicKey, String name});
-
-  $PublicKeyCopyWith<$Res> get masterKey;
-  $PublicKeyCopyWith<$Res> get publicKey;
-}
-
-/// @nodoc
-class _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res,
-        $Val extends DerivedKeyUpdateParamsRenameKey>
-    implements $DerivedKeyUpdateParamsRenameKeyCopyWith<$Res> {
-  _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of DerivedKeyUpdateParamsRenameKey
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? masterKey = null,
-    Object? publicKey = null,
-    Object? name = null,
-  }) {
-    return _then(_value.copyWith(
-      masterKey: null == masterKey
-          ? _value.masterKey
-          : masterKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      publicKey: null == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-
-  /// Create a copy of DerivedKeyUpdateParamsRenameKey
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get masterKey {
-    return $PublicKeyCopyWith<$Res>(_value.masterKey, (value) {
-      return _then(_value.copyWith(masterKey: value) as $Val);
-    });
-  }
-
-  /// Create a copy of DerivedKeyUpdateParamsRenameKey
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get publicKey {
-    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
-      return _then(_value.copyWith(publicKey: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWith<$Res>
-    implements $DerivedKeyUpdateParamsRenameKeyCopyWith<$Res> {
-  factory _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWith(
-          _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl value,
-          $Res Function(_$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl) then) =
-      __$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({PublicKey masterKey, PublicKey publicKey, String name});
-
-  @override
-  $PublicKeyCopyWith<$Res> get masterKey;
-  @override
-  $PublicKeyCopyWith<$Res> get publicKey;
-}
-
-/// @nodoc
-class __$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWithImpl<$Res>
-    extends _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res,
-        _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl>
-    implements _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWith<$Res> {
-  __$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWithImpl(
-      _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl _value,
-      $Res Function(_$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of DerivedKeyUpdateParamsRenameKey
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? masterKey = null,
-    Object? publicKey = null,
-    Object? name = null,
-  }) {
-    return _then(_$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl(
-      masterKey: null == masterKey
-          ? _value.masterKey
-          : masterKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      publicKey: null == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(fieldRename: FieldRename.snake)
-class _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl
-    implements _DerivedKeyUpdateParamsRenameKeyRenameKey {
-  const _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl(
-      {required this.masterKey, required this.publicKey, required this.name});
-
-  factory _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplFromJson(json);
-
-  @override
-  final PublicKey masterKey;
-  @override
-  final PublicKey publicKey;
-  @override
-  final String name;
-
-  @override
-  String toString() {
-    return 'DerivedKeyUpdateParamsRenameKey(masterKey: $masterKey, publicKey: $publicKey, name: $name)';
-  }
+  /// Serializes this DerivedKeyUpdateParamsRenameKey to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl &&
+            other is DerivedKeyUpdateParamsRenameKey &&
             (identical(other.masterKey, masterKey) ||
                 other.masterKey == masterKey) &&
             (identical(other.publicKey, publicKey) ||
@@ -199,49 +51,206 @@ class _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl
   @override
   int get hashCode => Object.hash(runtimeType, masterKey, publicKey, name);
 
-  /// Create a copy of DerivedKeyUpdateParamsRenameKey
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWith<
-          _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl>
-      get copyWith =>
-          __$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWithImpl<
-              _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplToJson(
-      this,
-    );
+  String toString() {
+    return 'DerivedKeyUpdateParamsRenameKey(masterKey: $masterKey, publicKey: $publicKey, name: $name)';
   }
 }
 
-abstract class _DerivedKeyUpdateParamsRenameKeyRenameKey
+/// @nodoc
+abstract mixin class $DerivedKeyUpdateParamsRenameKeyCopyWith<$Res> {
+  factory $DerivedKeyUpdateParamsRenameKeyCopyWith(
+          DerivedKeyUpdateParamsRenameKey value,
+          $Res Function(DerivedKeyUpdateParamsRenameKey) _then) =
+      _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl;
+  @useResult
+  $Res call({PublicKey masterKey, PublicKey publicKey, String name});
+
+  $PublicKeyCopyWith<$Res> get masterKey;
+  $PublicKeyCopyWith<$Res> get publicKey;
+}
+
+/// @nodoc
+class _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res>
+    implements $DerivedKeyUpdateParamsRenameKeyCopyWith<$Res> {
+  _$DerivedKeyUpdateParamsRenameKeyCopyWithImpl(this._self, this._then);
+
+  final DerivedKeyUpdateParamsRenameKey _self;
+  final $Res Function(DerivedKeyUpdateParamsRenameKey) _then;
+
+  /// Create a copy of DerivedKeyUpdateParamsRenameKey
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? masterKey = null,
+    Object? publicKey = null,
+    Object? name = null,
+  }) {
+    return _then(_self.copyWith(
+      masterKey: null == masterKey
+          ? _self.masterKey
+          : masterKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      publicKey: null == publicKey
+          ? _self.publicKey
+          : publicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+
+  /// Create a copy of DerivedKeyUpdateParamsRenameKey
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get masterKey {
+    return $PublicKeyCopyWith<$Res>(_self.masterKey, (value) {
+      return _then(_self.copyWith(masterKey: value));
+    });
+  }
+
+  /// Create a copy of DerivedKeyUpdateParamsRenameKey
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_self.publicKey, (value) {
+      return _then(_self.copyWith(publicKey: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _DerivedKeyUpdateParamsRenameKeyRenameKey
     implements DerivedKeyUpdateParamsRenameKey {
-  const factory _DerivedKeyUpdateParamsRenameKeyRenameKey(
-          {required final PublicKey masterKey,
-          required final PublicKey publicKey,
-          required final String name}) =
-      _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl;
-
+  const _DerivedKeyUpdateParamsRenameKeyRenameKey(
+      {required this.masterKey, required this.publicKey, required this.name});
   factory _DerivedKeyUpdateParamsRenameKeyRenameKey.fromJson(
-          Map<String, dynamic> json) =
-      _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl.fromJson;
+          Map<String, dynamic> json) =>
+      _$DerivedKeyUpdateParamsRenameKeyRenameKeyFromJson(json);
 
   @override
-  PublicKey get masterKey;
+  final PublicKey masterKey;
   @override
-  PublicKey get publicKey;
+  final PublicKey publicKey;
   @override
-  String get name;
+  final String name;
 
   /// Create a copy of DerivedKeyUpdateParamsRenameKey
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DerivedKeyUpdateParamsRenameKeyRenameKeyImplCopyWith<
-          _$DerivedKeyUpdateParamsRenameKeyRenameKeyImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWith<
+          _DerivedKeyUpdateParamsRenameKeyRenameKey>
+      get copyWith => __$DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWithImpl<
+          _DerivedKeyUpdateParamsRenameKeyRenameKey>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$DerivedKeyUpdateParamsRenameKeyRenameKeyToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _DerivedKeyUpdateParamsRenameKeyRenameKey &&
+            (identical(other.masterKey, masterKey) ||
+                other.masterKey == masterKey) &&
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey) &&
+            (identical(other.name, name) || other.name == name));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, masterKey, publicKey, name);
+
+  @override
+  String toString() {
+    return 'DerivedKeyUpdateParamsRenameKey(masterKey: $masterKey, publicKey: $publicKey, name: $name)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWith<$Res>
+    implements $DerivedKeyUpdateParamsRenameKeyCopyWith<$Res> {
+  factory _$DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWith(
+          _DerivedKeyUpdateParamsRenameKeyRenameKey value,
+          $Res Function(_DerivedKeyUpdateParamsRenameKeyRenameKey) _then) =
+      __$DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWithImpl;
+  @override
+  @useResult
+  $Res call({PublicKey masterKey, PublicKey publicKey, String name});
+
+  @override
+  $PublicKeyCopyWith<$Res> get masterKey;
+  @override
+  $PublicKeyCopyWith<$Res> get publicKey;
+}
+
+/// @nodoc
+class __$DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWithImpl<$Res>
+    implements _$DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWith<$Res> {
+  __$DerivedKeyUpdateParamsRenameKeyRenameKeyCopyWithImpl(
+      this._self, this._then);
+
+  final _DerivedKeyUpdateParamsRenameKeyRenameKey _self;
+  final $Res Function(_DerivedKeyUpdateParamsRenameKeyRenameKey) _then;
+
+  /// Create a copy of DerivedKeyUpdateParamsRenameKey
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? masterKey = null,
+    Object? publicKey = null,
+    Object? name = null,
+  }) {
+    return _then(_DerivedKeyUpdateParamsRenameKeyRenameKey(
+      masterKey: null == masterKey
+          ? _self.masterKey
+          : masterKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      publicKey: null == publicKey
+          ? _self.publicKey
+          : publicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+
+  /// Create a copy of DerivedKeyUpdateParamsRenameKey
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get masterKey {
+    return $PublicKeyCopyWith<$Res>(_self.masterKey, (value) {
+      return _then(_self.copyWith(masterKey: value));
+    });
+  }
+
+  /// Create a copy of DerivedKeyUpdateParamsRenameKey
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_self.publicKey, (value) {
+      return _then(_self.copyWith(publicKey: value));
+    });
+  }
+}
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,37 +10,55 @@ part of 'transactions_list.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-TransactionsList _$TransactionsListFromJson(Map<String, dynamic> json) {
-  return _TransactionsList.fromJson(json);
-}
 
 /// @nodoc
 mixin _$TransactionsList {
-  List<Transaction> get transactions => throw _privateConstructorUsedError;
+  List<Transaction> get transactions;
   @JsonKey(includeIfNull: false)
-  TransactionId? get continuation => throw _privateConstructorUsedError;
-  TransactionsBatchInfo? get info => throw _privateConstructorUsedError;
-
-  /// Serializes this TransactionsList to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  TransactionId? get continuation;
+  TransactionsBatchInfo? get info;
 
   /// Create a copy of TransactionsList
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $TransactionsListCopyWith<TransactionsList> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$TransactionsListCopyWithImpl<TransactionsList>(
+          this as TransactionsList, _$identity);
+
+  /// Serializes this TransactionsList to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TransactionsList &&
+            const DeepCollectionEquality()
+                .equals(other.transactions, transactions) &&
+            (identical(other.continuation, continuation) ||
+                other.continuation == continuation) &&
+            (identical(other.info, info) || other.info == info));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(transactions), continuation, info);
+
+  @override
+  String toString() {
+    return 'TransactionsList(transactions: $transactions, continuation: $continuation, info: $info)';
+  }
 }
 
 /// @nodoc
-abstract class $TransactionsListCopyWith<$Res> {
+abstract mixin class $TransactionsListCopyWith<$Res> {
   factory $TransactionsListCopyWith(
-          TransactionsList value, $Res Function(TransactionsList) then) =
-      _$TransactionsListCopyWithImpl<$Res, TransactionsList>;
+          TransactionsList value, $Res Function(TransactionsList) _then) =
+      _$TransactionsListCopyWithImpl;
   @useResult
   $Res call(
       {List<Transaction> transactions,
@@ -51,14 +70,12 @@ abstract class $TransactionsListCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TransactionsListCopyWithImpl<$Res, $Val extends TransactionsList>
+class _$TransactionsListCopyWithImpl<$Res>
     implements $TransactionsListCopyWith<$Res> {
-  _$TransactionsListCopyWithImpl(this._value, this._then);
+  _$TransactionsListCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final TransactionsList _self;
+  final $Res Function(TransactionsList) _then;
 
   /// Create a copy of TransactionsList
   /// with the given fields replaced by the non-null parameter values.
@@ -69,20 +86,20 @@ class _$TransactionsListCopyWithImpl<$Res, $Val extends TransactionsList>
     Object? continuation = freezed,
     Object? info = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       transactions: null == transactions
-          ? _value.transactions
+          ? _self.transactions
           : transactions // ignore: cast_nullable_to_non_nullable
               as List<Transaction>,
       continuation: freezed == continuation
-          ? _value.continuation
+          ? _self.continuation
           : continuation // ignore: cast_nullable_to_non_nullable
               as TransactionId?,
       info: freezed == info
-          ? _value.info
+          ? _self.info
           : info // ignore: cast_nullable_to_non_nullable
               as TransactionsBatchInfo?,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of TransactionsList
@@ -90,12 +107,12 @@ class _$TransactionsListCopyWithImpl<$Res, $Val extends TransactionsList>
   @override
   @pragma('vm:prefer-inline')
   $TransactionIdCopyWith<$Res>? get continuation {
-    if (_value.continuation == null) {
+    if (_self.continuation == null) {
       return null;
     }
 
-    return $TransactionIdCopyWith<$Res>(_value.continuation!, (value) {
-      return _then(_value.copyWith(continuation: value) as $Val);
+    return $TransactionIdCopyWith<$Res>(_self.continuation!, (value) {
+      return _then(_self.copyWith(continuation: value));
     });
   }
 
@@ -104,80 +121,26 @@ class _$TransactionsListCopyWithImpl<$Res, $Val extends TransactionsList>
   @override
   @pragma('vm:prefer-inline')
   $TransactionsBatchInfoCopyWith<$Res>? get info {
-    if (_value.info == null) {
+    if (_self.info == null) {
       return null;
     }
 
-    return $TransactionsBatchInfoCopyWith<$Res>(_value.info!, (value) {
-      return _then(_value.copyWith(info: value) as $Val);
+    return $TransactionsBatchInfoCopyWith<$Res>(_self.info!, (value) {
+      return _then(_self.copyWith(info: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$TransactionsListImplCopyWith<$Res>
-    implements $TransactionsListCopyWith<$Res> {
-  factory _$$TransactionsListImplCopyWith(_$TransactionsListImpl value,
-          $Res Function(_$TransactionsListImpl) then) =
-      __$$TransactionsListImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {List<Transaction> transactions,
-      @JsonKey(includeIfNull: false) TransactionId? continuation,
-      TransactionsBatchInfo? info});
-
-  @override
-  $TransactionIdCopyWith<$Res>? get continuation;
-  @override
-  $TransactionsBatchInfoCopyWith<$Res>? get info;
-}
-
-/// @nodoc
-class __$$TransactionsListImplCopyWithImpl<$Res>
-    extends _$TransactionsListCopyWithImpl<$Res, _$TransactionsListImpl>
-    implements _$$TransactionsListImplCopyWith<$Res> {
-  __$$TransactionsListImplCopyWithImpl(_$TransactionsListImpl _value,
-      $Res Function(_$TransactionsListImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TransactionsList
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? transactions = null,
-    Object? continuation = freezed,
-    Object? info = freezed,
-  }) {
-    return _then(_$TransactionsListImpl(
-      transactions: null == transactions
-          ? _value._transactions
-          : transactions // ignore: cast_nullable_to_non_nullable
-              as List<Transaction>,
-      continuation: freezed == continuation
-          ? _value.continuation
-          : continuation // ignore: cast_nullable_to_non_nullable
-              as TransactionId?,
-      info: freezed == info
-          ? _value.info
-          : info // ignore: cast_nullable_to_non_nullable
-              as TransactionsBatchInfo?,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$TransactionsListImpl implements _TransactionsList {
-  const _$TransactionsListImpl(
+class _TransactionsList implements TransactionsList {
+  const _TransactionsList(
       {required final List<Transaction> transactions,
       @JsonKey(includeIfNull: false) this.continuation,
       this.info})
       : _transactions = transactions;
-
-  factory _$TransactionsListImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TransactionsListImplFromJson(json);
+  factory _TransactionsList.fromJson(Map<String, dynamic> json) =>
+      _$TransactionsListFromJson(json);
 
   final List<Transaction> _transactions;
   @override
@@ -193,16 +156,26 @@ class _$TransactionsListImpl implements _TransactionsList {
   @override
   final TransactionsBatchInfo? info;
 
+  /// Create a copy of TransactionsList
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'TransactionsList(transactions: $transactions, continuation: $continuation, info: $info)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$TransactionsListCopyWith<_TransactionsList> get copyWith =>
+      __$TransactionsListCopyWithImpl<_TransactionsList>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TransactionsListToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TransactionsListImpl &&
+            other is _TransactionsList &&
             const DeepCollectionEquality()
                 .equals(other._transactions, _transactions) &&
             (identical(other.continuation, continuation) ||
@@ -215,44 +188,91 @@ class _$TransactionsListImpl implements _TransactionsList {
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_transactions), continuation, info);
 
-  /// Create a copy of TransactionsList
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TransactionsListImplCopyWith<_$TransactionsListImpl> get copyWith =>
-      __$$TransactionsListImplCopyWithImpl<_$TransactionsListImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TransactionsListImplToJson(
-      this,
-    );
+  String toString() {
+    return 'TransactionsList(transactions: $transactions, continuation: $continuation, info: $info)';
   }
 }
 
-abstract class _TransactionsList implements TransactionsList {
-  const factory _TransactionsList(
-      {required final List<Transaction> transactions,
-      @JsonKey(includeIfNull: false) final TransactionId? continuation,
-      final TransactionsBatchInfo? info}) = _$TransactionsListImpl;
+/// @nodoc
+abstract mixin class _$TransactionsListCopyWith<$Res>
+    implements $TransactionsListCopyWith<$Res> {
+  factory _$TransactionsListCopyWith(
+          _TransactionsList value, $Res Function(_TransactionsList) _then) =
+      __$TransactionsListCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {List<Transaction> transactions,
+      @JsonKey(includeIfNull: false) TransactionId? continuation,
+      TransactionsBatchInfo? info});
 
-  factory _TransactionsList.fromJson(Map<String, dynamic> json) =
-      _$TransactionsListImpl.fromJson;
+  @override
+  $TransactionIdCopyWith<$Res>? get continuation;
+  @override
+  $TransactionsBatchInfoCopyWith<$Res>? get info;
+}
 
-  @override
-  List<Transaction> get transactions;
-  @override
-  @JsonKey(includeIfNull: false)
-  TransactionId? get continuation;
-  @override
-  TransactionsBatchInfo? get info;
+/// @nodoc
+class __$TransactionsListCopyWithImpl<$Res>
+    implements _$TransactionsListCopyWith<$Res> {
+  __$TransactionsListCopyWithImpl(this._self, this._then);
+
+  final _TransactionsList _self;
+  final $Res Function(_TransactionsList) _then;
 
   /// Create a copy of TransactionsList
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TransactionsListImplCopyWith<_$TransactionsListImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? transactions = null,
+    Object? continuation = freezed,
+    Object? info = freezed,
+  }) {
+    return _then(_TransactionsList(
+      transactions: null == transactions
+          ? _self._transactions
+          : transactions // ignore: cast_nullable_to_non_nullable
+              as List<Transaction>,
+      continuation: freezed == continuation
+          ? _self.continuation
+          : continuation // ignore: cast_nullable_to_non_nullable
+              as TransactionId?,
+      info: freezed == info
+          ? _self.info
+          : info // ignore: cast_nullable_to_non_nullable
+              as TransactionsBatchInfo?,
+    ));
+  }
+
+  /// Create a copy of TransactionsList
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TransactionIdCopyWith<$Res>? get continuation {
+    if (_self.continuation == null) {
+      return null;
+    }
+
+    return $TransactionIdCopyWith<$Res>(_self.continuation!, (value) {
+      return _then(_self.copyWith(continuation: value));
+    });
+  }
+
+  /// Create a copy of TransactionsList
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TransactionsBatchInfoCopyWith<$Res>? get info {
+    if (_self.info == null) {
+      return null;
+    }
+
+    return $TransactionsBatchInfoCopyWith<$Res>(_self.info!, (value) {
+      return _then(_self.copyWith(info: value));
+    });
+  }
 }
+
+// dart format on

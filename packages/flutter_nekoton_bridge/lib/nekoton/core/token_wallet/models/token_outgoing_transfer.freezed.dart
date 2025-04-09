@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,155 +10,31 @@ part of 'token_outgoing_transfer.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-TokenOutgoingTransfer _$TokenOutgoingTransferFromJson(
-    Map<String, dynamic> json) {
-  return _TokenOutgoingTransfer.fromJson(json);
-}
 
 /// @nodoc
 mixin _$TokenOutgoingTransfer {
-  TransferRecipient get to => throw _privateConstructorUsedError;
+  TransferRecipient get to;
   @amountJsonConverter
-  BigInt get tokens => throw _privateConstructorUsedError;
-
-  /// Serializes this TokenOutgoingTransfer to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  BigInt get tokens;
 
   /// Create a copy of TokenOutgoingTransfer
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $TokenOutgoingTransferCopyWith<TokenOutgoingTransfer> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$TokenOutgoingTransferCopyWithImpl<TokenOutgoingTransfer>(
+          this as TokenOutgoingTransfer, _$identity);
 
-/// @nodoc
-abstract class $TokenOutgoingTransferCopyWith<$Res> {
-  factory $TokenOutgoingTransferCopyWith(TokenOutgoingTransfer value,
-          $Res Function(TokenOutgoingTransfer) then) =
-      _$TokenOutgoingTransferCopyWithImpl<$Res, TokenOutgoingTransfer>;
-  @useResult
-  $Res call({TransferRecipient to, @amountJsonConverter BigInt tokens});
-
-  $TransferRecipientCopyWith<$Res> get to;
-}
-
-/// @nodoc
-class _$TokenOutgoingTransferCopyWithImpl<$Res,
-        $Val extends TokenOutgoingTransfer>
-    implements $TokenOutgoingTransferCopyWith<$Res> {
-  _$TokenOutgoingTransferCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of TokenOutgoingTransfer
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? to = null,
-    Object? tokens = null,
-  }) {
-    return _then(_value.copyWith(
-      to: null == to
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as TransferRecipient,
-      tokens: null == tokens
-          ? _value.tokens
-          : tokens // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-    ) as $Val);
-  }
-
-  /// Create a copy of TokenOutgoingTransfer
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $TransferRecipientCopyWith<$Res> get to {
-    return $TransferRecipientCopyWith<$Res>(_value.to, (value) {
-      return _then(_value.copyWith(to: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$TokenOutgoingTransferImplCopyWith<$Res>
-    implements $TokenOutgoingTransferCopyWith<$Res> {
-  factory _$$TokenOutgoingTransferImplCopyWith(
-          _$TokenOutgoingTransferImpl value,
-          $Res Function(_$TokenOutgoingTransferImpl) then) =
-      __$$TokenOutgoingTransferImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({TransferRecipient to, @amountJsonConverter BigInt tokens});
-
-  @override
-  $TransferRecipientCopyWith<$Res> get to;
-}
-
-/// @nodoc
-class __$$TokenOutgoingTransferImplCopyWithImpl<$Res>
-    extends _$TokenOutgoingTransferCopyWithImpl<$Res,
-        _$TokenOutgoingTransferImpl>
-    implements _$$TokenOutgoingTransferImplCopyWith<$Res> {
-  __$$TokenOutgoingTransferImplCopyWithImpl(_$TokenOutgoingTransferImpl _value,
-      $Res Function(_$TokenOutgoingTransferImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TokenOutgoingTransfer
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? to = null,
-    Object? tokens = null,
-  }) {
-    return _then(_$TokenOutgoingTransferImpl(
-      to: null == to
-          ? _value.to
-          : to // ignore: cast_nullable_to_non_nullable
-              as TransferRecipient,
-      tokens: null == tokens
-          ? _value.tokens
-          : tokens // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$TokenOutgoingTransferImpl implements _TokenOutgoingTransfer {
-  const _$TokenOutgoingTransferImpl(
-      {required this.to, @amountJsonConverter required this.tokens});
-
-  factory _$TokenOutgoingTransferImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TokenOutgoingTransferImplFromJson(json);
-
-  @override
-  final TransferRecipient to;
-  @override
-  @amountJsonConverter
-  final BigInt tokens;
-
-  @override
-  String toString() {
-    return 'TokenOutgoingTransfer(to: $to, tokens: $tokens)';
-  }
+  /// Serializes this TokenOutgoingTransfer to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TokenOutgoingTransferImpl &&
+            other is TokenOutgoingTransfer &&
             (identical(other.to, to) || other.to == to) &&
             (identical(other.tokens, tokens) || other.tokens == tokens));
   }
@@ -166,42 +43,162 @@ class _$TokenOutgoingTransferImpl implements _TokenOutgoingTransfer {
   @override
   int get hashCode => Object.hash(runtimeType, to, tokens);
 
-  /// Create a copy of TokenOutgoingTransfer
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TokenOutgoingTransferImplCopyWith<_$TokenOutgoingTransferImpl>
-      get copyWith => __$$TokenOutgoingTransferImplCopyWithImpl<
-          _$TokenOutgoingTransferImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TokenOutgoingTransferImplToJson(
-      this,
-    );
+  String toString() {
+    return 'TokenOutgoingTransfer(to: $to, tokens: $tokens)';
   }
 }
 
-abstract class _TokenOutgoingTransfer implements TokenOutgoingTransfer {
-  const factory _TokenOutgoingTransfer(
-          {required final TransferRecipient to,
-          @amountJsonConverter required final BigInt tokens}) =
-      _$TokenOutgoingTransferImpl;
+/// @nodoc
+abstract mixin class $TokenOutgoingTransferCopyWith<$Res> {
+  factory $TokenOutgoingTransferCopyWith(TokenOutgoingTransfer value,
+          $Res Function(TokenOutgoingTransfer) _then) =
+      _$TokenOutgoingTransferCopyWithImpl;
+  @useResult
+  $Res call({TransferRecipient to, @amountJsonConverter BigInt tokens});
 
-  factory _TokenOutgoingTransfer.fromJson(Map<String, dynamic> json) =
-      _$TokenOutgoingTransferImpl.fromJson;
+  $TransferRecipientCopyWith<$Res> get to;
+}
+
+/// @nodoc
+class _$TokenOutgoingTransferCopyWithImpl<$Res>
+    implements $TokenOutgoingTransferCopyWith<$Res> {
+  _$TokenOutgoingTransferCopyWithImpl(this._self, this._then);
+
+  final TokenOutgoingTransfer _self;
+  final $Res Function(TokenOutgoingTransfer) _then;
+
+  /// Create a copy of TokenOutgoingTransfer
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? to = null,
+    Object? tokens = null,
+  }) {
+    return _then(_self.copyWith(
+      to: null == to
+          ? _self.to
+          : to // ignore: cast_nullable_to_non_nullable
+              as TransferRecipient,
+      tokens: null == tokens
+          ? _self.tokens
+          : tokens // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+    ));
+  }
+
+  /// Create a copy of TokenOutgoingTransfer
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TransferRecipientCopyWith<$Res> get to {
+    return $TransferRecipientCopyWith<$Res>(_self.to, (value) {
+      return _then(_self.copyWith(to: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _TokenOutgoingTransfer implements TokenOutgoingTransfer {
+  const _TokenOutgoingTransfer(
+      {required this.to, @amountJsonConverter required this.tokens});
+  factory _TokenOutgoingTransfer.fromJson(Map<String, dynamic> json) =>
+      _$TokenOutgoingTransferFromJson(json);
 
   @override
-  TransferRecipient get to;
+  final TransferRecipient to;
   @override
   @amountJsonConverter
-  BigInt get tokens;
+  final BigInt tokens;
 
   /// Create a copy of TokenOutgoingTransfer
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TokenOutgoingTransferImplCopyWith<_$TokenOutgoingTransferImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$TokenOutgoingTransferCopyWith<_TokenOutgoingTransfer> get copyWith =>
+      __$TokenOutgoingTransferCopyWithImpl<_TokenOutgoingTransfer>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TokenOutgoingTransferToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _TokenOutgoingTransfer &&
+            (identical(other.to, to) || other.to == to) &&
+            (identical(other.tokens, tokens) || other.tokens == tokens));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, to, tokens);
+
+  @override
+  String toString() {
+    return 'TokenOutgoingTransfer(to: $to, tokens: $tokens)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$TokenOutgoingTransferCopyWith<$Res>
+    implements $TokenOutgoingTransferCopyWith<$Res> {
+  factory _$TokenOutgoingTransferCopyWith(_TokenOutgoingTransfer value,
+          $Res Function(_TokenOutgoingTransfer) _then) =
+      __$TokenOutgoingTransferCopyWithImpl;
+  @override
+  @useResult
+  $Res call({TransferRecipient to, @amountJsonConverter BigInt tokens});
+
+  @override
+  $TransferRecipientCopyWith<$Res> get to;
+}
+
+/// @nodoc
+class __$TokenOutgoingTransferCopyWithImpl<$Res>
+    implements _$TokenOutgoingTransferCopyWith<$Res> {
+  __$TokenOutgoingTransferCopyWithImpl(this._self, this._then);
+
+  final _TokenOutgoingTransfer _self;
+  final $Res Function(_TokenOutgoingTransfer) _then;
+
+  /// Create a copy of TokenOutgoingTransfer
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? to = null,
+    Object? tokens = null,
+  }) {
+    return _then(_TokenOutgoingTransfer(
+      to: null == to
+          ? _self.to
+          : to // ignore: cast_nullable_to_non_nullable
+              as TransferRecipient,
+      tokens: null == tokens
+          ? _self.tokens
+          : tokens // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+    ));
+  }
+
+  /// Create a copy of TokenOutgoingTransfer
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TransferRecipientCopyWith<$Res> get to {
+    return $TransferRecipientCopyWith<$Res>(_self.to, (value) {
+      return _then(_self.copyWith(to: value));
+    });
+  }
+}
+
+// dart format on

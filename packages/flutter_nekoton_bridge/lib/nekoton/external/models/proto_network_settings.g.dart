@@ -6,14 +6,14 @@ part of 'proto_network_settings.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ProtoNetworkSettingsImpl _$$ProtoNetworkSettingsImplFromJson(
+_ProtoNetworkSettings _$ProtoNetworkSettingsFromJson(
         Map<String, dynamic> json) =>
-    _$ProtoNetworkSettingsImpl(
+    _ProtoNetworkSettings(
       endpoint: json['endpoint'] as String,
     );
 
-Map<String, dynamic> _$$ProtoNetworkSettingsImplToJson(
-        _$ProtoNetworkSettingsImpl instance) =>
+Map<String, dynamic> _$ProtoNetworkSettingsToJson(
+        _ProtoNetworkSettings instance) =>
     <String, dynamic>{
       'endpoint': instance.endpoint,
     };

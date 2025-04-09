@@ -6,9 +6,9 @@ part of 'on_message_sent_payload.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OnMessageSentPayloadImpl _$$OnMessageSentPayloadImplFromJson(
+_OnMessageSentPayload _$OnMessageSentPayloadFromJson(
         Map<String, dynamic> json) =>
-    _$OnMessageSentPayloadImpl(
+    _OnMessageSentPayload(
       pendingTransaction: PendingTransaction.fromJson(
           json['pending_transaction'] as Map<String, dynamic>),
       transaction: json['transaction'] == null
@@ -16,8 +16,8 @@ _$OnMessageSentPayloadImpl _$$OnMessageSentPayloadImplFromJson(
           : Transaction.fromJson(json['transaction'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$OnMessageSentPayloadImplToJson(
-        _$OnMessageSentPayloadImpl instance) =>
+Map<String, dynamic> _$OnMessageSentPayloadToJson(
+        _OnMessageSentPayload instance) =>
     <String, dynamic>{
       'pending_transaction': instance.pendingTransaction.toJson(),
       'transaction': instance.transaction?.toJson(),

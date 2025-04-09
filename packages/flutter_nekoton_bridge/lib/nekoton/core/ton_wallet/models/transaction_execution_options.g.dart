@@ -6,16 +6,16 @@ part of 'transaction_execution_options.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TransactionExecutionOptionsImpl _$$TransactionExecutionOptionsImplFromJson(
+_TransactionExecutionOptions _$TransactionExecutionOptionsFromJson(
         Map<String, dynamic> json) =>
-    _$TransactionExecutionOptionsImpl(
+    _TransactionExecutionOptions(
       disableSignatureCheck: json['disableSignatureCheck'] as bool,
       overrideBalance: _$JsonConverterFromJson<String, BigInt>(
           json['overrideBalance'], amountJsonConverter.fromJson),
     );
 
-Map<String, dynamic> _$$TransactionExecutionOptionsImplToJson(
-        _$TransactionExecutionOptionsImpl instance) =>
+Map<String, dynamic> _$TransactionExecutionOptionsToJson(
+        _TransactionExecutionOptions instance) =>
     <String, dynamic>{
       'disableSignatureCheck': instance.disableSignatureCheck,
       'overrideBalance': _$JsonConverterToJson<String, BigInt>(

@@ -6,24 +6,21 @@ part of 'password.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ExplicitImpl _$$ExplicitImplFromJson(Map<String, dynamic> json) =>
-    _$ExplicitImpl(
+_Explicit _$ExplicitFromJson(Map<String, dynamic> json) => _Explicit(
       PasswordExplicit.fromJson(json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$ExplicitImplToJson(_$ExplicitImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ExplicitToJson(_Explicit instance) => <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
-_$FromCacheImpl _$$FromCacheImplFromJson(Map<String, dynamic> json) =>
-    _$FromCacheImpl(
+_FromCache _$FromCacheFromJson(Map<String, dynamic> json) => _FromCache(
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$FromCacheImplToJson(_$FromCacheImpl instance) =>
+Map<String, dynamic> _$FromCacheToJson(_FromCache instance) =>
     <String, dynamic>{
       'type': instance.$type,
     };

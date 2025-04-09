@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,93 +10,61 @@ part of 'decoded_transaction_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-DecodedTransactionEvent _$DecodedTransactionEventFromJson(
-    Map<String, dynamic> json) {
-  return _DecodedTransactionEvent.fromJson(json);
-}
 
 /// @nodoc
 mixin _$DecodedTransactionEvent {
-  String get event => throw _privateConstructorUsedError;
-  Map<String, dynamic> get data => throw _privateConstructorUsedError;
-
-  /// Serializes this DecodedTransactionEvent to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get event;
+  TokensObject get data;
 
   /// Create a copy of DecodedTransactionEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $DecodedTransactionEventCopyWith<DecodedTransactionEvent> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $DecodedTransactionEventCopyWith<$Res> {
-  factory $DecodedTransactionEventCopyWith(DecodedTransactionEvent value,
-          $Res Function(DecodedTransactionEvent) then) =
-      _$DecodedTransactionEventCopyWithImpl<$Res, DecodedTransactionEvent>;
-  @useResult
-  $Res call({String event, Map<String, dynamic> data});
-}
-
-/// @nodoc
-class _$DecodedTransactionEventCopyWithImpl<$Res,
-        $Val extends DecodedTransactionEvent>
-    implements $DecodedTransactionEventCopyWith<$Res> {
-  _$DecodedTransactionEventCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of DecodedTransactionEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $DecodedTransactionEventCopyWith<DecodedTransactionEvent> get copyWith =>
+      _$DecodedTransactionEventCopyWithImpl<DecodedTransactionEvent>(
+          this as DecodedTransactionEvent, _$identity);
+
+  /// Serializes this DecodedTransactionEvent to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? event = null,
-    Object? data = null,
-  }) {
-    return _then(_value.copyWith(
-      event: null == event
-          ? _value.event
-          : event // ignore: cast_nullable_to_non_nullable
-              as String,
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DecodedTransactionEvent &&
+            (identical(other.event, event) || other.event == event) &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, event, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'DecodedTransactionEvent(event: $event, data: $data)';
   }
 }
 
 /// @nodoc
-abstract class _$$DecodedTransactionEventImplCopyWith<$Res>
-    implements $DecodedTransactionEventCopyWith<$Res> {
-  factory _$$DecodedTransactionEventImplCopyWith(
-          _$DecodedTransactionEventImpl value,
-          $Res Function(_$DecodedTransactionEventImpl) then) =
-      __$$DecodedTransactionEventImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $DecodedTransactionEventCopyWith<$Res> {
+  factory $DecodedTransactionEventCopyWith(DecodedTransactionEvent value,
+          $Res Function(DecodedTransactionEvent) _then) =
+      _$DecodedTransactionEventCopyWithImpl;
   @useResult
-  $Res call({String event, Map<String, dynamic> data});
+  $Res call({String event, TokensObject data});
 }
 
 /// @nodoc
-class __$$DecodedTransactionEventImplCopyWithImpl<$Res>
-    extends _$DecodedTransactionEventCopyWithImpl<$Res,
-        _$DecodedTransactionEventImpl>
-    implements _$$DecodedTransactionEventImplCopyWith<$Res> {
-  __$$DecodedTransactionEventImplCopyWithImpl(
-      _$DecodedTransactionEventImpl _value,
-      $Res Function(_$DecodedTransactionEventImpl) _then)
-      : super(_value, _then);
+class _$DecodedTransactionEventCopyWithImpl<$Res>
+    implements $DecodedTransactionEventCopyWith<$Res> {
+  _$DecodedTransactionEventCopyWithImpl(this._self, this._then);
+
+  final DecodedTransactionEvent _self;
+  final $Res Function(DecodedTransactionEvent) _then;
 
   /// Create a copy of DecodedTransactionEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -105,49 +74,59 @@ class __$$DecodedTransactionEventImplCopyWithImpl<$Res>
     Object? event = null,
     Object? data = null,
   }) {
-    return _then(_$DecodedTransactionEventImpl(
+    return _then(_self.copyWith(
       event: null == event
-          ? _value.event
+          ? _self.event
           : event // ignore: cast_nullable_to_non_nullable
               as String,
       data: null == data
-          ? _value._data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as TokensObject,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$DecodedTransactionEventImpl implements _DecodedTransactionEvent {
-  const _$DecodedTransactionEventImpl(
-      {required this.event, required final Map<String, dynamic> data})
+class _DecodedTransactionEvent implements DecodedTransactionEvent {
+  const _DecodedTransactionEvent(
+      {required this.event, required final TokensObject data})
       : _data = data;
-
-  factory _$DecodedTransactionEventImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DecodedTransactionEventImplFromJson(json);
+  factory _DecodedTransactionEvent.fromJson(Map<String, dynamic> json) =>
+      _$DecodedTransactionEventFromJson(json);
 
   @override
   final String event;
-  final Map<String, dynamic> _data;
+  final TokensObject _data;
   @override
-  Map<String, dynamic> get data {
+  TokensObject get data {
     if (_data is EqualUnmodifiableMapView) return _data;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_data);
   }
 
+  /// Create a copy of DecodedTransactionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'DecodedTransactionEvent(event: $event, data: $data)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$DecodedTransactionEventCopyWith<_DecodedTransactionEvent> get copyWith =>
+      __$DecodedTransactionEventCopyWithImpl<_DecodedTransactionEvent>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$DecodedTransactionEventToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DecodedTransactionEventImpl &&
+            other is _DecodedTransactionEvent &&
             (identical(other.event, event) || other.event == event) &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
@@ -157,41 +136,50 @@ class _$DecodedTransactionEventImpl implements _DecodedTransactionEvent {
   int get hashCode => Object.hash(
       runtimeType, event, const DeepCollectionEquality().hash(_data));
 
-  /// Create a copy of DecodedTransactionEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DecodedTransactionEventImplCopyWith<_$DecodedTransactionEventImpl>
-      get copyWith => __$$DecodedTransactionEventImplCopyWithImpl<
-          _$DecodedTransactionEventImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DecodedTransactionEventImplToJson(
-      this,
-    );
+  String toString() {
+    return 'DecodedTransactionEvent(event: $event, data: $data)';
   }
 }
 
-abstract class _DecodedTransactionEvent implements DecodedTransactionEvent {
-  const factory _DecodedTransactionEvent(
-          {required final String event,
-          required final Map<String, dynamic> data}) =
-      _$DecodedTransactionEventImpl;
-
-  factory _DecodedTransactionEvent.fromJson(Map<String, dynamic> json) =
-      _$DecodedTransactionEventImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$DecodedTransactionEventCopyWith<$Res>
+    implements $DecodedTransactionEventCopyWith<$Res> {
+  factory _$DecodedTransactionEventCopyWith(_DecodedTransactionEvent value,
+          $Res Function(_DecodedTransactionEvent) _then) =
+      __$DecodedTransactionEventCopyWithImpl;
   @override
-  String get event;
-  @override
-  Map<String, dynamic> get data;
+  @useResult
+  $Res call({String event, TokensObject data});
+}
+
+/// @nodoc
+class __$DecodedTransactionEventCopyWithImpl<$Res>
+    implements _$DecodedTransactionEventCopyWith<$Res> {
+  __$DecodedTransactionEventCopyWithImpl(this._self, this._then);
+
+  final _DecodedTransactionEvent _self;
+  final $Res Function(_DecodedTransactionEvent) _then;
 
   /// Create a copy of DecodedTransactionEvent
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DecodedTransactionEventImplCopyWith<_$DecodedTransactionEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? event = null,
+    Object? data = null,
+  }) {
+    return _then(_DecodedTransactionEvent(
+      event: null == event
+          ? _self.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as String,
+      data: null == data
+          ? _self._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as TokensObject,
+    ));
+  }
 }
+
+// dart format on

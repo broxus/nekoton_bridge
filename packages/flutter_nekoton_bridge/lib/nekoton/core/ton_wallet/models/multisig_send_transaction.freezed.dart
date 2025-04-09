@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,40 +10,57 @@ part of 'multisig_send_transaction.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-MultisigSendTransaction _$MultisigSendTransactionFromJson(
-    Map<String, dynamic> json) {
-  return _MultisigSendTransaction.fromJson(json);
-}
 
 /// @nodoc
 mixin _$MultisigSendTransaction {
-  Address get dest => throw _privateConstructorUsedError;
+  Address get dest;
   @amountJsonConverter
-  BigInt get value => throw _privateConstructorUsedError;
-  bool get bounce => throw _privateConstructorUsedError;
-  int get flags => throw _privateConstructorUsedError;
-  String get payload => throw _privateConstructorUsedError;
-
-  /// Serializes this MultisigSendTransaction to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  BigInt get value;
+  bool get bounce;
+  int get flags;
+  String get payload;
 
   /// Create a copy of MultisigSendTransaction
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $MultisigSendTransactionCopyWith<MultisigSendTransaction> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$MultisigSendTransactionCopyWithImpl<MultisigSendTransaction>(
+          this as MultisigSendTransaction, _$identity);
+
+  /// Serializes this MultisigSendTransaction to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MultisigSendTransaction &&
+            (identical(other.dest, dest) || other.dest == dest) &&
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.bounce, bounce) || other.bounce == bounce) &&
+            (identical(other.flags, flags) || other.flags == flags) &&
+            (identical(other.payload, payload) || other.payload == payload));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, dest, value, bounce, flags, payload);
+
+  @override
+  String toString() {
+    return 'MultisigSendTransaction(dest: $dest, value: $value, bounce: $bounce, flags: $flags, payload: $payload)';
+  }
 }
 
 /// @nodoc
-abstract class $MultisigSendTransactionCopyWith<$Res> {
+abstract mixin class $MultisigSendTransactionCopyWith<$Res> {
   factory $MultisigSendTransactionCopyWith(MultisigSendTransaction value,
-          $Res Function(MultisigSendTransaction) then) =
-      _$MultisigSendTransactionCopyWithImpl<$Res, MultisigSendTransaction>;
+          $Res Function(MultisigSendTransaction) _then) =
+      _$MultisigSendTransactionCopyWithImpl;
   @useResult
   $Res call(
       {Address dest,
@@ -55,15 +73,12 @@ abstract class $MultisigSendTransactionCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MultisigSendTransactionCopyWithImpl<$Res,
-        $Val extends MultisigSendTransaction>
+class _$MultisigSendTransactionCopyWithImpl<$Res>
     implements $MultisigSendTransactionCopyWith<$Res> {
-  _$MultisigSendTransactionCopyWithImpl(this._value, this._then);
+  _$MultisigSendTransactionCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final MultisigSendTransaction _self;
+  final $Res Function(MultisigSendTransaction) _then;
 
   /// Create a copy of MultisigSendTransaction
   /// with the given fields replaced by the non-null parameter values.
@@ -76,28 +91,28 @@ class _$MultisigSendTransactionCopyWithImpl<$Res,
     Object? flags = null,
     Object? payload = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       dest: null == dest
-          ? _value.dest
+          ? _self.dest
           : dest // ignore: cast_nullable_to_non_nullable
               as Address,
       value: null == value
-          ? _value.value
+          ? _self.value
           : value // ignore: cast_nullable_to_non_nullable
               as BigInt,
       bounce: null == bounce
-          ? _value.bounce
+          ? _self.bounce
           : bounce // ignore: cast_nullable_to_non_nullable
               as bool,
       flags: null == flags
-          ? _value.flags
+          ? _self.flags
           : flags // ignore: cast_nullable_to_non_nullable
               as int,
       payload: null == payload
-          ? _value.payload
+          ? _self.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as String,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of MultisigSendTransaction
@@ -105,90 +120,23 @@ class _$MultisigSendTransactionCopyWithImpl<$Res,
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get dest {
-    return $AddressCopyWith<$Res>(_value.dest, (value) {
-      return _then(_value.copyWith(dest: value) as $Val);
+    return $AddressCopyWith<$Res>(_self.dest, (value) {
+      return _then(_self.copyWith(dest: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$MultisigSendTransactionImplCopyWith<$Res>
-    implements $MultisigSendTransactionCopyWith<$Res> {
-  factory _$$MultisigSendTransactionImplCopyWith(
-          _$MultisigSendTransactionImpl value,
-          $Res Function(_$MultisigSendTransactionImpl) then) =
-      __$$MultisigSendTransactionImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {Address dest,
-      @amountJsonConverter BigInt value,
-      bool bounce,
-      int flags,
-      String payload});
-
-  @override
-  $AddressCopyWith<$Res> get dest;
-}
-
-/// @nodoc
-class __$$MultisigSendTransactionImplCopyWithImpl<$Res>
-    extends _$MultisigSendTransactionCopyWithImpl<$Res,
-        _$MultisigSendTransactionImpl>
-    implements _$$MultisigSendTransactionImplCopyWith<$Res> {
-  __$$MultisigSendTransactionImplCopyWithImpl(
-      _$MultisigSendTransactionImpl _value,
-      $Res Function(_$MultisigSendTransactionImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MultisigSendTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? dest = null,
-    Object? value = null,
-    Object? bounce = null,
-    Object? flags = null,
-    Object? payload = null,
-  }) {
-    return _then(_$MultisigSendTransactionImpl(
-      dest: null == dest
-          ? _value.dest
-          : dest // ignore: cast_nullable_to_non_nullable
-              as Address,
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-      bounce: null == bounce
-          ? _value.bounce
-          : bounce // ignore: cast_nullable_to_non_nullable
-              as bool,
-      flags: null == flags
-          ? _value.flags
-          : flags // ignore: cast_nullable_to_non_nullable
-              as int,
-      payload: null == payload
-          ? _value.payload
-          : payload // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$MultisigSendTransactionImpl implements _MultisigSendTransaction {
-  const _$MultisigSendTransactionImpl(
+class _MultisigSendTransaction implements MultisigSendTransaction {
+  const _MultisigSendTransaction(
       {required this.dest,
       @amountJsonConverter required this.value,
       required this.bounce,
       required this.flags,
       required this.payload});
-
-  factory _$MultisigSendTransactionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MultisigSendTransactionImplFromJson(json);
+  factory _MultisigSendTransaction.fromJson(Map<String, dynamic> json) =>
+      _$MultisigSendTransactionFromJson(json);
 
   @override
   final Address dest;
@@ -202,16 +150,27 @@ class _$MultisigSendTransactionImpl implements _MultisigSendTransaction {
   @override
   final String payload;
 
+  /// Create a copy of MultisigSendTransaction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'MultisigSendTransaction(dest: $dest, value: $value, bounce: $bounce, flags: $flags, payload: $payload)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MultisigSendTransactionCopyWith<_MultisigSendTransaction> get copyWith =>
+      __$MultisigSendTransactionCopyWithImpl<_MultisigSendTransaction>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$MultisigSendTransactionToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MultisigSendTransactionImpl &&
+            other is _MultisigSendTransaction &&
             (identical(other.dest, dest) || other.dest == dest) &&
             (identical(other.value, value) || other.value == value) &&
             (identical(other.bounce, bounce) || other.bounce == bounce) &&
@@ -224,50 +183,83 @@ class _$MultisigSendTransactionImpl implements _MultisigSendTransaction {
   int get hashCode =>
       Object.hash(runtimeType, dest, value, bounce, flags, payload);
 
-  /// Create a copy of MultisigSendTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MultisigSendTransactionImplCopyWith<_$MultisigSendTransactionImpl>
-      get copyWith => __$$MultisigSendTransactionImplCopyWithImpl<
-          _$MultisigSendTransactionImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MultisigSendTransactionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'MultisigSendTransaction(dest: $dest, value: $value, bounce: $bounce, flags: $flags, payload: $payload)';
   }
 }
 
-abstract class _MultisigSendTransaction implements MultisigSendTransaction {
-  const factory _MultisigSendTransaction(
-      {required final Address dest,
-      @amountJsonConverter required final BigInt value,
-      required final bool bounce,
-      required final int flags,
-      required final String payload}) = _$MultisigSendTransactionImpl;
+/// @nodoc
+abstract mixin class _$MultisigSendTransactionCopyWith<$Res>
+    implements $MultisigSendTransactionCopyWith<$Res> {
+  factory _$MultisigSendTransactionCopyWith(_MultisigSendTransaction value,
+          $Res Function(_MultisigSendTransaction) _then) =
+      __$MultisigSendTransactionCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {Address dest,
+      @amountJsonConverter BigInt value,
+      bool bounce,
+      int flags,
+      String payload});
 
-  factory _MultisigSendTransaction.fromJson(Map<String, dynamic> json) =
-      _$MultisigSendTransactionImpl.fromJson;
+  @override
+  $AddressCopyWith<$Res> get dest;
+}
 
-  @override
-  Address get dest;
-  @override
-  @amountJsonConverter
-  BigInt get value;
-  @override
-  bool get bounce;
-  @override
-  int get flags;
-  @override
-  String get payload;
+/// @nodoc
+class __$MultisigSendTransactionCopyWithImpl<$Res>
+    implements _$MultisigSendTransactionCopyWith<$Res> {
+  __$MultisigSendTransactionCopyWithImpl(this._self, this._then);
+
+  final _MultisigSendTransaction _self;
+  final $Res Function(_MultisigSendTransaction) _then;
 
   /// Create a copy of MultisigSendTransaction
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MultisigSendTransactionImplCopyWith<_$MultisigSendTransactionImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? dest = null,
+    Object? value = null,
+    Object? bounce = null,
+    Object? flags = null,
+    Object? payload = null,
+  }) {
+    return _then(_MultisigSendTransaction(
+      dest: null == dest
+          ? _self.dest
+          : dest // ignore: cast_nullable_to_non_nullable
+              as Address,
+      value: null == value
+          ? _self.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      bounce: null == bounce
+          ? _self.bounce
+          : bounce // ignore: cast_nullable_to_non_nullable
+              as bool,
+      flags: null == flags
+          ? _self.flags
+          : flags // ignore: cast_nullable_to_non_nullable
+              as int,
+      payload: null == payload
+          ? _self.payload
+          : payload // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+
+  /// Create a copy of MultisigSendTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get dest {
+    return $AddressCopyWith<$Res>(_self.dest, (value) {
+      return _then(_self.copyWith(dest: value));
+    });
+  }
 }
+
+// dart format on

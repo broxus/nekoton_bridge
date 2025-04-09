@@ -6,13 +6,12 @@ part of 'fee_factors.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeeFactorsImpl _$$FeeFactorsImplFromJson(Map<String, dynamic> json) =>
-    _$FeeFactorsImpl(
+_FeeFactors _$FeeFactorsFromJson(Map<String, dynamic> json) => _FeeFactors(
       storageFeeFactor: (json['storageFeeFactor'] as num).toInt(),
       gasFeeFactor: (json['gasFeeFactor'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$FeeFactorsImplToJson(_$FeeFactorsImpl instance) =>
+Map<String, dynamic> _$FeeFactorsToJson(_FeeFactors instance) =>
     <String, dynamic>{
       'storageFeeFactor': instance.storageFeeFactor,
       'gasFeeFactor': instance.gasFeeFactor,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,209 +10,34 @@ part of 'ton_wallet_transfer_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-TonWalletTransferParams _$TonWalletTransferParamsFromJson(
-    Map<String, dynamic> json) {
-  return _TonWalletTransferParams.fromJson(json);
-}
 
 /// @nodoc
 mixin _$TonWalletTransferParams {
-  Address get destination => throw _privateConstructorUsedError;
+  Address get destination;
   @amountJsonConverter
-  BigInt get amount => throw _privateConstructorUsedError;
-  bool get bounce => throw _privateConstructorUsedError;
-  String? get body => throw _privateConstructorUsedError;
-  String? get stateInit => throw _privateConstructorUsedError;
-
-  /// Serializes this TonWalletTransferParams to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  BigInt get amount;
+  bool get bounce;
+  String? get body;
+  String? get stateInit;
 
   /// Create a copy of TonWalletTransferParams
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $TonWalletTransferParamsCopyWith<TonWalletTransferParams> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$TonWalletTransferParamsCopyWithImpl<TonWalletTransferParams>(
+          this as TonWalletTransferParams, _$identity);
 
-/// @nodoc
-abstract class $TonWalletTransferParamsCopyWith<$Res> {
-  factory $TonWalletTransferParamsCopyWith(TonWalletTransferParams value,
-          $Res Function(TonWalletTransferParams) then) =
-      _$TonWalletTransferParamsCopyWithImpl<$Res, TonWalletTransferParams>;
-  @useResult
-  $Res call(
-      {Address destination,
-      @amountJsonConverter BigInt amount,
-      bool bounce,
-      String? body,
-      String? stateInit});
-
-  $AddressCopyWith<$Res> get destination;
-}
-
-/// @nodoc
-class _$TonWalletTransferParamsCopyWithImpl<$Res,
-        $Val extends TonWalletTransferParams>
-    implements $TonWalletTransferParamsCopyWith<$Res> {
-  _$TonWalletTransferParamsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of TonWalletTransferParams
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? destination = null,
-    Object? amount = null,
-    Object? bounce = null,
-    Object? body = freezed,
-    Object? stateInit = freezed,
-  }) {
-    return _then(_value.copyWith(
-      destination: null == destination
-          ? _value.destination
-          : destination // ignore: cast_nullable_to_non_nullable
-              as Address,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-      bounce: null == bounce
-          ? _value.bounce
-          : bounce // ignore: cast_nullable_to_non_nullable
-              as bool,
-      body: freezed == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as String?,
-      stateInit: freezed == stateInit
-          ? _value.stateInit
-          : stateInit // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
-
-  /// Create a copy of TonWalletTransferParams
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res> get destination {
-    return $AddressCopyWith<$Res>(_value.destination, (value) {
-      return _then(_value.copyWith(destination: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$TonWalletTransferParamsImplCopyWith<$Res>
-    implements $TonWalletTransferParamsCopyWith<$Res> {
-  factory _$$TonWalletTransferParamsImplCopyWith(
-          _$TonWalletTransferParamsImpl value,
-          $Res Function(_$TonWalletTransferParamsImpl) then) =
-      __$$TonWalletTransferParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {Address destination,
-      @amountJsonConverter BigInt amount,
-      bool bounce,
-      String? body,
-      String? stateInit});
-
-  @override
-  $AddressCopyWith<$Res> get destination;
-}
-
-/// @nodoc
-class __$$TonWalletTransferParamsImplCopyWithImpl<$Res>
-    extends _$TonWalletTransferParamsCopyWithImpl<$Res,
-        _$TonWalletTransferParamsImpl>
-    implements _$$TonWalletTransferParamsImplCopyWith<$Res> {
-  __$$TonWalletTransferParamsImplCopyWithImpl(
-      _$TonWalletTransferParamsImpl _value,
-      $Res Function(_$TonWalletTransferParamsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TonWalletTransferParams
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? destination = null,
-    Object? amount = null,
-    Object? bounce = null,
-    Object? body = freezed,
-    Object? stateInit = freezed,
-  }) {
-    return _then(_$TonWalletTransferParamsImpl(
-      destination: null == destination
-          ? _value.destination
-          : destination // ignore: cast_nullable_to_non_nullable
-              as Address,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-      bounce: null == bounce
-          ? _value.bounce
-          : bounce // ignore: cast_nullable_to_non_nullable
-              as bool,
-      body: freezed == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as String?,
-      stateInit: freezed == stateInit
-          ? _value.stateInit
-          : stateInit // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$TonWalletTransferParamsImpl implements _TonWalletTransferParams {
-  _$TonWalletTransferParamsImpl(
-      {required this.destination,
-      @amountJsonConverter required this.amount,
-      required this.bounce,
-      this.body,
-      this.stateInit});
-
-  factory _$TonWalletTransferParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TonWalletTransferParamsImplFromJson(json);
-
-  @override
-  final Address destination;
-  @override
-  @amountJsonConverter
-  final BigInt amount;
-  @override
-  final bool bounce;
-  @override
-  final String? body;
-  @override
-  final String? stateInit;
-
-  @override
-  String toString() {
-    return 'TonWalletTransferParams(destination: $destination, amount: $amount, bounce: $bounce, body: $body, stateInit: $stateInit)';
-  }
+  /// Serializes this TonWalletTransferParams to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TonWalletTransferParamsImpl &&
+            other is TonWalletTransferParams &&
             (identical(other.destination, destination) ||
                 other.destination == destination) &&
             (identical(other.amount, amount) || other.amount == amount) &&
@@ -226,50 +52,218 @@ class _$TonWalletTransferParamsImpl implements _TonWalletTransferParams {
   int get hashCode =>
       Object.hash(runtimeType, destination, amount, bounce, body, stateInit);
 
-  /// Create a copy of TonWalletTransferParams
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TonWalletTransferParamsImplCopyWith<_$TonWalletTransferParamsImpl>
-      get copyWith => __$$TonWalletTransferParamsImplCopyWithImpl<
-          _$TonWalletTransferParamsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TonWalletTransferParamsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'TonWalletTransferParams(destination: $destination, amount: $amount, bounce: $bounce, body: $body, stateInit: $stateInit)';
   }
 }
 
-abstract class _TonWalletTransferParams implements TonWalletTransferParams {
-  factory _TonWalletTransferParams(
-      {required final Address destination,
-      @amountJsonConverter required final BigInt amount,
-      required final bool bounce,
-      final String? body,
-      final String? stateInit}) = _$TonWalletTransferParamsImpl;
+/// @nodoc
+abstract mixin class $TonWalletTransferParamsCopyWith<$Res> {
+  factory $TonWalletTransferParamsCopyWith(TonWalletTransferParams value,
+          $Res Function(TonWalletTransferParams) _then) =
+      _$TonWalletTransferParamsCopyWithImpl;
+  @useResult
+  $Res call(
+      {Address destination,
+      @amountJsonConverter BigInt amount,
+      bool bounce,
+      String? body,
+      String? stateInit});
 
-  factory _TonWalletTransferParams.fromJson(Map<String, dynamic> json) =
-      _$TonWalletTransferParamsImpl.fromJson;
+  $AddressCopyWith<$Res> get destination;
+}
+
+/// @nodoc
+class _$TonWalletTransferParamsCopyWithImpl<$Res>
+    implements $TonWalletTransferParamsCopyWith<$Res> {
+  _$TonWalletTransferParamsCopyWithImpl(this._self, this._then);
+
+  final TonWalletTransferParams _self;
+  final $Res Function(TonWalletTransferParams) _then;
+
+  /// Create a copy of TonWalletTransferParams
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? destination = null,
+    Object? amount = null,
+    Object? bounce = null,
+    Object? body = freezed,
+    Object? stateInit = freezed,
+  }) {
+    return _then(_self.copyWith(
+      destination: null == destination
+          ? _self.destination
+          : destination // ignore: cast_nullable_to_non_nullable
+              as Address,
+      amount: null == amount
+          ? _self.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      bounce: null == bounce
+          ? _self.bounce
+          : bounce // ignore: cast_nullable_to_non_nullable
+              as bool,
+      body: freezed == body
+          ? _self.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String?,
+      stateInit: freezed == stateInit
+          ? _self.stateInit
+          : stateInit // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+
+  /// Create a copy of TonWalletTransferParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get destination {
+    return $AddressCopyWith<$Res>(_self.destination, (value) {
+      return _then(_self.copyWith(destination: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _TonWalletTransferParams implements TonWalletTransferParams {
+  _TonWalletTransferParams(
+      {required this.destination,
+      @amountJsonConverter required this.amount,
+      required this.bounce,
+      this.body,
+      this.stateInit});
+  factory _TonWalletTransferParams.fromJson(Map<String, dynamic> json) =>
+      _$TonWalletTransferParamsFromJson(json);
 
   @override
-  Address get destination;
+  final Address destination;
   @override
   @amountJsonConverter
-  BigInt get amount;
+  final BigInt amount;
   @override
-  bool get bounce;
+  final bool bounce;
   @override
-  String? get body;
+  final String? body;
   @override
-  String? get stateInit;
+  final String? stateInit;
 
   /// Create a copy of TonWalletTransferParams
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TonWalletTransferParamsImplCopyWith<_$TonWalletTransferParamsImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$TonWalletTransferParamsCopyWith<_TonWalletTransferParams> get copyWith =>
+      __$TonWalletTransferParamsCopyWithImpl<_TonWalletTransferParams>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TonWalletTransferParamsToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _TonWalletTransferParams &&
+            (identical(other.destination, destination) ||
+                other.destination == destination) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.bounce, bounce) || other.bounce == bounce) &&
+            (identical(other.body, body) || other.body == body) &&
+            (identical(other.stateInit, stateInit) ||
+                other.stateInit == stateInit));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, destination, amount, bounce, body, stateInit);
+
+  @override
+  String toString() {
+    return 'TonWalletTransferParams(destination: $destination, amount: $amount, bounce: $bounce, body: $body, stateInit: $stateInit)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$TonWalletTransferParamsCopyWith<$Res>
+    implements $TonWalletTransferParamsCopyWith<$Res> {
+  factory _$TonWalletTransferParamsCopyWith(_TonWalletTransferParams value,
+          $Res Function(_TonWalletTransferParams) _then) =
+      __$TonWalletTransferParamsCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {Address destination,
+      @amountJsonConverter BigInt amount,
+      bool bounce,
+      String? body,
+      String? stateInit});
+
+  @override
+  $AddressCopyWith<$Res> get destination;
+}
+
+/// @nodoc
+class __$TonWalletTransferParamsCopyWithImpl<$Res>
+    implements _$TonWalletTransferParamsCopyWith<$Res> {
+  __$TonWalletTransferParamsCopyWithImpl(this._self, this._then);
+
+  final _TonWalletTransferParams _self;
+  final $Res Function(_TonWalletTransferParams) _then;
+
+  /// Create a copy of TonWalletTransferParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? destination = null,
+    Object? amount = null,
+    Object? bounce = null,
+    Object? body = freezed,
+    Object? stateInit = freezed,
+  }) {
+    return _then(_TonWalletTransferParams(
+      destination: null == destination
+          ? _self.destination
+          : destination // ignore: cast_nullable_to_non_nullable
+              as Address,
+      amount: null == amount
+          ? _self.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      bounce: null == bounce
+          ? _self.bounce
+          : bounce // ignore: cast_nullable_to_non_nullable
+              as bool,
+      body: freezed == body
+          ? _self.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String?,
+      stateInit: freezed == stateInit
+          ? _self.stateInit
+          : stateInit // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+
+  /// Create a copy of TonWalletTransferParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get destination {
+    return $AddressCopyWith<$Res>(_self.destination, (value) {
+      return _then(_self.copyWith(destination: value));
+    });
+  }
+}
+
+// dart format on

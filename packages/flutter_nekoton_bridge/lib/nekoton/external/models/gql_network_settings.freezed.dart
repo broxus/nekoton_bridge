@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,100 +10,67 @@ part of 'gql_network_settings.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GqlNetworkSettings _$GqlNetworkSettingsFromJson(Map<String, dynamic> json) {
-  return _GqlNetworkSettings.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GqlNetworkSettings {
-  List<String> get endpoints => throw _privateConstructorUsedError;
-  int get latencyDetectionInterval => throw _privateConstructorUsedError;
-  int get maxLatency => throw _privateConstructorUsedError;
-  int get endpointSelectionRetryCount => throw _privateConstructorUsedError;
-  bool get local => throw _privateConstructorUsedError;
-
-  /// Serializes this GqlNetworkSettings to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<String> get endpoints;
+  int get latencyDetectionInterval;
+  int get maxLatency;
+  int get endpointSelectionRetryCount;
+  bool get local;
 
   /// Create a copy of GqlNetworkSettings
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $GqlNetworkSettingsCopyWith<GqlNetworkSettings> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $GqlNetworkSettingsCopyWith<$Res> {
-  factory $GqlNetworkSettingsCopyWith(
-          GqlNetworkSettings value, $Res Function(GqlNetworkSettings) then) =
-      _$GqlNetworkSettingsCopyWithImpl<$Res, GqlNetworkSettings>;
-  @useResult
-  $Res call(
-      {List<String> endpoints,
-      int latencyDetectionInterval,
-      int maxLatency,
-      int endpointSelectionRetryCount,
-      bool local});
-}
-
-/// @nodoc
-class _$GqlNetworkSettingsCopyWithImpl<$Res, $Val extends GqlNetworkSettings>
-    implements $GqlNetworkSettingsCopyWith<$Res> {
-  _$GqlNetworkSettingsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of GqlNetworkSettings
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $GqlNetworkSettingsCopyWith<GqlNetworkSettings> get copyWith =>
+      _$GqlNetworkSettingsCopyWithImpl<GqlNetworkSettings>(
+          this as GqlNetworkSettings, _$identity);
+
+  /// Serializes this GqlNetworkSettings to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? endpoints = null,
-    Object? latencyDetectionInterval = null,
-    Object? maxLatency = null,
-    Object? endpointSelectionRetryCount = null,
-    Object? local = null,
-  }) {
-    return _then(_value.copyWith(
-      endpoints: null == endpoints
-          ? _value.endpoints
-          : endpoints // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      latencyDetectionInterval: null == latencyDetectionInterval
-          ? _value.latencyDetectionInterval
-          : latencyDetectionInterval // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxLatency: null == maxLatency
-          ? _value.maxLatency
-          : maxLatency // ignore: cast_nullable_to_non_nullable
-              as int,
-      endpointSelectionRetryCount: null == endpointSelectionRetryCount
-          ? _value.endpointSelectionRetryCount
-          : endpointSelectionRetryCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      local: null == local
-          ? _value.local
-          : local // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GqlNetworkSettings &&
+            const DeepCollectionEquality().equals(other.endpoints, endpoints) &&
+            (identical(
+                    other.latencyDetectionInterval, latencyDetectionInterval) ||
+                other.latencyDetectionInterval == latencyDetectionInterval) &&
+            (identical(other.maxLatency, maxLatency) ||
+                other.maxLatency == maxLatency) &&
+            (identical(other.endpointSelectionRetryCount,
+                    endpointSelectionRetryCount) ||
+                other.endpointSelectionRetryCount ==
+                    endpointSelectionRetryCount) &&
+            (identical(other.local, local) || other.local == local));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(endpoints),
+      latencyDetectionInterval,
+      maxLatency,
+      endpointSelectionRetryCount,
+      local);
+
+  @override
+  String toString() {
+    return 'GqlNetworkSettings(endpoints: $endpoints, latencyDetectionInterval: $latencyDetectionInterval, maxLatency: $maxLatency, endpointSelectionRetryCount: $endpointSelectionRetryCount, local: $local)';
   }
 }
 
 /// @nodoc
-abstract class _$$GqlNetworkSettingsImplCopyWith<$Res>
-    implements $GqlNetworkSettingsCopyWith<$Res> {
-  factory _$$GqlNetworkSettingsImplCopyWith(_$GqlNetworkSettingsImpl value,
-          $Res Function(_$GqlNetworkSettingsImpl) then) =
-      __$$GqlNetworkSettingsImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $GqlNetworkSettingsCopyWith<$Res> {
+  factory $GqlNetworkSettingsCopyWith(
+          GqlNetworkSettings value, $Res Function(GqlNetworkSettings) _then) =
+      _$GqlNetworkSettingsCopyWithImpl;
   @useResult
   $Res call(
       {List<String> endpoints,
@@ -113,12 +81,12 @@ abstract class _$$GqlNetworkSettingsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$GqlNetworkSettingsImplCopyWithImpl<$Res>
-    extends _$GqlNetworkSettingsCopyWithImpl<$Res, _$GqlNetworkSettingsImpl>
-    implements _$$GqlNetworkSettingsImplCopyWith<$Res> {
-  __$$GqlNetworkSettingsImplCopyWithImpl(_$GqlNetworkSettingsImpl _value,
-      $Res Function(_$GqlNetworkSettingsImpl) _then)
-      : super(_value, _then);
+class _$GqlNetworkSettingsCopyWithImpl<$Res>
+    implements $GqlNetworkSettingsCopyWith<$Res> {
+  _$GqlNetworkSettingsCopyWithImpl(this._self, this._then);
+
+  final GqlNetworkSettings _self;
+  final $Res Function(GqlNetworkSettings) _then;
 
   /// Create a copy of GqlNetworkSettings
   /// with the given fields replaced by the non-null parameter values.
@@ -131,25 +99,25 @@ class __$$GqlNetworkSettingsImplCopyWithImpl<$Res>
     Object? endpointSelectionRetryCount = null,
     Object? local = null,
   }) {
-    return _then(_$GqlNetworkSettingsImpl(
+    return _then(_self.copyWith(
       endpoints: null == endpoints
-          ? _value._endpoints
+          ? _self.endpoints
           : endpoints // ignore: cast_nullable_to_non_nullable
               as List<String>,
       latencyDetectionInterval: null == latencyDetectionInterval
-          ? _value.latencyDetectionInterval
+          ? _self.latencyDetectionInterval
           : latencyDetectionInterval // ignore: cast_nullable_to_non_nullable
               as int,
       maxLatency: null == maxLatency
-          ? _value.maxLatency
+          ? _self.maxLatency
           : maxLatency // ignore: cast_nullable_to_non_nullable
               as int,
       endpointSelectionRetryCount: null == endpointSelectionRetryCount
-          ? _value.endpointSelectionRetryCount
+          ? _self.endpointSelectionRetryCount
           : endpointSelectionRetryCount // ignore: cast_nullable_to_non_nullable
               as int,
       local: null == local
-          ? _value.local
+          ? _self.local
           : local // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
@@ -158,17 +126,16 @@ class __$$GqlNetworkSettingsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$GqlNetworkSettingsImpl implements _GqlNetworkSettings {
-  const _$GqlNetworkSettingsImpl(
+class _GqlNetworkSettings implements GqlNetworkSettings {
+  const _GqlNetworkSettings(
       {required final List<String> endpoints,
       required this.latencyDetectionInterval,
       required this.maxLatency,
       required this.endpointSelectionRetryCount,
       required this.local})
       : _endpoints = endpoints;
-
-  factory _$GqlNetworkSettingsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GqlNetworkSettingsImplFromJson(json);
+  factory _GqlNetworkSettings.fromJson(Map<String, dynamic> json) =>
+      _$GqlNetworkSettingsFromJson(json);
 
   final List<String> _endpoints;
   @override
@@ -187,16 +154,26 @@ class _$GqlNetworkSettingsImpl implements _GqlNetworkSettings {
   @override
   final bool local;
 
+  /// Create a copy of GqlNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'GqlNetworkSettings(endpoints: $endpoints, latencyDetectionInterval: $latencyDetectionInterval, maxLatency: $maxLatency, endpointSelectionRetryCount: $endpointSelectionRetryCount, local: $local)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$GqlNetworkSettingsCopyWith<_GqlNetworkSettings> get copyWith =>
+      __$GqlNetworkSettingsCopyWithImpl<_GqlNetworkSettings>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$GqlNetworkSettingsToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GqlNetworkSettingsImpl &&
+            other is _GqlNetworkSettings &&
             const DeepCollectionEquality()
                 .equals(other._endpoints, _endpoints) &&
             (identical(
@@ -221,49 +198,70 @@ class _$GqlNetworkSettingsImpl implements _GqlNetworkSettings {
       endpointSelectionRetryCount,
       local);
 
-  /// Create a copy of GqlNetworkSettings
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GqlNetworkSettingsImplCopyWith<_$GqlNetworkSettingsImpl> get copyWith =>
-      __$$GqlNetworkSettingsImplCopyWithImpl<_$GqlNetworkSettingsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GqlNetworkSettingsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'GqlNetworkSettings(endpoints: $endpoints, latencyDetectionInterval: $latencyDetectionInterval, maxLatency: $maxLatency, endpointSelectionRetryCount: $endpointSelectionRetryCount, local: $local)';
   }
 }
 
-abstract class _GqlNetworkSettings implements GqlNetworkSettings {
-  const factory _GqlNetworkSettings(
-      {required final List<String> endpoints,
-      required final int latencyDetectionInterval,
-      required final int maxLatency,
-      required final int endpointSelectionRetryCount,
-      required final bool local}) = _$GqlNetworkSettingsImpl;
+/// @nodoc
+abstract mixin class _$GqlNetworkSettingsCopyWith<$Res>
+    implements $GqlNetworkSettingsCopyWith<$Res> {
+  factory _$GqlNetworkSettingsCopyWith(
+          _GqlNetworkSettings value, $Res Function(_GqlNetworkSettings) _then) =
+      __$GqlNetworkSettingsCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {List<String> endpoints,
+      int latencyDetectionInterval,
+      int maxLatency,
+      int endpointSelectionRetryCount,
+      bool local});
+}
 
-  factory _GqlNetworkSettings.fromJson(Map<String, dynamic> json) =
-      _$GqlNetworkSettingsImpl.fromJson;
+/// @nodoc
+class __$GqlNetworkSettingsCopyWithImpl<$Res>
+    implements _$GqlNetworkSettingsCopyWith<$Res> {
+  __$GqlNetworkSettingsCopyWithImpl(this._self, this._then);
 
-  @override
-  List<String> get endpoints;
-  @override
-  int get latencyDetectionInterval;
-  @override
-  int get maxLatency;
-  @override
-  int get endpointSelectionRetryCount;
-  @override
-  bool get local;
+  final _GqlNetworkSettings _self;
+  final $Res Function(_GqlNetworkSettings) _then;
 
   /// Create a copy of GqlNetworkSettings
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GqlNetworkSettingsImplCopyWith<_$GqlNetworkSettingsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? endpoints = null,
+    Object? latencyDetectionInterval = null,
+    Object? maxLatency = null,
+    Object? endpointSelectionRetryCount = null,
+    Object? local = null,
+  }) {
+    return _then(_GqlNetworkSettings(
+      endpoints: null == endpoints
+          ? _self._endpoints
+          : endpoints // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      latencyDetectionInterval: null == latencyDetectionInterval
+          ? _self.latencyDetectionInterval
+          : latencyDetectionInterval // ignore: cast_nullable_to_non_nullable
+              as int,
+      maxLatency: null == maxLatency
+          ? _self.maxLatency
+          : maxLatency // ignore: cast_nullable_to_non_nullable
+              as int,
+      endpointSelectionRetryCount: null == endpointSelectionRetryCount
+          ? _self.endpointSelectionRetryCount
+          : endpointSelectionRetryCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      local: null == local
+          ? _self.local
+          : local // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
+
+// dart format on

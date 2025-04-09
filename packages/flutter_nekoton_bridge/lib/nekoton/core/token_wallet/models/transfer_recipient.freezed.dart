@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,17 +10,14 @@ part of 'transfer_recipient.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 TransferRecipient _$TransferRecipientFromJson(Map<String, dynamic> json) {
   switch (json['type']) {
     case 'ownerWallet':
-      return _OwnerWallet.fromJson(json);
+      return TransferRecipientOwnerWallet.fromJson(json);
     case 'tokenWallet':
-      return _TokenWallet.fromJson(json);
+      return TransferRecipientTokenWallet.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'type', 'TransferRecipient',
@@ -29,61 +27,42 @@ TransferRecipient _$TransferRecipientFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TransferRecipient {
-  Address get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Address data) ownerWallet,
-    required TResult Function(Address data) tokenWallet,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Address data)? ownerWallet,
-    TResult? Function(Address data)? tokenWallet,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Address data)? ownerWallet,
-    TResult Function(Address data)? tokenWallet,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_OwnerWallet value) ownerWallet,
-    required TResult Function(_TokenWallet value) tokenWallet,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OwnerWallet value)? ownerWallet,
-    TResult? Function(_TokenWallet value)? tokenWallet,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OwnerWallet value)? ownerWallet,
-    TResult Function(_TokenWallet value)? tokenWallet,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-
-  /// Serializes this TransferRecipient to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Address get data;
 
   /// Create a copy of TransferRecipient
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $TransferRecipientCopyWith<TransferRecipient> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$TransferRecipientCopyWithImpl<TransferRecipient>(
+          this as TransferRecipient, _$identity);
+
+  /// Serializes this TransferRecipient to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TransferRecipient &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'TransferRecipient(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $TransferRecipientCopyWith<$Res> {
+abstract mixin class $TransferRecipientCopyWith<$Res> {
   factory $TransferRecipientCopyWith(
-          TransferRecipient value, $Res Function(TransferRecipient) then) =
-      _$TransferRecipientCopyWithImpl<$Res, TransferRecipient>;
+          TransferRecipient value, $Res Function(TransferRecipient) _then) =
+      _$TransferRecipientCopyWithImpl;
   @useResult
   $Res call({Address data});
 
@@ -91,14 +70,12 @@ abstract class $TransferRecipientCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TransferRecipientCopyWithImpl<$Res, $Val extends TransferRecipient>
+class _$TransferRecipientCopyWithImpl<$Res>
     implements $TransferRecipientCopyWith<$Res> {
-  _$TransferRecipientCopyWithImpl(this._value, this._then);
+  _$TransferRecipientCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final TransferRecipient _self;
+  final $Res Function(TransferRecipient) _then;
 
   /// Create a copy of TransferRecipient
   /// with the given fields replaced by the non-null parameter values.
@@ -107,12 +84,12 @@ class _$TransferRecipientCopyWithImpl<$Res, $Val extends TransferRecipient>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as Address,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of TransferRecipient
@@ -120,183 +97,67 @@ class _$TransferRecipientCopyWithImpl<$Res, $Val extends TransferRecipient>
   @override
   @pragma('vm:prefer-inline')
   $AddressCopyWith<$Res> get data {
-    return $AddressCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value) as $Val);
+    return $AddressCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$OwnerWalletImplCopyWith<$Res>
-    implements $TransferRecipientCopyWith<$Res> {
-  factory _$$OwnerWalletImplCopyWith(
-          _$OwnerWalletImpl value, $Res Function(_$OwnerWalletImpl) then) =
-      __$$OwnerWalletImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Address data});
-
-  @override
-  $AddressCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$OwnerWalletImplCopyWithImpl<$Res>
-    extends _$TransferRecipientCopyWithImpl<$Res, _$OwnerWalletImpl>
-    implements _$$OwnerWalletImplCopyWith<$Res> {
-  __$$OwnerWalletImplCopyWithImpl(
-      _$OwnerWalletImpl _value, $Res Function(_$OwnerWalletImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TransferRecipient
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$OwnerWalletImpl(
-      null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Address,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$OwnerWalletImpl implements _OwnerWallet {
-  const _$OwnerWalletImpl(this.data, {final String? $type})
+class TransferRecipientOwnerWallet implements TransferRecipient {
+  const TransferRecipientOwnerWallet(this.data, {final String? $type})
       : $type = $type ?? 'ownerWallet';
-
-  factory _$OwnerWalletImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OwnerWalletImplFromJson(json);
+  factory TransferRecipientOwnerWallet.fromJson(Map<String, dynamic> json) =>
+      _$TransferRecipientOwnerWalletFromJson(json);
 
   @override
   final Address data;
 
   @JsonKey(name: 'type')
   final String $type;
+
+  /// Create a copy of TransferRecipient
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TransferRecipientOwnerWalletCopyWith<TransferRecipientOwnerWallet>
+      get copyWith => _$TransferRecipientOwnerWalletCopyWithImpl<
+          TransferRecipientOwnerWallet>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TransferRecipientOwnerWalletToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TransferRecipientOwnerWallet &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
 
   @override
   String toString() {
     return 'TransferRecipient.ownerWallet(data: $data)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$OwnerWalletImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of TransferRecipient
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$OwnerWalletImplCopyWith<_$OwnerWalletImpl> get copyWith =>
-      __$$OwnerWalletImplCopyWithImpl<_$OwnerWalletImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Address data) ownerWallet,
-    required TResult Function(Address data) tokenWallet,
-  }) {
-    return ownerWallet(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Address data)? ownerWallet,
-    TResult? Function(Address data)? tokenWallet,
-  }) {
-    return ownerWallet?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Address data)? ownerWallet,
-    TResult Function(Address data)? tokenWallet,
-    required TResult orElse(),
-  }) {
-    if (ownerWallet != null) {
-      return ownerWallet(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_OwnerWallet value) ownerWallet,
-    required TResult Function(_TokenWallet value) tokenWallet,
-  }) {
-    return ownerWallet(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OwnerWallet value)? ownerWallet,
-    TResult? Function(_TokenWallet value)? tokenWallet,
-  }) {
-    return ownerWallet?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OwnerWallet value)? ownerWallet,
-    TResult Function(_TokenWallet value)? tokenWallet,
-    required TResult orElse(),
-  }) {
-    if (ownerWallet != null) {
-      return ownerWallet(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$OwnerWalletImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _OwnerWallet implements TransferRecipient {
-  const factory _OwnerWallet(final Address data) = _$OwnerWalletImpl;
-
-  factory _OwnerWallet.fromJson(Map<String, dynamic> json) =
-      _$OwnerWalletImpl.fromJson;
-
-  @override
-  Address get data;
-
-  /// Create a copy of TransferRecipient
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$OwnerWalletImplCopyWith<_$OwnerWalletImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TokenWalletImplCopyWith<$Res>
+abstract mixin class $TransferRecipientOwnerWalletCopyWith<$Res>
     implements $TransferRecipientCopyWith<$Res> {
-  factory _$$TokenWalletImplCopyWith(
-          _$TokenWalletImpl value, $Res Function(_$TokenWalletImpl) then) =
-      __$$TokenWalletImplCopyWithImpl<$Res>;
+  factory $TransferRecipientOwnerWalletCopyWith(
+          TransferRecipientOwnerWallet value,
+          $Res Function(TransferRecipientOwnerWallet) _then) =
+      _$TransferRecipientOwnerWalletCopyWithImpl;
   @override
   @useResult
   $Res call({Address data});
@@ -306,37 +167,46 @@ abstract class _$$TokenWalletImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$TokenWalletImplCopyWithImpl<$Res>
-    extends _$TransferRecipientCopyWithImpl<$Res, _$TokenWalletImpl>
-    implements _$$TokenWalletImplCopyWith<$Res> {
-  __$$TokenWalletImplCopyWithImpl(
-      _$TokenWalletImpl _value, $Res Function(_$TokenWalletImpl) _then)
-      : super(_value, _then);
+class _$TransferRecipientOwnerWalletCopyWithImpl<$Res>
+    implements $TransferRecipientOwnerWalletCopyWith<$Res> {
+  _$TransferRecipientOwnerWalletCopyWithImpl(this._self, this._then);
+
+  final TransferRecipientOwnerWallet _self;
+  final $Res Function(TransferRecipientOwnerWallet) _then;
 
   /// Create a copy of TransferRecipient
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$TokenWalletImpl(
+    return _then(TransferRecipientOwnerWallet(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as Address,
     ));
+  }
+
+  /// Create a copy of TransferRecipient
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get data {
+    return $AddressCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
+    });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$TokenWalletImpl implements _TokenWallet {
-  const _$TokenWalletImpl(this.data, {final String? $type})
+class TransferRecipientTokenWallet implements TransferRecipient {
+  const TransferRecipientTokenWallet(this.data, {final String? $type})
       : $type = $type ?? 'tokenWallet';
-
-  factory _$TokenWalletImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TokenWalletImplFromJson(json);
+  factory TransferRecipientTokenWallet.fromJson(Map<String, dynamic> json) =>
+      _$TransferRecipientTokenWalletFromJson(json);
 
   @override
   final Address data;
@@ -344,16 +214,27 @@ class _$TokenWalletImpl implements _TokenWallet {
   @JsonKey(name: 'type')
   final String $type;
 
+  /// Create a copy of TransferRecipient
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'TransferRecipient.tokenWallet(data: $data)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TransferRecipientTokenWalletCopyWith<TransferRecipientTokenWallet>
+      get copyWith => _$TransferRecipientTokenWalletCopyWithImpl<
+          TransferRecipientTokenWallet>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TransferRecipientTokenWalletToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TokenWalletImpl &&
+            other is TransferRecipientTokenWallet &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -361,97 +242,59 @@ class _$TokenWalletImpl implements _TokenWallet {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
+  @override
+  String toString() {
+    return 'TransferRecipient.tokenWallet(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $TransferRecipientTokenWalletCopyWith<$Res>
+    implements $TransferRecipientCopyWith<$Res> {
+  factory $TransferRecipientTokenWalletCopyWith(
+          TransferRecipientTokenWallet value,
+          $Res Function(TransferRecipientTokenWallet) _then) =
+      _$TransferRecipientTokenWalletCopyWithImpl;
+  @override
+  @useResult
+  $Res call({Address data});
+
+  @override
+  $AddressCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class _$TransferRecipientTokenWalletCopyWithImpl<$Res>
+    implements $TransferRecipientTokenWalletCopyWith<$Res> {
+  _$TransferRecipientTokenWalletCopyWithImpl(this._self, this._then);
+
+  final TransferRecipientTokenWallet _self;
+  final $Res Function(TransferRecipientTokenWallet) _then;
+
   /// Create a copy of TransferRecipient
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$TokenWalletImplCopyWith<_$TokenWalletImpl> get copyWith =>
-      __$$TokenWalletImplCopyWithImpl<_$TokenWalletImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Address data) ownerWallet,
-    required TResult Function(Address data) tokenWallet,
+  $Res call({
+    Object? data = null,
   }) {
-    return tokenWallet(data);
+    return _then(TransferRecipientTokenWallet(
+      null == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Address,
+    ));
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Address data)? ownerWallet,
-    TResult? Function(Address data)? tokenWallet,
-  }) {
-    return tokenWallet?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Address data)? ownerWallet,
-    TResult Function(Address data)? tokenWallet,
-    required TResult orElse(),
-  }) {
-    if (tokenWallet != null) {
-      return tokenWallet(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_OwnerWallet value) ownerWallet,
-    required TResult Function(_TokenWallet value) tokenWallet,
-  }) {
-    return tokenWallet(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OwnerWallet value)? ownerWallet,
-    TResult? Function(_TokenWallet value)? tokenWallet,
-  }) {
-    return tokenWallet?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OwnerWallet value)? ownerWallet,
-    TResult Function(_TokenWallet value)? tokenWallet,
-    required TResult orElse(),
-  }) {
-    if (tokenWallet != null) {
-      return tokenWallet(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TokenWalletImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _TokenWallet implements TransferRecipient {
-  const factory _TokenWallet(final Address data) = _$TokenWalletImpl;
-
-  factory _TokenWallet.fromJson(Map<String, dynamic> json) =
-      _$TokenWalletImpl.fromJson;
-
-  @override
-  Address get data;
 
   /// Create a copy of TransferRecipient
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TokenWalletImplCopyWith<_$TokenWalletImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get data {
+    return $AddressCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
+    });
+  }
 }
+
+// dart format on

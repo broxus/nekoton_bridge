@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,185 +10,32 @@ part of 'jetton_wallet_data.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-JettonWalletData _$JettonWalletDataFromJson(Map<String, dynamic> json) {
-  return _JettonWalletData.fromJson(json);
-}
 
 /// @nodoc
 mixin _$JettonWalletData {
-  Address get rootAddress => throw _privateConstructorUsedError;
-  Address get ownerAddress => throw _privateConstructorUsedError;
+  Address get rootAddress;
+  Address get ownerAddress;
   @amountJsonConverter
-  BigInt get balance => throw _privateConstructorUsedError;
-
-  /// Serializes this JettonWalletData to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  BigInt get balance;
 
   /// Create a copy of JettonWalletData
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $JettonWalletDataCopyWith<JettonWalletData> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$JettonWalletDataCopyWithImpl<JettonWalletData>(
+          this as JettonWalletData, _$identity);
 
-/// @nodoc
-abstract class $JettonWalletDataCopyWith<$Res> {
-  factory $JettonWalletDataCopyWith(
-          JettonWalletData value, $Res Function(JettonWalletData) then) =
-      _$JettonWalletDataCopyWithImpl<$Res, JettonWalletData>;
-  @useResult
-  $Res call(
-      {Address rootAddress,
-      Address ownerAddress,
-      @amountJsonConverter BigInt balance});
-
-  $AddressCopyWith<$Res> get rootAddress;
-  $AddressCopyWith<$Res> get ownerAddress;
-}
-
-/// @nodoc
-class _$JettonWalletDataCopyWithImpl<$Res, $Val extends JettonWalletData>
-    implements $JettonWalletDataCopyWith<$Res> {
-  _$JettonWalletDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of JettonWalletData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? rootAddress = null,
-    Object? ownerAddress = null,
-    Object? balance = null,
-  }) {
-    return _then(_value.copyWith(
-      rootAddress: null == rootAddress
-          ? _value.rootAddress
-          : rootAddress // ignore: cast_nullable_to_non_nullable
-              as Address,
-      ownerAddress: null == ownerAddress
-          ? _value.ownerAddress
-          : ownerAddress // ignore: cast_nullable_to_non_nullable
-              as Address,
-      balance: null == balance
-          ? _value.balance
-          : balance // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-    ) as $Val);
-  }
-
-  /// Create a copy of JettonWalletData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res> get rootAddress {
-    return $AddressCopyWith<$Res>(_value.rootAddress, (value) {
-      return _then(_value.copyWith(rootAddress: value) as $Val);
-    });
-  }
-
-  /// Create a copy of JettonWalletData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res> get ownerAddress {
-    return $AddressCopyWith<$Res>(_value.ownerAddress, (value) {
-      return _then(_value.copyWith(ownerAddress: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$JettonWalletDataImplCopyWith<$Res>
-    implements $JettonWalletDataCopyWith<$Res> {
-  factory _$$JettonWalletDataImplCopyWith(_$JettonWalletDataImpl value,
-          $Res Function(_$JettonWalletDataImpl) then) =
-      __$$JettonWalletDataImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {Address rootAddress,
-      Address ownerAddress,
-      @amountJsonConverter BigInt balance});
-
-  @override
-  $AddressCopyWith<$Res> get rootAddress;
-  @override
-  $AddressCopyWith<$Res> get ownerAddress;
-}
-
-/// @nodoc
-class __$$JettonWalletDataImplCopyWithImpl<$Res>
-    extends _$JettonWalletDataCopyWithImpl<$Res, _$JettonWalletDataImpl>
-    implements _$$JettonWalletDataImplCopyWith<$Res> {
-  __$$JettonWalletDataImplCopyWithImpl(_$JettonWalletDataImpl _value,
-      $Res Function(_$JettonWalletDataImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of JettonWalletData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? rootAddress = null,
-    Object? ownerAddress = null,
-    Object? balance = null,
-  }) {
-    return _then(_$JettonWalletDataImpl(
-      rootAddress: null == rootAddress
-          ? _value.rootAddress
-          : rootAddress // ignore: cast_nullable_to_non_nullable
-              as Address,
-      ownerAddress: null == ownerAddress
-          ? _value.ownerAddress
-          : ownerAddress // ignore: cast_nullable_to_non_nullable
-              as Address,
-      balance: null == balance
-          ? _value.balance
-          : balance // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$JettonWalletDataImpl implements _JettonWalletData {
-  const _$JettonWalletDataImpl(
-      {required this.rootAddress,
-      required this.ownerAddress,
-      @amountJsonConverter required this.balance});
-
-  factory _$JettonWalletDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$JettonWalletDataImplFromJson(json);
-
-  @override
-  final Address rootAddress;
-  @override
-  final Address ownerAddress;
-  @override
-  @amountJsonConverter
-  final BigInt balance;
-
-  @override
-  String toString() {
-    return 'JettonWalletData(rootAddress: $rootAddress, ownerAddress: $ownerAddress, balance: $balance)';
-  }
+  /// Serializes this JettonWalletData to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$JettonWalletDataImpl &&
+            other is JettonWalletData &&
             (identical(other.rootAddress, rootAddress) ||
                 other.rootAddress == rootAddress) &&
             (identical(other.ownerAddress, ownerAddress) ||
@@ -200,45 +48,208 @@ class _$JettonWalletDataImpl implements _JettonWalletData {
   int get hashCode =>
       Object.hash(runtimeType, rootAddress, ownerAddress, balance);
 
-  /// Create a copy of JettonWalletData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$JettonWalletDataImplCopyWith<_$JettonWalletDataImpl> get copyWith =>
-      __$$JettonWalletDataImplCopyWithImpl<_$JettonWalletDataImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$JettonWalletDataImplToJson(
-      this,
-    );
+  String toString() {
+    return 'JettonWalletData(rootAddress: $rootAddress, ownerAddress: $ownerAddress, balance: $balance)';
   }
 }
 
-abstract class _JettonWalletData implements JettonWalletData {
-  const factory _JettonWalletData(
-          {required final Address rootAddress,
-          required final Address ownerAddress,
-          @amountJsonConverter required final BigInt balance}) =
-      _$JettonWalletDataImpl;
+/// @nodoc
+abstract mixin class $JettonWalletDataCopyWith<$Res> {
+  factory $JettonWalletDataCopyWith(
+          JettonWalletData value, $Res Function(JettonWalletData) _then) =
+      _$JettonWalletDataCopyWithImpl;
+  @useResult
+  $Res call(
+      {Address rootAddress,
+      Address ownerAddress,
+      @amountJsonConverter BigInt balance});
 
-  factory _JettonWalletData.fromJson(Map<String, dynamic> json) =
-      _$JettonWalletDataImpl.fromJson;
+  $AddressCopyWith<$Res> get rootAddress;
+  $AddressCopyWith<$Res> get ownerAddress;
+}
+
+/// @nodoc
+class _$JettonWalletDataCopyWithImpl<$Res>
+    implements $JettonWalletDataCopyWith<$Res> {
+  _$JettonWalletDataCopyWithImpl(this._self, this._then);
+
+  final JettonWalletData _self;
+  final $Res Function(JettonWalletData) _then;
+
+  /// Create a copy of JettonWalletData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? rootAddress = null,
+    Object? ownerAddress = null,
+    Object? balance = null,
+  }) {
+    return _then(_self.copyWith(
+      rootAddress: null == rootAddress
+          ? _self.rootAddress
+          : rootAddress // ignore: cast_nullable_to_non_nullable
+              as Address,
+      ownerAddress: null == ownerAddress
+          ? _self.ownerAddress
+          : ownerAddress // ignore: cast_nullable_to_non_nullable
+              as Address,
+      balance: null == balance
+          ? _self.balance
+          : balance // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+    ));
+  }
+
+  /// Create a copy of JettonWalletData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get rootAddress {
+    return $AddressCopyWith<$Res>(_self.rootAddress, (value) {
+      return _then(_self.copyWith(rootAddress: value));
+    });
+  }
+
+  /// Create a copy of JettonWalletData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get ownerAddress {
+    return $AddressCopyWith<$Res>(_self.ownerAddress, (value) {
+      return _then(_self.copyWith(ownerAddress: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _JettonWalletData implements JettonWalletData {
+  const _JettonWalletData(
+      {required this.rootAddress,
+      required this.ownerAddress,
+      @amountJsonConverter required this.balance});
+  factory _JettonWalletData.fromJson(Map<String, dynamic> json) =>
+      _$JettonWalletDataFromJson(json);
 
   @override
-  Address get rootAddress;
+  final Address rootAddress;
   @override
-  Address get ownerAddress;
+  final Address ownerAddress;
   @override
   @amountJsonConverter
-  BigInt get balance;
+  final BigInt balance;
 
   /// Create a copy of JettonWalletData
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$JettonWalletDataImplCopyWith<_$JettonWalletDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$JettonWalletDataCopyWith<_JettonWalletData> get copyWith =>
+      __$JettonWalletDataCopyWithImpl<_JettonWalletData>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$JettonWalletDataToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _JettonWalletData &&
+            (identical(other.rootAddress, rootAddress) ||
+                other.rootAddress == rootAddress) &&
+            (identical(other.ownerAddress, ownerAddress) ||
+                other.ownerAddress == ownerAddress) &&
+            (identical(other.balance, balance) || other.balance == balance));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, rootAddress, ownerAddress, balance);
+
+  @override
+  String toString() {
+    return 'JettonWalletData(rootAddress: $rootAddress, ownerAddress: $ownerAddress, balance: $balance)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$JettonWalletDataCopyWith<$Res>
+    implements $JettonWalletDataCopyWith<$Res> {
+  factory _$JettonWalletDataCopyWith(
+          _JettonWalletData value, $Res Function(_JettonWalletData) _then) =
+      __$JettonWalletDataCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {Address rootAddress,
+      Address ownerAddress,
+      @amountJsonConverter BigInt balance});
+
+  @override
+  $AddressCopyWith<$Res> get rootAddress;
+  @override
+  $AddressCopyWith<$Res> get ownerAddress;
+}
+
+/// @nodoc
+class __$JettonWalletDataCopyWithImpl<$Res>
+    implements _$JettonWalletDataCopyWith<$Res> {
+  __$JettonWalletDataCopyWithImpl(this._self, this._then);
+
+  final _JettonWalletData _self;
+  final $Res Function(_JettonWalletData) _then;
+
+  /// Create a copy of JettonWalletData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? rootAddress = null,
+    Object? ownerAddress = null,
+    Object? balance = null,
+  }) {
+    return _then(_JettonWalletData(
+      rootAddress: null == rootAddress
+          ? _self.rootAddress
+          : rootAddress // ignore: cast_nullable_to_non_nullable
+              as Address,
+      ownerAddress: null == ownerAddress
+          ? _self.ownerAddress
+          : ownerAddress // ignore: cast_nullable_to_non_nullable
+              as Address,
+      balance: null == balance
+          ? _self.balance
+          : balance // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+    ));
+  }
+
+  /// Create a copy of JettonWalletData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get rootAddress {
+    return $AddressCopyWith<$Res>(_self.rootAddress, (value) {
+      return _then(_self.copyWith(rootAddress: value));
+    });
+  }
+
+  /// Create a copy of JettonWalletData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get ownerAddress {
+    return $AddressCopyWith<$Res>(_self.ownerAddress, (value) {
+      return _then(_self.copyWith(ownerAddress: value));
+    });
+  }
+}
+
+// dart format on

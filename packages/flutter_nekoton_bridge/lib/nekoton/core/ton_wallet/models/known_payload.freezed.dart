@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,21 +10,18 @@ part of 'known_payload.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 KnownPayload _$KnownPayloadFromJson(Map<String, dynamic> json) {
   switch (json['type']) {
     case 'comment':
-      return _Comment.fromJson(json);
+      return KnownPayloadComment.fromJson(json);
     case 'token_outgoing_transfer':
-      return _TokenOutgoingTransfer.fromJson(json);
+      return KnownPayloadTokenOutgoingTransfer.fromJson(json);
     case 'jetton_outgoing_transfer':
-      return _JettonOutgoingTransfer.fromJson(json);
+      return KnownPayloadJettonOutgoingTransfer.fromJson(json);
     case 'token_swap_back':
-      return _TokenSwapBack.fromJson(json);
+      return KnownPayloadTokenSwapBack.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'type', 'KnownPayload',
@@ -33,113 +31,108 @@ KnownPayload _$KnownPayloadFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$KnownPayload {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String data) comment,
-    required TResult Function(TokenOutgoingTransfer data) tokenOutgoingTransfer,
-    required TResult Function(JettonOutgoingTransfer data)
-        jettonOutgoingTransfer,
-    required TResult Function(TokenSwapBack data) tokenSwapBack,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String data)? comment,
-    TResult? Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
-    TResult? Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
-    TResult? Function(TokenSwapBack data)? tokenSwapBack,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
-    TResult Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
-    TResult Function(TokenSwapBack data)? tokenSwapBack,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Comment value) comment,
-    required TResult Function(_TokenOutgoingTransfer value)
-        tokenOutgoingTransfer,
-    required TResult Function(_JettonOutgoingTransfer value)
-        jettonOutgoingTransfer,
-    required TResult Function(_TokenSwapBack value) tokenSwapBack,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Comment value)? comment,
-    TResult? Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
-    TResult? Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
-    TResult? Function(_TokenSwapBack value)? tokenSwapBack,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
-    TResult Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
-    TResult Function(_TokenSwapBack value)? tokenSwapBack,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Object get data;
 
   /// Serializes this KnownPayload to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is KnownPayload &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'KnownPayload(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $KnownPayloadCopyWith<$Res> {
-  factory $KnownPayloadCopyWith(
-          KnownPayload value, $Res Function(KnownPayload) then) =
-      _$KnownPayloadCopyWithImpl<$Res, KnownPayload>;
+class $KnownPayloadCopyWith<$Res> {
+  $KnownPayloadCopyWith(KnownPayload _, $Res Function(KnownPayload) __);
 }
 
 /// @nodoc
-class _$KnownPayloadCopyWithImpl<$Res, $Val extends KnownPayload>
-    implements $KnownPayloadCopyWith<$Res> {
-  _$KnownPayloadCopyWithImpl(this._value, this._then);
+@JsonSerializable()
+class KnownPayloadComment implements KnownPayload {
+  const KnownPayloadComment(this.data, {final String? $type})
+      : $type = $type ?? 'comment';
+  factory KnownPayloadComment.fromJson(Map<String, dynamic> json) =>
+      _$KnownPayloadCommentFromJson(json);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  @override
+  final String data;
+
+  @JsonKey(name: 'type')
+  final String $type;
 
   /// Create a copy of KnownPayload
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $KnownPayloadCommentCopyWith<KnownPayloadComment> get copyWith =>
+      _$KnownPayloadCommentCopyWithImpl<KnownPayloadComment>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$KnownPayloadCommentToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is KnownPayloadComment &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'KnownPayload.comment(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$CommentImplCopyWith<$Res> {
-  factory _$$CommentImplCopyWith(
-          _$CommentImpl value, $Res Function(_$CommentImpl) then) =
-      __$$CommentImplCopyWithImpl<$Res>;
+abstract mixin class $KnownPayloadCommentCopyWith<$Res>
+    implements $KnownPayloadCopyWith<$Res> {
+  factory $KnownPayloadCommentCopyWith(
+          KnownPayloadComment value, $Res Function(KnownPayloadComment) _then) =
+      _$KnownPayloadCommentCopyWithImpl;
   @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class __$$CommentImplCopyWithImpl<$Res>
-    extends _$KnownPayloadCopyWithImpl<$Res, _$CommentImpl>
-    implements _$$CommentImplCopyWith<$Res> {
-  __$$CommentImplCopyWithImpl(
-      _$CommentImpl _value, $Res Function(_$CommentImpl) _then)
-      : super(_value, _then);
+class _$KnownPayloadCommentCopyWithImpl<$Res>
+    implements $KnownPayloadCommentCopyWith<$Res> {
+  _$KnownPayloadCommentCopyWithImpl(this._self, this._then);
+
+  final KnownPayloadComment _self;
+  final $Res Function(KnownPayloadComment) _then;
 
   /// Create a copy of KnownPayload
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$CommentImpl(
+    return _then(KnownPayloadComment(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -148,29 +141,39 @@ class __$$CommentImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CommentImpl implements _Comment {
-  const _$CommentImpl(this.data, {final String? $type})
-      : $type = $type ?? 'comment';
-
-  factory _$CommentImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CommentImplFromJson(json);
+class KnownPayloadTokenOutgoingTransfer implements KnownPayload {
+  const KnownPayloadTokenOutgoingTransfer(this.data, {final String? $type})
+      : $type = $type ?? 'token_outgoing_transfer';
+  factory KnownPayloadTokenOutgoingTransfer.fromJson(
+          Map<String, dynamic> json) =>
+      _$KnownPayloadTokenOutgoingTransferFromJson(json);
 
   @override
-  final String data;
+  final TokenOutgoingTransfer data;
 
   @JsonKey(name: 'type')
   final String $type;
 
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $KnownPayloadTokenOutgoingTransferCopyWith<KnownPayloadTokenOutgoingTransfer>
+      get copyWith => _$KnownPayloadTokenOutgoingTransferCopyWithImpl<
+          KnownPayloadTokenOutgoingTransfer>(this, _$identity);
+
   @override
-  String toString() {
-    return 'KnownPayload.comment(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$KnownPayloadTokenOutgoingTransferToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CommentImpl &&
+            other is KnownPayloadTokenOutgoingTransfer &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -178,120 +181,19 @@ class _$CommentImpl implements _Comment {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of KnownPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
-      __$$CommentImplCopyWithImpl<_$CommentImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String data) comment,
-    required TResult Function(TokenOutgoingTransfer data) tokenOutgoingTransfer,
-    required TResult Function(JettonOutgoingTransfer data)
-        jettonOutgoingTransfer,
-    required TResult Function(TokenSwapBack data) tokenSwapBack,
-  }) {
-    return comment(data);
+  String toString() {
+    return 'KnownPayload.tokenOutgoingTransfer(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String data)? comment,
-    TResult? Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
-    TResult? Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
-    TResult? Function(TokenSwapBack data)? tokenSwapBack,
-  }) {
-    return comment?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
-    TResult Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
-    TResult Function(TokenSwapBack data)? tokenSwapBack,
-    required TResult orElse(),
-  }) {
-    if (comment != null) {
-      return comment(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Comment value) comment,
-    required TResult Function(_TokenOutgoingTransfer value)
-        tokenOutgoingTransfer,
-    required TResult Function(_JettonOutgoingTransfer value)
-        jettonOutgoingTransfer,
-    required TResult Function(_TokenSwapBack value) tokenSwapBack,
-  }) {
-    return comment(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Comment value)? comment,
-    TResult? Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
-    TResult? Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
-    TResult? Function(_TokenSwapBack value)? tokenSwapBack,
-  }) {
-    return comment?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
-    TResult Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
-    TResult Function(_TokenSwapBack value)? tokenSwapBack,
-    required TResult orElse(),
-  }) {
-    if (comment != null) {
-      return comment(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CommentImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Comment implements KnownPayload {
-  const factory _Comment(final String data) = _$CommentImpl;
-
-  factory _Comment.fromJson(Map<String, dynamic> json) = _$CommentImpl.fromJson;
-
-  @override
-  String get data;
-
-  /// Create a copy of KnownPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TokenOutgoingTransferImplCopyWith<$Res> {
-  factory _$$TokenOutgoingTransferImplCopyWith(
-          _$TokenOutgoingTransferImpl value,
-          $Res Function(_$TokenOutgoingTransferImpl) then) =
-      __$$TokenOutgoingTransferImplCopyWithImpl<$Res>;
+abstract mixin class $KnownPayloadTokenOutgoingTransferCopyWith<$Res>
+    implements $KnownPayloadCopyWith<$Res> {
+  factory $KnownPayloadTokenOutgoingTransferCopyWith(
+          KnownPayloadTokenOutgoingTransfer value,
+          $Res Function(KnownPayloadTokenOutgoingTransfer) _then) =
+      _$KnownPayloadTokenOutgoingTransferCopyWithImpl;
   @useResult
   $Res call({TokenOutgoingTransfer data});
 
@@ -299,23 +201,22 @@ abstract class _$$TokenOutgoingTransferImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$TokenOutgoingTransferImplCopyWithImpl<$Res>
-    extends _$KnownPayloadCopyWithImpl<$Res, _$TokenOutgoingTransferImpl>
-    implements _$$TokenOutgoingTransferImplCopyWith<$Res> {
-  __$$TokenOutgoingTransferImplCopyWithImpl(_$TokenOutgoingTransferImpl _value,
-      $Res Function(_$TokenOutgoingTransferImpl) _then)
-      : super(_value, _then);
+class _$KnownPayloadTokenOutgoingTransferCopyWithImpl<$Res>
+    implements $KnownPayloadTokenOutgoingTransferCopyWith<$Res> {
+  _$KnownPayloadTokenOutgoingTransferCopyWithImpl(this._self, this._then);
+
+  final KnownPayloadTokenOutgoingTransfer _self;
+  final $Res Function(KnownPayloadTokenOutgoingTransfer) _then;
 
   /// Create a copy of KnownPayload
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$TokenOutgoingTransferImpl(
+    return _then(KnownPayloadTokenOutgoingTransfer(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as TokenOutgoingTransfer,
     ));
@@ -326,37 +227,48 @@ class __$$TokenOutgoingTransferImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $TokenOutgoingTransferCopyWith<$Res> get data {
-    return $TokenOutgoingTransferCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $TokenOutgoingTransferCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$TokenOutgoingTransferImpl implements _TokenOutgoingTransfer {
-  const _$TokenOutgoingTransferImpl(this.data, {final String? $type})
-      : $type = $type ?? 'token_outgoing_transfer';
-
-  factory _$TokenOutgoingTransferImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TokenOutgoingTransferImplFromJson(json);
+class KnownPayloadJettonOutgoingTransfer implements KnownPayload {
+  const KnownPayloadJettonOutgoingTransfer(this.data, {final String? $type})
+      : $type = $type ?? 'jetton_outgoing_transfer';
+  factory KnownPayloadJettonOutgoingTransfer.fromJson(
+          Map<String, dynamic> json) =>
+      _$KnownPayloadJettonOutgoingTransferFromJson(json);
 
   @override
-  final TokenOutgoingTransfer data;
+  final JettonOutgoingTransfer data;
 
   @JsonKey(name: 'type')
   final String $type;
 
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $KnownPayloadJettonOutgoingTransferCopyWith<
+          KnownPayloadJettonOutgoingTransfer>
+      get copyWith => _$KnownPayloadJettonOutgoingTransferCopyWithImpl<
+          KnownPayloadJettonOutgoingTransfer>(this, _$identity);
+
   @override
-  String toString() {
-    return 'KnownPayload.tokenOutgoingTransfer(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$KnownPayloadJettonOutgoingTransferToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TokenOutgoingTransferImpl &&
+            other is KnownPayloadJettonOutgoingTransfer &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -364,123 +276,19 @@ class _$TokenOutgoingTransferImpl implements _TokenOutgoingTransfer {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of KnownPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TokenOutgoingTransferImplCopyWith<_$TokenOutgoingTransferImpl>
-      get copyWith => __$$TokenOutgoingTransferImplCopyWithImpl<
-          _$TokenOutgoingTransferImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String data) comment,
-    required TResult Function(TokenOutgoingTransfer data) tokenOutgoingTransfer,
-    required TResult Function(JettonOutgoingTransfer data)
-        jettonOutgoingTransfer,
-    required TResult Function(TokenSwapBack data) tokenSwapBack,
-  }) {
-    return tokenOutgoingTransfer(data);
+  String toString() {
+    return 'KnownPayload.jettonOutgoingTransfer(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String data)? comment,
-    TResult? Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
-    TResult? Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
-    TResult? Function(TokenSwapBack data)? tokenSwapBack,
-  }) {
-    return tokenOutgoingTransfer?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
-    TResult Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
-    TResult Function(TokenSwapBack data)? tokenSwapBack,
-    required TResult orElse(),
-  }) {
-    if (tokenOutgoingTransfer != null) {
-      return tokenOutgoingTransfer(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Comment value) comment,
-    required TResult Function(_TokenOutgoingTransfer value)
-        tokenOutgoingTransfer,
-    required TResult Function(_JettonOutgoingTransfer value)
-        jettonOutgoingTransfer,
-    required TResult Function(_TokenSwapBack value) tokenSwapBack,
-  }) {
-    return tokenOutgoingTransfer(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Comment value)? comment,
-    TResult? Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
-    TResult? Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
-    TResult? Function(_TokenSwapBack value)? tokenSwapBack,
-  }) {
-    return tokenOutgoingTransfer?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
-    TResult Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
-    TResult Function(_TokenSwapBack value)? tokenSwapBack,
-    required TResult orElse(),
-  }) {
-    if (tokenOutgoingTransfer != null) {
-      return tokenOutgoingTransfer(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TokenOutgoingTransferImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _TokenOutgoingTransfer implements KnownPayload {
-  const factory _TokenOutgoingTransfer(final TokenOutgoingTransfer data) =
-      _$TokenOutgoingTransferImpl;
-
-  factory _TokenOutgoingTransfer.fromJson(Map<String, dynamic> json) =
-      _$TokenOutgoingTransferImpl.fromJson;
-
-  @override
-  TokenOutgoingTransfer get data;
-
-  /// Create a copy of KnownPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TokenOutgoingTransferImplCopyWith<_$TokenOutgoingTransferImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$JettonOutgoingTransferImplCopyWith<$Res> {
-  factory _$$JettonOutgoingTransferImplCopyWith(
-          _$JettonOutgoingTransferImpl value,
-          $Res Function(_$JettonOutgoingTransferImpl) then) =
-      __$$JettonOutgoingTransferImplCopyWithImpl<$Res>;
+abstract mixin class $KnownPayloadJettonOutgoingTransferCopyWith<$Res>
+    implements $KnownPayloadCopyWith<$Res> {
+  factory $KnownPayloadJettonOutgoingTransferCopyWith(
+          KnownPayloadJettonOutgoingTransfer value,
+          $Res Function(KnownPayloadJettonOutgoingTransfer) _then) =
+      _$KnownPayloadJettonOutgoingTransferCopyWithImpl;
   @useResult
   $Res call({JettonOutgoingTransfer data});
 
@@ -488,24 +296,22 @@ abstract class _$$JettonOutgoingTransferImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$JettonOutgoingTransferImplCopyWithImpl<$Res>
-    extends _$KnownPayloadCopyWithImpl<$Res, _$JettonOutgoingTransferImpl>
-    implements _$$JettonOutgoingTransferImplCopyWith<$Res> {
-  __$$JettonOutgoingTransferImplCopyWithImpl(
-      _$JettonOutgoingTransferImpl _value,
-      $Res Function(_$JettonOutgoingTransferImpl) _then)
-      : super(_value, _then);
+class _$KnownPayloadJettonOutgoingTransferCopyWithImpl<$Res>
+    implements $KnownPayloadJettonOutgoingTransferCopyWith<$Res> {
+  _$KnownPayloadJettonOutgoingTransferCopyWithImpl(this._self, this._then);
+
+  final KnownPayloadJettonOutgoingTransfer _self;
+  final $Res Function(KnownPayloadJettonOutgoingTransfer) _then;
 
   /// Create a copy of KnownPayload
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$JettonOutgoingTransferImpl(
+    return _then(KnownPayloadJettonOutgoingTransfer(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as JettonOutgoingTransfer,
     ));
@@ -516,37 +322,46 @@ class __$$JettonOutgoingTransferImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $JettonOutgoingTransferCopyWith<$Res> get data {
-    return $JettonOutgoingTransferCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $JettonOutgoingTransferCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$JettonOutgoingTransferImpl implements _JettonOutgoingTransfer {
-  const _$JettonOutgoingTransferImpl(this.data, {final String? $type})
-      : $type = $type ?? 'jetton_outgoing_transfer';
-
-  factory _$JettonOutgoingTransferImpl.fromJson(Map<String, dynamic> json) =>
-      _$$JettonOutgoingTransferImplFromJson(json);
+class KnownPayloadTokenSwapBack implements KnownPayload {
+  const KnownPayloadTokenSwapBack(this.data, {final String? $type})
+      : $type = $type ?? 'token_swap_back';
+  factory KnownPayloadTokenSwapBack.fromJson(Map<String, dynamic> json) =>
+      _$KnownPayloadTokenSwapBackFromJson(json);
 
   @override
-  final JettonOutgoingTransfer data;
+  final TokenSwapBack data;
 
   @JsonKey(name: 'type')
   final String $type;
 
+  /// Create a copy of KnownPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $KnownPayloadTokenSwapBackCopyWith<KnownPayloadTokenSwapBack> get copyWith =>
+      _$KnownPayloadTokenSwapBackCopyWithImpl<KnownPayloadTokenSwapBack>(
+          this, _$identity);
+
   @override
-  String toString() {
-    return 'KnownPayload.jettonOutgoingTransfer(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$KnownPayloadTokenSwapBackToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$JettonOutgoingTransferImpl &&
+            other is KnownPayloadTokenSwapBack &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -554,122 +369,18 @@ class _$JettonOutgoingTransferImpl implements _JettonOutgoingTransfer {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of KnownPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$JettonOutgoingTransferImplCopyWith<_$JettonOutgoingTransferImpl>
-      get copyWith => __$$JettonOutgoingTransferImplCopyWithImpl<
-          _$JettonOutgoingTransferImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String data) comment,
-    required TResult Function(TokenOutgoingTransfer data) tokenOutgoingTransfer,
-    required TResult Function(JettonOutgoingTransfer data)
-        jettonOutgoingTransfer,
-    required TResult Function(TokenSwapBack data) tokenSwapBack,
-  }) {
-    return jettonOutgoingTransfer(data);
+  String toString() {
+    return 'KnownPayload.tokenSwapBack(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String data)? comment,
-    TResult? Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
-    TResult? Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
-    TResult? Function(TokenSwapBack data)? tokenSwapBack,
-  }) {
-    return jettonOutgoingTransfer?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
-    TResult Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
-    TResult Function(TokenSwapBack data)? tokenSwapBack,
-    required TResult orElse(),
-  }) {
-    if (jettonOutgoingTransfer != null) {
-      return jettonOutgoingTransfer(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Comment value) comment,
-    required TResult Function(_TokenOutgoingTransfer value)
-        tokenOutgoingTransfer,
-    required TResult Function(_JettonOutgoingTransfer value)
-        jettonOutgoingTransfer,
-    required TResult Function(_TokenSwapBack value) tokenSwapBack,
-  }) {
-    return jettonOutgoingTransfer(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Comment value)? comment,
-    TResult? Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
-    TResult? Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
-    TResult? Function(_TokenSwapBack value)? tokenSwapBack,
-  }) {
-    return jettonOutgoingTransfer?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
-    TResult Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
-    TResult Function(_TokenSwapBack value)? tokenSwapBack,
-    required TResult orElse(),
-  }) {
-    if (jettonOutgoingTransfer != null) {
-      return jettonOutgoingTransfer(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$JettonOutgoingTransferImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _JettonOutgoingTransfer implements KnownPayload {
-  const factory _JettonOutgoingTransfer(final JettonOutgoingTransfer data) =
-      _$JettonOutgoingTransferImpl;
-
-  factory _JettonOutgoingTransfer.fromJson(Map<String, dynamic> json) =
-      _$JettonOutgoingTransferImpl.fromJson;
-
-  @override
-  JettonOutgoingTransfer get data;
-
-  /// Create a copy of KnownPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$JettonOutgoingTransferImplCopyWith<_$JettonOutgoingTransferImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TokenSwapBackImplCopyWith<$Res> {
-  factory _$$TokenSwapBackImplCopyWith(
-          _$TokenSwapBackImpl value, $Res Function(_$TokenSwapBackImpl) then) =
-      __$$TokenSwapBackImplCopyWithImpl<$Res>;
+abstract mixin class $KnownPayloadTokenSwapBackCopyWith<$Res>
+    implements $KnownPayloadCopyWith<$Res> {
+  factory $KnownPayloadTokenSwapBackCopyWith(KnownPayloadTokenSwapBack value,
+          $Res Function(KnownPayloadTokenSwapBack) _then) =
+      _$KnownPayloadTokenSwapBackCopyWithImpl;
   @useResult
   $Res call({TokenSwapBack data});
 
@@ -677,23 +388,22 @@ abstract class _$$TokenSwapBackImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$TokenSwapBackImplCopyWithImpl<$Res>
-    extends _$KnownPayloadCopyWithImpl<$Res, _$TokenSwapBackImpl>
-    implements _$$TokenSwapBackImplCopyWith<$Res> {
-  __$$TokenSwapBackImplCopyWithImpl(
-      _$TokenSwapBackImpl _value, $Res Function(_$TokenSwapBackImpl) _then)
-      : super(_value, _then);
+class _$KnownPayloadTokenSwapBackCopyWithImpl<$Res>
+    implements $KnownPayloadTokenSwapBackCopyWith<$Res> {
+  _$KnownPayloadTokenSwapBackCopyWithImpl(this._self, this._then);
+
+  final KnownPayloadTokenSwapBack _self;
+  final $Res Function(KnownPayloadTokenSwapBack) _then;
 
   /// Create a copy of KnownPayload
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$TokenSwapBackImpl(
+    return _then(KnownPayloadTokenSwapBack(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as TokenSwapBack,
     ));
@@ -704,149 +414,10 @@ class __$$TokenSwapBackImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $TokenSwapBackCopyWith<$Res> get data {
-    return $TokenSwapBackCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $TokenSwapBackCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
-/// @nodoc
-@JsonSerializable()
-class _$TokenSwapBackImpl implements _TokenSwapBack {
-  const _$TokenSwapBackImpl(this.data, {final String? $type})
-      : $type = $type ?? 'token_swap_back';
-
-  factory _$TokenSwapBackImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TokenSwapBackImplFromJson(json);
-
-  @override
-  final TokenSwapBack data;
-
-  @JsonKey(name: 'type')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'KnownPayload.tokenSwapBack(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TokenSwapBackImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of KnownPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TokenSwapBackImplCopyWith<_$TokenSwapBackImpl> get copyWith =>
-      __$$TokenSwapBackImplCopyWithImpl<_$TokenSwapBackImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String data) comment,
-    required TResult Function(TokenOutgoingTransfer data) tokenOutgoingTransfer,
-    required TResult Function(JettonOutgoingTransfer data)
-        jettonOutgoingTransfer,
-    required TResult Function(TokenSwapBack data) tokenSwapBack,
-  }) {
-    return tokenSwapBack(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String data)? comment,
-    TResult? Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
-    TResult? Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
-    TResult? Function(TokenSwapBack data)? tokenSwapBack,
-  }) {
-    return tokenSwapBack?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String data)? comment,
-    TResult Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
-    TResult Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
-    TResult Function(TokenSwapBack data)? tokenSwapBack,
-    required TResult orElse(),
-  }) {
-    if (tokenSwapBack != null) {
-      return tokenSwapBack(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Comment value) comment,
-    required TResult Function(_TokenOutgoingTransfer value)
-        tokenOutgoingTransfer,
-    required TResult Function(_JettonOutgoingTransfer value)
-        jettonOutgoingTransfer,
-    required TResult Function(_TokenSwapBack value) tokenSwapBack,
-  }) {
-    return tokenSwapBack(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Comment value)? comment,
-    TResult? Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
-    TResult? Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
-    TResult? Function(_TokenSwapBack value)? tokenSwapBack,
-  }) {
-    return tokenSwapBack?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Comment value)? comment,
-    TResult Function(_TokenOutgoingTransfer value)? tokenOutgoingTransfer,
-    TResult Function(_JettonOutgoingTransfer value)? jettonOutgoingTransfer,
-    TResult Function(_TokenSwapBack value)? tokenSwapBack,
-    required TResult orElse(),
-  }) {
-    if (tokenSwapBack != null) {
-      return tokenSwapBack(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TokenSwapBackImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _TokenSwapBack implements KnownPayload {
-  const factory _TokenSwapBack(final TokenSwapBack data) = _$TokenSwapBackImpl;
-
-  factory _TokenSwapBack.fromJson(Map<String, dynamic> json) =
-      _$TokenSwapBackImpl.fromJson;
-
-  @override
-  TokenSwapBack get data;
-
-  /// Create a copy of KnownPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TokenSwapBackImplCopyWith<_$TokenSwapBackImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

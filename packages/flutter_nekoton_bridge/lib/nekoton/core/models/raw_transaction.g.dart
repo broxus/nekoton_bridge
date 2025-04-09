@@ -6,14 +6,13 @@ part of 'raw_transaction.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RawTransactionImpl _$$RawTransactionImplFromJson(Map<String, dynamic> json) =>
-    _$RawTransactionImpl(
+_RawTransaction _$RawTransactionFromJson(Map<String, dynamic> json) =>
+    _RawTransaction(
       hash: json['hash'] as String,
       data: Transaction.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$RawTransactionImplToJson(
-        _$RawTransactionImpl instance) =>
+Map<String, dynamic> _$RawTransactionToJson(_RawTransaction instance) =>
     <String, dynamic>{
       'hash': instance.hash,
       'data': instance.data.toJson(),

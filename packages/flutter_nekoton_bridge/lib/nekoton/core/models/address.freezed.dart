@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,38 +10,35 @@ part of 'address.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Address {
-  String get address => throw _privateConstructorUsedError;
+  String get address;
 
   /// Create a copy of Address
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $AddressCopyWith<Address> get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<Address> get copyWith =>
+      _$AddressCopyWithImpl<Address>(this as Address, _$identity);
 }
 
 /// @nodoc
-abstract class $AddressCopyWith<$Res> {
-  factory $AddressCopyWith(Address value, $Res Function(Address) then) =
-      _$AddressCopyWithImpl<$Res, Address>;
+abstract mixin class $AddressCopyWith<$Res> {
+  factory $AddressCopyWith(Address value, $Res Function(Address) _then) =
+      _$AddressCopyWithImpl;
   @useResult
   $Res call({String address});
 }
 
 /// @nodoc
-class _$AddressCopyWithImpl<$Res, $Val extends Address>
-    implements $AddressCopyWith<$Res> {
-  _$AddressCopyWithImpl(this._value, this._then);
+class _$AddressCopyWithImpl<$Res> implements $AddressCopyWith<$Res> {
+  _$AddressCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Address _self;
+  final $Res Function(Address) _then;
 
   /// Create a copy of Address
   /// with the given fields replaced by the non-null parameter values.
@@ -49,44 +47,9 @@ class _$AddressCopyWithImpl<$Res, $Val extends Address>
   $Res call({
     Object? address = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$FromStringImplCopyWith<$Res>
-    implements $AddressCopyWith<$Res> {
-  factory _$$FromStringImplCopyWith(
-          _$FromStringImpl value, $Res Function(_$FromStringImpl) then) =
-      __$$FromStringImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String address});
-}
-
-/// @nodoc
-class __$$FromStringImplCopyWithImpl<$Res>
-    extends _$AddressCopyWithImpl<$Res, _$FromStringImpl>
-    implements _$$FromStringImplCopyWith<$Res> {
-  __$$FromStringImplCopyWithImpl(
-      _$FromStringImpl _value, $Res Function(_$FromStringImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Address
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? address = null,
-  }) {
-    return _then(_$FromStringImpl(
-      address: null == address
-          ? _value.address
+          ? _self.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -95,32 +58,53 @@ class __$$FromStringImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FromStringImpl extends _FromString {
-  const _$FromStringImpl({required this.address}) : super._();
+class _FromString extends Address {
+  const _FromString({required this.address}) : super._();
 
   @override
   final String address;
 
   /// Create a copy of Address
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$$FromStringImplCopyWith<_$FromStringImpl> get copyWith =>
-      __$$FromStringImplCopyWithImpl<_$FromStringImpl>(this, _$identity);
+  _$FromStringCopyWith<_FromString> get copyWith =>
+      __$FromStringCopyWithImpl<_FromString>(this, _$identity);
 }
 
-abstract class _FromString extends Address {
-  const factory _FromString({required final String address}) = _$FromStringImpl;
-  const _FromString._() : super._();
-
+/// @nodoc
+abstract mixin class _$FromStringCopyWith<$Res>
+    implements $AddressCopyWith<$Res> {
+  factory _$FromStringCopyWith(
+          _FromString value, $Res Function(_FromString) _then) =
+      __$FromStringCopyWithImpl;
   @override
-  String get address;
+  @useResult
+  $Res call({String address});
+}
+
+/// @nodoc
+class __$FromStringCopyWithImpl<$Res> implements _$FromStringCopyWith<$Res> {
+  __$FromStringCopyWithImpl(this._self, this._then);
+
+  final _FromString _self;
+  final $Res Function(_FromString) _then;
 
   /// Create a copy of Address
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FromStringImplCopyWith<_$FromStringImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? address = null,
+  }) {
+    return _then(_FromString(
+      address: null == address
+          ? _self.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,185 +10,32 @@ part of 'token_wallet_details.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-TokenWalletDetails _$TokenWalletDetailsFromJson(Map<String, dynamic> json) {
-  return _TokenWalletDetails.fromJson(json);
-}
 
 /// @nodoc
 mixin _$TokenWalletDetails {
-  Address get rootAddress => throw _privateConstructorUsedError;
-  Address get ownerAddress => throw _privateConstructorUsedError;
+  Address get rootAddress;
+  Address get ownerAddress;
   @amountJsonConverter
-  BigInt get balance => throw _privateConstructorUsedError;
-
-  /// Serializes this TokenWalletDetails to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  BigInt get balance;
 
   /// Create a copy of TokenWalletDetails
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $TokenWalletDetailsCopyWith<TokenWalletDetails> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$TokenWalletDetailsCopyWithImpl<TokenWalletDetails>(
+          this as TokenWalletDetails, _$identity);
 
-/// @nodoc
-abstract class $TokenWalletDetailsCopyWith<$Res> {
-  factory $TokenWalletDetailsCopyWith(
-          TokenWalletDetails value, $Res Function(TokenWalletDetails) then) =
-      _$TokenWalletDetailsCopyWithImpl<$Res, TokenWalletDetails>;
-  @useResult
-  $Res call(
-      {Address rootAddress,
-      Address ownerAddress,
-      @amountJsonConverter BigInt balance});
-
-  $AddressCopyWith<$Res> get rootAddress;
-  $AddressCopyWith<$Res> get ownerAddress;
-}
-
-/// @nodoc
-class _$TokenWalletDetailsCopyWithImpl<$Res, $Val extends TokenWalletDetails>
-    implements $TokenWalletDetailsCopyWith<$Res> {
-  _$TokenWalletDetailsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of TokenWalletDetails
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? rootAddress = null,
-    Object? ownerAddress = null,
-    Object? balance = null,
-  }) {
-    return _then(_value.copyWith(
-      rootAddress: null == rootAddress
-          ? _value.rootAddress
-          : rootAddress // ignore: cast_nullable_to_non_nullable
-              as Address,
-      ownerAddress: null == ownerAddress
-          ? _value.ownerAddress
-          : ownerAddress // ignore: cast_nullable_to_non_nullable
-              as Address,
-      balance: null == balance
-          ? _value.balance
-          : balance // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-    ) as $Val);
-  }
-
-  /// Create a copy of TokenWalletDetails
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res> get rootAddress {
-    return $AddressCopyWith<$Res>(_value.rootAddress, (value) {
-      return _then(_value.copyWith(rootAddress: value) as $Val);
-    });
-  }
-
-  /// Create a copy of TokenWalletDetails
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res> get ownerAddress {
-    return $AddressCopyWith<$Res>(_value.ownerAddress, (value) {
-      return _then(_value.copyWith(ownerAddress: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$TokenWalletDetailsImplCopyWith<$Res>
-    implements $TokenWalletDetailsCopyWith<$Res> {
-  factory _$$TokenWalletDetailsImplCopyWith(_$TokenWalletDetailsImpl value,
-          $Res Function(_$TokenWalletDetailsImpl) then) =
-      __$$TokenWalletDetailsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {Address rootAddress,
-      Address ownerAddress,
-      @amountJsonConverter BigInt balance});
-
-  @override
-  $AddressCopyWith<$Res> get rootAddress;
-  @override
-  $AddressCopyWith<$Res> get ownerAddress;
-}
-
-/// @nodoc
-class __$$TokenWalletDetailsImplCopyWithImpl<$Res>
-    extends _$TokenWalletDetailsCopyWithImpl<$Res, _$TokenWalletDetailsImpl>
-    implements _$$TokenWalletDetailsImplCopyWith<$Res> {
-  __$$TokenWalletDetailsImplCopyWithImpl(_$TokenWalletDetailsImpl _value,
-      $Res Function(_$TokenWalletDetailsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TokenWalletDetails
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? rootAddress = null,
-    Object? ownerAddress = null,
-    Object? balance = null,
-  }) {
-    return _then(_$TokenWalletDetailsImpl(
-      rootAddress: null == rootAddress
-          ? _value.rootAddress
-          : rootAddress // ignore: cast_nullable_to_non_nullable
-              as Address,
-      ownerAddress: null == ownerAddress
-          ? _value.ownerAddress
-          : ownerAddress // ignore: cast_nullable_to_non_nullable
-              as Address,
-      balance: null == balance
-          ? _value.balance
-          : balance // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$TokenWalletDetailsImpl implements _TokenWalletDetails {
-  const _$TokenWalletDetailsImpl(
-      {required this.rootAddress,
-      required this.ownerAddress,
-      @amountJsonConverter required this.balance});
-
-  factory _$TokenWalletDetailsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TokenWalletDetailsImplFromJson(json);
-
-  @override
-  final Address rootAddress;
-  @override
-  final Address ownerAddress;
-  @override
-  @amountJsonConverter
-  final BigInt balance;
-
-  @override
-  String toString() {
-    return 'TokenWalletDetails(rootAddress: $rootAddress, ownerAddress: $ownerAddress, balance: $balance)';
-  }
+  /// Serializes this TokenWalletDetails to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TokenWalletDetailsImpl &&
+            other is TokenWalletDetails &&
             (identical(other.rootAddress, rootAddress) ||
                 other.rootAddress == rootAddress) &&
             (identical(other.ownerAddress, ownerAddress) ||
@@ -200,45 +48,208 @@ class _$TokenWalletDetailsImpl implements _TokenWalletDetails {
   int get hashCode =>
       Object.hash(runtimeType, rootAddress, ownerAddress, balance);
 
-  /// Create a copy of TokenWalletDetails
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TokenWalletDetailsImplCopyWith<_$TokenWalletDetailsImpl> get copyWith =>
-      __$$TokenWalletDetailsImplCopyWithImpl<_$TokenWalletDetailsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TokenWalletDetailsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'TokenWalletDetails(rootAddress: $rootAddress, ownerAddress: $ownerAddress, balance: $balance)';
   }
 }
 
-abstract class _TokenWalletDetails implements TokenWalletDetails {
-  const factory _TokenWalletDetails(
-          {required final Address rootAddress,
-          required final Address ownerAddress,
-          @amountJsonConverter required final BigInt balance}) =
-      _$TokenWalletDetailsImpl;
+/// @nodoc
+abstract mixin class $TokenWalletDetailsCopyWith<$Res> {
+  factory $TokenWalletDetailsCopyWith(
+          TokenWalletDetails value, $Res Function(TokenWalletDetails) _then) =
+      _$TokenWalletDetailsCopyWithImpl;
+  @useResult
+  $Res call(
+      {Address rootAddress,
+      Address ownerAddress,
+      @amountJsonConverter BigInt balance});
 
-  factory _TokenWalletDetails.fromJson(Map<String, dynamic> json) =
-      _$TokenWalletDetailsImpl.fromJson;
+  $AddressCopyWith<$Res> get rootAddress;
+  $AddressCopyWith<$Res> get ownerAddress;
+}
+
+/// @nodoc
+class _$TokenWalletDetailsCopyWithImpl<$Res>
+    implements $TokenWalletDetailsCopyWith<$Res> {
+  _$TokenWalletDetailsCopyWithImpl(this._self, this._then);
+
+  final TokenWalletDetails _self;
+  final $Res Function(TokenWalletDetails) _then;
+
+  /// Create a copy of TokenWalletDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? rootAddress = null,
+    Object? ownerAddress = null,
+    Object? balance = null,
+  }) {
+    return _then(_self.copyWith(
+      rootAddress: null == rootAddress
+          ? _self.rootAddress
+          : rootAddress // ignore: cast_nullable_to_non_nullable
+              as Address,
+      ownerAddress: null == ownerAddress
+          ? _self.ownerAddress
+          : ownerAddress // ignore: cast_nullable_to_non_nullable
+              as Address,
+      balance: null == balance
+          ? _self.balance
+          : balance // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+    ));
+  }
+
+  /// Create a copy of TokenWalletDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get rootAddress {
+    return $AddressCopyWith<$Res>(_self.rootAddress, (value) {
+      return _then(_self.copyWith(rootAddress: value));
+    });
+  }
+
+  /// Create a copy of TokenWalletDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get ownerAddress {
+    return $AddressCopyWith<$Res>(_self.ownerAddress, (value) {
+      return _then(_self.copyWith(ownerAddress: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _TokenWalletDetails implements TokenWalletDetails {
+  const _TokenWalletDetails(
+      {required this.rootAddress,
+      required this.ownerAddress,
+      @amountJsonConverter required this.balance});
+  factory _TokenWalletDetails.fromJson(Map<String, dynamic> json) =>
+      _$TokenWalletDetailsFromJson(json);
 
   @override
-  Address get rootAddress;
+  final Address rootAddress;
   @override
-  Address get ownerAddress;
+  final Address ownerAddress;
   @override
   @amountJsonConverter
-  BigInt get balance;
+  final BigInt balance;
 
   /// Create a copy of TokenWalletDetails
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TokenWalletDetailsImplCopyWith<_$TokenWalletDetailsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$TokenWalletDetailsCopyWith<_TokenWalletDetails> get copyWith =>
+      __$TokenWalletDetailsCopyWithImpl<_TokenWalletDetails>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TokenWalletDetailsToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _TokenWalletDetails &&
+            (identical(other.rootAddress, rootAddress) ||
+                other.rootAddress == rootAddress) &&
+            (identical(other.ownerAddress, ownerAddress) ||
+                other.ownerAddress == ownerAddress) &&
+            (identical(other.balance, balance) || other.balance == balance));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, rootAddress, ownerAddress, balance);
+
+  @override
+  String toString() {
+    return 'TokenWalletDetails(rootAddress: $rootAddress, ownerAddress: $ownerAddress, balance: $balance)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$TokenWalletDetailsCopyWith<$Res>
+    implements $TokenWalletDetailsCopyWith<$Res> {
+  factory _$TokenWalletDetailsCopyWith(
+          _TokenWalletDetails value, $Res Function(_TokenWalletDetails) _then) =
+      __$TokenWalletDetailsCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {Address rootAddress,
+      Address ownerAddress,
+      @amountJsonConverter BigInt balance});
+
+  @override
+  $AddressCopyWith<$Res> get rootAddress;
+  @override
+  $AddressCopyWith<$Res> get ownerAddress;
+}
+
+/// @nodoc
+class __$TokenWalletDetailsCopyWithImpl<$Res>
+    implements _$TokenWalletDetailsCopyWith<$Res> {
+  __$TokenWalletDetailsCopyWithImpl(this._self, this._then);
+
+  final _TokenWalletDetails _self;
+  final $Res Function(_TokenWalletDetails) _then;
+
+  /// Create a copy of TokenWalletDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? rootAddress = null,
+    Object? ownerAddress = null,
+    Object? balance = null,
+  }) {
+    return _then(_TokenWalletDetails(
+      rootAddress: null == rootAddress
+          ? _self.rootAddress
+          : rootAddress // ignore: cast_nullable_to_non_nullable
+              as Address,
+      ownerAddress: null == ownerAddress
+          ? _self.ownerAddress
+          : ownerAddress // ignore: cast_nullable_to_non_nullable
+              as Address,
+      balance: null == balance
+          ? _self.balance
+          : balance // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+    ));
+  }
+
+  /// Create a copy of TokenWalletDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get rootAddress {
+    return $AddressCopyWith<$Res>(_self.rootAddress, (value) {
+      return _then(_self.copyWith(rootAddress: value));
+    });
+  }
+
+  /// Create a copy of TokenWalletDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get ownerAddress {
+    return $AddressCopyWith<$Res>(_self.ownerAddress, (value) {
+      return _then(_self.copyWith(ownerAddress: value));
+    });
+  }
+}
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,217 +10,33 @@ part of 'key_store_entry.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-KeyStoreEntry _$KeyStoreEntryFromJson(Map<String, dynamic> json) {
-  return _KeyStoreEntry.fromJson(json);
-}
 
 /// @nodoc
 mixin _$KeyStoreEntry {
-  String get signerName => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  PublicKey get publicKey => throw _privateConstructorUsedError;
-  PublicKey get masterKey => throw _privateConstructorUsedError;
-  int get accountId => throw _privateConstructorUsedError;
-
-  /// Serializes this KeyStoreEntry to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get signerName;
+  String get name;
+  PublicKey get publicKey;
+  PublicKey get masterKey;
+  int get accountId;
 
   /// Create a copy of KeyStoreEntry
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $KeyStoreEntryCopyWith<KeyStoreEntry> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$KeyStoreEntryCopyWithImpl<KeyStoreEntry>(
+          this as KeyStoreEntry, _$identity);
 
-/// @nodoc
-abstract class $KeyStoreEntryCopyWith<$Res> {
-  factory $KeyStoreEntryCopyWith(
-          KeyStoreEntry value, $Res Function(KeyStoreEntry) then) =
-      _$KeyStoreEntryCopyWithImpl<$Res, KeyStoreEntry>;
-  @useResult
-  $Res call(
-      {String signerName,
-      String name,
-      PublicKey publicKey,
-      PublicKey masterKey,
-      int accountId});
-
-  $PublicKeyCopyWith<$Res> get publicKey;
-  $PublicKeyCopyWith<$Res> get masterKey;
-}
-
-/// @nodoc
-class _$KeyStoreEntryCopyWithImpl<$Res, $Val extends KeyStoreEntry>
-    implements $KeyStoreEntryCopyWith<$Res> {
-  _$KeyStoreEntryCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of KeyStoreEntry
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? signerName = null,
-    Object? name = null,
-    Object? publicKey = null,
-    Object? masterKey = null,
-    Object? accountId = null,
-  }) {
-    return _then(_value.copyWith(
-      signerName: null == signerName
-          ? _value.signerName
-          : signerName // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      publicKey: null == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      masterKey: null == masterKey
-          ? _value.masterKey
-          : masterKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      accountId: null == accountId
-          ? _value.accountId
-          : accountId // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
-
-  /// Create a copy of KeyStoreEntry
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get publicKey {
-    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
-      return _then(_value.copyWith(publicKey: value) as $Val);
-    });
-  }
-
-  /// Create a copy of KeyStoreEntry
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get masterKey {
-    return $PublicKeyCopyWith<$Res>(_value.masterKey, (value) {
-      return _then(_value.copyWith(masterKey: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$KeyStoreEntryImplCopyWith<$Res>
-    implements $KeyStoreEntryCopyWith<$Res> {
-  factory _$$KeyStoreEntryImplCopyWith(
-          _$KeyStoreEntryImpl value, $Res Function(_$KeyStoreEntryImpl) then) =
-      __$$KeyStoreEntryImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String signerName,
-      String name,
-      PublicKey publicKey,
-      PublicKey masterKey,
-      int accountId});
-
-  @override
-  $PublicKeyCopyWith<$Res> get publicKey;
-  @override
-  $PublicKeyCopyWith<$Res> get masterKey;
-}
-
-/// @nodoc
-class __$$KeyStoreEntryImplCopyWithImpl<$Res>
-    extends _$KeyStoreEntryCopyWithImpl<$Res, _$KeyStoreEntryImpl>
-    implements _$$KeyStoreEntryImplCopyWith<$Res> {
-  __$$KeyStoreEntryImplCopyWithImpl(
-      _$KeyStoreEntryImpl _value, $Res Function(_$KeyStoreEntryImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of KeyStoreEntry
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? signerName = null,
-    Object? name = null,
-    Object? publicKey = null,
-    Object? masterKey = null,
-    Object? accountId = null,
-  }) {
-    return _then(_$KeyStoreEntryImpl(
-      signerName: null == signerName
-          ? _value.signerName
-          : signerName // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      publicKey: null == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      masterKey: null == masterKey
-          ? _value.masterKey
-          : masterKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      accountId: null == accountId
-          ? _value.accountId
-          : accountId // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(fieldRename: FieldRename.snake)
-class _$KeyStoreEntryImpl extends _KeyStoreEntry {
-  const _$KeyStoreEntryImpl(
-      {required this.signerName,
-      required this.name,
-      required this.publicKey,
-      required this.masterKey,
-      required this.accountId})
-      : super._();
-
-  factory _$KeyStoreEntryImpl.fromJson(Map<String, dynamic> json) =>
-      _$$KeyStoreEntryImplFromJson(json);
-
-  @override
-  final String signerName;
-  @override
-  final String name;
-  @override
-  final PublicKey publicKey;
-  @override
-  final PublicKey masterKey;
-  @override
-  final int accountId;
-
-  @override
-  String toString() {
-    return 'KeyStoreEntry(signerName: $signerName, name: $name, publicKey: $publicKey, masterKey: $masterKey, accountId: $accountId)';
-  }
+  /// Serializes this KeyStoreEntry to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$KeyStoreEntryImpl &&
+            other is KeyStoreEntry &&
             (identical(other.signerName, signerName) ||
                 other.signerName == signerName) &&
             (identical(other.name, name) || other.name == name) &&
@@ -236,49 +53,243 @@ class _$KeyStoreEntryImpl extends _KeyStoreEntry {
   int get hashCode => Object.hash(
       runtimeType, signerName, name, publicKey, masterKey, accountId);
 
-  /// Create a copy of KeyStoreEntry
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$KeyStoreEntryImplCopyWith<_$KeyStoreEntryImpl> get copyWith =>
-      __$$KeyStoreEntryImplCopyWithImpl<_$KeyStoreEntryImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$KeyStoreEntryImplToJson(
-      this,
-    );
+  String toString() {
+    return 'KeyStoreEntry(signerName: $signerName, name: $name, publicKey: $publicKey, masterKey: $masterKey, accountId: $accountId)';
   }
 }
 
-abstract class _KeyStoreEntry extends KeyStoreEntry {
-  const factory _KeyStoreEntry(
-      {required final String signerName,
-      required final String name,
-      required final PublicKey publicKey,
-      required final PublicKey masterKey,
-      required final int accountId}) = _$KeyStoreEntryImpl;
-  const _KeyStoreEntry._() : super._();
+/// @nodoc
+abstract mixin class $KeyStoreEntryCopyWith<$Res> {
+  factory $KeyStoreEntryCopyWith(
+          KeyStoreEntry value, $Res Function(KeyStoreEntry) _then) =
+      _$KeyStoreEntryCopyWithImpl;
+  @useResult
+  $Res call(
+      {String signerName,
+      String name,
+      PublicKey publicKey,
+      PublicKey masterKey,
+      int accountId});
 
-  factory _KeyStoreEntry.fromJson(Map<String, dynamic> json) =
-      _$KeyStoreEntryImpl.fromJson;
+  $PublicKeyCopyWith<$Res> get publicKey;
+  $PublicKeyCopyWith<$Res> get masterKey;
+}
+
+/// @nodoc
+class _$KeyStoreEntryCopyWithImpl<$Res>
+    implements $KeyStoreEntryCopyWith<$Res> {
+  _$KeyStoreEntryCopyWithImpl(this._self, this._then);
+
+  final KeyStoreEntry _self;
+  final $Res Function(KeyStoreEntry) _then;
+
+  /// Create a copy of KeyStoreEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? signerName = null,
+    Object? name = null,
+    Object? publicKey = null,
+    Object? masterKey = null,
+    Object? accountId = null,
+  }) {
+    return _then(_self.copyWith(
+      signerName: null == signerName
+          ? _self.signerName
+          : signerName // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      publicKey: null == publicKey
+          ? _self.publicKey
+          : publicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      masterKey: null == masterKey
+          ? _self.masterKey
+          : masterKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      accountId: null == accountId
+          ? _self.accountId
+          : accountId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+
+  /// Create a copy of KeyStoreEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_self.publicKey, (value) {
+      return _then(_self.copyWith(publicKey: value));
+    });
+  }
+
+  /// Create a copy of KeyStoreEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get masterKey {
+    return $PublicKeyCopyWith<$Res>(_self.masterKey, (value) {
+      return _then(_self.copyWith(masterKey: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _KeyStoreEntry extends KeyStoreEntry {
+  const _KeyStoreEntry(
+      {required this.signerName,
+      required this.name,
+      required this.publicKey,
+      required this.masterKey,
+      required this.accountId})
+      : super._();
+  factory _KeyStoreEntry.fromJson(Map<String, dynamic> json) =>
+      _$KeyStoreEntryFromJson(json);
 
   @override
-  String get signerName;
+  final String signerName;
   @override
-  String get name;
+  final String name;
   @override
-  PublicKey get publicKey;
+  final PublicKey publicKey;
   @override
-  PublicKey get masterKey;
+  final PublicKey masterKey;
   @override
-  int get accountId;
+  final int accountId;
 
   /// Create a copy of KeyStoreEntry
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$KeyStoreEntryImplCopyWith<_$KeyStoreEntryImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$KeyStoreEntryCopyWith<_KeyStoreEntry> get copyWith =>
+      __$KeyStoreEntryCopyWithImpl<_KeyStoreEntry>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$KeyStoreEntryToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _KeyStoreEntry &&
+            (identical(other.signerName, signerName) ||
+                other.signerName == signerName) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey) &&
+            (identical(other.masterKey, masterKey) ||
+                other.masterKey == masterKey) &&
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, signerName, name, publicKey, masterKey, accountId);
+
+  @override
+  String toString() {
+    return 'KeyStoreEntry(signerName: $signerName, name: $name, publicKey: $publicKey, masterKey: $masterKey, accountId: $accountId)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$KeyStoreEntryCopyWith<$Res>
+    implements $KeyStoreEntryCopyWith<$Res> {
+  factory _$KeyStoreEntryCopyWith(
+          _KeyStoreEntry value, $Res Function(_KeyStoreEntry) _then) =
+      __$KeyStoreEntryCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String signerName,
+      String name,
+      PublicKey publicKey,
+      PublicKey masterKey,
+      int accountId});
+
+  @override
+  $PublicKeyCopyWith<$Res> get publicKey;
+  @override
+  $PublicKeyCopyWith<$Res> get masterKey;
+}
+
+/// @nodoc
+class __$KeyStoreEntryCopyWithImpl<$Res>
+    implements _$KeyStoreEntryCopyWith<$Res> {
+  __$KeyStoreEntryCopyWithImpl(this._self, this._then);
+
+  final _KeyStoreEntry _self;
+  final $Res Function(_KeyStoreEntry) _then;
+
+  /// Create a copy of KeyStoreEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? signerName = null,
+    Object? name = null,
+    Object? publicKey = null,
+    Object? masterKey = null,
+    Object? accountId = null,
+  }) {
+    return _then(_KeyStoreEntry(
+      signerName: null == signerName
+          ? _self.signerName
+          : signerName // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      publicKey: null == publicKey
+          ? _self.publicKey
+          : publicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      masterKey: null == masterKey
+          ? _self.masterKey
+          : masterKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      accountId: null == accountId
+          ? _self.accountId
+          : accountId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+
+  /// Create a copy of KeyStoreEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_self.publicKey, (value) {
+      return _then(_self.copyWith(publicKey: value));
+    });
+  }
+
+  /// Create a copy of KeyStoreEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get masterKey {
+    return $PublicKeyCopyWith<$Res>(_self.masterKey, (value) {
+      return _then(_self.copyWith(masterKey: value));
+    });
+  }
+}
+
+// dart format on

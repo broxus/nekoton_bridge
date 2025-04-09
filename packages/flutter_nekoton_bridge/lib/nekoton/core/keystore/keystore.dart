@@ -95,11 +95,11 @@ class KeyStore {
     );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
 
-    return signer.maybeWhen(
-      encrypted: () => EncryptedKeyExportSeedOutput.fromJson(decoded),
-      derived: () => DerivedKeyExportOutput.fromJson(decoded),
-      orElse: () => throw UnsupportedError('Invalid signer'),
-    );
+    return switch (signer) {
+      KeySigner_Encrypted() => EncryptedKeyExportSeedOutput.fromJson(decoded),
+      KeySigner_Derived() => DerivedKeyExportOutput.fromJson(decoded),
+      _ => throw UnsupportedError('Invalid signer'),
+    };
   }
 
   /// Return list of public keys specified for signer or throw error.

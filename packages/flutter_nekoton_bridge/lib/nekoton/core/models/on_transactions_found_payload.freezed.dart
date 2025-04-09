@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,37 +10,53 @@ part of 'on_transactions_found_payload.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-OnTransactionsFoundPayload _$OnTransactionsFoundPayloadFromJson(
-    Map<String, dynamic> json) {
-  return _OnTransactionsFoundPayload.fromJson(json);
-}
 
 /// @nodoc
 mixin _$OnTransactionsFoundPayload {
-  List<Transaction> get transactions => throw _privateConstructorUsedError;
-  TransactionsBatchInfo get batchInfo => throw _privateConstructorUsedError;
-
-  /// Serializes this OnTransactionsFoundPayload to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<Transaction> get transactions;
+  TransactionsBatchInfo get batchInfo;
 
   /// Create a copy of OnTransactionsFoundPayload
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $OnTransactionsFoundPayloadCopyWith<OnTransactionsFoundPayload>
-      get copyWith => throw _privateConstructorUsedError;
+      get copyWith =>
+          _$OnTransactionsFoundPayloadCopyWithImpl<OnTransactionsFoundPayload>(
+              this as OnTransactionsFoundPayload, _$identity);
+
+  /// Serializes this OnTransactionsFoundPayload to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is OnTransactionsFoundPayload &&
+            const DeepCollectionEquality()
+                .equals(other.transactions, transactions) &&
+            (identical(other.batchInfo, batchInfo) ||
+                other.batchInfo == batchInfo));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(transactions), batchInfo);
+
+  @override
+  String toString() {
+    return 'OnTransactionsFoundPayload(transactions: $transactions, batchInfo: $batchInfo)';
+  }
 }
 
 /// @nodoc
-abstract class $OnTransactionsFoundPayloadCopyWith<$Res> {
+abstract mixin class $OnTransactionsFoundPayloadCopyWith<$Res> {
   factory $OnTransactionsFoundPayloadCopyWith(OnTransactionsFoundPayload value,
-          $Res Function(OnTransactionsFoundPayload) then) =
-      _$OnTransactionsFoundPayloadCopyWithImpl<$Res,
-          OnTransactionsFoundPayload>;
+          $Res Function(OnTransactionsFoundPayload) _then) =
+      _$OnTransactionsFoundPayloadCopyWithImpl;
   @useResult
   $Res call({List<Transaction> transactions, TransactionsBatchInfo batchInfo});
 
@@ -47,15 +64,12 @@ abstract class $OnTransactionsFoundPayloadCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$OnTransactionsFoundPayloadCopyWithImpl<$Res,
-        $Val extends OnTransactionsFoundPayload>
+class _$OnTransactionsFoundPayloadCopyWithImpl<$Res>
     implements $OnTransactionsFoundPayloadCopyWith<$Res> {
-  _$OnTransactionsFoundPayloadCopyWithImpl(this._value, this._then);
+  _$OnTransactionsFoundPayloadCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final OnTransactionsFoundPayload _self;
+  final $Res Function(OnTransactionsFoundPayload) _then;
 
   /// Create a copy of OnTransactionsFoundPayload
   /// with the given fields replaced by the non-null parameter values.
@@ -65,16 +79,16 @@ class _$OnTransactionsFoundPayloadCopyWithImpl<$Res,
     Object? transactions = null,
     Object? batchInfo = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       transactions: null == transactions
-          ? _value.transactions
+          ? _self.transactions
           : transactions // ignore: cast_nullable_to_non_nullable
               as List<Transaction>,
       batchInfo: null == batchInfo
-          ? _value.batchInfo
+          ? _self.batchInfo
           : batchInfo // ignore: cast_nullable_to_non_nullable
               as TransactionsBatchInfo,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of OnTransactionsFoundPayload
@@ -82,69 +96,21 @@ class _$OnTransactionsFoundPayloadCopyWithImpl<$Res,
   @override
   @pragma('vm:prefer-inline')
   $TransactionsBatchInfoCopyWith<$Res> get batchInfo {
-    return $TransactionsBatchInfoCopyWith<$Res>(_value.batchInfo, (value) {
-      return _then(_value.copyWith(batchInfo: value) as $Val);
+    return $TransactionsBatchInfoCopyWith<$Res>(_self.batchInfo, (value) {
+      return _then(_self.copyWith(batchInfo: value));
     });
-  }
-}
-
-/// @nodoc
-abstract class _$$OnTransactionsFoundPayloadImplCopyWith<$Res>
-    implements $OnTransactionsFoundPayloadCopyWith<$Res> {
-  factory _$$OnTransactionsFoundPayloadImplCopyWith(
-          _$OnTransactionsFoundPayloadImpl value,
-          $Res Function(_$OnTransactionsFoundPayloadImpl) then) =
-      __$$OnTransactionsFoundPayloadImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<Transaction> transactions, TransactionsBatchInfo batchInfo});
-
-  @override
-  $TransactionsBatchInfoCopyWith<$Res> get batchInfo;
-}
-
-/// @nodoc
-class __$$OnTransactionsFoundPayloadImplCopyWithImpl<$Res>
-    extends _$OnTransactionsFoundPayloadCopyWithImpl<$Res,
-        _$OnTransactionsFoundPayloadImpl>
-    implements _$$OnTransactionsFoundPayloadImplCopyWith<$Res> {
-  __$$OnTransactionsFoundPayloadImplCopyWithImpl(
-      _$OnTransactionsFoundPayloadImpl _value,
-      $Res Function(_$OnTransactionsFoundPayloadImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of OnTransactionsFoundPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? transactions = null,
-    Object? batchInfo = null,
-  }) {
-    return _then(_$OnTransactionsFoundPayloadImpl(
-      transactions: null == transactions
-          ? _value._transactions
-          : transactions // ignore: cast_nullable_to_non_nullable
-              as List<Transaction>,
-      batchInfo: null == batchInfo
-          ? _value.batchInfo
-          : batchInfo // ignore: cast_nullable_to_non_nullable
-              as TransactionsBatchInfo,
-    ));
   }
 }
 
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
-class _$OnTransactionsFoundPayloadImpl implements _OnTransactionsFoundPayload {
-  const _$OnTransactionsFoundPayloadImpl(
+class _OnTransactionsFoundPayload implements OnTransactionsFoundPayload {
+  const _OnTransactionsFoundPayload(
       {required final List<Transaction> transactions, required this.batchInfo})
       : _transactions = transactions;
-
-  factory _$OnTransactionsFoundPayloadImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$OnTransactionsFoundPayloadImplFromJson(json);
+  factory _OnTransactionsFoundPayload.fromJson(Map<String, dynamic> json) =>
+      _$OnTransactionsFoundPayloadFromJson(json);
 
   final List<Transaction> _transactions;
   @override
@@ -157,16 +123,27 @@ class _$OnTransactionsFoundPayloadImpl implements _OnTransactionsFoundPayload {
   @override
   final TransactionsBatchInfo batchInfo;
 
+  /// Create a copy of OnTransactionsFoundPayload
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'OnTransactionsFoundPayload(transactions: $transactions, batchInfo: $batchInfo)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$OnTransactionsFoundPayloadCopyWith<_OnTransactionsFoundPayload>
+      get copyWith => __$OnTransactionsFoundPayloadCopyWithImpl<
+          _OnTransactionsFoundPayload>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$OnTransactionsFoundPayloadToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OnTransactionsFoundPayloadImpl &&
+            other is _OnTransactionsFoundPayload &&
             const DeepCollectionEquality()
                 .equals(other._transactions, _transactions) &&
             (identical(other.batchInfo, batchInfo) ||
@@ -178,42 +155,64 @@ class _$OnTransactionsFoundPayloadImpl implements _OnTransactionsFoundPayload {
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_transactions), batchInfo);
 
-  /// Create a copy of OnTransactionsFoundPayload
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$OnTransactionsFoundPayloadImplCopyWith<_$OnTransactionsFoundPayloadImpl>
-      get copyWith => __$$OnTransactionsFoundPayloadImplCopyWithImpl<
-          _$OnTransactionsFoundPayloadImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$OnTransactionsFoundPayloadImplToJson(
-      this,
-    );
+  String toString() {
+    return 'OnTransactionsFoundPayload(transactions: $transactions, batchInfo: $batchInfo)';
   }
 }
 
-abstract class _OnTransactionsFoundPayload
-    implements OnTransactionsFoundPayload {
-  const factory _OnTransactionsFoundPayload(
-          {required final List<Transaction> transactions,
-          required final TransactionsBatchInfo batchInfo}) =
-      _$OnTransactionsFoundPayloadImpl;
-
-  factory _OnTransactionsFoundPayload.fromJson(Map<String, dynamic> json) =
-      _$OnTransactionsFoundPayloadImpl.fromJson;
+/// @nodoc
+abstract mixin class _$OnTransactionsFoundPayloadCopyWith<$Res>
+    implements $OnTransactionsFoundPayloadCopyWith<$Res> {
+  factory _$OnTransactionsFoundPayloadCopyWith(
+          _OnTransactionsFoundPayload value,
+          $Res Function(_OnTransactionsFoundPayload) _then) =
+      __$OnTransactionsFoundPayloadCopyWithImpl;
+  @override
+  @useResult
+  $Res call({List<Transaction> transactions, TransactionsBatchInfo batchInfo});
 
   @override
-  List<Transaction> get transactions;
-  @override
-  TransactionsBatchInfo get batchInfo;
+  $TransactionsBatchInfoCopyWith<$Res> get batchInfo;
+}
+
+/// @nodoc
+class __$OnTransactionsFoundPayloadCopyWithImpl<$Res>
+    implements _$OnTransactionsFoundPayloadCopyWith<$Res> {
+  __$OnTransactionsFoundPayloadCopyWithImpl(this._self, this._then);
+
+  final _OnTransactionsFoundPayload _self;
+  final $Res Function(_OnTransactionsFoundPayload) _then;
 
   /// Create a copy of OnTransactionsFoundPayload
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$OnTransactionsFoundPayloadImplCopyWith<_$OnTransactionsFoundPayloadImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? transactions = null,
+    Object? batchInfo = null,
+  }) {
+    return _then(_OnTransactionsFoundPayload(
+      transactions: null == transactions
+          ? _self._transactions
+          : transactions // ignore: cast_nullable_to_non_nullable
+              as List<Transaction>,
+      batchInfo: null == batchInfo
+          ? _self.batchInfo
+          : batchInfo // ignore: cast_nullable_to_non_nullable
+              as TransactionsBatchInfo,
+    ));
+  }
+
+  /// Create a copy of OnTransactionsFoundPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TransactionsBatchInfoCopyWith<$Res> get batchInfo {
+    return $TransactionsBatchInfoCopyWith<$Res>(_self.batchInfo, (value) {
+      return _then(_self.copyWith(batchInfo: value));
+    });
+  }
 }
+
+// dart format on

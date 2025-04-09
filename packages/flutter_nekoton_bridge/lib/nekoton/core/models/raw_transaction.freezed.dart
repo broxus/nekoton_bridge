@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,148 +10,30 @@ part of 'raw_transaction.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-RawTransaction _$RawTransactionFromJson(Map<String, dynamic> json) {
-  return _RawTransaction.fromJson(json);
-}
 
 /// @nodoc
 mixin _$RawTransaction {
-  String get hash => throw _privateConstructorUsedError;
-  Transaction get data => throw _privateConstructorUsedError;
-
-  /// Serializes this RawTransaction to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get hash;
+  Transaction get data;
 
   /// Create a copy of RawTransaction
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $RawTransactionCopyWith<RawTransaction> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$RawTransactionCopyWithImpl<RawTransaction>(
+          this as RawTransaction, _$identity);
 
-/// @nodoc
-abstract class $RawTransactionCopyWith<$Res> {
-  factory $RawTransactionCopyWith(
-          RawTransaction value, $Res Function(RawTransaction) then) =
-      _$RawTransactionCopyWithImpl<$Res, RawTransaction>;
-  @useResult
-  $Res call({String hash, Transaction data});
-
-  $TransactionCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class _$RawTransactionCopyWithImpl<$Res, $Val extends RawTransaction>
-    implements $RawTransactionCopyWith<$Res> {
-  _$RawTransactionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of RawTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? hash = null,
-    Object? data = null,
-  }) {
-    return _then(_value.copyWith(
-      hash: null == hash
-          ? _value.hash
-          : hash // ignore: cast_nullable_to_non_nullable
-              as String,
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Transaction,
-    ) as $Val);
-  }
-
-  /// Create a copy of RawTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $TransactionCopyWith<$Res> get data {
-    return $TransactionCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$RawTransactionImplCopyWith<$Res>
-    implements $RawTransactionCopyWith<$Res> {
-  factory _$$RawTransactionImplCopyWith(_$RawTransactionImpl value,
-          $Res Function(_$RawTransactionImpl) then) =
-      __$$RawTransactionImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String hash, Transaction data});
-
-  @override
-  $TransactionCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$RawTransactionImplCopyWithImpl<$Res>
-    extends _$RawTransactionCopyWithImpl<$Res, _$RawTransactionImpl>
-    implements _$$RawTransactionImplCopyWith<$Res> {
-  __$$RawTransactionImplCopyWithImpl(
-      _$RawTransactionImpl _value, $Res Function(_$RawTransactionImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of RawTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? hash = null,
-    Object? data = null,
-  }) {
-    return _then(_$RawTransactionImpl(
-      hash: null == hash
-          ? _value.hash
-          : hash // ignore: cast_nullable_to_non_nullable
-              as String,
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Transaction,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$RawTransactionImpl implements _RawTransaction {
-  const _$RawTransactionImpl({required this.hash, required this.data});
-
-  factory _$RawTransactionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RawTransactionImplFromJson(json);
-
-  @override
-  final String hash;
-  @override
-  final Transaction data;
-
-  @override
-  String toString() {
-    return 'RawTransaction(hash: $hash, data: $data)';
-  }
+  /// Serializes this RawTransaction to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RawTransactionImpl &&
+            other is RawTransaction &&
             (identical(other.hash, hash) || other.hash == hash) &&
             (identical(other.data, data) || other.data == data));
   }
@@ -159,40 +42,159 @@ class _$RawTransactionImpl implements _RawTransaction {
   @override
   int get hashCode => Object.hash(runtimeType, hash, data);
 
-  /// Create a copy of RawTransaction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$RawTransactionImplCopyWith<_$RawTransactionImpl> get copyWith =>
-      __$$RawTransactionImplCopyWithImpl<_$RawTransactionImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RawTransactionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'RawTransaction(hash: $hash, data: $data)';
   }
 }
 
-abstract class _RawTransaction implements RawTransaction {
-  const factory _RawTransaction(
-      {required final String hash,
-      required final Transaction data}) = _$RawTransactionImpl;
+/// @nodoc
+abstract mixin class $RawTransactionCopyWith<$Res> {
+  factory $RawTransactionCopyWith(
+          RawTransaction value, $Res Function(RawTransaction) _then) =
+      _$RawTransactionCopyWithImpl;
+  @useResult
+  $Res call({String hash, Transaction data});
 
-  factory _RawTransaction.fromJson(Map<String, dynamic> json) =
-      _$RawTransactionImpl.fromJson;
+  $TransactionCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class _$RawTransactionCopyWithImpl<$Res>
+    implements $RawTransactionCopyWith<$Res> {
+  _$RawTransactionCopyWithImpl(this._self, this._then);
+
+  final RawTransaction _self;
+  final $Res Function(RawTransaction) _then;
+
+  /// Create a copy of RawTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? hash = null,
+    Object? data = null,
+  }) {
+    return _then(_self.copyWith(
+      hash: null == hash
+          ? _self.hash
+          : hash // ignore: cast_nullable_to_non_nullable
+              as String,
+      data: null == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Transaction,
+    ));
+  }
+
+  /// Create a copy of RawTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TransactionCopyWith<$Res> get data {
+    return $TransactionCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _RawTransaction implements RawTransaction {
+  const _RawTransaction({required this.hash, required this.data});
+  factory _RawTransaction.fromJson(Map<String, dynamic> json) =>
+      _$RawTransactionFromJson(json);
 
   @override
-  String get hash;
+  final String hash;
   @override
-  Transaction get data;
+  final Transaction data;
 
   /// Create a copy of RawTransaction
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RawTransactionImplCopyWith<_$RawTransactionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$RawTransactionCopyWith<_RawTransaction> get copyWith =>
+      __$RawTransactionCopyWithImpl<_RawTransaction>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$RawTransactionToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _RawTransaction &&
+            (identical(other.hash, hash) || other.hash == hash) &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, hash, data);
+
+  @override
+  String toString() {
+    return 'RawTransaction(hash: $hash, data: $data)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$RawTransactionCopyWith<$Res>
+    implements $RawTransactionCopyWith<$Res> {
+  factory _$RawTransactionCopyWith(
+          _RawTransaction value, $Res Function(_RawTransaction) _then) =
+      __$RawTransactionCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String hash, Transaction data});
+
+  @override
+  $TransactionCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$RawTransactionCopyWithImpl<$Res>
+    implements _$RawTransactionCopyWith<$Res> {
+  __$RawTransactionCopyWithImpl(this._self, this._then);
+
+  final _RawTransaction _self;
+  final $Res Function(_RawTransaction) _then;
+
+  /// Create a copy of RawTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? hash = null,
+    Object? data = null,
+  }) {
+    return _then(_RawTransaction(
+      hash: null == hash
+          ? _self.hash
+          : hash // ignore: cast_nullable_to_non_nullable
+              as String,
+      data: null == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Transaction,
+    ));
+  }
+
+  /// Create a copy of RawTransaction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TransactionCopyWith<$Res> get data {
+    return $TransactionCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
+    });
+  }
+}
+
+// dart format on

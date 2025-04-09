@@ -6,53 +6,56 @@ part of 'known_payload.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CommentImpl _$$CommentImplFromJson(Map<String, dynamic> json) =>
-    _$CommentImpl(
+KnownPayloadComment _$KnownPayloadCommentFromJson(Map<String, dynamic> json) =>
+    KnownPayloadComment(
       json['data'] as String,
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$CommentImplToJson(_$CommentImpl instance) =>
+Map<String, dynamic> _$KnownPayloadCommentToJson(
+        KnownPayloadComment instance) =>
     <String, dynamic>{
       'data': instance.data,
       'type': instance.$type,
     };
 
-_$TokenOutgoingTransferImpl _$$TokenOutgoingTransferImplFromJson(
+KnownPayloadTokenOutgoingTransfer _$KnownPayloadTokenOutgoingTransferFromJson(
         Map<String, dynamic> json) =>
-    _$TokenOutgoingTransferImpl(
+    KnownPayloadTokenOutgoingTransfer(
       TokenOutgoingTransfer.fromJson(json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$TokenOutgoingTransferImplToJson(
-        _$TokenOutgoingTransferImpl instance) =>
+Map<String, dynamic> _$KnownPayloadTokenOutgoingTransferToJson(
+        KnownPayloadTokenOutgoingTransfer instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
-_$JettonOutgoingTransferImpl _$$JettonOutgoingTransferImplFromJson(
+KnownPayloadJettonOutgoingTransfer _$KnownPayloadJettonOutgoingTransferFromJson(
         Map<String, dynamic> json) =>
-    _$JettonOutgoingTransferImpl(
+    KnownPayloadJettonOutgoingTransfer(
       JettonOutgoingTransfer.fromJson(json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$JettonOutgoingTransferImplToJson(
-        _$JettonOutgoingTransferImpl instance) =>
+Map<String, dynamic> _$KnownPayloadJettonOutgoingTransferToJson(
+        KnownPayloadJettonOutgoingTransfer instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
-_$TokenSwapBackImpl _$$TokenSwapBackImplFromJson(Map<String, dynamic> json) =>
-    _$TokenSwapBackImpl(
+KnownPayloadTokenSwapBack _$KnownPayloadTokenSwapBackFromJson(
+        Map<String, dynamic> json) =>
+    KnownPayloadTokenSwapBack(
       TokenSwapBack.fromJson(json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$TokenSwapBackImplToJson(_$TokenSwapBackImpl instance) =>
+Map<String, dynamic> _$KnownPayloadTokenSwapBackToJson(
+        KnownPayloadTokenSwapBack instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,

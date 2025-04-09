@@ -6,8 +6,8 @@ part of 'contract_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ContractStateImpl _$$ContractStateImplFromJson(Map<String, dynamic> json) =>
-    _$ContractStateImpl(
+_ContractState _$ContractStateFromJson(Map<String, dynamic> json) =>
+    _ContractState(
       balance: amountJsonConverter.fromJson(json['balance'] as String),
       genTimings:
           GenTimings.fromJson(json['genTimings'] as Map<String, dynamic>),
@@ -19,7 +19,7 @@ _$ContractStateImpl _$$ContractStateImplFromJson(Map<String, dynamic> json) =>
       codeHash: json['codeHash'] as String?,
     );
 
-Map<String, dynamic> _$$ContractStateImplToJson(_$ContractStateImpl instance) =>
+Map<String, dynamic> _$ContractStateToJson(_ContractState instance) =>
     <String, dynamic>{
       'balance': amountJsonConverter.toJson(instance.balance),
       'genTimings': instance.genTimings.toJson(),

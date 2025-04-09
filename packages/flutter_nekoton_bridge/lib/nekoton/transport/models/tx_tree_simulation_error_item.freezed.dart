@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,168 +10,30 @@ part of 'tx_tree_simulation_error_item.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-TxTreeSimulationErrorItem _$TxTreeSimulationErrorItemFromJson(
-    Map<String, dynamic> json) {
-  return _TxTreeSimulationErrorItem.fromJson(json);
-}
 
 /// @nodoc
 mixin _$TxTreeSimulationErrorItem {
-  Address get address => throw _privateConstructorUsedError;
-  TxTreeSimulationError get error => throw _privateConstructorUsedError;
-
-  /// Serializes this TxTreeSimulationErrorItem to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Address get address;
+  TxTreeSimulationError get error;
 
   /// Create a copy of TxTreeSimulationErrorItem
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $TxTreeSimulationErrorItemCopyWith<TxTreeSimulationErrorItem> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$TxTreeSimulationErrorItemCopyWithImpl<TxTreeSimulationErrorItem>(
+          this as TxTreeSimulationErrorItem, _$identity);
 
-/// @nodoc
-abstract class $TxTreeSimulationErrorItemCopyWith<$Res> {
-  factory $TxTreeSimulationErrorItemCopyWith(TxTreeSimulationErrorItem value,
-          $Res Function(TxTreeSimulationErrorItem) then) =
-      _$TxTreeSimulationErrorItemCopyWithImpl<$Res, TxTreeSimulationErrorItem>;
-  @useResult
-  $Res call({Address address, TxTreeSimulationError error});
-
-  $AddressCopyWith<$Res> get address;
-  $TxTreeSimulationErrorCopyWith<$Res> get error;
-}
-
-/// @nodoc
-class _$TxTreeSimulationErrorItemCopyWithImpl<$Res,
-        $Val extends TxTreeSimulationErrorItem>
-    implements $TxTreeSimulationErrorItemCopyWith<$Res> {
-  _$TxTreeSimulationErrorItemCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of TxTreeSimulationErrorItem
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? address = null,
-    Object? error = null,
-  }) {
-    return _then(_value.copyWith(
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as Address,
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as TxTreeSimulationError,
-    ) as $Val);
-  }
-
-  /// Create a copy of TxTreeSimulationErrorItem
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res> get address {
-    return $AddressCopyWith<$Res>(_value.address, (value) {
-      return _then(_value.copyWith(address: value) as $Val);
-    });
-  }
-
-  /// Create a copy of TxTreeSimulationErrorItem
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $TxTreeSimulationErrorCopyWith<$Res> get error {
-    return $TxTreeSimulationErrorCopyWith<$Res>(_value.error, (value) {
-      return _then(_value.copyWith(error: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$TxTreeSimulationErrorItemImplCopyWith<$Res>
-    implements $TxTreeSimulationErrorItemCopyWith<$Res> {
-  factory _$$TxTreeSimulationErrorItemImplCopyWith(
-          _$TxTreeSimulationErrorItemImpl value,
-          $Res Function(_$TxTreeSimulationErrorItemImpl) then) =
-      __$$TxTreeSimulationErrorItemImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Address address, TxTreeSimulationError error});
-
-  @override
-  $AddressCopyWith<$Res> get address;
-  @override
-  $TxTreeSimulationErrorCopyWith<$Res> get error;
-}
-
-/// @nodoc
-class __$$TxTreeSimulationErrorItemImplCopyWithImpl<$Res>
-    extends _$TxTreeSimulationErrorItemCopyWithImpl<$Res,
-        _$TxTreeSimulationErrorItemImpl>
-    implements _$$TxTreeSimulationErrorItemImplCopyWith<$Res> {
-  __$$TxTreeSimulationErrorItemImplCopyWithImpl(
-      _$TxTreeSimulationErrorItemImpl _value,
-      $Res Function(_$TxTreeSimulationErrorItemImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TxTreeSimulationErrorItem
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? address = null,
-    Object? error = null,
-  }) {
-    return _then(_$TxTreeSimulationErrorItemImpl(
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as Address,
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as TxTreeSimulationError,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$TxTreeSimulationErrorItemImpl extends _TxTreeSimulationErrorItem {
-  const _$TxTreeSimulationErrorItemImpl(
-      {required this.address, required this.error})
-      : super._();
-
-  factory _$TxTreeSimulationErrorItemImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TxTreeSimulationErrorItemImplFromJson(json);
-
-  @override
-  final Address address;
-  @override
-  final TxTreeSimulationError error;
-
-  @override
-  String toString() {
-    return 'TxTreeSimulationErrorItem(address: $address, error: $error)';
-  }
+  /// Serializes this TxTreeSimulationErrorItem to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TxTreeSimulationErrorItemImpl &&
+            other is TxTreeSimulationErrorItem &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.error, error) || other.error == error));
   }
@@ -179,42 +42,185 @@ class _$TxTreeSimulationErrorItemImpl extends _TxTreeSimulationErrorItem {
   @override
   int get hashCode => Object.hash(runtimeType, address, error);
 
-  /// Create a copy of TxTreeSimulationErrorItem
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TxTreeSimulationErrorItemImplCopyWith<_$TxTreeSimulationErrorItemImpl>
-      get copyWith => __$$TxTreeSimulationErrorItemImplCopyWithImpl<
-          _$TxTreeSimulationErrorItemImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TxTreeSimulationErrorItemImplToJson(
-      this,
-    );
+  String toString() {
+    return 'TxTreeSimulationErrorItem(address: $address, error: $error)';
   }
 }
 
-abstract class _TxTreeSimulationErrorItem extends TxTreeSimulationErrorItem {
-  const factory _TxTreeSimulationErrorItem(
-          {required final Address address,
-          required final TxTreeSimulationError error}) =
-      _$TxTreeSimulationErrorItemImpl;
-  const _TxTreeSimulationErrorItem._() : super._();
+/// @nodoc
+abstract mixin class $TxTreeSimulationErrorItemCopyWith<$Res> {
+  factory $TxTreeSimulationErrorItemCopyWith(TxTreeSimulationErrorItem value,
+          $Res Function(TxTreeSimulationErrorItem) _then) =
+      _$TxTreeSimulationErrorItemCopyWithImpl;
+  @useResult
+  $Res call({Address address, TxTreeSimulationError error});
 
-  factory _TxTreeSimulationErrorItem.fromJson(Map<String, dynamic> json) =
-      _$TxTreeSimulationErrorItemImpl.fromJson;
+  $AddressCopyWith<$Res> get address;
+  $TxTreeSimulationErrorCopyWith<$Res> get error;
+}
+
+/// @nodoc
+class _$TxTreeSimulationErrorItemCopyWithImpl<$Res>
+    implements $TxTreeSimulationErrorItemCopyWith<$Res> {
+  _$TxTreeSimulationErrorItemCopyWithImpl(this._self, this._then);
+
+  final TxTreeSimulationErrorItem _self;
+  final $Res Function(TxTreeSimulationErrorItem) _then;
+
+  /// Create a copy of TxTreeSimulationErrorItem
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? address = null,
+    Object? error = null,
+  }) {
+    return _then(_self.copyWith(
+      address: null == address
+          ? _self.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as Address,
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as TxTreeSimulationError,
+    ));
+  }
+
+  /// Create a copy of TxTreeSimulationErrorItem
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get address {
+    return $AddressCopyWith<$Res>(_self.address, (value) {
+      return _then(_self.copyWith(address: value));
+    });
+  }
+
+  /// Create a copy of TxTreeSimulationErrorItem
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TxTreeSimulationErrorCopyWith<$Res> get error {
+    return $TxTreeSimulationErrorCopyWith<$Res>(_self.error, (value) {
+      return _then(_self.copyWith(error: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _TxTreeSimulationErrorItem extends TxTreeSimulationErrorItem {
+  const _TxTreeSimulationErrorItem({required this.address, required this.error})
+      : super._();
+  factory _TxTreeSimulationErrorItem.fromJson(Map<String, dynamic> json) =>
+      _$TxTreeSimulationErrorItemFromJson(json);
 
   @override
-  Address get address;
+  final Address address;
   @override
-  TxTreeSimulationError get error;
+  final TxTreeSimulationError error;
 
   /// Create a copy of TxTreeSimulationErrorItem
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TxTreeSimulationErrorItemImplCopyWith<_$TxTreeSimulationErrorItemImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$TxTreeSimulationErrorItemCopyWith<_TxTreeSimulationErrorItem>
+      get copyWith =>
+          __$TxTreeSimulationErrorItemCopyWithImpl<_TxTreeSimulationErrorItem>(
+              this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TxTreeSimulationErrorItemToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _TxTreeSimulationErrorItem &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, address, error);
+
+  @override
+  String toString() {
+    return 'TxTreeSimulationErrorItem(address: $address, error: $error)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$TxTreeSimulationErrorItemCopyWith<$Res>
+    implements $TxTreeSimulationErrorItemCopyWith<$Res> {
+  factory _$TxTreeSimulationErrorItemCopyWith(_TxTreeSimulationErrorItem value,
+          $Res Function(_TxTreeSimulationErrorItem) _then) =
+      __$TxTreeSimulationErrorItemCopyWithImpl;
+  @override
+  @useResult
+  $Res call({Address address, TxTreeSimulationError error});
+
+  @override
+  $AddressCopyWith<$Res> get address;
+  @override
+  $TxTreeSimulationErrorCopyWith<$Res> get error;
+}
+
+/// @nodoc
+class __$TxTreeSimulationErrorItemCopyWithImpl<$Res>
+    implements _$TxTreeSimulationErrorItemCopyWith<$Res> {
+  __$TxTreeSimulationErrorItemCopyWithImpl(this._self, this._then);
+
+  final _TxTreeSimulationErrorItem _self;
+  final $Res Function(_TxTreeSimulationErrorItem) _then;
+
+  /// Create a copy of TxTreeSimulationErrorItem
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? address = null,
+    Object? error = null,
+  }) {
+    return _then(_TxTreeSimulationErrorItem(
+      address: null == address
+          ? _self.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as Address,
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as TxTreeSimulationError,
+    ));
+  }
+
+  /// Create a copy of TxTreeSimulationErrorItem
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get address {
+    return $AddressCopyWith<$Res>(_self.address, (value) {
+      return _then(_self.copyWith(address: value));
+    });
+  }
+
+  /// Create a copy of TxTreeSimulationErrorItem
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TxTreeSimulationErrorCopyWith<$Res> get error {
+    return $TxTreeSimulationErrorCopyWith<$Res>(_self.error, (value) {
+      return _then(_self.copyWith(error: value));
+    });
+  }
+}
+
+// dart format on

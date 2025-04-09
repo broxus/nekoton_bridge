@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,133 +10,29 @@ part of 'gen_timings.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GenTimings _$GenTimingsFromJson(Map<String, dynamic> json) {
-  return _GenTimings.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GenTimings {
-  String get genLt => throw _privateConstructorUsedError;
-  int get genUtime => throw _privateConstructorUsedError;
-
-  /// Serializes this GenTimings to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get genLt;
+  int get genUtime;
 
   /// Create a copy of GenTimings
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $GenTimingsCopyWith<GenTimings> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$GenTimingsCopyWithImpl<GenTimings>(this as GenTimings, _$identity);
 
-/// @nodoc
-abstract class $GenTimingsCopyWith<$Res> {
-  factory $GenTimingsCopyWith(
-          GenTimings value, $Res Function(GenTimings) then) =
-      _$GenTimingsCopyWithImpl<$Res, GenTimings>;
-  @useResult
-  $Res call({String genLt, int genUtime});
-}
-
-/// @nodoc
-class _$GenTimingsCopyWithImpl<$Res, $Val extends GenTimings>
-    implements $GenTimingsCopyWith<$Res> {
-  _$GenTimingsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of GenTimings
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? genLt = null,
-    Object? genUtime = null,
-  }) {
-    return _then(_value.copyWith(
-      genLt: null == genLt
-          ? _value.genLt
-          : genLt // ignore: cast_nullable_to_non_nullable
-              as String,
-      genUtime: null == genUtime
-          ? _value.genUtime
-          : genUtime // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$GenTimingsImplCopyWith<$Res>
-    implements $GenTimingsCopyWith<$Res> {
-  factory _$$GenTimingsImplCopyWith(
-          _$GenTimingsImpl value, $Res Function(_$GenTimingsImpl) then) =
-      __$$GenTimingsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String genLt, int genUtime});
-}
-
-/// @nodoc
-class __$$GenTimingsImplCopyWithImpl<$Res>
-    extends _$GenTimingsCopyWithImpl<$Res, _$GenTimingsImpl>
-    implements _$$GenTimingsImplCopyWith<$Res> {
-  __$$GenTimingsImplCopyWithImpl(
-      _$GenTimingsImpl _value, $Res Function(_$GenTimingsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of GenTimings
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? genLt = null,
-    Object? genUtime = null,
-  }) {
-    return _then(_$GenTimingsImpl(
-      genLt: null == genLt
-          ? _value.genLt
-          : genLt // ignore: cast_nullable_to_non_nullable
-              as String,
-      genUtime: null == genUtime
-          ? _value.genUtime
-          : genUtime // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$GenTimingsImpl implements _GenTimings {
-  const _$GenTimingsImpl({required this.genLt, required this.genUtime});
-
-  factory _$GenTimingsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GenTimingsImplFromJson(json);
-
-  @override
-  final String genLt;
-  @override
-  final int genUtime;
-
-  @override
-  String toString() {
-    return 'GenTimings(genLt: $genLt, genUtime: $genUtime)';
-  }
+  /// Serializes this GenTimings to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GenTimingsImpl &&
+            other is GenTimings &&
             (identical(other.genLt, genLt) || other.genLt == genLt) &&
             (identical(other.genUtime, genUtime) ||
                 other.genUtime == genUtime));
@@ -145,39 +42,133 @@ class _$GenTimingsImpl implements _GenTimings {
   @override
   int get hashCode => Object.hash(runtimeType, genLt, genUtime);
 
-  /// Create a copy of GenTimings
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GenTimingsImplCopyWith<_$GenTimingsImpl> get copyWith =>
-      __$$GenTimingsImplCopyWithImpl<_$GenTimingsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GenTimingsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'GenTimings(genLt: $genLt, genUtime: $genUtime)';
   }
 }
 
-abstract class _GenTimings implements GenTimings {
-  const factory _GenTimings(
-      {required final String genLt,
-      required final int genUtime}) = _$GenTimingsImpl;
+/// @nodoc
+abstract mixin class $GenTimingsCopyWith<$Res> {
+  factory $GenTimingsCopyWith(
+          GenTimings value, $Res Function(GenTimings) _then) =
+      _$GenTimingsCopyWithImpl;
+  @useResult
+  $Res call({String genLt, int genUtime});
+}
 
-  factory _GenTimings.fromJson(Map<String, dynamic> json) =
-      _$GenTimingsImpl.fromJson;
+/// @nodoc
+class _$GenTimingsCopyWithImpl<$Res> implements $GenTimingsCopyWith<$Res> {
+  _$GenTimingsCopyWithImpl(this._self, this._then);
+
+  final GenTimings _self;
+  final $Res Function(GenTimings) _then;
+
+  /// Create a copy of GenTimings
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? genLt = null,
+    Object? genUtime = null,
+  }) {
+    return _then(_self.copyWith(
+      genLt: null == genLt
+          ? _self.genLt
+          : genLt // ignore: cast_nullable_to_non_nullable
+              as String,
+      genUtime: null == genUtime
+          ? _self.genUtime
+          : genUtime // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _GenTimings implements GenTimings {
+  const _GenTimings({required this.genLt, required this.genUtime});
+  factory _GenTimings.fromJson(Map<String, dynamic> json) =>
+      _$GenTimingsFromJson(json);
 
   @override
-  String get genLt;
+  final String genLt;
   @override
-  int get genUtime;
+  final int genUtime;
 
   /// Create a copy of GenTimings
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GenTimingsImplCopyWith<_$GenTimingsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$GenTimingsCopyWith<_GenTimings> get copyWith =>
+      __$GenTimingsCopyWithImpl<_GenTimings>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$GenTimingsToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _GenTimings &&
+            (identical(other.genLt, genLt) || other.genLt == genLt) &&
+            (identical(other.genUtime, genUtime) ||
+                other.genUtime == genUtime));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, genLt, genUtime);
+
+  @override
+  String toString() {
+    return 'GenTimings(genLt: $genLt, genUtime: $genUtime)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$GenTimingsCopyWith<$Res>
+    implements $GenTimingsCopyWith<$Res> {
+  factory _$GenTimingsCopyWith(
+          _GenTimings value, $Res Function(_GenTimings) _then) =
+      __$GenTimingsCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String genLt, int genUtime});
+}
+
+/// @nodoc
+class __$GenTimingsCopyWithImpl<$Res> implements _$GenTimingsCopyWith<$Res> {
+  __$GenTimingsCopyWithImpl(this._self, this._then);
+
+  final _GenTimings _self;
+  final $Res Function(_GenTimings) _then;
+
+  /// Create a copy of GenTimings
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? genLt = null,
+    Object? genUtime = null,
+  }) {
+    return _then(_GenTimings(
+      genLt: null == genLt
+          ? _self.genLt
+          : genLt // ignore: cast_nullable_to_non_nullable
+              as String,
+      genUtime: null == genUtime
+          ? _self.genUtime
+          : genUtime // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+// dart format on

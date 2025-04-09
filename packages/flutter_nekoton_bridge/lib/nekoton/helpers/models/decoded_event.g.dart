@@ -6,13 +6,13 @@ part of 'decoded_event.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DecodedEventImpl _$$DecodedEventImplFromJson(Map<String, dynamic> json) =>
-    _$DecodedEventImpl(
+_DecodedEvent _$DecodedEventFromJson(Map<String, dynamic> json) =>
+    _DecodedEvent(
       event: json['event'] as String,
       data: json['data'] as Map<String, dynamic>,
     );
 
-Map<String, dynamic> _$$DecodedEventImplToJson(_$DecodedEventImpl instance) =>
+Map<String, dynamic> _$DecodedEventToJson(_DecodedEvent instance) =>
     <String, dynamic>{
       'event': instance.event,
       'data': instance.data,

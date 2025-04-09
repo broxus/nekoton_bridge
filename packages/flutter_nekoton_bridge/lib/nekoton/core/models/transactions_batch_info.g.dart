@@ -6,16 +6,16 @@ part of 'transactions_batch_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TransactionsBatchInfoImpl _$$TransactionsBatchInfoImplFromJson(
+_TransactionsBatchInfo _$TransactionsBatchInfoFromJson(
         Map<String, dynamic> json) =>
-    _$TransactionsBatchInfoImpl(
+    _TransactionsBatchInfo(
       minLt: json['minLt'] as String,
       maxLt: json['maxLt'] as String,
       batchType: $enumDecode(_$TransactionsBatchTypeEnumMap, json['batchType']),
     );
 
-Map<String, dynamic> _$$TransactionsBatchInfoImplToJson(
-        _$TransactionsBatchInfoImpl instance) =>
+Map<String, dynamic> _$TransactionsBatchInfoToJson(
+        _TransactionsBatchInfo instance) =>
     <String, dynamic>{
       'minLt': instance.minLt,
       'maxLt': instance.maxLt,

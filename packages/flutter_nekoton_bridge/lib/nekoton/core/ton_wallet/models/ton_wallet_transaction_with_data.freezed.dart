@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,175 +10,31 @@ part of 'ton_wallet_transaction_with_data.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-TonWalletTransactionWithData _$TonWalletTransactionWithDataFromJson(
-    Map<String, dynamic> json) {
-  return _TonWalletTransactionWithData.fromJson(json);
-}
 
 /// @nodoc
 mixin _$TonWalletTransactionWithData {
-  Transaction get transaction => throw _privateConstructorUsedError;
-  TransactionAdditionalInfo? get data => throw _privateConstructorUsedError;
-
-  /// Serializes this TonWalletTransactionWithData to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Transaction get transaction;
+  TransactionAdditionalInfo? get data;
 
   /// Create a copy of TonWalletTransactionWithData
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $TonWalletTransactionWithDataCopyWith<TonWalletTransactionWithData>
-      get copyWith => throw _privateConstructorUsedError;
-}
+      get copyWith => _$TonWalletTransactionWithDataCopyWithImpl<
+              TonWalletTransactionWithData>(
+          this as TonWalletTransactionWithData, _$identity);
 
-/// @nodoc
-abstract class $TonWalletTransactionWithDataCopyWith<$Res> {
-  factory $TonWalletTransactionWithDataCopyWith(
-          TonWalletTransactionWithData value,
-          $Res Function(TonWalletTransactionWithData) then) =
-      _$TonWalletTransactionWithDataCopyWithImpl<$Res,
-          TonWalletTransactionWithData>;
-  @useResult
-  $Res call({Transaction transaction, TransactionAdditionalInfo? data});
-
-  $TransactionCopyWith<$Res> get transaction;
-  $TransactionAdditionalInfoCopyWith<$Res>? get data;
-}
-
-/// @nodoc
-class _$TonWalletTransactionWithDataCopyWithImpl<$Res,
-        $Val extends TonWalletTransactionWithData>
-    implements $TonWalletTransactionWithDataCopyWith<$Res> {
-  _$TonWalletTransactionWithDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of TonWalletTransactionWithData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? transaction = null,
-    Object? data = freezed,
-  }) {
-    return _then(_value.copyWith(
-      transaction: null == transaction
-          ? _value.transaction
-          : transaction // ignore: cast_nullable_to_non_nullable
-              as Transaction,
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as TransactionAdditionalInfo?,
-    ) as $Val);
-  }
-
-  /// Create a copy of TonWalletTransactionWithData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $TransactionCopyWith<$Res> get transaction {
-    return $TransactionCopyWith<$Res>(_value.transaction, (value) {
-      return _then(_value.copyWith(transaction: value) as $Val);
-    });
-  }
-
-  /// Create a copy of TonWalletTransactionWithData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $TransactionAdditionalInfoCopyWith<$Res>? get data {
-    if (_value.data == null) {
-      return null;
-    }
-
-    return $TransactionAdditionalInfoCopyWith<$Res>(_value.data!, (value) {
-      return _then(_value.copyWith(data: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$TonWalletTransactionWithDataImplCopyWith<$Res>
-    implements $TonWalletTransactionWithDataCopyWith<$Res> {
-  factory _$$TonWalletTransactionWithDataImplCopyWith(
-          _$TonWalletTransactionWithDataImpl value,
-          $Res Function(_$TonWalletTransactionWithDataImpl) then) =
-      __$$TonWalletTransactionWithDataImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Transaction transaction, TransactionAdditionalInfo? data});
-
-  @override
-  $TransactionCopyWith<$Res> get transaction;
-  @override
-  $TransactionAdditionalInfoCopyWith<$Res>? get data;
-}
-
-/// @nodoc
-class __$$TonWalletTransactionWithDataImplCopyWithImpl<$Res>
-    extends _$TonWalletTransactionWithDataCopyWithImpl<$Res,
-        _$TonWalletTransactionWithDataImpl>
-    implements _$$TonWalletTransactionWithDataImplCopyWith<$Res> {
-  __$$TonWalletTransactionWithDataImplCopyWithImpl(
-      _$TonWalletTransactionWithDataImpl _value,
-      $Res Function(_$TonWalletTransactionWithDataImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of TonWalletTransactionWithData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? transaction = null,
-    Object? data = freezed,
-  }) {
-    return _then(_$TonWalletTransactionWithDataImpl(
-      transaction: null == transaction
-          ? _value.transaction
-          : transaction // ignore: cast_nullable_to_non_nullable
-              as Transaction,
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as TransactionAdditionalInfo?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$TonWalletTransactionWithDataImpl extends _TonWalletTransactionWithData {
-  const _$TonWalletTransactionWithDataImpl(
-      {required this.transaction, this.data})
-      : super._();
-
-  factory _$TonWalletTransactionWithDataImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$TonWalletTransactionWithDataImplFromJson(json);
-
-  @override
-  final Transaction transaction;
-  @override
-  final TransactionAdditionalInfo? data;
-
-  @override
-  String toString() {
-    return 'TonWalletTransactionWithData(transaction: $transaction, data: $data)';
-  }
+  /// Serializes this TonWalletTransactionWithData to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TonWalletTransactionWithDataImpl &&
+            other is TonWalletTransactionWithData &&
             (identical(other.transaction, transaction) ||
                 other.transaction == transaction) &&
             (identical(other.data, data) || other.data == data));
@@ -187,45 +44,195 @@ class _$TonWalletTransactionWithDataImpl extends _TonWalletTransactionWithData {
   @override
   int get hashCode => Object.hash(runtimeType, transaction, data);
 
-  /// Create a copy of TonWalletTransactionWithData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TonWalletTransactionWithDataImplCopyWith<
-          _$TonWalletTransactionWithDataImpl>
-      get copyWith => __$$TonWalletTransactionWithDataImplCopyWithImpl<
-          _$TonWalletTransactionWithDataImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TonWalletTransactionWithDataImplToJson(
-      this,
-    );
+  String toString() {
+    return 'TonWalletTransactionWithData(transaction: $transaction, data: $data)';
   }
 }
 
-abstract class _TonWalletTransactionWithData
-    extends TonWalletTransactionWithData {
-  const factory _TonWalletTransactionWithData(
-          {required final Transaction transaction,
-          final TransactionAdditionalInfo? data}) =
-      _$TonWalletTransactionWithDataImpl;
-  const _TonWalletTransactionWithData._() : super._();
+/// @nodoc
+abstract mixin class $TonWalletTransactionWithDataCopyWith<$Res> {
+  factory $TonWalletTransactionWithDataCopyWith(
+          TonWalletTransactionWithData value,
+          $Res Function(TonWalletTransactionWithData) _then) =
+      _$TonWalletTransactionWithDataCopyWithImpl;
+  @useResult
+  $Res call({Transaction transaction, TransactionAdditionalInfo? data});
 
-  factory _TonWalletTransactionWithData.fromJson(Map<String, dynamic> json) =
-      _$TonWalletTransactionWithDataImpl.fromJson;
+  $TransactionCopyWith<$Res> get transaction;
+  $TransactionAdditionalInfoCopyWith<$Res>? get data;
+}
+
+/// @nodoc
+class _$TonWalletTransactionWithDataCopyWithImpl<$Res>
+    implements $TonWalletTransactionWithDataCopyWith<$Res> {
+  _$TonWalletTransactionWithDataCopyWithImpl(this._self, this._then);
+
+  final TonWalletTransactionWithData _self;
+  final $Res Function(TonWalletTransactionWithData) _then;
+
+  /// Create a copy of TonWalletTransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? transaction = null,
+    Object? data = freezed,
+  }) {
+    return _then(_self.copyWith(
+      transaction: null == transaction
+          ? _self.transaction
+          : transaction // ignore: cast_nullable_to_non_nullable
+              as Transaction,
+      data: freezed == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as TransactionAdditionalInfo?,
+    ));
+  }
+
+  /// Create a copy of TonWalletTransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TransactionCopyWith<$Res> get transaction {
+    return $TransactionCopyWith<$Res>(_self.transaction, (value) {
+      return _then(_self.copyWith(transaction: value));
+    });
+  }
+
+  /// Create a copy of TonWalletTransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TransactionAdditionalInfoCopyWith<$Res>? get data {
+    if (_self.data == null) {
+      return null;
+    }
+
+    return $TransactionAdditionalInfoCopyWith<$Res>(_self.data!, (value) {
+      return _then(_self.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _TonWalletTransactionWithData extends TonWalletTransactionWithData {
+  const _TonWalletTransactionWithData({required this.transaction, this.data})
+      : super._();
+  factory _TonWalletTransactionWithData.fromJson(Map<String, dynamic> json) =>
+      _$TonWalletTransactionWithDataFromJson(json);
 
   @override
-  Transaction get transaction;
+  final Transaction transaction;
   @override
-  TransactionAdditionalInfo? get data;
+  final TransactionAdditionalInfo? data;
 
   /// Create a copy of TonWalletTransactionWithData
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TonWalletTransactionWithDataImplCopyWith<
-          _$TonWalletTransactionWithDataImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$TonWalletTransactionWithDataCopyWith<_TonWalletTransactionWithData>
+      get copyWith => __$TonWalletTransactionWithDataCopyWithImpl<
+          _TonWalletTransactionWithData>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TonWalletTransactionWithDataToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _TonWalletTransactionWithData &&
+            (identical(other.transaction, transaction) ||
+                other.transaction == transaction) &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, transaction, data);
+
+  @override
+  String toString() {
+    return 'TonWalletTransactionWithData(transaction: $transaction, data: $data)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$TonWalletTransactionWithDataCopyWith<$Res>
+    implements $TonWalletTransactionWithDataCopyWith<$Res> {
+  factory _$TonWalletTransactionWithDataCopyWith(
+          _TonWalletTransactionWithData value,
+          $Res Function(_TonWalletTransactionWithData) _then) =
+      __$TonWalletTransactionWithDataCopyWithImpl;
+  @override
+  @useResult
+  $Res call({Transaction transaction, TransactionAdditionalInfo? data});
+
+  @override
+  $TransactionCopyWith<$Res> get transaction;
+  @override
+  $TransactionAdditionalInfoCopyWith<$Res>? get data;
+}
+
+/// @nodoc
+class __$TonWalletTransactionWithDataCopyWithImpl<$Res>
+    implements _$TonWalletTransactionWithDataCopyWith<$Res> {
+  __$TonWalletTransactionWithDataCopyWithImpl(this._self, this._then);
+
+  final _TonWalletTransactionWithData _self;
+  final $Res Function(_TonWalletTransactionWithData) _then;
+
+  /// Create a copy of TonWalletTransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? transaction = null,
+    Object? data = freezed,
+  }) {
+    return _then(_TonWalletTransactionWithData(
+      transaction: null == transaction
+          ? _self.transaction
+          : transaction // ignore: cast_nullable_to_non_nullable
+              as Transaction,
+      data: freezed == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as TransactionAdditionalInfo?,
+    ));
+  }
+
+  /// Create a copy of TonWalletTransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TransactionCopyWith<$Res> get transaction {
+    return $TransactionCopyWith<$Res>(_self.transaction, (value) {
+      return _then(_self.copyWith(transaction: value));
+    });
+  }
+
+  /// Create a copy of TonWalletTransactionWithData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TransactionAdditionalInfoCopyWith<$Res>? get data {
+    if (_self.data == null) {
+      return null;
+    }
+
+    return $TransactionAdditionalInfoCopyWith<$Res>(_self.data!, (value) {
+      return _then(_self.copyWith(data: value));
+    });
+  }
+}
+
+// dart format on

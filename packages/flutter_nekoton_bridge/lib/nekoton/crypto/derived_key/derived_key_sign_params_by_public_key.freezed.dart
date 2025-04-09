@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,11 +10,8 @@ part of 'derived_key_sign_params_by_public_key.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 DerivedKeyPasswordByPublicKey _$DerivedKeyPasswordByPublicKeyFromJson(
     Map<String, dynamic> json) {
   return _DerivedKeyPasswordByPublicKeyByPublicKey.fromJson(json);
@@ -21,188 +19,27 @@ DerivedKeyPasswordByPublicKey _$DerivedKeyPasswordByPublicKeyFromJson(
 
 /// @nodoc
 mixin _$DerivedKeyPasswordByPublicKey {
-  PublicKey get masterKey => throw _privateConstructorUsedError;
-  PublicKey get publicKey => throw _privateConstructorUsedError;
-  Password get password => throw _privateConstructorUsedError;
-
-  /// Serializes this DerivedKeyPasswordByPublicKey to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  PublicKey get masterKey;
+  PublicKey get publicKey;
+  Password get password;
 
   /// Create a copy of DerivedKeyPasswordByPublicKey
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $DerivedKeyPasswordByPublicKeyCopyWith<DerivedKeyPasswordByPublicKey>
-      get copyWith => throw _privateConstructorUsedError;
-}
+      get copyWith => _$DerivedKeyPasswordByPublicKeyCopyWithImpl<
+              DerivedKeyPasswordByPublicKey>(
+          this as DerivedKeyPasswordByPublicKey, _$identity);
 
-/// @nodoc
-abstract class $DerivedKeyPasswordByPublicKeyCopyWith<$Res> {
-  factory $DerivedKeyPasswordByPublicKeyCopyWith(
-          DerivedKeyPasswordByPublicKey value,
-          $Res Function(DerivedKeyPasswordByPublicKey) then) =
-      _$DerivedKeyPasswordByPublicKeyCopyWithImpl<$Res,
-          DerivedKeyPasswordByPublicKey>;
-  @useResult
-  $Res call({PublicKey masterKey, PublicKey publicKey, Password password});
-
-  $PublicKeyCopyWith<$Res> get masterKey;
-  $PublicKeyCopyWith<$Res> get publicKey;
-  $PasswordCopyWith<$Res> get password;
-}
-
-/// @nodoc
-class _$DerivedKeyPasswordByPublicKeyCopyWithImpl<$Res,
-        $Val extends DerivedKeyPasswordByPublicKey>
-    implements $DerivedKeyPasswordByPublicKeyCopyWith<$Res> {
-  _$DerivedKeyPasswordByPublicKeyCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of DerivedKeyPasswordByPublicKey
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? masterKey = null,
-    Object? publicKey = null,
-    Object? password = null,
-  }) {
-    return _then(_value.copyWith(
-      masterKey: null == masterKey
-          ? _value.masterKey
-          : masterKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      publicKey: null == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as Password,
-    ) as $Val);
-  }
-
-  /// Create a copy of DerivedKeyPasswordByPublicKey
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get masterKey {
-    return $PublicKeyCopyWith<$Res>(_value.masterKey, (value) {
-      return _then(_value.copyWith(masterKey: value) as $Val);
-    });
-  }
-
-  /// Create a copy of DerivedKeyPasswordByPublicKey
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get publicKey {
-    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
-      return _then(_value.copyWith(publicKey: value) as $Val);
-    });
-  }
-
-  /// Create a copy of DerivedKeyPasswordByPublicKey
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PasswordCopyWith<$Res> get password {
-    return $PasswordCopyWith<$Res>(_value.password, (value) {
-      return _then(_value.copyWith(password: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$DerivedKeyPasswordByPublicKeyByPublicKeyImplCopyWith<$Res>
-    implements $DerivedKeyPasswordByPublicKeyCopyWith<$Res> {
-  factory _$$DerivedKeyPasswordByPublicKeyByPublicKeyImplCopyWith(
-          _$DerivedKeyPasswordByPublicKeyByPublicKeyImpl value,
-          $Res Function(_$DerivedKeyPasswordByPublicKeyByPublicKeyImpl) then) =
-      __$$DerivedKeyPasswordByPublicKeyByPublicKeyImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({PublicKey masterKey, PublicKey publicKey, Password password});
-
-  @override
-  $PublicKeyCopyWith<$Res> get masterKey;
-  @override
-  $PublicKeyCopyWith<$Res> get publicKey;
-  @override
-  $PasswordCopyWith<$Res> get password;
-}
-
-/// @nodoc
-class __$$DerivedKeyPasswordByPublicKeyByPublicKeyImplCopyWithImpl<$Res>
-    extends _$DerivedKeyPasswordByPublicKeyCopyWithImpl<$Res,
-        _$DerivedKeyPasswordByPublicKeyByPublicKeyImpl>
-    implements _$$DerivedKeyPasswordByPublicKeyByPublicKeyImplCopyWith<$Res> {
-  __$$DerivedKeyPasswordByPublicKeyByPublicKeyImplCopyWithImpl(
-      _$DerivedKeyPasswordByPublicKeyByPublicKeyImpl _value,
-      $Res Function(_$DerivedKeyPasswordByPublicKeyByPublicKeyImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of DerivedKeyPasswordByPublicKey
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? masterKey = null,
-    Object? publicKey = null,
-    Object? password = null,
-  }) {
-    return _then(_$DerivedKeyPasswordByPublicKeyByPublicKeyImpl(
-      masterKey: null == masterKey
-          ? _value.masterKey
-          : masterKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      publicKey: null == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as Password,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(fieldRename: FieldRename.snake)
-class _$DerivedKeyPasswordByPublicKeyByPublicKeyImpl
-    implements _DerivedKeyPasswordByPublicKeyByPublicKey {
-  const _$DerivedKeyPasswordByPublicKeyByPublicKeyImpl(
-      {required this.masterKey,
-      required this.publicKey,
-      required this.password});
-
-  factory _$DerivedKeyPasswordByPublicKeyByPublicKeyImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$DerivedKeyPasswordByPublicKeyByPublicKeyImplFromJson(json);
-
-  @override
-  final PublicKey masterKey;
-  @override
-  final PublicKey publicKey;
-  @override
-  final Password password;
-
-  @override
-  String toString() {
-    return 'DerivedKeyPasswordByPublicKey(masterKey: $masterKey, publicKey: $publicKey, password: $password)';
-  }
+  /// Serializes this DerivedKeyPasswordByPublicKey to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DerivedKeyPasswordByPublicKeyByPublicKeyImpl &&
+            other is DerivedKeyPasswordByPublicKey &&
             (identical(other.masterKey, masterKey) ||
                 other.masterKey == masterKey) &&
             (identical(other.publicKey, publicKey) ||
@@ -215,49 +52,232 @@ class _$DerivedKeyPasswordByPublicKeyByPublicKeyImpl
   @override
   int get hashCode => Object.hash(runtimeType, masterKey, publicKey, password);
 
-  /// Create a copy of DerivedKeyPasswordByPublicKey
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DerivedKeyPasswordByPublicKeyByPublicKeyImplCopyWith<
-          _$DerivedKeyPasswordByPublicKeyByPublicKeyImpl>
-      get copyWith =>
-          __$$DerivedKeyPasswordByPublicKeyByPublicKeyImplCopyWithImpl<
-              _$DerivedKeyPasswordByPublicKeyByPublicKeyImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DerivedKeyPasswordByPublicKeyByPublicKeyImplToJson(
-      this,
-    );
+  String toString() {
+    return 'DerivedKeyPasswordByPublicKey(masterKey: $masterKey, publicKey: $publicKey, password: $password)';
   }
 }
 
-abstract class _DerivedKeyPasswordByPublicKeyByPublicKey
+/// @nodoc
+abstract mixin class $DerivedKeyPasswordByPublicKeyCopyWith<$Res> {
+  factory $DerivedKeyPasswordByPublicKeyCopyWith(
+          DerivedKeyPasswordByPublicKey value,
+          $Res Function(DerivedKeyPasswordByPublicKey) _then) =
+      _$DerivedKeyPasswordByPublicKeyCopyWithImpl;
+  @useResult
+  $Res call({PublicKey masterKey, PublicKey publicKey, Password password});
+
+  $PublicKeyCopyWith<$Res> get masterKey;
+  $PublicKeyCopyWith<$Res> get publicKey;
+  $PasswordCopyWith<$Res> get password;
+}
+
+/// @nodoc
+class _$DerivedKeyPasswordByPublicKeyCopyWithImpl<$Res>
+    implements $DerivedKeyPasswordByPublicKeyCopyWith<$Res> {
+  _$DerivedKeyPasswordByPublicKeyCopyWithImpl(this._self, this._then);
+
+  final DerivedKeyPasswordByPublicKey _self;
+  final $Res Function(DerivedKeyPasswordByPublicKey) _then;
+
+  /// Create a copy of DerivedKeyPasswordByPublicKey
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? masterKey = null,
+    Object? publicKey = null,
+    Object? password = null,
+  }) {
+    return _then(_self.copyWith(
+      masterKey: null == masterKey
+          ? _self.masterKey
+          : masterKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      publicKey: null == publicKey
+          ? _self.publicKey
+          : publicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      password: null == password
+          ? _self.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+    ));
+  }
+
+  /// Create a copy of DerivedKeyPasswordByPublicKey
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get masterKey {
+    return $PublicKeyCopyWith<$Res>(_self.masterKey, (value) {
+      return _then(_self.copyWith(masterKey: value));
+    });
+  }
+
+  /// Create a copy of DerivedKeyPasswordByPublicKey
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_self.publicKey, (value) {
+      return _then(_self.copyWith(publicKey: value));
+    });
+  }
+
+  /// Create a copy of DerivedKeyPasswordByPublicKey
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PasswordCopyWith<$Res> get password {
+    return $PasswordCopyWith<$Res>(_self.password, (value) {
+      return _then(_self.copyWith(password: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _DerivedKeyPasswordByPublicKeyByPublicKey
     implements DerivedKeyPasswordByPublicKey {
-  const factory _DerivedKeyPasswordByPublicKeyByPublicKey(
-          {required final PublicKey masterKey,
-          required final PublicKey publicKey,
-          required final Password password}) =
-      _$DerivedKeyPasswordByPublicKeyByPublicKeyImpl;
-
+  const _DerivedKeyPasswordByPublicKeyByPublicKey(
+      {required this.masterKey,
+      required this.publicKey,
+      required this.password});
   factory _DerivedKeyPasswordByPublicKeyByPublicKey.fromJson(
-          Map<String, dynamic> json) =
-      _$DerivedKeyPasswordByPublicKeyByPublicKeyImpl.fromJson;
+          Map<String, dynamic> json) =>
+      _$DerivedKeyPasswordByPublicKeyByPublicKeyFromJson(json);
 
   @override
-  PublicKey get masterKey;
+  final PublicKey masterKey;
   @override
-  PublicKey get publicKey;
+  final PublicKey publicKey;
   @override
-  Password get password;
+  final Password password;
 
   /// Create a copy of DerivedKeyPasswordByPublicKey
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DerivedKeyPasswordByPublicKeyByPublicKeyImplCopyWith<
-          _$DerivedKeyPasswordByPublicKeyByPublicKeyImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWith<
+          _DerivedKeyPasswordByPublicKeyByPublicKey>
+      get copyWith => __$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl<
+          _DerivedKeyPasswordByPublicKeyByPublicKey>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$DerivedKeyPasswordByPublicKeyByPublicKeyToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _DerivedKeyPasswordByPublicKeyByPublicKey &&
+            (identical(other.masterKey, masterKey) ||
+                other.masterKey == masterKey) &&
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey) &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, masterKey, publicKey, password);
+
+  @override
+  String toString() {
+    return 'DerivedKeyPasswordByPublicKey(masterKey: $masterKey, publicKey: $publicKey, password: $password)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWith<$Res>
+    implements $DerivedKeyPasswordByPublicKeyCopyWith<$Res> {
+  factory _$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWith(
+          _DerivedKeyPasswordByPublicKeyByPublicKey value,
+          $Res Function(_DerivedKeyPasswordByPublicKeyByPublicKey) _then) =
+      __$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl;
+  @override
+  @useResult
+  $Res call({PublicKey masterKey, PublicKey publicKey, Password password});
+
+  @override
+  $PublicKeyCopyWith<$Res> get masterKey;
+  @override
+  $PublicKeyCopyWith<$Res> get publicKey;
+  @override
+  $PasswordCopyWith<$Res> get password;
+}
+
+/// @nodoc
+class __$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl<$Res>
+    implements _$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWith<$Res> {
+  __$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl(
+      this._self, this._then);
+
+  final _DerivedKeyPasswordByPublicKeyByPublicKey _self;
+  final $Res Function(_DerivedKeyPasswordByPublicKeyByPublicKey) _then;
+
+  /// Create a copy of DerivedKeyPasswordByPublicKey
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? masterKey = null,
+    Object? publicKey = null,
+    Object? password = null,
+  }) {
+    return _then(_DerivedKeyPasswordByPublicKeyByPublicKey(
+      masterKey: null == masterKey
+          ? _self.masterKey
+          : masterKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      publicKey: null == publicKey
+          ? _self.publicKey
+          : publicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      password: null == password
+          ? _self.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+    ));
+  }
+
+  /// Create a copy of DerivedKeyPasswordByPublicKey
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get masterKey {
+    return $PublicKeyCopyWith<$Res>(_self.masterKey, (value) {
+      return _then(_self.copyWith(masterKey: value));
+    });
+  }
+
+  /// Create a copy of DerivedKeyPasswordByPublicKey
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_self.publicKey, (value) {
+      return _then(_self.copyWith(publicKey: value));
+    });
+  }
+
+  /// Create a copy of DerivedKeyPasswordByPublicKey
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PasswordCopyWith<$Res> get password {
+    return $PasswordCopyWith<$Res>(_self.password, (value) {
+      return _then(_self.copyWith(password: value));
+    });
+  }
+}
+
+// dart format on

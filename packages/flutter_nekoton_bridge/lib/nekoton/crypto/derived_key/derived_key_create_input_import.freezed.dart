@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,11 +10,8 @@ part of 'derived_key_create_input_import.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 DerivedKeyCreateInputImport _$DerivedKeyCreateInputImportFromJson(
     Map<String, dynamic> json) {
   return _DerivedKeyCreateInputImportImport.fromJson(json);
@@ -21,160 +19,27 @@ DerivedKeyCreateInputImport _$DerivedKeyCreateInputImportFromJson(
 
 /// @nodoc
 mixin _$DerivedKeyCreateInputImport {
-  String? get keyName => throw _privateConstructorUsedError;
-  String get phrase => throw _privateConstructorUsedError;
-  Password get password => throw _privateConstructorUsedError;
-
-  /// Serializes this DerivedKeyCreateInputImport to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get keyName;
+  String get phrase;
+  Password get password;
 
   /// Create a copy of DerivedKeyCreateInputImport
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $DerivedKeyCreateInputImportCopyWith<DerivedKeyCreateInputImport>
-      get copyWith => throw _privateConstructorUsedError;
-}
+      get copyWith => _$DerivedKeyCreateInputImportCopyWithImpl<
+              DerivedKeyCreateInputImport>(
+          this as DerivedKeyCreateInputImport, _$identity);
 
-/// @nodoc
-abstract class $DerivedKeyCreateInputImportCopyWith<$Res> {
-  factory $DerivedKeyCreateInputImportCopyWith(
-          DerivedKeyCreateInputImport value,
-          $Res Function(DerivedKeyCreateInputImport) then) =
-      _$DerivedKeyCreateInputImportCopyWithImpl<$Res,
-          DerivedKeyCreateInputImport>;
-  @useResult
-  $Res call({String? keyName, String phrase, Password password});
-
-  $PasswordCopyWith<$Res> get password;
-}
-
-/// @nodoc
-class _$DerivedKeyCreateInputImportCopyWithImpl<$Res,
-        $Val extends DerivedKeyCreateInputImport>
-    implements $DerivedKeyCreateInputImportCopyWith<$Res> {
-  _$DerivedKeyCreateInputImportCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of DerivedKeyCreateInputImport
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? keyName = freezed,
-    Object? phrase = null,
-    Object? password = null,
-  }) {
-    return _then(_value.copyWith(
-      keyName: freezed == keyName
-          ? _value.keyName
-          : keyName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phrase: null == phrase
-          ? _value.phrase
-          : phrase // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as Password,
-    ) as $Val);
-  }
-
-  /// Create a copy of DerivedKeyCreateInputImport
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PasswordCopyWith<$Res> get password {
-    return $PasswordCopyWith<$Res>(_value.password, (value) {
-      return _then(_value.copyWith(password: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$DerivedKeyCreateInputImportImportImplCopyWith<$Res>
-    implements $DerivedKeyCreateInputImportCopyWith<$Res> {
-  factory _$$DerivedKeyCreateInputImportImportImplCopyWith(
-          _$DerivedKeyCreateInputImportImportImpl value,
-          $Res Function(_$DerivedKeyCreateInputImportImportImpl) then) =
-      __$$DerivedKeyCreateInputImportImportImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String? keyName, String phrase, Password password});
-
-  @override
-  $PasswordCopyWith<$Res> get password;
-}
-
-/// @nodoc
-class __$$DerivedKeyCreateInputImportImportImplCopyWithImpl<$Res>
-    extends _$DerivedKeyCreateInputImportCopyWithImpl<$Res,
-        _$DerivedKeyCreateInputImportImportImpl>
-    implements _$$DerivedKeyCreateInputImportImportImplCopyWith<$Res> {
-  __$$DerivedKeyCreateInputImportImportImplCopyWithImpl(
-      _$DerivedKeyCreateInputImportImportImpl _value,
-      $Res Function(_$DerivedKeyCreateInputImportImportImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of DerivedKeyCreateInputImport
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? keyName = freezed,
-    Object? phrase = null,
-    Object? password = null,
-  }) {
-    return _then(_$DerivedKeyCreateInputImportImportImpl(
-      keyName: freezed == keyName
-          ? _value.keyName
-          : keyName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phrase: null == phrase
-          ? _value.phrase
-          : phrase // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as Password,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(fieldRename: FieldRename.snake)
-class _$DerivedKeyCreateInputImportImportImpl
-    implements _DerivedKeyCreateInputImportImport {
-  const _$DerivedKeyCreateInputImportImportImpl(
-      {this.keyName, required this.phrase, required this.password});
-
-  factory _$DerivedKeyCreateInputImportImportImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$DerivedKeyCreateInputImportImportImplFromJson(json);
-
-  @override
-  final String? keyName;
-  @override
-  final String phrase;
-  @override
-  final Password password;
-
-  @override
-  String toString() {
-    return 'DerivedKeyCreateInputImport(keyName: $keyName, phrase: $phrase, password: $password)';
-  }
+  /// Serializes this DerivedKeyCreateInputImport to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DerivedKeyCreateInputImportImportImpl &&
+            other is DerivedKeyCreateInputImport &&
             (identical(other.keyName, keyName) || other.keyName == keyName) &&
             (identical(other.phrase, phrase) || other.phrase == phrase) &&
             (identical(other.password, password) ||
@@ -185,48 +50,181 @@ class _$DerivedKeyCreateInputImportImportImpl
   @override
   int get hashCode => Object.hash(runtimeType, keyName, phrase, password);
 
-  /// Create a copy of DerivedKeyCreateInputImport
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DerivedKeyCreateInputImportImportImplCopyWith<
-          _$DerivedKeyCreateInputImportImportImpl>
-      get copyWith => __$$DerivedKeyCreateInputImportImportImplCopyWithImpl<
-          _$DerivedKeyCreateInputImportImportImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DerivedKeyCreateInputImportImportImplToJson(
-      this,
-    );
+  String toString() {
+    return 'DerivedKeyCreateInputImport(keyName: $keyName, phrase: $phrase, password: $password)';
   }
 }
 
-abstract class _DerivedKeyCreateInputImportImport
+/// @nodoc
+abstract mixin class $DerivedKeyCreateInputImportCopyWith<$Res> {
+  factory $DerivedKeyCreateInputImportCopyWith(
+          DerivedKeyCreateInputImport value,
+          $Res Function(DerivedKeyCreateInputImport) _then) =
+      _$DerivedKeyCreateInputImportCopyWithImpl;
+  @useResult
+  $Res call({String? keyName, String phrase, Password password});
+
+  $PasswordCopyWith<$Res> get password;
+}
+
+/// @nodoc
+class _$DerivedKeyCreateInputImportCopyWithImpl<$Res>
+    implements $DerivedKeyCreateInputImportCopyWith<$Res> {
+  _$DerivedKeyCreateInputImportCopyWithImpl(this._self, this._then);
+
+  final DerivedKeyCreateInputImport _self;
+  final $Res Function(DerivedKeyCreateInputImport) _then;
+
+  /// Create a copy of DerivedKeyCreateInputImport
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? keyName = freezed,
+    Object? phrase = null,
+    Object? password = null,
+  }) {
+    return _then(_self.copyWith(
+      keyName: freezed == keyName
+          ? _self.keyName
+          : keyName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phrase: null == phrase
+          ? _self.phrase
+          : phrase // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _self.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+    ));
+  }
+
+  /// Create a copy of DerivedKeyCreateInputImport
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PasswordCopyWith<$Res> get password {
+    return $PasswordCopyWith<$Res>(_self.password, (value) {
+      return _then(_self.copyWith(password: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _DerivedKeyCreateInputImportImport
     implements DerivedKeyCreateInputImport {
-  const factory _DerivedKeyCreateInputImportImport(
-          {final String? keyName,
-          required final String phrase,
-          required final Password password}) =
-      _$DerivedKeyCreateInputImportImportImpl;
-
+  const _DerivedKeyCreateInputImportImport(
+      {this.keyName, required this.phrase, required this.password});
   factory _DerivedKeyCreateInputImportImport.fromJson(
-          Map<String, dynamic> json) =
-      _$DerivedKeyCreateInputImportImportImpl.fromJson;
+          Map<String, dynamic> json) =>
+      _$DerivedKeyCreateInputImportImportFromJson(json);
 
   @override
-  String? get keyName;
+  final String? keyName;
   @override
-  String get phrase;
+  final String phrase;
   @override
-  Password get password;
+  final Password password;
 
   /// Create a copy of DerivedKeyCreateInputImport
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DerivedKeyCreateInputImportImportImplCopyWith<
-          _$DerivedKeyCreateInputImportImportImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$DerivedKeyCreateInputImportImportCopyWith<
+          _DerivedKeyCreateInputImportImport>
+      get copyWith => __$DerivedKeyCreateInputImportImportCopyWithImpl<
+          _DerivedKeyCreateInputImportImport>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$DerivedKeyCreateInputImportImportToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _DerivedKeyCreateInputImportImport &&
+            (identical(other.keyName, keyName) || other.keyName == keyName) &&
+            (identical(other.phrase, phrase) || other.phrase == phrase) &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, keyName, phrase, password);
+
+  @override
+  String toString() {
+    return 'DerivedKeyCreateInputImport(keyName: $keyName, phrase: $phrase, password: $password)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$DerivedKeyCreateInputImportImportCopyWith<$Res>
+    implements $DerivedKeyCreateInputImportCopyWith<$Res> {
+  factory _$DerivedKeyCreateInputImportImportCopyWith(
+          _DerivedKeyCreateInputImportImport value,
+          $Res Function(_DerivedKeyCreateInputImportImport) _then) =
+      __$DerivedKeyCreateInputImportImportCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String? keyName, String phrase, Password password});
+
+  @override
+  $PasswordCopyWith<$Res> get password;
+}
+
+/// @nodoc
+class __$DerivedKeyCreateInputImportImportCopyWithImpl<$Res>
+    implements _$DerivedKeyCreateInputImportImportCopyWith<$Res> {
+  __$DerivedKeyCreateInputImportImportCopyWithImpl(this._self, this._then);
+
+  final _DerivedKeyCreateInputImportImport _self;
+  final $Res Function(_DerivedKeyCreateInputImportImport) _then;
+
+  /// Create a copy of DerivedKeyCreateInputImport
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? keyName = freezed,
+    Object? phrase = null,
+    Object? password = null,
+  }) {
+    return _then(_DerivedKeyCreateInputImportImport(
+      keyName: freezed == keyName
+          ? _self.keyName
+          : keyName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phrase: null == phrase
+          ? _self.phrase
+          : phrase // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _self.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+    ));
+  }
+
+  /// Create a copy of DerivedKeyCreateInputImport
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PasswordCopyWith<$Res> get password {
+    return $PasswordCopyWith<$Res>(_self.password, (value) {
+      return _then(_self.copyWith(password: value));
+    });
+  }
+}
+
+// dart format on

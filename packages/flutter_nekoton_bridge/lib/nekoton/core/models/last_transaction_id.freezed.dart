@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,153 +10,32 @@ part of 'last_transaction_id.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LastTransactionId _$LastTransactionIdFromJson(Map<String, dynamic> json) {
-  return _LastTransactionId.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LastTransactionId {
-  bool get isExact => throw _privateConstructorUsedError;
-  String get lt => throw _privateConstructorUsedError;
+  bool get isExact;
+  String get lt;
   @JsonKey(includeIfNull: false)
-  String? get hash => throw _privateConstructorUsedError;
-
-  /// Serializes this LastTransactionId to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get hash;
 
   /// Create a copy of LastTransactionId
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $LastTransactionIdCopyWith<LastTransactionId> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$LastTransactionIdCopyWithImpl<LastTransactionId>(
+          this as LastTransactionId, _$identity);
 
-/// @nodoc
-abstract class $LastTransactionIdCopyWith<$Res> {
-  factory $LastTransactionIdCopyWith(
-          LastTransactionId value, $Res Function(LastTransactionId) then) =
-      _$LastTransactionIdCopyWithImpl<$Res, LastTransactionId>;
-  @useResult
-  $Res call(
-      {bool isExact, String lt, @JsonKey(includeIfNull: false) String? hash});
-}
-
-/// @nodoc
-class _$LastTransactionIdCopyWithImpl<$Res, $Val extends LastTransactionId>
-    implements $LastTransactionIdCopyWith<$Res> {
-  _$LastTransactionIdCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of LastTransactionId
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? isExact = null,
-    Object? lt = null,
-    Object? hash = freezed,
-  }) {
-    return _then(_value.copyWith(
-      isExact: null == isExact
-          ? _value.isExact
-          : isExact // ignore: cast_nullable_to_non_nullable
-              as bool,
-      lt: null == lt
-          ? _value.lt
-          : lt // ignore: cast_nullable_to_non_nullable
-              as String,
-      hash: freezed == hash
-          ? _value.hash
-          : hash // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$LastTransactionIdImplCopyWith<$Res>
-    implements $LastTransactionIdCopyWith<$Res> {
-  factory _$$LastTransactionIdImplCopyWith(_$LastTransactionIdImpl value,
-          $Res Function(_$LastTransactionIdImpl) then) =
-      __$$LastTransactionIdImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {bool isExact, String lt, @JsonKey(includeIfNull: false) String? hash});
-}
-
-/// @nodoc
-class __$$LastTransactionIdImplCopyWithImpl<$Res>
-    extends _$LastTransactionIdCopyWithImpl<$Res, _$LastTransactionIdImpl>
-    implements _$$LastTransactionIdImplCopyWith<$Res> {
-  __$$LastTransactionIdImplCopyWithImpl(_$LastTransactionIdImpl _value,
-      $Res Function(_$LastTransactionIdImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of LastTransactionId
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? isExact = null,
-    Object? lt = null,
-    Object? hash = freezed,
-  }) {
-    return _then(_$LastTransactionIdImpl(
-      isExact: null == isExact
-          ? _value.isExact
-          : isExact // ignore: cast_nullable_to_non_nullable
-              as bool,
-      lt: null == lt
-          ? _value.lt
-          : lt // ignore: cast_nullable_to_non_nullable
-              as String,
-      hash: freezed == hash
-          ? _value.hash
-          : hash // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$LastTransactionIdImpl implements _LastTransactionId {
-  const _$LastTransactionIdImpl(
-      {required this.isExact,
-      required this.lt,
-      @JsonKey(includeIfNull: false) this.hash});
-
-  factory _$LastTransactionIdImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LastTransactionIdImplFromJson(json);
-
-  @override
-  final bool isExact;
-  @override
-  final String lt;
-  @override
-  @JsonKey(includeIfNull: false)
-  final String? hash;
-
-  @override
-  String toString() {
-    return 'LastTransactionId(isExact: $isExact, lt: $lt, hash: $hash)';
-  }
+  /// Serializes this LastTransactionId to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LastTransactionIdImpl &&
+            other is LastTransactionId &&
             (identical(other.isExact, isExact) || other.isExact == isExact) &&
             (identical(other.lt, lt) || other.lt == lt) &&
             (identical(other.hash, hash) || other.hash == hash));
@@ -165,45 +45,153 @@ class _$LastTransactionIdImpl implements _LastTransactionId {
   @override
   int get hashCode => Object.hash(runtimeType, isExact, lt, hash);
 
-  /// Create a copy of LastTransactionId
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LastTransactionIdImplCopyWith<_$LastTransactionIdImpl> get copyWith =>
-      __$$LastTransactionIdImplCopyWithImpl<_$LastTransactionIdImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LastTransactionIdImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LastTransactionId(isExact: $isExact, lt: $lt, hash: $hash)';
   }
 }
 
-abstract class _LastTransactionId implements LastTransactionId {
-  const factory _LastTransactionId(
-          {required final bool isExact,
-          required final String lt,
-          @JsonKey(includeIfNull: false) final String? hash}) =
-      _$LastTransactionIdImpl;
+/// @nodoc
+abstract mixin class $LastTransactionIdCopyWith<$Res> {
+  factory $LastTransactionIdCopyWith(
+          LastTransactionId value, $Res Function(LastTransactionId) _then) =
+      _$LastTransactionIdCopyWithImpl;
+  @useResult
+  $Res call(
+      {bool isExact, String lt, @JsonKey(includeIfNull: false) String? hash});
+}
 
-  factory _LastTransactionId.fromJson(Map<String, dynamic> json) =
-      _$LastTransactionIdImpl.fromJson;
+/// @nodoc
+class _$LastTransactionIdCopyWithImpl<$Res>
+    implements $LastTransactionIdCopyWith<$Res> {
+  _$LastTransactionIdCopyWithImpl(this._self, this._then);
+
+  final LastTransactionId _self;
+  final $Res Function(LastTransactionId) _then;
+
+  /// Create a copy of LastTransactionId
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isExact = null,
+    Object? lt = null,
+    Object? hash = freezed,
+  }) {
+    return _then(_self.copyWith(
+      isExact: null == isExact
+          ? _self.isExact
+          : isExact // ignore: cast_nullable_to_non_nullable
+              as bool,
+      lt: null == lt
+          ? _self.lt
+          : lt // ignore: cast_nullable_to_non_nullable
+              as String,
+      hash: freezed == hash
+          ? _self.hash
+          : hash // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _LastTransactionId implements LastTransactionId {
+  const _LastTransactionId(
+      {required this.isExact,
+      required this.lt,
+      @JsonKey(includeIfNull: false) this.hash});
+  factory _LastTransactionId.fromJson(Map<String, dynamic> json) =>
+      _$LastTransactionIdFromJson(json);
 
   @override
-  bool get isExact;
+  final bool isExact;
   @override
-  String get lt;
+  final String lt;
   @override
   @JsonKey(includeIfNull: false)
-  String? get hash;
+  final String? hash;
 
   /// Create a copy of LastTransactionId
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LastTransactionIdImplCopyWith<_$LastTransactionIdImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$LastTransactionIdCopyWith<_LastTransactionId> get copyWith =>
+      __$LastTransactionIdCopyWithImpl<_LastTransactionId>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LastTransactionIdToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _LastTransactionId &&
+            (identical(other.isExact, isExact) || other.isExact == isExact) &&
+            (identical(other.lt, lt) || other.lt == lt) &&
+            (identical(other.hash, hash) || other.hash == hash));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, isExact, lt, hash);
+
+  @override
+  String toString() {
+    return 'LastTransactionId(isExact: $isExact, lt: $lt, hash: $hash)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$LastTransactionIdCopyWith<$Res>
+    implements $LastTransactionIdCopyWith<$Res> {
+  factory _$LastTransactionIdCopyWith(
+          _LastTransactionId value, $Res Function(_LastTransactionId) _then) =
+      __$LastTransactionIdCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {bool isExact, String lt, @JsonKey(includeIfNull: false) String? hash});
+}
+
+/// @nodoc
+class __$LastTransactionIdCopyWithImpl<$Res>
+    implements _$LastTransactionIdCopyWith<$Res> {
+  __$LastTransactionIdCopyWithImpl(this._self, this._then);
+
+  final _LastTransactionId _self;
+  final $Res Function(_LastTransactionId) _then;
+
+  /// Create a copy of LastTransactionId
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? isExact = null,
+    Object? lt = null,
+    Object? hash = freezed,
+  }) {
+    return _then(_LastTransactionId(
+      isExact: null == isExact
+          ? _self.isExact
+          : isExact // ignore: cast_nullable_to_non_nullable
+              as bool,
+      lt: null == lt
+          ? _self.lt
+          : lt // ignore: cast_nullable_to_non_nullable
+              as String,
+      hash: freezed == hash
+          ? _self.hash
+          : hash // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+// dart format on

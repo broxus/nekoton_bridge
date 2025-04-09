@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,11 +10,8 @@ part of 'password_cache_behavior.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 PasswordCacheBehavior _$PasswordCacheBehaviorFromJson(
     Map<String, dynamic> json) {
   switch (json['type']) {
@@ -32,104 +30,99 @@ PasswordCacheBehavior _$PasswordCacheBehaviorFromJson(
 
 /// @nodoc
 mixin _$PasswordCacheBehavior {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int data) store,
-    required TResult Function() remove,
-    required TResult Function() nop,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int data)? store,
-    TResult? Function()? remove,
-    TResult? Function()? nop,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int data)? store,
-    TResult Function()? remove,
-    TResult Function()? nop,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Store value) store,
-    required TResult Function(_Remove value) remove,
-    required TResult Function(_Nop value) nop,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Store value)? store,
-    TResult? Function(_Remove value)? remove,
-    TResult? Function(_Nop value)? nop,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Store value)? store,
-    TResult Function(_Remove value)? remove,
-    TResult Function(_Nop value)? nop,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-
   /// Serializes this PasswordCacheBehavior to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is PasswordCacheBehavior);
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'PasswordCacheBehavior()';
+  }
 }
 
 /// @nodoc
-abstract class $PasswordCacheBehaviorCopyWith<$Res> {
-  factory $PasswordCacheBehaviorCopyWith(PasswordCacheBehavior value,
-          $Res Function(PasswordCacheBehavior) then) =
-      _$PasswordCacheBehaviorCopyWithImpl<$Res, PasswordCacheBehavior>;
+class $PasswordCacheBehaviorCopyWith<$Res> {
+  $PasswordCacheBehaviorCopyWith(
+      PasswordCacheBehavior _, $Res Function(PasswordCacheBehavior) __);
 }
 
 /// @nodoc
-class _$PasswordCacheBehaviorCopyWithImpl<$Res,
-        $Val extends PasswordCacheBehavior>
-    implements $PasswordCacheBehaviorCopyWith<$Res> {
-  _$PasswordCacheBehaviorCopyWithImpl(this._value, this._then);
+@JsonSerializable()
+class _Store implements PasswordCacheBehavior {
+  const _Store(this.data, {final String? $type}) : $type = $type ?? 'store';
+  factory _Store.fromJson(Map<String, dynamic> json) => _$StoreFromJson(json);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final int data;
+
+  @JsonKey(name: 'type')
+  final String $type;
 
   /// Create a copy of PasswordCacheBehavior
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StoreCopyWith<_Store> get copyWith =>
+      __$StoreCopyWithImpl<_Store>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StoreToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Store &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'PasswordCacheBehavior.store(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$StoreImplCopyWith<$Res> {
-  factory _$$StoreImplCopyWith(
-          _$StoreImpl value, $Res Function(_$StoreImpl) then) =
-      __$$StoreImplCopyWithImpl<$Res>;
+abstract mixin class _$StoreCopyWith<$Res>
+    implements $PasswordCacheBehaviorCopyWith<$Res> {
+  factory _$StoreCopyWith(_Store value, $Res Function(_Store) _then) =
+      __$StoreCopyWithImpl;
   @useResult
   $Res call({int data});
 }
 
 /// @nodoc
-class __$$StoreImplCopyWithImpl<$Res>
-    extends _$PasswordCacheBehaviorCopyWithImpl<$Res, _$StoreImpl>
-    implements _$$StoreImplCopyWith<$Res> {
-  __$$StoreImplCopyWithImpl(
-      _$StoreImpl _value, $Res Function(_$StoreImpl) _then)
-      : super(_value, _then);
+class __$StoreCopyWithImpl<$Res> implements _$StoreCopyWith<$Res> {
+  __$StoreCopyWithImpl(this._self, this._then);
+
+  final _Store _self;
+  final $Res Function(_Store) _then;
 
   /// Create a copy of PasswordCacheBehavior
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$StoreImpl(
+    return _then(_Store(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as int,
     ));
@@ -138,298 +131,56 @@ class __$$StoreImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$StoreImpl implements _Store {
-  const _$StoreImpl(this.data, {final String? $type})
-      : $type = $type ?? 'store';
-
-  factory _$StoreImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StoreImplFromJson(json);
-
-  @override
-  final int data;
+class _Remove implements PasswordCacheBehavior {
+  const _Remove({final String? $type}) : $type = $type ?? 'remove';
+  factory _Remove.fromJson(Map<String, dynamic> json) => _$RemoveFromJson(json);
 
   @JsonKey(name: 'type')
   final String $type;
 
   @override
-  String toString() {
-    return 'PasswordCacheBehavior.store(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$RemoveToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$StoreImpl &&
-            (identical(other.data, data) || other.data == data));
+        (other.runtimeType == runtimeType && other is _Remove);
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of PasswordCacheBehavior
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$StoreImplCopyWith<_$StoreImpl> get copyWith =>
-      __$$StoreImplCopyWithImpl<_$StoreImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int data) store,
-    required TResult Function() remove,
-    required TResult Function() nop,
-  }) {
-    return store(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int data)? store,
-    TResult? Function()? remove,
-    TResult? Function()? nop,
-  }) {
-    return store?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int data)? store,
-    TResult Function()? remove,
-    TResult Function()? nop,
-    required TResult orElse(),
-  }) {
-    if (store != null) {
-      return store(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Store value) store,
-    required TResult Function(_Remove value) remove,
-    required TResult Function(_Nop value) nop,
-  }) {
-    return store(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Store value)? store,
-    TResult? Function(_Remove value)? remove,
-    TResult? Function(_Nop value)? nop,
-  }) {
-    return store?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Store value)? store,
-    TResult Function(_Remove value)? remove,
-    TResult Function(_Nop value)? nop,
-    required TResult orElse(),
-  }) {
-    if (store != null) {
-      return store(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StoreImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Store implements PasswordCacheBehavior {
-  const factory _Store(final int data) = _$StoreImpl;
-
-  factory _Store.fromJson(Map<String, dynamic> json) = _$StoreImpl.fromJson;
-
-  int get data;
-
-  /// Create a copy of PasswordCacheBehavior
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StoreImplCopyWith<_$StoreImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$RemoveImplCopyWith<$Res> {
-  factory _$$RemoveImplCopyWith(
-          _$RemoveImpl value, $Res Function(_$RemoveImpl) then) =
-      __$$RemoveImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$RemoveImplCopyWithImpl<$Res>
-    extends _$PasswordCacheBehaviorCopyWithImpl<$Res, _$RemoveImpl>
-    implements _$$RemoveImplCopyWith<$Res> {
-  __$$RemoveImplCopyWithImpl(
-      _$RemoveImpl _value, $Res Function(_$RemoveImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of PasswordCacheBehavior
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$RemoveImpl implements _Remove {
-  const _$RemoveImpl({final String? $type}) : $type = $type ?? 'remove';
-
-  factory _$RemoveImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RemoveImplFromJson(json);
-
-  @JsonKey(name: 'type')
-  final String $type;
+  int get hashCode => runtimeType.hashCode;
 
   @override
   String toString() {
     return 'PasswordCacheBehavior.remove()';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$RemoveImpl);
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int data) store,
-    required TResult Function() remove,
-    required TResult Function() nop,
-  }) {
-    return remove();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int data)? store,
-    TResult? Function()? remove,
-    TResult? Function()? nop,
-  }) {
-    return remove?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int data)? store,
-    TResult Function()? remove,
-    TResult Function()? nop,
-    required TResult orElse(),
-  }) {
-    if (remove != null) {
-      return remove();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Store value) store,
-    required TResult Function(_Remove value) remove,
-    required TResult Function(_Nop value) nop,
-  }) {
-    return remove(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Store value)? store,
-    TResult? Function(_Remove value)? remove,
-    TResult? Function(_Nop value)? nop,
-  }) {
-    return remove?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Store value)? store,
-    TResult Function(_Remove value)? remove,
-    TResult Function(_Nop value)? nop,
-    required TResult orElse(),
-  }) {
-    if (remove != null) {
-      return remove(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RemoveImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Remove implements PasswordCacheBehavior {
-  const factory _Remove() = _$RemoveImpl;
-
-  factory _Remove.fromJson(Map<String, dynamic> json) = _$RemoveImpl.fromJson;
-}
-
-/// @nodoc
-abstract class _$$NopImplCopyWith<$Res> {
-  factory _$$NopImplCopyWith(_$NopImpl value, $Res Function(_$NopImpl) then) =
-      __$$NopImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$NopImplCopyWithImpl<$Res>
-    extends _$PasswordCacheBehaviorCopyWithImpl<$Res, _$NopImpl>
-    implements _$$NopImplCopyWith<$Res> {
-  __$$NopImplCopyWithImpl(_$NopImpl _value, $Res Function(_$NopImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of PasswordCacheBehavior
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$NopImpl implements _Nop {
-  const _$NopImpl({final String? $type}) : $type = $type ?? 'nop';
-
-  factory _$NopImpl.fromJson(Map<String, dynamic> json) =>
-      _$$NopImplFromJson(json);
+class _Nop implements PasswordCacheBehavior {
+  const _Nop({final String? $type}) : $type = $type ?? 'nop';
+  factory _Nop.fromJson(Map<String, dynamic> json) => _$NopFromJson(json);
 
   @JsonKey(name: 'type')
   final String $type;
 
   @override
-  String toString() {
-    return 'PasswordCacheBehavior.nop()';
+  Map<String, dynamic> toJson() {
+    return _$NopToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NopImpl);
+        (other.runtimeType == runtimeType && other is _Nop);
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -437,83 +188,9 @@ class _$NopImpl implements _Nop {
   int get hashCode => runtimeType.hashCode;
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int data) store,
-    required TResult Function() remove,
-    required TResult Function() nop,
-  }) {
-    return nop();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int data)? store,
-    TResult? Function()? remove,
-    TResult? Function()? nop,
-  }) {
-    return nop?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int data)? store,
-    TResult Function()? remove,
-    TResult Function()? nop,
-    required TResult orElse(),
-  }) {
-    if (nop != null) {
-      return nop();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Store value) store,
-    required TResult Function(_Remove value) remove,
-    required TResult Function(_Nop value) nop,
-  }) {
-    return nop(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Store value)? store,
-    TResult? Function(_Remove value)? remove,
-    TResult? Function(_Nop value)? nop,
-  }) {
-    return nop?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Store value)? store,
-    TResult Function(_Remove value)? remove,
-    TResult Function(_Nop value)? nop,
-    required TResult orElse(),
-  }) {
-    if (nop != null) {
-      return nop(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$NopImplToJson(
-      this,
-    );
+  String toString() {
+    return 'PasswordCacheBehavior.nop()';
   }
 }
 
-abstract class _Nop implements PasswordCacheBehavior {
-  const factory _Nop() = _$NopImpl;
-
-  factory _Nop.fromJson(Map<String, dynamic> json) = _$NopImpl.fromJson;
-}
+// dart format on

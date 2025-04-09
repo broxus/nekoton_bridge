@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,225 +10,32 @@ part of 'existing_wallet_info.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ExistingWalletInfo _$ExistingWalletInfoFromJson(Map<String, dynamic> json) {
-  return _ExistingWalletInfo.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ExistingWalletInfo {
-  Address get address => throw _privateConstructorUsedError;
-  PublicKey get publicKey => throw _privateConstructorUsedError;
-  WalletType get walletType => throw _privateConstructorUsedError;
-  ContractState get contractState => throw _privateConstructorUsedError;
-
-  /// Serializes this ExistingWalletInfo to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Address get address;
+  PublicKey get publicKey;
+  WalletType get walletType;
+  ContractState get contractState;
 
   /// Create a copy of ExistingWalletInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $ExistingWalletInfoCopyWith<ExistingWalletInfo> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$ExistingWalletInfoCopyWithImpl<ExistingWalletInfo>(
+          this as ExistingWalletInfo, _$identity);
 
-/// @nodoc
-abstract class $ExistingWalletInfoCopyWith<$Res> {
-  factory $ExistingWalletInfoCopyWith(
-          ExistingWalletInfo value, $Res Function(ExistingWalletInfo) then) =
-      _$ExistingWalletInfoCopyWithImpl<$Res, ExistingWalletInfo>;
-  @useResult
-  $Res call(
-      {Address address,
-      PublicKey publicKey,
-      WalletType walletType,
-      ContractState contractState});
-
-  $AddressCopyWith<$Res> get address;
-  $PublicKeyCopyWith<$Res> get publicKey;
-  $WalletTypeCopyWith<$Res> get walletType;
-  $ContractStateCopyWith<$Res> get contractState;
-}
-
-/// @nodoc
-class _$ExistingWalletInfoCopyWithImpl<$Res, $Val extends ExistingWalletInfo>
-    implements $ExistingWalletInfoCopyWith<$Res> {
-  _$ExistingWalletInfoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ExistingWalletInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? address = null,
-    Object? publicKey = null,
-    Object? walletType = null,
-    Object? contractState = null,
-  }) {
-    return _then(_value.copyWith(
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as Address,
-      publicKey: null == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      walletType: null == walletType
-          ? _value.walletType
-          : walletType // ignore: cast_nullable_to_non_nullable
-              as WalletType,
-      contractState: null == contractState
-          ? _value.contractState
-          : contractState // ignore: cast_nullable_to_non_nullable
-              as ContractState,
-    ) as $Val);
-  }
-
-  /// Create a copy of ExistingWalletInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res> get address {
-    return $AddressCopyWith<$Res>(_value.address, (value) {
-      return _then(_value.copyWith(address: value) as $Val);
-    });
-  }
-
-  /// Create a copy of ExistingWalletInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get publicKey {
-    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
-      return _then(_value.copyWith(publicKey: value) as $Val);
-    });
-  }
-
-  /// Create a copy of ExistingWalletInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $WalletTypeCopyWith<$Res> get walletType {
-    return $WalletTypeCopyWith<$Res>(_value.walletType, (value) {
-      return _then(_value.copyWith(walletType: value) as $Val);
-    });
-  }
-
-  /// Create a copy of ExistingWalletInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ContractStateCopyWith<$Res> get contractState {
-    return $ContractStateCopyWith<$Res>(_value.contractState, (value) {
-      return _then(_value.copyWith(contractState: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$ExistingWalletInfoImplCopyWith<$Res>
-    implements $ExistingWalletInfoCopyWith<$Res> {
-  factory _$$ExistingWalletInfoImplCopyWith(_$ExistingWalletInfoImpl value,
-          $Res Function(_$ExistingWalletInfoImpl) then) =
-      __$$ExistingWalletInfoImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {Address address,
-      PublicKey publicKey,
-      WalletType walletType,
-      ContractState contractState});
-
-  @override
-  $AddressCopyWith<$Res> get address;
-  @override
-  $PublicKeyCopyWith<$Res> get publicKey;
-  @override
-  $WalletTypeCopyWith<$Res> get walletType;
-  @override
-  $ContractStateCopyWith<$Res> get contractState;
-}
-
-/// @nodoc
-class __$$ExistingWalletInfoImplCopyWithImpl<$Res>
-    extends _$ExistingWalletInfoCopyWithImpl<$Res, _$ExistingWalletInfoImpl>
-    implements _$$ExistingWalletInfoImplCopyWith<$Res> {
-  __$$ExistingWalletInfoImplCopyWithImpl(_$ExistingWalletInfoImpl _value,
-      $Res Function(_$ExistingWalletInfoImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ExistingWalletInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? address = null,
-    Object? publicKey = null,
-    Object? walletType = null,
-    Object? contractState = null,
-  }) {
-    return _then(_$ExistingWalletInfoImpl(
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as Address,
-      publicKey: null == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      walletType: null == walletType
-          ? _value.walletType
-          : walletType // ignore: cast_nullable_to_non_nullable
-              as WalletType,
-      contractState: null == contractState
-          ? _value.contractState
-          : contractState // ignore: cast_nullable_to_non_nullable
-              as ContractState,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ExistingWalletInfoImpl implements _ExistingWalletInfo {
-  const _$ExistingWalletInfoImpl(
-      {required this.address,
-      required this.publicKey,
-      required this.walletType,
-      required this.contractState});
-
-  factory _$ExistingWalletInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ExistingWalletInfoImplFromJson(json);
-
-  @override
-  final Address address;
-  @override
-  final PublicKey publicKey;
-  @override
-  final WalletType walletType;
-  @override
-  final ContractState contractState;
-
-  @override
-  String toString() {
-    return 'ExistingWalletInfo(address: $address, publicKey: $publicKey, walletType: $walletType, contractState: $contractState)';
-  }
+  /// Serializes this ExistingWalletInfo to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ExistingWalletInfoImpl &&
+            other is ExistingWalletInfo &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey) &&
@@ -242,46 +50,270 @@ class _$ExistingWalletInfoImpl implements _ExistingWalletInfo {
   int get hashCode =>
       Object.hash(runtimeType, address, publicKey, walletType, contractState);
 
-  /// Create a copy of ExistingWalletInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ExistingWalletInfoImplCopyWith<_$ExistingWalletInfoImpl> get copyWith =>
-      __$$ExistingWalletInfoImplCopyWithImpl<_$ExistingWalletInfoImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ExistingWalletInfoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ExistingWalletInfo(address: $address, publicKey: $publicKey, walletType: $walletType, contractState: $contractState)';
   }
 }
 
-abstract class _ExistingWalletInfo implements ExistingWalletInfo {
-  const factory _ExistingWalletInfo(
-      {required final Address address,
-      required final PublicKey publicKey,
-      required final WalletType walletType,
-      required final ContractState contractState}) = _$ExistingWalletInfoImpl;
+/// @nodoc
+abstract mixin class $ExistingWalletInfoCopyWith<$Res> {
+  factory $ExistingWalletInfoCopyWith(
+          ExistingWalletInfo value, $Res Function(ExistingWalletInfo) _then) =
+      _$ExistingWalletInfoCopyWithImpl;
+  @useResult
+  $Res call(
+      {Address address,
+      PublicKey publicKey,
+      WalletType walletType,
+      ContractState contractState});
 
-  factory _ExistingWalletInfo.fromJson(Map<String, dynamic> json) =
-      _$ExistingWalletInfoImpl.fromJson;
+  $AddressCopyWith<$Res> get address;
+  $PublicKeyCopyWith<$Res> get publicKey;
+  $WalletTypeCopyWith<$Res> get walletType;
+  $ContractStateCopyWith<$Res> get contractState;
+}
+
+/// @nodoc
+class _$ExistingWalletInfoCopyWithImpl<$Res>
+    implements $ExistingWalletInfoCopyWith<$Res> {
+  _$ExistingWalletInfoCopyWithImpl(this._self, this._then);
+
+  final ExistingWalletInfo _self;
+  final $Res Function(ExistingWalletInfo) _then;
+
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? address = null,
+    Object? publicKey = null,
+    Object? walletType = null,
+    Object? contractState = null,
+  }) {
+    return _then(_self.copyWith(
+      address: null == address
+          ? _self.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as Address,
+      publicKey: null == publicKey
+          ? _self.publicKey
+          : publicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      walletType: null == walletType
+          ? _self.walletType
+          : walletType // ignore: cast_nullable_to_non_nullable
+              as WalletType,
+      contractState: null == contractState
+          ? _self.contractState
+          : contractState // ignore: cast_nullable_to_non_nullable
+              as ContractState,
+    ));
+  }
+
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get address {
+    return $AddressCopyWith<$Res>(_self.address, (value) {
+      return _then(_self.copyWith(address: value));
+    });
+  }
+
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_self.publicKey, (value) {
+      return _then(_self.copyWith(publicKey: value));
+    });
+  }
+
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $WalletTypeCopyWith<$Res> get walletType {
+    return $WalletTypeCopyWith<$Res>(_self.walletType, (value) {
+      return _then(_self.copyWith(walletType: value));
+    });
+  }
+
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ContractStateCopyWith<$Res> get contractState {
+    return $ContractStateCopyWith<$Res>(_self.contractState, (value) {
+      return _then(_self.copyWith(contractState: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _ExistingWalletInfo implements ExistingWalletInfo {
+  const _ExistingWalletInfo(
+      {required this.address,
+      required this.publicKey,
+      required this.walletType,
+      required this.contractState});
+  factory _ExistingWalletInfo.fromJson(Map<String, dynamic> json) =>
+      _$ExistingWalletInfoFromJson(json);
 
   @override
-  Address get address;
+  final Address address;
   @override
-  PublicKey get publicKey;
+  final PublicKey publicKey;
   @override
-  WalletType get walletType;
+  final WalletType walletType;
   @override
-  ContractState get contractState;
+  final ContractState contractState;
 
   /// Create a copy of ExistingWalletInfo
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ExistingWalletInfoImplCopyWith<_$ExistingWalletInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$ExistingWalletInfoCopyWith<_ExistingWalletInfo> get copyWith =>
+      __$ExistingWalletInfoCopyWithImpl<_ExistingWalletInfo>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ExistingWalletInfoToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ExistingWalletInfo &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey) &&
+            (identical(other.walletType, walletType) ||
+                other.walletType == walletType) &&
+            (identical(other.contractState, contractState) ||
+                other.contractState == contractState));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, address, publicKey, walletType, contractState);
+
+  @override
+  String toString() {
+    return 'ExistingWalletInfo(address: $address, publicKey: $publicKey, walletType: $walletType, contractState: $contractState)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$ExistingWalletInfoCopyWith<$Res>
+    implements $ExistingWalletInfoCopyWith<$Res> {
+  factory _$ExistingWalletInfoCopyWith(
+          _ExistingWalletInfo value, $Res Function(_ExistingWalletInfo) _then) =
+      __$ExistingWalletInfoCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {Address address,
+      PublicKey publicKey,
+      WalletType walletType,
+      ContractState contractState});
+
+  @override
+  $AddressCopyWith<$Res> get address;
+  @override
+  $PublicKeyCopyWith<$Res> get publicKey;
+  @override
+  $WalletTypeCopyWith<$Res> get walletType;
+  @override
+  $ContractStateCopyWith<$Res> get contractState;
+}
+
+/// @nodoc
+class __$ExistingWalletInfoCopyWithImpl<$Res>
+    implements _$ExistingWalletInfoCopyWith<$Res> {
+  __$ExistingWalletInfoCopyWithImpl(this._self, this._then);
+
+  final _ExistingWalletInfo _self;
+  final $Res Function(_ExistingWalletInfo) _then;
+
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? address = null,
+    Object? publicKey = null,
+    Object? walletType = null,
+    Object? contractState = null,
+  }) {
+    return _then(_ExistingWalletInfo(
+      address: null == address
+          ? _self.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as Address,
+      publicKey: null == publicKey
+          ? _self.publicKey
+          : publicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      walletType: null == walletType
+          ? _self.walletType
+          : walletType // ignore: cast_nullable_to_non_nullable
+              as WalletType,
+      contractState: null == contractState
+          ? _self.contractState
+          : contractState // ignore: cast_nullable_to_non_nullable
+              as ContractState,
+    ));
+  }
+
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res> get address {
+    return $AddressCopyWith<$Res>(_self.address, (value) {
+      return _then(_self.copyWith(address: value));
+    });
+  }
+
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_self.publicKey, (value) {
+      return _then(_self.copyWith(publicKey: value));
+    });
+  }
+
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $WalletTypeCopyWith<$Res> get walletType {
+    return $WalletTypeCopyWith<$Res>(_self.walletType, (value) {
+      return _then(_self.copyWith(walletType: value));
+    });
+  }
+
+  /// Create a copy of ExistingWalletInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ContractStateCopyWith<$Res> get contractState {
+    return $ContractStateCopyWith<$Res>(_self.contractState, (value) {
+      return _then(_self.copyWith(contractState: value));
+    });
+  }
+}
+
+// dart format on

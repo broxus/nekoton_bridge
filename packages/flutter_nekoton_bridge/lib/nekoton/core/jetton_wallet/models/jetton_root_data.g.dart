@@ -6,15 +6,14 @@ part of 'jetton_root_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$JettonRootDataImpl _$$JettonRootDataImplFromJson(Map<String, dynamic> json) =>
-    _$JettonRootDataImpl(
+_JettonRootData _$JettonRootDataFromJson(Map<String, dynamic> json) =>
+    _JettonRootData(
       mintable: json['mintable'] as bool,
       adminAddress: Address.fromJson(json['adminAddress'] as String),
       content: JettonMetaData.fromJson(json['content'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$JettonRootDataImplToJson(
-        _$JettonRootDataImpl instance) =>
+Map<String, dynamic> _$JettonRootDataToJson(_JettonRootData instance) =>
     <String, dynamic>{
       'mintable': instance.mintable,
       'adminAddress': instance.adminAddress.toJson(),

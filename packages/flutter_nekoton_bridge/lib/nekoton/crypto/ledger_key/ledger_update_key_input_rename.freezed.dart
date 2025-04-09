@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,11 +10,8 @@ part of 'ledger_update_key_input_rename.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 LedgerUpdateKeyInputRename _$LedgerUpdateKeyInputRenameFromJson(
     Map<String, dynamic> json) {
   return _LedgerUpdateKeyInputRenameRename.fromJson(json);
@@ -21,146 +19,26 @@ LedgerUpdateKeyInputRename _$LedgerUpdateKeyInputRenameFromJson(
 
 /// @nodoc
 mixin _$LedgerUpdateKeyInputRename {
-  PublicKey get publicKey => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-
-  /// Serializes this LedgerUpdateKeyInputRename to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  PublicKey get publicKey;
+  String get name;
 
   /// Create a copy of LedgerUpdateKeyInputRename
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $LedgerUpdateKeyInputRenameCopyWith<LedgerUpdateKeyInputRename>
-      get copyWith => throw _privateConstructorUsedError;
-}
+      get copyWith =>
+          _$LedgerUpdateKeyInputRenameCopyWithImpl<LedgerUpdateKeyInputRename>(
+              this as LedgerUpdateKeyInputRename, _$identity);
 
-/// @nodoc
-abstract class $LedgerUpdateKeyInputRenameCopyWith<$Res> {
-  factory $LedgerUpdateKeyInputRenameCopyWith(LedgerUpdateKeyInputRename value,
-          $Res Function(LedgerUpdateKeyInputRename) then) =
-      _$LedgerUpdateKeyInputRenameCopyWithImpl<$Res,
-          LedgerUpdateKeyInputRename>;
-  @useResult
-  $Res call({PublicKey publicKey, String name});
-
-  $PublicKeyCopyWith<$Res> get publicKey;
-}
-
-/// @nodoc
-class _$LedgerUpdateKeyInputRenameCopyWithImpl<$Res,
-        $Val extends LedgerUpdateKeyInputRename>
-    implements $LedgerUpdateKeyInputRenameCopyWith<$Res> {
-  _$LedgerUpdateKeyInputRenameCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of LedgerUpdateKeyInputRename
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? publicKey = null,
-    Object? name = null,
-  }) {
-    return _then(_value.copyWith(
-      publicKey: null == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-
-  /// Create a copy of LedgerUpdateKeyInputRename
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PublicKeyCopyWith<$Res> get publicKey {
-    return $PublicKeyCopyWith<$Res>(_value.publicKey, (value) {
-      return _then(_value.copyWith(publicKey: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$LedgerUpdateKeyInputRenameRenameImplCopyWith<$Res>
-    implements $LedgerUpdateKeyInputRenameCopyWith<$Res> {
-  factory _$$LedgerUpdateKeyInputRenameRenameImplCopyWith(
-          _$LedgerUpdateKeyInputRenameRenameImpl value,
-          $Res Function(_$LedgerUpdateKeyInputRenameRenameImpl) then) =
-      __$$LedgerUpdateKeyInputRenameRenameImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({PublicKey publicKey, String name});
-
-  @override
-  $PublicKeyCopyWith<$Res> get publicKey;
-}
-
-/// @nodoc
-class __$$LedgerUpdateKeyInputRenameRenameImplCopyWithImpl<$Res>
-    extends _$LedgerUpdateKeyInputRenameCopyWithImpl<$Res,
-        _$LedgerUpdateKeyInputRenameRenameImpl>
-    implements _$$LedgerUpdateKeyInputRenameRenameImplCopyWith<$Res> {
-  __$$LedgerUpdateKeyInputRenameRenameImplCopyWithImpl(
-      _$LedgerUpdateKeyInputRenameRenameImpl _value,
-      $Res Function(_$LedgerUpdateKeyInputRenameRenameImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of LedgerUpdateKeyInputRename
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? publicKey = null,
-    Object? name = null,
-  }) {
-    return _then(_$LedgerUpdateKeyInputRenameRenameImpl(
-      publicKey: null == publicKey
-          ? _value.publicKey
-          : publicKey // ignore: cast_nullable_to_non_nullable
-              as PublicKey,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(fieldRename: FieldRename.snake)
-class _$LedgerUpdateKeyInputRenameRenameImpl
-    implements _LedgerUpdateKeyInputRenameRename {
-  const _$LedgerUpdateKeyInputRenameRenameImpl(
-      {required this.publicKey, required this.name});
-
-  factory _$LedgerUpdateKeyInputRenameRenameImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$LedgerUpdateKeyInputRenameRenameImplFromJson(json);
-
-  @override
-  final PublicKey publicKey;
-  @override
-  final String name;
-
-  @override
-  String toString() {
-    return 'LedgerUpdateKeyInputRename(publicKey: $publicKey, name: $name)';
-  }
+  /// Serializes this LedgerUpdateKeyInputRename to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LedgerUpdateKeyInputRenameRenameImpl &&
+            other is LedgerUpdateKeyInputRename &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey) &&
             (identical(other.name, name) || other.name == name));
@@ -170,44 +48,165 @@ class _$LedgerUpdateKeyInputRenameRenameImpl
   @override
   int get hashCode => Object.hash(runtimeType, publicKey, name);
 
-  /// Create a copy of LedgerUpdateKeyInputRename
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LedgerUpdateKeyInputRenameRenameImplCopyWith<
-          _$LedgerUpdateKeyInputRenameRenameImpl>
-      get copyWith => __$$LedgerUpdateKeyInputRenameRenameImplCopyWithImpl<
-          _$LedgerUpdateKeyInputRenameRenameImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LedgerUpdateKeyInputRenameRenameImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LedgerUpdateKeyInputRename(publicKey: $publicKey, name: $name)';
   }
 }
 
-abstract class _LedgerUpdateKeyInputRenameRename
-    implements LedgerUpdateKeyInputRename {
-  const factory _LedgerUpdateKeyInputRenameRename(
-      {required final PublicKey publicKey,
-      required final String name}) = _$LedgerUpdateKeyInputRenameRenameImpl;
+/// @nodoc
+abstract mixin class $LedgerUpdateKeyInputRenameCopyWith<$Res> {
+  factory $LedgerUpdateKeyInputRenameCopyWith(LedgerUpdateKeyInputRename value,
+          $Res Function(LedgerUpdateKeyInputRename) _then) =
+      _$LedgerUpdateKeyInputRenameCopyWithImpl;
+  @useResult
+  $Res call({PublicKey publicKey, String name});
 
+  $PublicKeyCopyWith<$Res> get publicKey;
+}
+
+/// @nodoc
+class _$LedgerUpdateKeyInputRenameCopyWithImpl<$Res>
+    implements $LedgerUpdateKeyInputRenameCopyWith<$Res> {
+  _$LedgerUpdateKeyInputRenameCopyWithImpl(this._self, this._then);
+
+  final LedgerUpdateKeyInputRename _self;
+  final $Res Function(LedgerUpdateKeyInputRename) _then;
+
+  /// Create a copy of LedgerUpdateKeyInputRename
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? publicKey = null,
+    Object? name = null,
+  }) {
+    return _then(_self.copyWith(
+      publicKey: null == publicKey
+          ? _self.publicKey
+          : publicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+
+  /// Create a copy of LedgerUpdateKeyInputRename
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_self.publicKey, (value) {
+      return _then(_self.copyWith(publicKey: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _LedgerUpdateKeyInputRenameRename implements LedgerUpdateKeyInputRename {
+  const _LedgerUpdateKeyInputRenameRename(
+      {required this.publicKey, required this.name});
   factory _LedgerUpdateKeyInputRenameRename.fromJson(
-          Map<String, dynamic> json) =
-      _$LedgerUpdateKeyInputRenameRenameImpl.fromJson;
+          Map<String, dynamic> json) =>
+      _$LedgerUpdateKeyInputRenameRenameFromJson(json);
 
   @override
-  PublicKey get publicKey;
+  final PublicKey publicKey;
   @override
-  String get name;
+  final String name;
 
   /// Create a copy of LedgerUpdateKeyInputRename
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LedgerUpdateKeyInputRenameRenameImplCopyWith<
-          _$LedgerUpdateKeyInputRenameRenameImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$LedgerUpdateKeyInputRenameRenameCopyWith<_LedgerUpdateKeyInputRenameRename>
+      get copyWith => __$LedgerUpdateKeyInputRenameRenameCopyWithImpl<
+          _LedgerUpdateKeyInputRenameRename>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LedgerUpdateKeyInputRenameRenameToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _LedgerUpdateKeyInputRenameRename &&
+            (identical(other.publicKey, publicKey) ||
+                other.publicKey == publicKey) &&
+            (identical(other.name, name) || other.name == name));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, publicKey, name);
+
+  @override
+  String toString() {
+    return 'LedgerUpdateKeyInputRename(publicKey: $publicKey, name: $name)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$LedgerUpdateKeyInputRenameRenameCopyWith<$Res>
+    implements $LedgerUpdateKeyInputRenameCopyWith<$Res> {
+  factory _$LedgerUpdateKeyInputRenameRenameCopyWith(
+          _LedgerUpdateKeyInputRenameRename value,
+          $Res Function(_LedgerUpdateKeyInputRenameRename) _then) =
+      __$LedgerUpdateKeyInputRenameRenameCopyWithImpl;
+  @override
+  @useResult
+  $Res call({PublicKey publicKey, String name});
+
+  @override
+  $PublicKeyCopyWith<$Res> get publicKey;
+}
+
+/// @nodoc
+class __$LedgerUpdateKeyInputRenameRenameCopyWithImpl<$Res>
+    implements _$LedgerUpdateKeyInputRenameRenameCopyWith<$Res> {
+  __$LedgerUpdateKeyInputRenameRenameCopyWithImpl(this._self, this._then);
+
+  final _LedgerUpdateKeyInputRenameRename _self;
+  final $Res Function(_LedgerUpdateKeyInputRenameRename) _then;
+
+  /// Create a copy of LedgerUpdateKeyInputRename
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? publicKey = null,
+    Object? name = null,
+  }) {
+    return _then(_LedgerUpdateKeyInputRenameRename(
+      publicKey: null == publicKey
+          ? _self.publicKey
+          : publicKey // ignore: cast_nullable_to_non_nullable
+              as PublicKey,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+
+  /// Create a copy of LedgerUpdateKeyInputRename
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PublicKeyCopyWith<$Res> get publicKey {
+    return $PublicKeyCopyWith<$Res>(_self.publicKey, (value) {
+      return _then(_self.copyWith(publicKey: value));
+    });
+  }
+}
+
+// dart format on

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,214 +10,34 @@ part of 'wallet_interaction_info.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-WalletInteractionInfo _$WalletInteractionInfoFromJson(
-    Map<String, dynamic> json) {
-  return _WalletInteractionInfo.fromJson(json);
-}
 
 /// @nodoc
 mixin _$WalletInteractionInfo {
   @JsonKey(includeIfNull: false)
   @amountJsonConverter
-  Address? get recipient => throw _privateConstructorUsedError;
+  Address? get recipient;
   @JsonKey(includeIfNull: false)
-  KnownPayload? get knownPayload => throw _privateConstructorUsedError;
-  WalletInteractionMethod get method => throw _privateConstructorUsedError;
-
-  /// Serializes this WalletInteractionInfo to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  KnownPayload? get knownPayload;
+  WalletInteractionMethod get method;
 
   /// Create a copy of WalletInteractionInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $WalletInteractionInfoCopyWith<WalletInteractionInfo> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$WalletInteractionInfoCopyWithImpl<WalletInteractionInfo>(
+          this as WalletInteractionInfo, _$identity);
 
-/// @nodoc
-abstract class $WalletInteractionInfoCopyWith<$Res> {
-  factory $WalletInteractionInfoCopyWith(WalletInteractionInfo value,
-          $Res Function(WalletInteractionInfo) then) =
-      _$WalletInteractionInfoCopyWithImpl<$Res, WalletInteractionInfo>;
-  @useResult
-  $Res call(
-      {@JsonKey(includeIfNull: false) @amountJsonConverter Address? recipient,
-      @JsonKey(includeIfNull: false) KnownPayload? knownPayload,
-      WalletInteractionMethod method});
-
-  $AddressCopyWith<$Res>? get recipient;
-  $KnownPayloadCopyWith<$Res>? get knownPayload;
-  $WalletInteractionMethodCopyWith<$Res> get method;
-}
-
-/// @nodoc
-class _$WalletInteractionInfoCopyWithImpl<$Res,
-        $Val extends WalletInteractionInfo>
-    implements $WalletInteractionInfoCopyWith<$Res> {
-  _$WalletInteractionInfoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of WalletInteractionInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? recipient = freezed,
-    Object? knownPayload = freezed,
-    Object? method = null,
-  }) {
-    return _then(_value.copyWith(
-      recipient: freezed == recipient
-          ? _value.recipient
-          : recipient // ignore: cast_nullable_to_non_nullable
-              as Address?,
-      knownPayload: freezed == knownPayload
-          ? _value.knownPayload
-          : knownPayload // ignore: cast_nullable_to_non_nullable
-              as KnownPayload?,
-      method: null == method
-          ? _value.method
-          : method // ignore: cast_nullable_to_non_nullable
-              as WalletInteractionMethod,
-    ) as $Val);
-  }
-
-  /// Create a copy of WalletInteractionInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res>? get recipient {
-    if (_value.recipient == null) {
-      return null;
-    }
-
-    return $AddressCopyWith<$Res>(_value.recipient!, (value) {
-      return _then(_value.copyWith(recipient: value) as $Val);
-    });
-  }
-
-  /// Create a copy of WalletInteractionInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $KnownPayloadCopyWith<$Res>? get knownPayload {
-    if (_value.knownPayload == null) {
-      return null;
-    }
-
-    return $KnownPayloadCopyWith<$Res>(_value.knownPayload!, (value) {
-      return _then(_value.copyWith(knownPayload: value) as $Val);
-    });
-  }
-
-  /// Create a copy of WalletInteractionInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $WalletInteractionMethodCopyWith<$Res> get method {
-    return $WalletInteractionMethodCopyWith<$Res>(_value.method, (value) {
-      return _then(_value.copyWith(method: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$WalletInteractionInfoImplCopyWith<$Res>
-    implements $WalletInteractionInfoCopyWith<$Res> {
-  factory _$$WalletInteractionInfoImplCopyWith(
-          _$WalletInteractionInfoImpl value,
-          $Res Function(_$WalletInteractionInfoImpl) then) =
-      __$$WalletInteractionInfoImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(includeIfNull: false) @amountJsonConverter Address? recipient,
-      @JsonKey(includeIfNull: false) KnownPayload? knownPayload,
-      WalletInteractionMethod method});
-
-  @override
-  $AddressCopyWith<$Res>? get recipient;
-  @override
-  $KnownPayloadCopyWith<$Res>? get knownPayload;
-  @override
-  $WalletInteractionMethodCopyWith<$Res> get method;
-}
-
-/// @nodoc
-class __$$WalletInteractionInfoImplCopyWithImpl<$Res>
-    extends _$WalletInteractionInfoCopyWithImpl<$Res,
-        _$WalletInteractionInfoImpl>
-    implements _$$WalletInteractionInfoImplCopyWith<$Res> {
-  __$$WalletInteractionInfoImplCopyWithImpl(_$WalletInteractionInfoImpl _value,
-      $Res Function(_$WalletInteractionInfoImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WalletInteractionInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? recipient = freezed,
-    Object? knownPayload = freezed,
-    Object? method = null,
-  }) {
-    return _then(_$WalletInteractionInfoImpl(
-      recipient: freezed == recipient
-          ? _value.recipient
-          : recipient // ignore: cast_nullable_to_non_nullable
-              as Address?,
-      knownPayload: freezed == knownPayload
-          ? _value.knownPayload
-          : knownPayload // ignore: cast_nullable_to_non_nullable
-              as KnownPayload?,
-      method: null == method
-          ? _value.method
-          : method // ignore: cast_nullable_to_non_nullable
-              as WalletInteractionMethod,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$WalletInteractionInfoImpl implements _WalletInteractionInfo {
-  const _$WalletInteractionInfoImpl(
-      {@JsonKey(includeIfNull: false) @amountJsonConverter this.recipient,
-      @JsonKey(includeIfNull: false) this.knownPayload,
-      required this.method});
-
-  factory _$WalletInteractionInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$WalletInteractionInfoImplFromJson(json);
-
-  @override
-  @JsonKey(includeIfNull: false)
-  @amountJsonConverter
-  final Address? recipient;
-  @override
-  @JsonKey(includeIfNull: false)
-  final KnownPayload? knownPayload;
-  @override
-  final WalletInteractionMethod method;
-
-  @override
-  String toString() {
-    return 'WalletInteractionInfo(recipient: $recipient, knownPayload: $knownPayload, method: $method)';
-  }
+  /// Serializes this WalletInteractionInfo to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WalletInteractionInfoImpl &&
+            other is WalletInteractionInfo &&
             (identical(other.recipient, recipient) ||
                 other.recipient == recipient) &&
             (identical(other.knownPayload, knownPayload) ||
@@ -228,49 +49,249 @@ class _$WalletInteractionInfoImpl implements _WalletInteractionInfo {
   @override
   int get hashCode => Object.hash(runtimeType, recipient, knownPayload, method);
 
-  /// Create a copy of WalletInteractionInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$WalletInteractionInfoImplCopyWith<_$WalletInteractionInfoImpl>
-      get copyWith => __$$WalletInteractionInfoImplCopyWithImpl<
-          _$WalletInteractionInfoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$WalletInteractionInfoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'WalletInteractionInfo(recipient: $recipient, knownPayload: $knownPayload, method: $method)';
   }
 }
 
-abstract class _WalletInteractionInfo implements WalletInteractionInfo {
-  const factory _WalletInteractionInfo(
-          {@JsonKey(includeIfNull: false)
-          @amountJsonConverter
-          final Address? recipient,
-          @JsonKey(includeIfNull: false) final KnownPayload? knownPayload,
-          required final WalletInteractionMethod method}) =
-      _$WalletInteractionInfoImpl;
+/// @nodoc
+abstract mixin class $WalletInteractionInfoCopyWith<$Res> {
+  factory $WalletInteractionInfoCopyWith(WalletInteractionInfo value,
+          $Res Function(WalletInteractionInfo) _then) =
+      _$WalletInteractionInfoCopyWithImpl;
+  @useResult
+  $Res call(
+      {@JsonKey(includeIfNull: false) @amountJsonConverter Address? recipient,
+      @JsonKey(includeIfNull: false) KnownPayload? knownPayload,
+      WalletInteractionMethod method});
 
-  factory _WalletInteractionInfo.fromJson(Map<String, dynamic> json) =
-      _$WalletInteractionInfoImpl.fromJson;
+  $AddressCopyWith<$Res>? get recipient;
+  $KnownPayloadCopyWith<$Res>? get knownPayload;
+  $WalletInteractionMethodCopyWith<$Res> get method;
+}
+
+/// @nodoc
+class _$WalletInteractionInfoCopyWithImpl<$Res>
+    implements $WalletInteractionInfoCopyWith<$Res> {
+  _$WalletInteractionInfoCopyWithImpl(this._self, this._then);
+
+  final WalletInteractionInfo _self;
+  final $Res Function(WalletInteractionInfo) _then;
+
+  /// Create a copy of WalletInteractionInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? recipient = freezed,
+    Object? knownPayload = freezed,
+    Object? method = null,
+  }) {
+    return _then(_self.copyWith(
+      recipient: freezed == recipient
+          ? _self.recipient
+          : recipient // ignore: cast_nullable_to_non_nullable
+              as Address?,
+      knownPayload: freezed == knownPayload
+          ? _self.knownPayload
+          : knownPayload // ignore: cast_nullable_to_non_nullable
+              as KnownPayload?,
+      method: null == method
+          ? _self.method
+          : method // ignore: cast_nullable_to_non_nullable
+              as WalletInteractionMethod,
+    ));
+  }
+
+  /// Create a copy of WalletInteractionInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res>? get recipient {
+    if (_self.recipient == null) {
+      return null;
+    }
+
+    return $AddressCopyWith<$Res>(_self.recipient!, (value) {
+      return _then(_self.copyWith(recipient: value));
+    });
+  }
+
+  /// Create a copy of WalletInteractionInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $KnownPayloadCopyWith<$Res>? get knownPayload {
+    if (_self.knownPayload == null) {
+      return null;
+    }
+
+    return $KnownPayloadCopyWith<$Res>(_self.knownPayload!, (value) {
+      return _then(_self.copyWith(knownPayload: value));
+    });
+  }
+
+  /// Create a copy of WalletInteractionInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $WalletInteractionMethodCopyWith<$Res> get method {
+    return $WalletInteractionMethodCopyWith<$Res>(_self.method, (value) {
+      return _then(_self.copyWith(method: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _WalletInteractionInfo implements WalletInteractionInfo {
+  const _WalletInteractionInfo(
+      {@JsonKey(includeIfNull: false) @amountJsonConverter this.recipient,
+      @JsonKey(includeIfNull: false) this.knownPayload,
+      required this.method});
+  factory _WalletInteractionInfo.fromJson(Map<String, dynamic> json) =>
+      _$WalletInteractionInfoFromJson(json);
 
   @override
   @JsonKey(includeIfNull: false)
   @amountJsonConverter
-  Address? get recipient;
+  final Address? recipient;
   @override
   @JsonKey(includeIfNull: false)
-  KnownPayload? get knownPayload;
+  final KnownPayload? knownPayload;
   @override
-  WalletInteractionMethod get method;
+  final WalletInteractionMethod method;
 
   /// Create a copy of WalletInteractionInfo
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$WalletInteractionInfoImplCopyWith<_$WalletInteractionInfoImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$WalletInteractionInfoCopyWith<_WalletInteractionInfo> get copyWith =>
+      __$WalletInteractionInfoCopyWithImpl<_WalletInteractionInfo>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$WalletInteractionInfoToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _WalletInteractionInfo &&
+            (identical(other.recipient, recipient) ||
+                other.recipient == recipient) &&
+            (identical(other.knownPayload, knownPayload) ||
+                other.knownPayload == knownPayload) &&
+            (identical(other.method, method) || other.method == method));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, recipient, knownPayload, method);
+
+  @override
+  String toString() {
+    return 'WalletInteractionInfo(recipient: $recipient, knownPayload: $knownPayload, method: $method)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$WalletInteractionInfoCopyWith<$Res>
+    implements $WalletInteractionInfoCopyWith<$Res> {
+  factory _$WalletInteractionInfoCopyWith(_WalletInteractionInfo value,
+          $Res Function(_WalletInteractionInfo) _then) =
+      __$WalletInteractionInfoCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(includeIfNull: false) @amountJsonConverter Address? recipient,
+      @JsonKey(includeIfNull: false) KnownPayload? knownPayload,
+      WalletInteractionMethod method});
+
+  @override
+  $AddressCopyWith<$Res>? get recipient;
+  @override
+  $KnownPayloadCopyWith<$Res>? get knownPayload;
+  @override
+  $WalletInteractionMethodCopyWith<$Res> get method;
+}
+
+/// @nodoc
+class __$WalletInteractionInfoCopyWithImpl<$Res>
+    implements _$WalletInteractionInfoCopyWith<$Res> {
+  __$WalletInteractionInfoCopyWithImpl(this._self, this._then);
+
+  final _WalletInteractionInfo _self;
+  final $Res Function(_WalletInteractionInfo) _then;
+
+  /// Create a copy of WalletInteractionInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? recipient = freezed,
+    Object? knownPayload = freezed,
+    Object? method = null,
+  }) {
+    return _then(_WalletInteractionInfo(
+      recipient: freezed == recipient
+          ? _self.recipient
+          : recipient // ignore: cast_nullable_to_non_nullable
+              as Address?,
+      knownPayload: freezed == knownPayload
+          ? _self.knownPayload
+          : knownPayload // ignore: cast_nullable_to_non_nullable
+              as KnownPayload?,
+      method: null == method
+          ? _self.method
+          : method // ignore: cast_nullable_to_non_nullable
+              as WalletInteractionMethod,
+    ));
+  }
+
+  /// Create a copy of WalletInteractionInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res>? get recipient {
+    if (_self.recipient == null) {
+      return null;
+    }
+
+    return $AddressCopyWith<$Res>(_self.recipient!, (value) {
+      return _then(_self.copyWith(recipient: value));
+    });
+  }
+
+  /// Create a copy of WalletInteractionInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $KnownPayloadCopyWith<$Res>? get knownPayload {
+    if (_self.knownPayload == null) {
+      return null;
+    }
+
+    return $KnownPayloadCopyWith<$Res>(_self.knownPayload!, (value) {
+      return _then(_self.copyWith(knownPayload: value));
+    });
+  }
+
+  /// Create a copy of WalletInteractionInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $WalletInteractionMethodCopyWith<$Res> get method {
+    return $WalletInteractionMethodCopyWith<$Res>(_self.method, (value) {
+      return _then(_self.copyWith(method: value));
+    });
+  }
+}
+
+// dart format on

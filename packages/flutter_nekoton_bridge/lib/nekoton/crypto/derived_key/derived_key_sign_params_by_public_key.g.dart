@@ -6,17 +6,17 @@ part of 'derived_key_sign_params_by_public_key.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DerivedKeyPasswordByPublicKeyByPublicKeyImpl
-    _$$DerivedKeyPasswordByPublicKeyByPublicKeyImplFromJson(
+_DerivedKeyPasswordByPublicKeyByPublicKey
+    _$DerivedKeyPasswordByPublicKeyByPublicKeyFromJson(
             Map<String, dynamic> json) =>
-        _$DerivedKeyPasswordByPublicKeyByPublicKeyImpl(
+        _DerivedKeyPasswordByPublicKeyByPublicKey(
           masterKey: PublicKey.fromJson(json['master_key'] as String),
           publicKey: PublicKey.fromJson(json['public_key'] as String),
           password: Password.fromJson(json['password'] as Map<String, dynamic>),
         );
 
-Map<String, dynamic> _$$DerivedKeyPasswordByPublicKeyByPublicKeyImplToJson(
-        _$DerivedKeyPasswordByPublicKeyByPublicKeyImpl instance) =>
+Map<String, dynamic> _$DerivedKeyPasswordByPublicKeyByPublicKeyToJson(
+        _DerivedKeyPasswordByPublicKeyByPublicKey instance) =>
     <String, dynamic>{
       'master_key': instance.masterKey.toJson(),
       'public_key': instance.publicKey.toJson(),

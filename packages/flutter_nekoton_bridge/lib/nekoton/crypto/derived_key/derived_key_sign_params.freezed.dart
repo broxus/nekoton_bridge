@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,11 +10,8 @@ part of 'derived_key_sign_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 DerivedKeyPassword _$DerivedKeyPasswordFromJson(Map<String, dynamic> json) {
   switch (json['type']) {
     case 'by_account_id':
@@ -29,76 +27,88 @@ DerivedKeyPassword _$DerivedKeyPasswordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DerivedKeyPassword {
-  Object get data => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(DerivedKeyPasswordByAccountId data) byAccountId,
-    required TResult Function(DerivedKeyPasswordByPublicKey data) byPublicKey,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DerivedKeyPasswordByAccountId data)? byAccountId,
-    TResult? Function(DerivedKeyPasswordByPublicKey data)? byPublicKey,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DerivedKeyPasswordByAccountId data)? byAccountId,
-    TResult Function(DerivedKeyPasswordByPublicKey data)? byPublicKey,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ByAccountId value) byAccountId,
-    required TResult Function(_ByPublicKey value) byPublicKey,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ByAccountId value)? byAccountId,
-    TResult? Function(_ByPublicKey value)? byPublicKey,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ByAccountId value)? byAccountId,
-    TResult Function(_ByPublicKey value)? byPublicKey,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Object get data;
 
   /// Serializes this DerivedKeyPassword to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DerivedKeyPassword &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'DerivedKeyPassword(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class $DerivedKeyPasswordCopyWith<$Res> {
-  factory $DerivedKeyPasswordCopyWith(
-          DerivedKeyPassword value, $Res Function(DerivedKeyPassword) then) =
-      _$DerivedKeyPasswordCopyWithImpl<$Res, DerivedKeyPassword>;
+class $DerivedKeyPasswordCopyWith<$Res> {
+  $DerivedKeyPasswordCopyWith(
+      DerivedKeyPassword _, $Res Function(DerivedKeyPassword) __);
 }
 
 /// @nodoc
-class _$DerivedKeyPasswordCopyWithImpl<$Res, $Val extends DerivedKeyPassword>
-    implements $DerivedKeyPasswordCopyWith<$Res> {
-  _$DerivedKeyPasswordCopyWithImpl(this._value, this._then);
+@JsonSerializable()
+class _ByAccountId implements DerivedKeyPassword {
+  const _ByAccountId(this.data, {final String? $type})
+      : $type = $type ?? 'by_account_id';
+  factory _ByAccountId.fromJson(Map<String, dynamic> json) =>
+      _$ByAccountIdFromJson(json);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  @override
+  final DerivedKeyPasswordByAccountId data;
+
+  @JsonKey(name: 'type')
+  final String $type;
 
   /// Create a copy of DerivedKeyPassword
   /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ByAccountIdCopyWith<_ByAccountId> get copyWith =>
+      __$ByAccountIdCopyWithImpl<_ByAccountId>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ByAccountIdToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ByAccountId &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @override
+  String toString() {
+    return 'DerivedKeyPassword.byAccountId(data: $data)';
+  }
 }
 
 /// @nodoc
-abstract class _$$ByAccountIdImplCopyWith<$Res> {
-  factory _$$ByAccountIdImplCopyWith(
-          _$ByAccountIdImpl value, $Res Function(_$ByAccountIdImpl) then) =
-      __$$ByAccountIdImplCopyWithImpl<$Res>;
+abstract mixin class _$ByAccountIdCopyWith<$Res>
+    implements $DerivedKeyPasswordCopyWith<$Res> {
+  factory _$ByAccountIdCopyWith(
+          _ByAccountId value, $Res Function(_ByAccountId) _then) =
+      __$ByAccountIdCopyWithImpl;
   @useResult
   $Res call({DerivedKeyPasswordByAccountId data});
 
@@ -106,23 +116,21 @@ abstract class _$$ByAccountIdImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ByAccountIdImplCopyWithImpl<$Res>
-    extends _$DerivedKeyPasswordCopyWithImpl<$Res, _$ByAccountIdImpl>
-    implements _$$ByAccountIdImplCopyWith<$Res> {
-  __$$ByAccountIdImplCopyWithImpl(
-      _$ByAccountIdImpl _value, $Res Function(_$ByAccountIdImpl) _then)
-      : super(_value, _then);
+class __$ByAccountIdCopyWithImpl<$Res> implements _$ByAccountIdCopyWith<$Res> {
+  __$ByAccountIdCopyWithImpl(this._self, this._then);
+
+  final _ByAccountId _self;
+  final $Res Function(_ByAccountId) _then;
 
   /// Create a copy of DerivedKeyPassword
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ByAccountIdImpl(
+    return _then(_ByAccountId(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as DerivedKeyPasswordByAccountId,
     ));
@@ -133,37 +141,45 @@ class __$$ByAccountIdImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $DerivedKeyPasswordByAccountIdCopyWith<$Res> get data {
-    return $DerivedKeyPasswordByAccountIdCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $DerivedKeyPasswordByAccountIdCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ByAccountIdImpl implements _ByAccountId {
-  const _$ByAccountIdImpl(this.data, {final String? $type})
-      : $type = $type ?? 'by_account_id';
-
-  factory _$ByAccountIdImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ByAccountIdImplFromJson(json);
+class _ByPublicKey implements DerivedKeyPassword {
+  const _ByPublicKey(this.data, {final String? $type})
+      : $type = $type ?? 'by_public_key';
+  factory _ByPublicKey.fromJson(Map<String, dynamic> json) =>
+      _$ByPublicKeyFromJson(json);
 
   @override
-  final DerivedKeyPasswordByAccountId data;
+  final DerivedKeyPasswordByPublicKey data;
 
   @JsonKey(name: 'type')
   final String $type;
 
+  /// Create a copy of DerivedKeyPassword
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ByPublicKeyCopyWith<_ByPublicKey> get copyWith =>
+      __$ByPublicKeyCopyWithImpl<_ByPublicKey>(this, _$identity);
+
   @override
-  String toString() {
-    return 'DerivedKeyPassword.byAccountId(data: $data)';
+  Map<String, dynamic> toJson() {
+    return _$ByPublicKeyToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ByAccountIdImpl &&
+            other is _ByPublicKey &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -171,106 +187,18 @@ class _$ByAccountIdImpl implements _ByAccountId {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  /// Create a copy of DerivedKeyPassword
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ByAccountIdImplCopyWith<_$ByAccountIdImpl> get copyWith =>
-      __$$ByAccountIdImplCopyWithImpl<_$ByAccountIdImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(DerivedKeyPasswordByAccountId data) byAccountId,
-    required TResult Function(DerivedKeyPasswordByPublicKey data) byPublicKey,
-  }) {
-    return byAccountId(data);
+  String toString() {
+    return 'DerivedKeyPassword.byPublicKey(data: $data)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DerivedKeyPasswordByAccountId data)? byAccountId,
-    TResult? Function(DerivedKeyPasswordByPublicKey data)? byPublicKey,
-  }) {
-    return byAccountId?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DerivedKeyPasswordByAccountId data)? byAccountId,
-    TResult Function(DerivedKeyPasswordByPublicKey data)? byPublicKey,
-    required TResult orElse(),
-  }) {
-    if (byAccountId != null) {
-      return byAccountId(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ByAccountId value) byAccountId,
-    required TResult Function(_ByPublicKey value) byPublicKey,
-  }) {
-    return byAccountId(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ByAccountId value)? byAccountId,
-    TResult? Function(_ByPublicKey value)? byPublicKey,
-  }) {
-    return byAccountId?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ByAccountId value)? byAccountId,
-    TResult Function(_ByPublicKey value)? byPublicKey,
-    required TResult orElse(),
-  }) {
-    if (byAccountId != null) {
-      return byAccountId(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ByAccountIdImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _ByAccountId implements DerivedKeyPassword {
-  const factory _ByAccountId(final DerivedKeyPasswordByAccountId data) =
-      _$ByAccountIdImpl;
-
-  factory _ByAccountId.fromJson(Map<String, dynamic> json) =
-      _$ByAccountIdImpl.fromJson;
-
-  @override
-  DerivedKeyPasswordByAccountId get data;
-
-  /// Create a copy of DerivedKeyPassword
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ByAccountIdImplCopyWith<_$ByAccountIdImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ByPublicKeyImplCopyWith<$Res> {
-  factory _$$ByPublicKeyImplCopyWith(
-          _$ByPublicKeyImpl value, $Res Function(_$ByPublicKeyImpl) then) =
-      __$$ByPublicKeyImplCopyWithImpl<$Res>;
+abstract mixin class _$ByPublicKeyCopyWith<$Res>
+    implements $DerivedKeyPasswordCopyWith<$Res> {
+  factory _$ByPublicKeyCopyWith(
+          _ByPublicKey value, $Res Function(_ByPublicKey) _then) =
+      __$ByPublicKeyCopyWithImpl;
   @useResult
   $Res call({DerivedKeyPasswordByPublicKey data});
 
@@ -278,23 +206,21 @@ abstract class _$$ByPublicKeyImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ByPublicKeyImplCopyWithImpl<$Res>
-    extends _$DerivedKeyPasswordCopyWithImpl<$Res, _$ByPublicKeyImpl>
-    implements _$$ByPublicKeyImplCopyWith<$Res> {
-  __$$ByPublicKeyImplCopyWithImpl(
-      _$ByPublicKeyImpl _value, $Res Function(_$ByPublicKeyImpl) _then)
-      : super(_value, _then);
+class __$ByPublicKeyCopyWithImpl<$Res> implements _$ByPublicKeyCopyWith<$Res> {
+  __$ByPublicKeyCopyWithImpl(this._self, this._then);
+
+  final _ByPublicKey _self;
+  final $Res Function(_ByPublicKey) _then;
 
   /// Create a copy of DerivedKeyPassword
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ByPublicKeyImpl(
+    return _then(_ByPublicKey(
       null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as DerivedKeyPasswordByPublicKey,
     ));
@@ -305,135 +231,10 @@ class __$$ByPublicKeyImplCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $DerivedKeyPasswordByPublicKeyCopyWith<$Res> get data {
-    return $DerivedKeyPasswordByPublicKeyCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
+    return $DerivedKeyPasswordByPublicKeyCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
 
-/// @nodoc
-@JsonSerializable()
-class _$ByPublicKeyImpl implements _ByPublicKey {
-  const _$ByPublicKeyImpl(this.data, {final String? $type})
-      : $type = $type ?? 'by_public_key';
-
-  factory _$ByPublicKeyImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ByPublicKeyImplFromJson(json);
-
-  @override
-  final DerivedKeyPasswordByPublicKey data;
-
-  @JsonKey(name: 'type')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'DerivedKeyPassword.byPublicKey(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ByPublicKeyImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  /// Create a copy of DerivedKeyPassword
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ByPublicKeyImplCopyWith<_$ByPublicKeyImpl> get copyWith =>
-      __$$ByPublicKeyImplCopyWithImpl<_$ByPublicKeyImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(DerivedKeyPasswordByAccountId data) byAccountId,
-    required TResult Function(DerivedKeyPasswordByPublicKey data) byPublicKey,
-  }) {
-    return byPublicKey(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DerivedKeyPasswordByAccountId data)? byAccountId,
-    TResult? Function(DerivedKeyPasswordByPublicKey data)? byPublicKey,
-  }) {
-    return byPublicKey?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DerivedKeyPasswordByAccountId data)? byAccountId,
-    TResult Function(DerivedKeyPasswordByPublicKey data)? byPublicKey,
-    required TResult orElse(),
-  }) {
-    if (byPublicKey != null) {
-      return byPublicKey(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ByAccountId value) byAccountId,
-    required TResult Function(_ByPublicKey value) byPublicKey,
-  }) {
-    return byPublicKey(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ByAccountId value)? byAccountId,
-    TResult? Function(_ByPublicKey value)? byPublicKey,
-  }) {
-    return byPublicKey?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ByAccountId value)? byAccountId,
-    TResult Function(_ByPublicKey value)? byPublicKey,
-    required TResult orElse(),
-  }) {
-    if (byPublicKey != null) {
-      return byPublicKey(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ByPublicKeyImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _ByPublicKey implements DerivedKeyPassword {
-  const factory _ByPublicKey(final DerivedKeyPasswordByPublicKey data) =
-      _$ByPublicKeyImpl;
-
-  factory _ByPublicKey.fromJson(Map<String, dynamic> json) =
-      _$ByPublicKeyImpl.fromJson;
-
-  @override
-  DerivedKeyPasswordByPublicKey get data;
-
-  /// Create a copy of DerivedKeyPassword
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ByPublicKeyImplCopyWith<_$ByPublicKeyImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

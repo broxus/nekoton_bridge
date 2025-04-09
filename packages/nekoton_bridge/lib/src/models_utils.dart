@@ -54,12 +54,15 @@ class MnemonicTypeJsonConverter
   @override
   Map<String, dynamic> toJson(MnemonicType object) {
     final json = <String, dynamic>{
-      'type': object.when(legacy: () => 'legacy', bip39: (_) => 'bip39'),
+      'type': switch (object) {
+        MnemonicType_Legacy() => 'legacy',
+        MnemonicType_Bip39() => 'bip39',
+      },
     };
-    final data = object.when(
-      legacy: () => null,
-      bip39: (field0) => field0,
-    );
+    final data = switch (object) {
+      MnemonicType_Legacy() => null,
+      MnemonicType_Bip39(:final field0) => field0,
+    };
     if (data != null) {
       json['data'] = <String, dynamic>{
         'account_id': data.accountId,

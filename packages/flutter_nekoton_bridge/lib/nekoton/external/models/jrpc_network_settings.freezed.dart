@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,120 +10,29 @@ part of 'jrpc_network_settings.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-JrpcNetworkSettings _$JrpcNetworkSettingsFromJson(Map<String, dynamic> json) {
-  return _JrpcNetworkSettings.fromJson(json);
-}
 
 /// @nodoc
 mixin _$JrpcNetworkSettings {
-  String get endpoint => throw _privateConstructorUsedError;
-
-  /// Serializes this JrpcNetworkSettings to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get endpoint;
 
   /// Create a copy of JrpcNetworkSettings
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $JrpcNetworkSettingsCopyWith<JrpcNetworkSettings> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$JrpcNetworkSettingsCopyWithImpl<JrpcNetworkSettings>(
+          this as JrpcNetworkSettings, _$identity);
 
-/// @nodoc
-abstract class $JrpcNetworkSettingsCopyWith<$Res> {
-  factory $JrpcNetworkSettingsCopyWith(
-          JrpcNetworkSettings value, $Res Function(JrpcNetworkSettings) then) =
-      _$JrpcNetworkSettingsCopyWithImpl<$Res, JrpcNetworkSettings>;
-  @useResult
-  $Res call({String endpoint});
-}
-
-/// @nodoc
-class _$JrpcNetworkSettingsCopyWithImpl<$Res, $Val extends JrpcNetworkSettings>
-    implements $JrpcNetworkSettingsCopyWith<$Res> {
-  _$JrpcNetworkSettingsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of JrpcNetworkSettings
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? endpoint = null,
-  }) {
-    return _then(_value.copyWith(
-      endpoint: null == endpoint
-          ? _value.endpoint
-          : endpoint // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$JrpcNetworkSettingsImplCopyWith<$Res>
-    implements $JrpcNetworkSettingsCopyWith<$Res> {
-  factory _$$JrpcNetworkSettingsImplCopyWith(_$JrpcNetworkSettingsImpl value,
-          $Res Function(_$JrpcNetworkSettingsImpl) then) =
-      __$$JrpcNetworkSettingsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String endpoint});
-}
-
-/// @nodoc
-class __$$JrpcNetworkSettingsImplCopyWithImpl<$Res>
-    extends _$JrpcNetworkSettingsCopyWithImpl<$Res, _$JrpcNetworkSettingsImpl>
-    implements _$$JrpcNetworkSettingsImplCopyWith<$Res> {
-  __$$JrpcNetworkSettingsImplCopyWithImpl(_$JrpcNetworkSettingsImpl _value,
-      $Res Function(_$JrpcNetworkSettingsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of JrpcNetworkSettings
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? endpoint = null,
-  }) {
-    return _then(_$JrpcNetworkSettingsImpl(
-      endpoint: null == endpoint
-          ? _value.endpoint
-          : endpoint // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$JrpcNetworkSettingsImpl implements _JrpcNetworkSettings {
-  const _$JrpcNetworkSettingsImpl({required this.endpoint});
-
-  factory _$JrpcNetworkSettingsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$JrpcNetworkSettingsImplFromJson(json);
-
-  @override
-  final String endpoint;
-
-  @override
-  String toString() {
-    return 'JrpcNetworkSettings(endpoint: $endpoint)';
-  }
+  /// Serializes this JrpcNetworkSettings to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$JrpcNetworkSettingsImpl &&
+            other is JrpcNetworkSettings &&
             (identical(other.endpoint, endpoint) ||
                 other.endpoint == endpoint));
   }
@@ -131,37 +41,123 @@ class _$JrpcNetworkSettingsImpl implements _JrpcNetworkSettings {
   @override
   int get hashCode => Object.hash(runtimeType, endpoint);
 
+  @override
+  String toString() {
+    return 'JrpcNetworkSettings(endpoint: $endpoint)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $JrpcNetworkSettingsCopyWith<$Res> {
+  factory $JrpcNetworkSettingsCopyWith(
+          JrpcNetworkSettings value, $Res Function(JrpcNetworkSettings) _then) =
+      _$JrpcNetworkSettingsCopyWithImpl;
+  @useResult
+  $Res call({String endpoint});
+}
+
+/// @nodoc
+class _$JrpcNetworkSettingsCopyWithImpl<$Res>
+    implements $JrpcNetworkSettingsCopyWith<$Res> {
+  _$JrpcNetworkSettingsCopyWithImpl(this._self, this._then);
+
+  final JrpcNetworkSettings _self;
+  final $Res Function(JrpcNetworkSettings) _then;
+
   /// Create a copy of JrpcNetworkSettings
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$JrpcNetworkSettingsImplCopyWith<_$JrpcNetworkSettingsImpl> get copyWith =>
-      __$$JrpcNetworkSettingsImplCopyWithImpl<_$JrpcNetworkSettingsImpl>(
+  @override
+  $Res call({
+    Object? endpoint = null,
+  }) {
+    return _then(_self.copyWith(
+      endpoint: null == endpoint
+          ? _self.endpoint
+          : endpoint // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _JrpcNetworkSettings implements JrpcNetworkSettings {
+  const _JrpcNetworkSettings({required this.endpoint});
+  factory _JrpcNetworkSettings.fromJson(Map<String, dynamic> json) =>
+      _$JrpcNetworkSettingsFromJson(json);
+
+  @override
+  final String endpoint;
+
+  /// Create a copy of JrpcNetworkSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$JrpcNetworkSettingsCopyWith<_JrpcNetworkSettings> get copyWith =>
+      __$JrpcNetworkSettingsCopyWithImpl<_JrpcNetworkSettings>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$JrpcNetworkSettingsImplToJson(
+    return _$JrpcNetworkSettingsToJson(
       this,
     );
   }
-}
-
-abstract class _JrpcNetworkSettings implements JrpcNetworkSettings {
-  const factory _JrpcNetworkSettings({required final String endpoint}) =
-      _$JrpcNetworkSettingsImpl;
-
-  factory _JrpcNetworkSettings.fromJson(Map<String, dynamic> json) =
-      _$JrpcNetworkSettingsImpl.fromJson;
 
   @override
-  String get endpoint;
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _JrpcNetworkSettings &&
+            (identical(other.endpoint, endpoint) ||
+                other.endpoint == endpoint));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, endpoint);
+
+  @override
+  String toString() {
+    return 'JrpcNetworkSettings(endpoint: $endpoint)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$JrpcNetworkSettingsCopyWith<$Res>
+    implements $JrpcNetworkSettingsCopyWith<$Res> {
+  factory _$JrpcNetworkSettingsCopyWith(_JrpcNetworkSettings value,
+          $Res Function(_JrpcNetworkSettings) _then) =
+      __$JrpcNetworkSettingsCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String endpoint});
+}
+
+/// @nodoc
+class __$JrpcNetworkSettingsCopyWithImpl<$Res>
+    implements _$JrpcNetworkSettingsCopyWith<$Res> {
+  __$JrpcNetworkSettingsCopyWithImpl(this._self, this._then);
+
+  final _JrpcNetworkSettings _self;
+  final $Res Function(_JrpcNetworkSettings) _then;
 
   /// Create a copy of JrpcNetworkSettings
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$JrpcNetworkSettingsImplCopyWith<_$JrpcNetworkSettingsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? endpoint = null,
+  }) {
+    return _then(_JrpcNetworkSettings(
+      endpoint: null == endpoint
+          ? _self.endpoint
+          : endpoint // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
+
+// dart format on

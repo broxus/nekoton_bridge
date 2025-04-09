@@ -8,10 +8,10 @@ part 'transfer_recipient.g.dart';
 @Freezed(unionKey: 'type')
 sealed class TransferRecipient with _$TransferRecipient {
   const factory TransferRecipient.ownerWallet(final Address data) =
-      _OwnerWallet;
+      TransferRecipientOwnerWallet;
 
   const factory TransferRecipient.tokenWallet(final Address data) =
-      _TokenWallet;
+      TransferRecipientTokenWallet;
 
   factory TransferRecipient.fromJson(Map<String, dynamic> json) =>
       _$TransferRecipientFromJson(json);

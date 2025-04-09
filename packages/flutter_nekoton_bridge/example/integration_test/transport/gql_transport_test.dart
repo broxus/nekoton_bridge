@@ -238,7 +238,10 @@ void main() {
 
       expect(state, isNotNull);
       expect(
-        state.when(notExists: (_) => null, exists: (e) => e),
+        switch (state) {
+          RawContractStateExists(:final data) => data,
+          RawContractStateNotExists() => null,
+        },
         isNotNull,
       );
     });
