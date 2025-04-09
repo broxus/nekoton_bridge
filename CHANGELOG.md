@@ -11,6 +11,34 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 Packages with breaking changes:
 
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v3.0.1`](#flutter_nekoton_bridge---v301)
+ - [`flutter_nekoton_bridge_example` - `v2.0.1`](#flutter_nekoton_bridge_example---v201)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v2.0.1`
+
+---
+
+#### `flutter_nekoton_bridge` - `v3.0.1`
+
+ - **FIX**: rename _Comment to TransactionAdditionalInfoComment. ([95a4ac19](https://github.com/broxus/nekoton_bridge/commit/95a4ac19adb2e0d986a12180fcc8408cc241d7d5))
+
+
+## 2025-04-09
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
  - [`flutter_nekoton_bridge` - `v3.0.0`](#flutter_nekoton_bridge---v300)
  - [`flutter_nekoton_bridge_example` - `v2.0.0`](#flutter_nekoton_bridge_example---v200)
  - [`nekoton_bridge` - `v3.0.0`](#nekoton_bridge---v300)

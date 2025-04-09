@@ -1,3 +1,7 @@
+## 3.0.1
+
+ - **FIX**: rename _Comment to TransactionAdditionalInfoComment. ([95a4ac19](https://github.com/broxus/nekoton_bridge/commit/95a4ac19adb2e0d986a12180fcc8408cc241d7d5))
+
 ## 3.0.0
 
 > Note: This release has breaking changes.
