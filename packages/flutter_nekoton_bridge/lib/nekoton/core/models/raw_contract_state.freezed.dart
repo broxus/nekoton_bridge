@@ -27,22 +27,27 @@ RawContractState _$RawContractStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RawContractState {
+  Object get data;
+
   /// Serializes this RawContractState to a JSON map.
   Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is RawContractState);
+        (other.runtimeType == runtimeType &&
+            other is RawContractState &&
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   @override
   String toString() {
-    return 'RawContractState()';
+    return 'RawContractState(data: $data)';
   }
 }
 
@@ -55,12 +60,13 @@ class $RawContractStateCopyWith<$Res> {
 /// @nodoc
 @JsonSerializable()
 class RawContractStateNotExists implements RawContractState {
-  const RawContractStateNotExists(this.timings, {final String? $type})
+  const RawContractStateNotExists(this.data, {final String? $type})
       : $type = $type ?? 'notExists';
   factory RawContractStateNotExists.fromJson(Map<String, dynamic> json) =>
       _$RawContractStateNotExistsFromJson(json);
 
-  final GenTimings timings;
+  @override
+  final NotExistingContract data;
 
   @JsonKey(name: 'type')
   final String $type;
@@ -85,16 +91,16 @@ class RawContractStateNotExists implements RawContractState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is RawContractStateNotExists &&
-            (identical(other.timings, timings) || other.timings == timings));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, timings);
+  int get hashCode => Object.hash(runtimeType, data);
 
   @override
   String toString() {
-    return 'RawContractState.notExists(timings: $timings)';
+    return 'RawContractState.notExists(data: $data)';
   }
 }
 
@@ -105,9 +111,9 @@ abstract mixin class $RawContractStateNotExistsCopyWith<$Res>
           $Res Function(RawContractStateNotExists) _then) =
       _$RawContractStateNotExistsCopyWithImpl;
   @useResult
-  $Res call({GenTimings timings});
+  $Res call({NotExistingContract data});
 
-  $GenTimingsCopyWith<$Res> get timings;
+  $NotExistingContractCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -122,13 +128,13 @@ class _$RawContractStateNotExistsCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? timings = null,
+    Object? data = null,
   }) {
     return _then(RawContractStateNotExists(
-      null == timings
-          ? _self.timings
-          : timings // ignore: cast_nullable_to_non_nullable
-              as GenTimings,
+      null == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as NotExistingContract,
     ));
   }
 
@@ -136,9 +142,9 @@ class _$RawContractStateNotExistsCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $GenTimingsCopyWith<$Res> get timings {
-    return $GenTimingsCopyWith<$Res>(_self.timings, (value) {
-      return _then(_self.copyWith(timings: value));
+  $NotExistingContractCopyWith<$Res> get data {
+    return $NotExistingContractCopyWith<$Res>(_self.data, (value) {
+      return _then(_self.copyWith(data: value));
     });
   }
 }
@@ -151,6 +157,7 @@ class RawContractStateExists implements RawContractState {
   factory RawContractStateExists.fromJson(Map<String, dynamic> json) =>
       _$RawContractStateExistsFromJson(json);
 
+  @override
   final ExistingContract data;
 
   @JsonKey(name: 'type')
