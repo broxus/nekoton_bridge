@@ -1,3 +1,7 @@
+## 2.8.1
+
+ - **FIX**(EWM-508): add NotExistingContract model to fix broken contract state. ([7b197368](https://github.com/broxus/nekoton_bridge/commit/7b1973686d73f7c05f7d3a7a9b1ce5cf69a978d0))
+
 ## 2.8.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
