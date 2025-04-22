@@ -1,3 +1,7 @@
+## 3.0.2
+
+ - **FIX**(EWM-508): add NotExistingContract model to fix broken contract state. ([b37cdaa6](https://github.com/broxus/nekoton_bridge/commit/b37cdaa6894afb34343b3656ecd880aa70c5a599))
+
 ## 3.0.1
 
  - **FIX**: rename _Comment to TransactionAdditionalInfoComment. ([95a4ac19](https://github.com/broxus/nekoton_bridge/commit/95a4ac19adb2e0d986a12180fcc8408cc241d7d5))
