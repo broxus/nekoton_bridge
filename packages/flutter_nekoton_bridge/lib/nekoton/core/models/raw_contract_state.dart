@@ -7,6 +7,8 @@ part 'raw_contract_state.g.dart';
 
 @Freezed(unionKey: 'type')
 sealed class RawContractState with _$RawContractState {
+  const RawContractState._();
+
   const factory RawContractState.notExists(NotExistingContract data) =
       _NotExists;
 

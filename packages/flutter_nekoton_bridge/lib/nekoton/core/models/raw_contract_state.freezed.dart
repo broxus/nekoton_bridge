@@ -141,9 +141,10 @@ class __$$NotExistsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$NotExistsImpl implements _NotExists {
+class _$NotExistsImpl extends _NotExists {
   const _$NotExistsImpl(this.data, {final String? $type})
-      : $type = $type ?? 'notExists';
+      : $type = $type ?? 'notExists',
+        super._();
 
   factory _$NotExistsImpl.fromJson(Map<String, dynamic> json) =>
       _$$NotExistsImplFromJson(json);
@@ -249,8 +250,9 @@ class _$NotExistsImpl implements _NotExists {
   }
 }
 
-abstract class _NotExists implements RawContractState {
+abstract class _NotExists extends RawContractState {
   const factory _NotExists(final NotExistingContract data) = _$NotExistsImpl;
+  const _NotExists._() : super._();
 
   factory _NotExists.fromJson(Map<String, dynamic> json) =
       _$NotExistsImpl.fromJson;
@@ -312,9 +314,10 @@ class __$$ExistsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ExistsImpl implements _Exists {
+class _$ExistsImpl extends _Exists {
   const _$ExistsImpl(this.data, {final String? $type})
-      : $type = $type ?? 'exists';
+      : $type = $type ?? 'exists',
+        super._();
 
   factory _$ExistsImpl.fromJson(Map<String, dynamic> json) =>
       _$$ExistsImplFromJson(json);
@@ -420,8 +423,9 @@ class _$ExistsImpl implements _Exists {
   }
 }
 
-abstract class _Exists implements RawContractState {
+abstract class _Exists extends RawContractState {
   const factory _Exists(final ExistingContract data) = _$ExistsImpl;
+  const _Exists._() : super._();
 
   factory _Exists.fromJson(Map<String, dynamic> json) = _$ExistsImpl.fromJson;
 
