@@ -14,4 +14,8 @@ sealed class RawContractState with _$RawContractState {
 
   factory RawContractState.fromJson(Map<String, dynamic> json) =>
       _$RawContractStateFromJson(json);
+
+  bool isExists() {
+    return this is _Exists;
+  }
 }
