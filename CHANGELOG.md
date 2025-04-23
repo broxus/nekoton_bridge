@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-04-23
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.9.0`](#flutter_nekoton_bridge---v290)
+ - [`flutter_nekoton_bridge_example` - `v1.24.2`](#flutter_nekoton_bridge_example---v1242)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.24.2`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.9.0`
+
+ - **FIX**: `RawContractState` add private constructor. ([82581163](https://github.com/broxus/nekoton_bridge/commit/82581163818cbba1ffd78a8b4a7f92bb52788b8a))
+ - **FEAT**(EWM-508): add exists check method for raw_contract_state. ([70ad0d95](https://github.com/broxus/nekoton_bridge/commit/70ad0d953d9daf275914cbd93da7bceae55bd0c0))
+
+
 ## 2025-04-22
 
 ### Changes
