@@ -63,7 +63,7 @@ void main() {
   });
 
   // TODO(nesquikm): it's not clear which test is causing flaky behavior
-  group('ProtoTransport tests', () {
+  group('ProtoTransport', () {
     testWidgets('Create ProtoTransport', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
@@ -81,7 +81,7 @@ void main() {
       expect(transport.transport, isNotNull);
     });
 
-    testWidgets('ProtoTransport getSignatureId ', (WidgetTester tester) async {
+    testWidgets('getSignatureId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -100,8 +100,7 @@ void main() {
       expect(signature, isNull);
     });
 
-    testWidgets('ProtoTransport getSignatureId venom ',
-        (WidgetTester tester) async {
+    testWidgets('getSignatureId venom ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -121,7 +120,7 @@ void main() {
       expect(signature, 1);
     });
 
-    testWidgets('ProtoTransport getTransactions ', (WidgetTester tester) async {
+    testWidgets('getTransactions ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -143,7 +142,7 @@ void main() {
       expect(transactions.transactions.length, 1);
     });
 
-    testWidgets('ProtoTransport getTransaction ', (WidgetTester tester) async {
+    testWidgets('getTransaction ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -166,8 +165,7 @@ void main() {
       expect(transaction.outMessages.length, 0);
     });
 
-    testWidgets('ProtoTransport getDstTransaction',
-        (WidgetTester tester) async {
+    testWidgets('getDstTransaction', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -196,7 +194,7 @@ void main() {
       expect(transaction.outMessages.length, 1);
     });
 
-    testWidgets('ProtoTransport multiple calls ', (WidgetTester tester) async {
+    testWidgets('multiple calls ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -231,8 +229,7 @@ void main() {
       );
     });
 
-    testWidgets('ProtoTransport getContractState ',
-        (WidgetTester tester) async {
+    testWidgets('getContractState ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -255,7 +252,7 @@ void main() {
       );
     });
 
-    testWidgets('ProtoTransport getFullContractState ', (
+    testWidgets('getFullContractState ', (
       WidgetTester tester,
     ) async {
       await tester.pumpAndSettleWithTimeout();
@@ -278,7 +275,7 @@ void main() {
       expect(state.isDeployed, true);
     });
 
-    testWidgets('ProtoTransport getContractFields', (
+    testWidgets('getContractFields', (
       WidgetTester tester,
     ) async {
       await tester.pumpAndSettleWithTimeout();
@@ -307,7 +304,7 @@ void main() {
       expect(state, isNotNull);
     });
 
-    testWidgets('ProtoTransport getNetworkId ', (WidgetTester tester) async {
+    testWidgets('getNetworkId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
@@ -323,8 +320,7 @@ void main() {
       expect(id, 42);
     });
 
-    testWidgets('ProtoTransport getNetworkId venom ',
-        (WidgetTester tester) async {
+    testWidgets('getNetworkId venom ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
       const venomEndpoint = 'https://jrpc.venom.foundation';
@@ -341,8 +337,7 @@ void main() {
       expect(id, 1);
     });
 
-    testWidgets('ProtoTransport getBlockchainConfig ',
-        (WidgetTester tester) async {
+    testWidgets('getBlockchainConfig ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
@@ -361,8 +356,7 @@ void main() {
       expect(config.globalVersion, 32);
     });
 
-    testWidgets('ProtoTransport simulateTransactionTree ',
-        (WidgetTester tester) async {
+    testWidgets('simulateTransactionTree ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
@@ -409,7 +403,7 @@ void main() {
       expect(errors, isNotEmpty);
     });
 
-    testWidgets('GqlTransport getFeeFactors', (WidgetTester tester) async {
+    testWidgets('getFeeFactors', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();

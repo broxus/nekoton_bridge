@@ -63,7 +63,7 @@ void main() {
   });
 
   // TODO(nesquikm): it's not clear which test is causing flaky behavior
-  group('JrpcTransport tests', () {
+  group('JrpcTransport', () {
     testWidgets('Create JrpcTransport', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
@@ -80,7 +80,7 @@ void main() {
       expect(transport.transport, isNotNull);
     });
 
-    testWidgets('JrpcTransport getSignatureId ', (WidgetTester tester) async {
+    testWidgets('getSignatureId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -98,8 +98,7 @@ void main() {
       expect(signature, isNull);
     });
 
-    testWidgets('JrpcTransport getSignatureId venom ',
-        (WidgetTester tester) async {
+    testWidgets('getSignatureId venom ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -118,7 +117,7 @@ void main() {
       expect(signature, 1);
     });
 
-    testWidgets('JrpcTransport getTransactions ', (WidgetTester tester) async {
+    testWidgets('getTransactions ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -139,7 +138,7 @@ void main() {
       expect(transactions.transactions.length, 1);
     });
 
-    testWidgets('JrpcTransport getTransaction ', (WidgetTester tester) async {
+    testWidgets('getTransaction ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -161,7 +160,7 @@ void main() {
       expect(transaction.outMessages.length, 0);
     });
 
-    testWidgets('JrpcTransport getDstTransaction', (WidgetTester tester) async {
+    testWidgets('getDstTransaction', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -189,7 +188,7 @@ void main() {
       expect(transaction.outMessages.length, 1);
     });
 
-    testWidgets('JrpcTransport multiple calls ', (WidgetTester tester) async {
+    testWidgets('multiple calls ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -223,7 +222,7 @@ void main() {
       );
     });
 
-    testWidgets('JrpcTransport getContractState ', (WidgetTester tester) async {
+    testWidgets('getContractState ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -245,7 +244,7 @@ void main() {
       );
     });
 
-    testWidgets('JrpcTransport getFullContractState ', (
+    testWidgets('getFullContractState ', (
       WidgetTester tester,
     ) async {
       await tester.pumpAndSettleWithTimeout();
@@ -267,7 +266,7 @@ void main() {
       expect(state.isDeployed, true);
     });
 
-    testWidgets('JrpcTransport getContractFields', (
+    testWidgets('getContractFields', (
       WidgetTester tester,
     ) async {
       await tester.pumpAndSettleWithTimeout();
@@ -295,7 +294,7 @@ void main() {
       expect(state, isNotNull);
     });
 
-    testWidgets('JrpcTransport getNetworkId ', (WidgetTester tester) async {
+    testWidgets('getNetworkId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
@@ -310,8 +309,7 @@ void main() {
       expect(id, 42);
     });
 
-    testWidgets('JrpcTransport getNetworkId venom ',
-        (WidgetTester tester) async {
+    testWidgets('getNetworkId venom ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
       const venomEndpoint = 'https://jrpc.venom.foundation';
@@ -327,8 +325,7 @@ void main() {
       expect(id, 1);
     });
 
-    testWidgets('JrpcTransport getBlockchainConfig ',
-        (WidgetTester tester) async {
+    testWidgets('getBlockchainConfig ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
@@ -346,8 +343,7 @@ void main() {
       expect(config.globalVersion, 32);
     });
 
-    testWidgets('JrpcTransport simulateTransactionTree ',
-        (WidgetTester tester) async {
+    testWidgets('simulateTransactionTree ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
@@ -393,7 +389,7 @@ void main() {
       expect(errors, isNotEmpty);
     });
 
-    testWidgets('GqlTransport getFeeFactors', (WidgetTester tester) async {
+    testWidgets('getFeeFactors', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -413,6 +409,124 @@ void main() {
 
       expect(feeFactors.storageFeeFactor, greaterThan(0));
       expect(feeFactors.gasFeeFactor, greaterThan(0));
+    });
+  });
+
+  group('JrpcTransport(TON)', () {
+    late JrpcTransport transport;
+
+    setUp(() async {
+      final connection = JrpcConnection.create(
+        client: HttpClient(),
+        settings: const JrpcNetworkSettings(
+          endpoint: 'https://jrpc-ton.broxus.com',
+        ),
+        name: 'TON',
+        group: 'ton',
+      );
+      transport = await JrpcTransport.create(jrpcConnection: connection);
+    });
+
+    tearDown(() async {
+      await transport.dispose();
+    });
+
+    testWidgets('simulateTransactionTree (WalletV4R2)',
+        (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+      await initRustToDartCaller();
+
+      const from = Address(
+          address:
+              '0:453163ef9b6f68e7c815a77a8d013bd791bb696e6fa4a0de0eb6df19cc0e373b');
+      const pk = PublicKey(
+          publicKey:
+              '1b2267c29f37b05470bfa593ed1f03c1b5f682bc6282f4896494b5f4c8fe66c8');
+      const to = Address(
+        address:
+            '0:f9f575258120bff21afd8c798a5c9e9a2ef0b251e11d9c85fbf43bec968a57c6',
+      );
+      final wallet = await TonWallet.subscribeByAddress(
+        transport: transport,
+        address: from,
+      );
+      final message = await wallet.prepareTransfer(
+        contractState: await transport.getContractState(from),
+        publicKey: pk,
+        expiration: const Expiration.timeout(60),
+        params: [
+          TonWalletTransferParams(
+            destination: to,
+            amount: BigInt.parse('1000'),
+            bounce: false,
+          ),
+        ],
+      );
+      final signedMessage = await message.signFake();
+      final errors = await transport.simulateTransactionTree(
+        signedMessage: signedMessage,
+        ignoredComputePhaseCodes: Int32List.fromList([0, 1, 60, 100]),
+        ignoredActionPhaseCodes: Int32List.fromList([0, 1]),
+      );
+
+      expect(errors, isNotNull);
+      expect(errors, isEmpty);
+    });
+
+    testWidgets('jetton transfer', (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+      await initRustToDartCaller();
+
+      const owner = Address(
+          address:
+              '0:6ca35273892588b4c5f4ae898dc1983eec9662dffebeacdbe82103a1d1dcac60');
+      const usdtTokenRoot = Address(
+          address:
+              '0:b113a994b5024a16719f69139328eb759596c38a25f59028b146fecdc3621dfe');
+
+      final wallet = await TonWallet.subscribeByAddress(
+        transport: transport,
+        address: owner,
+      );
+      final jettonWallet = await JettonWallet.subscribe(
+        transport: transport,
+        owner: owner,
+        rootTokenContract: usdtTokenRoot,
+      );
+
+      final internalMessage = await jettonWallet.prepareTransfer(
+        destination: usdtTokenRoot,
+        amount: BigInt.parse('10000'),
+        callbackValue: BigInt.one,
+        remainingGasTo: owner,
+      );
+      final message = await wallet.prepareTransfer(
+        contractState: await transport.getContractState(owner),
+        publicKey: const PublicKey(
+            publicKey:
+                '9107a65271437e1a982bb98404bd9a82c434f31ee30c621b6596702bb59bf0a0'),
+        expiration: const Expiration.timeout(60),
+        params: [
+          TonWalletTransferParams(
+            destination: internalMessage.destination,
+            amount: internalMessage.amount,
+            bounce: internalMessage.bounce,
+            body: internalMessage.body,
+          ),
+        ],
+      );
+
+      final signedMessage = await message.signFake();
+      final errors = await transport.simulateTransactionTree(
+        signedMessage: signedMessage,
+        ignoredComputePhaseCodes: Int32List.fromList([0, 1, 60, 100]),
+        ignoredActionPhaseCodes: Int32List.fromList([0, 1]),
+      );
+
+      expect(errors, isNotNull);
+      expect(errors, isEmpty);
+
+      jettonWallet.dispose();
     });
   });
 }
