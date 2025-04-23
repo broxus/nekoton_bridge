@@ -1,3 +1,7 @@
+## 2.9.0
+
+ - **FEAT**(EWM-508): add exists check method for raw_contract_state. ([70ad0d95](https://github.com/broxus/nekoton_bridge/commit/70ad0d953d9daf275914cbd93da7bceae55bd0c0))
+
 ## 2.8.1
 
  - **FIX**(EWM-508): add NotExistingContract model to fix broken contract state. ([7b197368](https://github.com/broxus/nekoton_bridge/commit/7b1973686d73f7c05f7d3a7a9b1ce5cf69a978d0))
