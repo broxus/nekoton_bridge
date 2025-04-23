@@ -1,3 +1,7 @@
+## 2.9.1
+
+ - **FIX**: `RawContractState` add private constructor. ([82581163](https://github.com/broxus/nekoton_bridge/commit/82581163818cbba1ffd78a8b4a7f92bb52788b8a))
+
 ## 2.9.0
 
  - **FIX**: `RawContractState` add private constructor. ([82581163](https://github.com/broxus/nekoton_bridge/commit/82581163818cbba1ffd78a8b4a7f92bb52788b8a))
