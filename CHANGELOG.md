@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_nekoton_bridge` - `v2.9.1`](#flutter_nekoton_bridge---v291)
+ - [`flutter_nekoton_bridge_example` - `v1.24.3`](#flutter_nekoton_bridge_example---v1243)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.24.3`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.9.1`
+
+ - **FIX**: `RawContractState` add private constructor. ([82581163](https://github.com/broxus/nekoton_bridge/commit/82581163818cbba1ffd78a8b4a7f92bb52788b8a))
+
+
+## 2025-04-23
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v2.9.0`](#flutter_nekoton_bridge---v290)
  - [`flutter_nekoton_bridge_example` - `v1.24.2`](#flutter_nekoton_bridge_example---v1242)
 
