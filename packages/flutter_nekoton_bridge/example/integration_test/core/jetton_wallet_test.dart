@@ -57,8 +57,8 @@ void main() {
     await transport.dispose();
   });
 
-  group('JettonWallet test', () {
-    testWidgets('JettonWallet subscribe', (WidgetTester tester) async {
+  group('JettonWallet', () {
+    testWidgets('subscribe', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await JettonWallet.subscribe(
@@ -76,8 +76,7 @@ void main() {
       wallet.dispose();
     });
 
-    testWidgets('JettonWallet estimateMinAttachedAmount',
-        (WidgetTester tester) async {
+    testWidgets('estimateMinAttachedAmount', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       const destination = Address(
@@ -98,7 +97,7 @@ void main() {
       expect(amount.isValidInt, isTrue);
     });
 
-    testWidgets('JettonWallet prepareTransfer', (WidgetTester tester) async {
+    testWidgets('prepareTransfer', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await JettonWallet.subscribe(
@@ -119,8 +118,7 @@ void main() {
       wallet.dispose();
     });
 
-    testWidgets('JettonWallet getJettonWalletDetails',
-        (WidgetTester tester) async {
+    testWidgets('getJettonWalletDetails', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final details = await JettonWallet.getJettonWalletDetails(
@@ -139,7 +137,7 @@ void main() {
       );
     });
 
-    testWidgets('JettonWallet getJettonRootDetailsFromJettonWallet',
+    testWidgets('getJettonRootDetailsFromJettonWallet',
         (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
@@ -157,8 +155,7 @@ void main() {
       );
     });
 
-    testWidgets('JettonWallet getJettonRootDetails',
-        (WidgetTester tester) async {
+    testWidgets('getJettonRootDetails', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final details = await JettonWallet.getJettonRootDetails(
@@ -174,7 +171,7 @@ void main() {
       );
     });
 
-    testWidgets('JettonWallet refresh', (WidgetTester tester) async {
+    testWidgets('refresh', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await JettonWallet.subscribe(
@@ -203,7 +200,7 @@ void main() {
     });
 
     testWidgets(
-      'JettonWallet subscribing new instance after disposing old one',
+      'subscribing new instance after disposing old one',
       (WidgetTester tester) async {
         await tester.pumpAndSettleWithTimeout();
 
@@ -225,8 +222,7 @@ void main() {
       },
     );
 
-    testWidgets('JettonWallet preloadTransactions: true',
-        (WidgetTester tester) async {
+    testWidgets('preloadTransactions: true', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await JettonWallet.subscribe(
@@ -249,8 +245,7 @@ void main() {
       wallet.dispose();
     });
 
-    testWidgets('JettonWallet preloadTransactions: false',
-        (WidgetTester tester) async {
+    testWidgets('preloadTransactions: false', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await JettonWallet.subscribe(

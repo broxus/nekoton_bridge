@@ -118,7 +118,7 @@ void main() {
     await NekotonBridge.init();
   });
 
-  group('KeyStore test', () {
+  group('KeyStore', () {
     testWidgets('Create KeyStore', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
@@ -137,7 +137,7 @@ void main() {
       expect(keystore, isNotNull);
     });
 
-    testWidgets('KeyStore addKey derived', (WidgetTester tester) async {
+    testWidgets('addKey derived', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
@@ -165,7 +165,7 @@ void main() {
       expect(storageMethods.data.isNotEmpty, isTrue);
     });
 
-    testWidgets('KeyStore addKey encrypted', (WidgetTester tester) async {
+    testWidgets('addKey encrypted', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
@@ -199,7 +199,7 @@ void main() {
       expect(storageMethods.data.isNotEmpty, isTrue);
     });
 
-    testWidgets('KeyStore addKeys', (WidgetTester tester) async {
+    testWidgets('addKeys', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
@@ -229,7 +229,7 @@ void main() {
       expect(storageMethods.data.isNotEmpty, isTrue);
     });
 
-    testWidgets('KeyStore getEntries', (WidgetTester tester) async {
+    testWidgets('getEntries', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
@@ -263,7 +263,7 @@ void main() {
       expect(storageMethods.data.isNotEmpty, isTrue);
     });
 
-    testWidgets('KeyStore removeKey', (WidgetTester tester) async {
+    testWidgets('removeKey', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
@@ -287,7 +287,7 @@ void main() {
       expect(removed, isTrue);
     });
 
-    testWidgets('KeyStore removeKeys', (WidgetTester tester) async {
+    testWidgets('removeKeys', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
@@ -315,7 +315,7 @@ void main() {
       expect(jsonEncode(removed), jsonEncode([addedKey1, addedKey2]));
     });
 
-    testWidgets('KeyStore clearStore', (WidgetTester tester) async {
+    testWidgets('clearStore', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
@@ -340,7 +340,7 @@ void main() {
       expect(entries.length, 0);
     });
 
-    testWidgets('KeyStore exportKey', (WidgetTester tester) async {
+    testWidgets('exportKey', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
@@ -365,7 +365,7 @@ void main() {
       expect(exported.phrase, inputLabsData.phrase);
     });
 
-    testWidgets('KeyStore getPublicKeys', (WidgetTester tester) async {
+    testWidgets('getPublicKeys', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
@@ -393,7 +393,7 @@ void main() {
       expect(keys[0], key);
     });
 
-    testWidgets('KeyStore updateKey', (WidgetTester tester) async {
+    testWidgets('updateKey', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(

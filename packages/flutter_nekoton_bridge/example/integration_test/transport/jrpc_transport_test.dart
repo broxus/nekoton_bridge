@@ -473,7 +473,8 @@ void main() {
       expect(errors, isEmpty);
     });
 
-    testWidgets('jetton transfer', (WidgetTester tester) async {
+    testWidgets('simulateTransactionTree (jetton: usdt)',
+        (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
@@ -496,6 +497,63 @@ void main() {
 
       final internalMessage = await jettonWallet.prepareTransfer(
         destination: usdtTokenRoot,
+        amount: BigInt.parse('10000'),
+        callbackValue: BigInt.one,
+        remainingGasTo: owner,
+      );
+      final message = await wallet.prepareTransfer(
+        contractState: await transport.getContractState(owner),
+        publicKey: const PublicKey(
+            publicKey:
+                '9107a65271437e1a982bb98404bd9a82c434f31ee30c621b6596702bb59bf0a0'),
+        expiration: const Expiration.timeout(60),
+        params: [
+          TonWalletTransferParams(
+            destination: internalMessage.destination,
+            amount: internalMessage.amount,
+            bounce: internalMessage.bounce,
+            body: internalMessage.body,
+          ),
+        ],
+      );
+
+      final signedMessage = await message.signFake();
+      final errors = await transport.simulateTransactionTree(
+        signedMessage: signedMessage,
+        ignoredComputePhaseCodes: Int32List.fromList([0, 1, 60, 100]),
+        ignoredActionPhaseCodes: Int32List.fromList([0, 1]),
+      );
+
+      expect(errors, isNotNull);
+      expect(errors, isEmpty);
+
+      jettonWallet.dispose();
+    });
+
+    testWidgets('simulateTransactionTree (jetton: mintless points)',
+        (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+      await initRustToDartCaller();
+
+      const owner = Address(
+          address:
+              '0:6ca35273892588b4c5f4ae898dc1983eec9662dffebeacdbe82103a1d1dcac60');
+      const pointsTokenRoot = Address(
+          address:
+              '0:fa67d0c7739331fbc3c8f08e018c65f47763616a969100ad760a0b2dc1e36832');
+
+      final wallet = await TonWallet.subscribeByAddress(
+        transport: transport,
+        address: owner,
+      );
+      final jettonWallet = await JettonWallet.subscribe(
+        transport: transport,
+        owner: owner,
+        rootTokenContract: pointsTokenRoot,
+      );
+
+      final internalMessage = await jettonWallet.prepareTransfer(
+        destination: pointsTokenRoot,
         amount: BigInt.parse('10000'),
         callbackValue: BigInt.one,
         remainingGasTo: owner,

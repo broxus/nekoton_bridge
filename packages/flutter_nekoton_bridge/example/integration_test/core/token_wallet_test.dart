@@ -54,8 +54,8 @@ void main() {
     await transport.dispose();
   });
 
-  group('TokenWallet test', () {
-    testWidgets('TokenWallet subscribe', (WidgetTester tester) async {
+  group('TokenWallet', () {
+    testWidgets('subscribe', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TokenWallet.subscribe(
@@ -82,8 +82,7 @@ void main() {
       wallet.dispose();
     });
 
-    testWidgets('TokenWallet estimateMinAttachedAmount',
-        (WidgetTester tester) async {
+    testWidgets('estimateMinAttachedAmount', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       const destination = Address(
@@ -114,7 +113,7 @@ void main() {
       expect(amount.isValidInt, isTrue);
     });
 
-    testWidgets('TokenWallet prepareTransfer', (WidgetTester tester) async {
+    testWidgets('prepareTransfer', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TokenWallet.subscribe(
@@ -142,8 +141,7 @@ void main() {
       wallet.dispose();
     });
 
-    testWidgets('TokenWallet getTokenWalletDetails',
-        (WidgetTester tester) async {
+    testWidgets('getTokenWalletDetails', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final details = await TokenWallet.getTokenWalletDetails(
@@ -166,7 +164,7 @@ void main() {
       expect(details.$2.symbol, 'STEVER');
     });
 
-    testWidgets('TokenWallet getTokenRootDetailsFromTokenWallet',
+    testWidgets('getTokenRootDetailsFromTokenWallet',
         (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
@@ -188,7 +186,7 @@ void main() {
       expect(details.$2.symbol, 'STEVER');
     });
 
-    testWidgets('TokenWallet getTokenRootDetails', (WidgetTester tester) async {
+    testWidgets('getTokenRootDetails', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final details = await TokenWallet.getTokenRootDetails(
@@ -209,7 +207,7 @@ void main() {
       expect(details.decimals, 9);
     });
 
-    testWidgets('TokenWallet refresh', (WidgetTester tester) async {
+    testWidgets('refresh', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TokenWallet.subscribe(
@@ -257,7 +255,7 @@ void main() {
     });
 
     testWidgets(
-      'TokenWallet subscribing new instance after disposing old one',
+      'subscribing new instance after disposing old one',
       (WidgetTester tester) async {
         await tester.pumpAndSettleWithTimeout();
 
@@ -289,7 +287,7 @@ void main() {
     );
 
     testWidgets(
-      'TokenWallet Currency creation',
+      'Currency creation',
       (WidgetTester tester) async {
         await tester.pumpAndSettleWithTimeout();
 
@@ -310,8 +308,7 @@ void main() {
       },
     );
 
-    testWidgets('TokenWallet preloadTransactions: true',
-        (WidgetTester tester) async {
+    testWidgets('preloadTransactions: true', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TokenWallet.subscribe(
@@ -334,8 +331,7 @@ void main() {
       wallet.dispose();
     });
 
-    testWidgets('TokenWallet preloadTransactions: false',
-        (WidgetTester tester) async {
+    testWidgets('preloadTransactions: false', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TokenWallet.subscribe(

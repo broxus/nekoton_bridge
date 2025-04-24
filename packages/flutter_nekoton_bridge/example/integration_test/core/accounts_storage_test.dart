@@ -75,7 +75,7 @@ void main() {
     await NekotonBridge.init();
   });
 
-  group('AccountsStorage test', () {
+  group('AccountsStorage', () {
     testWidgets('Create AccountsStorage', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
@@ -92,7 +92,7 @@ void main() {
       expect(accountsStorage, isNotNull);
     });
 
-    testWidgets('AccountsStorage addAccount', (WidgetTester tester) async {
+    testWidgets('addAccount', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
@@ -126,7 +126,7 @@ void main() {
       expect(accountsStorage, isNotNull);
     });
 
-    testWidgets('AccountsStorage addAccounts', (WidgetTester tester) async {
+    testWidgets('addAccounts', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
@@ -161,7 +161,7 @@ void main() {
       expect(accountsStorage, isNotNull);
     });
 
-    testWidgets('AccountsStorage getEntries', (WidgetTester tester) async {
+    testWidgets('getEntries', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
@@ -198,7 +198,7 @@ void main() {
       expect(accountsStorage, isNotNull);
     });
 
-    testWidgets('AccountsStorage removeAccount', (WidgetTester tester) async {
+    testWidgets('removeAccount', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
@@ -232,7 +232,7 @@ void main() {
       expect(accountsStorage, isNotNull);
     });
 
-    testWidgets('AccountsStorage removeAccounts', (WidgetTester tester) async {
+    testWidgets('removeAccounts', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final storage = await Storage.create(
