@@ -1,5 +1,4 @@
 #![allow(clippy::too_many_arguments)]
-use crate::async_run;
 use crate::frb_generated::RustOpaque;
 use crate::nekoton_wrapper::core::ton_wallet::{
     ton_wallet_find_existing_wallets, ton_wallet_get_custodians,
@@ -35,23 +34,21 @@ impl TonWalletDartWrapper {
     /// Create TonWallet by subscribing to its instance by public_key.
     /// wallet_type - is json-encoded WalletType.
     /// public_key - is string representation of key
-    pub fn subscribe(
+    pub async fn subscribe(
         instance_hash: String,
         workchain_id: i8,
         public_key: String,
         wallet_type: String,
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
     ) -> anyhow::Result<TonWalletDartWrapper> {
-        let wallet = async_run!(
-            TonWalletBox::subscribe(
-                transport.get_transport(),
-                workchain_id,
-                public_key,
-                wallet_type,
-                Arc::new(TonWalletSubscriptionHandlerImpl { instance_hash })
-            )
-            .await
-        )?;
+        let wallet = TonWalletBox::subscribe(
+            transport.get_transport(),
+            workchain_id,
+            public_key,
+            wallet_type,
+            Arc::new(TonWalletSubscriptionHandlerImpl { instance_hash }),
+        )
+        .await?;
 
         Ok(Self {
             inner_wallet: wallet,
@@ -59,19 +56,17 @@ impl TonWalletDartWrapper {
     }
 
     /// Create TonWallet by subscribing to its instance by address of wallet.
-    pub fn subscribe_by_address(
+    pub async fn subscribe_by_address(
         instance_hash: String,
         address: String,
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
     ) -> anyhow::Result<TonWalletDartWrapper> {
-        let wallet = async_run!(
-            TonWalletBox::subscribe_by_address(
-                transport.get_transport(),
-                address,
-                Arc::new(TonWalletSubscriptionHandlerImpl { instance_hash })
-            )
-            .await
-        )?;
+        let wallet = TonWalletBox::subscribe_by_address(
+            transport.get_transport(),
+            address,
+            Arc::new(TonWalletSubscriptionHandlerImpl { instance_hash }),
+        )
+        .await?;
 
         Ok(Self {
             inner_wallet: wallet,
@@ -80,19 +75,17 @@ impl TonWalletDartWrapper {
 
     /// Create TonWallet by subscribing to its instance by existed instance.
     /// existing_wallet - json-encoded ExistingWalletInfo.
-    pub fn subscribe_by_existing(
+    pub async fn subscribe_by_existing(
         instance_hash: String,
         existing_wallet: String,
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
     ) -> anyhow::Result<TonWalletDartWrapper> {
-        let wallet = async_run!(
-            TonWalletBox::subscribe_by_existing(
-                transport.get_transport(),
-                existing_wallet,
-                Arc::new(TonWalletSubscriptionHandlerImpl { instance_hash })
-            )
-            .await
-        )?;
+        let wallet = TonWalletBox::subscribe_by_existing(
+            transport.get_transport(),
+            existing_wallet,
+            Arc::new(TonWalletSubscriptionHandlerImpl { instance_hash }),
+        )
+        .await?;
 
         Ok(Self {
             inner_wallet: wallet,
@@ -100,61 +93,63 @@ impl TonWalletDartWrapper {
     }
 
     /// Get workchain of wallet.
-    pub fn workchain(&self) -> i8 {
-        async_run!(self.inner_wallet.workchain().await)
+    pub async fn workchain(&self) -> i8 {
+        self.inner_wallet.workchain().await
     }
 
     /// Get address of wallet.
-    pub fn address(&self) -> String {
-        async_run!(self.inner_wallet.address().await)
+    pub async fn address(&self) -> String {
+        self.inner_wallet.address().await
     }
 
     /// Get public key of wallet.
-    pub fn public_key(&self) -> String {
-        async_run!(self.inner_wallet.public_key().await)
+    pub async fn public_key(&self) -> String {
+        self.inner_wallet.public_key().await
     }
 
     /// Get json-encoded WalletType or throw error.
-    pub fn wallet_type(&self) -> anyhow::Result<String> {
-        async_run!(self.inner_wallet.wallet_type().await)
+    pub async fn wallet_type(&self) -> anyhow::Result<String> {
+        self.inner_wallet.wallet_type().await
     }
 
     /// Get json-encoded ContractState or throw error.
-    pub fn contract_state(&self) -> anyhow::Result<String> {
-        async_run!(self.inner_wallet.contract_state().await)
+    pub async fn contract_state(&self) -> anyhow::Result<String> {
+        self.inner_wallet.contract_state().await
     }
 
     /// Get list of json-encoded PendingTransaction or throw error.
-    pub fn pending_transactions(&self) -> anyhow::Result<String> {
-        async_run!(self.inner_wallet.pending_transactions().await)
+    pub async fn pending_transactions(&self) -> anyhow::Result<String> {
+        self.inner_wallet.pending_transactions().await
     }
 
     /// Get PollingMethod of wallet or throw error.
-    pub fn polling_method(&self) -> PollingMethod {
-        async_run!(self.inner_wallet.polling_method().await)
+    pub async fn polling_method(&self) -> PollingMethod {
+        self.inner_wallet.polling_method().await
     }
 
     /// Get json-encoded TonWalletDetails or throw error.
-    pub fn details(&self) -> anyhow::Result<String> {
-        async_run!(self.inner_wallet.details().await)
+    pub async fn details(&self) -> anyhow::Result<String> {
+        self.inner_wallet.details().await
     }
 
     /// Get json-encoded list of MultisigPendingTransaction or throw error.
-    pub fn unconfirmed_transactions(&self) -> anyhow::Result<String> {
-        async_run!(self.inner_wallet.unconfirmed_transactions().await)
+    pub async fn unconfirmed_transactions(&self) -> anyhow::Result<String> {
+        self.inner_wallet.unconfirmed_transactions().await
     }
 
     /// Get optional list of custodians.
     /// Returns list of public keys.
-    pub fn custodians(&self) -> Option<Vec<String>> {
-        async_run!(self.inner_wallet.custodians().await)
+    pub async fn custodians(&self) -> Option<Vec<String>> {
+        self.inner_wallet.custodians().await
     }
 
     /// Prepare TonWallet for deploy action.
     /// expiration - json-encoded Expiration.
     /// Returns UnsignedMessage or throw error.
-    pub fn prepare_deploy(&self, expiration: String) -> anyhow::Result<UnsignedMessageImpl> {
-        async_run!(self.inner_wallet.prepare_deploy(expiration).await)
+    pub async fn prepare_deploy(&self, expiration: String) -> anyhow::Result<UnsignedMessageImpl> {
+        self.inner_wallet
+            .prepare_deploy(expiration)
+            .await
             .map(|m| UnsignedMessageImpl { inner_message: m })
     }
 
@@ -163,24 +158,22 @@ impl TonWalletDartWrapper {
     /// custodians - list of public keys of custodians.
     /// req_confirms - count of required confirmations from 1 to custodians count
     /// Returns UnsignedMessage or throw error.
-    pub fn prepare_deploy_with_multiple_owners(
+    pub async fn prepare_deploy_with_multiple_owners(
         &self,
         expiration: String,
         custodians: Vec<String>,
         req_confirms: u8,
         expiration_time: Option<u32>,
     ) -> anyhow::Result<UnsignedMessageImpl> {
-        async_run!(
-            self.inner_wallet
-                .prepare_deploy_with_multiple_owners(
-                    expiration,
-                    custodians,
-                    req_confirms,
-                    expiration_time
-                )
-                .await
-        )
-        .map(|m| UnsignedMessageImpl { inner_message: m })
+        self.inner_wallet
+            .prepare_deploy_with_multiple_owners(
+                expiration,
+                custodians,
+                req_confirms,
+                expiration_time,
+            )
+            .await
+            .map(|m| UnsignedMessageImpl { inner_message: m })
     }
 
     /// Prepare transferring tokens from this wallet to other.
@@ -189,19 +182,17 @@ impl TonWalletDartWrapper {
     /// expiration - json-encoded Expiration
     /// params - json-encoded list of TonWalletTransferParams
     /// Returns UnsignedMessage or throw error.
-    pub fn prepare_transfer(
+    pub async fn prepare_transfer(
         &self,
         contract_state: String,
         public_key: String,
         expiration: String,
         params: String,
     ) -> anyhow::Result<UnsignedMessageImpl> {
-        async_run!(
-            self.inner_wallet
-                .prepare_transfer(contract_state, public_key, expiration, params)
-                .await
-        )
-        .map(|m| UnsignedMessageImpl { inner_message: m })
+        self.inner_wallet
+            .prepare_transfer(contract_state, public_key, expiration, params)
+            .await
+            .map(|m| UnsignedMessageImpl { inner_message: m })
     }
 
     /// Prepare transaction for confirmation.
@@ -210,105 +201,99 @@ impl TonWalletDartWrapper {
     /// transaction_id - id of transaction.
     /// expiration - json-encoded Expiration
     /// Returns UnsignedMessage or throw error.
-    pub fn prepare_confirm_transaction(
+    pub async fn prepare_confirm_transaction(
         &self,
         contract_state: String,
         public_key: String,
         transaction_id: String,
         expiration: String,
     ) -> anyhow::Result<UnsignedMessageImpl> {
-        async_run!(
-            self.inner_wallet
-                .prepare_confirm_transaction(contract_state, public_key, transaction_id, expiration)
-                .await
-        )
-        .map(|m| UnsignedMessageImpl { inner_message: m })
+        self.inner_wallet
+            .prepare_confirm_transaction(contract_state, public_key, transaction_id, expiration)
+            .await
+            .map(|m| UnsignedMessageImpl { inner_message: m })
     }
 
     /// Calculate fees for transaction.
     /// signed_message - json-encoded SignedMessage.
     /// execution_options - json-encoded ExecutionOptions.
     /// Returns fees as string representation of u128 or throw error.
-    pub fn estimate_fees(
+    pub async fn estimate_fees(
         &self,
         signed_message: String,
         execution_options: Option<String>,
     ) -> anyhow::Result<String> {
-        async_run!(
-            self.inner_wallet
-                .estimate_fees(signed_message, execution_options)
-                .await
-        )
+        self.inner_wallet
+            .estimate_fees(signed_message, execution_options)
+            .await
     }
 
     /// Send message to blockchain and receive transaction of send.
     /// signed_message - json-encoded SignedMessage.
     /// Returns json-encoded PendingTransaction or throw error.
-    pub fn send(&self, signed_message: String) -> anyhow::Result<String> {
-        async_run!(self.inner_wallet.send(signed_message).await)
+    pub async fn send(&self, signed_message: String) -> anyhow::Result<String> {
+        self.inner_wallet.send(signed_message).await
     }
 
     /// Refresh wallet and update its data.
     /// Returns true or throw error.
-    pub fn refresh(&self) -> anyhow::Result<bool> {
-        async_run!(self.inner_wallet.refresh().await)
+    pub async fn refresh(&self) -> anyhow::Result<bool> {
+        self.inner_wallet.refresh().await
     }
 
     /// Preload transactions of wallet.
     /// from_lt - offset for loading data, string representation of u64
     /// Returns true or throw error.
-    pub fn preload_transactions(&self, from_lt: String) -> anyhow::Result<bool> {
-        async_run!(self.inner_wallet.preload_transactions(from_lt).await)
+    pub async fn preload_transactions(&self, from_lt: String) -> anyhow::Result<bool> {
+        self.inner_wallet.preload_transactions(from_lt).await
     }
 
     /// Handle block of blockchain.
     /// block - base64-encoded Block.
     /// Return true or throw error.
-    pub fn handle_block(&self, block: String) -> anyhow::Result<bool> {
-        async_run!(self.inner_wallet.handle_block(block).await)
+    pub async fn handle_block(&self, block: String) -> anyhow::Result<bool> {
+        self.inner_wallet.handle_block(block).await
     }
 
     /// Find list of wallets of public_key and return them.
     /// wallet_types - json-encoded list of WalletType.
     /// public_key - key of account where wallets must be found.
     /// Return json-encoded list of ExistingWalletInfo or throw error.
-    pub fn find_existing_wallets(
+    pub async fn find_existing_wallets(
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
         public_key: String,
         workchain_id: i8,
         wallet_types: String,
     ) -> anyhow::Result<String> {
-        async_run!(
-            ton_wallet_find_existing_wallets(
-                transport.get_transport(),
-                public_key,
-                workchain_id,
-                wallet_types
-            )
-            .await
+        ton_wallet_find_existing_wallets(
+            transport.get_transport(),
+            public_key,
+            workchain_id,
+            wallet_types,
         )
+        .await
     }
 
     /// Get information of account by its address.
     /// Return json-encoded ExistingWalletInfo or throw error.
-    pub fn get_existing_wallet_info(
+    pub async fn get_existing_wallet_info(
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
         address: String,
     ) -> anyhow::Result<String> {
-        async_run!(ton_wallet_get_existing_wallet_info(transport.get_transport(), address,).await)
+        ton_wallet_get_existing_wallet_info(transport.get_transport(), address).await
     }
 
     /// Get list of custodians of account by address.
     /// Return list of public keys or throw error.
-    pub fn get_custodians(
+    pub async fn get_custodians(
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
         address: String,
     ) -> anyhow::Result<Vec<String>> {
-        async_run!(ton_wallet_get_custodians(transport.get_transport(), address,).await)
+        ton_wallet_get_custodians(transport.get_transport(), address).await
     }
 
-    pub fn make_state_init(&self) -> anyhow::Result<String> {
-        async_run!(self.inner_wallet.make_state_init().await)
+    pub async fn make_state_init(&self) -> anyhow::Result<String> {
+        self.inner_wallet.make_state_init().await
     }
 }
 

@@ -412,10 +412,6 @@ Future<void> initLogger(
 Stream<LogEntry> createLogStream() =>
     NekotonBridge.instance.api.crateApiMergedCreateLogStream();
 
-/// Init tokio runtime
-Future<void> initRuntime() =>
-    NekotonBridge.instance.api.crateApiMergedInitRuntime();
-
 /// Init caller
 Stream<DartCallStubRegistred> initCaller() =>
     NekotonBridge.instance.api.crateApiMergedInitCaller();
@@ -1764,13 +1760,11 @@ class ProtoTransportImpl {
 class StorageDartWrapper {
   final ArcStorageBoxTrait innerStorage;
 
-  const StorageDartWrapper({
+  const StorageDartWrapper.raw({
     required this.innerStorage,
   });
 
-  // HINT: Make it `#[frb(sync)]` to let it become the default constructor of Dart class.
-  static Future<StorageDartWrapper> newInstance(
-          {required String instanceHash}) =>
+  factory StorageDartWrapper({required String instanceHash}) =>
       NekotonBridge.instance.api
           .crateApiMergedStorageDartWrapperNew(instanceHash: instanceHash);
 

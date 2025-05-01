@@ -25,8 +25,6 @@ Future<void> updateClockOffset(Duration offset) {
 Stream<DartCallStubRegistred>? _caller;
 
 Future<void> registerRustToDartCaller(RustToDartCaller rustToDartCaller) async {
-  await initRuntime();
-
   if (_caller != null) return;
 
   _caller = initCaller()

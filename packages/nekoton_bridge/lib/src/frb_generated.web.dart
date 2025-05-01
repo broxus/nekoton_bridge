@@ -2212,9 +2212,6 @@ class NekotonBridgeWire implements BaseWire {
       wasmModule.wire__crate__api__merged__init_logger(
           port_, level, mobile_logger);
 
-  void wire__crate__api__merged__init_runtime(NativePortType port_) =>
-      wasmModule.wire__crate__api__merged__init_runtime(port_);
-
   void wire__crate__api__merged__jetton_wallet_dart_wrapper_address(
           NativePortType port_, JSAny that) =>
       wasmModule.wire__crate__api__merged__jetton_wallet_dart_wrapper_address(
@@ -2918,10 +2915,11 @@ class NekotonBridgeWire implements BaseWire {
   void wire__crate__api__merged__simple_panic(NativePortType port_) =>
       wasmModule.wire__crate__api__merged__simple_panic(port_);
 
-  void wire__crate__api__merged__storage_dart_wrapper_new(
-          NativePortType port_, String instance_hash) =>
-      wasmModule.wire__crate__api__merged__storage_dart_wrapper_new(
-          port_, instance_hash);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__storage_dart_wrapper_new(
+              String instance_hash) =>
+          wasmModule.wire__crate__api__merged__storage_dart_wrapper_new(
+              instance_hash);
 
   void wire__crate__api__merged__storage_impl_new(
           NativePortType port_, String instance_hash) =>
@@ -3666,8 +3664,6 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
   external void wire__crate__api__merged__init_logger(
       NativePortType port_, int level, bool mobile_logger);
 
-  external void wire__crate__api__merged__init_runtime(NativePortType port_);
-
   external void wire__crate__api__merged__jetton_wallet_dart_wrapper_address(
       NativePortType port_, JSAny that);
 
@@ -4153,8 +4149,8 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
 
   external void wire__crate__api__merged__simple_panic(NativePortType port_);
 
-  external void wire__crate__api__merged__storage_dart_wrapper_new(
-      NativePortType port_, String instance_hash);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__storage_dart_wrapper_new(String instance_hash);
 
   external void wire__crate__api__merged__storage_impl_new(
       NativePortType port_, String instance_hash);

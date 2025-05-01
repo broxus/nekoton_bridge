@@ -122,7 +122,7 @@ void main() {
     testWidgets('Create KeyStore', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,
@@ -140,7 +140,7 @@ void main() {
     testWidgets('addKey derived', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,
@@ -168,7 +168,7 @@ void main() {
     testWidgets('addKey encrypted', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,
@@ -202,7 +202,7 @@ void main() {
     testWidgets('addKeys', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,
@@ -232,7 +232,7 @@ void main() {
     testWidgets('getEntries', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,
@@ -266,7 +266,7 @@ void main() {
     testWidgets('removeKey', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,
@@ -290,7 +290,7 @@ void main() {
     testWidgets('removeKeys', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,
@@ -318,7 +318,7 @@ void main() {
     testWidgets('clearStore', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,
@@ -343,7 +343,7 @@ void main() {
     testWidgets('exportKey', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,
@@ -368,7 +368,7 @@ void main() {
     testWidgets('getPublicKeys', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,
@@ -396,7 +396,7 @@ void main() {
     testWidgets('updateKey', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,

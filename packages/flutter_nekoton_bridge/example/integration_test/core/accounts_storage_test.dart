@@ -79,7 +79,7 @@ void main() {
     testWidgets('Create AccountsStorage', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,
@@ -95,7 +95,7 @@ void main() {
     testWidgets('addAccount', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,
@@ -129,7 +129,7 @@ void main() {
     testWidgets('addAccounts', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,
@@ -164,7 +164,7 @@ void main() {
     testWidgets('getEntries', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,
@@ -201,7 +201,7 @@ void main() {
     testWidgets('removeAccount', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,
@@ -235,7 +235,7 @@ void main() {
     testWidgets('removeAccounts', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,

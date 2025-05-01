@@ -3569,18 +3569,6 @@ class NekotonBridgeWire implements BaseWire {
       _wire__crate__api__merged__init_loggerPtr
           .asFunction<void Function(int, int, bool)>();
 
-  void wire__crate__api__merged__init_runtime(int port_) {
-    return _wire__crate__api__merged__init_runtime(port_);
-  }
-
-  late final _wire__crate__api__merged__init_runtimePtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-    'frbgen_nekoton_bridge_wire__crate__api__merged__init_runtime',
-  );
-  late final _wire__crate__api__merged__init_runtime =
-      _wire__crate__api__merged__init_runtimePtr
-          .asFunction<void Function(int)>();
-
   void wire__crate__api__merged__jetton_wallet_dart_wrapper_address(
     int port_,
     ffi.Pointer<wire_cst_jetton_wallet_dart_wrapper> that,
@@ -6681,24 +6669,22 @@ class NekotonBridgeWire implements BaseWire {
       _wire__crate__api__merged__simple_panicPtr
           .asFunction<void Function(int)>();
 
-  void wire__crate__api__merged__storage_dart_wrapper_new(
-    int port_,
+  WireSyncRust2DartDco wire__crate__api__merged__storage_dart_wrapper_new(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash,
   ) {
-    return _wire__crate__api__merged__storage_dart_wrapper_new(
-      port_,
-      instance_hash,
-    );
+    return _wire__crate__api__merged__storage_dart_wrapper_new(instance_hash);
   }
 
   late final _wire__crate__api__merged__storage_dart_wrapper_newPtr = _lookup<
           ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
+              WireSyncRust2DartDco Function(
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
       'frbgen_nekoton_bridge_wire__crate__api__merged__storage_dart_wrapper_new');
   late final _wire__crate__api__merged__storage_dart_wrapper_new =
       _wire__crate__api__merged__storage_dart_wrapper_newPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+          WireSyncRust2DartDco Function(
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+          )>();
 
   void wire__crate__api__merged__storage_impl_new(
     int port_,

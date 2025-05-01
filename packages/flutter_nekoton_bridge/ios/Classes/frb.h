@@ -469,8 +469,6 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__init_logger(int64_t port_,
                                                                  int32_t level,
                                                                  bool mobile_logger);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__init_runtime(int64_t port_);
-
 void frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_address(int64_t port_,
                                                                                         struct wire_cst_jetton_wallet_dart_wrapper *that);
 
@@ -936,8 +934,7 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__simple_log(int64_t port_,
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__simple_panic(int64_t port_);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__storage_dart_wrapper_new(int64_t port_,
-                                                                              struct wire_cst_list_prim_u_8_strict *instance_hash);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__storage_dart_wrapper_new(struct wire_cst_list_prim_u_8_strict *instance_hash);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__storage_impl_new(int64_t port_,
                                                                       struct wire_cst_list_prim_u_8_strict *instance_hash);
@@ -1388,7 +1385,6 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_wait_for_next_block);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__init_caller);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__init_logger);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__init_runtime);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_address);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_balance);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_contract_state);

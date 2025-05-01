@@ -38,16 +38,16 @@ class Storage extends RustToDartMirrorInterface {
     this._removeUnchecked,
   );
 
-  static Future<Storage> create({
+  static Storage create({
     required StorageGet get,
     required StorageSet set,
     required StorageSetUnchecked setUnchecked,
     required StorageRemove remove,
     required StorageRemoveUnchecked removeUnchecked,
-  }) async {
+  }) {
     final instance = Storage._(get, set, setUnchecked, remove, removeUnchecked);
 
-    instance.storage = await StorageDartWrapper.newInstance(
+    instance.storage = StorageDartWrapper(
       instanceHash: instance.instanceHash,
     );
 
