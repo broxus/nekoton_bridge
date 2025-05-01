@@ -196,7 +196,7 @@ void main() {
       );
       const input = DerivedKeyCreateInput.import(inputLabsData);
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,
