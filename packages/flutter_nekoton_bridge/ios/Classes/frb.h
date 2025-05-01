@@ -934,8 +934,7 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__simple_log(int64_t port_,
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__simple_panic(int64_t port_);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__storage_dart_wrapper_new(int64_t port_,
-                                                                              struct wire_cst_list_prim_u_8_strict *instance_hash);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__storage_dart_wrapper_new(struct wire_cst_list_prim_u_8_strict *instance_hash);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__storage_impl_new(int64_t port_,
                                                                       struct wire_cst_list_prim_u_8_strict *instance_hash);

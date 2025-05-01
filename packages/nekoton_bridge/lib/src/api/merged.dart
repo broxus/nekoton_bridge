@@ -1760,13 +1760,11 @@ class ProtoTransportImpl {
 class StorageDartWrapper {
   final ArcStorageBoxTrait innerStorage;
 
-  const StorageDartWrapper({
+  const StorageDartWrapper.raw({
     required this.innerStorage,
   });
 
-  // HINT: Make it `#[frb(sync)]` to let it become the default constructor of Dart class.
-  static Future<StorageDartWrapper> newInstance(
-          {required String instanceHash}) =>
+  factory StorageDartWrapper({required String instanceHash}) =>
       NekotonBridge.instance.api
           .crateApiMergedStorageDartWrapperNew(instanceHash: instanceHash);
 

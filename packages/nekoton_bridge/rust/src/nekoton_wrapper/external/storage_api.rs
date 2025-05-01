@@ -5,6 +5,7 @@ use crate::nekoton_wrapper::external::storage::{StorageBox, StorageBoxTrait};
 use crate::utils::caller;
 use crate::utils::caller::{DynamicNamedValue, DynamicValue};
 use async_trait::async_trait;
+use flutter_rust_bridge::frb;
 use nekoton::external::Storage;
 use std::sync::Arc;
 
@@ -14,6 +15,7 @@ pub struct StorageDartWrapper {
 }
 
 impl StorageDartWrapper {
+    #[frb(sync)]
     pub fn new(instance_hash: String) -> StorageDartWrapper {
         Self {
             inner_storage: RustOpaque::new(StorageBox::create(Arc::new(StorageImpl {

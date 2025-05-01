@@ -2915,10 +2915,11 @@ class NekotonBridgeWire implements BaseWire {
   void wire__crate__api__merged__simple_panic(NativePortType port_) =>
       wasmModule.wire__crate__api__merged__simple_panic(port_);
 
-  void wire__crate__api__merged__storage_dart_wrapper_new(
-          NativePortType port_, String instance_hash) =>
-      wasmModule.wire__crate__api__merged__storage_dart_wrapper_new(
-          port_, instance_hash);
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__storage_dart_wrapper_new(
+              String instance_hash) =>
+          wasmModule.wire__crate__api__merged__storage_dart_wrapper_new(
+              instance_hash);
 
   void wire__crate__api__merged__storage_impl_new(
           NativePortType port_, String instance_hash) =>
@@ -4148,8 +4149,8 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
 
   external void wire__crate__api__merged__simple_panic(NativePortType port_);
 
-  external void wire__crate__api__merged__storage_dart_wrapper_new(
-      NativePortType port_, String instance_hash);
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__storage_dart_wrapper_new(String instance_hash);
 
   external void wire__crate__api__merged__storage_impl_new(
       NativePortType port_, String instance_hash);

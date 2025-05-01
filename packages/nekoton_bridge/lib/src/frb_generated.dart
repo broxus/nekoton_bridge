@@ -693,7 +693,7 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   Future<void> crateApiMergedSimplePanic();
 
-  Future<StorageDartWrapper> crateApiMergedStorageDartWrapperNew(
+  StorageDartWrapper crateApiMergedStorageDartWrapperNew(
       {required String instanceHash});
 
   Future<StorageImpl> crateApiMergedStorageImplNew(
@@ -5543,13 +5543,12 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<StorageDartWrapper> crateApiMergedStorageDartWrapperNew(
+  StorageDartWrapper crateApiMergedStorageDartWrapperNew(
       {required String instanceHash}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
         var arg0 = cst_encode_String(instanceHash);
-        return wire.wire__crate__api__merged__storage_dart_wrapper_new(
-            port_, arg0);
+        return wire.wire__crate__api__merged__storage_dart_wrapper_new(arg0);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_storage_dart_wrapper,
@@ -8155,7 +8154,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     final arr = raw as List<dynamic>;
     if (arr.length != 1)
       throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
-    return StorageDartWrapper(
+    return StorageDartWrapper.raw(
       innerStorage: dco_decode_RustOpaque_ArcdynStorageBoxTrait(arr[0]),
     );
   }
@@ -9107,7 +9106,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     // Codec=Sse (Serialization based), see doc to use other codecs
     var var_innerStorage =
         sse_decode_RustOpaque_ArcdynStorageBoxTrait(deserializer);
-    return StorageDartWrapper(innerStorage: var_innerStorage);
+    return StorageDartWrapper.raw(innerStorage: var_innerStorage);
   }
 
   @protected
