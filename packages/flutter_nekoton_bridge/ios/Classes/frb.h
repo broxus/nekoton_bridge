@@ -469,8 +469,6 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__init_logger(int64_t port_,
                                                                  int32_t level,
                                                                  bool mobile_logger);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__init_runtime(int64_t port_);
-
 void frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_address(int64_t port_,
                                                                                         struct wire_cst_jetton_wallet_dart_wrapper *that);
 
@@ -1388,7 +1386,6 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_wait_for_next_block);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__init_caller);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__init_logger);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__init_runtime);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_address);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_balance);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_contract_state);

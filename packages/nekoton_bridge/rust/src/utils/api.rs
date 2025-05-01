@@ -11,7 +11,7 @@ use crate::utils::caller;
 use crate::utils::logger;
 use crate::utils::mega_struct;
 
-use crate::nekoton_wrapper::{init_tokio_runtime, update_clock_offset};
+use crate::nekoton_wrapper::update_clock_offset;
 
 /// Init utils
 pub fn init_logger(level: logger::LogLevel, mobile_logger: bool) {
@@ -21,11 +21,6 @@ pub fn init_logger(level: logger::LogLevel, mobile_logger: bool) {
 /// Create log stream
 pub fn create_log_stream(s: StreamSink<logger::LogEntry>) {
     logger::SendToDartLogger::set_stream_sink(s);
-}
-
-/// Init tokio runtime
-pub fn init_runtime() {
-    init_tokio_runtime();
 }
 
 /// Init caller

@@ -12,22 +12,11 @@ use nekoton_utils::ClockWithOffset;
 use serde::Serialize;
 use std::str::FromStr;
 use std::sync::Arc;
-use std::sync::Mutex;
-use tokio::runtime::Runtime;
 use ton_block::MsgAddressInt;
 use ton_types::UInt256;
 
 lazy_static! {
     pub static ref CLOCK: Arc<ClockWithOffset> = Arc::new(ClockWithOffset::new(0));
-    pub static ref RUNTIME: Mutex<Option<Runtime>> = Mutex::new(None);
-}
-
-pub fn init_tokio_runtime() {
-    let rt = tokio::runtime::Builder::new_multi_thread()
-        .enable_all()
-        .build()
-        .expect("Can't create tokio runtime");
-    RUNTIME.lock().expect("Mutex poisoned").replace(rt);
 }
 
 #[macro_export]
@@ -35,19 +24,6 @@ macro_rules! clock {
     () => {
         $crate::nekoton_wrapper::CLOCK.clone()
     };
-}
-
-#[macro_export]
-/// This macro help to run async code in sync way on the global runtime.
-macro_rules! async_run {
-    ($exp:expr) => {{
-        $crate::nekoton_wrapper::RUNTIME
-            .lock()
-            .expect("Mutex poisoned")
-            .as_ref()
-            .expect("Runtime not initialized")
-            .block_on(async { $exp })
-    }};
 }
 
 /// This help interface to convert value to json string or return error.

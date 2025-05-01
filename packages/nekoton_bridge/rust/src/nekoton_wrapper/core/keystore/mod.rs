@@ -1,5 +1,4 @@
 #![allow(unused_variables, dead_code)]
-use crate::async_run;
 use crate::frb_generated::RustOpaque;
 use crate::nekoton_wrapper::core::keystore::models::{SignatureParts, SignedData, SignedDataRaw};
 use crate::nekoton_wrapper::crypto::encrypted_key::models::{
@@ -153,11 +152,11 @@ impl RefUnwindSafe for KeyStoreApiBox {}
 
 impl KeyStoreApiBox {
     /// Create KeyStoreApiBox or throw error
-    pub fn create(
+    pub async fn create(
         keystore_builder: KeyStoreBuilder,
         storage: Arc<dyn Storage>,
     ) -> anyhow::Result<RustOpaque<Arc<dyn KeyStoreApiBoxTrait>>> {
-        let keystore = async_run!(keystore_builder.load(storage).await).handle_error()?;
+        let keystore = keystore_builder.load(storage).await.handle_error()?;
         Ok(RustOpaque::new(Arc::new(Self {
             inner_keystore: Arc::new(keystore),
         })))

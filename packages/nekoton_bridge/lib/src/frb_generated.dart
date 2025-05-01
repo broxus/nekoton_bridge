@@ -71,7 +71,7 @@ class NekotonBridge extends BaseEntrypoint<NekotonBridgeApi,
   String get codegenVersion => '2.9.0';
 
   @override
-  int get rustContentHash => 348361624;
+  int get rustContentHash => -1083134280;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -256,8 +256,6 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   Future<void> crateApiMergedInitLogger(
       {required LogLevel level, required bool mobileLogger});
-
-  Future<void> crateApiMergedInitRuntime();
 
   Future<String> crateApiMergedJettonWalletDartWrapperAddress(
       {required JettonWalletDartWrapper that});
@@ -2381,27 +2379,6 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   TaskConstMeta get kCrateApiMergedInitLoggerConstMeta => const TaskConstMeta(
         debugName: "init_logger",
         argNames: ["level", "mobileLogger"],
-      );
-
-  @override
-  Future<void> crateApiMergedInitRuntime() {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        return wire.wire__crate__api__merged__init_runtime(port_);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
-      ),
-      constMeta: kCrateApiMergedInitRuntimeConstMeta,
-      argValues: [],
-      apiImpl: this,
-    ));
-  }
-
-  TaskConstMeta get kCrateApiMergedInitRuntimeConstMeta => const TaskConstMeta(
-        debugName: "init_runtime",
-        argNames: [],
       );
 
   @override

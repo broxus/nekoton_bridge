@@ -412,10 +412,6 @@ Future<void> initLogger(
 Stream<LogEntry> createLogStream() =>
     NekotonBridge.instance.api.crateApiMergedCreateLogStream();
 
-/// Init tokio runtime
-Future<void> initRuntime() =>
-    NekotonBridge.instance.api.crateApiMergedInitRuntime();
-
 /// Init caller
 Stream<DartCallStubRegistred> initCaller() =>
     NekotonBridge.instance.api.crateApiMergedInitCaller();

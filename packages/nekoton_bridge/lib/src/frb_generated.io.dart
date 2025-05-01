@@ -3569,18 +3569,6 @@ class NekotonBridgeWire implements BaseWire {
       _wire__crate__api__merged__init_loggerPtr
           .asFunction<void Function(int, int, bool)>();
 
-  void wire__crate__api__merged__init_runtime(int port_) {
-    return _wire__crate__api__merged__init_runtime(port_);
-  }
-
-  late final _wire__crate__api__merged__init_runtimePtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-    'frbgen_nekoton_bridge_wire__crate__api__merged__init_runtime',
-  );
-  late final _wire__crate__api__merged__init_runtime =
-      _wire__crate__api__merged__init_runtimePtr
-          .asFunction<void Function(int)>();
-
   void wire__crate__api__merged__jetton_wallet_dart_wrapper_address(
     int port_,
     ffi.Pointer<wire_cst_jetton_wallet_dart_wrapper> that,
