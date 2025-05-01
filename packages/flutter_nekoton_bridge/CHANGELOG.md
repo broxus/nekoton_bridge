@@ -1,3 +1,7 @@
+## 2.9.2-dev.0
+
+ - **FIX**(EWM-496): remove tokio runtime & refactor async rust. ([cc7caeaf](https://github.com/broxus/nekoton_bridge/commit/cc7caeafab1b587c47f805c63b36c7127a882936))
+
 ## 2.9.1
 
  - **FIX**: `RawContractState` add private constructor. ([82581163](https://github.com/broxus/nekoton_bridge/commit/82581163818cbba1ffd78a8b4a7f92bb52788b8a))
