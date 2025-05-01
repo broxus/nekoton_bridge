@@ -15,6 +15,39 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_nekoton_bridge` - `v2.9.2-dev.1`](#flutter_nekoton_bridge---v292-dev1)
+ - [`nekoton_bridge` - `v2.8.1-dev.1`](#nekoton_bridge---v281-dev1)
+ - [`flutter_nekoton_bridge_example` - `v1.24.4-dev.1`](#flutter_nekoton_bridge_example---v1244-dev1)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.24.4-dev.1`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.9.2-dev.1`
+
+ - **FIX**: update StorageDartWrapper API to use synchronous constructor and adjust related function signatures. ([556ebdc1](https://github.com/broxus/nekoton_bridge/commit/556ebdc138b055f3b460b10c3e8bcfc102e6e444))
+
+#### `nekoton_bridge` - `v2.8.1-dev.1`
+
+ - **FIX**: update StorageDartWrapper API to use synchronous constructor and adjust related function signatures. ([556ebdc1](https://github.com/broxus/nekoton_bridge/commit/556ebdc138b055f3b460b10c3e8bcfc102e6e444))
+
+
+## 2025-05-01
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v2.9.2-dev.0`](#flutter_nekoton_bridge---v292-dev0)
  - [`nekoton_bridge` - `v2.8.1-dev.0`](#nekoton_bridge---v281-dev0)
  - [`flutter_nekoton_bridge_example` - `v1.24.4-dev.0`](#flutter_nekoton_bridge_example---v1244-dev0)
