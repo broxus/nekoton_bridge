@@ -1,3 +1,7 @@
+## 2.8.1
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
 ## 2.8.1-dev.1
 
  - **FIX**: update StorageDartWrapper API to use synchronous constructor and adjust related function signatures. ([556ebdc1](https://github.com/broxus/nekoton_bridge/commit/556ebdc138b055f3b460b10c3e8bcfc102e6e444))
