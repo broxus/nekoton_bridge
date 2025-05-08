@@ -69,15 +69,17 @@ bool ntCheckPublicKey({required String publicKey}) => NekotonBridge.instance.api
 Future<String> ntRunLocal(
         {required String accountStuffBoc,
         required String contractAbi,
-        required String method,
+        required String methodId,
         required String input,
-        required bool responsible}) =>
+        required bool responsible,
+        int? signatureId}) =>
     NekotonBridge.instance.api.crateApiMergedNtRunLocal(
         accountStuffBoc: accountStuffBoc,
         contractAbi: contractAbi,
-        method: method,
+        methodId: methodId,
         input: input,
-        responsible: responsible);
+        responsible: responsible,
+        signatureId: signatureId);
 
 /// Get address of tvc and contract_abi.
 /// Returns list of [address, boc of state_init, hash] or throws error
@@ -365,6 +367,23 @@ Future<String> ntComputeStorageFee(
 String ntEncodeComment({required String comment, required bool plain}) =>
     NekotonBridge.instance.api
         .crateApiMergedNtEncodeComment(comment: comment, plain: plain);
+
+/// Run getter.
+/// Return json-encoded VmGetterOutput or throws error.
+///
+/// input - is json-encoded AbiToken
+Future<String> ntRunGetter(
+        {required String accountStuffBoc,
+        required String contractAbi,
+        required String methodId,
+        required String input,
+        int? signatureId}) =>
+    NekotonBridge.instance.api.crateApiMergedNtRunGetter(
+        accountStuffBoc: accountStuffBoc,
+        contractAbi: contractAbi,
+        methodId: methodId,
+        input: input,
+        signatureId: signatureId);
 
 ///----------------------------
 /// CONTENT OF src/utils/tests_api.rs

@@ -5893,21 +5893,62 @@ class NekotonBridgeWire implements BaseWire {
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
           )>();
 
+  void wire__crate__api__merged__nt_run_getter(
+    int port_,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> account_stuff_boc,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> method_id,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> input,
+    ffi.Pointer<ffi.Int32> signature_id,
+  ) {
+    return _wire__crate__api__merged__nt_run_getter(
+      port_,
+      account_stuff_boc,
+      contract_abi,
+      method_id,
+      input,
+      signature_id,
+    );
+  }
+
+  late final _wire__crate__api__merged__nt_run_getterPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+            ffi.Int64,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<ffi.Int32>,
+          )>>('frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_getter');
+  late final _wire__crate__api__merged__nt_run_getter =
+      _wire__crate__api__merged__nt_run_getterPtr.asFunction<
+          void Function(
+            int,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<ffi.Int32>,
+          )>();
+
   void wire__crate__api__merged__nt_run_local(
     int port_,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> account_stuff_boc,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> method,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> method_id,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> input,
     bool responsible,
+    ffi.Pointer<ffi.Int32> signature_id,
   ) {
     return _wire__crate__api__merged__nt_run_local(
       port_,
       account_stuff_boc,
       contract_abi,
-      method,
+      method_id,
       input,
       responsible,
+      signature_id,
     );
   }
 
@@ -5920,6 +5961,7 @@ class NekotonBridgeWire implements BaseWire {
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Bool,
+            ffi.Pointer<ffi.Int32>,
           )>>('frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local');
   late final _wire__crate__api__merged__nt_run_local =
       _wire__crate__api__merged__nt_run_localPtr.asFunction<
@@ -5930,6 +5972,7 @@ class NekotonBridgeWire implements BaseWire {
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             bool,
+            ffi.Pointer<ffi.Int32>,
           )>();
 
   void wire__crate__api__merged__nt_set_code_salt(

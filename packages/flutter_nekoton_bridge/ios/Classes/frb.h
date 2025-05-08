@@ -814,12 +814,20 @@ WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_parse_kn
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_repack_address(struct wire_cst_list_prim_u_8_strict *address);
 
+void frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_getter(int64_t port_,
+                                                                   struct wire_cst_list_prim_u_8_strict *account_stuff_boc,
+                                                                   struct wire_cst_list_prim_u_8_strict *contract_abi,
+                                                                   struct wire_cst_list_prim_u_8_strict *method_id,
+                                                                   struct wire_cst_list_prim_u_8_strict *input,
+                                                                   int32_t *signature_id);
+
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local(int64_t port_,
                                                                   struct wire_cst_list_prim_u_8_strict *account_stuff_boc,
                                                                   struct wire_cst_list_prim_u_8_strict *contract_abi,
-                                                                  struct wire_cst_list_prim_u_8_strict *method,
+                                                                  struct wire_cst_list_prim_u_8_strict *method_id,
                                                                   struct wire_cst_list_prim_u_8_strict *input,
-                                                                  bool responsible);
+                                                                  bool responsible,
+                                                                  int32_t *signature_id);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_set_code_salt(int64_t port_,
                                                                       struct wire_cst_list_prim_u_8_strict *code,
@@ -1463,6 +1471,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_parse_full_account_boc);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_parse_known_payload);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_repack_address);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_getter);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_set_code_salt);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_split_tvc);

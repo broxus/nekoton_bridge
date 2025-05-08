@@ -8,9 +8,9 @@ use crate::nekoton_wrapper::helpers::models::{
 };
 use crate::nekoton_wrapper::helpers::{
     create_plain_comment_playload, make_boc, make_boc_with_hash, make_full_contract_state,
-    parse_account_stuff, parse_cell, parse_contract_abi, parse_method_name,
-    parse_optional_abi_version, parse_params_list, parse_slice, serialize_into_boc,
-    serialize_into_boc_with_hash, serialize_state_init_data_key,
+    make_stack_item, make_vm_getter_output, parse_account_stuff, parse_cell, parse_contract_abi,
+    parse_method_name, parse_optional_abi_version, parse_params_list, parse_slice,
+    serialize_into_boc, serialize_into_boc_with_hash, serialize_state_init_data_key,
 };
 use crate::nekoton_wrapper::{parse_address, parse_public_key, HandleError};
 use base64::engine::general_purpose;
@@ -48,26 +48,33 @@ pub fn nt_check_public_key(public_key: String) -> bool {
 pub fn nt_run_local(
     account_stuff_boc: String,
     contract_abi: String,
-    method: String,
+    method_id: String,
     input: String,
     responsible: bool,
+    signature_id: Option<i32>,
 ) -> anyhow::Result<String> {
     let account_stuff = parse_account_stuff(account_stuff_boc)?;
     let contract_abi = parse_contract_abi(contract_abi)?;
-    let method = contract_abi.function(&method).handle_error()?;
+    let method = contract_abi.function(&method_id).handle_error()?;
 
     let input = serde_json::from_str::<serde_json::Value>(&input).handle_error()?;
     let input = nekoton_abi::parse_abi_tokens(&method.inputs, input).handle_error()?;
 
-    let output = if responsible {
-        method
-            .run_local_responsible(clock!().as_ref(), account_stuff, &input)
-            .handle_error()?
-    } else {
-        method
-            .run_local(clock!().as_ref(), account_stuff, &input)
-            .handle_error()?
-    };
+    let mut config = nekoton_abi::BriefBlockchainConfig::default();
+    if let Some(signature_id) = signature_id {
+        config.global_id = signature_id;
+        config.capabilities |= ton_block::GlobalCapabilities::CapSignatureWithId as u64;
+    }
+
+    let output = method
+        .run_local_ext(
+            clock!().as_ref(),
+            account_stuff,
+            &input,
+            responsible,
+            &config,
+        )
+        .handle_error()?;
 
     let tokens = output
         .tokens
@@ -391,7 +398,9 @@ pub fn nt_decode_transaction(
         None => return Ok(serde_json::Value::Null.to_string()),
     };
 
-    let input = method.decode_input(in_msg_body, internal).handle_error()?;
+    let input = method
+        .decode_input(in_msg_body, internal, false)
+        .handle_error()?;
     let input = nekoton_abi::make_abi_tokens(&input).handle_error()?;
 
     let ext_out_msgs = transaction
@@ -998,6 +1007,47 @@ pub fn nt_encode_comment(comment: String, plain: bool) -> anyhow::Result<String>
             })
     }?;
     make_boc(&body)
+}
+
+/// Run getter.
+/// Return json-encoded VmGetterOutput or throws error.
+///
+/// input - is json-encoded AbiToken
+pub fn nt_run_getter(
+    account_stuff_boc: String,
+    contract_abi: String,
+    method_id: String,
+    input: String,
+    signature_id: Option<i32>,
+) -> anyhow::Result<String> {
+    let account_stuff = parse_account_stuff(account_stuff_boc)?;
+    let contract_abi = parse_contract_abi(contract_abi)?;
+    let getter = contract_abi.getter(&method_id).handle_error()?;
+
+    let input = serde_json::from_str::<serde_json::Value>(&input).handle_error()?;
+    let input = nekoton_abi::parse_abi_tokens(&getter.inputs, input).handle_error()?;
+
+    let args = input
+        .into_iter()
+        .map(|token| make_stack_item(token.value))
+        .collect::<anyhow::Result<Vec<_>>>()?;
+
+    let mut config = nekoton_abi::BriefBlockchainConfig::default();
+    if let Some(signature_id) = signature_id {
+        config.global_id = signature_id;
+        config.capabilities |= ton_block::GlobalCapabilities::CapSignatureWithId as u64;
+    }
+
+    let output = nekoton_abi::ExecutionContext {
+        clock: clock!().as_ref(),
+        account_stuff: &account_stuff,
+    }
+    .run_getter_ext(method_id.as_str(), &args, &config, &Default::default())
+    .handle_error()?;
+
+    let execution_output = make_vm_getter_output(&getter.outputs, output).handle_error()?;
+
+    serde_json::to_string(&execution_output).handle_error()
 }
 
 #[derive(Serialize, Deserialize)]

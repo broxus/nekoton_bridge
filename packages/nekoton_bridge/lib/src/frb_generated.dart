@@ -71,7 +71,7 @@ class NekotonBridge extends BaseEntrypoint<NekotonBridgeApi,
   String get codegenVersion => '2.9.0';
 
   @override
-  int get rustContentHash => -1083134280;
+  int get rustContentHash => -1654366217;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -588,12 +588,20 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   String crateApiMergedNtRepackAddress({required String address});
 
+  Future<String> crateApiMergedNtRunGetter(
+      {required String accountStuffBoc,
+      required String contractAbi,
+      required String methodId,
+      required String input,
+      int? signatureId});
+
   Future<String> crateApiMergedNtRunLocal(
       {required String accountStuffBoc,
       required String contractAbi,
-      required String method,
+      required String methodId,
       required String input,
-      required bool responsible});
+      required bool responsible,
+      int? signatureId});
 
   Future<List<String>> crateApiMergedNtSetCodeSalt(
       {required String code, required String salt});
@@ -4688,28 +4696,75 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtRunLocal(
+  Future<String> crateApiMergedNtRunGetter(
       {required String accountStuffBoc,
       required String contractAbi,
-      required String method,
+      required String methodId,
       required String input,
-      required bool responsible}) {
+      int? signatureId}) {
     return handler.executeNormal(NormalTask(
       callFfi: (port_) {
         var arg0 = cst_encode_String(accountStuffBoc);
         var arg1 = cst_encode_String(contractAbi);
-        var arg2 = cst_encode_String(method);
+        var arg2 = cst_encode_String(methodId);
         var arg3 = cst_encode_String(input);
-        var arg4 = cst_encode_bool(responsible);
-        return wire.wire__crate__api__merged__nt_run_local(
+        var arg4 = cst_encode_opt_box_autoadd_i_32(signatureId);
+        return wire.wire__crate__api__merged__nt_run_getter(
             port_, arg0, arg1, arg2, arg3, arg4);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
         decodeErrorData: dco_decode_AnyhowException,
       ),
+      constMeta: kCrateApiMergedNtRunGetterConstMeta,
+      argValues: [accountStuffBoc, contractAbi, methodId, input, signatureId],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiMergedNtRunGetterConstMeta => const TaskConstMeta(
+        debugName: "nt_run_getter",
+        argNames: [
+          "accountStuffBoc",
+          "contractAbi",
+          "methodId",
+          "input",
+          "signatureId"
+        ],
+      );
+
+  @override
+  Future<String> crateApiMergedNtRunLocal(
+      {required String accountStuffBoc,
+      required String contractAbi,
+      required String methodId,
+      required String input,
+      required bool responsible,
+      int? signatureId}) {
+    return handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        var arg0 = cst_encode_String(accountStuffBoc);
+        var arg1 = cst_encode_String(contractAbi);
+        var arg2 = cst_encode_String(methodId);
+        var arg3 = cst_encode_String(input);
+        var arg4 = cst_encode_bool(responsible);
+        var arg5 = cst_encode_opt_box_autoadd_i_32(signatureId);
+        return wire.wire__crate__api__merged__nt_run_local(
+            port_, arg0, arg1, arg2, arg3, arg4, arg5);
+      },
+      codec: DcoCodec(
+        decodeSuccessData: dco_decode_String,
+        decodeErrorData: dco_decode_AnyhowException,
+      ),
       constMeta: kCrateApiMergedNtRunLocalConstMeta,
-      argValues: [accountStuffBoc, contractAbi, method, input, responsible],
+      argValues: [
+        accountStuffBoc,
+        contractAbi,
+        methodId,
+        input,
+        responsible,
+        signatureId
+      ],
       apiImpl: this,
     ));
   }
@@ -4719,9 +4774,10 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         argNames: [
           "accountStuffBoc",
           "contractAbi",
-          "method",
+          "methodId",
           "input",
-          "responsible"
+          "responsible",
+          "signatureId"
         ],
       );
 

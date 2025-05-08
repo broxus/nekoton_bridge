@@ -2734,15 +2734,32 @@ class NekotonBridgeWire implements BaseWire {
       wire__crate__api__merged__nt_repack_address(String address) =>
           wasmModule.wire__crate__api__merged__nt_repack_address(address);
 
+  void wire__crate__api__merged__nt_run_getter(
+          NativePortType port_,
+          String account_stuff_boc,
+          String contract_abi,
+          String method_id,
+          String input,
+          int? signature_id) =>
+      wasmModule.wire__crate__api__merged__nt_run_getter(port_,
+          account_stuff_boc, contract_abi, method_id, input, signature_id);
+
   void wire__crate__api__merged__nt_run_local(
           NativePortType port_,
           String account_stuff_boc,
           String contract_abi,
-          String method,
+          String method_id,
           String input,
-          bool responsible) =>
+          bool responsible,
+          int? signature_id) =>
       wasmModule.wire__crate__api__merged__nt_run_local(
-          port_, account_stuff_boc, contract_abi, method, input, responsible);
+          port_,
+          account_stuff_boc,
+          contract_abi,
+          method_id,
+          input,
+          responsible,
+          signature_id);
 
   void wire__crate__api__merged__nt_set_code_salt(
           NativePortType port_, String code, String salt) =>
@@ -4018,13 +4035,22 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_repack_address(String address);
 
+  external void wire__crate__api__merged__nt_run_getter(
+      NativePortType port_,
+      String account_stuff_boc,
+      String contract_abi,
+      String method_id,
+      String input,
+      int? signature_id);
+
   external void wire__crate__api__merged__nt_run_local(
       NativePortType port_,
       String account_stuff_boc,
       String contract_abi,
-      String method,
+      String method_id,
       String input,
-      bool responsible);
+      bool responsible,
+      int? signature_id);
 
   external void wire__crate__api__merged__nt_set_code_salt(
       NativePortType port_, String code, String salt);

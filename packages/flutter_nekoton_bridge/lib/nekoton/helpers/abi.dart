@@ -14,16 +14,39 @@ bool checkPublicKey(PublicKey publicKey) =>
 Future<ExecutionOutput> runLocal({
   required String accountStuffBoc,
   required String contractAbi,
-  required String method,
+  required String methodId,
   required Map<String, dynamic> input,
   required bool responsible,
+  int? signatureId,
 }) async {
   final res = await ntRunLocal(
     accountStuffBoc: accountStuffBoc,
     contractAbi: contractAbi,
-    method: method,
+    methodId: methodId,
     input: jsonEncode(input),
     responsible: responsible,
+    signatureId: signatureId,
+  );
+  return ExecutionOutput.fromJson(jsonDecode(res));
+}
+
+/// Run getter.
+/// Return json-encoded ExecutionOutput or throws error.
+///
+/// input - is json-encoded AbiToken
+Future<ExecutionOutput> runGetter({
+  required String accountStuffBoc,
+  required String contractAbi,
+  required String methodId,
+  required Map<String, dynamic> input,
+  int? signatureId,
+}) async {
+  final res = await ntRunGetter(
+    accountStuffBoc: accountStuffBoc,
+    contractAbi: contractAbi,
+    methodId: methodId,
+    input: jsonEncode(input),
+    signatureId: signatureId,
   );
   return ExecutionOutput.fromJson(jsonDecode(res));
 }
