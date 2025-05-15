@@ -2270,7 +2270,7 @@ class UnsignedMessageImpl {
         that: this,
       );
 
-  Future<void> refreshTimeout() => NekotonBridge.instance.api
+  Future<UnsignedMessageImpl> refreshTimeout() => NekotonBridge.instance.api
           .crateApiMergedUnsignedMessageImplRefreshTimeout(
         that: this,
       );

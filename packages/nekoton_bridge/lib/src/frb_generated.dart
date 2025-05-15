@@ -906,7 +906,7 @@ abstract class NekotonBridgeApi extends BaseApi {
   Future<String> crateApiMergedUnsignedMessageImplHash(
       {required UnsignedMessageImpl that});
 
-  Future<void> crateApiMergedUnsignedMessageImplRefreshTimeout(
+  Future<UnsignedMessageImpl> crateApiMergedUnsignedMessageImplRefreshTimeout(
       {required UnsignedMessageImpl that});
 
   Future<String> crateApiMergedUnsignedMessageImplSign(
@@ -7190,7 +7190,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<void> crateApiMergedUnsignedMessageImplRefreshTimeout(
+  Future<UnsignedMessageImpl> crateApiMergedUnsignedMessageImplRefreshTimeout(
       {required UnsignedMessageImpl that}) {
     return handler.executeNormal(NormalTask(
       callFfi: (port_) {
@@ -7200,7 +7200,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
                 port_, arg0);
       },
       codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
+        decodeSuccessData: dco_decode_unsigned_message_impl,
         decodeErrorData: null,
       ),
       constMeta: kCrateApiMergedUnsignedMessageImplRefreshTimeoutConstMeta,

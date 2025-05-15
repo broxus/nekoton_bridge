@@ -425,5 +425,33 @@ void main() {
 
       expect(stateInit, isNotEmpty);
     });
+
+    testWidgets('refreshTimeout', (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      final wallet = await TonWallet.subscribeByAddress(
+        transport: transport,
+        address: address,
+      );
+      final message = await wallet.prepareTransfer(
+        contractState: await transport.getContractState(address),
+        publicKey: publicKey,
+        expiration: expiration,
+        params: [
+          TonWalletTransferParams(
+            destination: stEverContractVault,
+            amount: BigInt.parse('100000000'),
+            bounce: false,
+          ),
+        ],
+      );
+
+      final expireAt = message.expireAt;
+
+      await Future<void>.delayed(const Duration(seconds: 1));
+      await message.refreshTimeout();
+
+      expect(expireAt.isBefore(message.expireAt), isTrue);
+    });
   });
 }
