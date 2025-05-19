@@ -1,3 +1,7 @@
+## 2.9.4
+
+ - **FIX**(EWM-427): update message hash after `refreshTimeout`. ([dbc1dafe](https://github.com/broxus/nekoton_bridge/commit/dbc1dafed1748f78a0f84482f99935633025e92d))
+
 ## 2.9.3
 
  - **FIX**(EWM-427): update message hash after `refreshTimeout`. ([dbc1dafe](https://github.com/broxus/nekoton_bridge/commit/dbc1dafed1748f78a0f84482f99935633025e92d))

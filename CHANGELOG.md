@@ -15,6 +15,32 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_nekoton_bridge` - `v2.9.4`](#flutter_nekoton_bridge---v294)
+ - [`flutter_nekoton_bridge_example` - `v1.24.6`](#flutter_nekoton_bridge_example---v1246)
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.9.4`
+
+ - **FIX**(EWM-427): update message hash after `refreshTimeout`. ([dbc1dafe](https://github.com/broxus/nekoton_bridge/commit/dbc1dafed1748f78a0f84482f99935633025e92d))
+
+#### `flutter_nekoton_bridge_example` - `v1.24.6`
+
+ - **FIX**(EWM-427): update message hash after `refreshTimeout`. ([dbc1dafe](https://github.com/broxus/nekoton_bridge/commit/dbc1dafed1748f78a0f84482f99935633025e92d))
+
+
+## 2025-05-19
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v2.9.3`](#flutter_nekoton_bridge---v293)
  - [`flutter_nekoton_bridge_example` - `v1.24.5`](#flutter_nekoton_bridge_example---v1245)
  - [`nekoton_bridge` - `v2.8.2`](#nekoton_bridge---v282)
