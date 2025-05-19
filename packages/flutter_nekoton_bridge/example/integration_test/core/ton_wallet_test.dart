@@ -447,11 +447,13 @@ void main() {
       );
 
       final expireAt = message.expireAt;
+      final hash = message.hash;
 
       await Future<void>.delayed(const Duration(seconds: 1));
       await message.refreshTimeout();
 
       expect(expireAt.isBefore(message.expireAt), isTrue);
+      expect(hash, isNot(message.hash));
     });
   });
 }

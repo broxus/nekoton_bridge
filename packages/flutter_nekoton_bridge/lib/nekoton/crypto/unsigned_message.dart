@@ -30,6 +30,7 @@ class UnsignedMessage {
     final oldMessage = message;
 
     message = await message.refreshTimeout();
+    hash = await message.hash();
     expireAt = dateSecondsSinceEpochJsonConverter.fromJson(
       await message.expireAt(),
     );
