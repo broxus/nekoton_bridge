@@ -225,7 +225,7 @@ Future<String> getBocHash(String boc) {
 Future<(String, String)> packIntoCell({
   required List<AbiParam> params,
   required TokensObject tokens,
-  required String? abiVersion,
+  String? abiVersion,
 }) async {
   final data = await ntPackIntoCell(
     params: jsonEncode(params),
@@ -241,7 +241,7 @@ Future<TokensObject> unpackFromCell({
   required List<AbiParam> params,
   required String boc,
   required bool allowPartial,
-  required String? abiVersion,
+  String? abiVersion,
 }) async {
   return jsonDecode(await ntUnpackFromCell(
     params: jsonEncode(params),
