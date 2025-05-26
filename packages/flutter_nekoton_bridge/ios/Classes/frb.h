@@ -680,8 +680,7 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__my_class_new(int64_t port_,
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_check_public_key(struct wire_cst_list_prim_u_8_strict *public_key);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_code_to_tvc(int64_t port_,
-                                                                    struct wire_cst_list_prim_u_8_strict *code);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_code_to_tvc(struct wire_cst_list_prim_u_8_strict *code);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_compute_storage_fee(int64_t port_,
                                                                             struct wire_cst_list_prim_u_8_strict *config,
@@ -766,16 +765,13 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__nt_execute_local(int64_t po
                                                                       struct wire_cst_list_prim_u_8_strict *overwrite_balance,
                                                                       int32_t *global_id);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_extract_public_key(int64_t port_,
-                                                                           struct wire_cst_list_prim_u_8_strict *boc);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_extract_public_key(struct wire_cst_list_prim_u_8_strict *boc);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_generate_key(struct wire_cst_mnemonic_type *account_type);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_boc_hash(int64_t port_,
-                                                                     struct wire_cst_list_prim_u_8_strict *boc);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_boc_hash(struct wire_cst_list_prim_u_8_strict *boc);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_code_salt(int64_t port_,
-                                                                      struct wire_cst_list_prim_u_8_strict *code);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_code_salt(struct wire_cst_list_prim_u_8_strict *code);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_expected_address(int64_t port_,
                                                                              struct wire_cst_list_prim_u_8_strict *tvc,
@@ -789,23 +785,20 @@ WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_hint
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_make_full_account_boc(int64_t port_,
                                                                               struct wire_cst_list_prim_u_8_strict *account_stuff_boc);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_merge_tvc(int64_t port_,
-                                                                  struct wire_cst_list_prim_u_8_strict *code,
-                                                                  struct wire_cst_list_prim_u_8_strict *data);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_merge_tvc(struct wire_cst_list_prim_u_8_strict *code,
+                                                                                  struct wire_cst_list_prim_u_8_strict *data);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_pack_address(struct wire_cst_list_prim_u_8_strict *address,
                                                                                      bool is_url_safe,
                                                                                      bool bounceable);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_pack_into_cell(int64_t port_,
-                                                                       struct wire_cst_list_prim_u_8_strict *params,
-                                                                       struct wire_cst_list_prim_u_8_strict *tokens,
-                                                                       struct wire_cst_list_prim_u_8_strict *version);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_pack_into_cell(struct wire_cst_list_prim_u_8_strict *params,
+                                                                                       struct wire_cst_list_prim_u_8_strict *tokens,
+                                                                                       struct wire_cst_list_prim_u_8_strict *version);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_pack_std_smc_addr(int64_t port_,
-                                                                          struct wire_cst_list_prim_u_8_strict *addr,
-                                                                          bool base64_url,
-                                                                          bool bounceable);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_pack_std_smc_addr(struct wire_cst_list_prim_u_8_strict *addr,
+                                                                                          bool base64_url,
+                                                                                          bool bounceable);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_parse_full_account_boc(int64_t port_,
                                                                                struct wire_cst_list_prim_u_8_strict *account);
@@ -829,31 +822,27 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local(int64_t port_,
                                                                   bool responsible,
                                                                   int32_t *signature_id);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_set_code_salt(int64_t port_,
-                                                                      struct wire_cst_list_prim_u_8_strict *code,
-                                                                      struct wire_cst_list_prim_u_8_strict *salt);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_set_code_salt(struct wire_cst_list_prim_u_8_strict *code,
+                                                                                      struct wire_cst_list_prim_u_8_strict *salt);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_split_tvc(int64_t port_,
-                                                                  struct wire_cst_list_prim_u_8_strict *tvc);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_split_tvc(struct wire_cst_list_prim_u_8_strict *tvc);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_contract_fields(int64_t port_,
                                                                                struct wire_cst_list_prim_u_8_strict *contract_abi,
                                                                                struct wire_cst_list_prim_u_8_strict *boc,
                                                                                bool allow_partial);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_from_cell(int64_t port_,
-                                                                         struct wire_cst_list_prim_u_8_strict *params,
-                                                                         struct wire_cst_list_prim_u_8_strict *boc,
-                                                                         bool allow_partial,
-                                                                         struct wire_cst_list_prim_u_8_strict *version);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_from_cell(struct wire_cst_list_prim_u_8_strict *params,
+                                                                                         struct wire_cst_list_prim_u_8_strict *boc,
+                                                                                         bool allow_partial,
+                                                                                         struct wire_cst_list_prim_u_8_strict *version);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_init_data(int64_t port_,
                                                                          struct wire_cst_list_prim_u_8_strict *contract_abi,
                                                                          struct wire_cst_list_prim_u_8_strict *data);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_std_smc_addr(int64_t port_,
-                                                                            struct wire_cst_list_prim_u_8_strict *packed,
-                                                                            bool base64_url);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_std_smc_addr(struct wire_cst_list_prim_u_8_strict *packed,
+                                                                                            bool base64_url);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_validate_address(struct wire_cst_list_prim_u_8_strict *address);
 

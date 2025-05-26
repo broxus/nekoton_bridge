@@ -476,6 +476,7 @@ pub fn nt_decode_transaction_events(
 }
 
 /// Returns hash of decoded boc or throws error
+#[frb(sync)]
 pub fn nt_get_boc_hash(boc: String) -> anyhow::Result<String> {
     let body = general_purpose::STANDARD.decode(boc).handle_error()?;
 
@@ -489,6 +490,7 @@ pub fn nt_get_boc_hash(boc: String) -> anyhow::Result<String> {
 
 /// Return base64 encoded bytes of tokens or throws error
 /// returns [tvc, hash]
+#[frb(sync)]
 pub fn nt_pack_into_cell(
     params: String,
     tokens: String,
@@ -504,6 +506,7 @@ pub fn nt_pack_into_cell(
 }
 
 /// Parse list of params and return json-encoded Tokens or throws error
+#[frb(sync)]
 pub fn nt_unpack_from_cell(
     params: String,
     boc: String,
@@ -524,6 +527,7 @@ pub fn nt_unpack_from_cell(
 
 /// Pack address std smd or throw error
 /// Returns new packed address as string
+#[frb(sync)]
 pub fn nt_pack_std_smc_addr(
     addr: String,
     base64_url: bool,
@@ -537,6 +541,7 @@ pub fn nt_pack_std_smc_addr(
 
 /// Unpack address std smd or throw error.
 /// Returns json-encoded MsgAddressInt
+#[frb(sync)]
 pub fn nt_unpack_std_smc_addr(packed: String, base64_url: bool) -> anyhow::Result<String> {
     let unpacked_addr = nekoton_utils::unpack_std_smc_addr(&packed, base64_url)
         .handle_error()?
@@ -568,6 +573,7 @@ pub fn nt_pack_address(address: String, is_url_safe: bool, bounceable: bool) -> 
 }
 
 /// Extract public key from boc and return it or throw error
+#[frb(sync)]
 pub fn nt_extract_public_key(boc: String) -> anyhow::Result<String> {
     let public_key = parse_account_stuff(boc)
         .and_then(|e| nekoton_abi::extract_public_key(&e).handle_error())
@@ -578,6 +584,7 @@ pub fn nt_extract_public_key(boc: String) -> anyhow::Result<String> {
 
 /// Convert code to base64 tvc string and return it or throw error
 /// returns [tvc, hash]
+#[frb(sync)]
 pub fn nt_code_to_tvc(code: String) -> anyhow::Result<Vec<String>> {
     let cell = parse_cell(code).handle_error()?;
     let state_init = nekoton_abi::code_to_tvc(cell).handle_error()?;
@@ -586,6 +593,7 @@ pub fn nt_code_to_tvc(code: String) -> anyhow::Result<Vec<String>> {
 
 /// Merge code and data to tvc base64 string and return it or throw error
 /// returns [tvc, hash]
+#[frb(sync)]
 pub fn nt_merge_tvc(code: String, data: String) -> anyhow::Result<Vec<String>> {
     let state_init = ton_block::StateInit {
         code: Some(parse_cell(code)?),
@@ -598,6 +606,7 @@ pub fn nt_merge_tvc(code: String, data: String) -> anyhow::Result<Vec<String>> {
 
 /// Split base64 tvc string into data and code.
 /// Return vec![data, code] or throw error
+#[frb(sync)]
 pub fn nt_split_tvc(tvc: String) -> anyhow::Result<Vec<Option<String>>> {
     let state_init = ton_block::StateInit::construct_from_base64(&tvc).handle_error()?;
 
@@ -624,12 +633,14 @@ pub fn nt_split_tvc(tvc: String) -> anyhow::Result<Vec<Option<String>>> {
 
 /// Set salt to code and return base64-encoded string or throw error
 /// returns [tvc, hash]
+#[frb(sync)]
 pub fn nt_set_code_salt(code: String, salt: String) -> anyhow::Result<Vec<String>> {
     let cell = nekoton_abi::set_code_salt(parse_cell(code)?, parse_cell(salt)?)?;
     make_boc_with_hash(cell)
 }
 
 /// Get salt from code if possible and return base64-encoded salt or throw error
+#[frb(sync)]
 pub fn nt_get_code_salt(code: String) -> anyhow::Result<Option<String>> {
     let salt = match nekoton_abi::get_code_salt(parse_cell(code)?).handle_error()? {
         Some(salt) => {
