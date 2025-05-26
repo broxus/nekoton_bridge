@@ -1,3 +1,8 @@
+## 2.10.0
+
+ - **REFACTOR**(abi): make abiVersion parameter optional in packIntoCell and unpackFromCell. ([a894e42b](https://github.com/broxus/nekoton_bridge/commit/a894e42bc46ea61b60a2e7730f8939a1e544bc8a))
+ - **FEAT**: make some abi methods sync. ([b197b80d](https://github.com/broxus/nekoton_bridge/commit/b197b80dd6d29f796de8fd4856b8d4f9ba3822db))
+
 ## 2.9.4
 
  - **FIX**(EWM-427): update message hash after `refreshTimeout`. ([dbc1dafe](https://github.com/broxus/nekoton_bridge/commit/dbc1dafed1748f78a0f84482f99935633025e92d))
