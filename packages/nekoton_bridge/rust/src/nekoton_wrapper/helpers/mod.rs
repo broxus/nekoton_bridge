@@ -62,8 +62,7 @@ pub fn parse_cell(boc: String) -> anyhow::Result<Cell> {
 
 /// Parse contract abi from string and return its instance or throws error
 pub fn parse_contract_abi(contract_abi: String) -> anyhow::Result<ton_abi::Contract> {
-    let reader = std::io::Cursor::new(contract_abi.as_bytes());
-    ton_abi::Contract::load(reader).handle_error()
+    ton_abi::Contract::load(contract_abi.as_bytes()).handle_error()
 }
 
 /// Parse method name and return its instance or throws error
@@ -179,7 +178,8 @@ pub fn parse_param_type(kind: &str) -> anyhow::Result<ton_abi::ParamType, AbiErr
             match key_type {
                 ton_abi::ParamType::Int(_)
                 | ton_abi::ParamType::Uint(_)
-                | ton_abi::ParamType::Address => {
+                | ton_abi::ParamType::Address
+                | ton_abi::ParamType::AddressStd => {
                     ton_abi::ParamType::Map(Box::new(key_type), Box::new(value_type))
                 }
                 _ => return Err(AbiError::ExpectedParamType),
@@ -411,6 +411,9 @@ pub fn make_stack_item(value: ton_abi::TokenValue) -> anyhow::Result<StackItem> 
         }
         ton_abi::TokenValue::Cell(value) => StackItem::cell(value),
         ton_abi::TokenValue::Address(value) => StackItem::Slice(
+            ton_types::SliceData::load_cell(value.serialize().handle_error()?).handle_error()?,
+        ),
+        ton_abi::TokenValue::AddressStd(value) => StackItem::Slice(
             ton_types::SliceData::load_cell(value.serialize().handle_error()?).handle_error()?,
         ),
         ton_abi::TokenValue::String(value) => {
