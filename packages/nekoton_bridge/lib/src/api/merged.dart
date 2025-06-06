@@ -69,15 +69,17 @@ bool ntCheckPublicKey({required String publicKey}) => NekotonBridge.instance.api
 Future<String> ntRunLocal(
         {required String accountStuffBoc,
         required String contractAbi,
-        required String method,
+        required String methodId,
         required String input,
-        required bool responsible}) =>
+        required bool responsible,
+        int? signatureId}) =>
     NekotonBridge.instance.api.crateApiMergedNtRunLocal(
         accountStuffBoc: accountStuffBoc,
         contractAbi: contractAbi,
-        method: method,
+        methodId: methodId,
         input: input,
-        responsible: responsible);
+        responsible: responsible,
+        signatureId: signatureId);
 
 /// Get address of tvc and contract_abi.
 /// Returns list of [address, boc of state_init, hash] or throws error
@@ -187,18 +189,18 @@ Future<String> ntDecodeTransactionEvents(
         transaction: transaction, contractAbi: contractAbi);
 
 /// Returns hash of decoded boc or throws error
-Future<String> ntGetBocHash({required String boc}) =>
+String ntGetBocHash({required String boc}) =>
     NekotonBridge.instance.api.crateApiMergedNtGetBocHash(boc: boc);
 
 /// Return base64 encoded bytes of tokens or throws error
 /// returns [tvc, hash]
-Future<List<String>> ntPackIntoCell(
+List<String> ntPackIntoCell(
         {required String params, required String tokens, String? version}) =>
     NekotonBridge.instance.api.crateApiMergedNtPackIntoCell(
         params: params, tokens: tokens, version: version);
 
 /// Parse list of params and return json-encoded Tokens or throws error
-Future<String> ntUnpackFromCell(
+String ntUnpackFromCell(
         {required String params,
         required String boc,
         required bool allowPartial,
@@ -208,7 +210,7 @@ Future<String> ntUnpackFromCell(
 
 /// Pack address std smd or throw error
 /// Returns new packed address as string
-Future<String> ntPackStdSmcAddr(
+String ntPackStdSmcAddr(
         {required String addr,
         required bool base64Url,
         required bool bounceable}) =>
@@ -217,8 +219,7 @@ Future<String> ntPackStdSmcAddr(
 
 /// Unpack address std smd or throw error.
 /// Returns json-encoded MsgAddressInt
-Future<String> ntUnpackStdSmcAddr(
-        {required String packed, required bool base64Url}) =>
+String ntUnpackStdSmcAddr({required String packed, required bool base64Url}) =>
     NekotonBridge.instance.api
         .crateApiMergedNtUnpackStdSmcAddr(packed: packed, base64Url: base64Url);
 
@@ -238,33 +239,32 @@ String ntPackAddress(
         address: address, isUrlSafe: isUrlSafe, bounceable: bounceable);
 
 /// Extract public key from boc and return it or throw error
-Future<String> ntExtractPublicKey({required String boc}) =>
+String ntExtractPublicKey({required String boc}) =>
     NekotonBridge.instance.api.crateApiMergedNtExtractPublicKey(boc: boc);
 
 /// Convert code to base64 tvc string and return it or throw error
 /// returns [tvc, hash]
-Future<List<String>> ntCodeToTvc({required String code}) =>
+List<String> ntCodeToTvc({required String code}) =>
     NekotonBridge.instance.api.crateApiMergedNtCodeToTvc(code: code);
 
 /// Merge code and data to tvc base64 string and return it or throw error
 /// returns [tvc, hash]
-Future<List<String>> ntMergeTvc({required String code, required String data}) =>
+List<String> ntMergeTvc({required String code, required String data}) =>
     NekotonBridge.instance.api.crateApiMergedNtMergeTvc(code: code, data: data);
 
 /// Split base64 tvc string into data and code.
 /// Return vec![data, code] or throw error
-Future<List<String?>> ntSplitTvc({required String tvc}) =>
+List<String?> ntSplitTvc({required String tvc}) =>
     NekotonBridge.instance.api.crateApiMergedNtSplitTvc(tvc: tvc);
 
 /// Set salt to code and return base64-encoded string or throw error
 /// returns [tvc, hash]
-Future<List<String>> ntSetCodeSalt(
-        {required String code, required String salt}) =>
+List<String> ntSetCodeSalt({required String code, required String salt}) =>
     NekotonBridge.instance.api
         .crateApiMergedNtSetCodeSalt(code: code, salt: salt);
 
 /// Get salt from code if possible and return base64-encoded salt or throw error
-Future<String?> ntGetCodeSalt({required String code}) =>
+String? ntGetCodeSalt({required String code}) =>
     NekotonBridge.instance.api.crateApiMergedNtGetCodeSalt(code: code);
 
 /// Run contract locally.
@@ -366,6 +366,23 @@ String ntEncodeComment({required String comment, required bool plain}) =>
     NekotonBridge.instance.api
         .crateApiMergedNtEncodeComment(comment: comment, plain: plain);
 
+/// Run getter.
+/// Return json-encoded VmGetterOutput or throws error.
+///
+/// input - is json-encoded AbiToken
+Future<String> ntRunGetter(
+        {required String accountStuffBoc,
+        required String contractAbi,
+        required String methodId,
+        required String input,
+        int? signatureId}) =>
+    NekotonBridge.instance.api.crateApiMergedNtRunGetter(
+        accountStuffBoc: accountStuffBoc,
+        contractAbi: contractAbi,
+        methodId: methodId,
+        input: input,
+        signatureId: signatureId);
+
 ///----------------------------
 /// CONTENT OF src/utils/tests_api.rs
 ///----------------------------
@@ -411,10 +428,6 @@ Future<void> initLogger(
 /// Create log stream
 Stream<LogEntry> createLogStream() =>
     NekotonBridge.instance.api.crateApiMergedCreateLogStream();
-
-/// Init tokio runtime
-Future<void> initRuntime() =>
-    NekotonBridge.instance.api.crateApiMergedInitRuntime();
 
 /// Init caller
 Stream<DartCallStubRegistred> initCaller() =>
@@ -1764,13 +1777,11 @@ class ProtoTransportImpl {
 class StorageDartWrapper {
   final ArcStorageBoxTrait innerStorage;
 
-  const StorageDartWrapper({
+  const StorageDartWrapper.raw({
     required this.innerStorage,
   });
 
-  // HINT: Make it `#[frb(sync)]` to let it become the default constructor of Dart class.
-  static Future<StorageDartWrapper> newInstance(
-          {required String instanceHash}) =>
+  factory StorageDartWrapper({required String instanceHash}) =>
       NekotonBridge.instance.api
           .crateApiMergedStorageDartWrapperNew(instanceHash: instanceHash);
 
@@ -2257,7 +2268,7 @@ class UnsignedMessageImpl {
         that: this,
       );
 
-  Future<void> refreshTimeout() => NekotonBridge.instance.api
+  Future<UnsignedMessageImpl> refreshTimeout() => NekotonBridge.instance.api
           .crateApiMergedUnsignedMessageImplRefreshTimeout(
         that: this,
       );

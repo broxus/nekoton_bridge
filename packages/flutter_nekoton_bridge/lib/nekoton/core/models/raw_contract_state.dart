@@ -13,6 +13,12 @@ sealed class RawContractState with _$RawContractState {
   const factory RawContractState.exists(ExistingContract data) =
       RawContractStateExists;
 
+  const RawContractState._();
+
   factory RawContractState.fromJson(Map<String, dynamic> json) =>
       _$RawContractStateFromJson(json);
+
+  bool isExists() {
+    return this is _Exists;
+  }
 }

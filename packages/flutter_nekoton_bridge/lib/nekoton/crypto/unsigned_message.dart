@@ -26,7 +26,17 @@ class UnsignedMessage {
     return instance;
   }
 
-  Future<void> refreshTimeout() => message.refreshTimeout();
+  Future<void> refreshTimeout() async {
+    final oldMessage = message;
+
+    message = await message.refreshTimeout();
+    hash = await message.hash();
+    expireAt = dateSecondsSinceEpochJsonConverter.fromJson(
+      await message.expireAt(),
+    );
+
+    oldMessage.innerMessage.dispose();
+  }
 
   /// Sign message with signature and return SignedMessage.
   /// signature receives from [KeyStore.sign] where data is [UnsignedMessage.hash]

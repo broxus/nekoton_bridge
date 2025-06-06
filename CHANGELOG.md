@@ -3,6 +3,281 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-05-26
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.10.0`](#flutter_nekoton_bridge---v2100)
+ - [`nekoton_bridge` - `v2.9.0`](#nekoton_bridge---v290)
+ - [`flutter_nekoton_bridge_example` - `v1.24.7`](#flutter_nekoton_bridge_example---v1247)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.24.7`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.10.0`
+
+ - **REFACTOR**(abi): make abiVersion parameter optional in packIntoCell and unpackFromCell. ([a894e42b](https://github.com/broxus/nekoton_bridge/commit/a894e42bc46ea61b60a2e7730f8939a1e544bc8a))
+ - **FEAT**: make some abi methods sync. ([b197b80d](https://github.com/broxus/nekoton_bridge/commit/b197b80dd6d29f796de8fd4856b8d4f9ba3822db))
+
+#### `nekoton_bridge` - `v2.9.0`
+
+ - **FEAT**: make some abi methods sync. ([b197b80d](https://github.com/broxus/nekoton_bridge/commit/b197b80dd6d29f796de8fd4856b8d4f9ba3822db))
+
+
+## 2025-05-19
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.9.4`](#flutter_nekoton_bridge---v294)
+ - [`flutter_nekoton_bridge_example` - `v1.24.6`](#flutter_nekoton_bridge_example---v1246)
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.9.4`
+
+ - **FIX**(EWM-427): update message hash after `refreshTimeout`. ([dbc1dafe](https://github.com/broxus/nekoton_bridge/commit/dbc1dafed1748f78a0f84482f99935633025e92d))
+
+#### `flutter_nekoton_bridge_example` - `v1.24.6`
+
+ - **FIX**(EWM-427): update message hash after `refreshTimeout`. ([dbc1dafe](https://github.com/broxus/nekoton_bridge/commit/dbc1dafed1748f78a0f84482f99935633025e92d))
+
+
+## 2025-05-19
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.9.3`](#flutter_nekoton_bridge---v293)
+ - [`flutter_nekoton_bridge_example` - `v1.24.5`](#flutter_nekoton_bridge_example---v1245)
+ - [`nekoton_bridge` - `v2.8.2`](#nekoton_bridge---v282)
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.9.3`
+
+ - **FIX**(EWM-427): update message hash after `refreshTimeout`. ([dbc1dafe](https://github.com/broxus/nekoton_bridge/commit/dbc1dafed1748f78a0f84482f99935633025e92d))
+ - **FIX**(EWM-427): implement immutable `refresh_timeout`. ([1c8b1103](https://github.com/broxus/nekoton_bridge/commit/1c8b1103ef76e5617bafcf2b4b190f25eab63e76))
+
+#### `flutter_nekoton_bridge_example` - `v1.24.5`
+
+ - **FIX**(EWM-427): update message hash after `refreshTimeout`. ([dbc1dafe](https://github.com/broxus/nekoton_bridge/commit/dbc1dafed1748f78a0f84482f99935633025e92d))
+ - **FIX**(EWM-427): implement immutable `refresh_timeout`. ([1c8b1103](https://github.com/broxus/nekoton_bridge/commit/1c8b1103ef76e5617bafcf2b4b190f25eab63e76))
+
+#### `nekoton_bridge` - `v2.8.2`
+
+ - **FIX**(EWM-427): implement immutable `refresh_timeout`. ([1c8b1103](https://github.com/broxus/nekoton_bridge/commit/1c8b1103ef76e5617bafcf2b4b190f25eab63e76))
+
+
+## 2025-05-08
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - [`flutter_nekoton_bridge` - `v2.9.2`](#flutter_nekoton_bridge---v292)
+ - [`flutter_nekoton_bridge_example` - `v1.24.4`](#flutter_nekoton_bridge_example---v1244)
+ - [`nekoton_bridge` - `v2.8.1`](#nekoton_bridge---v281)
+
+Packages with other changes:
+
+ - There are no other changes in this release.
+
+Packages graduated to a stable release (see pre-releases prior to the stable version for changelog entries):
+
+ - `flutter_nekoton_bridge` - `v2.9.2`
+ - `flutter_nekoton_bridge_example` - `v1.24.4`
+ - `nekoton_bridge` - `v2.8.1`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.9.2`
+
+#### `flutter_nekoton_bridge_example` - `v1.24.4`
+
+#### `nekoton_bridge` - `v2.8.1`
+
+
+## 2025-05-01
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.9.2-dev.1`](#flutter_nekoton_bridge---v292-dev1)
+ - [`nekoton_bridge` - `v2.8.1-dev.1`](#nekoton_bridge---v281-dev1)
+ - [`flutter_nekoton_bridge_example` - `v1.24.4-dev.1`](#flutter_nekoton_bridge_example---v1244-dev1)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.24.4-dev.1`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.9.2-dev.1`
+
+ - **FIX**: update StorageDartWrapper API to use synchronous constructor and adjust related function signatures. ([556ebdc1](https://github.com/broxus/nekoton_bridge/commit/556ebdc138b055f3b460b10c3e8bcfc102e6e444))
+
+#### `nekoton_bridge` - `v2.8.1-dev.1`
+
+ - **FIX**: update StorageDartWrapper API to use synchronous constructor and adjust related function signatures. ([556ebdc1](https://github.com/broxus/nekoton_bridge/commit/556ebdc138b055f3b460b10c3e8bcfc102e6e444))
+
+
+## 2025-05-01
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.9.2-dev.0`](#flutter_nekoton_bridge---v292-dev0)
+ - [`nekoton_bridge` - `v2.8.1-dev.0`](#nekoton_bridge---v281-dev0)
+ - [`flutter_nekoton_bridge_example` - `v1.24.4-dev.0`](#flutter_nekoton_bridge_example---v1244-dev0)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.24.4-dev.0`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.9.2-dev.0`
+
+ - **FIX**(EWM-496): remove tokio runtime & refactor async rust. ([cc7caeaf](https://github.com/broxus/nekoton_bridge/commit/cc7caeafab1b587c47f805c63b36c7127a882936))
+
+#### `nekoton_bridge` - `v2.8.1-dev.0`
+
+ - **FIX**(EWM-496): remove tokio runtime & refactor async rust. ([cc7caeaf](https://github.com/broxus/nekoton_bridge/commit/cc7caeafab1b587c47f805c63b36c7127a882936))
+
+
+## 2025-04-23
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.9.1`](#flutter_nekoton_bridge---v291)
+ - [`flutter_nekoton_bridge_example` - `v1.24.3`](#flutter_nekoton_bridge_example---v1243)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.24.3`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.9.1`
+
+ - **FIX**: `RawContractState` add private constructor. ([82581163](https://github.com/broxus/nekoton_bridge/commit/82581163818cbba1ffd78a8b4a7f92bb52788b8a))
+
+
+## 2025-04-23
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.9.0`](#flutter_nekoton_bridge---v290)
+ - [`flutter_nekoton_bridge_example` - `v1.24.2`](#flutter_nekoton_bridge_example---v1242)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.24.2`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.9.0`
+
+ - **FIX**: `RawContractState` add private constructor. ([82581163](https://github.com/broxus/nekoton_bridge/commit/82581163818cbba1ffd78a8b4a7f92bb52788b8a))
+ - **FEAT**(EWM-508): add exists check method for raw_contract_state. ([70ad0d95](https://github.com/broxus/nekoton_bridge/commit/70ad0d953d9daf275914cbd93da7bceae55bd0c0))
+
+
+## 2025-04-22
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v2.8.1`](#flutter_nekoton_bridge---v281)
+ - [`flutter_nekoton_bridge_example` - `v1.24.1`](#flutter_nekoton_bridge_example---v1241)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v1.24.1`
+
+---
+
+#### `flutter_nekoton_bridge` - `v2.8.1`
+
+ - **FIX**(EWM-508): add NotExistingContract model to fix broken contract state. ([7b197368](https://github.com/broxus/nekoton_bridge/commit/7b1973686d73f7c05f7d3a7a9b1ce5cf69a978d0))
+
+
 ## 2025-04-09
 
 ### Changes

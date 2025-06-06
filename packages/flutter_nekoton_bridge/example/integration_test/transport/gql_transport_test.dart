@@ -82,7 +82,7 @@ void main() {
   });
 
   // TODO(nesquikm): it's not clear which test is causing flaky behavior
-  group('GqlTransport tests', () {
+  group('GqlTransport', () {
     testWidgets('Create GqlTransport', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
@@ -99,7 +99,7 @@ void main() {
       expect(transport.transport, isNotNull);
     });
 
-    testWidgets('GqlTransport getSignatureId ', (WidgetTester tester) async {
+    testWidgets('getSignatureId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -117,7 +117,7 @@ void main() {
       expect(signature, isNull);
     });
 
-    testWidgets('GqlTransport getTransactions ', (WidgetTester tester) async {
+    testWidgets('getTransactions ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -138,7 +138,7 @@ void main() {
       expect(transactions.transactions.length, 1);
     });
 
-    testWidgets('GqlTransport getTransaction ', (WidgetTester tester) async {
+    testWidgets('getTransaction ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -160,7 +160,7 @@ void main() {
       expect(transaction.outMessages.length, 0);
     });
 
-    testWidgets('GqlTransport getDstTransaction', (WidgetTester tester) async {
+    testWidgets('getDstTransaction', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -187,7 +187,7 @@ void main() {
       expect(transaction.outMessages.length, 1);
     });
 
-    testWidgets('GqlTransport multiple calls ', (WidgetTester tester) async {
+    testWidgets('multiple calls ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -221,7 +221,7 @@ void main() {
       );
     });
 
-    testWidgets('GqlTransport getContractState ', (WidgetTester tester) async {
+    testWidgets('getContractState ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();
@@ -246,7 +246,7 @@ void main() {
       );
     });
 
-    testWidgets('GqlTransport getFullContractState ', (
+    testWidgets('getFullContractState ', (
       WidgetTester tester,
     ) async {
       await tester.pumpAndSettleWithTimeout();
@@ -268,7 +268,7 @@ void main() {
       expect(state.isDeployed, true);
     });
 
-    testWidgets('GqlTransport getContractFields', (
+    testWidgets('getContractFields', (
       WidgetTester tester,
     ) async {
       await tester.pumpAndSettleWithTimeout();
@@ -296,7 +296,7 @@ void main() {
       expect(state, isNotNull);
     });
 
-    testWidgets('GqlTransport getNetworkId ', (WidgetTester tester) async {
+    testWidgets('getNetworkId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
@@ -311,8 +311,7 @@ void main() {
       expect(id, 42);
     });
 
-    testWidgets('GqlTransport getBlockchainConfig ',
-        (WidgetTester tester) async {
+    testWidgets('getBlockchainConfig ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
@@ -330,8 +329,7 @@ void main() {
       expect(config.globalVersion, 32);
     });
 
-    testWidgets('GqlTransport simulateTransactionTree ',
-        (WidgetTester tester) async {
+    testWidgets('simulateTransactionTree ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
       await initRustToDartCaller();
 
@@ -377,7 +375,7 @@ void main() {
       expect(errors, isNotEmpty);
     });
 
-    testWidgets('GqlTransport getFeeFactors', (WidgetTester tester) async {
+    testWidgets('getFeeFactors', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       await initRustToDartCaller();

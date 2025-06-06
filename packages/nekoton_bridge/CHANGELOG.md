@@ -1,3 +1,23 @@
+## 2.9.0
+
+ - **FEAT**: make some abi methods sync. ([b197b80d](https://github.com/broxus/nekoton_bridge/commit/b197b80dd6d29f796de8fd4856b8d4f9ba3822db))
+
+## 2.8.2
+
+ - **FIX**(EWM-427): implement immutable `refresh_timeout`. ([1c8b1103](https://github.com/broxus/nekoton_bridge/commit/1c8b1103ef76e5617bafcf2b4b190f25eab63e76))
+
+## 2.8.1
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
+## 2.8.1-dev.1
+
+ - **FIX**: update StorageDartWrapper API to use synchronous constructor and adjust related function signatures. ([556ebdc1](https://github.com/broxus/nekoton_bridge/commit/556ebdc138b055f3b460b10c3e8bcfc102e6e444))
+
+## 2.8.1-dev.0
+
+ - **FIX**(EWM-496): remove tokio runtime & refactor async rust. ([cc7caeaf](https://github.com/broxus/nekoton_bridge/commit/cc7caeafab1b587c47f805c63b36c7127a882936))
+
 ## 3.0.0
 
 > Note: This release has breaking changes.

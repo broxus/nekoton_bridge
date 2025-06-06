@@ -14,16 +14,39 @@ bool checkPublicKey(PublicKey publicKey) =>
 Future<ExecutionOutput> runLocal({
   required String accountStuffBoc,
   required String contractAbi,
-  required String method,
+  required String methodId,
   required Map<String, dynamic> input,
   required bool responsible,
+  int? signatureId,
 }) async {
   final res = await ntRunLocal(
     accountStuffBoc: accountStuffBoc,
     contractAbi: contractAbi,
-    method: method,
+    methodId: methodId,
     input: jsonEncode(input),
     responsible: responsible,
+    signatureId: signatureId,
+  );
+  return ExecutionOutput.fromJson(jsonDecode(res));
+}
+
+/// Run getter.
+/// Return json-encoded ExecutionOutput or throws error.
+///
+/// input - is json-encoded AbiToken
+Future<ExecutionOutput> runGetter({
+  required String accountStuffBoc,
+  required String contractAbi,
+  required String methodId,
+  required Map<String, dynamic> input,
+  int? signatureId,
+}) async {
+  final res = await ntRunGetter(
+    accountStuffBoc: accountStuffBoc,
+    contractAbi: contractAbi,
+    methodId: methodId,
+    input: jsonEncode(input),
+    signatureId: signatureId,
   );
   return ExecutionOutput.fromJson(jsonDecode(res));
 }
@@ -194,17 +217,15 @@ Future<List<DecodedEvent>> decodeTransactionEvents({
 }
 
 /// Returns hash of decoded boc or throws error
-Future<String> getBocHash(String boc) {
-  return ntGetBocHash(boc: boc);
-}
+String getBocHash(String boc) => ntGetBocHash(boc: boc);
 
 /// Return (base64 tvc, hash) or throws error
-Future<(String, String)> packIntoCell({
+(String, String) packIntoCell({
   required List<AbiParam> params,
   required TokensObject tokens,
-  required String? abiVersion,
-}) async {
-  final data = await ntPackIntoCell(
+  String? abiVersion,
+}) {
+  final data = ntPackIntoCell(
     params: jsonEncode(params),
     tokens: jsonEncode(tokens),
     version: abiVersion,
@@ -214,13 +235,13 @@ Future<(String, String)> packIntoCell({
 }
 
 /// Parse list of params and return json-encoded Tokens or throws error
-Future<TokensObject> unpackFromCell({
+TokensObject unpackFromCell({
   required List<AbiParam> params,
   required String boc,
   required bool allowPartial,
-  required String? abiVersion,
-}) async {
-  return jsonDecode(await ntUnpackFromCell(
+  String? abiVersion,
+}) {
+  return jsonDecode(ntUnpackFromCell(
     params: jsonEncode(params),
     boc: boc,
     allowPartial: allowPartial,
@@ -230,27 +251,25 @@ Future<TokensObject> unpackFromCell({
 
 /// Pack address std smd or throw error
 /// Returns new packed address as string
-Future<String> packStdSmcAddr({
+String packStdSmcAddr({
   required Address address,
   required bool base64Url,
   required bool bounceable,
-}) {
-  return ntPackStdSmcAddr(
-    addr: address.address,
-    base64Url: base64Url,
-    bounceable: bounceable,
-  );
-}
+}) =>
+    ntPackStdSmcAddr(
+      addr: address.address,
+      base64Url: base64Url,
+      bounceable: bounceable,
+    );
 
-Future<String> unpackStdSmcAddr({
+String unpackStdSmcAddr({
   required String packed,
   required bool base64Url,
-}) {
-  return ntUnpackStdSmcAddr(
-    packed: packed,
-    base64Url: base64Url,
-  );
-}
+}) =>
+    ntUnpackStdSmcAddr(
+      packed: packed,
+      base64Url: base64Url,
+    );
 
 /// Return true if address is valid, false otherwise
 bool validateAddress(Address address) {
@@ -278,49 +297,47 @@ Address packAddress(
 }
 
 /// Extract public key from boc and return it or throw error
-Future<PublicKey> extractPublicKey(String boc) async {
-  return PublicKey(publicKey: await ntExtractPublicKey(boc: boc));
+PublicKey extractPublicKey(String boc) {
+  return PublicKey(publicKey: ntExtractPublicKey(boc: boc));
 }
 
 /// Convert code to base64 tvc string and return (tvc, hash) or throw error
-Future<(String, String)> codeToTvc(String code) async {
-  final data = await ntCodeToTvc(code: code);
+(String, String) codeToTvc(String code) {
+  final data = ntCodeToTvc(code: code);
 
   return (data[0], data[1]);
 }
 
 /// Merge code and data to tvc base64 string and return (tvc, hash)
 /// or throw error
-Future<(String, String)> mergeTvc({
+(String, String) mergeTvc({
   required String code,
   required String data,
-}) async {
-  final res = await ntMergeTvc(code: code, data: data);
+}) {
+  final res = ntMergeTvc(code: code, data: data);
 
   return (res[0], res[1]);
 }
 
 /// Split base64 tvc string into data and code.
 /// Return (data, code) or throw error
-Future<(String?, String?)> splitTvc(String tvc) async {
-  final res = await ntSplitTvc(tvc: tvc);
+(String?, String?) splitTvc(String tvc) {
+  final res = ntSplitTvc(tvc: tvc);
   return (res[0], res[1]);
 }
 
 /// Set salt to code and return (tvc, hash) or throw error
-Future<(String, String)> setCodeSalt({
+(String, String) setCodeSalt({
   required String code,
   required String salt,
-}) async {
-  final data = await ntSetCodeSalt(code: code, salt: salt);
+}) {
+  final data = ntSetCodeSalt(code: code, salt: salt);
 
   return (data[0], data[1]);
 }
 
 /// Get salt from code if possible and return base64-encoded salt or throw error
-Future<String?> getCodeSalt(String code) {
-  return ntGetCodeSalt(code: code);
-}
+String? getCodeSalt(String code) => ntGetCodeSalt(code: code);
 
 /// None code-related exception that means that [executeLocal] finished with
 /// specified [errorCode].

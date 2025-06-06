@@ -1,6 +1,5 @@
 #![allow(unused_variables, dead_code)]
 
-use crate::async_run;
 use crate::frb_generated::RustOpaque;
 use std::panic::{RefUnwindSafe, UnwindSafe};
 use std::sync::Arc;
@@ -120,10 +119,10 @@ impl RefUnwindSafe for AccountsStorageBox {}
 
 impl AccountsStorageBox {
     /// Create AccountsStorageBox or throw error
-    pub fn create(
+    pub async fn create(
         storage: Arc<dyn Storage>,
     ) -> anyhow::Result<RustOpaque<Arc<dyn AccountsStorageBoxTrait>>> {
-        let storage = async_run!(AccountsStorage::load(storage).await).handle_error()?;
+        let storage = AccountsStorage::load(storage).await.handle_error()?;
         Ok(RustOpaque::new(Arc::new(Self {
             inner_storage: Arc::new(storage),
         })))

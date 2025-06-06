@@ -51,8 +51,8 @@ void main() {
     await transport.dispose();
   });
 
-  group('GenericContract test', () {
-    testWidgets('GenericContract subscribe', (WidgetTester tester) async {
+  group('GenericContract', () {
+    testWidgets('subscribe', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final contract = await GenericContract.subscribe(
@@ -67,7 +67,7 @@ void main() {
       expect(contract.contractState.isDeployed, isTrue);
     });
 
-    testWidgets('GenericContract refresh', (WidgetTester tester) async {
+    testWidgets('refresh', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final contract = await GenericContract.subscribe(
@@ -92,7 +92,7 @@ void main() {
     });
 
     testWidgets(
-      'GenericContract subscribing new instance after disposing old one',
+      'subscribing new instance after disposing old one',
       (WidgetTester tester) async {
         await tester.pumpAndSettleWithTimeout();
 

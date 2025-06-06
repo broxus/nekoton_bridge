@@ -110,7 +110,7 @@ pub mod serde_message {
 /// This is a trait-wrapper above real UnsignedMessage with UnwindSafe + RefUnwindSafe.
 pub trait UnsignedMessageBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     /// Adjust expiration timestamp from now
-    fn refresh_timeout(&self);
+    fn refresh_timeout(&self) -> RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>;
 
     /// Current expiration timestamp as secondsSinceEpoch
     fn expire_at(&self) -> u32;
@@ -146,10 +146,11 @@ impl UnsignedMessageBox {
 
 /// Real implementation of methods that allows us handle nekoton methods with some logic
 impl UnsignedMessageBoxTrait for UnsignedMessageBox {
-    fn refresh_timeout(&self) {
-        self.inner_message
-            .clone()
-            .refresh_timeout(clock!().as_ref());
+    fn refresh_timeout(&self) -> RustOpaque<Arc<dyn UnsignedMessageBoxTrait>> {
+        let mut msg = self.inner_message.clone();
+        msg.refresh_timeout(clock!().as_ref());
+
+        UnsignedMessageBox::create(msg)
     }
 
     /// Return current expiration timestamp of UnsignedMessage

@@ -31,8 +31,10 @@ pub struct UnsignedMessageImpl {
 }
 
 impl UnsignedMessageImpl {
-    pub fn refresh_timeout(&self) {
-        self.inner_message.refresh_timeout();
+    pub fn refresh_timeout(&self) -> Self {
+        UnsignedMessageImpl {
+            inner_message: self.inner_message.refresh_timeout(),
+        }
     }
 
     /// Return current expiration timestamp of UnsignedMessage

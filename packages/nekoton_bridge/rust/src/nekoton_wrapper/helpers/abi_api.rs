@@ -8,9 +8,9 @@ use crate::nekoton_wrapper::helpers::models::{
 };
 use crate::nekoton_wrapper::helpers::{
     create_plain_comment_playload, make_boc, make_boc_with_hash, make_full_contract_state,
-    parse_account_stuff, parse_cell, parse_contract_abi, parse_method_name,
-    parse_optional_abi_version, parse_params_list, parse_slice, serialize_into_boc,
-    serialize_into_boc_with_hash, serialize_state_init_data_key,
+    make_stack_item, make_vm_getter_output, parse_account_stuff, parse_cell, parse_contract_abi,
+    parse_method_name, parse_optional_abi_version, parse_params_list, parse_slice,
+    serialize_into_boc, serialize_into_boc_with_hash, serialize_state_init_data_key,
 };
 use crate::nekoton_wrapper::{parse_address, parse_public_key, HandleError};
 use base64::engine::general_purpose;
@@ -48,26 +48,33 @@ pub fn nt_check_public_key(public_key: String) -> bool {
 pub fn nt_run_local(
     account_stuff_boc: String,
     contract_abi: String,
-    method: String,
+    method_id: String,
     input: String,
     responsible: bool,
+    signature_id: Option<i32>,
 ) -> anyhow::Result<String> {
     let account_stuff = parse_account_stuff(account_stuff_boc)?;
     let contract_abi = parse_contract_abi(contract_abi)?;
-    let method = contract_abi.function(&method).handle_error()?;
+    let method = contract_abi.function(&method_id).handle_error()?;
 
     let input = serde_json::from_str::<serde_json::Value>(&input).handle_error()?;
     let input = nekoton_abi::parse_abi_tokens(&method.inputs, input).handle_error()?;
 
-    let output = if responsible {
-        method
-            .run_local_responsible(clock!().as_ref(), account_stuff, &input)
-            .handle_error()?
-    } else {
-        method
-            .run_local(clock!().as_ref(), account_stuff, &input)
-            .handle_error()?
-    };
+    let mut config = nekoton_abi::BriefBlockchainConfig::default();
+    if let Some(signature_id) = signature_id {
+        config.global_id = signature_id;
+        config.capabilities |= ton_block::GlobalCapabilities::CapSignatureWithId as u64;
+    }
+
+    let output = method
+        .run_local_ext(
+            clock!().as_ref(),
+            account_stuff,
+            &input,
+            responsible,
+            &config,
+        )
+        .handle_error()?;
 
     let tokens = output
         .tokens
@@ -391,7 +398,9 @@ pub fn nt_decode_transaction(
         None => return Ok(serde_json::Value::Null.to_string()),
     };
 
-    let input = method.decode_input(in_msg_body, internal).handle_error()?;
+    let input = method
+        .decode_input(in_msg_body, internal, false)
+        .handle_error()?;
     let input = nekoton_abi::make_abi_tokens(&input).handle_error()?;
 
     let ext_out_msgs = transaction
@@ -467,6 +476,7 @@ pub fn nt_decode_transaction_events(
 }
 
 /// Returns hash of decoded boc or throws error
+#[frb(sync)]
 pub fn nt_get_boc_hash(boc: String) -> anyhow::Result<String> {
     let body = general_purpose::STANDARD.decode(boc).handle_error()?;
 
@@ -480,6 +490,7 @@ pub fn nt_get_boc_hash(boc: String) -> anyhow::Result<String> {
 
 /// Return base64 encoded bytes of tokens or throws error
 /// returns [tvc, hash]
+#[frb(sync)]
 pub fn nt_pack_into_cell(
     params: String,
     tokens: String,
@@ -495,6 +506,7 @@ pub fn nt_pack_into_cell(
 }
 
 /// Parse list of params and return json-encoded Tokens or throws error
+#[frb(sync)]
 pub fn nt_unpack_from_cell(
     params: String,
     boc: String,
@@ -515,6 +527,7 @@ pub fn nt_unpack_from_cell(
 
 /// Pack address std smd or throw error
 /// Returns new packed address as string
+#[frb(sync)]
 pub fn nt_pack_std_smc_addr(
     addr: String,
     base64_url: bool,
@@ -528,6 +541,7 @@ pub fn nt_pack_std_smc_addr(
 
 /// Unpack address std smd or throw error.
 /// Returns json-encoded MsgAddressInt
+#[frb(sync)]
 pub fn nt_unpack_std_smc_addr(packed: String, base64_url: bool) -> anyhow::Result<String> {
     let unpacked_addr = nekoton_utils::unpack_std_smc_addr(&packed, base64_url)
         .handle_error()?
@@ -559,6 +573,7 @@ pub fn nt_pack_address(address: String, is_url_safe: bool, bounceable: bool) -> 
 }
 
 /// Extract public key from boc and return it or throw error
+#[frb(sync)]
 pub fn nt_extract_public_key(boc: String) -> anyhow::Result<String> {
     let public_key = parse_account_stuff(boc)
         .and_then(|e| nekoton_abi::extract_public_key(&e).handle_error())
@@ -569,6 +584,7 @@ pub fn nt_extract_public_key(boc: String) -> anyhow::Result<String> {
 
 /// Convert code to base64 tvc string and return it or throw error
 /// returns [tvc, hash]
+#[frb(sync)]
 pub fn nt_code_to_tvc(code: String) -> anyhow::Result<Vec<String>> {
     let cell = parse_cell(code).handle_error()?;
     let state_init = nekoton_abi::code_to_tvc(cell).handle_error()?;
@@ -577,6 +593,7 @@ pub fn nt_code_to_tvc(code: String) -> anyhow::Result<Vec<String>> {
 
 /// Merge code and data to tvc base64 string and return it or throw error
 /// returns [tvc, hash]
+#[frb(sync)]
 pub fn nt_merge_tvc(code: String, data: String) -> anyhow::Result<Vec<String>> {
     let state_init = ton_block::StateInit {
         code: Some(parse_cell(code)?),
@@ -589,6 +606,7 @@ pub fn nt_merge_tvc(code: String, data: String) -> anyhow::Result<Vec<String>> {
 
 /// Split base64 tvc string into data and code.
 /// Return vec![data, code] or throw error
+#[frb(sync)]
 pub fn nt_split_tvc(tvc: String) -> anyhow::Result<Vec<Option<String>>> {
     let state_init = ton_block::StateInit::construct_from_base64(&tvc).handle_error()?;
 
@@ -615,12 +633,14 @@ pub fn nt_split_tvc(tvc: String) -> anyhow::Result<Vec<Option<String>>> {
 
 /// Set salt to code and return base64-encoded string or throw error
 /// returns [tvc, hash]
+#[frb(sync)]
 pub fn nt_set_code_salt(code: String, salt: String) -> anyhow::Result<Vec<String>> {
     let cell = nekoton_abi::set_code_salt(parse_cell(code)?, parse_cell(salt)?)?;
     make_boc_with_hash(cell)
 }
 
 /// Get salt from code if possible and return base64-encoded salt or throw error
+#[frb(sync)]
 pub fn nt_get_code_salt(code: String) -> anyhow::Result<Option<String>> {
     let salt = match nekoton_abi::get_code_salt(parse_cell(code)?).handle_error()? {
         Some(salt) => {
@@ -998,6 +1018,47 @@ pub fn nt_encode_comment(comment: String, plain: bool) -> anyhow::Result<String>
             })
     }?;
     make_boc(&body)
+}
+
+/// Run getter.
+/// Return json-encoded VmGetterOutput or throws error.
+///
+/// input - is json-encoded AbiToken
+pub fn nt_run_getter(
+    account_stuff_boc: String,
+    contract_abi: String,
+    method_id: String,
+    input: String,
+    signature_id: Option<i32>,
+) -> anyhow::Result<String> {
+    let account_stuff = parse_account_stuff(account_stuff_boc)?;
+    let contract_abi = parse_contract_abi(contract_abi)?;
+    let getter = contract_abi.getter(&method_id).handle_error()?;
+
+    let input = serde_json::from_str::<serde_json::Value>(&input).handle_error()?;
+    let input = nekoton_abi::parse_abi_tokens(&getter.inputs, input).handle_error()?;
+
+    let args = input
+        .into_iter()
+        .map(|token| make_stack_item(token.value))
+        .collect::<anyhow::Result<Vec<_>>>()?;
+
+    let mut config = nekoton_abi::BriefBlockchainConfig::default();
+    if let Some(signature_id) = signature_id {
+        config.global_id = signature_id;
+        config.capabilities |= ton_block::GlobalCapabilities::CapSignatureWithId as u64;
+    }
+
+    let output = nekoton_abi::ExecutionContext {
+        clock: clock!().as_ref(),
+        account_stuff: &account_stuff,
+    }
+    .run_getter_ext(method_id.as_str(), &args, &config, &Default::default())
+    .handle_error()?;
+
+    let execution_output = make_vm_getter_output(&getter.outputs, output).handle_error()?;
+
+    serde_json::to_string(&execution_output).handle_error()
 }
 
 #[derive(Serialize, Deserialize)]

@@ -91,8 +91,8 @@ void main() {
   });
 
   // TODO(nesquikm): it's not clear which test is causing flaky behavior
-  group('TonWallet test', () {
-    testWidgets('TonWallet subscribe', (WidgetTester tester) async {
+  group('TonWallet', () {
+    testWidgets('subscribe', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TonWallet.subscribe(
@@ -109,7 +109,7 @@ void main() {
       expect(wallet.workchain, 0);
     });
 
-    testWidgets('TonWallet subscribeByAddress', (WidgetTester tester) async {
+    testWidgets('subscribeByAddress', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TonWallet.subscribeByAddress(
@@ -124,8 +124,7 @@ void main() {
       expect(wallet.workchain, 0);
     });
 
-    testWidgets('TonWallet subscribeByExistingWallet',
-        (WidgetTester tester) async {
+    testWidgets('subscribeByExistingWallet', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final infoList = await TonWallet.findExistingWallets(
@@ -150,7 +149,7 @@ void main() {
       expect(wallet.workchain, 0);
     });
 
-    testWidgets('TonWallet prepareTransfer', (WidgetTester tester) async {
+    testWidgets('prepareTransfer', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TonWallet.subscribeByAddress(
@@ -173,8 +172,7 @@ void main() {
       expect(message, isNotNull);
     });
 
-    testWidgets('TonWallet prepareTransfer and sign',
-        (WidgetTester tester) async {
+    testWidgets('prepareTransfer and sign', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final storageMethods = MockedStorageMethods();
@@ -198,7 +196,7 @@ void main() {
       );
       const input = DerivedKeyCreateInput.import(inputLabsData);
 
-      final storage = await Storage.create(
+      final storage = Storage.create(
         get: storageMethods.get,
         set: storageMethods.set,
         setUnchecked: storageMethods.setUnchecked,
@@ -259,7 +257,7 @@ void main() {
       expect(signedMessage.hash.length, 64);
     });
 
-    testWidgets('TonWallet prepareDeploy', (WidgetTester tester) async {
+    testWidgets('prepareDeploy', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TonWallet.subscribeByAddress(
@@ -275,7 +273,7 @@ void main() {
       }
     });
 
-    testWidgets('TonWallet getExistingWalletInfo', (WidgetTester tester) async {
+    testWidgets('getExistingWalletInfo', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TonWallet.getExistingWalletInfo(
@@ -290,7 +288,7 @@ void main() {
       expect(wallet.contractState.isDeployed, isTrue);
     });
 
-    testWidgets('TonWallet getWalletCustodians', (WidgetTester tester) async {
+    testWidgets('getWalletCustodians', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final custodians1 = await TonWallet.getWalletCustodians(
@@ -309,7 +307,7 @@ void main() {
       expect(custodians2.length, 3);
     });
 
-    testWidgets('TonWallet refresh', (WidgetTester tester) async {
+    testWidgets('refresh', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TonWallet.subscribe(
@@ -337,7 +335,7 @@ void main() {
     });
 
     testWidgets(
-      'TonWallet subscribing new instance after disposing old one',
+      'subscribing new instance after disposing old one',
       (WidgetTester tester) async {
         await tester.pumpAndSettleWithTimeout();
 
@@ -360,7 +358,7 @@ void main() {
       },
     );
 
-    testWidgets('TonWallet estimateFees', (WidgetTester tester) async {
+    testWidgets('estimateFees', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TonWallet.subscribeByAddress(
@@ -388,8 +386,7 @@ void main() {
       expect(fees, isNot(BigInt.zero));
     });
 
-    testWidgets('TonWallet estimate deployment fees',
-        (WidgetTester tester) async {
+    testWidgets('estimate deployment fees', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TonWallet.subscribe(
@@ -415,7 +412,7 @@ void main() {
       expect(fees, isNot(BigInt.zero));
     });
 
-    testWidgets('TonWallet make state init', (WidgetTester tester) async {
+    testWidgets('make state init', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final wallet = await TonWallet.subscribe(
@@ -427,6 +424,36 @@ void main() {
       final stateInit = await wallet.makeStateInit();
 
       expect(stateInit, isNotEmpty);
+    });
+
+    testWidgets('refreshTimeout', (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      final wallet = await TonWallet.subscribeByAddress(
+        transport: transport,
+        address: address,
+      );
+      final message = await wallet.prepareTransfer(
+        contractState: await transport.getContractState(address),
+        publicKey: publicKey,
+        expiration: expiration,
+        params: [
+          TonWalletTransferParams(
+            destination: stEverContractVault,
+            amount: BigInt.parse('100000000'),
+            bounce: false,
+          ),
+        ],
+      );
+
+      final expireAt = message.expireAt;
+      final hash = message.hash;
+
+      await Future<void>.delayed(const Duration(seconds: 1));
+      await message.refreshTimeout();
+
+      expect(expireAt.isBefore(message.expireAt), isTrue);
+      expect(hash, isNot(message.hash));
     });
   });
 }

@@ -1,3 +1,42 @@
+## 2.10.0
+
+ - **REFACTOR**(abi): make abiVersion parameter optional in packIntoCell and unpackFromCell. ([a894e42b](https://github.com/broxus/nekoton_bridge/commit/a894e42bc46ea61b60a2e7730f8939a1e544bc8a))
+ - **FEAT**: make some abi methods sync. ([b197b80d](https://github.com/broxus/nekoton_bridge/commit/b197b80dd6d29f796de8fd4856b8d4f9ba3822db))
+
+## 2.9.4
+
+ - **FIX**(EWM-427): update message hash after `refreshTimeout`. ([dbc1dafe](https://github.com/broxus/nekoton_bridge/commit/dbc1dafed1748f78a0f84482f99935633025e92d))
+
+## 2.9.3
+
+ - **FIX**(EWM-427): update message hash after `refreshTimeout`. ([dbc1dafe](https://github.com/broxus/nekoton_bridge/commit/dbc1dafed1748f78a0f84482f99935633025e92d))
+ - **FIX**(EWM-427): implement immutable `refresh_timeout`. ([1c8b1103](https://github.com/broxus/nekoton_bridge/commit/1c8b1103ef76e5617bafcf2b4b190f25eab63e76))
+
+## 2.9.2
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
+## 2.9.2-dev.1
+
+ - **FIX**: update StorageDartWrapper API to use synchronous constructor and adjust related function signatures. ([556ebdc1](https://github.com/broxus/nekoton_bridge/commit/556ebdc138b055f3b460b10c3e8bcfc102e6e444))
+
+## 2.9.2-dev.0
+
+ - **FIX**(EWM-496): remove tokio runtime & refactor async rust. ([cc7caeaf](https://github.com/broxus/nekoton_bridge/commit/cc7caeafab1b587c47f805c63b36c7127a882936))
+
+## 2.9.1
+
+ - **FIX**: `RawContractState` add private constructor. ([82581163](https://github.com/broxus/nekoton_bridge/commit/82581163818cbba1ffd78a8b4a7f92bb52788b8a))
+
+## 2.9.0
+
+ - **FIX**: `RawContractState` add private constructor. ([82581163](https://github.com/broxus/nekoton_bridge/commit/82581163818cbba1ffd78a8b4a7f92bb52788b8a))
+ - **FEAT**(EWM-508): add exists check method for raw_contract_state. ([70ad0d95](https://github.com/broxus/nekoton_bridge/commit/70ad0d953d9daf275914cbd93da7bceae55bd0c0))
+
+## 2.8.1
+
+ - **FIX**(EWM-508): add NotExistingContract model to fix broken contract state. ([7b197368](https://github.com/broxus/nekoton_bridge/commit/7b1973686d73f7c05f7d3a7a9b1ce5cf69a978d0))
+
 ## 3.0.1
 
  - **FIX**: rename _Comment to TransactionAdditionalInfoComment. ([95a4ac19](https://github.com/broxus/nekoton_bridge/commit/95a4ac19adb2e0d986a12180fcc8408cc241d7d5))
