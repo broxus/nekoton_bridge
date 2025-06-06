@@ -59,9 +59,10 @@ class $RawContractStateCopyWith<$Res> {
 
 /// @nodoc
 @JsonSerializable()
-class RawContractStateNotExists implements RawContractState {
+class RawContractStateNotExists extends RawContractState {
   const RawContractStateNotExists(this.data, {final String? $type})
-      : $type = $type ?? 'notExists';
+      : $type = $type ?? 'notExists',
+        super._();
   factory RawContractStateNotExists.fromJson(Map<String, dynamic> json) =>
       _$RawContractStateNotExistsFromJson(json);
 
@@ -151,9 +152,10 @@ class _$RawContractStateNotExistsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class RawContractStateExists implements RawContractState {
+class RawContractStateExists extends RawContractState {
   const RawContractStateExists(this.data, {final String? $type})
-      : $type = $type ?? 'exists';
+      : $type = $type ?? 'exists',
+        super._();
   factory RawContractStateExists.fromJson(Map<String, dynamic> json) =>
       _$RawContractStateExistsFromJson(json);
 

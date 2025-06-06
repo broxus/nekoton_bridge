@@ -19,6 +19,6 @@ sealed class RawContractState with _$RawContractState {
       _$RawContractStateFromJson(json);
 
   bool isExists() {
-    return this is _Exists;
+    return this is RawContractStateExists;
   }
 }
