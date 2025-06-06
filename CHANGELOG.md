@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-06-06
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v3.1.0`](#flutter_nekoton_bridge---v310)
+ - [`flutter_nekoton_bridge_example` - `v2.0.2`](#flutter_nekoton_bridge_example---v202)
+ - [`nekoton_bridge` - `v3.1.0`](#nekoton_bridge---v310)
+
+---
+
+#### `flutter_nekoton_bridge` - `v3.1.0`
+
+ - **REFACTOR**(abi): make abiVersion parameter optional in packIntoCell and unpackFromCell. ([a894e42b](https://github.com/broxus/nekoton_bridge/commit/a894e42bc46ea61b60a2e7730f8939a1e544bc8a))
+ - **FIX**(EWM-427): update message hash after `refreshTimeout`. ([dbc1dafe](https://github.com/broxus/nekoton_bridge/commit/dbc1dafed1748f78a0f84482f99935633025e92d))
+ - **FIX**(EWM-427): implement immutable `refresh_timeout`. ([1c8b1103](https://github.com/broxus/nekoton_bridge/commit/1c8b1103ef76e5617bafcf2b4b190f25eab63e76))
+ - **FIX**: update StorageDartWrapper API to use synchronous constructor and adjust related function signatures. ([556ebdc1](https://github.com/broxus/nekoton_bridge/commit/556ebdc138b055f3b460b10c3e8bcfc102e6e444))
+ - **FIX**(EWM-496): remove tokio runtime & refactor async rust. ([cc7caeaf](https://github.com/broxus/nekoton_bridge/commit/cc7caeafab1b587c47f805c63b36c7127a882936))
+ - **FIX**: `RawContractState` add private constructor. ([82581163](https://github.com/broxus/nekoton_bridge/commit/82581163818cbba1ffd78a8b4a7f92bb52788b8a))
+ - **FIX**(EWM-508): add NotExistingContract model to fix broken contract state. ([7b197368](https://github.com/broxus/nekoton_bridge/commit/7b1973686d73f7c05f7d3a7a9b1ce5cf69a978d0))
+ - **FIX**(EWM-508): add NotExistingContract model to fix broken contract state. ([b37cdaa6](https://github.com/broxus/nekoton_bridge/commit/b37cdaa6894afb34343b3656ecd880aa70c5a599))
+ - **FEAT**: make some abi methods sync. ([b197b80d](https://github.com/broxus/nekoton_bridge/commit/b197b80dd6d29f796de8fd4856b8d4f9ba3822db))
+ - **FEAT**(EWM-514): add `run_getter`. ([989b0cf0](https://github.com/broxus/nekoton_bridge/commit/989b0cf0457a624b5667b5caefdea69f1634679f))
+ - **FEAT**(EWM-508): add exists check method for raw_contract_state. ([70ad0d95](https://github.com/broxus/nekoton_bridge/commit/70ad0d953d9daf275914cbd93da7bceae55bd0c0))
+
+#### `flutter_nekoton_bridge_example` - `v2.0.2`
+
+ - **FIX**(EWM-427): update message hash after `refreshTimeout`. ([dbc1dafe](https://github.com/broxus/nekoton_bridge/commit/dbc1dafed1748f78a0f84482f99935633025e92d))
+ - **FIX**(EWM-427): implement immutable `refresh_timeout`. ([1c8b1103](https://github.com/broxus/nekoton_bridge/commit/1c8b1103ef76e5617bafcf2b4b190f25eab63e76))
+
+#### `nekoton_bridge` - `v3.1.0`
+
+ - **FIX**(EWM-427): implement immutable `refresh_timeout`. ([1c8b1103](https://github.com/broxus/nekoton_bridge/commit/1c8b1103ef76e5617bafcf2b4b190f25eab63e76))
+ - **FIX**: update StorageDartWrapper API to use synchronous constructor and adjust related function signatures. ([556ebdc1](https://github.com/broxus/nekoton_bridge/commit/556ebdc138b055f3b460b10c3e8bcfc102e6e444))
+ - **FIX**(EWM-496): remove tokio runtime & refactor async rust. ([cc7caeaf](https://github.com/broxus/nekoton_bridge/commit/cc7caeafab1b587c47f805c63b36c7127a882936))
+ - **FEAT**: make some abi methods sync. ([b197b80d](https://github.com/broxus/nekoton_bridge/commit/b197b80dd6d29f796de8fd4856b8d4f9ba3822db))
+ - **FEAT**(EWM-514): add `run_getter`. ([989b0cf0](https://github.com/broxus/nekoton_bridge/commit/989b0cf0457a624b5667b5caefdea69f1634679f))
+
+
 ## 2025-05-26
 
 ### Changes
