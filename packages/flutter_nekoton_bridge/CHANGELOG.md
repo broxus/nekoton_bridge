@@ -1,3 +1,7 @@
+## 2.10.1
+
+ - **FIX**: await transport.use in refresh methods for proper async handling. ([44a2dbc4](https://github.com/broxus/nekoton_bridge/commit/44a2dbc4e2eb4112988a8bb44f8319e73710d522))
+
 ## 2.10.0
 
  - **REFACTOR**(abi): make abiVersion parameter optional in packIntoCell and unpackFromCell. ([a894e42b](https://github.com/broxus/nekoton_bridge/commit/a894e42bc46ea61b60a2e7730f8939a1e544bc8a))
