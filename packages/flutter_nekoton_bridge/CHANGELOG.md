@@ -11,6 +11,10 @@
  - **FEAT**: make some abi methods sync. ([b197b80d](https://github.com/broxus/nekoton_bridge/commit/b197b80dd6d29f796de8fd4856b8d4f9ba3822db))
  - **FEAT**(EWM-514): add `run_getter`. ([989b0cf0](https://github.com/broxus/nekoton_bridge/commit/989b0cf0457a624b5667b5caefdea69f1634679f))
  - **FEAT**(EWM-508): add exists check method for raw_contract_state. ([70ad0d95](https://github.com/broxus/nekoton_bridge/commit/70ad0d953d9daf275914cbd93da7bceae55bd0c0))
+ 
+## 2.10.1
+
+ - **FIX**: await transport.use in refresh methods for proper async handling. ([44a2dbc4](https://github.com/broxus/nekoton_bridge/commit/44a2dbc4e2eb4112988a8bb44f8319e73710d522))
 
 ## 2.10.0
 

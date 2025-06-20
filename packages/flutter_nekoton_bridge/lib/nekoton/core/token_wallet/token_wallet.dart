@@ -229,7 +229,7 @@ class TokenWallet extends RustToDartMirrorInterface
 
     try {
       _isRefreshing = true;
-      transport.use(() async {
+      await transport.use(() async {
         await wallet.refresh();
         await _updateData();
       });

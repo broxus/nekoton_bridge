@@ -189,8 +189,10 @@ class GenericContract extends RustToDartMirrorInterface
 
     try {
       _isRefreshing = true;
-      await contract.refresh();
-      await _updateData();
+      await transport.use(() async {
+        await contract.refresh();
+        await _updateData();
+      });
     } finally {
       _isRefreshing = false;
     }
