@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-06-20
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v3.1.1`](#flutter_nekoton_bridge---v311)
+ - [`flutter_nekoton_bridge_example` - `v2.0.3`](#flutter_nekoton_bridge_example---v203)
+
+---
+
+#### `flutter_nekoton_bridge` - `v3.1.1`
+
+ - **FIX**: await transport.use in refresh methods for proper async handling. ([44a2dbc4](https://github.com/broxus/nekoton_bridge/commit/44a2dbc4e2eb4112988a8bb44f8319e73710d522))
+
+#### `flutter_nekoton_bridge_example` - `v2.0.3`
+
+ - **FIX**(EWM-427): update message hash after `refreshTimeout`. ([dbc1dafe](https://github.com/broxus/nekoton_bridge/commit/dbc1dafed1748f78a0f84482f99935633025e92d))
+ - **FIX**(EWM-427): implement immutable `refresh_timeout`. ([1c8b1103](https://github.com/broxus/nekoton_bridge/commit/1c8b1103ef76e5617bafcf2b4b190f25eab63e76))
+
+
 ## 2025-06-16
 
 ### Changes
