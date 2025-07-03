@@ -6,7 +6,7 @@ part 'encrypted_key_export_output.freezed.dart';
 part 'encrypted_key_export_output.g.dart';
 
 @freezed
-sealed class EncryptedKeyExportSeedOutput
+abstract class EncryptedKeyExportSeedOutput
     with _$EncryptedKeyExportSeedOutput
     implements ExportKeyOutput {
   factory EncryptedKeyExportSeedOutput({

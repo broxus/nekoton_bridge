@@ -6,17 +6,17 @@ part of 'derived_key_create_input_derive.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_DerivedKeyCreateInputDeriveDerive _$DerivedKeyCreateInputDeriveDeriveFromJson(
+_DerivedKeyCreateInputDerive _$DerivedKeyCreateInputDeriveFromJson(
         Map<String, dynamic> json) =>
-    _DerivedKeyCreateInputDeriveDerive(
+    _DerivedKeyCreateInputDerive(
       keyName: json['key_name'] as String?,
       masterKey: PublicKey.fromJson(json['master_key'] as String),
       accountId: (json['account_id'] as num).toInt(),
       password: Password.fromJson(json['password'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$DerivedKeyCreateInputDeriveDeriveToJson(
-        _DerivedKeyCreateInputDeriveDerive instance) =>
+Map<String, dynamic> _$DerivedKeyCreateInputDeriveToJson(
+        _DerivedKeyCreateInputDerive instance) =>
     <String, dynamic>{
       'key_name': instance.keyName,
       'master_key': instance.masterKey.toJson(),

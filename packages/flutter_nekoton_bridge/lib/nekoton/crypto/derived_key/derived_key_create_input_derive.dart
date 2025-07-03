@@ -6,14 +6,14 @@ part 'derived_key_create_input_derive.freezed.dart';
 part 'derived_key_create_input_derive.g.dart';
 
 @freezed
-sealed class DerivedKeyCreateInputDerive with _$DerivedKeyCreateInputDerive {
+abstract class DerivedKeyCreateInputDerive with _$DerivedKeyCreateInputDerive {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory DerivedKeyCreateInputDerive({
     final String? keyName,
     required final PublicKey masterKey,
     required final int accountId,
     required final Password password,
-  }) = _DerivedKeyCreateInputDeriveDerive;
+  }) = _DerivedKeyCreateInputDerive;
 
   factory DerivedKeyCreateInputDerive.fromJson(Map<String, dynamic> json) =>
       _$DerivedKeyCreateInputDeriveFromJson(json);

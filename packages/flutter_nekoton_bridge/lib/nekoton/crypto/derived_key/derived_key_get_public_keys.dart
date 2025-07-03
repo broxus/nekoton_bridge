@@ -7,7 +7,7 @@ part 'derived_key_get_public_keys.freezed.dart';
 part 'derived_key_get_public_keys.g.dart';
 
 @freezed
-sealed class DerivedKeyGetPublicKeys
+abstract class DerivedKeyGetPublicKeys
     with _$DerivedKeyGetPublicKeys
     implements GetPublicKeys {
   @JsonSerializable(fieldRename: FieldRename.snake)
@@ -16,7 +16,7 @@ sealed class DerivedKeyGetPublicKeys
     required final Password password,
     required final int limit,
     required final int offset,
-  }) = _DerivedKeyGetPublicKeysRename;
+  }) = _DerivedKeyGetPublicKeys;
 
   factory DerivedKeyGetPublicKeys.fromJson(Map<String, dynamic> json) =>
       _$DerivedKeyGetPublicKeysFromJson(json);

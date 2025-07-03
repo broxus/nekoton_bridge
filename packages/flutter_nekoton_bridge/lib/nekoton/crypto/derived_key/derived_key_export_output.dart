@@ -5,7 +5,7 @@ part 'derived_key_export_output.freezed.dart';
 part 'derived_key_export_output.g.dart';
 
 @freezed
-sealed class DerivedKeyExportOutput
+abstract class DerivedKeyExportOutput
     with _$DerivedKeyExportOutput
     implements ExportKeyOutput {
   const factory DerivedKeyExportOutput({

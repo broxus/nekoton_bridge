@@ -6,24 +6,32 @@ part of 'derived_key_create_input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_Import _$ImportFromJson(Map<String, dynamic> json) => _Import(
+_DerivedKeyCreateInputImport _$DerivedKeyCreateInputImportFromJson(
+        Map<String, dynamic> json) =>
+    _DerivedKeyCreateInputImport(
       DerivedKeyCreateInputImport.fromJson(
           json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$ImportToJson(_Import instance) => <String, dynamic>{
+Map<String, dynamic> _$DerivedKeyCreateInputImportToJson(
+        _DerivedKeyCreateInputImport instance) =>
+    <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,
     };
 
-_Derive _$DeriveFromJson(Map<String, dynamic> json) => _Derive(
+_DerivedKeyCreateInputDerive _$DerivedKeyCreateInputDeriveFromJson(
+        Map<String, dynamic> json) =>
+    _DerivedKeyCreateInputDerive(
       DerivedKeyCreateInputDerive.fromJson(
           json['data'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$DeriveToJson(_Derive instance) => <String, dynamic>{
+Map<String, dynamic> _$DerivedKeyCreateInputDeriveToJson(
+        _DerivedKeyCreateInputDerive instance) =>
+    <String, dynamic>{
       'data': instance.data.toJson(),
       'type': instance.$type,
     };

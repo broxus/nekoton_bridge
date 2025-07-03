@@ -12,10 +12,6 @@ part of 'derived_key_sign_params_by_public_key.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-DerivedKeyPasswordByPublicKey _$DerivedKeyPasswordByPublicKeyFromJson(
-    Map<String, dynamic> json) {
-  return _DerivedKeyPasswordByPublicKeyByPublicKey.fromJson(json);
-}
 
 /// @nodoc
 mixin _$DerivedKeyPasswordByPublicKey {
@@ -139,15 +135,13 @@ class _$DerivedKeyPasswordByPublicKeyCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _DerivedKeyPasswordByPublicKeyByPublicKey
-    implements DerivedKeyPasswordByPublicKey {
-  const _DerivedKeyPasswordByPublicKeyByPublicKey(
+class _DerivedKeyPasswordByPublicKey implements DerivedKeyPasswordByPublicKey {
+  const _DerivedKeyPasswordByPublicKey(
       {required this.masterKey,
       required this.publicKey,
       required this.password});
-  factory _DerivedKeyPasswordByPublicKeyByPublicKey.fromJson(
-          Map<String, dynamic> json) =>
-      _$DerivedKeyPasswordByPublicKeyByPublicKeyFromJson(json);
+  factory _DerivedKeyPasswordByPublicKey.fromJson(Map<String, dynamic> json) =>
+      _$DerivedKeyPasswordByPublicKeyFromJson(json);
 
   @override
   final PublicKey masterKey;
@@ -161,14 +155,13 @@ class _DerivedKeyPasswordByPublicKeyByPublicKey
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWith<
-          _DerivedKeyPasswordByPublicKeyByPublicKey>
-      get copyWith => __$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl<
-          _DerivedKeyPasswordByPublicKeyByPublicKey>(this, _$identity);
+  _$DerivedKeyPasswordByPublicKeyCopyWith<_DerivedKeyPasswordByPublicKey>
+      get copyWith => __$DerivedKeyPasswordByPublicKeyCopyWithImpl<
+          _DerivedKeyPasswordByPublicKey>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$DerivedKeyPasswordByPublicKeyByPublicKeyToJson(
+    return _$DerivedKeyPasswordByPublicKeyToJson(
       this,
     );
   }
@@ -177,7 +170,7 @@ class _DerivedKeyPasswordByPublicKeyByPublicKey
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _DerivedKeyPasswordByPublicKeyByPublicKey &&
+            other is _DerivedKeyPasswordByPublicKey &&
             (identical(other.masterKey, masterKey) ||
                 other.masterKey == masterKey) &&
             (identical(other.publicKey, publicKey) ||
@@ -197,12 +190,12 @@ class _DerivedKeyPasswordByPublicKeyByPublicKey
 }
 
 /// @nodoc
-abstract mixin class _$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWith<$Res>
+abstract mixin class _$DerivedKeyPasswordByPublicKeyCopyWith<$Res>
     implements $DerivedKeyPasswordByPublicKeyCopyWith<$Res> {
-  factory _$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWith(
-          _DerivedKeyPasswordByPublicKeyByPublicKey value,
-          $Res Function(_DerivedKeyPasswordByPublicKeyByPublicKey) _then) =
-      __$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl;
+  factory _$DerivedKeyPasswordByPublicKeyCopyWith(
+          _DerivedKeyPasswordByPublicKey value,
+          $Res Function(_DerivedKeyPasswordByPublicKey) _then) =
+      __$DerivedKeyPasswordByPublicKeyCopyWithImpl;
   @override
   @useResult
   $Res call({PublicKey masterKey, PublicKey publicKey, Password password});
@@ -216,13 +209,12 @@ abstract mixin class _$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWith<$Res>
 }
 
 /// @nodoc
-class __$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl<$Res>
-    implements _$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWith<$Res> {
-  __$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl(
-      this._self, this._then);
+class __$DerivedKeyPasswordByPublicKeyCopyWithImpl<$Res>
+    implements _$DerivedKeyPasswordByPublicKeyCopyWith<$Res> {
+  __$DerivedKeyPasswordByPublicKeyCopyWithImpl(this._self, this._then);
 
-  final _DerivedKeyPasswordByPublicKeyByPublicKey _self;
-  final $Res Function(_DerivedKeyPasswordByPublicKeyByPublicKey) _then;
+  final _DerivedKeyPasswordByPublicKey _self;
+  final $Res Function(_DerivedKeyPasswordByPublicKey) _then;
 
   /// Create a copy of DerivedKeyPasswordByPublicKey
   /// with the given fields replaced by the non-null parameter values.
@@ -233,7 +225,7 @@ class __$DerivedKeyPasswordByPublicKeyByPublicKeyCopyWithImpl<$Res>
     Object? publicKey = null,
     Object? password = null,
   }) {
-    return _then(_DerivedKeyPasswordByPublicKeyByPublicKey(
+    return _then(_DerivedKeyPasswordByPublicKey(
       masterKey: null == masterKey
           ? _self.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable

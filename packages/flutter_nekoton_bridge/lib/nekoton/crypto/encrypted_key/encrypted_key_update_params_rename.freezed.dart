@@ -12,10 +12,6 @@ part of 'encrypted_key_update_params_rename.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-EncryptedKeyUpdateParamsRename _$EncryptedKeyUpdateParamsRenameFromJson(
-    Map<String, dynamic> json) {
-  return _EncryptedKeyUpdateParamsRenameRename.fromJson(json);
-}
 
 /// @nodoc
 mixin _$EncryptedKeyUpdateParamsRename {
@@ -108,13 +104,12 @@ class _$EncryptedKeyUpdateParamsRenameCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _EncryptedKeyUpdateParamsRenameRename
+class _EncryptedKeyUpdateParamsRename
     implements EncryptedKeyUpdateParamsRename {
-  const _EncryptedKeyUpdateParamsRenameRename(
+  const _EncryptedKeyUpdateParamsRename(
       {required this.publicKey, required this.name});
-  factory _EncryptedKeyUpdateParamsRenameRename.fromJson(
-          Map<String, dynamic> json) =>
-      _$EncryptedKeyUpdateParamsRenameRenameFromJson(json);
+  factory _EncryptedKeyUpdateParamsRename.fromJson(Map<String, dynamic> json) =>
+      _$EncryptedKeyUpdateParamsRenameFromJson(json);
 
   @override
   final PublicKey publicKey;
@@ -126,14 +121,13 @@ class _EncryptedKeyUpdateParamsRenameRename
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$EncryptedKeyUpdateParamsRenameRenameCopyWith<
-          _EncryptedKeyUpdateParamsRenameRename>
-      get copyWith => __$EncryptedKeyUpdateParamsRenameRenameCopyWithImpl<
-          _EncryptedKeyUpdateParamsRenameRename>(this, _$identity);
+  _$EncryptedKeyUpdateParamsRenameCopyWith<_EncryptedKeyUpdateParamsRename>
+      get copyWith => __$EncryptedKeyUpdateParamsRenameCopyWithImpl<
+          _EncryptedKeyUpdateParamsRename>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$EncryptedKeyUpdateParamsRenameRenameToJson(
+    return _$EncryptedKeyUpdateParamsRenameToJson(
       this,
     );
   }
@@ -142,7 +136,7 @@ class _EncryptedKeyUpdateParamsRenameRename
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _EncryptedKeyUpdateParamsRenameRename &&
+            other is _EncryptedKeyUpdateParamsRename &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey) &&
             (identical(other.name, name) || other.name == name));
@@ -159,12 +153,12 @@ class _EncryptedKeyUpdateParamsRenameRename
 }
 
 /// @nodoc
-abstract mixin class _$EncryptedKeyUpdateParamsRenameRenameCopyWith<$Res>
+abstract mixin class _$EncryptedKeyUpdateParamsRenameCopyWith<$Res>
     implements $EncryptedKeyUpdateParamsRenameCopyWith<$Res> {
-  factory _$EncryptedKeyUpdateParamsRenameRenameCopyWith(
-          _EncryptedKeyUpdateParamsRenameRename value,
-          $Res Function(_EncryptedKeyUpdateParamsRenameRename) _then) =
-      __$EncryptedKeyUpdateParamsRenameRenameCopyWithImpl;
+  factory _$EncryptedKeyUpdateParamsRenameCopyWith(
+          _EncryptedKeyUpdateParamsRename value,
+          $Res Function(_EncryptedKeyUpdateParamsRename) _then) =
+      __$EncryptedKeyUpdateParamsRenameCopyWithImpl;
   @override
   @useResult
   $Res call({PublicKey publicKey, String name});
@@ -174,12 +168,12 @@ abstract mixin class _$EncryptedKeyUpdateParamsRenameRenameCopyWith<$Res>
 }
 
 /// @nodoc
-class __$EncryptedKeyUpdateParamsRenameRenameCopyWithImpl<$Res>
-    implements _$EncryptedKeyUpdateParamsRenameRenameCopyWith<$Res> {
-  __$EncryptedKeyUpdateParamsRenameRenameCopyWithImpl(this._self, this._then);
+class __$EncryptedKeyUpdateParamsRenameCopyWithImpl<$Res>
+    implements _$EncryptedKeyUpdateParamsRenameCopyWith<$Res> {
+  __$EncryptedKeyUpdateParamsRenameCopyWithImpl(this._self, this._then);
 
-  final _EncryptedKeyUpdateParamsRenameRename _self;
-  final $Res Function(_EncryptedKeyUpdateParamsRenameRename) _then;
+  final _EncryptedKeyUpdateParamsRename _self;
+  final $Res Function(_EncryptedKeyUpdateParamsRename) _then;
 
   /// Create a copy of EncryptedKeyUpdateParamsRename
   /// with the given fields replaced by the non-null parameter values.
@@ -189,7 +183,7 @@ class __$EncryptedKeyUpdateParamsRenameRenameCopyWithImpl<$Res>
     Object? publicKey = null,
     Object? name = null,
   }) {
-    return _then(_EncryptedKeyUpdateParamsRenameRename(
+    return _then(_EncryptedKeyUpdateParamsRename(
       publicKey: null == publicKey
           ? _self.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable

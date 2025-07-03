@@ -12,10 +12,6 @@ part of 'derived_key_create_input_import.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-DerivedKeyCreateInputImport _$DerivedKeyCreateInputImportFromJson(
-    Map<String, dynamic> json) {
-  return _DerivedKeyCreateInputImportImport.fromJson(json);
-}
 
 /// @nodoc
 mixin _$DerivedKeyCreateInputImport {
@@ -115,13 +111,11 @@ class _$DerivedKeyCreateInputImportCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _DerivedKeyCreateInputImportImport
-    implements DerivedKeyCreateInputImport {
-  const _DerivedKeyCreateInputImportImport(
+class _DerivedKeyCreateInputImport implements DerivedKeyCreateInputImport {
+  const _DerivedKeyCreateInputImport(
       {this.keyName, required this.phrase, required this.password});
-  factory _DerivedKeyCreateInputImportImport.fromJson(
-          Map<String, dynamic> json) =>
-      _$DerivedKeyCreateInputImportImportFromJson(json);
+  factory _DerivedKeyCreateInputImport.fromJson(Map<String, dynamic> json) =>
+      _$DerivedKeyCreateInputImportFromJson(json);
 
   @override
   final String? keyName;
@@ -135,14 +129,13 @@ class _DerivedKeyCreateInputImportImport
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$DerivedKeyCreateInputImportImportCopyWith<
-          _DerivedKeyCreateInputImportImport>
-      get copyWith => __$DerivedKeyCreateInputImportImportCopyWithImpl<
-          _DerivedKeyCreateInputImportImport>(this, _$identity);
+  _$DerivedKeyCreateInputImportCopyWith<_DerivedKeyCreateInputImport>
+      get copyWith => __$DerivedKeyCreateInputImportCopyWithImpl<
+          _DerivedKeyCreateInputImport>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$DerivedKeyCreateInputImportImportToJson(
+    return _$DerivedKeyCreateInputImportToJson(
       this,
     );
   }
@@ -151,7 +144,7 @@ class _DerivedKeyCreateInputImportImport
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _DerivedKeyCreateInputImportImport &&
+            other is _DerivedKeyCreateInputImport &&
             (identical(other.keyName, keyName) || other.keyName == keyName) &&
             (identical(other.phrase, phrase) || other.phrase == phrase) &&
             (identical(other.password, password) ||
@@ -169,12 +162,12 @@ class _DerivedKeyCreateInputImportImport
 }
 
 /// @nodoc
-abstract mixin class _$DerivedKeyCreateInputImportImportCopyWith<$Res>
+abstract mixin class _$DerivedKeyCreateInputImportCopyWith<$Res>
     implements $DerivedKeyCreateInputImportCopyWith<$Res> {
-  factory _$DerivedKeyCreateInputImportImportCopyWith(
-          _DerivedKeyCreateInputImportImport value,
-          $Res Function(_DerivedKeyCreateInputImportImport) _then) =
-      __$DerivedKeyCreateInputImportImportCopyWithImpl;
+  factory _$DerivedKeyCreateInputImportCopyWith(
+          _DerivedKeyCreateInputImport value,
+          $Res Function(_DerivedKeyCreateInputImport) _then) =
+      __$DerivedKeyCreateInputImportCopyWithImpl;
   @override
   @useResult
   $Res call({String? keyName, String phrase, Password password});
@@ -184,12 +177,12 @@ abstract mixin class _$DerivedKeyCreateInputImportImportCopyWith<$Res>
 }
 
 /// @nodoc
-class __$DerivedKeyCreateInputImportImportCopyWithImpl<$Res>
-    implements _$DerivedKeyCreateInputImportImportCopyWith<$Res> {
-  __$DerivedKeyCreateInputImportImportCopyWithImpl(this._self, this._then);
+class __$DerivedKeyCreateInputImportCopyWithImpl<$Res>
+    implements _$DerivedKeyCreateInputImportCopyWith<$Res> {
+  __$DerivedKeyCreateInputImportCopyWithImpl(this._self, this._then);
 
-  final _DerivedKeyCreateInputImportImport _self;
-  final $Res Function(_DerivedKeyCreateInputImportImport) _then;
+  final _DerivedKeyCreateInputImport _self;
+  final $Res Function(_DerivedKeyCreateInputImport) _then;
 
   /// Create a copy of DerivedKeyCreateInputImport
   /// with the given fields replaced by the non-null parameter values.
@@ -200,7 +193,7 @@ class __$DerivedKeyCreateInputImportImportCopyWithImpl<$Res>
     Object? phrase = null,
     Object? password = null,
   }) {
-    return _then(_DerivedKeyCreateInputImportImport(
+    return _then(_DerivedKeyCreateInputImport(
       keyName: freezed == keyName
           ? _self.keyName
           : keyName // ignore: cast_nullable_to_non_nullable

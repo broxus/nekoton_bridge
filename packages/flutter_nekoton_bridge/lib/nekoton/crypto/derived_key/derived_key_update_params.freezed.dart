@@ -16,9 +16,9 @@ DerivedKeyUpdateParams _$DerivedKeyUpdateParamsFromJson(
     Map<String, dynamic> json) {
   switch (json['type']) {
     case 'rename_key':
-      return _RenameKey.fromJson(json);
+      return _DerivedKeyUpdateParamsRenameKey.fromJson(json);
     case 'change_password':
-      return _ChangePassword.fromJson(json);
+      return _DerivedKeyUpdateParamsChangePassword.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'type', 'DerivedKeyUpdateParams',
@@ -60,11 +60,12 @@ class $DerivedKeyUpdateParamsCopyWith<$Res> {
 
 /// @nodoc
 @JsonSerializable()
-class _RenameKey implements DerivedKeyUpdateParams {
-  const _RenameKey(this.data, {final String? $type})
+class _DerivedKeyUpdateParamsRenameKey implements DerivedKeyUpdateParams {
+  const _DerivedKeyUpdateParamsRenameKey(this.data, {final String? $type})
       : $type = $type ?? 'rename_key';
-  factory _RenameKey.fromJson(Map<String, dynamic> json) =>
-      _$RenameKeyFromJson(json);
+  factory _DerivedKeyUpdateParamsRenameKey.fromJson(
+          Map<String, dynamic> json) =>
+      _$DerivedKeyUpdateParamsRenameKeyFromJson(json);
 
   @override
   final DerivedKeyUpdateParamsRenameKey data;
@@ -76,12 +77,13 @@ class _RenameKey implements DerivedKeyUpdateParams {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$RenameKeyCopyWith<_RenameKey> get copyWith =>
-      __$RenameKeyCopyWithImpl<_RenameKey>(this, _$identity);
+  _$DerivedKeyUpdateParamsRenameKeyCopyWith<_DerivedKeyUpdateParamsRenameKey>
+      get copyWith => __$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<
+          _DerivedKeyUpdateParamsRenameKey>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$RenameKeyToJson(
+    return _$DerivedKeyUpdateParamsRenameKeyToJson(
       this,
     );
   }
@@ -90,7 +92,7 @@ class _RenameKey implements DerivedKeyUpdateParams {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RenameKey &&
+            other is _DerivedKeyUpdateParamsRenameKey &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -105,11 +107,12 @@ class _RenameKey implements DerivedKeyUpdateParams {
 }
 
 /// @nodoc
-abstract mixin class _$RenameKeyCopyWith<$Res>
+abstract mixin class _$DerivedKeyUpdateParamsRenameKeyCopyWith<$Res>
     implements $DerivedKeyUpdateParamsCopyWith<$Res> {
-  factory _$RenameKeyCopyWith(
-          _RenameKey value, $Res Function(_RenameKey) _then) =
-      __$RenameKeyCopyWithImpl;
+  factory _$DerivedKeyUpdateParamsRenameKeyCopyWith(
+          _DerivedKeyUpdateParamsRenameKey value,
+          $Res Function(_DerivedKeyUpdateParamsRenameKey) _then) =
+      __$DerivedKeyUpdateParamsRenameKeyCopyWithImpl;
   @useResult
   $Res call({DerivedKeyUpdateParamsRenameKey data});
 
@@ -117,11 +120,12 @@ abstract mixin class _$RenameKeyCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RenameKeyCopyWithImpl<$Res> implements _$RenameKeyCopyWith<$Res> {
-  __$RenameKeyCopyWithImpl(this._self, this._then);
+class __$DerivedKeyUpdateParamsRenameKeyCopyWithImpl<$Res>
+    implements _$DerivedKeyUpdateParamsRenameKeyCopyWith<$Res> {
+  __$DerivedKeyUpdateParamsRenameKeyCopyWithImpl(this._self, this._then);
 
-  final _RenameKey _self;
-  final $Res Function(_RenameKey) _then;
+  final _DerivedKeyUpdateParamsRenameKey _self;
+  final $Res Function(_DerivedKeyUpdateParamsRenameKey) _then;
 
   /// Create a copy of DerivedKeyUpdateParams
   /// with the given fields replaced by the non-null parameter values.
@@ -129,7 +133,7 @@ class __$RenameKeyCopyWithImpl<$Res> implements _$RenameKeyCopyWith<$Res> {
   $Res call({
     Object? data = null,
   }) {
-    return _then(_RenameKey(
+    return _then(_DerivedKeyUpdateParamsRenameKey(
       null == data
           ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -150,11 +154,12 @@ class __$RenameKeyCopyWithImpl<$Res> implements _$RenameKeyCopyWith<$Res> {
 
 /// @nodoc
 @JsonSerializable()
-class _ChangePassword implements DerivedKeyUpdateParams {
-  const _ChangePassword(this.data, {final String? $type})
+class _DerivedKeyUpdateParamsChangePassword implements DerivedKeyUpdateParams {
+  const _DerivedKeyUpdateParamsChangePassword(this.data, {final String? $type})
       : $type = $type ?? 'change_password';
-  factory _ChangePassword.fromJson(Map<String, dynamic> json) =>
-      _$ChangePasswordFromJson(json);
+  factory _DerivedKeyUpdateParamsChangePassword.fromJson(
+          Map<String, dynamic> json) =>
+      _$DerivedKeyUpdateParamsChangePasswordFromJson(json);
 
   @override
   final DerivedKeyUpdateParamsChangePassword data;
@@ -166,12 +171,14 @@ class _ChangePassword implements DerivedKeyUpdateParams {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$ChangePasswordCopyWith<_ChangePassword> get copyWith =>
-      __$ChangePasswordCopyWithImpl<_ChangePassword>(this, _$identity);
+  _$DerivedKeyUpdateParamsChangePasswordCopyWith<
+          _DerivedKeyUpdateParamsChangePassword>
+      get copyWith => __$DerivedKeyUpdateParamsChangePasswordCopyWithImpl<
+          _DerivedKeyUpdateParamsChangePassword>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$ChangePasswordToJson(
+    return _$DerivedKeyUpdateParamsChangePasswordToJson(
       this,
     );
   }
@@ -180,7 +187,7 @@ class _ChangePassword implements DerivedKeyUpdateParams {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ChangePassword &&
+            other is _DerivedKeyUpdateParamsChangePassword &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -195,11 +202,12 @@ class _ChangePassword implements DerivedKeyUpdateParams {
 }
 
 /// @nodoc
-abstract mixin class _$ChangePasswordCopyWith<$Res>
+abstract mixin class _$DerivedKeyUpdateParamsChangePasswordCopyWith<$Res>
     implements $DerivedKeyUpdateParamsCopyWith<$Res> {
-  factory _$ChangePasswordCopyWith(
-          _ChangePassword value, $Res Function(_ChangePassword) _then) =
-      __$ChangePasswordCopyWithImpl;
+  factory _$DerivedKeyUpdateParamsChangePasswordCopyWith(
+          _DerivedKeyUpdateParamsChangePassword value,
+          $Res Function(_DerivedKeyUpdateParamsChangePassword) _then) =
+      __$DerivedKeyUpdateParamsChangePasswordCopyWithImpl;
   @useResult
   $Res call({DerivedKeyUpdateParamsChangePassword data});
 
@@ -207,12 +215,12 @@ abstract mixin class _$ChangePasswordCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ChangePasswordCopyWithImpl<$Res>
-    implements _$ChangePasswordCopyWith<$Res> {
-  __$ChangePasswordCopyWithImpl(this._self, this._then);
+class __$DerivedKeyUpdateParamsChangePasswordCopyWithImpl<$Res>
+    implements _$DerivedKeyUpdateParamsChangePasswordCopyWith<$Res> {
+  __$DerivedKeyUpdateParamsChangePasswordCopyWithImpl(this._self, this._then);
 
-  final _ChangePassword _self;
-  final $Res Function(_ChangePassword) _then;
+  final _DerivedKeyUpdateParamsChangePassword _self;
+  final $Res Function(_DerivedKeyUpdateParamsChangePassword) _then;
 
   /// Create a copy of DerivedKeyUpdateParams
   /// with the given fields replaced by the non-null parameter values.
@@ -220,7 +228,7 @@ class __$ChangePasswordCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_ChangePassword(
+    return _then(_DerivedKeyUpdateParamsChangePassword(
       null == data
           ? _self.data
           : data // ignore: cast_nullable_to_non_nullable

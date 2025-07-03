@@ -1,6 +1,6 @@
 import 'package:crypto/crypto.dart';
-import 'package:nekoton_bridge/nekoton_bridge.dart' as lib;
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:nekoton_bridge/nekoton_bridge.dart' as lib;
 
 /// Json converter of amount value from string to BigInt (without currency
 /// identification)

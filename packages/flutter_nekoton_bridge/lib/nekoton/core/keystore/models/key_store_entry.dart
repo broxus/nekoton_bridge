@@ -24,9 +24,20 @@ sealed class KeyStoreEntry
 
   bool get isLegacy => signerName == const KeySigner.encrypted().name;
 
+  bool get isLedger => signerName == const KeySigner.ledger().name;
+
   bool get isNotLegacy => !isLegacy;
 
   bool get isMaster => publicKey == masterKey;
+
+  KeySignerType get signerType => switch (signerName) {
+        'EncryptedKeySigner' => KeySignerType.encrypted,
+        'DerivedKeySigner' => KeySignerType.derived,
+        'LedgerKeySigner' => KeySignerType.ledger,
+        _ => throw StateError(
+            'Invalid KeySigner. "KeySigner.stub" should not be used',
+          ),
+      };
 
   @override
   int compareTo(KeyStoreEntry other) => publicKey.compareTo(other.publicKey);

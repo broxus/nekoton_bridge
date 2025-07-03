@@ -5,7 +5,7 @@ part 'ledger_key_create_input.freezed.dart';
 part 'ledger_key_create_input.g.dart';
 
 @freezed
-sealed class LedgerKeyCreateInput
+abstract class LedgerKeyCreateInput
     with _$LedgerKeyCreateInput
     implements CreateKeyInput {
   const factory LedgerKeyCreateInput({

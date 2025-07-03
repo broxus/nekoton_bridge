@@ -7,7 +7,7 @@ part 'derived_key_export_params.freezed.dart';
 part 'derived_key_export_params.g.dart';
 
 @freezed
-sealed class DerivedKeyExportSeedParams
+abstract class DerivedKeyExportSeedParams
     with _$DerivedKeyExportSeedParams
     implements ExportKeyInput {
   @JsonSerializable(fieldRename: FieldRename.snake)

@@ -1,38 +1,38 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
 import 'package:reflectable/mirrors.dart';
 import 'ledger_connection.reflectable.dart';
 
-typedef LedgerConnectionGetPublicKey = Future<PublicKey> Function(
-    int accountId);
-
-typedef LedgerConnectionSign = Future<String> Function({
-  required int account,
-  required List<int> message,
-// TODO: replace to LedgerSignatureContextWrapper? context,
-  Object? context,
-});
+abstract interface class LedgerConnectionHandler {
+  Future<List<int>> getPublicKey(int accountId);
+  Future<List<int>> sign({
+    required int accountId,
+    required List<int> message,
+    int? signatureId,
+  });
+  Future<List<int>> signTransaction({
+    required int accountId,
+    required int wallet,
+    required List<int> message,
+    required LedgerSignatureContext context,
+    int? signatureId,
+  });
+}
 
 @reflector
 class LedgerConnection extends RustToDartMirrorInterface {
   late LedgerConnectionDartWrapper connection;
 
-  final LedgerConnectionGetPublicKey _getPublicKey;
-
-  // ignore: unused_field
-  final LedgerConnectionSign _connectionSign;
+  final LedgerConnectionHandler _handler;
 
   LedgerConnection._(
-    this._getPublicKey,
-    this._connectionSign,
+    this._handler,
   );
 
-  static LedgerConnection create({
-    required LedgerConnectionGetPublicKey getPublicKey,
-    required LedgerConnectionSign connectionSign,
-  }) {
-    final instance = LedgerConnection._(getPublicKey, connectionSign);
+  static LedgerConnection create(LedgerConnectionHandler handler) {
+    final instance = LedgerConnection._(handler);
 
     instance.connection = LedgerConnectionDartWrapper(
       instanceHash: instance.instanceHash,
@@ -42,9 +42,47 @@ class LedgerConnection extends RustToDartMirrorInterface {
   }
 
   /// Method to get public key. It's called from rust
-  Future<PublicKey> getPublicKey(int accountId) async {
+  Future<List<int>> getPublicKey(int accountId) async {
     try {
-      return await _getPublicKey(accountId);
+      return await _handler.getPublicKey(accountId);
+    } catch (error) {
+      throw ErrorCode.generic;
+    }
+  }
+
+  /// Method to sign data. It's called from rust
+  Future<List<int>> sign(
+    int accountId,
+    int? signatureId,
+    List<int> message,
+  ) async {
+    try {
+      return await _handler.sign(
+        accountId: accountId,
+        message: message,
+        signatureId: signatureId,
+      );
+    } catch (error) {
+      throw ErrorCode.generic;
+    }
+  }
+
+  /// Method to sign a transaction. It's called from rust
+  Future<List<int>> signTransaction(
+    int accountId,
+    int wallet,
+    int? signatureId,
+    List<int> message,
+    String context,
+  ) async {
+    try {
+      return await _handler.signTransaction(
+        accountId: accountId,
+        wallet: wallet,
+        message: message,
+        context: LedgerSignatureContext.fromJson(jsonDecode(context)),
+        signatureId: signatureId,
+      );
     } catch (error) {
       throw ErrorCode.generic;
     }

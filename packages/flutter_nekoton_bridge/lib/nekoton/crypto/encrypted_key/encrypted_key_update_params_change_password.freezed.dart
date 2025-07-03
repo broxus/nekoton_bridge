@@ -12,11 +12,6 @@ part of 'encrypted_key_update_params_change_password.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-EncryptedKeyUpdateParamsChangePassword
-    _$EncryptedKeyUpdateParamsChangePasswordFromJson(
-        Map<String, dynamic> json) {
-  return _EncryptedKeyUpdateParamsChangePasswordChangePassword.fromJson(json);
-}
 
 /// @nodoc
 mixin _$EncryptedKeyUpdateParamsChangePassword {
@@ -142,15 +137,15 @@ class _$EncryptedKeyUpdateParamsChangePasswordCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _EncryptedKeyUpdateParamsChangePasswordChangePassword
+class _EncryptedKeyUpdateParamsChangePassword
     implements EncryptedKeyUpdateParamsChangePassword {
-  const _EncryptedKeyUpdateParamsChangePasswordChangePassword(
+  const _EncryptedKeyUpdateParamsChangePassword(
       {required this.publicKey,
       required this.oldPassword,
       required this.newPassword});
-  factory _EncryptedKeyUpdateParamsChangePasswordChangePassword.fromJson(
+  factory _EncryptedKeyUpdateParamsChangePassword.fromJson(
           Map<String, dynamic> json) =>
-      _$EncryptedKeyUpdateParamsChangePasswordChangePasswordFromJson(json);
+      _$EncryptedKeyUpdateParamsChangePasswordFromJson(json);
 
   @override
   final PublicKey publicKey;
@@ -164,16 +159,14 @@ class _EncryptedKeyUpdateParamsChangePasswordChangePassword
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWith<
-          _EncryptedKeyUpdateParamsChangePasswordChangePassword>
-      get copyWith =>
-          __$EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWithImpl<
-                  _EncryptedKeyUpdateParamsChangePasswordChangePassword>(
-              this, _$identity);
+  _$EncryptedKeyUpdateParamsChangePasswordCopyWith<
+          _EncryptedKeyUpdateParamsChangePassword>
+      get copyWith => __$EncryptedKeyUpdateParamsChangePasswordCopyWithImpl<
+          _EncryptedKeyUpdateParamsChangePassword>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$EncryptedKeyUpdateParamsChangePasswordChangePasswordToJson(
+    return _$EncryptedKeyUpdateParamsChangePasswordToJson(
       this,
     );
   }
@@ -182,7 +175,7 @@ class _EncryptedKeyUpdateParamsChangePasswordChangePassword
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _EncryptedKeyUpdateParamsChangePasswordChangePassword &&
+            other is _EncryptedKeyUpdateParamsChangePassword &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey) &&
             (identical(other.oldPassword, oldPassword) ||
@@ -203,13 +196,12 @@ class _EncryptedKeyUpdateParamsChangePasswordChangePassword
 }
 
 /// @nodoc
-abstract mixin class _$EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWith<
-    $Res> implements $EncryptedKeyUpdateParamsChangePasswordCopyWith<$Res> {
-  factory _$EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWith(
-          _EncryptedKeyUpdateParamsChangePasswordChangePassword value,
-          $Res Function(_EncryptedKeyUpdateParamsChangePasswordChangePassword)
-              _then) =
-      __$EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWithImpl;
+abstract mixin class _$EncryptedKeyUpdateParamsChangePasswordCopyWith<$Res>
+    implements $EncryptedKeyUpdateParamsChangePasswordCopyWith<$Res> {
+  factory _$EncryptedKeyUpdateParamsChangePasswordCopyWith(
+          _EncryptedKeyUpdateParamsChangePassword value,
+          $Res Function(_EncryptedKeyUpdateParamsChangePassword) _then) =
+      __$EncryptedKeyUpdateParamsChangePasswordCopyWithImpl;
   @override
   @useResult
   $Res call({PublicKey publicKey, Password oldPassword, Password newPassword});
@@ -223,15 +215,12 @@ abstract mixin class _$EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyW
 }
 
 /// @nodoc
-class __$EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWithImpl<$Res>
-    implements
-        _$EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWith<$Res> {
-  __$EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWithImpl(
-      this._self, this._then);
+class __$EncryptedKeyUpdateParamsChangePasswordCopyWithImpl<$Res>
+    implements _$EncryptedKeyUpdateParamsChangePasswordCopyWith<$Res> {
+  __$EncryptedKeyUpdateParamsChangePasswordCopyWithImpl(this._self, this._then);
 
-  final _EncryptedKeyUpdateParamsChangePasswordChangePassword _self;
-  final $Res Function(_EncryptedKeyUpdateParamsChangePasswordChangePassword)
-      _then;
+  final _EncryptedKeyUpdateParamsChangePassword _self;
+  final $Res Function(_EncryptedKeyUpdateParamsChangePassword) _then;
 
   /// Create a copy of EncryptedKeyUpdateParamsChangePassword
   /// with the given fields replaced by the non-null parameter values.
@@ -242,7 +231,7 @@ class __$EncryptedKeyUpdateParamsChangePasswordChangePasswordCopyWithImpl<$Res>
     Object? oldPassword = null,
     Object? newPassword = null,
   }) {
-    return _then(_EncryptedKeyUpdateParamsChangePasswordChangePassword(
+    return _then(_EncryptedKeyUpdateParamsChangePassword(
       publicKey: null == publicKey
           ? _self.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable

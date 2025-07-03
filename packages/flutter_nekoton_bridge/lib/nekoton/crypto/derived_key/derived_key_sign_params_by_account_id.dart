@@ -6,14 +6,14 @@ part 'derived_key_sign_params_by_account_id.freezed.dart';
 part 'derived_key_sign_params_by_account_id.g.dart';
 
 @freezed
-sealed class DerivedKeyPasswordByAccountId
+abstract class DerivedKeyPasswordByAccountId
     with _$DerivedKeyPasswordByAccountId {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory DerivedKeyPasswordByAccountId({
     required final PublicKey masterKey,
     required final int accountId,
     required final Password password,
-  }) = _DerivedKeyPasswordByAccountIdByAccountId;
+  }) = _DerivedKeyPasswordByAccountId;
 
   factory DerivedKeyPasswordByAccountId.fromJson(Map<String, dynamic> json) =>
       _$DerivedKeyPasswordByAccountIdFromJson(json);

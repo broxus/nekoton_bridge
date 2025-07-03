@@ -12,10 +12,6 @@ part of 'encrypted_key_get_public_keys.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-EncryptedKeyGetPublicKeys _$EncryptedKeyGetPublicKeysFromJson(
-    Map<String, dynamic> json) {
-  return _EncryptedKeyGetPublicKeysRename.fromJson(json);
-}
 
 /// @nodoc
 mixin _$EncryptedKeyGetPublicKeys {
@@ -99,11 +95,10 @@ class _$EncryptedKeyGetPublicKeysCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _EncryptedKeyGetPublicKeysRename implements EncryptedKeyGetPublicKeys {
-  const _EncryptedKeyGetPublicKeysRename({required this.publicKey});
-  factory _EncryptedKeyGetPublicKeysRename.fromJson(
-          Map<String, dynamic> json) =>
-      _$EncryptedKeyGetPublicKeysRenameFromJson(json);
+class _EncryptedKeyGetPublicKeys implements EncryptedKeyGetPublicKeys {
+  const _EncryptedKeyGetPublicKeys({required this.publicKey});
+  factory _EncryptedKeyGetPublicKeys.fromJson(Map<String, dynamic> json) =>
+      _$EncryptedKeyGetPublicKeysFromJson(json);
 
   @override
   final PublicKey publicKey;
@@ -113,13 +108,14 @@ class _EncryptedKeyGetPublicKeysRename implements EncryptedKeyGetPublicKeys {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$EncryptedKeyGetPublicKeysRenameCopyWith<_EncryptedKeyGetPublicKeysRename>
-      get copyWith => __$EncryptedKeyGetPublicKeysRenameCopyWithImpl<
-          _EncryptedKeyGetPublicKeysRename>(this, _$identity);
+  _$EncryptedKeyGetPublicKeysCopyWith<_EncryptedKeyGetPublicKeys>
+      get copyWith =>
+          __$EncryptedKeyGetPublicKeysCopyWithImpl<_EncryptedKeyGetPublicKeys>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$EncryptedKeyGetPublicKeysRenameToJson(
+    return _$EncryptedKeyGetPublicKeysToJson(
       this,
     );
   }
@@ -128,7 +124,7 @@ class _EncryptedKeyGetPublicKeysRename implements EncryptedKeyGetPublicKeys {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _EncryptedKeyGetPublicKeysRename &&
+            other is _EncryptedKeyGetPublicKeys &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey));
   }
@@ -144,12 +140,11 @@ class _EncryptedKeyGetPublicKeysRename implements EncryptedKeyGetPublicKeys {
 }
 
 /// @nodoc
-abstract mixin class _$EncryptedKeyGetPublicKeysRenameCopyWith<$Res>
+abstract mixin class _$EncryptedKeyGetPublicKeysCopyWith<$Res>
     implements $EncryptedKeyGetPublicKeysCopyWith<$Res> {
-  factory _$EncryptedKeyGetPublicKeysRenameCopyWith(
-          _EncryptedKeyGetPublicKeysRename value,
-          $Res Function(_EncryptedKeyGetPublicKeysRename) _then) =
-      __$EncryptedKeyGetPublicKeysRenameCopyWithImpl;
+  factory _$EncryptedKeyGetPublicKeysCopyWith(_EncryptedKeyGetPublicKeys value,
+          $Res Function(_EncryptedKeyGetPublicKeys) _then) =
+      __$EncryptedKeyGetPublicKeysCopyWithImpl;
   @override
   @useResult
   $Res call({PublicKey publicKey});
@@ -159,12 +154,12 @@ abstract mixin class _$EncryptedKeyGetPublicKeysRenameCopyWith<$Res>
 }
 
 /// @nodoc
-class __$EncryptedKeyGetPublicKeysRenameCopyWithImpl<$Res>
-    implements _$EncryptedKeyGetPublicKeysRenameCopyWith<$Res> {
-  __$EncryptedKeyGetPublicKeysRenameCopyWithImpl(this._self, this._then);
+class __$EncryptedKeyGetPublicKeysCopyWithImpl<$Res>
+    implements _$EncryptedKeyGetPublicKeysCopyWith<$Res> {
+  __$EncryptedKeyGetPublicKeysCopyWithImpl(this._self, this._then);
 
-  final _EncryptedKeyGetPublicKeysRename _self;
-  final $Res Function(_EncryptedKeyGetPublicKeysRename) _then;
+  final _EncryptedKeyGetPublicKeys _self;
+  final $Res Function(_EncryptedKeyGetPublicKeys) _then;
 
   /// Create a copy of EncryptedKeyGetPublicKeys
   /// with the given fields replaced by the non-null parameter values.
@@ -173,7 +168,7 @@ class __$EncryptedKeyGetPublicKeysRenameCopyWithImpl<$Res>
   $Res call({
     Object? publicKey = null,
   }) {
-    return _then(_EncryptedKeyGetPublicKeysRename(
+    return _then(_EncryptedKeyGetPublicKeys(
       publicKey: null == publicKey
           ? _self.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable

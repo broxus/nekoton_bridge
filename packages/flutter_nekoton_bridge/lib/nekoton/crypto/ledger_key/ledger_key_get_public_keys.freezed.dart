@@ -12,10 +12,6 @@ part of 'ledger_key_get_public_keys.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-LedgerKeyGetPublicKeys _$LedgerKeyGetPublicKeysFromJson(
-    Map<String, dynamic> json) {
-  return _LedgerKeyGetPublicKeysRename.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LedgerKeyGetPublicKeys {
@@ -92,11 +88,10 @@ class _$LedgerKeyGetPublicKeysCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _LedgerKeyGetPublicKeysRename implements LedgerKeyGetPublicKeys {
-  const _LedgerKeyGetPublicKeysRename(
-      {required this.offset, required this.limit});
-  factory _LedgerKeyGetPublicKeysRename.fromJson(Map<String, dynamic> json) =>
-      _$LedgerKeyGetPublicKeysRenameFromJson(json);
+class _LedgerKeyGetPublicKeys implements LedgerKeyGetPublicKeys {
+  const _LedgerKeyGetPublicKeys({required this.offset, required this.limit});
+  factory _LedgerKeyGetPublicKeys.fromJson(Map<String, dynamic> json) =>
+      _$LedgerKeyGetPublicKeysFromJson(json);
 
   @override
   final int offset;
@@ -108,13 +103,13 @@ class _LedgerKeyGetPublicKeysRename implements LedgerKeyGetPublicKeys {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$LedgerKeyGetPublicKeysRenameCopyWith<_LedgerKeyGetPublicKeysRename>
-      get copyWith => __$LedgerKeyGetPublicKeysRenameCopyWithImpl<
-          _LedgerKeyGetPublicKeysRename>(this, _$identity);
+  _$LedgerKeyGetPublicKeysCopyWith<_LedgerKeyGetPublicKeys> get copyWith =>
+      __$LedgerKeyGetPublicKeysCopyWithImpl<_LedgerKeyGetPublicKeys>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$LedgerKeyGetPublicKeysRenameToJson(
+    return _$LedgerKeyGetPublicKeysToJson(
       this,
     );
   }
@@ -123,7 +118,7 @@ class _LedgerKeyGetPublicKeysRename implements LedgerKeyGetPublicKeys {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _LedgerKeyGetPublicKeysRename &&
+            other is _LedgerKeyGetPublicKeys &&
             (identical(other.offset, offset) || other.offset == offset) &&
             (identical(other.limit, limit) || other.limit == limit));
   }
@@ -139,24 +134,23 @@ class _LedgerKeyGetPublicKeysRename implements LedgerKeyGetPublicKeys {
 }
 
 /// @nodoc
-abstract mixin class _$LedgerKeyGetPublicKeysRenameCopyWith<$Res>
+abstract mixin class _$LedgerKeyGetPublicKeysCopyWith<$Res>
     implements $LedgerKeyGetPublicKeysCopyWith<$Res> {
-  factory _$LedgerKeyGetPublicKeysRenameCopyWith(
-          _LedgerKeyGetPublicKeysRename value,
-          $Res Function(_LedgerKeyGetPublicKeysRename) _then) =
-      __$LedgerKeyGetPublicKeysRenameCopyWithImpl;
+  factory _$LedgerKeyGetPublicKeysCopyWith(_LedgerKeyGetPublicKeys value,
+          $Res Function(_LedgerKeyGetPublicKeys) _then) =
+      __$LedgerKeyGetPublicKeysCopyWithImpl;
   @override
   @useResult
   $Res call({int offset, int limit});
 }
 
 /// @nodoc
-class __$LedgerKeyGetPublicKeysRenameCopyWithImpl<$Res>
-    implements _$LedgerKeyGetPublicKeysRenameCopyWith<$Res> {
-  __$LedgerKeyGetPublicKeysRenameCopyWithImpl(this._self, this._then);
+class __$LedgerKeyGetPublicKeysCopyWithImpl<$Res>
+    implements _$LedgerKeyGetPublicKeysCopyWith<$Res> {
+  __$LedgerKeyGetPublicKeysCopyWithImpl(this._self, this._then);
 
-  final _LedgerKeyGetPublicKeysRename _self;
-  final $Res Function(_LedgerKeyGetPublicKeysRename) _then;
+  final _LedgerKeyGetPublicKeys _self;
+  final $Res Function(_LedgerKeyGetPublicKeys) _then;
 
   /// Create a copy of LedgerKeyGetPublicKeys
   /// with the given fields replaced by the non-null parameter values.
@@ -166,7 +160,7 @@ class __$LedgerKeyGetPublicKeysRenameCopyWithImpl<$Res>
     Object? offset = null,
     Object? limit = null,
   }) {
-    return _then(_LedgerKeyGetPublicKeysRename(
+    return _then(_LedgerKeyGetPublicKeys(
       offset: null == offset
           ? _self.offset
           : offset // ignore: cast_nullable_to_non_nullable

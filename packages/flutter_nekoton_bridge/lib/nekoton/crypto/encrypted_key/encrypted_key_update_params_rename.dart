@@ -5,13 +5,13 @@ part 'encrypted_key_update_params_rename.freezed.dart';
 part 'encrypted_key_update_params_rename.g.dart';
 
 @freezed
-sealed class EncryptedKeyUpdateParamsRename
+abstract class EncryptedKeyUpdateParamsRename
     with _$EncryptedKeyUpdateParamsRename {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory EncryptedKeyUpdateParamsRename({
     required final PublicKey publicKey,
     required final String name,
-  }) = _EncryptedKeyUpdateParamsRenameRename;
+  }) = _EncryptedKeyUpdateParamsRename;
 
   factory EncryptedKeyUpdateParamsRename.fromJson(Map<String, dynamic> json) =>
       _$EncryptedKeyUpdateParamsRenameFromJson(json);
