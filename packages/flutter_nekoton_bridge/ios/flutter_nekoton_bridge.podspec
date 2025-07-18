@@ -1,4 +1,4 @@
-release_tag_name = 'nekoton_bridge-v3.1.0' # generated; do not edit
+release_tag_name = 'nekoton_bridge-v3.2.0' # generated; do not edit
 # # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
 # # Run `pod lib lint flutter_nekoton_bridge.podspec` to validate before publishing.
 # #

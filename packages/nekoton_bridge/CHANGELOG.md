@@ -1,3 +1,7 @@
+## 3.2.0
+
+ - **FEAT**: add computeTonWalletAddress func. ([8a9d67a6](https://github.com/broxus/nekoton_bridge/commit/8a9d67a6a60f486aed94fb1a464cfbb19e3610c5))
+
 ## 3.1.0
 
  - **FIX**(EWM-427): implement immutable `refresh_timeout`. ([1c8b1103](https://github.com/broxus/nekoton_bridge/commit/1c8b1103ef76e5617bafcf2b4b190f25eab63e76))
