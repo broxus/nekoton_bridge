@@ -1,3 +1,7 @@
+## 3.2.0
+
+ - **FEAT**: add computeTonWalletAddress func. ([8a9d67a6](https://github.com/broxus/nekoton_bridge/commit/8a9d67a6a60f486aed94fb1a464cfbb19e3610c5))
+
 ## 3.1.1
 
  - **FIX**: await transport.use in refresh methods for proper async handling. ([44a2dbc4](https://github.com/broxus/nekoton_bridge/commit/44a2dbc4e2eb4112988a8bb44f8319e73710d522))

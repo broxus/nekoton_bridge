@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-07-18
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v3.2.0`](#flutter_nekoton_bridge---v320)
+ - [`flutter_nekoton_bridge_example` - `v2.1.0`](#flutter_nekoton_bridge_example---v210)
+ - [`nekoton_bridge` - `v3.2.0`](#nekoton_bridge---v320)
+
+---
+
+#### `flutter_nekoton_bridge` - `v3.2.0`
+
+ - **FEAT**: add computeTonWalletAddress func. ([8a9d67a6](https://github.com/broxus/nekoton_bridge/commit/8a9d67a6a60f486aed94fb1a464cfbb19e3610c5))
+
+#### `flutter_nekoton_bridge_example` - `v2.1.0`
+
+ - **FEAT**: add computeTonWalletAddress func. ([8a9d67a6](https://github.com/broxus/nekoton_bridge/commit/8a9d67a6a60f486aed94fb1a464cfbb19e3610c5))
+
+#### `nekoton_bridge` - `v3.2.0`
+
+ - **FEAT**: add computeTonWalletAddress func. ([8a9d67a6](https://github.com/broxus/nekoton_bridge/commit/8a9d67a6a60f486aed94fb1a464cfbb19e3610c5))
+
+
 ## 2025-06-20
 
 ### Changes
