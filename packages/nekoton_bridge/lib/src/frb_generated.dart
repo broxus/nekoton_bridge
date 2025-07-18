@@ -71,7 +71,7 @@ class NekotonBridge extends BaseEntrypoint<NekotonBridgeApi,
   String get codegenVersion => '2.10.0';
 
   @override
-  int get rustContentHash => -1654366217;
+  int get rustContentHash => 1561409318;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -468,6 +468,11 @@ abstract class NekotonBridgeApi extends BaseApi {
       required String account,
       required int utime,
       required bool isMasterchain});
+
+  String crateApiMergedNtComputeTonWalletAddress(
+      {required String publicKey,
+      required String walletType,
+      required int workchain});
 
   Future<UnsignedMessageImpl> crateApiMergedNtCreateExternalMessage(
       {required String dst,
@@ -3886,6 +3891,35 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       const TaskConstMeta(
         debugName: "nt_compute_storage_fee",
         argNames: ["config", "account", "utime", "isMasterchain"],
+      );
+
+  @override
+  String crateApiMergedNtComputeTonWalletAddress(
+      {required String publicKey,
+      required String walletType,
+      required int workchain}) {
+    return handler.executeSync(SyncTask(
+      callFfi: () {
+        var arg0 = cst_encode_String(publicKey);
+        var arg1 = cst_encode_String(walletType);
+        var arg2 = cst_encode_i_8(workchain);
+        return wire.wire__crate__api__merged__nt_compute_ton_wallet_address(
+            arg0, arg1, arg2);
+      },
+      codec: DcoCodec(
+        decodeSuccessData: dco_decode_String,
+        decodeErrorData: dco_decode_AnyhowException,
+      ),
+      constMeta: kCrateApiMergedNtComputeTonWalletAddressConstMeta,
+      argValues: [publicKey, walletType, workchain],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiMergedNtComputeTonWalletAddressConstMeta =>
+      const TaskConstMeta(
+        debugName: "nt_compute_ton_wallet_address",
+        argNames: ["publicKey", "walletType", "workchain"],
       );
 
   @override

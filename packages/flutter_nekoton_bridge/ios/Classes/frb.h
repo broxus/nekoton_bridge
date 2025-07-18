@@ -688,6 +688,10 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__nt_compute_storage_fee(int6
                                                                             uint32_t utime,
                                                                             bool is_masterchain);
 
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_compute_ton_wallet_address(struct wire_cst_list_prim_u_8_strict *public_key,
+                                                                                                   struct wire_cst_list_prim_u_8_strict *wallet_type,
+                                                                                                   int8_t workchain);
+
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_create_external_message(int64_t port_,
                                                                                 struct wire_cst_list_prim_u_8_strict *dst,
                                                                                 struct wire_cst_list_prim_u_8_strict *contract_abi,
@@ -1433,6 +1437,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_check_public_key);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_code_to_tvc);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_compute_storage_fee);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_compute_ton_wallet_address);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_create_external_message);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_create_external_message_without_signature);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_create_raw_external_message);

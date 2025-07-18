@@ -497,3 +497,16 @@ Future<StorageFeeInfo> computeStorageFee({
 String encodeComment(String comment, {bool plain = false}) {
   return ntEncodeComment(comment: comment, plain: plain);
 }
+
+Address computeTonWalletAddress({
+  required PublicKey publicKey,
+  required WalletType walletType,
+  required int workchain,
+}) {
+  final address = ntComputeTonWalletAddress(
+    publicKey: publicKey.toJson(),
+    walletType: jsonEncode(walletType),
+    workchain: workchain,
+  );
+  return Address(address: address);
+}

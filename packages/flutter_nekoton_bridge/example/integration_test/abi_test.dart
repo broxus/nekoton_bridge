@@ -121,6 +121,24 @@ void main() {
     );
   });
 
+  testWidgets('computeTonWalletAddress', (WidgetTester tester) async {
+    await tester.pumpAndSettleWithTimeout();
+    await initRustToDartCaller();
+
+    final tonWalletAddress = computeTonWalletAddress(
+      walletType: const WalletType.everWallet(),
+      publicKey: const PublicKey(
+          publicKey:
+              '6c2f9514c1c0f2ec54cffe1ac2ba0e85268e76442c14205581ebc808fe7ee52c'),
+      workchain: 0,
+    );
+
+    expect(
+      tonWalletAddress.address,
+      '0:fbf531128cba1f1b24778917b1e7e4916647ffc27828f97666201b032707822b',
+    );
+  });
+
   // Moved to integration tests due to the need to call native methods (packAddress, repackAddress)
   group('Address', () {
     const raw1 =

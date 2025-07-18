@@ -2557,6 +2557,12 @@ class NekotonBridgeWire implements BaseWire {
       wasmModule.wire__crate__api__merged__nt_compute_storage_fee(
           port_, config, account, utime, is_masterchain);
 
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_compute_ton_wallet_address(
+              String public_key, String wallet_type, int workchain) =>
+          wasmModule.wire__crate__api__merged__nt_compute_ton_wallet_address(
+              public_key, wallet_type, workchain);
+
   void wire__crate__api__merged__nt_create_external_message(
           NativePortType port_,
           String dst,
@@ -3915,6 +3921,10 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
       String account,
       int utime,
       bool is_masterchain);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__nt_compute_ton_wallet_address(
+          String public_key, String wallet_type, int workchain);
 
   external void wire__crate__api__merged__nt_create_external_message(
       NativePortType port_,

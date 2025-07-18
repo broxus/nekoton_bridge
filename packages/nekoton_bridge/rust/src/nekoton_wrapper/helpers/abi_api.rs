@@ -1,6 +1,7 @@
 #![allow(unused_variables, dead_code)]
 
 use crate::clock;
+use crate::nekoton_wrapper::core::ton_wallet::models::WalletTypeHelper;
 use crate::nekoton_wrapper::crypto::crypto_api::UnsignedMessageImpl;
 use crate::nekoton_wrapper::crypto::models::UnsignedMessageBox;
 use crate::nekoton_wrapper::helpers::models::{
@@ -18,6 +19,7 @@ use base64::Engine;
 use flutter_rust_bridge::frb;
 use nekoton::core::models::{Expiration, ExpireAt, Transaction};
 use nekoton::core::parsing::{parse_jetton_payload, parse_payload};
+use nekoton::core::ton_wallet;
 use nekoton::core::utils::make_labs_unsigned_message;
 use nekoton::crypto::SignedMessage;
 use nekoton_abi::{guess_method_by_input, insert_state_init_data, make_abi_tokens, FunctionExt};
@@ -1059,6 +1061,22 @@ pub fn nt_run_getter(
     let execution_output = make_vm_getter_output(&getter.outputs, output).handle_error()?;
 
     serde_json::to_string(&execution_output).handle_error()
+}
+
+#[frb(sync)]
+pub fn nt_compute_ton_wallet_address(
+    public_key: String,
+    wallet_type: String,
+    workchain: i8,
+) -> anyhow::Result<String> {
+    let public_key = parse_public_key(public_key).handle_error()?;
+    let wallet_type = serde_json::from_str::<WalletTypeHelper>(&wallet_type)
+        .map(|WalletTypeHelper(wallet_type)| wallet_type)
+        .handle_error()?;
+
+    let address = ton_wallet::compute_address(&public_key, wallet_type, workchain);
+
+    Ok(address.to_string())
 }
 
 #[derive(Serialize, Deserialize)]

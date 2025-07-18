@@ -383,6 +383,13 @@ Future<String> ntRunGetter(
         input: input,
         signatureId: signatureId);
 
+String ntComputeTonWalletAddress(
+        {required String publicKey,
+        required String walletType,
+        required int workchain}) =>
+    NekotonBridge.instance.api.crateApiMergedNtComputeTonWalletAddress(
+        publicKey: publicKey, walletType: walletType, workchain: workchain);
+
 ///----------------------------
 /// CONTENT OF src/utils/tests_api.rs
 ///----------------------------

@@ -4836,6 +4836,32 @@ class NekotonBridgeWire implements BaseWire {
           void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>, int, bool)>();
 
+  WireSyncRust2DartDco wire__crate__api__merged__nt_compute_ton_wallet_address(
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> public_key,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> wallet_type,
+    int workchain,
+  ) {
+    return _wire__crate__api__merged__nt_compute_ton_wallet_address(
+      public_key,
+      wallet_type,
+      workchain,
+    );
+  }
+
+  late final _wire__crate__api__merged__nt_compute_ton_wallet_addressPtr = _lookup<
+          ffi.NativeFunction<
+              WireSyncRust2DartDco Function(
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+                  ffi.Int8)>>(
+      'frbgen_nekoton_bridge_wire__crate__api__merged__nt_compute_ton_wallet_address');
+  late final _wire__crate__api__merged__nt_compute_ton_wallet_address =
+      _wire__crate__api__merged__nt_compute_ton_wallet_addressPtr.asFunction<
+          WireSyncRust2DartDco Function(
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              int)>();
+
   void wire__crate__api__merged__nt_create_external_message(
     int port_,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> dst,
