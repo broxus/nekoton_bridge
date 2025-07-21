@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-07-21
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v3.3.0-dev.0`](#flutter_nekoton_bridge---v330-dev0)
+ - [`flutter_nekoton_bridge_example` - `v2.2.0-dev.0`](#flutter_nekoton_bridge_example---v220-dev0)
+ - [`nekoton_bridge` - `v3.3.0-dev.0`](#nekoton_bridge---v330-dev0)
+
+---
+
+#### `flutter_nekoton_bridge` - `v3.3.0-dev.0`
+
+ - **FEAT**: ledger. ([ffc1dcfa](https://github.com/broxus/nekoton_bridge/commit/ffc1dcfa330af97d05a2214ebfbf1ced0ed6fb41))
+
+#### `flutter_nekoton_bridge_example` - `v2.2.0-dev.0`
+
+ - **FEAT**: ledger. ([ffc1dcfa](https://github.com/broxus/nekoton_bridge/commit/ffc1dcfa330af97d05a2214ebfbf1ced0ed6fb41))
+
+#### `nekoton_bridge` - `v3.3.0-dev.0`
+
+ - **FEAT**: ledger. ([ffc1dcfa](https://github.com/broxus/nekoton_bridge/commit/ffc1dcfa330af97d05a2214ebfbf1ced0ed6fb41))
+
+
 ## 2025-07-18
 
 ### Changes

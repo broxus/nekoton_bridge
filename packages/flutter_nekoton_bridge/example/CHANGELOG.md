@@ -1,3 +1,7 @@
+## 2.2.0-dev.0
+
+ - **FEAT**: ledger. ([ffc1dcfa](https://github.com/broxus/nekoton_bridge/commit/ffc1dcfa330af97d05a2214ebfbf1ced0ed6fb41))
+
 ## 2.1.0
 
  - **FEAT**: add computeTonWalletAddress func. ([8a9d67a6](https://github.com/broxus/nekoton_bridge/commit/8a9d67a6a60f486aed94fb1a464cfbb19e3610c5))
