@@ -1,5 +1,7 @@
-use nekoton::{core::ton_wallet::WalletType, crypto::LedgerSignInput, external::LedgerSignatureContext};
-use nekoton_utils::{serde_public_key};
+use nekoton::{
+    core::ton_wallet::WalletType, crypto::LedgerSignInput, external::LedgerSignatureContext,
+};
+use nekoton_utils::serde_public_key;
 use serde::Deserialize;
 
 use crate::nekoton_wrapper::core::ton_wallet::models::WalletTypeDef;
