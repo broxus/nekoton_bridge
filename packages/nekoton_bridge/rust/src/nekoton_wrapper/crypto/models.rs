@@ -194,12 +194,13 @@ impl UnsignedMessageBoxTrait for UnsignedMessageBox {
 
         serde_json::to_value(signed_message).json_or_error()
     }
-    
+
     fn sign_with_pruned_payload(
         &self,
         signature: &crypto::Signature,
         prune_after_depth: u16,
     ) -> anyhow::Result<crypto::SignedMessage> {
-        self.inner_message.sign_with_pruned_payload(signature, prune_after_depth)
+        self.inner_message
+            .sign_with_pruned_payload(signature, prune_after_depth)
     }
 }

@@ -553,7 +553,10 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
 
                 ton_types::serialize_toc(&payload).handle_error()?.to_vec()
             }
-            _ => general_purpose::STANDARD.decode(message.hash()).handle_error()?.to_vec(),
+            _ => general_purpose::STANDARD
+                .decode(message.hash())
+                .handle_error()?
+                .to_vec(),
         };
 
         let signature = sign(
