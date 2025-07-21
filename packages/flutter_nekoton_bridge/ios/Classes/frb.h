@@ -155,6 +155,10 @@ typedef struct wire_cst_ledger_connection_dart_wrapper {
   uintptr_t inner_connection;
 } wire_cst_ledger_connection_dart_wrapper;
 
+typedef struct wire_cst_unsigned_message_impl {
+  uintptr_t inner_message;
+} wire_cst_unsigned_message_impl;
+
 typedef struct wire_cst_my_class {
   int32_t val;
 } wire_cst_my_class;
@@ -215,10 +219,6 @@ typedef struct wire_cst_token_wallet_dart_wrapper {
 typedef struct wire_cst_ton_wallet_dart_wrapper {
   uintptr_t inner_wallet;
 } wire_cst_ton_wallet_dart_wrapper;
-
-typedef struct wire_cst_unsigned_message_impl {
-  uintptr_t inner_message;
-} wire_cst_unsigned_message_impl;
 
 typedef struct wire_cst_list_opt_String {
   struct wire_cst_list_prim_u_8_strict **ptr;
@@ -641,7 +641,7 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__keystore_dart_wrapper_remov
 void frbgen_nekoton_bridge_wire__crate__api__merged__keystore_dart_wrapper_sign(int64_t port_,
                                                                                 struct wire_cst_keystore_dart_wrapper *that,
                                                                                 struct wire_cst_key_signer *signer,
-                                                                                struct wire_cst_list_prim_u_8_strict *data,
+                                                                                struct wire_cst_unsigned_message_impl *message,
                                                                                 struct wire_cst_list_prim_u_8_strict *input,
                                                                                 int32_t *signature_id);
 

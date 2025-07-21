@@ -12,10 +12,6 @@ part of 'derived_key_get_public_keys.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-DerivedKeyGetPublicKeys _$DerivedKeyGetPublicKeysFromJson(
-    Map<String, dynamic> json) {
-  return _DerivedKeyGetPublicKeysRename.fromJson(json);
-}
 
 /// @nodoc
 mixin _$DerivedKeyGetPublicKeys {
@@ -133,14 +129,14 @@ class _$DerivedKeyGetPublicKeysCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _DerivedKeyGetPublicKeysRename implements DerivedKeyGetPublicKeys {
-  const _DerivedKeyGetPublicKeysRename(
+class _DerivedKeyGetPublicKeys implements DerivedKeyGetPublicKeys {
+  const _DerivedKeyGetPublicKeys(
       {required this.masterKey,
       required this.password,
       required this.limit,
       required this.offset});
-  factory _DerivedKeyGetPublicKeysRename.fromJson(Map<String, dynamic> json) =>
-      _$DerivedKeyGetPublicKeysRenameFromJson(json);
+  factory _DerivedKeyGetPublicKeys.fromJson(Map<String, dynamic> json) =>
+      _$DerivedKeyGetPublicKeysFromJson(json);
 
   @override
   final PublicKey masterKey;
@@ -156,13 +152,13 @@ class _DerivedKeyGetPublicKeysRename implements DerivedKeyGetPublicKeys {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$DerivedKeyGetPublicKeysRenameCopyWith<_DerivedKeyGetPublicKeysRename>
-      get copyWith => __$DerivedKeyGetPublicKeysRenameCopyWithImpl<
-          _DerivedKeyGetPublicKeysRename>(this, _$identity);
+  _$DerivedKeyGetPublicKeysCopyWith<_DerivedKeyGetPublicKeys> get copyWith =>
+      __$DerivedKeyGetPublicKeysCopyWithImpl<_DerivedKeyGetPublicKeys>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$DerivedKeyGetPublicKeysRenameToJson(
+    return _$DerivedKeyGetPublicKeysToJson(
       this,
     );
   }
@@ -171,7 +167,7 @@ class _DerivedKeyGetPublicKeysRename implements DerivedKeyGetPublicKeys {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _DerivedKeyGetPublicKeysRename &&
+            other is _DerivedKeyGetPublicKeys &&
             (identical(other.masterKey, masterKey) ||
                 other.masterKey == masterKey) &&
             (identical(other.password, password) ||
@@ -192,12 +188,11 @@ class _DerivedKeyGetPublicKeysRename implements DerivedKeyGetPublicKeys {
 }
 
 /// @nodoc
-abstract mixin class _$DerivedKeyGetPublicKeysRenameCopyWith<$Res>
+abstract mixin class _$DerivedKeyGetPublicKeysCopyWith<$Res>
     implements $DerivedKeyGetPublicKeysCopyWith<$Res> {
-  factory _$DerivedKeyGetPublicKeysRenameCopyWith(
-          _DerivedKeyGetPublicKeysRename value,
-          $Res Function(_DerivedKeyGetPublicKeysRename) _then) =
-      __$DerivedKeyGetPublicKeysRenameCopyWithImpl;
+  factory _$DerivedKeyGetPublicKeysCopyWith(_DerivedKeyGetPublicKeys value,
+          $Res Function(_DerivedKeyGetPublicKeys) _then) =
+      __$DerivedKeyGetPublicKeysCopyWithImpl;
   @override
   @useResult
   $Res call({PublicKey masterKey, Password password, int limit, int offset});
@@ -209,12 +204,12 @@ abstract mixin class _$DerivedKeyGetPublicKeysRenameCopyWith<$Res>
 }
 
 /// @nodoc
-class __$DerivedKeyGetPublicKeysRenameCopyWithImpl<$Res>
-    implements _$DerivedKeyGetPublicKeysRenameCopyWith<$Res> {
-  __$DerivedKeyGetPublicKeysRenameCopyWithImpl(this._self, this._then);
+class __$DerivedKeyGetPublicKeysCopyWithImpl<$Res>
+    implements _$DerivedKeyGetPublicKeysCopyWith<$Res> {
+  __$DerivedKeyGetPublicKeysCopyWithImpl(this._self, this._then);
 
-  final _DerivedKeyGetPublicKeysRename _self;
-  final $Res Function(_DerivedKeyGetPublicKeysRename) _then;
+  final _DerivedKeyGetPublicKeys _self;
+  final $Res Function(_DerivedKeyGetPublicKeys) _then;
 
   /// Create a copy of DerivedKeyGetPublicKeys
   /// with the given fields replaced by the non-null parameter values.
@@ -226,7 +221,7 @@ class __$DerivedKeyGetPublicKeysRenameCopyWithImpl<$Res>
     Object? limit = null,
     Object? offset = null,
   }) {
-    return _then(_DerivedKeyGetPublicKeysRename(
+    return _then(_DerivedKeyGetPublicKeys(
       masterKey: null == masterKey
           ? _self.masterKey
           : masterKey // ignore: cast_nullable_to_non_nullable

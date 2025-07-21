@@ -88,7 +88,8 @@ class _$LedgerKeyCreateInputCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(fieldRename: FieldRename.snake)
 class _LedgerKeyCreateInput implements LedgerKeyCreateInput {
   const _LedgerKeyCreateInput({this.name, required this.accountId});
   factory _LedgerKeyCreateInput.fromJson(Map<String, dynamic> json) =>

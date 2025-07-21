@@ -12,10 +12,6 @@ part of 'ledger_update_key_input_rename.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-LedgerUpdateKeyInputRename _$LedgerUpdateKeyInputRenameFromJson(
-    Map<String, dynamic> json) {
-  return _LedgerUpdateKeyInputRenameRename.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LedgerUpdateKeyInputRename {
@@ -107,12 +103,11 @@ class _$LedgerUpdateKeyInputRenameCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _LedgerUpdateKeyInputRenameRename implements LedgerUpdateKeyInputRename {
-  const _LedgerUpdateKeyInputRenameRename(
+class _LedgerUpdateKeyInputRename implements LedgerUpdateKeyInputRename {
+  const _LedgerUpdateKeyInputRename(
       {required this.publicKey, required this.name});
-  factory _LedgerUpdateKeyInputRenameRename.fromJson(
-          Map<String, dynamic> json) =>
-      _$LedgerUpdateKeyInputRenameRenameFromJson(json);
+  factory _LedgerUpdateKeyInputRename.fromJson(Map<String, dynamic> json) =>
+      _$LedgerUpdateKeyInputRenameFromJson(json);
 
   @override
   final PublicKey publicKey;
@@ -124,13 +119,13 @@ class _LedgerUpdateKeyInputRenameRename implements LedgerUpdateKeyInputRename {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$LedgerUpdateKeyInputRenameRenameCopyWith<_LedgerUpdateKeyInputRenameRename>
-      get copyWith => __$LedgerUpdateKeyInputRenameRenameCopyWithImpl<
-          _LedgerUpdateKeyInputRenameRename>(this, _$identity);
+  _$LedgerUpdateKeyInputRenameCopyWith<_LedgerUpdateKeyInputRename>
+      get copyWith => __$LedgerUpdateKeyInputRenameCopyWithImpl<
+          _LedgerUpdateKeyInputRename>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$LedgerUpdateKeyInputRenameRenameToJson(
+    return _$LedgerUpdateKeyInputRenameToJson(
       this,
     );
   }
@@ -139,7 +134,7 @@ class _LedgerUpdateKeyInputRenameRename implements LedgerUpdateKeyInputRename {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _LedgerUpdateKeyInputRenameRename &&
+            other is _LedgerUpdateKeyInputRename &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey) &&
             (identical(other.name, name) || other.name == name));
@@ -156,12 +151,12 @@ class _LedgerUpdateKeyInputRenameRename implements LedgerUpdateKeyInputRename {
 }
 
 /// @nodoc
-abstract mixin class _$LedgerUpdateKeyInputRenameRenameCopyWith<$Res>
+abstract mixin class _$LedgerUpdateKeyInputRenameCopyWith<$Res>
     implements $LedgerUpdateKeyInputRenameCopyWith<$Res> {
-  factory _$LedgerUpdateKeyInputRenameRenameCopyWith(
-          _LedgerUpdateKeyInputRenameRename value,
-          $Res Function(_LedgerUpdateKeyInputRenameRename) _then) =
-      __$LedgerUpdateKeyInputRenameRenameCopyWithImpl;
+  factory _$LedgerUpdateKeyInputRenameCopyWith(
+          _LedgerUpdateKeyInputRename value,
+          $Res Function(_LedgerUpdateKeyInputRename) _then) =
+      __$LedgerUpdateKeyInputRenameCopyWithImpl;
   @override
   @useResult
   $Res call({PublicKey publicKey, String name});
@@ -171,12 +166,12 @@ abstract mixin class _$LedgerUpdateKeyInputRenameRenameCopyWith<$Res>
 }
 
 /// @nodoc
-class __$LedgerUpdateKeyInputRenameRenameCopyWithImpl<$Res>
-    implements _$LedgerUpdateKeyInputRenameRenameCopyWith<$Res> {
-  __$LedgerUpdateKeyInputRenameRenameCopyWithImpl(this._self, this._then);
+class __$LedgerUpdateKeyInputRenameCopyWithImpl<$Res>
+    implements _$LedgerUpdateKeyInputRenameCopyWith<$Res> {
+  __$LedgerUpdateKeyInputRenameCopyWithImpl(this._self, this._then);
 
-  final _LedgerUpdateKeyInputRenameRename _self;
-  final $Res Function(_LedgerUpdateKeyInputRenameRename) _then;
+  final _LedgerUpdateKeyInputRename _self;
+  final $Res Function(_LedgerUpdateKeyInputRename) _then;
 
   /// Create a copy of LedgerUpdateKeyInputRename
   /// with the given fields replaced by the non-null parameter values.
@@ -186,7 +181,7 @@ class __$LedgerUpdateKeyInputRenameRenameCopyWithImpl<$Res>
     Object? publicKey = null,
     Object? name = null,
   }) {
-    return _then(_LedgerUpdateKeyInputRenameRename(
+    return _then(_LedgerUpdateKeyInputRename(
       publicKey: null == publicKey
           ? _self.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable

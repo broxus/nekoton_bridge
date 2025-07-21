@@ -15,6 +15,7 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$LedgerSignInput {
+  WalletType get wallet;
   PublicKey get publicKey;
   LedgerSignatureContext? get context;
 
@@ -34,6 +35,7 @@ mixin _$LedgerSignInput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is LedgerSignInput &&
+            (identical(other.wallet, wallet) || other.wallet == wallet) &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey) &&
             (identical(other.context, context) || other.context == context));
@@ -41,11 +43,11 @@ mixin _$LedgerSignInput {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, publicKey, context);
+  int get hashCode => Object.hash(runtimeType, wallet, publicKey, context);
 
   @override
   String toString() {
-    return 'LedgerSignInput(publicKey: $publicKey, context: $context)';
+    return 'LedgerSignInput(wallet: $wallet, publicKey: $publicKey, context: $context)';
   }
 }
 
@@ -55,8 +57,12 @@ abstract mixin class $LedgerSignInputCopyWith<$Res> {
           LedgerSignInput value, $Res Function(LedgerSignInput) _then) =
       _$LedgerSignInputCopyWithImpl;
   @useResult
-  $Res call({PublicKey publicKey, LedgerSignatureContext? context});
+  $Res call(
+      {WalletType wallet,
+      PublicKey publicKey,
+      LedgerSignatureContext? context});
 
+  $WalletTypeCopyWith<$Res> get wallet;
   $PublicKeyCopyWith<$Res> get publicKey;
   $LedgerSignatureContextCopyWith<$Res>? get context;
 }
@@ -74,10 +80,15 @@ class _$LedgerSignInputCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? wallet = null,
     Object? publicKey = null,
     Object? context = freezed,
   }) {
     return _then(_self.copyWith(
+      wallet: null == wallet
+          ? _self.wallet
+          : wallet // ignore: cast_nullable_to_non_nullable
+              as WalletType,
       publicKey: null == publicKey
           ? _self.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
@@ -87,6 +98,16 @@ class _$LedgerSignInputCopyWithImpl<$Res>
           : context // ignore: cast_nullable_to_non_nullable
               as LedgerSignatureContext?,
     ));
+  }
+
+  /// Create a copy of LedgerSignInput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $WalletTypeCopyWith<$Res> get wallet {
+    return $WalletTypeCopyWith<$Res>(_self.wallet, (value) {
+      return _then(_self.copyWith(wallet: value));
+    });
   }
 
   /// Create a copy of LedgerSignInput
@@ -117,10 +138,13 @@ class _$LedgerSignInputCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _LedgerSignInput implements LedgerSignInput {
-  const _LedgerSignInput({required this.publicKey, this.context});
+  const _LedgerSignInput(
+      {required this.wallet, required this.publicKey, this.context});
   factory _LedgerSignInput.fromJson(Map<String, dynamic> json) =>
       _$LedgerSignInputFromJson(json);
 
+  @override
+  final WalletType wallet;
   @override
   final PublicKey publicKey;
   @override
@@ -146,6 +170,7 @@ class _LedgerSignInput implements LedgerSignInput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LedgerSignInput &&
+            (identical(other.wallet, wallet) || other.wallet == wallet) &&
             (identical(other.publicKey, publicKey) ||
                 other.publicKey == publicKey) &&
             (identical(other.context, context) || other.context == context));
@@ -153,11 +178,11 @@ class _LedgerSignInput implements LedgerSignInput {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, publicKey, context);
+  int get hashCode => Object.hash(runtimeType, wallet, publicKey, context);
 
   @override
   String toString() {
-    return 'LedgerSignInput(publicKey: $publicKey, context: $context)';
+    return 'LedgerSignInput(wallet: $wallet, publicKey: $publicKey, context: $context)';
   }
 }
 
@@ -169,8 +194,13 @@ abstract mixin class _$LedgerSignInputCopyWith<$Res>
       __$LedgerSignInputCopyWithImpl;
   @override
   @useResult
-  $Res call({PublicKey publicKey, LedgerSignatureContext? context});
+  $Res call(
+      {WalletType wallet,
+      PublicKey publicKey,
+      LedgerSignatureContext? context});
 
+  @override
+  $WalletTypeCopyWith<$Res> get wallet;
   @override
   $PublicKeyCopyWith<$Res> get publicKey;
   @override
@@ -190,10 +220,15 @@ class __$LedgerSignInputCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
+    Object? wallet = null,
     Object? publicKey = null,
     Object? context = freezed,
   }) {
     return _then(_LedgerSignInput(
+      wallet: null == wallet
+          ? _self.wallet
+          : wallet // ignore: cast_nullable_to_non_nullable
+              as WalletType,
       publicKey: null == publicKey
           ? _self.publicKey
           : publicKey // ignore: cast_nullable_to_non_nullable
@@ -203,6 +238,16 @@ class __$LedgerSignInputCopyWithImpl<$Res>
           : context // ignore: cast_nullable_to_non_nullable
               as LedgerSignatureContext?,
     ));
+  }
+
+  /// Create a copy of LedgerSignInput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $WalletTypeCopyWith<$Res> get wallet {
+    return $WalletTypeCopyWith<$Res>(_self.wallet, (value) {
+      return _then(_self.copyWith(wallet: value));
+    });
   }
 
   /// Create a copy of LedgerSignInput

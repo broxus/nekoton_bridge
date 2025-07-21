@@ -55,6 +55,8 @@ sealed class Address with _$Address {
 
   /// Returns workchain id
   int get workchain => int.parse(toRaw().split(':').first);
+
+  String get hash => toRaw().split(':').last;
 }
 
 final _regex = RegExp(r'^-?\d{1,3}:');

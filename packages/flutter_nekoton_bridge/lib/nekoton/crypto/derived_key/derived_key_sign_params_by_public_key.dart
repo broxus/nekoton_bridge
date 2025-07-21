@@ -6,14 +6,14 @@ part 'derived_key_sign_params_by_public_key.freezed.dart';
 part 'derived_key_sign_params_by_public_key.g.dart';
 
 @freezed
-sealed class DerivedKeyPasswordByPublicKey
+abstract class DerivedKeyPasswordByPublicKey
     with _$DerivedKeyPasswordByPublicKey {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory DerivedKeyPasswordByPublicKey({
     required final PublicKey masterKey,
     required final PublicKey publicKey,
     required final Password password,
-  }) = _DerivedKeyPasswordByPublicKeyByPublicKey;
+  }) = _DerivedKeyPasswordByPublicKey;
 
   factory DerivedKeyPasswordByPublicKey.fromJson(Map<String, dynamic> json) =>
       _$DerivedKeyPasswordByPublicKeyFromJson(json);

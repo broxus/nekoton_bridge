@@ -2485,11 +2485,11 @@ class NekotonBridgeWire implements BaseWire {
           NativePortType port_,
           JSAny that,
           JSAny signer,
-          String data,
+          JSAny message,
           String input,
           int? signature_id) =>
       wasmModule.wire__crate__api__merged__keystore_dart_wrapper_sign(
-          port_, that, signer, data, input, signature_id);
+          port_, that, signer, message, input, signature_id);
 
   void wire__crate__api__merged__keystore_dart_wrapper_sign_data(
           NativePortType port_,
@@ -3866,7 +3866,7 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
       NativePortType port_,
       JSAny that,
       JSAny signer,
-      String data,
+      JSAny message,
       String input,
       int? signature_id);
 

@@ -6,13 +6,13 @@ part 'encrypted_key_get_public_keys.freezed.dart';
 part 'encrypted_key_get_public_keys.g.dart';
 
 @freezed
-sealed class EncryptedKeyGetPublicKeys
+abstract class EncryptedKeyGetPublicKeys
     with _$EncryptedKeyGetPublicKeys
     implements GetPublicKeys {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory EncryptedKeyGetPublicKeys({
     required final PublicKey publicKey,
-  }) = _EncryptedKeyGetPublicKeysRename;
+  }) = _EncryptedKeyGetPublicKeys;
 
   factory EncryptedKeyGetPublicKeys.fromJson(Map<String, dynamic> json) =>
       _$EncryptedKeyGetPublicKeysFromJson(json);

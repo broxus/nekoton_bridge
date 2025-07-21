@@ -1,6 +1,10 @@
 #![allow(unused_variables, dead_code)]
+use crate::api::merged::UnsignedMessageImpl;
 use crate::frb_generated::RustOpaque;
-use crate::nekoton_wrapper::core::keystore::models::{SignatureParts, SignedData, SignedDataRaw};
+use crate::nekoton_wrapper::core::keystore::models::{
+    LedgerSignInputHelper, SignatureParts, SignedData, SignedDataRaw,
+};
+// use crate::nekoton_wrapper::crypto::crypto_api::UnsignedMessageImpl;
 use crate::nekoton_wrapper::crypto::encrypted_key::models::{
     EncryptedKeyCreateInputHelper, EncryptedKeyExportSeedOutputHelper,
 };
@@ -16,7 +20,7 @@ use nekoton::crypto::{
     DerivedKeySigner, DerivedKeyUpdateParams, EncryptedData, EncryptedKeyCreateInput,
     EncryptedKeyGetPublicKeys, EncryptedKeyPassword, EncryptedKeySigner, EncryptedKeyUpdateParams,
     EncryptionAlgorithm, LedgerKeyCreateInput, LedgerKeyGetPublicKeys, LedgerKeySigner,
-    LedgerSignInput, LedgerUpdateKeyInput, Signature,
+    LedgerUpdateKeyInput, Signature,
 };
 use nekoton::external::Storage;
 use sha2::Digest;
@@ -98,7 +102,7 @@ pub trait KeyStoreApiBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     async fn sign(
         &self,
         signer: KeySigner,
-        data: String,
+        message: UnsignedMessageImpl,
         input: String,
         signature_id: Option<i32>,
     ) -> anyhow::Result<String>;
@@ -445,7 +449,9 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
                     .handle_error()?
             }
             KeySigner::Ledger => {
-                let input = serde_json::from_str::<LedgerSignInput>(&input).handle_error()?;
+                let input = serde_json::from_str::<LedgerSignInputHelper>(&input)
+                    .map(|LedgerSignInputHelper(helper)| helper)
+                    .handle_error()?;
 
                 self.inner_keystore
                     .encrypt::<LedgerKeySigner>(&data, &public_keys, algorithm, input)
@@ -490,7 +496,9 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
                     .handle_error()?
             }
             KeySigner::Ledger => {
-                let input = serde_json::from_str::<LedgerSignInput>(&input).handle_error()?;
+                let input = serde_json::from_str::<LedgerSignInputHelper>(&input)
+                    .map(|LedgerSignInputHelper(helper)| helper)
+                    .handle_error()?;
 
                 self.inner_keystore
                     .decrypt::<LedgerKeySigner>(&data, input)
@@ -509,15 +517,45 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
     /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
     ///   LedgerSignInput.
     /// signature_id - id of transport
-    /// data - base64-encoded data that should be signed.
+    /// message - unsigned message that should be signed.
     async fn sign(
         &self,
         signer: KeySigner,
-        data: String,
+        message: UnsignedMessageImpl,
         input: String,
         signature_id: Option<i32>,
     ) -> anyhow::Result<String> {
-        let data = general_purpose::STANDARD.decode(&data).handle_error()?;
+        let message = message.inner_message.clone();
+        let data = match &signer {
+            KeySigner::Ledger => {
+                let ledger_sign_input = serde_json::from_str::<LedgerSignInputHelper>(&input)
+                    .map(|LedgerSignInputHelper(helper)| helper)
+                    .handle_error()?;
+                // Sign with null signature to extract payload later
+                let signed_message = message
+                    .sign_with_pruned_payload(&[0_u8; 64], 2)
+                    .handle_error()?;
+                let mut data = signed_message.message.body().unwrap();
+
+                // Skip first bit for wallets with ABI
+                match ledger_sign_input.wallet {
+                    nekoton::core::ton_wallet::WalletType::WalletV3 => {}
+                    _ => {
+                        data.get_next_bit().handle_error()?;
+                    }
+                };
+
+                // Skip null signature
+                data.move_by(ed25519_dalek::SIGNATURE_LENGTH * 8)
+                    .handle_error()?;
+
+                let payload = data.into_cell();
+
+                ton_types::serialize_toc(&payload).handle_error()?.to_vec()
+            }
+            _ => general_purpose::STANDARD.decode(message.hash()).handle_error()?.to_vec(),
+        };
+
         let signature = sign(
             self.inner_keystore.clone(),
             signer,
@@ -683,7 +721,9 @@ async fn sign(
                 .handle_error()
         }
         KeySigner::Ledger => {
-            let input = serde_json::from_str::<LedgerSignInput>(&input).handle_error()?;
+            let input = serde_json::from_str::<LedgerSignInputHelper>(&input)
+                .map(|LedgerSignInputHelper(helper)| helper)
+                .handle_error()?;
 
             keystore
                 .sign::<LedgerKeySigner>(data, signature_id, input)

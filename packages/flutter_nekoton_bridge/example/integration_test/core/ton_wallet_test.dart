@@ -235,7 +235,7 @@ void main() {
       await message.refreshTimeout();
 
       final signature = await keystore.sign(
-        data: message.hash,
+        message: message.message,
         input: DerivedKeyPassword.byAccountId(
           DerivedKeyPasswordByAccountId(
             masterKey: key,

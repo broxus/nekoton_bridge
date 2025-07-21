@@ -421,7 +421,7 @@ abstract class NekotonBridgeApi extends BaseApi {
   Future<String> crateApiMergedKeystoreDartWrapperSign(
       {required KeystoreDartWrapper that,
       required KeySigner signer,
-      required String data,
+      required UnsignedMessageImpl message,
       required String input,
       int? signatureId});
 
@@ -3568,14 +3568,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   Future<String> crateApiMergedKeystoreDartWrapperSign(
       {required KeystoreDartWrapper that,
       required KeySigner signer,
-      required String data,
+      required UnsignedMessageImpl message,
       required String input,
       int? signatureId}) {
     return handler.executeNormal(NormalTask(
       callFfi: (port_) {
         var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
         var arg1 = cst_encode_box_autoadd_key_signer(signer);
-        var arg2 = cst_encode_String(data);
+        var arg2 = cst_encode_box_autoadd_unsigned_message_impl(message);
         var arg3 = cst_encode_String(input);
         var arg4 = cst_encode_opt_box_autoadd_i_32(signatureId);
         return wire.wire__crate__api__merged__keystore_dart_wrapper_sign(
@@ -3586,7 +3586,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         decodeErrorData: dco_decode_AnyhowException,
       ),
       constMeta: kCrateApiMergedKeystoreDartWrapperSignConstMeta,
-      argValues: [that, signer, data, input, signatureId],
+      argValues: [that, signer, message, input, signatureId],
       apiImpl: this,
     ));
   }
@@ -3594,7 +3594,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperSignConstMeta =>
       const TaskConstMeta(
         debugName: "keystore_dart_wrapper_sign",
-        argNames: ["that", "signer", "data", "input", "signatureId"],
+        argNames: ["that", "signer", "message", "input", "signatureId"],
       );
 
   @override
