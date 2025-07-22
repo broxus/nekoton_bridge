@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-07-22
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v3.3.0-dev.1`](#flutter_nekoton_bridge---v330-dev1)
+ - [`flutter_nekoton_bridge_example` - `v2.2.0-dev.1`](#flutter_nekoton_bridge_example---v220-dev1)
+ - [`nekoton_bridge` - `v3.3.0-dev.1`](#nekoton_bridge---v330-dev1)
+
+---
+
+#### `flutter_nekoton_bridge` - `v3.3.0-dev.1`
+
+ - **FEAT**: add contract type number retrieval functionality. ([e2646cc2](https://github.com/broxus/nekoton_bridge/commit/e2646cc261b30fc0ba9e51a0149c19c779eadcf4))
+
+#### `flutter_nekoton_bridge_example` - `v2.2.0-dev.1`
+
+ - **FEAT**: add contract type number retrieval functionality. ([e2646cc2](https://github.com/broxus/nekoton_bridge/commit/e2646cc261b30fc0ba9e51a0149c19c779eadcf4))
+
+#### `nekoton_bridge` - `v3.3.0-dev.1`
+
+ - **FEAT**: add contract type number retrieval functionality. ([e2646cc2](https://github.com/broxus/nekoton_bridge/commit/e2646cc261b30fc0ba9e51a0149c19c779eadcf4))
+
+
 ## 2025-07-21
 
 ### Changes
