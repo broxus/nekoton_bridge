@@ -1,3 +1,7 @@
+## 3.3.0-dev.1
+
+ - **FEAT**: add contract type number retrieval functionality. ([e2646cc2](https://github.com/broxus/nekoton_bridge/commit/e2646cc261b30fc0ba9e51a0149c19c779eadcf4))
+
 ## 3.3.0-dev.0
 
  - **FEAT**: ledger. ([ffc1dcfa](https://github.com/broxus/nekoton_bridge/commit/ffc1dcfa330af97d05a2214ebfbf1ced0ed6fb41))
