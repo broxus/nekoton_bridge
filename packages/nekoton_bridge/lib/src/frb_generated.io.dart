@@ -5369,6 +5369,24 @@ class NekotonBridgeWire implements BaseWire {
           WireSyncRust2DartDco Function(
               ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
 
+  WireSyncRust2DartDco wire__crate__api__merged__nt_get_contract_type_number(
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> wallet_type,
+  ) {
+    return _wire__crate__api__merged__nt_get_contract_type_number(
+      wallet_type,
+    );
+  }
+
+  late final _wire__crate__api__merged__nt_get_contract_type_numberPtr = _lookup<
+          ffi.NativeFunction<
+              WireSyncRust2DartDco Function(
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
+      'frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_contract_type_number');
+  late final _wire__crate__api__merged__nt_get_contract_type_number =
+      _wire__crate__api__merged__nt_get_contract_type_numberPtr.asFunction<
+          WireSyncRust2DartDco Function(
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+
   void wire__crate__api__merged__nt_get_expected_address(
     int port_,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> tvc,

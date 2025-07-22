@@ -390,6 +390,10 @@ String ntComputeTonWalletAddress(
     NekotonBridge.instance.api.crateApiMergedNtComputeTonWalletAddress(
         publicKey: publicKey, walletType: walletType, workchain: workchain);
 
+int ntGetContractTypeNumber({required String walletType}) =>
+    NekotonBridge.instance.api
+        .crateApiMergedNtGetContractTypeNumber(walletType: walletType);
+
 ///----------------------------
 /// CONTENT OF src/utils/tests_api.rs
 ///----------------------------

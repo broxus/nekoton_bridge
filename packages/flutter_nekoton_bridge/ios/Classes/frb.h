@@ -777,6 +777,8 @@ WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_boc_
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_code_salt(struct wire_cst_list_prim_u_8_strict *code);
 
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_contract_type_number(struct wire_cst_list_prim_u_8_strict *wallet_type);
+
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_expected_address(int64_t port_,
                                                                              struct wire_cst_list_prim_u_8_strict *tvc,
                                                                              struct wire_cst_list_prim_u_8_strict *contract_abi,
@@ -1455,6 +1457,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_generate_key);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_boc_hash);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_code_salt);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_contract_type_number);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_expected_address);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_hints);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_make_full_account_boc);

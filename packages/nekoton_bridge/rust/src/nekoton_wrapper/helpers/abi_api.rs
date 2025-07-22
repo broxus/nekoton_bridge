@@ -1079,6 +1079,15 @@ pub fn nt_compute_ton_wallet_address(
     Ok(address.to_string())
 }
 
+#[frb(sync)]
+pub fn nt_get_contract_type_number(wallet_type: String) -> anyhow::Result<u16> {
+    let wallet_type = serde_json::from_str::<WalletTypeHelper>(&wallet_type)
+        .map(|WalletTypeHelper(wallet_type)| wallet_type)
+        .handle_error()?;
+    let value: u16 = wallet_type.try_into().handle_error()?;
+    Ok(value)
+}
+
 #[derive(Serialize, Deserialize)]
 struct ProviderTransaction {
     #[serde(rename = "inMessage")]
