@@ -1,3 +1,7 @@
+## 3.3.0-dev.3
+
+ - **FIX**: allow optional message parameter in LedgerOperationCancelledException. ([34b33faa](https://github.com/broxus/nekoton_bridge/commit/34b33faa5515fb90a5a5687fba45ef9249c943fc))
+
 ## 3.3.0-dev.2
 
  - **FEAT**: add LedgerException and handle operation cancellation in LedgerConnection. ([06c188c5](https://github.com/broxus/nekoton_bridge/commit/06c188c540c76104c6118de1712e4cdbdc3d11ba))

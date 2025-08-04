@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_nekoton_bridge` - `v3.3.0-dev.3`](#flutter_nekoton_bridge---v330-dev3)
+ - [`flutter_nekoton_bridge_example` - `v2.2.0-dev.3`](#flutter_nekoton_bridge_example---v220-dev3)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v2.2.0-dev.3`
+
+---
+
+#### `flutter_nekoton_bridge` - `v3.3.0-dev.3`
+
+ - **FIX**: allow optional message parameter in LedgerOperationCancelledException. ([34b33faa](https://github.com/broxus/nekoton_bridge/commit/34b33faa5515fb90a5a5687fba45ef9249c943fc))
+
+
+## 2025-08-04
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v3.3.0-dev.2`](#flutter_nekoton_bridge---v330-dev2)
  - [`nekoton_bridge` - `v3.3.0-dev.2`](#nekoton_bridge---v330-dev2)
  - [`flutter_nekoton_bridge_example` - `v2.2.0-dev.2`](#flutter_nekoton_bridge_example---v220-dev2)
