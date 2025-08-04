@@ -8,5 +8,5 @@ class LedgerException implements Exception {
 }
 
 class LedgerOperationCancelledException extends LedgerException {
-  const LedgerOperationCancelledException(super.message);
+  const LedgerOperationCancelledException([super.message]);
 }
