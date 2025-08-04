@@ -8,3 +8,4 @@ export 'models/gql_network_settings.dart';
 export 'models/proto_network_settings.dart';
 export 'models/jrpc_network_settings.dart';
 export 'models/ledger_signature_context.dart';
+export 'exceptions.dart';

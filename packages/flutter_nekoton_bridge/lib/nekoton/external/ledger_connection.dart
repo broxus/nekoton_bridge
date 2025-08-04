@@ -46,6 +46,8 @@ class LedgerConnection extends RustToDartMirrorInterface {
   Future<Uint8List> getPublicKey(int accountId) async {
     try {
       return await _handler.getPublicKey(accountId);
+    } on LedgerOperationCancelledException {
+      throw ErrorCode.cancelled;
     } catch (error) {
       throw ErrorCode.generic;
     }
@@ -63,6 +65,8 @@ class LedgerConnection extends RustToDartMirrorInterface {
         message: message,
         signatureId: signatureId,
       );
+    } on LedgerOperationCancelledException {
+      throw ErrorCode.cancelled;
     } catch (error) {
       throw ErrorCode.generic;
     }
@@ -84,6 +88,8 @@ class LedgerConnection extends RustToDartMirrorInterface {
         context: LedgerSignatureContext.fromJson(jsonDecode(context)),
         signatureId: signatureId,
       );
+    } on LedgerOperationCancelledException {
+      throw ErrorCode.cancelled;
     } catch (error) {
       throw ErrorCode.generic;
     }

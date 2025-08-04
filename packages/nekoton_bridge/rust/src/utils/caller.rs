@@ -26,6 +26,8 @@ pub enum ErrorCode {
     Generic,
     #[error("Exception while invoking caller function that threw not ErrorCode")]
     InvokeException,
+    #[error("Operation cancelled")]
+    Cancelled,
 }
 
 // / Dynamic value for transmitting between Dart and Rust. We can't use Box<dyn Any> because frb doesn't support it.
