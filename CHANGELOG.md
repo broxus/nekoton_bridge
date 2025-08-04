@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-08-04
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v3.3.0-dev.2`](#flutter_nekoton_bridge---v330-dev2)
+ - [`nekoton_bridge` - `v3.3.0-dev.2`](#nekoton_bridge---v330-dev2)
+ - [`flutter_nekoton_bridge_example` - `v2.2.0-dev.2`](#flutter_nekoton_bridge_example---v220-dev2)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v2.2.0-dev.2`
+
+---
+
+#### `flutter_nekoton_bridge` - `v3.3.0-dev.2`
+
+ - **FEAT**: add LedgerException and handle operation cancellation in LedgerConnection. ([06c188c5](https://github.com/broxus/nekoton_bridge/commit/06c188c540c76104c6118de1712e4cdbdc3d11ba))
+
+#### `nekoton_bridge` - `v3.3.0-dev.2`
+
+ - **FEAT**: add LedgerException and handle operation cancellation in LedgerConnection. ([06c188c5](https://github.com/broxus/nekoton_bridge/commit/06c188c540c76104c6118de1712e4cdbdc3d11ba))
+
+
 ## 2025-07-22
 
 ### Changes
