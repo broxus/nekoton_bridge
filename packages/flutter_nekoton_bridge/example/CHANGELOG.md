@@ -1,3 +1,7 @@
+## 2.2.0-dev.2
+
+ - Update a dependency to the latest release.
+
 ## 2.2.0-dev.1
 
  - **FEAT**: add contract type number retrieval functionality. ([e2646cc2](https://github.com/broxus/nekoton_bridge/commit/e2646cc261b30fc0ba9e51a0149c19c779eadcf4))

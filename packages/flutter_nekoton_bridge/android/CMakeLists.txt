@@ -1,4 +1,4 @@
-set(LibraryVersion "nekoton_bridge-v3.3.0-dev.1") # generated; do not edit
+set(LibraryVersion "nekoton_bridge-v3.3.0-dev.2") # generated; do not edit
 
 # Unlike the Windows & Linux CMakeLists.txt, this Android equivalent is just here
 # to download the Android binaries into src/main/jniLibs/ and does not build anything.
