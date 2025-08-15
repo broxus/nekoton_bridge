@@ -1,3 +1,7 @@
+## 3.3.0
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
 ## 3.3.0-dev.2
 
  - **FEAT**: add LedgerException and handle operation cancellation in LedgerConnection. ([06c188c5](https://github.com/broxus/nekoton_bridge/commit/06c188c540c76104c6118de1712e4cdbdc3d11ba))

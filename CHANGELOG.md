@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-08-15
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v3.3.0`](#flutter_nekoton_bridge---v330)
+ - [`flutter_nekoton_bridge_example` - `v2.2.0`](#flutter_nekoton_bridge_example---v220)
+ - [`nekoton_bridge` - `v3.3.0`](#nekoton_bridge---v330)
+
+Packages graduated to a stable release (see pre-releases prior to the stable version for changelog entries):
+
+ - `flutter_nekoton_bridge` - `v3.3.0`
+ - `flutter_nekoton_bridge_example` - `v2.2.0`
+ - `nekoton_bridge` - `v3.3.0`
+
+---
+
+#### `flutter_nekoton_bridge` - `v3.3.0`
+
+#### `flutter_nekoton_bridge_example` - `v2.2.0`
+
+#### `nekoton_bridge` - `v3.3.0`
+
+
 ## 2025-08-04
 
 ### Changes
