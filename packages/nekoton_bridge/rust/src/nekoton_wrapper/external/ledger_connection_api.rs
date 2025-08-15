@@ -54,9 +54,9 @@ impl external::LedgerConnection for LedgerConnectionImpl {
             args: vec![caller::DynamicValue::U16(account_id)],
             named_args: vec![],
         };
-        let res = caller::call(stub, true).as_string();
+        let res = caller::call(stub, true).as_vec_u8();
         match res {
-            Ok(v) => Ok(hex::decode(v).unwrap().as_slice().try_into().unwrap()),
+            Ok(v) => Ok(v.as_slice().try_into().unwrap()),
             Err(e) => Err(e),
         }
     }
@@ -67,7 +67,24 @@ impl external::LedgerConnection for LedgerConnectionImpl {
         signature_id: Option<i32>,
         message: &[u8],
     ) -> anyhow::Result<[u8; SIGNATURE_LENGTH]> {
-        todo!()
+        let stub = caller::DartCallStub {
+            instance_hash: self.instance_hash.clone(),
+            fn_name: String::from("sign"),
+            args: vec![
+                caller::DynamicValue::U16(account),
+                match signature_id {
+                    Some(id) => caller::DynamicValue::I32(id),
+                    None => caller::DynamicValue::None,
+                },
+                caller::DynamicValue::VecU8(message.to_vec()),
+            ],
+            named_args: vec![],
+        };
+        let res = caller::call(stub, true).as_vec_u8();
+        match res {
+            Ok(v) => Ok(v.as_slice().try_into().unwrap()),
+            Err(e) => Err(e),
+        }
     }
 
     async fn sign_transaction(
@@ -78,6 +95,25 @@ impl external::LedgerConnection for LedgerConnectionImpl {
         message: &[u8],
         context: &external::LedgerSignatureContext,
     ) -> anyhow::Result<[u8; SIGNATURE_LENGTH]> {
-        todo!()
+        let stub = caller::DartCallStub {
+            instance_hash: self.instance_hash.clone(),
+            fn_name: String::from("signTransaction"),
+            args: vec![
+                caller::DynamicValue::U16(account),
+                caller::DynamicValue::U16(wallet),
+                match signature_id {
+                    Some(id) => caller::DynamicValue::I32(id),
+                    None => caller::DynamicValue::None,
+                },
+                caller::DynamicValue::VecU8(message.to_vec()),
+                caller::DynamicValue::String(serde_json::to_string(context).unwrap()),
+            ],
+            named_args: vec![],
+        };
+        let res = caller::call(stub, true).as_vec_u8();
+        match res {
+            Ok(v) => Ok(v.as_slice().try_into().unwrap()),
+            Err(e) => Err(e),
+        }
     }
 }

@@ -1,3 +1,25 @@
+use nekoton::{
+    core::ton_wallet::WalletType, crypto::LedgerSignInput, external::LedgerSignatureContext,
+};
+use nekoton_utils::serde_public_key;
+use serde::Deserialize;
+
+use crate::nekoton_wrapper::core::ton_wallet::models::WalletTypeDef;
+
+#[derive(Deserialize)]
+pub struct LedgerSignInputHelper(#[serde(with = "LedgerSignInputDef")] pub LedgerSignInput);
+
+#[derive(Deserialize)]
+#[serde(remote = "LedgerSignInput", rename_all = "camelCase")]
+pub struct LedgerSignInputDef {
+    #[serde(with = "WalletTypeDef")]
+    pub wallet: WalletType,
+    #[serde(with = "serde_public_key")]
+    pub public_key: ed25519_dalek::PublicKey,
+    #[serde(default)]
+    pub context: Option<LedgerSignatureContext>,
+}
+
 /// Structure that is used with signing data
 pub struct SignedData {
     /// hex encoded hash

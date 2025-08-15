@@ -6,10 +6,10 @@ part of 'encrypted_key_update_params_change_password.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_EncryptedKeyUpdateParamsChangePasswordChangePassword
-    _$EncryptedKeyUpdateParamsChangePasswordChangePasswordFromJson(
+_EncryptedKeyUpdateParamsChangePassword
+    _$EncryptedKeyUpdateParamsChangePasswordFromJson(
             Map<String, dynamic> json) =>
-        _EncryptedKeyUpdateParamsChangePasswordChangePassword(
+        _EncryptedKeyUpdateParamsChangePassword(
           publicKey: PublicKey.fromJson(json['public_key'] as String),
           oldPassword:
               Password.fromJson(json['old_password'] as Map<String, dynamic>),
@@ -17,11 +17,10 @@ _EncryptedKeyUpdateParamsChangePasswordChangePassword
               Password.fromJson(json['new_password'] as Map<String, dynamic>),
         );
 
-Map<String, dynamic>
-    _$EncryptedKeyUpdateParamsChangePasswordChangePasswordToJson(
-            _EncryptedKeyUpdateParamsChangePasswordChangePassword instance) =>
-        <String, dynamic>{
-          'public_key': instance.publicKey.toJson(),
-          'old_password': instance.oldPassword.toJson(),
-          'new_password': instance.newPassword.toJson(),
-        };
+Map<String, dynamic> _$EncryptedKeyUpdateParamsChangePasswordToJson(
+        _EncryptedKeyUpdateParamsChangePassword instance) =>
+    <String, dynamic>{
+      'public_key': instance.publicKey.toJson(),
+      'old_password': instance.oldPassword.toJson(),
+      'new_password': instance.newPassword.toJson(),
+    };

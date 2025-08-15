@@ -390,6 +390,10 @@ String ntComputeTonWalletAddress(
     NekotonBridge.instance.api.crateApiMergedNtComputeTonWalletAddress(
         publicKey: publicKey, walletType: walletType, workchain: workchain);
 
+int ntGetContractTypeNumber({required String walletType}) =>
+    NekotonBridge.instance.api
+        .crateApiMergedNtGetContractTypeNumber(walletType: walletType);
+
 ///----------------------------
 /// CONTENT OF src/utils/tests_api.rs
 ///----------------------------
@@ -1447,16 +1451,16 @@ class KeystoreDartWrapper {
   /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
   ///   LedgerSignInput.
   /// signature_id - id of transport
-  /// data - base64-encoded data that should be signed.
+  /// message - unsigned message that should be signed.
   Future<String> sign(
           {required KeySigner signer,
-          required String data,
+          required UnsignedMessageImpl message,
           required String input,
           int? signatureId}) =>
       NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperSign(
           that: this,
           signer: signer,
-          data: data,
+          message: message,
           input: input,
           signatureId: signatureId);
 

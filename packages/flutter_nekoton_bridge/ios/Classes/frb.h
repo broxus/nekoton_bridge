@@ -155,6 +155,10 @@ typedef struct wire_cst_ledger_connection_dart_wrapper {
   uintptr_t inner_connection;
 } wire_cst_ledger_connection_dart_wrapper;
 
+typedef struct wire_cst_unsigned_message_impl {
+  uintptr_t inner_message;
+} wire_cst_unsigned_message_impl;
+
 typedef struct wire_cst_my_class {
   int32_t val;
 } wire_cst_my_class;
@@ -215,10 +219,6 @@ typedef struct wire_cst_token_wallet_dart_wrapper {
 typedef struct wire_cst_ton_wallet_dart_wrapper {
   uintptr_t inner_wallet;
 } wire_cst_ton_wallet_dart_wrapper;
-
-typedef struct wire_cst_unsigned_message_impl {
-  uintptr_t inner_message;
-} wire_cst_unsigned_message_impl;
 
 typedef struct wire_cst_list_opt_String {
   struct wire_cst_list_prim_u_8_strict **ptr;
@@ -641,7 +641,7 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__keystore_dart_wrapper_remov
 void frbgen_nekoton_bridge_wire__crate__api__merged__keystore_dart_wrapper_sign(int64_t port_,
                                                                                 struct wire_cst_keystore_dart_wrapper *that,
                                                                                 struct wire_cst_key_signer *signer,
-                                                                                struct wire_cst_list_prim_u_8_strict *data,
+                                                                                struct wire_cst_unsigned_message_impl *message,
                                                                                 struct wire_cst_list_prim_u_8_strict *input,
                                                                                 int32_t *signature_id);
 
@@ -776,6 +776,8 @@ WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_generate
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_boc_hash(struct wire_cst_list_prim_u_8_strict *boc);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_code_salt(struct wire_cst_list_prim_u_8_strict *code);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_contract_type_number(struct wire_cst_list_prim_u_8_strict *wallet_type);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_expected_address(int64_t port_,
                                                                              struct wire_cst_list_prim_u_8_strict *tvc,
@@ -1455,6 +1457,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_generate_key);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_boc_hash);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_code_salt);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_contract_type_number);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_expected_address);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_hints);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_make_full_account_boc);

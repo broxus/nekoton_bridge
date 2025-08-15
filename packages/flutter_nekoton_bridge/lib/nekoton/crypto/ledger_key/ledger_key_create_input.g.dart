@@ -10,12 +10,12 @@ _LedgerKeyCreateInput _$LedgerKeyCreateInputFromJson(
         Map<String, dynamic> json) =>
     _LedgerKeyCreateInput(
       name: json['name'] as String?,
-      accountId: (json['accountId'] as num).toInt(),
+      accountId: (json['account_id'] as num).toInt(),
     );
 
 Map<String, dynamic> _$LedgerKeyCreateInputToJson(
         _LedgerKeyCreateInput instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'accountId': instance.accountId,
+      'account_id': instance.accountId,
     };

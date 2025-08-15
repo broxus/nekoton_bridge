@@ -5,14 +5,14 @@ part 'derived_key_update_params_rename_key.freezed.dart';
 part 'derived_key_update_params_rename_key.g.dart';
 
 @freezed
-sealed class DerivedKeyUpdateParamsRenameKey
+abstract class DerivedKeyUpdateParamsRenameKey
     with _$DerivedKeyUpdateParamsRenameKey {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory DerivedKeyUpdateParamsRenameKey({
     required final PublicKey masterKey,
     required final PublicKey publicKey,
     required final String name,
-  }) = _DerivedKeyUpdateParamsRenameKeyRenameKey;
+  }) = _DerivedKeyUpdateParamsRenameKey;
 
   factory DerivedKeyUpdateParamsRenameKey.fromJson(Map<String, dynamic> json) =>
       _$DerivedKeyUpdateParamsRenameKeyFromJson(json);

@@ -6,7 +6,7 @@ part 'encrypted_key_create_input.g.dart';
 
 /// Input for creating legacy key
 @freezed
-sealed class EncryptedKeyCreateInput
+abstract class EncryptedKeyCreateInput
     with _$EncryptedKeyCreateInput
     implements CreateKeyInput {
   factory EncryptedKeyCreateInput({

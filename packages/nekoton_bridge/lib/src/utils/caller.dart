@@ -140,5 +140,6 @@ enum ErrorCode {
   network,
   generic,
   invokeException,
+  cancelled,
   ;
 }

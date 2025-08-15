@@ -15,9 +15,9 @@ T _$identity<T>(T value) => value;
 DerivedKeyPassword _$DerivedKeyPasswordFromJson(Map<String, dynamic> json) {
   switch (json['type']) {
     case 'by_account_id':
-      return _ByAccountId.fromJson(json);
+      return _DerivedKeyPasswordByAccountId.fromJson(json);
     case 'by_public_key':
-      return _ByPublicKey.fromJson(json);
+      return _DerivedKeyPasswordByPublicKey.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'type', 'DerivedKeyPassword',
@@ -59,11 +59,11 @@ class $DerivedKeyPasswordCopyWith<$Res> {
 
 /// @nodoc
 @JsonSerializable()
-class _ByAccountId implements DerivedKeyPassword {
-  const _ByAccountId(this.data, {final String? $type})
+class _DerivedKeyPasswordByAccountId implements DerivedKeyPassword {
+  const _DerivedKeyPasswordByAccountId(this.data, {final String? $type})
       : $type = $type ?? 'by_account_id';
-  factory _ByAccountId.fromJson(Map<String, dynamic> json) =>
-      _$ByAccountIdFromJson(json);
+  factory _DerivedKeyPasswordByAccountId.fromJson(Map<String, dynamic> json) =>
+      _$DerivedKeyPasswordByAccountIdFromJson(json);
 
   @override
   final DerivedKeyPasswordByAccountId data;
@@ -75,12 +75,13 @@ class _ByAccountId implements DerivedKeyPassword {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$ByAccountIdCopyWith<_ByAccountId> get copyWith =>
-      __$ByAccountIdCopyWithImpl<_ByAccountId>(this, _$identity);
+  _$DerivedKeyPasswordByAccountIdCopyWith<_DerivedKeyPasswordByAccountId>
+      get copyWith => __$DerivedKeyPasswordByAccountIdCopyWithImpl<
+          _DerivedKeyPasswordByAccountId>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$ByAccountIdToJson(
+    return _$DerivedKeyPasswordByAccountIdToJson(
       this,
     );
   }
@@ -89,7 +90,7 @@ class _ByAccountId implements DerivedKeyPassword {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ByAccountId &&
+            other is _DerivedKeyPasswordByAccountId &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -104,11 +105,12 @@ class _ByAccountId implements DerivedKeyPassword {
 }
 
 /// @nodoc
-abstract mixin class _$ByAccountIdCopyWith<$Res>
+abstract mixin class _$DerivedKeyPasswordByAccountIdCopyWith<$Res>
     implements $DerivedKeyPasswordCopyWith<$Res> {
-  factory _$ByAccountIdCopyWith(
-          _ByAccountId value, $Res Function(_ByAccountId) _then) =
-      __$ByAccountIdCopyWithImpl;
+  factory _$DerivedKeyPasswordByAccountIdCopyWith(
+          _DerivedKeyPasswordByAccountId value,
+          $Res Function(_DerivedKeyPasswordByAccountId) _then) =
+      __$DerivedKeyPasswordByAccountIdCopyWithImpl;
   @useResult
   $Res call({DerivedKeyPasswordByAccountId data});
 
@@ -116,11 +118,12 @@ abstract mixin class _$ByAccountIdCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ByAccountIdCopyWithImpl<$Res> implements _$ByAccountIdCopyWith<$Res> {
-  __$ByAccountIdCopyWithImpl(this._self, this._then);
+class __$DerivedKeyPasswordByAccountIdCopyWithImpl<$Res>
+    implements _$DerivedKeyPasswordByAccountIdCopyWith<$Res> {
+  __$DerivedKeyPasswordByAccountIdCopyWithImpl(this._self, this._then);
 
-  final _ByAccountId _self;
-  final $Res Function(_ByAccountId) _then;
+  final _DerivedKeyPasswordByAccountId _self;
+  final $Res Function(_DerivedKeyPasswordByAccountId) _then;
 
   /// Create a copy of DerivedKeyPassword
   /// with the given fields replaced by the non-null parameter values.
@@ -128,7 +131,7 @@ class __$ByAccountIdCopyWithImpl<$Res> implements _$ByAccountIdCopyWith<$Res> {
   $Res call({
     Object? data = null,
   }) {
-    return _then(_ByAccountId(
+    return _then(_DerivedKeyPasswordByAccountId(
       null == data
           ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -149,11 +152,11 @@ class __$ByAccountIdCopyWithImpl<$Res> implements _$ByAccountIdCopyWith<$Res> {
 
 /// @nodoc
 @JsonSerializable()
-class _ByPublicKey implements DerivedKeyPassword {
-  const _ByPublicKey(this.data, {final String? $type})
+class _DerivedKeyPasswordByPublicKey implements DerivedKeyPassword {
+  const _DerivedKeyPasswordByPublicKey(this.data, {final String? $type})
       : $type = $type ?? 'by_public_key';
-  factory _ByPublicKey.fromJson(Map<String, dynamic> json) =>
-      _$ByPublicKeyFromJson(json);
+  factory _DerivedKeyPasswordByPublicKey.fromJson(Map<String, dynamic> json) =>
+      _$DerivedKeyPasswordByPublicKeyFromJson(json);
 
   @override
   final DerivedKeyPasswordByPublicKey data;
@@ -165,12 +168,13 @@ class _ByPublicKey implements DerivedKeyPassword {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$ByPublicKeyCopyWith<_ByPublicKey> get copyWith =>
-      __$ByPublicKeyCopyWithImpl<_ByPublicKey>(this, _$identity);
+  _$DerivedKeyPasswordByPublicKeyCopyWith<_DerivedKeyPasswordByPublicKey>
+      get copyWith => __$DerivedKeyPasswordByPublicKeyCopyWithImpl<
+          _DerivedKeyPasswordByPublicKey>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$ByPublicKeyToJson(
+    return _$DerivedKeyPasswordByPublicKeyToJson(
       this,
     );
   }
@@ -179,7 +183,7 @@ class _ByPublicKey implements DerivedKeyPassword {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ByPublicKey &&
+            other is _DerivedKeyPasswordByPublicKey &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -194,11 +198,12 @@ class _ByPublicKey implements DerivedKeyPassword {
 }
 
 /// @nodoc
-abstract mixin class _$ByPublicKeyCopyWith<$Res>
+abstract mixin class _$DerivedKeyPasswordByPublicKeyCopyWith<$Res>
     implements $DerivedKeyPasswordCopyWith<$Res> {
-  factory _$ByPublicKeyCopyWith(
-          _ByPublicKey value, $Res Function(_ByPublicKey) _then) =
-      __$ByPublicKeyCopyWithImpl;
+  factory _$DerivedKeyPasswordByPublicKeyCopyWith(
+          _DerivedKeyPasswordByPublicKey value,
+          $Res Function(_DerivedKeyPasswordByPublicKey) _then) =
+      __$DerivedKeyPasswordByPublicKeyCopyWithImpl;
   @useResult
   $Res call({DerivedKeyPasswordByPublicKey data});
 
@@ -206,11 +211,12 @@ abstract mixin class _$ByPublicKeyCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ByPublicKeyCopyWithImpl<$Res> implements _$ByPublicKeyCopyWith<$Res> {
-  __$ByPublicKeyCopyWithImpl(this._self, this._then);
+class __$DerivedKeyPasswordByPublicKeyCopyWithImpl<$Res>
+    implements _$DerivedKeyPasswordByPublicKeyCopyWith<$Res> {
+  __$DerivedKeyPasswordByPublicKeyCopyWithImpl(this._self, this._then);
 
-  final _ByPublicKey _self;
-  final $Res Function(_ByPublicKey) _then;
+  final _DerivedKeyPasswordByPublicKey _self;
+  final $Res Function(_DerivedKeyPasswordByPublicKey) _then;
 
   /// Create a copy of DerivedKeyPassword
   /// with the given fields replaced by the non-null parameter values.
@@ -218,7 +224,7 @@ class __$ByPublicKeyCopyWithImpl<$Res> implements _$ByPublicKeyCopyWith<$Res> {
   $Res call({
     Object? data = null,
   }) {
-    return _then(_ByPublicKey(
+    return _then(_DerivedKeyPasswordByPublicKey(
       null == data
           ? _self.data
           : data // ignore: cast_nullable_to_non_nullable

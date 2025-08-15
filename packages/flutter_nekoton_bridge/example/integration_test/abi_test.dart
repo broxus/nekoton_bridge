@@ -139,6 +139,21 @@ void main() {
     );
   });
 
+  testWidgets('getContractTypeNumber', (WidgetTester tester) async {
+    await tester.pumpAndSettleWithTimeout();
+    await initRustToDartCaller();
+
+    final ew = getContractTypeNumber(const WalletType.everWallet());
+    final v3 = getContractTypeNumber(const WalletType.walletV3());
+    final ms = getContractTypeNumber(
+      const WalletType.multisig(MultisigType.multisig2_1),
+    );
+
+    expect(ew, 1);
+    expect(v3, 0);
+    expect(ms, 8);
+  });
+
   // Moved to integration tests due to the need to call native methods (packAddress, repackAddress)
   group('Address', () {
     const raw1 =

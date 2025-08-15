@@ -6,14 +6,14 @@ part 'encrypted_key_update_params_change_password.freezed.dart';
 part 'encrypted_key_update_params_change_password.g.dart';
 
 @freezed
-sealed class EncryptedKeyUpdateParamsChangePassword
+abstract class EncryptedKeyUpdateParamsChangePassword
     with _$EncryptedKeyUpdateParamsChangePassword {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory EncryptedKeyUpdateParamsChangePassword({
     required final PublicKey publicKey,
     required final Password oldPassword,
     required final Password newPassword,
-  }) = _EncryptedKeyUpdateParamsChangePasswordChangePassword;
+  }) = _EncryptedKeyUpdateParamsChangePassword;
 
   factory EncryptedKeyUpdateParamsChangePassword.fromJson(
           Map<String, dynamic> json) =>

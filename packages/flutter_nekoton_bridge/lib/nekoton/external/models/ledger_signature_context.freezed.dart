@@ -17,9 +17,8 @@ T _$identity<T>(T value) => value;
 mixin _$LedgerSignatureContext {
   int get decimals;
   String get asset;
-  @amountJsonConverter
-  BigInt get amount;
-  Address get address;
+  int? get workchainId;
+  String? get address;
 
   /// Create a copy of LedgerSignatureContext
   /// with the given fields replaced by the non-null parameter values.
@@ -40,18 +39,19 @@ mixin _$LedgerSignatureContext {
             (identical(other.decimals, decimals) ||
                 other.decimals == decimals) &&
             (identical(other.asset, asset) || other.asset == asset) &&
-            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.workchainId, workchainId) ||
+                other.workchainId == workchainId) &&
             (identical(other.address, address) || other.address == address));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, decimals, asset, amount, address);
+      Object.hash(runtimeType, decimals, asset, workchainId, address);
 
   @override
   String toString() {
-    return 'LedgerSignatureContext(decimals: $decimals, asset: $asset, amount: $amount, address: $address)';
+    return 'LedgerSignatureContext(decimals: $decimals, asset: $asset, workchainId: $workchainId, address: $address)';
   }
 }
 
@@ -61,13 +61,7 @@ abstract mixin class $LedgerSignatureContextCopyWith<$Res> {
           $Res Function(LedgerSignatureContext) _then) =
       _$LedgerSignatureContextCopyWithImpl;
   @useResult
-  $Res call(
-      {int decimals,
-      String asset,
-      @amountJsonConverter BigInt amount,
-      Address address});
-
-  $AddressCopyWith<$Res> get address;
+  $Res call({int decimals, String asset, int? workchainId, String? address});
 }
 
 /// @nodoc
@@ -85,8 +79,8 @@ class _$LedgerSignatureContextCopyWithImpl<$Res>
   $Res call({
     Object? decimals = null,
     Object? asset = null,
-    Object? amount = null,
-    Object? address = null,
+    Object? workchainId = freezed,
+    Object? address = freezed,
   }) {
     return _then(_self.copyWith(
       decimals: null == decimals
@@ -97,25 +91,15 @@ class _$LedgerSignatureContextCopyWithImpl<$Res>
           ? _self.asset
           : asset // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: null == amount
-          ? _self.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-      address: null == address
+      workchainId: freezed == workchainId
+          ? _self.workchainId
+          : workchainId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      address: freezed == address
           ? _self.address
           : address // ignore: cast_nullable_to_non_nullable
-              as Address,
+              as String?,
     ));
-  }
-
-  /// Create a copy of LedgerSignatureContext
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res> get address {
-    return $AddressCopyWith<$Res>(_self.address, (value) {
-      return _then(_self.copyWith(address: value));
-    });
   }
 }
 
@@ -125,8 +109,8 @@ class _LedgerSignatureContext implements LedgerSignatureContext {
   const _LedgerSignatureContext(
       {required this.decimals,
       required this.asset,
-      @amountJsonConverter required this.amount,
-      required this.address});
+      this.workchainId,
+      this.address});
   factory _LedgerSignatureContext.fromJson(Map<String, dynamic> json) =>
       _$LedgerSignatureContextFromJson(json);
 
@@ -135,10 +119,9 @@ class _LedgerSignatureContext implements LedgerSignatureContext {
   @override
   final String asset;
   @override
-  @amountJsonConverter
-  final BigInt amount;
+  final int? workchainId;
   @override
-  final Address address;
+  final String? address;
 
   /// Create a copy of LedgerSignatureContext
   /// with the given fields replaced by the non-null parameter values.
@@ -164,18 +147,19 @@ class _LedgerSignatureContext implements LedgerSignatureContext {
             (identical(other.decimals, decimals) ||
                 other.decimals == decimals) &&
             (identical(other.asset, asset) || other.asset == asset) &&
-            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.workchainId, workchainId) ||
+                other.workchainId == workchainId) &&
             (identical(other.address, address) || other.address == address));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, decimals, asset, amount, address);
+      Object.hash(runtimeType, decimals, asset, workchainId, address);
 
   @override
   String toString() {
-    return 'LedgerSignatureContext(decimals: $decimals, asset: $asset, amount: $amount, address: $address)';
+    return 'LedgerSignatureContext(decimals: $decimals, asset: $asset, workchainId: $workchainId, address: $address)';
   }
 }
 
@@ -187,14 +171,7 @@ abstract mixin class _$LedgerSignatureContextCopyWith<$Res>
       __$LedgerSignatureContextCopyWithImpl;
   @override
   @useResult
-  $Res call(
-      {int decimals,
-      String asset,
-      @amountJsonConverter BigInt amount,
-      Address address});
-
-  @override
-  $AddressCopyWith<$Res> get address;
+  $Res call({int decimals, String asset, int? workchainId, String? address});
 }
 
 /// @nodoc
@@ -212,8 +189,8 @@ class __$LedgerSignatureContextCopyWithImpl<$Res>
   $Res call({
     Object? decimals = null,
     Object? asset = null,
-    Object? amount = null,
-    Object? address = null,
+    Object? workchainId = freezed,
+    Object? address = freezed,
   }) {
     return _then(_LedgerSignatureContext(
       decimals: null == decimals
@@ -224,25 +201,15 @@ class __$LedgerSignatureContextCopyWithImpl<$Res>
           ? _self.asset
           : asset // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: null == amount
-          ? _self.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-      address: null == address
+      workchainId: freezed == workchainId
+          ? _self.workchainId
+          : workchainId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      address: freezed == address
           ? _self.address
           : address // ignore: cast_nullable_to_non_nullable
-              as Address,
+              as String?,
     ));
-  }
-
-  /// Create a copy of LedgerSignatureContext
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res> get address {
-    return $AddressCopyWith<$Res>(_self.address, (value) {
-      return _then(_self.copyWith(address: value));
-    });
   }
 }
 

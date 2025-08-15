@@ -4520,7 +4520,7 @@ class NekotonBridgeWire implements BaseWire {
     int port_,
     ffi.Pointer<wire_cst_keystore_dart_wrapper> that,
     ffi.Pointer<wire_cst_key_signer> signer,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> data,
+    ffi.Pointer<wire_cst_unsigned_message_impl> message,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> input,
     ffi.Pointer<ffi.Int32> signature_id,
   ) {
@@ -4528,7 +4528,7 @@ class NekotonBridgeWire implements BaseWire {
       port_,
       that,
       signer,
-      data,
+      message,
       input,
       signature_id,
     );
@@ -4540,7 +4540,7 @@ class NekotonBridgeWire implements BaseWire {
                   ffi.Int64,
                   ffi.Pointer<wire_cst_keystore_dart_wrapper>,
                   ffi.Pointer<wire_cst_key_signer>,
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+                  ffi.Pointer<wire_cst_unsigned_message_impl>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   ffi.Pointer<ffi.Int32>)>>(
       'frbgen_nekoton_bridge_wire__crate__api__merged__keystore_dart_wrapper_sign');
@@ -4550,7 +4550,7 @@ class NekotonBridgeWire implements BaseWire {
               int,
               ffi.Pointer<wire_cst_keystore_dart_wrapper>,
               ffi.Pointer<wire_cst_key_signer>,
-              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              ffi.Pointer<wire_cst_unsigned_message_impl>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<ffi.Int32>)>();
 
@@ -5366,6 +5366,24 @@ class NekotonBridgeWire implements BaseWire {
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_code_salt');
   late final _wire__crate__api__merged__nt_get_code_salt =
       _wire__crate__api__merged__nt_get_code_saltPtr.asFunction<
+          WireSyncRust2DartDco Function(
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+
+  WireSyncRust2DartDco wire__crate__api__merged__nt_get_contract_type_number(
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> wallet_type,
+  ) {
+    return _wire__crate__api__merged__nt_get_contract_type_number(
+      wallet_type,
+    );
+  }
+
+  late final _wire__crate__api__merged__nt_get_contract_type_numberPtr = _lookup<
+          ffi.NativeFunction<
+              WireSyncRust2DartDco Function(
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
+      'frbgen_nekoton_bridge_wire__crate__api__merged__nt_get_contract_type_number');
+  late final _wire__crate__api__merged__nt_get_contract_type_number =
+      _wire__crate__api__merged__nt_get_contract_type_numberPtr.asFunction<
           WireSyncRust2DartDco Function(
               ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
 
@@ -8867,6 +8885,11 @@ final class wire_cst_ledger_connection_dart_wrapper extends ffi.Struct {
   external int inner_connection;
 }
 
+final class wire_cst_unsigned_message_impl extends ffi.Struct {
+  @ffi.UintPtr()
+  external int inner_message;
+}
+
 final class wire_cst_my_class extends ffi.Struct {
   @ffi.Int32()
   external int val;
@@ -8946,11 +8969,6 @@ final class wire_cst_token_wallet_dart_wrapper extends ffi.Struct {
 final class wire_cst_ton_wallet_dart_wrapper extends ffi.Struct {
   @ffi.UintPtr()
   external int inner_wallet;
-}
-
-final class wire_cst_unsigned_message_impl extends ffi.Struct {
-  @ffi.UintPtr()
-  external int inner_message;
 }
 
 final class wire_cst_list_opt_String extends ffi.Struct {

@@ -1,4 +1,5 @@
 #![allow(unused_variables, dead_code)]
+use crate::api::merged::UnsignedMessageImpl;
 use crate::frb_generated::RustOpaque;
 use crate::nekoton_wrapper::core::keystore::models::{SignedData, SignedDataRaw};
 use crate::nekoton_wrapper::core::keystore::{verify_data, KeyStoreApiBox, KeyStoreApiBoxTrait};
@@ -9,6 +10,7 @@ use crate::nekoton_wrapper::HandleError;
 use nekoton::core::keystore::{KeyStore, KeyStoreBuilder};
 use nekoton::crypto::{DerivedKeySigner, EncryptedKeySigner, LedgerKeySigner};
 use std::sync::Arc;
+// use crate::nekoton_wrapper::crypto::crypto_api::{UnsignedMessageImpl};
 
 pub struct KeystoreDartWrapper {
     pub inner_keystore: RustOpaque<Arc<dyn KeyStoreApiBoxTrait>>,
@@ -111,16 +113,16 @@ impl KeystoreDartWrapper {
     /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
     ///   LedgerSignInput.
     /// signature_id - id of transport
-    /// data - base64-encoded data that should be signed.
+    /// message - unsigned message that should be signed.
     pub async fn sign(
         &self,
         signer: KeySigner,
-        data: String,
+        message: UnsignedMessageImpl,
         input: String,
         signature_id: Option<i32>,
     ) -> anyhow::Result<String> {
         self.inner_keystore
-            .sign(signer, data, input, signature_id)
+            .sign(signer, message, input, signature_id)
             .await
     }
 

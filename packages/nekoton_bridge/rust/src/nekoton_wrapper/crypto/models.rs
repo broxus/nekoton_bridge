@@ -125,6 +125,12 @@ pub trait UnsignedMessageBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
 
     /// Sign message with fake signature and return json-encoded SignedMessage or throws error
     fn sign_fake(&self) -> anyhow::Result<String>;
+
+    fn sign_with_pruned_payload(
+        &self,
+        signature: &crypto::Signature,
+        prune_after_depth: u16,
+    ) -> anyhow::Result<crypto::SignedMessage>;
 }
 
 pub struct UnsignedMessageBox {
@@ -187,5 +193,14 @@ impl UnsignedMessageBoxTrait for UnsignedMessageBox {
         let signed_message = self.inner_message.sign(&[0; 64]).handle_error()?;
 
         serde_json::to_value(signed_message).json_or_error()
+    }
+
+    fn sign_with_pruned_payload(
+        &self,
+        signature: &crypto::Signature,
+        prune_after_depth: u16,
+    ) -> anyhow::Result<crypto::SignedMessage> {
+        self.inner_message
+            .sign_with_pruned_payload(signature, prune_after_depth)
     }
 }

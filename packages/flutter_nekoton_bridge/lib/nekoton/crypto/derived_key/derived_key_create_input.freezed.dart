@@ -16,9 +16,9 @@ DerivedKeyCreateInput _$DerivedKeyCreateInputFromJson(
     Map<String, dynamic> json) {
   switch (json['type']) {
     case 'import':
-      return _Import.fromJson(json);
+      return _DerivedKeyCreateInputImport.fromJson(json);
     case 'derive':
-      return _Derive.fromJson(json);
+      return _DerivedKeyCreateInputDerive.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'type', 'DerivedKeyCreateInput',
@@ -60,9 +60,11 @@ class $DerivedKeyCreateInputCopyWith<$Res> {
 
 /// @nodoc
 @JsonSerializable()
-class _Import implements DerivedKeyCreateInput {
-  const _Import(this.data, {final String? $type}) : $type = $type ?? 'import';
-  factory _Import.fromJson(Map<String, dynamic> json) => _$ImportFromJson(json);
+class _DerivedKeyCreateInputImport implements DerivedKeyCreateInput {
+  const _DerivedKeyCreateInputImport(this.data, {final String? $type})
+      : $type = $type ?? 'import';
+  factory _DerivedKeyCreateInputImport.fromJson(Map<String, dynamic> json) =>
+      _$DerivedKeyCreateInputImportFromJson(json);
 
   @override
   final DerivedKeyCreateInputImport data;
@@ -74,12 +76,13 @@ class _Import implements DerivedKeyCreateInput {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$ImportCopyWith<_Import> get copyWith =>
-      __$ImportCopyWithImpl<_Import>(this, _$identity);
+  _$DerivedKeyCreateInputImportCopyWith<_DerivedKeyCreateInputImport>
+      get copyWith => __$DerivedKeyCreateInputImportCopyWithImpl<
+          _DerivedKeyCreateInputImport>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$ImportToJson(
+    return _$DerivedKeyCreateInputImportToJson(
       this,
     );
   }
@@ -88,7 +91,7 @@ class _Import implements DerivedKeyCreateInput {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Import &&
+            other is _DerivedKeyCreateInputImport &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -103,10 +106,12 @@ class _Import implements DerivedKeyCreateInput {
 }
 
 /// @nodoc
-abstract mixin class _$ImportCopyWith<$Res>
+abstract mixin class _$DerivedKeyCreateInputImportCopyWith<$Res>
     implements $DerivedKeyCreateInputCopyWith<$Res> {
-  factory _$ImportCopyWith(_Import value, $Res Function(_Import) _then) =
-      __$ImportCopyWithImpl;
+  factory _$DerivedKeyCreateInputImportCopyWith(
+          _DerivedKeyCreateInputImport value,
+          $Res Function(_DerivedKeyCreateInputImport) _then) =
+      __$DerivedKeyCreateInputImportCopyWithImpl;
   @useResult
   $Res call({DerivedKeyCreateInputImport data});
 
@@ -114,11 +119,12 @@ abstract mixin class _$ImportCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ImportCopyWithImpl<$Res> implements _$ImportCopyWith<$Res> {
-  __$ImportCopyWithImpl(this._self, this._then);
+class __$DerivedKeyCreateInputImportCopyWithImpl<$Res>
+    implements _$DerivedKeyCreateInputImportCopyWith<$Res> {
+  __$DerivedKeyCreateInputImportCopyWithImpl(this._self, this._then);
 
-  final _Import _self;
-  final $Res Function(_Import) _then;
+  final _DerivedKeyCreateInputImport _self;
+  final $Res Function(_DerivedKeyCreateInputImport) _then;
 
   /// Create a copy of DerivedKeyCreateInput
   /// with the given fields replaced by the non-null parameter values.
@@ -126,7 +132,7 @@ class __$ImportCopyWithImpl<$Res> implements _$ImportCopyWith<$Res> {
   $Res call({
     Object? data = null,
   }) {
-    return _then(_Import(
+    return _then(_DerivedKeyCreateInputImport(
       null == data
           ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -147,9 +153,11 @@ class __$ImportCopyWithImpl<$Res> implements _$ImportCopyWith<$Res> {
 
 /// @nodoc
 @JsonSerializable()
-class _Derive implements DerivedKeyCreateInput {
-  const _Derive(this.data, {final String? $type}) : $type = $type ?? 'derive';
-  factory _Derive.fromJson(Map<String, dynamic> json) => _$DeriveFromJson(json);
+class _DerivedKeyCreateInputDerive implements DerivedKeyCreateInput {
+  const _DerivedKeyCreateInputDerive(this.data, {final String? $type})
+      : $type = $type ?? 'derive';
+  factory _DerivedKeyCreateInputDerive.fromJson(Map<String, dynamic> json) =>
+      _$DerivedKeyCreateInputDeriveFromJson(json);
 
   @override
   final DerivedKeyCreateInputDerive data;
@@ -161,12 +169,13 @@ class _Derive implements DerivedKeyCreateInput {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$DeriveCopyWith<_Derive> get copyWith =>
-      __$DeriveCopyWithImpl<_Derive>(this, _$identity);
+  _$DerivedKeyCreateInputDeriveCopyWith<_DerivedKeyCreateInputDerive>
+      get copyWith => __$DerivedKeyCreateInputDeriveCopyWithImpl<
+          _DerivedKeyCreateInputDerive>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$DeriveToJson(
+    return _$DerivedKeyCreateInputDeriveToJson(
       this,
     );
   }
@@ -175,7 +184,7 @@ class _Derive implements DerivedKeyCreateInput {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Derive &&
+            other is _DerivedKeyCreateInputDerive &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -190,10 +199,12 @@ class _Derive implements DerivedKeyCreateInput {
 }
 
 /// @nodoc
-abstract mixin class _$DeriveCopyWith<$Res>
+abstract mixin class _$DerivedKeyCreateInputDeriveCopyWith<$Res>
     implements $DerivedKeyCreateInputCopyWith<$Res> {
-  factory _$DeriveCopyWith(_Derive value, $Res Function(_Derive) _then) =
-      __$DeriveCopyWithImpl;
+  factory _$DerivedKeyCreateInputDeriveCopyWith(
+          _DerivedKeyCreateInputDerive value,
+          $Res Function(_DerivedKeyCreateInputDerive) _then) =
+      __$DerivedKeyCreateInputDeriveCopyWithImpl;
   @useResult
   $Res call({DerivedKeyCreateInputDerive data});
 
@@ -201,11 +212,12 @@ abstract mixin class _$DeriveCopyWith<$Res>
 }
 
 /// @nodoc
-class __$DeriveCopyWithImpl<$Res> implements _$DeriveCopyWith<$Res> {
-  __$DeriveCopyWithImpl(this._self, this._then);
+class __$DerivedKeyCreateInputDeriveCopyWithImpl<$Res>
+    implements _$DerivedKeyCreateInputDeriveCopyWith<$Res> {
+  __$DerivedKeyCreateInputDeriveCopyWithImpl(this._self, this._then);
 
-  final _Derive _self;
-  final $Res Function(_Derive) _then;
+  final _DerivedKeyCreateInputDerive _self;
+  final $Res Function(_DerivedKeyCreateInputDerive) _then;
 
   /// Create a copy of DerivedKeyCreateInput
   /// with the given fields replaced by the non-null parameter values.
@@ -213,7 +225,7 @@ class __$DeriveCopyWithImpl<$Res> implements _$DeriveCopyWith<$Res> {
   $Res call({
     Object? data = null,
   }) {
-    return _then(_Derive(
+    return _then(_DerivedKeyCreateInputDerive(
       null == data
           ? _self.data
           : data // ignore: cast_nullable_to_non_nullable

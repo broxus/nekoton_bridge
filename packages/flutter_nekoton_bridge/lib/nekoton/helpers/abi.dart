@@ -510,3 +510,7 @@ Address computeTonWalletAddress({
   );
   return Address(address: address);
 }
+
+int getContractTypeNumber(WalletType walletType) => ntGetContractTypeNumber(
+      walletType: jsonEncode(walletType),
+    );
