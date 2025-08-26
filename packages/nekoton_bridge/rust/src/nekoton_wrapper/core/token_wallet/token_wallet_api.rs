@@ -7,7 +7,7 @@ use crate::nekoton_wrapper::core::token_wallet::{
 
 use crate::nekoton_wrapper::transport::TransportBoxTrait;
 use crate::nekoton_wrapper::HandleError;
-use crate::utils::caller;
+pub use flutter_rust_bridge::DartFnFuture;
 use nekoton::core::models::TokenWalletTransaction;
 pub use nekoton::core::models::{TransactionWithData, TransactionsBatchInfo};
 use nekoton::core::token_wallet::TokenWalletSubscriptionHandler;
@@ -23,17 +23,21 @@ impl TokenWalletDartWrapper {
     /// owner - address of account that is owner of wallet
     /// root_token_contract - address of contract in blockchain
     pub async fn subscribe(
-        instance_hash: String,
         owner: String,
         root_token_contract: String,
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
         preload_transactions: bool,
+        on_balance_changed: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_transactions_found: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
     ) -> anyhow::Result<TokenWalletDartWrapper> {
         let wallet = TokenWalletBox::subscribe(
             transport.get_transport(),
             owner,
             root_token_contract,
-            Arc::new(TokenWalletSubscriptionHandlerImpl { instance_hash }),
+            Arc::new(TokenWalletSubscriptionHandlerImpl {
+                on_balance_changed: Arc::new(on_balance_changed),
+                on_transactions_found: Arc::new(on_transactions_found),
+            }),
             preload_transactions,
         )
         .await
@@ -173,19 +177,17 @@ impl TokenWalletDartWrapper {
 
 /// Handler for TonWallet that calls dart methods and sends data
 pub struct TokenWalletSubscriptionHandlerImpl {
-    pub instance_hash: String,
+    pub on_balance_changed: Arc<dyn Fn(String) -> DartFnFuture<()> + Send + Sync>,
+    pub on_transactions_found: Arc<dyn Fn(String) -> DartFnFuture<()> + Send + Sync>,
 }
 
 impl TokenWalletSubscriptionHandler for TokenWalletSubscriptionHandlerImpl {
     /// Send string representation of rust BigUInt
     fn on_balance_changed(&self, balance: BigUint) {
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("onBalanceChanged"),
-            args: vec![caller::DynamicValue::String(balance.to_string())],
-            named_args: vec![],
-        };
-        caller::call(stub, false);
+        let fut = (self.on_balance_changed)(balance.to_string());
+        flutter_rust_bridge::spawn(async move {
+            fut.await;
+        });
     }
 
     /// Send json-encoded list with 2 positions:
@@ -197,12 +199,9 @@ impl TokenWalletSubscriptionHandler for TokenWalletSubscriptionHandlerImpl {
         batch_info: TransactionsBatchInfo,
     ) {
         let payload = serde_json::to_string(&(transactions, batch_info)).unwrap();
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("onTransactionsFound"),
-            args: vec![caller::DynamicValue::String(payload)],
-            named_args: vec![],
-        };
-        caller::call(stub, false);
+        let fut = (self.on_transactions_found)(payload);
+        flutter_rust_bridge::spawn(async move {
+            fut.await;
+        });
     }
 }

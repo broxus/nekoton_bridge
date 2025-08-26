@@ -3,9 +3,6 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
-import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
-import 'package:reflectable/mirrors.dart';
-import 'gql_connection.reflectable.dart';
 
 abstract interface class GqlConnectionHttpClient {
   Future<String> post({
@@ -19,8 +16,7 @@ abstract interface class GqlConnectionHttpClient {
   void dispose();
 }
 
-@reflector
-class GqlConnection extends RustToDartMirrorInterface {
+class GqlConnection {
   late GqlConnectionDartWrapper connection;
 
   final GqlConnectionHttpClient _client;
@@ -49,8 +45,8 @@ class GqlConnection extends RustToDartMirrorInterface {
     final instance = GqlConnection._(client, settings, name, group);
 
     instance.connection = GqlConnectionDartWrapper(
-      instanceHash: instance.instanceHash,
       isLocal: settings.local,
+      onPost: instance.post,
     );
 
     return instance;
@@ -141,18 +137,8 @@ class GqlConnection extends RustToDartMirrorInterface {
     return latency;
   }
 
-  @override
   void dispose() {
     connection.innerConnection.dispose();
     _client.dispose();
-    super.dispose();
-  }
-
-  @override
-  InstanceMirror initializeMirror() {
-    initializeReflectable(); // auto-generated reflectable file
-    return reflector.reflect(this);
   }
 }
-
-void main() {}

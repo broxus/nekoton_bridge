@@ -8,10 +8,10 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:ffi' as ffi;
 import 'frb_generated.dart';
+import 'lib.dart';
 import 'nekoton_wrapper/core/keystore/models.dart';
 import 'nekoton_wrapper/crypto/models.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated_io.dart';
-import 'utils/caller.dart';
 import 'utils/logger.dart';
 
 abstract class NekotonBridgeApiImplPlatform
@@ -75,8 +75,293 @@ abstract class NekotonBridgeApiImplPlatform
       get rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTraitPtr => wire
           ._rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTraitPtr;
 
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureOptionStringPtr =>
+          wire._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSyncPtr;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ArcFnStringDartFnFuturePtr => wire
+          ._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSyncPtr;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureStringPtr => wire
+          ._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSyncPtr;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ArcFnStringStringDartFnFuturePtr => wire
+          ._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSyncPtr;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ArcFnVecU8DartFnFutureVecU8Ptr => wire
+          ._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSyncPtr;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ArcFnU16DartFnFutureVecU8Ptr => wire
+          ._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSyncPtr;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8Ptr =>
+          wire._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSyncPtr;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Ptr =>
+          wire._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSyncPtr;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_GenericContractSubscriptionHandlerImplPtr =>
+          wire._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImplPtr;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_GqlConnectionImplPtr => wire
+          ._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImplPtr;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_JettonWalletSubscriptionHandlerImplPtr =>
+          wire._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImplPtr;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_JrpcConnectionImplPtr => wire
+          ._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImplPtr;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_LedgerConnectionImplPtr => wire
+          ._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImplPtr;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ProtoConnectionImplPtr => wire
+          ._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImplPtr;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_StorageImplPtr => wire
+          ._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImplPtr;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_TokenWalletSubscriptionHandlerImplPtr =>
+          wire._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImplPtr;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_TonWalletSubscriptionHandlerImplPtr =>
+          wire._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImplPtr;
+
   @protected
   AnyhowException dco_decode_AnyhowException(dynamic raw);
+
+  @protected
+  ArcFnStringDartFnFutureOptionString
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnStringDartFnFuture
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnStringDartFnFutureString
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnStringStringDartFnFuture
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnVecU8DartFnFutureVecU8
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnU16DartFnFutureVecU8
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnU16OptionI32VecU8DartFnFutureVecU8
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+          dynamic raw);
+
+  @protected
+  GenericContractSubscriptionHandlerImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  GqlConnectionImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          dynamic raw);
+
+  @protected
+  JettonWalletSubscriptionHandlerImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  JrpcConnectionImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          dynamic raw);
+
+  @protected
+  LedgerConnectionImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          dynamic raw);
+
+  @protected
+  ProtoConnectionImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          dynamic raw);
+
+  @protected
+  StorageImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          dynamic raw);
+
+  @protected
+  TokenWalletSubscriptionHandlerImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  TonWalletSubscriptionHandlerImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  GenericContractSubscriptionHandlerImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  GqlConnectionImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          dynamic raw);
+
+  @protected
+  JettonWalletSubscriptionHandlerImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  JrpcConnectionImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          dynamic raw);
+
+  @protected
+  LedgerConnectionImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          dynamic raw);
+
+  @protected
+  ProtoConnectionImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          dynamic raw);
+
+  @protected
+  StorageImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          dynamic raw);
+
+  @protected
+  TokenWalletSubscriptionHandlerImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  TonWalletSubscriptionHandlerImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  GenericContractSubscriptionHandlerImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  GqlConnectionImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          dynamic raw);
+
+  @protected
+  JettonWalletSubscriptionHandlerImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  JrpcConnectionImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          dynamic raw);
+
+  @protected
+  LedgerConnectionImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          dynamic raw);
+
+  @protected
+  ProtoConnectionImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          dynamic raw);
+
+  @protected
+  StorageImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          dynamic raw);
+
+  @protected
+  TokenWalletSubscriptionHandlerImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  TonWalletSubscriptionHandlerImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  FutureOr<String> Function(String)
+      dco_decode_DartFn_Inputs_String_Output_String_AnyhowException(
+          dynamic raw);
+
+  @protected
+  FutureOr<String?> Function(String)
+      dco_decode_DartFn_Inputs_String_Output_opt_String_AnyhowException(
+          dynamic raw);
+
+  @protected
+  FutureOr<void> Function(String)
+      dco_decode_DartFn_Inputs_String_Output_unit_AnyhowException(dynamic raw);
+
+  @protected
+  FutureOr<void> Function(String, String)
+      dco_decode_DartFn_Inputs_String_String_Output_unit_AnyhowException(
+          dynamic raw);
+
+  @protected
+  FutureOr<Uint8List> Function(Uint8List)
+      dco_decode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+          dynamic raw);
+
+  @protected
+  FutureOr<Uint8List> Function(int)
+      dco_decode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
+          dynamic raw);
+
+  @protected
+  FutureOr<Uint8List> Function(int, int?, Uint8List)
+      dco_decode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+          dynamic raw);
+
+  @protected
+  FutureOr<Uint8List> Function(int, int, int?, Uint8List, String)
+      dco_decode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+          dynamic raw);
+
+  @protected
+  Object dco_decode_DartOpaque(dynamic raw);
 
   @protected
   ArcAccountsStorageBoxTrait
@@ -130,17 +415,95 @@ abstract class NekotonBridgeApiImplPlatform
       dco_decode_RustOpaque_ArcdynUnsignedMessageBoxTrait(dynamic raw);
 
   @protected
-  RustStreamSink<DartCallStubRegistred>
-      dco_decode_StreamSink_dart_call_stub_registred_Dco(dynamic raw);
+  ArcFnStringDartFnFutureOptionString
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnStringDartFnFuture
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnStringDartFnFutureString
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnStringStringDartFnFuture
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnVecU8DartFnFutureVecU8
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnU16DartFnFutureVecU8
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnU16OptionI32VecU8DartFnFutureVecU8
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+          dynamic raw);
+
+  @protected
+  GenericContractSubscriptionHandlerImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  GqlConnectionImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          dynamic raw);
+
+  @protected
+  JettonWalletSubscriptionHandlerImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  JrpcConnectionImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          dynamic raw);
+
+  @protected
+  LedgerConnectionImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          dynamic raw);
+
+  @protected
+  ProtoConnectionImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          dynamic raw);
+
+  @protected
+  StorageImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          dynamic raw);
+
+  @protected
+  TokenWalletSubscriptionHandlerImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  TonWalletSubscriptionHandlerImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          dynamic raw);
 
   @protected
   RustStreamSink<LogEntry> dco_decode_StreamSink_log_entry_Dco(dynamic raw);
 
   @protected
   String dco_decode_String(dynamic raw);
-
-  @protected
-  MyFormat dco_decode_TraitDef_MyFormat(dynamic raw);
 
   @protected
   AccountsStorageImpl dco_decode_accounts_storage_impl(dynamic raw);
@@ -165,15 +528,6 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   bool dco_decode_box_autoadd_bool(dynamic raw);
-
-  @protected
-  CallerTestClass dco_decode_box_autoadd_caller_test_class(dynamic raw);
-
-  @protected
-  DartCallStub dco_decode_box_autoadd_dart_call_stub(dynamic raw);
-
-  @protected
-  DynamicValue dco_decode_box_autoadd_dynamic_value(dynamic raw);
 
   @protected
   GenericContractDartWrapper
@@ -214,9 +568,6 @@ abstract class NekotonBridgeApiImplPlatform
   MnemonicType dco_decode_box_autoadd_mnemonic_type(dynamic raw);
 
   @protected
-  MyClass dco_decode_box_autoadd_my_class(dynamic raw);
-
-  @protected
   ProtoConnectionDartWrapper
       dco_decode_box_autoadd_proto_connection_dart_wrapper(dynamic raw);
 
@@ -241,30 +592,6 @@ abstract class NekotonBridgeApiImplPlatform
   UnsignedMessageImpl dco_decode_box_autoadd_unsigned_message_impl(dynamic raw);
 
   @protected
-  CallerTestClass dco_decode_caller_test_class(dynamic raw);
-
-  @protected
-  DartCallStub dco_decode_dart_call_stub(dynamic raw);
-
-  @protected
-  DartCallStubRegistred dco_decode_dart_call_stub_registred(dynamic raw);
-
-  @protected
-  DynamicNamedValue dco_decode_dynamic_named_value(dynamic raw);
-
-  @protected
-  DynamicValue dco_decode_dynamic_value(dynamic raw);
-
-  @protected
-  ErrorCode dco_decode_error_code(dynamic raw);
-
-  @protected
-  double dco_decode_f_32(dynamic raw);
-
-  @protected
-  double dco_decode_f_64(dynamic raw);
-
-  @protected
   GeneratedKeyG dco_decode_generated_key_g(dynamic raw);
 
   @protected
@@ -285,6 +612,9 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   int dco_decode_i_8(dynamic raw);
+
+  @protected
+  PlatformInt64 dco_decode_isize(dynamic raw);
 
   @protected
   JettonWalletDartWrapper dco_decode_jetton_wallet_dart_wrapper(dynamic raw);
@@ -310,16 +640,7 @@ abstract class NekotonBridgeApiImplPlatform
       dynamic raw);
 
   @protected
-  LedgerConnectionImpl dco_decode_ledger_connection_impl(dynamic raw);
-
-  @protected
   List<String> dco_decode_list_String(dynamic raw);
-
-  @protected
-  List<DynamicNamedValue> dco_decode_list_dynamic_named_value(dynamic raw);
-
-  @protected
-  List<DynamicValue> dco_decode_list_dynamic_value(dynamic raw);
 
   @protected
   List<KeySigner> dco_decode_list_key_signer(dynamic raw);
@@ -346,16 +667,10 @@ abstract class NekotonBridgeApiImplPlatform
   MnemonicType dco_decode_mnemonic_type(dynamic raw);
 
   @protected
-  MyClass dco_decode_my_class(dynamic raw);
-
-  @protected
   String? dco_decode_opt_String(dynamic raw);
 
   @protected
   bool? dco_decode_opt_box_autoadd_bool(dynamic raw);
-
-  @protected
-  DynamicValue? dco_decode_opt_box_autoadd_dynamic_value(dynamic raw);
 
   @protected
   int? dco_decode_opt_box_autoadd_i_32(dynamic raw);
@@ -393,9 +708,6 @@ abstract class NekotonBridgeApiImplPlatform
   StorageDartWrapper dco_decode_storage_dart_wrapper(dynamic raw);
 
   @protected
-  StorageImpl dco_decode_storage_impl(dynamic raw);
-
-  @protected
   TokenWalletDartWrapper dco_decode_token_wallet_dart_wrapper(dynamic raw);
 
   @protected
@@ -424,6 +736,184 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   AnyhowException sse_decode_AnyhowException(SseDeserializer deserializer);
+
+  @protected
+  ArcFnStringDartFnFutureOptionString
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnStringDartFnFuture
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnStringDartFnFutureString
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnStringStringDartFnFuture
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnVecU8DartFnFutureVecU8
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnU16DartFnFutureVecU8
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnU16OptionI32VecU8DartFnFutureVecU8
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  GenericContractSubscriptionHandlerImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  GqlConnectionImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  JettonWalletSubscriptionHandlerImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  JrpcConnectionImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  LedgerConnectionImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  ProtoConnectionImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  StorageImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  TokenWalletSubscriptionHandlerImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  TonWalletSubscriptionHandlerImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  GenericContractSubscriptionHandlerImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  GqlConnectionImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  JettonWalletSubscriptionHandlerImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  JrpcConnectionImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  LedgerConnectionImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  ProtoConnectionImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  StorageImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  TokenWalletSubscriptionHandlerImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  TonWalletSubscriptionHandlerImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  GenericContractSubscriptionHandlerImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  GqlConnectionImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  JettonWalletSubscriptionHandlerImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  JrpcConnectionImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  LedgerConnectionImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  ProtoConnectionImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  StorageImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  TokenWalletSubscriptionHandlerImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  TonWalletSubscriptionHandlerImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  Object sse_decode_DartOpaque(SseDeserializer deserializer);
 
   @protected
   ArcAccountsStorageBoxTrait
@@ -483,8 +973,88 @@ abstract class NekotonBridgeApiImplPlatform
           SseDeserializer deserializer);
 
   @protected
-  RustStreamSink<DartCallStubRegistred>
-      sse_decode_StreamSink_dart_call_stub_registred_Dco(
+  ArcFnStringDartFnFutureOptionString
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnStringDartFnFuture
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnStringDartFnFutureString
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnStringStringDartFnFuture
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnVecU8DartFnFutureVecU8
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnU16DartFnFutureVecU8
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnU16OptionI32VecU8DartFnFutureVecU8
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  GenericContractSubscriptionHandlerImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  GqlConnectionImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  JettonWalletSubscriptionHandlerImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  JrpcConnectionImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  LedgerConnectionImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  ProtoConnectionImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  StorageImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  TokenWalletSubscriptionHandlerImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  TonWalletSubscriptionHandlerImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
           SseDeserializer deserializer);
 
   @protected
@@ -521,18 +1091,6 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   bool sse_decode_box_autoadd_bool(SseDeserializer deserializer);
-
-  @protected
-  CallerTestClass sse_decode_box_autoadd_caller_test_class(
-      SseDeserializer deserializer);
-
-  @protected
-  DartCallStub sse_decode_box_autoadd_dart_call_stub(
-      SseDeserializer deserializer);
-
-  @protected
-  DynamicValue sse_decode_box_autoadd_dynamic_value(
-      SseDeserializer deserializer);
 
   @protected
   GenericContractDartWrapper
@@ -579,9 +1137,6 @@ abstract class NekotonBridgeApiImplPlatform
       SseDeserializer deserializer);
 
   @protected
-  MyClass sse_decode_box_autoadd_my_class(SseDeserializer deserializer);
-
-  @protected
   ProtoConnectionDartWrapper
       sse_decode_box_autoadd_proto_connection_dart_wrapper(
           SseDeserializer deserializer);
@@ -610,32 +1165,6 @@ abstract class NekotonBridgeApiImplPlatform
       SseDeserializer deserializer);
 
   @protected
-  CallerTestClass sse_decode_caller_test_class(SseDeserializer deserializer);
-
-  @protected
-  DartCallStub sse_decode_dart_call_stub(SseDeserializer deserializer);
-
-  @protected
-  DartCallStubRegistred sse_decode_dart_call_stub_registred(
-      SseDeserializer deserializer);
-
-  @protected
-  DynamicNamedValue sse_decode_dynamic_named_value(
-      SseDeserializer deserializer);
-
-  @protected
-  DynamicValue sse_decode_dynamic_value(SseDeserializer deserializer);
-
-  @protected
-  ErrorCode sse_decode_error_code(SseDeserializer deserializer);
-
-  @protected
-  double sse_decode_f_32(SseDeserializer deserializer);
-
-  @protected
-  double sse_decode_f_64(SseDeserializer deserializer);
-
-  @protected
   GeneratedKeyG sse_decode_generated_key_g(SseDeserializer deserializer);
 
   @protected
@@ -657,6 +1186,9 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   int sse_decode_i_8(SseDeserializer deserializer);
+
+  @protected
+  PlatformInt64 sse_decode_isize(SseDeserializer deserializer);
 
   @protected
   JettonWalletDartWrapper sse_decode_jetton_wallet_dart_wrapper(
@@ -685,19 +1217,7 @@ abstract class NekotonBridgeApiImplPlatform
       SseDeserializer deserializer);
 
   @protected
-  LedgerConnectionImpl sse_decode_ledger_connection_impl(
-      SseDeserializer deserializer);
-
-  @protected
   List<String> sse_decode_list_String(SseDeserializer deserializer);
-
-  @protected
-  List<DynamicNamedValue> sse_decode_list_dynamic_named_value(
-      SseDeserializer deserializer);
-
-  @protected
-  List<DynamicValue> sse_decode_list_dynamic_value(
-      SseDeserializer deserializer);
 
   @protected
   List<KeySigner> sse_decode_list_key_signer(SseDeserializer deserializer);
@@ -724,17 +1244,10 @@ abstract class NekotonBridgeApiImplPlatform
   MnemonicType sse_decode_mnemonic_type(SseDeserializer deserializer);
 
   @protected
-  MyClass sse_decode_my_class(SseDeserializer deserializer);
-
-  @protected
   String? sse_decode_opt_String(SseDeserializer deserializer);
 
   @protected
   bool? sse_decode_opt_box_autoadd_bool(SseDeserializer deserializer);
-
-  @protected
-  DynamicValue? sse_decode_opt_box_autoadd_dynamic_value(
-      SseDeserializer deserializer);
 
   @protected
   int? sse_decode_opt_box_autoadd_i_32(SseDeserializer deserializer);
@@ -775,9 +1288,6 @@ abstract class NekotonBridgeApiImplPlatform
       SseDeserializer deserializer);
 
   @protected
-  StorageImpl sse_decode_storage_impl(SseDeserializer deserializer);
-
-  @protected
   TokenWalletDartWrapper sse_decode_token_wallet_dart_wrapper(
       SseDeserializer deserializer);
 
@@ -812,18 +1322,6 @@ abstract class NekotonBridgeApiImplPlatform
       AnyhowException raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     throw UnimplementedError();
-  }
-
-  @protected
-  ffi.Pointer<wire_cst_list_prim_u_8_strict>
-      cst_encode_StreamSink_dart_call_stub_registred_Dco(
-          RustStreamSink<DartCallStubRegistred> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_String(raw.setupAndSerialize(
-        codec: DcoCodec(
-      decodeSuccessData: dco_decode_dart_call_stub_registred,
-      decodeErrorData: dco_decode_AnyhowException,
-    )));
   }
 
   @protected
@@ -865,33 +1363,6 @@ abstract class NekotonBridgeApiImplPlatform
   ffi.Pointer<ffi.Bool> cst_encode_box_autoadd_bool(bool raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return wire.cst_new_box_autoadd_bool(cst_encode_bool(raw));
-  }
-
-  @protected
-  ffi.Pointer<wire_cst_caller_test_class>
-      cst_encode_box_autoadd_caller_test_class(CallerTestClass raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    final ptr = wire.cst_new_box_autoadd_caller_test_class();
-    cst_api_fill_to_wire_caller_test_class(raw, ptr.ref);
-    return ptr;
-  }
-
-  @protected
-  ffi.Pointer<wire_cst_dart_call_stub> cst_encode_box_autoadd_dart_call_stub(
-      DartCallStub raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    final ptr = wire.cst_new_box_autoadd_dart_call_stub();
-    cst_api_fill_to_wire_dart_call_stub(raw, ptr.ref);
-    return ptr;
-  }
-
-  @protected
-  ffi.Pointer<wire_cst_dynamic_value> cst_encode_box_autoadd_dynamic_value(
-      DynamicValue raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    final ptr = wire.cst_new_box_autoadd_dynamic_value();
-    cst_api_fill_to_wire_dynamic_value(raw, ptr.ref);
-    return ptr;
   }
 
   @protected
@@ -996,14 +1467,6 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
-  ffi.Pointer<wire_cst_my_class> cst_encode_box_autoadd_my_class(MyClass raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    final ptr = wire.cst_new_box_autoadd_my_class();
-    cst_api_fill_to_wire_my_class(raw, ptr.ref);
-    return ptr;
-  }
-
-  @protected
   ffi.Pointer<wire_cst_proto_connection_dart_wrapper>
       cst_encode_box_autoadd_proto_connection_dart_wrapper(
           ProtoConnectionDartWrapper raw) {
@@ -1072,33 +1535,17 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
+  int cst_encode_isize(PlatformInt64 raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.toInt();
+  }
+
+  @protected
   ffi.Pointer<wire_cst_list_String> cst_encode_list_String(List<String> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     final ans = wire.cst_new_list_String(raw.length);
     for (var i = 0; i < raw.length; ++i) {
       ans.ref.ptr[i] = cst_encode_String(raw[i]);
-    }
-    return ans;
-  }
-
-  @protected
-  ffi.Pointer<wire_cst_list_dynamic_named_value>
-      cst_encode_list_dynamic_named_value(List<DynamicNamedValue> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    final ans = wire.cst_new_list_dynamic_named_value(raw.length);
-    for (var i = 0; i < raw.length; ++i) {
-      cst_api_fill_to_wire_dynamic_named_value(raw[i], ans.ref.ptr[i]);
-    }
-    return ans;
-  }
-
-  @protected
-  ffi.Pointer<wire_cst_list_dynamic_value> cst_encode_list_dynamic_value(
-      List<DynamicValue> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    final ans = wire.cst_new_list_dynamic_value(raw.length);
-    for (var i = 0; i < raw.length; ++i) {
-      cst_api_fill_to_wire_dynamic_value(raw[i], ans.ref.ptr[i]);
     }
     return ans;
   }
@@ -1163,15 +1610,6 @@ abstract class NekotonBridgeApiImplPlatform
   ffi.Pointer<ffi.Bool> cst_encode_opt_box_autoadd_bool(bool? raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return raw == null ? ffi.nullptr : cst_encode_box_autoadd_bool(raw);
-  }
-
-  @protected
-  ffi.Pointer<wire_cst_dynamic_value> cst_encode_opt_box_autoadd_dynamic_value(
-      DynamicValue? raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw == null
-        ? ffi.nullptr
-        : cst_encode_box_autoadd_dynamic_value(raw);
   }
 
   @protected
@@ -1245,24 +1683,6 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
-  void cst_api_fill_to_wire_box_autoadd_caller_test_class(
-      CallerTestClass apiObj, ffi.Pointer<wire_cst_caller_test_class> wireObj) {
-    cst_api_fill_to_wire_caller_test_class(apiObj, wireObj.ref);
-  }
-
-  @protected
-  void cst_api_fill_to_wire_box_autoadd_dart_call_stub(
-      DartCallStub apiObj, ffi.Pointer<wire_cst_dart_call_stub> wireObj) {
-    cst_api_fill_to_wire_dart_call_stub(apiObj, wireObj.ref);
-  }
-
-  @protected
-  void cst_api_fill_to_wire_box_autoadd_dynamic_value(
-      DynamicValue apiObj, ffi.Pointer<wire_cst_dynamic_value> wireObj) {
-    cst_api_fill_to_wire_dynamic_value(apiObj, wireObj.ref);
-  }
-
-  @protected
   void cst_api_fill_to_wire_box_autoadd_generic_contract_dart_wrapper(
       GenericContractDartWrapper apiObj,
       ffi.Pointer<wire_cst_generic_contract_dart_wrapper> wireObj) {
@@ -1331,12 +1751,6 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
-  void cst_api_fill_to_wire_box_autoadd_my_class(
-      MyClass apiObj, ffi.Pointer<wire_cst_my_class> wireObj) {
-    cst_api_fill_to_wire_my_class(apiObj, wireObj.ref);
-  }
-
-  @protected
   void cst_api_fill_to_wire_box_autoadd_proto_connection_dart_wrapper(
       ProtoConnectionDartWrapper apiObj,
       ffi.Pointer<wire_cst_proto_connection_dart_wrapper> wireObj) {
@@ -1376,111 +1790,6 @@ abstract class NekotonBridgeApiImplPlatform
       UnsignedMessageImpl apiObj,
       ffi.Pointer<wire_cst_unsigned_message_impl> wireObj) {
     cst_api_fill_to_wire_unsigned_message_impl(apiObj, wireObj.ref);
-  }
-
-  @protected
-  void cst_api_fill_to_wire_caller_test_class(
-      CallerTestClass apiObj, wire_cst_caller_test_class wireObj) {
-    wireObj.instance_hash = cst_encode_String(apiObj.instanceHash);
-    wireObj.value = cst_encode_i_32(apiObj.value);
-  }
-
-  @protected
-  void cst_api_fill_to_wire_dart_call_stub(
-      DartCallStub apiObj, wire_cst_dart_call_stub wireObj) {
-    wireObj.instance_hash = cst_encode_String(apiObj.instanceHash);
-    wireObj.fn_name = cst_encode_String(apiObj.fnName);
-    wireObj.args = cst_encode_list_dynamic_value(apiObj.args);
-    wireObj.named_args = cst_encode_list_dynamic_named_value(apiObj.namedArgs);
-  }
-
-  @protected
-  void cst_api_fill_to_wire_dart_call_stub_registred(
-      DartCallStubRegistred apiObj, wire_cst_dart_call_stub_registred wireObj) {
-    wireObj.id = cst_encode_opt_String(apiObj.id);
-    cst_api_fill_to_wire_dart_call_stub(apiObj.stub, wireObj.stub);
-  }
-
-  @protected
-  void cst_api_fill_to_wire_dynamic_named_value(
-      DynamicNamedValue apiObj, wire_cst_dynamic_named_value wireObj) {
-    wireObj.name = cst_encode_String(apiObj.name);
-    wireObj.value = cst_encode_opt_box_autoadd_dynamic_value(apiObj.value);
-  }
-
-  @protected
-  void cst_api_fill_to_wire_dynamic_value(
-      DynamicValue apiObj, wire_cst_dynamic_value wireObj) {
-    if (apiObj is DynamicValue_U16) {
-      var pre_field0 = cst_encode_u_16(apiObj.field0);
-      wireObj.tag = 0;
-      wireObj.kind.U16.field0 = pre_field0;
-      return;
-    }
-    if (apiObj is DynamicValue_U32) {
-      var pre_field0 = cst_encode_u_32(apiObj.field0);
-      wireObj.tag = 1;
-      wireObj.kind.U32.field0 = pre_field0;
-      return;
-    }
-    if (apiObj is DynamicValue_I32) {
-      var pre_field0 = cst_encode_i_32(apiObj.field0);
-      wireObj.tag = 2;
-      wireObj.kind.I32.field0 = pre_field0;
-      return;
-    }
-    if (apiObj is DynamicValue_U64) {
-      var pre_field0 = cst_encode_u_64(apiObj.field0);
-      wireObj.tag = 3;
-      wireObj.kind.U64.field0 = pre_field0;
-      return;
-    }
-    if (apiObj is DynamicValue_I64) {
-      var pre_field0 = cst_encode_i_64(apiObj.field0);
-      wireObj.tag = 4;
-      wireObj.kind.I64.field0 = pre_field0;
-      return;
-    }
-    if (apiObj is DynamicValue_F32) {
-      var pre_field0 = cst_encode_f_32(apiObj.field0);
-      wireObj.tag = 5;
-      wireObj.kind.F32.field0 = pre_field0;
-      return;
-    }
-    if (apiObj is DynamicValue_F64) {
-      var pre_field0 = cst_encode_f_64(apiObj.field0);
-      wireObj.tag = 6;
-      wireObj.kind.F64.field0 = pre_field0;
-      return;
-    }
-    if (apiObj is DynamicValue_String) {
-      var pre_field0 = cst_encode_String(apiObj.field0);
-      wireObj.tag = 7;
-      wireObj.kind.String.field0 = pre_field0;
-      return;
-    }
-    if (apiObj is DynamicValue_VecU8) {
-      var pre_field0 = cst_encode_list_prim_u_8_strict(apiObj.field0);
-      wireObj.tag = 8;
-      wireObj.kind.VecU8.field0 = pre_field0;
-      return;
-    }
-    if (apiObj is DynamicValue_MegaStruct) {
-      var pre_field0 = cst_encode_String(apiObj.field0);
-      wireObj.tag = 9;
-      wireObj.kind.MegaStruct.field0 = pre_field0;
-      return;
-    }
-    if (apiObj is DynamicValue_Error) {
-      var pre_field0 = cst_encode_error_code(apiObj.field0);
-      wireObj.tag = 10;
-      wireObj.kind.Error.field0 = pre_field0;
-      return;
-    }
-    if (apiObj is DynamicValue_None) {
-      wireObj.tag = 11;
-      return;
-    }
   }
 
   @protected
@@ -1588,12 +1897,6 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
-  void cst_api_fill_to_wire_ledger_connection_impl(
-      LedgerConnectionImpl apiObj, wire_cst_ledger_connection_impl wireObj) {
-    wireObj.instance_hash = cst_encode_String(apiObj.instanceHash);
-  }
-
-  @protected
   void cst_api_fill_to_wire_log_entry(
       LogEntry apiObj, wire_cst_log_entry wireObj) {
     wireObj.time_millis = cst_encode_i_64(apiObj.timeMillis);
@@ -1617,12 +1920,6 @@ abstract class NekotonBridgeApiImplPlatform
       wireObj.kind.Bip39.field0 = pre_field0;
       return;
     }
-  }
-
-  @protected
-  void cst_api_fill_to_wire_my_class(
-      MyClass apiObj, wire_cst_my_class wireObj) {
-    wireObj.val = cst_encode_i_32(apiObj.val);
   }
 
   @protected
@@ -1675,12 +1972,6 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
-  void cst_api_fill_to_wire_storage_impl(
-      StorageImpl apiObj, wire_cst_storage_impl wireObj) {
-    wireObj.instance_hash = cst_encode_String(apiObj.instanceHash);
-  }
-
-  @protected
   void cst_api_fill_to_wire_token_wallet_dart_wrapper(
       TokenWalletDartWrapper apiObj,
       wire_cst_token_wallet_dart_wrapper wireObj) {
@@ -1701,6 +1992,187 @@ abstract class NekotonBridgeApiImplPlatform
     wireObj.inner_message = cst_encode_RustOpaque_ArcdynUnsignedMessageBoxTrait(
         apiObj.innerMessage);
   }
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+      ArcFnStringDartFnFutureOptionString raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+      ArcFnStringDartFnFuture raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+      ArcFnStringDartFnFutureString raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+      ArcFnStringStringDartFnFuture raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+      ArcFnVecU8DartFnFutureVecU8 raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+      ArcFnU16DartFnFutureVecU8 raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+      ArcFnU16OptionI32VecU8DartFnFutureVecU8 raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+      ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+      GenericContractSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+      GqlConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+      JettonWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+      JrpcConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+      LedgerConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+      ProtoConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+      StorageImpl raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+      TokenWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+      TonWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+      GenericContractSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+      GqlConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+      JettonWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+      JrpcConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+      LedgerConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+      ProtoConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+      StorageImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+      TokenWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+      TonWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+      GenericContractSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+      GqlConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+      JettonWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+      JrpcConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+      LedgerConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+      ProtoConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+      StorageImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+      TokenWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+      TonWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  PlatformPointer cst_encode_DartFn_Inputs_String_Output_String_AnyhowException(
+      FutureOr<String> Function(String) raw);
+
+  @protected
+  PlatformPointer
+      cst_encode_DartFn_Inputs_String_Output_opt_String_AnyhowException(
+          FutureOr<String?> Function(String) raw);
+
+  @protected
+  PlatformPointer cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+      FutureOr<void> Function(String) raw);
+
+  @protected
+  PlatformPointer
+      cst_encode_DartFn_Inputs_String_String_Output_unit_AnyhowException(
+          FutureOr<void> Function(String, String) raw);
+
+  @protected
+  PlatformPointer
+      cst_encode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+          FutureOr<Uint8List> Function(Uint8List) raw);
+
+  @protected
+  PlatformPointer
+      cst_encode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
+          FutureOr<Uint8List> Function(int) raw);
+
+  @protected
+  PlatformPointer
+      cst_encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+          FutureOr<Uint8List> Function(int, int?, Uint8List) raw);
+
+  @protected
+  PlatformPointer
+      cst_encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+          FutureOr<Uint8List> Function(int, int, int?, Uint8List, String) raw);
+
+  @protected
+  PlatformPointer cst_encode_DartOpaque(Object raw);
 
   @protected
   int cst_encode_RustOpaque_ArcdynAccountsStorageBoxTrait(
@@ -1752,6 +2224,74 @@ abstract class NekotonBridgeApiImplPlatform
       ArcUnsignedMessageBoxTrait raw);
 
   @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+      ArcFnStringDartFnFutureOptionString raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+      ArcFnStringDartFnFuture raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+      ArcFnStringDartFnFutureString raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+      ArcFnStringStringDartFnFuture raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+      ArcFnVecU8DartFnFutureVecU8 raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+      ArcFnU16DartFnFutureVecU8 raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+      ArcFnU16OptionI32VecU8DartFnFutureVecU8 raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+      ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+      GenericContractSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+      GqlConnectionImpl raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+      JettonWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+      JrpcConnectionImpl raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+      LedgerConnectionImpl raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+      ProtoConnectionImpl raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+      StorageImpl raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+      TokenWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+      TonWalletSubscriptionHandlerImpl raw);
+
+  @protected
   int cst_encode_bip_39_entropy(Bip39Entropy raw);
 
   @protected
@@ -1759,15 +2299,6 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   bool cst_encode_bool(bool raw);
-
-  @protected
-  int cst_encode_error_code(ErrorCode raw);
-
-  @protected
-  double cst_encode_f_32(double raw);
-
-  @protected
-  double cst_encode_f_64(double raw);
 
   @protected
   int cst_encode_i_32(int raw);
@@ -1796,6 +2327,228 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   void sse_encode_AnyhowException(
       AnyhowException self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+          ArcFnStringDartFnFutureOptionString self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+          ArcFnStringDartFnFuture self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+          ArcFnStringDartFnFutureString self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+          ArcFnStringStringDartFnFuture self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+          ArcFnVecU8DartFnFutureVecU8 self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+          ArcFnU16DartFnFutureVecU8 self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+          ArcFnU16OptionI32VecU8DartFnFutureVecU8 self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+          ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          GenericContractSubscriptionHandlerImpl self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          GqlConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          JettonWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          JrpcConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          LedgerConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          ProtoConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          StorageImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          TokenWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          TonWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          GenericContractSubscriptionHandlerImpl self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          GqlConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          JettonWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          JrpcConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          LedgerConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          ProtoConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          StorageImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          TokenWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          TonWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          GenericContractSubscriptionHandlerImpl self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          GqlConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          JettonWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          JrpcConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          LedgerConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          ProtoConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          StorageImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          TokenWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          TonWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_DartFn_Inputs_String_Output_String_AnyhowException(
+      FutureOr<String> Function(String) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_DartFn_Inputs_String_Output_opt_String_AnyhowException(
+      FutureOr<String?> Function(String) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+      FutureOr<void> Function(String) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_DartFn_Inputs_String_String_Output_unit_AnyhowException(
+      FutureOr<void> Function(String, String) self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+          FutureOr<Uint8List> Function(Uint8List) self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
+          FutureOr<Uint8List> Function(int) self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+          FutureOr<Uint8List> Function(int, int?, Uint8List) self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+          FutureOr<Uint8List> Function(int, int, int?, Uint8List, String) self,
+          SseSerializer serializer);
+
+  @protected
+  void sse_encode_DartOpaque(Object self, SseSerializer serializer);
 
   @protected
   void sse_encode_RustOpaque_ArcdynAccountsStorageBoxTrait(
@@ -1850,8 +2603,92 @@ abstract class NekotonBridgeApiImplPlatform
       ArcUnsignedMessageBoxTrait self, SseSerializer serializer);
 
   @protected
-  void sse_encode_StreamSink_dart_call_stub_registred_Dco(
-      RustStreamSink<DartCallStubRegistred> self, SseSerializer serializer);
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+          ArcFnStringDartFnFutureOptionString self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+          ArcFnStringDartFnFuture self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+          ArcFnStringDartFnFutureString self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+          ArcFnStringStringDartFnFuture self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+          ArcFnVecU8DartFnFutureVecU8 self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+          ArcFnU16DartFnFutureVecU8 self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+          ArcFnU16OptionI32VecU8DartFnFutureVecU8 self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+          ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          GenericContractSubscriptionHandlerImpl self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          GqlConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          JettonWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          JrpcConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          LedgerConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          ProtoConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          StorageImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          TokenWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          TonWalletSubscriptionHandlerImpl self, SseSerializer serializer);
 
   @protected
   void sse_encode_StreamSink_log_entry_Dco(
@@ -1887,18 +2724,6 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_box_autoadd_bool(bool self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_box_autoadd_caller_test_class(
-      CallerTestClass self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_box_autoadd_dart_call_stub(
-      DartCallStub self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_box_autoadd_dynamic_value(
-      DynamicValue self, SseSerializer serializer);
 
   @protected
   void sse_encode_box_autoadd_generic_contract_dart_wrapper(
@@ -1944,9 +2769,6 @@ abstract class NekotonBridgeApiImplPlatform
       MnemonicType self, SseSerializer serializer);
 
   @protected
-  void sse_encode_box_autoadd_my_class(MyClass self, SseSerializer serializer);
-
-  @protected
   void sse_encode_box_autoadd_proto_connection_dart_wrapper(
       ProtoConnectionDartWrapper self, SseSerializer serializer);
 
@@ -1974,33 +2796,6 @@ abstract class NekotonBridgeApiImplPlatform
       UnsignedMessageImpl self, SseSerializer serializer);
 
   @protected
-  void sse_encode_caller_test_class(
-      CallerTestClass self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_dart_call_stub(DartCallStub self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_dart_call_stub_registred(
-      DartCallStubRegistred self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_dynamic_named_value(
-      DynamicNamedValue self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_dynamic_value(DynamicValue self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_error_code(ErrorCode self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_f_32(double self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_f_64(double self, SseSerializer serializer);
-
-  @protected
   void sse_encode_generated_key_g(GeneratedKeyG self, SseSerializer serializer);
 
   @protected
@@ -2023,6 +2818,9 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_i_8(int self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_isize(PlatformInt64 self, SseSerializer serializer);
 
   @protected
   void sse_encode_jetton_wallet_dart_wrapper(
@@ -2051,19 +2849,7 @@ abstract class NekotonBridgeApiImplPlatform
       LedgerConnectionDartWrapper self, SseSerializer serializer);
 
   @protected
-  void sse_encode_ledger_connection_impl(
-      LedgerConnectionImpl self, SseSerializer serializer);
-
-  @protected
   void sse_encode_list_String(List<String> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_dynamic_named_value(
-      List<DynamicNamedValue> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_dynamic_value(
-      List<DynamicValue> self, SseSerializer serializer);
 
   @protected
   void sse_encode_list_key_signer(
@@ -2094,17 +2880,10 @@ abstract class NekotonBridgeApiImplPlatform
   void sse_encode_mnemonic_type(MnemonicType self, SseSerializer serializer);
 
   @protected
-  void sse_encode_my_class(MyClass self, SseSerializer serializer);
-
-  @protected
   void sse_encode_opt_String(String? self, SseSerializer serializer);
 
   @protected
   void sse_encode_opt_box_autoadd_bool(bool? self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_opt_box_autoadd_dynamic_value(
-      DynamicValue? self, SseSerializer serializer);
 
   @protected
   void sse_encode_opt_box_autoadd_i_32(int? self, SseSerializer serializer);
@@ -2143,9 +2922,6 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   void sse_encode_storage_dart_wrapper(
       StorageDartWrapper self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_storage_impl(StorageImpl self, SseSerializer serializer);
 
   @protected
   void sse_encode_token_wallet_dart_wrapper(
@@ -2218,6 +2994,1005 @@ class NekotonBridgeWire implements BaseWire {
           'store_dart_post_cobject');
   late final _store_dart_post_cobject = _store_dart_post_cobjectPtr
       .asFunction<void Function(DartPostCObjectFnType)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_expired(
+    int that,
+  ) {
+    return _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_expired(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_expiredPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_expired');
+  late final _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_expired =
+      _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_expiredPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_sent(
+    int that,
+  ) {
+    return _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_sent(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_sentPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_sent');
+  late final _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_sent =
+      _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_sentPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_state_changed(
+    int that,
+  ) {
+    return _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_state_changed(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_state_changedPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_state_changed');
+  late final _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_state_changed =
+      _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_state_changedPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+    int that,
+  ) {
+    return _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_transactions_foundPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found');
+  late final _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found =
+      _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_transactions_foundPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_expired(
+    int that,
+    int on_message_expired,
+  ) {
+    return _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_expired(
+      that,
+      on_message_expired,
+    );
+  }
+
+  late final _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_expiredPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_expired');
+  late final _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_expired =
+      _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_expiredPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_sent(
+    int that,
+    int on_message_sent,
+  ) {
+    return _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_sent(
+      that,
+      on_message_sent,
+    );
+  }
+
+  late final _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_sentPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_sent');
+  late final _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_sent =
+      _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_sentPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_state_changed(
+    int that,
+    int on_state_changed,
+  ) {
+    return _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_state_changed(
+      that,
+      on_state_changed,
+    );
+  }
+
+  late final _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_state_changedPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_state_changed');
+  late final _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_state_changed =
+      _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_state_changedPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+    int that,
+    int on_transactions_found,
+  ) {
+    return _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+      that,
+      on_transactions_found,
+    );
+  }
+
+  late final _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_transactions_foundPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found');
+  late final _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found =
+      _wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_transactions_foundPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_is_local(
+    int that,
+  ) {
+    return _wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_is_local(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_is_localPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_is_local');
+  late final _wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_is_local =
+      _wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_is_localPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_on_post(
+    int that,
+  ) {
+    return _wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_on_post(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_on_postPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_on_post');
+  late final _wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_on_post =
+      _wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_on_postPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_is_local(
+    int that,
+    bool is_local,
+  ) {
+    return _wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_is_local(
+      that,
+      is_local,
+    );
+  }
+
+  late final _wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_is_localPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.Bool)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_is_local');
+  late final _wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_is_local =
+      _wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_is_localPtr
+          .asFunction<WireSyncRust2DartDco Function(int, bool)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_on_post(
+    int that,
+    int on_post,
+  ) {
+    return _wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_on_post(
+      that,
+      on_post,
+    );
+  }
+
+  late final _wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_on_postPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_on_post');
+  late final _wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_on_post =
+      _wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_on_postPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed(
+    int that,
+  ) {
+    return _wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changedPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed');
+  late final _wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed =
+      _wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changedPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+    int that,
+  ) {
+    return _wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_foundPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found');
+  late final _wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found =
+      _wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_foundPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed(
+    int that,
+    int on_balance_changed,
+  ) {
+    return _wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed(
+      that,
+      on_balance_changed,
+    );
+  }
+
+  late final _wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changedPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed');
+  late final _wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed =
+      _wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changedPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+    int that,
+    int on_transactions_found,
+  ) {
+    return _wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+      that,
+      on_transactions_found,
+    );
+  }
+
+  late final _wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_foundPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found');
+  late final _wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found =
+      _wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_foundPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_get_on_post(
+    int that,
+  ) {
+    return _wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_get_on_post(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_get_on_postPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_get_on_post');
+  late final _wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_get_on_post =
+      _wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_get_on_postPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_set_on_post(
+    int that,
+    int on_post,
+  ) {
+    return _wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_set_on_post(
+      that,
+      on_post,
+    );
+  }
+
+  late final _wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_set_on_postPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_set_on_post');
+  late final _wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_set_on_post =
+      _wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_set_on_postPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_get_public_key(
+    int that,
+  ) {
+    return _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_get_public_key(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_get_public_keyPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_get_public_key');
+  late final _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_get_public_key =
+      _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_get_public_keyPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign(
+    int that,
+  ) {
+    return _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_signPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign');
+  late final _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign =
+      _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_signPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign_transaction(
+    int that,
+  ) {
+    return _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign_transaction(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign_transactionPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign_transaction');
+  late final _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign_transaction =
+      _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign_transactionPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_get_public_key(
+    int that,
+    int on_get_public_key,
+  ) {
+    return _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_get_public_key(
+      that,
+      on_get_public_key,
+    );
+  }
+
+  late final _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_get_public_keyPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_get_public_key');
+  late final _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_get_public_key =
+      _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_get_public_keyPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign(
+    int that,
+    int on_sign,
+  ) {
+    return _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign(
+      that,
+      on_sign,
+    );
+  }
+
+  late final _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_signPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign');
+  late final _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign =
+      _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_signPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign_transaction(
+    int that,
+    int on_sign_transaction,
+  ) {
+    return _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign_transaction(
+      that,
+      on_sign_transaction,
+    );
+  }
+
+  late final _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign_transactionPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign_transaction');
+  late final _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign_transaction =
+      _wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign_transactionPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_get_on_post(
+    int that,
+  ) {
+    return _wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_get_on_post(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_get_on_postPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_get_on_post');
+  late final _wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_get_on_post =
+      _wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_get_on_postPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_set_on_post(
+    int that,
+    int on_post,
+  ) {
+    return _wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_set_on_post(
+      that,
+      on_post,
+    );
+  }
+
+  late final _wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_set_on_postPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_set_on_post');
+  late final _wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_set_on_post =
+      _wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_set_on_postPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__StorageImpl_auto_accessor_get_on_get(
+    int that,
+  ) {
+    return _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_get(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_getPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_get_on_get');
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_get =
+      _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_getPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove(
+    int that,
+  ) {
+    return _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_removePtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove');
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove =
+      _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_removePtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove_unchecked(
+    int that,
+  ) {
+    return _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove_unchecked(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove_uncheckedPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove_unchecked');
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove_unchecked =
+      _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove_uncheckedPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set(
+    int that,
+  ) {
+    return _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_setPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set');
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set =
+      _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_setPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set_unchecked(
+    int that,
+  ) {
+    return _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set_unchecked(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set_uncheckedPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set_unchecked');
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set_unchecked =
+      _wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set_uncheckedPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__StorageImpl_auto_accessor_set_on_get(
+    int that,
+    int on_get,
+  ) {
+    return _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_get(
+      that,
+      on_get,
+    );
+  }
+
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_getPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_set_on_get');
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_get =
+      _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_getPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove(
+    int that,
+    int on_remove,
+  ) {
+    return _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove(
+      that,
+      on_remove,
+    );
+  }
+
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_removePtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove');
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove =
+      _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_removePtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove_unchecked(
+    int that,
+    int on_remove_unchecked,
+  ) {
+    return _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove_unchecked(
+      that,
+      on_remove_unchecked,
+    );
+  }
+
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove_uncheckedPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove_unchecked');
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove_unchecked =
+      _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove_uncheckedPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set(
+    int that,
+    int on_set,
+  ) {
+    return _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set(
+      that,
+      on_set,
+    );
+  }
+
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_setPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set');
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set =
+      _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_setPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set_unchecked(
+    int that,
+    int on_set_unchecked,
+  ) {
+    return _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set_unchecked(
+      that,
+      on_set_unchecked,
+    );
+  }
+
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set_uncheckedPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set_unchecked');
+  late final _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set_unchecked =
+      _wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set_uncheckedPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  void wire__crate__api__merged__StorageImpl_new(
+    int port_,
+    int on_get,
+    int on_set,
+    int on_set_unchecked,
+    int on_remove,
+    int on_remove_unchecked,
+  ) {
+    return _wire__crate__api__merged__StorageImpl_new(
+      port_,
+      on_get,
+      on_set,
+      on_set_unchecked,
+      on_remove,
+      on_remove_unchecked,
+    );
+  }
+
+  late final _wire__crate__api__merged__StorageImpl_newPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Int64, ffi.UintPtr, ffi.UintPtr,
+                  ffi.UintPtr, ffi.UintPtr, ffi.UintPtr)>>(
+      'frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_new');
+  late final _wire__crate__api__merged__StorageImpl_new =
+      _wire__crate__api__merged__StorageImpl_newPtr
+          .asFunction<void Function(int, int, int, int, int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed(
+    int that,
+  ) {
+    return _wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changedPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed');
+  late final _wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed =
+      _wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changedPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+    int that,
+  ) {
+    return _wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_foundPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found');
+  late final _wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found =
+      _wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_foundPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed(
+    int that,
+    int on_balance_changed,
+  ) {
+    return _wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed(
+      that,
+      on_balance_changed,
+    );
+  }
+
+  late final _wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changedPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed');
+  late final _wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed =
+      _wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changedPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+    int that,
+    int on_transactions_found,
+  ) {
+    return _wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+      that,
+      on_transactions_found,
+    );
+  }
+
+  late final _wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_foundPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found');
+  late final _wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found =
+      _wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_foundPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_custodians_changed(
+    int that,
+  ) {
+    return _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_custodians_changed(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_custodians_changedPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_custodians_changed');
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_custodians_changed =
+      _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_custodians_changedPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_details_changed(
+    int that,
+  ) {
+    return _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_details_changed(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_details_changedPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_details_changed');
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_details_changed =
+      _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_details_changedPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_expired(
+    int that,
+  ) {
+    return _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_expired(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_expiredPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_expired');
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_expired =
+      _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_expiredPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_sent(
+    int that,
+  ) {
+    return _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_sent(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_sentPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_sent');
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_sent =
+      _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_sentPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_state_changed(
+    int that,
+  ) {
+    return _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_state_changed(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_state_changedPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_state_changed');
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_state_changed =
+      _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_state_changedPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+    int that,
+  ) {
+    return _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_foundPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found');
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found =
+      _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_foundPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_unconfirmed_transactions_changed(
+    int that,
+  ) {
+    return _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_unconfirmed_transactions_changed(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_unconfirmed_transactions_changedPtr =
+      _lookup<ffi.NativeFunction<WireSyncRust2DartDco Function(ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_unconfirmed_transactions_changed');
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_unconfirmed_transactions_changed =
+      _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_unconfirmed_transactions_changedPtr
+          .asFunction<WireSyncRust2DartDco Function(int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_custodians_changed(
+    int that,
+    int on_custodians_changed,
+  ) {
+    return _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_custodians_changed(
+      that,
+      on_custodians_changed,
+    );
+  }
+
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_custodians_changedPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_custodians_changed');
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_custodians_changed =
+      _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_custodians_changedPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_details_changed(
+    int that,
+    int on_details_changed,
+  ) {
+    return _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_details_changed(
+      that,
+      on_details_changed,
+    );
+  }
+
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_details_changedPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_details_changed');
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_details_changed =
+      _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_details_changedPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_expired(
+    int that,
+    int on_message_expired,
+  ) {
+    return _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_expired(
+      that,
+      on_message_expired,
+    );
+  }
+
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_expiredPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_expired');
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_expired =
+      _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_expiredPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_sent(
+    int that,
+    int on_message_sent,
+  ) {
+    return _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_sent(
+      that,
+      on_message_sent,
+    );
+  }
+
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_sentPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_sent');
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_sent =
+      _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_sentPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_state_changed(
+    int that,
+    int on_state_changed,
+  ) {
+    return _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_state_changed(
+      that,
+      on_state_changed,
+    );
+  }
+
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_state_changedPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_state_changed');
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_state_changed =
+      _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_state_changedPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+    int that,
+    int on_transactions_found,
+  ) {
+    return _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+      that,
+      on_transactions_found,
+    );
+  }
+
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_foundPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found');
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found =
+      _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_foundPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
+
+  WireSyncRust2DartDco
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_unconfirmed_transactions_changed(
+    int that,
+    int on_unconfirmed_transactions_changed,
+  ) {
+    return _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_unconfirmed_transactions_changed(
+      that,
+      on_unconfirmed_transactions_changed,
+    );
+  }
+
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_unconfirmed_transactions_changedPtr =
+      _lookup<
+              ffi.NativeFunction<
+                  WireSyncRust2DartDco Function(ffi.UintPtr, ffi.UintPtr)>>(
+          'frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_unconfirmed_transactions_changed');
+  late final _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_unconfirmed_transactions_changed =
+      _wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_unconfirmed_transactions_changedPtr
+          .asFunction<WireSyncRust2DartDco Function(int, int)>();
 
   void wire__crate__api__merged__accounts_storage_impl_add_account(
     int port_,
@@ -2599,70 +4374,6 @@ class NekotonBridgeWire implements BaseWire {
           .asFunction<
               void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
 
-  WireSyncRust2DartDco wire__crate__api__merged__call_send_result(
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> id,
-    ffi.Pointer<wire_cst_dynamic_value> value,
-  ) {
-    return _wire__crate__api__merged__call_send_result(
-      id,
-      value,
-    );
-  }
-
-  late final _wire__crate__api__merged__call_send_resultPtr = _lookup<
-          ffi.NativeFunction<
-              WireSyncRust2DartDco Function(
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                  ffi.Pointer<wire_cst_dynamic_value>)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__call_send_result');
-  late final _wire__crate__api__merged__call_send_result =
-      _wire__crate__api__merged__call_send_resultPtr.asFunction<
-          WireSyncRust2DartDco Function(
-              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-              ffi.Pointer<wire_cst_dynamic_value>)>();
-
-  void wire__crate__api__merged__caller_test_class_call_some_func(
-    int port_,
-    ffi.Pointer<wire_cst_caller_test_class> that,
-  ) {
-    return _wire__crate__api__merged__caller_test_class_call_some_func(
-      port_,
-      that,
-    );
-  }
-
-  late final _wire__crate__api__merged__caller_test_class_call_some_funcPtr =
-      _lookup<
-              ffi.NativeFunction<
-                  ffi.Void Function(
-                      ffi.Int64, ffi.Pointer<wire_cst_caller_test_class>)>>(
-          'frbgen_nekoton_bridge_wire__crate__api__merged__caller_test_class_call_some_func');
-  late final _wire__crate__api__merged__caller_test_class_call_some_func =
-      _wire__crate__api__merged__caller_test_class_call_some_funcPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_caller_test_class>)>();
-
-  void wire__crate__api__merged__caller_test_class_new(
-    int port_,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash,
-    int value,
-  ) {
-    return _wire__crate__api__merged__caller_test_class_new(
-      port_,
-      instance_hash,
-      value,
-    );
-  }
-
-  late final _wire__crate__api__merged__caller_test_class_newPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(ffi.Int64,
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>, ffi.Int32)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__caller_test_class_new');
-  late final _wire__crate__api__merged__caller_test_class_new =
-      _wire__crate__api__merged__caller_test_class_newPtr.asFunction<
-          void Function(
-              int, ffi.Pointer<wire_cst_list_prim_u_8_strict>, int)>();
-
   void wire__crate__api__merged__create_log_stream(
     int port_,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> s,
@@ -2941,17 +4652,23 @@ class NekotonBridgeWire implements BaseWire {
 
   void wire__crate__api__merged__generic_contract_dart_wrapper_subscribe(
     int port_,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> address,
     bool preload_transactions,
     int transport,
+    ffi.Pointer<ffi.Void> on_message_sent,
+    ffi.Pointer<ffi.Void> on_message_expired,
+    ffi.Pointer<ffi.Void> on_state_changed,
+    ffi.Pointer<ffi.Void> on_transactions_found,
   ) {
     return _wire__crate__api__merged__generic_contract_dart_wrapper_subscribe(
       port_,
-      instance_hash,
       address,
       preload_transactions,
       transport,
+      on_message_sent,
+      on_message_expired,
+      on_state_changed,
+      on_transactions_found,
     );
   }
 
@@ -2961,24 +4678,34 @@ class NekotonBridgeWire implements BaseWire {
                   ffi.Void Function(
                       ffi.Int64,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                      ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                       ffi.Bool,
-                      ffi.UintPtr)>>(
+                      ffi.UintPtr,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__generic_contract_dart_wrapper_subscribe');
   late final _wire__crate__api__merged__generic_contract_dart_wrapper_subscribe =
       _wire__crate__api__merged__generic_contract_dart_wrapper_subscribePtr
           .asFunction<
-              void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>, bool, int)>();
+              void Function(
+                  int,
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+                  bool,
+                  int,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>();
 
   WireSyncRust2DartDco
       wire__crate__api__merged__gql_connection_dart_wrapper_new(
     bool is_local,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash,
+    ffi.Pointer<ffi.Void> on_post,
   ) {
     return _wire__crate__api__merged__gql_connection_dart_wrapper_new(
       is_local,
-      instance_hash,
+      on_post,
     );
   }
 
@@ -2986,12 +4713,11 @@ class NekotonBridgeWire implements BaseWire {
       _lookup<
               ffi.NativeFunction<
                   WireSyncRust2DartDco Function(
-                      ffi.Bool, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
+                      ffi.Bool, ffi.Pointer<ffi.Void>)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__gql_connection_dart_wrapper_new');
   late final _wire__crate__api__merged__gql_connection_dart_wrapper_new =
       _wire__crate__api__merged__gql_connection_dart_wrapper_newPtr.asFunction<
-          WireSyncRust2DartDco Function(
-              bool, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+          WireSyncRust2DartDco Function(bool, ffi.Pointer<ffi.Void>)>();
 
   void wire__crate__api__merged__gql_transport_impl_get_accounts_by_code_hash(
     int port_,
@@ -3399,25 +5125,6 @@ class NekotonBridgeWire implements BaseWire {
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   int)>();
 
-  void wire__crate__api__merged__init_caller(
-    int port_,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> stream_sink,
-  ) {
-    return _wire__crate__api__merged__init_caller(
-      port_,
-      stream_sink,
-    );
-  }
-
-  late final _wire__crate__api__merged__init_callerPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__init_caller');
-  late final _wire__crate__api__merged__init_caller =
-      _wire__crate__api__merged__init_callerPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
-
   void wire__crate__api__merged__init_logger(
     int port_,
     int level,
@@ -3762,19 +5469,21 @@ class NekotonBridgeWire implements BaseWire {
 
   void wire__crate__api__merged__jetton_wallet_dart_wrapper_subscribe(
     int port_,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> owner,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> root_token_contract,
     int transport,
     bool preload_transactions,
+    ffi.Pointer<ffi.Void> on_balance_changed,
+    ffi.Pointer<ffi.Void> on_transactions_found,
   ) {
     return _wire__crate__api__merged__jetton_wallet_dart_wrapper_subscribe(
       port_,
-      instance_hash,
       owner,
       root_token_contract,
       transport,
       preload_transactions,
+      on_balance_changed,
+      on_transactions_found,
     );
   }
 
@@ -3785,9 +5494,10 @@ class NekotonBridgeWire implements BaseWire {
                       ffi.Int64,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                      ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                       ffi.UintPtr,
-                      ffi.Bool)>>(
+                      ffi.Bool,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_subscribe');
   late final _wire__crate__api__merged__jetton_wallet_dart_wrapper_subscribe =
       _wire__crate__api__merged__jetton_wallet_dart_wrapper_subscribePtr
@@ -3796,29 +5506,28 @@ class NekotonBridgeWire implements BaseWire {
                   int,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   int,
-                  bool)>();
+                  bool,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>();
 
   WireSyncRust2DartDco
       wire__crate__api__merged__jrpc_connection_dart_wrapper_new(
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash,
+    ffi.Pointer<ffi.Void> on_post,
   ) {
     return _wire__crate__api__merged__jrpc_connection_dart_wrapper_new(
-      instance_hash,
+      on_post,
     );
   }
 
   late final _wire__crate__api__merged__jrpc_connection_dart_wrapper_newPtr =
       _lookup<
               ffi.NativeFunction<
-                  WireSyncRust2DartDco Function(
-                      ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
+                  WireSyncRust2DartDco Function(ffi.Pointer<ffi.Void>)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_connection_dart_wrapper_new');
   late final _wire__crate__api__merged__jrpc_connection_dart_wrapper_new =
-      _wire__crate__api__merged__jrpc_connection_dart_wrapper_newPtr.asFunction<
-          WireSyncRust2DartDco Function(
-              ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+      _wire__crate__api__merged__jrpc_connection_dart_wrapper_newPtr
+          .asFunction<WireSyncRust2DartDco Function(ffi.Pointer<ffi.Void>)>();
 
   void wire__crate__api__merged__jrpc_transport_impl_get_accounts_by_code_hash(
     int port_,
@@ -4698,77 +6407,28 @@ class NekotonBridgeWire implements BaseWire {
 
   WireSyncRust2DartDco
       wire__crate__api__merged__ledger_connection_dart_wrapper_new(
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash,
+    ffi.Pointer<ffi.Void> on_get_public_key,
+    ffi.Pointer<ffi.Void> on_sign,
+    ffi.Pointer<ffi.Void> on_sign_transaction,
   ) {
     return _wire__crate__api__merged__ledger_connection_dart_wrapper_new(
-      instance_hash,
+      on_get_public_key,
+      on_sign,
+      on_sign_transaction,
     );
   }
 
   late final _wire__crate__api__merged__ledger_connection_dart_wrapper_newPtr =
       _lookup<
               ffi.NativeFunction<
-                  WireSyncRust2DartDco Function(
-                      ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
+                  WireSyncRust2DartDco Function(ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__ledger_connection_dart_wrapper_new');
   late final _wire__crate__api__merged__ledger_connection_dart_wrapper_new =
       _wire__crate__api__merged__ledger_connection_dart_wrapper_newPtr
           .asFunction<
-              WireSyncRust2DartDco Function(
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
-
-  WireSyncRust2DartDco wire__crate__api__merged__ledger_connection_impl_new(
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash,
-  ) {
-    return _wire__crate__api__merged__ledger_connection_impl_new(
-      instance_hash,
-    );
-  }
-
-  late final _wire__crate__api__merged__ledger_connection_impl_newPtr = _lookup<
-          ffi.NativeFunction<
-              WireSyncRust2DartDco Function(
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__ledger_connection_impl_new');
-  late final _wire__crate__api__merged__ledger_connection_impl_new =
-      _wire__crate__api__merged__ledger_connection_impl_newPtr.asFunction<
-          WireSyncRust2DartDco Function(
-              ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
-
-  void wire__crate__api__merged__my_class_my_format(
-    int port_,
-    ffi.Pointer<wire_cst_my_class> that,
-  ) {
-    return _wire__crate__api__merged__my_class_my_format(
-      port_,
-      that,
-    );
-  }
-
-  late final _wire__crate__api__merged__my_class_my_formatPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(ffi.Int64, ffi.Pointer<wire_cst_my_class>)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__my_class_my_format');
-  late final _wire__crate__api__merged__my_class_my_format =
-      _wire__crate__api__merged__my_class_my_formatPtr
-          .asFunction<void Function(int, ffi.Pointer<wire_cst_my_class>)>();
-
-  void wire__crate__api__merged__my_class_new(
-    int port_,
-    int a,
-  ) {
-    return _wire__crate__api__merged__my_class_new(
-      port_,
-      a,
-    );
-  }
-
-  late final _wire__crate__api__merged__my_class_newPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Int32)>>(
-          'frbgen_nekoton_bridge_wire__crate__api__merged__my_class_new');
-  late final _wire__crate__api__merged__my_class_new =
-      _wire__crate__api__merged__my_class_newPtr
-          .asFunction<void Function(int, int)>();
+              WireSyncRust2DartDco Function(ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>();
 
   WireSyncRust2DartDco wire__crate__api__merged__nt_check_public_key(
     ffi.Pointer<wire_cst_list_prim_u_8_strict> public_key,
@@ -5888,24 +7548,21 @@ class NekotonBridgeWire implements BaseWire {
 
   WireSyncRust2DartDco
       wire__crate__api__merged__proto_connection_dart_wrapper_new(
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash,
+    ffi.Pointer<ffi.Void> on_post,
   ) {
     return _wire__crate__api__merged__proto_connection_dart_wrapper_new(
-      instance_hash,
+      on_post,
     );
   }
 
   late final _wire__crate__api__merged__proto_connection_dart_wrapper_newPtr =
       _lookup<
               ffi.NativeFunction<
-                  WireSyncRust2DartDco Function(
-                      ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
+                  WireSyncRust2DartDco Function(ffi.Pointer<ffi.Void>)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__proto_connection_dart_wrapper_new');
   late final _wire__crate__api__merged__proto_connection_dart_wrapper_new =
       _wire__crate__api__merged__proto_connection_dart_wrapper_newPtr
-          .asFunction<
-              WireSyncRust2DartDco Function(
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+          .asFunction<WireSyncRust2DartDco Function(ffi.Pointer<ffi.Void>)>();
 
   void wire__crate__api__merged__proto_transport_impl_get_accounts_by_code_hash(
     int port_,
@@ -6244,399 +7901,39 @@ class NekotonBridgeWire implements BaseWire {
       _wire__crate__api__merged__set_clock_offsetPtr
           .asFunction<void Function(int, int)>();
 
-  void wire__crate__api__merged__simple_adder(
-    int port_,
-    int a,
-    int b,
-  ) {
-    return _wire__crate__api__merged__simple_adder(
-      port_,
-      a,
-      b,
-    );
-  }
-
-  late final _wire__crate__api__merged__simple_adderPtr = _lookup<
-          ffi
-          .NativeFunction<ffi.Void Function(ffi.Int64, ffi.Int32, ffi.Int32)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__simple_adder');
-  late final _wire__crate__api__merged__simple_adder =
-      _wire__crate__api__merged__simple_adderPtr
-          .asFunction<void Function(int, int, int)>();
-
-  WireSyncRust2DartDco wire__crate__api__merged__simple_adder_sync(
-    int a,
-    int b,
-  ) {
-    return _wire__crate__api__merged__simple_adder_sync(
-      a,
-      b,
-    );
-  }
-
-  late final _wire__crate__api__merged__simple_adder_syncPtr = _lookup<
-          ffi
-          .NativeFunction<WireSyncRust2DartDco Function(ffi.Int32, ffi.Int32)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__simple_adder_sync');
-  late final _wire__crate__api__merged__simple_adder_sync =
-      _wire__crate__api__merged__simple_adder_syncPtr
-          .asFunction<WireSyncRust2DartDco Function(int, int)>();
-
-  void wire__crate__api__merged__simple_call_dart(
-    int port_,
-  ) {
-    return _wire__crate__api__merged__simple_call_dart(
-      port_,
-    );
-  }
-
-  late final _wire__crate__api__merged__simple_call_dartPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'frbgen_nekoton_bridge_wire__crate__api__merged__simple_call_dart');
-  late final _wire__crate__api__merged__simple_call_dart =
-      _wire__crate__api__merged__simple_call_dartPtr
-          .asFunction<void Function(int)>();
-
-  void wire__crate__api__merged__simple_call_func0(
-    int port_,
-    bool need_result,
-  ) {
-    return _wire__crate__api__merged__simple_call_func0(
-      port_,
-      need_result,
-    );
-  }
-
-  late final _wire__crate__api__merged__simple_call_func0Ptr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Bool)>>(
-          'frbgen_nekoton_bridge_wire__crate__api__merged__simple_call_func0');
-  late final _wire__crate__api__merged__simple_call_func0 =
-      _wire__crate__api__merged__simple_call_func0Ptr
-          .asFunction<void Function(int, bool)>();
-
-  void wire__crate__api__merged__simple_call_func1(
-    int port_,
-    bool need_result,
-  ) {
-    return _wire__crate__api__merged__simple_call_func1(
-      port_,
-      need_result,
-    );
-  }
-
-  late final _wire__crate__api__merged__simple_call_func1Ptr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Bool)>>(
-          'frbgen_nekoton_bridge_wire__crate__api__merged__simple_call_func1');
-  late final _wire__crate__api__merged__simple_call_func1 =
-      _wire__crate__api__merged__simple_call_func1Ptr
-          .asFunction<void Function(int, bool)>();
-
-  void wire__crate__api__merged__simple_call_func2(
-    int port_,
-  ) {
-    return _wire__crate__api__merged__simple_call_func2(
-      port_,
-    );
-  }
-
-  late final _wire__crate__api__merged__simple_call_func2Ptr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'frbgen_nekoton_bridge_wire__crate__api__merged__simple_call_func2');
-  late final _wire__crate__api__merged__simple_call_func2 =
-      _wire__crate__api__merged__simple_call_func2Ptr
-          .asFunction<void Function(int)>();
-
-  void wire__crate__api__merged__simple_call_func3(
-    int port_,
-  ) {
-    return _wire__crate__api__merged__simple_call_func3(
-      port_,
-    );
-  }
-
-  late final _wire__crate__api__merged__simple_call_func3Ptr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'frbgen_nekoton_bridge_wire__crate__api__merged__simple_call_func3');
-  late final _wire__crate__api__merged__simple_call_func3 =
-      _wire__crate__api__merged__simple_call_func3Ptr
-          .asFunction<void Function(int)>();
-
-  void wire__crate__api__merged__simple_log(
-    int port_,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> string,
-  ) {
-    return _wire__crate__api__merged__simple_log(
-      port_,
-      string,
-    );
-  }
-
-  late final _wire__crate__api__merged__simple_logPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__simple_log');
-  late final _wire__crate__api__merged__simple_log =
-      _wire__crate__api__merged__simple_logPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
-
-  void wire__crate__api__merged__simple_panic(
-    int port_,
-  ) {
-    return _wire__crate__api__merged__simple_panic(
-      port_,
-    );
-  }
-
-  late final _wire__crate__api__merged__simple_panicPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'frbgen_nekoton_bridge_wire__crate__api__merged__simple_panic');
-  late final _wire__crate__api__merged__simple_panic =
-      _wire__crate__api__merged__simple_panicPtr
-          .asFunction<void Function(int)>();
-
   WireSyncRust2DartDco wire__crate__api__merged__storage_dart_wrapper_new(
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash,
+    ffi.Pointer<ffi.Void> on_get,
+    ffi.Pointer<ffi.Void> on_set,
+    ffi.Pointer<ffi.Void> on_set_unchecked,
+    ffi.Pointer<ffi.Void> on_remove,
+    ffi.Pointer<ffi.Void> on_remove_unchecked,
   ) {
     return _wire__crate__api__merged__storage_dart_wrapper_new(
-      instance_hash,
+      on_get,
+      on_set,
+      on_set_unchecked,
+      on_remove,
+      on_remove_unchecked,
     );
   }
 
   late final _wire__crate__api__merged__storage_dart_wrapper_newPtr = _lookup<
           ffi.NativeFunction<
               WireSyncRust2DartDco Function(
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>>(
       'frbgen_nekoton_bridge_wire__crate__api__merged__storage_dart_wrapper_new');
   late final _wire__crate__api__merged__storage_dart_wrapper_new =
       _wire__crate__api__merged__storage_dart_wrapper_newPtr.asFunction<
           WireSyncRust2DartDco Function(
-              ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
-
-  void wire__crate__api__merged__storage_impl_new(
-    int port_,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash,
-  ) {
-    return _wire__crate__api__merged__storage_impl_new(
-      port_,
-      instance_hash,
-    );
-  }
-
-  late final _wire__crate__api__merged__storage_impl_newPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__storage_impl_new');
-  late final _wire__crate__api__merged__storage_impl_new =
-      _wire__crate__api__merged__storage_impl_newPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
-
-  void wire__crate__api__merged__stub_call_dart(
-    int port_,
-    ffi.Pointer<wire_cst_dart_call_stub> stub,
-  ) {
-    return _wire__crate__api__merged__stub_call_dart(
-      port_,
-      stub,
-    );
-  }
-
-  late final _wire__crate__api__merged__stub_call_dartPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_dart_call_stub>)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__stub_call_dart');
-  late final _wire__crate__api__merged__stub_call_dart =
-      _wire__crate__api__merged__stub_call_dartPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_dart_call_stub>)>();
-
-  void wire__crate__api__merged__stub_dcs(
-    int port_,
-  ) {
-    return _wire__crate__api__merged__stub_dcs(
-      port_,
-    );
-  }
-
-  late final _wire__crate__api__merged__stub_dcsPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'frbgen_nekoton_bridge_wire__crate__api__merged__stub_dcs');
-  late final _wire__crate__api__merged__stub_dcs =
-      _wire__crate__api__merged__stub_dcsPtr.asFunction<void Function(int)>();
-
-  void wire__crate__api__merged__stub_dv(
-    int port_,
-  ) {
-    return _wire__crate__api__merged__stub_dv(
-      port_,
-    );
-  }
-
-  late final _wire__crate__api__merged__stub_dvPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-          'frbgen_nekoton_bridge_wire__crate__api__merged__stub_dv');
-  late final _wire__crate__api__merged__stub_dv =
-      _wire__crate__api__merged__stub_dvPtr.asFunction<void Function(int)>();
-
-  void wire__crate__api__merged__test_caller_call_test0_async(
-    int port_,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> string,
-    bool need_result,
-  ) {
-    return _wire__crate__api__merged__test_caller_call_test0_async(
-      port_,
-      string,
-      need_result,
-    );
-  }
-
-  late final _wire__crate__api__merged__test_caller_call_test0_asyncPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(ffi.Int64,
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>, ffi.Bool)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__test_caller_call_test0_async');
-  late final _wire__crate__api__merged__test_caller_call_test0_async =
-      _wire__crate__api__merged__test_caller_call_test0_asyncPtr.asFunction<
-          void Function(
-              int, ffi.Pointer<wire_cst_list_prim_u_8_strict>, bool)>();
-
-  WireSyncRust2DartDco wire__crate__api__merged__test_caller_call_test0_sync(
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> string,
-    bool need_result,
-  ) {
-    return _wire__crate__api__merged__test_caller_call_test0_sync(
-      string,
-      need_result,
-    );
-  }
-
-  late final _wire__crate__api__merged__test_caller_call_test0_syncPtr = _lookup<
-          ffi.NativeFunction<
-              WireSyncRust2DartDco Function(
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>, ffi.Bool)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__test_caller_call_test0_sync');
-  late final _wire__crate__api__merged__test_caller_call_test0_sync =
-      _wire__crate__api__merged__test_caller_call_test0_syncPtr.asFunction<
-          WireSyncRust2DartDco Function(
-              ffi.Pointer<wire_cst_list_prim_u_8_strict>, bool)>();
-
-  void wire__crate__api__merged__test_caller_call_test1_async(
-    int port_,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> string,
-    bool need_result,
-  ) {
-    return _wire__crate__api__merged__test_caller_call_test1_async(
-      port_,
-      string,
-      need_result,
-    );
-  }
-
-  late final _wire__crate__api__merged__test_caller_call_test1_asyncPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(ffi.Int64,
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>, ffi.Bool)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__test_caller_call_test1_async');
-  late final _wire__crate__api__merged__test_caller_call_test1_async =
-      _wire__crate__api__merged__test_caller_call_test1_asyncPtr.asFunction<
-          void Function(
-              int, ffi.Pointer<wire_cst_list_prim_u_8_strict>, bool)>();
-
-  void wire__crate__api__merged__test_logger_debug(
-    int port_,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> string,
-  ) {
-    return _wire__crate__api__merged__test_logger_debug(
-      port_,
-      string,
-    );
-  }
-
-  late final _wire__crate__api__merged__test_logger_debugPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__test_logger_debug');
-  late final _wire__crate__api__merged__test_logger_debug =
-      _wire__crate__api__merged__test_logger_debugPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
-
-  void wire__crate__api__merged__test_logger_error(
-    int port_,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> string,
-  ) {
-    return _wire__crate__api__merged__test_logger_error(
-      port_,
-      string,
-    );
-  }
-
-  late final _wire__crate__api__merged__test_logger_errorPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__test_logger_error');
-  late final _wire__crate__api__merged__test_logger_error =
-      _wire__crate__api__merged__test_logger_errorPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
-
-  void wire__crate__api__merged__test_logger_info(
-    int port_,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> string,
-  ) {
-    return _wire__crate__api__merged__test_logger_info(
-      port_,
-      string,
-    );
-  }
-
-  late final _wire__crate__api__merged__test_logger_infoPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__test_logger_info');
-  late final _wire__crate__api__merged__test_logger_info =
-      _wire__crate__api__merged__test_logger_infoPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
-
-  void wire__crate__api__merged__test_logger_panic(
-    int port_,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> string,
-  ) {
-    return _wire__crate__api__merged__test_logger_panic(
-      port_,
-      string,
-    );
-  }
-
-  late final _wire__crate__api__merged__test_logger_panicPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__test_logger_panic');
-  late final _wire__crate__api__merged__test_logger_panic =
-      _wire__crate__api__merged__test_logger_panicPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
-
-  void wire__crate__api__merged__test_logger_warn(
-    int port_,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> string,
-  ) {
-    return _wire__crate__api__merged__test_logger_warn(
-      port_,
-      string,
-    );
-  }
-
-  late final _wire__crate__api__merged__test_logger_warnPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int64, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
-      'frbgen_nekoton_bridge_wire__crate__api__merged__test_logger_warn');
-  late final _wire__crate__api__merged__test_logger_warn =
-      _wire__crate__api__merged__test_logger_warnPtr.asFunction<
-          void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Pointer<ffi.Void>)>();
 
   void wire__crate__api__merged__token_wallet_dart_wrapper_address(
     int port_,
@@ -6965,19 +8262,21 @@ class NekotonBridgeWire implements BaseWire {
 
   void wire__crate__api__merged__token_wallet_dart_wrapper_subscribe(
     int port_,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> owner,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> root_token_contract,
     int transport,
     bool preload_transactions,
+    ffi.Pointer<ffi.Void> on_balance_changed,
+    ffi.Pointer<ffi.Void> on_transactions_found,
   ) {
     return _wire__crate__api__merged__token_wallet_dart_wrapper_subscribe(
       port_,
-      instance_hash,
       owner,
       root_token_contract,
       transport,
       preload_transactions,
+      on_balance_changed,
+      on_transactions_found,
     );
   }
 
@@ -6988,9 +8287,10 @@ class NekotonBridgeWire implements BaseWire {
                       ffi.Int64,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                      ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                       ffi.UintPtr,
-                      ffi.Bool)>>(
+                      ffi.Bool,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__token_wallet_dart_wrapper_subscribe');
   late final _wire__crate__api__merged__token_wallet_dart_wrapper_subscribe =
       _wire__crate__api__merged__token_wallet_dart_wrapper_subscribePtr
@@ -6999,9 +8299,10 @@ class NekotonBridgeWire implements BaseWire {
                   int,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   int,
-                  bool)>();
+                  bool,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>();
 
   void wire__crate__api__merged__token_wallet_dart_wrapper_symbol(
     int port_,
@@ -7581,19 +8882,31 @@ class NekotonBridgeWire implements BaseWire {
 
   void wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe(
     int port_,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash,
     int workchain_id,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> public_key,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> wallet_type,
     int transport,
+    ffi.Pointer<ffi.Void> on_message_sent,
+    ffi.Pointer<ffi.Void> on_message_expired,
+    ffi.Pointer<ffi.Void> on_state_changed,
+    ffi.Pointer<ffi.Void> on_transactions_found,
+    ffi.Pointer<ffi.Void> on_details_changed,
+    ffi.Pointer<ffi.Void> on_custodians_changed,
+    ffi.Pointer<ffi.Void> on_unconfirmed_transactions_changed,
   ) {
     return _wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe(
       port_,
-      instance_hash,
       workchain_id,
       public_key,
       wallet_type,
       transport,
+      on_message_sent,
+      on_message_expired,
+      on_state_changed,
+      on_transactions_found,
+      on_details_changed,
+      on_custodians_changed,
+      on_unconfirmed_transactions_changed,
     );
   }
 
@@ -7602,34 +8915,58 @@ class NekotonBridgeWire implements BaseWire {
               ffi.NativeFunction<
                   ffi.Void Function(
                       ffi.Int64,
-                      ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                       ffi.Int8,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                      ffi.UintPtr)>>(
+                      ffi.UintPtr,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe');
   late final _wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe =
       _wire__crate__api__merged__ton_wallet_dart_wrapper_subscribePtr
           .asFunction<
               void Function(
                   int,
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   int,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                  int)>();
+                  int,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>();
 
   void wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_address(
     int port_,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> address,
     int transport,
+    ffi.Pointer<ffi.Void> on_message_sent,
+    ffi.Pointer<ffi.Void> on_message_expired,
+    ffi.Pointer<ffi.Void> on_state_changed,
+    ffi.Pointer<ffi.Void> on_transactions_found,
+    ffi.Pointer<ffi.Void> on_details_changed,
+    ffi.Pointer<ffi.Void> on_custodians_changed,
+    ffi.Pointer<ffi.Void> on_unconfirmed_transactions_changed,
   ) {
     return _wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_address(
       port_,
-      instance_hash,
       address,
       transport,
+      on_message_sent,
+      on_message_expired,
+      on_state_changed,
+      on_transactions_found,
+      on_details_changed,
+      on_custodians_changed,
+      on_unconfirmed_transactions_changed,
     );
   }
 
@@ -7639,26 +8976,53 @@ class NekotonBridgeWire implements BaseWire {
                   ffi.Void Function(
                       ffi.Int64,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                      ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                      ffi.UintPtr)>>(
+                      ffi.UintPtr,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_address');
   late final _wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_address =
       _wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_addressPtr
           .asFunction<
-              void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>, int)>();
+              void Function(
+                  int,
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+                  int,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>();
 
   void wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_existing(
     int port_,
-    ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> existing_wallet,
     int transport,
+    ffi.Pointer<ffi.Void> on_message_sent,
+    ffi.Pointer<ffi.Void> on_message_expired,
+    ffi.Pointer<ffi.Void> on_state_changed,
+    ffi.Pointer<ffi.Void> on_transactions_found,
+    ffi.Pointer<ffi.Void> on_details_changed,
+    ffi.Pointer<ffi.Void> on_custodians_changed,
+    ffi.Pointer<ffi.Void> on_unconfirmed_transactions_changed,
   ) {
     return _wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_existing(
       port_,
-      instance_hash,
       existing_wallet,
       transport,
+      on_message_sent,
+      on_message_expired,
+      on_state_changed,
+      on_transactions_found,
+      on_details_changed,
+      on_custodians_changed,
+      on_unconfirmed_transactions_changed,
     );
   }
 
@@ -7668,14 +9032,29 @@ class NekotonBridgeWire implements BaseWire {
                   ffi.Void Function(
                       ffi.Int64,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                      ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                      ffi.UintPtr)>>(
+                      ffi.UintPtr,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>,
+                      ffi.Pointer<ffi.Void>)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_existing');
   late final _wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_existing =
       _wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_existingPtr
           .asFunction<
-              void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-                  ffi.Pointer<wire_cst_list_prim_u_8_strict>, int)>();
+              void Function(
+                  int,
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+                  int,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Pointer<ffi.Void>)>();
 
   void
       wire__crate__api__merged__ton_wallet_dart_wrapper_unconfirmed_transactions(
@@ -8241,6 +9620,550 @@ class NekotonBridgeWire implements BaseWire {
       _rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTraitPtr
           .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
 
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSyncPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSyncPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSyncPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSyncPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSyncPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSyncPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSyncPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSyncPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSyncPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSyncPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSyncPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSyncPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSyncPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSyncPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSyncPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSyncPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSyncPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSyncPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSyncPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSyncPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSyncPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSyncPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSyncPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSyncPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSyncPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSyncPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSyncPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSyncPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSyncPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSyncPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSyncPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSyncPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl');
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+      ptr,
+    );
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImplPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl');
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImplPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
   ffi.Pointer<wire_cst_accounts_storage_impl>
       cst_new_box_autoadd_accounts_storage_impl() {
     return _cst_new_box_autoadd_accounts_storage_impl();
@@ -8280,41 +10203,6 @@ class NekotonBridgeWire implements BaseWire {
           'frbgen_nekoton_bridge_cst_new_box_autoadd_bool');
   late final _cst_new_box_autoadd_bool = _cst_new_box_autoadd_boolPtr
       .asFunction<ffi.Pointer<ffi.Bool> Function(bool)>();
-
-  ffi.Pointer<wire_cst_caller_test_class>
-      cst_new_box_autoadd_caller_test_class() {
-    return _cst_new_box_autoadd_caller_test_class();
-  }
-
-  late final _cst_new_box_autoadd_caller_test_classPtr = _lookup<
-          ffi
-          .NativeFunction<ffi.Pointer<wire_cst_caller_test_class> Function()>>(
-      'frbgen_nekoton_bridge_cst_new_box_autoadd_caller_test_class');
-  late final _cst_new_box_autoadd_caller_test_class =
-      _cst_new_box_autoadd_caller_test_classPtr
-          .asFunction<ffi.Pointer<wire_cst_caller_test_class> Function()>();
-
-  ffi.Pointer<wire_cst_dart_call_stub> cst_new_box_autoadd_dart_call_stub() {
-    return _cst_new_box_autoadd_dart_call_stub();
-  }
-
-  late final _cst_new_box_autoadd_dart_call_stubPtr = _lookup<
-          ffi.NativeFunction<ffi.Pointer<wire_cst_dart_call_stub> Function()>>(
-      'frbgen_nekoton_bridge_cst_new_box_autoadd_dart_call_stub');
-  late final _cst_new_box_autoadd_dart_call_stub =
-      _cst_new_box_autoadd_dart_call_stubPtr
-          .asFunction<ffi.Pointer<wire_cst_dart_call_stub> Function()>();
-
-  ffi.Pointer<wire_cst_dynamic_value> cst_new_box_autoadd_dynamic_value() {
-    return _cst_new_box_autoadd_dynamic_value();
-  }
-
-  late final _cst_new_box_autoadd_dynamic_valuePtr = _lookup<
-          ffi.NativeFunction<ffi.Pointer<wire_cst_dynamic_value> Function()>>(
-      'frbgen_nekoton_bridge_cst_new_box_autoadd_dynamic_value');
-  late final _cst_new_box_autoadd_dynamic_value =
-      _cst_new_box_autoadd_dynamic_valuePtr
-          .asFunction<ffi.Pointer<wire_cst_dynamic_value> Function()>();
 
   ffi.Pointer<wire_cst_generic_contract_dart_wrapper>
       cst_new_box_autoadd_generic_contract_dart_wrapper() {
@@ -8456,16 +10344,6 @@ class NekotonBridgeWire implements BaseWire {
       _cst_new_box_autoadd_mnemonic_typePtr
           .asFunction<ffi.Pointer<wire_cst_mnemonic_type> Function()>();
 
-  ffi.Pointer<wire_cst_my_class> cst_new_box_autoadd_my_class() {
-    return _cst_new_box_autoadd_my_class();
-  }
-
-  late final _cst_new_box_autoadd_my_classPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<wire_cst_my_class> Function()>>(
-          'frbgen_nekoton_bridge_cst_new_box_autoadd_my_class');
-  late final _cst_new_box_autoadd_my_class = _cst_new_box_autoadd_my_classPtr
-      .asFunction<ffi.Pointer<wire_cst_my_class> Function()>();
-
   ffi.Pointer<wire_cst_proto_connection_dart_wrapper>
       cst_new_box_autoadd_proto_connection_dart_wrapper() {
     return _cst_new_box_autoadd_proto_connection_dart_wrapper();
@@ -8572,39 +10450,6 @@ class NekotonBridgeWire implements BaseWire {
               ffi.Int32)>>('frbgen_nekoton_bridge_cst_new_list_String');
   late final _cst_new_list_String = _cst_new_list_StringPtr
       .asFunction<ffi.Pointer<wire_cst_list_String> Function(int)>();
-
-  ffi.Pointer<wire_cst_list_dynamic_named_value>
-      cst_new_list_dynamic_named_value(
-    int len,
-  ) {
-    return _cst_new_list_dynamic_named_value(
-      len,
-    );
-  }
-
-  late final _cst_new_list_dynamic_named_valuePtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Pointer<wire_cst_list_dynamic_named_value> Function(
-                  ffi.Int32)>>(
-      'frbgen_nekoton_bridge_cst_new_list_dynamic_named_value');
-  late final _cst_new_list_dynamic_named_value =
-      _cst_new_list_dynamic_named_valuePtr.asFunction<
-          ffi.Pointer<wire_cst_list_dynamic_named_value> Function(int)>();
-
-  ffi.Pointer<wire_cst_list_dynamic_value> cst_new_list_dynamic_value(
-    int len,
-  ) {
-    return _cst_new_list_dynamic_value(
-      len,
-    );
-  }
-
-  late final _cst_new_list_dynamic_valuePtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<wire_cst_list_dynamic_value> Function(
-              ffi.Int32)>>('frbgen_nekoton_bridge_cst_new_list_dynamic_value');
-  late final _cst_new_list_dynamic_value = _cst_new_list_dynamic_valuePtr
-      .asFunction<ffi.Pointer<wire_cst_list_dynamic_value> Function(int)>();
 
   ffi.Pointer<wire_cst_list_key_signer> cst_new_list_key_signer(
     int len,
@@ -8725,96 +10570,6 @@ final class wire_cst_storage_dart_wrapper extends ffi.Struct {
   external int inner_storage;
 }
 
-final class wire_cst_DynamicValue_U16 extends ffi.Struct {
-  @ffi.Uint16()
-  external int field0;
-}
-
-final class wire_cst_DynamicValue_U32 extends ffi.Struct {
-  @ffi.Uint32()
-  external int field0;
-}
-
-final class wire_cst_DynamicValue_I32 extends ffi.Struct {
-  @ffi.Int32()
-  external int field0;
-}
-
-final class wire_cst_DynamicValue_U64 extends ffi.Struct {
-  @ffi.Uint64()
-  external int field0;
-}
-
-final class wire_cst_DynamicValue_I64 extends ffi.Struct {
-  @ffi.Int64()
-  external int field0;
-}
-
-final class wire_cst_DynamicValue_F32 extends ffi.Struct {
-  @ffi.Float()
-  external double field0;
-}
-
-final class wire_cst_DynamicValue_F64 extends ffi.Struct {
-  @ffi.Double()
-  external double field0;
-}
-
-final class wire_cst_DynamicValue_String extends ffi.Struct {
-  external ffi.Pointer<wire_cst_list_prim_u_8_strict> field0;
-}
-
-final class wire_cst_DynamicValue_VecU8 extends ffi.Struct {
-  external ffi.Pointer<wire_cst_list_prim_u_8_strict> field0;
-}
-
-final class wire_cst_DynamicValue_MegaStruct extends ffi.Struct {
-  external ffi.Pointer<wire_cst_list_prim_u_8_strict> field0;
-}
-
-final class wire_cst_DynamicValue_Error extends ffi.Struct {
-  @ffi.Int32()
-  external int field0;
-}
-
-final class DynamicValueKind extends ffi.Union {
-  external wire_cst_DynamicValue_U16 U16;
-
-  external wire_cst_DynamicValue_U32 U32;
-
-  external wire_cst_DynamicValue_I32 I32;
-
-  external wire_cst_DynamicValue_U64 U64;
-
-  external wire_cst_DynamicValue_I64 I64;
-
-  external wire_cst_DynamicValue_F32 F32;
-
-  external wire_cst_DynamicValue_F64 F64;
-
-  external wire_cst_DynamicValue_String String;
-
-  external wire_cst_DynamicValue_VecU8 VecU8;
-
-  external wire_cst_DynamicValue_MegaStruct MegaStruct;
-
-  external wire_cst_DynamicValue_Error Error;
-}
-
-final class wire_cst_dynamic_value extends ffi.Struct {
-  @ffi.Int32()
-  external int tag;
-
-  external DynamicValueKind kind;
-}
-
-final class wire_cst_caller_test_class extends ffi.Struct {
-  external ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash;
-
-  @ffi.Int32()
-  external int value;
-}
-
 final class wire_cst_generic_contract_dart_wrapper extends ffi.Struct {
   @ffi.UintPtr()
   external int inner_contract;
@@ -8890,11 +10645,6 @@ final class wire_cst_unsigned_message_impl extends ffi.Struct {
   external int inner_message;
 }
 
-final class wire_cst_my_class extends ffi.Struct {
-  @ffi.Int32()
-  external int val;
-}
-
 final class wire_cst_bip_39_mnemonic_data extends ffi.Struct {
   @ffi.Uint16()
   external int account_id;
@@ -8931,36 +10681,6 @@ final class wire_cst_proto_connection_dart_wrapper extends ffi.Struct {
   external int inner_connection;
 }
 
-final class wire_cst_list_dynamic_value extends ffi.Struct {
-  external ffi.Pointer<wire_cst_dynamic_value> ptr;
-
-  @ffi.Int32()
-  external int len;
-}
-
-final class wire_cst_dynamic_named_value extends ffi.Struct {
-  external ffi.Pointer<wire_cst_list_prim_u_8_strict> name;
-
-  external ffi.Pointer<wire_cst_dynamic_value> value;
-}
-
-final class wire_cst_list_dynamic_named_value extends ffi.Struct {
-  external ffi.Pointer<wire_cst_dynamic_named_value> ptr;
-
-  @ffi.Int32()
-  external int len;
-}
-
-final class wire_cst_dart_call_stub extends ffi.Struct {
-  external ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash;
-
-  external ffi.Pointer<wire_cst_list_prim_u_8_strict> fn_name;
-
-  external ffi.Pointer<wire_cst_list_dynamic_value> args;
-
-  external ffi.Pointer<wire_cst_list_dynamic_named_value> named_args;
-}
-
 final class wire_cst_token_wallet_dart_wrapper extends ffi.Struct {
   @ffi.UintPtr()
   external int inner_wallet;
@@ -8985,12 +10705,6 @@ final class wire_cst_list_prim_i_32_strict extends ffi.Struct {
   external int len;
 }
 
-final class wire_cst_dart_call_stub_registred extends ffi.Struct {
-  external ffi.Pointer<wire_cst_list_prim_u_8_strict> id;
-
-  external wire_cst_dart_call_stub stub;
-}
-
 final class wire_cst_generated_key_g extends ffi.Struct {
   external ffi.Pointer<wire_cst_list_String> words;
 
@@ -9005,10 +10719,6 @@ final class wire_cst_latest_block extends ffi.Struct {
 
   @ffi.Uint32()
   external int gen_utime;
-}
-
-final class wire_cst_ledger_connection_impl extends ffi.Struct {
-  external ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash;
 }
 
 final class wire_cst_log_entry extends ffi.Struct {
@@ -9047,8 +10757,4 @@ final class wire_cst_signed_data_raw extends ffi.Struct {
   external ffi.Pointer<wire_cst_list_prim_u_8_strict> signature_hex;
 
   external wire_cst_signature_parts signature_parts;
-}
-
-final class wire_cst_storage_impl extends ffi.Struct {
-  external ffi.Pointer<wire_cst_list_prim_u_8_strict> instance_hash;
 }

@@ -2,22 +2,16 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
-import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
-import 'package:reflectable/mirrors.dart';
 import 'package:rxdart/rxdart.dart';
-
-import 'jetton_wallet.reflectable.dart';
 
 /// Implementation of nekoton's JettonWallet.
 ///
 /// If you need watch wallet changes, you can subscribe to [fieldUpdatesStream]
 /// and be ready if any suitable data changes, but this won't notify about external
-/// events emitted through [onMessageSentStream], [onMessageExpiredStream],
-/// or [onTransactionsFoundStream].
-/// [onStateChangedStream] changes internal state, so it will lead updating data.
-@reflector
-class JettonWallet extends RustToDartMirrorInterface
-    implements RefreshingInterface {
+/// events emitted through [onTransactionsFoundStream].
+class JettonWallet implements RefreshingInterface {
+  JettonWallet._(this.transport, this.rootTokenContract);
+
   late JettonWalletDartWrapper wallet;
   final Transport transport;
 
@@ -57,7 +51,7 @@ class JettonWallet extends RustToDartMirrorInterface
 
   bool get isTransactionsPreloaded => _isTransactionsPreloaded;
 
-  JettonWallet._(this.transport, this.rootTokenContract);
+  bool get isDisposed => wallet.innerWallet.isDisposed;
 
   /// Create JettonWallet by subscribing to its instance.
   /// [owner] - address of account that is owner of wallet
@@ -72,11 +66,12 @@ class JettonWallet extends RustToDartMirrorInterface
         final instance = JettonWallet._(transport, rootTokenContract);
 
         instance.wallet = await JettonWalletDartWrapper.subscribe(
-          instanceHash: instance.instanceHash,
           transport: transport.transportBox,
           rootTokenContract: rootTokenContract.address,
           owner: owner.address,
           preloadTransactions: preloadTransactions,
+          onBalanceChanged: instance.onBalanceChanged,
+          onTransactionsFound: instance.onTransactionsFound,
         );
 
         await instance._initInstance();
@@ -213,7 +208,7 @@ class JettonWallet extends RustToDartMirrorInterface
   /// May throw error.
   @override
   Future<void> refresh() async {
-    if (_isRefreshing || transport.disposed || avoidCall) return;
+    if (_isRefreshing || transport.disposed || isDisposed) return;
 
     try {
       _isRefreshing = true;
@@ -234,7 +229,7 @@ class JettonWallet extends RustToDartMirrorInterface
   /// [fromLt] - offset for loading data, string representation of u64
   /// May throw error.
   Future<void> preloadTransactions([String? fromLt]) async {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     _isTransactionsPreloaded = true;
     await wallet.preloadTransactions(
@@ -247,7 +242,7 @@ class JettonWallet extends RustToDartMirrorInterface
   /// [block] - base64-encoded Block that could be got from [GqlTransport.getBlock]
   /// May throw error.
   Future<void> handleBlock({required String block}) async {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     await wallet.handleBlock(block: block);
     await _updateData();
@@ -316,7 +311,7 @@ class JettonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when balance of wallet has been changed
   void onBalanceChanged(String balance) {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     _onBalanceChangedController.add(BigInt.parse(balance));
 
@@ -328,7 +323,7 @@ class JettonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when transactions of wallet has been found
   void onTransactionsFound(String payload) {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     final json = jsonDecode(payload) as List<dynamic>;
 
@@ -359,28 +354,18 @@ class JettonWallet extends RustToDartMirrorInterface
   Future<void> _updateData() async {
     if (transport.disposed) return;
 
-    if (avoidCall) return;
+    if (isDisposed) return;
     _contractState = await getContractState();
-    if (avoidCall) return;
+    if (isDisposed) return;
     balance = BigInt.parse(await _getBalance());
-    if (avoidCall) return;
+    if (isDisposed) return;
     _fieldsUpdateController.add(null);
   }
 
-  @override
   void dispose() {
     wallet.innerWallet.dispose();
     _onBalanceChangedController.close();
     _onTransactionsFoundController.close();
     _fieldsUpdateController.close();
-    super.dispose();
-  }
-
-  @override
-  InstanceMirror initializeMirror() {
-    initializeReflectable(); // auto-generated reflectable file
-    return reflector.reflect(this);
   }
 }
-
-void main() {}

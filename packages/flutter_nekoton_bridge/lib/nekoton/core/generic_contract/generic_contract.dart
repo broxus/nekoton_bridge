@@ -2,11 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
-import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
-import 'package:reflectable/mirrors.dart';
 import 'package:rxdart/rxdart.dart';
-
-import 'generic_contract.reflectable.dart';
 
 /// Implementation of nekoton's GenericContract.
 ///
@@ -15,9 +11,7 @@ import 'generic_contract.reflectable.dart';
 /// events emitted through [onMessageSentStream], [onMessageExpiredStream],
 /// or [onTransactionsFoundStream].
 /// [onStateChangedStream] changes internal state, so it will lead updating data.
-@reflector
-class GenericContract extends RustToDartMirrorInterface
-    implements RefreshingInterface {
+class GenericContract implements RefreshingInterface {
   late GenericContractDartWrapper contract;
   final Transport transport;
 
@@ -47,6 +41,8 @@ class GenericContract extends RustToDartMirrorInterface
 
   GenericContract._(this.transport);
 
+  bool get isDisposed => contract.innerContract.isDisposed;
+
   /// Create GenericContract by subscribing to its instance.
   /// [address] - address of contract
   /// [preloadTransactions] - if transactions must be loaded during creation
@@ -58,10 +54,13 @@ class GenericContract extends RustToDartMirrorInterface
     final instance = GenericContract._(transport);
 
     instance.contract = await GenericContractDartWrapper.subscribe(
-      instanceHash: instance.instanceHash,
       transport: transport.transportBox,
       address: address.address,
       preloadTransactions: preloadTransactions,
+      onMessageExpired: instance.onMessageExpired,
+      onTransactionsFound: instance.onTransactionsFound,
+      onMessageSent: instance.onMessageSent,
+      onStateChanged: instance.onStateChanged,
     );
 
     await instance._initInstance();
@@ -185,7 +184,7 @@ class GenericContract extends RustToDartMirrorInterface
   /// May throw error.
   @override
   Future<void> refresh() async {
-    if (_isRefreshing || transport.disposed || avoidCall) return;
+    if (_isRefreshing || transport.disposed || isDisposed) return;
 
     try {
       _isRefreshing = true;
@@ -205,7 +204,7 @@ class GenericContract extends RustToDartMirrorInterface
   /// [fromLt] - offset for loading data, string representation of u64
   /// May throw error.
   Future<void> preloadTransactions({required String fromLt}) async {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     await contract.preloadTransactions(fromLt: fromLt);
     await _updateData();
@@ -215,7 +214,7 @@ class GenericContract extends RustToDartMirrorInterface
   /// [block] - base64-encoded Block that could be got from [GqlTransport.getBlock]
   /// May throw error.
   Future<void> handleBlock({required String block}) async {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     await contract.handleBlock(block: block);
     await _updateData();
@@ -276,31 +275,21 @@ class GenericContract extends RustToDartMirrorInterface
   Future<void> _updateData() async {
     if (transport.disposed) return;
 
-    if (avoidCall) return;
+    if (isDisposed) return;
     _contractState = await getContractState();
-    if (avoidCall) return;
+    if (isDisposed) return;
     _pendingTransactions = await getPendingTransactions();
-    if (avoidCall) return;
+    if (isDisposed) return;
     _pollingMethod = await getPollingMethod();
 
     _fieldsUpdateController.add(null);
   }
 
-  @override
   void dispose() {
     contract.innerContract.dispose();
     _onTransactionsFoundController.close();
     _onStateChangedController.close();
     _onMessageSentController.close();
     _onMessageExpiredController.close();
-    super.dispose();
-  }
-
-  @override
-  InstanceMirror initializeMirror() {
-    initializeReflectable(); // auto-generated reflectable file
-    return reflector.reflect(this);
   }
 }
-
-void main() {}

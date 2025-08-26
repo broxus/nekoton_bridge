@@ -86,8 +86,6 @@ void main() {
     testWidgets('Create GqlTransport', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
@@ -101,8 +99,6 @@ void main() {
 
     testWidgets('getSignatureId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),
@@ -119,8 +115,6 @@ void main() {
 
     testWidgets('getTransactions ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),
@@ -141,8 +135,6 @@ void main() {
     testWidgets('getTransaction ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
@@ -162,8 +154,6 @@ void main() {
 
     testWidgets('getDstTransaction', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),
@@ -189,8 +179,6 @@ void main() {
 
     testWidgets('multiple calls ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),
@@ -224,8 +212,6 @@ void main() {
     testWidgets('getContractState ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
@@ -251,8 +237,6 @@ void main() {
     ) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
@@ -272,8 +256,6 @@ void main() {
       WidgetTester tester,
     ) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),
@@ -298,7 +280,6 @@ void main() {
 
     testWidgets('getNetworkId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),
@@ -313,7 +294,6 @@ void main() {
 
     testWidgets('getBlockchainConfig ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),
@@ -331,7 +311,6 @@ void main() {
 
     testWidgets('simulateTransactionTree ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),
@@ -377,8 +356,6 @@ void main() {
 
     testWidgets('getFeeFactors', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),

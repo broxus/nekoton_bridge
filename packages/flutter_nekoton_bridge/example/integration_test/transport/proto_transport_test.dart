@@ -67,8 +67,6 @@ void main() {
     testWidgets('Create ProtoTransport', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = ProtoConnection.create(
         client: HttpClient(),
         settings: protoSettings,
@@ -83,8 +81,6 @@ void main() {
 
     testWidgets('getSignatureId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = ProtoConnection.create(
         client: HttpClient(),
@@ -103,7 +99,6 @@ void main() {
     testWidgets('getSignatureId venom ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
       const venomEndpoint = 'https://jrpc.venom.foundation';
 
       final connection = ProtoConnection.create(
@@ -122,8 +117,6 @@ void main() {
 
     testWidgets('getTransactions ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = ProtoConnection.create(
         client: HttpClient(),
@@ -145,8 +138,6 @@ void main() {
     testWidgets('getTransaction ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = ProtoConnection.create(
         client: HttpClient(),
         settings: protoSettings,
@@ -167,8 +158,6 @@ void main() {
 
     testWidgets('getDstTransaction', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = ProtoConnection.create(
         client: HttpClient(),
@@ -196,8 +185,6 @@ void main() {
 
     testWidgets('multiple calls ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = ProtoConnection.create(
         client: HttpClient(),
@@ -232,8 +219,6 @@ void main() {
     testWidgets('getContractState ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = ProtoConnection.create(
         client: HttpClient(),
         settings: protoSettings,
@@ -260,8 +245,6 @@ void main() {
     ) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = ProtoConnection.create(
         client: HttpClient(),
         settings: protoSettings,
@@ -282,8 +265,6 @@ void main() {
       WidgetTester tester,
     ) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = ProtoConnection.create(
         client: HttpClient(),
@@ -309,7 +290,6 @@ void main() {
 
     testWidgets('getNetworkId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final connection = ProtoConnection.create(
         client: HttpClient(),
@@ -325,7 +305,7 @@ void main() {
 
     testWidgets('getNetworkId venom ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
+
       const venomEndpoint = 'https://jrpc.venom.foundation';
 
       final connection = ProtoConnection.create(
@@ -342,7 +322,6 @@ void main() {
 
     testWidgets('getBlockchainConfig ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final connection = ProtoConnection.create(
         client: HttpClient(),
@@ -361,7 +340,6 @@ void main() {
 
     testWidgets('simulateTransactionTree ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final connection = ProtoConnection.create(
         client: HttpClient(),
@@ -408,8 +386,6 @@ void main() {
 
     testWidgets('getFeeFactors', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = ProtoConnection.create(
         client: HttpClient(),

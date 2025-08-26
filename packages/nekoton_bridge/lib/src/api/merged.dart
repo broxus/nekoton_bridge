@@ -4,18 +4,17 @@
 // ignore_for_file: invalid_use_of_internal_member, unused_import, unnecessary_import
 
 import '../frb_generated.dart';
+import '../lib.dart';
 import '../nekoton_wrapper/core/keystore/models.dart';
 import '../nekoton_wrapper/crypto/models.dart';
-import '../utils/caller.dart';
 import '../utils/logger.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 import 'package:freezed_annotation/freezed_annotation.dart' hide protected;
 part 'merged.freezed.dart';
 
 // These functions are ignored because they are not marked as `pub`: `get_connection`, `get_connection`, `get_connection`, `get_connection`, `get_storage`, `map_keystore_builder`
-// These types are ignored because they are neither used by any `pub` functions nor (for structs and enums) marked `#[frb(unignore)]`: `GenericContractSubscriptionHandlerImpl`, `GqlConnectionImpl`, `JettonWalletSubscriptionHandlerImpl`, `JrpcConnectionImpl`, `ProtoConnectionImpl`, `ProviderMessage`, `ProviderTransaction`, `TokenWalletSubscriptionHandlerImpl`, `TonWalletSubscriptionHandlerImpl`
+// These types are ignored because they are neither used by any `pub` functions nor (for structs and enums) marked `#[frb(unignore)]`: `ProviderMessage`, `ProviderTransaction`
 // These function are ignored because they are on traits that is not defined in current crate (put an empty `#[frb]` on it to unignore): `get_public_key`, `get`, `is_local`, `on_balance_changed`, `on_balance_changed`, `on_custodians_changed`, `on_details_changed`, `on_message_expired`, `on_message_expired`, `on_message_sent`, `on_message_sent`, `on_state_changed`, `on_state_changed`, `on_transactions_found`, `on_transactions_found`, `on_transactions_found`, `on_transactions_found`, `on_unconfirmed_transactions_changed`, `post`, `post`, `post`, `remove_unchecked`, `remove`, `set_unchecked`, `set`, `sign_transaction`, `sign`
-// These functions are ignored (category: IgnoreBecauseNotAllowedOwner): `my_format`
 
 ///----------------------------
 /// CONTENT OF src/nekoton_wrapper/crypto/crypto_api.rs
@@ -395,39 +394,6 @@ int ntGetContractTypeNumber({required String walletType}) =>
         .crateApiMergedNtGetContractTypeNumber(walletType: walletType);
 
 ///----------------------------
-/// CONTENT OF src/utils/tests_api.rs
-///----------------------------
-Future<void> testLoggerInfo({required String string}) =>
-    NekotonBridge.instance.api.crateApiMergedTestLoggerInfo(string: string);
-
-Future<void> testLoggerDebug({required String string}) =>
-    NekotonBridge.instance.api.crateApiMergedTestLoggerDebug(string: string);
-
-Future<void> testLoggerWarn({required String string}) =>
-    NekotonBridge.instance.api.crateApiMergedTestLoggerWarn(string: string);
-
-Future<void> testLoggerError({required String string}) =>
-    NekotonBridge.instance.api.crateApiMergedTestLoggerError(string: string);
-
-Future<void> testLoggerPanic({required String string}) =>
-    NekotonBridge.instance.api.crateApiMergedTestLoggerPanic(string: string);
-
-Future<DynamicValue> testCallerCallTest0Async(
-        {required String string, required bool needResult}) =>
-    NekotonBridge.instance.api.crateApiMergedTestCallerCallTest0Async(
-        string: string, needResult: needResult);
-
-DynamicValue testCallerCallTest0Sync(
-        {required String string, required bool needResult}) =>
-    NekotonBridge.instance.api.crateApiMergedTestCallerCallTest0Sync(
-        string: string, needResult: needResult);
-
-Future<DynamicValue> testCallerCallTest1Async(
-        {required String string, required bool needResult}) =>
-    NekotonBridge.instance.api.crateApiMergedTestCallerCallTest1Async(
-        string: string, needResult: needResult);
-
-///----------------------------
 /// CONTENT OF src/utils/api.rs
 ///----------------------------
 /// Init utils
@@ -440,56 +406,9 @@ Future<void> initLogger(
 Stream<LogEntry> createLogStream() =>
     NekotonBridge.instance.api.crateApiMergedCreateLogStream();
 
-/// Init caller
-Stream<DartCallStubRegistred> initCaller() =>
-    NekotonBridge.instance.api.crateApiMergedInitCaller();
-
-/// Callback functions for returning Dart method result
-void callSendResult({required String id, required DynamicValue value}) =>
-    NekotonBridge.instance.api
-        .crateApiMergedCallSendResult(id: id, value: value);
-
 /// Set clock offset in milliseconds
 Future<void> setClockOffset({required PlatformInt64 offsetMs}) =>
     NekotonBridge.instance.api.crateApiMergedSetClockOffset(offsetMs: offsetMs);
-
-Future<void> simpleLog({required String string}) =>
-    NekotonBridge.instance.api.crateApiMergedSimpleLog(string: string);
-
-Future<void> simplePanic() =>
-    NekotonBridge.instance.api.crateApiMergedSimplePanic();
-
-int simpleAdderSync({required int a, required int b}) =>
-    NekotonBridge.instance.api.crateApiMergedSimpleAdderSync(a: a, b: b);
-
-Future<int> simpleAdder({required int a, required int b}) =>
-    NekotonBridge.instance.api.crateApiMergedSimpleAdder(a: a, b: b);
-
-Future<DynamicValue> stubDv() =>
-    NekotonBridge.instance.api.crateApiMergedStubDv();
-
-Future<DartCallStub> stubDcs() =>
-    NekotonBridge.instance.api.crateApiMergedStubDcs();
-
-Future<void> simpleCallDart() =>
-    NekotonBridge.instance.api.crateApiMergedSimpleCallDart();
-
-Future<void> stubCallDart({required DartCallStub stub}) =>
-    NekotonBridge.instance.api.crateApiMergedStubCallDart(stub: stub);
-
-Future<void> simpleCallFunc0({required bool needResult}) =>
-    NekotonBridge.instance.api
-        .crateApiMergedSimpleCallFunc0(needResult: needResult);
-
-Future<void> simpleCallFunc1({required bool needResult}) =>
-    NekotonBridge.instance.api
-        .crateApiMergedSimpleCallFunc1(needResult: needResult);
-
-Future<void> simpleCallFunc2() =>
-    NekotonBridge.instance.api.crateApiMergedSimpleCallFunc2();
-
-Future<void> simpleCallFunc3() =>
-    NekotonBridge.instance.api.crateApiMergedSimpleCallFunc3();
 
 // Rust type: RustOpaqueNom<Arc < dyn AccountsStorageBoxTrait >>
 abstract class ArcAccountsStorageBoxTrait implements RustOpaqueInterface {}
@@ -530,8 +449,158 @@ abstract class ArcTransportBoxTrait implements RustOpaqueInterface {}
 // Rust type: RustOpaqueNom<Arc < dyn UnsignedMessageBoxTrait >>
 abstract class ArcUnsignedMessageBoxTrait implements RustOpaqueInterface {}
 
-abstract class MyFormat {
-  Future<String> myFormat();
+// Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<GenericContractSubscriptionHandlerImpl>>
+abstract class GenericContractSubscriptionHandlerImpl
+    implements RustOpaqueInterface {
+  ArcFnStringDartFnFuture get onMessageExpired;
+
+  ArcFnStringDartFnFuture get onMessageSent;
+
+  ArcFnStringDartFnFuture get onStateChanged;
+
+  ArcFnStringDartFnFuture get onTransactionsFound;
+
+  set onMessageExpired(ArcFnStringDartFnFuture onMessageExpired);
+
+  set onMessageSent(ArcFnStringDartFnFuture onMessageSent);
+
+  set onStateChanged(ArcFnStringDartFnFuture onStateChanged);
+
+  set onTransactionsFound(ArcFnStringDartFnFuture onTransactionsFound);
+}
+
+// Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<GqlConnectionImpl>>
+abstract class GqlConnectionImpl implements RustOpaqueInterface {
+  bool get isLocal;
+
+  ArcFnStringDartFnFutureString get onPost;
+
+  set isLocal(bool isLocal);
+
+  set onPost(ArcFnStringDartFnFutureString onPost);
+}
+
+// Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<JettonWalletSubscriptionHandlerImpl>>
+abstract class JettonWalletSubscriptionHandlerImpl
+    implements RustOpaqueInterface {
+  ArcFnStringDartFnFuture get onBalanceChanged;
+
+  ArcFnStringDartFnFuture get onTransactionsFound;
+
+  set onBalanceChanged(ArcFnStringDartFnFuture onBalanceChanged);
+
+  set onTransactionsFound(ArcFnStringDartFnFuture onTransactionsFound);
+}
+
+// Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<JrpcConnectionImpl>>
+abstract class JrpcConnectionImpl implements RustOpaqueInterface {
+  ArcFnStringDartFnFutureString get onPost;
+
+  set onPost(ArcFnStringDartFnFutureString onPost);
+}
+
+// Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<LedgerConnectionImpl>>
+abstract class LedgerConnectionImpl implements RustOpaqueInterface {
+  ArcFnU16DartFnFutureVecU8 get onGetPublicKey;
+
+  ArcFnU16OptionI32VecU8DartFnFutureVecU8 get onSign;
+
+  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 get onSignTransaction;
+
+  set onGetPublicKey(ArcFnU16DartFnFutureVecU8 onGetPublicKey);
+
+  set onSign(ArcFnU16OptionI32VecU8DartFnFutureVecU8 onSign);
+
+  set onSignTransaction(
+      ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 onSignTransaction);
+}
+
+// Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<ProtoConnectionImpl>>
+abstract class ProtoConnectionImpl implements RustOpaqueInterface {
+  ArcFnVecU8DartFnFutureVecU8 get onPost;
+
+  set onPost(ArcFnVecU8DartFnFutureVecU8 onPost);
+}
+
+// Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<StorageImpl>>
+abstract class StorageImpl implements RustOpaqueInterface {
+  ArcFnStringDartFnFutureOptionString get onGet;
+
+  ArcFnStringDartFnFuture get onRemove;
+
+  ArcFnStringDartFnFuture get onRemoveUnchecked;
+
+  ArcFnStringStringDartFnFuture get onSet;
+
+  ArcFnStringStringDartFnFuture get onSetUnchecked;
+
+  set onGet(ArcFnStringDartFnFutureOptionString onGet);
+
+  set onRemove(ArcFnStringDartFnFuture onRemove);
+
+  set onRemoveUnchecked(ArcFnStringDartFnFuture onRemoveUnchecked);
+
+  set onSet(ArcFnStringStringDartFnFuture onSet);
+
+  set onSetUnchecked(ArcFnStringStringDartFnFuture onSetUnchecked);
+
+  // HINT: Make it `#[frb(sync)]` to let it become the default constructor of Dart class.
+  static Future<StorageImpl> newInstance(
+          {required ArcFnStringDartFnFutureOptionString onGet,
+          required ArcFnStringStringDartFnFuture onSet,
+          required ArcFnStringStringDartFnFuture onSetUnchecked,
+          required ArcFnStringDartFnFuture onRemove,
+          required ArcFnStringDartFnFuture onRemoveUnchecked}) =>
+      NekotonBridge.instance.api.crateApiMergedStorageImplNew(
+          onGet: onGet,
+          onSet: onSet,
+          onSetUnchecked: onSetUnchecked,
+          onRemove: onRemove,
+          onRemoveUnchecked: onRemoveUnchecked);
+}
+
+// Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<TokenWalletSubscriptionHandlerImpl>>
+abstract class TokenWalletSubscriptionHandlerImpl
+    implements RustOpaqueInterface {
+  ArcFnStringDartFnFuture get onBalanceChanged;
+
+  ArcFnStringDartFnFuture get onTransactionsFound;
+
+  set onBalanceChanged(ArcFnStringDartFnFuture onBalanceChanged);
+
+  set onTransactionsFound(ArcFnStringDartFnFuture onTransactionsFound);
+}
+
+// Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<TonWalletSubscriptionHandlerImpl>>
+abstract class TonWalletSubscriptionHandlerImpl implements RustOpaqueInterface {
+  ArcFnStringDartFnFuture get onCustodiansChanged;
+
+  ArcFnStringDartFnFuture get onDetailsChanged;
+
+  ArcFnStringDartFnFuture get onMessageExpired;
+
+  ArcFnStringDartFnFuture get onMessageSent;
+
+  ArcFnStringDartFnFuture get onStateChanged;
+
+  ArcFnStringDartFnFuture get onTransactionsFound;
+
+  ArcFnStringDartFnFuture get onUnconfirmedTransactionsChanged;
+
+  set onCustodiansChanged(ArcFnStringDartFnFuture onCustodiansChanged);
+
+  set onDetailsChanged(ArcFnStringDartFnFuture onDetailsChanged);
+
+  set onMessageExpired(ArcFnStringDartFnFuture onMessageExpired);
+
+  set onMessageSent(ArcFnStringDartFnFuture onMessageSent);
+
+  set onStateChanged(ArcFnStringDartFnFuture onStateChanged);
+
+  set onTransactionsFound(ArcFnStringDartFnFuture onTransactionsFound);
+
+  set onUnconfirmedTransactionsChanged(
+      ArcFnStringDartFnFuture onUnconfirmedTransactionsChanged);
 }
 
 ///----------------------------
@@ -732,38 +801,6 @@ enum Bip39Path {
   ;
 }
 
-class CallerTestClass {
-  final String instanceHash;
-  final int value;
-
-  const CallerTestClass({
-    required this.instanceHash,
-    required this.value,
-  });
-
-  Future<void> callSomeFunc() =>
-      NekotonBridge.instance.api.crateApiMergedCallerTestClassCallSomeFunc(
-        that: this,
-      );
-
-  // HINT: Make it `#[frb(sync)]` to let it become the default constructor of Dart class.
-  static Future<CallerTestClass> newInstance(
-          {required String instanceHash, required int value}) =>
-      NekotonBridge.instance.api.crateApiMergedCallerTestClassNew(
-          instanceHash: instanceHash, value: value);
-
-  @override
-  int get hashCode => instanceHash.hashCode ^ value.hashCode;
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is CallerTestClass &&
-          runtimeType == other.runtimeType &&
-          instanceHash == other.instanceHash &&
-          value == other.value;
-}
-
 /// Wrapper struct above GeneratedKey with suitable type for generation
 class GeneratedKeyG {
   final List<String> words;
@@ -872,16 +909,22 @@ class GenericContractDartWrapper {
   /// address - address of contract
   /// preload_transactions - if transactions must be loaded during creation
   static Future<GenericContractDartWrapper> subscribe(
-          {required String instanceHash,
-          required String address,
+          {required String address,
           required bool preloadTransactions,
-          required ArcTransportBoxTrait transport}) =>
+          required ArcTransportBoxTrait transport,
+          required FutureOr<void> Function(String) onMessageSent,
+          required FutureOr<void> Function(String) onMessageExpired,
+          required FutureOr<void> Function(String) onStateChanged,
+          required FutureOr<void> Function(String) onTransactionsFound}) =>
       NekotonBridge.instance.api
           .crateApiMergedGenericContractDartWrapperSubscribe(
-              instanceHash: instanceHash,
               address: address,
               preloadTransactions: preloadTransactions,
-              transport: transport);
+              transport: transport,
+              onMessageSent: onMessageSent,
+              onMessageExpired: onMessageExpired,
+              onStateChanged: onStateChanged,
+              onTransactionsFound: onTransactionsFound);
 
   @override
   int get hashCode => innerContract.hashCode;
@@ -906,9 +949,10 @@ class GqlConnectionDartWrapper {
   });
 
   factory GqlConnectionDartWrapper(
-          {required bool isLocal, required String instanceHash}) =>
+          {required bool isLocal,
+          required FutureOr<String> Function(String) onPost}) =>
       NekotonBridge.instance.api.crateApiMergedGqlConnectionDartWrapperNew(
-          isLocal: isLocal, instanceHash: instanceHash);
+          isLocal: isLocal, onPost: onPost);
 
   @override
   int get hashCode => innerConnection.hashCode;
@@ -1171,17 +1215,19 @@ class JettonWalletDartWrapper {
   /// owner - address of account that is owner of wallet
   /// root_token_contract - address of contract in blockchain
   static Future<JettonWalletDartWrapper> subscribe(
-          {required String instanceHash,
-          required String owner,
+          {required String owner,
           required String rootTokenContract,
           required ArcTransportBoxTrait transport,
-          required bool preloadTransactions}) =>
+          required bool preloadTransactions,
+          required FutureOr<void> Function(String) onBalanceChanged,
+          required FutureOr<void> Function(String) onTransactionsFound}) =>
       NekotonBridge.instance.api.crateApiMergedJettonWalletDartWrapperSubscribe(
-          instanceHash: instanceHash,
           owner: owner,
           rootTokenContract: rootTokenContract,
           transport: transport,
-          preloadTransactions: preloadTransactions);
+          preloadTransactions: preloadTransactions,
+          onBalanceChanged: onBalanceChanged,
+          onTransactionsFound: onTransactionsFound);
 
   @override
   int get hashCode => innerWallet.hashCode;
@@ -1205,9 +1251,10 @@ class JrpcConnectionDartWrapper {
     required this.innerConnection,
   });
 
-  factory JrpcConnectionDartWrapper({required String instanceHash}) =>
-      NekotonBridge.instance.api.crateApiMergedJrpcConnectionDartWrapperNew(
-          instanceHash: instanceHash);
+  factory JrpcConnectionDartWrapper(
+          {required FutureOr<String> Function(String) onPost}) =>
+      NekotonBridge.instance.api
+          .crateApiMergedJrpcConnectionDartWrapperNew(onPost: onPost);
 
   @override
   int get hashCode => innerConnection.hashCode;
@@ -1561,9 +1608,16 @@ class LedgerConnectionDartWrapper {
     required this.innerConnection,
   });
 
-  factory LedgerConnectionDartWrapper({required String instanceHash}) =>
+  factory LedgerConnectionDartWrapper(
+          {required FutureOr<Uint8List> Function(int) onGetPublicKey,
+          required FutureOr<Uint8List> Function(int, int?, Uint8List) onSign,
+          required FutureOr<Uint8List> Function(
+                  int, int, int?, Uint8List, String)
+              onSignTransaction}) =>
       NekotonBridge.instance.api.crateApiMergedLedgerConnectionDartWrapperNew(
-          instanceHash: instanceHash);
+          onGetPublicKey: onGetPublicKey,
+          onSign: onSign,
+          onSignTransaction: onSignTransaction);
 
   @override
   int get hashCode => innerConnection.hashCode;
@@ -1576,29 +1630,6 @@ class LedgerConnectionDartWrapper {
           innerConnection == other.innerConnection;
 }
 
-/// Implementation of nekoton's LedgerConnection
-class LedgerConnectionImpl {
-  final String instanceHash;
-
-  const LedgerConnectionImpl.raw({
-    required this.instanceHash,
-  });
-
-  factory LedgerConnectionImpl({required String instanceHash}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedLedgerConnectionImplNew(instanceHash: instanceHash);
-
-  @override
-  int get hashCode => instanceHash.hashCode;
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is LedgerConnectionImpl &&
-          runtimeType == other.runtimeType &&
-          instanceHash == other.instanceHash;
-}
-
 @freezed
 sealed class MnemonicType with _$MnemonicType {
   const MnemonicType._();
@@ -1607,31 +1638,6 @@ sealed class MnemonicType with _$MnemonicType {
   const factory MnemonicType.bip39(
     Bip39MnemonicData field0,
   ) = MnemonicType_Bip39;
-}
-
-class MyClass {
-  final int val;
-
-  const MyClass({
-    required this.val,
-  });
-
-  Future<String> myFormat() =>
-      NekotonBridge.instance.api.crateApiMergedMyClassMyFormat(
-        that: this,
-      );
-
-  // HINT: Make it `#[frb(sync)]` to let it become the default constructor of Dart class.
-  static Future<MyClass> newInstance({required int a}) =>
-      NekotonBridge.instance.api.crateApiMergedMyClassNew(a: a);
-
-  @override
-  int get hashCode => val.hashCode;
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is MyClass && runtimeType == other.runtimeType && val == other.val;
 }
 
 ///----------------------------
@@ -1659,9 +1665,10 @@ class ProtoConnectionDartWrapper {
     required this.innerConnection,
   });
 
-  factory ProtoConnectionDartWrapper({required String instanceHash}) =>
-      NekotonBridge.instance.api.crateApiMergedProtoConnectionDartWrapperNew(
-          instanceHash: instanceHash);
+  factory ProtoConnectionDartWrapper(
+          {required FutureOr<Uint8List> Function(Uint8List) onPost}) =>
+      NekotonBridge.instance.api
+          .crateApiMergedProtoConnectionDartWrapperNew(onPost: onPost);
 
   @override
   int get hashCode => innerConnection.hashCode;
@@ -1792,9 +1799,18 @@ class StorageDartWrapper {
     required this.innerStorage,
   });
 
-  factory StorageDartWrapper({required String instanceHash}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedStorageDartWrapperNew(instanceHash: instanceHash);
+  factory StorageDartWrapper(
+          {required FutureOr<String?> Function(String) onGet,
+          required FutureOr<void> Function(String, String) onSet,
+          required FutureOr<void> Function(String, String) onSetUnchecked,
+          required FutureOr<void> Function(String) onRemove,
+          required FutureOr<void> Function(String) onRemoveUnchecked}) =>
+      NekotonBridge.instance.api.crateApiMergedStorageDartWrapperNew(
+          onGet: onGet,
+          onSet: onSet,
+          onSetUnchecked: onSetUnchecked,
+          onRemove: onRemove,
+          onRemoveUnchecked: onRemoveUnchecked);
 
   @override
   int get hashCode => innerStorage.hashCode;
@@ -1805,30 +1821,6 @@ class StorageDartWrapper {
       other is StorageDartWrapper &&
           runtimeType == other.runtimeType &&
           innerStorage == other.innerStorage;
-}
-
-/// Implementation of nekoton's Storage
-class StorageImpl {
-  final String instanceHash;
-
-  const StorageImpl({
-    required this.instanceHash,
-  });
-
-  // HINT: Make it `#[frb(sync)]` to let it become the default constructor of Dart class.
-  static Future<StorageImpl> newInstance({required String instanceHash}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedStorageImplNew(instanceHash: instanceHash);
-
-  @override
-  int get hashCode => instanceHash.hashCode;
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is StorageImpl &&
-          runtimeType == other.runtimeType &&
-          instanceHash == other.instanceHash;
 }
 
 ///----------------------------
@@ -1963,17 +1955,19 @@ class TokenWalletDartWrapper {
   /// owner - address of account that is owner of wallet
   /// root_token_contract - address of contract in blockchain
   static Future<TokenWalletDartWrapper> subscribe(
-          {required String instanceHash,
-          required String owner,
+          {required String owner,
           required String rootTokenContract,
           required ArcTransportBoxTrait transport,
-          required bool preloadTransactions}) =>
+          required bool preloadTransactions,
+          required FutureOr<void> Function(String) onBalanceChanged,
+          required FutureOr<void> Function(String) onTransactionsFound}) =>
       NekotonBridge.instance.api.crateApiMergedTokenWalletDartWrapperSubscribe(
-          instanceHash: instanceHash,
           owner: owner,
           rootTokenContract: rootTokenContract,
           transport: transport,
-          preloadTransactions: preloadTransactions);
+          preloadTransactions: preloadTransactions,
+          onBalanceChanged: onBalanceChanged,
+          onTransactionsFound: onTransactionsFound);
 
   /// Get symbol of contract of wallet.
   /// Return json-encoded Symbol or throw error
@@ -2194,40 +2188,81 @@ class TonWalletDartWrapper {
   /// wallet_type - is json-encoded WalletType.
   /// public_key - is string representation of key
   static Future<TonWalletDartWrapper> subscribe(
-          {required String instanceHash,
-          required int workchainId,
+          {required int workchainId,
           required String publicKey,
           required String walletType,
-          required ArcTransportBoxTrait transport}) =>
+          required ArcTransportBoxTrait transport,
+          required FutureOr<void> Function(String) onMessageSent,
+          required FutureOr<void> Function(String) onMessageExpired,
+          required FutureOr<void> Function(String) onStateChanged,
+          required FutureOr<void> Function(String) onTransactionsFound,
+          required FutureOr<void> Function(String) onDetailsChanged,
+          required FutureOr<void> Function(String) onCustodiansChanged,
+          required FutureOr<void> Function(String)
+              onUnconfirmedTransactionsChanged}) =>
       NekotonBridge.instance.api.crateApiMergedTonWalletDartWrapperSubscribe(
-          instanceHash: instanceHash,
           workchainId: workchainId,
           publicKey: publicKey,
           walletType: walletType,
-          transport: transport);
+          transport: transport,
+          onMessageSent: onMessageSent,
+          onMessageExpired: onMessageExpired,
+          onStateChanged: onStateChanged,
+          onTransactionsFound: onTransactionsFound,
+          onDetailsChanged: onDetailsChanged,
+          onCustodiansChanged: onCustodiansChanged,
+          onUnconfirmedTransactionsChanged: onUnconfirmedTransactionsChanged);
 
   /// Create TonWallet by subscribing to its instance by address of wallet.
   static Future<TonWalletDartWrapper> subscribeByAddress(
-          {required String instanceHash,
-          required String address,
-          required ArcTransportBoxTrait transport}) =>
+          {required String address,
+          required ArcTransportBoxTrait transport,
+          required FutureOr<void> Function(String) onMessageSent,
+          required FutureOr<void> Function(String) onMessageExpired,
+          required FutureOr<void> Function(String) onStateChanged,
+          required FutureOr<void> Function(String) onTransactionsFound,
+          required FutureOr<void> Function(String) onDetailsChanged,
+          required FutureOr<void> Function(String) onCustodiansChanged,
+          required FutureOr<void> Function(String)
+              onUnconfirmedTransactionsChanged}) =>
       NekotonBridge.instance.api
           .crateApiMergedTonWalletDartWrapperSubscribeByAddress(
-              instanceHash: instanceHash,
               address: address,
-              transport: transport);
+              transport: transport,
+              onMessageSent: onMessageSent,
+              onMessageExpired: onMessageExpired,
+              onStateChanged: onStateChanged,
+              onTransactionsFound: onTransactionsFound,
+              onDetailsChanged: onDetailsChanged,
+              onCustodiansChanged: onCustodiansChanged,
+              onUnconfirmedTransactionsChanged:
+                  onUnconfirmedTransactionsChanged);
 
   /// Create TonWallet by subscribing to its instance by existed instance.
   /// existing_wallet - json-encoded ExistingWalletInfo.
   static Future<TonWalletDartWrapper> subscribeByExisting(
-          {required String instanceHash,
-          required String existingWallet,
-          required ArcTransportBoxTrait transport}) =>
+          {required String existingWallet,
+          required ArcTransportBoxTrait transport,
+          required FutureOr<void> Function(String) onMessageSent,
+          required FutureOr<void> Function(String) onMessageExpired,
+          required FutureOr<void> Function(String) onStateChanged,
+          required FutureOr<void> Function(String) onTransactionsFound,
+          required FutureOr<void> Function(String) onDetailsChanged,
+          required FutureOr<void> Function(String) onCustodiansChanged,
+          required FutureOr<void> Function(String)
+              onUnconfirmedTransactionsChanged}) =>
       NekotonBridge.instance.api
           .crateApiMergedTonWalletDartWrapperSubscribeByExisting(
-              instanceHash: instanceHash,
               existingWallet: existingWallet,
-              transport: transport);
+              transport: transport,
+              onMessageSent: onMessageSent,
+              onMessageExpired: onMessageExpired,
+              onStateChanged: onStateChanged,
+              onTransactionsFound: onTransactionsFound,
+              onDetailsChanged: onDetailsChanged,
+              onCustodiansChanged: onCustodiansChanged,
+              onUnconfirmedTransactionsChanged:
+                  onUnconfirmedTransactionsChanged);
 
   /// Get json-encoded list of MultisigPendingTransaction or throw error.
   Future<String> unconfirmedTransactions() => NekotonBridge.instance.api

@@ -10,10 +10,10 @@ import 'api/merged.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'frb_generated.dart';
+import 'lib.dart';
 import 'nekoton_wrapper/core/keystore/models.dart';
 import 'nekoton_wrapper/crypto/models.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated_web.dart';
-import 'utils/caller.dart';
 import 'utils/logger.dart';
 
 abstract class NekotonBridgeApiImplPlatform
@@ -77,8 +77,293 @@ abstract class NekotonBridgeApiImplPlatform
       get rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTraitPtr => wire
           .rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait;
 
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureOptionStringPtr =>
+          wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ArcFnStringDartFnFuturePtr => wire
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureStringPtr => wire
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ArcFnStringStringDartFnFuturePtr => wire
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ArcFnVecU8DartFnFutureVecU8Ptr => wire
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ArcFnU16DartFnFutureVecU8Ptr => wire
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8Ptr =>
+          wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Ptr =>
+          wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_GenericContractSubscriptionHandlerImplPtr =>
+          wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_GqlConnectionImplPtr => wire
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_JettonWalletSubscriptionHandlerImplPtr =>
+          wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_JrpcConnectionImplPtr => wire
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_LedgerConnectionImplPtr => wire
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_ProtoConnectionImplPtr => wire
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_StorageImplPtr => wire
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_TokenWalletSubscriptionHandlerImplPtr =>
+          wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl;
+
+  CrossPlatformFinalizerArg
+      get rust_arc_decrement_strong_count_TonWalletSubscriptionHandlerImplPtr =>
+          wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl;
+
   @protected
   AnyhowException dco_decode_AnyhowException(dynamic raw);
+
+  @protected
+  ArcFnStringDartFnFutureOptionString
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnStringDartFnFuture
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnStringDartFnFutureString
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnStringStringDartFnFuture
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnVecU8DartFnFutureVecU8
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnU16DartFnFutureVecU8
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnU16OptionI32VecU8DartFnFutureVecU8
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+          dynamic raw);
+
+  @protected
+  GenericContractSubscriptionHandlerImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  GqlConnectionImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          dynamic raw);
+
+  @protected
+  JettonWalletSubscriptionHandlerImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  JrpcConnectionImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          dynamic raw);
+
+  @protected
+  LedgerConnectionImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          dynamic raw);
+
+  @protected
+  ProtoConnectionImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          dynamic raw);
+
+  @protected
+  StorageImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          dynamic raw);
+
+  @protected
+  TokenWalletSubscriptionHandlerImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  TonWalletSubscriptionHandlerImpl
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  GenericContractSubscriptionHandlerImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  GqlConnectionImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          dynamic raw);
+
+  @protected
+  JettonWalletSubscriptionHandlerImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  JrpcConnectionImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          dynamic raw);
+
+  @protected
+  LedgerConnectionImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          dynamic raw);
+
+  @protected
+  ProtoConnectionImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          dynamic raw);
+
+  @protected
+  StorageImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          dynamic raw);
+
+  @protected
+  TokenWalletSubscriptionHandlerImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  TonWalletSubscriptionHandlerImpl
+      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  GenericContractSubscriptionHandlerImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  GqlConnectionImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          dynamic raw);
+
+  @protected
+  JettonWalletSubscriptionHandlerImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  JrpcConnectionImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          dynamic raw);
+
+  @protected
+  LedgerConnectionImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          dynamic raw);
+
+  @protected
+  ProtoConnectionImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          dynamic raw);
+
+  @protected
+  StorageImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          dynamic raw);
+
+  @protected
+  TokenWalletSubscriptionHandlerImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  TonWalletSubscriptionHandlerImpl
+      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  FutureOr<String> Function(String)
+      dco_decode_DartFn_Inputs_String_Output_String_AnyhowException(
+          dynamic raw);
+
+  @protected
+  FutureOr<String?> Function(String)
+      dco_decode_DartFn_Inputs_String_Output_opt_String_AnyhowException(
+          dynamic raw);
+
+  @protected
+  FutureOr<void> Function(String)
+      dco_decode_DartFn_Inputs_String_Output_unit_AnyhowException(dynamic raw);
+
+  @protected
+  FutureOr<void> Function(String, String)
+      dco_decode_DartFn_Inputs_String_String_Output_unit_AnyhowException(
+          dynamic raw);
+
+  @protected
+  FutureOr<Uint8List> Function(Uint8List)
+      dco_decode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+          dynamic raw);
+
+  @protected
+  FutureOr<Uint8List> Function(int)
+      dco_decode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
+          dynamic raw);
+
+  @protected
+  FutureOr<Uint8List> Function(int, int?, Uint8List)
+      dco_decode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+          dynamic raw);
+
+  @protected
+  FutureOr<Uint8List> Function(int, int, int?, Uint8List, String)
+      dco_decode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+          dynamic raw);
+
+  @protected
+  Object dco_decode_DartOpaque(dynamic raw);
 
   @protected
   ArcAccountsStorageBoxTrait
@@ -132,17 +417,95 @@ abstract class NekotonBridgeApiImplPlatform
       dco_decode_RustOpaque_ArcdynUnsignedMessageBoxTrait(dynamic raw);
 
   @protected
-  RustStreamSink<DartCallStubRegistred>
-      dco_decode_StreamSink_dart_call_stub_registred_Dco(dynamic raw);
+  ArcFnStringDartFnFutureOptionString
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnStringDartFnFuture
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnStringDartFnFutureString
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnStringStringDartFnFuture
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnVecU8DartFnFutureVecU8
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnU16DartFnFutureVecU8
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnU16OptionI32VecU8DartFnFutureVecU8
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+          dynamic raw);
+
+  @protected
+  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+          dynamic raw);
+
+  @protected
+  GenericContractSubscriptionHandlerImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  GqlConnectionImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          dynamic raw);
+
+  @protected
+  JettonWalletSubscriptionHandlerImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  JrpcConnectionImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          dynamic raw);
+
+  @protected
+  LedgerConnectionImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          dynamic raw);
+
+  @protected
+  ProtoConnectionImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          dynamic raw);
+
+  @protected
+  StorageImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          dynamic raw);
+
+  @protected
+  TokenWalletSubscriptionHandlerImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          dynamic raw);
+
+  @protected
+  TonWalletSubscriptionHandlerImpl
+      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          dynamic raw);
 
   @protected
   RustStreamSink<LogEntry> dco_decode_StreamSink_log_entry_Dco(dynamic raw);
 
   @protected
   String dco_decode_String(dynamic raw);
-
-  @protected
-  MyFormat dco_decode_TraitDef_MyFormat(dynamic raw);
 
   @protected
   AccountsStorageImpl dco_decode_accounts_storage_impl(dynamic raw);
@@ -167,15 +530,6 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   bool dco_decode_box_autoadd_bool(dynamic raw);
-
-  @protected
-  CallerTestClass dco_decode_box_autoadd_caller_test_class(dynamic raw);
-
-  @protected
-  DartCallStub dco_decode_box_autoadd_dart_call_stub(dynamic raw);
-
-  @protected
-  DynamicValue dco_decode_box_autoadd_dynamic_value(dynamic raw);
 
   @protected
   GenericContractDartWrapper
@@ -216,9 +570,6 @@ abstract class NekotonBridgeApiImplPlatform
   MnemonicType dco_decode_box_autoadd_mnemonic_type(dynamic raw);
 
   @protected
-  MyClass dco_decode_box_autoadd_my_class(dynamic raw);
-
-  @protected
   ProtoConnectionDartWrapper
       dco_decode_box_autoadd_proto_connection_dart_wrapper(dynamic raw);
 
@@ -243,30 +594,6 @@ abstract class NekotonBridgeApiImplPlatform
   UnsignedMessageImpl dco_decode_box_autoadd_unsigned_message_impl(dynamic raw);
 
   @protected
-  CallerTestClass dco_decode_caller_test_class(dynamic raw);
-
-  @protected
-  DartCallStub dco_decode_dart_call_stub(dynamic raw);
-
-  @protected
-  DartCallStubRegistred dco_decode_dart_call_stub_registred(dynamic raw);
-
-  @protected
-  DynamicNamedValue dco_decode_dynamic_named_value(dynamic raw);
-
-  @protected
-  DynamicValue dco_decode_dynamic_value(dynamic raw);
-
-  @protected
-  ErrorCode dco_decode_error_code(dynamic raw);
-
-  @protected
-  double dco_decode_f_32(dynamic raw);
-
-  @protected
-  double dco_decode_f_64(dynamic raw);
-
-  @protected
   GeneratedKeyG dco_decode_generated_key_g(dynamic raw);
 
   @protected
@@ -287,6 +614,9 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   int dco_decode_i_8(dynamic raw);
+
+  @protected
+  PlatformInt64 dco_decode_isize(dynamic raw);
 
   @protected
   JettonWalletDartWrapper dco_decode_jetton_wallet_dart_wrapper(dynamic raw);
@@ -312,16 +642,7 @@ abstract class NekotonBridgeApiImplPlatform
       dynamic raw);
 
   @protected
-  LedgerConnectionImpl dco_decode_ledger_connection_impl(dynamic raw);
-
-  @protected
   List<String> dco_decode_list_String(dynamic raw);
-
-  @protected
-  List<DynamicNamedValue> dco_decode_list_dynamic_named_value(dynamic raw);
-
-  @protected
-  List<DynamicValue> dco_decode_list_dynamic_value(dynamic raw);
 
   @protected
   List<KeySigner> dco_decode_list_key_signer(dynamic raw);
@@ -348,16 +669,10 @@ abstract class NekotonBridgeApiImplPlatform
   MnemonicType dco_decode_mnemonic_type(dynamic raw);
 
   @protected
-  MyClass dco_decode_my_class(dynamic raw);
-
-  @protected
   String? dco_decode_opt_String(dynamic raw);
 
   @protected
   bool? dco_decode_opt_box_autoadd_bool(dynamic raw);
-
-  @protected
-  DynamicValue? dco_decode_opt_box_autoadd_dynamic_value(dynamic raw);
 
   @protected
   int? dco_decode_opt_box_autoadd_i_32(dynamic raw);
@@ -395,9 +710,6 @@ abstract class NekotonBridgeApiImplPlatform
   StorageDartWrapper dco_decode_storage_dart_wrapper(dynamic raw);
 
   @protected
-  StorageImpl dco_decode_storage_impl(dynamic raw);
-
-  @protected
   TokenWalletDartWrapper dco_decode_token_wallet_dart_wrapper(dynamic raw);
 
   @protected
@@ -426,6 +738,184 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   AnyhowException sse_decode_AnyhowException(SseDeserializer deserializer);
+
+  @protected
+  ArcFnStringDartFnFutureOptionString
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnStringDartFnFuture
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnStringDartFnFutureString
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnStringStringDartFnFuture
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnVecU8DartFnFutureVecU8
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnU16DartFnFutureVecU8
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnU16OptionI32VecU8DartFnFutureVecU8
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  GenericContractSubscriptionHandlerImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  GqlConnectionImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  JettonWalletSubscriptionHandlerImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  JrpcConnectionImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  LedgerConnectionImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  ProtoConnectionImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  StorageImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  TokenWalletSubscriptionHandlerImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  TonWalletSubscriptionHandlerImpl
+      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  GenericContractSubscriptionHandlerImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  GqlConnectionImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  JettonWalletSubscriptionHandlerImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  JrpcConnectionImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  LedgerConnectionImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  ProtoConnectionImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  StorageImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  TokenWalletSubscriptionHandlerImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  TonWalletSubscriptionHandlerImpl
+      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  GenericContractSubscriptionHandlerImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  GqlConnectionImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  JettonWalletSubscriptionHandlerImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  JrpcConnectionImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  LedgerConnectionImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  ProtoConnectionImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  StorageImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  TokenWalletSubscriptionHandlerImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  TonWalletSubscriptionHandlerImpl
+      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  Object sse_decode_DartOpaque(SseDeserializer deserializer);
 
   @protected
   ArcAccountsStorageBoxTrait
@@ -485,8 +975,88 @@ abstract class NekotonBridgeApiImplPlatform
           SseDeserializer deserializer);
 
   @protected
-  RustStreamSink<DartCallStubRegistred>
-      sse_decode_StreamSink_dart_call_stub_registred_Dco(
+  ArcFnStringDartFnFutureOptionString
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnStringDartFnFuture
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnStringDartFnFutureString
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnStringStringDartFnFuture
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnVecU8DartFnFutureVecU8
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnU16DartFnFutureVecU8
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnU16OptionI32VecU8DartFnFutureVecU8
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+          SseDeserializer deserializer);
+
+  @protected
+  GenericContractSubscriptionHandlerImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  GqlConnectionImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  JettonWalletSubscriptionHandlerImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  JrpcConnectionImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  LedgerConnectionImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  ProtoConnectionImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  StorageImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  TokenWalletSubscriptionHandlerImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          SseDeserializer deserializer);
+
+  @protected
+  TonWalletSubscriptionHandlerImpl
+      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
           SseDeserializer deserializer);
 
   @protected
@@ -523,18 +1093,6 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   bool sse_decode_box_autoadd_bool(SseDeserializer deserializer);
-
-  @protected
-  CallerTestClass sse_decode_box_autoadd_caller_test_class(
-      SseDeserializer deserializer);
-
-  @protected
-  DartCallStub sse_decode_box_autoadd_dart_call_stub(
-      SseDeserializer deserializer);
-
-  @protected
-  DynamicValue sse_decode_box_autoadd_dynamic_value(
-      SseDeserializer deserializer);
 
   @protected
   GenericContractDartWrapper
@@ -581,9 +1139,6 @@ abstract class NekotonBridgeApiImplPlatform
       SseDeserializer deserializer);
 
   @protected
-  MyClass sse_decode_box_autoadd_my_class(SseDeserializer deserializer);
-
-  @protected
   ProtoConnectionDartWrapper
       sse_decode_box_autoadd_proto_connection_dart_wrapper(
           SseDeserializer deserializer);
@@ -612,32 +1167,6 @@ abstract class NekotonBridgeApiImplPlatform
       SseDeserializer deserializer);
 
   @protected
-  CallerTestClass sse_decode_caller_test_class(SseDeserializer deserializer);
-
-  @protected
-  DartCallStub sse_decode_dart_call_stub(SseDeserializer deserializer);
-
-  @protected
-  DartCallStubRegistred sse_decode_dart_call_stub_registred(
-      SseDeserializer deserializer);
-
-  @protected
-  DynamicNamedValue sse_decode_dynamic_named_value(
-      SseDeserializer deserializer);
-
-  @protected
-  DynamicValue sse_decode_dynamic_value(SseDeserializer deserializer);
-
-  @protected
-  ErrorCode sse_decode_error_code(SseDeserializer deserializer);
-
-  @protected
-  double sse_decode_f_32(SseDeserializer deserializer);
-
-  @protected
-  double sse_decode_f_64(SseDeserializer deserializer);
-
-  @protected
   GeneratedKeyG sse_decode_generated_key_g(SseDeserializer deserializer);
 
   @protected
@@ -659,6 +1188,9 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   int sse_decode_i_8(SseDeserializer deserializer);
+
+  @protected
+  PlatformInt64 sse_decode_isize(SseDeserializer deserializer);
 
   @protected
   JettonWalletDartWrapper sse_decode_jetton_wallet_dart_wrapper(
@@ -687,19 +1219,7 @@ abstract class NekotonBridgeApiImplPlatform
       SseDeserializer deserializer);
 
   @protected
-  LedgerConnectionImpl sse_decode_ledger_connection_impl(
-      SseDeserializer deserializer);
-
-  @protected
   List<String> sse_decode_list_String(SseDeserializer deserializer);
-
-  @protected
-  List<DynamicNamedValue> sse_decode_list_dynamic_named_value(
-      SseDeserializer deserializer);
-
-  @protected
-  List<DynamicValue> sse_decode_list_dynamic_value(
-      SseDeserializer deserializer);
 
   @protected
   List<KeySigner> sse_decode_list_key_signer(SseDeserializer deserializer);
@@ -726,17 +1246,10 @@ abstract class NekotonBridgeApiImplPlatform
   MnemonicType sse_decode_mnemonic_type(SseDeserializer deserializer);
 
   @protected
-  MyClass sse_decode_my_class(SseDeserializer deserializer);
-
-  @protected
   String? sse_decode_opt_String(SseDeserializer deserializer);
 
   @protected
   bool? sse_decode_opt_box_autoadd_bool(SseDeserializer deserializer);
-
-  @protected
-  DynamicValue? sse_decode_opt_box_autoadd_dynamic_value(
-      SseDeserializer deserializer);
 
   @protected
   int? sse_decode_opt_box_autoadd_i_32(SseDeserializer deserializer);
@@ -777,9 +1290,6 @@ abstract class NekotonBridgeApiImplPlatform
       SseDeserializer deserializer);
 
   @protected
-  StorageImpl sse_decode_storage_impl(SseDeserializer deserializer);
-
-  @protected
   TokenWalletDartWrapper sse_decode_token_wallet_dart_wrapper(
       SseDeserializer deserializer);
 
@@ -813,17 +1323,6 @@ abstract class NekotonBridgeApiImplPlatform
   String cst_encode_AnyhowException(AnyhowException raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     throw UnimplementedError();
-  }
-
-  @protected
-  String cst_encode_StreamSink_dart_call_stub_registred_Dco(
-      RustStreamSink<DartCallStubRegistred> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_String(raw.setupAndSerialize(
-        codec: DcoCodec(
-      decodeSuccessData: dco_decode_dart_call_stub_registred,
-      decodeErrorData: dco_decode_AnyhowException,
-    )));
   }
 
   @protected
@@ -876,24 +1375,6 @@ abstract class NekotonBridgeApiImplPlatform
   bool cst_encode_box_autoadd_bool(bool raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_bool(raw);
-  }
-
-  @protected
-  JSAny cst_encode_box_autoadd_caller_test_class(CallerTestClass raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_caller_test_class(raw);
-  }
-
-  @protected
-  JSAny cst_encode_box_autoadd_dart_call_stub(DartCallStub raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_dart_call_stub(raw);
-  }
-
-  @protected
-  JSAny cst_encode_box_autoadd_dynamic_value(DynamicValue raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_dynamic_value(raw);
   }
 
   @protected
@@ -968,12 +1449,6 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
-  JSAny cst_encode_box_autoadd_my_class(MyClass raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_my_class(raw);
-  }
-
-  @protected
   JSAny cst_encode_box_autoadd_proto_connection_dart_wrapper(
       ProtoConnectionDartWrapper raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
@@ -1019,83 +1494,6 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
-  JSAny cst_encode_caller_test_class(CallerTestClass raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_String(raw.instanceHash), cst_encode_i_32(raw.value)]
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_dart_call_stub(DartCallStub raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_String(raw.instanceHash),
-      cst_encode_String(raw.fnName),
-      cst_encode_list_dynamic_value(raw.args),
-      cst_encode_list_dynamic_named_value(raw.namedArgs)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_dart_call_stub_registred(DartCallStubRegistred raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_opt_String(raw.id), cst_encode_dart_call_stub(raw.stub)]
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_dynamic_named_value(DynamicNamedValue raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_String(raw.name),
-      cst_encode_opt_box_autoadd_dynamic_value(raw.value)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_dynamic_value(DynamicValue raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    if (raw is DynamicValue_U16) {
-      return [0, cst_encode_u_16(raw.field0)].jsify()!;
-    }
-    if (raw is DynamicValue_U32) {
-      return [1, cst_encode_u_32(raw.field0)].jsify()!;
-    }
-    if (raw is DynamicValue_I32) {
-      return [2, cst_encode_i_32(raw.field0)].jsify()!;
-    }
-    if (raw is DynamicValue_U64) {
-      return [3, cst_encode_u_64(raw.field0)].jsify()!;
-    }
-    if (raw is DynamicValue_I64) {
-      return [4, cst_encode_i_64(raw.field0)].jsify()!;
-    }
-    if (raw is DynamicValue_F32) {
-      return [5, cst_encode_f_32(raw.field0)].jsify()!;
-    }
-    if (raw is DynamicValue_F64) {
-      return [6, cst_encode_f_64(raw.field0)].jsify()!;
-    }
-    if (raw is DynamicValue_String) {
-      return [7, cst_encode_String(raw.field0)].jsify()!;
-    }
-    if (raw is DynamicValue_VecU8) {
-      return [8, cst_encode_list_prim_u_8_strict(raw.field0)].jsify()!;
-    }
-    if (raw is DynamicValue_MegaStruct) {
-      return [9, cst_encode_String(raw.field0)].jsify()!;
-    }
-    if (raw is DynamicValue_Error) {
-      return [10, cst_encode_error_code(raw.field0)].jsify()!;
-    }
-    if (raw is DynamicValue_None) {
-      return [11].jsify()!;
-    }
-
-    throw Exception('unreachable');
-  }
-
-  @protected
   JSAny cst_encode_generated_key_g(GeneratedKeyG raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return [
@@ -1130,6 +1528,12 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   JSAny cst_encode_i_64(PlatformInt64 raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return castNativeBigInt(raw);
+  }
+
+  @protected
+  JSAny cst_encode_isize(PlatformInt64 raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return castNativeBigInt(raw);
   }
@@ -1202,27 +1606,9 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
-  JSAny cst_encode_ledger_connection_impl(LedgerConnectionImpl raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_String(raw.instanceHash)].jsify()!;
-  }
-
-  @protected
   JSAny cst_encode_list_String(List<String> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return raw.map(cst_encode_String).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_dynamic_named_value(List<DynamicNamedValue> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_dynamic_named_value).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_dynamic_value(List<DynamicValue> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_dynamic_value).toList().jsify()!;
   }
 
   @protected
@@ -1282,12 +1668,6 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
-  JSAny cst_encode_my_class(MyClass raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.val)].jsify()!;
-  }
-
-  @protected
   String? cst_encode_opt_String(String? raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return raw == null ? null : cst_encode_String(raw);
@@ -1297,12 +1677,6 @@ abstract class NekotonBridgeApiImplPlatform
   bool? cst_encode_opt_box_autoadd_bool(bool? raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return raw == null ? null : cst_encode_box_autoadd_bool(raw);
-  }
-
-  @protected
-  JSAny? cst_encode_opt_box_autoadd_dynamic_value(DynamicValue? raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw == null ? null : cst_encode_box_autoadd_dynamic_value(raw);
   }
 
   @protected
@@ -1383,12 +1757,6 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
-  JSAny cst_encode_storage_impl(StorageImpl raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_String(raw.instanceHash)].jsify()!;
-  }
-
-  @protected
   JSAny cst_encode_token_wallet_dart_wrapper(TokenWalletDartWrapper raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return [cst_encode_RustOpaque_ArcdynTokenWalletBoxTrait(raw.innerWallet)]
@@ -1421,6 +1789,187 @@ abstract class NekotonBridgeApiImplPlatform
     // Codec=Cst (C-struct based), see doc to use other codecs
     return castNativeBigInt(raw);
   }
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+      ArcFnStringDartFnFutureOptionString raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+      ArcFnStringDartFnFuture raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+      ArcFnStringDartFnFutureString raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+      ArcFnStringStringDartFnFuture raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+      ArcFnVecU8DartFnFutureVecU8 raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+      ArcFnU16DartFnFutureVecU8 raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+      ArcFnU16OptionI32VecU8DartFnFutureVecU8 raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+      ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+      GenericContractSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+      GqlConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+      JettonWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+      JrpcConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+      LedgerConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+      ProtoConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+      StorageImpl raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+      TokenWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+      TonWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+      GenericContractSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+      GqlConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+      JettonWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+      JrpcConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+      LedgerConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+      ProtoConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+      StorageImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+      TokenWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+      TonWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+      GenericContractSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+      GqlConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+      JettonWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+      JrpcConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+      LedgerConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+      ProtoConnectionImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+      StorageImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+      TokenWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+      TonWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  PlatformPointer cst_encode_DartFn_Inputs_String_Output_String_AnyhowException(
+      FutureOr<String> Function(String) raw);
+
+  @protected
+  PlatformPointer
+      cst_encode_DartFn_Inputs_String_Output_opt_String_AnyhowException(
+          FutureOr<String?> Function(String) raw);
+
+  @protected
+  PlatformPointer cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+      FutureOr<void> Function(String) raw);
+
+  @protected
+  PlatformPointer
+      cst_encode_DartFn_Inputs_String_String_Output_unit_AnyhowException(
+          FutureOr<void> Function(String, String) raw);
+
+  @protected
+  PlatformPointer
+      cst_encode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+          FutureOr<Uint8List> Function(Uint8List) raw);
+
+  @protected
+  PlatformPointer
+      cst_encode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
+          FutureOr<Uint8List> Function(int) raw);
+
+  @protected
+  PlatformPointer
+      cst_encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+          FutureOr<Uint8List> Function(int, int?, Uint8List) raw);
+
+  @protected
+  PlatformPointer
+      cst_encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+          FutureOr<Uint8List> Function(int, int, int?, Uint8List, String) raw);
+
+  @protected
+  PlatformPointer cst_encode_DartOpaque(Object raw);
 
   @protected
   int cst_encode_RustOpaque_ArcdynAccountsStorageBoxTrait(
@@ -1472,6 +2021,74 @@ abstract class NekotonBridgeApiImplPlatform
       ArcUnsignedMessageBoxTrait raw);
 
   @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+      ArcFnStringDartFnFutureOptionString raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+      ArcFnStringDartFnFuture raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+      ArcFnStringDartFnFutureString raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+      ArcFnStringStringDartFnFuture raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+      ArcFnVecU8DartFnFutureVecU8 raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+      ArcFnU16DartFnFutureVecU8 raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+      ArcFnU16OptionI32VecU8DartFnFutureVecU8 raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+      ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+      GenericContractSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+      GqlConnectionImpl raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+      JettonWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+      JrpcConnectionImpl raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+      LedgerConnectionImpl raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+      ProtoConnectionImpl raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+      StorageImpl raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+      TokenWalletSubscriptionHandlerImpl raw);
+
+  @protected
+  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+      TonWalletSubscriptionHandlerImpl raw);
+
+  @protected
   int cst_encode_bip_39_entropy(Bip39Entropy raw);
 
   @protected
@@ -1479,15 +2096,6 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   bool cst_encode_bool(bool raw);
-
-  @protected
-  int cst_encode_error_code(ErrorCode raw);
-
-  @protected
-  double cst_encode_f_32(double raw);
-
-  @protected
-  double cst_encode_f_64(double raw);
 
   @protected
   int cst_encode_i_32(int raw);
@@ -1516,6 +2124,228 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   void sse_encode_AnyhowException(
       AnyhowException self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+          ArcFnStringDartFnFutureOptionString self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+          ArcFnStringDartFnFuture self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+          ArcFnStringDartFnFutureString self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+          ArcFnStringStringDartFnFuture self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+          ArcFnVecU8DartFnFutureVecU8 self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+          ArcFnU16DartFnFutureVecU8 self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+          ArcFnU16OptionI32VecU8DartFnFutureVecU8 self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+          ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          GenericContractSubscriptionHandlerImpl self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          GqlConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          JettonWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          JrpcConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          LedgerConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          ProtoConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          StorageImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          TokenWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          TonWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          GenericContractSubscriptionHandlerImpl self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          GqlConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          JettonWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          JrpcConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          LedgerConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          ProtoConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          StorageImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          TokenWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          TonWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          GenericContractSubscriptionHandlerImpl self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          GqlConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          JettonWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          JrpcConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          LedgerConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          ProtoConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          StorageImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          TokenWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          TonWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_DartFn_Inputs_String_Output_String_AnyhowException(
+      FutureOr<String> Function(String) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_DartFn_Inputs_String_Output_opt_String_AnyhowException(
+      FutureOr<String?> Function(String) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+      FutureOr<void> Function(String) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_DartFn_Inputs_String_String_Output_unit_AnyhowException(
+      FutureOr<void> Function(String, String) self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+          FutureOr<Uint8List> Function(Uint8List) self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
+          FutureOr<Uint8List> Function(int) self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+          FutureOr<Uint8List> Function(int, int?, Uint8List) self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+          FutureOr<Uint8List> Function(int, int, int?, Uint8List, String) self,
+          SseSerializer serializer);
+
+  @protected
+  void sse_encode_DartOpaque(Object self, SseSerializer serializer);
 
   @protected
   void sse_encode_RustOpaque_ArcdynAccountsStorageBoxTrait(
@@ -1570,8 +2400,92 @@ abstract class NekotonBridgeApiImplPlatform
       ArcUnsignedMessageBoxTrait self, SseSerializer serializer);
 
   @protected
-  void sse_encode_StreamSink_dart_call_stub_registred_Dco(
-      RustStreamSink<DartCallStubRegistred> self, SseSerializer serializer);
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+          ArcFnStringDartFnFutureOptionString self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+          ArcFnStringDartFnFuture self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+          ArcFnStringDartFnFutureString self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+          ArcFnStringStringDartFnFuture self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+          ArcFnVecU8DartFnFutureVecU8 self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+          ArcFnU16DartFnFutureVecU8 self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+          ArcFnU16OptionI32VecU8DartFnFutureVecU8 self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+          ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          GenericContractSubscriptionHandlerImpl self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          GqlConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          JettonWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          JrpcConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          LedgerConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          ProtoConnectionImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          StorageImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          TokenWalletSubscriptionHandlerImpl self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          TonWalletSubscriptionHandlerImpl self, SseSerializer serializer);
 
   @protected
   void sse_encode_StreamSink_log_entry_Dco(
@@ -1607,18 +2521,6 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_box_autoadd_bool(bool self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_box_autoadd_caller_test_class(
-      CallerTestClass self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_box_autoadd_dart_call_stub(
-      DartCallStub self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_box_autoadd_dynamic_value(
-      DynamicValue self, SseSerializer serializer);
 
   @protected
   void sse_encode_box_autoadd_generic_contract_dart_wrapper(
@@ -1664,9 +2566,6 @@ abstract class NekotonBridgeApiImplPlatform
       MnemonicType self, SseSerializer serializer);
 
   @protected
-  void sse_encode_box_autoadd_my_class(MyClass self, SseSerializer serializer);
-
-  @protected
   void sse_encode_box_autoadd_proto_connection_dart_wrapper(
       ProtoConnectionDartWrapper self, SseSerializer serializer);
 
@@ -1694,33 +2593,6 @@ abstract class NekotonBridgeApiImplPlatform
       UnsignedMessageImpl self, SseSerializer serializer);
 
   @protected
-  void sse_encode_caller_test_class(
-      CallerTestClass self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_dart_call_stub(DartCallStub self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_dart_call_stub_registred(
-      DartCallStubRegistred self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_dynamic_named_value(
-      DynamicNamedValue self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_dynamic_value(DynamicValue self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_error_code(ErrorCode self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_f_32(double self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_f_64(double self, SseSerializer serializer);
-
-  @protected
   void sse_encode_generated_key_g(GeneratedKeyG self, SseSerializer serializer);
 
   @protected
@@ -1743,6 +2615,9 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_i_8(int self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_isize(PlatformInt64 self, SseSerializer serializer);
 
   @protected
   void sse_encode_jetton_wallet_dart_wrapper(
@@ -1771,19 +2646,7 @@ abstract class NekotonBridgeApiImplPlatform
       LedgerConnectionDartWrapper self, SseSerializer serializer);
 
   @protected
-  void sse_encode_ledger_connection_impl(
-      LedgerConnectionImpl self, SseSerializer serializer);
-
-  @protected
   void sse_encode_list_String(List<String> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_dynamic_named_value(
-      List<DynamicNamedValue> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_dynamic_value(
-      List<DynamicValue> self, SseSerializer serializer);
 
   @protected
   void sse_encode_list_key_signer(
@@ -1814,17 +2677,10 @@ abstract class NekotonBridgeApiImplPlatform
   void sse_encode_mnemonic_type(MnemonicType self, SseSerializer serializer);
 
   @protected
-  void sse_encode_my_class(MyClass self, SseSerializer serializer);
-
-  @protected
   void sse_encode_opt_String(String? self, SseSerializer serializer);
 
   @protected
   void sse_encode_opt_box_autoadd_bool(bool? self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_opt_box_autoadd_dynamic_value(
-      DynamicValue? self, SseSerializer serializer);
 
   @protected
   void sse_encode_opt_box_autoadd_i_32(int? self, SseSerializer serializer);
@@ -1865,9 +2721,6 @@ abstract class NekotonBridgeApiImplPlatform
       StorageDartWrapper self, SseSerializer serializer);
 
   @protected
-  void sse_encode_storage_impl(StorageImpl self, SseSerializer serializer);
-
-  @protected
   void sse_encode_token_wallet_dart_wrapper(
       TokenWalletDartWrapper self, SseSerializer serializer);
 
@@ -1902,6 +2755,394 @@ abstract class NekotonBridgeApiImplPlatform
 
 class NekotonBridgeWire implements BaseWire {
   NekotonBridgeWire.fromExternalLibrary(ExternalLibrary lib);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_expired(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_expired(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_sent(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_sent(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_state_changed(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_state_changed(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_expired(
+              int that, int on_message_expired) =>
+          wasmModule
+              .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_expired(
+                  that, on_message_expired);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_sent(
+              int that, int on_message_sent) =>
+          wasmModule
+              .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_sent(
+                  that, on_message_sent);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_state_changed(
+              int that, int on_state_changed) =>
+          wasmModule
+              .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_state_changed(
+                  that, on_state_changed);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+              int that, int on_transactions_found) =>
+          wasmModule
+              .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+                  that, on_transactions_found);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_is_local(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_is_local(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_on_post(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_on_post(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_is_local(
+              int that, bool is_local) =>
+          wasmModule
+              .wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_is_local(
+                  that, is_local);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_on_post(
+              int that, int on_post) =>
+          wasmModule
+              .wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_on_post(
+                  that, on_post);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed(
+              int that, int on_balance_changed) =>
+          wasmModule
+              .wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed(
+                  that, on_balance_changed);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+              int that, int on_transactions_found) =>
+          wasmModule
+              .wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+                  that, on_transactions_found);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_get_on_post(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_get_on_post(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_set_on_post(
+              int that, int on_post) =>
+          wasmModule
+              .wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_set_on_post(
+                  that, on_post);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_get_public_key(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_get_public_key(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign_transaction(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign_transaction(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_get_public_key(
+              int that, int on_get_public_key) =>
+          wasmModule
+              .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_get_public_key(
+                  that, on_get_public_key);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign(
+              int that, int on_sign) =>
+          wasmModule
+              .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign(
+                  that, on_sign);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign_transaction(
+              int that, int on_sign_transaction) =>
+          wasmModule
+              .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign_transaction(
+                  that, on_sign_transaction);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_get_on_post(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_get_on_post(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_set_on_post(
+              int that, int on_post) =>
+          wasmModule
+              .wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_set_on_post(
+                  that, on_post);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_get_on_get(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__StorageImpl_auto_accessor_get_on_get(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove_unchecked(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove_unchecked(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set_unchecked(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set_unchecked(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_set_on_get(
+              int that, int on_get) =>
+          wasmModule
+              .wire__crate__api__merged__StorageImpl_auto_accessor_set_on_get(
+                  that, on_get);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove(
+              int that, int on_remove) =>
+          wasmModule
+              .wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove(
+                  that, on_remove);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove_unchecked(
+              int that, int on_remove_unchecked) =>
+          wasmModule
+              .wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove_unchecked(
+                  that, on_remove_unchecked);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set(
+              int that, int on_set) =>
+          wasmModule
+              .wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set(
+                  that, on_set);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set_unchecked(
+              int that, int on_set_unchecked) =>
+          wasmModule
+              .wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set_unchecked(
+                  that, on_set_unchecked);
+
+  void wire__crate__api__merged__StorageImpl_new(
+          NativePortType port_,
+          int on_get,
+          int on_set,
+          int on_set_unchecked,
+          int on_remove,
+          int on_remove_unchecked) =>
+      wasmModule.wire__crate__api__merged__StorageImpl_new(port_, on_get,
+          on_set, on_set_unchecked, on_remove, on_remove_unchecked);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed(
+              int that, int on_balance_changed) =>
+          wasmModule
+              .wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed(
+                  that, on_balance_changed);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+              int that, int on_transactions_found) =>
+          wasmModule
+              .wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+                  that, on_transactions_found);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_custodians_changed(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_custodians_changed(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_details_changed(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_details_changed(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_expired(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_expired(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_sent(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_sent(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_state_changed(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_state_changed(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_unconfirmed_transactions_changed(
+              int that) =>
+          wasmModule
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_unconfirmed_transactions_changed(
+                  that);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_custodians_changed(
+              int that, int on_custodians_changed) =>
+          wasmModule
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_custodians_changed(
+                  that, on_custodians_changed);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_details_changed(
+              int that, int on_details_changed) =>
+          wasmModule
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_details_changed(
+                  that, on_details_changed);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_expired(
+              int that, int on_message_expired) =>
+          wasmModule
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_expired(
+                  that, on_message_expired);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_sent(
+              int that, int on_message_sent) =>
+          wasmModule
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_sent(
+                  that, on_message_sent);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_state_changed(
+              int that, int on_state_changed) =>
+          wasmModule
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_state_changed(
+                  that, on_state_changed);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+              int that, int on_transactions_found) =>
+          wasmModule
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+                  that, on_transactions_found);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_unconfirmed_transactions_changed(
+              int that, int on_unconfirmed_transactions_changed) =>
+          wasmModule
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_unconfirmed_transactions_changed(
+                  that, on_unconfirmed_transactions_changed);
 
   void wire__crate__api__merged__accounts_storage_impl_add_account(
           NativePortType port_, JSAny that, String account) =>
@@ -2005,20 +3246,6 @@ class NekotonBridgeWire implements BaseWire {
       wasmModule.wire__crate__api__merged__accounts_storage_impl_verify_data(
           port_, data);
 
-  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
-      wire__crate__api__merged__call_send_result(String id, JSAny value) =>
-          wasmModule.wire__crate__api__merged__call_send_result(id, value);
-
-  void wire__crate__api__merged__caller_test_class_call_some_func(
-          NativePortType port_, JSAny that) =>
-      wasmModule.wire__crate__api__merged__caller_test_class_call_some_func(
-          port_, that);
-
-  void wire__crate__api__merged__caller_test_class_new(
-          NativePortType port_, String instance_hash, int value) =>
-      wasmModule.wire__crate__api__merged__caller_test_class_new(
-          port_, instance_hash, value);
-
   void wire__crate__api__merged__create_log_stream(
           NativePortType port_, String s) =>
       wasmModule.wire__crate__api__merged__create_log_stream(port_, s);
@@ -2087,19 +3314,29 @@ class NekotonBridgeWire implements BaseWire {
 
   void wire__crate__api__merged__generic_contract_dart_wrapper_subscribe(
           NativePortType port_,
-          String instance_hash,
           String address,
           bool preload_transactions,
-          int transport) =>
+          int transport,
+          PlatformPointer on_message_sent,
+          PlatformPointer on_message_expired,
+          PlatformPointer on_state_changed,
+          PlatformPointer on_transactions_found) =>
       wasmModule
           .wire__crate__api__merged__generic_contract_dart_wrapper_subscribe(
-              port_, instance_hash, address, preload_transactions, transport);
+              port_,
+              address,
+              preload_transactions,
+              transport,
+              on_message_sent,
+              on_message_expired,
+              on_state_changed,
+              on_transactions_found);
 
   JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__gql_connection_dart_wrapper_new(
-              bool is_local, String instance_hash) =>
+              bool is_local, PlatformPointer on_post) =>
           wasmModule.wire__crate__api__merged__gql_connection_dart_wrapper_new(
-              is_local, instance_hash);
+              is_local, on_post);
 
   void wire__crate__api__merged__gql_transport_impl_get_accounts_by_code_hash(
           NativePortType port_,
@@ -2203,10 +3440,6 @@ class NekotonBridgeWire implements BaseWire {
           .wire__crate__api__merged__gql_transport_impl_wait_for_next_block(
               port_, that, current_block_id, address, timeout);
 
-  void wire__crate__api__merged__init_caller(
-          NativePortType port_, String stream_sink) =>
-      wasmModule.wire__crate__api__merged__init_caller(port_, stream_sink);
-
   void wire__crate__api__merged__init_logger(
           NativePortType port_, int level, bool mobile_logger) =>
       wasmModule.wire__crate__api__merged__init_logger(
@@ -2298,24 +3531,26 @@ class NekotonBridgeWire implements BaseWire {
 
   void wire__crate__api__merged__jetton_wallet_dart_wrapper_subscribe(
           NativePortType port_,
-          String instance_hash,
           String owner,
           String root_token_contract,
           int transport,
-          bool preload_transactions) =>
+          bool preload_transactions,
+          PlatformPointer on_balance_changed,
+          PlatformPointer on_transactions_found) =>
       wasmModule.wire__crate__api__merged__jetton_wallet_dart_wrapper_subscribe(
           port_,
-          instance_hash,
           owner,
           root_token_contract,
           transport,
-          preload_transactions);
+          preload_transactions,
+          on_balance_changed,
+          on_transactions_found);
 
   JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__jrpc_connection_dart_wrapper_new(
-              String instance_hash) =>
+              PlatformPointer on_post) =>
           wasmModule.wire__crate__api__merged__jrpc_connection_dart_wrapper_new(
-              instance_hash);
+              on_post);
 
   void wire__crate__api__merged__jrpc_transport_impl_get_accounts_by_code_hash(
           NativePortType port_,
@@ -2526,23 +3761,12 @@ class NekotonBridgeWire implements BaseWire {
 
   JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__ledger_connection_dart_wrapper_new(
-              String instance_hash) =>
+              PlatformPointer on_get_public_key,
+              PlatformPointer on_sign,
+              PlatformPointer on_sign_transaction) =>
           wasmModule
               .wire__crate__api__merged__ledger_connection_dart_wrapper_new(
-                  instance_hash);
-
-  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
-      wire__crate__api__merged__ledger_connection_impl_new(
-              String instance_hash) =>
-          wasmModule.wire__crate__api__merged__ledger_connection_impl_new(
-              instance_hash);
-
-  void wire__crate__api__merged__my_class_my_format(
-          NativePortType port_, JSAny that) =>
-      wasmModule.wire__crate__api__merged__my_class_my_format(port_, that);
-
-  void wire__crate__api__merged__my_class_new(NativePortType port_, int a) =>
-      wasmModule.wire__crate__api__merged__my_class_new(port_, a);
+                  on_get_public_key, on_sign, on_sign_transaction);
 
   JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_check_public_key(String public_key) =>
@@ -2820,10 +4044,10 @@ class NekotonBridgeWire implements BaseWire {
 
   JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__proto_connection_dart_wrapper_new(
-              String instance_hash) =>
+              PlatformPointer on_post) =>
           wasmModule
               .wire__crate__api__merged__proto_connection_dart_wrapper_new(
-                  instance_hash);
+                  on_post);
 
   void wire__crate__api__merged__proto_transport_impl_get_accounts_by_code_hash(
           NativePortType port_,
@@ -2914,96 +4138,15 @@ class NekotonBridgeWire implements BaseWire {
           NativePortType port_, JSAny offset_ms) =>
       wasmModule.wire__crate__api__merged__set_clock_offset(port_, offset_ms);
 
-  void wire__crate__api__merged__simple_adder(
-          NativePortType port_, int a, int b) =>
-      wasmModule.wire__crate__api__merged__simple_adder(port_, a, b);
-
-  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
-      wire__crate__api__merged__simple_adder_sync(int a, int b) =>
-          wasmModule.wire__crate__api__merged__simple_adder_sync(a, b);
-
-  void wire__crate__api__merged__simple_call_dart(NativePortType port_) =>
-      wasmModule.wire__crate__api__merged__simple_call_dart(port_);
-
-  void wire__crate__api__merged__simple_call_func0(
-          NativePortType port_, bool need_result) =>
-      wasmModule.wire__crate__api__merged__simple_call_func0(
-          port_, need_result);
-
-  void wire__crate__api__merged__simple_call_func1(
-          NativePortType port_, bool need_result) =>
-      wasmModule.wire__crate__api__merged__simple_call_func1(
-          port_, need_result);
-
-  void wire__crate__api__merged__simple_call_func2(NativePortType port_) =>
-      wasmModule.wire__crate__api__merged__simple_call_func2(port_);
-
-  void wire__crate__api__merged__simple_call_func3(NativePortType port_) =>
-      wasmModule.wire__crate__api__merged__simple_call_func3(port_);
-
-  void wire__crate__api__merged__simple_log(
-          NativePortType port_, String string) =>
-      wasmModule.wire__crate__api__merged__simple_log(port_, string);
-
-  void wire__crate__api__merged__simple_panic(NativePortType port_) =>
-      wasmModule.wire__crate__api__merged__simple_panic(port_);
-
   JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__storage_dart_wrapper_new(
-              String instance_hash) =>
+              PlatformPointer on_get,
+              PlatformPointer on_set,
+              PlatformPointer on_set_unchecked,
+              PlatformPointer on_remove,
+              PlatformPointer on_remove_unchecked) =>
           wasmModule.wire__crate__api__merged__storage_dart_wrapper_new(
-              instance_hash);
-
-  void wire__crate__api__merged__storage_impl_new(
-          NativePortType port_, String instance_hash) =>
-      wasmModule.wire__crate__api__merged__storage_impl_new(
-          port_, instance_hash);
-
-  void wire__crate__api__merged__stub_call_dart(
-          NativePortType port_, JSAny stub) =>
-      wasmModule.wire__crate__api__merged__stub_call_dart(port_, stub);
-
-  void wire__crate__api__merged__stub_dcs(NativePortType port_) =>
-      wasmModule.wire__crate__api__merged__stub_dcs(port_);
-
-  void wire__crate__api__merged__stub_dv(NativePortType port_) =>
-      wasmModule.wire__crate__api__merged__stub_dv(port_);
-
-  void wire__crate__api__merged__test_caller_call_test0_async(
-          NativePortType port_, String string, bool need_result) =>
-      wasmModule.wire__crate__api__merged__test_caller_call_test0_async(
-          port_, string, need_result);
-
-  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
-      wire__crate__api__merged__test_caller_call_test0_sync(
-              String string, bool need_result) =>
-          wasmModule.wire__crate__api__merged__test_caller_call_test0_sync(
-              string, need_result);
-
-  void wire__crate__api__merged__test_caller_call_test1_async(
-          NativePortType port_, String string, bool need_result) =>
-      wasmModule.wire__crate__api__merged__test_caller_call_test1_async(
-          port_, string, need_result);
-
-  void wire__crate__api__merged__test_logger_debug(
-          NativePortType port_, String string) =>
-      wasmModule.wire__crate__api__merged__test_logger_debug(port_, string);
-
-  void wire__crate__api__merged__test_logger_error(
-          NativePortType port_, String string) =>
-      wasmModule.wire__crate__api__merged__test_logger_error(port_, string);
-
-  void wire__crate__api__merged__test_logger_info(
-          NativePortType port_, String string) =>
-      wasmModule.wire__crate__api__merged__test_logger_info(port_, string);
-
-  void wire__crate__api__merged__test_logger_panic(
-          NativePortType port_, String string) =>
-      wasmModule.wire__crate__api__merged__test_logger_panic(port_, string);
-
-  void wire__crate__api__merged__test_logger_warn(
-          NativePortType port_, String string) =>
-      wasmModule.wire__crate__api__merged__test_logger_warn(port_, string);
+              on_get, on_set, on_set_unchecked, on_remove, on_remove_unchecked);
 
   void wire__crate__api__merged__token_wallet_dart_wrapper_address(
           NativePortType port_, JSAny that) =>
@@ -3092,18 +4235,20 @@ class NekotonBridgeWire implements BaseWire {
 
   void wire__crate__api__merged__token_wallet_dart_wrapper_subscribe(
           NativePortType port_,
-          String instance_hash,
           String owner,
           String root_token_contract,
           int transport,
-          bool preload_transactions) =>
+          bool preload_transactions,
+          PlatformPointer on_balance_changed,
+          PlatformPointer on_transactions_found) =>
       wasmModule.wire__crate__api__merged__token_wallet_dart_wrapper_subscribe(
           port_,
-          instance_hash,
           owner,
           root_token_contract,
           transport,
-          preload_transactions);
+          preload_transactions,
+          on_balance_changed,
+          on_transactions_found);
 
   void wire__crate__api__merged__token_wallet_dart_wrapper_symbol(
           NativePortType port_, JSAny that) =>
@@ -3262,36 +4407,78 @@ class NekotonBridgeWire implements BaseWire {
 
   void wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe(
           NativePortType port_,
-          String instance_hash,
           int workchain_id,
           String public_key,
           String wallet_type,
-          int transport) =>
+          int transport,
+          PlatformPointer on_message_sent,
+          PlatformPointer on_message_expired,
+          PlatformPointer on_state_changed,
+          PlatformPointer on_transactions_found,
+          PlatformPointer on_details_changed,
+          PlatformPointer on_custodians_changed,
+          PlatformPointer on_unconfirmed_transactions_changed) =>
       wasmModule.wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe(
           port_,
-          instance_hash,
           workchain_id,
           public_key,
           wallet_type,
-          transport);
+          transport,
+          on_message_sent,
+          on_message_expired,
+          on_state_changed,
+          on_transactions_found,
+          on_details_changed,
+          on_custodians_changed,
+          on_unconfirmed_transactions_changed);
 
   void wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_address(
           NativePortType port_,
-          String instance_hash,
           String address,
-          int transport) =>
+          int transport,
+          PlatformPointer on_message_sent,
+          PlatformPointer on_message_expired,
+          PlatformPointer on_state_changed,
+          PlatformPointer on_transactions_found,
+          PlatformPointer on_details_changed,
+          PlatformPointer on_custodians_changed,
+          PlatformPointer on_unconfirmed_transactions_changed) =>
       wasmModule
           .wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_address(
-              port_, instance_hash, address, transport);
+              port_,
+              address,
+              transport,
+              on_message_sent,
+              on_message_expired,
+              on_state_changed,
+              on_transactions_found,
+              on_details_changed,
+              on_custodians_changed,
+              on_unconfirmed_transactions_changed);
 
   void wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_existing(
           NativePortType port_,
-          String instance_hash,
           String existing_wallet,
-          int transport) =>
+          int transport,
+          PlatformPointer on_message_sent,
+          PlatformPointer on_message_expired,
+          PlatformPointer on_state_changed,
+          PlatformPointer on_transactions_found,
+          PlatformPointer on_details_changed,
+          PlatformPointer on_custodians_changed,
+          PlatformPointer on_unconfirmed_transactions_changed) =>
       wasmModule
           .wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_existing(
-              port_, instance_hash, existing_wallet, transport);
+              port_,
+              existing_wallet,
+              transport,
+              on_message_sent,
+              on_message_expired,
+              on_state_changed,
+              on_transactions_found,
+              on_details_changed,
+              on_custodians_changed,
+              on_unconfirmed_transactions_changed);
 
   void wire__crate__api__merged__ton_wallet_dart_wrapper_unconfirmed_transactions(
           NativePortType port_, JSAny that) =>
@@ -3490,6 +4677,210 @@ class NekotonBridgeWire implements BaseWire {
       wasmModule
           .rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait(
               ptr);
+
+  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+          int ptr) =>
+      wasmModule
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+              ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+          int ptr) =>
+      wasmModule
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+              ptr);
+
+  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+          int ptr) =>
+      wasmModule
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+              ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+          int ptr) =>
+      wasmModule
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+              ptr);
+
+  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+          int ptr) =>
+      wasmModule
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+              ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+          int ptr) =>
+      wasmModule
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+              ptr);
+
+  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+          int ptr) =>
+      wasmModule
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+              ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+          int ptr) =>
+      wasmModule
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+              ptr);
+
+  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+          int ptr) =>
+      wasmModule
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+              ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+          int ptr) =>
+      wasmModule
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+              ptr);
+
+  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+          int ptr) =>
+      wasmModule
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+              ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+          int ptr) =>
+      wasmModule
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+              ptr);
+
+  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+          int ptr) =>
+      wasmModule
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+              ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+          int ptr) =>
+      wasmModule
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+              ptr);
+
+  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+          int ptr) =>
+      wasmModule
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+              ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+          int ptr) =>
+      wasmModule
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+              ptr);
+
+  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+              ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+              ptr);
+
+  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+              ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+              ptr);
+
+  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+              ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+              ptr);
+
+  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+              ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+              ptr);
+
+  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+              ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+              ptr);
+
+  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+              ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+              ptr);
+
+  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+              ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+              ptr);
+
+  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+              ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+              ptr);
+
+  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+              ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          int ptr) =>
+      wasmModule
+          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+              ptr);
 }
 
 @JS('wasm_bindgen')
@@ -3498,6 +4889,228 @@ external NekotonBridgeWasmModule get wasmModule;
 @JS()
 @anonymous
 extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_expired(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_sent(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_state_changed(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_expired(
+          int that, int on_message_expired);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_sent(
+          int that, int on_message_sent);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_state_changed(
+          int that, int on_state_changed);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+          int that, int on_transactions_found);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_is_local(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_on_post(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_is_local(
+          int that, bool is_local);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_on_post(
+          int that, int on_post);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed(
+          int that, int on_balance_changed);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+          int that, int on_transactions_found);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_get_on_post(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_set_on_post(
+          int that, int on_post);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_get_public_key(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign_transaction(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_get_public_key(
+          int that, int on_get_public_key);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign(
+          int that, int on_sign);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign_transaction(
+          int that, int on_sign_transaction);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_get_on_post(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_set_on_post(
+          int that, int on_post);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_get_on_get(int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove_unchecked(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set(int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set_unchecked(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_set_on_get(
+          int that, int on_get);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove(
+          int that, int on_remove);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove_unchecked(
+          int that, int on_remove_unchecked);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set(
+          int that, int on_set);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set_unchecked(
+          int that, int on_set_unchecked);
+
+  external void wire__crate__api__merged__StorageImpl_new(
+      NativePortType port_,
+      int on_get,
+      int on_set,
+      int on_set_unchecked,
+      int on_remove,
+      int on_remove_unchecked);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed(
+          int that, int on_balance_changed);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+          int that, int on_transactions_found);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_custodians_changed(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_details_changed(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_expired(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_sent(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_state_changed(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_unconfirmed_transactions_changed(
+          int that);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_custodians_changed(
+          int that, int on_custodians_changed);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_details_changed(
+          int that, int on_details_changed);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_expired(
+          int that, int on_message_expired);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_sent(
+          int that, int on_message_sent);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_state_changed(
+          int that, int on_state_changed);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+          int that, int on_transactions_found);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_unconfirmed_transactions_changed(
+          int that, int on_unconfirmed_transactions_changed);
+
   external void wire__crate__api__merged__accounts_storage_impl_add_account(
       NativePortType port_, JSAny that, String account);
 
@@ -3560,15 +5173,6 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
   external void wire__crate__api__merged__accounts_storage_impl_verify_data(
       NativePortType port_, String data);
 
-  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
-      wire__crate__api__merged__call_send_result(String id, JSAny value);
-
-  external void wire__crate__api__merged__caller_test_class_call_some_func(
-      NativePortType port_, JSAny that);
-
-  external void wire__crate__api__merged__caller_test_class_new(
-      NativePortType port_, String instance_hash, int value);
-
   external void wire__crate__api__merged__create_log_stream(
       NativePortType port_, String s);
 
@@ -3615,14 +5219,17 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
   external void
       wire__crate__api__merged__generic_contract_dart_wrapper_subscribe(
           NativePortType port_,
-          String instance_hash,
           String address,
           bool preload_transactions,
-          int transport);
+          int transport,
+          PlatformPointer on_message_sent,
+          PlatformPointer on_message_expired,
+          PlatformPointer on_state_changed,
+          PlatformPointer on_transactions_found);
 
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__gql_connection_dart_wrapper_new(
-          bool is_local, String instance_hash);
+          bool is_local, PlatformPointer on_post);
 
   external void
       wire__crate__api__merged__gql_transport_impl_get_accounts_by_code_hash(
@@ -3691,9 +5298,6 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
           String address,
           JSAny timeout);
 
-  external void wire__crate__api__merged__init_caller(
-      NativePortType port_, String stream_sink);
-
   external void wire__crate__api__merged__init_logger(
       NativePortType port_, int level, bool mobile_logger);
 
@@ -3751,15 +5355,16 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
 
   external void wire__crate__api__merged__jetton_wallet_dart_wrapper_subscribe(
       NativePortType port_,
-      String instance_hash,
       String owner,
       String root_token_contract,
       int transport,
-      bool preload_transactions);
+      bool preload_transactions,
+      PlatformPointer on_balance_changed,
+      PlatformPointer on_transactions_found);
 
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__jrpc_connection_dart_wrapper_new(
-          String instance_hash);
+          PlatformPointer on_post);
 
   external void
       wire__crate__api__merged__jrpc_transport_impl_get_accounts_by_code_hash(
@@ -3903,17 +5508,9 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
 
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__ledger_connection_dart_wrapper_new(
-          String instance_hash);
-
-  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
-      wire__crate__api__merged__ledger_connection_impl_new(
-          String instance_hash);
-
-  external void wire__crate__api__merged__my_class_my_format(
-      NativePortType port_, JSAny that);
-
-  external void wire__crate__api__merged__my_class_new(
-      NativePortType port_, int a);
+          PlatformPointer on_get_public_key,
+          PlatformPointer on_sign,
+          PlatformPointer on_sign_transaction);
 
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__nt_check_public_key(String public_key);
@@ -4112,7 +5709,7 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
 
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
       wire__crate__api__merged__proto_connection_dart_wrapper_new(
-          String instance_hash);
+          PlatformPointer on_post);
 
   external void
       wire__crate__api__merged__proto_transport_impl_get_accounts_by_code_hash(
@@ -4172,69 +5769,13 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
   external void wire__crate__api__merged__set_clock_offset(
       NativePortType port_, JSAny offset_ms);
 
-  external void wire__crate__api__merged__simple_adder(
-      NativePortType port_, int a, int b);
-
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
-      wire__crate__api__merged__simple_adder_sync(int a, int b);
-
-  external void wire__crate__api__merged__simple_call_dart(
-      NativePortType port_);
-
-  external void wire__crate__api__merged__simple_call_func0(
-      NativePortType port_, bool need_result);
-
-  external void wire__crate__api__merged__simple_call_func1(
-      NativePortType port_, bool need_result);
-
-  external void wire__crate__api__merged__simple_call_func2(
-      NativePortType port_);
-
-  external void wire__crate__api__merged__simple_call_func3(
-      NativePortType port_);
-
-  external void wire__crate__api__merged__simple_log(
-      NativePortType port_, String string);
-
-  external void wire__crate__api__merged__simple_panic(NativePortType port_);
-
-  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
-      wire__crate__api__merged__storage_dart_wrapper_new(String instance_hash);
-
-  external void wire__crate__api__merged__storage_impl_new(
-      NativePortType port_, String instance_hash);
-
-  external void wire__crate__api__merged__stub_call_dart(
-      NativePortType port_, JSAny stub);
-
-  external void wire__crate__api__merged__stub_dcs(NativePortType port_);
-
-  external void wire__crate__api__merged__stub_dv(NativePortType port_);
-
-  external void wire__crate__api__merged__test_caller_call_test0_async(
-      NativePortType port_, String string, bool need_result);
-
-  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
-      wire__crate__api__merged__test_caller_call_test0_sync(
-          String string, bool need_result);
-
-  external void wire__crate__api__merged__test_caller_call_test1_async(
-      NativePortType port_, String string, bool need_result);
-
-  external void wire__crate__api__merged__test_logger_debug(
-      NativePortType port_, String string);
-
-  external void wire__crate__api__merged__test_logger_error(
-      NativePortType port_, String string);
-
-  external void wire__crate__api__merged__test_logger_info(
-      NativePortType port_, String string);
-
-  external void wire__crate__api__merged__test_logger_panic(
-      NativePortType port_, String string);
-
-  external void wire__crate__api__merged__test_logger_warn(
-      NativePortType port_, String string);
+      wire__crate__api__merged__storage_dart_wrapper_new(
+          PlatformPointer on_get,
+          PlatformPointer on_set,
+          PlatformPointer on_set_unchecked,
+          PlatformPointer on_remove,
+          PlatformPointer on_remove_unchecked);
 
   external void wire__crate__api__merged__token_wallet_dart_wrapper_address(
       NativePortType port_, JSAny that);
@@ -4293,11 +5834,12 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
 
   external void wire__crate__api__merged__token_wallet_dart_wrapper_subscribe(
       NativePortType port_,
-      String instance_hash,
       String owner,
       String root_token_contract,
       int transport,
-      bool preload_transactions);
+      bool preload_transactions,
+      PlatformPointer on_balance_changed,
+      PlatformPointer on_transactions_found);
 
   external void wire__crate__api__merged__token_wallet_dart_wrapper_symbol(
       NativePortType port_, JSAny that);
@@ -4401,25 +5943,43 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
 
   external void wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe(
       NativePortType port_,
-      String instance_hash,
       int workchain_id,
       String public_key,
       String wallet_type,
-      int transport);
+      int transport,
+      PlatformPointer on_message_sent,
+      PlatformPointer on_message_expired,
+      PlatformPointer on_state_changed,
+      PlatformPointer on_transactions_found,
+      PlatformPointer on_details_changed,
+      PlatformPointer on_custodians_changed,
+      PlatformPointer on_unconfirmed_transactions_changed);
 
   external void
       wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_address(
           NativePortType port_,
-          String instance_hash,
           String address,
-          int transport);
+          int transport,
+          PlatformPointer on_message_sent,
+          PlatformPointer on_message_expired,
+          PlatformPointer on_state_changed,
+          PlatformPointer on_transactions_found,
+          PlatformPointer on_details_changed,
+          PlatformPointer on_custodians_changed,
+          PlatformPointer on_unconfirmed_transactions_changed);
 
   external void
       wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_existing(
           NativePortType port_,
-          String instance_hash,
           String existing_wallet,
-          int transport);
+          int transport,
+          PlatformPointer on_message_sent,
+          PlatformPointer on_message_expired,
+          PlatformPointer on_state_changed,
+          PlatformPointer on_transactions_found,
+          PlatformPointer on_details_changed,
+          PlatformPointer on_custodians_changed,
+          PlatformPointer on_unconfirmed_transactions_changed);
 
   external void
       wire__crate__api__merged__ton_wallet_dart_wrapper_unconfirmed_transactions(
@@ -4546,5 +6106,141 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
 
   external void
       rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait(
+          int ptr);
+
+  external void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+          int ptr);
+
+  external void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+          int ptr);
+
+  external void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+          int ptr);
+
+  external void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+          int ptr);
+
+  external void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+          int ptr);
+
+  external void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+          int ptr);
+
+  external void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+          int ptr);
+
+  external void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+          int ptr);
+
+  external void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+          int ptr);
+
+  external void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+          int ptr);
+
+  external void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+          int ptr);
+
+  external void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+          int ptr);
+
+  external void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+          int ptr);
+
+  external void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+          int ptr);
+
+  external void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+          int ptr);
+
+  external void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+          int ptr);
+
+  external void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          int ptr);
+
+  external void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+          int ptr);
+
+  external void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          int ptr);
+
+  external void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+          int ptr);
+
+  external void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          int ptr);
+
+  external void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+          int ptr);
+
+  external void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          int ptr);
+
+  external void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+          int ptr);
+
+  external void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          int ptr);
+
+  external void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+          int ptr);
+
+  external void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          int ptr);
+
+  external void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+          int ptr);
+
+  external void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          int ptr);
+
+  external void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+          int ptr);
+
+  external void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          int ptr);
+
+  external void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+          int ptr);
+
+  external void
+      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+          int ptr);
+
+  external void
+      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
           int ptr);
 }

@@ -1,9 +1,6 @@
 import 'dart:async';
 import 'dart:typed_data';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
-import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
-import 'package:reflectable/mirrors.dart';
-import 'proto_connection.reflectable.dart';
 
 /// Interface for http client to make post requests.
 abstract interface class ProtoConnectionHttpClient {
@@ -16,8 +13,7 @@ abstract interface class ProtoConnectionHttpClient {
   void dispose();
 }
 
-@reflector
-class ProtoConnection extends RustToDartMirrorInterface {
+class ProtoConnection {
   late ProtoConnectionDartWrapper connection;
 
   final ProtoConnectionHttpClient _client;
@@ -44,7 +40,7 @@ class ProtoConnection extends RustToDartMirrorInterface {
     final instance = ProtoConnection._(client, settings, name, group);
 
     instance.connection = ProtoConnectionDartWrapper(
-      instanceHash: instance.instanceHash,
+      onPost: instance.post,
     );
 
     return instance;
@@ -69,18 +65,8 @@ class ProtoConnection extends RustToDartMirrorInterface {
     }
   }
 
-  @override
   void dispose() {
     connection.innerConnection.dispose();
     _client.dispose();
-    super.dispose();
-  }
-
-  @override
-  InstanceMirror initializeMirror() {
-    initializeReflectable(); // auto-generated reflectable file
-    return reflector.reflect(this);
   }
 }
-
-void main() {}

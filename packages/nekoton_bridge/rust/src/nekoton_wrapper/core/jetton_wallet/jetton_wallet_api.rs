@@ -6,7 +6,7 @@ use crate::nekoton_wrapper::core::jetton_wallet::{
 };
 use crate::nekoton_wrapper::transport::TransportBoxTrait;
 use crate::nekoton_wrapper::HandleError;
-use crate::utils::caller;
+pub use flutter_rust_bridge::DartFnFuture;
 use nekoton::core::jetton_wallet::JettonWalletSubscriptionHandler;
 pub use nekoton::core::models::{TransactionWithData, TransactionsBatchInfo};
 use nekoton::models::JettonWalletTransaction;
@@ -22,17 +22,21 @@ impl JettonWalletDartWrapper {
     /// owner - address of account that is owner of wallet
     /// root_token_contract - address of contract in blockchain
     pub async fn subscribe(
-        instance_hash: String,
         owner: String,
         root_token_contract: String,
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
         preload_transactions: bool,
+        on_balance_changed: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_transactions_found: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
     ) -> anyhow::Result<JettonWalletDartWrapper> {
         let wallet = JettonWalletBox::subscribe(
             transport.get_transport(),
             owner,
             root_token_contract,
-            Arc::new(JettonWalletSubscriptionHandlerImpl { instance_hash }),
+            Arc::new(JettonWalletSubscriptionHandlerImpl {
+                on_balance_changed: Arc::new(on_balance_changed),
+                on_transactions_found: Arc::new(on_transactions_found),
+            }),
             preload_transactions,
         )
         .await
@@ -161,38 +165,29 @@ impl JettonWalletDartWrapper {
     }
 }
 
-/// Handler for TonWallet that calls dart methods and sends data
+/// Handler for JettonWallet that calls dart methods via provided closures
 pub struct JettonWalletSubscriptionHandlerImpl {
-    pub instance_hash: String,
+    pub on_balance_changed: Arc<dyn Fn(String) -> DartFnFuture<()> + Send + Sync>,
+    pub on_transactions_found: Arc<dyn Fn(String) -> DartFnFuture<()> + Send + Sync>,
 }
 
 impl JettonWalletSubscriptionHandler for JettonWalletSubscriptionHandlerImpl {
-    /// Send string representation of rust BigUInt
     fn on_balance_changed(&self, balance: BigUint) {
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("onBalanceChanged"),
-            args: vec![caller::DynamicValue::String(balance.to_string())],
-            named_args: vec![],
-        };
-        caller::call(stub, false);
+        let fut = (self.on_balance_changed)(balance.to_string());
+        flutter_rust_bridge::spawn(async move {
+            fut.await;
+        });
     }
 
-    /// Send json-encoded list with 2 positions:
-    /// 0: list of TransactionWithData<JettonWalletTransaction>
-    /// 1: TransactionsBatchInfo
     fn on_transactions_found(
         &self,
         transactions: Vec<TransactionWithData<JettonWalletTransaction>>,
         batch_info: TransactionsBatchInfo,
     ) {
         let payload = serde_json::to_string(&(transactions, batch_info)).unwrap();
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("onTransactionsFound"),
-            args: vec![caller::DynamicValue::String(payload)],
-            named_args: vec![],
-        };
-        caller::call(stub, false);
+        let fut = (self.on_transactions_found)(payload);
+        flutter_rust_bridge::spawn(async move {
+            fut.await;
+        });
     }
 }

@@ -2,22 +2,14 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
-import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
-import 'package:reflectable/mirrors.dart';
 import 'package:rxdart/rxdart.dart';
-
-import 'token_wallet.reflectable.dart';
 
 /// Implementation of nekoton's TonWallet.
 ///
 /// If you need watch wallet changes, you can subscribe to [fieldUpdatesStream]
 /// and be ready if any suitable data changes, but this won't notify about external
-/// events emitted through [onMessageSentStream], [onMessageExpiredStream],
-/// or [onTransactionsFoundStream].
-/// [onStateChangedStream] changes internal state, so it will lead updating data.
-@reflector
-class TokenWallet extends RustToDartMirrorInterface
-    implements RefreshingInterface {
+/// events emitted through [onTransactionsFoundStream].
+class TokenWallet implements RefreshingInterface {
   late TokenWalletDartWrapper wallet;
   final Transport transport;
 
@@ -39,6 +31,8 @@ class TokenWallet extends RustToDartMirrorInterface
   /// event that can change internal state of wallet.
   late ContractState _contractState;
   late BigInt balance;
+
+  bool get isDisposed => wallet.innerWallet.isDisposed;
 
   Money get moneyBalance => Money.fromBigIntWithCurrency(balance, currency);
 
@@ -79,11 +73,12 @@ class TokenWallet extends RustToDartMirrorInterface
         final instance = TokenWallet._(transport, rootTokenContract);
 
         instance.wallet = await TokenWalletDartWrapper.subscribe(
-          instanceHash: instance.instanceHash,
           transport: transport.transportBox,
           rootTokenContract: rootTokenContract.address,
           owner: owner.address,
           preloadTransactions: preloadTransactions,
+          onBalanceChanged: instance.onBalanceChanged,
+          onTransactionsFound: instance.onTransactionsFound,
         );
 
         await instance._initInstance();
@@ -225,7 +220,7 @@ class TokenWallet extends RustToDartMirrorInterface
   /// May throw error.
   @override
   Future<void> refresh() async {
-    if (_isRefreshing || transport.disposed || avoidCall) return;
+    if (_isRefreshing || transport.disposed || isDisposed) return;
 
     try {
       _isRefreshing = true;
@@ -246,7 +241,7 @@ class TokenWallet extends RustToDartMirrorInterface
   /// [fromLt] - offset for loading data, string representation of u64
   /// May throw error.
   Future<void> preloadTransactions([String? fromLt]) async {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     _isTransactionsPreloaded = true;
     await wallet.preloadTransactions(
@@ -259,7 +254,7 @@ class TokenWallet extends RustToDartMirrorInterface
   /// [block] - base64-encoded Block that could be got from [GqlTransport.getBlock]
   /// May throw error.
   Future<void> handleBlock({required String block}) async {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     await wallet.handleBlock(block: block);
     await _updateData();
@@ -329,7 +324,7 @@ class TokenWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when balance of wallet has been changed
   void onBalanceChanged(String balance) {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     _onBalanceChangedController.add(BigInt.parse(balance));
 
@@ -341,7 +336,7 @@ class TokenWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when transactions of wallet has been found
   void onTransactionsFound(String payload) {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     final json = jsonDecode(payload) as List<dynamic>;
 
@@ -372,12 +367,12 @@ class TokenWallet extends RustToDartMirrorInterface
   Future<void> _updateData() async {
     if (transport.disposed) return;
 
-    if (avoidCall) return;
+    if (isDisposed) return;
     _contractState = await getContractState();
-    if (avoidCall) return;
+    if (isDisposed) return;
     balance = BigInt.parse(await _getBalance());
 
-    if (avoidCall) return;
+    if (isDisposed) return;
     // Initialization is completed, so we have Currency already created
     _onMoneyBalanceChangedController.add(moneyBalance);
     _fieldsUpdateController.add(null);
@@ -397,21 +392,11 @@ class TokenWallet extends RustToDartMirrorInterface
     return currency;
   }
 
-  @override
   void dispose() {
     wallet.innerWallet.dispose();
     _onBalanceChangedController.close();
     _onMoneyBalanceChangedController.close();
     _onTransactionsFoundController.close();
     _fieldsUpdateController.close();
-    super.dispose();
-  }
-
-  @override
-  InstanceMirror initializeMirror() {
-    initializeReflectable(); // auto-generated reflectable file
-    return reflector.reflect(this);
   }
 }
-
-void main() {}
