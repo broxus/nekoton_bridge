@@ -67,8 +67,6 @@ void main() {
     testWidgets('Create JrpcTransport', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
@@ -82,8 +80,6 @@ void main() {
 
     testWidgets('getSignatureId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -101,7 +97,6 @@ void main() {
     testWidgets('getSignatureId venom ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
       const venomEndpoint = 'https://jrpc.venom.foundation';
 
       final connection = JrpcConnection.create(
@@ -119,8 +114,6 @@ void main() {
 
     testWidgets('getTransactions ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -141,8 +134,6 @@ void main() {
     testWidgets('getTransaction ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
@@ -162,8 +153,6 @@ void main() {
 
     testWidgets('getDstTransaction', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -190,8 +179,6 @@ void main() {
 
     testWidgets('multiple calls ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -225,8 +212,6 @@ void main() {
     testWidgets('getContractState ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
@@ -252,8 +237,6 @@ void main() {
     ) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
@@ -273,8 +256,6 @@ void main() {
       WidgetTester tester,
     ) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -299,7 +280,6 @@ void main() {
 
     testWidgets('getNetworkId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -314,7 +294,7 @@ void main() {
 
     testWidgets('getNetworkId venom ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
+
       const venomEndpoint = 'https://jrpc.venom.foundation';
 
       final connection = JrpcConnection.create(
@@ -330,7 +310,6 @@ void main() {
 
     testWidgets('getBlockchainConfig ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -348,7 +327,6 @@ void main() {
 
     testWidgets('simulateTransactionTree ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -395,8 +373,6 @@ void main() {
     testWidgets('getFeeFactors', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
@@ -437,7 +413,6 @@ void main() {
     testWidgets('simulateTransactionTree (WalletV4R2)',
         (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       const from = Address(
           address:
@@ -479,7 +454,6 @@ void main() {
     testWidgets('simulateTransactionTree (jetton: usdt)',
         (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       const owner = Address(
           address:
@@ -536,7 +510,6 @@ void main() {
     testWidgets('simulateTransactionTree (jetton: mintless points)',
         (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       const owner = Address(
           address:

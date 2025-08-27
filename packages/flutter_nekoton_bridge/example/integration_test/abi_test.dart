@@ -34,7 +34,6 @@ void main() {
   group('ABI test', () {
     testWidgets('decodeTransaction', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final decoded = await decodeTransaction(
         transaction: Transaction.fromJson(jsonDecode(json)),
@@ -47,7 +46,6 @@ void main() {
 
     testWidgets('repackAddress', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final repackedRaw = repackAddress(raw);
       final repackedWithBounce = repackAddress(withBounce);
@@ -58,7 +56,6 @@ void main() {
 
     testWidgets('packAddress', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final packed = packAddress(raw);
 
@@ -67,7 +64,6 @@ void main() {
 
     testWidgets('encodeComment', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final encoded = encodeComment('test comment');
 
@@ -78,7 +74,6 @@ void main() {
 
   testWidgets('parseKnownPayload', (WidgetTester tester) async {
     await tester.pumpAndSettleWithTimeout();
-    await initRustToDartCaller();
 
     final knownTokenTransactionPayload =
         parseKnownPayload(tokenTransferPayload);
@@ -123,7 +118,6 @@ void main() {
 
   testWidgets('computeTonWalletAddress', (WidgetTester tester) async {
     await tester.pumpAndSettleWithTimeout();
-    await initRustToDartCaller();
 
     final tonWalletAddress = computeTonWalletAddress(
       walletType: const WalletType.everWallet(),
@@ -141,7 +135,6 @@ void main() {
 
   testWidgets('getContractTypeNumber', (WidgetTester tester) async {
     await tester.pumpAndSettleWithTimeout();
-    await initRustToDartCaller();
 
     final ew = getContractTypeNumber(const WalletType.everWallet());
     final v3 = getContractTypeNumber(const WalletType.walletV3());

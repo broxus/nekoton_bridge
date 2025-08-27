@@ -71,8 +71,6 @@ void main() {
 
     runApp(Container());
 
-    await initRustToDartCaller();
-
     final connection = ProtoConnection.create(
       client: TestProtoClient(),
       settings: jrpcSettings,

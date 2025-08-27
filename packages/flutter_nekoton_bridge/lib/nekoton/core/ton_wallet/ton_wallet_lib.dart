@@ -1,2 +1,2 @@
-export 'ton_wallet.dart' hide main;
+export 'ton_wallet.dart';
 export 'models/models.dart';

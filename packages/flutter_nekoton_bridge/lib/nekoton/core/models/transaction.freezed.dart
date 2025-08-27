@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -227,6 +226,234 @@ class _$TransactionCopyWithImpl<$Res> implements $TransactionCopyWith<$Res> {
     return $MessageCopyWith<$Res>(_self.inMessage, (value) {
       return _then(_self.copyWith(inMessage: value));
     });
+  }
+}
+
+/// Adds pattern-matching-related methods to [Transaction].
+extension TransactionPatterns on Transaction {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Transaction value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Transaction() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Transaction value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Transaction():
+        return $default(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Transaction value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Transaction() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            TransactionId id,
+            TransactionId? prevTransactionId,
+            @dateSecondsSinceEpochJsonConverter DateTime createdAt,
+            bool aborted,
+            @JsonKey(includeIfNull: false) int? exitCode,
+            @JsonKey(includeIfNull: false) int? resultCode,
+            AccountStatus origStatus,
+            AccountStatus endStatus,
+            @amountJsonConverter BigInt totalFees,
+            Message inMessage,
+            List<Message> outMessages,
+            String? boc)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Transaction() when $default != null:
+        return $default(
+            _that.id,
+            _that.prevTransactionId,
+            _that.createdAt,
+            _that.aborted,
+            _that.exitCode,
+            _that.resultCode,
+            _that.origStatus,
+            _that.endStatus,
+            _that.totalFees,
+            _that.inMessage,
+            _that.outMessages,
+            _that.boc);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            TransactionId id,
+            TransactionId? prevTransactionId,
+            @dateSecondsSinceEpochJsonConverter DateTime createdAt,
+            bool aborted,
+            @JsonKey(includeIfNull: false) int? exitCode,
+            @JsonKey(includeIfNull: false) int? resultCode,
+            AccountStatus origStatus,
+            AccountStatus endStatus,
+            @amountJsonConverter BigInt totalFees,
+            Message inMessage,
+            List<Message> outMessages,
+            String? boc)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Transaction():
+        return $default(
+            _that.id,
+            _that.prevTransactionId,
+            _that.createdAt,
+            _that.aborted,
+            _that.exitCode,
+            _that.resultCode,
+            _that.origStatus,
+            _that.endStatus,
+            _that.totalFees,
+            _that.inMessage,
+            _that.outMessages,
+            _that.boc);
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            TransactionId id,
+            TransactionId? prevTransactionId,
+            @dateSecondsSinceEpochJsonConverter DateTime createdAt,
+            bool aborted,
+            @JsonKey(includeIfNull: false) int? exitCode,
+            @JsonKey(includeIfNull: false) int? resultCode,
+            AccountStatus origStatus,
+            AccountStatus endStatus,
+            @amountJsonConverter BigInt totalFees,
+            Message inMessage,
+            List<Message> outMessages,
+            String? boc)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Transaction() when $default != null:
+        return $default(
+            _that.id,
+            _that.prevTransactionId,
+            _that.createdAt,
+            _that.aborted,
+            _that.exitCode,
+            _that.resultCode,
+            _that.origStatus,
+            _that.endStatus,
+            _that.totalFees,
+            _that.inMessage,
+            _that.outMessages,
+            _that.boc);
+      case _:
+        return null;
+    }
   }
 }
 

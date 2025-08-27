@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -58,6 +57,228 @@ mixin _$KnownPayload {
 /// @nodoc
 class $KnownPayloadCopyWith<$Res> {
   $KnownPayloadCopyWith(KnownPayload _, $Res Function(KnownPayload) __);
+}
+
+/// Adds pattern-matching-related methods to [KnownPayload].
+extension KnownPayloadPatterns on KnownPayload {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(KnownPayloadComment value)? comment,
+    TResult Function(KnownPayloadTokenOutgoingTransfer value)?
+        tokenOutgoingTransfer,
+    TResult Function(KnownPayloadJettonOutgoingTransfer value)?
+        jettonOutgoingTransfer,
+    TResult Function(KnownPayloadTokenSwapBack value)? tokenSwapBack,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case KnownPayloadComment() when comment != null:
+        return comment(_that);
+      case KnownPayloadTokenOutgoingTransfer()
+          when tokenOutgoingTransfer != null:
+        return tokenOutgoingTransfer(_that);
+      case KnownPayloadJettonOutgoingTransfer()
+          when jettonOutgoingTransfer != null:
+        return jettonOutgoingTransfer(_that);
+      case KnownPayloadTokenSwapBack() when tokenSwapBack != null:
+        return tokenSwapBack(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(KnownPayloadComment value) comment,
+    required TResult Function(KnownPayloadTokenOutgoingTransfer value)
+        tokenOutgoingTransfer,
+    required TResult Function(KnownPayloadJettonOutgoingTransfer value)
+        jettonOutgoingTransfer,
+    required TResult Function(KnownPayloadTokenSwapBack value) tokenSwapBack,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case KnownPayloadComment():
+        return comment(_that);
+      case KnownPayloadTokenOutgoingTransfer():
+        return tokenOutgoingTransfer(_that);
+      case KnownPayloadJettonOutgoingTransfer():
+        return jettonOutgoingTransfer(_that);
+      case KnownPayloadTokenSwapBack():
+        return tokenSwapBack(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(KnownPayloadComment value)? comment,
+    TResult? Function(KnownPayloadTokenOutgoingTransfer value)?
+        tokenOutgoingTransfer,
+    TResult? Function(KnownPayloadJettonOutgoingTransfer value)?
+        jettonOutgoingTransfer,
+    TResult? Function(KnownPayloadTokenSwapBack value)? tokenSwapBack,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case KnownPayloadComment() when comment != null:
+        return comment(_that);
+      case KnownPayloadTokenOutgoingTransfer()
+          when tokenOutgoingTransfer != null:
+        return tokenOutgoingTransfer(_that);
+      case KnownPayloadJettonOutgoingTransfer()
+          when jettonOutgoingTransfer != null:
+        return jettonOutgoingTransfer(_that);
+      case KnownPayloadTokenSwapBack() when tokenSwapBack != null:
+        return tokenSwapBack(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String data)? comment,
+    TResult Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
+    TResult Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
+    TResult Function(TokenSwapBack data)? tokenSwapBack,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case KnownPayloadComment() when comment != null:
+        return comment(_that.data);
+      case KnownPayloadTokenOutgoingTransfer()
+          when tokenOutgoingTransfer != null:
+        return tokenOutgoingTransfer(_that.data);
+      case KnownPayloadJettonOutgoingTransfer()
+          when jettonOutgoingTransfer != null:
+        return jettonOutgoingTransfer(_that.data);
+      case KnownPayloadTokenSwapBack() when tokenSwapBack != null:
+        return tokenSwapBack(_that.data);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String data) comment,
+    required TResult Function(TokenOutgoingTransfer data) tokenOutgoingTransfer,
+    required TResult Function(JettonOutgoingTransfer data)
+        jettonOutgoingTransfer,
+    required TResult Function(TokenSwapBack data) tokenSwapBack,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case KnownPayloadComment():
+        return comment(_that.data);
+      case KnownPayloadTokenOutgoingTransfer():
+        return tokenOutgoingTransfer(_that.data);
+      case KnownPayloadJettonOutgoingTransfer():
+        return jettonOutgoingTransfer(_that.data);
+      case KnownPayloadTokenSwapBack():
+        return tokenSwapBack(_that.data);
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String data)? comment,
+    TResult? Function(TokenOutgoingTransfer data)? tokenOutgoingTransfer,
+    TResult? Function(JettonOutgoingTransfer data)? jettonOutgoingTransfer,
+    TResult? Function(TokenSwapBack data)? tokenSwapBack,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case KnownPayloadComment() when comment != null:
+        return comment(_that.data);
+      case KnownPayloadTokenOutgoingTransfer()
+          when tokenOutgoingTransfer != null:
+        return tokenOutgoingTransfer(_that.data);
+      case KnownPayloadJettonOutgoingTransfer()
+          when jettonOutgoingTransfer != null:
+        return jettonOutgoingTransfer(_that.data);
+      case KnownPayloadTokenSwapBack() when tokenSwapBack != null:
+        return tokenSwapBack(_that.data);
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc

@@ -2,11 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
-import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
-import 'package:reflectable/mirrors.dart';
 import 'package:rxdart/rxdart.dart';
-
-import 'ton_wallet.reflectable.dart';
 
 /// Implementation of nekoton's TonWallet.
 ///
@@ -15,14 +11,15 @@ import 'ton_wallet.reflectable.dart';
 /// events emitted through [onMessageSentStream], [onMessageExpiredStream],
 /// or [onTransactionsFoundStream].
 /// [onStateChangedStream] changes internal state, so it will lead updating data.
-@reflector
-class TonWallet extends RustToDartMirrorInterface
-    implements RefreshingInterface {
+class TonWallet implements RefreshingInterface {
+  TonWallet._(this.transport);
+
   late TonWalletDartWrapper wallet;
   final Transport transport;
 
   /// Flag that display [onStateChanged] that [wallet] was initialized.
   bool _isInitialized = false;
+  bool _isDisposed = false;
 
   /// Controllers that contains data that emits from rust.
   final _onMessageSentController =
@@ -54,7 +51,7 @@ class TonWallet extends RustToDartMirrorInterface
   late final WalletType walletType;
   late final int workchain;
 
-  TonWallet._(this.transport);
+  bool get isDisposed => _isDisposed;
 
   /// Create TonWallet by subscribing to its instance by public_key.
   /// publicKey - is string representation of key
@@ -68,11 +65,18 @@ class TonWallet extends RustToDartMirrorInterface
         final instance = TonWallet._(transport);
 
         instance.wallet = await TonWalletDartWrapper.subscribe(
-          instanceHash: instance.instanceHash,
           publicKey: publicKey.publicKey,
           walletType: jsonEncode(walletType),
           workchainId: workchainId,
           transport: transport.transportBox,
+          onCustodiansChanged: instance.onCustodiansChanged,
+          onUnconfirmedTransactionsChanged:
+              instance.onUnconfirmedTransactionsChanged,
+          onDetailsChanged: instance.onDetailsChanged,
+          onMessageExpired: instance.onMessageExpired,
+          onMessageSent: instance.onMessageSent,
+          onStateChanged: instance.onStateChanged,
+          onTransactionsFound: instance.onTransactionsFound,
         );
 
         await instance._initInstance();
@@ -89,9 +93,16 @@ class TonWallet extends RustToDartMirrorInterface
         final instance = TonWallet._(transport);
 
         instance.wallet = await TonWalletDartWrapper.subscribeByAddress(
-          instanceHash: instance.instanceHash,
           address: address.address,
           transport: transport.transportBox,
+          onCustodiansChanged: instance.onCustodiansChanged,
+          onUnconfirmedTransactionsChanged:
+              instance.onUnconfirmedTransactionsChanged,
+          onDetailsChanged: instance.onDetailsChanged,
+          onMessageExpired: instance.onMessageExpired,
+          onMessageSent: instance.onMessageSent,
+          onStateChanged: instance.onStateChanged,
+          onTransactionsFound: instance.onTransactionsFound,
         );
 
         await instance._initInstance();
@@ -108,9 +119,16 @@ class TonWallet extends RustToDartMirrorInterface
         final instance = TonWallet._(transport);
 
         instance.wallet = await TonWalletDartWrapper.subscribeByExisting(
-          instanceHash: instance.instanceHash,
           existingWallet: jsonEncode(existingWallet),
           transport: transport.transportBox,
+          onCustodiansChanged: instance.onCustodiansChanged,
+          onUnconfirmedTransactionsChanged:
+              instance.onUnconfirmedTransactionsChanged,
+          onDetailsChanged: instance.onDetailsChanged,
+          onMessageExpired: instance.onMessageExpired,
+          onMessageSent: instance.onMessageSent,
+          onStateChanged: instance.onStateChanged,
+          onTransactionsFound: instance.onTransactionsFound,
         );
 
         await instance._initInstance();
@@ -346,7 +364,7 @@ class TonWallet extends RustToDartMirrorInterface
   /// May throw error.
   @override
   Future<void> refresh() async {
-    if (_isRefreshing || transport.disposed || avoidCall) return;
+    if (_isRefreshing || transport.disposed || isDisposed) return;
 
     try {
       _isRefreshing = true;
@@ -366,7 +384,7 @@ class TonWallet extends RustToDartMirrorInterface
   /// [fromLt] - offset for loading data, string representation of u64
   /// May throw error.
   Future<void> preloadTransactions({required String fromLt}) async {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     await wallet.preloadTransactions(fromLt: fromLt);
     await _updateData();
@@ -376,7 +394,7 @@ class TonWallet extends RustToDartMirrorInterface
   /// [block] - base64-encoded Block that could be got from [GqlTransport.getBlock]
   /// May throw error.
   Future<void> handleBlock({required String block}) async {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     await wallet.handleBlock(block: block);
     await _updateData();
@@ -443,7 +461,7 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when message has been sent to blockchain
   void onMessageSent(String payload) {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     final json = jsonDecode(payload) as List<dynamic>;
 
@@ -458,7 +476,7 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when message has been expired
   void onMessageExpired(String payload) {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     final json = jsonDecode(payload) as Map<String, dynamic>;
     final pendingTransaction = PendingTransaction.fromJson(json);
@@ -467,7 +485,7 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when state of wallet has been changed
   void onStateChanged(String payload) {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     final json = jsonDecode(payload) as Map<String, dynamic>;
     final contractState = ContractState.fromJson(json);
@@ -480,7 +498,7 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when transactions of wallet has been found
   void onTransactionsFound(String payload) {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     final json = jsonDecode(payload) as List<dynamic>;
 
@@ -505,7 +523,7 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when details of wallet has been changed
   void onDetailsChanged(String payload) {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     final json = jsonDecode(payload) as Map<String, dynamic>;
     final details = TonWalletDetails.fromJson(json);
@@ -516,7 +534,7 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when custodians of wallet has been changed
   void onCustodiansChanged(String payload) {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     final json = jsonDecode(payload) as List<dynamic>;
     final custodians = json
@@ -531,7 +549,7 @@ class TonWallet extends RustToDartMirrorInterface
 
   /// Calls from rust side when unconfirmed transactions of wallet has been found
   void onUnconfirmedTransactionsChanged(String payload) {
-    if (avoidCall) return;
+    if (isDisposed) return;
 
     final json = jsonDecode(payload) as List<dynamic>;
 
@@ -551,43 +569,34 @@ class TonWallet extends RustToDartMirrorInterface
   /// This method should be awaited in internal calls to be sure, that dart
   /// instance gets updates in a good way.
   ///
-  /// This shitty repeated avoidCall needs to avoid `Use after free` when
+  /// This shitty repeated isDisposed needs to avoid `Use after free` when
   /// method calls after dispose.
   Future<void> _updateData() async {
     if (transport.disposed) return;
 
-    if (avoidCall) return;
+    if (isDisposed) return;
     _contractState = await getContractState();
-    if (avoidCall) return;
+    if (isDisposed) return;
     _pendingTransactions = await getPendingTransactions();
-    if (avoidCall) return;
+    if (isDisposed) return;
     _pollingMethod = await getPollingMethod();
-    if (avoidCall) return;
+    if (isDisposed) return;
     _unconfirmedTransactions = await getUnconfirmedTransactions();
-    if (avoidCall) return;
+    if (isDisposed) return;
     _custodians = await getCustodians();
-    if (avoidCall) return;
+    if (isDisposed) return;
     _details = await _getDetails();
-    if (avoidCall) return;
+    if (isDisposed) return;
     _fieldsUpdateController.add(null);
   }
 
-  @override
   void dispose() {
+    _isDisposed = true;
     wallet.innerWallet.dispose();
     _onMessageSentController.close();
     _onMessageExpiredController.close();
     _onStateChangedController.close();
     _onTransactionsFoundController.close();
     _fieldsUpdateController.close();
-    super.dispose();
-  }
-
-  @override
-  InstanceMirror initializeMirror() {
-    initializeReflectable(); // auto-generated reflectable file
-    return reflector.reflect(this);
   }
 }
-
-void main() {}

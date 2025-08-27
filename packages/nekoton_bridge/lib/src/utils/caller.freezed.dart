@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -33,6 +32,357 @@ mixin _$DynamicValue {
 /// @nodoc
 class $DynamicValueCopyWith<$Res> {
   $DynamicValueCopyWith(DynamicValue _, $Res Function(DynamicValue) __);
+}
+
+/// Adds pattern-matching-related methods to [DynamicValue].
+extension DynamicValuePatterns on DynamicValue {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DynamicValue_U16 value)? u16,
+    TResult Function(DynamicValue_U32 value)? u32,
+    TResult Function(DynamicValue_I32 value)? i32,
+    TResult Function(DynamicValue_U64 value)? u64,
+    TResult Function(DynamicValue_I64 value)? i64,
+    TResult Function(DynamicValue_F32 value)? f32,
+    TResult Function(DynamicValue_F64 value)? f64,
+    TResult Function(DynamicValue_String value)? string,
+    TResult Function(DynamicValue_VecU8 value)? vecU8,
+    TResult Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult Function(DynamicValue_Error value)? error,
+    TResult Function(DynamicValue_None value)? none,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case DynamicValue_U16() when u16 != null:
+        return u16(_that);
+      case DynamicValue_U32() when u32 != null:
+        return u32(_that);
+      case DynamicValue_I32() when i32 != null:
+        return i32(_that);
+      case DynamicValue_U64() when u64 != null:
+        return u64(_that);
+      case DynamicValue_I64() when i64 != null:
+        return i64(_that);
+      case DynamicValue_F32() when f32 != null:
+        return f32(_that);
+      case DynamicValue_F64() when f64 != null:
+        return f64(_that);
+      case DynamicValue_String() when string != null:
+        return string(_that);
+      case DynamicValue_VecU8() when vecU8 != null:
+        return vecU8(_that);
+      case DynamicValue_MegaStruct() when megaStruct != null:
+        return megaStruct(_that);
+      case DynamicValue_Error() when error != null:
+        return error(_that);
+      case DynamicValue_None() when none != null:
+        return none(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DynamicValue_U16 value) u16,
+    required TResult Function(DynamicValue_U32 value) u32,
+    required TResult Function(DynamicValue_I32 value) i32,
+    required TResult Function(DynamicValue_U64 value) u64,
+    required TResult Function(DynamicValue_I64 value) i64,
+    required TResult Function(DynamicValue_F32 value) f32,
+    required TResult Function(DynamicValue_F64 value) f64,
+    required TResult Function(DynamicValue_String value) string,
+    required TResult Function(DynamicValue_VecU8 value) vecU8,
+    required TResult Function(DynamicValue_MegaStruct value) megaStruct,
+    required TResult Function(DynamicValue_Error value) error,
+    required TResult Function(DynamicValue_None value) none,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case DynamicValue_U16():
+        return u16(_that);
+      case DynamicValue_U32():
+        return u32(_that);
+      case DynamicValue_I32():
+        return i32(_that);
+      case DynamicValue_U64():
+        return u64(_that);
+      case DynamicValue_I64():
+        return i64(_that);
+      case DynamicValue_F32():
+        return f32(_that);
+      case DynamicValue_F64():
+        return f64(_that);
+      case DynamicValue_String():
+        return string(_that);
+      case DynamicValue_VecU8():
+        return vecU8(_that);
+      case DynamicValue_MegaStruct():
+        return megaStruct(_that);
+      case DynamicValue_Error():
+        return error(_that);
+      case DynamicValue_None():
+        return none(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(DynamicValue_U16 value)? u16,
+    TResult? Function(DynamicValue_U32 value)? u32,
+    TResult? Function(DynamicValue_I32 value)? i32,
+    TResult? Function(DynamicValue_U64 value)? u64,
+    TResult? Function(DynamicValue_I64 value)? i64,
+    TResult? Function(DynamicValue_F32 value)? f32,
+    TResult? Function(DynamicValue_F64 value)? f64,
+    TResult? Function(DynamicValue_String value)? string,
+    TResult? Function(DynamicValue_VecU8 value)? vecU8,
+    TResult? Function(DynamicValue_MegaStruct value)? megaStruct,
+    TResult? Function(DynamicValue_Error value)? error,
+    TResult? Function(DynamicValue_None value)? none,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case DynamicValue_U16() when u16 != null:
+        return u16(_that);
+      case DynamicValue_U32() when u32 != null:
+        return u32(_that);
+      case DynamicValue_I32() when i32 != null:
+        return i32(_that);
+      case DynamicValue_U64() when u64 != null:
+        return u64(_that);
+      case DynamicValue_I64() when i64 != null:
+        return i64(_that);
+      case DynamicValue_F32() when f32 != null:
+        return f32(_that);
+      case DynamicValue_F64() when f64 != null:
+        return f64(_that);
+      case DynamicValue_String() when string != null:
+        return string(_that);
+      case DynamicValue_VecU8() when vecU8 != null:
+        return vecU8(_that);
+      case DynamicValue_MegaStruct() when megaStruct != null:
+        return megaStruct(_that);
+      case DynamicValue_Error() when error != null:
+        return error(_that);
+      case DynamicValue_None() when none != null:
+        return none(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int field0)? u16,
+    TResult Function(int field0)? u32,
+    TResult Function(int field0)? i32,
+    TResult Function(BigInt field0)? u64,
+    TResult Function(PlatformInt64 field0)? i64,
+    TResult Function(double field0)? f32,
+    TResult Function(double field0)? f64,
+    TResult Function(String field0)? string,
+    TResult Function(Uint8List field0)? vecU8,
+    TResult Function(String field0)? megaStruct,
+    TResult Function(ErrorCode field0)? error,
+    TResult Function()? none,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case DynamicValue_U16() when u16 != null:
+        return u16(_that.field0);
+      case DynamicValue_U32() when u32 != null:
+        return u32(_that.field0);
+      case DynamicValue_I32() when i32 != null:
+        return i32(_that.field0);
+      case DynamicValue_U64() when u64 != null:
+        return u64(_that.field0);
+      case DynamicValue_I64() when i64 != null:
+        return i64(_that.field0);
+      case DynamicValue_F32() when f32 != null:
+        return f32(_that.field0);
+      case DynamicValue_F64() when f64 != null:
+        return f64(_that.field0);
+      case DynamicValue_String() when string != null:
+        return string(_that.field0);
+      case DynamicValue_VecU8() when vecU8 != null:
+        return vecU8(_that.field0);
+      case DynamicValue_MegaStruct() when megaStruct != null:
+        return megaStruct(_that.field0);
+      case DynamicValue_Error() when error != null:
+        return error(_that.field0);
+      case DynamicValue_None() when none != null:
+        return none();
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int field0) u16,
+    required TResult Function(int field0) u32,
+    required TResult Function(int field0) i32,
+    required TResult Function(BigInt field0) u64,
+    required TResult Function(PlatformInt64 field0) i64,
+    required TResult Function(double field0) f32,
+    required TResult Function(double field0) f64,
+    required TResult Function(String field0) string,
+    required TResult Function(Uint8List field0) vecU8,
+    required TResult Function(String field0) megaStruct,
+    required TResult Function(ErrorCode field0) error,
+    required TResult Function() none,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case DynamicValue_U16():
+        return u16(_that.field0);
+      case DynamicValue_U32():
+        return u32(_that.field0);
+      case DynamicValue_I32():
+        return i32(_that.field0);
+      case DynamicValue_U64():
+        return u64(_that.field0);
+      case DynamicValue_I64():
+        return i64(_that.field0);
+      case DynamicValue_F32():
+        return f32(_that.field0);
+      case DynamicValue_F64():
+        return f64(_that.field0);
+      case DynamicValue_String():
+        return string(_that.field0);
+      case DynamicValue_VecU8():
+        return vecU8(_that.field0);
+      case DynamicValue_MegaStruct():
+        return megaStruct(_that.field0);
+      case DynamicValue_Error():
+        return error(_that.field0);
+      case DynamicValue_None():
+        return none();
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int field0)? u16,
+    TResult? Function(int field0)? u32,
+    TResult? Function(int field0)? i32,
+    TResult? Function(BigInt field0)? u64,
+    TResult? Function(PlatformInt64 field0)? i64,
+    TResult? Function(double field0)? f32,
+    TResult? Function(double field0)? f64,
+    TResult? Function(String field0)? string,
+    TResult? Function(Uint8List field0)? vecU8,
+    TResult? Function(String field0)? megaStruct,
+    TResult? Function(ErrorCode field0)? error,
+    TResult? Function()? none,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case DynamicValue_U16() when u16 != null:
+        return u16(_that.field0);
+      case DynamicValue_U32() when u32 != null:
+        return u32(_that.field0);
+      case DynamicValue_I32() when i32 != null:
+        return i32(_that.field0);
+      case DynamicValue_U64() when u64 != null:
+        return u64(_that.field0);
+      case DynamicValue_I64() when i64 != null:
+        return i64(_that.field0);
+      case DynamicValue_F32() when f32 != null:
+        return f32(_that.field0);
+      case DynamicValue_F64() when f64 != null:
+        return f64(_that.field0);
+      case DynamicValue_String() when string != null:
+        return string(_that.field0);
+      case DynamicValue_VecU8() when vecU8 != null:
+        return vecU8(_that.field0);
+      case DynamicValue_MegaStruct() when megaStruct != null:
+        return megaStruct(_that.field0);
+      case DynamicValue_Error() when error != null:
+        return error(_that.field0);
+      case DynamicValue_None() when none != null:
+        return none();
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc

@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -64,6 +63,289 @@ mixin _$TransactionAdditionalInfo {
 class $TransactionAdditionalInfoCopyWith<$Res> {
   $TransactionAdditionalInfoCopyWith(
       TransactionAdditionalInfo _, $Res Function(TransactionAdditionalInfo) __);
+}
+
+/// Adds pattern-matching-related methods to [TransactionAdditionalInfo].
+extension TransactionAdditionalInfoPatterns on TransactionAdditionalInfo {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TransactionAdditionalInfoComment value)? comment,
+    TResult Function(TransactionAdditionalInfoDePoolOnRoundComplete value)?
+        dePoolOnRoundComplete,
+    TResult Function(TransactionAdditionalInfoDePoolReceiveAnswer value)?
+        dePoolReceiveAnswer,
+    TResult Function(TransactionAdditionalInfoTokenWalletDeployed value)?
+        tokenWalletDeployed,
+    TResult Function(TransactionAdditionalInfoWalletInteraction value)?
+        walletInteraction,
+    TResult Function(TransactionAdditionalInfoJettonNotify value)? jettonNotify,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case TransactionAdditionalInfoComment() when comment != null:
+        return comment(_that);
+      case TransactionAdditionalInfoDePoolOnRoundComplete()
+          when dePoolOnRoundComplete != null:
+        return dePoolOnRoundComplete(_that);
+      case TransactionAdditionalInfoDePoolReceiveAnswer()
+          when dePoolReceiveAnswer != null:
+        return dePoolReceiveAnswer(_that);
+      case TransactionAdditionalInfoTokenWalletDeployed()
+          when tokenWalletDeployed != null:
+        return tokenWalletDeployed(_that);
+      case TransactionAdditionalInfoWalletInteraction()
+          when walletInteraction != null:
+        return walletInteraction(_that);
+      case TransactionAdditionalInfoJettonNotify() when jettonNotify != null:
+        return jettonNotify(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TransactionAdditionalInfoComment value) comment,
+    required TResult Function(
+            TransactionAdditionalInfoDePoolOnRoundComplete value)
+        dePoolOnRoundComplete,
+    required TResult Function(
+            TransactionAdditionalInfoDePoolReceiveAnswer value)
+        dePoolReceiveAnswer,
+    required TResult Function(
+            TransactionAdditionalInfoTokenWalletDeployed value)
+        tokenWalletDeployed,
+    required TResult Function(TransactionAdditionalInfoWalletInteraction value)
+        walletInteraction,
+    required TResult Function(TransactionAdditionalInfoJettonNotify value)
+        jettonNotify,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case TransactionAdditionalInfoComment():
+        return comment(_that);
+      case TransactionAdditionalInfoDePoolOnRoundComplete():
+        return dePoolOnRoundComplete(_that);
+      case TransactionAdditionalInfoDePoolReceiveAnswer():
+        return dePoolReceiveAnswer(_that);
+      case TransactionAdditionalInfoTokenWalletDeployed():
+        return tokenWalletDeployed(_that);
+      case TransactionAdditionalInfoWalletInteraction():
+        return walletInteraction(_that);
+      case TransactionAdditionalInfoJettonNotify():
+        return jettonNotify(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(TransactionAdditionalInfoComment value)? comment,
+    TResult? Function(TransactionAdditionalInfoDePoolOnRoundComplete value)?
+        dePoolOnRoundComplete,
+    TResult? Function(TransactionAdditionalInfoDePoolReceiveAnswer value)?
+        dePoolReceiveAnswer,
+    TResult? Function(TransactionAdditionalInfoTokenWalletDeployed value)?
+        tokenWalletDeployed,
+    TResult? Function(TransactionAdditionalInfoWalletInteraction value)?
+        walletInteraction,
+    TResult? Function(TransactionAdditionalInfoJettonNotify value)?
+        jettonNotify,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case TransactionAdditionalInfoComment() when comment != null:
+        return comment(_that);
+      case TransactionAdditionalInfoDePoolOnRoundComplete()
+          when dePoolOnRoundComplete != null:
+        return dePoolOnRoundComplete(_that);
+      case TransactionAdditionalInfoDePoolReceiveAnswer()
+          when dePoolReceiveAnswer != null:
+        return dePoolReceiveAnswer(_that);
+      case TransactionAdditionalInfoTokenWalletDeployed()
+          when tokenWalletDeployed != null:
+        return tokenWalletDeployed(_that);
+      case TransactionAdditionalInfoWalletInteraction()
+          when walletInteraction != null:
+        return walletInteraction(_that);
+      case TransactionAdditionalInfoJettonNotify() when jettonNotify != null:
+        return jettonNotify(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String data)? comment,
+    TResult Function(DePoolOnRoundCompleteNotification data)?
+        dePoolOnRoundComplete,
+    TResult Function(DePoolReceiveAnswerNotification data)? dePoolReceiveAnswer,
+    TResult Function(TokenWalletDeployedNotification data)? tokenWalletDeployed,
+    TResult Function(WalletInteractionInfo data)? walletInteraction,
+    TResult Function(JettonIncomingTransfer data)? jettonNotify,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case TransactionAdditionalInfoComment() when comment != null:
+        return comment(_that.data);
+      case TransactionAdditionalInfoDePoolOnRoundComplete()
+          when dePoolOnRoundComplete != null:
+        return dePoolOnRoundComplete(_that.data);
+      case TransactionAdditionalInfoDePoolReceiveAnswer()
+          when dePoolReceiveAnswer != null:
+        return dePoolReceiveAnswer(_that.data);
+      case TransactionAdditionalInfoTokenWalletDeployed()
+          when tokenWalletDeployed != null:
+        return tokenWalletDeployed(_that.data);
+      case TransactionAdditionalInfoWalletInteraction()
+          when walletInteraction != null:
+        return walletInteraction(_that.data);
+      case TransactionAdditionalInfoJettonNotify() when jettonNotify != null:
+        return jettonNotify(_that.data);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String data) comment,
+    required TResult Function(DePoolOnRoundCompleteNotification data)
+        dePoolOnRoundComplete,
+    required TResult Function(DePoolReceiveAnswerNotification data)
+        dePoolReceiveAnswer,
+    required TResult Function(TokenWalletDeployedNotification data)
+        tokenWalletDeployed,
+    required TResult Function(WalletInteractionInfo data) walletInteraction,
+    required TResult Function(JettonIncomingTransfer data) jettonNotify,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case TransactionAdditionalInfoComment():
+        return comment(_that.data);
+      case TransactionAdditionalInfoDePoolOnRoundComplete():
+        return dePoolOnRoundComplete(_that.data);
+      case TransactionAdditionalInfoDePoolReceiveAnswer():
+        return dePoolReceiveAnswer(_that.data);
+      case TransactionAdditionalInfoTokenWalletDeployed():
+        return tokenWalletDeployed(_that.data);
+      case TransactionAdditionalInfoWalletInteraction():
+        return walletInteraction(_that.data);
+      case TransactionAdditionalInfoJettonNotify():
+        return jettonNotify(_that.data);
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String data)? comment,
+    TResult? Function(DePoolOnRoundCompleteNotification data)?
+        dePoolOnRoundComplete,
+    TResult? Function(DePoolReceiveAnswerNotification data)?
+        dePoolReceiveAnswer,
+    TResult? Function(TokenWalletDeployedNotification data)?
+        tokenWalletDeployed,
+    TResult? Function(WalletInteractionInfo data)? walletInteraction,
+    TResult? Function(JettonIncomingTransfer data)? jettonNotify,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case TransactionAdditionalInfoComment() when comment != null:
+        return comment(_that.data);
+      case TransactionAdditionalInfoDePoolOnRoundComplete()
+          when dePoolOnRoundComplete != null:
+        return dePoolOnRoundComplete(_that.data);
+      case TransactionAdditionalInfoDePoolReceiveAnswer()
+          when dePoolReceiveAnswer != null:
+        return dePoolReceiveAnswer(_that.data);
+      case TransactionAdditionalInfoTokenWalletDeployed()
+          when tokenWalletDeployed != null:
+        return tokenWalletDeployed(_that.data);
+      case TransactionAdditionalInfoWalletInteraction()
+          when walletInteraction != null:
+        return walletInteraction(_that.data);
+      case TransactionAdditionalInfoJettonNotify() when jettonNotify != null:
+        return jettonNotify(_that.data);
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc

@@ -110,8 +110,6 @@ void main() {
     );
 
     runApp(Container());
-
-    await initRustToDartCaller();
   });
 
   setUpAll(() async {

@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -53,6 +52,209 @@ mixin _$WalletInteractionMethod {
 class $WalletInteractionMethodCopyWith<$Res> {
   $WalletInteractionMethodCopyWith(
       WalletInteractionMethod _, $Res Function(WalletInteractionMethod) __);
+}
+
+/// Adds pattern-matching-related methods to [WalletInteractionMethod].
+extension WalletInteractionMethodPatterns on WalletInteractionMethod {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(WalletInteractionMethodWalletV3Transfer value)?
+        walletV3Transfer,
+    TResult Function(WalletInteractionMethodTonWalletTransfer value)?
+        tonWalletTransfer,
+    TResult Function(WalletInteractionMethodMultisig value)? multisig,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case WalletInteractionMethodWalletV3Transfer()
+          when walletV3Transfer != null:
+        return walletV3Transfer(_that);
+      case WalletInteractionMethodTonWalletTransfer()
+          when tonWalletTransfer != null:
+        return tonWalletTransfer(_that);
+      case WalletInteractionMethodMultisig() when multisig != null:
+        return multisig(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(WalletInteractionMethodWalletV3Transfer value)
+        walletV3Transfer,
+    required TResult Function(WalletInteractionMethodTonWalletTransfer value)
+        tonWalletTransfer,
+    required TResult Function(WalletInteractionMethodMultisig value) multisig,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case WalletInteractionMethodWalletV3Transfer():
+        return walletV3Transfer(_that);
+      case WalletInteractionMethodTonWalletTransfer():
+        return tonWalletTransfer(_that);
+      case WalletInteractionMethodMultisig():
+        return multisig(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(WalletInteractionMethodWalletV3Transfer value)?
+        walletV3Transfer,
+    TResult? Function(WalletInteractionMethodTonWalletTransfer value)?
+        tonWalletTransfer,
+    TResult? Function(WalletInteractionMethodMultisig value)? multisig,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case WalletInteractionMethodWalletV3Transfer()
+          when walletV3Transfer != null:
+        return walletV3Transfer(_that);
+      case WalletInteractionMethodTonWalletTransfer()
+          when tonWalletTransfer != null:
+        return tonWalletTransfer(_that);
+      case WalletInteractionMethodMultisig() when multisig != null:
+        return multisig(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? walletV3Transfer,
+    TResult Function()? tonWalletTransfer,
+    TResult Function(MultisigTransaction data)? multisig,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case WalletInteractionMethodWalletV3Transfer()
+          when walletV3Transfer != null:
+        return walletV3Transfer();
+      case WalletInteractionMethodTonWalletTransfer()
+          when tonWalletTransfer != null:
+        return tonWalletTransfer();
+      case WalletInteractionMethodMultisig() when multisig != null:
+        return multisig(_that.data);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() walletV3Transfer,
+    required TResult Function() tonWalletTransfer,
+    required TResult Function(MultisigTransaction data) multisig,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case WalletInteractionMethodWalletV3Transfer():
+        return walletV3Transfer();
+      case WalletInteractionMethodTonWalletTransfer():
+        return tonWalletTransfer();
+      case WalletInteractionMethodMultisig():
+        return multisig(_that.data);
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? walletV3Transfer,
+    TResult? Function()? tonWalletTransfer,
+    TResult? Function(MultisigTransaction data)? multisig,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case WalletInteractionMethodWalletV3Transfer()
+          when walletV3Transfer != null:
+        return walletV3Transfer();
+      case WalletInteractionMethodTonWalletTransfer()
+          when tonWalletTransfer != null:
+        return tonWalletTransfer();
+      case WalletInteractionMethodMultisig() when multisig != null:
+        return multisig(_that.data);
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc

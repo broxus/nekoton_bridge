@@ -4,10 +4,10 @@ use crate::frb_generated::RustOpaque;
 use crate::nekoton_wrapper::external::connections::{
     LedgerConnectionBox, LedgerConnectionBoxTrait,
 };
-use crate::utils::caller;
 use async_trait::async_trait;
 pub use ed25519_dalek::{PUBLIC_KEY_LENGTH, SIGNATURE_LENGTH};
 use flutter_rust_bridge::frb;
+pub use flutter_rust_bridge::DartFnFuture;
 pub use nekoton::external;
 use std::convert::TryInto;
 use std::sync::Arc;
@@ -19,10 +19,21 @@ pub struct LedgerConnectionDartWrapper {
 
 impl LedgerConnectionDartWrapper {
     #[frb(sync)]
-    pub fn new(instance_hash: String) -> LedgerConnectionDartWrapper {
+    pub fn new(
+        on_get_public_key: impl Fn(u16) -> DartFnFuture<Vec<u8>> + Send + Sync + 'static,
+        on_sign: impl Fn(u16, Option<i32>, Vec<u8>) -> DartFnFuture<Vec<u8>> + Send + Sync + 'static,
+        on_sign_transaction: impl Fn(u16, u16, Option<i32>, Vec<u8>, String) -> DartFnFuture<Vec<u8>>
+            + Send
+            + Sync
+            + 'static,
+    ) -> LedgerConnectionDartWrapper {
         Self {
             inner_connection: RustOpaque::new(LedgerConnectionBox::create(Arc::new(
-                LedgerConnectionImpl { instance_hash },
+                LedgerConnectionImpl {
+                    on_get_public_key: Arc::new(on_get_public_key),
+                    on_sign: Arc::new(on_sign),
+                    on_sign_transaction: Arc::new(on_sign_transaction),
+                },
             ))),
         }
     }
@@ -35,30 +46,24 @@ impl LedgerConnectionDartWrapper {
 
 /// Implementation of nekoton's LedgerConnection
 pub struct LedgerConnectionImpl {
-    pub instance_hash: String,
-}
-
-impl LedgerConnectionImpl {
-    #[frb(sync)]
-    pub fn new(instance_hash: String) -> LedgerConnectionImpl {
-        Self { instance_hash }
-    }
+    pub on_get_public_key: Arc<dyn Fn(u16) -> DartFnFuture<Vec<u8>> + Send + Sync>,
+    pub on_sign: Arc<dyn Fn(u16, Option<i32>, Vec<u8>) -> DartFnFuture<Vec<u8>> + Send + Sync>,
+    pub on_sign_transaction:
+        Arc<dyn Fn(u16, u16, Option<i32>, Vec<u8>, String) -> DartFnFuture<Vec<u8>> + Send + Sync>,
 }
 
 #[async_trait]
 impl external::LedgerConnection for LedgerConnectionImpl {
     async fn get_public_key(&self, account_id: u16) -> anyhow::Result<[u8; PUBLIC_KEY_LENGTH]> {
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("getPublicKey"),
-            args: vec![caller::DynamicValue::U16(account_id)],
-            named_args: vec![],
-        };
-        let res = caller::call(stub, true).as_vec_u8();
-        match res {
-            Ok(v) => Ok(v.as_slice().try_into().unwrap()),
-            Err(e) => Err(e),
+        let data = (self.on_get_public_key)(account_id).await;
+        if data.len() != PUBLIC_KEY_LENGTH {
+            anyhow::bail!(
+                "Invalid public key length: expected {}, got {}",
+                PUBLIC_KEY_LENGTH,
+                data.len()
+            );
         }
+        Ok(data.as_slice().try_into().unwrap())
     }
 
     async fn sign(
@@ -67,24 +72,15 @@ impl external::LedgerConnection for LedgerConnectionImpl {
         signature_id: Option<i32>,
         message: &[u8],
     ) -> anyhow::Result<[u8; SIGNATURE_LENGTH]> {
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("sign"),
-            args: vec![
-                caller::DynamicValue::U16(account),
-                match signature_id {
-                    Some(id) => caller::DynamicValue::I32(id),
-                    None => caller::DynamicValue::None,
-                },
-                caller::DynamicValue::VecU8(message.to_vec()),
-            ],
-            named_args: vec![],
-        };
-        let res = caller::call(stub, true).as_vec_u8();
-        match res {
-            Ok(v) => Ok(v.as_slice().try_into().unwrap()),
-            Err(e) => Err(e),
+        let data = (self.on_sign)(account, signature_id, message.to_vec()).await;
+        if data.len() != SIGNATURE_LENGTH {
+            anyhow::bail!(
+                "Invalid signature length: expected {}, got {}",
+                SIGNATURE_LENGTH,
+                data.len()
+            );
         }
+        Ok(data.as_slice().try_into().unwrap())
     }
 
     async fn sign_transaction(
@@ -95,25 +91,17 @@ impl external::LedgerConnection for LedgerConnectionImpl {
         message: &[u8],
         context: &external::LedgerSignatureContext,
     ) -> anyhow::Result<[u8; SIGNATURE_LENGTH]> {
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("signTransaction"),
-            args: vec![
-                caller::DynamicValue::U16(account),
-                caller::DynamicValue::U16(wallet),
-                match signature_id {
-                    Some(id) => caller::DynamicValue::I32(id),
-                    None => caller::DynamicValue::None,
-                },
-                caller::DynamicValue::VecU8(message.to_vec()),
-                caller::DynamicValue::String(serde_json::to_string(context).unwrap()),
-            ],
-            named_args: vec![],
-        };
-        let res = caller::call(stub, true).as_vec_u8();
-        match res {
-            Ok(v) => Ok(v.as_slice().try_into().unwrap()),
-            Err(e) => Err(e),
+        let ctx_json = serde_json::to_string(context)?;
+        let data =
+            (self.on_sign_transaction)(account, wallet, signature_id, message.to_vec(), ctx_json)
+                .await;
+        if data.len() != SIGNATURE_LENGTH {
+            anyhow::bail!(
+                "Invalid signature length: expected {}, got {}",
+                SIGNATURE_LENGTH,
+                data.len()
+            );
         }
+        Ok(data.as_slice().try_into().unwrap())
     }
 }
