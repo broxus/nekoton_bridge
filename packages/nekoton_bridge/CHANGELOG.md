@@ -1,3 +1,9 @@
+## 4.0.0-dev.0
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **CHORE**: remove `reflectable`. ([30e7a3d3](https://github.com/broxus/nekoton_bridge/commit/30e7a3d3885096004327fa1ddb9ee67eb2c298ef))
+
 ## 3.3.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
