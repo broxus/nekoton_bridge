@@ -17,6 +17,7 @@ class GenericContract implements RefreshingInterface {
 
   /// Flag that display [onStateChanged] that [contract] was initialized.
   bool _isInitialized = false;
+  bool _isDisposed = false;
 
   /// Controllers that contains data that emits from rust.
   final _onMessageSentController =
@@ -41,7 +42,7 @@ class GenericContract implements RefreshingInterface {
 
   GenericContract._(this.transport);
 
-  bool get isDisposed => contract.innerContract.isDisposed;
+  bool get isDisposed => _isDisposed;
 
   /// Create GenericContract by subscribing to its instance.
   /// [address] - address of contract
@@ -286,6 +287,7 @@ class GenericContract implements RefreshingInterface {
   }
 
   void dispose() {
+    _isDisposed = true;
     contract.innerContract.dispose();
     _onTransactionsFoundController.close();
     _onStateChangedController.close();

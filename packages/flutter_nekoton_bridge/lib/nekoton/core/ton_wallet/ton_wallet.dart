@@ -19,6 +19,7 @@ class TonWallet implements RefreshingInterface {
 
   /// Flag that display [onStateChanged] that [wallet] was initialized.
   bool _isInitialized = false;
+  bool _isDisposed = false;
 
   /// Controllers that contains data that emits from rust.
   final _onMessageSentController =
@@ -50,7 +51,7 @@ class TonWallet implements RefreshingInterface {
   late final WalletType walletType;
   late final int workchain;
 
-  bool get isDisposed => wallet.innerWallet.isDisposed;
+  bool get isDisposed => _isDisposed;
 
   /// Create TonWallet by subscribing to its instance by public_key.
   /// publicKey - is string representation of key
@@ -590,6 +591,7 @@ class TonWallet implements RefreshingInterface {
   }
 
   void dispose() {
+    _isDisposed = true;
     wallet.innerWallet.dispose();
     _onMessageSentController.close();
     _onMessageExpiredController.close();

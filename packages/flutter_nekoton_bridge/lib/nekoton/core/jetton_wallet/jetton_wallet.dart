@@ -18,6 +18,7 @@ class JettonWallet implements RefreshingInterface {
   /// Flag that display [onStateChanged] that [wallet] was initialized.
   bool _isInitialized = false;
   bool _isTransactionsPreloaded = false;
+  bool _isDisposed = false;
 
   /// Controllers that contains data that emits from rust.
   final _onBalanceChangedController = BehaviorSubject<BigInt>();
@@ -51,7 +52,7 @@ class JettonWallet implements RefreshingInterface {
 
   bool get isTransactionsPreloaded => _isTransactionsPreloaded;
 
-  bool get isDisposed => wallet.innerWallet.isDisposed;
+  bool get isDisposed => _isDisposed;
 
   /// Create JettonWallet by subscribing to its instance.
   /// [owner] - address of account that is owner of wallet
@@ -363,6 +364,7 @@ class JettonWallet implements RefreshingInterface {
   }
 
   void dispose() {
+    _isDisposed = true;
     wallet.innerWallet.dispose();
     _onBalanceChangedController.close();
     _onTransactionsFoundController.close();

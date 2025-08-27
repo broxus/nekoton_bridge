@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -69,6 +68,312 @@ mixin _$TokenWalletTransaction {
 class $TokenWalletTransactionCopyWith<$Res> {
   $TokenWalletTransactionCopyWith(
       TokenWalletTransaction _, $Res Function(TokenWalletTransaction) __);
+}
+
+/// Adds pattern-matching-related methods to [TokenWalletTransaction].
+extension TokenWalletTransactionPatterns on TokenWalletTransaction {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TokenWalletTransactionTransfer value)? transfer,
+    TResult Function(TokenWalletTransactionInternalTransfer value)?
+        internalTransfer,
+    TResult Function(TokenWalletTransactionIncomingTransfer value)?
+        incomingTransfer,
+    TResult Function(TokenWalletTransactionOutgoingTransfer value)?
+        outgoingTransfer,
+    TResult Function(TokenWalletTransactionSwapBack value)? swapBack,
+    TResult Function(TokenWalletTransactionAccept value)? accept,
+    TResult Function(TokenWalletTransactionTransferBounced value)?
+        transferBounced,
+    TResult Function(TokenWalletTransactionSwapBackBounced value)?
+        swapBackBounced,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case TokenWalletTransactionTransfer() when transfer != null:
+        return transfer(_that);
+      case TokenWalletTransactionInternalTransfer()
+          when internalTransfer != null:
+        return internalTransfer(_that);
+      case TokenWalletTransactionIncomingTransfer()
+          when incomingTransfer != null:
+        return incomingTransfer(_that);
+      case TokenWalletTransactionOutgoingTransfer()
+          when outgoingTransfer != null:
+        return outgoingTransfer(_that);
+      case TokenWalletTransactionSwapBack() when swapBack != null:
+        return swapBack(_that);
+      case TokenWalletTransactionAccept() when accept != null:
+        return accept(_that);
+      case TokenWalletTransactionTransferBounced() when transferBounced != null:
+        return transferBounced(_that);
+      case TokenWalletTransactionSwapBackBounced() when swapBackBounced != null:
+        return swapBackBounced(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TokenWalletTransactionTransfer value) transfer,
+    required TResult Function(TokenWalletTransactionInternalTransfer value)
+        internalTransfer,
+    required TResult Function(TokenWalletTransactionIncomingTransfer value)
+        incomingTransfer,
+    required TResult Function(TokenWalletTransactionOutgoingTransfer value)
+        outgoingTransfer,
+    required TResult Function(TokenWalletTransactionSwapBack value) swapBack,
+    required TResult Function(TokenWalletTransactionAccept value) accept,
+    required TResult Function(TokenWalletTransactionTransferBounced value)
+        transferBounced,
+    required TResult Function(TokenWalletTransactionSwapBackBounced value)
+        swapBackBounced,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case TokenWalletTransactionTransfer():
+        return transfer(_that);
+      case TokenWalletTransactionInternalTransfer():
+        return internalTransfer(_that);
+      case TokenWalletTransactionIncomingTransfer():
+        return incomingTransfer(_that);
+      case TokenWalletTransactionOutgoingTransfer():
+        return outgoingTransfer(_that);
+      case TokenWalletTransactionSwapBack():
+        return swapBack(_that);
+      case TokenWalletTransactionAccept():
+        return accept(_that);
+      case TokenWalletTransactionTransferBounced():
+        return transferBounced(_that);
+      case TokenWalletTransactionSwapBackBounced():
+        return swapBackBounced(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(TokenWalletTransactionTransfer value)? transfer,
+    TResult? Function(TokenWalletTransactionInternalTransfer value)?
+        internalTransfer,
+    TResult? Function(TokenWalletTransactionIncomingTransfer value)?
+        incomingTransfer,
+    TResult? Function(TokenWalletTransactionOutgoingTransfer value)?
+        outgoingTransfer,
+    TResult? Function(TokenWalletTransactionSwapBack value)? swapBack,
+    TResult? Function(TokenWalletTransactionAccept value)? accept,
+    TResult? Function(TokenWalletTransactionTransferBounced value)?
+        transferBounced,
+    TResult? Function(TokenWalletTransactionSwapBackBounced value)?
+        swapBackBounced,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case TokenWalletTransactionTransfer() when transfer != null:
+        return transfer(_that);
+      case TokenWalletTransactionInternalTransfer()
+          when internalTransfer != null:
+        return internalTransfer(_that);
+      case TokenWalletTransactionIncomingTransfer()
+          when incomingTransfer != null:
+        return incomingTransfer(_that);
+      case TokenWalletTransactionOutgoingTransfer()
+          when outgoingTransfer != null:
+        return outgoingTransfer(_that);
+      case TokenWalletTransactionSwapBack() when swapBack != null:
+        return swapBack(_that);
+      case TokenWalletTransactionAccept() when accept != null:
+        return accept(_that);
+      case TokenWalletTransactionTransferBounced() when transferBounced != null:
+        return transferBounced(_that);
+      case TokenWalletTransactionSwapBackBounced() when swapBackBounced != null:
+        return swapBackBounced(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(JettonOutgoingTransfer data)? transfer,
+    TResult Function(JettonIncomingTransfer data)? internalTransfer,
+    TResult Function(TokenIncomingTransfer data)? incomingTransfer,
+    TResult Function(TokenOutgoingTransfer data)? outgoingTransfer,
+    TResult Function(TokenSwapBack data)? swapBack,
+    TResult Function(@amountJsonConverter BigInt data)? accept,
+    TResult Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult Function(@amountJsonConverter BigInt data)? swapBackBounced,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case TokenWalletTransactionTransfer() when transfer != null:
+        return transfer(_that.data);
+      case TokenWalletTransactionInternalTransfer()
+          when internalTransfer != null:
+        return internalTransfer(_that.data);
+      case TokenWalletTransactionIncomingTransfer()
+          when incomingTransfer != null:
+        return incomingTransfer(_that.data);
+      case TokenWalletTransactionOutgoingTransfer()
+          when outgoingTransfer != null:
+        return outgoingTransfer(_that.data);
+      case TokenWalletTransactionSwapBack() when swapBack != null:
+        return swapBack(_that.data);
+      case TokenWalletTransactionAccept() when accept != null:
+        return accept(_that.data);
+      case TokenWalletTransactionTransferBounced() when transferBounced != null:
+        return transferBounced(_that.data);
+      case TokenWalletTransactionSwapBackBounced() when swapBackBounced != null:
+        return swapBackBounced(_that.data);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(JettonOutgoingTransfer data) transfer,
+    required TResult Function(JettonIncomingTransfer data) internalTransfer,
+    required TResult Function(TokenIncomingTransfer data) incomingTransfer,
+    required TResult Function(TokenOutgoingTransfer data) outgoingTransfer,
+    required TResult Function(TokenSwapBack data) swapBack,
+    required TResult Function(@amountJsonConverter BigInt data) accept,
+    required TResult Function(@amountJsonConverter BigInt data) transferBounced,
+    required TResult Function(@amountJsonConverter BigInt data) swapBackBounced,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case TokenWalletTransactionTransfer():
+        return transfer(_that.data);
+      case TokenWalletTransactionInternalTransfer():
+        return internalTransfer(_that.data);
+      case TokenWalletTransactionIncomingTransfer():
+        return incomingTransfer(_that.data);
+      case TokenWalletTransactionOutgoingTransfer():
+        return outgoingTransfer(_that.data);
+      case TokenWalletTransactionSwapBack():
+        return swapBack(_that.data);
+      case TokenWalletTransactionAccept():
+        return accept(_that.data);
+      case TokenWalletTransactionTransferBounced():
+        return transferBounced(_that.data);
+      case TokenWalletTransactionSwapBackBounced():
+        return swapBackBounced(_that.data);
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(JettonOutgoingTransfer data)? transfer,
+    TResult? Function(JettonIncomingTransfer data)? internalTransfer,
+    TResult? Function(TokenIncomingTransfer data)? incomingTransfer,
+    TResult? Function(TokenOutgoingTransfer data)? outgoingTransfer,
+    TResult? Function(TokenSwapBack data)? swapBack,
+    TResult? Function(@amountJsonConverter BigInt data)? accept,
+    TResult? Function(@amountJsonConverter BigInt data)? transferBounced,
+    TResult? Function(@amountJsonConverter BigInt data)? swapBackBounced,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case TokenWalletTransactionTransfer() when transfer != null:
+        return transfer(_that.data);
+      case TokenWalletTransactionInternalTransfer()
+          when internalTransfer != null:
+        return internalTransfer(_that.data);
+      case TokenWalletTransactionIncomingTransfer()
+          when incomingTransfer != null:
+        return incomingTransfer(_that.data);
+      case TokenWalletTransactionOutgoingTransfer()
+          when outgoingTransfer != null:
+        return outgoingTransfer(_that.data);
+      case TokenWalletTransactionSwapBack() when swapBack != null:
+        return swapBack(_that.data);
+      case TokenWalletTransactionAccept() when accept != null:
+        return accept(_that.data);
+      case TokenWalletTransactionTransferBounced() when transferBounced != null:
+        return transferBounced(_that.data);
+      case TokenWalletTransactionSwapBackBounced() when swapBackBounced != null:
+        return swapBackBounced(_that.data);
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc

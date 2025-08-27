@@ -16,6 +16,7 @@ class TokenWallet implements RefreshingInterface {
   /// Flag that display [onStateChanged] that [wallet] was initialized.
   bool _isInitialized = false;
   bool _isTransactionsPreloaded = false;
+  bool _isDisposed = false;
 
   /// Controllers that contains data that emits from rust.
   final _onBalanceChangedController = BehaviorSubject<BigInt>();
@@ -32,7 +33,7 @@ class TokenWallet implements RefreshingInterface {
   late ContractState _contractState;
   late BigInt balance;
 
-  bool get isDisposed => wallet.innerWallet.isDisposed;
+  bool get isDisposed => _isDisposed;
 
   Money get moneyBalance => Money.fromBigIntWithCurrency(balance, currency);
 
@@ -393,6 +394,7 @@ class TokenWallet implements RefreshingInterface {
   }
 
   void dispose() {
+    _isDisposed = true;
     wallet.innerWallet.dispose();
     _onBalanceChangedController.close();
     _onMoneyBalanceChangedController.close();
