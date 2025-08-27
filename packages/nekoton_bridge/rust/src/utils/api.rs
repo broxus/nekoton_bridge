@@ -1,8 +1,8 @@
 #![allow(unused_variables, dead_code)]
 
 use crate::frb_generated::StreamSink;
-use crate::utils::logger;
 use crate::nekoton_wrapper::update_clock_offset;
+use crate::utils::logger;
 
 /// Init utils
 pub fn init_logger(level: logger::LogLevel, mobile_logger: bool) {
