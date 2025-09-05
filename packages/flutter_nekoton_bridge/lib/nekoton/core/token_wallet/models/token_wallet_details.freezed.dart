@@ -17,7 +17,6 @@ T _$identity<T>(T value) => value;
 mixin _$TokenWalletDetails {
   Address get rootAddress;
   Address get ownerAddress;
-  @amountJsonConverter
   BigInt get balance;
 
   /// Create a copy of TokenWalletDetails
@@ -60,10 +59,7 @@ abstract mixin class $TokenWalletDetailsCopyWith<$Res> {
           TokenWalletDetails value, $Res Function(TokenWalletDetails) _then) =
       _$TokenWalletDetailsCopyWithImpl;
   @useResult
-  $Res call(
-      {Address rootAddress,
-      Address ownerAddress,
-      @amountJsonConverter BigInt balance});
+  $Res call({Address rootAddress, Address ownerAddress, BigInt balance});
 
   $AddressCopyWith<$Res> get rootAddress;
   $AddressCopyWith<$Res> get ownerAddress;
@@ -129,7 +125,7 @@ class _TokenWalletDetails implements TokenWalletDetails {
   const _TokenWalletDetails(
       {required this.rootAddress,
       required this.ownerAddress,
-      @amountJsonConverter required this.balance});
+      required this.balance});
   factory _TokenWalletDetails.fromJson(Map<String, dynamic> json) =>
       _$TokenWalletDetailsFromJson(json);
 
@@ -138,7 +134,6 @@ class _TokenWalletDetails implements TokenWalletDetails {
   @override
   final Address ownerAddress;
   @override
-  @amountJsonConverter
   final BigInt balance;
 
   /// Create a copy of TokenWalletDetails
@@ -187,10 +182,7 @@ abstract mixin class _$TokenWalletDetailsCopyWith<$Res>
       __$TokenWalletDetailsCopyWithImpl;
   @override
   @useResult
-  $Res call(
-      {Address rootAddress,
-      Address ownerAddress,
-      @amountJsonConverter BigInt balance});
+  $Res call({Address rootAddress, Address ownerAddress, BigInt balance});
 
   @override
   $AddressCopyWith<$Res> get rootAddress;

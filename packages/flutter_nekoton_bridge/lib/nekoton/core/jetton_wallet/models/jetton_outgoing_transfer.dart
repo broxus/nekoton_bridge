@@ -7,7 +7,7 @@ part 'jetton_outgoing_transfer.g.dart';
 @freezed
 sealed class JettonOutgoingTransfer with _$JettonOutgoingTransfer {
   const factory JettonOutgoingTransfer({
-    @amountJsonConverter required final BigInt tokens,
+    required final BigInt tokens,
     required final Address to,
   }) = _JettonOutgoingTransfer;
 

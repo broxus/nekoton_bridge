@@ -15,7 +15,6 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$JettonIncomingTransfer {
-  @amountJsonConverter
   BigInt get tokens;
   Address get from;
 
@@ -55,7 +54,7 @@ abstract mixin class $JettonIncomingTransferCopyWith<$Res> {
           $Res Function(JettonIncomingTransfer) _then) =
       _$JettonIncomingTransferCopyWithImpl;
   @useResult
-  $Res call({@amountJsonConverter BigInt tokens, Address from});
+  $Res call({BigInt tokens, Address from});
 
   $AddressCopyWith<$Res> get from;
 }
@@ -102,13 +101,11 @@ class _$JettonIncomingTransferCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _JettonIncomingTransfer implements JettonIncomingTransfer {
-  const _JettonIncomingTransfer(
-      {@amountJsonConverter required this.tokens, required this.from});
+  const _JettonIncomingTransfer({required this.tokens, required this.from});
   factory _JettonIncomingTransfer.fromJson(Map<String, dynamic> json) =>
       _$JettonIncomingTransferFromJson(json);
 
   @override
-  @amountJsonConverter
   final BigInt tokens;
   @override
   final Address from;
@@ -156,7 +153,7 @@ abstract mixin class _$JettonIncomingTransferCopyWith<$Res>
       __$JettonIncomingTransferCopyWithImpl;
   @override
   @useResult
-  $Res call({@amountJsonConverter BigInt tokens, Address from});
+  $Res call({BigInt tokens, Address from});
 
   @override
   $AddressCopyWith<$Res> get from;

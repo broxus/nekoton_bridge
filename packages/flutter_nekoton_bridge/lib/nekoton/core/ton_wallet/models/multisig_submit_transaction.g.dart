@@ -11,7 +11,7 @@ _MultisigSubmitTransaction _$MultisigSubmitTransactionFromJson(
     _MultisigSubmitTransaction(
       custodian: PublicKey.fromJson(json['custodian'] as String),
       dest: Address.fromJson(json['dest'] as String),
-      value: amountJsonConverter.fromJson(json['value'] as String),
+      value: BigInt.parse(json['value'] as String),
       bounce: json['bounce'] as bool,
       allBalance: json['allBalance'] as bool,
       payload: json['payload'] as String,
@@ -23,7 +23,7 @@ Map<String, dynamic> _$MultisigSubmitTransactionToJson(
     <String, dynamic>{
       'custodian': instance.custodian.toJson(),
       'dest': instance.dest.toJson(),
-      'value': amountJsonConverter.toJson(instance.value),
+      'value': instance.value.toString(),
       'bounce': instance.bounce,
       'allBalance': instance.allBalance,
       'payload': instance.payload,

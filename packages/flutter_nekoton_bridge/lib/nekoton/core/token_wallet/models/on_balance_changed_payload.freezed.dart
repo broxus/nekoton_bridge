@@ -15,7 +15,6 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$OnBalanceChangedPayload {
-  @amountJsonConverter
   BigInt get balance;
 
   /// Create a copy of OnBalanceChangedPayload
@@ -53,7 +52,7 @@ abstract mixin class $OnBalanceChangedPayloadCopyWith<$Res> {
           $Res Function(OnBalanceChangedPayload) _then) =
       _$OnBalanceChangedPayloadCopyWithImpl;
   @useResult
-  $Res call({@amountJsonConverter BigInt balance});
+  $Res call({BigInt balance});
 }
 
 /// @nodoc
@@ -83,12 +82,11 @@ class _$OnBalanceChangedPayloadCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _OnBalanceChangedPayload implements OnBalanceChangedPayload {
-  const _OnBalanceChangedPayload({@amountJsonConverter required this.balance});
+  const _OnBalanceChangedPayload({required this.balance});
   factory _OnBalanceChangedPayload.fromJson(Map<String, dynamic> json) =>
       _$OnBalanceChangedPayloadFromJson(json);
 
   @override
-  @amountJsonConverter
   final BigInt balance;
 
   /// Create a copy of OnBalanceChangedPayload
@@ -133,7 +131,7 @@ abstract mixin class _$OnBalanceChangedPayloadCopyWith<$Res>
       __$OnBalanceChangedPayloadCopyWithImpl;
   @override
   @useResult
-  $Res call({@amountJsonConverter BigInt balance});
+  $Res call({BigInt balance});
 }
 
 /// @nodoc

@@ -26,7 +26,6 @@ mixin _$Transaction {
   int? get resultCode;
   AccountStatus get origStatus;
   AccountStatus get endStatus;
-  @amountJsonConverter
   BigInt get totalFees;
   Message get inMessage;
   List<Message> get outMessages;
@@ -108,7 +107,7 @@ abstract mixin class $TransactionCopyWith<$Res> {
       @JsonKey(includeIfNull: false) int? resultCode,
       AccountStatus origStatus,
       AccountStatus endStatus,
-      @amountJsonConverter BigInt totalFees,
+      BigInt totalFees,
       Message inMessage,
       List<Message> outMessages,
       String? boc});
@@ -242,7 +241,7 @@ class _Transaction extends Transaction {
       @JsonKey(includeIfNull: false) this.resultCode,
       required this.origStatus,
       required this.endStatus,
-      @amountJsonConverter required this.totalFees,
+      required this.totalFees,
       required this.inMessage,
       required final List<Message> outMessages,
       required this.boc})
@@ -271,7 +270,6 @@ class _Transaction extends Transaction {
   @override
   final AccountStatus endStatus;
   @override
-  @amountJsonConverter
   final BigInt totalFees;
   @override
   final Message inMessage;
@@ -369,7 +367,7 @@ abstract mixin class _$TransactionCopyWith<$Res>
       @JsonKey(includeIfNull: false) int? resultCode,
       AccountStatus origStatus,
       AccountStatus endStatus,
-      @amountJsonConverter BigInt totalFees,
+      BigInt totalFees,
       Message inMessage,
       List<Message> outMessages,
       String? boc});

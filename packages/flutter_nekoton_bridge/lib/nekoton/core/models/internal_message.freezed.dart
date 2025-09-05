@@ -17,7 +17,6 @@ T _$identity<T>(T value) => value;
 mixin _$InternalMessage {
   Address? get source;
   Address get destination;
-  @amountJsonConverter
   BigInt get amount;
   bool get bounce;
   String get body;
@@ -66,7 +65,7 @@ abstract mixin class $InternalMessageCopyWith<$Res> {
   $Res call(
       {Address? source,
       Address destination,
-      @amountJsonConverter BigInt amount,
+      BigInt amount,
       bool bounce,
       String body});
 
@@ -148,7 +147,7 @@ class _InternalMessage implements InternalMessage {
   _InternalMessage(
       {this.source,
       required this.destination,
-      @amountJsonConverter required this.amount,
+      required this.amount,
       required this.bounce,
       required this.body});
   factory _InternalMessage.fromJson(Map<String, dynamic> json) =>
@@ -159,7 +158,6 @@ class _InternalMessage implements InternalMessage {
   @override
   final Address destination;
   @override
-  @amountJsonConverter
   final BigInt amount;
   @override
   final bool bounce;
@@ -216,7 +214,7 @@ abstract mixin class _$InternalMessageCopyWith<$Res>
   $Res call(
       {Address? source,
       Address destination,
-      @amountJsonConverter BigInt amount,
+      BigInt amount,
       bool bounce,
       String body});
 

@@ -16,7 +16,6 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TonWalletDetails {
   bool get requiresSeparateDeploy;
-  @amountJsonConverter
   BigInt get minAmount;
   bool get supportsPayload;
   bool get supportsMultipleOwners; // expirationTime in seconds
@@ -78,7 +77,7 @@ abstract mixin class $TonWalletDetailsCopyWith<$Res> {
   @useResult
   $Res call(
       {bool requiresSeparateDeploy,
-      @amountJsonConverter BigInt minAmount,
+      BigInt minAmount,
       bool supportsPayload,
       bool supportsMultipleOwners,
       int expirationTime,
@@ -140,7 +139,7 @@ class _$TonWalletDetailsCopyWithImpl<$Res>
 class _TonWalletDetails implements TonWalletDetails {
   const _TonWalletDetails(
       {required this.requiresSeparateDeploy,
-      @amountJsonConverter required this.minAmount,
+      required this.minAmount,
       required this.supportsPayload,
       required this.supportsMultipleOwners,
       required this.expirationTime,
@@ -151,7 +150,6 @@ class _TonWalletDetails implements TonWalletDetails {
   @override
   final bool requiresSeparateDeploy;
   @override
-  @amountJsonConverter
   final BigInt minAmount;
   @override
   final bool supportsPayload;
@@ -224,7 +222,7 @@ abstract mixin class _$TonWalletDetailsCopyWith<$Res>
   @useResult
   $Res call(
       {bool requiresSeparateDeploy,
-      @amountJsonConverter BigInt minAmount,
+      BigInt minAmount,
       bool supportsPayload,
       bool supportsMultipleOwners,
       int expirationTime,

@@ -16,7 +16,6 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TonWalletTransferParams {
   Address get destination;
-  @amountJsonConverter
   BigInt get amount;
   bool get bounce;
   String? get body;
@@ -66,7 +65,7 @@ abstract mixin class $TonWalletTransferParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {Address destination,
-      @amountJsonConverter BigInt amount,
+      BigInt amount,
       bool bounce,
       String? body,
       String? stateInit});
@@ -133,7 +132,7 @@ class _$TonWalletTransferParamsCopyWithImpl<$Res>
 class _TonWalletTransferParams implements TonWalletTransferParams {
   _TonWalletTransferParams(
       {required this.destination,
-      @amountJsonConverter required this.amount,
+      required this.amount,
       required this.bounce,
       this.body,
       this.stateInit});
@@ -143,7 +142,6 @@ class _TonWalletTransferParams implements TonWalletTransferParams {
   @override
   final Address destination;
   @override
-  @amountJsonConverter
   final BigInt amount;
   @override
   final bool bounce;
@@ -203,7 +201,7 @@ abstract mixin class _$TonWalletTransferParamsCopyWith<$Res>
   @useResult
   $Res call(
       {Address destination,
-      @amountJsonConverter BigInt amount,
+      BigInt amount,
       bool bounce,
       String? body,
       String? stateInit});

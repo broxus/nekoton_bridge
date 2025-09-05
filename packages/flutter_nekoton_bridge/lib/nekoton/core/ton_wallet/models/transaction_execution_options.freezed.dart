@@ -16,7 +16,6 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TransactionExecutionOptions {
   bool get disableSignatureCheck;
-  @amountJsonConverter
   BigInt? get overrideBalance;
 
   /// Create a copy of TransactionExecutionOptions
@@ -60,9 +59,7 @@ abstract mixin class $TransactionExecutionOptionsCopyWith<$Res> {
           $Res Function(TransactionExecutionOptions) _then) =
       _$TransactionExecutionOptionsCopyWithImpl;
   @useResult
-  $Res call(
-      {bool disableSignatureCheck,
-      @amountJsonConverter BigInt? overrideBalance});
+  $Res call({bool disableSignatureCheck, BigInt? overrideBalance});
 }
 
 /// @nodoc
@@ -98,15 +95,13 @@ class _$TransactionExecutionOptionsCopyWithImpl<$Res>
 @JsonSerializable()
 class _TransactionExecutionOptions implements TransactionExecutionOptions {
   const _TransactionExecutionOptions(
-      {required this.disableSignatureCheck,
-      @amountJsonConverter this.overrideBalance});
+      {required this.disableSignatureCheck, this.overrideBalance});
   factory _TransactionExecutionOptions.fromJson(Map<String, dynamic> json) =>
       _$TransactionExecutionOptionsFromJson(json);
 
   @override
   final bool disableSignatureCheck;
   @override
-  @amountJsonConverter
   final BigInt? overrideBalance;
 
   /// Create a copy of TransactionExecutionOptions
@@ -156,9 +151,7 @@ abstract mixin class _$TransactionExecutionOptionsCopyWith<$Res>
       __$TransactionExecutionOptionsCopyWithImpl;
   @override
   @useResult
-  $Res call(
-      {bool disableSignatureCheck,
-      @amountJsonConverter BigInt? overrideBalance});
+  $Res call({bool disableSignatureCheck, BigInt? overrideBalance});
 }
 
 /// @nodoc

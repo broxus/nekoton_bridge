@@ -9,7 +9,7 @@ sealed class JettonWalletData with _$JettonWalletData {
   const factory JettonWalletData({
     required final Address rootAddress,
     required final Address ownerAddress,
-    @amountJsonConverter required final BigInt balance,
+    required final BigInt balance,
   }) = _JettonWalletData;
 
   factory JettonWalletData.fromJson(Map<String, dynamic> json) =>

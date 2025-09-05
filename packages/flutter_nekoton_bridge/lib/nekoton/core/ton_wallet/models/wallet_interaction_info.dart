@@ -9,9 +9,7 @@ part 'wallet_interaction_info.g.dart';
 @freezed
 sealed class WalletInteractionInfo with _$WalletInteractionInfo {
   const factory WalletInteractionInfo({
-    @JsonKey(includeIfNull: false)
-    @amountJsonConverter
-    final Address? recipient,
+    @JsonKey(includeIfNull: false) final Address? recipient,
     @JsonKey(includeIfNull: false) final KnownPayload? knownPayload,
     required final WalletInteractionMethod method,
   }) = _WalletInteractionInfo;

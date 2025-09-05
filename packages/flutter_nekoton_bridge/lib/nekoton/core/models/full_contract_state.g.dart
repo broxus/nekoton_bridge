@@ -8,7 +8,7 @@ part of 'full_contract_state.dart';
 
 _FullContractState _$FullContractStateFromJson(Map<String, dynamic> json) =>
     _FullContractState(
-      balance: amountJsonConverter.fromJson(json['balance'] as String),
+      balance: BigInt.parse(json['balance'] as String),
       genTimings:
           GenTimings.fromJson(json['genTimings'] as Map<String, dynamic>),
       lastTransactionId: json['lastTransactionId'] == null
@@ -22,7 +22,7 @@ _FullContractState _$FullContractStateFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$FullContractStateToJson(_FullContractState instance) =>
     <String, dynamic>{
-      'balance': amountJsonConverter.toJson(instance.balance),
+      'balance': instance.balance.toString(),
       'genTimings': instance.genTimings.toJson(),
       'lastTransactionId': instance.lastTransactionId?.toJson(),
       'isDeployed': instance.isDeployed,

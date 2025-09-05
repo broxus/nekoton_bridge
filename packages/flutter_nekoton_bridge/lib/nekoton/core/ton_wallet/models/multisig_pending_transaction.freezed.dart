@@ -22,7 +22,6 @@ mixin _$MultisigPendingTransaction {
   PublicKey get creator;
   int get index;
   Address get dest;
-  @amountJsonConverter
   BigInt get value;
   int get sendFlags;
   String get payload;
@@ -98,7 +97,7 @@ abstract mixin class $MultisigPendingTransactionCopyWith<$Res> {
       PublicKey creator,
       int index,
       Address dest,
-      @amountJsonConverter BigInt value,
+      BigInt value,
       int sendFlags,
       String payload,
       bool bounce});
@@ -213,7 +212,7 @@ class _MultisigPendingTransaction implements MultisigPendingTransaction {
       required this.creator,
       required this.index,
       required this.dest,
-      @amountJsonConverter required this.value,
+      required this.value,
       required this.sendFlags,
       required this.payload,
       required this.bounce})
@@ -242,7 +241,6 @@ class _MultisigPendingTransaction implements MultisigPendingTransaction {
   @override
   final Address dest;
   @override
-  @amountJsonConverter
   final BigInt value;
   @override
   final int sendFlags;
@@ -328,7 +326,7 @@ abstract mixin class _$MultisigPendingTransactionCopyWith<$Res>
       PublicKey creator,
       int index,
       Address dest,
-      @amountJsonConverter BigInt value,
+      BigInt value,
       int sendFlags,
       String payload,
       bool bounce});

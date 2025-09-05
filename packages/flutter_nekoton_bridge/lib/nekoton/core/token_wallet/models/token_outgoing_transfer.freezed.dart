@@ -16,7 +16,6 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TokenOutgoingTransfer {
   TransferRecipient get to;
-  @amountJsonConverter
   BigInt get tokens;
 
   /// Create a copy of TokenOutgoingTransfer
@@ -55,7 +54,7 @@ abstract mixin class $TokenOutgoingTransferCopyWith<$Res> {
           $Res Function(TokenOutgoingTransfer) _then) =
       _$TokenOutgoingTransferCopyWithImpl;
   @useResult
-  $Res call({TransferRecipient to, @amountJsonConverter BigInt tokens});
+  $Res call({TransferRecipient to, BigInt tokens});
 
   $TransferRecipientCopyWith<$Res> get to;
 }
@@ -102,15 +101,13 @@ class _$TokenOutgoingTransferCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _TokenOutgoingTransfer implements TokenOutgoingTransfer {
-  const _TokenOutgoingTransfer(
-      {required this.to, @amountJsonConverter required this.tokens});
+  const _TokenOutgoingTransfer({required this.to, required this.tokens});
   factory _TokenOutgoingTransfer.fromJson(Map<String, dynamic> json) =>
       _$TokenOutgoingTransferFromJson(json);
 
   @override
   final TransferRecipient to;
   @override
-  @amountJsonConverter
   final BigInt tokens;
 
   /// Create a copy of TokenOutgoingTransfer
@@ -156,7 +153,7 @@ abstract mixin class _$TokenOutgoingTransferCopyWith<$Res>
       __$TokenOutgoingTransferCopyWithImpl;
   @override
   @useResult
-  $Res call({TransferRecipient to, @amountJsonConverter BigInt tokens});
+  $Res call({TransferRecipient to, BigInt tokens});
 
   @override
   $TransferRecipientCopyWith<$Res> get to;

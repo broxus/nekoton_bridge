@@ -15,7 +15,6 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$TokenSwapBack {
-  @amountJsonConverter
   BigInt get tokens;
   Address get callbackAddress;
   String get callbackPayload;
@@ -60,10 +59,7 @@ abstract mixin class $TokenSwapBackCopyWith<$Res> {
           TokenSwapBack value, $Res Function(TokenSwapBack) _then) =
       _$TokenSwapBackCopyWithImpl;
   @useResult
-  $Res call(
-      {@amountJsonConverter BigInt tokens,
-      Address callbackAddress,
-      String callbackPayload});
+  $Res call({BigInt tokens, Address callbackAddress, String callbackPayload});
 
   $AddressCopyWith<$Res> get callbackAddress;
 }
@@ -117,14 +113,13 @@ class _$TokenSwapBackCopyWithImpl<$Res>
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _TokenSwapBack implements TokenSwapBack {
   const _TokenSwapBack(
-      {@amountJsonConverter required this.tokens,
+      {required this.tokens,
       required this.callbackAddress,
       required this.callbackPayload});
   factory _TokenSwapBack.fromJson(Map<String, dynamic> json) =>
       _$TokenSwapBackFromJson(json);
 
   @override
-  @amountJsonConverter
   final BigInt tokens;
   @override
   final Address callbackAddress;
@@ -177,10 +172,7 @@ abstract mixin class _$TokenSwapBackCopyWith<$Res>
       __$TokenSwapBackCopyWithImpl;
   @override
   @useResult
-  $Res call(
-      {@amountJsonConverter BigInt tokens,
-      Address callbackAddress,
-      String callbackPayload});
+  $Res call({BigInt tokens, Address callbackAddress, String callbackPayload});
 
   @override
   $AddressCopyWith<$Res> get callbackAddress;

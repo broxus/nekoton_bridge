@@ -40,7 +40,6 @@ TokenWalletTransaction _$TokenWalletTransactionFromJson(
 
 /// @nodoc
 mixin _$TokenWalletTransaction {
-  @amountJsonConverter
   Object get data;
 
   /// Serializes this TokenWalletTransaction to a JSON map.
@@ -545,14 +544,12 @@ class _$TokenWalletTransactionSwapBackCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class TokenWalletTransactionAccept implements TokenWalletTransaction {
-  const TokenWalletTransactionAccept(@amountJsonConverter this.data,
-      {final String? $type})
+  const TokenWalletTransactionAccept(this.data, {final String? $type})
       : $type = $type ?? 'accept';
   factory TokenWalletTransactionAccept.fromJson(Map<String, dynamic> json) =>
       _$TokenWalletTransactionAcceptFromJson(json);
 
   @override
-  @amountJsonConverter
   final BigInt data;
 
   @JsonKey(name: 'type')
@@ -599,7 +596,7 @@ abstract mixin class $TokenWalletTransactionAcceptCopyWith<$Res>
           $Res Function(TokenWalletTransactionAccept) _then) =
       _$TokenWalletTransactionAcceptCopyWithImpl;
   @useResult
-  $Res call({@amountJsonConverter BigInt data});
+  $Res call({BigInt data});
 }
 
 /// @nodoc
@@ -628,15 +625,13 @@ class _$TokenWalletTransactionAcceptCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class TokenWalletTransactionTransferBounced implements TokenWalletTransaction {
-  const TokenWalletTransactionTransferBounced(@amountJsonConverter this.data,
-      {final String? $type})
+  const TokenWalletTransactionTransferBounced(this.data, {final String? $type})
       : $type = $type ?? 'transfer_bounced';
   factory TokenWalletTransactionTransferBounced.fromJson(
           Map<String, dynamic> json) =>
       _$TokenWalletTransactionTransferBouncedFromJson(json);
 
   @override
-  @amountJsonConverter
   final BigInt data;
 
   @JsonKey(name: 'type')
@@ -684,7 +679,7 @@ abstract mixin class $TokenWalletTransactionTransferBouncedCopyWith<$Res>
           $Res Function(TokenWalletTransactionTransferBounced) _then) =
       _$TokenWalletTransactionTransferBouncedCopyWithImpl;
   @useResult
-  $Res call({@amountJsonConverter BigInt data});
+  $Res call({BigInt data});
 }
 
 /// @nodoc
@@ -713,15 +708,13 @@ class _$TokenWalletTransactionTransferBouncedCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class TokenWalletTransactionSwapBackBounced implements TokenWalletTransaction {
-  const TokenWalletTransactionSwapBackBounced(@amountJsonConverter this.data,
-      {final String? $type})
+  const TokenWalletTransactionSwapBackBounced(this.data, {final String? $type})
       : $type = $type ?? 'swap_back_bounced';
   factory TokenWalletTransactionSwapBackBounced.fromJson(
           Map<String, dynamic> json) =>
       _$TokenWalletTransactionSwapBackBouncedFromJson(json);
 
   @override
-  @amountJsonConverter
   final BigInt data;
 
   @JsonKey(name: 'type')
@@ -769,7 +762,7 @@ abstract mixin class $TokenWalletTransactionSwapBackBouncedCopyWith<$Res>
           $Res Function(TokenWalletTransactionSwapBackBounced) _then) =
       _$TokenWalletTransactionSwapBackBouncedCopyWithImpl;
   @useResult
-  $Res call({@amountJsonConverter BigInt data});
+  $Res call({BigInt data});
 }
 
 /// @nodoc

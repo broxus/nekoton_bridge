@@ -9,7 +9,7 @@ part 'multisig_send_transaction.g.dart';
 sealed class MultisigSendTransaction with _$MultisigSendTransaction {
   const factory MultisigSendTransaction({
     required final Address dest,
-    @amountJsonConverter required final BigInt value,
+    required final BigInt value,
     required final bool bounce,
     required final int flags,
     required final String payload,

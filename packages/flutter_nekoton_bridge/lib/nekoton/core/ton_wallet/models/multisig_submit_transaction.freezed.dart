@@ -17,7 +17,6 @@ T _$identity<T>(T value) => value;
 mixin _$MultisigSubmitTransaction {
   PublicKey get custodian;
   Address get dest;
-  @amountJsonConverter
   BigInt get value;
   bool get bounce;
   bool get allBalance;
@@ -71,7 +70,7 @@ abstract mixin class $MultisigSubmitTransactionCopyWith<$Res> {
   $Res call(
       {PublicKey custodian,
       Address dest,
-      @amountJsonConverter BigInt value,
+      BigInt value,
       bool bounce,
       bool allBalance,
       String payload,
@@ -161,7 +160,7 @@ class _MultisigSubmitTransaction implements MultisigSubmitTransaction {
   const _MultisigSubmitTransaction(
       {required this.custodian,
       required this.dest,
-      @amountJsonConverter required this.value,
+      required this.value,
       required this.bounce,
       required this.allBalance,
       required this.payload,
@@ -174,7 +173,6 @@ class _MultisigSubmitTransaction implements MultisigSubmitTransaction {
   @override
   final Address dest;
   @override
-  @amountJsonConverter
   final BigInt value;
   @override
   final bool bounce;
@@ -240,7 +238,7 @@ abstract mixin class _$MultisigSubmitTransactionCopyWith<$Res>
   $Res call(
       {PublicKey custodian,
       Address dest,
-      @amountJsonConverter BigInt value,
+      BigInt value,
       bool bounce,
       bool allBalance,
       String payload,

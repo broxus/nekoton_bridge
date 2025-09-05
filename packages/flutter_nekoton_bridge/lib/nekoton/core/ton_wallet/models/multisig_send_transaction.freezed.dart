@@ -16,7 +16,6 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MultisigSendTransaction {
   Address get dest;
-  @amountJsonConverter
   BigInt get value;
   bool get bounce;
   int get flags;
@@ -63,11 +62,7 @@ abstract mixin class $MultisigSendTransactionCopyWith<$Res> {
       _$MultisigSendTransactionCopyWithImpl;
   @useResult
   $Res call(
-      {Address dest,
-      @amountJsonConverter BigInt value,
-      bool bounce,
-      int flags,
-      String payload});
+      {Address dest, BigInt value, bool bounce, int flags, String payload});
 
   $AddressCopyWith<$Res> get dest;
 }
@@ -131,7 +126,7 @@ class _$MultisigSendTransactionCopyWithImpl<$Res>
 class _MultisigSendTransaction implements MultisigSendTransaction {
   const _MultisigSendTransaction(
       {required this.dest,
-      @amountJsonConverter required this.value,
+      required this.value,
       required this.bounce,
       required this.flags,
       required this.payload});
@@ -141,7 +136,6 @@ class _MultisigSendTransaction implements MultisigSendTransaction {
   @override
   final Address dest;
   @override
-  @amountJsonConverter
   final BigInt value;
   @override
   final bool bounce;
@@ -198,11 +192,7 @@ abstract mixin class _$MultisigSendTransactionCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Address dest,
-      @amountJsonConverter BigInt value,
-      bool bounce,
-      int flags,
-      String payload});
+      {Address dest, BigInt value, bool bounce, int flags, String payload});
 
   @override
   $AddressCopyWith<$Res> get dest;

@@ -15,7 +15,6 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$ContractState {
-  @amountJsonConverter
   BigInt get balance;
   GenTimings get genTimings;
   LastTransactionId? get lastTransactionId;
@@ -67,7 +66,7 @@ abstract mixin class $ContractStateCopyWith<$Res> {
       _$ContractStateCopyWithImpl;
   @useResult
   $Res call(
-      {@amountJsonConverter BigInt balance,
+      {BigInt balance,
       GenTimings genTimings,
       LastTransactionId? lastTransactionId,
       bool isDeployed,
@@ -149,7 +148,7 @@ class _$ContractStateCopyWithImpl<$Res>
 @JsonSerializable()
 class _ContractState implements ContractState {
   const _ContractState(
-      {@amountJsonConverter required this.balance,
+      {required this.balance,
       required this.genTimings,
       this.lastTransactionId,
       required this.isDeployed,
@@ -158,7 +157,6 @@ class _ContractState implements ContractState {
       _$ContractStateFromJson(json);
 
   @override
-  @amountJsonConverter
   final BigInt balance;
   @override
   final GenTimings genTimings;
@@ -220,7 +218,7 @@ abstract mixin class _$ContractStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@amountJsonConverter BigInt balance,
+      {BigInt balance,
       GenTimings genTimings,
       LastTransactionId? lastTransactionId,
       bool isDeployed,

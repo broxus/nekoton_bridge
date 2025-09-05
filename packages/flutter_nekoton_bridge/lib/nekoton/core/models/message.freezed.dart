@@ -18,7 +18,6 @@ mixin _$Message {
   String get hash;
   Address? get src;
   Address? get dst;
-  @amountJsonConverter
   BigInt get value;
   bool get bounce;
   bool get bounced;
@@ -71,7 +70,7 @@ abstract mixin class $MessageCopyWith<$Res> {
       {String hash,
       Address? src,
       Address? dst,
-      @amountJsonConverter BigInt value,
+      BigInt value,
       bool bounce,
       bool bounced,
       String? body,
@@ -174,7 +173,7 @@ class _Message implements Message {
       {required this.hash,
       this.src,
       this.dst,
-      @amountJsonConverter required this.value,
+      required this.value,
       required this.bounce,
       required this.bounced,
       this.body,
@@ -189,7 +188,6 @@ class _Message implements Message {
   @override
   final Address? dst;
   @override
-  @amountJsonConverter
   final BigInt value;
   @override
   final bool bounce;
@@ -252,7 +250,7 @@ abstract mixin class _$MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
       {String hash,
       Address? src,
       Address? dst,
-      @amountJsonConverter BigInt value,
+      BigInt value,
       bool bounce,
       bool bounced,
       String? body,

@@ -7,7 +7,7 @@ part 'jetton_incoming_transfer.g.dart';
 @freezed
 sealed class JettonIncomingTransfer with _$JettonIncomingTransfer {
   const factory JettonIncomingTransfer({
-    @amountJsonConverter required final BigInt tokens,
+    required final BigInt tokens,
     required final Address from,
   }) = _JettonIncomingTransfer;
 

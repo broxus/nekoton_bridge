@@ -16,13 +16,9 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$DePoolOnRoundCompleteNotification {
   String get roundId;
-  @amountJsonConverter
   BigInt get reward;
-  @amountJsonConverter
   BigInt get ordinaryStake;
-  @amountJsonConverter
   BigInt get vestingStake;
-  @amountJsonConverter
   BigInt get lockStake;
   bool get reinvest;
   int get reason;
@@ -77,10 +73,10 @@ abstract mixin class $DePoolOnRoundCompleteNotificationCopyWith<$Res> {
   @useResult
   $Res call(
       {String roundId,
-      @amountJsonConverter BigInt reward,
-      @amountJsonConverter BigInt ordinaryStake,
-      @amountJsonConverter BigInt vestingStake,
-      @amountJsonConverter BigInt lockStake,
+      BigInt reward,
+      BigInt ordinaryStake,
+      BigInt vestingStake,
+      BigInt lockStake,
       bool reinvest,
       int reason});
 }
@@ -145,10 +141,10 @@ class _DePoolOnRoundCompleteNotification
     implements DePoolOnRoundCompleteNotification {
   const _DePoolOnRoundCompleteNotification(
       {required this.roundId,
-      @amountJsonConverter required this.reward,
-      @amountJsonConverter required this.ordinaryStake,
-      @amountJsonConverter required this.vestingStake,
-      @amountJsonConverter required this.lockStake,
+      required this.reward,
+      required this.ordinaryStake,
+      required this.vestingStake,
+      required this.lockStake,
       required this.reinvest,
       required this.reason});
   factory _DePoolOnRoundCompleteNotification.fromJson(
@@ -158,16 +154,12 @@ class _DePoolOnRoundCompleteNotification
   @override
   final String roundId;
   @override
-  @amountJsonConverter
   final BigInt reward;
   @override
-  @amountJsonConverter
   final BigInt ordinaryStake;
   @override
-  @amountJsonConverter
   final BigInt vestingStake;
   @override
-  @amountJsonConverter
   final BigInt lockStake;
   @override
   final bool reinvest;
@@ -231,10 +223,10 @@ abstract mixin class _$DePoolOnRoundCompleteNotificationCopyWith<$Res>
   @useResult
   $Res call(
       {String roundId,
-      @amountJsonConverter BigInt reward,
-      @amountJsonConverter BigInt ordinaryStake,
-      @amountJsonConverter BigInt vestingStake,
-      @amountJsonConverter BigInt lockStake,
+      BigInt reward,
+      BigInt ordinaryStake,
+      BigInt vestingStake,
+      BigInt lockStake,
       bool reinvest,
       int reason});
 }

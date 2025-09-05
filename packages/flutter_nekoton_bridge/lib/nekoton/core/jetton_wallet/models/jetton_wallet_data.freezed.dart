@@ -17,7 +17,6 @@ T _$identity<T>(T value) => value;
 mixin _$JettonWalletData {
   Address get rootAddress;
   Address get ownerAddress;
-  @amountJsonConverter
   BigInt get balance;
 
   /// Create a copy of JettonWalletData
@@ -60,10 +59,7 @@ abstract mixin class $JettonWalletDataCopyWith<$Res> {
           JettonWalletData value, $Res Function(JettonWalletData) _then) =
       _$JettonWalletDataCopyWithImpl;
   @useResult
-  $Res call(
-      {Address rootAddress,
-      Address ownerAddress,
-      @amountJsonConverter BigInt balance});
+  $Res call({Address rootAddress, Address ownerAddress, BigInt balance});
 
   $AddressCopyWith<$Res> get rootAddress;
   $AddressCopyWith<$Res> get ownerAddress;
@@ -129,7 +125,7 @@ class _JettonWalletData implements JettonWalletData {
   const _JettonWalletData(
       {required this.rootAddress,
       required this.ownerAddress,
-      @amountJsonConverter required this.balance});
+      required this.balance});
   factory _JettonWalletData.fromJson(Map<String, dynamic> json) =>
       _$JettonWalletDataFromJson(json);
 
@@ -138,7 +134,6 @@ class _JettonWalletData implements JettonWalletData {
   @override
   final Address ownerAddress;
   @override
-  @amountJsonConverter
   final BigInt balance;
 
   /// Create a copy of JettonWalletData
@@ -187,10 +182,7 @@ abstract mixin class _$JettonWalletDataCopyWith<$Res>
       __$JettonWalletDataCopyWithImpl;
   @override
   @useResult
-  $Res call(
-      {Address rootAddress,
-      Address ownerAddress,
-      @amountJsonConverter BigInt balance});
+  $Res call({Address rootAddress, Address ownerAddress, BigInt balance});
 
   @override
   $AddressCopyWith<$Res> get rootAddress;

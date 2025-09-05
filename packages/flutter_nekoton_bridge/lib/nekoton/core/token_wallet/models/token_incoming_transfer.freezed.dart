@@ -15,7 +15,6 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$TokenIncomingTransfer {
-  @amountJsonConverter
   BigInt get tokens;
   Address get senderAddress;
 
@@ -56,7 +55,7 @@ abstract mixin class $TokenIncomingTransferCopyWith<$Res> {
           $Res Function(TokenIncomingTransfer) _then) =
       _$TokenIncomingTransferCopyWithImpl;
   @useResult
-  $Res call({@amountJsonConverter BigInt tokens, Address senderAddress});
+  $Res call({BigInt tokens, Address senderAddress});
 
   $AddressCopyWith<$Res> get senderAddress;
 }
@@ -104,12 +103,11 @@ class _$TokenIncomingTransferCopyWithImpl<$Res>
 @JsonSerializable()
 class _TokenIncomingTransfer implements TokenIncomingTransfer {
   const _TokenIncomingTransfer(
-      {@amountJsonConverter required this.tokens, required this.senderAddress});
+      {required this.tokens, required this.senderAddress});
   factory _TokenIncomingTransfer.fromJson(Map<String, dynamic> json) =>
       _$TokenIncomingTransferFromJson(json);
 
   @override
-  @amountJsonConverter
   final BigInt tokens;
   @override
   final Address senderAddress;
@@ -158,7 +156,7 @@ abstract mixin class _$TokenIncomingTransferCopyWith<$Res>
       __$TokenIncomingTransferCopyWithImpl;
   @override
   @useResult
-  $Res call({@amountJsonConverter BigInt tokens, Address senderAddress});
+  $Res call({BigInt tokens, Address senderAddress});
 
   @override
   $AddressCopyWith<$Res> get senderAddress;

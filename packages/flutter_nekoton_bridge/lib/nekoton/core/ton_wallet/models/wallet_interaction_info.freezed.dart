@@ -16,7 +16,6 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$WalletInteractionInfo {
   @JsonKey(includeIfNull: false)
-  @amountJsonConverter
   Address? get recipient;
   @JsonKey(includeIfNull: false)
   KnownPayload? get knownPayload;
@@ -62,7 +61,7 @@ abstract mixin class $WalletInteractionInfoCopyWith<$Res> {
       _$WalletInteractionInfoCopyWithImpl;
   @useResult
   $Res call(
-      {@JsonKey(includeIfNull: false) @amountJsonConverter Address? recipient,
+      {@JsonKey(includeIfNull: false) Address? recipient,
       @JsonKey(includeIfNull: false) KnownPayload? knownPayload,
       WalletInteractionMethod method});
 
@@ -147,7 +146,7 @@ class _$WalletInteractionInfoCopyWithImpl<$Res>
 @JsonSerializable()
 class _WalletInteractionInfo implements WalletInteractionInfo {
   const _WalletInteractionInfo(
-      {@JsonKey(includeIfNull: false) @amountJsonConverter this.recipient,
+      {@JsonKey(includeIfNull: false) this.recipient,
       @JsonKey(includeIfNull: false) this.knownPayload,
       required this.method});
   factory _WalletInteractionInfo.fromJson(Map<String, dynamic> json) =>
@@ -155,7 +154,6 @@ class _WalletInteractionInfo implements WalletInteractionInfo {
 
   @override
   @JsonKey(includeIfNull: false)
-  @amountJsonConverter
   final Address? recipient;
   @override
   @JsonKey(includeIfNull: false)
@@ -210,7 +208,7 @@ abstract mixin class _$WalletInteractionInfoCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(includeIfNull: false) @amountJsonConverter Address? recipient,
+      {@JsonKey(includeIfNull: false) Address? recipient,
       @JsonKey(includeIfNull: false) KnownPayload? knownPayload,
       WalletInteractionMethod method});
 

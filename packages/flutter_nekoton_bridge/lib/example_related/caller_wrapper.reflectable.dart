@@ -30,6 +30,7 @@ import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart' as prefix0;
 // ignore_for_file: prefer_collection_literals
 // ignore_for_file: unnecessary_const
 // ignore_for_file: unused_import
+// ignore_for_file: sdk_version_since
 
 import 'package:reflectable/mirrors.dart' as m;
 import 'package:reflectable/src/reflectable_builder_based.dart' as r;
@@ -50,7 +51,9 @@ final _data = <r.Reflectable, r.ReflectorData>{
         -1,
         {},
         {},
-        {r'': (bool b) => (caller) => b ? prefix1.CallerWrapper(caller) : null},
+        {
+          r'': (bool b) => (caller) => b ? prefix1.CallerWrapper(caller) : null,
+        },
         -1,
         -1,
         const <int>[-1],

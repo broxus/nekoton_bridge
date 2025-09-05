@@ -26,15 +26,15 @@ sealed class TokenWalletTransaction with _$TokenWalletTransaction {
       TokenWalletTransactionSwapBack;
 
   const factory TokenWalletTransaction.accept(
-    @amountJsonConverter final BigInt data,
+    final BigInt data,
   ) = TokenWalletTransactionAccept;
 
   const factory TokenWalletTransaction.transferBounced(
-    @amountJsonConverter final BigInt data,
+    final BigInt data,
   ) = TokenWalletTransactionTransferBounced;
 
   const factory TokenWalletTransaction.swapBackBounced(
-    @amountJsonConverter final BigInt data,
+    final BigInt data,
   ) = TokenWalletTransactionSwapBackBounced;
 
   factory TokenWalletTransaction.fromJson(Map<String, dynamic> json) =>

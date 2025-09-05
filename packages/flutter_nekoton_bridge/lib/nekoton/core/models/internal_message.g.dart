@@ -12,7 +12,7 @@ _InternalMessage _$InternalMessageFromJson(Map<String, dynamic> json) =>
           ? null
           : Address.fromJson(json['source'] as String),
       destination: Address.fromJson(json['destination'] as String),
-      amount: amountJsonConverter.fromJson(json['amount'] as String),
+      amount: BigInt.parse(json['amount'] as String),
       bounce: json['bounce'] as bool,
       body: json['body'] as String,
     );
@@ -21,7 +21,7 @@ Map<String, dynamic> _$InternalMessageToJson(_InternalMessage instance) =>
     <String, dynamic>{
       'source': instance.source?.toJson(),
       'destination': instance.destination.toJson(),
-      'amount': amountJsonConverter.toJson(instance.amount),
+      'amount': instance.amount.toString(),
       'bounce': instance.bounce,
       'body': instance.body,
     };

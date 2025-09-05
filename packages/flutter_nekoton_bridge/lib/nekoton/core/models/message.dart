@@ -11,7 +11,7 @@ sealed class Message with _$Message {
     required final String hash,
     final Address? src,
     final Address? dst,
-    @amountJsonConverter required final BigInt value,
+    required final BigInt value,
     required final bool bounce,
     required final bool bounced,
     final String? body,
