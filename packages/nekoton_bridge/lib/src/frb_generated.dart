@@ -71,7 +71,7 @@ class NekotonBridge extends BaseEntrypoint<NekotonBridgeApi,
   String get codegenVersion => '2.10.0';
 
   @override
-  int get rustContentHash => 1698416708;
+  int get rustContentHash => 1946402899;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -803,6 +803,10 @@ abstract class NekotonBridgeApi extends BaseApi {
   Future<String> crateApiMergedTonWalletDartWrapperAddress(
       {required TonWalletDartWrapper that});
 
+  Future<String>
+      crateApiMergedTonWalletDartWrapperAppendSignatureToWalletV5R1Payload(
+          {required String payload, required String base64Signature});
+
   Future<String> crateApiMergedTonWalletDartWrapperContractState(
       {required TonWalletDartWrapper that});
 
@@ -828,6 +832,11 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   Future<String> crateApiMergedTonWalletDartWrapperGetExistingWalletInfo(
       {required ArcTransportBoxTrait transport, required String address});
+
+  Future<int> crateApiMergedTonWalletDartWrapperGetWalletV5R1Seqno(
+      {required TonWalletDartWrapper that,
+      required String rawCurrentState,
+      required String publicKey});
 
   Future<bool> crateApiMergedTonWalletDartWrapperHandleBlock(
       {required TonWalletDartWrapper that, required String block});
@@ -863,12 +872,28 @@ abstract class NekotonBridgeApi extends BaseApi {
           required int reqConfirms,
           int? expirationTime});
 
+  Future<(String, String)>
+      crateApiMergedTonWalletDartWrapperPrepareNonexistWalletV5R1MessageBody(
+          {required TonWalletDartWrapper that,
+          required String expiration,
+          required String params,
+          required bool isInternalFlow});
+
   Future<UnsignedMessageImpl> crateApiMergedTonWalletDartWrapperPrepareTransfer(
       {required TonWalletDartWrapper that,
       required String contractState,
       required String publicKey,
       required String expiration,
       required String params});
+
+  Future<(String, String)>
+      crateApiMergedTonWalletDartWrapperPrepareWalletV5R1MessageBody(
+          {required TonWalletDartWrapper that,
+          required String contractState,
+          required String publicKey,
+          required String expiration,
+          required String params,
+          required bool isInternalFlow});
 
   Future<String> crateApiMergedTonWalletDartWrapperPublicKey(
       {required TonWalletDartWrapper that});
@@ -6449,6 +6474,37 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
+  Future<String>
+      crateApiMergedTonWalletDartWrapperAppendSignatureToWalletV5R1Payload(
+          {required String payload, required String base64Signature}) {
+    return handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        var arg0 = cst_encode_String(payload);
+        var arg1 = cst_encode_String(base64Signature);
+        return wire
+            .wire__crate__api__merged__ton_wallet_dart_wrapper_append_signature_to_wallet_v5r1_payload(
+                port_, arg0, arg1);
+      },
+      codec: DcoCodec(
+        decodeSuccessData: dco_decode_String,
+        decodeErrorData: dco_decode_AnyhowException,
+      ),
+      constMeta:
+          kCrateApiMergedTonWalletDartWrapperAppendSignatureToWalletV5R1PayloadConstMeta,
+      argValues: [payload, base64Signature],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta
+      get kCrateApiMergedTonWalletDartWrapperAppendSignatureToWalletV5R1PayloadConstMeta =>
+          const TaskConstMeta(
+            debugName:
+                "ton_wallet_dart_wrapper_append_signature_to_wallet_v5r1_payload",
+            argNames: ["payload", "base64Signature"],
+          );
+
+  @override
   Future<String> crateApiMergedTonWalletDartWrapperContractState(
       {required TonWalletDartWrapper that}) {
     return handler.executeNormal(NormalTask(
@@ -6643,6 +6699,37 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           const TaskConstMeta(
             debugName: "ton_wallet_dart_wrapper_get_existing_wallet_info",
             argNames: ["transport", "address"],
+          );
+
+  @override
+  Future<int> crateApiMergedTonWalletDartWrapperGetWalletV5R1Seqno(
+      {required TonWalletDartWrapper that,
+      required String rawCurrentState,
+      required String publicKey}) {
+    return handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+        var arg1 = cst_encode_String(rawCurrentState);
+        var arg2 = cst_encode_String(publicKey);
+        return wire
+            .wire__crate__api__merged__ton_wallet_dart_wrapper_get_wallet_v5r1_seqno(
+                port_, arg0, arg1, arg2);
+      },
+      codec: DcoCodec(
+        decodeSuccessData: dco_decode_u_32,
+        decodeErrorData: dco_decode_AnyhowException,
+      ),
+      constMeta: kCrateApiMergedTonWalletDartWrapperGetWalletV5R1SeqnoConstMeta,
+      argValues: [that, rawCurrentState, publicKey],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta
+      get kCrateApiMergedTonWalletDartWrapperGetWalletV5R1SeqnoConstMeta =>
+          const TaskConstMeta(
+            debugName: "ton_wallet_dart_wrapper_get_wallet_v5r1_seqno",
+            argNames: ["that", "rawCurrentState", "publicKey"],
           );
 
   @override
@@ -6896,6 +6983,42 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           );
 
   @override
+  Future<(String, String)>
+      crateApiMergedTonWalletDartWrapperPrepareNonexistWalletV5R1MessageBody(
+          {required TonWalletDartWrapper that,
+          required String expiration,
+          required String params,
+          required bool isInternalFlow}) {
+    return handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+        var arg1 = cst_encode_String(expiration);
+        var arg2 = cst_encode_String(params);
+        var arg3 = cst_encode_bool(isInternalFlow);
+        return wire
+            .wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_nonexist_wallet_v5r1_message_body(
+                port_, arg0, arg1, arg2, arg3);
+      },
+      codec: DcoCodec(
+        decodeSuccessData: dco_decode_record_string_string,
+        decodeErrorData: dco_decode_AnyhowException,
+      ),
+      constMeta:
+          kCrateApiMergedTonWalletDartWrapperPrepareNonexistWalletV5R1MessageBodyConstMeta,
+      argValues: [that, expiration, params, isInternalFlow],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta
+      get kCrateApiMergedTonWalletDartWrapperPrepareNonexistWalletV5R1MessageBodyConstMeta =>
+          const TaskConstMeta(
+            debugName:
+                "ton_wallet_dart_wrapper_prepare_nonexist_wallet_v5r1_message_body",
+            argNames: ["that", "expiration", "params", "isInternalFlow"],
+          );
+
+  @override
   Future<UnsignedMessageImpl> crateApiMergedTonWalletDartWrapperPrepareTransfer(
       {required TonWalletDartWrapper that,
       required String contractState,
@@ -6933,6 +7056,60 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
               "publicKey",
               "expiration",
               "params"
+            ],
+          );
+
+  @override
+  Future<(String, String)>
+      crateApiMergedTonWalletDartWrapperPrepareWalletV5R1MessageBody(
+          {required TonWalletDartWrapper that,
+          required String contractState,
+          required String publicKey,
+          required String expiration,
+          required String params,
+          required bool isInternalFlow}) {
+    return handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+        var arg1 = cst_encode_String(contractState);
+        var arg2 = cst_encode_String(publicKey);
+        var arg3 = cst_encode_String(expiration);
+        var arg4 = cst_encode_String(params);
+        var arg5 = cst_encode_bool(isInternalFlow);
+        return wire
+            .wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_wallet_v5r1_message_body(
+                port_, arg0, arg1, arg2, arg3, arg4, arg5);
+      },
+      codec: DcoCodec(
+        decodeSuccessData: dco_decode_record_string_string,
+        decodeErrorData: dco_decode_AnyhowException,
+      ),
+      constMeta:
+          kCrateApiMergedTonWalletDartWrapperPrepareWalletV5R1MessageBodyConstMeta,
+      argValues: [
+        that,
+        contractState,
+        publicKey,
+        expiration,
+        params,
+        isInternalFlow
+      ],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta
+      get kCrateApiMergedTonWalletDartWrapperPrepareWalletV5R1MessageBodyConstMeta =>
+          const TaskConstMeta(
+            debugName:
+                "ton_wallet_dart_wrapper_prepare_wallet_v5r1_message_body",
+            argNames: [
+              "that",
+              "contractState",
+              "publicKey",
+              "expiration",
+              "params",
+              "isInternalFlow"
             ],
           );
 
@@ -8223,6 +8400,19 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  (String, String) dco_decode_record_string_string(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 2) {
+      throw Exception('Expected 2 elements, got ${arr.length}');
+    }
+    return (
+      dco_decode_String(arr[0]),
+      dco_decode_String(arr[1]),
+    );
+  }
+
+  @protected
   SignatureParts dco_decode_signature_parts(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     final arr = raw as List<dynamic>;
@@ -9177,6 +9367,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     var var_innerTransport =
         sse_decode_RustOpaque_ArcdynTransportBoxTrait(deserializer);
     return ProtoTransportImpl.raw(innerTransport: var_innerTransport);
+  }
+
+  @protected
+  (String, String) sse_decode_record_string_string(
+      SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var var_field0 = sse_decode_String(deserializer);
+    var var_field1 = sse_decode_String(deserializer);
+    return (var_field0, var_field1);
   }
 
   @protected
@@ -10259,6 +10458,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_RustOpaque_ArcdynTransportBoxTrait(
         self.innerTransport, serializer);
+  }
+
+  @protected
+  void sse_encode_record_string_string(
+      (String, String) self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_String(self.$1, serializer);
+    sse_encode_String(self.$2, serializer);
   }
 
   @protected

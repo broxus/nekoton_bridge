@@ -15,6 +15,8 @@ use crate::nekoton_wrapper::helpers::serialize_into_boc;
 use crate::nekoton_wrapper::transport::models::RawContractStateHelper;
 use crate::nekoton_wrapper::{parse_address, parse_public_key, HandleError};
 use async_trait::async_trait;
+use base64::engine::general_purpose;
+use base64::Engine;
 use models::TonWalletTransferParams;
 use nekoton::core::models::{Expiration, MessageFlags, PollingMethod};
 use nekoton::core::ton_wallet::{
@@ -28,6 +30,7 @@ use nekoton_abi::create_boc_or_comment_payload;
 use nekoton_utils::compute_total_transaction_fees;
 use tokio::sync::Mutex;
 use ton_block::{Block, Deserializable};
+use ton_types::BuilderData;
 
 /// This is a fucking hack that allows using nekoton::TonWallet in dart classes.
 /// This is a trait-wrapper above real TonWallet with UnwindSafe + RefUnwindSafe.
@@ -99,6 +102,22 @@ pub trait TonWalletBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         params: String,
     ) -> anyhow::Result<RustOpaque<Arc<dyn UnsignedMessageBoxTrait>>>;
 
+    async fn prepare_wallet_v5r1_message_body(
+        &self,
+        contract_state: String,
+        public_key: String,
+        expiration: String,
+        params: String,
+        is_internal_flow: bool,
+    ) -> anyhow::Result<(String, String)>;
+
+    async fn prepare_nonexist_wallet_v5r1_message_body(
+        &self,
+        expiration: String,
+        params: String,
+        is_internal_flow: bool,
+    ) -> anyhow::Result<(String, String)>;
+
     /// Prepare transaction for confirmation.
     /// contract_state - json-encoded RawContractState
     /// public_key - key of account that had initiated transfer
@@ -143,6 +162,12 @@ pub trait TonWalletBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
     async fn handle_block(&self, block: String) -> anyhow::Result<bool>;
 
     async fn make_state_init(&self) -> anyhow::Result<String>;
+
+    async fn get_wallet_v5r1_seqno(
+        &self,
+        raw_current_state: String,
+        public_key: String,
+    ) -> anyhow::Result<u32>;
 }
 
 pub struct TonWalletBox {
@@ -218,6 +243,28 @@ impl TonWalletBox {
         Ok(RustOpaque::new(Arc::new(TonWalletBox {
             inner_wallet: Arc::new(Mutex::new(ton_wallet)),
         })))
+    }
+
+    pub fn append_signature_to_wallet_v5r1_payload(
+        payload: String,
+        base64_signature: String,
+    ) -> anyhow::Result<String> {
+        let signature = general_purpose::STANDARD
+            .decode(&base64_signature)
+            .handle_error()?;
+        if signature.len() != ed25519_dalek::SIGNATURE_LENGTH {
+            return Err("Signature has invalid length").handle_error();
+        }
+        let payload = general_purpose::STANDARD.decode(&payload).handle_error()?;
+
+        let cell = ton_types::deserialize_tree_of_cells(&mut payload.as_slice()).handle_error()?;
+        let mut builder = BuilderData::from_cell(&cell);
+        builder
+            .append_raw(signature.as_slice(), signature.len() * 8)
+            .handle_error()?;
+        let signed_payload = builder.into_cell().handle_error()?;
+        let result = ton_types::serialize_toc(&signed_payload).handle_error()?;
+        Ok(general_purpose::STANDARD.encode(result))
     }
 }
 
@@ -370,36 +417,7 @@ impl TonWalletBoxTrait for TonWalletBox {
 
         let public_key = parse_public_key(public_key).handle_error()?;
         let expiration = serde_json::from_str::<Expiration>(&expiration).handle_error()?;
-
-        let gifts = serde_json::from_str::<Vec<TonWalletTransferParams>>(&params)
-            .handle_error()?
-            .into_iter()
-            .map(|p| {
-                let destination = parse_address(p.destination)?;
-                let amount = p.amount.parse::<u128>().handle_error()?;
-                let body = p
-                    .body
-                    .map(|e| create_boc_or_comment_payload(&e))
-                    .transpose()
-                    .handle_error()?;
-                let state_init = p
-                    .state_init
-                    .as_deref()
-                    .map(ton_block::StateInit::construct_from_base64)
-                    .transpose()
-                    .handle_error()?;
-
-                Ok(Gift {
-                    flags: MessageFlags::default().into(),
-                    bounce: p.bounce,
-                    destination,
-                    amount,
-                    body,
-                    state_init,
-                })
-            })
-            .collect::<anyhow::Result<Vec<_>>>()
-            .handle_error()?;
+        let gifts = parse_gift_params(params)?;
 
         let action = self
             .inner_wallet
@@ -414,6 +432,80 @@ impl TonWalletBoxTrait for TonWalletBox {
         };
 
         Ok(UnsignedMessageBox::create(unsigned_message))
+    }
+
+    async fn prepare_wallet_v5r1_message_body(
+        &self,
+        contract_state: String,
+        public_key: String,
+        expiration: String,
+        params: String,
+        is_internal_flow: bool,
+    ) -> anyhow::Result<(String, String)> {
+        let contract_state = serde_json::from_str::<RawContractStateHelper>(&contract_state)
+            .map(|RawContractStateHelper(raw_contract_state)| raw_contract_state)
+            .handle_error()?;
+
+        let current_state = match contract_state {
+            nekoton::transport::models::RawContractState::NotExists { timings } => {
+                return Err("Not exists").handle_error();
+            }
+            nekoton::transport::models::RawContractState::Exists(contract) => contract.account,
+        };
+
+        let public_key = parse_public_key(public_key).handle_error()?;
+        let expiration = serde_json::from_str::<Expiration>(&expiration).handle_error()?;
+        let gifts = parse_gift_params(params)?;
+
+        let (hash, body) = self
+            .inner_wallet
+            .lock()
+            .await
+            .make_unsigned_wallet_v5_transfer_payload(
+                &current_state,
+                &public_key,
+                gifts,
+                expiration,
+                is_internal_flow,
+            )
+            .handle_error()?;
+
+        let hash = hash.to_hex_string();
+
+        let payload_cell = body.into_cell().handle_error()?;
+        let payload_bytes = ton_types::serialize_toc(&payload_cell).handle_error()?;
+        let payload_string = general_purpose::STANDARD.encode(&payload_bytes);
+
+        Ok((hash, payload_string))
+    }
+
+    async fn prepare_nonexist_wallet_v5r1_message_body(
+        &self,
+        expiration: String,
+        params: String,
+        is_internal_flow: bool,
+    ) -> anyhow::Result<(String, String)> {
+        let expiration = serde_json::from_str::<Expiration>(&expiration).handle_error()?;
+        let gifts = parse_gift_params(params)?;
+
+        let wallet = self.inner_wallet.lock().await;
+        let state_init = wallet.make_state_init().handle_error()?;
+        let (hash, body) = wallet
+            .make_unsigned_new_wallet_v5_transfer_payload(
+                &state_init,
+                gifts,
+                expiration,
+                is_internal_flow,
+            )
+            .handle_error()?;
+
+        let hash = hash.to_hex_string();
+
+        let payload_cell = body.into_cell().handle_error()?;
+        let payload_bytes = ton_types::serialize_toc(&payload_cell).handle_error()?;
+        let payload_string = general_purpose::STANDARD.encode(&payload_bytes);
+
+        Ok((hash, payload_string))
     }
 
     /// Prepare transaction for confirmation.
@@ -566,6 +658,33 @@ impl TonWalletBoxTrait for TonWalletBox {
 
         serialize_into_boc(&state_init)
     }
+
+    async fn get_wallet_v5r1_seqno(
+        &self,
+        contract_state: String,
+        public_key: String,
+    ) -> anyhow::Result<u32> {
+        let public_key = parse_public_key(public_key).handle_error()?;
+        let contract_state = serde_json::from_str::<RawContractStateHelper>(&contract_state)
+            .map(|RawContractStateHelper(raw_contract_state)| raw_contract_state)
+            .handle_error()?;
+
+        let current_state = match contract_state {
+            nekoton::transport::models::RawContractState::NotExists { timings } => {
+                return Ok(0);
+            }
+            nekoton::transport::models::RawContractState::Exists(contract) => contract.account,
+        };
+
+        let seqno = self
+            .inner_wallet
+            .lock()
+            .await
+            .get_wallet_v5_seqno(&current_state, &public_key)
+            .handle_error()?;
+
+        Ok(seqno)
+    }
 }
 
 /// Find list of wallets of public_key and return them.
@@ -663,4 +782,38 @@ pub async fn ton_wallet_get_custodians(
     .collect::<Vec<_>>();
 
     Ok(custodians)
+}
+
+fn parse_gift_params(params: String) -> anyhow::Result<Vec<Gift>> {
+    let gifts = serde_json::from_str::<Vec<TonWalletTransferParams>>(&params)
+        .handle_error()?
+        .into_iter()
+        .map(|p| {
+            let destination = parse_address(p.destination)?;
+            let amount = p.amount.parse::<u128>().handle_error()?;
+            let body = p
+                .body
+                .map(|e| create_boc_or_comment_payload(&e))
+                .transpose()
+                .handle_error()?;
+            let state_init = p
+                .state_init
+                .as_deref()
+                .map(ton_block::StateInit::construct_from_base64)
+                .transpose()
+                .handle_error()?;
+
+            Ok(Gift {
+                flags: MessageFlags::default().into(),
+                bounce: p.bounce,
+                destination,
+                amount,
+                body,
+                state_init,
+            })
+        })
+        .collect::<anyhow::Result<Vec<_>>>()
+        .handle_error()?;
+
+    Ok(gifts)
 }

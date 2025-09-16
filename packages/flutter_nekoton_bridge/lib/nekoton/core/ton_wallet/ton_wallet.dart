@@ -118,6 +118,15 @@ class TonWallet extends RustToDartMirrorInterface
         return instance;
       });
 
+  static Future<String> appendSignatureToWalletV5R1Payload({
+    required String payload,
+    required String base64Signature,
+  }) =>
+      TonWalletDartWrapper.appendSignatureToWalletV5R1Payload(
+        payload: payload,
+        base64Signature: base64Signature,
+      );
+
   /// If any error occurs during first initialization of wallet, it will dispose
   /// wallet and rethrow error;
   Future<void> _initInstance() async {
@@ -290,6 +299,41 @@ class TonWallet extends RustToDartMirrorInterface
     return UnsignedMessage.create(message: message);
   }
 
+  // TODO: refactor, create TonWalletV5R1 subclass
+  /// Returns (hash, payload)
+  Future<(String, String)> prepareWalletV5R1MessageBody({
+    required RawContractState contractState,
+    required PublicKey publicKey,
+    required Expiration expiration,
+    required List<TonWalletTransferParams> params,
+    bool isInternalFlow = false,
+  }) async {
+    final (hash, payload) = await wallet.prepareWalletV5R1MessageBody(
+      contractState: jsonEncode(contractState),
+      publicKey: publicKey.publicKey,
+      expiration: jsonEncode(expiration),
+      params: jsonEncode(params),
+      isInternalFlow: isInternalFlow,
+    );
+    await _updateData();
+    return (hash, payload);
+  }
+
+  /// Returns (hash, payload)
+  Future<(String, String)> prepareNonexistWalletV5R1MessageBody({
+    required Expiration expiration,
+    required List<TonWalletTransferParams> params,
+    bool isInternalFlow = false,
+  }) async {
+    final (hash, payload) = await wallet.prepareNonexistWalletV5R1MessageBody(
+      expiration: jsonEncode(expiration),
+      params: jsonEncode(params),
+      isInternalFlow: isInternalFlow,
+    );
+    await _updateData();
+    return (hash, payload);
+  }
+
   /// Prepare transaction for confirmation.
   /// publicKey - key of account that had initiated transfer
   /// [transactionId] - id of transaction, u64 in rust.
@@ -439,6 +483,23 @@ class TonWallet extends RustToDartMirrorInterface
     });
 
     return encoded.map((key) => PublicKey(publicKey: key)).toList();
+  }
+
+  Future<int> getWalletV5R1Seqno({
+    required RawContractState contractState,
+    required PublicKey publicKey,
+  }) async {
+    if (walletType != const WalletType.walletV5R1()) {
+      throw ArgumentError(
+        'Only WalletV5R1 has seqno. Current wallet type is $walletType',
+      );
+    }
+
+    final seqno = await wallet.getWalletV5R1Seqno(
+      rawCurrentState: jsonEncode(contractState),
+      publicKey: publicKey.toString(),
+    );
+    return seqno;
   }
 
   /// Calls from rust side when message has been sent to blockchain

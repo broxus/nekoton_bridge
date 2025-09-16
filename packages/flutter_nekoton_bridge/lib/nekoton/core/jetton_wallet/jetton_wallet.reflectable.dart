@@ -435,6 +435,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
           r'subscribeByAddress': () => prefix9.TonWallet.subscribeByAddress,
           r'subscribeByExistingWallet': () =>
               prefix9.TonWallet.subscribeByExistingWallet,
+          r'appendSignatureToWalletV5R1Payload': () =>
+              prefix9.TonWallet.appendSignatureToWalletV5R1Payload,
           r'findExistingWallets': () => prefix9.TonWallet.findExistingWallets,
           r'getExistingWalletInfo': () =>
               prefix9.TonWallet.getExistingWalletInfo,
@@ -461,11 +463,13 @@ final _data = <r.Reflectable, r.ReflectorData>{
           r'getPollingMethod': 0,
           r'getUnconfirmedTransactions': 0,
           r'getCustodians': 0,
-          r'prepareDeploy': 20,
-          r'prepareDeployWithMultipleOwners': 21,
-          r'prepareTransfer': 22,
-          r'prepareConfirmTransaction': 23,
-          r'estimateFees': 24,
+          r'prepareDeploy': 21,
+          r'prepareDeployWithMultipleOwners': 22,
+          r'prepareTransfer': 23,
+          r'prepareWalletV5R1MessageBody': 24,
+          r'prepareNonexistWalletV5R1MessageBody': 24,
+          r'prepareConfirmTransaction': 25,
+          r'estimateFees': 26,
           r'send': 14,
           r'refresh': 0,
           r'preloadTransactions': 15,
@@ -505,7 +509,8 @@ final _data = <r.Reflectable, r.ReflectorData>{
           r'subscribe': 18,
           r'subscribeByAddress': 5,
           r'subscribeByExistingWallet': 19,
-          r'findExistingWallets': 25,
+          r'appendSignatureToWalletV5R1Payload': 20,
+          r'findExistingWallets': 27,
           r'getExistingWalletInfo': 5,
           r'getWalletCustodians': 5,
         },
@@ -610,6 +615,10 @@ final _data = <r.Reflectable, r.ReflectorData>{
       r'prepareDeploy': (dynamic instance) => instance.prepareDeploy,
       r'prepareDeployWithMultipleOwners': (dynamic instance) =>
           instance.prepareDeployWithMultipleOwners,
+      r'prepareWalletV5R1MessageBody': (dynamic instance) =>
+          instance.prepareWalletV5R1MessageBody,
+      r'prepareNonexistWalletV5R1MessageBody': (dynamic instance) =>
+          instance.prepareNonexistWalletV5R1MessageBody,
       r'prepareConfirmTransaction': (dynamic instance) =>
           instance.prepareConfirmTransaction,
       r'makeStateInit': (dynamic instance) => instance.makeStateInit,
@@ -746,6 +755,11 @@ final _data = <r.Reflectable, r.ReflectorData>{
       const [
         0,
         0,
+        const [#payload, #base64Signature],
+      ],
+      const [
+        0,
+        0,
         const [#expiration],
       ],
       const [
@@ -757,6 +771,17 @@ final _data = <r.Reflectable, r.ReflectorData>{
         0,
         0,
         const [#contractState, #publicKey, #expiration, #params],
+      ],
+      const [
+        0,
+        0,
+        const [
+          #contractState,
+          #publicKey,
+          #expiration,
+          #params,
+          #isInternalFlow,
+        ],
       ],
       const [
         0,
