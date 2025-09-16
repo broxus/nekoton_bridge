@@ -551,6 +551,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
           r'preloadTransactions': 9,
           r'handleBlock': 10,
           r'makeStateInit': 2,
+          r'getWalletV5R1Seqno': 22,
           r'onMessageSent': 1,
           r'onMessageExpired': 1,
           r'onStateChanged': 1,
@@ -707,6 +708,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
       r'prepareConfirmTransaction': (dynamic instance) =>
           instance.prepareConfirmTransaction,
       r'makeStateInit': (dynamic instance) => instance.makeStateInit,
+      r'getWalletV5R1Seqno': (dynamic instance) => instance.getWalletV5R1Seqno,
       r'onDetailsChanged': (dynamic instance) => instance.onDetailsChanged,
       r'onCustodiansChanged': (dynamic instance) =>
           instance.onCustodiansChanged,
