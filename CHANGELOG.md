@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-09-17
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v3.4.0`](#flutter_nekoton_bridge---v340)
+ - [`nekoton_bridge` - `v3.4.0`](#nekoton_bridge---v340)
+ - [`flutter_nekoton_bridge_example` - `v2.2.1`](#flutter_nekoton_bridge_example---v221)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v2.2.1`
+
+---
+
+#### `flutter_nekoton_bridge` - `v3.4.0`
+
+ - **REFACTOR**: remove redundant json converters. ([1f58fb6d](https://github.com/broxus/nekoton_bridge/commit/1f58fb6d7144521b4806f459ba4ab03705570881))
+ - **FEAT**: add WalletV5R1 specific methods. ([87092647](https://github.com/broxus/nekoton_bridge/commit/87092647cef2f54b3f90aa78c0103a2392bd8768))
+
+#### `nekoton_bridge` - `v3.4.0`
+
+ - **FEAT**: add WalletV5R1 specific methods. ([87092647](https://github.com/broxus/nekoton_bridge/commit/87092647cef2f54b3f90aa78c0103a2392bd8768))
+
+
 ## 2025-08-15
 
 ### Changes
