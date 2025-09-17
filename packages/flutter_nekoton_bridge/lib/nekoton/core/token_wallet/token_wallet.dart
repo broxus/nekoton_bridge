@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:money2/money2.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// Implementation of nekoton's TonWallet.
@@ -21,11 +22,13 @@ class TokenWallet implements RefreshingInterface {
   /// Controllers that contains data that emits from rust.
   final _onBalanceChangedController = BehaviorSubject<BigInt>();
   final _onMoneyBalanceChangedController = BehaviorSubject<Money>();
-  final _onTransactionsFoundController = BehaviorSubject<
-      (
-        List<TransactionWithData<TokenWalletTransaction?>>,
-        TransactionsBatchInfo
-      )>();
+  final _onTransactionsFoundController =
+      BehaviorSubject<
+        (
+          List<TransactionWithData<TokenWalletTransaction?>>,
+          TransactionsBatchInfo,
+        )
+      >();
 
   /// Description information about wallet that could be changed and updated
   /// during [_updateData]. It means, that fields could be changed after any
@@ -69,24 +72,23 @@ class TokenWallet implements RefreshingInterface {
     required Address owner,
     required Address rootTokenContract,
     bool preloadTransactions = false,
-  }) =>
-      transport.use(() async {
-        final instance = TokenWallet._(transport, rootTokenContract);
+  }) => transport.use(() async {
+    final instance = TokenWallet._(transport, rootTokenContract);
 
-        instance.wallet = await TokenWalletDartWrapper.subscribe(
-          transport: transport.transportBox,
-          rootTokenContract: rootTokenContract.address,
-          owner: owner.address,
-          preloadTransactions: preloadTransactions,
-          onBalanceChanged: instance.onBalanceChanged,
-          onTransactionsFound: instance.onTransactionsFound,
-        );
+    instance.wallet = await TokenWalletDartWrapper.subscribe(
+      transport: transport.transportBox,
+      rootTokenContract: rootTokenContract.address,
+      owner: owner.address,
+      preloadTransactions: preloadTransactions,
+      onBalanceChanged: instance.onBalanceChanged,
+      onTransactionsFound: instance.onTransactionsFound,
+    );
 
-        await instance._initInstance();
-        instance._isTransactionsPreloaded = preloadTransactions;
+    await instance._initInstance();
+    instance._isTransactionsPreloaded = preloadTransactions;
 
-        return instance;
-      });
+    return instance;
+  });
 
   /// If any error occurs during first initialization of wallet, it will dispose
   /// wallet and rethrow error;
@@ -128,10 +130,9 @@ class TokenWallet implements RefreshingInterface {
   ///
   /// To update data of this stream, wallet must be refreshed via [refresh].
   Stream<
-      (
-        List<TransactionWithData<TokenWalletTransaction?>>,
-        TransactionsBatchInfo
-      )> get onTransactionsFoundStream => _onTransactionsFoundController.stream;
+    (List<TransactionWithData<TokenWalletTransaction?>>, TransactionsBatchInfo)
+  >
+  get onTransactionsFoundStream => _onTransactionsFoundController.stream;
 
   /// Get address of owner of wallet.
   Future<Address> _getOwner() async => Address(address: await wallet.owner());
@@ -267,7 +268,7 @@ class TokenWallet implements RefreshingInterface {
   /// 1: RootTokenContractDetails
   /// or throw error
   static Future<(TokenWalletDetails, RootTokenContractDetails)>
-      getTokenWalletDetails({
+  getTokenWalletDetails({
     required Transport transport,
     required Address address,
   }) async {
@@ -289,7 +290,7 @@ class TokenWallet implements RefreshingInterface {
   /// 1: RootTokenContractDetails of root contract
   /// or throw error.
   static Future<(Address, RootTokenContractDetails)>
-      getTokenRootDetailsFromTokenWallet({
+  getTokenRootDetailsFromTokenWallet({
     required Transport transport,
     required Address address,
   }) async {
@@ -380,8 +381,9 @@ class TokenWallet implements RefreshingInterface {
   }
 
   Currency _getCurrency() {
-    final patternDigits =
-        symbol.decimals > 0 ? '0.${'#' * symbol.decimals}' : '0';
+    final patternDigits = symbol.decimals > 0
+        ? '0.${'#' * symbol.decimals}'
+        : '0';
     final currency = Currency.create(
       symbol.name,
       symbol.decimals,

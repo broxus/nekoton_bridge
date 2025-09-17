@@ -12,7 +12,8 @@ sealed class LedgerUpdateKeyInput
   const factory LedgerUpdateKeyInput() = _LedgerUpdateKeyInputDefault;
 
   const factory LedgerUpdateKeyInput.rename(
-      final LedgerUpdateKeyInputRename data) = _LedgerUpdateKeyInputRename;
+    final LedgerUpdateKeyInputRename data,
+  ) = _LedgerUpdateKeyInputRename;
 
   factory LedgerUpdateKeyInput.fromJson(Map<String, dynamic> json) =>
       _$LedgerUpdateKeyInputFromJson(json);

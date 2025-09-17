@@ -7,13 +7,9 @@ part of 'derived_key_export_output.dart';
 // **************************************************************************
 
 _DerivedKeyExportOutput _$DerivedKeyExportOutputFromJson(
-        Map<String, dynamic> json) =>
-    _DerivedKeyExportOutput(
-      phrase: json['phrase'] as String,
-    );
+  Map<String, dynamic> json,
+) => _DerivedKeyExportOutput(phrase: json['phrase'] as String);
 
 Map<String, dynamic> _$DerivedKeyExportOutputToJson(
-        _DerivedKeyExportOutput instance) =>
-    <String, dynamic>{
-      'phrase': instance.phrase,
-    };
+  _DerivedKeyExportOutput instance,
+) => <String, dynamic>{'phrase': instance.phrase};

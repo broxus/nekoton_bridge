@@ -17,10 +17,7 @@ void main() {
     });
 
     test('operator ==', () {
-      expect(
-        const PublicKey(publicKey: a1),
-        const PublicKey(publicKey: a1),
-      );
+      expect(const PublicKey(publicKey: a1), const PublicKey(publicKey: a1));
       expect(
         const PublicKey(publicKey: a1),
         isNot(const PublicKey(publicKey: a2)),

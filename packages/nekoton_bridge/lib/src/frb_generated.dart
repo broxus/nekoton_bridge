@@ -16,8 +16,13 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 import 'utils/logger.dart';
 
 /// Main entrypoint of the Rust API
-class NekotonBridge extends BaseEntrypoint<NekotonBridgeApi,
-    NekotonBridgeApiImpl, NekotonBridgeWire> {
+class NekotonBridge
+    extends
+        BaseEntrypoint<
+          NekotonBridgeApi,
+          NekotonBridgeApiImpl,
+          NekotonBridgeWire
+        > {
   @internal
   static final instance = NekotonBridge._();
 
@@ -40,12 +45,8 @@ class NekotonBridge extends BaseEntrypoint<NekotonBridgeApi,
 
   /// Initialize flutter_rust_bridge in mock mode.
   /// No libraries for FFI are loaded.
-  static void initMock({
-    required NekotonBridgeApi api,
-  }) {
-    instance.initMockImpl(
-      api: api,
-    );
+  static void initMock({required NekotonBridgeApi api}) {
+    instance.initMockImpl(api: api);
   }
 
   /// Dispose flutter_rust_bridge
@@ -56,7 +57,7 @@ class NekotonBridge extends BaseEntrypoint<NekotonBridgeApi,
 
   @override
   ApiImplConstructor<NekotonBridgeApiImpl, NekotonBridgeWire>
-      get apiImplConstructor => NekotonBridgeApiImpl.new;
+  get apiImplConstructor => NekotonBridgeApiImpl.new;
 
   @override
   WireConstructor<NekotonBridgeWire> get wireConstructor =>
@@ -77,709 +78,896 @@ class NekotonBridge extends BaseEntrypoint<NekotonBridgeApi,
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
-    stem: 'flutter_nekoton_bridge',
-    ioDirectory: 'rust/target/release/',
-    webPrefix: 'pkg/',
-  );
+        stem: 'flutter_nekoton_bridge',
+        ioDirectory: 'rust/target/release/',
+        webPrefix: 'pkg/',
+      );
 }
 
 abstract class NekotonBridgeApi extends BaseApi {
   ArcFnStringDartFnFuture
-      crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageExpired(
-          {required GenericContractSubscriptionHandlerImpl that});
+  crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageExpired({
+    required GenericContractSubscriptionHandlerImpl that,
+  });
 
   ArcFnStringDartFnFuture
-      crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageSent(
-          {required GenericContractSubscriptionHandlerImpl that});
+  crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageSent({
+    required GenericContractSubscriptionHandlerImpl that,
+  });
 
   ArcFnStringDartFnFuture
-      crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnStateChanged(
-          {required GenericContractSubscriptionHandlerImpl that});
+  crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnStateChanged({
+    required GenericContractSubscriptionHandlerImpl that,
+  });
 
   ArcFnStringDartFnFuture
-      crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound(
-          {required GenericContractSubscriptionHandlerImpl that});
+  crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound({
+    required GenericContractSubscriptionHandlerImpl that,
+  });
 
   void
-      crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageExpired(
-          {required GenericContractSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onMessageExpired});
+  crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageExpired({
+    required GenericContractSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onMessageExpired,
+  });
 
   void
-      crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageSent(
-          {required GenericContractSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onMessageSent});
+  crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageSent({
+    required GenericContractSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onMessageSent,
+  });
 
   void
-      crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnStateChanged(
-          {required GenericContractSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onStateChanged});
+  crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnStateChanged({
+    required GenericContractSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onStateChanged,
+  });
 
   void
-      crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound(
-          {required GenericContractSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onTransactionsFound});
+  crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound({
+    required GenericContractSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onTransactionsFound,
+  });
 
-  bool crateApiMergedGqlConnectionImplAutoAccessorGetIsLocal(
-      {required GqlConnectionImpl that});
+  bool crateApiMergedGqlConnectionImplAutoAccessorGetIsLocal({
+    required GqlConnectionImpl that,
+  });
 
   ArcFnStringDartFnFutureString
-      crateApiMergedGqlConnectionImplAutoAccessorGetOnPost(
-          {required GqlConnectionImpl that});
+  crateApiMergedGqlConnectionImplAutoAccessorGetOnPost({
+    required GqlConnectionImpl that,
+  });
 
-  void crateApiMergedGqlConnectionImplAutoAccessorSetIsLocal(
-      {required GqlConnectionImpl that, required bool isLocal});
+  void crateApiMergedGqlConnectionImplAutoAccessorSetIsLocal({
+    required GqlConnectionImpl that,
+    required bool isLocal,
+  });
 
-  void crateApiMergedGqlConnectionImplAutoAccessorSetOnPost(
-      {required GqlConnectionImpl that,
-      required ArcFnStringDartFnFutureString onPost});
+  void crateApiMergedGqlConnectionImplAutoAccessorSetOnPost({
+    required GqlConnectionImpl that,
+    required ArcFnStringDartFnFutureString onPost,
+  });
 
   ArcFnStringDartFnFuture
-      crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChanged(
-          {required JettonWalletSubscriptionHandlerImpl that});
+  crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChanged({
+    required JettonWalletSubscriptionHandlerImpl that,
+  });
 
   ArcFnStringDartFnFuture
-      crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound(
-          {required JettonWalletSubscriptionHandlerImpl that});
+  crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound({
+    required JettonWalletSubscriptionHandlerImpl that,
+  });
 
   void
-      crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChanged(
-          {required JettonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onBalanceChanged});
+  crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChanged({
+    required JettonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onBalanceChanged,
+  });
 
   void
-      crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound(
-          {required JettonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onTransactionsFound});
+  crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound({
+    required JettonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onTransactionsFound,
+  });
 
   ArcFnStringDartFnFutureString
-      crateApiMergedJrpcConnectionImplAutoAccessorGetOnPost(
-          {required JrpcConnectionImpl that});
+  crateApiMergedJrpcConnectionImplAutoAccessorGetOnPost({
+    required JrpcConnectionImpl that,
+  });
 
-  void crateApiMergedJrpcConnectionImplAutoAccessorSetOnPost(
-      {required JrpcConnectionImpl that,
-      required ArcFnStringDartFnFutureString onPost});
+  void crateApiMergedJrpcConnectionImplAutoAccessorSetOnPost({
+    required JrpcConnectionImpl that,
+    required ArcFnStringDartFnFutureString onPost,
+  });
 
   ArcFnU16DartFnFutureVecU8
-      crateApiMergedLedgerConnectionImplAutoAccessorGetOnGetPublicKey(
-          {required LedgerConnectionImpl that});
+  crateApiMergedLedgerConnectionImplAutoAccessorGetOnGetPublicKey({
+    required LedgerConnectionImpl that,
+  });
 
   ArcFnU16OptionI32VecU8DartFnFutureVecU8
-      crateApiMergedLedgerConnectionImplAutoAccessorGetOnSign(
-          {required LedgerConnectionImpl that});
+  crateApiMergedLedgerConnectionImplAutoAccessorGetOnSign({
+    required LedgerConnectionImpl that,
+  });
 
   ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
-      crateApiMergedLedgerConnectionImplAutoAccessorGetOnSignTransaction(
-          {required LedgerConnectionImpl that});
+  crateApiMergedLedgerConnectionImplAutoAccessorGetOnSignTransaction({
+    required LedgerConnectionImpl that,
+  });
 
-  void crateApiMergedLedgerConnectionImplAutoAccessorSetOnGetPublicKey(
-      {required LedgerConnectionImpl that,
-      required ArcFnU16DartFnFutureVecU8 onGetPublicKey});
+  void crateApiMergedLedgerConnectionImplAutoAccessorSetOnGetPublicKey({
+    required LedgerConnectionImpl that,
+    required ArcFnU16DartFnFutureVecU8 onGetPublicKey,
+  });
 
-  void crateApiMergedLedgerConnectionImplAutoAccessorSetOnSign(
-      {required LedgerConnectionImpl that,
-      required ArcFnU16OptionI32VecU8DartFnFutureVecU8 onSign});
+  void crateApiMergedLedgerConnectionImplAutoAccessorSetOnSign({
+    required LedgerConnectionImpl that,
+    required ArcFnU16OptionI32VecU8DartFnFutureVecU8 onSign,
+  });
 
-  void crateApiMergedLedgerConnectionImplAutoAccessorSetOnSignTransaction(
-      {required LedgerConnectionImpl that,
-      required ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
-          onSignTransaction});
+  void crateApiMergedLedgerConnectionImplAutoAccessorSetOnSignTransaction({
+    required LedgerConnectionImpl that,
+    required ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 onSignTransaction,
+  });
 
   ArcFnVecU8DartFnFutureVecU8
-      crateApiMergedProtoConnectionImplAutoAccessorGetOnPost(
-          {required ProtoConnectionImpl that});
+  crateApiMergedProtoConnectionImplAutoAccessorGetOnPost({
+    required ProtoConnectionImpl that,
+  });
 
-  void crateApiMergedProtoConnectionImplAutoAccessorSetOnPost(
-      {required ProtoConnectionImpl that,
-      required ArcFnVecU8DartFnFutureVecU8 onPost});
+  void crateApiMergedProtoConnectionImplAutoAccessorSetOnPost({
+    required ProtoConnectionImpl that,
+    required ArcFnVecU8DartFnFutureVecU8 onPost,
+  });
 
   ArcFnStringDartFnFutureOptionString
-      crateApiMergedStorageImplAutoAccessorGetOnGet(
-          {required StorageImpl that});
+  crateApiMergedStorageImplAutoAccessorGetOnGet({required StorageImpl that});
 
-  ArcFnStringDartFnFuture crateApiMergedStorageImplAutoAccessorGetOnRemove(
-      {required StorageImpl that});
+  ArcFnStringDartFnFuture crateApiMergedStorageImplAutoAccessorGetOnRemove({
+    required StorageImpl that,
+  });
 
   ArcFnStringDartFnFuture
-      crateApiMergedStorageImplAutoAccessorGetOnRemoveUnchecked(
-          {required StorageImpl that});
+  crateApiMergedStorageImplAutoAccessorGetOnRemoveUnchecked({
+    required StorageImpl that,
+  });
 
-  ArcFnStringStringDartFnFuture crateApiMergedStorageImplAutoAccessorGetOnSet(
-      {required StorageImpl that});
+  ArcFnStringStringDartFnFuture crateApiMergedStorageImplAutoAccessorGetOnSet({
+    required StorageImpl that,
+  });
 
   ArcFnStringStringDartFnFuture
-      crateApiMergedStorageImplAutoAccessorGetOnSetUnchecked(
-          {required StorageImpl that});
+  crateApiMergedStorageImplAutoAccessorGetOnSetUnchecked({
+    required StorageImpl that,
+  });
 
-  void crateApiMergedStorageImplAutoAccessorSetOnGet(
-      {required StorageImpl that,
-      required ArcFnStringDartFnFutureOptionString onGet});
+  void crateApiMergedStorageImplAutoAccessorSetOnGet({
+    required StorageImpl that,
+    required ArcFnStringDartFnFutureOptionString onGet,
+  });
 
-  void crateApiMergedStorageImplAutoAccessorSetOnRemove(
-      {required StorageImpl that, required ArcFnStringDartFnFuture onRemove});
+  void crateApiMergedStorageImplAutoAccessorSetOnRemove({
+    required StorageImpl that,
+    required ArcFnStringDartFnFuture onRemove,
+  });
 
-  void crateApiMergedStorageImplAutoAccessorSetOnRemoveUnchecked(
-      {required StorageImpl that,
-      required ArcFnStringDartFnFuture onRemoveUnchecked});
+  void crateApiMergedStorageImplAutoAccessorSetOnRemoveUnchecked({
+    required StorageImpl that,
+    required ArcFnStringDartFnFuture onRemoveUnchecked,
+  });
 
-  void crateApiMergedStorageImplAutoAccessorSetOnSet(
-      {required StorageImpl that,
-      required ArcFnStringStringDartFnFuture onSet});
+  void crateApiMergedStorageImplAutoAccessorSetOnSet({
+    required StorageImpl that,
+    required ArcFnStringStringDartFnFuture onSet,
+  });
 
-  void crateApiMergedStorageImplAutoAccessorSetOnSetUnchecked(
-      {required StorageImpl that,
-      required ArcFnStringStringDartFnFuture onSetUnchecked});
+  void crateApiMergedStorageImplAutoAccessorSetOnSetUnchecked({
+    required StorageImpl that,
+    required ArcFnStringStringDartFnFuture onSetUnchecked,
+  });
 
-  Future<StorageImpl> crateApiMergedStorageImplNew(
-      {required ArcFnStringDartFnFutureOptionString onGet,
-      required ArcFnStringStringDartFnFuture onSet,
-      required ArcFnStringStringDartFnFuture onSetUnchecked,
-      required ArcFnStringDartFnFuture onRemove,
-      required ArcFnStringDartFnFuture onRemoveUnchecked});
-
-  ArcFnStringDartFnFuture
-      crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChanged(
-          {required TokenWalletSubscriptionHandlerImpl that});
-
-  ArcFnStringDartFnFuture
-      crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound(
-          {required TokenWalletSubscriptionHandlerImpl that});
-
-  void
-      crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChanged(
-          {required TokenWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onBalanceChanged});
-
-  void
-      crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound(
-          {required TokenWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onTransactionsFound});
+  Future<StorageImpl> crateApiMergedStorageImplNew({
+    required ArcFnStringDartFnFutureOptionString onGet,
+    required ArcFnStringStringDartFnFuture onSet,
+    required ArcFnStringStringDartFnFuture onSetUnchecked,
+    required ArcFnStringDartFnFuture onRemove,
+    required ArcFnStringDartFnFuture onRemoveUnchecked,
+  });
 
   ArcFnStringDartFnFuture
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnCustodiansChanged(
-          {required TonWalletSubscriptionHandlerImpl that});
+  crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChanged({
+    required TokenWalletSubscriptionHandlerImpl that,
+  });
 
   ArcFnStringDartFnFuture
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnDetailsChanged(
-          {required TonWalletSubscriptionHandlerImpl that});
+  crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound({
+    required TokenWalletSubscriptionHandlerImpl that,
+  });
+
+  void
+  crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChanged({
+    required TokenWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onBalanceChanged,
+  });
+
+  void
+  crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound({
+    required TokenWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onTransactionsFound,
+  });
 
   ArcFnStringDartFnFuture
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageExpired(
-          {required TonWalletSubscriptionHandlerImpl that});
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnCustodiansChanged({
+    required TonWalletSubscriptionHandlerImpl that,
+  });
 
   ArcFnStringDartFnFuture
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageSent(
-          {required TonWalletSubscriptionHandlerImpl that});
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnDetailsChanged({
+    required TonWalletSubscriptionHandlerImpl that,
+  });
 
   ArcFnStringDartFnFuture
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnStateChanged(
-          {required TonWalletSubscriptionHandlerImpl that});
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageExpired({
+    required TonWalletSubscriptionHandlerImpl that,
+  });
 
   ArcFnStringDartFnFuture
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound(
-          {required TonWalletSubscriptionHandlerImpl that});
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageSent({
+    required TonWalletSubscriptionHandlerImpl that,
+  });
 
   ArcFnStringDartFnFuture
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnUnconfirmedTransactionsChanged(
-          {required TonWalletSubscriptionHandlerImpl that});
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnStateChanged({
+    required TonWalletSubscriptionHandlerImpl that,
+  });
+
+  ArcFnStringDartFnFuture
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound({
+    required TonWalletSubscriptionHandlerImpl that,
+  });
+
+  ArcFnStringDartFnFuture
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnUnconfirmedTransactionsChanged({
+    required TonWalletSubscriptionHandlerImpl that,
+  });
 
   void
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnCustodiansChanged(
-          {required TonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onCustodiansChanged});
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnCustodiansChanged({
+    required TonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onCustodiansChanged,
+  });
 
   void
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnDetailsChanged(
-          {required TonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onDetailsChanged});
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnDetailsChanged({
+    required TonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onDetailsChanged,
+  });
 
   void
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageExpired(
-          {required TonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onMessageExpired});
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageExpired({
+    required TonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onMessageExpired,
+  });
 
   void
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageSent(
-          {required TonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onMessageSent});
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageSent({
+    required TonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onMessageSent,
+  });
 
   void
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnStateChanged(
-          {required TonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onStateChanged});
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnStateChanged({
+    required TonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onStateChanged,
+  });
 
   void
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound(
-          {required TonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onTransactionsFound});
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound({
+    required TonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onTransactionsFound,
+  });
 
   void
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnUnconfirmedTransactionsChanged(
-          {required TonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onUnconfirmedTransactionsChanged});
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnUnconfirmedTransactionsChanged({
+    required TonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onUnconfirmedTransactionsChanged,
+  });
 
-  Future<String> crateApiMergedAccountsStorageImplAddAccount(
-      {required AccountsStorageImpl that, required String account});
+  Future<String> crateApiMergedAccountsStorageImplAddAccount({
+    required AccountsStorageImpl that,
+    required String account,
+  });
 
-  Future<String> crateApiMergedAccountsStorageImplAddAccounts(
-      {required AccountsStorageImpl that, required String accounts});
+  Future<String> crateApiMergedAccountsStorageImplAddAccounts({
+    required AccountsStorageImpl that,
+    required String accounts,
+  });
 
-  Future<String> crateApiMergedAccountsStorageImplAddTokenWallet(
-      {required AccountsStorageImpl that,
-      required String accountAddress,
-      required String networkGroup,
-      required String rootTokenContract});
+  Future<String> crateApiMergedAccountsStorageImplAddTokenWallet({
+    required AccountsStorageImpl that,
+    required String accountAddress,
+    required String networkGroup,
+    required String rootTokenContract,
+  });
 
-  Future<bool> crateApiMergedAccountsStorageImplAddTokenWallets(
-      {required AccountsStorageImpl that,
-      required String accountAddress,
-      required String networkGroup,
-      required List<String> rootTokenContracts});
+  Future<bool> crateApiMergedAccountsStorageImplAddTokenWallets({
+    required AccountsStorageImpl that,
+    required String accountAddress,
+    required String networkGroup,
+    required List<String> rootTokenContracts,
+  });
 
-  Future<bool> crateApiMergedAccountsStorageImplClear(
-      {required AccountsStorageImpl that});
+  Future<bool> crateApiMergedAccountsStorageImplClear({
+    required AccountsStorageImpl that,
+  });
 
-  Future<String> crateApiMergedAccountsStorageImplGetEntries(
-      {required AccountsStorageImpl that});
+  Future<String> crateApiMergedAccountsStorageImplGetEntries({
+    required AccountsStorageImpl that,
+  });
 
-  Future<AccountsStorageImpl> crateApiMergedAccountsStorageImplNew(
-      {required StorageDartWrapper storage});
+  Future<AccountsStorageImpl> crateApiMergedAccountsStorageImplNew({
+    required StorageDartWrapper storage,
+  });
 
-  Future<bool> crateApiMergedAccountsStorageImplReload(
-      {required AccountsStorageImpl that});
+  Future<bool> crateApiMergedAccountsStorageImplReload({
+    required AccountsStorageImpl that,
+  });
 
-  Future<String?> crateApiMergedAccountsStorageImplRemoveAccount(
-      {required AccountsStorageImpl that, required String accountAddress});
+  Future<String?> crateApiMergedAccountsStorageImplRemoveAccount({
+    required AccountsStorageImpl that,
+    required String accountAddress,
+  });
 
-  Future<String> crateApiMergedAccountsStorageImplRemoveAccounts(
-      {required AccountsStorageImpl that,
-      required List<String> accountAddresses});
+  Future<String> crateApiMergedAccountsStorageImplRemoveAccounts({
+    required AccountsStorageImpl that,
+    required List<String> accountAddresses,
+  });
 
-  Future<String> crateApiMergedAccountsStorageImplRemoveTokenWallet(
-      {required AccountsStorageImpl that,
-      required String accountAddress,
-      required String networkGroup,
-      required String rootTokenContract});
+  Future<String> crateApiMergedAccountsStorageImplRemoveTokenWallet({
+    required AccountsStorageImpl that,
+    required String accountAddress,
+    required String networkGroup,
+    required String rootTokenContract,
+  });
 
-  Future<bool> crateApiMergedAccountsStorageImplRemoveTokenWallets(
-      {required AccountsStorageImpl that,
-      required String accountAddress,
-      required String networkGroup,
-      required List<String> rootTokenContracts});
+  Future<bool> crateApiMergedAccountsStorageImplRemoveTokenWallets({
+    required AccountsStorageImpl that,
+    required String accountAddress,
+    required String networkGroup,
+    required List<String> rootTokenContracts,
+  });
 
-  Future<String> crateApiMergedAccountsStorageImplRenameAccount(
-      {required AccountsStorageImpl that,
-      required String accountAddress,
-      required String name});
+  Future<String> crateApiMergedAccountsStorageImplRenameAccount({
+    required AccountsStorageImpl that,
+    required String accountAddress,
+    required String name,
+  });
 
-  Future<bool> crateApiMergedAccountsStorageImplVerifyData(
-      {required String data});
+  Future<bool> crateApiMergedAccountsStorageImplVerifyData({
+    required String data,
+  });
 
   Stream<LogEntry> crateApiMergedCreateLogStream();
 
-  Future<String> crateApiMergedGenericContractDartWrapperAddress(
-      {required GenericContractDartWrapper that});
+  Future<String> crateApiMergedGenericContractDartWrapperAddress({
+    required GenericContractDartWrapper that,
+  });
 
-  Future<String> crateApiMergedGenericContractDartWrapperContractState(
-      {required GenericContractDartWrapper that});
+  Future<String> crateApiMergedGenericContractDartWrapperContractState({
+    required GenericContractDartWrapper that,
+  });
 
-  Future<String> crateApiMergedGenericContractDartWrapperEstimateFees(
-      {required GenericContractDartWrapper that,
-      required String signedMessage});
+  Future<String> crateApiMergedGenericContractDartWrapperEstimateFees({
+    required GenericContractDartWrapper that,
+    required String signedMessage,
+  });
 
   Future<String>
-      crateApiMergedGenericContractDartWrapperExecuteTransactionLocally(
-          {required GenericContractDartWrapper that,
-          required String signedMessage,
-          required String options});
+  crateApiMergedGenericContractDartWrapperExecuteTransactionLocally({
+    required GenericContractDartWrapper that,
+    required String signedMessage,
+    required String options,
+  });
 
-  Future<bool> crateApiMergedGenericContractDartWrapperHandleBlock(
-      {required GenericContractDartWrapper that, required String block});
+  Future<bool> crateApiMergedGenericContractDartWrapperHandleBlock({
+    required GenericContractDartWrapper that,
+    required String block,
+  });
 
-  Future<String> crateApiMergedGenericContractDartWrapperPendingTransactions(
-      {required GenericContractDartWrapper that});
+  Future<String> crateApiMergedGenericContractDartWrapperPendingTransactions({
+    required GenericContractDartWrapper that,
+  });
 
-  Future<PollingMethod> crateApiMergedGenericContractDartWrapperPollingMethod(
-      {required GenericContractDartWrapper that});
+  Future<PollingMethod> crateApiMergedGenericContractDartWrapperPollingMethod({
+    required GenericContractDartWrapper that,
+  });
 
-  Future<bool> crateApiMergedGenericContractDartWrapperPreloadTransactions(
-      {required GenericContractDartWrapper that, required String fromLt});
+  Future<bool> crateApiMergedGenericContractDartWrapperPreloadTransactions({
+    required GenericContractDartWrapper that,
+    required String fromLt,
+  });
 
-  Future<bool> crateApiMergedGenericContractDartWrapperRefresh(
-      {required GenericContractDartWrapper that});
+  Future<bool> crateApiMergedGenericContractDartWrapperRefresh({
+    required GenericContractDartWrapper that,
+  });
 
-  Future<String> crateApiMergedGenericContractDartWrapperSend(
-      {required GenericContractDartWrapper that,
-      required String signedMessage});
+  Future<String> crateApiMergedGenericContractDartWrapperSend({
+    required GenericContractDartWrapper that,
+    required String signedMessage,
+  });
 
   Future<GenericContractDartWrapper>
-      crateApiMergedGenericContractDartWrapperSubscribe(
-          {required String address,
-          required bool preloadTransactions,
-          required ArcTransportBoxTrait transport,
-          required FutureOr<void> Function(String) onMessageSent,
-          required FutureOr<void> Function(String) onMessageExpired,
-          required FutureOr<void> Function(String) onStateChanged,
-          required FutureOr<void> Function(String) onTransactionsFound});
+  crateApiMergedGenericContractDartWrapperSubscribe({
+    required String address,
+    required bool preloadTransactions,
+    required ArcTransportBoxTrait transport,
+    required FutureOr<void> Function(String) onMessageSent,
+    required FutureOr<void> Function(String) onMessageExpired,
+    required FutureOr<void> Function(String) onStateChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+  });
 
-  GqlConnectionDartWrapper crateApiMergedGqlConnectionDartWrapperNew(
-      {required bool isLocal,
-      required FutureOr<String> Function(String) onPost});
+  GqlConnectionDartWrapper crateApiMergedGqlConnectionDartWrapperNew({
+    required bool isLocal,
+    required FutureOr<String> Function(String) onPost,
+  });
 
-  Future<String> crateApiMergedGqlTransportImplGetAccountsByCodeHash(
-      {required GqlTransportImpl that,
-      required String codeHash,
-      required int limit,
-      String? continuation});
+  Future<String> crateApiMergedGqlTransportImplGetAccountsByCodeHash({
+    required GqlTransportImpl that,
+    required String codeHash,
+    required int limit,
+    String? continuation,
+  });
 
-  Future<String> crateApiMergedGqlTransportImplGetBlock(
-      {required GqlTransportImpl that, required String id});
+  Future<String> crateApiMergedGqlTransportImplGetBlock({
+    required GqlTransportImpl that,
+    required String id,
+  });
 
-  Future<String> crateApiMergedGqlTransportImplGetBlockchainConfig(
-      {required GqlTransportImpl that, required bool force});
+  Future<String> crateApiMergedGqlTransportImplGetBlockchainConfig({
+    required GqlTransportImpl that,
+    required bool force,
+  });
 
-  Future<String> crateApiMergedGqlTransportImplGetContractState(
-      {required GqlTransportImpl that, required String address});
+  Future<String> crateApiMergedGqlTransportImplGetContractState({
+    required GqlTransportImpl that,
+    required String address,
+  });
 
-  Future<String?> crateApiMergedGqlTransportImplGetDstTransaction(
-      {required GqlTransportImpl that, required String messageHash});
+  Future<String?> crateApiMergedGqlTransportImplGetDstTransaction({
+    required GqlTransportImpl that,
+    required String messageHash,
+  });
 
-  Future<String> crateApiMergedGqlTransportImplGetFeeFactors(
-      {required GqlTransportImpl that, required bool isMasterchain});
+  Future<String> crateApiMergedGqlTransportImplGetFeeFactors({
+    required GqlTransportImpl that,
+    required bool isMasterchain,
+  });
 
-  Future<String?> crateApiMergedGqlTransportImplGetFullContractState(
-      {required GqlTransportImpl that, required String address});
+  Future<String?> crateApiMergedGqlTransportImplGetFullContractState({
+    required GqlTransportImpl that,
+    required String address,
+  });
 
-  Future<LatestBlock> crateApiMergedGqlTransportImplGetLatestBlock(
-      {required GqlTransportImpl that, required String address});
+  Future<LatestBlock> crateApiMergedGqlTransportImplGetLatestBlock({
+    required GqlTransportImpl that,
+    required String address,
+  });
 
-  Future<int> crateApiMergedGqlTransportImplGetNetworkId(
-      {required GqlTransportImpl that});
+  Future<int> crateApiMergedGqlTransportImplGetNetworkId({
+    required GqlTransportImpl that,
+  });
 
-  Future<int?> crateApiMergedGqlTransportImplGetSignatureId(
-      {required GqlTransportImpl that});
+  Future<int?> crateApiMergedGqlTransportImplGetSignatureId({
+    required GqlTransportImpl that,
+  });
 
-  Future<String?> crateApiMergedGqlTransportImplGetTransaction(
-      {required GqlTransportImpl that, required String hash});
+  Future<String?> crateApiMergedGqlTransportImplGetTransaction({
+    required GqlTransportImpl that,
+    required String hash,
+  });
 
-  Future<String> crateApiMergedGqlTransportImplGetTransactions(
-      {required GqlTransportImpl that,
-      required String address,
-      String? fromLt,
-      required int count});
+  Future<String> crateApiMergedGqlTransportImplGetTransactions({
+    required GqlTransportImpl that,
+    required String address,
+    String? fromLt,
+    required int count,
+  });
 
-  GqlTransportImpl crateApiMergedGqlTransportImplNew(
-      {required GqlConnectionDartWrapper gqlConnection});
+  GqlTransportImpl crateApiMergedGqlTransportImplNew({
+    required GqlConnectionDartWrapper gqlConnection,
+  });
 
-  Future<String> crateApiMergedGqlTransportImplSimulateTransactionTree(
-      {required GqlTransportImpl that,
-      required String signedMessage,
-      required List<int> ignoredComputePhaseCodes,
-      required List<int> ignoredActionPhaseCodes});
+  Future<String> crateApiMergedGqlTransportImplSimulateTransactionTree({
+    required GqlTransportImpl that,
+    required String signedMessage,
+    required List<int> ignoredComputePhaseCodes,
+    required List<int> ignoredActionPhaseCodes,
+  });
 
-  Future<String> crateApiMergedGqlTransportImplWaitForNextBlock(
-      {required GqlTransportImpl that,
-      required String currentBlockId,
-      required String address,
-      required BigInt timeout});
+  Future<String> crateApiMergedGqlTransportImplWaitForNextBlock({
+    required GqlTransportImpl that,
+    required String currentBlockId,
+    required String address,
+    required BigInt timeout,
+  });
 
-  Future<void> crateApiMergedInitLogger(
-      {required LogLevel level, required bool mobileLogger});
+  Future<void> crateApiMergedInitLogger({
+    required LogLevel level,
+    required bool mobileLogger,
+  });
 
-  Future<String> crateApiMergedJettonWalletDartWrapperAddress(
-      {required JettonWalletDartWrapper that});
+  Future<String> crateApiMergedJettonWalletDartWrapperAddress({
+    required JettonWalletDartWrapper that,
+  });
 
-  Future<String> crateApiMergedJettonWalletDartWrapperBalance(
-      {required JettonWalletDartWrapper that});
+  Future<String> crateApiMergedJettonWalletDartWrapperBalance({
+    required JettonWalletDartWrapper that,
+  });
 
-  Future<String> crateApiMergedJettonWalletDartWrapperContractState(
-      {required JettonWalletDartWrapper that});
-
-  Future<String> crateApiMergedJettonWalletDartWrapperEstimateMinAttachedAmount(
-      {required JettonWalletDartWrapper that, required String destination});
-
-  Future<String> crateApiMergedJettonWalletDartWrapperGetJettonRootDetails(
-      {required ArcTransportBoxTrait transport,
-      required String tokenRootAddress});
+  Future<String> crateApiMergedJettonWalletDartWrapperContractState({
+    required JettonWalletDartWrapper that,
+  });
 
   Future<String>
-      crateApiMergedJettonWalletDartWrapperGetJettonRootDetailsFromJettonWallet(
-          {required ArcTransportBoxTrait transport,
-          required String tokenWalletAddress});
+  crateApiMergedJettonWalletDartWrapperEstimateMinAttachedAmount({
+    required JettonWalletDartWrapper that,
+    required String destination,
+  });
 
-  Future<String> crateApiMergedJettonWalletDartWrapperGetJettonWalletDetails(
-      {required ArcTransportBoxTrait transport, required String address});
+  Future<String> crateApiMergedJettonWalletDartWrapperGetJettonRootDetails({
+    required ArcTransportBoxTrait transport,
+    required String tokenRootAddress,
+  });
 
-  Future<bool> crateApiMergedJettonWalletDartWrapperHandleBlock(
-      {required JettonWalletDartWrapper that, required String block});
+  Future<String>
+  crateApiMergedJettonWalletDartWrapperGetJettonRootDetailsFromJettonWallet({
+    required ArcTransportBoxTrait transport,
+    required String tokenWalletAddress,
+  });
 
-  Future<String> crateApiMergedJettonWalletDartWrapperOwner(
-      {required JettonWalletDartWrapper that});
+  Future<String> crateApiMergedJettonWalletDartWrapperGetJettonWalletDetails({
+    required ArcTransportBoxTrait transport,
+    required String address,
+  });
 
-  Future<bool> crateApiMergedJettonWalletDartWrapperPreloadTransactions(
-      {required JettonWalletDartWrapper that, required String fromLt});
+  Future<bool> crateApiMergedJettonWalletDartWrapperHandleBlock({
+    required JettonWalletDartWrapper that,
+    required String block,
+  });
 
-  Future<String> crateApiMergedJettonWalletDartWrapperPrepareTransfer(
-      {required JettonWalletDartWrapper that,
-      required String amount,
-      required String destination,
-      required String remainingGasTo,
-      String? customPayload,
-      required String callbackValue,
-      String? callbackPayload,
-      String? attachedAmount});
+  Future<String> crateApiMergedJettonWalletDartWrapperOwner({
+    required JettonWalletDartWrapper that,
+  });
 
-  Future<bool> crateApiMergedJettonWalletDartWrapperRefresh(
-      {required JettonWalletDartWrapper that});
+  Future<bool> crateApiMergedJettonWalletDartWrapperPreloadTransactions({
+    required JettonWalletDartWrapper that,
+    required String fromLt,
+  });
+
+  Future<String> crateApiMergedJettonWalletDartWrapperPrepareTransfer({
+    required JettonWalletDartWrapper that,
+    required String amount,
+    required String destination,
+    required String remainingGasTo,
+    String? customPayload,
+    required String callbackValue,
+    String? callbackPayload,
+    String? attachedAmount,
+  });
+
+  Future<bool> crateApiMergedJettonWalletDartWrapperRefresh({
+    required JettonWalletDartWrapper that,
+  });
 
   Future<JettonWalletDartWrapper>
-      crateApiMergedJettonWalletDartWrapperSubscribe(
-          {required String owner,
-          required String rootTokenContract,
-          required ArcTransportBoxTrait transport,
-          required bool preloadTransactions,
-          required FutureOr<void> Function(String) onBalanceChanged,
-          required FutureOr<void> Function(String) onTransactionsFound});
+  crateApiMergedJettonWalletDartWrapperSubscribe({
+    required String owner,
+    required String rootTokenContract,
+    required ArcTransportBoxTrait transport,
+    required bool preloadTransactions,
+    required FutureOr<void> Function(String) onBalanceChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+  });
 
-  JrpcConnectionDartWrapper crateApiMergedJrpcConnectionDartWrapperNew(
-      {required FutureOr<String> Function(String) onPost});
+  JrpcConnectionDartWrapper crateApiMergedJrpcConnectionDartWrapperNew({
+    required FutureOr<String> Function(String) onPost,
+  });
 
-  Future<String> crateApiMergedJrpcTransportImplGetAccountsByCodeHash(
-      {required JrpcTransportImpl that,
-      required String codeHash,
-      required int limit,
-      String? continuation});
+  Future<String> crateApiMergedJrpcTransportImplGetAccountsByCodeHash({
+    required JrpcTransportImpl that,
+    required String codeHash,
+    required int limit,
+    String? continuation,
+  });
 
-  Future<String> crateApiMergedJrpcTransportImplGetBlockchainConfig(
-      {required JrpcTransportImpl that, required bool force});
+  Future<String> crateApiMergedJrpcTransportImplGetBlockchainConfig({
+    required JrpcTransportImpl that,
+    required bool force,
+  });
 
-  Future<String> crateApiMergedJrpcTransportImplGetContractState(
-      {required JrpcTransportImpl that, required String address});
+  Future<String> crateApiMergedJrpcTransportImplGetContractState({
+    required JrpcTransportImpl that,
+    required String address,
+  });
 
-  Future<String?> crateApiMergedJrpcTransportImplGetDstTransaction(
-      {required JrpcTransportImpl that, required String messageHash});
+  Future<String?> crateApiMergedJrpcTransportImplGetDstTransaction({
+    required JrpcTransportImpl that,
+    required String messageHash,
+  });
 
-  Future<String> crateApiMergedJrpcTransportImplGetFeeFactors(
-      {required JrpcTransportImpl that, required bool isMasterchain});
+  Future<String> crateApiMergedJrpcTransportImplGetFeeFactors({
+    required JrpcTransportImpl that,
+    required bool isMasterchain,
+  });
 
-  Future<String?> crateApiMergedJrpcTransportImplGetFullContractState(
-      {required JrpcTransportImpl that, required String address});
+  Future<String?> crateApiMergedJrpcTransportImplGetFullContractState({
+    required JrpcTransportImpl that,
+    required String address,
+  });
 
-  Future<int> crateApiMergedJrpcTransportImplGetNetworkId(
-      {required JrpcTransportImpl that});
+  Future<int> crateApiMergedJrpcTransportImplGetNetworkId({
+    required JrpcTransportImpl that,
+  });
 
-  Future<int?> crateApiMergedJrpcTransportImplGetSignatureId(
-      {required JrpcTransportImpl that});
+  Future<int?> crateApiMergedJrpcTransportImplGetSignatureId({
+    required JrpcTransportImpl that,
+  });
 
-  Future<String?> crateApiMergedJrpcTransportImplGetTransaction(
-      {required JrpcTransportImpl that, required String hash});
+  Future<String?> crateApiMergedJrpcTransportImplGetTransaction({
+    required JrpcTransportImpl that,
+    required String hash,
+  });
 
-  Future<String> crateApiMergedJrpcTransportImplGetTransactions(
-      {required JrpcTransportImpl that,
-      required String address,
-      String? fromLt,
-      required int count});
+  Future<String> crateApiMergedJrpcTransportImplGetTransactions({
+    required JrpcTransportImpl that,
+    required String address,
+    String? fromLt,
+    required int count,
+  });
 
-  JrpcTransportImpl crateApiMergedJrpcTransportImplNew(
-      {required JrpcConnectionDartWrapper jrpcConnection});
+  JrpcTransportImpl crateApiMergedJrpcTransportImplNew({
+    required JrpcConnectionDartWrapper jrpcConnection,
+  });
 
-  Future<String> crateApiMergedJrpcTransportImplSimulateTransactionTree(
-      {required JrpcTransportImpl that,
-      required String signedMessage,
-      required List<int> ignoredComputePhaseCodes,
-      required List<int> ignoredActionPhaseCodes});
+  Future<String> crateApiMergedJrpcTransportImplSimulateTransactionTree({
+    required JrpcTransportImpl that,
+    required String signedMessage,
+    required List<int> ignoredComputePhaseCodes,
+    required List<int> ignoredActionPhaseCodes,
+  });
 
-  Future<String> crateApiMergedKeystoreDartWrapperAddKey(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input});
+  Future<String> crateApiMergedKeystoreDartWrapperAddKey({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String input,
+  });
 
-  Future<String> crateApiMergedKeystoreDartWrapperAddKeys(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input});
+  Future<String> crateApiMergedKeystoreDartWrapperAddKeys({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String input,
+  });
 
-  Future<String> crateApiMergedKeystoreDartWrapperClearKeystore(
-      {required KeystoreDartWrapper that});
+  Future<String> crateApiMergedKeystoreDartWrapperClearKeystore({
+    required KeystoreDartWrapper that,
+  });
 
-  Future<String> crateApiMergedKeystoreDartWrapperDecrypt(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required String input});
+  Future<String> crateApiMergedKeystoreDartWrapperDecrypt({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String data,
+    required String input,
+  });
 
-  Future<String> crateApiMergedKeystoreDartWrapperEncrypt(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required List<String> publicKeys,
-      required String algorithm,
-      required String input});
+  Future<String> crateApiMergedKeystoreDartWrapperEncrypt({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String data,
+    required List<String> publicKeys,
+    required String algorithm,
+    required String input,
+  });
 
-  Future<String> crateApiMergedKeystoreDartWrapperExportSeed(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input});
+  Future<String> crateApiMergedKeystoreDartWrapperExportSeed({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String input,
+  });
 
-  Future<String> crateApiMergedKeystoreDartWrapperGetEntries(
-      {required KeystoreDartWrapper that});
+  Future<String> crateApiMergedKeystoreDartWrapperGetEntries({
+    required KeystoreDartWrapper that,
+  });
 
-  Future<List<String>> crateApiMergedKeystoreDartWrapperGetPublicKeys(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input});
+  Future<List<String>> crateApiMergedKeystoreDartWrapperGetPublicKeys({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String input,
+  });
 
-  Future<bool> crateApiMergedKeystoreDartWrapperIsPasswordCached(
-      {required KeystoreDartWrapper that,
-      required String publicKey,
-      required BigInt duration});
+  Future<bool> crateApiMergedKeystoreDartWrapperIsPasswordCached({
+    required KeystoreDartWrapper that,
+    required String publicKey,
+    required BigInt duration,
+  });
 
-  Future<KeystoreDartWrapper> crateApiMergedKeystoreDartWrapperNew(
-      {required StorageDartWrapper storage,
-      required List<KeySigner> signers,
-      LedgerConnectionDartWrapper? ledgerConnection});
+  Future<KeystoreDartWrapper> crateApiMergedKeystoreDartWrapperNew({
+    required StorageDartWrapper storage,
+    required List<KeySigner> signers,
+    LedgerConnectionDartWrapper? ledgerConnection,
+  });
 
-  Future<String> crateApiMergedKeystoreDartWrapperReloadKeystore(
-      {required KeystoreDartWrapper that});
+  Future<String> crateApiMergedKeystoreDartWrapperReloadKeystore({
+    required KeystoreDartWrapper that,
+  });
 
-  Future<String?> crateApiMergedKeystoreDartWrapperRemoveKey(
-      {required KeystoreDartWrapper that, required String publicKey});
+  Future<String?> crateApiMergedKeystoreDartWrapperRemoveKey({
+    required KeystoreDartWrapper that,
+    required String publicKey,
+  });
 
-  Future<String> crateApiMergedKeystoreDartWrapperRemoveKeys(
-      {required KeystoreDartWrapper that, required List<String> publicKeys});
+  Future<String> crateApiMergedKeystoreDartWrapperRemoveKeys({
+    required KeystoreDartWrapper that,
+    required List<String> publicKeys,
+  });
 
-  Future<String> crateApiMergedKeystoreDartWrapperSign(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required UnsignedMessageImpl message,
-      required String input,
-      int? signatureId});
+  Future<String> crateApiMergedKeystoreDartWrapperSign({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required UnsignedMessageImpl message,
+    required String input,
+    int? signatureId,
+  });
 
-  Future<SignedData> crateApiMergedKeystoreDartWrapperSignData(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required String input,
-      int? signatureId});
+  Future<SignedData> crateApiMergedKeystoreDartWrapperSignData({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String data,
+    required String input,
+    int? signatureId,
+  });
 
-  Future<SignedDataRaw> crateApiMergedKeystoreDartWrapperSignDataRaw(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required String input,
-      int? signatureId});
+  Future<SignedDataRaw> crateApiMergedKeystoreDartWrapperSignDataRaw({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String data,
+    required String input,
+    int? signatureId,
+  });
 
-  Future<String> crateApiMergedKeystoreDartWrapperUpdateKey(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input});
+  Future<String> crateApiMergedKeystoreDartWrapperUpdateKey({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String input,
+  });
 
-  Future<bool> crateApiMergedKeystoreDartWrapperVerifyData(
-      {required List<KeySigner> signers,
-      LedgerConnectionDartWrapper? ledgerConnection,
-      required String data});
+  Future<bool> crateApiMergedKeystoreDartWrapperVerifyData({
+    required List<KeySigner> signers,
+    LedgerConnectionDartWrapper? ledgerConnection,
+    required String data,
+  });
 
-  LedgerConnectionDartWrapper crateApiMergedLedgerConnectionDartWrapperNew(
-      {required FutureOr<Uint8List> Function(int) onGetPublicKey,
-      required FutureOr<Uint8List> Function(int, int?, Uint8List) onSign,
-      required FutureOr<Uint8List> Function(int, int, int?, Uint8List, String)
-          onSignTransaction});
+  LedgerConnectionDartWrapper crateApiMergedLedgerConnectionDartWrapperNew({
+    required FutureOr<Uint8List> Function(int) onGetPublicKey,
+    required FutureOr<Uint8List> Function(int, int?, Uint8List) onSign,
+    required FutureOr<Uint8List> Function(int, int, int?, Uint8List, String)
+    onSignTransaction,
+  });
 
   bool crateApiMergedNtCheckPublicKey({required String publicKey});
 
   List<String> crateApiMergedNtCodeToTvc({required String code});
 
-  Future<String> crateApiMergedNtComputeStorageFee(
-      {required String config,
-      required String account,
-      required int utime,
-      required bool isMasterchain});
+  Future<String> crateApiMergedNtComputeStorageFee({
+    required String config,
+    required String account,
+    required int utime,
+    required bool isMasterchain,
+  });
 
-  String crateApiMergedNtComputeTonWalletAddress(
-      {required String publicKey,
-      required String walletType,
-      required int workchain});
+  String crateApiMergedNtComputeTonWalletAddress({
+    required String publicKey,
+    required String walletType,
+    required int workchain,
+  });
 
-  Future<UnsignedMessageImpl> crateApiMergedNtCreateExternalMessage(
-      {required String dst,
-      required String contractAbi,
-      required String method,
-      String? stateInit,
-      required String input,
-      required String publicKey,
-      required int timeout});
+  Future<UnsignedMessageImpl> crateApiMergedNtCreateExternalMessage({
+    required String dst,
+    required String contractAbi,
+    required String method,
+    String? stateInit,
+    required String input,
+    required String publicKey,
+    required int timeout,
+  });
 
-  Future<String> crateApiMergedNtCreateExternalMessageWithoutSignature(
-      {required String dst,
-      required String contractAbi,
-      required String method,
-      String? stateInit,
-      required String input,
-      required int timeout});
+  Future<String> crateApiMergedNtCreateExternalMessageWithoutSignature({
+    required String dst,
+    required String contractAbi,
+    required String method,
+    String? stateInit,
+    required String input,
+    required int timeout,
+  });
 
-  Future<String> crateApiMergedNtCreateRawExternalMessage(
-      {required String dst,
-      String? stateInit,
-      String? body,
-      required int timeout});
+  Future<String> crateApiMergedNtCreateRawExternalMessage({
+    required String dst,
+    String? stateInit,
+    String? body,
+    required int timeout,
+  });
 
-  Future<String> crateApiMergedNtDecodeEvent(
-      {required String messageBody,
-      required String contractAbi,
-      String? event});
+  Future<String> crateApiMergedNtDecodeEvent({
+    required String messageBody,
+    required String contractAbi,
+    String? event,
+  });
 
-  Future<String> crateApiMergedNtDecodeInput(
-      {required String messageBody,
-      required String contractAbi,
-      String? method,
-      required bool internal});
+  Future<String> crateApiMergedNtDecodeInput({
+    required String messageBody,
+    required String contractAbi,
+    String? method,
+    required bool internal,
+  });
 
-  Future<String> crateApiMergedNtDecodeOutput(
-      {required String messageBody,
-      required String contractAbi,
-      String? method});
+  Future<String> crateApiMergedNtDecodeOutput({
+    required String messageBody,
+    required String contractAbi,
+    String? method,
+  });
 
-  Future<String> crateApiMergedNtDecodeTransaction(
-      {required String transaction,
-      required String contractAbi,
-      String? method});
+  Future<String> crateApiMergedNtDecodeTransaction({
+    required String transaction,
+    required String contractAbi,
+    String? method,
+  });
 
-  Future<String> crateApiMergedNtDecodeTransactionEvents(
-      {required String transaction, required String contractAbi});
+  Future<String> crateApiMergedNtDecodeTransactionEvents({
+    required String transaction,
+    required String contractAbi,
+  });
 
-  String crateApiMergedNtDeriveFromPhrase(
-      {required String phrase, required MnemonicType mnemonicType});
+  String crateApiMergedNtDeriveFromPhrase({
+    required String phrase,
+    required MnemonicType mnemonicType,
+  });
 
-  String crateApiMergedNtEncodeComment(
-      {required String comment, required bool plain});
+  String crateApiMergedNtEncodeComment({
+    required String comment,
+    required bool plain,
+  });
 
-  Future<String> crateApiMergedNtEncodeInternalInput(
-      {required String contractAbi,
-      required String method,
-      required String input});
+  Future<String> crateApiMergedNtEncodeInternalInput({
+    required String contractAbi,
+    required String method,
+    required String input,
+  });
 
-  Future<String> crateApiMergedNtEncodeInternalMessage(
-      {String? src,
-      required String dst,
-      required bool bounce,
-      String? stateInit,
-      String? body,
-      required String amount,
-      bool? bounced});
+  Future<String> crateApiMergedNtEncodeInternalMessage({
+    String? src,
+    required String dst,
+    required bool bounce,
+    String? stateInit,
+    String? body,
+    required String amount,
+    bool? bounced,
+  });
 
-  Future<List<String>> crateApiMergedNtExecuteLocal(
-      {required String config,
-      required String account,
-      required String message,
-      required int utime,
-      required bool disableSignatureCheck,
-      String? overwriteBalance,
-      int? globalId});
+  Future<List<String>> crateApiMergedNtExecuteLocal({
+    required String config,
+    required String account,
+    required String message,
+    required int utime,
+    required bool disableSignatureCheck,
+    String? overwriteBalance,
+    int? globalId,
+  });
 
   String crateApiMergedNtExtractPublicKey({required String boc});
 
-  GeneratedKeyG crateApiMergedNtGenerateKey(
-      {required MnemonicType accountType});
+  GeneratedKeyG crateApiMergedNtGenerateKey({
+    required MnemonicType accountType,
+  });
 
   String crateApiMergedNtGetBocHash({required String boc});
 
@@ -787,615 +975,709 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   int crateApiMergedNtGetContractTypeNumber({required String walletType});
 
-  Future<List<String>> crateApiMergedNtGetExpectedAddress(
-      {required String tvc,
-      required String contractAbi,
-      required int workchainId,
-      String? publicKey,
-      required String initData});
+  Future<List<String>> crateApiMergedNtGetExpectedAddress({
+    required String tvc,
+    required String contractAbi,
+    required int workchainId,
+    String? publicKey,
+    required String initData,
+  });
 
   List<String> crateApiMergedNtGetHints({required String input});
 
   Future<String> crateApiMergedNtMakeFullAccountBoc({String? accountStuffBoc});
 
-  List<String> crateApiMergedNtMergeTvc(
-      {required String code, required String data});
+  List<String> crateApiMergedNtMergeTvc({
+    required String code,
+    required String data,
+  });
 
-  String crateApiMergedNtPackAddress(
-      {required String address,
-      required bool isUrlSafe,
-      required bool bounceable});
+  String crateApiMergedNtPackAddress({
+    required String address,
+    required bool isUrlSafe,
+    required bool bounceable,
+  });
 
-  List<String> crateApiMergedNtPackIntoCell(
-      {required String params, required String tokens, String? version});
+  List<String> crateApiMergedNtPackIntoCell({
+    required String params,
+    required String tokens,
+    String? version,
+  });
 
-  String crateApiMergedNtPackStdSmcAddr(
-      {required String addr,
-      required bool base64Url,
-      required bool bounceable});
+  String crateApiMergedNtPackStdSmcAddr({
+    required String addr,
+    required bool base64Url,
+    required bool bounceable,
+  });
 
-  Future<String?> crateApiMergedNtParseFullAccountBoc(
-      {required String account});
+  Future<String?> crateApiMergedNtParseFullAccountBoc({
+    required String account,
+  });
 
   String? crateApiMergedNtParseKnownPayload({required String payload});
 
   String crateApiMergedNtRepackAddress({required String address});
 
-  Future<String> crateApiMergedNtRunGetter(
-      {required String accountStuffBoc,
-      required String contractAbi,
-      required String methodId,
-      required String input,
-      int? signatureId});
+  Future<String> crateApiMergedNtRunGetter({
+    required String accountStuffBoc,
+    required String contractAbi,
+    required String methodId,
+    required String input,
+    int? signatureId,
+  });
 
-  Future<String> crateApiMergedNtRunLocal(
-      {required String accountStuffBoc,
-      required String contractAbi,
-      required String methodId,
-      required String input,
-      required bool responsible,
-      int? signatureId});
+  Future<String> crateApiMergedNtRunLocal({
+    required String accountStuffBoc,
+    required String contractAbi,
+    required String methodId,
+    required String input,
+    required bool responsible,
+    int? signatureId,
+  });
 
-  List<String> crateApiMergedNtSetCodeSalt(
-      {required String code, required String salt});
+  List<String> crateApiMergedNtSetCodeSalt({
+    required String code,
+    required String salt,
+  });
 
   List<String?> crateApiMergedNtSplitTvc({required String tvc});
 
-  Future<String?> crateApiMergedNtUnpackContractFields(
-      {required String contractAbi,
-      required String boc,
-      required bool allowPartial});
+  Future<String?> crateApiMergedNtUnpackContractFields({
+    required String contractAbi,
+    required String boc,
+    required bool allowPartial,
+  });
 
-  String crateApiMergedNtUnpackFromCell(
-      {required String params,
-      required String boc,
-      required bool allowPartial,
-      String? version});
+  String crateApiMergedNtUnpackFromCell({
+    required String params,
+    required String boc,
+    required bool allowPartial,
+    String? version,
+  });
 
-  Future<List<String?>> crateApiMergedNtUnpackInitData(
-      {required String contractAbi, required String data});
+  Future<List<String?>> crateApiMergedNtUnpackInitData({
+    required String contractAbi,
+    required String data,
+  });
 
-  String crateApiMergedNtUnpackStdSmcAddr(
-      {required String packed, required bool base64Url});
+  String crateApiMergedNtUnpackStdSmcAddr({
+    required String packed,
+    required bool base64Url,
+  });
 
   bool crateApiMergedNtValidateAddress({required String address});
 
-  Future<bool> crateApiMergedNtVerifySignature(
-      {required String publicKey,
-      required String data,
-      required String signature,
-      int? signatureId});
+  Future<bool> crateApiMergedNtVerifySignature({
+    required String publicKey,
+    required String data,
+    required String signature,
+    int? signatureId,
+  });
 
-  ProtoConnectionDartWrapper crateApiMergedProtoConnectionDartWrapperNew(
-      {required FutureOr<Uint8List> Function(Uint8List) onPost});
+  ProtoConnectionDartWrapper crateApiMergedProtoConnectionDartWrapperNew({
+    required FutureOr<Uint8List> Function(Uint8List) onPost,
+  });
 
-  Future<String> crateApiMergedProtoTransportImplGetAccountsByCodeHash(
-      {required ProtoTransportImpl that,
-      required String codeHash,
-      required int limit,
-      String? continuation});
+  Future<String> crateApiMergedProtoTransportImplGetAccountsByCodeHash({
+    required ProtoTransportImpl that,
+    required String codeHash,
+    required int limit,
+    String? continuation,
+  });
 
-  Future<String> crateApiMergedProtoTransportImplGetBlockchainConfig(
-      {required ProtoTransportImpl that, required bool force});
+  Future<String> crateApiMergedProtoTransportImplGetBlockchainConfig({
+    required ProtoTransportImpl that,
+    required bool force,
+  });
 
-  Future<String> crateApiMergedProtoTransportImplGetContractState(
-      {required ProtoTransportImpl that, required String address});
+  Future<String> crateApiMergedProtoTransportImplGetContractState({
+    required ProtoTransportImpl that,
+    required String address,
+  });
 
-  Future<String?> crateApiMergedProtoTransportImplGetDstTransaction(
-      {required ProtoTransportImpl that, required String messageHash});
+  Future<String?> crateApiMergedProtoTransportImplGetDstTransaction({
+    required ProtoTransportImpl that,
+    required String messageHash,
+  });
 
-  Future<String> crateApiMergedProtoTransportImplGetFeeFactors(
-      {required ProtoTransportImpl that, required bool isMasterchain});
+  Future<String> crateApiMergedProtoTransportImplGetFeeFactors({
+    required ProtoTransportImpl that,
+    required bool isMasterchain,
+  });
 
-  Future<String?> crateApiMergedProtoTransportImplGetFullContractState(
-      {required ProtoTransportImpl that, required String address});
+  Future<String?> crateApiMergedProtoTransportImplGetFullContractState({
+    required ProtoTransportImpl that,
+    required String address,
+  });
 
-  Future<int> crateApiMergedProtoTransportImplGetNetworkId(
-      {required ProtoTransportImpl that});
+  Future<int> crateApiMergedProtoTransportImplGetNetworkId({
+    required ProtoTransportImpl that,
+  });
 
-  Future<int?> crateApiMergedProtoTransportImplGetSignatureId(
-      {required ProtoTransportImpl that});
+  Future<int?> crateApiMergedProtoTransportImplGetSignatureId({
+    required ProtoTransportImpl that,
+  });
 
-  Future<String?> crateApiMergedProtoTransportImplGetTransaction(
-      {required ProtoTransportImpl that, required String hash});
+  Future<String?> crateApiMergedProtoTransportImplGetTransaction({
+    required ProtoTransportImpl that,
+    required String hash,
+  });
 
-  Future<String> crateApiMergedProtoTransportImplGetTransactions(
-      {required ProtoTransportImpl that,
-      required String address,
-      String? fromLt,
-      required int count});
+  Future<String> crateApiMergedProtoTransportImplGetTransactions({
+    required ProtoTransportImpl that,
+    required String address,
+    String? fromLt,
+    required int count,
+  });
 
-  ProtoTransportImpl crateApiMergedProtoTransportImplNew(
-      {required ProtoConnectionDartWrapper protoConnection});
+  ProtoTransportImpl crateApiMergedProtoTransportImplNew({
+    required ProtoConnectionDartWrapper protoConnection,
+  });
 
-  Future<String> crateApiMergedProtoTransportImplSimulateTransactionTree(
-      {required ProtoTransportImpl that,
-      required String signedMessage,
-      required List<int> ignoredComputePhaseCodes,
-      required List<int> ignoredActionPhaseCodes});
+  Future<String> crateApiMergedProtoTransportImplSimulateTransactionTree({
+    required ProtoTransportImpl that,
+    required String signedMessage,
+    required List<int> ignoredComputePhaseCodes,
+    required List<int> ignoredActionPhaseCodes,
+  });
 
   Future<void> crateApiMergedSetClockOffset({required PlatformInt64 offsetMs});
 
-  StorageDartWrapper crateApiMergedStorageDartWrapperNew(
-      {required FutureOr<String?> Function(String) onGet,
-      required FutureOr<void> Function(String, String) onSet,
-      required FutureOr<void> Function(String, String) onSetUnchecked,
-      required FutureOr<void> Function(String) onRemove,
-      required FutureOr<void> Function(String) onRemoveUnchecked});
+  StorageDartWrapper crateApiMergedStorageDartWrapperNew({
+    required FutureOr<String?> Function(String) onGet,
+    required FutureOr<void> Function(String, String) onSet,
+    required FutureOr<void> Function(String, String) onSetUnchecked,
+    required FutureOr<void> Function(String) onRemove,
+    required FutureOr<void> Function(String) onRemoveUnchecked,
+  });
 
-  Future<String> crateApiMergedTokenWalletDartWrapperAddress(
-      {required TokenWalletDartWrapper that});
+  Future<String> crateApiMergedTokenWalletDartWrapperAddress({
+    required TokenWalletDartWrapper that,
+  });
 
-  Future<String> crateApiMergedTokenWalletDartWrapperBalance(
-      {required TokenWalletDartWrapper that});
+  Future<String> crateApiMergedTokenWalletDartWrapperBalance({
+    required TokenWalletDartWrapper that,
+  });
 
-  Future<String> crateApiMergedTokenWalletDartWrapperContractState(
-      {required TokenWalletDartWrapper that});
+  Future<String> crateApiMergedTokenWalletDartWrapperContractState({
+    required TokenWalletDartWrapper that,
+  });
 
-  Future<String> crateApiMergedTokenWalletDartWrapperEstimateMinAttachedAmount(
-      {required TokenWalletDartWrapper that,
-      required String destination,
-      required String amount,
-      required bool notifyReceiver,
-      String? payload});
+  Future<String> crateApiMergedTokenWalletDartWrapperEstimateMinAttachedAmount({
+    required TokenWalletDartWrapper that,
+    required String destination,
+    required String amount,
+    required bool notifyReceiver,
+    String? payload,
+  });
 
-  Future<String> crateApiMergedTokenWalletDartWrapperGetTokenRootDetails(
-      {required ArcTransportBoxTrait transport,
-      required String tokenRootAddress});
+  Future<String> crateApiMergedTokenWalletDartWrapperGetTokenRootDetails({
+    required ArcTransportBoxTrait transport,
+    required String tokenRootAddress,
+  });
 
   Future<String>
-      crateApiMergedTokenWalletDartWrapperGetTokenRootDetailsFromTokenWallet(
-          {required ArcTransportBoxTrait transport,
-          required String tokenWalletAddress});
+  crateApiMergedTokenWalletDartWrapperGetTokenRootDetailsFromTokenWallet({
+    required ArcTransportBoxTrait transport,
+    required String tokenWalletAddress,
+  });
 
-  Future<String> crateApiMergedTokenWalletDartWrapperGetTokenWalletDetails(
-      {required ArcTransportBoxTrait transport, required String address});
+  Future<String> crateApiMergedTokenWalletDartWrapperGetTokenWalletDetails({
+    required ArcTransportBoxTrait transport,
+    required String address,
+  });
 
-  Future<bool> crateApiMergedTokenWalletDartWrapperHandleBlock(
-      {required TokenWalletDartWrapper that, required String block});
+  Future<bool> crateApiMergedTokenWalletDartWrapperHandleBlock({
+    required TokenWalletDartWrapper that,
+    required String block,
+  });
 
-  Future<String> crateApiMergedTokenWalletDartWrapperOwner(
-      {required TokenWalletDartWrapper that});
+  Future<String> crateApiMergedTokenWalletDartWrapperOwner({
+    required TokenWalletDartWrapper that,
+  });
 
-  Future<bool> crateApiMergedTokenWalletDartWrapperPreloadTransactions(
-      {required TokenWalletDartWrapper that, required String fromLt});
+  Future<bool> crateApiMergedTokenWalletDartWrapperPreloadTransactions({
+    required TokenWalletDartWrapper that,
+    required String fromLt,
+  });
 
-  Future<String> crateApiMergedTokenWalletDartWrapperPrepareTransfer(
-      {required TokenWalletDartWrapper that,
-      required String destination,
-      required String amount,
-      required bool notifyReceiver,
-      String? attachedAmount,
-      String? payload});
+  Future<String> crateApiMergedTokenWalletDartWrapperPrepareTransfer({
+    required TokenWalletDartWrapper that,
+    required String destination,
+    required String amount,
+    required bool notifyReceiver,
+    String? attachedAmount,
+    String? payload,
+  });
 
-  Future<bool> crateApiMergedTokenWalletDartWrapperRefresh(
-      {required TokenWalletDartWrapper that});
+  Future<bool> crateApiMergedTokenWalletDartWrapperRefresh({
+    required TokenWalletDartWrapper that,
+  });
 
-  Future<TokenWalletDartWrapper> crateApiMergedTokenWalletDartWrapperSubscribe(
-      {required String owner,
-      required String rootTokenContract,
-      required ArcTransportBoxTrait transport,
-      required bool preloadTransactions,
-      required FutureOr<void> Function(String) onBalanceChanged,
-      required FutureOr<void> Function(String) onTransactionsFound});
+  Future<TokenWalletDartWrapper> crateApiMergedTokenWalletDartWrapperSubscribe({
+    required String owner,
+    required String rootTokenContract,
+    required ArcTransportBoxTrait transport,
+    required bool preloadTransactions,
+    required FutureOr<void> Function(String) onBalanceChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+  });
 
-  Future<String> crateApiMergedTokenWalletDartWrapperSymbol(
-      {required TokenWalletDartWrapper that});
+  Future<String> crateApiMergedTokenWalletDartWrapperSymbol({
+    required TokenWalletDartWrapper that,
+  });
 
-  Future<String> crateApiMergedTokenWalletDartWrapperVersion(
-      {required TokenWalletDartWrapper that});
+  Future<String> crateApiMergedTokenWalletDartWrapperVersion({
+    required TokenWalletDartWrapper that,
+  });
 
-  Future<String> crateApiMergedTonWalletDartWrapperAddress(
-      {required TonWalletDartWrapper that});
+  Future<String> crateApiMergedTonWalletDartWrapperAddress({
+    required TonWalletDartWrapper that,
+  });
 
-  Future<String> crateApiMergedTonWalletDartWrapperContractState(
-      {required TonWalletDartWrapper that});
+  Future<String> crateApiMergedTonWalletDartWrapperContractState({
+    required TonWalletDartWrapper that,
+  });
 
-  Future<List<String>?> crateApiMergedTonWalletDartWrapperCustodians(
-      {required TonWalletDartWrapper that});
+  Future<List<String>?> crateApiMergedTonWalletDartWrapperCustodians({
+    required TonWalletDartWrapper that,
+  });
 
-  Future<String> crateApiMergedTonWalletDartWrapperDetails(
-      {required TonWalletDartWrapper that});
+  Future<String> crateApiMergedTonWalletDartWrapperDetails({
+    required TonWalletDartWrapper that,
+  });
 
-  Future<String> crateApiMergedTonWalletDartWrapperEstimateFees(
-      {required TonWalletDartWrapper that,
-      required String signedMessage,
-      String? executionOptions});
+  Future<String> crateApiMergedTonWalletDartWrapperEstimateFees({
+    required TonWalletDartWrapper that,
+    required String signedMessage,
+    String? executionOptions,
+  });
 
-  Future<String> crateApiMergedTonWalletDartWrapperFindExistingWallets(
-      {required ArcTransportBoxTrait transport,
-      required String publicKey,
-      required int workchainId,
-      required String walletTypes});
+  Future<String> crateApiMergedTonWalletDartWrapperFindExistingWallets({
+    required ArcTransportBoxTrait transport,
+    required String publicKey,
+    required int workchainId,
+    required String walletTypes,
+  });
 
-  Future<List<String>> crateApiMergedTonWalletDartWrapperGetCustodians(
-      {required ArcTransportBoxTrait transport, required String address});
+  Future<List<String>> crateApiMergedTonWalletDartWrapperGetCustodians({
+    required ArcTransportBoxTrait transport,
+    required String address,
+  });
 
-  Future<String> crateApiMergedTonWalletDartWrapperGetExistingWalletInfo(
-      {required ArcTransportBoxTrait transport, required String address});
+  Future<String> crateApiMergedTonWalletDartWrapperGetExistingWalletInfo({
+    required ArcTransportBoxTrait transport,
+    required String address,
+  });
 
-  Future<bool> crateApiMergedTonWalletDartWrapperHandleBlock(
-      {required TonWalletDartWrapper that, required String block});
+  Future<bool> crateApiMergedTonWalletDartWrapperHandleBlock({
+    required TonWalletDartWrapper that,
+    required String block,
+  });
 
-  Future<String> crateApiMergedTonWalletDartWrapperMakeStateInit(
-      {required TonWalletDartWrapper that});
+  Future<String> crateApiMergedTonWalletDartWrapperMakeStateInit({
+    required TonWalletDartWrapper that,
+  });
 
-  Future<String> crateApiMergedTonWalletDartWrapperPendingTransactions(
-      {required TonWalletDartWrapper that});
+  Future<String> crateApiMergedTonWalletDartWrapperPendingTransactions({
+    required TonWalletDartWrapper that,
+  });
 
-  Future<PollingMethod> crateApiMergedTonWalletDartWrapperPollingMethod(
-      {required TonWalletDartWrapper that});
+  Future<PollingMethod> crateApiMergedTonWalletDartWrapperPollingMethod({
+    required TonWalletDartWrapper that,
+  });
 
-  Future<bool> crateApiMergedTonWalletDartWrapperPreloadTransactions(
-      {required TonWalletDartWrapper that, required String fromLt});
+  Future<bool> crateApiMergedTonWalletDartWrapperPreloadTransactions({
+    required TonWalletDartWrapper that,
+    required String fromLt,
+  });
 
   Future<UnsignedMessageImpl>
-      crateApiMergedTonWalletDartWrapperPrepareConfirmTransaction(
-          {required TonWalletDartWrapper that,
-          required String contractState,
-          required String publicKey,
-          required String transactionId,
-          required String expiration});
+  crateApiMergedTonWalletDartWrapperPrepareConfirmTransaction({
+    required TonWalletDartWrapper that,
+    required String contractState,
+    required String publicKey,
+    required String transactionId,
+    required String expiration,
+  });
 
-  Future<UnsignedMessageImpl> crateApiMergedTonWalletDartWrapperPrepareDeploy(
-      {required TonWalletDartWrapper that, required String expiration});
+  Future<UnsignedMessageImpl> crateApiMergedTonWalletDartWrapperPrepareDeploy({
+    required TonWalletDartWrapper that,
+    required String expiration,
+  });
 
   Future<UnsignedMessageImpl>
-      crateApiMergedTonWalletDartWrapperPrepareDeployWithMultipleOwners(
-          {required TonWalletDartWrapper that,
-          required String expiration,
-          required List<String> custodians,
-          required int reqConfirms,
-          int? expirationTime});
+  crateApiMergedTonWalletDartWrapperPrepareDeployWithMultipleOwners({
+    required TonWalletDartWrapper that,
+    required String expiration,
+    required List<String> custodians,
+    required int reqConfirms,
+    int? expirationTime,
+  });
 
-  Future<UnsignedMessageImpl> crateApiMergedTonWalletDartWrapperPrepareTransfer(
-      {required TonWalletDartWrapper that,
-      required String contractState,
-      required String publicKey,
-      required String expiration,
-      required String params});
+  Future<UnsignedMessageImpl>
+  crateApiMergedTonWalletDartWrapperPrepareTransfer({
+    required TonWalletDartWrapper that,
+    required String contractState,
+    required String publicKey,
+    required String expiration,
+    required String params,
+  });
 
-  Future<String> crateApiMergedTonWalletDartWrapperPublicKey(
-      {required TonWalletDartWrapper that});
+  Future<String> crateApiMergedTonWalletDartWrapperPublicKey({
+    required TonWalletDartWrapper that,
+  });
 
-  Future<bool> crateApiMergedTonWalletDartWrapperRefresh(
-      {required TonWalletDartWrapper that});
+  Future<bool> crateApiMergedTonWalletDartWrapperRefresh({
+    required TonWalletDartWrapper that,
+  });
 
-  Future<String> crateApiMergedTonWalletDartWrapperSend(
-      {required TonWalletDartWrapper that, required String signedMessage});
+  Future<String> crateApiMergedTonWalletDartWrapperSend({
+    required TonWalletDartWrapper that,
+    required String signedMessage,
+  });
 
-  Future<TonWalletDartWrapper> crateApiMergedTonWalletDartWrapperSubscribe(
-      {required int workchainId,
-      required String publicKey,
-      required String walletType,
-      required ArcTransportBoxTrait transport,
-      required FutureOr<void> Function(String) onMessageSent,
-      required FutureOr<void> Function(String) onMessageExpired,
-      required FutureOr<void> Function(String) onStateChanged,
-      required FutureOr<void> Function(String) onTransactionsFound,
-      required FutureOr<void> Function(String) onDetailsChanged,
-      required FutureOr<void> Function(String) onCustodiansChanged,
-      required FutureOr<void> Function(String)
-          onUnconfirmedTransactionsChanged});
-
-  Future<TonWalletDartWrapper>
-      crateApiMergedTonWalletDartWrapperSubscribeByAddress(
-          {required String address,
-          required ArcTransportBoxTrait transport,
-          required FutureOr<void> Function(String) onMessageSent,
-          required FutureOr<void> Function(String) onMessageExpired,
-          required FutureOr<void> Function(String) onStateChanged,
-          required FutureOr<void> Function(String) onTransactionsFound,
-          required FutureOr<void> Function(String) onDetailsChanged,
-          required FutureOr<void> Function(String) onCustodiansChanged,
-          required FutureOr<void> Function(String)
-              onUnconfirmedTransactionsChanged});
+  Future<TonWalletDartWrapper> crateApiMergedTonWalletDartWrapperSubscribe({
+    required int workchainId,
+    required String publicKey,
+    required String walletType,
+    required ArcTransportBoxTrait transport,
+    required FutureOr<void> Function(String) onMessageSent,
+    required FutureOr<void> Function(String) onMessageExpired,
+    required FutureOr<void> Function(String) onStateChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+    required FutureOr<void> Function(String) onDetailsChanged,
+    required FutureOr<void> Function(String) onCustodiansChanged,
+    required FutureOr<void> Function(String) onUnconfirmedTransactionsChanged,
+  });
 
   Future<TonWalletDartWrapper>
-      crateApiMergedTonWalletDartWrapperSubscribeByExisting(
-          {required String existingWallet,
-          required ArcTransportBoxTrait transport,
-          required FutureOr<void> Function(String) onMessageSent,
-          required FutureOr<void> Function(String) onMessageExpired,
-          required FutureOr<void> Function(String) onStateChanged,
-          required FutureOr<void> Function(String) onTransactionsFound,
-          required FutureOr<void> Function(String) onDetailsChanged,
-          required FutureOr<void> Function(String) onCustodiansChanged,
-          required FutureOr<void> Function(String)
-              onUnconfirmedTransactionsChanged});
+  crateApiMergedTonWalletDartWrapperSubscribeByAddress({
+    required String address,
+    required ArcTransportBoxTrait transport,
+    required FutureOr<void> Function(String) onMessageSent,
+    required FutureOr<void> Function(String) onMessageExpired,
+    required FutureOr<void> Function(String) onStateChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+    required FutureOr<void> Function(String) onDetailsChanged,
+    required FutureOr<void> Function(String) onCustodiansChanged,
+    required FutureOr<void> Function(String) onUnconfirmedTransactionsChanged,
+  });
 
-  Future<String> crateApiMergedTonWalletDartWrapperUnconfirmedTransactions(
-      {required TonWalletDartWrapper that});
+  Future<TonWalletDartWrapper>
+  crateApiMergedTonWalletDartWrapperSubscribeByExisting({
+    required String existingWallet,
+    required ArcTransportBoxTrait transport,
+    required FutureOr<void> Function(String) onMessageSent,
+    required FutureOr<void> Function(String) onMessageExpired,
+    required FutureOr<void> Function(String) onStateChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+    required FutureOr<void> Function(String) onDetailsChanged,
+    required FutureOr<void> Function(String) onCustodiansChanged,
+    required FutureOr<void> Function(String) onUnconfirmedTransactionsChanged,
+  });
 
-  Future<String> crateApiMergedTonWalletDartWrapperWalletType(
-      {required TonWalletDartWrapper that});
+  Future<String> crateApiMergedTonWalletDartWrapperUnconfirmedTransactions({
+    required TonWalletDartWrapper that,
+  });
 
-  Future<int> crateApiMergedTonWalletDartWrapperWorkchain(
-      {required TonWalletDartWrapper that});
+  Future<String> crateApiMergedTonWalletDartWrapperWalletType({
+    required TonWalletDartWrapper that,
+  });
 
-  Future<int> crateApiMergedUnsignedMessageImplExpireAt(
-      {required UnsignedMessageImpl that});
+  Future<int> crateApiMergedTonWalletDartWrapperWorkchain({
+    required TonWalletDartWrapper that,
+  });
 
-  Future<String> crateApiMergedUnsignedMessageImplHash(
-      {required UnsignedMessageImpl that});
+  Future<int> crateApiMergedUnsignedMessageImplExpireAt({
+    required UnsignedMessageImpl that,
+  });
 
-  Future<UnsignedMessageImpl> crateApiMergedUnsignedMessageImplRefreshTimeout(
-      {required UnsignedMessageImpl that});
+  Future<String> crateApiMergedUnsignedMessageImplHash({
+    required UnsignedMessageImpl that,
+  });
 
-  Future<String> crateApiMergedUnsignedMessageImplSign(
-      {required UnsignedMessageImpl that, required String signature});
+  Future<UnsignedMessageImpl> crateApiMergedUnsignedMessageImplRefreshTimeout({
+    required UnsignedMessageImpl that,
+  });
 
-  Future<String> crateApiMergedUnsignedMessageImplSignFake(
-      {required UnsignedMessageImpl that});
+  Future<String> crateApiMergedUnsignedMessageImplSign({
+    required UnsignedMessageImpl that,
+    required String signature,
+  });
+
+  Future<String> crateApiMergedUnsignedMessageImplSignFake({
+    required UnsignedMessageImpl that,
+  });
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcAccountsStorageBoxTrait;
+  get rust_arc_increment_strong_count_ArcAccountsStorageBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcAccountsStorageBoxTrait;
+  get rust_arc_decrement_strong_count_ArcAccountsStorageBoxTrait;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcAccountsStorageBoxTraitPtr;
+  get rust_arc_decrement_strong_count_ArcAccountsStorageBoxTraitPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcGenericContractBoxTrait;
+  get rust_arc_increment_strong_count_ArcGenericContractBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcGenericContractBoxTrait;
+  get rust_arc_decrement_strong_count_ArcGenericContractBoxTrait;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcGenericContractBoxTraitPtr;
+  get rust_arc_decrement_strong_count_ArcGenericContractBoxTraitPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcGqlConnectionBoxTrait;
+  get rust_arc_increment_strong_count_ArcGqlConnectionBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcGqlConnectionBoxTrait;
+  get rust_arc_decrement_strong_count_ArcGqlConnectionBoxTrait;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcGqlConnectionBoxTraitPtr;
+  get rust_arc_decrement_strong_count_ArcGqlConnectionBoxTraitPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcJettonWalletBoxTrait;
+  get rust_arc_increment_strong_count_ArcJettonWalletBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcJettonWalletBoxTrait;
+  get rust_arc_decrement_strong_count_ArcJettonWalletBoxTrait;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcJettonWalletBoxTraitPtr;
+  get rust_arc_decrement_strong_count_ArcJettonWalletBoxTraitPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcJrpcConnectionBoxTrait;
+  get rust_arc_increment_strong_count_ArcJrpcConnectionBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcJrpcConnectionBoxTrait;
+  get rust_arc_decrement_strong_count_ArcJrpcConnectionBoxTrait;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcJrpcConnectionBoxTraitPtr;
+  get rust_arc_decrement_strong_count_ArcJrpcConnectionBoxTraitPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcKeyStoreApiBoxTrait;
+  get rust_arc_increment_strong_count_ArcKeyStoreApiBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcKeyStoreApiBoxTrait;
+  get rust_arc_decrement_strong_count_ArcKeyStoreApiBoxTrait;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcKeyStoreApiBoxTraitPtr;
+  get rust_arc_decrement_strong_count_ArcKeyStoreApiBoxTraitPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcLedgerConnectionBoxTrait;
+  get rust_arc_increment_strong_count_ArcLedgerConnectionBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcLedgerConnectionBoxTrait;
+  get rust_arc_decrement_strong_count_ArcLedgerConnectionBoxTrait;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcLedgerConnectionBoxTraitPtr;
+  get rust_arc_decrement_strong_count_ArcLedgerConnectionBoxTraitPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcProtoConnectionBoxTrait;
+  get rust_arc_increment_strong_count_ArcProtoConnectionBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcProtoConnectionBoxTrait;
+  get rust_arc_decrement_strong_count_ArcProtoConnectionBoxTrait;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcProtoConnectionBoxTraitPtr;
+  get rust_arc_decrement_strong_count_ArcProtoConnectionBoxTraitPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcStorageBoxTrait;
+  get rust_arc_increment_strong_count_ArcStorageBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcStorageBoxTrait;
+  get rust_arc_decrement_strong_count_ArcStorageBoxTrait;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcStorageBoxTraitPtr;
+  get rust_arc_decrement_strong_count_ArcStorageBoxTraitPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcTokenWalletBoxTrait;
+  get rust_arc_increment_strong_count_ArcTokenWalletBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcTokenWalletBoxTrait;
+  get rust_arc_decrement_strong_count_ArcTokenWalletBoxTrait;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcTokenWalletBoxTraitPtr;
+  get rust_arc_decrement_strong_count_ArcTokenWalletBoxTraitPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcTonWalletBoxTrait;
+  get rust_arc_increment_strong_count_ArcTonWalletBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcTonWalletBoxTrait;
+  get rust_arc_decrement_strong_count_ArcTonWalletBoxTrait;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcTonWalletBoxTraitPtr;
+  get rust_arc_decrement_strong_count_ArcTonWalletBoxTraitPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcTransportBoxTrait;
+  get rust_arc_increment_strong_count_ArcTransportBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcTransportBoxTrait;
+  get rust_arc_decrement_strong_count_ArcTransportBoxTrait;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcTransportBoxTraitPtr;
+  get rust_arc_decrement_strong_count_ArcTransportBoxTraitPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcUnsignedMessageBoxTrait;
+  get rust_arc_increment_strong_count_ArcUnsignedMessageBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTrait;
+  get rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTrait;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTraitPtr;
+  get rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTraitPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcFnStringDartFnFutureOptionString;
+  get rust_arc_increment_strong_count_ArcFnStringDartFnFutureOptionString;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureOptionString;
+  get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureOptionString;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureOptionStringPtr;
+  get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureOptionStringPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcFnStringDartFnFuture;
+  get rust_arc_increment_strong_count_ArcFnStringDartFnFuture;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcFnStringDartFnFuture;
+  get rust_arc_decrement_strong_count_ArcFnStringDartFnFuture;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcFnStringDartFnFuturePtr;
+  get rust_arc_decrement_strong_count_ArcFnStringDartFnFuturePtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcFnStringDartFnFutureString;
+  get rust_arc_increment_strong_count_ArcFnStringDartFnFutureString;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureString;
+  get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureString;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureStringPtr;
+  get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureStringPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcFnStringStringDartFnFuture;
+  get rust_arc_increment_strong_count_ArcFnStringStringDartFnFuture;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcFnStringStringDartFnFuture;
+  get rust_arc_decrement_strong_count_ArcFnStringStringDartFnFuture;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcFnStringStringDartFnFuturePtr;
+  get rust_arc_decrement_strong_count_ArcFnStringStringDartFnFuturePtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcFnVecU8DartFnFutureVecU8;
+  get rust_arc_increment_strong_count_ArcFnVecU8DartFnFutureVecU8;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcFnVecU8DartFnFutureVecU8;
+  get rust_arc_decrement_strong_count_ArcFnVecU8DartFnFutureVecU8;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcFnVecU8DartFnFutureVecU8Ptr;
+  get rust_arc_decrement_strong_count_ArcFnVecU8DartFnFutureVecU8Ptr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcFnU16DartFnFutureVecU8;
+  get rust_arc_increment_strong_count_ArcFnU16DartFnFutureVecU8;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcFnU16DartFnFutureVecU8;
+  get rust_arc_decrement_strong_count_ArcFnU16DartFnFutureVecU8;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcFnU16DartFnFutureVecU8Ptr;
+  get rust_arc_decrement_strong_count_ArcFnU16DartFnFutureVecU8Ptr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8;
+  get rust_arc_increment_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8;
+  get rust_arc_decrement_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8Ptr;
+  get rust_arc_decrement_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8Ptr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8;
+  get rust_arc_increment_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8;
+  get rust_arc_decrement_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Ptr;
+  get rust_arc_decrement_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Ptr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_GenericContractSubscriptionHandlerImpl;
+  get rust_arc_increment_strong_count_GenericContractSubscriptionHandlerImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_GenericContractSubscriptionHandlerImpl;
+  get rust_arc_decrement_strong_count_GenericContractSubscriptionHandlerImpl;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_GenericContractSubscriptionHandlerImplPtr;
+  get rust_arc_decrement_strong_count_GenericContractSubscriptionHandlerImplPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_GqlConnectionImpl;
+  get rust_arc_increment_strong_count_GqlConnectionImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_GqlConnectionImpl;
+  get rust_arc_decrement_strong_count_GqlConnectionImpl;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_GqlConnectionImplPtr;
+  get rust_arc_decrement_strong_count_GqlConnectionImplPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_JettonWalletSubscriptionHandlerImpl;
+  get rust_arc_increment_strong_count_JettonWalletSubscriptionHandlerImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_JettonWalletSubscriptionHandlerImpl;
+  get rust_arc_decrement_strong_count_JettonWalletSubscriptionHandlerImpl;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_JettonWalletSubscriptionHandlerImplPtr;
+  get rust_arc_decrement_strong_count_JettonWalletSubscriptionHandlerImplPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_JrpcConnectionImpl;
+  get rust_arc_increment_strong_count_JrpcConnectionImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_JrpcConnectionImpl;
+  get rust_arc_decrement_strong_count_JrpcConnectionImpl;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_JrpcConnectionImplPtr;
+  get rust_arc_decrement_strong_count_JrpcConnectionImplPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_LedgerConnectionImpl;
+  get rust_arc_increment_strong_count_LedgerConnectionImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_LedgerConnectionImpl;
+  get rust_arc_decrement_strong_count_LedgerConnectionImpl;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_LedgerConnectionImplPtr;
+  get rust_arc_decrement_strong_count_LedgerConnectionImplPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ProtoConnectionImpl;
+  get rust_arc_increment_strong_count_ProtoConnectionImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ProtoConnectionImpl;
+  get rust_arc_decrement_strong_count_ProtoConnectionImpl;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_ProtoConnectionImplPtr;
+  get rust_arc_decrement_strong_count_ProtoConnectionImplPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_StorageImpl;
+  get rust_arc_increment_strong_count_StorageImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_StorageImpl;
+  get rust_arc_decrement_strong_count_StorageImpl;
 
   CrossPlatformFinalizerArg get rust_arc_decrement_strong_count_StorageImplPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_TokenWalletSubscriptionHandlerImpl;
+  get rust_arc_increment_strong_count_TokenWalletSubscriptionHandlerImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_TokenWalletSubscriptionHandlerImpl;
+  get rust_arc_decrement_strong_count_TokenWalletSubscriptionHandlerImpl;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_TokenWalletSubscriptionHandlerImplPtr;
+  get rust_arc_decrement_strong_count_TokenWalletSubscriptionHandlerImplPtr;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_TonWalletSubscriptionHandlerImpl;
+  get rust_arc_increment_strong_count_TonWalletSubscriptionHandlerImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_TonWalletSubscriptionHandlerImpl;
+  get rust_arc_decrement_strong_count_TonWalletSubscriptionHandlerImpl;
 
   CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_TonWalletSubscriptionHandlerImplPtr;
+  get rust_arc_decrement_strong_count_TonWalletSubscriptionHandlerImplPtr;
 }
 
 class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
@@ -1409,900 +1691,1056 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @override
   ArcFnStringDartFnFuture
-      crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageExpired(
-          {required GenericContractSubscriptionHandlerImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_expired(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageExpired({
+    required GenericContractSubscriptionHandlerImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_expired(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageExpiredConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageExpiredConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageExpiredConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_expired",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageExpiredConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_expired",
+        argNames: ["that"],
+      );
 
   @override
   ArcFnStringDartFnFuture
-      crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageSent(
-          {required GenericContractSubscriptionHandlerImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_sent(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageSent({
+    required GenericContractSubscriptionHandlerImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_sent(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageSentConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageSentConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageSentConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_sent",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageSentConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_sent",
+        argNames: ["that"],
+      );
 
   @override
   ArcFnStringDartFnFuture
-      crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnStateChanged(
-          {required GenericContractSubscriptionHandlerImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_state_changed(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnStateChanged({
+    required GenericContractSubscriptionHandlerImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_state_changed(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnStateChangedConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnStateChangedConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnStateChangedConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_state_changed",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnStateChangedConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_state_changed",
+        argNames: ["that"],
+      );
 
   @override
   ArcFnStringDartFnFuture
-      crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound(
-          {required GenericContractSubscriptionHandlerImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound({
+    required GenericContractSubscriptionHandlerImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnTransactionsFoundConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnTransactionsFoundConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnTransactionsFoundConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnTransactionsFoundConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found",
+        argNames: ["that"],
+      );
 
   @override
   void
-      crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageExpired(
-          {required GenericContractSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onMessageExpired}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onMessageExpired);
-        return wire
-            .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_expired(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageExpired({
+    required GenericContractSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onMessageExpired,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onMessageExpired,
+              );
+          return wire
+              .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_expired(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageExpiredConstMeta,
+        argValues: [that, onMessageExpired],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageExpiredConstMeta,
-      argValues: [that, onMessageExpired],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageExpiredConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_expired",
-            argNames: ["that", "onMessageExpired"],
-          );
+  get kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageExpiredConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_expired",
+        argNames: ["that", "onMessageExpired"],
+      );
 
   @override
   void
-      crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageSent(
-          {required GenericContractSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onMessageSent}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onMessageSent);
-        return wire
-            .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_sent(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageSent({
+    required GenericContractSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onMessageSent,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onMessageSent,
+              );
+          return wire
+              .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_sent(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageSentConstMeta,
+        argValues: [that, onMessageSent],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageSentConstMeta,
-      argValues: [that, onMessageSent],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageSentConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_sent",
-            argNames: ["that", "onMessageSent"],
-          );
+  get kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageSentConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_sent",
+        argNames: ["that", "onMessageSent"],
+      );
 
   @override
   void
-      crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnStateChanged(
-          {required GenericContractSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onStateChanged}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onStateChanged);
-        return wire
-            .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_state_changed(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnStateChanged({
+    required GenericContractSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onStateChanged,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onStateChanged,
+              );
+          return wire
+              .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_state_changed(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnStateChangedConstMeta,
+        argValues: [that, onStateChanged],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnStateChangedConstMeta,
-      argValues: [that, onStateChanged],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnStateChangedConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_state_changed",
-            argNames: ["that", "onStateChanged"],
-          );
+  get kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnStateChangedConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_state_changed",
+        argNames: ["that", "onStateChanged"],
+      );
 
   @override
   void
-      crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound(
-          {required GenericContractSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onTransactionsFound}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onTransactionsFound);
-        return wire
-            .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound({
+    required GenericContractSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onTransactionsFound,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onTransactionsFound,
+              );
+          return wire
+              .wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnTransactionsFoundConstMeta,
+        argValues: [that, onTransactionsFound],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnTransactionsFoundConstMeta,
-      argValues: [that, onTransactionsFound],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnTransactionsFoundConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found",
-            argNames: ["that", "onTransactionsFound"],
-          );
+  get kCrateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnTransactionsFoundConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found",
+        argNames: ["that", "onTransactionsFound"],
+      );
 
   @override
-  bool crateApiMergedGqlConnectionImplAutoAccessorGetIsLocal(
-      {required GqlConnectionImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_is_local(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: null,
+  bool crateApiMergedGqlConnectionImplAutoAccessorGetIsLocal({
+    required GqlConnectionImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_is_local(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedGqlConnectionImplAutoAccessorGetIsLocalConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedGqlConnectionImplAutoAccessorGetIsLocalConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGqlConnectionImplAutoAccessorGetIsLocalConstMeta =>
-          const TaskConstMeta(
-            debugName: "GqlConnectionImpl_auto_accessor_get_is_local",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedGqlConnectionImplAutoAccessorGetIsLocalConstMeta =>
+      const TaskConstMeta(
+        debugName: "GqlConnectionImpl_auto_accessor_get_is_local",
+        argNames: ["that"],
+      );
 
   @override
   ArcFnStringDartFnFutureString
-      crateApiMergedGqlConnectionImplAutoAccessorGetOnPost(
-          {required GqlConnectionImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_on_post(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync,
-        decodeErrorData: null,
+  crateApiMergedGqlConnectionImplAutoAccessorGetOnPost({
+    required GqlConnectionImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_on_post(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedGqlConnectionImplAutoAccessorGetOnPostConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGqlConnectionImplAutoAccessorGetOnPostConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGqlConnectionImplAutoAccessorGetOnPostConstMeta =>
-          const TaskConstMeta(
-            debugName: "GqlConnectionImpl_auto_accessor_get_on_post",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedGqlConnectionImplAutoAccessorGetOnPostConstMeta =>
+      const TaskConstMeta(
+        debugName: "GqlConnectionImpl_auto_accessor_get_on_post",
+        argNames: ["that"],
+      );
 
   @override
-  void crateApiMergedGqlConnectionImplAutoAccessorSetIsLocal(
-      {required GqlConnectionImpl that, required bool isLocal}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-                that);
-        var arg1 = cst_encode_bool(isLocal);
-        return wire
-            .wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_is_local(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  void crateApiMergedGqlConnectionImplAutoAccessorSetIsLocal({
+    required GqlConnectionImpl that,
+    required bool isLocal,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+                that,
+              );
+          var arg1 = cst_encode_bool(isLocal);
+          return wire
+              .wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_is_local(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedGqlConnectionImplAutoAccessorSetIsLocalConstMeta,
+        argValues: [that, isLocal],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedGqlConnectionImplAutoAccessorSetIsLocalConstMeta,
-      argValues: [that, isLocal],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGqlConnectionImplAutoAccessorSetIsLocalConstMeta =>
-          const TaskConstMeta(
-            debugName: "GqlConnectionImpl_auto_accessor_set_is_local",
-            argNames: ["that", "isLocal"],
-          );
+  get kCrateApiMergedGqlConnectionImplAutoAccessorSetIsLocalConstMeta =>
+      const TaskConstMeta(
+        debugName: "GqlConnectionImpl_auto_accessor_set_is_local",
+        argNames: ["that", "isLocal"],
+      );
 
   @override
-  void crateApiMergedGqlConnectionImplAutoAccessorSetOnPost(
-      {required GqlConnectionImpl that,
-      required ArcFnStringDartFnFutureString onPost}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
-                onPost);
-        return wire
-            .wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_on_post(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  void crateApiMergedGqlConnectionImplAutoAccessorSetOnPost({
+    required GqlConnectionImpl that,
+    required ArcFnStringDartFnFutureString onPost,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+                onPost,
+              );
+          return wire
+              .wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_on_post(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedGqlConnectionImplAutoAccessorSetOnPostConstMeta,
+        argValues: [that, onPost],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGqlConnectionImplAutoAccessorSetOnPostConstMeta,
-      argValues: [that, onPost],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGqlConnectionImplAutoAccessorSetOnPostConstMeta =>
-          const TaskConstMeta(
-            debugName: "GqlConnectionImpl_auto_accessor_set_on_post",
-            argNames: ["that", "onPost"],
-          );
-
-  @override
-  ArcFnStringDartFnFuture
-      crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChanged(
-          {required JettonWalletSubscriptionHandlerImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
-        decodeErrorData: null,
-      ),
-      constMeta:
-          kCrateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChangedConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
-  }
-
-  TaskConstMeta
-      get kCrateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChangedConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedGqlConnectionImplAutoAccessorSetOnPostConstMeta =>
+      const TaskConstMeta(
+        debugName: "GqlConnectionImpl_auto_accessor_set_on_post",
+        argNames: ["that", "onPost"],
+      );
 
   @override
   ArcFnStringDartFnFuture
-      crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound(
-          {required JettonWalletSubscriptionHandlerImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChanged({
+    required JettonWalletSubscriptionHandlerImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChangedConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFoundConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFoundConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChangedConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed",
+        argNames: ["that"],
+      );
+
+  @override
+  ArcFnStringDartFnFuture
+  crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound({
+    required JettonWalletSubscriptionHandlerImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFoundConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta
+  get kCrateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFoundConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found",
+        argNames: ["that"],
+      );
 
   @override
   void
-      crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChanged(
-          {required JettonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onBalanceChanged}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onBalanceChanged);
-        return wire
-            .wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChanged({
+    required JettonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onBalanceChanged,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onBalanceChanged,
+              );
+          return wire
+              .wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChangedConstMeta,
+        argValues: [that, onBalanceChanged],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChangedConstMeta,
-      argValues: [that, onBalanceChanged],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChangedConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed",
-            argNames: ["that", "onBalanceChanged"],
-          );
+  get kCrateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChangedConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed",
+        argNames: ["that", "onBalanceChanged"],
+      );
 
   @override
   void
-      crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound(
-          {required JettonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onTransactionsFound}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onTransactionsFound);
-        return wire
-            .wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound({
+    required JettonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onTransactionsFound,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onTransactionsFound,
+              );
+          return wire
+              .wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFoundConstMeta,
+        argValues: [that, onTransactionsFound],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFoundConstMeta,
-      argValues: [that, onTransactionsFound],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFoundConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found",
-            argNames: ["that", "onTransactionsFound"],
-          );
+  get kCrateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFoundConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found",
+        argNames: ["that", "onTransactionsFound"],
+      );
 
   @override
   ArcFnStringDartFnFutureString
-      crateApiMergedJrpcConnectionImplAutoAccessorGetOnPost(
-          {required JrpcConnectionImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_get_on_post(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync,
-        decodeErrorData: null,
+  crateApiMergedJrpcConnectionImplAutoAccessorGetOnPost({
+    required JrpcConnectionImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_get_on_post(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedJrpcConnectionImplAutoAccessorGetOnPostConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedJrpcConnectionImplAutoAccessorGetOnPostConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedJrpcConnectionImplAutoAccessorGetOnPostConstMeta =>
-          const TaskConstMeta(
-            debugName: "JrpcConnectionImpl_auto_accessor_get_on_post",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedJrpcConnectionImplAutoAccessorGetOnPostConstMeta =>
+      const TaskConstMeta(
+        debugName: "JrpcConnectionImpl_auto_accessor_get_on_post",
+        argNames: ["that"],
+      );
 
   @override
-  void crateApiMergedJrpcConnectionImplAutoAccessorSetOnPost(
-      {required JrpcConnectionImpl that,
-      required ArcFnStringDartFnFutureString onPost}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
-                onPost);
-        return wire
-            .wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_set_on_post(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  void crateApiMergedJrpcConnectionImplAutoAccessorSetOnPost({
+    required JrpcConnectionImpl that,
+    required ArcFnStringDartFnFutureString onPost,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+                onPost,
+              );
+          return wire
+              .wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_set_on_post(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedJrpcConnectionImplAutoAccessorSetOnPostConstMeta,
+        argValues: [that, onPost],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedJrpcConnectionImplAutoAccessorSetOnPostConstMeta,
-      argValues: [that, onPost],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedJrpcConnectionImplAutoAccessorSetOnPostConstMeta =>
-          const TaskConstMeta(
-            debugName: "JrpcConnectionImpl_auto_accessor_set_on_post",
-            argNames: ["that", "onPost"],
-          );
+  get kCrateApiMergedJrpcConnectionImplAutoAccessorSetOnPostConstMeta =>
+      const TaskConstMeta(
+        debugName: "JrpcConnectionImpl_auto_accessor_set_on_post",
+        argNames: ["that", "onPost"],
+      );
 
   @override
   ArcFnU16DartFnFutureVecU8
-      crateApiMergedLedgerConnectionImplAutoAccessorGetOnGetPublicKey(
-          {required LedgerConnectionImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_get_public_key(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync,
-        decodeErrorData: null,
+  crateApiMergedLedgerConnectionImplAutoAccessorGetOnGetPublicKey({
+    required LedgerConnectionImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_get_public_key(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedLedgerConnectionImplAutoAccessorGetOnGetPublicKeyConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedLedgerConnectionImplAutoAccessorGetOnGetPublicKeyConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedLedgerConnectionImplAutoAccessorGetOnGetPublicKeyConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "LedgerConnectionImpl_auto_accessor_get_on_get_public_key",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedLedgerConnectionImplAutoAccessorGetOnGetPublicKeyConstMeta =>
+      const TaskConstMeta(
+        debugName: "LedgerConnectionImpl_auto_accessor_get_on_get_public_key",
+        argNames: ["that"],
+      );
 
   @override
   ArcFnU16OptionI32VecU8DartFnFutureVecU8
-      crateApiMergedLedgerConnectionImplAutoAccessorGetOnSign(
-          {required LedgerConnectionImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync,
-        decodeErrorData: null,
+  crateApiMergedLedgerConnectionImplAutoAccessorGetOnSign({
+    required LedgerConnectionImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedLedgerConnectionImplAutoAccessorGetOnSignConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedLedgerConnectionImplAutoAccessorGetOnSignConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedLedgerConnectionImplAutoAccessorGetOnSignConstMeta =>
-          const TaskConstMeta(
-            debugName: "LedgerConnectionImpl_auto_accessor_get_on_sign",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedLedgerConnectionImplAutoAccessorGetOnSignConstMeta =>
+      const TaskConstMeta(
+        debugName: "LedgerConnectionImpl_auto_accessor_get_on_sign",
+        argNames: ["that"],
+      );
 
   @override
   ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
-      crateApiMergedLedgerConnectionImplAutoAccessorGetOnSignTransaction(
-          {required LedgerConnectionImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign_transaction(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync,
-        decodeErrorData: null,
+  crateApiMergedLedgerConnectionImplAutoAccessorGetOnSignTransaction({
+    required LedgerConnectionImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign_transaction(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedLedgerConnectionImplAutoAccessorGetOnSignTransactionConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedLedgerConnectionImplAutoAccessorGetOnSignTransactionConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedLedgerConnectionImplAutoAccessorGetOnSignTransactionConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "LedgerConnectionImpl_auto_accessor_get_on_sign_transaction",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedLedgerConnectionImplAutoAccessorGetOnSignTransactionConstMeta =>
+      const TaskConstMeta(
+        debugName: "LedgerConnectionImpl_auto_accessor_get_on_sign_transaction",
+        argNames: ["that"],
+      );
 
   @override
-  void crateApiMergedLedgerConnectionImplAutoAccessorSetOnGetPublicKey(
-      {required LedgerConnectionImpl that,
-      required ArcFnU16DartFnFutureVecU8 onGetPublicKey}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
-                onGetPublicKey);
-        return wire
-            .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_get_public_key(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  void crateApiMergedLedgerConnectionImplAutoAccessorSetOnGetPublicKey({
+    required LedgerConnectionImpl that,
+    required ArcFnU16DartFnFutureVecU8 onGetPublicKey,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+                onGetPublicKey,
+              );
+          return wire
+              .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_get_public_key(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedLedgerConnectionImplAutoAccessorSetOnGetPublicKeyConstMeta,
+        argValues: [that, onGetPublicKey],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedLedgerConnectionImplAutoAccessorSetOnGetPublicKeyConstMeta,
-      argValues: [that, onGetPublicKey],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedLedgerConnectionImplAutoAccessorSetOnGetPublicKeyConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "LedgerConnectionImpl_auto_accessor_set_on_get_public_key",
-            argNames: ["that", "onGetPublicKey"],
-          );
+  get kCrateApiMergedLedgerConnectionImplAutoAccessorSetOnGetPublicKeyConstMeta =>
+      const TaskConstMeta(
+        debugName: "LedgerConnectionImpl_auto_accessor_set_on_get_public_key",
+        argNames: ["that", "onGetPublicKey"],
+      );
 
   @override
-  void crateApiMergedLedgerConnectionImplAutoAccessorSetOnSign(
-      {required LedgerConnectionImpl that,
-      required ArcFnU16OptionI32VecU8DartFnFutureVecU8 onSign}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
-                onSign);
-        return wire
-            .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  void crateApiMergedLedgerConnectionImplAutoAccessorSetOnSign({
+    required LedgerConnectionImpl that,
+    required ArcFnU16OptionI32VecU8DartFnFutureVecU8 onSign,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+                onSign,
+              );
+          return wire
+              .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedLedgerConnectionImplAutoAccessorSetOnSignConstMeta,
+        argValues: [that, onSign],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedLedgerConnectionImplAutoAccessorSetOnSignConstMeta,
-      argValues: [that, onSign],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedLedgerConnectionImplAutoAccessorSetOnSignConstMeta =>
-          const TaskConstMeta(
-            debugName: "LedgerConnectionImpl_auto_accessor_set_on_sign",
-            argNames: ["that", "onSign"],
-          );
+  get kCrateApiMergedLedgerConnectionImplAutoAccessorSetOnSignConstMeta =>
+      const TaskConstMeta(
+        debugName: "LedgerConnectionImpl_auto_accessor_set_on_sign",
+        argNames: ["that", "onSign"],
+      );
 
   @override
-  void crateApiMergedLedgerConnectionImplAutoAccessorSetOnSignTransaction(
-      {required LedgerConnectionImpl that,
-      required ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
-          onSignTransaction}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
-                onSignTransaction);
-        return wire
-            .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign_transaction(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  void crateApiMergedLedgerConnectionImplAutoAccessorSetOnSignTransaction({
+    required LedgerConnectionImpl that,
+    required ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 onSignTransaction,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+                onSignTransaction,
+              );
+          return wire
+              .wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign_transaction(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedLedgerConnectionImplAutoAccessorSetOnSignTransactionConstMeta,
+        argValues: [that, onSignTransaction],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedLedgerConnectionImplAutoAccessorSetOnSignTransactionConstMeta,
-      argValues: [that, onSignTransaction],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedLedgerConnectionImplAutoAccessorSetOnSignTransactionConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "LedgerConnectionImpl_auto_accessor_set_on_sign_transaction",
-            argNames: ["that", "onSignTransaction"],
-          );
+  get kCrateApiMergedLedgerConnectionImplAutoAccessorSetOnSignTransactionConstMeta =>
+      const TaskConstMeta(
+        debugName: "LedgerConnectionImpl_auto_accessor_set_on_sign_transaction",
+        argNames: ["that", "onSignTransaction"],
+      );
 
   @override
   ArcFnVecU8DartFnFutureVecU8
-      crateApiMergedProtoConnectionImplAutoAccessorGetOnPost(
-          {required ProtoConnectionImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_get_on_post(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync,
-        decodeErrorData: null,
+  crateApiMergedProtoConnectionImplAutoAccessorGetOnPost({
+    required ProtoConnectionImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_get_on_post(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedProtoConnectionImplAutoAccessorGetOnPostConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedProtoConnectionImplAutoAccessorGetOnPostConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedProtoConnectionImplAutoAccessorGetOnPostConstMeta =>
-          const TaskConstMeta(
-            debugName: "ProtoConnectionImpl_auto_accessor_get_on_post",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedProtoConnectionImplAutoAccessorGetOnPostConstMeta =>
+      const TaskConstMeta(
+        debugName: "ProtoConnectionImpl_auto_accessor_get_on_post",
+        argNames: ["that"],
+      );
 
   @override
-  void crateApiMergedProtoConnectionImplAutoAccessorSetOnPost(
-      {required ProtoConnectionImpl that,
-      required ArcFnVecU8DartFnFutureVecU8 onPost}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
-                onPost);
-        return wire
-            .wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_set_on_post(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  void crateApiMergedProtoConnectionImplAutoAccessorSetOnPost({
+    required ProtoConnectionImpl that,
+    required ArcFnVecU8DartFnFutureVecU8 onPost,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+                onPost,
+              );
+          return wire
+              .wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_set_on_post(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedProtoConnectionImplAutoAccessorSetOnPostConstMeta,
+        argValues: [that, onPost],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedProtoConnectionImplAutoAccessorSetOnPostConstMeta,
-      argValues: [that, onPost],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedProtoConnectionImplAutoAccessorSetOnPostConstMeta =>
-          const TaskConstMeta(
-            debugName: "ProtoConnectionImpl_auto_accessor_set_on_post",
-            argNames: ["that", "onPost"],
-          );
+  get kCrateApiMergedProtoConnectionImplAutoAccessorSetOnPostConstMeta =>
+      const TaskConstMeta(
+        debugName: "ProtoConnectionImpl_auto_accessor_set_on_post",
+        argNames: ["that", "onPost"],
+      );
 
   @override
   ArcFnStringDartFnFutureOptionString
-      crateApiMergedStorageImplAutoAccessorGetOnGet(
-          {required StorageImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__StorageImpl_auto_accessor_get_on_get(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync,
-        decodeErrorData: null,
+  crateApiMergedStorageImplAutoAccessorGetOnGet({required StorageImpl that}) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__StorageImpl_auto_accessor_get_on_get(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedStorageImplAutoAccessorGetOnGetConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedStorageImplAutoAccessorGetOnGetConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedStorageImplAutoAccessorGetOnGetConstMeta =>
@@ -2312,88 +2750,103 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  ArcFnStringDartFnFuture crateApiMergedStorageImplAutoAccessorGetOnRemove(
-      {required StorageImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  ArcFnStringDartFnFuture crateApiMergedStorageImplAutoAccessorGetOnRemove({
+    required StorageImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedStorageImplAutoAccessorGetOnRemoveConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedStorageImplAutoAccessorGetOnRemoveConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedStorageImplAutoAccessorGetOnRemoveConstMeta =>
-          const TaskConstMeta(
-            debugName: "StorageImpl_auto_accessor_get_on_remove",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedStorageImplAutoAccessorGetOnRemoveConstMeta =>
+      const TaskConstMeta(
+        debugName: "StorageImpl_auto_accessor_get_on_remove",
+        argNames: ["that"],
+      );
 
   @override
   ArcFnStringDartFnFuture
-      crateApiMergedStorageImplAutoAccessorGetOnRemoveUnchecked(
-          {required StorageImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove_unchecked(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  crateApiMergedStorageImplAutoAccessorGetOnRemoveUnchecked({
+    required StorageImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove_unchecked(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedStorageImplAutoAccessorGetOnRemoveUncheckedConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedStorageImplAutoAccessorGetOnRemoveUncheckedConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedStorageImplAutoAccessorGetOnRemoveUncheckedConstMeta =>
-          const TaskConstMeta(
-            debugName: "StorageImpl_auto_accessor_get_on_remove_unchecked",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedStorageImplAutoAccessorGetOnRemoveUncheckedConstMeta =>
+      const TaskConstMeta(
+        debugName: "StorageImpl_auto_accessor_get_on_remove_unchecked",
+        argNames: ["that"],
+      );
 
   @override
-  ArcFnStringStringDartFnFuture crateApiMergedStorageImplAutoAccessorGetOnSet(
-      {required StorageImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  ArcFnStringStringDartFnFuture crateApiMergedStorageImplAutoAccessorGetOnSet({
+    required StorageImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedStorageImplAutoAccessorGetOnSetConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedStorageImplAutoAccessorGetOnSetConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedStorageImplAutoAccessorGetOnSetConstMeta =>
@@ -2404,60 +2857,72 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @override
   ArcFnStringStringDartFnFuture
-      crateApiMergedStorageImplAutoAccessorGetOnSetUnchecked(
-          {required StorageImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set_unchecked(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  crateApiMergedStorageImplAutoAccessorGetOnSetUnchecked({
+    required StorageImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set_unchecked(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedStorageImplAutoAccessorGetOnSetUncheckedConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedStorageImplAutoAccessorGetOnSetUncheckedConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedStorageImplAutoAccessorGetOnSetUncheckedConstMeta =>
-          const TaskConstMeta(
-            debugName: "StorageImpl_auto_accessor_get_on_set_unchecked",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedStorageImplAutoAccessorGetOnSetUncheckedConstMeta =>
+      const TaskConstMeta(
+        debugName: "StorageImpl_auto_accessor_get_on_set_unchecked",
+        argNames: ["that"],
+      );
 
   @override
-  void crateApiMergedStorageImplAutoAccessorSetOnGet(
-      {required StorageImpl that,
-      required ArcFnStringDartFnFutureOptionString onGet}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
-                onGet);
-        return wire
-            .wire__crate__api__merged__StorageImpl_auto_accessor_set_on_get(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  void crateApiMergedStorageImplAutoAccessorSetOnGet({
+    required StorageImpl that,
+    required ArcFnStringDartFnFutureOptionString onGet,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+                onGet,
+              );
+          return wire
+              .wire__crate__api__merged__StorageImpl_auto_accessor_set_on_get(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedStorageImplAutoAccessorSetOnGetConstMeta,
+        argValues: [that, onGet],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedStorageImplAutoAccessorSetOnGetConstMeta,
-      argValues: [that, onGet],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedStorageImplAutoAccessorSetOnGetConstMeta =>
@@ -2467,95 +2932,117 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  void crateApiMergedStorageImplAutoAccessorSetOnRemove(
-      {required StorageImpl that, required ArcFnStringDartFnFuture onRemove}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onRemove);
-        return wire
-            .wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  void crateApiMergedStorageImplAutoAccessorSetOnRemove({
+    required StorageImpl that,
+    required ArcFnStringDartFnFuture onRemove,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onRemove,
+              );
+          return wire
+              .wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedStorageImplAutoAccessorSetOnRemoveConstMeta,
+        argValues: [that, onRemove],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedStorageImplAutoAccessorSetOnRemoveConstMeta,
-      argValues: [that, onRemove],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedStorageImplAutoAccessorSetOnRemoveConstMeta =>
-          const TaskConstMeta(
-            debugName: "StorageImpl_auto_accessor_set_on_remove",
-            argNames: ["that", "onRemove"],
-          );
+  get kCrateApiMergedStorageImplAutoAccessorSetOnRemoveConstMeta =>
+      const TaskConstMeta(
+        debugName: "StorageImpl_auto_accessor_set_on_remove",
+        argNames: ["that", "onRemove"],
+      );
 
   @override
-  void crateApiMergedStorageImplAutoAccessorSetOnRemoveUnchecked(
-      {required StorageImpl that,
-      required ArcFnStringDartFnFuture onRemoveUnchecked}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onRemoveUnchecked);
-        return wire
-            .wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove_unchecked(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  void crateApiMergedStorageImplAutoAccessorSetOnRemoveUnchecked({
+    required StorageImpl that,
+    required ArcFnStringDartFnFuture onRemoveUnchecked,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onRemoveUnchecked,
+              );
+          return wire
+              .wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove_unchecked(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedStorageImplAutoAccessorSetOnRemoveUncheckedConstMeta,
+        argValues: [that, onRemoveUnchecked],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedStorageImplAutoAccessorSetOnRemoveUncheckedConstMeta,
-      argValues: [that, onRemoveUnchecked],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedStorageImplAutoAccessorSetOnRemoveUncheckedConstMeta =>
-          const TaskConstMeta(
-            debugName: "StorageImpl_auto_accessor_set_on_remove_unchecked",
-            argNames: ["that", "onRemoveUnchecked"],
-          );
+  get kCrateApiMergedStorageImplAutoAccessorSetOnRemoveUncheckedConstMeta =>
+      const TaskConstMeta(
+        debugName: "StorageImpl_auto_accessor_set_on_remove_unchecked",
+        argNames: ["that", "onRemoveUnchecked"],
+      );
 
   @override
-  void crateApiMergedStorageImplAutoAccessorSetOnSet(
-      {required StorageImpl that,
-      required ArcFnStringStringDartFnFuture onSet}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
-                onSet);
-        return wire
-            .wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  void crateApiMergedStorageImplAutoAccessorSetOnSet({
+    required StorageImpl that,
+    required ArcFnStringStringDartFnFuture onSet,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+                onSet,
+              );
+          return wire
+              .wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedStorageImplAutoAccessorSetOnSetConstMeta,
+        argValues: [that, onSet],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedStorageImplAutoAccessorSetOnSetConstMeta,
-      argValues: [that, onSet],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedStorageImplAutoAccessorSetOnSetConstMeta =>
@@ -2565,75 +3052,96 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  void crateApiMergedStorageImplAutoAccessorSetOnSetUnchecked(
-      {required StorageImpl that,
-      required ArcFnStringStringDartFnFuture onSetUnchecked}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
-                onSetUnchecked);
-        return wire
-            .wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set_unchecked(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  void crateApiMergedStorageImplAutoAccessorSetOnSetUnchecked({
+    required StorageImpl that,
+    required ArcFnStringStringDartFnFuture onSetUnchecked,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+                onSetUnchecked,
+              );
+          return wire
+              .wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set_unchecked(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedStorageImplAutoAccessorSetOnSetUncheckedConstMeta,
+        argValues: [that, onSetUnchecked],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedStorageImplAutoAccessorSetOnSetUncheckedConstMeta,
-      argValues: [that, onSetUnchecked],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedStorageImplAutoAccessorSetOnSetUncheckedConstMeta =>
-          const TaskConstMeta(
-            debugName: "StorageImpl_auto_accessor_set_on_set_unchecked",
-            argNames: ["that", "onSetUnchecked"],
-          );
+  get kCrateApiMergedStorageImplAutoAccessorSetOnSetUncheckedConstMeta =>
+      const TaskConstMeta(
+        debugName: "StorageImpl_auto_accessor_set_on_set_unchecked",
+        argNames: ["that", "onSetUnchecked"],
+      );
 
   @override
-  Future<StorageImpl> crateApiMergedStorageImplNew(
-      {required ArcFnStringDartFnFutureOptionString onGet,
-      required ArcFnStringStringDartFnFuture onSet,
-      required ArcFnStringStringDartFnFuture onSetUnchecked,
-      required ArcFnStringDartFnFuture onRemove,
-      required ArcFnStringDartFnFuture onRemoveUnchecked}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
-                onGet);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
-                onSet);
-        var arg2 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
-                onSetUnchecked);
-        var arg3 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onRemove);
-        var arg4 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onRemoveUnchecked);
-        return wire.wire__crate__api__merged__StorageImpl_new(
-            port_, arg0, arg1, arg2, arg3, arg4);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl,
-        decodeErrorData: null,
+  Future<StorageImpl> crateApiMergedStorageImplNew({
+    required ArcFnStringDartFnFutureOptionString onGet,
+    required ArcFnStringStringDartFnFuture onSet,
+    required ArcFnStringStringDartFnFuture onSetUnchecked,
+    required ArcFnStringDartFnFuture onRemove,
+    required ArcFnStringDartFnFuture onRemoveUnchecked,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+                onGet,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+                onSet,
+              );
+          var arg2 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+                onSetUnchecked,
+              );
+          var arg3 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onRemove,
+              );
+          var arg4 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onRemoveUnchecked,
+              );
+          return wire.wire__crate__api__merged__StorageImpl_new(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+            arg3,
+            arg4,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedStorageImplNewConstMeta,
+        argValues: [onGet, onSet, onSetUnchecked, onRemove, onRemoveUnchecked],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedStorageImplNewConstMeta,
-      argValues: [onGet, onSet, onSetUnchecked, onRemove, onRemoveUnchecked],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedStorageImplNewConstMeta =>
@@ -2644,649 +3152,765 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           "onSet",
           "onSetUnchecked",
           "onRemove",
-          "onRemoveUnchecked"
+          "onRemoveUnchecked",
         ],
       );
 
   @override
   ArcFnStringDartFnFuture
-      crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChanged(
-          {required TokenWalletSubscriptionHandlerImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChanged({
+    required TokenWalletSubscriptionHandlerImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChangedConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChangedConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChangedConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChangedConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed",
+        argNames: ["that"],
+      );
 
   @override
   ArcFnStringDartFnFuture
-      crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound(
-          {required TokenWalletSubscriptionHandlerImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound({
+    required TokenWalletSubscriptionHandlerImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFoundConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFoundConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFoundConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFoundConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found",
+        argNames: ["that"],
+      );
 
   @override
   void
-      crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChanged(
-          {required TokenWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onBalanceChanged}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onBalanceChanged);
-        return wire
-            .wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChanged({
+    required TokenWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onBalanceChanged,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onBalanceChanged,
+              );
+          return wire
+              .wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChangedConstMeta,
+        argValues: [that, onBalanceChanged],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChangedConstMeta,
-      argValues: [that, onBalanceChanged],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChangedConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed",
-            argNames: ["that", "onBalanceChanged"],
-          );
+  get kCrateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChangedConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed",
+        argNames: ["that", "onBalanceChanged"],
+      );
 
   @override
   void
-      crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound(
-          {required TokenWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onTransactionsFound}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onTransactionsFound);
-        return wire
-            .wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound({
+    required TokenWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onTransactionsFound,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onTransactionsFound,
+              );
+          return wire
+              .wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFoundConstMeta,
+        argValues: [that, onTransactionsFound],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFoundConstMeta,
-      argValues: [that, onTransactionsFound],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFoundConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found",
-            argNames: ["that", "onTransactionsFound"],
-          );
+  get kCrateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFoundConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found",
+        argNames: ["that", "onTransactionsFound"],
+      );
 
   @override
   ArcFnStringDartFnFuture
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnCustodiansChanged(
-          {required TonWalletSubscriptionHandlerImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_custodians_changed(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnCustodiansChanged({
+    required TonWalletSubscriptionHandlerImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_custodians_changed(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnCustodiansChangedConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnCustodiansChangedConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnCustodiansChangedConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_custodians_changed",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnCustodiansChangedConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_custodians_changed",
+        argNames: ["that"],
+      );
 
   @override
   ArcFnStringDartFnFuture
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnDetailsChanged(
-          {required TonWalletSubscriptionHandlerImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_details_changed(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnDetailsChanged({
+    required TonWalletSubscriptionHandlerImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_details_changed(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnDetailsChangedConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnDetailsChangedConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnDetailsChangedConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_details_changed",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnDetailsChangedConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_details_changed",
+        argNames: ["that"],
+      );
 
   @override
   ArcFnStringDartFnFuture
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageExpired(
-          {required TonWalletSubscriptionHandlerImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_expired(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageExpired({
+    required TonWalletSubscriptionHandlerImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_expired(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageExpiredConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageExpiredConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageExpiredConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_expired",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageExpiredConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_expired",
+        argNames: ["that"],
+      );
 
   @override
   ArcFnStringDartFnFuture
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageSent(
-          {required TonWalletSubscriptionHandlerImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_sent(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageSent({
+    required TonWalletSubscriptionHandlerImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_sent(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageSentConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageSentConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageSentConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_sent",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageSentConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_sent",
+        argNames: ["that"],
+      );
 
   @override
   ArcFnStringDartFnFuture
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnStateChanged(
-          {required TonWalletSubscriptionHandlerImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_state_changed(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnStateChanged({
+    required TonWalletSubscriptionHandlerImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_state_changed(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnStateChangedConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnStateChangedConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnStateChangedConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_state_changed",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnStateChangedConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_state_changed",
+        argNames: ["that"],
+      );
 
   @override
   ArcFnStringDartFnFuture
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound(
-          {required TonWalletSubscriptionHandlerImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound({
+    required TonWalletSubscriptionHandlerImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFoundConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFoundConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFoundConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFoundConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found",
+        argNames: ["that"],
+      );
 
   @override
   ArcFnStringDartFnFuture
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnUnconfirmedTransactionsChanged(
-          {required TonWalletSubscriptionHandlerImpl that}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-                that);
-        return wire
-            .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_unconfirmed_transactions_changed(
-                arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
-        decodeErrorData: null,
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnUnconfirmedTransactionsChanged({
+    required TonWalletSubscriptionHandlerImpl that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          return wire
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_unconfirmed_transactions_changed(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnUnconfirmedTransactionsChangedConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnUnconfirmedTransactionsChangedConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnUnconfirmedTransactionsChangedConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_unconfirmed_transactions_changed",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnUnconfirmedTransactionsChangedConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_unconfirmed_transactions_changed",
+        argNames: ["that"],
+      );
 
   @override
   void
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnCustodiansChanged(
-          {required TonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onCustodiansChanged}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onCustodiansChanged);
-        return wire
-            .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_custodians_changed(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnCustodiansChanged({
+    required TonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onCustodiansChanged,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onCustodiansChanged,
+              );
+          return wire
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_custodians_changed(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnCustodiansChangedConstMeta,
+        argValues: [that, onCustodiansChanged],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnCustodiansChangedConstMeta,
-      argValues: [that, onCustodiansChanged],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnCustodiansChangedConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_custodians_changed",
-            argNames: ["that", "onCustodiansChanged"],
-          );
+  get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnCustodiansChangedConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_custodians_changed",
+        argNames: ["that", "onCustodiansChanged"],
+      );
 
   @override
   void
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnDetailsChanged(
-          {required TonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onDetailsChanged}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onDetailsChanged);
-        return wire
-            .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_details_changed(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnDetailsChanged({
+    required TonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onDetailsChanged,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onDetailsChanged,
+              );
+          return wire
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_details_changed(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnDetailsChangedConstMeta,
+        argValues: [that, onDetailsChanged],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnDetailsChangedConstMeta,
-      argValues: [that, onDetailsChanged],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnDetailsChangedConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_details_changed",
-            argNames: ["that", "onDetailsChanged"],
-          );
+  get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnDetailsChangedConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_details_changed",
+        argNames: ["that", "onDetailsChanged"],
+      );
 
   @override
   void
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageExpired(
-          {required TonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onMessageExpired}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onMessageExpired);
-        return wire
-            .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_expired(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageExpired({
+    required TonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onMessageExpired,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onMessageExpired,
+              );
+          return wire
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_expired(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageExpiredConstMeta,
+        argValues: [that, onMessageExpired],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageExpiredConstMeta,
-      argValues: [that, onMessageExpired],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageExpiredConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_expired",
-            argNames: ["that", "onMessageExpired"],
-          );
+  get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageExpiredConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_expired",
+        argNames: ["that", "onMessageExpired"],
+      );
 
   @override
   void
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageSent(
-          {required TonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onMessageSent}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onMessageSent);
-        return wire
-            .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_sent(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageSent({
+    required TonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onMessageSent,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onMessageSent,
+              );
+          return wire
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_sent(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageSentConstMeta,
+        argValues: [that, onMessageSent],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageSentConstMeta,
-      argValues: [that, onMessageSent],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageSentConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_sent",
-            argNames: ["that", "onMessageSent"],
-          );
+  get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageSentConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_sent",
+        argNames: ["that", "onMessageSent"],
+      );
 
   @override
   void
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnStateChanged(
-          {required TonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onStateChanged}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onStateChanged);
-        return wire
-            .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_state_changed(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnStateChanged({
+    required TonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onStateChanged,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onStateChanged,
+              );
+          return wire
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_state_changed(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnStateChangedConstMeta,
+        argValues: [that, onStateChanged],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnStateChangedConstMeta,
-      argValues: [that, onStateChanged],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnStateChangedConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_state_changed",
-            argNames: ["that", "onStateChanged"],
-          );
+  get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnStateChangedConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_state_changed",
+        argNames: ["that", "onStateChanged"],
+      );
 
   @override
   void
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound(
-          {required TonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onTransactionsFound}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onTransactionsFound);
-        return wire
-            .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound({
+    required TonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onTransactionsFound,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onTransactionsFound,
+              );
+          return wire
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFoundConstMeta,
+        argValues: [that, onTransactionsFound],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFoundConstMeta,
-      argValues: [that, onTransactionsFound],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFoundConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found",
-            argNames: ["that", "onTransactionsFound"],
-          );
+  get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFoundConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found",
+        argNames: ["that", "onTransactionsFound"],
+      );
 
   @override
   void
-      crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnUnconfirmedTransactionsChanged(
-          {required TonWalletSubscriptionHandlerImpl that,
-          required ArcFnStringDartFnFuture onUnconfirmedTransactionsChanged}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-                that);
-        var arg1 =
-            cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-                onUnconfirmedTransactionsChanged);
-        return wire
-            .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_unconfirmed_transactions_changed(
-                arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnUnconfirmedTransactionsChanged({
+    required TonWalletSubscriptionHandlerImpl that,
+    required ArcFnStringDartFnFuture onUnconfirmedTransactionsChanged,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+                that,
+              );
+          var arg1 =
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+                onUnconfirmedTransactionsChanged,
+              );
+          return wire
+              .wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_unconfirmed_transactions_changed(
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnUnconfirmedTransactionsChangedConstMeta,
+        argValues: [that, onUnconfirmedTransactionsChanged],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnUnconfirmedTransactionsChangedConstMeta,
-      argValues: [that, onUnconfirmedTransactionsChanged],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnUnconfirmedTransactionsChangedConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_unconfirmed_transactions_changed",
-            argNames: ["that", "onUnconfirmedTransactionsChanged"],
-          );
+  get kCrateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnUnconfirmedTransactionsChangedConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_unconfirmed_transactions_changed",
+        argNames: ["that", "onUnconfirmedTransactionsChanged"],
+      );
 
   @override
-  Future<String> crateApiMergedAccountsStorageImplAddAccount(
-      {required AccountsStorageImpl that, required String account}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
-        var arg1 = cst_encode_String(account);
-        return wire.wire__crate__api__merged__accounts_storage_impl_add_account(
-            port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedAccountsStorageImplAddAccount({
+    required AccountsStorageImpl that,
+    required String account,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
+          var arg1 = cst_encode_String(account);
+          return wire
+              .wire__crate__api__merged__accounts_storage_impl_add_account(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedAccountsStorageImplAddAccountConstMeta,
+        argValues: [that, account],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedAccountsStorageImplAddAccountConstMeta,
-      argValues: [that, account],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedAccountsStorageImplAddAccountConstMeta =>
@@ -3296,24 +3920,31 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedAccountsStorageImplAddAccounts(
-      {required AccountsStorageImpl that, required String accounts}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
-        var arg1 = cst_encode_String(accounts);
-        return wire
-            .wire__crate__api__merged__accounts_storage_impl_add_accounts(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedAccountsStorageImplAddAccounts({
+    required AccountsStorageImpl that,
+    required String accounts,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
+          var arg1 = cst_encode_String(accounts);
+          return wire
+              .wire__crate__api__merged__accounts_storage_impl_add_accounts(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedAccountsStorageImplAddAccountsConstMeta,
+        argValues: [that, accounts],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedAccountsStorageImplAddAccountsConstMeta,
-      argValues: [that, accounts],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedAccountsStorageImplAddAccountsConstMeta =>
@@ -3323,29 +3954,37 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedAccountsStorageImplAddTokenWallet(
-      {required AccountsStorageImpl that,
-      required String accountAddress,
-      required String networkGroup,
-      required String rootTokenContract}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
-        var arg1 = cst_encode_String(accountAddress);
-        var arg2 = cst_encode_String(networkGroup);
-        var arg3 = cst_encode_String(rootTokenContract);
-        return wire
-            .wire__crate__api__merged__accounts_storage_impl_add_token_wallet(
-                port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedAccountsStorageImplAddTokenWallet({
+    required AccountsStorageImpl that,
+    required String accountAddress,
+    required String networkGroup,
+    required String rootTokenContract,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
+          var arg1 = cst_encode_String(accountAddress);
+          var arg2 = cst_encode_String(networkGroup);
+          var arg3 = cst_encode_String(rootTokenContract);
+          return wire
+              .wire__crate__api__merged__accounts_storage_impl_add_token_wallet(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedAccountsStorageImplAddTokenWalletConstMeta,
+        argValues: [that, accountAddress, networkGroup, rootTokenContract],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedAccountsStorageImplAddTokenWalletConstMeta,
-      argValues: [that, accountAddress, networkGroup, rootTokenContract],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedAccountsStorageImplAddTokenWalletConstMeta =>
@@ -3355,65 +3994,78 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           "that",
           "accountAddress",
           "networkGroup",
-          "rootTokenContract"
+          "rootTokenContract",
         ],
       );
 
   @override
-  Future<bool> crateApiMergedAccountsStorageImplAddTokenWallets(
-      {required AccountsStorageImpl that,
-      required String accountAddress,
-      required String networkGroup,
-      required List<String> rootTokenContracts}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
-        var arg1 = cst_encode_String(accountAddress);
-        var arg2 = cst_encode_String(networkGroup);
-        var arg3 = cst_encode_list_String(rootTokenContracts);
-        return wire
-            .wire__crate__api__merged__accounts_storage_impl_add_token_wallets(
-                port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedAccountsStorageImplAddTokenWallets({
+    required AccountsStorageImpl that,
+    required String accountAddress,
+    required String networkGroup,
+    required List<String> rootTokenContracts,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
+          var arg1 = cst_encode_String(accountAddress);
+          var arg2 = cst_encode_String(networkGroup);
+          var arg3 = cst_encode_list_String(rootTokenContracts);
+          return wire
+              .wire__crate__api__merged__accounts_storage_impl_add_token_wallets(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedAccountsStorageImplAddTokenWalletsConstMeta,
+        argValues: [that, accountAddress, networkGroup, rootTokenContracts],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedAccountsStorageImplAddTokenWalletsConstMeta,
-      argValues: [that, accountAddress, networkGroup, rootTokenContracts],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedAccountsStorageImplAddTokenWalletsConstMeta =>
-          const TaskConstMeta(
-            debugName: "accounts_storage_impl_add_token_wallets",
-            argNames: [
-              "that",
-              "accountAddress",
-              "networkGroup",
-              "rootTokenContracts"
-            ],
-          );
+  get kCrateApiMergedAccountsStorageImplAddTokenWalletsConstMeta =>
+      const TaskConstMeta(
+        debugName: "accounts_storage_impl_add_token_wallets",
+        argNames: [
+          "that",
+          "accountAddress",
+          "networkGroup",
+          "rootTokenContracts",
+        ],
+      );
 
   @override
-  Future<bool> crateApiMergedAccountsStorageImplClear(
-      {required AccountsStorageImpl that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
-        return wire.wire__crate__api__merged__accounts_storage_impl_clear(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedAccountsStorageImplClear({
+    required AccountsStorageImpl that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
+          return wire.wire__crate__api__merged__accounts_storage_impl_clear(
+            port_,
+            arg0,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedAccountsStorageImplClearConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedAccountsStorageImplClearConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedAccountsStorageImplClearConstMeta =>
@@ -3423,22 +4075,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedAccountsStorageImplGetEntries(
-      {required AccountsStorageImpl that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
-        return wire.wire__crate__api__merged__accounts_storage_impl_get_entries(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedAccountsStorageImplGetEntries({
+    required AccountsStorageImpl that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
+          return wire
+              .wire__crate__api__merged__accounts_storage_impl_get_entries(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedAccountsStorageImplGetEntriesConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedAccountsStorageImplGetEntriesConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedAccountsStorageImplGetEntriesConstMeta =>
@@ -3448,22 +4106,27 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<AccountsStorageImpl> crateApiMergedAccountsStorageImplNew(
-      {required StorageDartWrapper storage}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_storage_dart_wrapper(storage);
-        return wire.wire__crate__api__merged__accounts_storage_impl_new(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_accounts_storage_impl,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<AccountsStorageImpl> crateApiMergedAccountsStorageImplNew({
+    required StorageDartWrapper storage,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_storage_dart_wrapper(storage);
+          return wire.wire__crate__api__merged__accounts_storage_impl_new(
+            port_,
+            arg0,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_accounts_storage_impl,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedAccountsStorageImplNewConstMeta,
+        argValues: [storage],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedAccountsStorageImplNewConstMeta,
-      argValues: [storage],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedAccountsStorageImplNewConstMeta =>
@@ -3473,22 +4136,27 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<bool> crateApiMergedAccountsStorageImplReload(
-      {required AccountsStorageImpl that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
-        return wire.wire__crate__api__merged__accounts_storage_impl_reload(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedAccountsStorageImplReload({
+    required AccountsStorageImpl that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
+          return wire.wire__crate__api__merged__accounts_storage_impl_reload(
+            port_,
+            arg0,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedAccountsStorageImplReloadConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedAccountsStorageImplReloadConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedAccountsStorageImplReloadConstMeta =>
@@ -3498,24 +4166,31 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String?> crateApiMergedAccountsStorageImplRemoveAccount(
-      {required AccountsStorageImpl that, required String accountAddress}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
-        var arg1 = cst_encode_String(accountAddress);
-        return wire
-            .wire__crate__api__merged__accounts_storage_impl_remove_account(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String?> crateApiMergedAccountsStorageImplRemoveAccount({
+    required AccountsStorageImpl that,
+    required String accountAddress,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
+          var arg1 = cst_encode_String(accountAddress);
+          return wire
+              .wire__crate__api__merged__accounts_storage_impl_remove_account(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedAccountsStorageImplRemoveAccountConstMeta,
+        argValues: [that, accountAddress],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedAccountsStorageImplRemoveAccountConstMeta,
-      argValues: [that, accountAddress],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedAccountsStorageImplRemoveAccountConstMeta =>
@@ -3525,25 +4200,31 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedAccountsStorageImplRemoveAccounts(
-      {required AccountsStorageImpl that,
-      required List<String> accountAddresses}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
-        var arg1 = cst_encode_list_String(accountAddresses);
-        return wire
-            .wire__crate__api__merged__accounts_storage_impl_remove_accounts(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedAccountsStorageImplRemoveAccounts({
+    required AccountsStorageImpl that,
+    required List<String> accountAddresses,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
+          var arg1 = cst_encode_list_String(accountAddresses);
+          return wire
+              .wire__crate__api__merged__accounts_storage_impl_remove_accounts(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedAccountsStorageImplRemoveAccountsConstMeta,
+        argValues: [that, accountAddresses],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedAccountsStorageImplRemoveAccountsConstMeta,
-      argValues: [that, accountAddresses],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedAccountsStorageImplRemoveAccountsConstMeta =>
@@ -3553,103 +4234,127 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedAccountsStorageImplRemoveTokenWallet(
-      {required AccountsStorageImpl that,
-      required String accountAddress,
-      required String networkGroup,
-      required String rootTokenContract}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
-        var arg1 = cst_encode_String(accountAddress);
-        var arg2 = cst_encode_String(networkGroup);
-        var arg3 = cst_encode_String(rootTokenContract);
-        return wire
-            .wire__crate__api__merged__accounts_storage_impl_remove_token_wallet(
-                port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedAccountsStorageImplRemoveTokenWallet({
+    required AccountsStorageImpl that,
+    required String accountAddress,
+    required String networkGroup,
+    required String rootTokenContract,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
+          var arg1 = cst_encode_String(accountAddress);
+          var arg2 = cst_encode_String(networkGroup);
+          var arg3 = cst_encode_String(rootTokenContract);
+          return wire
+              .wire__crate__api__merged__accounts_storage_impl_remove_token_wallet(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedAccountsStorageImplRemoveTokenWalletConstMeta,
+        argValues: [that, accountAddress, networkGroup, rootTokenContract],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedAccountsStorageImplRemoveTokenWalletConstMeta,
-      argValues: [that, accountAddress, networkGroup, rootTokenContract],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedAccountsStorageImplRemoveTokenWalletConstMeta =>
-          const TaskConstMeta(
-            debugName: "accounts_storage_impl_remove_token_wallet",
-            argNames: [
-              "that",
-              "accountAddress",
-              "networkGroup",
-              "rootTokenContract"
-            ],
-          );
+  get kCrateApiMergedAccountsStorageImplRemoveTokenWalletConstMeta =>
+      const TaskConstMeta(
+        debugName: "accounts_storage_impl_remove_token_wallet",
+        argNames: [
+          "that",
+          "accountAddress",
+          "networkGroup",
+          "rootTokenContract",
+        ],
+      );
 
   @override
-  Future<bool> crateApiMergedAccountsStorageImplRemoveTokenWallets(
-      {required AccountsStorageImpl that,
-      required String accountAddress,
-      required String networkGroup,
-      required List<String> rootTokenContracts}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
-        var arg1 = cst_encode_String(accountAddress);
-        var arg2 = cst_encode_String(networkGroup);
-        var arg3 = cst_encode_list_String(rootTokenContracts);
-        return wire
-            .wire__crate__api__merged__accounts_storage_impl_remove_token_wallets(
-                port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedAccountsStorageImplRemoveTokenWallets({
+    required AccountsStorageImpl that,
+    required String accountAddress,
+    required String networkGroup,
+    required List<String> rootTokenContracts,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
+          var arg1 = cst_encode_String(accountAddress);
+          var arg2 = cst_encode_String(networkGroup);
+          var arg3 = cst_encode_list_String(rootTokenContracts);
+          return wire
+              .wire__crate__api__merged__accounts_storage_impl_remove_token_wallets(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedAccountsStorageImplRemoveTokenWalletsConstMeta,
+        argValues: [that, accountAddress, networkGroup, rootTokenContracts],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedAccountsStorageImplRemoveTokenWalletsConstMeta,
-      argValues: [that, accountAddress, networkGroup, rootTokenContracts],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedAccountsStorageImplRemoveTokenWalletsConstMeta =>
-          const TaskConstMeta(
-            debugName: "accounts_storage_impl_remove_token_wallets",
-            argNames: [
-              "that",
-              "accountAddress",
-              "networkGroup",
-              "rootTokenContracts"
-            ],
-          );
+  get kCrateApiMergedAccountsStorageImplRemoveTokenWalletsConstMeta =>
+      const TaskConstMeta(
+        debugName: "accounts_storage_impl_remove_token_wallets",
+        argNames: [
+          "that",
+          "accountAddress",
+          "networkGroup",
+          "rootTokenContracts",
+        ],
+      );
 
   @override
-  Future<String> crateApiMergedAccountsStorageImplRenameAccount(
-      {required AccountsStorageImpl that,
-      required String accountAddress,
-      required String name}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
-        var arg1 = cst_encode_String(accountAddress);
-        var arg2 = cst_encode_String(name);
-        return wire
-            .wire__crate__api__merged__accounts_storage_impl_rename_account(
-                port_, arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedAccountsStorageImplRenameAccount({
+    required AccountsStorageImpl that,
+    required String accountAddress,
+    required String name,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_accounts_storage_impl(that);
+          var arg1 = cst_encode_String(accountAddress);
+          var arg2 = cst_encode_String(name);
+          return wire
+              .wire__crate__api__merged__accounts_storage_impl_rename_account(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedAccountsStorageImplRenameAccountConstMeta,
+        argValues: [that, accountAddress, name],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedAccountsStorageImplRenameAccountConstMeta,
-      argValues: [that, accountAddress, name],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedAccountsStorageImplRenameAccountConstMeta =>
@@ -3659,22 +4364,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<bool> crateApiMergedAccountsStorageImplVerifyData(
-      {required String data}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(data);
-        return wire.wire__crate__api__merged__accounts_storage_impl_verify_data(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: null,
+  Future<bool> crateApiMergedAccountsStorageImplVerifyData({
+    required String data,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(data);
+          return wire
+              .wire__crate__api__merged__accounts_storage_impl_verify_data(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedAccountsStorageImplVerifyDataConstMeta,
+        argValues: [data],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedAccountsStorageImplVerifyDataConstMeta,
-      argValues: [data],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedAccountsStorageImplVerifyDataConstMeta =>
@@ -3686,46 +4397,55 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   @override
   Stream<LogEntry> crateApiMergedCreateLogStream() {
     final s = RustStreamSink<LogEntry>();
-    unawaited(handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_StreamSink_log_entry_Dco(s);
-        return wire.wire__crate__api__merged__create_log_stream(port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+    unawaited(
+      handler.executeNormal(
+        NormalTask(
+          callFfi: (port_) {
+            var arg0 = cst_encode_StreamSink_log_entry_Dco(s);
+            return wire.wire__crate__api__merged__create_log_stream(
+              port_,
+              arg0,
+            );
+          },
+          codec: DcoCodec(
+            decodeSuccessData: dco_decode_unit,
+            decodeErrorData: null,
+          ),
+          constMeta: kCrateApiMergedCreateLogStreamConstMeta,
+          argValues: [s],
+          apiImpl: this,
+        ),
       ),
-      constMeta: kCrateApiMergedCreateLogStreamConstMeta,
-      argValues: [s],
-      apiImpl: this,
-    )));
+    );
     return s.stream;
   }
 
   TaskConstMeta get kCrateApiMergedCreateLogStreamConstMeta =>
-      const TaskConstMeta(
-        debugName: "create_log_stream",
-        argNames: ["s"],
-      );
+      const TaskConstMeta(debugName: "create_log_stream", argNames: ["s"]);
 
   @override
-  Future<String> crateApiMergedGenericContractDartWrapperAddress(
-      {required GenericContractDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__generic_contract_dart_wrapper_address(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: null,
+  Future<String> crateApiMergedGenericContractDartWrapperAddress({
+    required GenericContractDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__generic_contract_dart_wrapper_address(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedGenericContractDartWrapperAddressConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGenericContractDartWrapperAddressConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedGenericContractDartWrapperAddressConstMeta =>
@@ -3735,227 +4455,275 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedGenericContractDartWrapperContractState(
-      {required GenericContractDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__generic_contract_dart_wrapper_contract_state(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedGenericContractDartWrapperContractState({
+    required GenericContractDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__generic_contract_dart_wrapper_contract_state(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedGenericContractDartWrapperContractStateConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedGenericContractDartWrapperContractStateConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGenericContractDartWrapperContractStateConstMeta =>
-          const TaskConstMeta(
-            debugName: "generic_contract_dart_wrapper_contract_state",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedGenericContractDartWrapperContractStateConstMeta =>
+      const TaskConstMeta(
+        debugName: "generic_contract_dart_wrapper_contract_state",
+        argNames: ["that"],
+      );
 
   @override
-  Future<String> crateApiMergedGenericContractDartWrapperEstimateFees(
-      {required GenericContractDartWrapper that,
-      required String signedMessage}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
-        var arg1 = cst_encode_String(signedMessage);
-        return wire
-            .wire__crate__api__merged__generic_contract_dart_wrapper_estimate_fees(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedGenericContractDartWrapperEstimateFees({
+    required GenericContractDartWrapper that,
+    required String signedMessage,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
+          var arg1 = cst_encode_String(signedMessage);
+          return wire
+              .wire__crate__api__merged__generic_contract_dart_wrapper_estimate_fees(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedGenericContractDartWrapperEstimateFeesConstMeta,
+        argValues: [that, signedMessage],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGenericContractDartWrapperEstimateFeesConstMeta,
-      argValues: [that, signedMessage],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGenericContractDartWrapperEstimateFeesConstMeta =>
-          const TaskConstMeta(
-            debugName: "generic_contract_dart_wrapper_estimate_fees",
-            argNames: ["that", "signedMessage"],
-          );
+  get kCrateApiMergedGenericContractDartWrapperEstimateFeesConstMeta =>
+      const TaskConstMeta(
+        debugName: "generic_contract_dart_wrapper_estimate_fees",
+        argNames: ["that", "signedMessage"],
+      );
 
   @override
   Future<String>
-      crateApiMergedGenericContractDartWrapperExecuteTransactionLocally(
-          {required GenericContractDartWrapper that,
-          required String signedMessage,
-          required String options}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
-        var arg1 = cst_encode_String(signedMessage);
-        var arg2 = cst_encode_String(options);
-        return wire
-            .wire__crate__api__merged__generic_contract_dart_wrapper_execute_transaction_locally(
-                port_, arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  crateApiMergedGenericContractDartWrapperExecuteTransactionLocally({
+    required GenericContractDartWrapper that,
+    required String signedMessage,
+    required String options,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
+          var arg1 = cst_encode_String(signedMessage);
+          var arg2 = cst_encode_String(options);
+          return wire
+              .wire__crate__api__merged__generic_contract_dart_wrapper_execute_transaction_locally(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedGenericContractDartWrapperExecuteTransactionLocallyConstMeta,
+        argValues: [that, signedMessage, options],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedGenericContractDartWrapperExecuteTransactionLocallyConstMeta,
-      argValues: [that, signedMessage, options],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGenericContractDartWrapperExecuteTransactionLocallyConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "generic_contract_dart_wrapper_execute_transaction_locally",
-            argNames: ["that", "signedMessage", "options"],
-          );
+  get kCrateApiMergedGenericContractDartWrapperExecuteTransactionLocallyConstMeta =>
+      const TaskConstMeta(
+        debugName: "generic_contract_dart_wrapper_execute_transaction_locally",
+        argNames: ["that", "signedMessage", "options"],
+      );
 
   @override
-  Future<bool> crateApiMergedGenericContractDartWrapperHandleBlock(
-      {required GenericContractDartWrapper that, required String block}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
-        var arg1 = cst_encode_String(block);
-        return wire
-            .wire__crate__api__merged__generic_contract_dart_wrapper_handle_block(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedGenericContractDartWrapperHandleBlock({
+    required GenericContractDartWrapper that,
+    required String block,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
+          var arg1 = cst_encode_String(block);
+          return wire
+              .wire__crate__api__merged__generic_contract_dart_wrapper_handle_block(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedGenericContractDartWrapperHandleBlockConstMeta,
+        argValues: [that, block],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGenericContractDartWrapperHandleBlockConstMeta,
-      argValues: [that, block],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGenericContractDartWrapperHandleBlockConstMeta =>
-          const TaskConstMeta(
-            debugName: "generic_contract_dart_wrapper_handle_block",
-            argNames: ["that", "block"],
-          );
+  get kCrateApiMergedGenericContractDartWrapperHandleBlockConstMeta =>
+      const TaskConstMeta(
+        debugName: "generic_contract_dart_wrapper_handle_block",
+        argNames: ["that", "block"],
+      );
 
   @override
-  Future<String> crateApiMergedGenericContractDartWrapperPendingTransactions(
-      {required GenericContractDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__generic_contract_dart_wrapper_pending_transactions(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedGenericContractDartWrapperPendingTransactions({
+    required GenericContractDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__generic_contract_dart_wrapper_pending_transactions(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedGenericContractDartWrapperPendingTransactionsConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedGenericContractDartWrapperPendingTransactionsConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGenericContractDartWrapperPendingTransactionsConstMeta =>
-          const TaskConstMeta(
-            debugName: "generic_contract_dart_wrapper_pending_transactions",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedGenericContractDartWrapperPendingTransactionsConstMeta =>
+      const TaskConstMeta(
+        debugName: "generic_contract_dart_wrapper_pending_transactions",
+        argNames: ["that"],
+      );
 
   @override
-  Future<PollingMethod> crateApiMergedGenericContractDartWrapperPollingMethod(
-      {required GenericContractDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__generic_contract_dart_wrapper_polling_method(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_polling_method,
-        decodeErrorData: null,
+  Future<PollingMethod> crateApiMergedGenericContractDartWrapperPollingMethod({
+    required GenericContractDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__generic_contract_dart_wrapper_polling_method(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_polling_method,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiMergedGenericContractDartWrapperPollingMethodConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedGenericContractDartWrapperPollingMethodConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGenericContractDartWrapperPollingMethodConstMeta =>
-          const TaskConstMeta(
-            debugName: "generic_contract_dart_wrapper_polling_method",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedGenericContractDartWrapperPollingMethodConstMeta =>
+      const TaskConstMeta(
+        debugName: "generic_contract_dart_wrapper_polling_method",
+        argNames: ["that"],
+      );
 
   @override
-  Future<bool> crateApiMergedGenericContractDartWrapperPreloadTransactions(
-      {required GenericContractDartWrapper that, required String fromLt}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
-        var arg1 = cst_encode_String(fromLt);
-        return wire
-            .wire__crate__api__merged__generic_contract_dart_wrapper_preload_transactions(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedGenericContractDartWrapperPreloadTransactions({
+    required GenericContractDartWrapper that,
+    required String fromLt,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
+          var arg1 = cst_encode_String(fromLt);
+          return wire
+              .wire__crate__api__merged__generic_contract_dart_wrapper_preload_transactions(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedGenericContractDartWrapperPreloadTransactionsConstMeta,
+        argValues: [that, fromLt],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedGenericContractDartWrapperPreloadTransactionsConstMeta,
-      argValues: [that, fromLt],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGenericContractDartWrapperPreloadTransactionsConstMeta =>
-          const TaskConstMeta(
-            debugName: "generic_contract_dart_wrapper_preload_transactions",
-            argNames: ["that", "fromLt"],
-          );
+  get kCrateApiMergedGenericContractDartWrapperPreloadTransactionsConstMeta =>
+      const TaskConstMeta(
+        debugName: "generic_contract_dart_wrapper_preload_transactions",
+        argNames: ["that", "fromLt"],
+      );
 
   @override
-  Future<bool> crateApiMergedGenericContractDartWrapperRefresh(
-      {required GenericContractDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__generic_contract_dart_wrapper_refresh(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedGenericContractDartWrapperRefresh({
+    required GenericContractDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__generic_contract_dart_wrapper_refresh(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedGenericContractDartWrapperRefreshConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGenericContractDartWrapperRefreshConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedGenericContractDartWrapperRefreshConstMeta =>
@@ -3965,25 +4733,31 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedGenericContractDartWrapperSend(
-      {required GenericContractDartWrapper that,
-      required String signedMessage}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
-        var arg1 = cst_encode_String(signedMessage);
-        return wire
-            .wire__crate__api__merged__generic_contract_dart_wrapper_send(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedGenericContractDartWrapperSend({
+    required GenericContractDartWrapper that,
+    required String signedMessage,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_generic_contract_dart_wrapper(that);
+          var arg1 = cst_encode_String(signedMessage);
+          return wire
+              .wire__crate__api__merged__generic_contract_dart_wrapper_send(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedGenericContractDartWrapperSendConstMeta,
+        argValues: [that, signedMessage],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGenericContractDartWrapperSendConstMeta,
-      argValues: [that, signedMessage],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedGenericContractDartWrapperSendConstMeta =>
@@ -3994,85 +4768,110 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @override
   Future<GenericContractDartWrapper>
-      crateApiMergedGenericContractDartWrapperSubscribe(
-          {required String address,
-          required bool preloadTransactions,
-          required ArcTransportBoxTrait transport,
-          required FutureOr<void> Function(String) onMessageSent,
-          required FutureOr<void> Function(String) onMessageExpired,
-          required FutureOr<void> Function(String) onStateChanged,
-          required FutureOr<void> Function(String) onTransactionsFound}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(address);
-        var arg1 = cst_encode_bool(preloadTransactions);
-        var arg2 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg3 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onMessageSent);
-        var arg4 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onMessageExpired);
-        var arg5 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onStateChanged);
-        var arg6 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onTransactionsFound);
-        return wire
-            .wire__crate__api__merged__generic_contract_dart_wrapper_subscribe(
-                port_, arg0, arg1, arg2, arg3, arg4, arg5, arg6);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_generic_contract_dart_wrapper,
-        decodeErrorData: dco_decode_AnyhowException,
+  crateApiMergedGenericContractDartWrapperSubscribe({
+    required String address,
+    required bool preloadTransactions,
+    required ArcTransportBoxTrait transport,
+    required FutureOr<void> Function(String) onMessageSent,
+    required FutureOr<void> Function(String) onMessageExpired,
+    required FutureOr<void> Function(String) onStateChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(address);
+          var arg1 = cst_encode_bool(preloadTransactions);
+          var arg2 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
+          var arg3 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onMessageSent,
+              );
+          var arg4 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onMessageExpired,
+              );
+          var arg5 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onStateChanged,
+              );
+          var arg6 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onTransactionsFound,
+              );
+          return wire
+              .wire__crate__api__merged__generic_contract_dart_wrapper_subscribe(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+                arg4,
+                arg5,
+                arg6,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_generic_contract_dart_wrapper,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedGenericContractDartWrapperSubscribeConstMeta,
+        argValues: [
+          address,
+          preloadTransactions,
+          transport,
+          onMessageSent,
+          onMessageExpired,
+          onStateChanged,
+          onTransactionsFound,
+        ],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGenericContractDartWrapperSubscribeConstMeta,
-      argValues: [
-        address,
-        preloadTransactions,
-        transport,
-        onMessageSent,
-        onMessageExpired,
-        onStateChanged,
-        onTransactionsFound
-      ],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGenericContractDartWrapperSubscribeConstMeta =>
-          const TaskConstMeta(
-            debugName: "generic_contract_dart_wrapper_subscribe",
-            argNames: [
-              "address",
-              "preloadTransactions",
-              "transport",
-              "onMessageSent",
-              "onMessageExpired",
-              "onStateChanged",
-              "onTransactionsFound"
-            ],
-          );
+  get kCrateApiMergedGenericContractDartWrapperSubscribeConstMeta =>
+      const TaskConstMeta(
+        debugName: "generic_contract_dart_wrapper_subscribe",
+        argNames: [
+          "address",
+          "preloadTransactions",
+          "transport",
+          "onMessageSent",
+          "onMessageExpired",
+          "onStateChanged",
+          "onTransactionsFound",
+        ],
+      );
 
   @override
-  GqlConnectionDartWrapper crateApiMergedGqlConnectionDartWrapperNew(
-      {required bool isLocal,
-      required FutureOr<String> Function(String) onPost}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_bool(isLocal);
-        var arg1 =
-            cst_encode_DartFn_Inputs_String_Output_String_AnyhowException(
-                onPost);
-        return wire.wire__crate__api__merged__gql_connection_dart_wrapper_new(
-            arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_gql_connection_dart_wrapper,
-        decodeErrorData: null,
+  GqlConnectionDartWrapper crateApiMergedGqlConnectionDartWrapperNew({
+    required bool isLocal,
+    required FutureOr<String> Function(String) onPost,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_bool(isLocal);
+          var arg1 =
+              cst_encode_DartFn_Inputs_String_Output_String_AnyhowException(
+                onPost,
+              );
+          return wire.wire__crate__api__merged__gql_connection_dart_wrapper_new(
+            arg0,
+            arg1,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_gql_connection_dart_wrapper,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedGqlConnectionDartWrapperNewConstMeta,
+        argValues: [isLocal, onPost],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGqlConnectionDartWrapperNewConstMeta,
-      argValues: [isLocal, onPost],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedGqlConnectionDartWrapperNewConstMeta =>
@@ -4082,56 +4881,72 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedGqlTransportImplGetAccountsByCodeHash(
-      {required GqlTransportImpl that,
-      required String codeHash,
-      required int limit,
-      String? continuation}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
-        var arg1 = cst_encode_String(codeHash);
-        var arg2 = cst_encode_u_8(limit);
-        var arg3 = cst_encode_opt_String(continuation);
-        return wire
-            .wire__crate__api__merged__gql_transport_impl_get_accounts_by_code_hash(
-                port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedGqlTransportImplGetAccountsByCodeHash({
+    required GqlTransportImpl that,
+    required String codeHash,
+    required int limit,
+    String? continuation,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
+          var arg1 = cst_encode_String(codeHash);
+          var arg2 = cst_encode_u_8(limit);
+          var arg3 = cst_encode_opt_String(continuation);
+          return wire
+              .wire__crate__api__merged__gql_transport_impl_get_accounts_by_code_hash(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedGqlTransportImplGetAccountsByCodeHashConstMeta,
+        argValues: [that, codeHash, limit, continuation],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGqlTransportImplGetAccountsByCodeHashConstMeta,
-      argValues: [that, codeHash, limit, continuation],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGqlTransportImplGetAccountsByCodeHashConstMeta =>
-          const TaskConstMeta(
-            debugName: "gql_transport_impl_get_accounts_by_code_hash",
-            argNames: ["that", "codeHash", "limit", "continuation"],
-          );
+  get kCrateApiMergedGqlTransportImplGetAccountsByCodeHashConstMeta =>
+      const TaskConstMeta(
+        debugName: "gql_transport_impl_get_accounts_by_code_hash",
+        argNames: ["that", "codeHash", "limit", "continuation"],
+      );
 
   @override
-  Future<String> crateApiMergedGqlTransportImplGetBlock(
-      {required GqlTransportImpl that, required String id}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
-        var arg1 = cst_encode_String(id);
-        return wire.wire__crate__api__merged__gql_transport_impl_get_block(
-            port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedGqlTransportImplGetBlock({
+    required GqlTransportImpl that,
+    required String id,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
+          var arg1 = cst_encode_String(id);
+          return wire.wire__crate__api__merged__gql_transport_impl_get_block(
+            port_,
+            arg0,
+            arg1,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedGqlTransportImplGetBlockConstMeta,
+        argValues: [that, id],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGqlTransportImplGetBlockConstMeta,
-      argValues: [that, id],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedGqlTransportImplGetBlockConstMeta =>
@@ -4141,52 +4956,66 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedGqlTransportImplGetBlockchainConfig(
-      {required GqlTransportImpl that, required bool force}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
-        var arg1 = cst_encode_bool(force);
-        return wire
-            .wire__crate__api__merged__gql_transport_impl_get_blockchain_config(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedGqlTransportImplGetBlockchainConfig({
+    required GqlTransportImpl that,
+    required bool force,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
+          var arg1 = cst_encode_bool(force);
+          return wire
+              .wire__crate__api__merged__gql_transport_impl_get_blockchain_config(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedGqlTransportImplGetBlockchainConfigConstMeta,
+        argValues: [that, force],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGqlTransportImplGetBlockchainConfigConstMeta,
-      argValues: [that, force],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGqlTransportImplGetBlockchainConfigConstMeta =>
-          const TaskConstMeta(
-            debugName: "gql_transport_impl_get_blockchain_config",
-            argNames: ["that", "force"],
-          );
+  get kCrateApiMergedGqlTransportImplGetBlockchainConfigConstMeta =>
+      const TaskConstMeta(
+        debugName: "gql_transport_impl_get_blockchain_config",
+        argNames: ["that", "force"],
+      );
 
   @override
-  Future<String> crateApiMergedGqlTransportImplGetContractState(
-      {required GqlTransportImpl that, required String address}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
-        var arg1 = cst_encode_String(address);
-        return wire
-            .wire__crate__api__merged__gql_transport_impl_get_contract_state(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedGqlTransportImplGetContractState({
+    required GqlTransportImpl that,
+    required String address,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
+          var arg1 = cst_encode_String(address);
+          return wire
+              .wire__crate__api__merged__gql_transport_impl_get_contract_state(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedGqlTransportImplGetContractStateConstMeta,
+        argValues: [that, address],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGqlTransportImplGetContractStateConstMeta,
-      argValues: [that, address],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedGqlTransportImplGetContractStateConstMeta =>
@@ -4196,24 +5025,31 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String?> crateApiMergedGqlTransportImplGetDstTransaction(
-      {required GqlTransportImpl that, required String messageHash}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
-        var arg1 = cst_encode_String(messageHash);
-        return wire
-            .wire__crate__api__merged__gql_transport_impl_get_dst_transaction(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String?> crateApiMergedGqlTransportImplGetDstTransaction({
+    required GqlTransportImpl that,
+    required String messageHash,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
+          var arg1 = cst_encode_String(messageHash);
+          return wire
+              .wire__crate__api__merged__gql_transport_impl_get_dst_transaction(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedGqlTransportImplGetDstTransactionConstMeta,
+        argValues: [that, messageHash],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGqlTransportImplGetDstTransactionConstMeta,
-      argValues: [that, messageHash],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedGqlTransportImplGetDstTransactionConstMeta =>
@@ -4223,24 +5059,31 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedGqlTransportImplGetFeeFactors(
-      {required GqlTransportImpl that, required bool isMasterchain}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
-        var arg1 = cst_encode_bool(isMasterchain);
-        return wire
-            .wire__crate__api__merged__gql_transport_impl_get_fee_factors(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedGqlTransportImplGetFeeFactors({
+    required GqlTransportImpl that,
+    required bool isMasterchain,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
+          var arg1 = cst_encode_bool(isMasterchain);
+          return wire
+              .wire__crate__api__merged__gql_transport_impl_get_fee_factors(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedGqlTransportImplGetFeeFactorsConstMeta,
+        argValues: [that, isMasterchain],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGqlTransportImplGetFeeFactorsConstMeta,
-      argValues: [that, isMasterchain],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedGqlTransportImplGetFeeFactorsConstMeta =>
@@ -4250,52 +5093,66 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String?> crateApiMergedGqlTransportImplGetFullContractState(
-      {required GqlTransportImpl that, required String address}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
-        var arg1 = cst_encode_String(address);
-        return wire
-            .wire__crate__api__merged__gql_transport_impl_get_full_contract_state(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String?> crateApiMergedGqlTransportImplGetFullContractState({
+    required GqlTransportImpl that,
+    required String address,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
+          var arg1 = cst_encode_String(address);
+          return wire
+              .wire__crate__api__merged__gql_transport_impl_get_full_contract_state(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedGqlTransportImplGetFullContractStateConstMeta,
+        argValues: [that, address],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGqlTransportImplGetFullContractStateConstMeta,
-      argValues: [that, address],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGqlTransportImplGetFullContractStateConstMeta =>
-          const TaskConstMeta(
-            debugName: "gql_transport_impl_get_full_contract_state",
-            argNames: ["that", "address"],
-          );
+  get kCrateApiMergedGqlTransportImplGetFullContractStateConstMeta =>
+      const TaskConstMeta(
+        debugName: "gql_transport_impl_get_full_contract_state",
+        argNames: ["that", "address"],
+      );
 
   @override
-  Future<LatestBlock> crateApiMergedGqlTransportImplGetLatestBlock(
-      {required GqlTransportImpl that, required String address}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
-        var arg1 = cst_encode_String(address);
-        return wire
-            .wire__crate__api__merged__gql_transport_impl_get_latest_block(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_latest_block,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<LatestBlock> crateApiMergedGqlTransportImplGetLatestBlock({
+    required GqlTransportImpl that,
+    required String address,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
+          var arg1 = cst_encode_String(address);
+          return wire
+              .wire__crate__api__merged__gql_transport_impl_get_latest_block(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_latest_block,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedGqlTransportImplGetLatestBlockConstMeta,
+        argValues: [that, address],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGqlTransportImplGetLatestBlockConstMeta,
-      argValues: [that, address],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedGqlTransportImplGetLatestBlockConstMeta =>
@@ -4305,22 +5162,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<int> crateApiMergedGqlTransportImplGetNetworkId(
-      {required GqlTransportImpl that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
-        return wire.wire__crate__api__merged__gql_transport_impl_get_network_id(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_i_32,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<int> crateApiMergedGqlTransportImplGetNetworkId({
+    required GqlTransportImpl that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
+          return wire
+              .wire__crate__api__merged__gql_transport_impl_get_network_id(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_i_32,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedGqlTransportImplGetNetworkIdConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGqlTransportImplGetNetworkIdConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedGqlTransportImplGetNetworkIdConstMeta =>
@@ -4330,23 +5193,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<int?> crateApiMergedGqlTransportImplGetSignatureId(
-      {required GqlTransportImpl that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
-        return wire
-            .wire__crate__api__merged__gql_transport_impl_get_signature_id(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_box_autoadd_i_32,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<int?> crateApiMergedGqlTransportImplGetSignatureId({
+    required GqlTransportImpl that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
+          return wire
+              .wire__crate__api__merged__gql_transport_impl_get_signature_id(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_box_autoadd_i_32,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedGqlTransportImplGetSignatureIdConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGqlTransportImplGetSignatureIdConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedGqlTransportImplGetSignatureIdConstMeta =>
@@ -4356,24 +5224,31 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String?> crateApiMergedGqlTransportImplGetTransaction(
-      {required GqlTransportImpl that, required String hash}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
-        var arg1 = cst_encode_String(hash);
-        return wire
-            .wire__crate__api__merged__gql_transport_impl_get_transaction(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String?> crateApiMergedGqlTransportImplGetTransaction({
+    required GqlTransportImpl that,
+    required String hash,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
+          var arg1 = cst_encode_String(hash);
+          return wire
+              .wire__crate__api__merged__gql_transport_impl_get_transaction(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedGqlTransportImplGetTransactionConstMeta,
+        argValues: [that, hash],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGqlTransportImplGetTransactionConstMeta,
-      argValues: [that, hash],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedGqlTransportImplGetTransactionConstMeta =>
@@ -4383,29 +5258,37 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedGqlTransportImplGetTransactions(
-      {required GqlTransportImpl that,
-      required String address,
-      String? fromLt,
-      required int count}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
-        var arg1 = cst_encode_String(address);
-        var arg2 = cst_encode_opt_String(fromLt);
-        var arg3 = cst_encode_u_8(count);
-        return wire
-            .wire__crate__api__merged__gql_transport_impl_get_transactions(
-                port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedGqlTransportImplGetTransactions({
+    required GqlTransportImpl that,
+    required String address,
+    String? fromLt,
+    required int count,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
+          var arg1 = cst_encode_String(address);
+          var arg2 = cst_encode_opt_String(fromLt);
+          var arg3 = cst_encode_u_8(count);
+          return wire
+              .wire__crate__api__merged__gql_transport_impl_get_transactions(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedGqlTransportImplGetTransactionsConstMeta,
+        argValues: [that, address, fromLt, count],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGqlTransportImplGetTransactionsConstMeta,
-      argValues: [that, address, fromLt, count],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedGqlTransportImplGetTransactionsConstMeta =>
@@ -4415,22 +5298,26 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  GqlTransportImpl crateApiMergedGqlTransportImplNew(
-      {required GqlConnectionDartWrapper gqlConnection}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_box_autoadd_gql_connection_dart_wrapper(gqlConnection);
-        return wire.wire__crate__api__merged__gql_transport_impl_new(arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_gql_transport_impl,
-        decodeErrorData: null,
+  GqlTransportImpl crateApiMergedGqlTransportImplNew({
+    required GqlConnectionDartWrapper gqlConnection,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_box_autoadd_gql_connection_dart_wrapper(
+            gqlConnection,
+          );
+          return wire.wire__crate__api__merged__gql_transport_impl_new(arg0);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_gql_transport_impl,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedGqlTransportImplNewConstMeta,
+        argValues: [gqlConnection],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGqlTransportImplNewConstMeta,
-      argValues: [gqlConnection],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedGqlTransportImplNewConstMeta =>
@@ -4440,73 +5327,89 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedGqlTransportImplSimulateTransactionTree(
-      {required GqlTransportImpl that,
-      required String signedMessage,
-      required List<int> ignoredComputePhaseCodes,
-      required List<int> ignoredActionPhaseCodes}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
-        var arg1 = cst_encode_String(signedMessage);
-        var arg2 = cst_encode_list_prim_i_32_loose(ignoredComputePhaseCodes);
-        var arg3 = cst_encode_list_prim_i_32_loose(ignoredActionPhaseCodes);
-        return wire
-            .wire__crate__api__merged__gql_transport_impl_simulate_transaction_tree(
-                port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedGqlTransportImplSimulateTransactionTree({
+    required GqlTransportImpl that,
+    required String signedMessage,
+    required List<int> ignoredComputePhaseCodes,
+    required List<int> ignoredActionPhaseCodes,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
+          var arg1 = cst_encode_String(signedMessage);
+          var arg2 = cst_encode_list_prim_i_32_loose(ignoredComputePhaseCodes);
+          var arg3 = cst_encode_list_prim_i_32_loose(ignoredActionPhaseCodes);
+          return wire
+              .wire__crate__api__merged__gql_transport_impl_simulate_transaction_tree(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedGqlTransportImplSimulateTransactionTreeConstMeta,
+        argValues: [
+          that,
+          signedMessage,
+          ignoredComputePhaseCodes,
+          ignoredActionPhaseCodes,
+        ],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedGqlTransportImplSimulateTransactionTreeConstMeta,
-      argValues: [
-        that,
-        signedMessage,
-        ignoredComputePhaseCodes,
-        ignoredActionPhaseCodes
-      ],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedGqlTransportImplSimulateTransactionTreeConstMeta =>
-          const TaskConstMeta(
-            debugName: "gql_transport_impl_simulate_transaction_tree",
-            argNames: [
-              "that",
-              "signedMessage",
-              "ignoredComputePhaseCodes",
-              "ignoredActionPhaseCodes"
-            ],
-          );
+  get kCrateApiMergedGqlTransportImplSimulateTransactionTreeConstMeta =>
+      const TaskConstMeta(
+        debugName: "gql_transport_impl_simulate_transaction_tree",
+        argNames: [
+          "that",
+          "signedMessage",
+          "ignoredComputePhaseCodes",
+          "ignoredActionPhaseCodes",
+        ],
+      );
 
   @override
-  Future<String> crateApiMergedGqlTransportImplWaitForNextBlock(
-      {required GqlTransportImpl that,
-      required String currentBlockId,
-      required String address,
-      required BigInt timeout}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
-        var arg1 = cst_encode_String(currentBlockId);
-        var arg2 = cst_encode_String(address);
-        var arg3 = cst_encode_u_64(timeout);
-        return wire
-            .wire__crate__api__merged__gql_transport_impl_wait_for_next_block(
-                port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedGqlTransportImplWaitForNextBlock({
+    required GqlTransportImpl that,
+    required String currentBlockId,
+    required String address,
+    required BigInt timeout,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
+          var arg1 = cst_encode_String(currentBlockId);
+          var arg2 = cst_encode_String(address);
+          var arg3 = cst_encode_u_64(timeout);
+          return wire
+              .wire__crate__api__merged__gql_transport_impl_wait_for_next_block(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedGqlTransportImplWaitForNextBlockConstMeta,
+        argValues: [that, currentBlockId, address, timeout],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedGqlTransportImplWaitForNextBlockConstMeta,
-      argValues: [that, currentBlockId, address, timeout],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedGqlTransportImplWaitForNextBlockConstMeta =>
@@ -4516,47 +5419,56 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<void> crateApiMergedInitLogger(
-      {required LogLevel level, required bool mobileLogger}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_log_level(level);
-        var arg1 = cst_encode_bool(mobileLogger);
-        return wire.wire__crate__api__merged__init_logger(port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+  Future<void> crateApiMergedInitLogger({
+    required LogLevel level,
+    required bool mobileLogger,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_log_level(level);
+          var arg1 = cst_encode_bool(mobileLogger);
+          return wire.wire__crate__api__merged__init_logger(port_, arg0, arg1);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedInitLoggerConstMeta,
+        argValues: [level, mobileLogger],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedInitLoggerConstMeta,
-      argValues: [level, mobileLogger],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedInitLoggerConstMeta => const TaskConstMeta(
-        debugName: "init_logger",
-        argNames: ["level", "mobileLogger"],
-      );
+    debugName: "init_logger",
+    argNames: ["level", "mobileLogger"],
+  );
 
   @override
-  Future<String> crateApiMergedJettonWalletDartWrapperAddress(
-      {required JettonWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__jetton_wallet_dart_wrapper_address(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: null,
+  Future<String> crateApiMergedJettonWalletDartWrapperAddress({
+    required JettonWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__jetton_wallet_dart_wrapper_address(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedJettonWalletDartWrapperAddressConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJettonWalletDartWrapperAddressConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedJettonWalletDartWrapperAddressConstMeta =>
@@ -4566,23 +5478,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedJettonWalletDartWrapperBalance(
-      {required JettonWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__jetton_wallet_dart_wrapper_balance(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: null,
+  Future<String> crateApiMergedJettonWalletDartWrapperBalance({
+    required JettonWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__jetton_wallet_dart_wrapper_balance(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedJettonWalletDartWrapperBalanceConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJettonWalletDartWrapperBalanceConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedJettonWalletDartWrapperBalanceConstMeta =>
@@ -4592,198 +5509,242 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedJettonWalletDartWrapperContractState(
-      {required JettonWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__jetton_wallet_dart_wrapper_contract_state(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedJettonWalletDartWrapperContractState({
+    required JettonWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__jetton_wallet_dart_wrapper_contract_state(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedJettonWalletDartWrapperContractStateConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJettonWalletDartWrapperContractStateConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedJettonWalletDartWrapperContractStateConstMeta =>
-          const TaskConstMeta(
-            debugName: "jetton_wallet_dart_wrapper_contract_state",
-            argNames: ["that"],
-          );
-
-  @override
-  Future<String> crateApiMergedJettonWalletDartWrapperEstimateMinAttachedAmount(
-      {required JettonWalletDartWrapper that, required String destination}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
-        var arg1 = cst_encode_String(destination);
-        return wire
-            .wire__crate__api__merged__jetton_wallet_dart_wrapper_estimate_min_attached_amount(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
-      ),
-      constMeta:
-          kCrateApiMergedJettonWalletDartWrapperEstimateMinAttachedAmountConstMeta,
-      argValues: [that, destination],
-      apiImpl: this,
-    ));
-  }
-
-  TaskConstMeta
-      get kCrateApiMergedJettonWalletDartWrapperEstimateMinAttachedAmountConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "jetton_wallet_dart_wrapper_estimate_min_attached_amount",
-            argNames: ["that", "destination"],
-          );
-
-  @override
-  Future<String> crateApiMergedJettonWalletDartWrapperGetJettonRootDetails(
-      {required ArcTransportBoxTrait transport,
-      required String tokenRootAddress}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg1 = cst_encode_String(tokenRootAddress);
-        return wire
-            .wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
-      ),
-      constMeta:
-          kCrateApiMergedJettonWalletDartWrapperGetJettonRootDetailsConstMeta,
-      argValues: [transport, tokenRootAddress],
-      apiImpl: this,
-    ));
-  }
-
-  TaskConstMeta
-      get kCrateApiMergedJettonWalletDartWrapperGetJettonRootDetailsConstMeta =>
-          const TaskConstMeta(
-            debugName: "jetton_wallet_dart_wrapper_get_jetton_root_details",
-            argNames: ["transport", "tokenRootAddress"],
-          );
+  get kCrateApiMergedJettonWalletDartWrapperContractStateConstMeta =>
+      const TaskConstMeta(
+        debugName: "jetton_wallet_dart_wrapper_contract_state",
+        argNames: ["that"],
+      );
 
   @override
   Future<String>
-      crateApiMergedJettonWalletDartWrapperGetJettonRootDetailsFromJettonWallet(
-          {required ArcTransportBoxTrait transport,
-          required String tokenWalletAddress}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg1 = cst_encode_String(tokenWalletAddress);
-        return wire
-            .wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details_from_jetton_wallet(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  crateApiMergedJettonWalletDartWrapperEstimateMinAttachedAmount({
+    required JettonWalletDartWrapper that,
+    required String destination,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
+          var arg1 = cst_encode_String(destination);
+          return wire
+              .wire__crate__api__merged__jetton_wallet_dart_wrapper_estimate_min_attached_amount(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedJettonWalletDartWrapperEstimateMinAttachedAmountConstMeta,
+        argValues: [that, destination],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedJettonWalletDartWrapperGetJettonRootDetailsFromJettonWalletConstMeta,
-      argValues: [transport, tokenWalletAddress],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedJettonWalletDartWrapperGetJettonRootDetailsFromJettonWalletConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "jetton_wallet_dart_wrapper_get_jetton_root_details_from_jetton_wallet",
-            argNames: ["transport", "tokenWalletAddress"],
-          );
+  get kCrateApiMergedJettonWalletDartWrapperEstimateMinAttachedAmountConstMeta =>
+      const TaskConstMeta(
+        debugName: "jetton_wallet_dart_wrapper_estimate_min_attached_amount",
+        argNames: ["that", "destination"],
+      );
 
   @override
-  Future<String> crateApiMergedJettonWalletDartWrapperGetJettonWalletDetails(
-      {required ArcTransportBoxTrait transport, required String address}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg1 = cst_encode_String(address);
-        return wire
-            .wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_wallet_details(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedJettonWalletDartWrapperGetJettonRootDetails({
+    required ArcTransportBoxTrait transport,
+    required String tokenRootAddress,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
+          var arg1 = cst_encode_String(tokenRootAddress);
+          return wire
+              .wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedJettonWalletDartWrapperGetJettonRootDetailsConstMeta,
+        argValues: [transport, tokenRootAddress],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedJettonWalletDartWrapperGetJettonWalletDetailsConstMeta,
-      argValues: [transport, address],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedJettonWalletDartWrapperGetJettonWalletDetailsConstMeta =>
-          const TaskConstMeta(
-            debugName: "jetton_wallet_dart_wrapper_get_jetton_wallet_details",
-            argNames: ["transport", "address"],
-          );
+  get kCrateApiMergedJettonWalletDartWrapperGetJettonRootDetailsConstMeta =>
+      const TaskConstMeta(
+        debugName: "jetton_wallet_dart_wrapper_get_jetton_root_details",
+        argNames: ["transport", "tokenRootAddress"],
+      );
 
   @override
-  Future<bool> crateApiMergedJettonWalletDartWrapperHandleBlock(
-      {required JettonWalletDartWrapper that, required String block}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
-        var arg1 = cst_encode_String(block);
-        return wire
-            .wire__crate__api__merged__jetton_wallet_dart_wrapper_handle_block(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String>
+  crateApiMergedJettonWalletDartWrapperGetJettonRootDetailsFromJettonWallet({
+    required ArcTransportBoxTrait transport,
+    required String tokenWalletAddress,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
+          var arg1 = cst_encode_String(tokenWalletAddress);
+          return wire
+              .wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_root_details_from_jetton_wallet(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedJettonWalletDartWrapperGetJettonRootDetailsFromJettonWalletConstMeta,
+        argValues: [transport, tokenWalletAddress],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJettonWalletDartWrapperHandleBlockConstMeta,
-      argValues: [that, block],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedJettonWalletDartWrapperHandleBlockConstMeta =>
-          const TaskConstMeta(
-            debugName: "jetton_wallet_dart_wrapper_handle_block",
-            argNames: ["that", "block"],
-          );
+  get kCrateApiMergedJettonWalletDartWrapperGetJettonRootDetailsFromJettonWalletConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "jetton_wallet_dart_wrapper_get_jetton_root_details_from_jetton_wallet",
+        argNames: ["transport", "tokenWalletAddress"],
+      );
 
   @override
-  Future<String> crateApiMergedJettonWalletDartWrapperOwner(
-      {required JettonWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
-        return wire.wire__crate__api__merged__jetton_wallet_dart_wrapper_owner(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: null,
+  Future<String> crateApiMergedJettonWalletDartWrapperGetJettonWalletDetails({
+    required ArcTransportBoxTrait transport,
+    required String address,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
+          var arg1 = cst_encode_String(address);
+          return wire
+              .wire__crate__api__merged__jetton_wallet_dart_wrapper_get_jetton_wallet_details(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedJettonWalletDartWrapperGetJettonWalletDetailsConstMeta,
+        argValues: [transport, address],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJettonWalletDartWrapperOwnerConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
+  }
+
+  TaskConstMeta
+  get kCrateApiMergedJettonWalletDartWrapperGetJettonWalletDetailsConstMeta =>
+      const TaskConstMeta(
+        debugName: "jetton_wallet_dart_wrapper_get_jetton_wallet_details",
+        argNames: ["transport", "address"],
+      );
+
+  @override
+  Future<bool> crateApiMergedJettonWalletDartWrapperHandleBlock({
+    required JettonWalletDartWrapper that,
+    required String block,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
+          var arg1 = cst_encode_String(block);
+          return wire
+              .wire__crate__api__merged__jetton_wallet_dart_wrapper_handle_block(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedJettonWalletDartWrapperHandleBlockConstMeta,
+        argValues: [that, block],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta
+  get kCrateApiMergedJettonWalletDartWrapperHandleBlockConstMeta =>
+      const TaskConstMeta(
+        debugName: "jetton_wallet_dart_wrapper_handle_block",
+        argNames: ["that", "block"],
+      );
+
+  @override
+  Future<String> crateApiMergedJettonWalletDartWrapperOwner({
+    required JettonWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__jetton_wallet_dart_wrapper_owner(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedJettonWalletDartWrapperOwnerConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
   }
 
   TaskConstMeta get kCrateApiMergedJettonWalletDartWrapperOwnerConstMeta =>
@@ -4793,111 +5754,136 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<bool> crateApiMergedJettonWalletDartWrapperPreloadTransactions(
-      {required JettonWalletDartWrapper that, required String fromLt}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
-        var arg1 = cst_encode_String(fromLt);
-        return wire
-            .wire__crate__api__merged__jetton_wallet_dart_wrapper_preload_transactions(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedJettonWalletDartWrapperPreloadTransactions({
+    required JettonWalletDartWrapper that,
+    required String fromLt,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
+          var arg1 = cst_encode_String(fromLt);
+          return wire
+              .wire__crate__api__merged__jetton_wallet_dart_wrapper_preload_transactions(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedJettonWalletDartWrapperPreloadTransactionsConstMeta,
+        argValues: [that, fromLt],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedJettonWalletDartWrapperPreloadTransactionsConstMeta,
-      argValues: [that, fromLt],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedJettonWalletDartWrapperPreloadTransactionsConstMeta =>
-          const TaskConstMeta(
-            debugName: "jetton_wallet_dart_wrapper_preload_transactions",
-            argNames: ["that", "fromLt"],
-          );
+  get kCrateApiMergedJettonWalletDartWrapperPreloadTransactionsConstMeta =>
+      const TaskConstMeta(
+        debugName: "jetton_wallet_dart_wrapper_preload_transactions",
+        argNames: ["that", "fromLt"],
+      );
 
   @override
-  Future<String> crateApiMergedJettonWalletDartWrapperPrepareTransfer(
-      {required JettonWalletDartWrapper that,
-      required String amount,
-      required String destination,
-      required String remainingGasTo,
-      String? customPayload,
-      required String callbackValue,
-      String? callbackPayload,
-      String? attachedAmount}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
-        var arg1 = cst_encode_String(amount);
-        var arg2 = cst_encode_String(destination);
-        var arg3 = cst_encode_String(remainingGasTo);
-        var arg4 = cst_encode_opt_String(customPayload);
-        var arg5 = cst_encode_String(callbackValue);
-        var arg6 = cst_encode_opt_String(callbackPayload);
-        var arg7 = cst_encode_opt_String(attachedAmount);
-        return wire
-            .wire__crate__api__merged__jetton_wallet_dart_wrapper_prepare_transfer(
-                port_, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedJettonWalletDartWrapperPrepareTransfer({
+    required JettonWalletDartWrapper that,
+    required String amount,
+    required String destination,
+    required String remainingGasTo,
+    String? customPayload,
+    required String callbackValue,
+    String? callbackPayload,
+    String? attachedAmount,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
+          var arg1 = cst_encode_String(amount);
+          var arg2 = cst_encode_String(destination);
+          var arg3 = cst_encode_String(remainingGasTo);
+          var arg4 = cst_encode_opt_String(customPayload);
+          var arg5 = cst_encode_String(callbackValue);
+          var arg6 = cst_encode_opt_String(callbackPayload);
+          var arg7 = cst_encode_opt_String(attachedAmount);
+          return wire
+              .wire__crate__api__merged__jetton_wallet_dart_wrapper_prepare_transfer(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+                arg4,
+                arg5,
+                arg6,
+                arg7,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedJettonWalletDartWrapperPrepareTransferConstMeta,
+        argValues: [
+          that,
+          amount,
+          destination,
+          remainingGasTo,
+          customPayload,
+          callbackValue,
+          callbackPayload,
+          attachedAmount,
+        ],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJettonWalletDartWrapperPrepareTransferConstMeta,
-      argValues: [
-        that,
-        amount,
-        destination,
-        remainingGasTo,
-        customPayload,
-        callbackValue,
-        callbackPayload,
-        attachedAmount
-      ],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedJettonWalletDartWrapperPrepareTransferConstMeta =>
-          const TaskConstMeta(
-            debugName: "jetton_wallet_dart_wrapper_prepare_transfer",
-            argNames: [
-              "that",
-              "amount",
-              "destination",
-              "remainingGasTo",
-              "customPayload",
-              "callbackValue",
-              "callbackPayload",
-              "attachedAmount"
-            ],
-          );
+  get kCrateApiMergedJettonWalletDartWrapperPrepareTransferConstMeta =>
+      const TaskConstMeta(
+        debugName: "jetton_wallet_dart_wrapper_prepare_transfer",
+        argNames: [
+          "that",
+          "amount",
+          "destination",
+          "remainingGasTo",
+          "customPayload",
+          "callbackValue",
+          "callbackPayload",
+          "attachedAmount",
+        ],
+      );
 
   @override
-  Future<bool> crateApiMergedJettonWalletDartWrapperRefresh(
-      {required JettonWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__jetton_wallet_dart_wrapper_refresh(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedJettonWalletDartWrapperRefresh({
+    required JettonWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jetton_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__jetton_wallet_dart_wrapper_refresh(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedJettonWalletDartWrapperRefreshConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJettonWalletDartWrapperRefreshConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedJettonWalletDartWrapperRefreshConstMeta =>
@@ -4908,42 +5894,56 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @override
   Future<JettonWalletDartWrapper>
-      crateApiMergedJettonWalletDartWrapperSubscribe(
-          {required String owner,
-          required String rootTokenContract,
-          required ArcTransportBoxTrait transport,
-          required bool preloadTransactions,
-          required FutureOr<void> Function(String) onBalanceChanged,
-          required FutureOr<void> Function(String) onTransactionsFound}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(owner);
-        var arg1 = cst_encode_String(rootTokenContract);
-        var arg2 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg3 = cst_encode_bool(preloadTransactions);
-        var arg4 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onBalanceChanged);
-        var arg5 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onTransactionsFound);
-        return wire
-            .wire__crate__api__merged__jetton_wallet_dart_wrapper_subscribe(
-                port_, arg0, arg1, arg2, arg3, arg4, arg5);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_jetton_wallet_dart_wrapper,
-        decodeErrorData: dco_decode_AnyhowException,
+  crateApiMergedJettonWalletDartWrapperSubscribe({
+    required String owner,
+    required String rootTokenContract,
+    required ArcTransportBoxTrait transport,
+    required bool preloadTransactions,
+    required FutureOr<void> Function(String) onBalanceChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(owner);
+          var arg1 = cst_encode_String(rootTokenContract);
+          var arg2 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
+          var arg3 = cst_encode_bool(preloadTransactions);
+          var arg4 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onBalanceChanged,
+              );
+          var arg5 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onTransactionsFound,
+              );
+          return wire
+              .wire__crate__api__merged__jetton_wallet_dart_wrapper_subscribe(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+                arg4,
+                arg5,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_jetton_wallet_dart_wrapper,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedJettonWalletDartWrapperSubscribeConstMeta,
+        argValues: [
+          owner,
+          rootTokenContract,
+          transport,
+          preloadTransactions,
+          onBalanceChanged,
+          onTransactionsFound,
+        ],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJettonWalletDartWrapperSubscribeConstMeta,
-      argValues: [
-        owner,
-        rootTokenContract,
-        transport,
-        preloadTransactions,
-        onBalanceChanged,
-        onTransactionsFound
-      ],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedJettonWalletDartWrapperSubscribeConstMeta =>
@@ -4955,29 +5955,33 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           "transport",
           "preloadTransactions",
           "onBalanceChanged",
-          "onTransactionsFound"
+          "onTransactionsFound",
         ],
       );
 
   @override
-  JrpcConnectionDartWrapper crateApiMergedJrpcConnectionDartWrapperNew(
-      {required FutureOr<String> Function(String) onPost}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_DartFn_Inputs_String_Output_String_AnyhowException(
-                onPost);
-        return wire
-            .wire__crate__api__merged__jrpc_connection_dart_wrapper_new(arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_jrpc_connection_dart_wrapper,
-        decodeErrorData: null,
+  JrpcConnectionDartWrapper crateApiMergedJrpcConnectionDartWrapperNew({
+    required FutureOr<String> Function(String) onPost,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_DartFn_Inputs_String_Output_String_AnyhowException(
+                onPost,
+              );
+          return wire
+              .wire__crate__api__merged__jrpc_connection_dart_wrapper_new(arg0);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_jrpc_connection_dart_wrapper,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedJrpcConnectionDartWrapperNewConstMeta,
+        argValues: [onPost],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJrpcConnectionDartWrapperNewConstMeta,
-      argValues: [onPost],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedJrpcConnectionDartWrapperNewConstMeta =>
@@ -4987,85 +5991,108 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedJrpcTransportImplGetAccountsByCodeHash(
-      {required JrpcTransportImpl that,
-      required String codeHash,
-      required int limit,
-      String? continuation}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
-        var arg1 = cst_encode_String(codeHash);
-        var arg2 = cst_encode_u_8(limit);
-        var arg3 = cst_encode_opt_String(continuation);
-        return wire
-            .wire__crate__api__merged__jrpc_transport_impl_get_accounts_by_code_hash(
-                port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedJrpcTransportImplGetAccountsByCodeHash({
+    required JrpcTransportImpl that,
+    required String codeHash,
+    required int limit,
+    String? continuation,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
+          var arg1 = cst_encode_String(codeHash);
+          var arg2 = cst_encode_u_8(limit);
+          var arg3 = cst_encode_opt_String(continuation);
+          return wire
+              .wire__crate__api__merged__jrpc_transport_impl_get_accounts_by_code_hash(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedJrpcTransportImplGetAccountsByCodeHashConstMeta,
+        argValues: [that, codeHash, limit, continuation],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJrpcTransportImplGetAccountsByCodeHashConstMeta,
-      argValues: [that, codeHash, limit, continuation],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedJrpcTransportImplGetAccountsByCodeHashConstMeta =>
-          const TaskConstMeta(
-            debugName: "jrpc_transport_impl_get_accounts_by_code_hash",
-            argNames: ["that", "codeHash", "limit", "continuation"],
-          );
+  get kCrateApiMergedJrpcTransportImplGetAccountsByCodeHashConstMeta =>
+      const TaskConstMeta(
+        debugName: "jrpc_transport_impl_get_accounts_by_code_hash",
+        argNames: ["that", "codeHash", "limit", "continuation"],
+      );
 
   @override
-  Future<String> crateApiMergedJrpcTransportImplGetBlockchainConfig(
-      {required JrpcTransportImpl that, required bool force}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
-        var arg1 = cst_encode_bool(force);
-        return wire
-            .wire__crate__api__merged__jrpc_transport_impl_get_blockchain_config(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedJrpcTransportImplGetBlockchainConfig({
+    required JrpcTransportImpl that,
+    required bool force,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
+          var arg1 = cst_encode_bool(force);
+          return wire
+              .wire__crate__api__merged__jrpc_transport_impl_get_blockchain_config(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedJrpcTransportImplGetBlockchainConfigConstMeta,
+        argValues: [that, force],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJrpcTransportImplGetBlockchainConfigConstMeta,
-      argValues: [that, force],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedJrpcTransportImplGetBlockchainConfigConstMeta =>
-          const TaskConstMeta(
-            debugName: "jrpc_transport_impl_get_blockchain_config",
-            argNames: ["that", "force"],
-          );
+  get kCrateApiMergedJrpcTransportImplGetBlockchainConfigConstMeta =>
+      const TaskConstMeta(
+        debugName: "jrpc_transport_impl_get_blockchain_config",
+        argNames: ["that", "force"],
+      );
 
   @override
-  Future<String> crateApiMergedJrpcTransportImplGetContractState(
-      {required JrpcTransportImpl that, required String address}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
-        var arg1 = cst_encode_String(address);
-        return wire
-            .wire__crate__api__merged__jrpc_transport_impl_get_contract_state(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedJrpcTransportImplGetContractState({
+    required JrpcTransportImpl that,
+    required String address,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
+          var arg1 = cst_encode_String(address);
+          return wire
+              .wire__crate__api__merged__jrpc_transport_impl_get_contract_state(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedJrpcTransportImplGetContractStateConstMeta,
+        argValues: [that, address],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJrpcTransportImplGetContractStateConstMeta,
-      argValues: [that, address],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedJrpcTransportImplGetContractStateConstMeta =>
@@ -5075,52 +6102,66 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String?> crateApiMergedJrpcTransportImplGetDstTransaction(
-      {required JrpcTransportImpl that, required String messageHash}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
-        var arg1 = cst_encode_String(messageHash);
-        return wire
-            .wire__crate__api__merged__jrpc_transport_impl_get_dst_transaction(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String?> crateApiMergedJrpcTransportImplGetDstTransaction({
+    required JrpcTransportImpl that,
+    required String messageHash,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
+          var arg1 = cst_encode_String(messageHash);
+          return wire
+              .wire__crate__api__merged__jrpc_transport_impl_get_dst_transaction(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedJrpcTransportImplGetDstTransactionConstMeta,
+        argValues: [that, messageHash],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJrpcTransportImplGetDstTransactionConstMeta,
-      argValues: [that, messageHash],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedJrpcTransportImplGetDstTransactionConstMeta =>
-          const TaskConstMeta(
-            debugName: "jrpc_transport_impl_get_dst_transaction",
-            argNames: ["that", "messageHash"],
-          );
+  get kCrateApiMergedJrpcTransportImplGetDstTransactionConstMeta =>
+      const TaskConstMeta(
+        debugName: "jrpc_transport_impl_get_dst_transaction",
+        argNames: ["that", "messageHash"],
+      );
 
   @override
-  Future<String> crateApiMergedJrpcTransportImplGetFeeFactors(
-      {required JrpcTransportImpl that, required bool isMasterchain}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
-        var arg1 = cst_encode_bool(isMasterchain);
-        return wire
-            .wire__crate__api__merged__jrpc_transport_impl_get_fee_factors(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedJrpcTransportImplGetFeeFactors({
+    required JrpcTransportImpl that,
+    required bool isMasterchain,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
+          var arg1 = cst_encode_bool(isMasterchain);
+          return wire
+              .wire__crate__api__merged__jrpc_transport_impl_get_fee_factors(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedJrpcTransportImplGetFeeFactorsConstMeta,
+        argValues: [that, isMasterchain],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJrpcTransportImplGetFeeFactorsConstMeta,
-      argValues: [that, isMasterchain],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedJrpcTransportImplGetFeeFactorsConstMeta =>
@@ -5130,51 +6171,64 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String?> crateApiMergedJrpcTransportImplGetFullContractState(
-      {required JrpcTransportImpl that, required String address}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
-        var arg1 = cst_encode_String(address);
-        return wire
-            .wire__crate__api__merged__jrpc_transport_impl_get_full_contract_state(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String?> crateApiMergedJrpcTransportImplGetFullContractState({
+    required JrpcTransportImpl that,
+    required String address,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
+          var arg1 = cst_encode_String(address);
+          return wire
+              .wire__crate__api__merged__jrpc_transport_impl_get_full_contract_state(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedJrpcTransportImplGetFullContractStateConstMeta,
+        argValues: [that, address],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJrpcTransportImplGetFullContractStateConstMeta,
-      argValues: [that, address],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedJrpcTransportImplGetFullContractStateConstMeta =>
-          const TaskConstMeta(
-            debugName: "jrpc_transport_impl_get_full_contract_state",
-            argNames: ["that", "address"],
-          );
+  get kCrateApiMergedJrpcTransportImplGetFullContractStateConstMeta =>
+      const TaskConstMeta(
+        debugName: "jrpc_transport_impl_get_full_contract_state",
+        argNames: ["that", "address"],
+      );
 
   @override
-  Future<int> crateApiMergedJrpcTransportImplGetNetworkId(
-      {required JrpcTransportImpl that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
-        return wire
-            .wire__crate__api__merged__jrpc_transport_impl_get_network_id(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_i_32,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<int> crateApiMergedJrpcTransportImplGetNetworkId({
+    required JrpcTransportImpl that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
+          return wire
+              .wire__crate__api__merged__jrpc_transport_impl_get_network_id(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_i_32,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedJrpcTransportImplGetNetworkIdConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJrpcTransportImplGetNetworkIdConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedJrpcTransportImplGetNetworkIdConstMeta =>
@@ -5184,23 +6238,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<int?> crateApiMergedJrpcTransportImplGetSignatureId(
-      {required JrpcTransportImpl that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
-        return wire
-            .wire__crate__api__merged__jrpc_transport_impl_get_signature_id(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_box_autoadd_i_32,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<int?> crateApiMergedJrpcTransportImplGetSignatureId({
+    required JrpcTransportImpl that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
+          return wire
+              .wire__crate__api__merged__jrpc_transport_impl_get_signature_id(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_box_autoadd_i_32,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedJrpcTransportImplGetSignatureIdConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJrpcTransportImplGetSignatureIdConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedJrpcTransportImplGetSignatureIdConstMeta =>
@@ -5210,24 +6269,31 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String?> crateApiMergedJrpcTransportImplGetTransaction(
-      {required JrpcTransportImpl that, required String hash}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
-        var arg1 = cst_encode_String(hash);
-        return wire
-            .wire__crate__api__merged__jrpc_transport_impl_get_transaction(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String?> crateApiMergedJrpcTransportImplGetTransaction({
+    required JrpcTransportImpl that,
+    required String hash,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
+          var arg1 = cst_encode_String(hash);
+          return wire
+              .wire__crate__api__merged__jrpc_transport_impl_get_transaction(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedJrpcTransportImplGetTransactionConstMeta,
+        argValues: [that, hash],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJrpcTransportImplGetTransactionConstMeta,
-      argValues: [that, hash],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedJrpcTransportImplGetTransactionConstMeta =>
@@ -5237,29 +6303,37 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedJrpcTransportImplGetTransactions(
-      {required JrpcTransportImpl that,
-      required String address,
-      String? fromLt,
-      required int count}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
-        var arg1 = cst_encode_String(address);
-        var arg2 = cst_encode_opt_String(fromLt);
-        var arg3 = cst_encode_u_8(count);
-        return wire
-            .wire__crate__api__merged__jrpc_transport_impl_get_transactions(
-                port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedJrpcTransportImplGetTransactions({
+    required JrpcTransportImpl that,
+    required String address,
+    String? fromLt,
+    required int count,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
+          var arg1 = cst_encode_String(address);
+          var arg2 = cst_encode_opt_String(fromLt);
+          var arg3 = cst_encode_u_8(count);
+          return wire
+              .wire__crate__api__merged__jrpc_transport_impl_get_transactions(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedJrpcTransportImplGetTransactionsConstMeta,
+        argValues: [that, address, fromLt, count],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJrpcTransportImplGetTransactionsConstMeta,
-      argValues: [that, address, fromLt, count],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedJrpcTransportImplGetTransactionsConstMeta =>
@@ -5269,22 +6343,26 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  JrpcTransportImpl crateApiMergedJrpcTransportImplNew(
-      {required JrpcConnectionDartWrapper jrpcConnection}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_box_autoadd_jrpc_connection_dart_wrapper(jrpcConnection);
-        return wire.wire__crate__api__merged__jrpc_transport_impl_new(arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_jrpc_transport_impl,
-        decodeErrorData: null,
+  JrpcTransportImpl crateApiMergedJrpcTransportImplNew({
+    required JrpcConnectionDartWrapper jrpcConnection,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_box_autoadd_jrpc_connection_dart_wrapper(
+            jrpcConnection,
+          );
+          return wire.wire__crate__api__merged__jrpc_transport_impl_new(arg0);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_jrpc_transport_impl,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedJrpcTransportImplNewConstMeta,
+        argValues: [jrpcConnection],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedJrpcTransportImplNewConstMeta,
-      argValues: [jrpcConnection],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedJrpcTransportImplNewConstMeta =>
@@ -5294,70 +6372,85 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedJrpcTransportImplSimulateTransactionTree(
-      {required JrpcTransportImpl that,
-      required String signedMessage,
-      required List<int> ignoredComputePhaseCodes,
-      required List<int> ignoredActionPhaseCodes}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
-        var arg1 = cst_encode_String(signedMessage);
-        var arg2 = cst_encode_list_prim_i_32_loose(ignoredComputePhaseCodes);
-        var arg3 = cst_encode_list_prim_i_32_loose(ignoredActionPhaseCodes);
-        return wire
-            .wire__crate__api__merged__jrpc_transport_impl_simulate_transaction_tree(
-                port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedJrpcTransportImplSimulateTransactionTree({
+    required JrpcTransportImpl that,
+    required String signedMessage,
+    required List<int> ignoredComputePhaseCodes,
+    required List<int> ignoredActionPhaseCodes,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
+          var arg1 = cst_encode_String(signedMessage);
+          var arg2 = cst_encode_list_prim_i_32_loose(ignoredComputePhaseCodes);
+          var arg3 = cst_encode_list_prim_i_32_loose(ignoredActionPhaseCodes);
+          return wire
+              .wire__crate__api__merged__jrpc_transport_impl_simulate_transaction_tree(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedJrpcTransportImplSimulateTransactionTreeConstMeta,
+        argValues: [
+          that,
+          signedMessage,
+          ignoredComputePhaseCodes,
+          ignoredActionPhaseCodes,
+        ],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedJrpcTransportImplSimulateTransactionTreeConstMeta,
-      argValues: [
-        that,
-        signedMessage,
-        ignoredComputePhaseCodes,
-        ignoredActionPhaseCodes
-      ],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedJrpcTransportImplSimulateTransactionTreeConstMeta =>
-          const TaskConstMeta(
-            debugName: "jrpc_transport_impl_simulate_transaction_tree",
-            argNames: [
-              "that",
-              "signedMessage",
-              "ignoredComputePhaseCodes",
-              "ignoredActionPhaseCodes"
-            ],
-          );
+  get kCrateApiMergedJrpcTransportImplSimulateTransactionTreeConstMeta =>
+      const TaskConstMeta(
+        debugName: "jrpc_transport_impl_simulate_transaction_tree",
+        argNames: [
+          "that",
+          "signedMessage",
+          "ignoredComputePhaseCodes",
+          "ignoredActionPhaseCodes",
+        ],
+      );
 
   @override
-  Future<String> crateApiMergedKeystoreDartWrapperAddKey(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
-        var arg1 = cst_encode_box_autoadd_key_signer(signer);
-        var arg2 = cst_encode_String(input);
-        return wire.wire__crate__api__merged__keystore_dart_wrapper_add_key(
-            port_, arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedKeystoreDartWrapperAddKey({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String input,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
+          var arg1 = cst_encode_box_autoadd_key_signer(signer);
+          var arg2 = cst_encode_String(input);
+          return wire.wire__crate__api__merged__keystore_dart_wrapper_add_key(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperAddKeyConstMeta,
+        argValues: [that, signer, input],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperAddKeyConstMeta,
-      argValues: [that, signer, input],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperAddKeyConstMeta =>
@@ -5367,26 +6460,33 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedKeystoreDartWrapperAddKeys(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
-        var arg1 = cst_encode_box_autoadd_key_signer(signer);
-        var arg2 = cst_encode_String(input);
-        return wire.wire__crate__api__merged__keystore_dart_wrapper_add_keys(
-            port_, arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedKeystoreDartWrapperAddKeys({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String input,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
+          var arg1 = cst_encode_box_autoadd_key_signer(signer);
+          var arg2 = cst_encode_String(input);
+          return wire.wire__crate__api__merged__keystore_dart_wrapper_add_keys(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperAddKeysConstMeta,
+        argValues: [that, signer, input],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperAddKeysConstMeta,
-      argValues: [that, signer, input],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperAddKeysConstMeta =>
@@ -5396,23 +6496,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedKeystoreDartWrapperClearKeystore(
-      {required KeystoreDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__keystore_dart_wrapper_clear_keystore(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedKeystoreDartWrapperClearKeystore({
+    required KeystoreDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__keystore_dart_wrapper_clear_keystore(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperClearKeystoreConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperClearKeystoreConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperClearKeystoreConstMeta =>
@@ -5422,28 +6527,36 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedKeystoreDartWrapperDecrypt(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required String input}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
-        var arg1 = cst_encode_box_autoadd_key_signer(signer);
-        var arg2 = cst_encode_String(data);
-        var arg3 = cst_encode_String(input);
-        return wire.wire__crate__api__merged__keystore_dart_wrapper_decrypt(
-            port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedKeystoreDartWrapperDecrypt({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String data,
+    required String input,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
+          var arg1 = cst_encode_box_autoadd_key_signer(signer);
+          var arg2 = cst_encode_String(data);
+          var arg3 = cst_encode_String(input);
+          return wire.wire__crate__api__merged__keystore_dart_wrapper_decrypt(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+            arg3,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperDecryptConstMeta,
+        argValues: [that, signer, data, input],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperDecryptConstMeta,
-      argValues: [that, signer, data, input],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperDecryptConstMeta =>
@@ -5453,32 +6566,42 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedKeystoreDartWrapperEncrypt(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required List<String> publicKeys,
-      required String algorithm,
-      required String input}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
-        var arg1 = cst_encode_box_autoadd_key_signer(signer);
-        var arg2 = cst_encode_String(data);
-        var arg3 = cst_encode_list_String(publicKeys);
-        var arg4 = cst_encode_String(algorithm);
-        var arg5 = cst_encode_String(input);
-        return wire.wire__crate__api__merged__keystore_dart_wrapper_encrypt(
-            port_, arg0, arg1, arg2, arg3, arg4, arg5);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedKeystoreDartWrapperEncrypt({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String data,
+    required List<String> publicKeys,
+    required String algorithm,
+    required String input,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
+          var arg1 = cst_encode_box_autoadd_key_signer(signer);
+          var arg2 = cst_encode_String(data);
+          var arg3 = cst_encode_list_String(publicKeys);
+          var arg4 = cst_encode_String(algorithm);
+          var arg5 = cst_encode_String(input);
+          return wire.wire__crate__api__merged__keystore_dart_wrapper_encrypt(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+            arg3,
+            arg4,
+            arg5,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperEncryptConstMeta,
+        argValues: [that, signer, data, publicKeys, algorithm, input],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperEncryptConstMeta,
-      argValues: [that, signer, data, publicKeys, algorithm, input],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperEncryptConstMeta =>
@@ -5490,31 +6613,39 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           "data",
           "publicKeys",
           "algorithm",
-          "input"
+          "input",
         ],
       );
 
   @override
-  Future<String> crateApiMergedKeystoreDartWrapperExportSeed(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
-        var arg1 = cst_encode_box_autoadd_key_signer(signer);
-        var arg2 = cst_encode_String(input);
-        return wire.wire__crate__api__merged__keystore_dart_wrapper_export_seed(
-            port_, arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedKeystoreDartWrapperExportSeed({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String input,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
+          var arg1 = cst_encode_box_autoadd_key_signer(signer);
+          var arg2 = cst_encode_String(input);
+          return wire
+              .wire__crate__api__merged__keystore_dart_wrapper_export_seed(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperExportSeedConstMeta,
+        argValues: [that, signer, input],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperExportSeedConstMeta,
-      argValues: [that, signer, input],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperExportSeedConstMeta =>
@@ -5524,22 +6655,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedKeystoreDartWrapperGetEntries(
-      {required KeystoreDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
-        return wire.wire__crate__api__merged__keystore_dart_wrapper_get_entries(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedKeystoreDartWrapperGetEntries({
+    required KeystoreDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__keystore_dart_wrapper_get_entries(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperGetEntriesConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperGetEntriesConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperGetEntriesConstMeta =>
@@ -5549,27 +6686,34 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<List<String>> crateApiMergedKeystoreDartWrapperGetPublicKeys(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
-        var arg1 = cst_encode_box_autoadd_key_signer(signer);
-        var arg2 = cst_encode_String(input);
-        return wire
-            .wire__crate__api__merged__keystore_dart_wrapper_get_public_keys(
-                port_, arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_list_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<List<String>> crateApiMergedKeystoreDartWrapperGetPublicKeys({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String input,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
+          var arg1 = cst_encode_box_autoadd_key_signer(signer);
+          var arg2 = cst_encode_String(input);
+          return wire
+              .wire__crate__api__merged__keystore_dart_wrapper_get_public_keys(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_list_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperGetPublicKeysConstMeta,
+        argValues: [that, signer, input],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperGetPublicKeysConstMeta,
-      argValues: [that, signer, input],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperGetPublicKeysConstMeta =>
@@ -5579,58 +6723,73 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<bool> crateApiMergedKeystoreDartWrapperIsPasswordCached(
-      {required KeystoreDartWrapper that,
-      required String publicKey,
-      required BigInt duration}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
-        var arg1 = cst_encode_String(publicKey);
-        var arg2 = cst_encode_u_64(duration);
-        return wire
-            .wire__crate__api__merged__keystore_dart_wrapper_is_password_cached(
-                port_, arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedKeystoreDartWrapperIsPasswordCached({
+    required KeystoreDartWrapper that,
+    required String publicKey,
+    required BigInt duration,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
+          var arg1 = cst_encode_String(publicKey);
+          var arg2 = cst_encode_u_64(duration);
+          return wire
+              .wire__crate__api__merged__keystore_dart_wrapper_is_password_cached(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperIsPasswordCachedConstMeta,
+        argValues: [that, publicKey, duration],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperIsPasswordCachedConstMeta,
-      argValues: [that, publicKey, duration],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedKeystoreDartWrapperIsPasswordCachedConstMeta =>
-          const TaskConstMeta(
-            debugName: "keystore_dart_wrapper_is_password_cached",
-            argNames: ["that", "publicKey", "duration"],
-          );
+  get kCrateApiMergedKeystoreDartWrapperIsPasswordCachedConstMeta =>
+      const TaskConstMeta(
+        debugName: "keystore_dart_wrapper_is_password_cached",
+        argNames: ["that", "publicKey", "duration"],
+      );
 
   @override
-  Future<KeystoreDartWrapper> crateApiMergedKeystoreDartWrapperNew(
-      {required StorageDartWrapper storage,
-      required List<KeySigner> signers,
-      LedgerConnectionDartWrapper? ledgerConnection}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_storage_dart_wrapper(storage);
-        var arg1 = cst_encode_list_key_signer(signers);
-        var arg2 = cst_encode_opt_box_autoadd_ledger_connection_dart_wrapper(
-            ledgerConnection);
-        return wire.wire__crate__api__merged__keystore_dart_wrapper_new(
-            port_, arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_keystore_dart_wrapper,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<KeystoreDartWrapper> crateApiMergedKeystoreDartWrapperNew({
+    required StorageDartWrapper storage,
+    required List<KeySigner> signers,
+    LedgerConnectionDartWrapper? ledgerConnection,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_storage_dart_wrapper(storage);
+          var arg1 = cst_encode_list_key_signer(signers);
+          var arg2 = cst_encode_opt_box_autoadd_ledger_connection_dart_wrapper(
+            ledgerConnection,
+          );
+          return wire.wire__crate__api__merged__keystore_dart_wrapper_new(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_keystore_dart_wrapper,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperNewConstMeta,
+        argValues: [storage, signers, ledgerConnection],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperNewConstMeta,
-      argValues: [storage, signers, ledgerConnection],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperNewConstMeta =>
@@ -5640,23 +6799,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedKeystoreDartWrapperReloadKeystore(
-      {required KeystoreDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__keystore_dart_wrapper_reload_keystore(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedKeystoreDartWrapperReloadKeystore({
+    required KeystoreDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__keystore_dart_wrapper_reload_keystore(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperReloadKeystoreConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperReloadKeystoreConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperReloadKeystoreConstMeta =>
@@ -5666,23 +6830,31 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String?> crateApiMergedKeystoreDartWrapperRemoveKey(
-      {required KeystoreDartWrapper that, required String publicKey}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
-        var arg1 = cst_encode_String(publicKey);
-        return wire.wire__crate__api__merged__keystore_dart_wrapper_remove_key(
-            port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String?> crateApiMergedKeystoreDartWrapperRemoveKey({
+    required KeystoreDartWrapper that,
+    required String publicKey,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
+          var arg1 = cst_encode_String(publicKey);
+          return wire
+              .wire__crate__api__merged__keystore_dart_wrapper_remove_key(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperRemoveKeyConstMeta,
+        argValues: [that, publicKey],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperRemoveKeyConstMeta,
-      argValues: [that, publicKey],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperRemoveKeyConstMeta =>
@@ -5692,23 +6864,31 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedKeystoreDartWrapperRemoveKeys(
-      {required KeystoreDartWrapper that, required List<String> publicKeys}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
-        var arg1 = cst_encode_list_String(publicKeys);
-        return wire.wire__crate__api__merged__keystore_dart_wrapper_remove_keys(
-            port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedKeystoreDartWrapperRemoveKeys({
+    required KeystoreDartWrapper that,
+    required List<String> publicKeys,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
+          var arg1 = cst_encode_list_String(publicKeys);
+          return wire
+              .wire__crate__api__merged__keystore_dart_wrapper_remove_keys(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperRemoveKeysConstMeta,
+        argValues: [that, publicKeys],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperRemoveKeysConstMeta,
-      argValues: [that, publicKeys],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperRemoveKeysConstMeta =>
@@ -5718,30 +6898,39 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedKeystoreDartWrapperSign(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required UnsignedMessageImpl message,
-      required String input,
-      int? signatureId}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
-        var arg1 = cst_encode_box_autoadd_key_signer(signer);
-        var arg2 = cst_encode_box_autoadd_unsigned_message_impl(message);
-        var arg3 = cst_encode_String(input);
-        var arg4 = cst_encode_opt_box_autoadd_i_32(signatureId);
-        return wire.wire__crate__api__merged__keystore_dart_wrapper_sign(
-            port_, arg0, arg1, arg2, arg3, arg4);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedKeystoreDartWrapperSign({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required UnsignedMessageImpl message,
+    required String input,
+    int? signatureId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
+          var arg1 = cst_encode_box_autoadd_key_signer(signer);
+          var arg2 = cst_encode_box_autoadd_unsigned_message_impl(message);
+          var arg3 = cst_encode_String(input);
+          var arg4 = cst_encode_opt_box_autoadd_i_32(signatureId);
+          return wire.wire__crate__api__merged__keystore_dart_wrapper_sign(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+            arg3,
+            arg4,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperSignConstMeta,
+        argValues: [that, signer, message, input, signatureId],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperSignConstMeta,
-      argValues: [that, signer, message, input, signatureId],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperSignConstMeta =>
@@ -5751,30 +6940,39 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<SignedData> crateApiMergedKeystoreDartWrapperSignData(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required String input,
-      int? signatureId}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
-        var arg1 = cst_encode_box_autoadd_key_signer(signer);
-        var arg2 = cst_encode_String(data);
-        var arg3 = cst_encode_String(input);
-        var arg4 = cst_encode_opt_box_autoadd_i_32(signatureId);
-        return wire.wire__crate__api__merged__keystore_dart_wrapper_sign_data(
-            port_, arg0, arg1, arg2, arg3, arg4);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_signed_data,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<SignedData> crateApiMergedKeystoreDartWrapperSignData({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String data,
+    required String input,
+    int? signatureId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
+          var arg1 = cst_encode_box_autoadd_key_signer(signer);
+          var arg2 = cst_encode_String(data);
+          var arg3 = cst_encode_String(input);
+          var arg4 = cst_encode_opt_box_autoadd_i_32(signatureId);
+          return wire.wire__crate__api__merged__keystore_dart_wrapper_sign_data(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+            arg3,
+            arg4,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_signed_data,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperSignDataConstMeta,
+        argValues: [that, signer, data, input, signatureId],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperSignDataConstMeta,
-      argValues: [that, signer, data, input, signatureId],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperSignDataConstMeta =>
@@ -5784,31 +6982,40 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<SignedDataRaw> crateApiMergedKeystoreDartWrapperSignDataRaw(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String data,
-      required String input,
-      int? signatureId}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
-        var arg1 = cst_encode_box_autoadd_key_signer(signer);
-        var arg2 = cst_encode_String(data);
-        var arg3 = cst_encode_String(input);
-        var arg4 = cst_encode_opt_box_autoadd_i_32(signatureId);
-        return wire
-            .wire__crate__api__merged__keystore_dart_wrapper_sign_data_raw(
-                port_, arg0, arg1, arg2, arg3, arg4);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_signed_data_raw,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<SignedDataRaw> crateApiMergedKeystoreDartWrapperSignDataRaw({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String data,
+    required String input,
+    int? signatureId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
+          var arg1 = cst_encode_box_autoadd_key_signer(signer);
+          var arg2 = cst_encode_String(data);
+          var arg3 = cst_encode_String(input);
+          var arg4 = cst_encode_opt_box_autoadd_i_32(signatureId);
+          return wire
+              .wire__crate__api__merged__keystore_dart_wrapper_sign_data_raw(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+                arg4,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_signed_data_raw,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperSignDataRawConstMeta,
+        argValues: [that, signer, data, input, signatureId],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperSignDataRawConstMeta,
-      argValues: [that, signer, data, input, signatureId],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperSignDataRawConstMeta =>
@@ -5818,26 +7025,34 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedKeystoreDartWrapperUpdateKey(
-      {required KeystoreDartWrapper that,
-      required KeySigner signer,
-      required String input}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
-        var arg1 = cst_encode_box_autoadd_key_signer(signer);
-        var arg2 = cst_encode_String(input);
-        return wire.wire__crate__api__merged__keystore_dart_wrapper_update_key(
-            port_, arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedKeystoreDartWrapperUpdateKey({
+    required KeystoreDartWrapper that,
+    required KeySigner signer,
+    required String input,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_keystore_dart_wrapper(that);
+          var arg1 = cst_encode_box_autoadd_key_signer(signer);
+          var arg2 = cst_encode_String(input);
+          return wire
+              .wire__crate__api__merged__keystore_dart_wrapper_update_key(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperUpdateKeyConstMeta,
+        argValues: [that, signer, input],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperUpdateKeyConstMeta,
-      argValues: [that, signer, input],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperUpdateKeyConstMeta =>
@@ -5847,27 +7062,36 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<bool> crateApiMergedKeystoreDartWrapperVerifyData(
-      {required List<KeySigner> signers,
-      LedgerConnectionDartWrapper? ledgerConnection,
-      required String data}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_list_key_signer(signers);
-        var arg1 = cst_encode_opt_box_autoadd_ledger_connection_dart_wrapper(
-            ledgerConnection);
-        var arg2 = cst_encode_String(data);
-        return wire.wire__crate__api__merged__keystore_dart_wrapper_verify_data(
-            port_, arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedKeystoreDartWrapperVerifyData({
+    required List<KeySigner> signers,
+    LedgerConnectionDartWrapper? ledgerConnection,
+    required String data,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_list_key_signer(signers);
+          var arg1 = cst_encode_opt_box_autoadd_ledger_connection_dart_wrapper(
+            ledgerConnection,
+          );
+          var arg2 = cst_encode_String(data);
+          return wire
+              .wire__crate__api__merged__keystore_dart_wrapper_verify_data(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedKeystoreDartWrapperVerifyDataConstMeta,
+        argValues: [signers, ledgerConnection, data],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedKeystoreDartWrapperVerifyDataConstMeta,
-      argValues: [signers, ledgerConnection, data],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperVerifyDataConstMeta =>
@@ -5877,34 +7101,43 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  LedgerConnectionDartWrapper crateApiMergedLedgerConnectionDartWrapperNew(
-      {required FutureOr<Uint8List> Function(int) onGetPublicKey,
-      required FutureOr<Uint8List> Function(int, int?, Uint8List) onSign,
-      required FutureOr<Uint8List> Function(int, int, int?, Uint8List, String)
-          onSignTransaction}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
-                onGetPublicKey);
-        var arg1 =
-            cst_encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-                onSign);
-        var arg2 =
-            cst_encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
-                onSignTransaction);
-        return wire
-            .wire__crate__api__merged__ledger_connection_dart_wrapper_new(
-                arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_ledger_connection_dart_wrapper,
-        decodeErrorData: null,
+  LedgerConnectionDartWrapper crateApiMergedLedgerConnectionDartWrapperNew({
+    required FutureOr<Uint8List> Function(int) onGetPublicKey,
+    required FutureOr<Uint8List> Function(int, int?, Uint8List) onSign,
+    required FutureOr<Uint8List> Function(int, int, int?, Uint8List, String)
+    onSignTransaction,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
+                onGetPublicKey,
+              );
+          var arg1 =
+              cst_encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+                onSign,
+              );
+          var arg2 =
+              cst_encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+                onSignTransaction,
+              );
+          return wire
+              .wire__crate__api__merged__ledger_connection_dart_wrapper_new(
+                arg0,
+                arg1,
+                arg2,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_ledger_connection_dart_wrapper,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedLedgerConnectionDartWrapperNewConstMeta,
+        argValues: [onGetPublicKey, onSign, onSignTransaction],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedLedgerConnectionDartWrapperNewConstMeta,
-      argValues: [onGetPublicKey, onSign, onSignTransaction],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedLedgerConnectionDartWrapperNewConstMeta =>
@@ -5915,19 +7148,21 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @override
   bool crateApiMergedNtCheckPublicKey({required String publicKey}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(publicKey);
-        return wire.wire__crate__api__merged__nt_check_public_key(arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: null,
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(publicKey);
+          return wire.wire__crate__api__merged__nt_check_public_key(arg0);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedNtCheckPublicKeyConstMeta,
+        argValues: [publicKey],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtCheckPublicKeyConstMeta,
-      argValues: [publicKey],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtCheckPublicKeyConstMeta =>
@@ -5938,49 +7173,57 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @override
   List<String> crateApiMergedNtCodeToTvc({required String code}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(code);
-        return wire.wire__crate__api__merged__nt_code_to_tvc(arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_list_String,
-        decodeErrorData: dco_decode_AnyhowException,
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(code);
+          return wire.wire__crate__api__merged__nt_code_to_tvc(arg0);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_list_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtCodeToTvcConstMeta,
+        argValues: [code],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtCodeToTvcConstMeta,
-      argValues: [code],
-      apiImpl: this,
-    ));
+    );
   }
 
-  TaskConstMeta get kCrateApiMergedNtCodeToTvcConstMeta => const TaskConstMeta(
-        debugName: "nt_code_to_tvc",
-        argNames: ["code"],
-      );
+  TaskConstMeta get kCrateApiMergedNtCodeToTvcConstMeta =>
+      const TaskConstMeta(debugName: "nt_code_to_tvc", argNames: ["code"]);
 
   @override
-  Future<String> crateApiMergedNtComputeStorageFee(
-      {required String config,
-      required String account,
-      required int utime,
-      required bool isMasterchain}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(config);
-        var arg1 = cst_encode_String(account);
-        var arg2 = cst_encode_u_32(utime);
-        var arg3 = cst_encode_bool(isMasterchain);
-        return wire.wire__crate__api__merged__nt_compute_storage_fee(
-            port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedNtComputeStorageFee({
+    required String config,
+    required String account,
+    required int utime,
+    required bool isMasterchain,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(config);
+          var arg1 = cst_encode_String(account);
+          var arg2 = cst_encode_u_32(utime);
+          var arg3 = cst_encode_bool(isMasterchain);
+          return wire.wire__crate__api__merged__nt_compute_storage_fee(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+            arg3,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtComputeStorageFeeConstMeta,
+        argValues: [config, account, utime, isMasterchain],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtComputeStorageFeeConstMeta,
-      argValues: [config, account, utime, isMasterchain],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtComputeStorageFeeConstMeta =>
@@ -5990,26 +7233,32 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  String crateApiMergedNtComputeTonWalletAddress(
-      {required String publicKey,
-      required String walletType,
-      required int workchain}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(publicKey);
-        var arg1 = cst_encode_String(walletType);
-        var arg2 = cst_encode_i_8(workchain);
-        return wire.wire__crate__api__merged__nt_compute_ton_wallet_address(
-            arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  String crateApiMergedNtComputeTonWalletAddress({
+    required String publicKey,
+    required String walletType,
+    required int workchain,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(publicKey);
+          var arg1 = cst_encode_String(walletType);
+          var arg2 = cst_encode_i_8(workchain);
+          return wire.wire__crate__api__merged__nt_compute_ton_wallet_address(
+            arg0,
+            arg1,
+            arg2,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtComputeTonWalletAddressConstMeta,
+        argValues: [publicKey, walletType, workchain],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtComputeTonWalletAddressConstMeta,
-      argValues: [publicKey, walletType, workchain],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtComputeTonWalletAddressConstMeta =>
@@ -6019,42 +7268,53 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<UnsignedMessageImpl> crateApiMergedNtCreateExternalMessage(
-      {required String dst,
-      required String contractAbi,
-      required String method,
-      String? stateInit,
-      required String input,
-      required String publicKey,
-      required int timeout}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(dst);
-        var arg1 = cst_encode_String(contractAbi);
-        var arg2 = cst_encode_String(method);
-        var arg3 = cst_encode_opt_String(stateInit);
-        var arg4 = cst_encode_String(input);
-        var arg5 = cst_encode_String(publicKey);
-        var arg6 = cst_encode_u_32(timeout);
-        return wire.wire__crate__api__merged__nt_create_external_message(
-            port_, arg0, arg1, arg2, arg3, arg4, arg5, arg6);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unsigned_message_impl,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<UnsignedMessageImpl> crateApiMergedNtCreateExternalMessage({
+    required String dst,
+    required String contractAbi,
+    required String method,
+    String? stateInit,
+    required String input,
+    required String publicKey,
+    required int timeout,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(dst);
+          var arg1 = cst_encode_String(contractAbi);
+          var arg2 = cst_encode_String(method);
+          var arg3 = cst_encode_opt_String(stateInit);
+          var arg4 = cst_encode_String(input);
+          var arg5 = cst_encode_String(publicKey);
+          var arg6 = cst_encode_u_32(timeout);
+          return wire.wire__crate__api__merged__nt_create_external_message(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+            arg3,
+            arg4,
+            arg5,
+            arg6,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unsigned_message_impl,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtCreateExternalMessageConstMeta,
+        argValues: [
+          dst,
+          contractAbi,
+          method,
+          stateInit,
+          input,
+          publicKey,
+          timeout,
+        ],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtCreateExternalMessageConstMeta,
-      argValues: [
-        dst,
-        contractAbi,
-        method,
-        stateInit,
-        input,
-        publicKey,
-        timeout
-      ],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtCreateExternalMessageConstMeta =>
@@ -6067,78 +7327,96 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           "stateInit",
           "input",
           "publicKey",
-          "timeout"
+          "timeout",
         ],
       );
 
   @override
-  Future<String> crateApiMergedNtCreateExternalMessageWithoutSignature(
-      {required String dst,
-      required String contractAbi,
-      required String method,
-      String? stateInit,
-      required String input,
-      required int timeout}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(dst);
-        var arg1 = cst_encode_String(contractAbi);
-        var arg2 = cst_encode_String(method);
-        var arg3 = cst_encode_opt_String(stateInit);
-        var arg4 = cst_encode_String(input);
-        var arg5 = cst_encode_u_32(timeout);
-        return wire
-            .wire__crate__api__merged__nt_create_external_message_without_signature(
-                port_, arg0, arg1, arg2, arg3, arg4, arg5);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedNtCreateExternalMessageWithoutSignature({
+    required String dst,
+    required String contractAbi,
+    required String method,
+    String? stateInit,
+    required String input,
+    required int timeout,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(dst);
+          var arg1 = cst_encode_String(contractAbi);
+          var arg2 = cst_encode_String(method);
+          var arg3 = cst_encode_opt_String(stateInit);
+          var arg4 = cst_encode_String(input);
+          var arg5 = cst_encode_u_32(timeout);
+          return wire
+              .wire__crate__api__merged__nt_create_external_message_without_signature(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+                arg4,
+                arg5,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedNtCreateExternalMessageWithoutSignatureConstMeta,
+        argValues: [dst, contractAbi, method, stateInit, input, timeout],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedNtCreateExternalMessageWithoutSignatureConstMeta,
-      argValues: [dst, contractAbi, method, stateInit, input, timeout],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedNtCreateExternalMessageWithoutSignatureConstMeta =>
-          const TaskConstMeta(
-            debugName: "nt_create_external_message_without_signature",
-            argNames: [
-              "dst",
-              "contractAbi",
-              "method",
-              "stateInit",
-              "input",
-              "timeout"
-            ],
-          );
+  get kCrateApiMergedNtCreateExternalMessageWithoutSignatureConstMeta =>
+      const TaskConstMeta(
+        debugName: "nt_create_external_message_without_signature",
+        argNames: [
+          "dst",
+          "contractAbi",
+          "method",
+          "stateInit",
+          "input",
+          "timeout",
+        ],
+      );
 
   @override
-  Future<String> crateApiMergedNtCreateRawExternalMessage(
-      {required String dst,
-      String? stateInit,
-      String? body,
-      required int timeout}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(dst);
-        var arg1 = cst_encode_opt_String(stateInit);
-        var arg2 = cst_encode_opt_String(body);
-        var arg3 = cst_encode_u_32(timeout);
-        return wire.wire__crate__api__merged__nt_create_raw_external_message(
-            port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedNtCreateRawExternalMessage({
+    required String dst,
+    String? stateInit,
+    String? body,
+    required int timeout,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(dst);
+          var arg1 = cst_encode_opt_String(stateInit);
+          var arg2 = cst_encode_opt_String(body);
+          var arg3 = cst_encode_u_32(timeout);
+          return wire.wire__crate__api__merged__nt_create_raw_external_message(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+            arg3,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtCreateRawExternalMessageConstMeta,
+        argValues: [dst, stateInit, body, timeout],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtCreateRawExternalMessageConstMeta,
-      argValues: [dst, stateInit, body, timeout],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtCreateRawExternalMessageConstMeta =>
@@ -6148,26 +7426,33 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtDecodeEvent(
-      {required String messageBody,
-      required String contractAbi,
-      String? event}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(messageBody);
-        var arg1 = cst_encode_String(contractAbi);
-        var arg2 = cst_encode_opt_String(event);
-        return wire.wire__crate__api__merged__nt_decode_event(
-            port_, arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedNtDecodeEvent({
+    required String messageBody,
+    required String contractAbi,
+    String? event,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(messageBody);
+          var arg1 = cst_encode_String(contractAbi);
+          var arg2 = cst_encode_opt_String(event);
+          return wire.wire__crate__api__merged__nt_decode_event(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtDecodeEventConstMeta,
+        argValues: [messageBody, contractAbi, event],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtDecodeEventConstMeta,
-      argValues: [messageBody, contractAbi, event],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtDecodeEventConstMeta =>
@@ -6177,28 +7462,36 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtDecodeInput(
-      {required String messageBody,
-      required String contractAbi,
-      String? method,
-      required bool internal}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(messageBody);
-        var arg1 = cst_encode_String(contractAbi);
-        var arg2 = cst_encode_opt_String(method);
-        var arg3 = cst_encode_bool(internal);
-        return wire.wire__crate__api__merged__nt_decode_input(
-            port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedNtDecodeInput({
+    required String messageBody,
+    required String contractAbi,
+    String? method,
+    required bool internal,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(messageBody);
+          var arg1 = cst_encode_String(contractAbi);
+          var arg2 = cst_encode_opt_String(method);
+          var arg3 = cst_encode_bool(internal);
+          return wire.wire__crate__api__merged__nt_decode_input(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+            arg3,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtDecodeInputConstMeta,
+        argValues: [messageBody, contractAbi, method, internal],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtDecodeInputConstMeta,
-      argValues: [messageBody, contractAbi, method, internal],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtDecodeInputConstMeta =>
@@ -6208,26 +7501,33 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtDecodeOutput(
-      {required String messageBody,
-      required String contractAbi,
-      String? method}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(messageBody);
-        var arg1 = cst_encode_String(contractAbi);
-        var arg2 = cst_encode_opt_String(method);
-        return wire.wire__crate__api__merged__nt_decode_output(
-            port_, arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedNtDecodeOutput({
+    required String messageBody,
+    required String contractAbi,
+    String? method,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(messageBody);
+          var arg1 = cst_encode_String(contractAbi);
+          var arg2 = cst_encode_opt_String(method);
+          return wire.wire__crate__api__merged__nt_decode_output(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtDecodeOutputConstMeta,
+        argValues: [messageBody, contractAbi, method],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtDecodeOutputConstMeta,
-      argValues: [messageBody, contractAbi, method],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtDecodeOutputConstMeta =>
@@ -6237,26 +7537,33 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtDecodeTransaction(
-      {required String transaction,
-      required String contractAbi,
-      String? method}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(transaction);
-        var arg1 = cst_encode_String(contractAbi);
-        var arg2 = cst_encode_opt_String(method);
-        return wire.wire__crate__api__merged__nt_decode_transaction(
-            port_, arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedNtDecodeTransaction({
+    required String transaction,
+    required String contractAbi,
+    String? method,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(transaction);
+          var arg1 = cst_encode_String(contractAbi);
+          var arg2 = cst_encode_opt_String(method);
+          return wire.wire__crate__api__merged__nt_decode_transaction(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtDecodeTransactionConstMeta,
+        argValues: [transaction, contractAbi, method],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtDecodeTransactionConstMeta,
-      argValues: [transaction, contractAbi, method],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtDecodeTransactionConstMeta =>
@@ -6266,23 +7573,30 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtDecodeTransactionEvents(
-      {required String transaction, required String contractAbi}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(transaction);
-        var arg1 = cst_encode_String(contractAbi);
-        return wire.wire__crate__api__merged__nt_decode_transaction_events(
-            port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedNtDecodeTransactionEvents({
+    required String transaction,
+    required String contractAbi,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(transaction);
+          var arg1 = cst_encode_String(contractAbi);
+          return wire.wire__crate__api__merged__nt_decode_transaction_events(
+            port_,
+            arg0,
+            arg1,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtDecodeTransactionEventsConstMeta,
+        argValues: [transaction, contractAbi],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtDecodeTransactionEventsConstMeta,
-      argValues: [transaction, contractAbi],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtDecodeTransactionEventsConstMeta =>
@@ -6292,22 +7606,29 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  String crateApiMergedNtDeriveFromPhrase(
-      {required String phrase, required MnemonicType mnemonicType}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(phrase);
-        var arg1 = cst_encode_box_autoadd_mnemonic_type(mnemonicType);
-        return wire.wire__crate__api__merged__nt_derive_from_phrase(arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  String crateApiMergedNtDeriveFromPhrase({
+    required String phrase,
+    required MnemonicType mnemonicType,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(phrase);
+          var arg1 = cst_encode_box_autoadd_mnemonic_type(mnemonicType);
+          return wire.wire__crate__api__merged__nt_derive_from_phrase(
+            arg0,
+            arg1,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtDeriveFromPhraseConstMeta,
+        argValues: [phrase, mnemonicType],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtDeriveFromPhraseConstMeta,
-      argValues: [phrase, mnemonicType],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtDeriveFromPhraseConstMeta =>
@@ -6317,22 +7638,26 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  String crateApiMergedNtEncodeComment(
-      {required String comment, required bool plain}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(comment);
-        var arg1 = cst_encode_bool(plain);
-        return wire.wire__crate__api__merged__nt_encode_comment(arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  String crateApiMergedNtEncodeComment({
+    required String comment,
+    required bool plain,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(comment);
+          var arg1 = cst_encode_bool(plain);
+          return wire.wire__crate__api__merged__nt_encode_comment(arg0, arg1);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtEncodeCommentConstMeta,
+        argValues: [comment, plain],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtEncodeCommentConstMeta,
-      argValues: [comment, plain],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtEncodeCommentConstMeta =>
@@ -6342,26 +7667,33 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtEncodeInternalInput(
-      {required String contractAbi,
-      required String method,
-      required String input}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(contractAbi);
-        var arg1 = cst_encode_String(method);
-        var arg2 = cst_encode_String(input);
-        return wire.wire__crate__api__merged__nt_encode_internal_input(
-            port_, arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedNtEncodeInternalInput({
+    required String contractAbi,
+    required String method,
+    required String input,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(contractAbi);
+          var arg1 = cst_encode_String(method);
+          var arg2 = cst_encode_String(input);
+          return wire.wire__crate__api__merged__nt_encode_internal_input(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtEncodeInternalInputConstMeta,
+        argValues: [contractAbi, method, input],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtEncodeInternalInputConstMeta,
-      argValues: [contractAbi, method, input],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtEncodeInternalInputConstMeta =>
@@ -6371,34 +7703,45 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtEncodeInternalMessage(
-      {String? src,
-      required String dst,
-      required bool bounce,
-      String? stateInit,
-      String? body,
-      required String amount,
-      bool? bounced}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_opt_String(src);
-        var arg1 = cst_encode_String(dst);
-        var arg2 = cst_encode_bool(bounce);
-        var arg3 = cst_encode_opt_String(stateInit);
-        var arg4 = cst_encode_opt_String(body);
-        var arg5 = cst_encode_String(amount);
-        var arg6 = cst_encode_opt_box_autoadd_bool(bounced);
-        return wire.wire__crate__api__merged__nt_encode_internal_message(
-            port_, arg0, arg1, arg2, arg3, arg4, arg5, arg6);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedNtEncodeInternalMessage({
+    String? src,
+    required String dst,
+    required bool bounce,
+    String? stateInit,
+    String? body,
+    required String amount,
+    bool? bounced,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_opt_String(src);
+          var arg1 = cst_encode_String(dst);
+          var arg2 = cst_encode_bool(bounce);
+          var arg3 = cst_encode_opt_String(stateInit);
+          var arg4 = cst_encode_opt_String(body);
+          var arg5 = cst_encode_String(amount);
+          var arg6 = cst_encode_opt_box_autoadd_bool(bounced);
+          return wire.wire__crate__api__merged__nt_encode_internal_message(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+            arg3,
+            arg4,
+            arg5,
+            arg6,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtEncodeInternalMessageConstMeta,
+        argValues: [src, dst, bounce, stateInit, body, amount, bounced],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtEncodeInternalMessageConstMeta,
-      argValues: [src, dst, bounce, stateInit, body, amount, bounced],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtEncodeInternalMessageConstMeta =>
@@ -6411,47 +7754,58 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           "stateInit",
           "body",
           "amount",
-          "bounced"
+          "bounced",
         ],
       );
 
   @override
-  Future<List<String>> crateApiMergedNtExecuteLocal(
-      {required String config,
-      required String account,
-      required String message,
-      required int utime,
-      required bool disableSignatureCheck,
-      String? overwriteBalance,
-      int? globalId}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(config);
-        var arg1 = cst_encode_String(account);
-        var arg2 = cst_encode_String(message);
-        var arg3 = cst_encode_u_32(utime);
-        var arg4 = cst_encode_bool(disableSignatureCheck);
-        var arg5 = cst_encode_opt_String(overwriteBalance);
-        var arg6 = cst_encode_opt_box_autoadd_i_32(globalId);
-        return wire.wire__crate__api__merged__nt_execute_local(
-            port_, arg0, arg1, arg2, arg3, arg4, arg5, arg6);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_list_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<List<String>> crateApiMergedNtExecuteLocal({
+    required String config,
+    required String account,
+    required String message,
+    required int utime,
+    required bool disableSignatureCheck,
+    String? overwriteBalance,
+    int? globalId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(config);
+          var arg1 = cst_encode_String(account);
+          var arg2 = cst_encode_String(message);
+          var arg3 = cst_encode_u_32(utime);
+          var arg4 = cst_encode_bool(disableSignatureCheck);
+          var arg5 = cst_encode_opt_String(overwriteBalance);
+          var arg6 = cst_encode_opt_box_autoadd_i_32(globalId);
+          return wire.wire__crate__api__merged__nt_execute_local(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+            arg3,
+            arg4,
+            arg5,
+            arg6,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_list_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtExecuteLocalConstMeta,
+        argValues: [
+          config,
+          account,
+          message,
+          utime,
+          disableSignatureCheck,
+          overwriteBalance,
+          globalId,
+        ],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtExecuteLocalConstMeta,
-      argValues: [
-        config,
-        account,
-        message,
-        utime,
-        disableSignatureCheck,
-        overwriteBalance,
-        globalId
-      ],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtExecuteLocalConstMeta =>
@@ -6464,25 +7818,27 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           "utime",
           "disableSignatureCheck",
           "overwriteBalance",
-          "globalId"
+          "globalId",
         ],
       );
 
   @override
   String crateApiMergedNtExtractPublicKey({required String boc}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(boc);
-        return wire.wire__crate__api__merged__nt_extract_public_key(arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(boc);
+          return wire.wire__crate__api__merged__nt_extract_public_key(arg0);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtExtractPublicKeyConstMeta,
+        argValues: [boc],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtExtractPublicKeyConstMeta,
-      argValues: [boc],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtExtractPublicKeyConstMeta =>
@@ -6492,21 +7848,24 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  GeneratedKeyG crateApiMergedNtGenerateKey(
-      {required MnemonicType accountType}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_box_autoadd_mnemonic_type(accountType);
-        return wire.wire__crate__api__merged__nt_generate_key(arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_generated_key_g,
-        decodeErrorData: null,
+  GeneratedKeyG crateApiMergedNtGenerateKey({
+    required MnemonicType accountType,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_box_autoadd_mnemonic_type(accountType);
+          return wire.wire__crate__api__merged__nt_generate_key(arg0);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_generated_key_g,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedNtGenerateKeyConstMeta,
+        argValues: [accountType],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtGenerateKeyConstMeta,
-      argValues: [accountType],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtGenerateKeyConstMeta =>
@@ -6517,64 +7876,67 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @override
   String crateApiMergedNtGetBocHash({required String boc}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(boc);
-        return wire.wire__crate__api__merged__nt_get_boc_hash(arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(boc);
+          return wire.wire__crate__api__merged__nt_get_boc_hash(arg0);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtGetBocHashConstMeta,
+        argValues: [boc],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtGetBocHashConstMeta,
-      argValues: [boc],
-      apiImpl: this,
-    ));
+    );
   }
 
-  TaskConstMeta get kCrateApiMergedNtGetBocHashConstMeta => const TaskConstMeta(
-        debugName: "nt_get_boc_hash",
-        argNames: ["boc"],
-      );
+  TaskConstMeta get kCrateApiMergedNtGetBocHashConstMeta =>
+      const TaskConstMeta(debugName: "nt_get_boc_hash", argNames: ["boc"]);
 
   @override
   String? crateApiMergedNtGetCodeSalt({required String code}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(code);
-        return wire.wire__crate__api__merged__nt_get_code_salt(arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_String,
-        decodeErrorData: dco_decode_AnyhowException,
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(code);
+          return wire.wire__crate__api__merged__nt_get_code_salt(arg0);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtGetCodeSaltConstMeta,
+        argValues: [code],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtGetCodeSaltConstMeta,
-      argValues: [code],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtGetCodeSaltConstMeta =>
-      const TaskConstMeta(
-        debugName: "nt_get_code_salt",
-        argNames: ["code"],
-      );
+      const TaskConstMeta(debugName: "nt_get_code_salt", argNames: ["code"]);
 
   @override
   int crateApiMergedNtGetContractTypeNumber({required String walletType}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(walletType);
-        return wire.wire__crate__api__merged__nt_get_contract_type_number(arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_u_16,
-        decodeErrorData: dco_decode_AnyhowException,
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(walletType);
+          return wire.wire__crate__api__merged__nt_get_contract_type_number(
+            arg0,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_u_16,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtGetContractTypeNumberConstMeta,
+        argValues: [walletType],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtGetContractTypeNumberConstMeta,
-      argValues: [walletType],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtGetContractTypeNumberConstMeta =>
@@ -6584,30 +7946,39 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<List<String>> crateApiMergedNtGetExpectedAddress(
-      {required String tvc,
-      required String contractAbi,
-      required int workchainId,
-      String? publicKey,
-      required String initData}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(tvc);
-        var arg1 = cst_encode_String(contractAbi);
-        var arg2 = cst_encode_i_8(workchainId);
-        var arg3 = cst_encode_opt_String(publicKey);
-        var arg4 = cst_encode_String(initData);
-        return wire.wire__crate__api__merged__nt_get_expected_address(
-            port_, arg0, arg1, arg2, arg3, arg4);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_list_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<List<String>> crateApiMergedNtGetExpectedAddress({
+    required String tvc,
+    required String contractAbi,
+    required int workchainId,
+    String? publicKey,
+    required String initData,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(tvc);
+          var arg1 = cst_encode_String(contractAbi);
+          var arg2 = cst_encode_i_8(workchainId);
+          var arg3 = cst_encode_opt_String(publicKey);
+          var arg4 = cst_encode_String(initData);
+          return wire.wire__crate__api__merged__nt_get_expected_address(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+            arg3,
+            arg4,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_list_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtGetExpectedAddressConstMeta,
+        argValues: [tvc, contractAbi, workchainId, publicKey, initData],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtGetExpectedAddressConstMeta,
-      argValues: [tvc, contractAbi, workchainId, publicKey, initData],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtGetExpectedAddressConstMeta =>
@@ -6618,48 +7989,52 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           "contractAbi",
           "workchainId",
           "publicKey",
-          "initData"
+          "initData",
         ],
       );
 
   @override
   List<String> crateApiMergedNtGetHints({required String input}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(input);
-        return wire.wire__crate__api__merged__nt_get_hints(arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_list_String,
-        decodeErrorData: null,
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(input);
+          return wire.wire__crate__api__merged__nt_get_hints(arg0);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_list_String,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedNtGetHintsConstMeta,
+        argValues: [input],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtGetHintsConstMeta,
-      argValues: [input],
-      apiImpl: this,
-    ));
+    );
   }
 
-  TaskConstMeta get kCrateApiMergedNtGetHintsConstMeta => const TaskConstMeta(
-        debugName: "nt_get_hints",
-        argNames: ["input"],
-      );
+  TaskConstMeta get kCrateApiMergedNtGetHintsConstMeta =>
+      const TaskConstMeta(debugName: "nt_get_hints", argNames: ["input"]);
 
   @override
   Future<String> crateApiMergedNtMakeFullAccountBoc({String? accountStuffBoc}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_opt_String(accountStuffBoc);
-        return wire.wire__crate__api__merged__nt_make_full_account_boc(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_opt_String(accountStuffBoc);
+          return wire.wire__crate__api__merged__nt_make_full_account_boc(
+            port_,
+            arg0,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtMakeFullAccountBocConstMeta,
+        argValues: [accountStuffBoc],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtMakeFullAccountBocConstMeta,
-      argValues: [accountStuffBoc],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtMakeFullAccountBocConstMeta =>
@@ -6669,49 +8044,60 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  List<String> crateApiMergedNtMergeTvc(
-      {required String code, required String data}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(code);
-        var arg1 = cst_encode_String(data);
-        return wire.wire__crate__api__merged__nt_merge_tvc(arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_list_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  List<String> crateApiMergedNtMergeTvc({
+    required String code,
+    required String data,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(code);
+          var arg1 = cst_encode_String(data);
+          return wire.wire__crate__api__merged__nt_merge_tvc(arg0, arg1);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_list_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtMergeTvcConstMeta,
+        argValues: [code, data],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtMergeTvcConstMeta,
-      argValues: [code, data],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtMergeTvcConstMeta => const TaskConstMeta(
-        debugName: "nt_merge_tvc",
-        argNames: ["code", "data"],
-      );
+    debugName: "nt_merge_tvc",
+    argNames: ["code", "data"],
+  );
 
   @override
-  String crateApiMergedNtPackAddress(
-      {required String address,
-      required bool isUrlSafe,
-      required bool bounceable}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(address);
-        var arg1 = cst_encode_bool(isUrlSafe);
-        var arg2 = cst_encode_bool(bounceable);
-        return wire.wire__crate__api__merged__nt_pack_address(arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: null,
+  String crateApiMergedNtPackAddress({
+    required String address,
+    required bool isUrlSafe,
+    required bool bounceable,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(address);
+          var arg1 = cst_encode_bool(isUrlSafe);
+          var arg2 = cst_encode_bool(bounceable);
+          return wire.wire__crate__api__merged__nt_pack_address(
+            arg0,
+            arg1,
+            arg2,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedNtPackAddressConstMeta,
+        argValues: [address, isUrlSafe, bounceable],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtPackAddressConstMeta,
-      argValues: [address, isUrlSafe, bounceable],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtPackAddressConstMeta =>
@@ -6721,24 +8107,32 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  List<String> crateApiMergedNtPackIntoCell(
-      {required String params, required String tokens, String? version}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(params);
-        var arg1 = cst_encode_String(tokens);
-        var arg2 = cst_encode_opt_String(version);
-        return wire.wire__crate__api__merged__nt_pack_into_cell(
-            arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_list_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  List<String> crateApiMergedNtPackIntoCell({
+    required String params,
+    required String tokens,
+    String? version,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(params);
+          var arg1 = cst_encode_String(tokens);
+          var arg2 = cst_encode_opt_String(version);
+          return wire.wire__crate__api__merged__nt_pack_into_cell(
+            arg0,
+            arg1,
+            arg2,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_list_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtPackIntoCellConstMeta,
+        argValues: [params, tokens, version],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtPackIntoCellConstMeta,
-      argValues: [params, tokens, version],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtPackIntoCellConstMeta =>
@@ -6748,26 +8142,32 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  String crateApiMergedNtPackStdSmcAddr(
-      {required String addr,
-      required bool base64Url,
-      required bool bounceable}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(addr);
-        var arg1 = cst_encode_bool(base64Url);
-        var arg2 = cst_encode_bool(bounceable);
-        return wire.wire__crate__api__merged__nt_pack_std_smc_addr(
-            arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  String crateApiMergedNtPackStdSmcAddr({
+    required String addr,
+    required bool base64Url,
+    required bool bounceable,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(addr);
+          var arg1 = cst_encode_bool(base64Url);
+          var arg2 = cst_encode_bool(bounceable);
+          return wire.wire__crate__api__merged__nt_pack_std_smc_addr(
+            arg0,
+            arg1,
+            arg2,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtPackStdSmcAddrConstMeta,
+        argValues: [addr, base64Url, bounceable],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtPackStdSmcAddrConstMeta,
-      argValues: [addr, base64Url, bounceable],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtPackStdSmcAddrConstMeta =>
@@ -6777,22 +8177,27 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String?> crateApiMergedNtParseFullAccountBoc(
-      {required String account}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(account);
-        return wire.wire__crate__api__merged__nt_parse_full_account_boc(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String?> crateApiMergedNtParseFullAccountBoc({
+    required String account,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(account);
+          return wire.wire__crate__api__merged__nt_parse_full_account_boc(
+            port_,
+            arg0,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtParseFullAccountBocConstMeta,
+        argValues: [account],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtParseFullAccountBocConstMeta,
-      argValues: [account],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtParseFullAccountBocConstMeta =>
@@ -6803,19 +8208,21 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @override
   String? crateApiMergedNtParseKnownPayload({required String payload}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(payload);
-        return wire.wire__crate__api__merged__nt_parse_known_payload(arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_String,
-        decodeErrorData: null,
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(payload);
+          return wire.wire__crate__api__merged__nt_parse_known_payload(arg0);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_String,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedNtParseKnownPayloadConstMeta,
+        argValues: [payload],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtParseKnownPayloadConstMeta,
-      argValues: [payload],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtParseKnownPayloadConstMeta =>
@@ -6826,19 +8233,21 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @override
   String crateApiMergedNtRepackAddress({required String address}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(address);
-        return wire.wire__crate__api__merged__nt_repack_address(arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: null,
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(address);
+          return wire.wire__crate__api__merged__nt_repack_address(arg0);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedNtRepackAddressConstMeta,
+        argValues: [address],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtRepackAddressConstMeta,
-      argValues: [address],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtRepackAddressConstMeta =>
@@ -6848,108 +8257,131 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedNtRunGetter(
-      {required String accountStuffBoc,
-      required String contractAbi,
-      required String methodId,
-      required String input,
-      int? signatureId}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(accountStuffBoc);
-        var arg1 = cst_encode_String(contractAbi);
-        var arg2 = cst_encode_String(methodId);
-        var arg3 = cst_encode_String(input);
-        var arg4 = cst_encode_opt_box_autoadd_i_32(signatureId);
-        return wire.wire__crate__api__merged__nt_run_getter(
-            port_, arg0, arg1, arg2, arg3, arg4);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedNtRunGetter({
+    required String accountStuffBoc,
+    required String contractAbi,
+    required String methodId,
+    required String input,
+    int? signatureId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(accountStuffBoc);
+          var arg1 = cst_encode_String(contractAbi);
+          var arg2 = cst_encode_String(methodId);
+          var arg3 = cst_encode_String(input);
+          var arg4 = cst_encode_opt_box_autoadd_i_32(signatureId);
+          return wire.wire__crate__api__merged__nt_run_getter(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+            arg3,
+            arg4,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtRunGetterConstMeta,
+        argValues: [accountStuffBoc, contractAbi, methodId, input, signatureId],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtRunGetterConstMeta,
-      argValues: [accountStuffBoc, contractAbi, methodId, input, signatureId],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtRunGetterConstMeta => const TaskConstMeta(
-        debugName: "nt_run_getter",
-        argNames: [
-          "accountStuffBoc",
-          "contractAbi",
-          "methodId",
-          "input",
-          "signatureId"
-        ],
-      );
+    debugName: "nt_run_getter",
+    argNames: [
+      "accountStuffBoc",
+      "contractAbi",
+      "methodId",
+      "input",
+      "signatureId",
+    ],
+  );
 
   @override
-  Future<String> crateApiMergedNtRunLocal(
-      {required String accountStuffBoc,
-      required String contractAbi,
-      required String methodId,
-      required String input,
-      required bool responsible,
-      int? signatureId}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(accountStuffBoc);
-        var arg1 = cst_encode_String(contractAbi);
-        var arg2 = cst_encode_String(methodId);
-        var arg3 = cst_encode_String(input);
-        var arg4 = cst_encode_bool(responsible);
-        var arg5 = cst_encode_opt_box_autoadd_i_32(signatureId);
-        return wire.wire__crate__api__merged__nt_run_local(
-            port_, arg0, arg1, arg2, arg3, arg4, arg5);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedNtRunLocal({
+    required String accountStuffBoc,
+    required String contractAbi,
+    required String methodId,
+    required String input,
+    required bool responsible,
+    int? signatureId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(accountStuffBoc);
+          var arg1 = cst_encode_String(contractAbi);
+          var arg2 = cst_encode_String(methodId);
+          var arg3 = cst_encode_String(input);
+          var arg4 = cst_encode_bool(responsible);
+          var arg5 = cst_encode_opt_box_autoadd_i_32(signatureId);
+          return wire.wire__crate__api__merged__nt_run_local(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+            arg3,
+            arg4,
+            arg5,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtRunLocalConstMeta,
+        argValues: [
+          accountStuffBoc,
+          contractAbi,
+          methodId,
+          input,
+          responsible,
+          signatureId,
+        ],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtRunLocalConstMeta,
-      argValues: [
-        accountStuffBoc,
-        contractAbi,
-        methodId,
-        input,
-        responsible,
-        signatureId
-      ],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtRunLocalConstMeta => const TaskConstMeta(
-        debugName: "nt_run_local",
-        argNames: [
-          "accountStuffBoc",
-          "contractAbi",
-          "methodId",
-          "input",
-          "responsible",
-          "signatureId"
-        ],
-      );
+    debugName: "nt_run_local",
+    argNames: [
+      "accountStuffBoc",
+      "contractAbi",
+      "methodId",
+      "input",
+      "responsible",
+      "signatureId",
+    ],
+  );
 
   @override
-  List<String> crateApiMergedNtSetCodeSalt(
-      {required String code, required String salt}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(code);
-        var arg1 = cst_encode_String(salt);
-        return wire.wire__crate__api__merged__nt_set_code_salt(arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_list_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  List<String> crateApiMergedNtSetCodeSalt({
+    required String code,
+    required String salt,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(code);
+          var arg1 = cst_encode_String(salt);
+          return wire.wire__crate__api__merged__nt_set_code_salt(arg0, arg1);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_list_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtSetCodeSaltConstMeta,
+        argValues: [code, salt],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtSetCodeSaltConstMeta,
-      argValues: [code, salt],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtSetCodeSaltConstMeta =>
@@ -6960,47 +8392,54 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @override
   List<String?> crateApiMergedNtSplitTvc({required String tvc}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(tvc);
-        return wire.wire__crate__api__merged__nt_split_tvc(arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_list_opt_String,
-        decodeErrorData: dco_decode_AnyhowException,
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(tvc);
+          return wire.wire__crate__api__merged__nt_split_tvc(arg0);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_list_opt_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtSplitTvcConstMeta,
+        argValues: [tvc],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtSplitTvcConstMeta,
-      argValues: [tvc],
-      apiImpl: this,
-    ));
+    );
   }
 
-  TaskConstMeta get kCrateApiMergedNtSplitTvcConstMeta => const TaskConstMeta(
-        debugName: "nt_split_tvc",
-        argNames: ["tvc"],
-      );
+  TaskConstMeta get kCrateApiMergedNtSplitTvcConstMeta =>
+      const TaskConstMeta(debugName: "nt_split_tvc", argNames: ["tvc"]);
 
   @override
-  Future<String?> crateApiMergedNtUnpackContractFields(
-      {required String contractAbi,
-      required String boc,
-      required bool allowPartial}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(contractAbi);
-        var arg1 = cst_encode_String(boc);
-        var arg2 = cst_encode_bool(allowPartial);
-        return wire.wire__crate__api__merged__nt_unpack_contract_fields(
-            port_, arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String?> crateApiMergedNtUnpackContractFields({
+    required String contractAbi,
+    required String boc,
+    required bool allowPartial,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(contractAbi);
+          var arg1 = cst_encode_String(boc);
+          var arg2 = cst_encode_bool(allowPartial);
+          return wire.wire__crate__api__merged__nt_unpack_contract_fields(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtUnpackContractFieldsConstMeta,
+        argValues: [contractAbi, boc, allowPartial],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtUnpackContractFieldsConstMeta,
-      argValues: [contractAbi, boc, allowPartial],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtUnpackContractFieldsConstMeta =>
@@ -7010,28 +8449,35 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  String crateApiMergedNtUnpackFromCell(
-      {required String params,
-      required String boc,
-      required bool allowPartial,
-      String? version}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(params);
-        var arg1 = cst_encode_String(boc);
-        var arg2 = cst_encode_bool(allowPartial);
-        var arg3 = cst_encode_opt_String(version);
-        return wire.wire__crate__api__merged__nt_unpack_from_cell(
-            arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  String crateApiMergedNtUnpackFromCell({
+    required String params,
+    required String boc,
+    required bool allowPartial,
+    String? version,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(params);
+          var arg1 = cst_encode_String(boc);
+          var arg2 = cst_encode_bool(allowPartial);
+          var arg3 = cst_encode_opt_String(version);
+          return wire.wire__crate__api__merged__nt_unpack_from_cell(
+            arg0,
+            arg1,
+            arg2,
+            arg3,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtUnpackFromCellConstMeta,
+        argValues: [params, boc, allowPartial, version],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtUnpackFromCellConstMeta,
-      argValues: [params, boc, allowPartial, version],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtUnpackFromCellConstMeta =>
@@ -7041,23 +8487,30 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<List<String?>> crateApiMergedNtUnpackInitData(
-      {required String contractAbi, required String data}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(contractAbi);
-        var arg1 = cst_encode_String(data);
-        return wire.wire__crate__api__merged__nt_unpack_init_data(
-            port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_list_opt_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<List<String?>> crateApiMergedNtUnpackInitData({
+    required String contractAbi,
+    required String data,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(contractAbi);
+          var arg1 = cst_encode_String(data);
+          return wire.wire__crate__api__merged__nt_unpack_init_data(
+            port_,
+            arg0,
+            arg1,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_list_opt_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtUnpackInitDataConstMeta,
+        argValues: [contractAbi, data],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtUnpackInitDataConstMeta,
-      argValues: [contractAbi, data],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtUnpackInitDataConstMeta =>
@@ -7067,23 +8520,29 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  String crateApiMergedNtUnpackStdSmcAddr(
-      {required String packed, required bool base64Url}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(packed);
-        var arg1 = cst_encode_bool(base64Url);
-        return wire.wire__crate__api__merged__nt_unpack_std_smc_addr(
-            arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  String crateApiMergedNtUnpackStdSmcAddr({
+    required String packed,
+    required bool base64Url,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(packed);
+          var arg1 = cst_encode_bool(base64Url);
+          return wire.wire__crate__api__merged__nt_unpack_std_smc_addr(
+            arg0,
+            arg1,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtUnpackStdSmcAddrConstMeta,
+        argValues: [packed, base64Url],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtUnpackStdSmcAddrConstMeta,
-      argValues: [packed, base64Url],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtUnpackStdSmcAddrConstMeta =>
@@ -7094,19 +8553,21 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @override
   bool crateApiMergedNtValidateAddress({required String address}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_String(address);
-        return wire.wire__crate__api__merged__nt_validate_address(arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: null,
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(address);
+          return wire.wire__crate__api__merged__nt_validate_address(arg0);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedNtValidateAddressConstMeta,
+        argValues: [address],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtValidateAddressConstMeta,
-      argValues: [address],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtValidateAddressConstMeta =>
@@ -7116,28 +8577,36 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<bool> crateApiMergedNtVerifySignature(
-      {required String publicKey,
-      required String data,
-      required String signature,
-      int? signatureId}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(publicKey);
-        var arg1 = cst_encode_String(data);
-        var arg2 = cst_encode_String(signature);
-        var arg3 = cst_encode_opt_box_autoadd_i_32(signatureId);
-        return wire.wire__crate__api__merged__nt_verify_signature(
-            port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedNtVerifySignature({
+    required String publicKey,
+    required String data,
+    required String signature,
+    int? signatureId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(publicKey);
+          var arg1 = cst_encode_String(data);
+          var arg2 = cst_encode_String(signature);
+          var arg3 = cst_encode_opt_box_autoadd_i_32(signatureId);
+          return wire.wire__crate__api__merged__nt_verify_signature(
+            port_,
+            arg0,
+            arg1,
+            arg2,
+            arg3,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtVerifySignatureConstMeta,
+        argValues: [publicKey, data, signature, signatureId],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedNtVerifySignatureConstMeta,
-      argValues: [publicKey, data, signature, signatureId],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedNtVerifySignatureConstMeta =>
@@ -7147,24 +8616,30 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  ProtoConnectionDartWrapper crateApiMergedProtoConnectionDartWrapperNew(
-      {required FutureOr<Uint8List> Function(Uint8List) onPost}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-                onPost);
-        return wire
-            .wire__crate__api__merged__proto_connection_dart_wrapper_new(arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_proto_connection_dart_wrapper,
-        decodeErrorData: null,
+  ProtoConnectionDartWrapper crateApiMergedProtoConnectionDartWrapperNew({
+    required FutureOr<Uint8List> Function(Uint8List) onPost,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+                onPost,
+              );
+          return wire
+              .wire__crate__api__merged__proto_connection_dart_wrapper_new(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_proto_connection_dart_wrapper,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedProtoConnectionDartWrapperNewConstMeta,
+        argValues: [onPost],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedProtoConnectionDartWrapperNewConstMeta,
-      argValues: [onPost],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedProtoConnectionDartWrapperNewConstMeta =>
@@ -7174,142 +8649,179 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedProtoTransportImplGetAccountsByCodeHash(
-      {required ProtoTransportImpl that,
-      required String codeHash,
-      required int limit,
-      String? continuation}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
-        var arg1 = cst_encode_String(codeHash);
-        var arg2 = cst_encode_u_8(limit);
-        var arg3 = cst_encode_opt_String(continuation);
-        return wire
-            .wire__crate__api__merged__proto_transport_impl_get_accounts_by_code_hash(
-                port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedProtoTransportImplGetAccountsByCodeHash({
+    required ProtoTransportImpl that,
+    required String codeHash,
+    required int limit,
+    String? continuation,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
+          var arg1 = cst_encode_String(codeHash);
+          var arg2 = cst_encode_u_8(limit);
+          var arg3 = cst_encode_opt_String(continuation);
+          return wire
+              .wire__crate__api__merged__proto_transport_impl_get_accounts_by_code_hash(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedProtoTransportImplGetAccountsByCodeHashConstMeta,
+        argValues: [that, codeHash, limit, continuation],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedProtoTransportImplGetAccountsByCodeHashConstMeta,
-      argValues: [that, codeHash, limit, continuation],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedProtoTransportImplGetAccountsByCodeHashConstMeta =>
-          const TaskConstMeta(
-            debugName: "proto_transport_impl_get_accounts_by_code_hash",
-            argNames: ["that", "codeHash", "limit", "continuation"],
-          );
+  get kCrateApiMergedProtoTransportImplGetAccountsByCodeHashConstMeta =>
+      const TaskConstMeta(
+        debugName: "proto_transport_impl_get_accounts_by_code_hash",
+        argNames: ["that", "codeHash", "limit", "continuation"],
+      );
 
   @override
-  Future<String> crateApiMergedProtoTransportImplGetBlockchainConfig(
-      {required ProtoTransportImpl that, required bool force}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
-        var arg1 = cst_encode_bool(force);
-        return wire
-            .wire__crate__api__merged__proto_transport_impl_get_blockchain_config(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedProtoTransportImplGetBlockchainConfig({
+    required ProtoTransportImpl that,
+    required bool force,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
+          var arg1 = cst_encode_bool(force);
+          return wire
+              .wire__crate__api__merged__proto_transport_impl_get_blockchain_config(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedProtoTransportImplGetBlockchainConfigConstMeta,
+        argValues: [that, force],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedProtoTransportImplGetBlockchainConfigConstMeta,
-      argValues: [that, force],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedProtoTransportImplGetBlockchainConfigConstMeta =>
-          const TaskConstMeta(
-            debugName: "proto_transport_impl_get_blockchain_config",
-            argNames: ["that", "force"],
-          );
+  get kCrateApiMergedProtoTransportImplGetBlockchainConfigConstMeta =>
+      const TaskConstMeta(
+        debugName: "proto_transport_impl_get_blockchain_config",
+        argNames: ["that", "force"],
+      );
 
   @override
-  Future<String> crateApiMergedProtoTransportImplGetContractState(
-      {required ProtoTransportImpl that, required String address}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
-        var arg1 = cst_encode_String(address);
-        return wire
-            .wire__crate__api__merged__proto_transport_impl_get_contract_state(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedProtoTransportImplGetContractState({
+    required ProtoTransportImpl that,
+    required String address,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
+          var arg1 = cst_encode_String(address);
+          return wire
+              .wire__crate__api__merged__proto_transport_impl_get_contract_state(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedProtoTransportImplGetContractStateConstMeta,
+        argValues: [that, address],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedProtoTransportImplGetContractStateConstMeta,
-      argValues: [that, address],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedProtoTransportImplGetContractStateConstMeta =>
-          const TaskConstMeta(
-            debugName: "proto_transport_impl_get_contract_state",
-            argNames: ["that", "address"],
-          );
+  get kCrateApiMergedProtoTransportImplGetContractStateConstMeta =>
+      const TaskConstMeta(
+        debugName: "proto_transport_impl_get_contract_state",
+        argNames: ["that", "address"],
+      );
 
   @override
-  Future<String?> crateApiMergedProtoTransportImplGetDstTransaction(
-      {required ProtoTransportImpl that, required String messageHash}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
-        var arg1 = cst_encode_String(messageHash);
-        return wire
-            .wire__crate__api__merged__proto_transport_impl_get_dst_transaction(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String?> crateApiMergedProtoTransportImplGetDstTransaction({
+    required ProtoTransportImpl that,
+    required String messageHash,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
+          var arg1 = cst_encode_String(messageHash);
+          return wire
+              .wire__crate__api__merged__proto_transport_impl_get_dst_transaction(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedProtoTransportImplGetDstTransactionConstMeta,
+        argValues: [that, messageHash],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedProtoTransportImplGetDstTransactionConstMeta,
-      argValues: [that, messageHash],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedProtoTransportImplGetDstTransactionConstMeta =>
-          const TaskConstMeta(
-            debugName: "proto_transport_impl_get_dst_transaction",
-            argNames: ["that", "messageHash"],
-          );
+  get kCrateApiMergedProtoTransportImplGetDstTransactionConstMeta =>
+      const TaskConstMeta(
+        debugName: "proto_transport_impl_get_dst_transaction",
+        argNames: ["that", "messageHash"],
+      );
 
   @override
-  Future<String> crateApiMergedProtoTransportImplGetFeeFactors(
-      {required ProtoTransportImpl that, required bool isMasterchain}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
-        var arg1 = cst_encode_bool(isMasterchain);
-        return wire
-            .wire__crate__api__merged__proto_transport_impl_get_fee_factors(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedProtoTransportImplGetFeeFactors({
+    required ProtoTransportImpl that,
+    required bool isMasterchain,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
+          var arg1 = cst_encode_bool(isMasterchain);
+          return wire
+              .wire__crate__api__merged__proto_transport_impl_get_fee_factors(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedProtoTransportImplGetFeeFactorsConstMeta,
+        argValues: [that, isMasterchain],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedProtoTransportImplGetFeeFactorsConstMeta,
-      argValues: [that, isMasterchain],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedProtoTransportImplGetFeeFactorsConstMeta =>
@@ -7319,51 +8831,64 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String?> crateApiMergedProtoTransportImplGetFullContractState(
-      {required ProtoTransportImpl that, required String address}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
-        var arg1 = cst_encode_String(address);
-        return wire
-            .wire__crate__api__merged__proto_transport_impl_get_full_contract_state(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String?> crateApiMergedProtoTransportImplGetFullContractState({
+    required ProtoTransportImpl that,
+    required String address,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
+          var arg1 = cst_encode_String(address);
+          return wire
+              .wire__crate__api__merged__proto_transport_impl_get_full_contract_state(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedProtoTransportImplGetFullContractStateConstMeta,
+        argValues: [that, address],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedProtoTransportImplGetFullContractStateConstMeta,
-      argValues: [that, address],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedProtoTransportImplGetFullContractStateConstMeta =>
-          const TaskConstMeta(
-            debugName: "proto_transport_impl_get_full_contract_state",
-            argNames: ["that", "address"],
-          );
+  get kCrateApiMergedProtoTransportImplGetFullContractStateConstMeta =>
+      const TaskConstMeta(
+        debugName: "proto_transport_impl_get_full_contract_state",
+        argNames: ["that", "address"],
+      );
 
   @override
-  Future<int> crateApiMergedProtoTransportImplGetNetworkId(
-      {required ProtoTransportImpl that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
-        return wire
-            .wire__crate__api__merged__proto_transport_impl_get_network_id(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_i_32,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<int> crateApiMergedProtoTransportImplGetNetworkId({
+    required ProtoTransportImpl that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
+          return wire
+              .wire__crate__api__merged__proto_transport_impl_get_network_id(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_i_32,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedProtoTransportImplGetNetworkIdConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedProtoTransportImplGetNetworkIdConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedProtoTransportImplGetNetworkIdConstMeta =>
@@ -7373,23 +8898,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<int?> crateApiMergedProtoTransportImplGetSignatureId(
-      {required ProtoTransportImpl that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
-        return wire
-            .wire__crate__api__merged__proto_transport_impl_get_signature_id(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_box_autoadd_i_32,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<int?> crateApiMergedProtoTransportImplGetSignatureId({
+    required ProtoTransportImpl that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
+          return wire
+              .wire__crate__api__merged__proto_transport_impl_get_signature_id(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_box_autoadd_i_32,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedProtoTransportImplGetSignatureIdConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedProtoTransportImplGetSignatureIdConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedProtoTransportImplGetSignatureIdConstMeta =>
@@ -7399,24 +8929,31 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String?> crateApiMergedProtoTransportImplGetTransaction(
-      {required ProtoTransportImpl that, required String hash}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
-        var arg1 = cst_encode_String(hash);
-        return wire
-            .wire__crate__api__merged__proto_transport_impl_get_transaction(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String?> crateApiMergedProtoTransportImplGetTransaction({
+    required ProtoTransportImpl that,
+    required String hash,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
+          var arg1 = cst_encode_String(hash);
+          return wire
+              .wire__crate__api__merged__proto_transport_impl_get_transaction(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedProtoTransportImplGetTransactionConstMeta,
+        argValues: [that, hash],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedProtoTransportImplGetTransactionConstMeta,
-      argValues: [that, hash],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedProtoTransportImplGetTransactionConstMeta =>
@@ -7426,29 +8963,37 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedProtoTransportImplGetTransactions(
-      {required ProtoTransportImpl that,
-      required String address,
-      String? fromLt,
-      required int count}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
-        var arg1 = cst_encode_String(address);
-        var arg2 = cst_encode_opt_String(fromLt);
-        var arg3 = cst_encode_u_8(count);
-        return wire
-            .wire__crate__api__merged__proto_transport_impl_get_transactions(
-                port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedProtoTransportImplGetTransactions({
+    required ProtoTransportImpl that,
+    required String address,
+    String? fromLt,
+    required int count,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
+          var arg1 = cst_encode_String(address);
+          var arg2 = cst_encode_opt_String(fromLt);
+          var arg3 = cst_encode_u_8(count);
+          return wire
+              .wire__crate__api__merged__proto_transport_impl_get_transactions(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedProtoTransportImplGetTransactionsConstMeta,
+        argValues: [that, address, fromLt, count],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedProtoTransportImplGetTransactionsConstMeta,
-      argValues: [that, address, fromLt, count],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedProtoTransportImplGetTransactionsConstMeta =>
@@ -7458,22 +9003,26 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  ProtoTransportImpl crateApiMergedProtoTransportImplNew(
-      {required ProtoConnectionDartWrapper protoConnection}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 = cst_encode_box_autoadd_proto_connection_dart_wrapper(
-            protoConnection);
-        return wire.wire__crate__api__merged__proto_transport_impl_new(arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_proto_transport_impl,
-        decodeErrorData: null,
+  ProtoTransportImpl crateApiMergedProtoTransportImplNew({
+    required ProtoConnectionDartWrapper protoConnection,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_box_autoadd_proto_connection_dart_wrapper(
+            protoConnection,
+          );
+          return wire.wire__crate__api__merged__proto_transport_impl_new(arg0);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_proto_transport_impl,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedProtoTransportImplNewConstMeta,
+        argValues: [protoConnection],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedProtoTransportImplNewConstMeta,
-      argValues: [protoConnection],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedProtoTransportImplNewConstMeta =>
@@ -7483,64 +9032,74 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedProtoTransportImplSimulateTransactionTree(
-      {required ProtoTransportImpl that,
-      required String signedMessage,
-      required List<int> ignoredComputePhaseCodes,
-      required List<int> ignoredActionPhaseCodes}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
-        var arg1 = cst_encode_String(signedMessage);
-        var arg2 = cst_encode_list_prim_i_32_loose(ignoredComputePhaseCodes);
-        var arg3 = cst_encode_list_prim_i_32_loose(ignoredActionPhaseCodes);
-        return wire
-            .wire__crate__api__merged__proto_transport_impl_simulate_transaction_tree(
-                port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedProtoTransportImplSimulateTransactionTree({
+    required ProtoTransportImpl that,
+    required String signedMessage,
+    required List<int> ignoredComputePhaseCodes,
+    required List<int> ignoredActionPhaseCodes,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
+          var arg1 = cst_encode_String(signedMessage);
+          var arg2 = cst_encode_list_prim_i_32_loose(ignoredComputePhaseCodes);
+          var arg3 = cst_encode_list_prim_i_32_loose(ignoredActionPhaseCodes);
+          return wire
+              .wire__crate__api__merged__proto_transport_impl_simulate_transaction_tree(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedProtoTransportImplSimulateTransactionTreeConstMeta,
+        argValues: [
+          that,
+          signedMessage,
+          ignoredComputePhaseCodes,
+          ignoredActionPhaseCodes,
+        ],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedProtoTransportImplSimulateTransactionTreeConstMeta,
-      argValues: [
-        that,
-        signedMessage,
-        ignoredComputePhaseCodes,
-        ignoredActionPhaseCodes
-      ],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedProtoTransportImplSimulateTransactionTreeConstMeta =>
-          const TaskConstMeta(
-            debugName: "proto_transport_impl_simulate_transaction_tree",
-            argNames: [
-              "that",
-              "signedMessage",
-              "ignoredComputePhaseCodes",
-              "ignoredActionPhaseCodes"
-            ],
-          );
+  get kCrateApiMergedProtoTransportImplSimulateTransactionTreeConstMeta =>
+      const TaskConstMeta(
+        debugName: "proto_transport_impl_simulate_transaction_tree",
+        argNames: [
+          "that",
+          "signedMessage",
+          "ignoredComputePhaseCodes",
+          "ignoredActionPhaseCodes",
+        ],
+      );
 
   @override
   Future<void> crateApiMergedSetClockOffset({required PlatformInt64 offsetMs}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_i_64(offsetMs);
-        return wire.wire__crate__api__merged__set_clock_offset(port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unit,
-        decodeErrorData: null,
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_i_64(offsetMs);
+          return wire.wire__crate__api__merged__set_clock_offset(port_, arg0);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedSetClockOffsetConstMeta,
+        argValues: [offsetMs],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedSetClockOffsetConstMeta,
-      argValues: [offsetMs],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedSetClockOffsetConstMeta =>
@@ -7550,38 +9109,53 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  StorageDartWrapper crateApiMergedStorageDartWrapperNew(
-      {required FutureOr<String?> Function(String) onGet,
-      required FutureOr<void> Function(String, String) onSet,
-      required FutureOr<void> Function(String, String) onSetUnchecked,
-      required FutureOr<void> Function(String) onRemove,
-      required FutureOr<void> Function(String) onRemoveUnchecked}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        var arg0 =
-            cst_encode_DartFn_Inputs_String_Output_opt_String_AnyhowException(
-                onGet);
-        var arg1 =
-            cst_encode_DartFn_Inputs_String_String_Output_unit_AnyhowException(
-                onSet);
-        var arg2 =
-            cst_encode_DartFn_Inputs_String_String_Output_unit_AnyhowException(
-                onSetUnchecked);
-        var arg3 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onRemove);
-        var arg4 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onRemoveUnchecked);
-        return wire.wire__crate__api__merged__storage_dart_wrapper_new(
-            arg0, arg1, arg2, arg3, arg4);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_storage_dart_wrapper,
-        decodeErrorData: null,
+  StorageDartWrapper crateApiMergedStorageDartWrapperNew({
+    required FutureOr<String?> Function(String) onGet,
+    required FutureOr<void> Function(String, String) onSet,
+    required FutureOr<void> Function(String, String) onSetUnchecked,
+    required FutureOr<void> Function(String) onRemove,
+    required FutureOr<void> Function(String) onRemoveUnchecked,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 =
+              cst_encode_DartFn_Inputs_String_Output_opt_String_AnyhowException(
+                onGet,
+              );
+          var arg1 =
+              cst_encode_DartFn_Inputs_String_String_Output_unit_AnyhowException(
+                onSet,
+              );
+          var arg2 =
+              cst_encode_DartFn_Inputs_String_String_Output_unit_AnyhowException(
+                onSetUnchecked,
+              );
+          var arg3 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onRemove,
+              );
+          var arg4 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onRemoveUnchecked,
+              );
+          return wire.wire__crate__api__merged__storage_dart_wrapper_new(
+            arg0,
+            arg1,
+            arg2,
+            arg3,
+            arg4,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_storage_dart_wrapper,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedStorageDartWrapperNewConstMeta,
+        argValues: [onGet, onSet, onSetUnchecked, onRemove, onRemoveUnchecked],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedStorageDartWrapperNewConstMeta,
-      argValues: [onGet, onSet, onSetUnchecked, onRemove, onRemoveUnchecked],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedStorageDartWrapperNewConstMeta =>
@@ -7592,27 +9166,33 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           "onSet",
           "onSetUnchecked",
           "onRemove",
-          "onRemoveUnchecked"
+          "onRemoveUnchecked",
         ],
       );
 
   @override
-  Future<String> crateApiMergedTokenWalletDartWrapperAddress(
-      {required TokenWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
-        return wire.wire__crate__api__merged__token_wallet_dart_wrapper_address(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: null,
+  Future<String> crateApiMergedTokenWalletDartWrapperAddress({
+    required TokenWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__token_wallet_dart_wrapper_address(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedTokenWalletDartWrapperAddressConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTokenWalletDartWrapperAddressConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTokenWalletDartWrapperAddressConstMeta =>
@@ -7622,22 +9202,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedTokenWalletDartWrapperBalance(
-      {required TokenWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
-        return wire.wire__crate__api__merged__token_wallet_dart_wrapper_balance(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: null,
+  Future<String> crateApiMergedTokenWalletDartWrapperBalance({
+    required TokenWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__token_wallet_dart_wrapper_balance(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedTokenWalletDartWrapperBalanceConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTokenWalletDartWrapperBalanceConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTokenWalletDartWrapperBalanceConstMeta =>
@@ -7647,184 +9233,224 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedTokenWalletDartWrapperContractState(
-      {required TokenWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__token_wallet_dart_wrapper_contract_state(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedTokenWalletDartWrapperContractState({
+    required TokenWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__token_wallet_dart_wrapper_contract_state(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTokenWalletDartWrapperContractStateConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTokenWalletDartWrapperContractStateConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTokenWalletDartWrapperContractStateConstMeta =>
-          const TaskConstMeta(
-            debugName: "token_wallet_dart_wrapper_contract_state",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedTokenWalletDartWrapperContractStateConstMeta =>
+      const TaskConstMeta(
+        debugName: "token_wallet_dart_wrapper_contract_state",
+        argNames: ["that"],
+      );
 
   @override
-  Future<String> crateApiMergedTokenWalletDartWrapperEstimateMinAttachedAmount(
-      {required TokenWalletDartWrapper that,
-      required String destination,
-      required String amount,
-      required bool notifyReceiver,
-      String? payload}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
-        var arg1 = cst_encode_String(destination);
-        var arg2 = cst_encode_String(amount);
-        var arg3 = cst_encode_bool(notifyReceiver);
-        var arg4 = cst_encode_opt_String(payload);
-        return wire
-            .wire__crate__api__merged__token_wallet_dart_wrapper_estimate_min_attached_amount(
-                port_, arg0, arg1, arg2, arg3, arg4);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedTokenWalletDartWrapperEstimateMinAttachedAmount({
+    required TokenWalletDartWrapper that,
+    required String destination,
+    required String amount,
+    required bool notifyReceiver,
+    String? payload,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
+          var arg1 = cst_encode_String(destination);
+          var arg2 = cst_encode_String(amount);
+          var arg3 = cst_encode_bool(notifyReceiver);
+          var arg4 = cst_encode_opt_String(payload);
+          return wire
+              .wire__crate__api__merged__token_wallet_dart_wrapper_estimate_min_attached_amount(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+                arg4,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedTokenWalletDartWrapperEstimateMinAttachedAmountConstMeta,
+        argValues: [that, destination, amount, notifyReceiver, payload],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTokenWalletDartWrapperEstimateMinAttachedAmountConstMeta,
-      argValues: [that, destination, amount, notifyReceiver, payload],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTokenWalletDartWrapperEstimateMinAttachedAmountConstMeta =>
-          const TaskConstMeta(
-            debugName: "token_wallet_dart_wrapper_estimate_min_attached_amount",
-            argNames: [
-              "that",
-              "destination",
-              "amount",
-              "notifyReceiver",
-              "payload"
-            ],
-          );
+  get kCrateApiMergedTokenWalletDartWrapperEstimateMinAttachedAmountConstMeta =>
+      const TaskConstMeta(
+        debugName: "token_wallet_dart_wrapper_estimate_min_attached_amount",
+        argNames: [
+          "that",
+          "destination",
+          "amount",
+          "notifyReceiver",
+          "payload",
+        ],
+      );
 
   @override
-  Future<String> crateApiMergedTokenWalletDartWrapperGetTokenRootDetails(
-      {required ArcTransportBoxTrait transport,
-      required String tokenRootAddress}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg1 = cst_encode_String(tokenRootAddress);
-        return wire
-            .wire__crate__api__merged__token_wallet_dart_wrapper_get_token_root_details(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedTokenWalletDartWrapperGetTokenRootDetails({
+    required ArcTransportBoxTrait transport,
+    required String tokenRootAddress,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
+          var arg1 = cst_encode_String(tokenRootAddress);
+          return wire
+              .wire__crate__api__merged__token_wallet_dart_wrapper_get_token_root_details(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedTokenWalletDartWrapperGetTokenRootDetailsConstMeta,
+        argValues: [transport, tokenRootAddress],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTokenWalletDartWrapperGetTokenRootDetailsConstMeta,
-      argValues: [transport, tokenRootAddress],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTokenWalletDartWrapperGetTokenRootDetailsConstMeta =>
-          const TaskConstMeta(
-            debugName: "token_wallet_dart_wrapper_get_token_root_details",
-            argNames: ["transport", "tokenRootAddress"],
-          );
+  get kCrateApiMergedTokenWalletDartWrapperGetTokenRootDetailsConstMeta =>
+      const TaskConstMeta(
+        debugName: "token_wallet_dart_wrapper_get_token_root_details",
+        argNames: ["transport", "tokenRootAddress"],
+      );
 
   @override
   Future<String>
-      crateApiMergedTokenWalletDartWrapperGetTokenRootDetailsFromTokenWallet(
-          {required ArcTransportBoxTrait transport,
-          required String tokenWalletAddress}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg1 = cst_encode_String(tokenWalletAddress);
-        return wire
-            .wire__crate__api__merged__token_wallet_dart_wrapper_get_token_root_details_from_token_wallet(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  crateApiMergedTokenWalletDartWrapperGetTokenRootDetailsFromTokenWallet({
+    required ArcTransportBoxTrait transport,
+    required String tokenWalletAddress,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
+          var arg1 = cst_encode_String(tokenWalletAddress);
+          return wire
+              .wire__crate__api__merged__token_wallet_dart_wrapper_get_token_root_details_from_token_wallet(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedTokenWalletDartWrapperGetTokenRootDetailsFromTokenWalletConstMeta,
+        argValues: [transport, tokenWalletAddress],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTokenWalletDartWrapperGetTokenRootDetailsFromTokenWalletConstMeta,
-      argValues: [transport, tokenWalletAddress],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTokenWalletDartWrapperGetTokenRootDetailsFromTokenWalletConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "token_wallet_dart_wrapper_get_token_root_details_from_token_wallet",
-            argNames: ["transport", "tokenWalletAddress"],
-          );
+  get kCrateApiMergedTokenWalletDartWrapperGetTokenRootDetailsFromTokenWalletConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "token_wallet_dart_wrapper_get_token_root_details_from_token_wallet",
+        argNames: ["transport", "tokenWalletAddress"],
+      );
 
   @override
-  Future<String> crateApiMergedTokenWalletDartWrapperGetTokenWalletDetails(
-      {required ArcTransportBoxTrait transport, required String address}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg1 = cst_encode_String(address);
-        return wire
-            .wire__crate__api__merged__token_wallet_dart_wrapper_get_token_wallet_details(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedTokenWalletDartWrapperGetTokenWalletDetails({
+    required ArcTransportBoxTrait transport,
+    required String address,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
+          var arg1 = cst_encode_String(address);
+          return wire
+              .wire__crate__api__merged__token_wallet_dart_wrapper_get_token_wallet_details(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedTokenWalletDartWrapperGetTokenWalletDetailsConstMeta,
+        argValues: [transport, address],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTokenWalletDartWrapperGetTokenWalletDetailsConstMeta,
-      argValues: [transport, address],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTokenWalletDartWrapperGetTokenWalletDetailsConstMeta =>
-          const TaskConstMeta(
-            debugName: "token_wallet_dart_wrapper_get_token_wallet_details",
-            argNames: ["transport", "address"],
-          );
+  get kCrateApiMergedTokenWalletDartWrapperGetTokenWalletDetailsConstMeta =>
+      const TaskConstMeta(
+        debugName: "token_wallet_dart_wrapper_get_token_wallet_details",
+        argNames: ["transport", "address"],
+      );
 
   @override
-  Future<bool> crateApiMergedTokenWalletDartWrapperHandleBlock(
-      {required TokenWalletDartWrapper that, required String block}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
-        var arg1 = cst_encode_String(block);
-        return wire
-            .wire__crate__api__merged__token_wallet_dart_wrapper_handle_block(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedTokenWalletDartWrapperHandleBlock({
+    required TokenWalletDartWrapper that,
+    required String block,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
+          var arg1 = cst_encode_String(block);
+          return wire
+              .wire__crate__api__merged__token_wallet_dart_wrapper_handle_block(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTokenWalletDartWrapperHandleBlockConstMeta,
+        argValues: [that, block],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTokenWalletDartWrapperHandleBlockConstMeta,
-      argValues: [that, block],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTokenWalletDartWrapperHandleBlockConstMeta =>
@@ -7834,22 +9460,27 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedTokenWalletDartWrapperOwner(
-      {required TokenWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
-        return wire.wire__crate__api__merged__token_wallet_dart_wrapper_owner(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: null,
+  Future<String> crateApiMergedTokenWalletDartWrapperOwner({
+    required TokenWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
+          return wire.wire__crate__api__merged__token_wallet_dart_wrapper_owner(
+            port_,
+            arg0,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedTokenWalletDartWrapperOwnerConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTokenWalletDartWrapperOwnerConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTokenWalletDartWrapperOwnerConstMeta =>
@@ -7859,102 +9490,126 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<bool> crateApiMergedTokenWalletDartWrapperPreloadTransactions(
-      {required TokenWalletDartWrapper that, required String fromLt}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
-        var arg1 = cst_encode_String(fromLt);
-        return wire
-            .wire__crate__api__merged__token_wallet_dart_wrapper_preload_transactions(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedTokenWalletDartWrapperPreloadTransactions({
+    required TokenWalletDartWrapper that,
+    required String fromLt,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
+          var arg1 = cst_encode_String(fromLt);
+          return wire
+              .wire__crate__api__merged__token_wallet_dart_wrapper_preload_transactions(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedTokenWalletDartWrapperPreloadTransactionsConstMeta,
+        argValues: [that, fromLt],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTokenWalletDartWrapperPreloadTransactionsConstMeta,
-      argValues: [that, fromLt],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTokenWalletDartWrapperPreloadTransactionsConstMeta =>
-          const TaskConstMeta(
-            debugName: "token_wallet_dart_wrapper_preload_transactions",
-            argNames: ["that", "fromLt"],
-          );
+  get kCrateApiMergedTokenWalletDartWrapperPreloadTransactionsConstMeta =>
+      const TaskConstMeta(
+        debugName: "token_wallet_dart_wrapper_preload_transactions",
+        argNames: ["that", "fromLt"],
+      );
 
   @override
-  Future<String> crateApiMergedTokenWalletDartWrapperPrepareTransfer(
-      {required TokenWalletDartWrapper that,
-      required String destination,
-      required String amount,
-      required bool notifyReceiver,
-      String? attachedAmount,
-      String? payload}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
-        var arg1 = cst_encode_String(destination);
-        var arg2 = cst_encode_String(amount);
-        var arg3 = cst_encode_bool(notifyReceiver);
-        var arg4 = cst_encode_opt_String(attachedAmount);
-        var arg5 = cst_encode_opt_String(payload);
-        return wire
-            .wire__crate__api__merged__token_wallet_dart_wrapper_prepare_transfer(
-                port_, arg0, arg1, arg2, arg3, arg4, arg5);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedTokenWalletDartWrapperPrepareTransfer({
+    required TokenWalletDartWrapper that,
+    required String destination,
+    required String amount,
+    required bool notifyReceiver,
+    String? attachedAmount,
+    String? payload,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
+          var arg1 = cst_encode_String(destination);
+          var arg2 = cst_encode_String(amount);
+          var arg3 = cst_encode_bool(notifyReceiver);
+          var arg4 = cst_encode_opt_String(attachedAmount);
+          var arg5 = cst_encode_opt_String(payload);
+          return wire
+              .wire__crate__api__merged__token_wallet_dart_wrapper_prepare_transfer(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+                arg4,
+                arg5,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedTokenWalletDartWrapperPrepareTransferConstMeta,
+        argValues: [
+          that,
+          destination,
+          amount,
+          notifyReceiver,
+          attachedAmount,
+          payload,
+        ],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTokenWalletDartWrapperPrepareTransferConstMeta,
-      argValues: [
-        that,
-        destination,
-        amount,
-        notifyReceiver,
-        attachedAmount,
-        payload
-      ],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTokenWalletDartWrapperPrepareTransferConstMeta =>
-          const TaskConstMeta(
-            debugName: "token_wallet_dart_wrapper_prepare_transfer",
-            argNames: [
-              "that",
-              "destination",
-              "amount",
-              "notifyReceiver",
-              "attachedAmount",
-              "payload"
-            ],
-          );
+  get kCrateApiMergedTokenWalletDartWrapperPrepareTransferConstMeta =>
+      const TaskConstMeta(
+        debugName: "token_wallet_dart_wrapper_prepare_transfer",
+        argNames: [
+          "that",
+          "destination",
+          "amount",
+          "notifyReceiver",
+          "attachedAmount",
+          "payload",
+        ],
+      );
 
   @override
-  Future<bool> crateApiMergedTokenWalletDartWrapperRefresh(
-      {required TokenWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
-        return wire.wire__crate__api__merged__token_wallet_dart_wrapper_refresh(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedTokenWalletDartWrapperRefresh({
+    required TokenWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__token_wallet_dart_wrapper_refresh(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTokenWalletDartWrapperRefreshConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTokenWalletDartWrapperRefreshConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTokenWalletDartWrapperRefreshConstMeta =>
@@ -7964,42 +9619,56 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<TokenWalletDartWrapper> crateApiMergedTokenWalletDartWrapperSubscribe(
-      {required String owner,
-      required String rootTokenContract,
-      required ArcTransportBoxTrait transport,
-      required bool preloadTransactions,
-      required FutureOr<void> Function(String) onBalanceChanged,
-      required FutureOr<void> Function(String) onTransactionsFound}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(owner);
-        var arg1 = cst_encode_String(rootTokenContract);
-        var arg2 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg3 = cst_encode_bool(preloadTransactions);
-        var arg4 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onBalanceChanged);
-        var arg5 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onTransactionsFound);
-        return wire
-            .wire__crate__api__merged__token_wallet_dart_wrapper_subscribe(
-                port_, arg0, arg1, arg2, arg3, arg4, arg5);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_token_wallet_dart_wrapper,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<TokenWalletDartWrapper> crateApiMergedTokenWalletDartWrapperSubscribe({
+    required String owner,
+    required String rootTokenContract,
+    required ArcTransportBoxTrait transport,
+    required bool preloadTransactions,
+    required FutureOr<void> Function(String) onBalanceChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(owner);
+          var arg1 = cst_encode_String(rootTokenContract);
+          var arg2 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
+          var arg3 = cst_encode_bool(preloadTransactions);
+          var arg4 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onBalanceChanged,
+              );
+          var arg5 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onTransactionsFound,
+              );
+          return wire
+              .wire__crate__api__merged__token_wallet_dart_wrapper_subscribe(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+                arg4,
+                arg5,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_token_wallet_dart_wrapper,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTokenWalletDartWrapperSubscribeConstMeta,
+        argValues: [
+          owner,
+          rootTokenContract,
+          transport,
+          preloadTransactions,
+          onBalanceChanged,
+          onTransactionsFound,
+        ],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTokenWalletDartWrapperSubscribeConstMeta,
-      argValues: [
-        owner,
-        rootTokenContract,
-        transport,
-        preloadTransactions,
-        onBalanceChanged,
-        onTransactionsFound
-      ],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTokenWalletDartWrapperSubscribeConstMeta =>
@@ -8011,27 +9680,33 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           "transport",
           "preloadTransactions",
           "onBalanceChanged",
-          "onTransactionsFound"
+          "onTransactionsFound",
         ],
       );
 
   @override
-  Future<String> crateApiMergedTokenWalletDartWrapperSymbol(
-      {required TokenWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
-        return wire.wire__crate__api__merged__token_wallet_dart_wrapper_symbol(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedTokenWalletDartWrapperSymbol({
+    required TokenWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__token_wallet_dart_wrapper_symbol(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTokenWalletDartWrapperSymbolConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTokenWalletDartWrapperSymbolConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTokenWalletDartWrapperSymbolConstMeta =>
@@ -8041,22 +9716,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedTokenWalletDartWrapperVersion(
-      {required TokenWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
-        return wire.wire__crate__api__merged__token_wallet_dart_wrapper_version(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedTokenWalletDartWrapperVersion({
+    required TokenWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__token_wallet_dart_wrapper_version(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTokenWalletDartWrapperVersionConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTokenWalletDartWrapperVersionConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTokenWalletDartWrapperVersionConstMeta =>
@@ -8066,22 +9747,27 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedTonWalletDartWrapperAddress(
-      {required TonWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        return wire.wire__crate__api__merged__ton_wallet_dart_wrapper_address(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: null,
+  Future<String> crateApiMergedTonWalletDartWrapperAddress({
+    required TonWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          return wire.wire__crate__api__merged__ton_wallet_dart_wrapper_address(
+            port_,
+            arg0,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedTonWalletDartWrapperAddressConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperAddressConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTonWalletDartWrapperAddressConstMeta =>
@@ -8091,23 +9777,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedTonWalletDartWrapperContractState(
-      {required TonWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_contract_state(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedTonWalletDartWrapperContractState({
+    required TonWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_contract_state(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTonWalletDartWrapperContractStateConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperContractStateConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTonWalletDartWrapperContractStateConstMeta =>
@@ -8117,23 +9808,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<List<String>?> crateApiMergedTonWalletDartWrapperCustodians(
-      {required TonWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_custodians(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_opt_list_String,
-        decodeErrorData: null,
+  Future<List<String>?> crateApiMergedTonWalletDartWrapperCustodians({
+    required TonWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_custodians(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_opt_list_String,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedTonWalletDartWrapperCustodiansConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperCustodiansConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTonWalletDartWrapperCustodiansConstMeta =>
@@ -8143,22 +9839,27 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedTonWalletDartWrapperDetails(
-      {required TonWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        return wire.wire__crate__api__merged__ton_wallet_dart_wrapper_details(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedTonWalletDartWrapperDetails({
+    required TonWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          return wire.wire__crate__api__merged__ton_wallet_dart_wrapper_details(
+            port_,
+            arg0,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTonWalletDartWrapperDetailsConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperDetailsConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTonWalletDartWrapperDetailsConstMeta =>
@@ -8168,27 +9869,34 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedTonWalletDartWrapperEstimateFees(
-      {required TonWalletDartWrapper that,
-      required String signedMessage,
-      String? executionOptions}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        var arg1 = cst_encode_String(signedMessage);
-        var arg2 = cst_encode_opt_String(executionOptions);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_estimate_fees(
-                port_, arg0, arg1, arg2);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedTonWalletDartWrapperEstimateFees({
+    required TonWalletDartWrapper that,
+    required String signedMessage,
+    String? executionOptions,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          var arg1 = cst_encode_String(signedMessage);
+          var arg2 = cst_encode_opt_String(executionOptions);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_estimate_fees(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTonWalletDartWrapperEstimateFeesConstMeta,
+        argValues: [that, signedMessage, executionOptions],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperEstimateFeesConstMeta,
-      argValues: [that, signedMessage, executionOptions],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTonWalletDartWrapperEstimateFeesConstMeta =>
@@ -8198,58 +9906,73 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedTonWalletDartWrapperFindExistingWallets(
-      {required ArcTransportBoxTrait transport,
-      required String publicKey,
-      required int workchainId,
-      required String walletTypes}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg1 = cst_encode_String(publicKey);
-        var arg2 = cst_encode_i_8(workchainId);
-        var arg3 = cst_encode_String(walletTypes);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_find_existing_wallets(
-                port_, arg0, arg1, arg2, arg3);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedTonWalletDartWrapperFindExistingWallets({
+    required ArcTransportBoxTrait transport,
+    required String publicKey,
+    required int workchainId,
+    required String walletTypes,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
+          var arg1 = cst_encode_String(publicKey);
+          var arg2 = cst_encode_i_8(workchainId);
+          var arg3 = cst_encode_String(walletTypes);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_find_existing_wallets(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletDartWrapperFindExistingWalletsConstMeta,
+        argValues: [transport, publicKey, workchainId, walletTypes],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletDartWrapperFindExistingWalletsConstMeta,
-      argValues: [transport, publicKey, workchainId, walletTypes],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletDartWrapperFindExistingWalletsConstMeta =>
-          const TaskConstMeta(
-            debugName: "ton_wallet_dart_wrapper_find_existing_wallets",
-            argNames: ["transport", "publicKey", "workchainId", "walletTypes"],
-          );
+  get kCrateApiMergedTonWalletDartWrapperFindExistingWalletsConstMeta =>
+      const TaskConstMeta(
+        debugName: "ton_wallet_dart_wrapper_find_existing_wallets",
+        argNames: ["transport", "publicKey", "workchainId", "walletTypes"],
+      );
 
   @override
-  Future<List<String>> crateApiMergedTonWalletDartWrapperGetCustodians(
-      {required ArcTransportBoxTrait transport, required String address}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg1 = cst_encode_String(address);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_get_custodians(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_list_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<List<String>> crateApiMergedTonWalletDartWrapperGetCustodians({
+    required ArcTransportBoxTrait transport,
+    required String address,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
+          var arg1 = cst_encode_String(address);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_get_custodians(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_list_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTonWalletDartWrapperGetCustodiansConstMeta,
+        argValues: [transport, address],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperGetCustodiansConstMeta,
-      argValues: [transport, address],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTonWalletDartWrapperGetCustodiansConstMeta =>
@@ -8259,53 +9982,67 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedTonWalletDartWrapperGetExistingWalletInfo(
-      {required ArcTransportBoxTrait transport, required String address}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg1 = cst_encode_String(address);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_get_existing_wallet_info(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedTonWalletDartWrapperGetExistingWalletInfo({
+    required ArcTransportBoxTrait transport,
+    required String address,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
+          var arg1 = cst_encode_String(address);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_get_existing_wallet_info(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletDartWrapperGetExistingWalletInfoConstMeta,
+        argValues: [transport, address],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletDartWrapperGetExistingWalletInfoConstMeta,
-      argValues: [transport, address],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletDartWrapperGetExistingWalletInfoConstMeta =>
-          const TaskConstMeta(
-            debugName: "ton_wallet_dart_wrapper_get_existing_wallet_info",
-            argNames: ["transport", "address"],
-          );
+  get kCrateApiMergedTonWalletDartWrapperGetExistingWalletInfoConstMeta =>
+      const TaskConstMeta(
+        debugName: "ton_wallet_dart_wrapper_get_existing_wallet_info",
+        argNames: ["transport", "address"],
+      );
 
   @override
-  Future<bool> crateApiMergedTonWalletDartWrapperHandleBlock(
-      {required TonWalletDartWrapper that, required String block}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        var arg1 = cst_encode_String(block);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_handle_block(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedTonWalletDartWrapperHandleBlock({
+    required TonWalletDartWrapper that,
+    required String block,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          var arg1 = cst_encode_String(block);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_handle_block(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTonWalletDartWrapperHandleBlockConstMeta,
+        argValues: [that, block],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperHandleBlockConstMeta,
-      argValues: [that, block],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTonWalletDartWrapperHandleBlockConstMeta =>
@@ -8315,23 +10052,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedTonWalletDartWrapperMakeStateInit(
-      {required TonWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_make_state_init(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedTonWalletDartWrapperMakeStateInit({
+    required TonWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_make_state_init(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTonWalletDartWrapperMakeStateInitConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperMakeStateInitConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTonWalletDartWrapperMakeStateInitConstMeta =>
@@ -8341,51 +10083,61 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedTonWalletDartWrapperPendingTransactions(
-      {required TonWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_pending_transactions(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedTonWalletDartWrapperPendingTransactions({
+    required TonWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_pending_transactions(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletDartWrapperPendingTransactionsConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletDartWrapperPendingTransactionsConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletDartWrapperPendingTransactionsConstMeta =>
-          const TaskConstMeta(
-            debugName: "ton_wallet_dart_wrapper_pending_transactions",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedTonWalletDartWrapperPendingTransactionsConstMeta =>
+      const TaskConstMeta(
+        debugName: "ton_wallet_dart_wrapper_pending_transactions",
+        argNames: ["that"],
+      );
 
   @override
-  Future<PollingMethod> crateApiMergedTonWalletDartWrapperPollingMethod(
-      {required TonWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_polling_method(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_polling_method,
-        decodeErrorData: null,
+  Future<PollingMethod> crateApiMergedTonWalletDartWrapperPollingMethod({
+    required TonWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_polling_method(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_polling_method,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedTonWalletDartWrapperPollingMethodConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperPollingMethodConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTonWalletDartWrapperPollingMethodConstMeta =>
@@ -8395,96 +10147,119 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<bool> crateApiMergedTonWalletDartWrapperPreloadTransactions(
-      {required TonWalletDartWrapper that, required String fromLt}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        var arg1 = cst_encode_String(fromLt);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_preload_transactions(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedTonWalletDartWrapperPreloadTransactions({
+    required TonWalletDartWrapper that,
+    required String fromLt,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          var arg1 = cst_encode_String(fromLt);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_preload_transactions(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletDartWrapperPreloadTransactionsConstMeta,
+        argValues: [that, fromLt],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletDartWrapperPreloadTransactionsConstMeta,
-      argValues: [that, fromLt],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletDartWrapperPreloadTransactionsConstMeta =>
-          const TaskConstMeta(
-            debugName: "ton_wallet_dart_wrapper_preload_transactions",
-            argNames: ["that", "fromLt"],
-          );
+  get kCrateApiMergedTonWalletDartWrapperPreloadTransactionsConstMeta =>
+      const TaskConstMeta(
+        debugName: "ton_wallet_dart_wrapper_preload_transactions",
+        argNames: ["that", "fromLt"],
+      );
 
   @override
   Future<UnsignedMessageImpl>
-      crateApiMergedTonWalletDartWrapperPrepareConfirmTransaction(
-          {required TonWalletDartWrapper that,
-          required String contractState,
-          required String publicKey,
-          required String transactionId,
-          required String expiration}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        var arg1 = cst_encode_String(contractState);
-        var arg2 = cst_encode_String(publicKey);
-        var arg3 = cst_encode_String(transactionId);
-        var arg4 = cst_encode_String(expiration);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_confirm_transaction(
-                port_, arg0, arg1, arg2, arg3, arg4);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unsigned_message_impl,
-        decodeErrorData: dco_decode_AnyhowException,
+  crateApiMergedTonWalletDartWrapperPrepareConfirmTransaction({
+    required TonWalletDartWrapper that,
+    required String contractState,
+    required String publicKey,
+    required String transactionId,
+    required String expiration,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          var arg1 = cst_encode_String(contractState);
+          var arg2 = cst_encode_String(publicKey);
+          var arg3 = cst_encode_String(transactionId);
+          var arg4 = cst_encode_String(expiration);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_confirm_transaction(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+                arg4,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unsigned_message_impl,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletDartWrapperPrepareConfirmTransactionConstMeta,
+        argValues: [that, contractState, publicKey, transactionId, expiration],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletDartWrapperPrepareConfirmTransactionConstMeta,
-      argValues: [that, contractState, publicKey, transactionId, expiration],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletDartWrapperPrepareConfirmTransactionConstMeta =>
-          const TaskConstMeta(
-            debugName: "ton_wallet_dart_wrapper_prepare_confirm_transaction",
-            argNames: [
-              "that",
-              "contractState",
-              "publicKey",
-              "transactionId",
-              "expiration"
-            ],
-          );
+  get kCrateApiMergedTonWalletDartWrapperPrepareConfirmTransactionConstMeta =>
+      const TaskConstMeta(
+        debugName: "ton_wallet_dart_wrapper_prepare_confirm_transaction",
+        argNames: [
+          "that",
+          "contractState",
+          "publicKey",
+          "transactionId",
+          "expiration",
+        ],
+      );
 
   @override
-  Future<UnsignedMessageImpl> crateApiMergedTonWalletDartWrapperPrepareDeploy(
-      {required TonWalletDartWrapper that, required String expiration}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        var arg1 = cst_encode_String(expiration);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_deploy(
-                port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unsigned_message_impl,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<UnsignedMessageImpl> crateApiMergedTonWalletDartWrapperPrepareDeploy({
+    required TonWalletDartWrapper that,
+    required String expiration,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          var arg1 = cst_encode_String(expiration);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_deploy(
+                port_,
+                arg0,
+                arg1,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unsigned_message_impl,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTonWalletDartWrapperPrepareDeployConstMeta,
+        argValues: [that, expiration],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperPrepareDeployConstMeta,
-      argValues: [that, expiration],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTonWalletDartWrapperPrepareDeployConstMeta =>
@@ -8495,107 +10270,131 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @override
   Future<UnsignedMessageImpl>
-      crateApiMergedTonWalletDartWrapperPrepareDeployWithMultipleOwners(
-          {required TonWalletDartWrapper that,
-          required String expiration,
-          required List<String> custodians,
-          required int reqConfirms,
-          int? expirationTime}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        var arg1 = cst_encode_String(expiration);
-        var arg2 = cst_encode_list_String(custodians);
-        var arg3 = cst_encode_u_8(reqConfirms);
-        var arg4 = cst_encode_opt_box_autoadd_u_32(expirationTime);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_deploy_with_multiple_owners(
-                port_, arg0, arg1, arg2, arg3, arg4);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unsigned_message_impl,
-        decodeErrorData: dco_decode_AnyhowException,
+  crateApiMergedTonWalletDartWrapperPrepareDeployWithMultipleOwners({
+    required TonWalletDartWrapper that,
+    required String expiration,
+    required List<String> custodians,
+    required int reqConfirms,
+    int? expirationTime,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          var arg1 = cst_encode_String(expiration);
+          var arg2 = cst_encode_list_String(custodians);
+          var arg3 = cst_encode_u_8(reqConfirms);
+          var arg4 = cst_encode_opt_box_autoadd_u_32(expirationTime);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_deploy_with_multiple_owners(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+                arg4,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unsigned_message_impl,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletDartWrapperPrepareDeployWithMultipleOwnersConstMeta,
+        argValues: [that, expiration, custodians, reqConfirms, expirationTime],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletDartWrapperPrepareDeployWithMultipleOwnersConstMeta,
-      argValues: [that, expiration, custodians, reqConfirms, expirationTime],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletDartWrapperPrepareDeployWithMultipleOwnersConstMeta =>
-          const TaskConstMeta(
-            debugName:
-                "ton_wallet_dart_wrapper_prepare_deploy_with_multiple_owners",
-            argNames: [
-              "that",
-              "expiration",
-              "custodians",
-              "reqConfirms",
-              "expirationTime"
-            ],
-          );
+  get kCrateApiMergedTonWalletDartWrapperPrepareDeployWithMultipleOwnersConstMeta =>
+      const TaskConstMeta(
+        debugName:
+            "ton_wallet_dart_wrapper_prepare_deploy_with_multiple_owners",
+        argNames: [
+          "that",
+          "expiration",
+          "custodians",
+          "reqConfirms",
+          "expirationTime",
+        ],
+      );
 
   @override
-  Future<UnsignedMessageImpl> crateApiMergedTonWalletDartWrapperPrepareTransfer(
-      {required TonWalletDartWrapper that,
-      required String contractState,
-      required String publicKey,
-      required String expiration,
-      required String params}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        var arg1 = cst_encode_String(contractState);
-        var arg2 = cst_encode_String(publicKey);
-        var arg3 = cst_encode_String(expiration);
-        var arg4 = cst_encode_String(params);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_transfer(
-                port_, arg0, arg1, arg2, arg3, arg4);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unsigned_message_impl,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<UnsignedMessageImpl>
+  crateApiMergedTonWalletDartWrapperPrepareTransfer({
+    required TonWalletDartWrapper that,
+    required String contractState,
+    required String publicKey,
+    required String expiration,
+    required String params,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          var arg1 = cst_encode_String(contractState);
+          var arg2 = cst_encode_String(publicKey);
+          var arg3 = cst_encode_String(expiration);
+          var arg4 = cst_encode_String(params);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_transfer(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+                arg4,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unsigned_message_impl,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTonWalletDartWrapperPrepareTransferConstMeta,
+        argValues: [that, contractState, publicKey, expiration, params],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperPrepareTransferConstMeta,
-      argValues: [that, contractState, publicKey, expiration, params],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletDartWrapperPrepareTransferConstMeta =>
-          const TaskConstMeta(
-            debugName: "ton_wallet_dart_wrapper_prepare_transfer",
-            argNames: [
-              "that",
-              "contractState",
-              "publicKey",
-              "expiration",
-              "params"
-            ],
-          );
+  get kCrateApiMergedTonWalletDartWrapperPrepareTransferConstMeta =>
+      const TaskConstMeta(
+        debugName: "ton_wallet_dart_wrapper_prepare_transfer",
+        argNames: [
+          "that",
+          "contractState",
+          "publicKey",
+          "expiration",
+          "params",
+        ],
+      );
 
   @override
-  Future<String> crateApiMergedTonWalletDartWrapperPublicKey(
-      {required TonWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_public_key(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: null,
+  Future<String> crateApiMergedTonWalletDartWrapperPublicKey({
+    required TonWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_public_key(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedTonWalletDartWrapperPublicKeyConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperPublicKeyConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTonWalletDartWrapperPublicKeyConstMeta =>
@@ -8605,22 +10404,27 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<bool> crateApiMergedTonWalletDartWrapperRefresh(
-      {required TonWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        return wire.wire__crate__api__merged__ton_wallet_dart_wrapper_refresh(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_bool,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<bool> crateApiMergedTonWalletDartWrapperRefresh({
+    required TonWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          return wire.wire__crate__api__merged__ton_wallet_dart_wrapper_refresh(
+            port_,
+            arg0,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTonWalletDartWrapperRefreshConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperRefreshConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTonWalletDartWrapperRefreshConstMeta =>
@@ -8630,23 +10434,30 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedTonWalletDartWrapperSend(
-      {required TonWalletDartWrapper that, required String signedMessage}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        var arg1 = cst_encode_String(signedMessage);
-        return wire.wire__crate__api__merged__ton_wallet_dart_wrapper_send(
-            port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedTonWalletDartWrapperSend({
+    required TonWalletDartWrapper that,
+    required String signedMessage,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          var arg1 = cst_encode_String(signedMessage);
+          return wire.wire__crate__api__merged__ton_wallet_dart_wrapper_send(
+            port_,
+            arg0,
+            arg1,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTonWalletDartWrapperSendConstMeta,
+        argValues: [that, signedMessage],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperSendConstMeta,
-      argValues: [that, signedMessage],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTonWalletDartWrapperSendConstMeta =>
@@ -8656,73 +10467,91 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<TonWalletDartWrapper> crateApiMergedTonWalletDartWrapperSubscribe(
-      {required int workchainId,
-      required String publicKey,
-      required String walletType,
-      required ArcTransportBoxTrait transport,
-      required FutureOr<void> Function(String) onMessageSent,
-      required FutureOr<void> Function(String) onMessageExpired,
-      required FutureOr<void> Function(String) onStateChanged,
-      required FutureOr<void> Function(String) onTransactionsFound,
-      required FutureOr<void> Function(String) onDetailsChanged,
-      required FutureOr<void> Function(String) onCustodiansChanged,
-      required FutureOr<void> Function(String)
-          onUnconfirmedTransactionsChanged}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_i_8(workchainId);
-        var arg1 = cst_encode_String(publicKey);
-        var arg2 = cst_encode_String(walletType);
-        var arg3 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg4 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onMessageSent);
-        var arg5 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onMessageExpired);
-        var arg6 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onStateChanged);
-        var arg7 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onTransactionsFound);
-        var arg8 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onDetailsChanged);
-        var arg9 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onCustodiansChanged);
-        var arg10 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onUnconfirmedTransactionsChanged);
-        return wire.wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe(
-            port_,
-            arg0,
-            arg1,
-            arg2,
-            arg3,
-            arg4,
-            arg5,
-            arg6,
-            arg7,
-            arg8,
-            arg9,
-            arg10);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_ton_wallet_dart_wrapper,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<TonWalletDartWrapper> crateApiMergedTonWalletDartWrapperSubscribe({
+    required int workchainId,
+    required String publicKey,
+    required String walletType,
+    required ArcTransportBoxTrait transport,
+    required FutureOr<void> Function(String) onMessageSent,
+    required FutureOr<void> Function(String) onMessageExpired,
+    required FutureOr<void> Function(String) onStateChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+    required FutureOr<void> Function(String) onDetailsChanged,
+    required FutureOr<void> Function(String) onCustodiansChanged,
+    required FutureOr<void> Function(String) onUnconfirmedTransactionsChanged,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_i_8(workchainId);
+          var arg1 = cst_encode_String(publicKey);
+          var arg2 = cst_encode_String(walletType);
+          var arg3 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
+          var arg4 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onMessageSent,
+              );
+          var arg5 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onMessageExpired,
+              );
+          var arg6 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onStateChanged,
+              );
+          var arg7 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onTransactionsFound,
+              );
+          var arg8 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onDetailsChanged,
+              );
+          var arg9 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onCustodiansChanged,
+              );
+          var arg10 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onUnconfirmedTransactionsChanged,
+              );
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+                arg4,
+                arg5,
+                arg6,
+                arg7,
+                arg8,
+                arg9,
+                arg10,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_ton_wallet_dart_wrapper,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTonWalletDartWrapperSubscribeConstMeta,
+        argValues: [
+          workchainId,
+          publicKey,
+          walletType,
+          transport,
+          onMessageSent,
+          onMessageExpired,
+          onStateChanged,
+          onTransactionsFound,
+          onDetailsChanged,
+          onCustodiansChanged,
+          onUnconfirmedTransactionsChanged,
+        ],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperSubscribeConstMeta,
-      argValues: [
-        workchainId,
-        publicKey,
-        walletType,
-        transport,
-        onMessageSent,
-        onMessageExpired,
-        onStateChanged,
-        onTransactionsFound,
-        onDetailsChanged,
-        onCustodiansChanged,
-        onUnconfirmedTransactionsChanged
-      ],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTonWalletDartWrapperSubscribeConstMeta =>
@@ -8739,201 +10568,264 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           "onTransactionsFound",
           "onDetailsChanged",
           "onCustodiansChanged",
-          "onUnconfirmedTransactionsChanged"
+          "onUnconfirmedTransactionsChanged",
         ],
       );
 
   @override
   Future<TonWalletDartWrapper>
-      crateApiMergedTonWalletDartWrapperSubscribeByAddress(
-          {required String address,
-          required ArcTransportBoxTrait transport,
-          required FutureOr<void> Function(String) onMessageSent,
-          required FutureOr<void> Function(String) onMessageExpired,
-          required FutureOr<void> Function(String) onStateChanged,
-          required FutureOr<void> Function(String) onTransactionsFound,
-          required FutureOr<void> Function(String) onDetailsChanged,
-          required FutureOr<void> Function(String) onCustodiansChanged,
-          required FutureOr<void> Function(String)
-              onUnconfirmedTransactionsChanged}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(address);
-        var arg1 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg2 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onMessageSent);
-        var arg3 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onMessageExpired);
-        var arg4 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onStateChanged);
-        var arg5 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onTransactionsFound);
-        var arg6 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onDetailsChanged);
-        var arg7 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onCustodiansChanged);
-        var arg8 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onUnconfirmedTransactionsChanged);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_address(
-                port_, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_ton_wallet_dart_wrapper,
-        decodeErrorData: dco_decode_AnyhowException,
+  crateApiMergedTonWalletDartWrapperSubscribeByAddress({
+    required String address,
+    required ArcTransportBoxTrait transport,
+    required FutureOr<void> Function(String) onMessageSent,
+    required FutureOr<void> Function(String) onMessageExpired,
+    required FutureOr<void> Function(String) onStateChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+    required FutureOr<void> Function(String) onDetailsChanged,
+    required FutureOr<void> Function(String) onCustodiansChanged,
+    required FutureOr<void> Function(String) onUnconfirmedTransactionsChanged,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(address);
+          var arg1 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
+          var arg2 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onMessageSent,
+              );
+          var arg3 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onMessageExpired,
+              );
+          var arg4 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onStateChanged,
+              );
+          var arg5 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onTransactionsFound,
+              );
+          var arg6 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onDetailsChanged,
+              );
+          var arg7 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onCustodiansChanged,
+              );
+          var arg8 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onUnconfirmedTransactionsChanged,
+              );
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_address(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+                arg4,
+                arg5,
+                arg6,
+                arg7,
+                arg8,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_ton_wallet_dart_wrapper,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletDartWrapperSubscribeByAddressConstMeta,
+        argValues: [
+          address,
+          transport,
+          onMessageSent,
+          onMessageExpired,
+          onStateChanged,
+          onTransactionsFound,
+          onDetailsChanged,
+          onCustodiansChanged,
+          onUnconfirmedTransactionsChanged,
+        ],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperSubscribeByAddressConstMeta,
-      argValues: [
-        address,
-        transport,
-        onMessageSent,
-        onMessageExpired,
-        onStateChanged,
-        onTransactionsFound,
-        onDetailsChanged,
-        onCustodiansChanged,
-        onUnconfirmedTransactionsChanged
-      ],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletDartWrapperSubscribeByAddressConstMeta =>
-          const TaskConstMeta(
-            debugName: "ton_wallet_dart_wrapper_subscribe_by_address",
-            argNames: [
-              "address",
-              "transport",
-              "onMessageSent",
-              "onMessageExpired",
-              "onStateChanged",
-              "onTransactionsFound",
-              "onDetailsChanged",
-              "onCustodiansChanged",
-              "onUnconfirmedTransactionsChanged"
-            ],
-          );
+  get kCrateApiMergedTonWalletDartWrapperSubscribeByAddressConstMeta =>
+      const TaskConstMeta(
+        debugName: "ton_wallet_dart_wrapper_subscribe_by_address",
+        argNames: [
+          "address",
+          "transport",
+          "onMessageSent",
+          "onMessageExpired",
+          "onStateChanged",
+          "onTransactionsFound",
+          "onDetailsChanged",
+          "onCustodiansChanged",
+          "onUnconfirmedTransactionsChanged",
+        ],
+      );
 
   @override
   Future<TonWalletDartWrapper>
-      crateApiMergedTonWalletDartWrapperSubscribeByExisting(
-          {required String existingWallet,
-          required ArcTransportBoxTrait transport,
-          required FutureOr<void> Function(String) onMessageSent,
-          required FutureOr<void> Function(String) onMessageExpired,
-          required FutureOr<void> Function(String) onStateChanged,
-          required FutureOr<void> Function(String) onTransactionsFound,
-          required FutureOr<void> Function(String) onDetailsChanged,
-          required FutureOr<void> Function(String) onCustodiansChanged,
-          required FutureOr<void> Function(String)
-              onUnconfirmedTransactionsChanged}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_String(existingWallet);
-        var arg1 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
-        var arg2 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onMessageSent);
-        var arg3 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onMessageExpired);
-        var arg4 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onStateChanged);
-        var arg5 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onTransactionsFound);
-        var arg6 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onDetailsChanged);
-        var arg7 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onCustodiansChanged);
-        var arg8 = cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-            onUnconfirmedTransactionsChanged);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_existing(
-                port_, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_ton_wallet_dart_wrapper,
-        decodeErrorData: dco_decode_AnyhowException,
+  crateApiMergedTonWalletDartWrapperSubscribeByExisting({
+    required String existingWallet,
+    required ArcTransportBoxTrait transport,
+    required FutureOr<void> Function(String) onMessageSent,
+    required FutureOr<void> Function(String) onMessageExpired,
+    required FutureOr<void> Function(String) onStateChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+    required FutureOr<void> Function(String) onDetailsChanged,
+    required FutureOr<void> Function(String) onCustodiansChanged,
+    required FutureOr<void> Function(String) onUnconfirmedTransactionsChanged,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_String(existingWallet);
+          var arg1 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
+          var arg2 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onMessageSent,
+              );
+          var arg3 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onMessageExpired,
+              );
+          var arg4 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onStateChanged,
+              );
+          var arg5 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onTransactionsFound,
+              );
+          var arg6 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onDetailsChanged,
+              );
+          var arg7 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onCustodiansChanged,
+              );
+          var arg8 =
+              cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+                onUnconfirmedTransactionsChanged,
+              );
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_existing(
+                port_,
+                arg0,
+                arg1,
+                arg2,
+                arg3,
+                arg4,
+                arg5,
+                arg6,
+                arg7,
+                arg8,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_ton_wallet_dart_wrapper,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletDartWrapperSubscribeByExistingConstMeta,
+        argValues: [
+          existingWallet,
+          transport,
+          onMessageSent,
+          onMessageExpired,
+          onStateChanged,
+          onTransactionsFound,
+          onDetailsChanged,
+          onCustodiansChanged,
+          onUnconfirmedTransactionsChanged,
+        ],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletDartWrapperSubscribeByExistingConstMeta,
-      argValues: [
-        existingWallet,
-        transport,
-        onMessageSent,
-        onMessageExpired,
-        onStateChanged,
-        onTransactionsFound,
-        onDetailsChanged,
-        onCustodiansChanged,
-        onUnconfirmedTransactionsChanged
-      ],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletDartWrapperSubscribeByExistingConstMeta =>
-          const TaskConstMeta(
-            debugName: "ton_wallet_dart_wrapper_subscribe_by_existing",
-            argNames: [
-              "existingWallet",
-              "transport",
-              "onMessageSent",
-              "onMessageExpired",
-              "onStateChanged",
-              "onTransactionsFound",
-              "onDetailsChanged",
-              "onCustodiansChanged",
-              "onUnconfirmedTransactionsChanged"
-            ],
-          );
+  get kCrateApiMergedTonWalletDartWrapperSubscribeByExistingConstMeta =>
+      const TaskConstMeta(
+        debugName: "ton_wallet_dart_wrapper_subscribe_by_existing",
+        argNames: [
+          "existingWallet",
+          "transport",
+          "onMessageSent",
+          "onMessageExpired",
+          "onStateChanged",
+          "onTransactionsFound",
+          "onDetailsChanged",
+          "onCustodiansChanged",
+          "onUnconfirmedTransactionsChanged",
+        ],
+      );
 
   @override
-  Future<String> crateApiMergedTonWalletDartWrapperUnconfirmedTransactions(
-      {required TonWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_unconfirmed_transactions(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedTonWalletDartWrapperUnconfirmedTransactions({
+    required TonWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_unconfirmed_transactions(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedTonWalletDartWrapperUnconfirmedTransactionsConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiMergedTonWalletDartWrapperUnconfirmedTransactionsConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiMergedTonWalletDartWrapperUnconfirmedTransactionsConstMeta =>
-          const TaskConstMeta(
-            debugName: "ton_wallet_dart_wrapper_unconfirmed_transactions",
-            argNames: ["that"],
-          );
+  get kCrateApiMergedTonWalletDartWrapperUnconfirmedTransactionsConstMeta =>
+      const TaskConstMeta(
+        debugName: "ton_wallet_dart_wrapper_unconfirmed_transactions",
+        argNames: ["that"],
+      );
 
   @override
-  Future<String> crateApiMergedTonWalletDartWrapperWalletType(
-      {required TonWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        return wire
-            .wire__crate__api__merged__ton_wallet_dart_wrapper_wallet_type(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedTonWalletDartWrapperWalletType({
+    required TonWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_wallet_type(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedTonWalletDartWrapperWalletTypeConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperWalletTypeConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTonWalletDartWrapperWalletTypeConstMeta =>
@@ -8943,22 +10835,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<int> crateApiMergedTonWalletDartWrapperWorkchain(
-      {required TonWalletDartWrapper that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
-        return wire.wire__crate__api__merged__ton_wallet_dart_wrapper_workchain(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_i_8,
-        decodeErrorData: null,
+  Future<int> crateApiMergedTonWalletDartWrapperWorkchain({
+    required TonWalletDartWrapper that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_ton_wallet_dart_wrapper(that);
+          return wire
+              .wire__crate__api__merged__ton_wallet_dart_wrapper_workchain(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_i_8,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedTonWalletDartWrapperWorkchainConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedTonWalletDartWrapperWorkchainConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedTonWalletDartWrapperWorkchainConstMeta =>
@@ -8968,22 +10866,27 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<int> crateApiMergedUnsignedMessageImplExpireAt(
-      {required UnsignedMessageImpl that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_unsigned_message_impl(that);
-        return wire.wire__crate__api__merged__unsigned_message_impl_expire_at(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_u_32,
-        decodeErrorData: null,
+  Future<int> crateApiMergedUnsignedMessageImplExpireAt({
+    required UnsignedMessageImpl that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_unsigned_message_impl(that);
+          return wire.wire__crate__api__merged__unsigned_message_impl_expire_at(
+            port_,
+            arg0,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_u_32,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedUnsignedMessageImplExpireAtConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedUnsignedMessageImplExpireAtConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedUnsignedMessageImplExpireAtConstMeta =>
@@ -8993,22 +10896,27 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedUnsignedMessageImplHash(
-      {required UnsignedMessageImpl that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_unsigned_message_impl(that);
-        return wire.wire__crate__api__merged__unsigned_message_impl_hash(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: null,
+  Future<String> crateApiMergedUnsignedMessageImplHash({
+    required UnsignedMessageImpl that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_unsigned_message_impl(that);
+          return wire.wire__crate__api__merged__unsigned_message_impl_hash(
+            port_,
+            arg0,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedUnsignedMessageImplHashConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedUnsignedMessageImplHashConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedUnsignedMessageImplHashConstMeta =>
@@ -9018,23 +10926,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<UnsignedMessageImpl> crateApiMergedUnsignedMessageImplRefreshTimeout(
-      {required UnsignedMessageImpl that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_unsigned_message_impl(that);
-        return wire
-            .wire__crate__api__merged__unsigned_message_impl_refresh_timeout(
-                port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_unsigned_message_impl,
-        decodeErrorData: null,
+  Future<UnsignedMessageImpl> crateApiMergedUnsignedMessageImplRefreshTimeout({
+    required UnsignedMessageImpl that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_unsigned_message_impl(that);
+          return wire
+              .wire__crate__api__merged__unsigned_message_impl_refresh_timeout(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_unsigned_message_impl,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMergedUnsignedMessageImplRefreshTimeoutConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedUnsignedMessageImplRefreshTimeoutConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedUnsignedMessageImplRefreshTimeoutConstMeta =>
@@ -9044,23 +10957,30 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedUnsignedMessageImplSign(
-      {required UnsignedMessageImpl that, required String signature}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_unsigned_message_impl(that);
-        var arg1 = cst_encode_String(signature);
-        return wire.wire__crate__api__merged__unsigned_message_impl_sign(
-            port_, arg0, arg1);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedUnsignedMessageImplSign({
+    required UnsignedMessageImpl that,
+    required String signature,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_unsigned_message_impl(that);
+          var arg1 = cst_encode_String(signature);
+          return wire.wire__crate__api__merged__unsigned_message_impl_sign(
+            port_,
+            arg0,
+            arg1,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedUnsignedMessageImplSignConstMeta,
+        argValues: [that, signature],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedUnsignedMessageImplSignConstMeta,
-      argValues: [that, signature],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedUnsignedMessageImplSignConstMeta =>
@@ -9070,22 +10990,27 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  Future<String> crateApiMergedUnsignedMessageImplSignFake(
-      {required UnsignedMessageImpl that}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        var arg0 = cst_encode_box_autoadd_unsigned_message_impl(that);
-        return wire.wire__crate__api__merged__unsigned_message_impl_sign_fake(
-            port_, arg0);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_String,
-        decodeErrorData: dco_decode_AnyhowException,
+  Future<String> crateApiMergedUnsignedMessageImplSignFake({
+    required UnsignedMessageImpl that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_unsigned_message_impl(that);
+          return wire.wire__crate__api__merged__unsigned_message_impl_sign_fake(
+            port_,
+            arg0,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedUnsignedMessageImplSignFakeConstMeta,
+        argValues: [that],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMergedUnsignedMessageImplSignFakeConstMeta,
-      argValues: [that],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMergedUnsignedMessageImplSignFakeConstMeta =>
@@ -9095,8 +11020,9 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   Future<void> Function(int, dynamic)
-      encode_DartFn_Inputs_String_Output_String_AnyhowException(
-          FutureOr<String> Function(String) raw) {
+  encode_DartFn_Inputs_String_Output_String_AnyhowException(
+    FutureOr<String> Function(String) raw,
+  ) {
     return (callId, rawArg0) async {
       final arg0 = dco_decode_String(rawArg0);
 
@@ -9120,16 +11046,18 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       final output = serializer.intoRaw();
 
       generalizedFrbRustBinding.dartFnDeliverOutput(
-          callId: callId,
-          ptr: output.ptr,
-          rustVecLen: output.rustVecLen,
-          dataLen: output.dataLen);
+        callId: callId,
+        ptr: output.ptr,
+        rustVecLen: output.rustVecLen,
+        dataLen: output.dataLen,
+      );
     };
   }
 
   Future<void> Function(int, dynamic)
-      encode_DartFn_Inputs_String_Output_opt_String_AnyhowException(
-          FutureOr<String?> Function(String) raw) {
+  encode_DartFn_Inputs_String_Output_opt_String_AnyhowException(
+    FutureOr<String?> Function(String) raw,
+  ) {
     return (callId, rawArg0) async {
       final arg0 = dco_decode_String(rawArg0);
 
@@ -9153,16 +11081,18 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       final output = serializer.intoRaw();
 
       generalizedFrbRustBinding.dartFnDeliverOutput(
-          callId: callId,
-          ptr: output.ptr,
-          rustVecLen: output.rustVecLen,
-          dataLen: output.dataLen);
+        callId: callId,
+        ptr: output.ptr,
+        rustVecLen: output.rustVecLen,
+        dataLen: output.dataLen,
+      );
     };
   }
 
   Future<void> Function(int, dynamic)
-      encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-          FutureOr<void> Function(String) raw) {
+  encode_DartFn_Inputs_String_Output_unit_AnyhowException(
+    FutureOr<void> Function(String) raw,
+  ) {
     return (callId, rawArg0) async {
       final arg0 = dco_decode_String(rawArg0);
 
@@ -9186,16 +11116,18 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       final output = serializer.intoRaw();
 
       generalizedFrbRustBinding.dartFnDeliverOutput(
-          callId: callId,
-          ptr: output.ptr,
-          rustVecLen: output.rustVecLen,
-          dataLen: output.dataLen);
+        callId: callId,
+        ptr: output.ptr,
+        rustVecLen: output.rustVecLen,
+        dataLen: output.dataLen,
+      );
     };
   }
 
   Future<void> Function(int, dynamic, dynamic)
-      encode_DartFn_Inputs_String_String_Output_unit_AnyhowException(
-          FutureOr<void> Function(String, String) raw) {
+  encode_DartFn_Inputs_String_String_Output_unit_AnyhowException(
+    FutureOr<void> Function(String, String) raw,
+  ) {
     return (callId, rawArg0, rawArg1) async {
       final arg0 = dco_decode_String(rawArg0);
       final arg1 = dco_decode_String(rawArg1);
@@ -9220,16 +11152,18 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       final output = serializer.intoRaw();
 
       generalizedFrbRustBinding.dartFnDeliverOutput(
-          callId: callId,
-          ptr: output.ptr,
-          rustVecLen: output.rustVecLen,
-          dataLen: output.dataLen);
+        callId: callId,
+        ptr: output.ptr,
+        rustVecLen: output.rustVecLen,
+        dataLen: output.dataLen,
+      );
     };
   }
 
   Future<void> Function(int, dynamic)
-      encode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-          FutureOr<Uint8List> Function(Uint8List) raw) {
+  encode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(Uint8List) raw,
+  ) {
     return (callId, rawArg0) async {
       final arg0 = dco_decode_list_prim_u_8_strict(rawArg0);
 
@@ -9253,16 +11187,18 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       final output = serializer.intoRaw();
 
       generalizedFrbRustBinding.dartFnDeliverOutput(
-          callId: callId,
-          ptr: output.ptr,
-          rustVecLen: output.rustVecLen,
-          dataLen: output.dataLen);
+        callId: callId,
+        ptr: output.ptr,
+        rustVecLen: output.rustVecLen,
+        dataLen: output.dataLen,
+      );
     };
   }
 
   Future<void> Function(int, dynamic)
-      encode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
-          FutureOr<Uint8List> Function(int) raw) {
+  encode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int) raw,
+  ) {
     return (callId, rawArg0) async {
       final arg0 = dco_decode_u_16(rawArg0);
 
@@ -9286,16 +11222,18 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       final output = serializer.intoRaw();
 
       generalizedFrbRustBinding.dartFnDeliverOutput(
-          callId: callId,
-          ptr: output.ptr,
-          rustVecLen: output.rustVecLen,
-          dataLen: output.dataLen);
+        callId: callId,
+        ptr: output.ptr,
+        rustVecLen: output.rustVecLen,
+        dataLen: output.dataLen,
+      );
     };
   }
 
   Future<void> Function(int, dynamic, dynamic, dynamic)
-      encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-          FutureOr<Uint8List> Function(int, int?, Uint8List) raw) {
+  encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int, int?, Uint8List) raw,
+  ) {
     return (callId, rawArg0, rawArg1, rawArg2) async {
       final arg0 = dco_decode_u_16(rawArg0);
       final arg1 = dco_decode_opt_box_autoadd_i_32(rawArg1);
@@ -9321,16 +11259,18 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       final output = serializer.intoRaw();
 
       generalizedFrbRustBinding.dartFnDeliverOutput(
-          callId: callId,
-          ptr: output.ptr,
-          rustVecLen: output.rustVecLen,
-          dataLen: output.dataLen);
+        callId: callId,
+        ptr: output.ptr,
+        rustVecLen: output.rustVecLen,
+        dataLen: output.dataLen,
+      );
     };
   }
 
   Future<void> Function(int, dynamic, dynamic, dynamic, dynamic, dynamic)
-      encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
-          FutureOr<Uint8List> Function(int, int, int?, Uint8List, String) raw) {
+  encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int, int, int?, Uint8List, String) raw,
+  ) {
     return (callId, rawArg0, rawArg1, rawArg2, rawArg3, rawArg4) async {
       final arg0 = dco_decode_u_16(rawArg0);
       final arg1 = dco_decode_u_16(rawArg1);
@@ -9358,252 +11298,253 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       final output = serializer.intoRaw();
 
       generalizedFrbRustBinding.dartFnDeliverOutput(
-          callId: callId,
-          ptr: output.ptr,
-          rustVecLen: output.rustVecLen,
-          dataLen: output.dataLen);
+        callId: callId,
+        ptr: output.ptr,
+        rustVecLen: output.rustVecLen,
+        dataLen: output.dataLen,
+      );
     };
   }
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcAccountsStorageBoxTrait => wire
-          .rust_arc_increment_strong_count_RustOpaque_ArcdynAccountsStorageBoxTrait;
+  get rust_arc_increment_strong_count_ArcAccountsStorageBoxTrait => wire
+      .rust_arc_increment_strong_count_RustOpaque_ArcdynAccountsStorageBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcAccountsStorageBoxTrait => wire
-          .rust_arc_decrement_strong_count_RustOpaque_ArcdynAccountsStorageBoxTrait;
+  get rust_arc_decrement_strong_count_ArcAccountsStorageBoxTrait => wire
+      .rust_arc_decrement_strong_count_RustOpaque_ArcdynAccountsStorageBoxTrait;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcGenericContractBoxTrait => wire
-          .rust_arc_increment_strong_count_RustOpaque_ArcdynGenericContractBoxTrait;
+  get rust_arc_increment_strong_count_ArcGenericContractBoxTrait => wire
+      .rust_arc_increment_strong_count_RustOpaque_ArcdynGenericContractBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcGenericContractBoxTrait => wire
-          .rust_arc_decrement_strong_count_RustOpaque_ArcdynGenericContractBoxTrait;
+  get rust_arc_decrement_strong_count_ArcGenericContractBoxTrait => wire
+      .rust_arc_decrement_strong_count_RustOpaque_ArcdynGenericContractBoxTrait;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcGqlConnectionBoxTrait => wire
-          .rust_arc_increment_strong_count_RustOpaque_ArcdynGqlConnectionBoxTrait;
+  get rust_arc_increment_strong_count_ArcGqlConnectionBoxTrait => wire
+      .rust_arc_increment_strong_count_RustOpaque_ArcdynGqlConnectionBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcGqlConnectionBoxTrait => wire
-          .rust_arc_decrement_strong_count_RustOpaque_ArcdynGqlConnectionBoxTrait;
+  get rust_arc_decrement_strong_count_ArcGqlConnectionBoxTrait => wire
+      .rust_arc_decrement_strong_count_RustOpaque_ArcdynGqlConnectionBoxTrait;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcJettonWalletBoxTrait => wire
-          .rust_arc_increment_strong_count_RustOpaque_ArcdynJettonWalletBoxTrait;
+  get rust_arc_increment_strong_count_ArcJettonWalletBoxTrait => wire
+      .rust_arc_increment_strong_count_RustOpaque_ArcdynJettonWalletBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcJettonWalletBoxTrait => wire
-          .rust_arc_decrement_strong_count_RustOpaque_ArcdynJettonWalletBoxTrait;
+  get rust_arc_decrement_strong_count_ArcJettonWalletBoxTrait => wire
+      .rust_arc_decrement_strong_count_RustOpaque_ArcdynJettonWalletBoxTrait;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcJrpcConnectionBoxTrait => wire
-          .rust_arc_increment_strong_count_RustOpaque_ArcdynJrpcConnectionBoxTrait;
+  get rust_arc_increment_strong_count_ArcJrpcConnectionBoxTrait => wire
+      .rust_arc_increment_strong_count_RustOpaque_ArcdynJrpcConnectionBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcJrpcConnectionBoxTrait => wire
-          .rust_arc_decrement_strong_count_RustOpaque_ArcdynJrpcConnectionBoxTrait;
+  get rust_arc_decrement_strong_count_ArcJrpcConnectionBoxTrait => wire
+      .rust_arc_decrement_strong_count_RustOpaque_ArcdynJrpcConnectionBoxTrait;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcKeyStoreApiBoxTrait => wire
-          .rust_arc_increment_strong_count_RustOpaque_ArcdynKeyStoreApiBoxTrait;
+  get rust_arc_increment_strong_count_ArcKeyStoreApiBoxTrait =>
+      wire.rust_arc_increment_strong_count_RustOpaque_ArcdynKeyStoreApiBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcKeyStoreApiBoxTrait => wire
-          .rust_arc_decrement_strong_count_RustOpaque_ArcdynKeyStoreApiBoxTrait;
+  get rust_arc_decrement_strong_count_ArcKeyStoreApiBoxTrait =>
+      wire.rust_arc_decrement_strong_count_RustOpaque_ArcdynKeyStoreApiBoxTrait;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcLedgerConnectionBoxTrait => wire
-          .rust_arc_increment_strong_count_RustOpaque_ArcdynLedgerConnectionBoxTrait;
+  get rust_arc_increment_strong_count_ArcLedgerConnectionBoxTrait => wire
+      .rust_arc_increment_strong_count_RustOpaque_ArcdynLedgerConnectionBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcLedgerConnectionBoxTrait => wire
-          .rust_arc_decrement_strong_count_RustOpaque_ArcdynLedgerConnectionBoxTrait;
+  get rust_arc_decrement_strong_count_ArcLedgerConnectionBoxTrait => wire
+      .rust_arc_decrement_strong_count_RustOpaque_ArcdynLedgerConnectionBoxTrait;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcProtoConnectionBoxTrait => wire
-          .rust_arc_increment_strong_count_RustOpaque_ArcdynProtoConnectionBoxTrait;
+  get rust_arc_increment_strong_count_ArcProtoConnectionBoxTrait => wire
+      .rust_arc_increment_strong_count_RustOpaque_ArcdynProtoConnectionBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcProtoConnectionBoxTrait => wire
-          .rust_arc_decrement_strong_count_RustOpaque_ArcdynProtoConnectionBoxTrait;
+  get rust_arc_decrement_strong_count_ArcProtoConnectionBoxTrait => wire
+      .rust_arc_decrement_strong_count_RustOpaque_ArcdynProtoConnectionBoxTrait;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcStorageBoxTrait =>
-          wire.rust_arc_increment_strong_count_RustOpaque_ArcdynStorageBoxTrait;
+  get rust_arc_increment_strong_count_ArcStorageBoxTrait =>
+      wire.rust_arc_increment_strong_count_RustOpaque_ArcdynStorageBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcStorageBoxTrait =>
-          wire.rust_arc_decrement_strong_count_RustOpaque_ArcdynStorageBoxTrait;
+  get rust_arc_decrement_strong_count_ArcStorageBoxTrait =>
+      wire.rust_arc_decrement_strong_count_RustOpaque_ArcdynStorageBoxTrait;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcTokenWalletBoxTrait => wire
-          .rust_arc_increment_strong_count_RustOpaque_ArcdynTokenWalletBoxTrait;
+  get rust_arc_increment_strong_count_ArcTokenWalletBoxTrait =>
+      wire.rust_arc_increment_strong_count_RustOpaque_ArcdynTokenWalletBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcTokenWalletBoxTrait => wire
-          .rust_arc_decrement_strong_count_RustOpaque_ArcdynTokenWalletBoxTrait;
+  get rust_arc_decrement_strong_count_ArcTokenWalletBoxTrait =>
+      wire.rust_arc_decrement_strong_count_RustOpaque_ArcdynTokenWalletBoxTrait;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcTonWalletBoxTrait => wire
-          .rust_arc_increment_strong_count_RustOpaque_ArcdynTonWalletBoxTrait;
+  get rust_arc_increment_strong_count_ArcTonWalletBoxTrait =>
+      wire.rust_arc_increment_strong_count_RustOpaque_ArcdynTonWalletBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcTonWalletBoxTrait => wire
-          .rust_arc_decrement_strong_count_RustOpaque_ArcdynTonWalletBoxTrait;
+  get rust_arc_decrement_strong_count_ArcTonWalletBoxTrait =>
+      wire.rust_arc_decrement_strong_count_RustOpaque_ArcdynTonWalletBoxTrait;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcTransportBoxTrait => wire
-          .rust_arc_increment_strong_count_RustOpaque_ArcdynTransportBoxTrait;
+  get rust_arc_increment_strong_count_ArcTransportBoxTrait =>
+      wire.rust_arc_increment_strong_count_RustOpaque_ArcdynTransportBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcTransportBoxTrait => wire
-          .rust_arc_decrement_strong_count_RustOpaque_ArcdynTransportBoxTrait;
+  get rust_arc_decrement_strong_count_ArcTransportBoxTrait =>
+      wire.rust_arc_decrement_strong_count_RustOpaque_ArcdynTransportBoxTrait;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcUnsignedMessageBoxTrait => wire
-          .rust_arc_increment_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait;
+  get rust_arc_increment_strong_count_ArcUnsignedMessageBoxTrait => wire
+      .rust_arc_increment_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTrait => wire
-          .rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait;
+  get rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTrait => wire
+      .rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcFnStringDartFnFutureOptionString =>
-          wire.rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync;
+  get rust_arc_increment_strong_count_ArcFnStringDartFnFutureOptionString => wire
+      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureOptionString =>
-          wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync;
+  get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureOptionString => wire
+      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcFnStringDartFnFuture => wire
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync;
+  get rust_arc_increment_strong_count_ArcFnStringDartFnFuture => wire
+      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcFnStringDartFnFuture => wire
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync;
+  get rust_arc_decrement_strong_count_ArcFnStringDartFnFuture => wire
+      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcFnStringDartFnFutureString => wire
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync;
+  get rust_arc_increment_strong_count_ArcFnStringDartFnFutureString => wire
+      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureString => wire
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync;
+  get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureString => wire
+      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcFnStringStringDartFnFuture => wire
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync;
+  get rust_arc_increment_strong_count_ArcFnStringStringDartFnFuture => wire
+      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcFnStringStringDartFnFuture => wire
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync;
+  get rust_arc_decrement_strong_count_ArcFnStringStringDartFnFuture => wire
+      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcFnVecU8DartFnFutureVecU8 => wire
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync;
+  get rust_arc_increment_strong_count_ArcFnVecU8DartFnFutureVecU8 => wire
+      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcFnVecU8DartFnFutureVecU8 => wire
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync;
+  get rust_arc_decrement_strong_count_ArcFnVecU8DartFnFutureVecU8 => wire
+      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcFnU16DartFnFutureVecU8 => wire
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync;
+  get rust_arc_increment_strong_count_ArcFnU16DartFnFutureVecU8 => wire
+      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcFnU16DartFnFutureVecU8 => wire
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync;
+  get rust_arc_decrement_strong_count_ArcFnU16DartFnFutureVecU8 => wire
+      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8 =>
-          wire.rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync;
+  get rust_arc_increment_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8 =>
+      wire.rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8 =>
-          wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync;
+  get rust_arc_decrement_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8 =>
+      wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 =>
-          wire.rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync;
+  get rust_arc_increment_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 =>
+      wire.rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 =>
-          wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync;
+  get rust_arc_decrement_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 =>
+      wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_GenericContractSubscriptionHandlerImpl =>
-          wire.rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl;
+  get rust_arc_increment_strong_count_GenericContractSubscriptionHandlerImpl =>
+      wire.rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_GenericContractSubscriptionHandlerImpl =>
-          wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl;
+  get rust_arc_decrement_strong_count_GenericContractSubscriptionHandlerImpl =>
+      wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_GqlConnectionImpl => wire
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl;
+  get rust_arc_increment_strong_count_GqlConnectionImpl => wire
+      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_GqlConnectionImpl => wire
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl;
+  get rust_arc_decrement_strong_count_GqlConnectionImpl => wire
+      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_JettonWalletSubscriptionHandlerImpl =>
-          wire.rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl;
+  get rust_arc_increment_strong_count_JettonWalletSubscriptionHandlerImpl => wire
+      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_JettonWalletSubscriptionHandlerImpl =>
-          wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl;
+  get rust_arc_decrement_strong_count_JettonWalletSubscriptionHandlerImpl => wire
+      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_JrpcConnectionImpl => wire
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl;
+  get rust_arc_increment_strong_count_JrpcConnectionImpl => wire
+      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_JrpcConnectionImpl => wire
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl;
+  get rust_arc_decrement_strong_count_JrpcConnectionImpl => wire
+      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_LedgerConnectionImpl => wire
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl;
+  get rust_arc_increment_strong_count_LedgerConnectionImpl => wire
+      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_LedgerConnectionImpl => wire
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl;
+  get rust_arc_decrement_strong_count_LedgerConnectionImpl => wire
+      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_ProtoConnectionImpl => wire
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl;
+  get rust_arc_increment_strong_count_ProtoConnectionImpl => wire
+      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_ProtoConnectionImpl => wire
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl;
+  get rust_arc_decrement_strong_count_ProtoConnectionImpl => wire
+      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_StorageImpl => wire
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl;
+  get rust_arc_increment_strong_count_StorageImpl => wire
+      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_StorageImpl => wire
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl;
+  get rust_arc_decrement_strong_count_StorageImpl => wire
+      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_TokenWalletSubscriptionHandlerImpl =>
-          wire.rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl;
+  get rust_arc_increment_strong_count_TokenWalletSubscriptionHandlerImpl => wire
+      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_TokenWalletSubscriptionHandlerImpl =>
-          wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl;
+  get rust_arc_decrement_strong_count_TokenWalletSubscriptionHandlerImpl => wire
+      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl;
 
   RustArcIncrementStrongCountFnType
-      get rust_arc_increment_strong_count_TonWalletSubscriptionHandlerImpl => wire
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl;
+  get rust_arc_increment_strong_count_TonWalletSubscriptionHandlerImpl => wire
+      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl;
 
   RustArcDecrementStrongCountFnType
-      get rust_arc_decrement_strong_count_TonWalletSubscriptionHandlerImpl => wire
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl;
+  get rust_arc_decrement_strong_count_TonWalletSubscriptionHandlerImpl => wire
+      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl;
 
   @protected
   AnyhowException dco_decode_AnyhowException(dynamic raw) {
@@ -9613,363 +11554,423 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   ArcFnStringDartFnFutureOptionString
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
-          dynamic raw) {
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcFnStringDartFnFutureOptionStringImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcFnStringDartFnFuture
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-          dynamic raw) {
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcFnStringDartFnFutureImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcFnStringDartFnFutureString
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
-          dynamic raw) {
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcFnStringDartFnFutureStringImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcFnStringStringDartFnFuture
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
-          dynamic raw) {
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcFnStringStringDartFnFutureImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcFnVecU8DartFnFutureVecU8
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
-          dynamic raw) {
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcFnVecU8DartFnFutureVecU8Impl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcFnU16DartFnFutureVecU8
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
-          dynamic raw) {
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcFnU16DartFnFutureVecU8Impl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcFnU16OptionI32VecU8DartFnFutureVecU8
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
-          dynamic raw) {
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
-          dynamic raw) {
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
-    return ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl
-        .frbInternalDcoDecode(raw as List<dynamic>);
+    return ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl.frbInternalDcoDecode(
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   GenericContractSubscriptionHandlerImpl
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-          dynamic raw) {
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return GenericContractSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   GqlConnectionImpl
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-          dynamic raw) {
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return GqlConnectionImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   JettonWalletSubscriptionHandlerImpl
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-          dynamic raw) {
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return JettonWalletSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   JrpcConnectionImpl
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-          dynamic raw) {
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return JrpcConnectionImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   LedgerConnectionImpl
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-          dynamic raw) {
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return LedgerConnectionImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   ProtoConnectionImpl
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-          dynamic raw) {
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ProtoConnectionImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   StorageImpl
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-          dynamic raw) {
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return StorageImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   TokenWalletSubscriptionHandlerImpl
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-          dynamic raw) {
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return TokenWalletSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   TonWalletSubscriptionHandlerImpl
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-          dynamic raw) {
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return TonWalletSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   GenericContractSubscriptionHandlerImpl
-      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-          dynamic raw) {
+  dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return GenericContractSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   GqlConnectionImpl
-      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-          dynamic raw) {
+  dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return GqlConnectionImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   JettonWalletSubscriptionHandlerImpl
-      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-          dynamic raw) {
+  dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return JettonWalletSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   JrpcConnectionImpl
-      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-          dynamic raw) {
+  dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return JrpcConnectionImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   LedgerConnectionImpl
-      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-          dynamic raw) {
+  dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return LedgerConnectionImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   ProtoConnectionImpl
-      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-          dynamic raw) {
+  dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ProtoConnectionImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   StorageImpl
-      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-          dynamic raw) {
+  dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return StorageImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   TokenWalletSubscriptionHandlerImpl
-      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-          dynamic raw) {
+  dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return TokenWalletSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   TonWalletSubscriptionHandlerImpl
-      dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-          dynamic raw) {
+  dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return TonWalletSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   GenericContractSubscriptionHandlerImpl
-      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-          dynamic raw) {
+  dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return GenericContractSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   GqlConnectionImpl
-      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-          dynamic raw) {
+  dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return GqlConnectionImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   JettonWalletSubscriptionHandlerImpl
-      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-          dynamic raw) {
+  dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return JettonWalletSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   JrpcConnectionImpl
-      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-          dynamic raw) {
+  dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return JrpcConnectionImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   LedgerConnectionImpl
-      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-          dynamic raw) {
+  dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return LedgerConnectionImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   ProtoConnectionImpl
-      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-          dynamic raw) {
+  dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ProtoConnectionImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   StorageImpl
-      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-          dynamic raw) {
+  dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return StorageImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   TokenWalletSubscriptionHandlerImpl
-      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-          dynamic raw) {
+  dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return TokenWalletSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   TonWalletSubscriptionHandlerImpl
-      dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-          dynamic raw) {
+  dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return TonWalletSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   FutureOr<String> Function(String)
-      dco_decode_DartFn_Inputs_String_Output_String_AnyhowException(
-          dynamic raw) {
+  dco_decode_DartFn_Inputs_String_Output_String_AnyhowException(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     throw UnimplementedError('');
   }
 
   @protected
   FutureOr<String?> Function(String)
-      dco_decode_DartFn_Inputs_String_Output_opt_String_AnyhowException(
-          dynamic raw) {
+  dco_decode_DartFn_Inputs_String_Output_opt_String_AnyhowException(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     throw UnimplementedError('');
   }
 
   @protected
   FutureOr<void> Function(String)
-      dco_decode_DartFn_Inputs_String_Output_unit_AnyhowException(dynamic raw) {
+  dco_decode_DartFn_Inputs_String_Output_unit_AnyhowException(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     throw UnimplementedError('');
   }
 
   @protected
   FutureOr<void> Function(String, String)
-      dco_decode_DartFn_Inputs_String_String_Output_unit_AnyhowException(
-          dynamic raw) {
+  dco_decode_DartFn_Inputs_String_String_Output_unit_AnyhowException(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     throw UnimplementedError('');
   }
 
   @protected
   FutureOr<Uint8List> Function(Uint8List)
-      dco_decode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-          dynamic raw) {
+  dco_decode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     throw UnimplementedError('');
   }
 
   @protected
   FutureOr<Uint8List> Function(int)
-      dco_decode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
-          dynamic raw) {
+  dco_decode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     throw UnimplementedError('');
   }
 
   @protected
   FutureOr<Uint8List> Function(int, int?, Uint8List)
-      dco_decode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-          dynamic raw) {
+  dco_decode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     throw UnimplementedError('');
   }
 
   @protected
   FutureOr<Uint8List> Function(int, int, int?, Uint8List, String)
-      dco_decode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
-          dynamic raw) {
+  dco_decode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     throw UnimplementedError('');
   }
@@ -9982,66 +11983,78 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   ArcAccountsStorageBoxTrait
-      dco_decode_RustOpaque_ArcdynAccountsStorageBoxTrait(dynamic raw) {
+  dco_decode_RustOpaque_ArcdynAccountsStorageBoxTrait(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcAccountsStorageBoxTraitImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcGenericContractBoxTrait
-      dco_decode_RustOpaque_ArcdynGenericContractBoxTrait(dynamic raw) {
+  dco_decode_RustOpaque_ArcdynGenericContractBoxTrait(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcGenericContractBoxTraitImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcGqlConnectionBoxTrait dco_decode_RustOpaque_ArcdynGqlConnectionBoxTrait(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcGqlConnectionBoxTraitImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcJettonWalletBoxTrait dco_decode_RustOpaque_ArcdynJettonWalletBoxTrait(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcJettonWalletBoxTraitImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcJrpcConnectionBoxTrait dco_decode_RustOpaque_ArcdynJrpcConnectionBoxTrait(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcJrpcConnectionBoxTraitImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcKeyStoreApiBoxTrait dco_decode_RustOpaque_ArcdynKeyStoreApiBoxTrait(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcKeyStoreApiBoxTraitImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcLedgerConnectionBoxTrait
-      dco_decode_RustOpaque_ArcdynLedgerConnectionBoxTrait(dynamic raw) {
+  dco_decode_RustOpaque_ArcdynLedgerConnectionBoxTrait(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcLedgerConnectionBoxTraitImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcProtoConnectionBoxTrait
-      dco_decode_RustOpaque_ArcdynProtoConnectionBoxTrait(dynamic raw) {
+  dco_decode_RustOpaque_ArcdynProtoConnectionBoxTrait(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcProtoConnectionBoxTraitImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
@@ -10052,180 +12065,214 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   ArcTokenWalletBoxTrait dco_decode_RustOpaque_ArcdynTokenWalletBoxTrait(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcTokenWalletBoxTraitImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcTonWalletBoxTrait dco_decode_RustOpaque_ArcdynTonWalletBoxTrait(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcTonWalletBoxTraitImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   ArcTransportBoxTrait dco_decode_RustOpaque_ArcdynTransportBoxTrait(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcTransportBoxTraitImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   ArcUnsignedMessageBoxTrait
-      dco_decode_RustOpaque_ArcdynUnsignedMessageBoxTrait(dynamic raw) {
+  dco_decode_RustOpaque_ArcdynUnsignedMessageBoxTrait(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcUnsignedMessageBoxTraitImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcFnStringDartFnFutureOptionString
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
-          dynamic raw) {
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcFnStringDartFnFutureOptionStringImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcFnStringDartFnFuture
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-          dynamic raw) {
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcFnStringDartFnFutureImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcFnStringDartFnFutureString
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
-          dynamic raw) {
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcFnStringDartFnFutureStringImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcFnStringStringDartFnFuture
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
-          dynamic raw) {
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcFnStringStringDartFnFutureImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcFnVecU8DartFnFutureVecU8
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
-          dynamic raw) {
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcFnVecU8DartFnFutureVecU8Impl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcFnU16DartFnFutureVecU8
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
-          dynamic raw) {
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcFnU16DartFnFutureVecU8Impl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcFnU16OptionI32VecU8DartFnFutureVecU8
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
-          dynamic raw) {
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
-          dynamic raw) {
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
-    return ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl
-        .frbInternalDcoDecode(raw as List<dynamic>);
+    return ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl.frbInternalDcoDecode(
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   GenericContractSubscriptionHandlerImpl
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-          dynamic raw) {
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return GenericContractSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   GqlConnectionImpl
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-          dynamic raw) {
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return GqlConnectionImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   JettonWalletSubscriptionHandlerImpl
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-          dynamic raw) {
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return JettonWalletSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   JrpcConnectionImpl
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-          dynamic raw) {
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return JrpcConnectionImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   LedgerConnectionImpl
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-          dynamic raw) {
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return LedgerConnectionImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   ProtoConnectionImpl
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-          dynamic raw) {
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return ProtoConnectionImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   StorageImpl
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-          dynamic raw) {
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return StorageImplImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
   TokenWalletSubscriptionHandlerImpl
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-          dynamic raw) {
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return TokenWalletSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
   TonWalletSubscriptionHandlerImpl
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-          dynamic raw) {
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return TonWalletSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-        raw as List<dynamic>);
+      raw as List<dynamic>,
+    );
   }
 
   @protected
@@ -10284,7 +12331,8 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   AccountsStorageImpl dco_decode_box_autoadd_accounts_storage_impl(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dco_decode_accounts_storage_impl(raw);
   }
@@ -10303,14 +12351,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   GenericContractDartWrapper
-      dco_decode_box_autoadd_generic_contract_dart_wrapper(dynamic raw) {
+  dco_decode_box_autoadd_generic_contract_dart_wrapper(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dco_decode_generic_contract_dart_wrapper(raw);
   }
 
   @protected
   GqlConnectionDartWrapper dco_decode_box_autoadd_gql_connection_dart_wrapper(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dco_decode_gql_connection_dart_wrapper(raw);
   }
@@ -10329,14 +12378,16 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   JettonWalletDartWrapper dco_decode_box_autoadd_jetton_wallet_dart_wrapper(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dco_decode_jetton_wallet_dart_wrapper(raw);
   }
 
   @protected
   JrpcConnectionDartWrapper dco_decode_box_autoadd_jrpc_connection_dart_wrapper(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dco_decode_jrpc_connection_dart_wrapper(raw);
   }
@@ -10355,14 +12406,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   KeystoreDartWrapper dco_decode_box_autoadd_keystore_dart_wrapper(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dco_decode_keystore_dart_wrapper(raw);
   }
 
   @protected
   LedgerConnectionDartWrapper
-      dco_decode_box_autoadd_ledger_connection_dart_wrapper(dynamic raw) {
+  dco_decode_box_autoadd_ledger_connection_dart_wrapper(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dco_decode_ledger_connection_dart_wrapper(raw);
   }
@@ -10375,7 +12427,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   ProtoConnectionDartWrapper
-      dco_decode_box_autoadd_proto_connection_dart_wrapper(dynamic raw) {
+  dco_decode_box_autoadd_proto_connection_dart_wrapper(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dco_decode_proto_connection_dart_wrapper(raw);
   }
@@ -10394,14 +12446,16 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   TokenWalletDartWrapper dco_decode_box_autoadd_token_wallet_dart_wrapper(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dco_decode_token_wallet_dart_wrapper(raw);
   }
 
   @protected
   TonWalletDartWrapper dco_decode_box_autoadd_ton_wallet_dart_wrapper(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dco_decode_ton_wallet_dart_wrapper(raw);
   }
@@ -10414,7 +12468,8 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   UnsignedMessageImpl dco_decode_box_autoadd_unsigned_message_impl(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dco_decode_unsigned_message_impl(raw);
   }
@@ -10433,14 +12488,16 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   GenericContractDartWrapper dco_decode_generic_contract_dart_wrapper(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     final arr = raw as List<dynamic>;
     if (arr.length != 1)
       throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
     return GenericContractDartWrapper(
-      innerContract:
-          dco_decode_RustOpaque_ArcdynGenericContractBoxTrait(arr[0]),
+      innerContract: dco_decode_RustOpaque_ArcdynGenericContractBoxTrait(
+        arr[0],
+      ),
     );
   }
 
@@ -10451,8 +12508,9 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     if (arr.length != 1)
       throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
     return GqlConnectionDartWrapper.raw(
-      innerConnection:
-          dco_decode_RustOpaque_ArcdynGqlConnectionBoxTrait(arr[0]),
+      innerConnection: dco_decode_RustOpaque_ArcdynGqlConnectionBoxTrait(
+        arr[0],
+      ),
     );
   }
 
@@ -10504,14 +12562,16 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   JrpcConnectionDartWrapper dco_decode_jrpc_connection_dart_wrapper(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     final arr = raw as List<dynamic>;
     if (arr.length != 1)
       throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
     return JrpcConnectionDartWrapper.raw(
-      innerConnection:
-          dco_decode_RustOpaque_ArcdynJrpcConnectionBoxTrait(arr[0]),
+      innerConnection: dco_decode_RustOpaque_ArcdynJrpcConnectionBoxTrait(
+        arr[0],
+      ),
     );
   }
 
@@ -10537,9 +12597,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       case 2:
         return KeySigner_Ledger();
       case 3:
-        return KeySigner_Stub(
-          dco_decode_bool(raw[1]),
-        );
+        return KeySigner_Stub(dco_decode_bool(raw[1]));
       default:
         throw Exception("unreachable");
     }
@@ -10571,14 +12629,16 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   LedgerConnectionDartWrapper dco_decode_ledger_connection_dart_wrapper(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     final arr = raw as List<dynamic>;
     if (arr.length != 1)
       throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
     return LedgerConnectionDartWrapper.raw(
-      innerConnection:
-          dco_decode_RustOpaque_ArcdynLedgerConnectionBoxTrait(arr[0]),
+      innerConnection: dco_decode_RustOpaque_ArcdynLedgerConnectionBoxTrait(
+        arr[0],
+      ),
     );
   }
 
@@ -10674,7 +12734,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   LedgerConnectionDartWrapper?
-      dco_decode_opt_box_autoadd_ledger_connection_dart_wrapper(dynamic raw) {
+  dco_decode_opt_box_autoadd_ledger_connection_dart_wrapper(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return raw == null
         ? null
@@ -10701,14 +12761,16 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   ProtoConnectionDartWrapper dco_decode_proto_connection_dart_wrapper(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     final arr = raw as List<dynamic>;
     if (arr.length != 1)
       throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
     return ProtoConnectionDartWrapper.raw(
-      innerConnection:
-          dco_decode_RustOpaque_ArcdynProtoConnectionBoxTrait(arr[0]),
+      innerConnection: dco_decode_RustOpaque_ArcdynProtoConnectionBoxTrait(
+        arr[0],
+      ),
     );
   }
 
@@ -10851,318 +12913,422 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   ArcFnStringDartFnFutureOptionString
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcFnStringDartFnFutureOptionStringImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcFnStringDartFnFuture
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcFnStringDartFnFutureImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcFnStringDartFnFutureString
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcFnStringDartFnFutureStringImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcFnStringStringDartFnFuture
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcFnStringStringDartFnFutureImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcFnVecU8DartFnFutureVecU8
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcFnVecU8DartFnFutureVecU8Impl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcFnU16DartFnFutureVecU8
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcFnU16DartFnFutureVecU8Impl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcFnU16OptionI32VecU8DartFnFutureVecU8
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    return ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl
-        .frbInternalSseDecode(
-            sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+    return ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl.frbInternalSseDecode(
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   GenericContractSubscriptionHandlerImpl
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return GenericContractSubscriptionHandlerImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   GqlConnectionImpl
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return GqlConnectionImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   JettonWalletSubscriptionHandlerImpl
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return JettonWalletSubscriptionHandlerImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   JrpcConnectionImpl
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return JrpcConnectionImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   LedgerConnectionImpl
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return LedgerConnectionImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ProtoConnectionImpl
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ProtoConnectionImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   StorageImpl
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return StorageImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   TokenWalletSubscriptionHandlerImpl
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return TokenWalletSubscriptionHandlerImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   TonWalletSubscriptionHandlerImpl
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return TonWalletSubscriptionHandlerImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   GenericContractSubscriptionHandlerImpl
-      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return GenericContractSubscriptionHandlerImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   GqlConnectionImpl
-      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return GqlConnectionImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   JettonWalletSubscriptionHandlerImpl
-      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return JettonWalletSubscriptionHandlerImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   JrpcConnectionImpl
-      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return JrpcConnectionImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   LedgerConnectionImpl
-      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return LedgerConnectionImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ProtoConnectionImpl
-      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ProtoConnectionImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   StorageImpl
-      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return StorageImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   TokenWalletSubscriptionHandlerImpl
-      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return TokenWalletSubscriptionHandlerImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   TonWalletSubscriptionHandlerImpl
-      sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return TonWalletSubscriptionHandlerImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   GenericContractSubscriptionHandlerImpl
-      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return GenericContractSubscriptionHandlerImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   GqlConnectionImpl
-      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return GqlConnectionImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   JettonWalletSubscriptionHandlerImpl
-      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return JettonWalletSubscriptionHandlerImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   JrpcConnectionImpl
-      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return JrpcConnectionImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   LedgerConnectionImpl
-      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return LedgerConnectionImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ProtoConnectionImpl
-      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ProtoConnectionImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   StorageImpl
-      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return StorageImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   TokenWalletSubscriptionHandlerImpl
-      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return TokenWalletSubscriptionHandlerImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   TonWalletSubscriptionHandlerImpl
-      sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-          SseDeserializer deserializer) {
+  sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return TonWalletSubscriptionHandlerImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
@@ -11174,270 +13340,360 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   ArcAccountsStorageBoxTrait
-      sse_decode_RustOpaque_ArcdynAccountsStorageBoxTrait(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_ArcdynAccountsStorageBoxTrait(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcAccountsStorageBoxTraitImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcGenericContractBoxTrait
-      sse_decode_RustOpaque_ArcdynGenericContractBoxTrait(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_ArcdynGenericContractBoxTrait(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcGenericContractBoxTraitImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcGqlConnectionBoxTrait sse_decode_RustOpaque_ArcdynGqlConnectionBoxTrait(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcGqlConnectionBoxTraitImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcJettonWalletBoxTrait sse_decode_RustOpaque_ArcdynJettonWalletBoxTrait(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcJettonWalletBoxTraitImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcJrpcConnectionBoxTrait sse_decode_RustOpaque_ArcdynJrpcConnectionBoxTrait(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcJrpcConnectionBoxTraitImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcKeyStoreApiBoxTrait sse_decode_RustOpaque_ArcdynKeyStoreApiBoxTrait(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcKeyStoreApiBoxTraitImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcLedgerConnectionBoxTrait
-      sse_decode_RustOpaque_ArcdynLedgerConnectionBoxTrait(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_ArcdynLedgerConnectionBoxTrait(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcLedgerConnectionBoxTraitImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcProtoConnectionBoxTrait
-      sse_decode_RustOpaque_ArcdynProtoConnectionBoxTrait(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_ArcdynProtoConnectionBoxTrait(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcProtoConnectionBoxTraitImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcStorageBoxTrait sse_decode_RustOpaque_ArcdynStorageBoxTrait(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcStorageBoxTraitImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcTokenWalletBoxTrait sse_decode_RustOpaque_ArcdynTokenWalletBoxTrait(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcTokenWalletBoxTraitImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcTonWalletBoxTrait sse_decode_RustOpaque_ArcdynTonWalletBoxTrait(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcTonWalletBoxTraitImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcTransportBoxTrait sse_decode_RustOpaque_ArcdynTransportBoxTrait(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcTransportBoxTraitImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcUnsignedMessageBoxTrait
-      sse_decode_RustOpaque_ArcdynUnsignedMessageBoxTrait(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_ArcdynUnsignedMessageBoxTrait(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcUnsignedMessageBoxTraitImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcFnStringDartFnFutureOptionString
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcFnStringDartFnFutureOptionStringImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcFnStringDartFnFuture
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcFnStringDartFnFutureImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcFnStringDartFnFutureString
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcFnStringDartFnFutureStringImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcFnStringStringDartFnFuture
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcFnStringStringDartFnFutureImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcFnVecU8DartFnFutureVecU8
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcFnVecU8DartFnFutureVecU8Impl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcFnU16DartFnFutureVecU8
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcFnU16DartFnFutureVecU8Impl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcFnU16OptionI32VecU8DartFnFutureVecU8
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    return ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl
-        .frbInternalSseDecode(
-            sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+    return ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl.frbInternalSseDecode(
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   GenericContractSubscriptionHandlerImpl
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return GenericContractSubscriptionHandlerImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   GqlConnectionImpl
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return GqlConnectionImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   JettonWalletSubscriptionHandlerImpl
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return JettonWalletSubscriptionHandlerImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   JrpcConnectionImpl
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return JrpcConnectionImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   LedgerConnectionImpl
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return LedgerConnectionImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   ProtoConnectionImpl
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return ProtoConnectionImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   StorageImpl
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return StorageImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   TokenWalletSubscriptionHandlerImpl
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return TokenWalletSubscriptionHandlerImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   TonWalletSubscriptionHandlerImpl
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-          SseDeserializer deserializer) {
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return TonWalletSubscriptionHandlerImplImpl.frbInternalSseDecode(
-        sse_decode_usize(deserializer), sse_decode_i_32(deserializer));
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
   }
 
   @protected
   RustStreamSink<LogEntry> sse_decode_StreamSink_log_entry_Dco(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     throw UnimplementedError('Unreachable ()');
   }
@@ -11451,10 +13707,12 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   AccountsStorageImpl sse_decode_accounts_storage_impl(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    var var_innerStorage =
-        sse_decode_RustOpaque_ArcdynAccountsStorageBoxTrait(deserializer);
+    var var_innerStorage = sse_decode_RustOpaque_ArcdynAccountsStorageBoxTrait(
+      deserializer,
+    );
     return AccountsStorageImpl(innerStorage: var_innerStorage);
   }
 
@@ -11467,13 +13725,17 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   Bip39MnemonicData sse_decode_bip_39_mnemonic_data(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     var var_accountId = sse_decode_u_16(deserializer);
     var var_path = sse_decode_bip_39_path(deserializer);
     var var_entropy = sse_decode_bip_39_entropy(deserializer);
     return Bip39MnemonicData(
-        accountId: var_accountId, path: var_path, entropy: var_entropy);
+      accountId: var_accountId,
+      path: var_path,
+      entropy: var_entropy,
+    );
   }
 
   @protected
@@ -11491,14 +13753,16 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   AccountsStorageImpl sse_decode_box_autoadd_accounts_storage_impl(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_accounts_storage_impl(deserializer));
   }
 
   @protected
   Bip39MnemonicData sse_decode_box_autoadd_bip_39_mnemonic_data(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_bip_39_mnemonic_data(deserializer));
   }
@@ -11511,22 +13775,25 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   GenericContractDartWrapper
-      sse_decode_box_autoadd_generic_contract_dart_wrapper(
-          SseDeserializer deserializer) {
+  sse_decode_box_autoadd_generic_contract_dart_wrapper(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_generic_contract_dart_wrapper(deserializer));
   }
 
   @protected
   GqlConnectionDartWrapper sse_decode_box_autoadd_gql_connection_dart_wrapper(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_gql_connection_dart_wrapper(deserializer));
   }
 
   @protected
   GqlTransportImpl sse_decode_box_autoadd_gql_transport_impl(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_gql_transport_impl(deserializer));
   }
@@ -11539,21 +13806,24 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   JettonWalletDartWrapper sse_decode_box_autoadd_jetton_wallet_dart_wrapper(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_jetton_wallet_dart_wrapper(deserializer));
   }
 
   @protected
   JrpcConnectionDartWrapper sse_decode_box_autoadd_jrpc_connection_dart_wrapper(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_jrpc_connection_dart_wrapper(deserializer));
   }
 
   @protected
   JrpcTransportImpl sse_decode_box_autoadd_jrpc_transport_impl(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_jrpc_transport_impl(deserializer));
   }
@@ -11566,58 +13836,66 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   KeystoreDartWrapper sse_decode_box_autoadd_keystore_dart_wrapper(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_keystore_dart_wrapper(deserializer));
   }
 
   @protected
   LedgerConnectionDartWrapper
-      sse_decode_box_autoadd_ledger_connection_dart_wrapper(
-          SseDeserializer deserializer) {
+  sse_decode_box_autoadd_ledger_connection_dart_wrapper(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_ledger_connection_dart_wrapper(deserializer));
   }
 
   @protected
   MnemonicType sse_decode_box_autoadd_mnemonic_type(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_mnemonic_type(deserializer));
   }
 
   @protected
   ProtoConnectionDartWrapper
-      sse_decode_box_autoadd_proto_connection_dart_wrapper(
-          SseDeserializer deserializer) {
+  sse_decode_box_autoadd_proto_connection_dart_wrapper(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_proto_connection_dart_wrapper(deserializer));
   }
 
   @protected
   ProtoTransportImpl sse_decode_box_autoadd_proto_transport_impl(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_proto_transport_impl(deserializer));
   }
 
   @protected
   StorageDartWrapper sse_decode_box_autoadd_storage_dart_wrapper(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_storage_dart_wrapper(deserializer));
   }
 
   @protected
   TokenWalletDartWrapper sse_decode_box_autoadd_token_wallet_dart_wrapper(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_token_wallet_dart_wrapper(deserializer));
   }
 
   @protected
   TonWalletDartWrapper sse_decode_box_autoadd_ton_wallet_dart_wrapper(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_ton_wallet_dart_wrapper(deserializer));
   }
@@ -11630,7 +13908,8 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   UnsignedMessageImpl sse_decode_box_autoadd_unsigned_message_impl(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_unsigned_message_impl(deserializer));
   }
@@ -11645,27 +13924,32 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   GenericContractDartWrapper sse_decode_generic_contract_dart_wrapper(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    var var_innerContract =
-        sse_decode_RustOpaque_ArcdynGenericContractBoxTrait(deserializer);
+    var var_innerContract = sse_decode_RustOpaque_ArcdynGenericContractBoxTrait(
+      deserializer,
+    );
     return GenericContractDartWrapper(innerContract: var_innerContract);
   }
 
   @protected
   GqlConnectionDartWrapper sse_decode_gql_connection_dart_wrapper(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    var var_innerConnection =
-        sse_decode_RustOpaque_ArcdynGqlConnectionBoxTrait(deserializer);
+    var var_innerConnection = sse_decode_RustOpaque_ArcdynGqlConnectionBoxTrait(
+      deserializer,
+    );
     return GqlConnectionDartWrapper.raw(innerConnection: var_innerConnection);
   }
 
   @protected
   GqlTransportImpl sse_decode_gql_transport_impl(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    var var_innerTransport =
-        sse_decode_RustOpaque_ArcdynTransportBoxTrait(deserializer);
+    var var_innerTransport = sse_decode_RustOpaque_ArcdynTransportBoxTrait(
+      deserializer,
+    );
     return GqlTransportImpl.raw(innerTransport: var_innerTransport);
   }
 
@@ -11695,16 +13979,19 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   JettonWalletDartWrapper sse_decode_jetton_wallet_dart_wrapper(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    var var_innerWallet =
-        sse_decode_RustOpaque_ArcdynJettonWalletBoxTrait(deserializer);
+    var var_innerWallet = sse_decode_RustOpaque_ArcdynJettonWalletBoxTrait(
+      deserializer,
+    );
     return JettonWalletDartWrapper(innerWallet: var_innerWallet);
   }
 
   @protected
   JrpcConnectionDartWrapper sse_decode_jrpc_connection_dart_wrapper(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     var var_innerConnection =
         sse_decode_RustOpaque_ArcdynJrpcConnectionBoxTrait(deserializer);
@@ -11713,10 +14000,12 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   JrpcTransportImpl sse_decode_jrpc_transport_impl(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    var var_innerTransport =
-        sse_decode_RustOpaque_ArcdynTransportBoxTrait(deserializer);
+    var var_innerTransport = sse_decode_RustOpaque_ArcdynTransportBoxTrait(
+      deserializer,
+    );
     return JrpcTransportImpl.raw(innerTransport: var_innerTransport);
   }
 
@@ -11742,10 +14031,12 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   KeystoreDartWrapper sse_decode_keystore_dart_wrapper(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    var var_innerKeystore =
-        sse_decode_RustOpaque_ArcdynKeyStoreApiBoxTrait(deserializer);
+    var var_innerKeystore = sse_decode_RustOpaque_ArcdynKeyStoreApiBoxTrait(
+      deserializer,
+    );
     return KeystoreDartWrapper(innerKeystore: var_innerKeystore);
   }
 
@@ -11760,12 +14051,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   LedgerConnectionDartWrapper sse_decode_ledger_connection_dart_wrapper(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     var var_innerConnection =
         sse_decode_RustOpaque_ArcdynLedgerConnectionBoxTrait(deserializer);
     return LedgerConnectionDartWrapper.raw(
-        innerConnection: var_innerConnection);
+      innerConnection: var_innerConnection,
+    );
   }
 
   @protected
@@ -11834,11 +14127,12 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     var var_msg = sse_decode_String(deserializer);
     var var_stack = sse_decode_opt_String(deserializer);
     return LogEntry(
-        timeMillis: var_timeMillis,
-        level: var_level,
-        tag: var_tag,
-        msg: var_msg,
-        stack: var_stack);
+      timeMillis: var_timeMillis,
+      level: var_level,
+      tag: var_tag,
+      msg: var_msg,
+      stack: var_stack,
+    );
   }
 
   @protected
@@ -11857,8 +14151,9 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       case 0:
         return MnemonicType_Legacy();
       case 1:
-        var var_field0 =
-            sse_decode_box_autoadd_bip_39_mnemonic_data(deserializer);
+        var var_field0 = sse_decode_box_autoadd_bip_39_mnemonic_data(
+          deserializer,
+        );
         return MnemonicType_Bip39(var_field0);
       default:
         throw UnimplementedError('');
@@ -11900,13 +14195,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   LedgerConnectionDartWrapper?
-      sse_decode_opt_box_autoadd_ledger_connection_dart_wrapper(
-          SseDeserializer deserializer) {
+  sse_decode_opt_box_autoadd_ledger_connection_dart_wrapper(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
 
     if (sse_decode_bool(deserializer)) {
       return (sse_decode_box_autoadd_ledger_connection_dart_wrapper(
-          deserializer));
+        deserializer,
+      ));
     } else {
       return null;
     }
@@ -11943,7 +14240,8 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   ProtoConnectionDartWrapper sse_decode_proto_connection_dart_wrapper(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     var var_innerConnection =
         sse_decode_RustOpaque_ArcdynProtoConnectionBoxTrait(deserializer);
@@ -11952,10 +14250,12 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   ProtoTransportImpl sse_decode_proto_transport_impl(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    var var_innerTransport =
-        sse_decode_RustOpaque_ArcdynTransportBoxTrait(deserializer);
+    var var_innerTransport = sse_decode_RustOpaque_ArcdynTransportBoxTrait(
+      deserializer,
+    );
     return ProtoTransportImpl.raw(innerTransport: var_innerTransport);
   }
 
@@ -11975,10 +14275,11 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     var var_signatureHex = sse_decode_String(deserializer);
     var var_signatureParts = sse_decode_signature_parts(deserializer);
     return SignedData(
-        dataHash: var_dataHash,
-        signature: var_signature,
-        signatureHex: var_signatureHex,
-        signatureParts: var_signatureParts);
+      dataHash: var_dataHash,
+      signature: var_signature,
+      signatureHex: var_signatureHex,
+      signatureParts: var_signatureParts,
+    );
   }
 
   @protected
@@ -11988,35 +14289,42 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     var var_signatureHex = sse_decode_String(deserializer);
     var var_signatureParts = sse_decode_signature_parts(deserializer);
     return SignedDataRaw(
-        signature: var_signature,
-        signatureHex: var_signatureHex,
-        signatureParts: var_signatureParts);
+      signature: var_signature,
+      signatureHex: var_signatureHex,
+      signatureParts: var_signatureParts,
+    );
   }
 
   @protected
   StorageDartWrapper sse_decode_storage_dart_wrapper(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    var var_innerStorage =
-        sse_decode_RustOpaque_ArcdynStorageBoxTrait(deserializer);
+    var var_innerStorage = sse_decode_RustOpaque_ArcdynStorageBoxTrait(
+      deserializer,
+    );
     return StorageDartWrapper.raw(innerStorage: var_innerStorage);
   }
 
   @protected
   TokenWalletDartWrapper sse_decode_token_wallet_dart_wrapper(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    var var_innerWallet =
-        sse_decode_RustOpaque_ArcdynTokenWalletBoxTrait(deserializer);
+    var var_innerWallet = sse_decode_RustOpaque_ArcdynTokenWalletBoxTrait(
+      deserializer,
+    );
     return TokenWalletDartWrapper(innerWallet: var_innerWallet);
   }
 
   @protected
   TonWalletDartWrapper sse_decode_ton_wallet_dart_wrapper(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    var var_innerWallet =
-        sse_decode_RustOpaque_ArcdynTonWalletBoxTrait(deserializer);
+    var var_innerWallet = sse_decode_RustOpaque_ArcdynTonWalletBoxTrait(
+      deserializer,
+    );
     return TonWalletDartWrapper(innerWallet: var_innerWallet);
   }
 
@@ -12051,10 +14359,12 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   UnsignedMessageImpl sse_decode_unsigned_message_impl(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    var var_innerMessage =
-        sse_decode_RustOpaque_ArcdynUnsignedMessageBoxTrait(deserializer);
+    var var_innerMessage = sse_decode_RustOpaque_ArcdynUnsignedMessageBoxTrait(
+      deserializer,
+    );
     return UnsignedMessageImpl(innerMessage: var_innerMessage);
   }
 
@@ -12065,626 +14375,774 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
-      ArcFnStringDartFnFutureOptionString raw) {
+  int
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+    ArcFnStringDartFnFutureOptionString raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcFnStringDartFnFutureOptionStringImpl)
         .frbInternalCstEncode(move: true);
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-      ArcFnStringDartFnFuture raw) {
+  int
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+    ArcFnStringDartFnFuture raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
-    return (raw as ArcFnStringDartFnFutureImpl)
-        .frbInternalCstEncode(move: true);
+    // ignore: invalid_use_of_internal_member
+    return (raw as ArcFnStringDartFnFutureImpl).frbInternalCstEncode(
+      move: true,
+    );
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
-      ArcFnStringDartFnFutureString raw) {
+  int
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+    ArcFnStringDartFnFutureString raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
-    return (raw as ArcFnStringDartFnFutureStringImpl)
-        .frbInternalCstEncode(move: true);
+    // ignore: invalid_use_of_internal_member
+    return (raw as ArcFnStringDartFnFutureStringImpl).frbInternalCstEncode(
+      move: true,
+    );
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
-      ArcFnStringStringDartFnFuture raw) {
+  int
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+    ArcFnStringStringDartFnFuture raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
-    return (raw as ArcFnStringStringDartFnFutureImpl)
-        .frbInternalCstEncode(move: true);
+    // ignore: invalid_use_of_internal_member
+    return (raw as ArcFnStringStringDartFnFutureImpl).frbInternalCstEncode(
+      move: true,
+    );
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
-      ArcFnVecU8DartFnFutureVecU8 raw) {
+  int
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+    ArcFnVecU8DartFnFutureVecU8 raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
-    return (raw as ArcFnVecU8DartFnFutureVecU8Impl)
-        .frbInternalCstEncode(move: true);
+    // ignore: invalid_use_of_internal_member
+    return (raw as ArcFnVecU8DartFnFutureVecU8Impl).frbInternalCstEncode(
+      move: true,
+    );
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
-      ArcFnU16DartFnFutureVecU8 raw) {
+  int
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+    ArcFnU16DartFnFutureVecU8 raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
-    return (raw as ArcFnU16DartFnFutureVecU8Impl)
-        .frbInternalCstEncode(move: true);
+    // ignore: invalid_use_of_internal_member
+    return (raw as ArcFnU16DartFnFutureVecU8Impl).frbInternalCstEncode(
+      move: true,
+    );
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
-      ArcFnU16OptionI32VecU8DartFnFutureVecU8 raw) {
+  int
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+    ArcFnU16OptionI32VecU8DartFnFutureVecU8 raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl)
         .frbInternalCstEncode(move: true);
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
-      ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 raw) {
+  int
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+    ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl)
         .frbInternalCstEncode(move: true);
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-      GenericContractSubscriptionHandlerImpl raw) {
+  int
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    GenericContractSubscriptionHandlerImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as GenericContractSubscriptionHandlerImplImpl)
         .frbInternalCstEncode(move: true);
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-      GqlConnectionImpl raw) {
+  int
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    GqlConnectionImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as GqlConnectionImplImpl).frbInternalCstEncode(move: true);
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-      JettonWalletSubscriptionHandlerImpl raw) {
+  int
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    JettonWalletSubscriptionHandlerImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as JettonWalletSubscriptionHandlerImplImpl)
         .frbInternalCstEncode(move: true);
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-      JrpcConnectionImpl raw) {
+  int
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    JrpcConnectionImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as JrpcConnectionImplImpl).frbInternalCstEncode(move: true);
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-      LedgerConnectionImpl raw) {
+  int
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    LedgerConnectionImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as LedgerConnectionImplImpl).frbInternalCstEncode(move: true);
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-      ProtoConnectionImpl raw) {
+  int
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    ProtoConnectionImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ProtoConnectionImplImpl).frbInternalCstEncode(move: true);
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-      StorageImpl raw) {
+  int
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    StorageImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as StorageImplImpl).frbInternalCstEncode(move: true);
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-      TokenWalletSubscriptionHandlerImpl raw) {
+  int
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    TokenWalletSubscriptionHandlerImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
-    return (raw as TokenWalletSubscriptionHandlerImplImpl)
-        .frbInternalCstEncode(move: true);
+    // ignore: invalid_use_of_internal_member
+    return (raw as TokenWalletSubscriptionHandlerImplImpl).frbInternalCstEncode(
+      move: true,
+    );
   }
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-      TonWalletSubscriptionHandlerImpl raw) {
+  int
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    TonWalletSubscriptionHandlerImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
-    return (raw as TonWalletSubscriptionHandlerImplImpl)
-        .frbInternalCstEncode(move: true);
+    // ignore: invalid_use_of_internal_member
+    return (raw as TonWalletSubscriptionHandlerImplImpl).frbInternalCstEncode(
+      move: true,
+    );
   }
 
   @protected
-  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-      GenericContractSubscriptionHandlerImpl raw) {
+  int
+  cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    GenericContractSubscriptionHandlerImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as GenericContractSubscriptionHandlerImplImpl)
         .frbInternalCstEncode(move: false);
   }
 
   @protected
-  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-      GqlConnectionImpl raw) {
+  int
+  cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    GqlConnectionImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as GqlConnectionImplImpl).frbInternalCstEncode(move: false);
   }
 
   @protected
-  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-      JettonWalletSubscriptionHandlerImpl raw) {
+  int
+  cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    JettonWalletSubscriptionHandlerImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as JettonWalletSubscriptionHandlerImplImpl)
         .frbInternalCstEncode(move: false);
   }
 
   @protected
-  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-      JrpcConnectionImpl raw) {
+  int
+  cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    JrpcConnectionImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as JrpcConnectionImplImpl).frbInternalCstEncode(move: false);
   }
 
   @protected
-  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-      LedgerConnectionImpl raw) {
+  int
+  cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    LedgerConnectionImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as LedgerConnectionImplImpl).frbInternalCstEncode(move: false);
   }
 
   @protected
-  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-      ProtoConnectionImpl raw) {
+  int
+  cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    ProtoConnectionImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ProtoConnectionImplImpl).frbInternalCstEncode(move: false);
   }
 
   @protected
-  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-      StorageImpl raw) {
+  int
+  cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    StorageImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as StorageImplImpl).frbInternalCstEncode(move: false);
   }
 
   @protected
-  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-      TokenWalletSubscriptionHandlerImpl raw) {
+  int
+  cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    TokenWalletSubscriptionHandlerImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
-    return (raw as TokenWalletSubscriptionHandlerImplImpl)
-        .frbInternalCstEncode(move: false);
+    // ignore: invalid_use_of_internal_member
+    return (raw as TokenWalletSubscriptionHandlerImplImpl).frbInternalCstEncode(
+      move: false,
+    );
   }
 
   @protected
-  int cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-      TonWalletSubscriptionHandlerImpl raw) {
+  int
+  cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    TonWalletSubscriptionHandlerImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
-    return (raw as TonWalletSubscriptionHandlerImplImpl)
-        .frbInternalCstEncode(move: false);
+    // ignore: invalid_use_of_internal_member
+    return (raw as TonWalletSubscriptionHandlerImplImpl).frbInternalCstEncode(
+      move: false,
+    );
   }
 
   @protected
-  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-      GenericContractSubscriptionHandlerImpl raw) {
+  int
+  cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    GenericContractSubscriptionHandlerImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as GenericContractSubscriptionHandlerImplImpl)
         .frbInternalCstEncode(move: false);
   }
 
   @protected
-  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-      GqlConnectionImpl raw) {
+  int
+  cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    GqlConnectionImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as GqlConnectionImplImpl).frbInternalCstEncode(move: false);
   }
 
   @protected
-  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-      JettonWalletSubscriptionHandlerImpl raw) {
+  int
+  cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    JettonWalletSubscriptionHandlerImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as JettonWalletSubscriptionHandlerImplImpl)
         .frbInternalCstEncode(move: false);
   }
 
   @protected
-  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-      JrpcConnectionImpl raw) {
+  int
+  cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    JrpcConnectionImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as JrpcConnectionImplImpl).frbInternalCstEncode(move: false);
   }
 
   @protected
-  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-      LedgerConnectionImpl raw) {
+  int
+  cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    LedgerConnectionImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as LedgerConnectionImplImpl).frbInternalCstEncode(move: false);
   }
 
   @protected
-  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-      ProtoConnectionImpl raw) {
+  int
+  cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    ProtoConnectionImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ProtoConnectionImplImpl).frbInternalCstEncode(move: false);
   }
 
   @protected
-  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-      StorageImpl raw) {
+  int
+  cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    StorageImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as StorageImplImpl).frbInternalCstEncode(move: false);
   }
 
   @protected
-  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-      TokenWalletSubscriptionHandlerImpl raw) {
+  int
+  cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    TokenWalletSubscriptionHandlerImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
-    return (raw as TokenWalletSubscriptionHandlerImplImpl)
-        .frbInternalCstEncode(move: false);
+    // ignore: invalid_use_of_internal_member
+    return (raw as TokenWalletSubscriptionHandlerImplImpl).frbInternalCstEncode(
+      move: false,
+    );
   }
 
   @protected
-  int cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-      TonWalletSubscriptionHandlerImpl raw) {
+  int
+  cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    TonWalletSubscriptionHandlerImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
-    return (raw as TonWalletSubscriptionHandlerImplImpl)
-        .frbInternalCstEncode(move: false);
+    // ignore: invalid_use_of_internal_member
+    return (raw as TonWalletSubscriptionHandlerImplImpl).frbInternalCstEncode(
+      move: false,
+    );
   }
 
   @protected
   PlatformPointer cst_encode_DartFn_Inputs_String_Output_String_AnyhowException(
-      FutureOr<String> Function(String) raw) {
+    FutureOr<String> Function(String) raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_DartOpaque(
-        encode_DartFn_Inputs_String_Output_String_AnyhowException(raw));
+      encode_DartFn_Inputs_String_Output_String_AnyhowException(raw),
+    );
   }
 
   @protected
   PlatformPointer
-      cst_encode_DartFn_Inputs_String_Output_opt_String_AnyhowException(
-          FutureOr<String?> Function(String) raw) {
+  cst_encode_DartFn_Inputs_String_Output_opt_String_AnyhowException(
+    FutureOr<String?> Function(String) raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_DartOpaque(
-        encode_DartFn_Inputs_String_Output_opt_String_AnyhowException(raw));
+      encode_DartFn_Inputs_String_Output_opt_String_AnyhowException(raw),
+    );
   }
 
   @protected
   PlatformPointer cst_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-      FutureOr<void> Function(String) raw) {
+    FutureOr<void> Function(String) raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_DartOpaque(
-        encode_DartFn_Inputs_String_Output_unit_AnyhowException(raw));
+      encode_DartFn_Inputs_String_Output_unit_AnyhowException(raw),
+    );
   }
 
   @protected
   PlatformPointer
-      cst_encode_DartFn_Inputs_String_String_Output_unit_AnyhowException(
-          FutureOr<void> Function(String, String) raw) {
+  cst_encode_DartFn_Inputs_String_String_Output_unit_AnyhowException(
+    FutureOr<void> Function(String, String) raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_DartOpaque(
-        encode_DartFn_Inputs_String_String_Output_unit_AnyhowException(raw));
+      encode_DartFn_Inputs_String_String_Output_unit_AnyhowException(raw),
+    );
   }
 
   @protected
   PlatformPointer
-      cst_encode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-          FutureOr<Uint8List> Function(Uint8List) raw) {
+  cst_encode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(Uint8List) raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_DartOpaque(
-        encode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-            raw));
+      encode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+        raw,
+      ),
+    );
   }
 
   @protected
   PlatformPointer
-      cst_encode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
-          FutureOr<Uint8List> Function(int) raw) {
+  cst_encode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int) raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_DartOpaque(
-        encode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
-            raw));
+      encode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
+        raw,
+      ),
+    );
   }
 
   @protected
   PlatformPointer
-      cst_encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-          FutureOr<Uint8List> Function(int, int?, Uint8List) raw) {
+  cst_encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int, int?, Uint8List) raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_DartOpaque(
-        encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-            raw));
+      encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+        raw,
+      ),
+    );
   }
 
   @protected
   PlatformPointer
-      cst_encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
-          FutureOr<Uint8List> Function(int, int, int?, Uint8List, String) raw) {
+  cst_encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int, int, int?, Uint8List, String) raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_DartOpaque(
-        encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
-            raw));
+      encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+        raw,
+      ),
+    );
   }
 
   @protected
   PlatformPointer cst_encode_DartOpaque(Object raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return encodeDartOpaque(
-        raw, portManager.dartHandlerPort, generalizedFrbRustBinding);
+      raw,
+      portManager.dartHandlerPort,
+      generalizedFrbRustBinding,
+    );
   }
 
   @protected
   int cst_encode_RustOpaque_ArcdynAccountsStorageBoxTrait(
-      ArcAccountsStorageBoxTrait raw) {
+    ArcAccountsStorageBoxTrait raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcAccountsStorageBoxTraitImpl).frbInternalCstEncode();
   }
 
   @protected
   int cst_encode_RustOpaque_ArcdynGenericContractBoxTrait(
-      ArcGenericContractBoxTrait raw) {
+    ArcGenericContractBoxTrait raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcGenericContractBoxTraitImpl).frbInternalCstEncode();
   }
 
   @protected
   int cst_encode_RustOpaque_ArcdynGqlConnectionBoxTrait(
-      ArcGqlConnectionBoxTrait raw) {
+    ArcGqlConnectionBoxTrait raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcGqlConnectionBoxTraitImpl).frbInternalCstEncode();
   }
 
   @protected
   int cst_encode_RustOpaque_ArcdynJettonWalletBoxTrait(
-      ArcJettonWalletBoxTrait raw) {
+    ArcJettonWalletBoxTrait raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcJettonWalletBoxTraitImpl).frbInternalCstEncode();
   }
 
   @protected
   int cst_encode_RustOpaque_ArcdynJrpcConnectionBoxTrait(
-      ArcJrpcConnectionBoxTrait raw) {
+    ArcJrpcConnectionBoxTrait raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcJrpcConnectionBoxTraitImpl).frbInternalCstEncode();
   }
 
   @protected
   int cst_encode_RustOpaque_ArcdynKeyStoreApiBoxTrait(
-      ArcKeyStoreApiBoxTrait raw) {
+    ArcKeyStoreApiBoxTrait raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcKeyStoreApiBoxTraitImpl).frbInternalCstEncode();
   }
 
   @protected
   int cst_encode_RustOpaque_ArcdynLedgerConnectionBoxTrait(
-      ArcLedgerConnectionBoxTrait raw) {
+    ArcLedgerConnectionBoxTrait raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcLedgerConnectionBoxTraitImpl).frbInternalCstEncode();
   }
 
   @protected
   int cst_encode_RustOpaque_ArcdynProtoConnectionBoxTrait(
-      ArcProtoConnectionBoxTrait raw) {
+    ArcProtoConnectionBoxTrait raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcProtoConnectionBoxTraitImpl).frbInternalCstEncode();
   }
 
   @protected
   int cst_encode_RustOpaque_ArcdynStorageBoxTrait(ArcStorageBoxTrait raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcStorageBoxTraitImpl).frbInternalCstEncode();
   }
 
   @protected
   int cst_encode_RustOpaque_ArcdynTokenWalletBoxTrait(
-      ArcTokenWalletBoxTrait raw) {
+    ArcTokenWalletBoxTrait raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcTokenWalletBoxTraitImpl).frbInternalCstEncode();
   }
 
   @protected
   int cst_encode_RustOpaque_ArcdynTonWalletBoxTrait(ArcTonWalletBoxTrait raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcTonWalletBoxTraitImpl).frbInternalCstEncode();
   }
 
   @protected
   int cst_encode_RustOpaque_ArcdynTransportBoxTrait(ArcTransportBoxTrait raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcTransportBoxTraitImpl).frbInternalCstEncode();
   }
 
   @protected
   int cst_encode_RustOpaque_ArcdynUnsignedMessageBoxTrait(
-      ArcUnsignedMessageBoxTrait raw) {
+    ArcUnsignedMessageBoxTrait raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcUnsignedMessageBoxTraitImpl).frbInternalCstEncode();
   }
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
-      ArcFnStringDartFnFutureOptionString raw) {
+  int
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+    ArcFnStringDartFnFutureOptionString raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcFnStringDartFnFutureOptionStringImpl)
         .frbInternalCstEncode();
   }
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-      ArcFnStringDartFnFuture raw) {
+  int
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+    ArcFnStringDartFnFuture raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcFnStringDartFnFutureImpl).frbInternalCstEncode();
   }
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
-      ArcFnStringDartFnFutureString raw) {
+  int
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+    ArcFnStringDartFnFutureString raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcFnStringDartFnFutureStringImpl).frbInternalCstEncode();
   }
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
-      ArcFnStringStringDartFnFuture raw) {
+  int
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+    ArcFnStringStringDartFnFuture raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcFnStringStringDartFnFutureImpl).frbInternalCstEncode();
   }
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
-      ArcFnVecU8DartFnFutureVecU8 raw) {
+  int
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+    ArcFnVecU8DartFnFutureVecU8 raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcFnVecU8DartFnFutureVecU8Impl).frbInternalCstEncode();
   }
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
-      ArcFnU16DartFnFutureVecU8 raw) {
+  int
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+    ArcFnU16DartFnFutureVecU8 raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcFnU16DartFnFutureVecU8Impl).frbInternalCstEncode();
   }
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
-      ArcFnU16OptionI32VecU8DartFnFutureVecU8 raw) {
+  int
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+    ArcFnU16OptionI32VecU8DartFnFutureVecU8 raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl)
         .frbInternalCstEncode();
   }
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
-      ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 raw) {
+  int
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+    ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl)
         .frbInternalCstEncode();
   }
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-      GenericContractSubscriptionHandlerImpl raw) {
+  int
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    GenericContractSubscriptionHandlerImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as GenericContractSubscriptionHandlerImplImpl)
         .frbInternalCstEncode();
   }
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-      GqlConnectionImpl raw) {
+  int
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    GqlConnectionImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as GqlConnectionImplImpl).frbInternalCstEncode();
   }
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-      JettonWalletSubscriptionHandlerImpl raw) {
+  int
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    JettonWalletSubscriptionHandlerImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as JettonWalletSubscriptionHandlerImplImpl)
         .frbInternalCstEncode();
   }
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-      JrpcConnectionImpl raw) {
+  int
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    JrpcConnectionImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as JrpcConnectionImplImpl).frbInternalCstEncode();
   }
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-      LedgerConnectionImpl raw) {
+  int
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    LedgerConnectionImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as LedgerConnectionImplImpl).frbInternalCstEncode();
   }
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-      ProtoConnectionImpl raw) {
+  int
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    ProtoConnectionImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as ProtoConnectionImplImpl).frbInternalCstEncode();
   }
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-      StorageImpl raw) {
+  int
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    StorageImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as StorageImplImpl).frbInternalCstEncode();
   }
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-      TokenWalletSubscriptionHandlerImpl raw) {
+  int
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    TokenWalletSubscriptionHandlerImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as TokenWalletSubscriptionHandlerImplImpl)
         .frbInternalCstEncode();
   }
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-      TonWalletSubscriptionHandlerImpl raw) {
+  int
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    TonWalletSubscriptionHandlerImpl raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-// ignore: invalid_use_of_internal_member
+    // ignore: invalid_use_of_internal_member
     return (raw as TonWalletSubscriptionHandlerImplImpl).frbInternalCstEncode();
   }
 
@@ -12756,793 +15214,1037 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_AnyhowException(
-      AnyhowException self, SseSerializer serializer) {
+    AnyhowException self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_String(self.message, serializer);
   }
 
   @protected
   void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
-          ArcFnStringDartFnFutureOptionString self, SseSerializer serializer) {
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+    ArcFnStringDartFnFutureOptionString self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcFnStringDartFnFutureOptionStringImpl)
-            .frbInternalSseEncode(move: true),
-        serializer);
+      (self as ArcFnStringDartFnFutureOptionStringImpl).frbInternalSseEncode(
+        move: true,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-          ArcFnStringDartFnFuture self, SseSerializer serializer) {
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+    ArcFnStringDartFnFuture self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcFnStringDartFnFutureImpl).frbInternalSseEncode(move: true),
-        serializer);
+      (self as ArcFnStringDartFnFutureImpl).frbInternalSseEncode(move: true),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
-          ArcFnStringDartFnFutureString self, SseSerializer serializer) {
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+    ArcFnStringDartFnFutureString self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcFnStringDartFnFutureStringImpl)
-            .frbInternalSseEncode(move: true),
-        serializer);
+      (self as ArcFnStringDartFnFutureStringImpl).frbInternalSseEncode(
+        move: true,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
-          ArcFnStringStringDartFnFuture self, SseSerializer serializer) {
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+    ArcFnStringStringDartFnFuture self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcFnStringStringDartFnFutureImpl)
-            .frbInternalSseEncode(move: true),
-        serializer);
+      (self as ArcFnStringStringDartFnFutureImpl).frbInternalSseEncode(
+        move: true,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
-          ArcFnVecU8DartFnFutureVecU8 self, SseSerializer serializer) {
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+    ArcFnVecU8DartFnFutureVecU8 self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcFnVecU8DartFnFutureVecU8Impl)
-            .frbInternalSseEncode(move: true),
-        serializer);
+      (self as ArcFnVecU8DartFnFutureVecU8Impl).frbInternalSseEncode(
+        move: true,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
-          ArcFnU16DartFnFutureVecU8 self, SseSerializer serializer) {
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+    ArcFnU16DartFnFutureVecU8 self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcFnU16DartFnFutureVecU8Impl)
-            .frbInternalSseEncode(move: true),
-        serializer);
+      (self as ArcFnU16DartFnFutureVecU8Impl).frbInternalSseEncode(move: true),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
-          ArcFnU16OptionI32VecU8DartFnFutureVecU8 self,
-          SseSerializer serializer) {
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+    ArcFnU16OptionI32VecU8DartFnFutureVecU8 self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl)
-            .frbInternalSseEncode(move: true),
-        serializer);
+      (self as ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl)
+          .frbInternalSseEncode(move: true),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
-          ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 self,
-          SseSerializer serializer) {
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+    ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl)
-            .frbInternalSseEncode(move: true),
-        serializer);
+      (self as ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl)
+          .frbInternalSseEncode(move: true),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-          GenericContractSubscriptionHandlerImpl self,
-          SseSerializer serializer) {
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    GenericContractSubscriptionHandlerImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as GenericContractSubscriptionHandlerImplImpl)
-            .frbInternalSseEncode(move: true),
-        serializer);
+      (self as GenericContractSubscriptionHandlerImplImpl).frbInternalSseEncode(
+        move: true,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-          GqlConnectionImpl self, SseSerializer serializer) {
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    GqlConnectionImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as GqlConnectionImplImpl).frbInternalSseEncode(move: true),
-        serializer);
+      (self as GqlConnectionImplImpl).frbInternalSseEncode(move: true),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-          JettonWalletSubscriptionHandlerImpl self, SseSerializer serializer) {
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    JettonWalletSubscriptionHandlerImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as JettonWalletSubscriptionHandlerImplImpl)
-            .frbInternalSseEncode(move: true),
-        serializer);
+      (self as JettonWalletSubscriptionHandlerImplImpl).frbInternalSseEncode(
+        move: true,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-          JrpcConnectionImpl self, SseSerializer serializer) {
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    JrpcConnectionImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as JrpcConnectionImplImpl).frbInternalSseEncode(move: true),
-        serializer);
+      (self as JrpcConnectionImplImpl).frbInternalSseEncode(move: true),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-          LedgerConnectionImpl self, SseSerializer serializer) {
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    LedgerConnectionImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as LedgerConnectionImplImpl).frbInternalSseEncode(move: true),
-        serializer);
+      (self as LedgerConnectionImplImpl).frbInternalSseEncode(move: true),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-          ProtoConnectionImpl self, SseSerializer serializer) {
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    ProtoConnectionImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ProtoConnectionImplImpl).frbInternalSseEncode(move: true),
-        serializer);
+      (self as ProtoConnectionImplImpl).frbInternalSseEncode(move: true),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-          StorageImpl self, SseSerializer serializer) {
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    StorageImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as StorageImplImpl).frbInternalSseEncode(move: true), serializer);
+      (self as StorageImplImpl).frbInternalSseEncode(move: true),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-          TokenWalletSubscriptionHandlerImpl self, SseSerializer serializer) {
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    TokenWalletSubscriptionHandlerImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as TokenWalletSubscriptionHandlerImplImpl)
-            .frbInternalSseEncode(move: true),
-        serializer);
+      (self as TokenWalletSubscriptionHandlerImplImpl).frbInternalSseEncode(
+        move: true,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-          TonWalletSubscriptionHandlerImpl self, SseSerializer serializer) {
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    TonWalletSubscriptionHandlerImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as TonWalletSubscriptionHandlerImplImpl)
-            .frbInternalSseEncode(move: true),
-        serializer);
+      (self as TonWalletSubscriptionHandlerImplImpl).frbInternalSseEncode(
+        move: true,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-          GenericContractSubscriptionHandlerImpl self,
-          SseSerializer serializer) {
+  sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    GenericContractSubscriptionHandlerImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as GenericContractSubscriptionHandlerImplImpl)
-            .frbInternalSseEncode(move: false),
-        serializer);
+      (self as GenericContractSubscriptionHandlerImplImpl).frbInternalSseEncode(
+        move: false,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-          GqlConnectionImpl self, SseSerializer serializer) {
+  sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    GqlConnectionImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as GqlConnectionImplImpl).frbInternalSseEncode(move: false),
-        serializer);
+      (self as GqlConnectionImplImpl).frbInternalSseEncode(move: false),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-          JettonWalletSubscriptionHandlerImpl self, SseSerializer serializer) {
+  sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    JettonWalletSubscriptionHandlerImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as JettonWalletSubscriptionHandlerImplImpl)
-            .frbInternalSseEncode(move: false),
-        serializer);
+      (self as JettonWalletSubscriptionHandlerImplImpl).frbInternalSseEncode(
+        move: false,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-          JrpcConnectionImpl self, SseSerializer serializer) {
+  sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    JrpcConnectionImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as JrpcConnectionImplImpl).frbInternalSseEncode(move: false),
-        serializer);
+      (self as JrpcConnectionImplImpl).frbInternalSseEncode(move: false),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-          LedgerConnectionImpl self, SseSerializer serializer) {
+  sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    LedgerConnectionImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as LedgerConnectionImplImpl).frbInternalSseEncode(move: false),
-        serializer);
+      (self as LedgerConnectionImplImpl).frbInternalSseEncode(move: false),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-          ProtoConnectionImpl self, SseSerializer serializer) {
+  sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    ProtoConnectionImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ProtoConnectionImplImpl).frbInternalSseEncode(move: false),
-        serializer);
+      (self as ProtoConnectionImplImpl).frbInternalSseEncode(move: false),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-          StorageImpl self, SseSerializer serializer) {
+  sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    StorageImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as StorageImplImpl).frbInternalSseEncode(move: false),
-        serializer);
+      (self as StorageImplImpl).frbInternalSseEncode(move: false),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-          TokenWalletSubscriptionHandlerImpl self, SseSerializer serializer) {
+  sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    TokenWalletSubscriptionHandlerImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as TokenWalletSubscriptionHandlerImplImpl)
-            .frbInternalSseEncode(move: false),
-        serializer);
+      (self as TokenWalletSubscriptionHandlerImplImpl).frbInternalSseEncode(
+        move: false,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-          TonWalletSubscriptionHandlerImpl self, SseSerializer serializer) {
+  sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    TonWalletSubscriptionHandlerImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as TonWalletSubscriptionHandlerImplImpl)
-            .frbInternalSseEncode(move: false),
-        serializer);
+      (self as TonWalletSubscriptionHandlerImplImpl).frbInternalSseEncode(
+        move: false,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-          GenericContractSubscriptionHandlerImpl self,
-          SseSerializer serializer) {
+  sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    GenericContractSubscriptionHandlerImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as GenericContractSubscriptionHandlerImplImpl)
-            .frbInternalSseEncode(move: false),
-        serializer);
+      (self as GenericContractSubscriptionHandlerImplImpl).frbInternalSseEncode(
+        move: false,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-          GqlConnectionImpl self, SseSerializer serializer) {
+  sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    GqlConnectionImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as GqlConnectionImplImpl).frbInternalSseEncode(move: false),
-        serializer);
+      (self as GqlConnectionImplImpl).frbInternalSseEncode(move: false),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-          JettonWalletSubscriptionHandlerImpl self, SseSerializer serializer) {
+  sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    JettonWalletSubscriptionHandlerImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as JettonWalletSubscriptionHandlerImplImpl)
-            .frbInternalSseEncode(move: false),
-        serializer);
+      (self as JettonWalletSubscriptionHandlerImplImpl).frbInternalSseEncode(
+        move: false,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-          JrpcConnectionImpl self, SseSerializer serializer) {
+  sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    JrpcConnectionImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as JrpcConnectionImplImpl).frbInternalSseEncode(move: false),
-        serializer);
+      (self as JrpcConnectionImplImpl).frbInternalSseEncode(move: false),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-          LedgerConnectionImpl self, SseSerializer serializer) {
+  sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    LedgerConnectionImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as LedgerConnectionImplImpl).frbInternalSseEncode(move: false),
-        serializer);
+      (self as LedgerConnectionImplImpl).frbInternalSseEncode(move: false),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-          ProtoConnectionImpl self, SseSerializer serializer) {
+  sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    ProtoConnectionImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ProtoConnectionImplImpl).frbInternalSseEncode(move: false),
-        serializer);
+      (self as ProtoConnectionImplImpl).frbInternalSseEncode(move: false),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-          StorageImpl self, SseSerializer serializer) {
+  sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    StorageImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as StorageImplImpl).frbInternalSseEncode(move: false),
-        serializer);
+      (self as StorageImplImpl).frbInternalSseEncode(move: false),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-          TokenWalletSubscriptionHandlerImpl self, SseSerializer serializer) {
+  sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    TokenWalletSubscriptionHandlerImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as TokenWalletSubscriptionHandlerImplImpl)
-            .frbInternalSseEncode(move: false),
-        serializer);
+      (self as TokenWalletSubscriptionHandlerImplImpl).frbInternalSseEncode(
+        move: false,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-          TonWalletSubscriptionHandlerImpl self, SseSerializer serializer) {
+  sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    TonWalletSubscriptionHandlerImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as TonWalletSubscriptionHandlerImplImpl)
-            .frbInternalSseEncode(move: false),
-        serializer);
+      (self as TonWalletSubscriptionHandlerImplImpl).frbInternalSseEncode(
+        move: false,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_DartFn_Inputs_String_Output_String_AnyhowException(
-      FutureOr<String> Function(String) self, SseSerializer serializer) {
+    FutureOr<String> Function(String) self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_DartOpaque(
-        encode_DartFn_Inputs_String_Output_String_AnyhowException(self),
-        serializer);
+      encode_DartFn_Inputs_String_Output_String_AnyhowException(self),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_DartFn_Inputs_String_Output_opt_String_AnyhowException(
-      FutureOr<String?> Function(String) self, SseSerializer serializer) {
+    FutureOr<String?> Function(String) self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_DartOpaque(
-        encode_DartFn_Inputs_String_Output_opt_String_AnyhowException(self),
-        serializer);
+      encode_DartFn_Inputs_String_Output_opt_String_AnyhowException(self),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_DartFn_Inputs_String_Output_unit_AnyhowException(
-      FutureOr<void> Function(String) self, SseSerializer serializer) {
+    FutureOr<void> Function(String) self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_DartOpaque(
-        encode_DartFn_Inputs_String_Output_unit_AnyhowException(self),
-        serializer);
+      encode_DartFn_Inputs_String_Output_unit_AnyhowException(self),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_DartFn_Inputs_String_String_Output_unit_AnyhowException(
-      FutureOr<void> Function(String, String) self, SseSerializer serializer) {
+    FutureOr<void> Function(String, String) self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_DartOpaque(
-        encode_DartFn_Inputs_String_String_Output_unit_AnyhowException(self),
-        serializer);
+      encode_DartFn_Inputs_String_String_Output_unit_AnyhowException(self),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-          FutureOr<Uint8List> Function(Uint8List) self,
-          SseSerializer serializer) {
+  sse_encode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(Uint8List) self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_DartOpaque(
-        encode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-            self),
-        serializer);
+      encode_DartFn_Inputs_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+        self,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
-          FutureOr<Uint8List> Function(int) self, SseSerializer serializer) {
+  sse_encode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int) self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_DartOpaque(
-        encode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
-            self),
-        serializer);
+      encode_DartFn_Inputs_u_16_Output_list_prim_u_8_strict_AnyhowException(
+        self,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-          FutureOr<Uint8List> Function(int, int?, Uint8List) self,
-          SseSerializer serializer) {
+  sse_encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int, int?, Uint8List) self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_DartOpaque(
-        encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-            self),
-        serializer);
+      encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+        self,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
-          FutureOr<Uint8List> Function(int, int, int?, Uint8List, String) self,
-          SseSerializer serializer) {
+  sse_encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int, int, int?, Uint8List, String) self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_DartOpaque(
-        encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
-            self),
-        serializer);
+      encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+        self,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_DartOpaque(Object self, SseSerializer serializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_isize(
-        PlatformPointerUtil.ptrToPlatformInt64(encodeDartOpaque(
-            self, portManager.dartHandlerPort, generalizedFrbRustBinding)),
-        serializer);
+      PlatformPointerUtil.ptrToPlatformInt64(
+        encodeDartOpaque(
+          self,
+          portManager.dartHandlerPort,
+          generalizedFrbRustBinding,
+        ),
+      ),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_RustOpaque_ArcdynAccountsStorageBoxTrait(
-      ArcAccountsStorageBoxTrait self, SseSerializer serializer) {
+    ArcAccountsStorageBoxTrait self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcAccountsStorageBoxTraitImpl)
-            .frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcAccountsStorageBoxTraitImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_RustOpaque_ArcdynGenericContractBoxTrait(
-      ArcGenericContractBoxTrait self, SseSerializer serializer) {
+    ArcGenericContractBoxTrait self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcGenericContractBoxTraitImpl)
-            .frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcGenericContractBoxTraitImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_RustOpaque_ArcdynGqlConnectionBoxTrait(
-      ArcGqlConnectionBoxTrait self, SseSerializer serializer) {
+    ArcGqlConnectionBoxTrait self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcGqlConnectionBoxTraitImpl).frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcGqlConnectionBoxTraitImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_RustOpaque_ArcdynJettonWalletBoxTrait(
-      ArcJettonWalletBoxTrait self, SseSerializer serializer) {
+    ArcJettonWalletBoxTrait self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcJettonWalletBoxTraitImpl).frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcJettonWalletBoxTraitImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_RustOpaque_ArcdynJrpcConnectionBoxTrait(
-      ArcJrpcConnectionBoxTrait self, SseSerializer serializer) {
+    ArcJrpcConnectionBoxTrait self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcJrpcConnectionBoxTraitImpl)
-            .frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcJrpcConnectionBoxTraitImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_RustOpaque_ArcdynKeyStoreApiBoxTrait(
-      ArcKeyStoreApiBoxTrait self, SseSerializer serializer) {
+    ArcKeyStoreApiBoxTrait self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcKeyStoreApiBoxTraitImpl).frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcKeyStoreApiBoxTraitImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_RustOpaque_ArcdynLedgerConnectionBoxTrait(
-      ArcLedgerConnectionBoxTrait self, SseSerializer serializer) {
+    ArcLedgerConnectionBoxTrait self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcLedgerConnectionBoxTraitImpl)
-            .frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcLedgerConnectionBoxTraitImpl).frbInternalSseEncode(
+        move: null,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_RustOpaque_ArcdynProtoConnectionBoxTrait(
-      ArcProtoConnectionBoxTrait self, SseSerializer serializer) {
+    ArcProtoConnectionBoxTrait self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcProtoConnectionBoxTraitImpl)
-            .frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcProtoConnectionBoxTraitImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_RustOpaque_ArcdynStorageBoxTrait(
-      ArcStorageBoxTrait self, SseSerializer serializer) {
+    ArcStorageBoxTrait self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcStorageBoxTraitImpl).frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcStorageBoxTraitImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_RustOpaque_ArcdynTokenWalletBoxTrait(
-      ArcTokenWalletBoxTrait self, SseSerializer serializer) {
+    ArcTokenWalletBoxTrait self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcTokenWalletBoxTraitImpl).frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcTokenWalletBoxTraitImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_RustOpaque_ArcdynTonWalletBoxTrait(
-      ArcTonWalletBoxTrait self, SseSerializer serializer) {
+    ArcTonWalletBoxTrait self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcTonWalletBoxTraitImpl).frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcTonWalletBoxTraitImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_RustOpaque_ArcdynTransportBoxTrait(
-      ArcTransportBoxTrait self, SseSerializer serializer) {
+    ArcTransportBoxTrait self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcTransportBoxTraitImpl).frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcTransportBoxTraitImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_RustOpaque_ArcdynUnsignedMessageBoxTrait(
-      ArcUnsignedMessageBoxTrait self, SseSerializer serializer) {
+    ArcUnsignedMessageBoxTrait self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcUnsignedMessageBoxTraitImpl)
-            .frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcUnsignedMessageBoxTraitImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
-          ArcFnStringDartFnFutureOptionString self, SseSerializer serializer) {
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
+    ArcFnStringDartFnFutureOptionString self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcFnStringDartFnFutureOptionStringImpl)
-            .frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcFnStringDartFnFutureOptionStringImpl).frbInternalSseEncode(
+        move: null,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
-          ArcFnStringDartFnFuture self, SseSerializer serializer) {
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(
+    ArcFnStringDartFnFuture self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcFnStringDartFnFutureImpl).frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcFnStringDartFnFutureImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
-          ArcFnStringDartFnFutureString self, SseSerializer serializer) {
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(
+    ArcFnStringDartFnFutureString self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcFnStringDartFnFutureStringImpl)
-            .frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcFnStringDartFnFutureStringImpl).frbInternalSseEncode(
+        move: null,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
-          ArcFnStringStringDartFnFuture self, SseSerializer serializer) {
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(
+    ArcFnStringStringDartFnFuture self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcFnStringStringDartFnFutureImpl)
-            .frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcFnStringStringDartFnFutureImpl).frbInternalSseEncode(
+        move: null,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
-          ArcFnVecU8DartFnFutureVecU8 self, SseSerializer serializer) {
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(
+    ArcFnVecU8DartFnFutureVecU8 self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcFnVecU8DartFnFutureVecU8Impl)
-            .frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcFnVecU8DartFnFutureVecU8Impl).frbInternalSseEncode(
+        move: null,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
-          ArcFnU16DartFnFutureVecU8 self, SseSerializer serializer) {
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(
+    ArcFnU16DartFnFutureVecU8 self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcFnU16DartFnFutureVecU8Impl)
-            .frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcFnU16DartFnFutureVecU8Impl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
-          ArcFnU16OptionI32VecU8DartFnFutureVecU8 self,
-          SseSerializer serializer) {
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+    ArcFnU16OptionI32VecU8DartFnFutureVecU8 self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl)
-            .frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl)
+          .frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
-          ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 self,
-          SseSerializer serializer) {
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+    ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl)
-            .frbInternalSseEncode(move: null),
-        serializer);
+      (self as ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl)
+          .frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
-          GenericContractSubscriptionHandlerImpl self,
-          SseSerializer serializer) {
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(
+    GenericContractSubscriptionHandlerImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as GenericContractSubscriptionHandlerImplImpl)
-            .frbInternalSseEncode(move: null),
-        serializer);
+      (self as GenericContractSubscriptionHandlerImplImpl).frbInternalSseEncode(
+        move: null,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
-          GqlConnectionImpl self, SseSerializer serializer) {
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(
+    GqlConnectionImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as GqlConnectionImplImpl).frbInternalSseEncode(move: null),
-        serializer);
+      (self as GqlConnectionImplImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
-          JettonWalletSubscriptionHandlerImpl self, SseSerializer serializer) {
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(
+    JettonWalletSubscriptionHandlerImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as JettonWalletSubscriptionHandlerImplImpl)
-            .frbInternalSseEncode(move: null),
-        serializer);
+      (self as JettonWalletSubscriptionHandlerImplImpl).frbInternalSseEncode(
+        move: null,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
-          JrpcConnectionImpl self, SseSerializer serializer) {
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(
+    JrpcConnectionImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as JrpcConnectionImplImpl).frbInternalSseEncode(move: null),
-        serializer);
+      (self as JrpcConnectionImplImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
-          LedgerConnectionImpl self, SseSerializer serializer) {
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(
+    LedgerConnectionImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as LedgerConnectionImplImpl).frbInternalSseEncode(move: null),
-        serializer);
+      (self as LedgerConnectionImplImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
-          ProtoConnectionImpl self, SseSerializer serializer) {
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(
+    ProtoConnectionImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as ProtoConnectionImplImpl).frbInternalSseEncode(move: null),
-        serializer);
+      (self as ProtoConnectionImplImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
-          StorageImpl self, SseSerializer serializer) {
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(
+    StorageImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as StorageImplImpl).frbInternalSseEncode(move: null), serializer);
+      (self as StorageImplImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
-          TokenWalletSubscriptionHandlerImpl self, SseSerializer serializer) {
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(
+    TokenWalletSubscriptionHandlerImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as TokenWalletSubscriptionHandlerImplImpl)
-            .frbInternalSseEncode(move: null),
-        serializer);
+      (self as TokenWalletSubscriptionHandlerImplImpl).frbInternalSseEncode(
+        move: null,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
-          TonWalletSubscriptionHandlerImpl self, SseSerializer serializer) {
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(
+    TonWalletSubscriptionHandlerImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-        (self as TonWalletSubscriptionHandlerImplImpl)
-            .frbInternalSseEncode(move: null),
-        serializer);
+      (self as TonWalletSubscriptionHandlerImplImpl).frbInternalSseEncode(
+        move: null,
+      ),
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_StreamSink_log_entry_Dco(
-      RustStreamSink<LogEntry> self, SseSerializer serializer) {
+    RustStreamSink<LogEntry> self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_String(
-        self.setupAndSerialize(
-            codec: DcoCodec(
+      self.setupAndSerialize(
+        codec: DcoCodec(
           decodeSuccessData: dco_decode_log_entry,
           decodeErrorData: dco_decode_AnyhowException,
-        )),
-        serializer);
+        ),
+      ),
+      serializer,
+    );
   }
 
   @protected
@@ -13553,10 +16255,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_accounts_storage_impl(
-      AccountsStorageImpl self, SseSerializer serializer) {
+    AccountsStorageImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_RustOpaque_ArcdynAccountsStorageBoxTrait(
-        self.innerStorage, serializer);
+      self.innerStorage,
+      serializer,
+    );
   }
 
   @protected
@@ -13567,7 +16273,9 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_bip_39_mnemonic_data(
-      Bip39MnemonicData self, SseSerializer serializer) {
+    Bip39MnemonicData self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_u_16(self.accountId, serializer);
     sse_encode_bip_39_path(self.path, serializer);
@@ -13588,14 +16296,18 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_box_autoadd_accounts_storage_impl(
-      AccountsStorageImpl self, SseSerializer serializer) {
+    AccountsStorageImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_accounts_storage_impl(self, serializer);
   }
 
   @protected
   void sse_encode_box_autoadd_bip_39_mnemonic_data(
-      Bip39MnemonicData self, SseSerializer serializer) {
+    Bip39MnemonicData self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_bip_39_mnemonic_data(self, serializer);
   }
@@ -13608,21 +16320,27 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_box_autoadd_generic_contract_dart_wrapper(
-      GenericContractDartWrapper self, SseSerializer serializer) {
+    GenericContractDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_generic_contract_dart_wrapper(self, serializer);
   }
 
   @protected
   void sse_encode_box_autoadd_gql_connection_dart_wrapper(
-      GqlConnectionDartWrapper self, SseSerializer serializer) {
+    GqlConnectionDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_gql_connection_dart_wrapper(self, serializer);
   }
 
   @protected
   void sse_encode_box_autoadd_gql_transport_impl(
-      GqlTransportImpl self, SseSerializer serializer) {
+    GqlTransportImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_gql_transport_impl(self, serializer);
   }
@@ -13635,84 +16353,108 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_box_autoadd_jetton_wallet_dart_wrapper(
-      JettonWalletDartWrapper self, SseSerializer serializer) {
+    JettonWalletDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_jetton_wallet_dart_wrapper(self, serializer);
   }
 
   @protected
   void sse_encode_box_autoadd_jrpc_connection_dart_wrapper(
-      JrpcConnectionDartWrapper self, SseSerializer serializer) {
+    JrpcConnectionDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_jrpc_connection_dart_wrapper(self, serializer);
   }
 
   @protected
   void sse_encode_box_autoadd_jrpc_transport_impl(
-      JrpcTransportImpl self, SseSerializer serializer) {
+    JrpcTransportImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_jrpc_transport_impl(self, serializer);
   }
 
   @protected
   void sse_encode_box_autoadd_key_signer(
-      KeySigner self, SseSerializer serializer) {
+    KeySigner self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_key_signer(self, serializer);
   }
 
   @protected
   void sse_encode_box_autoadd_keystore_dart_wrapper(
-      KeystoreDartWrapper self, SseSerializer serializer) {
+    KeystoreDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_keystore_dart_wrapper(self, serializer);
   }
 
   @protected
   void sse_encode_box_autoadd_ledger_connection_dart_wrapper(
-      LedgerConnectionDartWrapper self, SseSerializer serializer) {
+    LedgerConnectionDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_ledger_connection_dart_wrapper(self, serializer);
   }
 
   @protected
   void sse_encode_box_autoadd_mnemonic_type(
-      MnemonicType self, SseSerializer serializer) {
+    MnemonicType self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_mnemonic_type(self, serializer);
   }
 
   @protected
   void sse_encode_box_autoadd_proto_connection_dart_wrapper(
-      ProtoConnectionDartWrapper self, SseSerializer serializer) {
+    ProtoConnectionDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_proto_connection_dart_wrapper(self, serializer);
   }
 
   @protected
   void sse_encode_box_autoadd_proto_transport_impl(
-      ProtoTransportImpl self, SseSerializer serializer) {
+    ProtoTransportImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_proto_transport_impl(self, serializer);
   }
 
   @protected
   void sse_encode_box_autoadd_storage_dart_wrapper(
-      StorageDartWrapper self, SseSerializer serializer) {
+    StorageDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_storage_dart_wrapper(self, serializer);
   }
 
   @protected
   void sse_encode_box_autoadd_token_wallet_dart_wrapper(
-      TokenWalletDartWrapper self, SseSerializer serializer) {
+    TokenWalletDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_token_wallet_dart_wrapper(self, serializer);
   }
 
   @protected
   void sse_encode_box_autoadd_ton_wallet_dart_wrapper(
-      TonWalletDartWrapper self, SseSerializer serializer) {
+    TonWalletDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_ton_wallet_dart_wrapper(self, serializer);
   }
@@ -13725,14 +16467,18 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_box_autoadd_unsigned_message_impl(
-      UnsignedMessageImpl self, SseSerializer serializer) {
+    UnsignedMessageImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_unsigned_message_impl(self, serializer);
   }
 
   @protected
   void sse_encode_generated_key_g(
-      GeneratedKeyG self, SseSerializer serializer) {
+    GeneratedKeyG self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_list_String(self.words, serializer);
     sse_encode_mnemonic_type(self.accountType, serializer);
@@ -13740,26 +16486,38 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_generic_contract_dart_wrapper(
-      GenericContractDartWrapper self, SseSerializer serializer) {
+    GenericContractDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_RustOpaque_ArcdynGenericContractBoxTrait(
-        self.innerContract, serializer);
+      self.innerContract,
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_gql_connection_dart_wrapper(
-      GqlConnectionDartWrapper self, SseSerializer serializer) {
+    GqlConnectionDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_RustOpaque_ArcdynGqlConnectionBoxTrait(
-        self.innerConnection, serializer);
+      self.innerConnection,
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_gql_transport_impl(
-      GqlTransportImpl self, SseSerializer serializer) {
+    GqlTransportImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_RustOpaque_ArcdynTransportBoxTrait(
-        self.innerTransport, serializer);
+      self.innerTransport,
+      serializer,
+    );
   }
 
   @protected
@@ -13788,26 +16546,38 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_jetton_wallet_dart_wrapper(
-      JettonWalletDartWrapper self, SseSerializer serializer) {
+    JettonWalletDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_RustOpaque_ArcdynJettonWalletBoxTrait(
-        self.innerWallet, serializer);
+      self.innerWallet,
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_jrpc_connection_dart_wrapper(
-      JrpcConnectionDartWrapper self, SseSerializer serializer) {
+    JrpcConnectionDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_RustOpaque_ArcdynJrpcConnectionBoxTrait(
-        self.innerConnection, serializer);
+      self.innerConnection,
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_jrpc_transport_impl(
-      JrpcTransportImpl self, SseSerializer serializer) {
+    JrpcTransportImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_RustOpaque_ArcdynTransportBoxTrait(
-        self.innerTransport, serializer);
+      self.innerTransport,
+      serializer,
+    );
   }
 
   @protected
@@ -13828,10 +16598,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_keystore_dart_wrapper(
-      KeystoreDartWrapper self, SseSerializer serializer) {
+    KeystoreDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_RustOpaque_ArcdynKeyStoreApiBoxTrait(
-        self.innerKeystore, serializer);
+      self.innerKeystore,
+      serializer,
+    );
   }
 
   @protected
@@ -13844,10 +16618,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_ledger_connection_dart_wrapper(
-      LedgerConnectionDartWrapper self, SseSerializer serializer) {
+    LedgerConnectionDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_RustOpaque_ArcdynLedgerConnectionBoxTrait(
-        self.innerConnection, serializer);
+      self.innerConnection,
+      serializer,
+    );
   }
 
   @protected
@@ -13861,7 +16639,9 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_list_key_signer(
-      List<KeySigner> self, SseSerializer serializer) {
+    List<KeySigner> self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_i_32(self.length, serializer);
     for (final item in self) {
@@ -13871,7 +16651,9 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_list_opt_String(
-      List<String?> self, SseSerializer serializer) {
+    List<String?> self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_i_32(self.length, serializer);
     for (final item in self) {
@@ -13881,16 +16663,21 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_list_prim_i_32_loose(
-      List<int> self, SseSerializer serializer) {
+    List<int> self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_i_32(self.length, serializer);
-    serializer.buffer
-        .putInt32List(self is Int32List ? self : Int32List.fromList(self));
+    serializer.buffer.putInt32List(
+      self is Int32List ? self : Int32List.fromList(self),
+    );
   }
 
   @protected
   void sse_encode_list_prim_i_32_strict(
-      Int32List self, SseSerializer serializer) {
+    Int32List self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_i_32(self.length, serializer);
     serializer.buffer.putInt32List(self);
@@ -13898,7 +16685,9 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_list_prim_u_8_strict(
-      Uint8List self, SseSerializer serializer) {
+    Uint8List self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_i_32(self.length, serializer);
     serializer.buffer.putUint8List(self);
@@ -13964,7 +16753,9 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_opt_box_autoadd_ledger_connection_dart_wrapper(
-      LedgerConnectionDartWrapper? self, SseSerializer serializer) {
+    LedgerConnectionDartWrapper? self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
 
     sse_encode_bool(self != null, serializer);
@@ -13985,7 +16776,9 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_opt_list_String(
-      List<String>? self, SseSerializer serializer) {
+    List<String>? self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
 
     sse_encode_bool(self != null, serializer);
@@ -14002,23 +16795,33 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_proto_connection_dart_wrapper(
-      ProtoConnectionDartWrapper self, SseSerializer serializer) {
+    ProtoConnectionDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_RustOpaque_ArcdynProtoConnectionBoxTrait(
-        self.innerConnection, serializer);
+      self.innerConnection,
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_proto_transport_impl(
-      ProtoTransportImpl self, SseSerializer serializer) {
+    ProtoTransportImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_RustOpaque_ArcdynTransportBoxTrait(
-        self.innerTransport, serializer);
+      self.innerTransport,
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_signature_parts(
-      SignatureParts self, SseSerializer serializer) {
+    SignatureParts self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_String(self.low, serializer);
     sse_encode_String(self.high, serializer);
@@ -14035,7 +16838,9 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_signed_data_raw(
-      SignedDataRaw self, SseSerializer serializer) {
+    SignedDataRaw self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_String(self.signature, serializer);
     sse_encode_String(self.signatureHex, serializer);
@@ -14044,22 +16849,30 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_storage_dart_wrapper(
-      StorageDartWrapper self, SseSerializer serializer) {
+    StorageDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_RustOpaque_ArcdynStorageBoxTrait(self.innerStorage, serializer);
   }
 
   @protected
   void sse_encode_token_wallet_dart_wrapper(
-      TokenWalletDartWrapper self, SseSerializer serializer) {
+    TokenWalletDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_RustOpaque_ArcdynTokenWalletBoxTrait(
-        self.innerWallet, serializer);
+      self.innerWallet,
+      serializer,
+    );
   }
 
   @protected
   void sse_encode_ton_wallet_dart_wrapper(
-      TonWalletDartWrapper self, SseSerializer serializer) {
+    TonWalletDartWrapper self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_RustOpaque_ArcdynTonWalletBoxTrait(self.innerWallet, serializer);
   }
@@ -14095,10 +16908,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void sse_encode_unsigned_message_impl(
-      UnsignedMessageImpl self, SseSerializer serializer) {
+    UnsignedMessageImpl self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_RustOpaque_ArcdynUnsignedMessageBoxTrait(
-        self.innerMessage, serializer);
+      self.innerMessage,
+      serializer,
+    );
   }
 
   @protected
@@ -14113,19 +16930,26 @@ class ArcAccountsStorageBoxTraitImpl extends RustOpaque
     implements ArcAccountsStorageBoxTrait {
   // Not to be used by end users
   ArcAccountsStorageBoxTraitImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcAccountsStorageBoxTraitImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: NekotonBridge.instance.api
+    rustArcIncrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_increment_strong_count_ArcAccountsStorageBoxTrait,
-    rustArcDecrementStrongCount: NekotonBridge.instance.api
+    rustArcDecrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcAccountsStorageBoxTrait,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcAccountsStorageBoxTraitPtr,
   );
 }
@@ -14135,19 +16959,26 @@ class ArcFnStringDartFnFutureImpl extends RustOpaque
     implements ArcFnStringDartFnFuture {
   // Not to be used by end users
   ArcFnStringDartFnFutureImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcFnStringDartFnFutureImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_increment_strong_count_ArcFnStringDartFnFuture,
+        .instance
+        .api
+        .rust_arc_increment_strong_count_ArcFnStringDartFnFuture,
     rustArcDecrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_ArcFnStringDartFnFuture,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ArcFnStringDartFnFuture,
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcFnStringDartFnFuturePtr,
   );
 }
@@ -14157,20 +16988,27 @@ class ArcFnStringDartFnFutureOptionStringImpl extends RustOpaque
     implements ArcFnStringDartFnFutureOptionString {
   // Not to be used by end users
   ArcFnStringDartFnFutureOptionStringImpl.frbInternalDcoDecode(
-      List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    List<dynamic> wire,
+  ) : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcFnStringDartFnFutureOptionStringImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: NekotonBridge.instance.api
+    rustArcIncrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_increment_strong_count_ArcFnStringDartFnFutureOptionString,
-    rustArcDecrementStrongCount: NekotonBridge.instance.api
+    rustArcDecrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcFnStringDartFnFutureOptionString,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcFnStringDartFnFutureOptionStringPtr,
   );
 }
@@ -14180,19 +17018,26 @@ class ArcFnStringDartFnFutureStringImpl extends RustOpaque
     implements ArcFnStringDartFnFutureString {
   // Not to be used by end users
   ArcFnStringDartFnFutureStringImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcFnStringDartFnFutureStringImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: NekotonBridge.instance.api
+    rustArcIncrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_increment_strong_count_ArcFnStringDartFnFutureString,
-    rustArcDecrementStrongCount: NekotonBridge.instance.api
+    rustArcDecrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcFnStringDartFnFutureString,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcFnStringDartFnFutureStringPtr,
   );
 }
@@ -14202,19 +17047,26 @@ class ArcFnStringStringDartFnFutureImpl extends RustOpaque
     implements ArcFnStringStringDartFnFuture {
   // Not to be used by end users
   ArcFnStringStringDartFnFutureImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcFnStringStringDartFnFutureImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: NekotonBridge.instance.api
+    rustArcIncrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_increment_strong_count_ArcFnStringStringDartFnFuture,
-    rustArcDecrementStrongCount: NekotonBridge.instance.api
+    rustArcDecrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcFnStringStringDartFnFuture,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcFnStringStringDartFnFuturePtr,
   );
 }
@@ -14224,19 +17076,26 @@ class ArcFnU16DartFnFutureVecU8Impl extends RustOpaque
     implements ArcFnU16DartFnFutureVecU8 {
   // Not to be used by end users
   ArcFnU16DartFnFutureVecU8Impl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcFnU16DartFnFutureVecU8Impl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_increment_strong_count_ArcFnU16DartFnFutureVecU8,
+        .instance
+        .api
+        .rust_arc_increment_strong_count_ArcFnU16DartFnFutureVecU8,
     rustArcDecrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_ArcFnU16DartFnFutureVecU8,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ArcFnU16DartFnFutureVecU8,
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcFnU16DartFnFutureVecU8Ptr,
   );
 }
@@ -14246,20 +17105,27 @@ class ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl extends RustOpaque
     implements ArcFnU16OptionI32VecU8DartFnFutureVecU8 {
   // Not to be used by end users
   ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl.frbInternalDcoDecode(
-      List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    List<dynamic> wire,
+  ) : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: NekotonBridge.instance.api
+    rustArcIncrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_increment_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8,
-    rustArcDecrementStrongCount: NekotonBridge.instance.api
+    rustArcDecrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8Ptr,
   );
 }
@@ -14269,20 +17135,27 @@ class ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl extends RustOpaque
     implements ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 {
   // Not to be used by end users
   ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl.frbInternalDcoDecode(
-      List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    List<dynamic> wire,
+  ) : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: NekotonBridge.instance.api
+    rustArcIncrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_increment_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8,
-    rustArcDecrementStrongCount: NekotonBridge.instance.api
+    rustArcDecrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Ptr,
   );
 }
@@ -14292,19 +17165,26 @@ class ArcFnVecU8DartFnFutureVecU8Impl extends RustOpaque
     implements ArcFnVecU8DartFnFutureVecU8 {
   // Not to be used by end users
   ArcFnVecU8DartFnFutureVecU8Impl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcFnVecU8DartFnFutureVecU8Impl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: NekotonBridge.instance.api
+    rustArcIncrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_increment_strong_count_ArcFnVecU8DartFnFutureVecU8,
-    rustArcDecrementStrongCount: NekotonBridge.instance.api
+    rustArcDecrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcFnVecU8DartFnFutureVecU8,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcFnVecU8DartFnFutureVecU8Ptr,
   );
 }
@@ -14314,19 +17194,26 @@ class ArcGenericContractBoxTraitImpl extends RustOpaque
     implements ArcGenericContractBoxTrait {
   // Not to be used by end users
   ArcGenericContractBoxTraitImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcGenericContractBoxTraitImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: NekotonBridge.instance.api
+    rustArcIncrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_increment_strong_count_ArcGenericContractBoxTrait,
-    rustArcDecrementStrongCount: NekotonBridge.instance.api
+    rustArcDecrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcGenericContractBoxTrait,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcGenericContractBoxTraitPtr,
   );
 }
@@ -14336,19 +17223,26 @@ class ArcGqlConnectionBoxTraitImpl extends RustOpaque
     implements ArcGqlConnectionBoxTrait {
   // Not to be used by end users
   ArcGqlConnectionBoxTraitImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcGqlConnectionBoxTraitImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_increment_strong_count_ArcGqlConnectionBoxTrait,
+        .instance
+        .api
+        .rust_arc_increment_strong_count_ArcGqlConnectionBoxTrait,
     rustArcDecrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_ArcGqlConnectionBoxTrait,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ArcGqlConnectionBoxTrait,
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcGqlConnectionBoxTraitPtr,
   );
 }
@@ -14358,19 +17252,26 @@ class ArcJettonWalletBoxTraitImpl extends RustOpaque
     implements ArcJettonWalletBoxTrait {
   // Not to be used by end users
   ArcJettonWalletBoxTraitImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcJettonWalletBoxTraitImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_increment_strong_count_ArcJettonWalletBoxTrait,
+        .instance
+        .api
+        .rust_arc_increment_strong_count_ArcJettonWalletBoxTrait,
     rustArcDecrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_ArcJettonWalletBoxTrait,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ArcJettonWalletBoxTrait,
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcJettonWalletBoxTraitPtr,
   );
 }
@@ -14380,19 +17281,26 @@ class ArcJrpcConnectionBoxTraitImpl extends RustOpaque
     implements ArcJrpcConnectionBoxTrait {
   // Not to be used by end users
   ArcJrpcConnectionBoxTraitImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcJrpcConnectionBoxTraitImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_increment_strong_count_ArcJrpcConnectionBoxTrait,
+        .instance
+        .api
+        .rust_arc_increment_strong_count_ArcJrpcConnectionBoxTrait,
     rustArcDecrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_ArcJrpcConnectionBoxTrait,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ArcJrpcConnectionBoxTrait,
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcJrpcConnectionBoxTraitPtr,
   );
 }
@@ -14402,20 +17310,27 @@ class ArcKeyStoreApiBoxTraitImpl extends RustOpaque
     implements ArcKeyStoreApiBoxTrait {
   // Not to be used by end users
   ArcKeyStoreApiBoxTraitImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcKeyStoreApiBoxTraitImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_increment_strong_count_ArcKeyStoreApiBoxTrait,
+        .instance
+        .api
+        .rust_arc_increment_strong_count_ArcKeyStoreApiBoxTrait,
     rustArcDecrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_ArcKeyStoreApiBoxTrait,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ArcKeyStoreApiBoxTrait,
     rustArcDecrementStrongCountPtr: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_ArcKeyStoreApiBoxTraitPtr,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ArcKeyStoreApiBoxTraitPtr,
   );
 }
 
@@ -14424,19 +17339,26 @@ class ArcLedgerConnectionBoxTraitImpl extends RustOpaque
     implements ArcLedgerConnectionBoxTrait {
   // Not to be used by end users
   ArcLedgerConnectionBoxTraitImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcLedgerConnectionBoxTraitImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: NekotonBridge.instance.api
+    rustArcIncrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_increment_strong_count_ArcLedgerConnectionBoxTrait,
-    rustArcDecrementStrongCount: NekotonBridge.instance.api
+    rustArcDecrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcLedgerConnectionBoxTrait,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcLedgerConnectionBoxTraitPtr,
   );
 }
@@ -14446,19 +17368,26 @@ class ArcProtoConnectionBoxTraitImpl extends RustOpaque
     implements ArcProtoConnectionBoxTrait {
   // Not to be used by end users
   ArcProtoConnectionBoxTraitImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcProtoConnectionBoxTraitImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: NekotonBridge.instance.api
+    rustArcIncrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_increment_strong_count_ArcProtoConnectionBoxTrait,
-    rustArcDecrementStrongCount: NekotonBridge.instance.api
+    rustArcDecrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcProtoConnectionBoxTrait,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcProtoConnectionBoxTraitPtr,
   );
 }
@@ -14467,20 +17396,27 @@ class ArcProtoConnectionBoxTraitImpl extends RustOpaque
 class ArcStorageBoxTraitImpl extends RustOpaque implements ArcStorageBoxTrait {
   // Not to be used by end users
   ArcStorageBoxTraitImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcStorageBoxTraitImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_increment_strong_count_ArcStorageBoxTrait,
+        .instance
+        .api
+        .rust_arc_increment_strong_count_ArcStorageBoxTrait,
     rustArcDecrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_ArcStorageBoxTrait,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ArcStorageBoxTrait,
     rustArcDecrementStrongCountPtr: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_ArcStorageBoxTraitPtr,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ArcStorageBoxTraitPtr,
   );
 }
 
@@ -14489,20 +17425,27 @@ class ArcTokenWalletBoxTraitImpl extends RustOpaque
     implements ArcTokenWalletBoxTrait {
   // Not to be used by end users
   ArcTokenWalletBoxTraitImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcTokenWalletBoxTraitImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_increment_strong_count_ArcTokenWalletBoxTrait,
+        .instance
+        .api
+        .rust_arc_increment_strong_count_ArcTokenWalletBoxTrait,
     rustArcDecrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_ArcTokenWalletBoxTrait,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ArcTokenWalletBoxTrait,
     rustArcDecrementStrongCountPtr: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_ArcTokenWalletBoxTraitPtr,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ArcTokenWalletBoxTraitPtr,
   );
 }
 
@@ -14511,20 +17454,27 @@ class ArcTonWalletBoxTraitImpl extends RustOpaque
     implements ArcTonWalletBoxTrait {
   // Not to be used by end users
   ArcTonWalletBoxTraitImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcTonWalletBoxTraitImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_increment_strong_count_ArcTonWalletBoxTrait,
+        .instance
+        .api
+        .rust_arc_increment_strong_count_ArcTonWalletBoxTrait,
     rustArcDecrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_ArcTonWalletBoxTrait,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ArcTonWalletBoxTrait,
     rustArcDecrementStrongCountPtr: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_ArcTonWalletBoxTraitPtr,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ArcTonWalletBoxTraitPtr,
   );
 }
 
@@ -14533,20 +17483,27 @@ class ArcTransportBoxTraitImpl extends RustOpaque
     implements ArcTransportBoxTrait {
   // Not to be used by end users
   ArcTransportBoxTraitImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcTransportBoxTraitImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_increment_strong_count_ArcTransportBoxTrait,
+        .instance
+        .api
+        .rust_arc_increment_strong_count_ArcTransportBoxTrait,
     rustArcDecrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_ArcTransportBoxTrait,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ArcTransportBoxTrait,
     rustArcDecrementStrongCountPtr: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_ArcTransportBoxTraitPtr,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ArcTransportBoxTraitPtr,
   );
 }
 
@@ -14555,19 +17512,26 @@ class ArcUnsignedMessageBoxTraitImpl extends RustOpaque
     implements ArcUnsignedMessageBoxTrait {
   // Not to be used by end users
   ArcUnsignedMessageBoxTraitImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ArcUnsignedMessageBoxTraitImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: NekotonBridge.instance.api
+    rustArcIncrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_increment_strong_count_ArcUnsignedMessageBoxTrait,
-    rustArcDecrementStrongCount: NekotonBridge.instance.api
+    rustArcDecrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTrait,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTraitPtr,
   );
 }
@@ -14577,101 +17541,127 @@ class GenericContractSubscriptionHandlerImplImpl extends RustOpaque
     implements GenericContractSubscriptionHandlerImpl {
   // Not to be used by end users
   GenericContractSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-      List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    List<dynamic> wire,
+  ) : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   GenericContractSubscriptionHandlerImplImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: NekotonBridge.instance.api
+    rustArcIncrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_increment_strong_count_GenericContractSubscriptionHandlerImpl,
-    rustArcDecrementStrongCount: NekotonBridge.instance.api
+    rustArcDecrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_GenericContractSubscriptionHandlerImpl,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_GenericContractSubscriptionHandlerImplPtr,
   );
 
   ArcFnStringDartFnFuture get onMessageExpired => NekotonBridge.instance.api
-          .crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageExpired(
+      .crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageExpired(
         that: this,
       );
 
   ArcFnStringDartFnFuture get onMessageSent => NekotonBridge.instance.api
-          .crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageSent(
+      .crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnMessageSent(
         that: this,
       );
 
   ArcFnStringDartFnFuture get onStateChanged => NekotonBridge.instance.api
-          .crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnStateChanged(
+      .crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnStateChanged(
         that: this,
       );
 
   ArcFnStringDartFnFuture get onTransactionsFound => NekotonBridge.instance.api
-          .crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound(
+      .crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound(
         that: this,
       );
 
-  set onMessageExpired(ArcFnStringDartFnFuture onMessageExpired) => NekotonBridge
-      .instance.api
+  set onMessageExpired(
+    ArcFnStringDartFnFuture onMessageExpired,
+  ) => NekotonBridge.instance.api
       .crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageExpired(
-          that: this, onMessageExpired: onMessageExpired);
+        that: this,
+        onMessageExpired: onMessageExpired,
+      );
 
   set onMessageSent(ArcFnStringDartFnFuture onMessageSent) => NekotonBridge
-      .instance.api
+      .instance
+      .api
       .crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnMessageSent(
-          that: this, onMessageSent: onMessageSent);
+        that: this,
+        onMessageSent: onMessageSent,
+      );
 
   set onStateChanged(ArcFnStringDartFnFuture onStateChanged) => NekotonBridge
-      .instance.api
+      .instance
+      .api
       .crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnStateChanged(
-          that: this, onStateChanged: onStateChanged);
+        that: this,
+        onStateChanged: onStateChanged,
+      );
 
-  set onTransactionsFound(ArcFnStringDartFnFuture onTransactionsFound) =>
-      NekotonBridge.instance.api
-          .crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound(
-              that: this, onTransactionsFound: onTransactionsFound);
+  set onTransactionsFound(
+    ArcFnStringDartFnFuture onTransactionsFound,
+  ) => NekotonBridge.instance.api
+      .crateApiMergedGenericContractSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound(
+        that: this,
+        onTransactionsFound: onTransactionsFound,
+      );
 }
 
 @sealed
 class GqlConnectionImplImpl extends RustOpaque implements GqlConnectionImpl {
   // Not to be used by end users
   GqlConnectionImplImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   GqlConnectionImplImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_increment_strong_count_GqlConnectionImpl,
+        .instance
+        .api
+        .rust_arc_increment_strong_count_GqlConnectionImpl,
     rustArcDecrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_GqlConnectionImpl,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_GqlConnectionImpl,
     rustArcDecrementStrongCountPtr: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_GqlConnectionImplPtr,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_GqlConnectionImplPtr,
   );
 
   bool get isLocal => NekotonBridge.instance.api
-          .crateApiMergedGqlConnectionImplAutoAccessorGetIsLocal(
-        that: this,
-      );
+      .crateApiMergedGqlConnectionImplAutoAccessorGetIsLocal(that: this);
 
   ArcFnStringDartFnFutureString get onPost => NekotonBridge.instance.api
-          .crateApiMergedGqlConnectionImplAutoAccessorGetOnPost(
-        that: this,
-      );
+      .crateApiMergedGqlConnectionImplAutoAccessorGetOnPost(that: this);
 
   set isLocal(bool isLocal) => NekotonBridge.instance.api
       .crateApiMergedGqlConnectionImplAutoAccessorSetIsLocal(
-          that: this, isLocal: isLocal);
+        that: this,
+        isLocal: isLocal,
+      );
 
   set onPost(ArcFnStringDartFnFutureString onPost) => NekotonBridge.instance.api
       .crateApiMergedGqlConnectionImplAutoAccessorSetOnPost(
-          that: this, onPost: onPost);
+        that: this,
+        onPost: onPost,
+      );
 }
 
 @sealed
@@ -14679,72 +17669,92 @@ class JettonWalletSubscriptionHandlerImplImpl extends RustOpaque
     implements JettonWalletSubscriptionHandlerImpl {
   // Not to be used by end users
   JettonWalletSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-      List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    List<dynamic> wire,
+  ) : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   JettonWalletSubscriptionHandlerImplImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: NekotonBridge.instance.api
+    rustArcIncrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_increment_strong_count_JettonWalletSubscriptionHandlerImpl,
-    rustArcDecrementStrongCount: NekotonBridge.instance.api
+    rustArcDecrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_JettonWalletSubscriptionHandlerImpl,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_JettonWalletSubscriptionHandlerImplPtr,
   );
 
   ArcFnStringDartFnFuture get onBalanceChanged => NekotonBridge.instance.api
-          .crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChanged(
+      .crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChanged(
         that: this,
       );
 
   ArcFnStringDartFnFuture get onTransactionsFound => NekotonBridge.instance.api
-          .crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound(
+      .crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound(
         that: this,
       );
 
-  set onBalanceChanged(ArcFnStringDartFnFuture onBalanceChanged) => NekotonBridge
-      .instance.api
+  set onBalanceChanged(
+    ArcFnStringDartFnFuture onBalanceChanged,
+  ) => NekotonBridge.instance.api
       .crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChanged(
-          that: this, onBalanceChanged: onBalanceChanged);
+        that: this,
+        onBalanceChanged: onBalanceChanged,
+      );
 
-  set onTransactionsFound(ArcFnStringDartFnFuture onTransactionsFound) =>
-      NekotonBridge.instance.api
-          .crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound(
-              that: this, onTransactionsFound: onTransactionsFound);
+  set onTransactionsFound(
+    ArcFnStringDartFnFuture onTransactionsFound,
+  ) => NekotonBridge.instance.api
+      .crateApiMergedJettonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound(
+        that: this,
+        onTransactionsFound: onTransactionsFound,
+      );
 }
 
 @sealed
 class JrpcConnectionImplImpl extends RustOpaque implements JrpcConnectionImpl {
   // Not to be used by end users
   JrpcConnectionImplImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   JrpcConnectionImplImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_increment_strong_count_JrpcConnectionImpl,
+        .instance
+        .api
+        .rust_arc_increment_strong_count_JrpcConnectionImpl,
     rustArcDecrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_JrpcConnectionImpl,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_JrpcConnectionImpl,
     rustArcDecrementStrongCountPtr: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_JrpcConnectionImplPtr,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_JrpcConnectionImplPtr,
   );
 
   ArcFnStringDartFnFutureString get onPost => NekotonBridge.instance.api
-          .crateApiMergedJrpcConnectionImplAutoAccessorGetOnPost(
-        that: this,
-      );
+      .crateApiMergedJrpcConnectionImplAutoAccessorGetOnPost(that: this);
 
   set onPost(ArcFnStringDartFnFutureString onPost) => NekotonBridge.instance.api
       .crateApiMergedJrpcConnectionImplAutoAccessorSetOnPost(
-          that: this, onPost: onPost);
+        that: this,
+        onPost: onPost,
+      );
 }
 
 @sealed
@@ -14752,54 +17762,68 @@ class LedgerConnectionImplImpl extends RustOpaque
     implements LedgerConnectionImpl {
   // Not to be used by end users
   LedgerConnectionImplImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   LedgerConnectionImplImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_increment_strong_count_LedgerConnectionImpl,
+        .instance
+        .api
+        .rust_arc_increment_strong_count_LedgerConnectionImpl,
     rustArcDecrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_LedgerConnectionImpl,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_LedgerConnectionImpl,
     rustArcDecrementStrongCountPtr: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_LedgerConnectionImplPtr,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_LedgerConnectionImplPtr,
   );
 
   ArcFnU16DartFnFutureVecU8 get onGetPublicKey => NekotonBridge.instance.api
-          .crateApiMergedLedgerConnectionImplAutoAccessorGetOnGetPublicKey(
+      .crateApiMergedLedgerConnectionImplAutoAccessorGetOnGetPublicKey(
         that: this,
       );
 
-  ArcFnU16OptionI32VecU8DartFnFutureVecU8 get onSign =>
-      NekotonBridge.instance.api
-          .crateApiMergedLedgerConnectionImplAutoAccessorGetOnSign(
-        that: this,
-      );
+  ArcFnU16OptionI32VecU8DartFnFutureVecU8 get onSign => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedLedgerConnectionImplAutoAccessorGetOnSign(that: this);
 
   ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 get onSignTransaction =>
       NekotonBridge.instance.api
           .crateApiMergedLedgerConnectionImplAutoAccessorGetOnSignTransaction(
+            that: this,
+          );
+
+  set onGetPublicKey(ArcFnU16DartFnFutureVecU8 onGetPublicKey) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedLedgerConnectionImplAutoAccessorSetOnGetPublicKey(
         that: this,
+        onGetPublicKey: onGetPublicKey,
       );
 
-  set onGetPublicKey(ArcFnU16DartFnFutureVecU8 onGetPublicKey) =>
-      NekotonBridge.instance.api
-          .crateApiMergedLedgerConnectionImplAutoAccessorSetOnGetPublicKey(
-              that: this, onGetPublicKey: onGetPublicKey);
-
-  set onSign(ArcFnU16OptionI32VecU8DartFnFutureVecU8 onSign) =>
-      NekotonBridge.instance.api
-          .crateApiMergedLedgerConnectionImplAutoAccessorSetOnSign(
-              that: this, onSign: onSign);
+  set onSign(ArcFnU16OptionI32VecU8DartFnFutureVecU8 onSign) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedLedgerConnectionImplAutoAccessorSetOnSign(
+        that: this,
+        onSign: onSign,
+      );
 
   set onSignTransaction(
-          ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 onSignTransaction) =>
-      NekotonBridge.instance.api
-          .crateApiMergedLedgerConnectionImplAutoAccessorSetOnSignTransaction(
-              that: this, onSignTransaction: onSignTransaction);
+    ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 onSignTransaction,
+  ) => NekotonBridge.instance.api
+      .crateApiMergedLedgerConnectionImplAutoAccessorSetOnSignTransaction(
+        that: this,
+        onSignTransaction: onSignTransaction,
+      );
 }
 
 @sealed
@@ -14807,41 +17831,48 @@ class ProtoConnectionImplImpl extends RustOpaque
     implements ProtoConnectionImpl {
   // Not to be used by end users
   ProtoConnectionImplImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   ProtoConnectionImplImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_increment_strong_count_ProtoConnectionImpl,
+        .instance
+        .api
+        .rust_arc_increment_strong_count_ProtoConnectionImpl,
     rustArcDecrementStrongCount: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_ProtoConnectionImpl,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ProtoConnectionImpl,
     rustArcDecrementStrongCountPtr: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_ProtoConnectionImplPtr,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ProtoConnectionImplPtr,
   );
 
   ArcFnVecU8DartFnFutureVecU8 get onPost => NekotonBridge.instance.api
-          .crateApiMergedProtoConnectionImplAutoAccessorGetOnPost(
-        that: this,
-      );
+      .crateApiMergedProtoConnectionImplAutoAccessorGetOnPost(that: this);
 
   set onPost(ArcFnVecU8DartFnFutureVecU8 onPost) => NekotonBridge.instance.api
       .crateApiMergedProtoConnectionImplAutoAccessorSetOnPost(
-          that: this, onPost: onPost);
+        that: this,
+        onPost: onPost,
+      );
 }
 
 @sealed
 class StorageImplImpl extends RustOpaque implements StorageImpl {
   // Not to be used by end users
   StorageImplImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   StorageImplImpl.frbInternalSseDecode(BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
     rustArcIncrementStrongCount:
@@ -14849,46 +17880,43 @@ class StorageImplImpl extends RustOpaque implements StorageImpl {
     rustArcDecrementStrongCount:
         NekotonBridge.instance.api.rust_arc_decrement_strong_count_StorageImpl,
     rustArcDecrementStrongCountPtr: NekotonBridge
-        .instance.api.rust_arc_decrement_strong_count_StorageImplPtr,
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_StorageImplPtr,
   );
 
-  ArcFnStringDartFnFutureOptionString get onGet =>
-      NekotonBridge.instance.api.crateApiMergedStorageImplAutoAccessorGetOnGet(
-        that: this,
-      );
+  ArcFnStringDartFnFutureOptionString get onGet => NekotonBridge.instance.api
+      .crateApiMergedStorageImplAutoAccessorGetOnGet(that: this);
 
   ArcFnStringDartFnFuture get onRemove => NekotonBridge.instance.api
-          .crateApiMergedStorageImplAutoAccessorGetOnRemove(
-        that: this,
-      );
+      .crateApiMergedStorageImplAutoAccessorGetOnRemove(that: this);
 
   ArcFnStringDartFnFuture get onRemoveUnchecked => NekotonBridge.instance.api
-          .crateApiMergedStorageImplAutoAccessorGetOnRemoveUnchecked(
-        that: this,
-      );
+      .crateApiMergedStorageImplAutoAccessorGetOnRemoveUnchecked(that: this);
 
-  ArcFnStringStringDartFnFuture get onSet =>
-      NekotonBridge.instance.api.crateApiMergedStorageImplAutoAccessorGetOnSet(
-        that: this,
-      );
+  ArcFnStringStringDartFnFuture get onSet => NekotonBridge.instance.api
+      .crateApiMergedStorageImplAutoAccessorGetOnSet(that: this);
 
   ArcFnStringStringDartFnFuture get onSetUnchecked => NekotonBridge.instance.api
-          .crateApiMergedStorageImplAutoAccessorGetOnSetUnchecked(
-        that: this,
-      );
+      .crateApiMergedStorageImplAutoAccessorGetOnSetUnchecked(that: this);
 
   set onGet(ArcFnStringDartFnFutureOptionString onGet) => NekotonBridge
-      .instance.api
+      .instance
+      .api
       .crateApiMergedStorageImplAutoAccessorSetOnGet(that: this, onGet: onGet);
 
   set onRemove(ArcFnStringDartFnFuture onRemove) => NekotonBridge.instance.api
       .crateApiMergedStorageImplAutoAccessorSetOnRemove(
-          that: this, onRemove: onRemove);
+        that: this,
+        onRemove: onRemove,
+      );
 
   set onRemoveUnchecked(ArcFnStringDartFnFuture onRemoveUnchecked) =>
       NekotonBridge.instance.api
           .crateApiMergedStorageImplAutoAccessorSetOnRemoveUnchecked(
-              that: this, onRemoveUnchecked: onRemoveUnchecked);
+            that: this,
+            onRemoveUnchecked: onRemoveUnchecked,
+          );
 
   set onSet(ArcFnStringStringDartFnFuture onSet) => NekotonBridge.instance.api
       .crateApiMergedStorageImplAutoAccessorSetOnSet(that: this, onSet: onSet);
@@ -14896,7 +17924,9 @@ class StorageImplImpl extends RustOpaque implements StorageImpl {
   set onSetUnchecked(ArcFnStringStringDartFnFuture onSetUnchecked) =>
       NekotonBridge.instance.api
           .crateApiMergedStorageImplAutoAccessorSetOnSetUnchecked(
-              that: this, onSetUnchecked: onSetUnchecked);
+            that: this,
+            onSetUnchecked: onSetUnchecked,
+          );
 }
 
 @sealed
@@ -14904,42 +17934,55 @@ class TokenWalletSubscriptionHandlerImplImpl extends RustOpaque
     implements TokenWalletSubscriptionHandlerImpl {
   // Not to be used by end users
   TokenWalletSubscriptionHandlerImplImpl.frbInternalDcoDecode(
-      List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    List<dynamic> wire,
+  ) : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   TokenWalletSubscriptionHandlerImplImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: NekotonBridge.instance.api
+    rustArcIncrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_increment_strong_count_TokenWalletSubscriptionHandlerImpl,
-    rustArcDecrementStrongCount: NekotonBridge.instance.api
+    rustArcDecrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_TokenWalletSubscriptionHandlerImpl,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_TokenWalletSubscriptionHandlerImplPtr,
   );
 
   ArcFnStringDartFnFuture get onBalanceChanged => NekotonBridge.instance.api
-          .crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChanged(
+      .crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnBalanceChanged(
         that: this,
       );
 
   ArcFnStringDartFnFuture get onTransactionsFound => NekotonBridge.instance.api
-          .crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound(
+      .crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound(
         that: this,
       );
 
-  set onBalanceChanged(ArcFnStringDartFnFuture onBalanceChanged) => NekotonBridge
-      .instance.api
+  set onBalanceChanged(
+    ArcFnStringDartFnFuture onBalanceChanged,
+  ) => NekotonBridge.instance.api
       .crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnBalanceChanged(
-          that: this, onBalanceChanged: onBalanceChanged);
+        that: this,
+        onBalanceChanged: onBalanceChanged,
+      );
 
-  set onTransactionsFound(ArcFnStringDartFnFuture onTransactionsFound) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound(
-              that: this, onTransactionsFound: onTransactionsFound);
+  set onTransactionsFound(
+    ArcFnStringDartFnFuture onTransactionsFound,
+  ) => NekotonBridge.instance.api
+      .crateApiMergedTokenWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound(
+        that: this,
+        onTransactionsFound: onTransactionsFound,
+      );
 }
 
 @sealed
@@ -14947,93 +17990,119 @@ class TonWalletSubscriptionHandlerImplImpl extends RustOpaque
     implements TonWalletSubscriptionHandlerImpl {
   // Not to be used by end users
   TonWalletSubscriptionHandlerImplImpl.frbInternalDcoDecode(List<dynamic> wire)
-      : super.frbInternalDcoDecode(wire, _kStaticData);
+    : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
   TonWalletSubscriptionHandlerImplImpl.frbInternalSseDecode(
-      BigInt ptr, int externalSizeOnNative)
-      : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+    BigInt ptr,
+    int externalSizeOnNative,
+  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
 
   static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount: NekotonBridge.instance.api
+    rustArcIncrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_increment_strong_count_TonWalletSubscriptionHandlerImpl,
-    rustArcDecrementStrongCount: NekotonBridge.instance.api
+    rustArcDecrementStrongCount: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_TonWalletSubscriptionHandlerImpl,
-    rustArcDecrementStrongCountPtr: NekotonBridge.instance.api
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
         .rust_arc_decrement_strong_count_TonWalletSubscriptionHandlerImplPtr,
   );
 
   ArcFnStringDartFnFuture get onCustodiansChanged => NekotonBridge.instance.api
-          .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnCustodiansChanged(
+      .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnCustodiansChanged(
         that: this,
       );
 
   ArcFnStringDartFnFuture get onDetailsChanged => NekotonBridge.instance.api
-          .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnDetailsChanged(
+      .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnDetailsChanged(
         that: this,
       );
 
   ArcFnStringDartFnFuture get onMessageExpired => NekotonBridge.instance.api
-          .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageExpired(
+      .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageExpired(
         that: this,
       );
 
   ArcFnStringDartFnFuture get onMessageSent => NekotonBridge.instance.api
-          .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageSent(
+      .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnMessageSent(
         that: this,
       );
 
   ArcFnStringDartFnFuture get onStateChanged => NekotonBridge.instance.api
-          .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnStateChanged(
+      .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnStateChanged(
         that: this,
       );
 
   ArcFnStringDartFnFuture get onTransactionsFound => NekotonBridge.instance.api
-          .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound(
+      .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnTransactionsFound(
         that: this,
       );
 
-  ArcFnStringDartFnFuture get onUnconfirmedTransactionsChanged =>
-      NekotonBridge.instance.api
-          .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnUnconfirmedTransactionsChanged(
+  ArcFnStringDartFnFuture get onUnconfirmedTransactionsChanged => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorGetOnUnconfirmedTransactionsChanged(
         that: this,
       );
 
-  set onCustodiansChanged(ArcFnStringDartFnFuture onCustodiansChanged) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnCustodiansChanged(
-              that: this, onCustodiansChanged: onCustodiansChanged);
+  set onCustodiansChanged(
+    ArcFnStringDartFnFuture onCustodiansChanged,
+  ) => NekotonBridge.instance.api
+      .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnCustodiansChanged(
+        that: this,
+        onCustodiansChanged: onCustodiansChanged,
+      );
 
-  set onDetailsChanged(ArcFnStringDartFnFuture onDetailsChanged) => NekotonBridge
-      .instance.api
+  set onDetailsChanged(
+    ArcFnStringDartFnFuture onDetailsChanged,
+  ) => NekotonBridge.instance.api
       .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnDetailsChanged(
-          that: this, onDetailsChanged: onDetailsChanged);
+        that: this,
+        onDetailsChanged: onDetailsChanged,
+      );
 
-  set onMessageExpired(ArcFnStringDartFnFuture onMessageExpired) => NekotonBridge
-      .instance.api
+  set onMessageExpired(
+    ArcFnStringDartFnFuture onMessageExpired,
+  ) => NekotonBridge.instance.api
       .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageExpired(
-          that: this, onMessageExpired: onMessageExpired);
+        that: this,
+        onMessageExpired: onMessageExpired,
+      );
 
   set onMessageSent(ArcFnStringDartFnFuture onMessageSent) => NekotonBridge
-      .instance.api
+      .instance
+      .api
       .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnMessageSent(
-          that: this, onMessageSent: onMessageSent);
+        that: this,
+        onMessageSent: onMessageSent,
+      );
 
   set onStateChanged(ArcFnStringDartFnFuture onStateChanged) => NekotonBridge
-      .instance.api
+      .instance
+      .api
       .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnStateChanged(
-          that: this, onStateChanged: onStateChanged);
+        that: this,
+        onStateChanged: onStateChanged,
+      );
 
-  set onTransactionsFound(ArcFnStringDartFnFuture onTransactionsFound) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound(
-              that: this, onTransactionsFound: onTransactionsFound);
+  set onTransactionsFound(
+    ArcFnStringDartFnFuture onTransactionsFound,
+  ) => NekotonBridge.instance.api
+      .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnTransactionsFound(
+        that: this,
+        onTransactionsFound: onTransactionsFound,
+      );
 
   set onUnconfirmedTransactionsChanged(
-          ArcFnStringDartFnFuture onUnconfirmedTransactionsChanged) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnUnconfirmedTransactionsChanged(
-              that: this,
-              onUnconfirmedTransactionsChanged:
-                  onUnconfirmedTransactionsChanged);
+    ArcFnStringDartFnFuture onUnconfirmedTransactionsChanged,
+  ) => NekotonBridge.instance.api
+      .crateApiMergedTonWalletSubscriptionHandlerImplAutoAccessorSetOnUnconfirmedTransactionsChanged(
+        that: this,
+        onUnconfirmedTransactionsChanged: onUnconfirmedTransactionsChanged,
+      );
 }

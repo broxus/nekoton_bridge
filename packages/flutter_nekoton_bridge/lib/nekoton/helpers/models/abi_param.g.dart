@@ -7,15 +7,15 @@ part of 'abi_param.dart';
 // **************************************************************************
 
 _AbiParam _$AbiParamFromJson(Map<String, dynamic> json) => _AbiParam(
-      name: json['name'] as String,
-      type: json['type'] as String,
-      components: (json['components'] as List<dynamic>?)
-          ?.map((e) => AbiParam.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
+  name: json['name'] as String,
+  type: json['type'] as String,
+  components: (json['components'] as List<dynamic>?)
+      ?.map((e) => AbiParam.fromJson(e as Map<String, dynamic>))
+      .toList(),
+);
 
 Map<String, dynamic> _$AbiParamToJson(_AbiParam instance) => <String, dynamic>{
-      'name': instance.name,
-      'type': instance.type,
-      'components': instance.components?.map((e) => e.toJson()).toList(),
-    };
+  'name': instance.name,
+  'type': instance.type,
+  'components': instance.components?.map((e) => e.toJson()).toList(),
+};

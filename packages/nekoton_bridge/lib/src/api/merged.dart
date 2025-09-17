@@ -20,24 +20,26 @@ part 'merged.freezed.dart';
 /// CONTENT OF src/nekoton_wrapper/crypto/crypto_api.rs
 ///----------------------------
 /// Check signature by publicKey and data
-Future<bool> ntVerifySignature(
-        {required String publicKey,
-        required String data,
-        required String signature,
-        int? signatureId}) =>
-    NekotonBridge.instance.api.crateApiMergedNtVerifySignature(
-        publicKey: publicKey,
-        data: data,
-        signature: signature,
-        signatureId: signatureId);
+Future<bool> ntVerifySignature({
+  required String publicKey,
+  required String data,
+  required String signature,
+  int? signatureId,
+}) => NekotonBridge.instance.api.crateApiMergedNtVerifySignature(
+  publicKey: publicKey,
+  data: data,
+  signature: signature,
+  signatureId: signatureId,
+);
 
 ///----------------------------
 /// CONTENT OF src/nekoton_wrapper/crypto/mnemonic/mnemonic_api.rs
 ///----------------------------
 /// Generate seed phrase by specified mnemonic type
 GeneratedKeyG ntGenerateKey({required MnemonicType accountType}) =>
-    NekotonBridge.instance.api
-        .crateApiMergedNtGenerateKey(accountType: accountType);
+    NekotonBridge.instance.api.crateApiMergedNtGenerateKey(
+      accountType: accountType,
+    );
 
 /// Get hints for input part of word of seed phrase to get possible words
 /// input: acco
@@ -48,10 +50,13 @@ List<String> ntGetHints({required String input}) =>
 /// Generate public and secret keys from seed phrase and mnemonic type
 /// Returns json {'public': '...', 'secret': '...'}
 /// or throws Exception
-String ntDeriveFromPhrase(
-        {required String phrase, required MnemonicType mnemonicType}) =>
-    NekotonBridge.instance.api.crateApiMergedNtDeriveFromPhrase(
-        phrase: phrase, mnemonicType: mnemonicType);
+String ntDeriveFromPhrase({
+  required String phrase,
+  required MnemonicType mnemonicType,
+}) => NekotonBridge.instance.api.crateApiMergedNtDeriveFromPhrase(
+  phrase: phrase,
+  mnemonicType: mnemonicType,
+);
 
 ///----------------------------
 /// CONTENT OF src/nekoton_wrapper/helpers/abi_api.rs
@@ -65,127 +70,148 @@ bool ntCheckPublicKey({required String publicKey}) => NekotonBridge.instance.api
 /// Return json-encoded ExecutionOutput or throws error.
 ///
 /// input - is json-encoded AbiToken
-Future<String> ntRunLocal(
-        {required String accountStuffBoc,
-        required String contractAbi,
-        required String methodId,
-        required String input,
-        required bool responsible,
-        int? signatureId}) =>
-    NekotonBridge.instance.api.crateApiMergedNtRunLocal(
-        accountStuffBoc: accountStuffBoc,
-        contractAbi: contractAbi,
-        methodId: methodId,
-        input: input,
-        responsible: responsible,
-        signatureId: signatureId);
+Future<String> ntRunLocal({
+  required String accountStuffBoc,
+  required String contractAbi,
+  required String methodId,
+  required String input,
+  required bool responsible,
+  int? signatureId,
+}) => NekotonBridge.instance.api.crateApiMergedNtRunLocal(
+  accountStuffBoc: accountStuffBoc,
+  contractAbi: contractAbi,
+  methodId: methodId,
+  input: input,
+  responsible: responsible,
+  signatureId: signatureId,
+);
 
 /// Get address of tvc and contract_abi.
 /// Returns list of [address, boc of state_init, hash] or throws error
-Future<List<String>> ntGetExpectedAddress(
-        {required String tvc,
-        required String contractAbi,
-        required int workchainId,
-        String? publicKey,
-        required String initData}) =>
-    NekotonBridge.instance.api.crateApiMergedNtGetExpectedAddress(
-        tvc: tvc,
-        contractAbi: contractAbi,
-        workchainId: workchainId,
-        publicKey: publicKey,
-        initData: initData);
+Future<List<String>> ntGetExpectedAddress({
+  required String tvc,
+  required String contractAbi,
+  required int workchainId,
+  String? publicKey,
+  required String initData,
+}) => NekotonBridge.instance.api.crateApiMergedNtGetExpectedAddress(
+  tvc: tvc,
+  contractAbi: contractAbi,
+  workchainId: workchainId,
+  publicKey: publicKey,
+  initData: initData,
+);
 
 /// Returns base64-encoded body that was encoded or throws error
-Future<String> ntEncodeInternalInput(
-        {required String contractAbi,
-        required String method,
-        required String input}) =>
-    NekotonBridge.instance.api.crateApiMergedNtEncodeInternalInput(
-        contractAbi: contractAbi, method: method, input: input);
+Future<String> ntEncodeInternalInput({
+  required String contractAbi,
+  required String method,
+  required String input,
+}) => NekotonBridge.instance.api.crateApiMergedNtEncodeInternalInput(
+  contractAbi: contractAbi,
+  method: method,
+  input: input,
+);
 
 /// Returns json-encoded SignedMessage from nekoton or throws error
 /// timeout - milliseconds
-Future<String> ntCreateExternalMessageWithoutSignature(
-        {required String dst,
-        required String contractAbi,
-        required String method,
-        String? stateInit,
-        required String input,
-        required int timeout}) =>
-    NekotonBridge.instance.api
-        .crateApiMergedNtCreateExternalMessageWithoutSignature(
-            dst: dst,
-            contractAbi: contractAbi,
-            method: method,
-            stateInit: stateInit,
-            input: input,
-            timeout: timeout);
+Future<String> ntCreateExternalMessageWithoutSignature({
+  required String dst,
+  required String contractAbi,
+  required String method,
+  String? stateInit,
+  required String input,
+  required int timeout,
+}) => NekotonBridge.instance.api
+    .crateApiMergedNtCreateExternalMessageWithoutSignature(
+      dst: dst,
+      contractAbi: contractAbi,
+      method: method,
+      stateInit: stateInit,
+      input: input,
+      timeout: timeout,
+    );
 
 /// Create external unsigned message that can be listened and handled or throws error
 /// timeout - milliseconds
-Future<UnsignedMessageImpl> ntCreateExternalMessage(
-        {required String dst,
-        required String contractAbi,
-        required String method,
-        String? stateInit,
-        required String input,
-        required String publicKey,
-        required int timeout}) =>
-    NekotonBridge.instance.api.crateApiMergedNtCreateExternalMessage(
-        dst: dst,
-        contractAbi: contractAbi,
-        method: method,
-        stateInit: stateInit,
-        input: input,
-        publicKey: publicKey,
-        timeout: timeout);
+Future<UnsignedMessageImpl> ntCreateExternalMessage({
+  required String dst,
+  required String contractAbi,
+  required String method,
+  String? stateInit,
+  required String input,
+  required String publicKey,
+  required int timeout,
+}) => NekotonBridge.instance.api.crateApiMergedNtCreateExternalMessage(
+  dst: dst,
+  contractAbi: contractAbi,
+  method: method,
+  stateInit: stateInit,
+  input: input,
+  publicKey: publicKey,
+  timeout: timeout,
+);
 
 /// Parse payload and return optional json-encoded KnownPayload or throws error
-String? ntParseKnownPayload({required String payload}) =>
-    NekotonBridge.instance.api
-        .crateApiMergedNtParseKnownPayload(payload: payload);
+String? ntParseKnownPayload({required String payload}) => NekotonBridge
+    .instance
+    .api
+    .crateApiMergedNtParseKnownPayload(payload: payload);
 
 /// Decode input data and return json-encoded DecodedInput or throws error
-Future<String> ntDecodeInput(
-        {required String messageBody,
-        required String contractAbi,
-        String? method,
-        required bool internal}) =>
-    NekotonBridge.instance.api.crateApiMergedNtDecodeInput(
-        messageBody: messageBody,
-        contractAbi: contractAbi,
-        method: method,
-        internal: internal);
+Future<String> ntDecodeInput({
+  required String messageBody,
+  required String contractAbi,
+  String? method,
+  required bool internal,
+}) => NekotonBridge.instance.api.crateApiMergedNtDecodeInput(
+  messageBody: messageBody,
+  contractAbi: contractAbi,
+  method: method,
+  internal: internal,
+);
 
 /// Decode input data and return json-encoded DecodedEvent or throws error
-Future<String> ntDecodeEvent(
-        {required String messageBody,
-        required String contractAbi,
-        String? event}) =>
-    NekotonBridge.instance.api.crateApiMergedNtDecodeEvent(
-        messageBody: messageBody, contractAbi: contractAbi, event: event);
+Future<String> ntDecodeEvent({
+  required String messageBody,
+  required String contractAbi,
+  String? event,
+}) => NekotonBridge.instance.api.crateApiMergedNtDecodeEvent(
+  messageBody: messageBody,
+  contractAbi: contractAbi,
+  event: event,
+);
 
 /// Decode output data and return json-encoded DecodedOutput or throws error
-Future<String> ntDecodeOutput(
-        {required String messageBody,
-        required String contractAbi,
-        String? method}) =>
-    NekotonBridge.instance.api.crateApiMergedNtDecodeOutput(
-        messageBody: messageBody, contractAbi: contractAbi, method: method);
+Future<String> ntDecodeOutput({
+  required String messageBody,
+  required String contractAbi,
+  String? method,
+}) => NekotonBridge.instance.api.crateApiMergedNtDecodeOutput(
+  messageBody: messageBody,
+  contractAbi: contractAbi,
+  method: method,
+);
 
 /// Decode transaction and return json-encoded DecodedTransaction or throws error
-Future<String> ntDecodeTransaction(
-        {required String transaction,
-        required String contractAbi,
-        String? method}) =>
-    NekotonBridge.instance.api.crateApiMergedNtDecodeTransaction(
-        transaction: transaction, contractAbi: contractAbi, method: method);
+Future<String> ntDecodeTransaction({
+  required String transaction,
+  required String contractAbi,
+  String? method,
+}) => NekotonBridge.instance.api.crateApiMergedNtDecodeTransaction(
+  transaction: transaction,
+  contractAbi: contractAbi,
+  method: method,
+);
 
 /// Decode events of transaction and return json-encoded list of DecodedEvent or throws error
-Future<String> ntDecodeTransactionEvents(
-        {required String transaction, required String contractAbi}) =>
-    NekotonBridge.instance.api.crateApiMergedNtDecodeTransactionEvents(
-        transaction: transaction, contractAbi: contractAbi);
+Future<String> ntDecodeTransactionEvents({
+  required String transaction,
+  required String contractAbi,
+}) => NekotonBridge.instance.api.crateApiMergedNtDecodeTransactionEvents(
+  transaction: transaction,
+  contractAbi: contractAbi,
+);
 
 /// Returns hash of decoded boc or throws error
 String ntGetBocHash({required String boc}) =>
@@ -193,34 +219,48 @@ String ntGetBocHash({required String boc}) =>
 
 /// Return base64 encoded bytes of tokens or throws error
 /// returns [tvc, hash]
-List<String> ntPackIntoCell(
-        {required String params, required String tokens, String? version}) =>
-    NekotonBridge.instance.api.crateApiMergedNtPackIntoCell(
-        params: params, tokens: tokens, version: version);
+List<String> ntPackIntoCell({
+  required String params,
+  required String tokens,
+  String? version,
+}) => NekotonBridge.instance.api.crateApiMergedNtPackIntoCell(
+  params: params,
+  tokens: tokens,
+  version: version,
+);
 
 /// Parse list of params and return json-encoded Tokens or throws error
-String ntUnpackFromCell(
-        {required String params,
-        required String boc,
-        required bool allowPartial,
-        String? version}) =>
-    NekotonBridge.instance.api.crateApiMergedNtUnpackFromCell(
-        params: params, boc: boc, allowPartial: allowPartial, version: version);
+String ntUnpackFromCell({
+  required String params,
+  required String boc,
+  required bool allowPartial,
+  String? version,
+}) => NekotonBridge.instance.api.crateApiMergedNtUnpackFromCell(
+  params: params,
+  boc: boc,
+  allowPartial: allowPartial,
+  version: version,
+);
 
 /// Pack address std smd or throw error
 /// Returns new packed address as string
-String ntPackStdSmcAddr(
-        {required String addr,
-        required bool base64Url,
-        required bool bounceable}) =>
-    NekotonBridge.instance.api.crateApiMergedNtPackStdSmcAddr(
-        addr: addr, base64Url: base64Url, bounceable: bounceable);
+String ntPackStdSmcAddr({
+  required String addr,
+  required bool base64Url,
+  required bool bounceable,
+}) => NekotonBridge.instance.api.crateApiMergedNtPackStdSmcAddr(
+  addr: addr,
+  base64Url: base64Url,
+  bounceable: bounceable,
+);
 
 /// Unpack address std smd or throw error.
 /// Returns json-encoded MsgAddressInt
 String ntUnpackStdSmcAddr({required String packed, required bool base64Url}) =>
-    NekotonBridge.instance.api
-        .crateApiMergedNtUnpackStdSmcAddr(packed: packed, base64Url: base64Url);
+    NekotonBridge.instance.api.crateApiMergedNtUnpackStdSmcAddr(
+      packed: packed,
+      base64Url: base64Url,
+    );
 
 /// Return true if address is valid, false otherwise
 bool ntValidateAddress({required String address}) => NekotonBridge.instance.api
@@ -230,12 +270,15 @@ bool ntValidateAddress({required String address}) => NekotonBridge.instance.api
 String ntRepackAddress({required String address}) =>
     NekotonBridge.instance.api.crateApiMergedNtRepackAddress(address: address);
 
-String ntPackAddress(
-        {required String address,
-        required bool isUrlSafe,
-        required bool bounceable}) =>
-    NekotonBridge.instance.api.crateApiMergedNtPackAddress(
-        address: address, isUrlSafe: isUrlSafe, bounceable: bounceable);
+String ntPackAddress({
+  required String address,
+  required bool isUrlSafe,
+  required bool bounceable,
+}) => NekotonBridge.instance.api.crateApiMergedNtPackAddress(
+  address: address,
+  isUrlSafe: isUrlSafe,
+  bounceable: bounceable,
+);
 
 /// Extract public key from boc and return it or throw error
 String ntExtractPublicKey({required String boc}) =>
@@ -259,8 +302,10 @@ List<String?> ntSplitTvc({required String tvc}) =>
 /// Set salt to code and return base64-encoded string or throw error
 /// returns [tvc, hash]
 List<String> ntSetCodeSalt({required String code, required String salt}) =>
-    NekotonBridge.instance.api
-        .crateApiMergedNtSetCodeSalt(code: code, salt: salt);
+    NekotonBridge.instance.api.crateApiMergedNtSetCodeSalt(
+      code: code,
+      salt: salt,
+    );
 
 /// Get salt from code if possible and return base64-encoded salt or throw error
 String? ntGetCodeSalt({required String code}) =>
@@ -274,133 +319,158 @@ String? ntGetCodeSalt({required String code}) =>
 /// Returns [boc, transaction] if everything is ok or
 /// [error_code] if transaction failed
 /// or throws error
-Future<List<String>> ntExecuteLocal(
-        {required String config,
-        required String account,
-        required String message,
-        required int utime,
-        required bool disableSignatureCheck,
-        String? overwriteBalance,
-        int? globalId}) =>
-    NekotonBridge.instance.api.crateApiMergedNtExecuteLocal(
-        config: config,
-        account: account,
-        message: message,
-        utime: utime,
-        disableSignatureCheck: disableSignatureCheck,
-        overwriteBalance: overwriteBalance,
-        globalId: globalId);
+Future<List<String>> ntExecuteLocal({
+  required String config,
+  required String account,
+  required String message,
+  required int utime,
+  required bool disableSignatureCheck,
+  String? overwriteBalance,
+  int? globalId,
+}) => NekotonBridge.instance.api.crateApiMergedNtExecuteLocal(
+  config: config,
+  account: account,
+  message: message,
+  utime: utime,
+  disableSignatureCheck: disableSignatureCheck,
+  overwriteBalance: overwriteBalance,
+  globalId: globalId,
+);
 
 /// Unpack data by contract.
 /// Returns [option publicKey, json-encoded Map<String, Token>] or throw error
-Future<List<String?>> ntUnpackInitData(
-        {required String contractAbi, required String data}) =>
-    NekotonBridge.instance.api
-        .crateApiMergedNtUnpackInitData(contractAbi: contractAbi, data: data);
+Future<List<String?>> ntUnpackInitData({
+  required String contractAbi,
+  required String data,
+}) => NekotonBridge.instance.api.crateApiMergedNtUnpackInitData(
+  contractAbi: contractAbi,
+  data: data,
+);
 
 /// Unpack contract fields.
 /// Returns optional json-encoded Map<String, Token> or throw error
-Future<String?> ntUnpackContractFields(
-        {required String contractAbi,
-        required String boc,
-        required bool allowPartial}) =>
-    NekotonBridge.instance.api.crateApiMergedNtUnpackContractFields(
-        contractAbi: contractAbi, boc: boc, allowPartial: allowPartial);
+Future<String?> ntUnpackContractFields({
+  required String contractAbi,
+  required String boc,
+  required bool allowPartial,
+}) => NekotonBridge.instance.api.crateApiMergedNtUnpackContractFields(
+  contractAbi: contractAbi,
+  boc: boc,
+  allowPartial: allowPartial,
+);
 
 /// Returns json-encoded SignedMessage or throws error
 /// dst - destination address
 /// timeout - milliseconds
-Future<String> ntCreateRawExternalMessage(
-        {required String dst,
-        String? stateInit,
-        String? body,
-        required int timeout}) =>
-    NekotonBridge.instance.api.crateApiMergedNtCreateRawExternalMessage(
-        dst: dst, stateInit: stateInit, body: body, timeout: timeout);
+Future<String> ntCreateRawExternalMessage({
+  required String dst,
+  String? stateInit,
+  String? body,
+  required int timeout,
+}) => NekotonBridge.instance.api.crateApiMergedNtCreateRawExternalMessage(
+  dst: dst,
+  stateInit: stateInit,
+  body: body,
+  timeout: timeout,
+);
 
 /// Returns base-64 encoded Message or throws error
 /// src - address of sender
 /// dst - address of destination
 /// body - base64-encoded data
-Future<String> ntEncodeInternalMessage(
-        {String? src,
-        required String dst,
-        required bool bounce,
-        String? stateInit,
-        String? body,
-        required String amount,
-        bool? bounced}) =>
-    NekotonBridge.instance.api.crateApiMergedNtEncodeInternalMessage(
-        src: src,
-        dst: dst,
-        bounce: bounce,
-        stateInit: stateInit,
-        body: body,
-        amount: amount,
-        bounced: bounced);
+Future<String> ntEncodeInternalMessage({
+  String? src,
+  required String dst,
+  required bool bounce,
+  String? stateInit,
+  String? body,
+  required String amount,
+  bool? bounced,
+}) => NekotonBridge.instance.api.crateApiMergedNtEncodeInternalMessage(
+  src: src,
+  dst: dst,
+  bounce: bounce,
+  stateInit: stateInit,
+  body: body,
+  amount: amount,
+  bounced: bounced,
+);
 
 /// Returns base-64 encoded Account or throws error
-Future<String> ntMakeFullAccountBoc({String? accountStuffBoc}) =>
-    NekotonBridge.instance.api
-        .crateApiMergedNtMakeFullAccountBoc(accountStuffBoc: accountStuffBoc);
+Future<String> ntMakeFullAccountBoc({String? accountStuffBoc}) => NekotonBridge
+    .instance
+    .api
+    .crateApiMergedNtMakeFullAccountBoc(accountStuffBoc: accountStuffBoc);
 
 /// Returns optional json-encoded FullContractState or throws error
 /// account - base64-encoded boc after execute_local
 Future<String?> ntParseFullAccountBoc({required String account}) =>
-    NekotonBridge.instance.api
-        .crateApiMergedNtParseFullAccountBoc(account: account);
+    NekotonBridge.instance.api.crateApiMergedNtParseFullAccountBoc(
+      account: account,
+    );
 
-Future<String> ntComputeStorageFee(
-        {required String config,
-        required String account,
-        required int utime,
-        required bool isMasterchain}) =>
-    NekotonBridge.instance.api.crateApiMergedNtComputeStorageFee(
-        config: config,
-        account: account,
-        utime: utime,
-        isMasterchain: isMasterchain);
+Future<String> ntComputeStorageFee({
+  required String config,
+  required String account,
+  required int utime,
+  required bool isMasterchain,
+}) => NekotonBridge.instance.api.crateApiMergedNtComputeStorageFee(
+  config: config,
+  account: account,
+  utime: utime,
+  isMasterchain: isMasterchain,
+);
 
 String ntEncodeComment({required String comment, required bool plain}) =>
-    NekotonBridge.instance.api
-        .crateApiMergedNtEncodeComment(comment: comment, plain: plain);
+    NekotonBridge.instance.api.crateApiMergedNtEncodeComment(
+      comment: comment,
+      plain: plain,
+    );
 
 /// Run getter.
 /// Return json-encoded VmGetterOutput or throws error.
 ///
 /// input - is json-encoded AbiToken
-Future<String> ntRunGetter(
-        {required String accountStuffBoc,
-        required String contractAbi,
-        required String methodId,
-        required String input,
-        int? signatureId}) =>
-    NekotonBridge.instance.api.crateApiMergedNtRunGetter(
-        accountStuffBoc: accountStuffBoc,
-        contractAbi: contractAbi,
-        methodId: methodId,
-        input: input,
-        signatureId: signatureId);
+Future<String> ntRunGetter({
+  required String accountStuffBoc,
+  required String contractAbi,
+  required String methodId,
+  required String input,
+  int? signatureId,
+}) => NekotonBridge.instance.api.crateApiMergedNtRunGetter(
+  accountStuffBoc: accountStuffBoc,
+  contractAbi: contractAbi,
+  methodId: methodId,
+  input: input,
+  signatureId: signatureId,
+);
 
-String ntComputeTonWalletAddress(
-        {required String publicKey,
-        required String walletType,
-        required int workchain}) =>
-    NekotonBridge.instance.api.crateApiMergedNtComputeTonWalletAddress(
-        publicKey: publicKey, walletType: walletType, workchain: workchain);
+String ntComputeTonWalletAddress({
+  required String publicKey,
+  required String walletType,
+  required int workchain,
+}) => NekotonBridge.instance.api.crateApiMergedNtComputeTonWalletAddress(
+  publicKey: publicKey,
+  walletType: walletType,
+  workchain: workchain,
+);
 
-int ntGetContractTypeNumber({required String walletType}) =>
-    NekotonBridge.instance.api
-        .crateApiMergedNtGetContractTypeNumber(walletType: walletType);
+int ntGetContractTypeNumber({required String walletType}) => NekotonBridge
+    .instance
+    .api
+    .crateApiMergedNtGetContractTypeNumber(walletType: walletType);
 
 ///----------------------------
 /// CONTENT OF src/utils/api.rs
 ///----------------------------
 /// Init utils
-Future<void> initLogger(
-        {required LogLevel level, required bool mobileLogger}) =>
-    NekotonBridge.instance.api
-        .crateApiMergedInitLogger(level: level, mobileLogger: mobileLogger);
+Future<void> initLogger({
+  required LogLevel level,
+  required bool mobileLogger,
+}) => NekotonBridge.instance.api.crateApiMergedInitLogger(
+  level: level,
+  mobileLogger: mobileLogger,
+);
 
 /// Create log stream
 Stream<LogEntry> createLogStream() =>
@@ -512,7 +582,8 @@ abstract class LedgerConnectionImpl implements RustOpaqueInterface {
   set onSign(ArcFnU16OptionI32VecU8DartFnFutureVecU8 onSign);
 
   set onSignTransaction(
-      ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 onSignTransaction);
+    ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 onSignTransaction,
+  );
 }
 
 // Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<ProtoConnectionImpl>>
@@ -545,18 +616,19 @@ abstract class StorageImpl implements RustOpaqueInterface {
   set onSetUnchecked(ArcFnStringStringDartFnFuture onSetUnchecked);
 
   // HINT: Make it `#[frb(sync)]` to let it become the default constructor of Dart class.
-  static Future<StorageImpl> newInstance(
-          {required ArcFnStringDartFnFutureOptionString onGet,
-          required ArcFnStringStringDartFnFuture onSet,
-          required ArcFnStringStringDartFnFuture onSetUnchecked,
-          required ArcFnStringDartFnFuture onRemove,
-          required ArcFnStringDartFnFuture onRemoveUnchecked}) =>
-      NekotonBridge.instance.api.crateApiMergedStorageImplNew(
-          onGet: onGet,
-          onSet: onSet,
-          onSetUnchecked: onSetUnchecked,
-          onRemove: onRemove,
-          onRemoveUnchecked: onRemoveUnchecked);
+  static Future<StorageImpl> newInstance({
+    required ArcFnStringDartFnFutureOptionString onGet,
+    required ArcFnStringStringDartFnFuture onSet,
+    required ArcFnStringStringDartFnFuture onSetUnchecked,
+    required ArcFnStringDartFnFuture onRemove,
+    required ArcFnStringDartFnFuture onRemoveUnchecked,
+  }) => NekotonBridge.instance.api.crateApiMergedStorageImplNew(
+    onGet: onGet,
+    onSet: onSet,
+    onSetUnchecked: onSetUnchecked,
+    onRemove: onRemove,
+    onRemoveUnchecked: onRemoveUnchecked,
+  );
 }
 
 // Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<TokenWalletSubscriptionHandlerImpl>>
@@ -600,7 +672,8 @@ abstract class TonWalletSubscriptionHandlerImpl implements RustOpaqueInterface {
   set onTransactionsFound(ArcFnStringDartFnFuture onTransactionsFound);
 
   set onUnconfirmedTransactionsChanged(
-      ArcFnStringDartFnFuture onUnconfirmedTransactionsChanged);
+    ArcFnStringDartFnFuture onUnconfirmedTransactionsChanged,
+  );
 }
 
 ///----------------------------
@@ -610,23 +683,25 @@ abstract class TonWalletSubscriptionHandlerImpl implements RustOpaqueInterface {
 class AccountsStorageImpl {
   final ArcAccountsStorageBoxTrait innerStorage;
 
-  const AccountsStorageImpl({
-    required this.innerStorage,
-  });
+  const AccountsStorageImpl({required this.innerStorage});
 
   /// Add new account to storage and return its instance.
   /// account - json-encoded AccountToAdd.
   /// Return json-encoded AssetsList or throw error.
   Future<String> addAccount({required String account}) =>
       NekotonBridge.instance.api.crateApiMergedAccountsStorageImplAddAccount(
-          that: this, account: account);
+        that: this,
+        account: account,
+      );
 
   /// Add list of new accounts to storage and return it instances.
   /// account - json-encoded list of AccountToAdd.
   /// Return json-encoded list of AssetsList or throw error.
   Future<String> addAccounts({required String accounts}) =>
       NekotonBridge.instance.api.crateApiMergedAccountsStorageImplAddAccounts(
-          that: this, accounts: accounts);
+        that: this,
+        accounts: accounts,
+      );
 
   /// Add token wallet signature to account (add new token to account aka enable it via slider).
   /// account_address - address of account
@@ -634,16 +709,17 @@ class AccountsStorageImpl {
   ///   connection info
   /// root_token_contract - address of token in blockchain.
   /// Return updated AssetsList or throw error.
-  Future<String> addTokenWallet(
-          {required String accountAddress,
-          required String networkGroup,
-          required String rootTokenContract}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedAccountsStorageImplAddTokenWallet(
-              that: this,
-              accountAddress: accountAddress,
-              networkGroup: networkGroup,
-              rootTokenContract: rootTokenContract);
+  Future<String> addTokenWallet({
+    required String accountAddress,
+    required String networkGroup,
+    required String rootTokenContract,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedAccountsStorageImplAddTokenWallet(
+        that: this,
+        accountAddress: accountAddress,
+        networkGroup: networkGroup,
+        rootTokenContract: rootTokenContract,
+      );
 
   /// Add token wallets signatures to account (add new tokens to account aka enable it via slider).
   /// account_address - address of account
@@ -651,51 +727,49 @@ class AccountsStorageImpl {
   ///   connection info
   /// root_token_contracts - list of addresses of tokens in blockchain.
   /// Return true or throw error.
-  Future<bool> addTokenWallets(
-          {required String accountAddress,
-          required String networkGroup,
-          required List<String> rootTokenContracts}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedAccountsStorageImplAddTokenWallets(
-              that: this,
-              accountAddress: accountAddress,
-              networkGroup: networkGroup,
-              rootTokenContracts: rootTokenContracts);
+  Future<bool> addTokenWallets({
+    required String accountAddress,
+    required String networkGroup,
+    required List<String> rootTokenContracts,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedAccountsStorageImplAddTokenWallets(
+        that: this,
+        accountAddress: accountAddress,
+        networkGroup: networkGroup,
+        rootTokenContracts: rootTokenContracts,
+      );
 
   /// Clear storage and remove all data.
   /// Returns true or throw error
-  Future<bool> clear() =>
-      NekotonBridge.instance.api.crateApiMergedAccountsStorageImplClear(
-        that: this,
-      );
+  Future<bool> clear() => NekotonBridge.instance.api
+      .crateApiMergedAccountsStorageImplClear(that: this);
 
   /// Get list of accounts.
   /// Returns json-encoded List of AssetsList or throw error
-  Future<String> getEntries() =>
-      NekotonBridge.instance.api.crateApiMergedAccountsStorageImplGetEntries(
-        that: this,
-      );
+  Future<String> getEntries() => NekotonBridge.instance.api
+      .crateApiMergedAccountsStorageImplGetEntries(that: this);
 
   // HINT: Make it `#[frb(sync)]` to let it become the default constructor of Dart class.
   /// Create AccountsStorage or throw error
-  static Future<AccountsStorageImpl> newInstance(
-          {required StorageDartWrapper storage}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedAccountsStorageImplNew(storage: storage);
+  static Future<AccountsStorageImpl> newInstance({
+    required StorageDartWrapper storage,
+  }) => NekotonBridge.instance.api.crateApiMergedAccountsStorageImplNew(
+    storage: storage,
+  );
 
   /// Reload storage and read all data again.
   /// Returns true or throw error.
-  Future<bool> reload() =>
-      NekotonBridge.instance.api.crateApiMergedAccountsStorageImplReload(
-        that: this,
-      );
+  Future<bool> reload() => NekotonBridge.instance.api
+      .crateApiMergedAccountsStorageImplReload(that: this);
 
   /// Remove account from storage and return its instance if it was removed.
   /// account_address - address of account
   /// Return json-encoded AssetsList that was removed or null or throw error.
   Future<String?> removeAccount({required String accountAddress}) =>
       NekotonBridge.instance.api.crateApiMergedAccountsStorageImplRemoveAccount(
-          that: this, accountAddress: accountAddress);
+        that: this,
+        accountAddress: accountAddress,
+      );
 
   /// Remove list of account from storage and return it instances if it were removed.
   /// account_addresses - list of addresses of accounts.
@@ -703,7 +777,9 @@ class AccountsStorageImpl {
   Future<String> removeAccounts({required List<String> accountAddresses}) =>
       NekotonBridge.instance.api
           .crateApiMergedAccountsStorageImplRemoveAccounts(
-              that: this, accountAddresses: accountAddresses);
+            that: this,
+            accountAddresses: accountAddresses,
+          );
 
   /// Remove token wallet signature from account (remove token from account aka disable it via slider).
   /// account_address - address of account
@@ -711,16 +787,17 @@ class AccountsStorageImpl {
   ///   connection info
   /// root_token_contract - address of token in blockchain.
   /// Return updated AssetsList or throw error.
-  Future<String> removeTokenWallet(
-          {required String accountAddress,
-          required String networkGroup,
-          required String rootTokenContract}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedAccountsStorageImplRemoveTokenWallet(
-              that: this,
-              accountAddress: accountAddress,
-              networkGroup: networkGroup,
-              rootTokenContract: rootTokenContract);
+  Future<String> removeTokenWallet({
+    required String accountAddress,
+    required String networkGroup,
+    required String rootTokenContract,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedAccountsStorageImplRemoveTokenWallet(
+        that: this,
+        accountAddress: accountAddress,
+        networkGroup: networkGroup,
+        rootTokenContract: rootTokenContract,
+      );
 
   /// Remove token wallets signatures from account (remove tokens from account aka disable it via slider).
   /// account_address - address of account
@@ -728,30 +805,37 @@ class AccountsStorageImpl {
   ///   connection info
   /// root_token_contracts - list of addresses of tokens in blockchain.
   /// Return true or throw error.
-  Future<bool> removeTokenWallets(
-          {required String accountAddress,
-          required String networkGroup,
-          required List<String> rootTokenContracts}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedAccountsStorageImplRemoveTokenWallets(
-              that: this,
-              accountAddress: accountAddress,
-              networkGroup: networkGroup,
-              rootTokenContracts: rootTokenContracts);
+  Future<bool> removeTokenWallets({
+    required String accountAddress,
+    required String networkGroup,
+    required List<String> rootTokenContracts,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedAccountsStorageImplRemoveTokenWallets(
+        that: this,
+        accountAddress: accountAddress,
+        networkGroup: networkGroup,
+        rootTokenContracts: rootTokenContracts,
+      );
 
   /// Rename existed account and return its renamed instance.
   /// account_address - address of account
   /// name - new name of account
   /// Return json-encoded AssetsList or throw error.
-  Future<String> renameAccount(
-          {required String accountAddress, required String name}) =>
+  Future<String> renameAccount({
+    required String accountAddress,
+    required String name,
+  }) =>
       NekotonBridge.instance.api.crateApiMergedAccountsStorageImplRenameAccount(
-          that: this, accountAddress: accountAddress, name: name);
+        that: this,
+        accountAddress: accountAddress,
+        name: name,
+      );
 
   /// Check if data is correct for storage.
-  static Future<bool> verifyData({required String data}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedAccountsStorageImplVerifyData(data: data);
+  static Future<bool> verifyData({required String data}) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedAccountsStorageImplVerifyData(data: data);
 
   @override
   int get hashCode => innerStorage.hashCode;
@@ -764,11 +848,7 @@ class AccountsStorageImpl {
           innerStorage == other.innerStorage;
 }
 
-enum Bip39Entropy {
-  bits128,
-  bits256,
-  ;
-}
+enum Bip39Entropy { bits128, bits256 }
 
 /// Mirror struct of Bip39MnemonicData
 class Bip39MnemonicData {
@@ -795,21 +875,14 @@ class Bip39MnemonicData {
           entropy == other.entropy;
 }
 
-enum Bip39Path {
-  ever,
-  ton,
-  ;
-}
+enum Bip39Path { ever, ton }
 
 /// Wrapper struct above GeneratedKey with suitable type for generation
 class GeneratedKeyG {
   final List<String> words;
   final MnemonicType accountType;
 
-  const GeneratedKeyG({
-    required this.words,
-    required this.accountType,
-  });
+  const GeneratedKeyG({required this.words, required this.accountType});
 
   @override
   int get hashCode => words.hashCode ^ accountType.hashCode;
@@ -829,102 +902,106 @@ class GeneratedKeyG {
 class GenericContractDartWrapper {
   final ArcGenericContractBoxTrait innerContract;
 
-  const GenericContractDartWrapper({
-    required this.innerContract,
-  });
+  const GenericContractDartWrapper({required this.innerContract});
 
   /// Get address of contract.
   Future<String> address() => NekotonBridge.instance.api
-          .crateApiMergedGenericContractDartWrapperAddress(
-        that: this,
-      );
+      .crateApiMergedGenericContractDartWrapperAddress(that: this);
 
   /// Get json-encoded ContractState or throw error.
   Future<String> contractState() => NekotonBridge.instance.api
-          .crateApiMergedGenericContractDartWrapperContractState(
-        that: this,
-      );
+      .crateApiMergedGenericContractDartWrapperContractState(that: this);
 
   /// Calculate fees for transaction.
   /// signed_message - json-encoded SignedMessage.
   /// Returns fees as string representation of u128 or throw error.
-  Future<String> estimateFees({required String signedMessage}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedGenericContractDartWrapperEstimateFees(
-              that: this, signedMessage: signedMessage);
+  Future<String> estimateFees({required String signedMessage}) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedGenericContractDartWrapperEstimateFees(
+        that: this,
+        signedMessage: signedMessage,
+      );
 
   /// Execute transaction locally and return its instance.
   /// signed_message - json-encoded SignedMessage
   /// options - additional info for execution
   /// Return json-encoded Transaction or throw error.
-  Future<String> executeTransactionLocally(
-          {required String signedMessage, required String options}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedGenericContractDartWrapperExecuteTransactionLocally(
-              that: this, signedMessage: signedMessage, options: options);
+  Future<String> executeTransactionLocally({
+    required String signedMessage,
+    required String options,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedGenericContractDartWrapperExecuteTransactionLocally(
+        that: this,
+        signedMessage: signedMessage,
+        options: options,
+      );
 
   /// Handle block of blockchain.
   /// block - base64-encoded Block.
   /// Return true or throw error.
-  Future<bool> handleBlock({required String block}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedGenericContractDartWrapperHandleBlock(
-              that: this, block: block);
+  Future<bool> handleBlock({required String block}) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedGenericContractDartWrapperHandleBlock(
+        that: this,
+        block: block,
+      );
 
   /// Get list of json-encoded PendingTransaction or throw error.
   Future<String> pendingTransactions() => NekotonBridge.instance.api
-          .crateApiMergedGenericContractDartWrapperPendingTransactions(
-        that: this,
-      );
+      .crateApiMergedGenericContractDartWrapperPendingTransactions(that: this);
 
   /// Get PollingMethod of contract or throw error.
   Future<PollingMethod> pollingMethod() => NekotonBridge.instance.api
-          .crateApiMergedGenericContractDartWrapperPollingMethod(
-        that: this,
-      );
+      .crateApiMergedGenericContractDartWrapperPollingMethod(that: this);
 
   /// Preload transactions of contract.
   /// from_lt - offset for loading data, string representation of u64
   /// Returns true or throw error.
-  Future<bool> preloadTransactions({required String fromLt}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedGenericContractDartWrapperPreloadTransactions(
-              that: this, fromLt: fromLt);
+  Future<bool> preloadTransactions({required String fromLt}) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedGenericContractDartWrapperPreloadTransactions(
+        that: this,
+        fromLt: fromLt,
+      );
 
   /// Refresh contract and update its data.
   /// Returns true or throw error.
   Future<bool> refresh() => NekotonBridge.instance.api
-          .crateApiMergedGenericContractDartWrapperRefresh(
-        that: this,
-      );
+      .crateApiMergedGenericContractDartWrapperRefresh(that: this);
 
   /// Send message to blockchain and receive transaction of send.
   /// signed_message - json-encoded SignedMessage.
   /// Returns json-encoded PendingTransaction or throw error.
   Future<String> send({required String signedMessage}) =>
       NekotonBridge.instance.api.crateApiMergedGenericContractDartWrapperSend(
-          that: this, signedMessage: signedMessage);
+        that: this,
+        signedMessage: signedMessage,
+      );
 
   /// Create GenericContract by subscribing to its instance.
   /// address - address of contract
   /// preload_transactions - if transactions must be loaded during creation
-  static Future<GenericContractDartWrapper> subscribe(
-          {required String address,
-          required bool preloadTransactions,
-          required ArcTransportBoxTrait transport,
-          required FutureOr<void> Function(String) onMessageSent,
-          required FutureOr<void> Function(String) onMessageExpired,
-          required FutureOr<void> Function(String) onStateChanged,
-          required FutureOr<void> Function(String) onTransactionsFound}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedGenericContractDartWrapperSubscribe(
-              address: address,
-              preloadTransactions: preloadTransactions,
-              transport: transport,
-              onMessageSent: onMessageSent,
-              onMessageExpired: onMessageExpired,
-              onStateChanged: onStateChanged,
-              onTransactionsFound: onTransactionsFound);
+  static Future<GenericContractDartWrapper> subscribe({
+    required String address,
+    required bool preloadTransactions,
+    required ArcTransportBoxTrait transport,
+    required FutureOr<void> Function(String) onMessageSent,
+    required FutureOr<void> Function(String) onMessageExpired,
+    required FutureOr<void> Function(String) onStateChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedGenericContractDartWrapperSubscribe(
+        address: address,
+        preloadTransactions: preloadTransactions,
+        transport: transport,
+        onMessageSent: onMessageSent,
+        onMessageExpired: onMessageExpired,
+        onStateChanged: onStateChanged,
+        onTransactionsFound: onTransactionsFound,
+      );
 
   @override
   int get hashCode => innerContract.hashCode;
@@ -944,15 +1021,15 @@ class GenericContractDartWrapper {
 class GqlConnectionDartWrapper {
   final ArcGqlConnectionBoxTrait innerConnection;
 
-  const GqlConnectionDartWrapper.raw({
-    required this.innerConnection,
-  });
+  const GqlConnectionDartWrapper.raw({required this.innerConnection});
 
-  factory GqlConnectionDartWrapper(
-          {required bool isLocal,
-          required FutureOr<String> Function(String) onPost}) =>
-      NekotonBridge.instance.api.crateApiMergedGqlConnectionDartWrapperNew(
-          isLocal: isLocal, onPost: onPost);
+  factory GqlConnectionDartWrapper({
+    required bool isLocal,
+    required FutureOr<String> Function(String) onPost,
+  }) => NekotonBridge.instance.api.crateApiMergedGqlConnectionDartWrapperNew(
+    isLocal: isLocal,
+    onPost: onPost,
+  );
 
   @override
   int get hashCode => innerConnection.hashCode;
@@ -970,21 +1047,20 @@ class GqlConnectionDartWrapper {
 class GqlTransportImpl {
   final ArcTransportBoxTrait innerTransport;
 
-  const GqlTransportImpl.raw({
-    required this.innerTransport,
-  });
+  const GqlTransportImpl.raw({required this.innerTransport});
 
   /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
-  Future<String> getAccountsByCodeHash(
-          {required String codeHash,
-          required int limit,
-          String? continuation}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedGqlTransportImplGetAccountsByCodeHash(
-              that: this,
-              codeHash: codeHash,
-              limit: limit,
-              continuation: continuation);
+  Future<String> getAccountsByCodeHash({
+    required String codeHash,
+    required int limit,
+    String? continuation,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedGqlTransportImplGetAccountsByCodeHash(
+        that: this,
+        codeHash: codeHash,
+        limit: limit,
+        continuation: continuation,
+      );
 
   /// Get transport block by id and return base64 encoded block or throw error
   Future<String> getBlock({required String id}) => NekotonBridge.instance.api
@@ -992,89 +1068,110 @@ class GqlTransportImpl {
 
   /// Get config of transport.
   /// Returns json-encoded BlockchainConfigDef or throw error
-  Future<String> getBlockchainConfig({required bool force}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedGqlTransportImplGetBlockchainConfig(
-              that: this, force: force);
+  Future<String> getBlockchainConfig({required bool force}) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedGqlTransportImplGetBlockchainConfig(
+        that: this,
+        force: force,
+      );
 
   /// Get contract state of address and return json-encoded RawContractState or throw error
   Future<String> getContractState({required String address}) =>
       NekotonBridge.instance.api.crateApiMergedGqlTransportImplGetContractState(
-          that: this, address: address);
+        that: this,
+        address: address,
+      );
 
   /// Call get_dst_transaction of nekoton's transport and
   /// return option json-encoded RawTransaction or throw error
   Future<String?> getDstTransaction({required String messageHash}) =>
       NekotonBridge.instance.api
           .crateApiMergedGqlTransportImplGetDstTransaction(
-              that: this, messageHash: messageHash);
+            that: this,
+            messageHash: messageHash,
+          );
 
   Future<String> getFeeFactors({required bool isMasterchain}) =>
       NekotonBridge.instance.api.crateApiMergedGqlTransportImplGetFeeFactors(
-          that: this, isMasterchain: isMasterchain);
+        that: this,
+        isMasterchain: isMasterchain,
+      );
 
   /// Get full contract state of address and return json-encoded FullContractState or throw error
   Future<String?> getFullContractState({required String address}) =>
       NekotonBridge.instance.api
           .crateApiMergedGqlTransportImplGetFullContractState(
-              that: this, address: address);
+            that: this,
+            address: address,
+          );
 
   /// Get latest block by address and return it or throw error
   Future<LatestBlock> getLatestBlock({required String address}) =>
       NekotonBridge.instance.api.crateApiMergedGqlTransportImplGetLatestBlock(
-          that: this, address: address);
+        that: this,
+        address: address,
+      );
 
   /// Get id of network or throw error
-  Future<int> getNetworkId() =>
-      NekotonBridge.instance.api.crateApiMergedGqlTransportImplGetNetworkId(
-        that: this,
-      );
+  Future<int> getNetworkId() => NekotonBridge.instance.api
+      .crateApiMergedGqlTransportImplGetNetworkId(that: this);
 
   /// Get transport signature id and return it or throw error
-  Future<int?> getSignatureId() =>
-      NekotonBridge.instance.api.crateApiMergedGqlTransportImplGetSignatureId(
-        that: this,
-      );
+  Future<int?> getSignatureId() => NekotonBridge.instance.api
+      .crateApiMergedGqlTransportImplGetSignatureId(that: this);
 
   /// Get single transaction by its hash.
   /// Return json-encoded Transaction or throw error
-  Future<String?> getTransaction({required String hash}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedGqlTransportImplGetTransaction(that: this, hash: hash);
+  Future<String?> getTransaction({required String hash}) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedGqlTransportImplGetTransaction(that: this, hash: hash);
 
   /// Get list of transactions by address.
   /// Return json-encoded TransactionsList or throw error
-  Future<String> getTransactions(
-          {required String address, String? fromLt, required int count}) =>
+  Future<String> getTransactions({
+    required String address,
+    String? fromLt,
+    required int count,
+  }) =>
       NekotonBridge.instance.api.crateApiMergedGqlTransportImplGetTransactions(
-          that: this, address: address, fromLt: fromLt, count: count);
+        that: this,
+        address: address,
+        fromLt: fromLt,
+        count: count,
+      );
 
   factory GqlTransportImpl({required GqlConnectionDartWrapper gqlConnection}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedGqlTransportImplNew(gqlConnection: gqlConnection);
+      NekotonBridge.instance.api.crateApiMergedGqlTransportImplNew(
+        gqlConnection: gqlConnection,
+      );
 
-  Future<String> simulateTransactionTree(
-          {required String signedMessage,
-          required List<int> ignoredComputePhaseCodes,
-          required List<int> ignoredActionPhaseCodes}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedGqlTransportImplSimulateTransactionTree(
-              that: this,
-              signedMessage: signedMessage,
-              ignoredComputePhaseCodes: ignoredComputePhaseCodes,
-              ignoredActionPhaseCodes: ignoredActionPhaseCodes);
+  Future<String> simulateTransactionTree({
+    required String signedMessage,
+    required List<int> ignoredComputePhaseCodes,
+    required List<int> ignoredActionPhaseCodes,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedGqlTransportImplSimulateTransactionTree(
+        that: this,
+        signedMessage: signedMessage,
+        ignoredComputePhaseCodes: ignoredComputePhaseCodes,
+        ignoredActionPhaseCodes: ignoredActionPhaseCodes,
+      );
 
   /// Wait until next block will come to blockchain and return its id or throw error
   /// timeout - in milliseconds
-  Future<String> waitForNextBlock(
-          {required String currentBlockId,
-          required String address,
-          required BigInt timeout}) =>
+  Future<String> waitForNextBlock({
+    required String currentBlockId,
+    required String address,
+    required BigInt timeout,
+  }) =>
       NekotonBridge.instance.api.crateApiMergedGqlTransportImplWaitForNextBlock(
-          that: this,
-          currentBlockId: currentBlockId,
-          address: address,
-          timeout: timeout);
+        that: this,
+        currentBlockId: currentBlockId,
+        address: address,
+        timeout: timeout,
+      );
 
   @override
   int get hashCode => innerTransport.hashCode;
@@ -1093,55 +1190,53 @@ class GqlTransportImpl {
 class JettonWalletDartWrapper {
   final ArcJettonWalletBoxTrait innerWallet;
 
-  const JettonWalletDartWrapper({
-    required this.innerWallet,
-  });
+  const JettonWalletDartWrapper({required this.innerWallet});
 
   /// Get address of wallet.
-  Future<String> address() =>
-      NekotonBridge.instance.api.crateApiMergedJettonWalletDartWrapperAddress(
-        that: this,
-      );
+  Future<String> address() => NekotonBridge.instance.api
+      .crateApiMergedJettonWalletDartWrapperAddress(that: this);
 
   /// Get balance of wallet.
   /// Return string representation of rust BigUInt
-  Future<String> balance() =>
-      NekotonBridge.instance.api.crateApiMergedJettonWalletDartWrapperBalance(
-        that: this,
-      );
+  Future<String> balance() => NekotonBridge.instance.api
+      .crateApiMergedJettonWalletDartWrapperBalance(that: this);
 
   /// Get json-encoded ContractState or throw error.
   Future<String> contractState() => NekotonBridge.instance.api
-          .crateApiMergedJettonWalletDartWrapperContractState(
-        that: this,
-      );
+      .crateApiMergedJettonWalletDartWrapperContractState(that: this);
 
   Future<String> estimateMinAttachedAmount({required String destination}) =>
       NekotonBridge.instance.api
           .crateApiMergedJettonWalletDartWrapperEstimateMinAttachedAmount(
-              that: this, destination: destination);
+            that: this,
+            destination: destination,
+          );
 
   /// Get details about root contract by address of JettonWallet
   /// Return json-encoded RootJettonContractDetails
   /// or throw error.
-  static Future<String> getJettonRootDetails(
-          {required ArcTransportBoxTrait transport,
-          required String tokenRootAddress}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedJettonWalletDartWrapperGetJettonRootDetails(
-              transport: transport, tokenRootAddress: tokenRootAddress);
+  static Future<String> getJettonRootDetails({
+    required ArcTransportBoxTrait transport,
+    required String tokenRootAddress,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedJettonWalletDartWrapperGetJettonRootDetails(
+        transport: transport,
+        tokenRootAddress: tokenRootAddress,
+      );
 
   /// Get details about root contract by address of JettonWallet
   /// Return json-encoded list with 2 positions:
   /// 0: Address of root contract
   /// 1: RootJettonContractDetails of root contract
   /// or throw error.
-  static Future<String> getJettonRootDetailsFromJettonWallet(
-          {required ArcTransportBoxTrait transport,
-          required String tokenWalletAddress}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedJettonWalletDartWrapperGetJettonRootDetailsFromJettonWallet(
-              transport: transport, tokenWalletAddress: tokenWalletAddress);
+  static Future<String> getJettonRootDetailsFromJettonWallet({
+    required ArcTransportBoxTrait transport,
+    required String tokenWalletAddress,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedJettonWalletDartWrapperGetJettonRootDetailsFromJettonWallet(
+        transport: transport,
+        tokenWalletAddress: tokenWalletAddress,
+      );
 
   /// Get details about token wallet by address of wallet
   /// address - address of wallet
@@ -1149,33 +1244,40 @@ class JettonWalletDartWrapper {
   /// 0: JettonWalletDetails
   /// 1: RootJettonContractDetails
   /// or throw error
-  static Future<String> getJettonWalletDetails(
-          {required ArcTransportBoxTrait transport, required String address}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedJettonWalletDartWrapperGetJettonWalletDetails(
-              transport: transport, address: address);
+  static Future<String> getJettonWalletDetails({
+    required ArcTransportBoxTrait transport,
+    required String address,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedJettonWalletDartWrapperGetJettonWalletDetails(
+        transport: transport,
+        address: address,
+      );
 
   /// Handle block of blockchain.
   /// block - base64-encoded Block.
   /// Return true or throw error.
-  Future<bool> handleBlock({required String block}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedJettonWalletDartWrapperHandleBlock(
-              that: this, block: block);
+  Future<bool> handleBlock({required String block}) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedJettonWalletDartWrapperHandleBlock(
+        that: this,
+        block: block,
+      );
 
   /// Get address of owner of wallet.
-  Future<String> owner() =>
-      NekotonBridge.instance.api.crateApiMergedJettonWalletDartWrapperOwner(
-        that: this,
-      );
+  Future<String> owner() => NekotonBridge.instance.api
+      .crateApiMergedJettonWalletDartWrapperOwner(that: this);
 
   /// Preload transactions of wallet.
   /// from_lt - offset for loading data, string representation of u64
   /// Returns true or throw error.
-  Future<bool> preloadTransactions({required String fromLt}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedJettonWalletDartWrapperPreloadTransactions(
-              that: this, fromLt: fromLt);
+  Future<bool> preloadTransactions({required String fromLt}) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedJettonWalletDartWrapperPreloadTransactions(
+        that: this,
+        fromLt: fromLt,
+      );
 
   /// Prepare transferring tokens from this wallet to other.
   /// destination - address of account that should receive token
@@ -1185,49 +1287,50 @@ class JettonWalletDartWrapper {
   /// attached_amount - string representation of rust u64, default 400000000. How many native tokens
   ///   should be attached to transfer.
   /// Return json-encoded InternalMessage or throw error.
-  Future<String> prepareTransfer(
-          {required String amount,
-          required String destination,
-          required String remainingGasTo,
-          String? customPayload,
-          required String callbackValue,
-          String? callbackPayload,
-          String? attachedAmount}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedJettonWalletDartWrapperPrepareTransfer(
-              that: this,
-              amount: amount,
-              destination: destination,
-              remainingGasTo: remainingGasTo,
-              customPayload: customPayload,
-              callbackValue: callbackValue,
-              callbackPayload: callbackPayload,
-              attachedAmount: attachedAmount);
+  Future<String> prepareTransfer({
+    required String amount,
+    required String destination,
+    required String remainingGasTo,
+    String? customPayload,
+    required String callbackValue,
+    String? callbackPayload,
+    String? attachedAmount,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedJettonWalletDartWrapperPrepareTransfer(
+        that: this,
+        amount: amount,
+        destination: destination,
+        remainingGasTo: remainingGasTo,
+        customPayload: customPayload,
+        callbackValue: callbackValue,
+        callbackPayload: callbackPayload,
+        attachedAmount: attachedAmount,
+      );
 
   /// Refresh wallet and update its data.
   /// Returns true or throw error.
-  Future<bool> refresh() =>
-      NekotonBridge.instance.api.crateApiMergedJettonWalletDartWrapperRefresh(
-        that: this,
-      );
+  Future<bool> refresh() => NekotonBridge.instance.api
+      .crateApiMergedJettonWalletDartWrapperRefresh(that: this);
 
   /// Create JettonWallet by subscribing to its instance.
   /// owner - address of account that is owner of wallet
   /// root_token_contract - address of contract in blockchain
-  static Future<JettonWalletDartWrapper> subscribe(
-          {required String owner,
-          required String rootTokenContract,
-          required ArcTransportBoxTrait transport,
-          required bool preloadTransactions,
-          required FutureOr<void> Function(String) onBalanceChanged,
-          required FutureOr<void> Function(String) onTransactionsFound}) =>
+  static Future<JettonWalletDartWrapper> subscribe({
+    required String owner,
+    required String rootTokenContract,
+    required ArcTransportBoxTrait transport,
+    required bool preloadTransactions,
+    required FutureOr<void> Function(String) onBalanceChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+  }) =>
       NekotonBridge.instance.api.crateApiMergedJettonWalletDartWrapperSubscribe(
-          owner: owner,
-          rootTokenContract: rootTokenContract,
-          transport: transport,
-          preloadTransactions: preloadTransactions,
-          onBalanceChanged: onBalanceChanged,
-          onTransactionsFound: onTransactionsFound);
+        owner: owner,
+        rootTokenContract: rootTokenContract,
+        transport: transport,
+        preloadTransactions: preloadTransactions,
+        onBalanceChanged: onBalanceChanged,
+        onTransactionsFound: onTransactionsFound,
+      );
 
   @override
   int get hashCode => innerWallet.hashCode;
@@ -1247,14 +1350,13 @@ class JettonWalletDartWrapper {
 class JrpcConnectionDartWrapper {
   final ArcJrpcConnectionBoxTrait innerConnection;
 
-  const JrpcConnectionDartWrapper.raw({
-    required this.innerConnection,
-  });
+  const JrpcConnectionDartWrapper.raw({required this.innerConnection});
 
-  factory JrpcConnectionDartWrapper(
-          {required FutureOr<String> Function(String) onPost}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedJrpcConnectionDartWrapperNew(onPost: onPost);
+  factory JrpcConnectionDartWrapper({
+    required FutureOr<String> Function(String) onPost,
+  }) => NekotonBridge.instance.api.crateApiMergedJrpcConnectionDartWrapperNew(
+    onPost: onPost,
+  );
 
   @override
   int get hashCode => innerConnection.hashCode;
@@ -1275,92 +1377,109 @@ class JrpcConnectionDartWrapper {
 class JrpcTransportImpl {
   final ArcTransportBoxTrait innerTransport;
 
-  const JrpcTransportImpl.raw({
-    required this.innerTransport,
-  });
+  const JrpcTransportImpl.raw({required this.innerTransport});
 
   /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
-  Future<String> getAccountsByCodeHash(
-          {required String codeHash,
-          required int limit,
-          String? continuation}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedJrpcTransportImplGetAccountsByCodeHash(
-              that: this,
-              codeHash: codeHash,
-              limit: limit,
-              continuation: continuation);
+  Future<String> getAccountsByCodeHash({
+    required String codeHash,
+    required int limit,
+    String? continuation,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedJrpcTransportImplGetAccountsByCodeHash(
+        that: this,
+        codeHash: codeHash,
+        limit: limit,
+        continuation: continuation,
+      );
 
   /// Get config of transport.
   /// Returns json-encoded BlockchainConfigDef or throw error
-  Future<String> getBlockchainConfig({required bool force}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedJrpcTransportImplGetBlockchainConfig(
-              that: this, force: force);
+  Future<String> getBlockchainConfig({required bool force}) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedJrpcTransportImplGetBlockchainConfig(
+        that: this,
+        force: force,
+      );
 
   /// Get contract state of address and return json-encoded RawContractState or throw error
-  Future<String> getContractState({required String address}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedJrpcTransportImplGetContractState(
-              that: this, address: address);
+  Future<String> getContractState({required String address}) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedJrpcTransportImplGetContractState(
+        that: this,
+        address: address,
+      );
 
   /// Call get_dst_transaction of nekoton's transport and
   /// return option json-encoded RawTransaction or throw error
   Future<String?> getDstTransaction({required String messageHash}) =>
       NekotonBridge.instance.api
           .crateApiMergedJrpcTransportImplGetDstTransaction(
-              that: this, messageHash: messageHash);
+            that: this,
+            messageHash: messageHash,
+          );
 
   Future<String> getFeeFactors({required bool isMasterchain}) =>
       NekotonBridge.instance.api.crateApiMergedJrpcTransportImplGetFeeFactors(
-          that: this, isMasterchain: isMasterchain);
+        that: this,
+        isMasterchain: isMasterchain,
+      );
 
   /// Get full contract state of address and return json-encoded FullContractState or throw error
   Future<String?> getFullContractState({required String address}) =>
       NekotonBridge.instance.api
           .crateApiMergedJrpcTransportImplGetFullContractState(
-              that: this, address: address);
+            that: this,
+            address: address,
+          );
 
   /// Get id of network or throw error
-  Future<int> getNetworkId() =>
-      NekotonBridge.instance.api.crateApiMergedJrpcTransportImplGetNetworkId(
-        that: this,
-      );
+  Future<int> getNetworkId() => NekotonBridge.instance.api
+      .crateApiMergedJrpcTransportImplGetNetworkId(that: this);
 
   /// Get transport signature id and return it or throw error
-  Future<int?> getSignatureId() =>
-      NekotonBridge.instance.api.crateApiMergedJrpcTransportImplGetSignatureId(
-        that: this,
-      );
+  Future<int?> getSignatureId() => NekotonBridge.instance.api
+      .crateApiMergedJrpcTransportImplGetSignatureId(that: this);
 
   /// Get single transaction by its hash.
   /// Return json-encoded Transaction or throw error
   Future<String?> getTransaction({required String hash}) => NekotonBridge
-      .instance.api
+      .instance
+      .api
       .crateApiMergedJrpcTransportImplGetTransaction(that: this, hash: hash);
 
   /// Get list of transactions by address.
   /// Return json-encoded TransactionsList or throw error
-  Future<String> getTransactions(
-          {required String address, String? fromLt, required int count}) =>
+  Future<String> getTransactions({
+    required String address,
+    String? fromLt,
+    required int count,
+  }) =>
       NekotonBridge.instance.api.crateApiMergedJrpcTransportImplGetTransactions(
-          that: this, address: address, fromLt: fromLt, count: count);
+        that: this,
+        address: address,
+        fromLt: fromLt,
+        count: count,
+      );
 
-  factory JrpcTransportImpl(
-          {required JrpcConnectionDartWrapper jrpcConnection}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedJrpcTransportImplNew(jrpcConnection: jrpcConnection);
+  factory JrpcTransportImpl({
+    required JrpcConnectionDartWrapper jrpcConnection,
+  }) => NekotonBridge.instance.api.crateApiMergedJrpcTransportImplNew(
+    jrpcConnection: jrpcConnection,
+  );
 
-  Future<String> simulateTransactionTree(
-          {required String signedMessage,
-          required List<int> ignoredComputePhaseCodes,
-          required List<int> ignoredActionPhaseCodes}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedJrpcTransportImplSimulateTransactionTree(
-              that: this,
-              signedMessage: signedMessage,
-              ignoredComputePhaseCodes: ignoredComputePhaseCodes,
-              ignoredActionPhaseCodes: ignoredActionPhaseCodes);
+  Future<String> simulateTransactionTree({
+    required String signedMessage,
+    required List<int> ignoredComputePhaseCodes,
+    required List<int> ignoredActionPhaseCodes,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedJrpcTransportImplSimulateTransactionTree(
+        that: this,
+        signedMessage: signedMessage,
+        ignoredComputePhaseCodes: ignoredComputePhaseCodes,
+        ignoredActionPhaseCodes: ignoredActionPhaseCodes,
+      );
 
   @override
   int get hashCode => innerTransport.hashCode;
@@ -1379,40 +1498,46 @@ class JrpcTransportImpl {
 class KeystoreDartWrapper {
   final ArcKeyStoreApiBoxTrait innerKeystore;
 
-  const KeystoreDartWrapper({
-    required this.innerKeystore,
-  });
+  const KeystoreDartWrapper({required this.innerKeystore});
 
   /// Insert new key in keystore. Returns json-encoded KeystoreEntry or throw error.
   /// input - json-encoded action specified for signer eg EncryptedKeyCreateInput or
   ///   DerivedKeyCreateInput or LedgerKeyCreateInput
   Future<String> addKey({required KeySigner signer, required String input}) =>
       NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperAddKey(
-          that: this, signer: signer, input: input);
+        that: this,
+        signer: signer,
+        input: input,
+      );
 
   /// Method same as add_key but allows add multiple keys at time.
   /// Returns json-encoded list of KeyStoreEntry or throw error.
   /// input - json-encoded list of inputs, same as in add_key method
   Future<String> addKeys({required KeySigner signer, required String input}) =>
       NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperAddKeys(
-          that: this, signer: signer, input: input);
+        that: this,
+        signer: signer,
+        input: input,
+      );
 
   /// Clear KeyStore and remove all entries and all sensitive data.
-  Future<String> clearKeystore() =>
-      NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperClearKeystore(
-        that: this,
-      );
+  Future<String> clearKeystore() => NekotonBridge.instance.api
+      .crateApiMergedKeystoreDartWrapperClearKeystore(that: this);
 
   /// Decrypt json-encoded EncryptedData in data.
   /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
   ///   LedgerSignInput.
   /// Returns base64-encoded data or throw error.
-  Future<String> decrypt(
-          {required KeySigner signer,
-          required String data,
-          required String input}) =>
-      NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperDecrypt(
-          that: this, signer: signer, data: data, input: input);
+  Future<String> decrypt({
+    required KeySigner signer,
+    required String data,
+    required String input,
+  }) => NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperDecrypt(
+    that: this,
+    signer: signer,
+    data: data,
+    input: input,
+  );
 
   /// Encrypt data with specified algorithm and input specified for signer eg EncryptedKeyPassword
   ///   or DerivedKeyPassword or LedgerSignInput.
@@ -1421,143 +1546,168 @@ class KeystoreDartWrapper {
   /// public_keys - list of keys that is used for encryption.
   ///
   /// Returns json-encoded list of EncryptedData or throw error.
-  Future<String> encrypt(
-          {required KeySigner signer,
-          required String data,
-          required List<String> publicKeys,
-          required String algorithm,
-          required String input}) =>
-      NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperEncrypt(
-          that: this,
-          signer: signer,
-          data: data,
-          publicKeys: publicKeys,
-          algorithm: algorithm,
-          input: input);
+  Future<String> encrypt({
+    required KeySigner signer,
+    required String data,
+    required List<String> publicKeys,
+    required String algorithm,
+    required String input,
+  }) => NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperEncrypt(
+    that: this,
+    signer: signer,
+    data: data,
+    publicKeys: publicKeys,
+    algorithm: algorithm,
+    input: input,
+  );
 
   /// Export key and get its seed phrase and mnemonic type.
   /// THIS METHOD DO NOT WORK for LEDGER.
   /// Returns json-encoded EncryptedKeyExportSeedOutput or DerivedKeyExportOutput or throw error
-  Future<String> exportSeed(
-          {required KeySigner signer, required String input}) =>
-      NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperExportSeed(
-          that: this, signer: signer, input: input);
+  Future<String> exportSeed({
+    required KeySigner signer,
+    required String input,
+  }) => NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperExportSeed(
+    that: this,
+    signer: signer,
+    input: input,
+  );
 
   /// Get list of json-encoded KeyStoreEntry or throw error
-  Future<String> getEntries() =>
-      NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperGetEntries(
-        that: this,
-      );
+  Future<String> getEntries() => NekotonBridge.instance.api
+      .crateApiMergedKeystoreDartWrapperGetEntries(that: this);
 
   /// Return list of public keys specified for signer or throw error.
   /// input - json-encoded action specified for signer eg EncryptedKeyGetPublicKeys or
   ///   DerivedKeyGetPublicKeys or LedgerKeyGetPublicKeys
-  Future<List<String>> getPublicKeys(
-          {required KeySigner signer, required String input}) =>
+  Future<List<String>> getPublicKeys({
+    required KeySigner signer,
+    required String input,
+  }) =>
       NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperGetPublicKeys(
-          that: this, signer: signer, input: input);
+        that: this,
+        signer: signer,
+        input: input,
+      );
 
   /// Check if password cached for specified public_key.
   /// duration - timestamp in milliseconds of expiring key.
   /// Returns true/false or throw error.
-  Future<bool> isPasswordCached(
-          {required String publicKey, required BigInt duration}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedKeystoreDartWrapperIsPasswordCached(
-              that: this, publicKey: publicKey, duration: duration);
+  Future<bool> isPasswordCached({
+    required String publicKey,
+    required BigInt duration,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedKeystoreDartWrapperIsPasswordCached(
+        that: this,
+        publicKey: publicKey,
+        duration: duration,
+      );
 
   // HINT: Make it `#[frb(sync)]` to let it become the default constructor of Dart class.
   /// Create KeyStore or throw error
-  static Future<KeystoreDartWrapper> newInstance(
-          {required StorageDartWrapper storage,
-          required List<KeySigner> signers,
-          LedgerConnectionDartWrapper? ledgerConnection}) =>
-      NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperNew(
-          storage: storage,
-          signers: signers,
-          ledgerConnection: ledgerConnection);
+  static Future<KeystoreDartWrapper> newInstance({
+    required StorageDartWrapper storage,
+    required List<KeySigner> signers,
+    LedgerConnectionDartWrapper? ledgerConnection,
+  }) => NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperNew(
+    storage: storage,
+    signers: signers,
+    ledgerConnection: ledgerConnection,
+  );
 
   /// Try to reload all stored data.
   Future<String> reloadKeystore() => NekotonBridge.instance.api
-          .crateApiMergedKeystoreDartWrapperReloadKeystore(
-        that: this,
-      );
+      .crateApiMergedKeystoreDartWrapperReloadKeystore(that: this);
 
   /// Remove public key from KeyStore and return json-encoded KeyStoreEntry if it was removed.
   Future<String?> removeKey({required String publicKey}) =>
       NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperRemoveKey(
-          that: this, publicKey: publicKey);
+        that: this,
+        publicKey: publicKey,
+      );
 
   /// Remove list of public key from KeyStore and return json-encoded list of KeyStoreEntry's
   /// that were removed or throw error.
   Future<String> removeKeys({required List<String> publicKeys}) =>
       NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperRemoveKeys(
-          that: this, publicKeys: publicKeys);
+        that: this,
+        publicKeys: publicKeys,
+      );
 
   /// Sign data and return base64-encoded signature or throw error.
   /// input - json-encoded action for signer eg EncryptedKeyPassword or DerivedKeyPassword or
   ///   LedgerSignInput.
   /// signature_id - id of transport
   /// message - unsigned message that should be signed.
-  Future<String> sign(
-          {required KeySigner signer,
-          required UnsignedMessageImpl message,
-          required String input,
-          int? signatureId}) =>
-      NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperSign(
-          that: this,
-          signer: signer,
-          message: message,
-          input: input,
-          signatureId: signatureId);
+  Future<String> sign({
+    required KeySigner signer,
+    required UnsignedMessageImpl message,
+    required String input,
+    int? signatureId,
+  }) => NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperSign(
+    that: this,
+    signer: signer,
+    message: message,
+    input: input,
+    signatureId: signatureId,
+  );
 
   /// Same method as sign.
   /// data - base64-encoded string.
   /// Return SignedData or throw error.
-  Future<SignedData> signData(
-          {required KeySigner signer,
-          required String data,
-          required String input,
-          int? signatureId}) =>
-      NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperSignData(
-          that: this,
-          signer: signer,
-          data: data,
-          input: input,
-          signatureId: signatureId);
+  Future<SignedData> signData({
+    required KeySigner signer,
+    required String data,
+    required String input,
+    int? signatureId,
+  }) => NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperSignData(
+    that: this,
+    signer: signer,
+    data: data,
+    input: input,
+    signatureId: signatureId,
+  );
 
   /// Same method as sign.
   /// data - base64-encoded string.
   /// Return SignedDataRaw or throw error.
-  Future<SignedDataRaw> signDataRaw(
-          {required KeySigner signer,
-          required String data,
-          required String input,
-          int? signatureId}) =>
-      NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperSignDataRaw(
-          that: this,
-          signer: signer,
-          data: data,
-          input: input,
-          signatureId: signatureId);
+  Future<SignedDataRaw> signDataRaw({
+    required KeySigner signer,
+    required String data,
+    required String input,
+    int? signatureId,
+  }) => NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperSignDataRaw(
+    that: this,
+    signer: signer,
+    data: data,
+    input: input,
+    signatureId: signatureId,
+  );
 
   /// Update key data.
   /// Returns updated json-encoded KeyStoreEntry or throw error.
   /// input - json-encoded action specified for signer eg EncryptedKeyUpdateParams or
   ///   DerivedKeyUpdateParams or LedgerUpdateKeyInput
-  Future<String> updateKey(
-          {required KeySigner signer, required String input}) =>
-      NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperUpdateKey(
-          that: this, signer: signer, input: input);
+  Future<String> updateKey({
+    required KeySigner signer,
+    required String input,
+  }) => NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperUpdateKey(
+    that: this,
+    signer: signer,
+    input: input,
+  );
 
   /// Verify if data is valid with specified signers and connection or not.
   /// Return true/false or throw error.
-  static Future<bool> verifyData(
-          {required List<KeySigner> signers,
-          LedgerConnectionDartWrapper? ledgerConnection,
-          required String data}) =>
-      NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperVerifyData(
-          signers: signers, ledgerConnection: ledgerConnection, data: data);
+  static Future<bool> verifyData({
+    required List<KeySigner> signers,
+    LedgerConnectionDartWrapper? ledgerConnection,
+    required String data,
+  }) => NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperVerifyData(
+    signers: signers,
+    ledgerConnection: ledgerConnection,
+    data: data,
+  );
 
   @override
   int get hashCode => innerKeystore.hashCode;
@@ -1604,20 +1754,18 @@ class LatestBlock {
 class LedgerConnectionDartWrapper {
   final ArcLedgerConnectionBoxTrait innerConnection;
 
-  const LedgerConnectionDartWrapper.raw({
-    required this.innerConnection,
-  });
+  const LedgerConnectionDartWrapper.raw({required this.innerConnection});
 
-  factory LedgerConnectionDartWrapper(
-          {required FutureOr<Uint8List> Function(int) onGetPublicKey,
-          required FutureOr<Uint8List> Function(int, int?, Uint8List) onSign,
-          required FutureOr<Uint8List> Function(
-                  int, int, int?, Uint8List, String)
-              onSignTransaction}) =>
-      NekotonBridge.instance.api.crateApiMergedLedgerConnectionDartWrapperNew(
-          onGetPublicKey: onGetPublicKey,
-          onSign: onSign,
-          onSignTransaction: onSignTransaction);
+  factory LedgerConnectionDartWrapper({
+    required FutureOr<Uint8List> Function(int) onGetPublicKey,
+    required FutureOr<Uint8List> Function(int, int?, Uint8List) onSign,
+    required FutureOr<Uint8List> Function(int, int, int?, Uint8List, String)
+    onSignTransaction,
+  }) => NekotonBridge.instance.api.crateApiMergedLedgerConnectionDartWrapperNew(
+    onGetPublicKey: onGetPublicKey,
+    onSign: onSign,
+    onSignTransaction: onSignTransaction,
+  );
 
   @override
   int get hashCode => innerConnection.hashCode;
@@ -1635,9 +1783,8 @@ sealed class MnemonicType with _$MnemonicType {
   const MnemonicType._();
 
   const factory MnemonicType.legacy() = MnemonicType_Legacy;
-  const factory MnemonicType.bip39(
-    Bip39MnemonicData field0,
-  ) = MnemonicType_Bip39;
+  const factory MnemonicType.bip39(Bip39MnemonicData field0) =
+      MnemonicType_Bip39;
 }
 
 ///----------------------------
@@ -1651,7 +1798,6 @@ enum PollingMethod {
   /// Block-walking for GQL or fast refresh for ADNL.
   /// Used when there are some pending transactions
   reliable,
-  ;
 }
 
 ///----------------------------
@@ -1661,14 +1807,13 @@ enum PollingMethod {
 class ProtoConnectionDartWrapper {
   final ArcProtoConnectionBoxTrait innerConnection;
 
-  const ProtoConnectionDartWrapper.raw({
-    required this.innerConnection,
-  });
+  const ProtoConnectionDartWrapper.raw({required this.innerConnection});
 
-  factory ProtoConnectionDartWrapper(
-          {required FutureOr<Uint8List> Function(Uint8List) onPost}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedProtoConnectionDartWrapperNew(onPost: onPost);
+  factory ProtoConnectionDartWrapper({
+    required FutureOr<Uint8List> Function(Uint8List) onPost,
+  }) => NekotonBridge.instance.api.crateApiMergedProtoConnectionDartWrapperNew(
+    onPost: onPost,
+  );
 
   @override
   int get hashCode => innerConnection.hashCode;
@@ -1689,93 +1834,109 @@ class ProtoConnectionDartWrapper {
 class ProtoTransportImpl {
   final ArcTransportBoxTrait innerTransport;
 
-  const ProtoTransportImpl.raw({
-    required this.innerTransport,
-  });
+  const ProtoTransportImpl.raw({required this.innerTransport});
 
   /// Get list of accounts by code hash. Returns json-encoded AccountsList or throw error
-  Future<String> getAccountsByCodeHash(
-          {required String codeHash,
-          required int limit,
-          String? continuation}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedProtoTransportImplGetAccountsByCodeHash(
-              that: this,
-              codeHash: codeHash,
-              limit: limit,
-              continuation: continuation);
+  Future<String> getAccountsByCodeHash({
+    required String codeHash,
+    required int limit,
+    String? continuation,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedProtoTransportImplGetAccountsByCodeHash(
+        that: this,
+        codeHash: codeHash,
+        limit: limit,
+        continuation: continuation,
+      );
 
   /// Get config of transport.
   /// Returns json-encoded BlockchainConfigDef or throw error
-  Future<String> getBlockchainConfig({required bool force}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedProtoTransportImplGetBlockchainConfig(
-              that: this, force: force);
+  Future<String> getBlockchainConfig({required bool force}) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedProtoTransportImplGetBlockchainConfig(
+        that: this,
+        force: force,
+      );
 
   /// Get contract state of address and return json-encoded RawContractState or throw error
-  Future<String> getContractState({required String address}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedProtoTransportImplGetContractState(
-              that: this, address: address);
+  Future<String> getContractState({required String address}) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedProtoTransportImplGetContractState(
+        that: this,
+        address: address,
+      );
 
   /// Call get_dst_transaction of nekoton's transport and
   /// return option json-encoded RawTransaction or throw error
   Future<String?> getDstTransaction({required String messageHash}) =>
       NekotonBridge.instance.api
           .crateApiMergedProtoTransportImplGetDstTransaction(
-              that: this, messageHash: messageHash);
+            that: this,
+            messageHash: messageHash,
+          );
 
   Future<String> getFeeFactors({required bool isMasterchain}) =>
       NekotonBridge.instance.api.crateApiMergedProtoTransportImplGetFeeFactors(
-          that: this, isMasterchain: isMasterchain);
+        that: this,
+        isMasterchain: isMasterchain,
+      );
 
   /// Get full contract state of address and return json-encoded FullContractState or throw error
   Future<String?> getFullContractState({required String address}) =>
       NekotonBridge.instance.api
           .crateApiMergedProtoTransportImplGetFullContractState(
-              that: this, address: address);
+            that: this,
+            address: address,
+          );
 
   /// Get id of network or throw error
-  Future<int> getNetworkId() =>
-      NekotonBridge.instance.api.crateApiMergedProtoTransportImplGetNetworkId(
-        that: this,
-      );
+  Future<int> getNetworkId() => NekotonBridge.instance.api
+      .crateApiMergedProtoTransportImplGetNetworkId(that: this);
 
   /// Get transport signature id and return it or throw error
-  Future<int?> getSignatureId() =>
-      NekotonBridge.instance.api.crateApiMergedProtoTransportImplGetSignatureId(
-        that: this,
-      );
+  Future<int?> getSignatureId() => NekotonBridge.instance.api
+      .crateApiMergedProtoTransportImplGetSignatureId(that: this);
 
   /// Get single transaction by its hash.
   /// Return json-encoded Transaction or throw error
   Future<String?> getTransaction({required String hash}) => NekotonBridge
-      .instance.api
+      .instance
+      .api
       .crateApiMergedProtoTransportImplGetTransaction(that: this, hash: hash);
 
   /// Get list of transactions by address.
   /// Return json-encoded TransactionsList or throw error
-  Future<String> getTransactions(
-          {required String address, String? fromLt, required int count}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedProtoTransportImplGetTransactions(
-              that: this, address: address, fromLt: fromLt, count: count);
+  Future<String> getTransactions({
+    required String address,
+    String? fromLt,
+    required int count,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedProtoTransportImplGetTransactions(
+        that: this,
+        address: address,
+        fromLt: fromLt,
+        count: count,
+      );
 
-  factory ProtoTransportImpl(
-          {required ProtoConnectionDartWrapper protoConnection}) =>
-      NekotonBridge.instance.api.crateApiMergedProtoTransportImplNew(
-          protoConnection: protoConnection);
+  factory ProtoTransportImpl({
+    required ProtoConnectionDartWrapper protoConnection,
+  }) => NekotonBridge.instance.api.crateApiMergedProtoTransportImplNew(
+    protoConnection: protoConnection,
+  );
 
-  Future<String> simulateTransactionTree(
-          {required String signedMessage,
-          required List<int> ignoredComputePhaseCodes,
-          required List<int> ignoredActionPhaseCodes}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedProtoTransportImplSimulateTransactionTree(
-              that: this,
-              signedMessage: signedMessage,
-              ignoredComputePhaseCodes: ignoredComputePhaseCodes,
-              ignoredActionPhaseCodes: ignoredActionPhaseCodes);
+  Future<String> simulateTransactionTree({
+    required String signedMessage,
+    required List<int> ignoredComputePhaseCodes,
+    required List<int> ignoredActionPhaseCodes,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedProtoTransportImplSimulateTransactionTree(
+        that: this,
+        signedMessage: signedMessage,
+        ignoredComputePhaseCodes: ignoredComputePhaseCodes,
+        ignoredActionPhaseCodes: ignoredActionPhaseCodes,
+      );
 
   @override
   int get hashCode => innerTransport.hashCode;
@@ -1795,22 +1956,21 @@ class ProtoTransportImpl {
 class StorageDartWrapper {
   final ArcStorageBoxTrait innerStorage;
 
-  const StorageDartWrapper.raw({
-    required this.innerStorage,
-  });
+  const StorageDartWrapper.raw({required this.innerStorage});
 
-  factory StorageDartWrapper(
-          {required FutureOr<String?> Function(String) onGet,
-          required FutureOr<void> Function(String, String) onSet,
-          required FutureOr<void> Function(String, String) onSetUnchecked,
-          required FutureOr<void> Function(String) onRemove,
-          required FutureOr<void> Function(String) onRemoveUnchecked}) =>
-      NekotonBridge.instance.api.crateApiMergedStorageDartWrapperNew(
-          onGet: onGet,
-          onSet: onSet,
-          onSetUnchecked: onSetUnchecked,
-          onRemove: onRemove,
-          onRemoveUnchecked: onRemoveUnchecked);
+  factory StorageDartWrapper({
+    required FutureOr<String?> Function(String) onGet,
+    required FutureOr<void> Function(String, String) onSet,
+    required FutureOr<void> Function(String, String) onSetUnchecked,
+    required FutureOr<void> Function(String) onRemove,
+    required FutureOr<void> Function(String) onRemoveUnchecked,
+  }) => NekotonBridge.instance.api.crateApiMergedStorageDartWrapperNew(
+    onGet: onGet,
+    onSet: onSet,
+    onSetUnchecked: onSetUnchecked,
+    onRemove: onRemove,
+    onRemoveUnchecked: onRemoveUnchecked,
+  );
 
   @override
   int get hashCode => innerStorage.hashCode;
@@ -1829,63 +1989,60 @@ class StorageDartWrapper {
 class TokenWalletDartWrapper {
   final ArcTokenWalletBoxTrait innerWallet;
 
-  const TokenWalletDartWrapper({
-    required this.innerWallet,
-  });
+  const TokenWalletDartWrapper({required this.innerWallet});
 
   /// Get address of wallet.
-  Future<String> address() =>
-      NekotonBridge.instance.api.crateApiMergedTokenWalletDartWrapperAddress(
-        that: this,
-      );
+  Future<String> address() => NekotonBridge.instance.api
+      .crateApiMergedTokenWalletDartWrapperAddress(that: this);
 
   /// Get balance of wallet.
   /// Return string representation of rust BigUInt
-  Future<String> balance() =>
-      NekotonBridge.instance.api.crateApiMergedTokenWalletDartWrapperBalance(
-        that: this,
-      );
+  Future<String> balance() => NekotonBridge.instance.api
+      .crateApiMergedTokenWalletDartWrapperBalance(that: this);
 
   /// Get json-encoded ContractState or throw error.
   Future<String> contractState() => NekotonBridge.instance.api
-          .crateApiMergedTokenWalletDartWrapperContractState(
-        that: this,
-      );
+      .crateApiMergedTokenWalletDartWrapperContractState(that: this);
 
-  Future<String> estimateMinAttachedAmount(
-          {required String destination,
-          required String amount,
-          required bool notifyReceiver,
-          String? payload}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTokenWalletDartWrapperEstimateMinAttachedAmount(
-              that: this,
-              destination: destination,
-              amount: amount,
-              notifyReceiver: notifyReceiver,
-              payload: payload);
+  Future<String> estimateMinAttachedAmount({
+    required String destination,
+    required String amount,
+    required bool notifyReceiver,
+    String? payload,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedTokenWalletDartWrapperEstimateMinAttachedAmount(
+        that: this,
+        destination: destination,
+        amount: amount,
+        notifyReceiver: notifyReceiver,
+        payload: payload,
+      );
 
   /// Get details about root contract by address of TokenWallet
   /// Return json-encoded RootTokenContractDetails
   /// or throw error.
-  static Future<String> getTokenRootDetails(
-          {required ArcTransportBoxTrait transport,
-          required String tokenRootAddress}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTokenWalletDartWrapperGetTokenRootDetails(
-              transport: transport, tokenRootAddress: tokenRootAddress);
+  static Future<String> getTokenRootDetails({
+    required ArcTransportBoxTrait transport,
+    required String tokenRootAddress,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedTokenWalletDartWrapperGetTokenRootDetails(
+        transport: transport,
+        tokenRootAddress: tokenRootAddress,
+      );
 
   /// Get details about root contract by address of TokenWallet
   /// Return json-encoded list with 2 positions:
   /// 0: Address of root contract
   /// 1: RootTokenContractDetails of root contract
   /// or throw error.
-  static Future<String> getTokenRootDetailsFromTokenWallet(
-          {required ArcTransportBoxTrait transport,
-          required String tokenWalletAddress}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTokenWalletDartWrapperGetTokenRootDetailsFromTokenWallet(
-              transport: transport, tokenWalletAddress: tokenWalletAddress);
+  static Future<String> getTokenRootDetailsFromTokenWallet({
+    required ArcTransportBoxTrait transport,
+    required String tokenWalletAddress,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedTokenWalletDartWrapperGetTokenRootDetailsFromTokenWallet(
+        transport: transport,
+        tokenWalletAddress: tokenWalletAddress,
+      );
 
   /// Get details about token wallet by address of wallet
   /// address - address of wallet
@@ -1893,33 +2050,40 @@ class TokenWalletDartWrapper {
   /// 0: TokenWalletDetails
   /// 1: RootTokenContractDetails
   /// or throw error
-  static Future<String> getTokenWalletDetails(
-          {required ArcTransportBoxTrait transport, required String address}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTokenWalletDartWrapperGetTokenWalletDetails(
-              transport: transport, address: address);
+  static Future<String> getTokenWalletDetails({
+    required ArcTransportBoxTrait transport,
+    required String address,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedTokenWalletDartWrapperGetTokenWalletDetails(
+        transport: transport,
+        address: address,
+      );
 
   /// Handle block of blockchain.
   /// block - base64-encoded Block.
   /// Return true or throw error.
-  Future<bool> handleBlock({required String block}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTokenWalletDartWrapperHandleBlock(
-              that: this, block: block);
+  Future<bool> handleBlock({required String block}) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedTokenWalletDartWrapperHandleBlock(
+        that: this,
+        block: block,
+      );
 
   /// Get address of owner of wallet.
-  Future<String> owner() =>
-      NekotonBridge.instance.api.crateApiMergedTokenWalletDartWrapperOwner(
-        that: this,
-      );
+  Future<String> owner() => NekotonBridge.instance.api
+      .crateApiMergedTokenWalletDartWrapperOwner(that: this);
 
   /// Preload transactions of wallet.
   /// from_lt - offset for loading data, string representation of u64
   /// Returns true or throw error.
-  Future<bool> preloadTransactions({required String fromLt}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTokenWalletDartWrapperPreloadTransactions(
-              that: this, fromLt: fromLt);
+  Future<bool> preloadTransactions({required String fromLt}) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedTokenWalletDartWrapperPreloadTransactions(
+        that: this,
+        fromLt: fromLt,
+      );
 
   /// Prepare transferring tokens from this wallet to other.
   /// destination - address of account that should receive token
@@ -1929,58 +2093,55 @@ class TokenWalletDartWrapper {
   /// attached_amount - string representation of rust u64, default 400000000. How many native tokens
   ///   should be attached to transfer.
   /// Return json-encoded InternalMessage or throw error.
-  Future<String> prepareTransfer(
-          {required String destination,
-          required String amount,
-          required bool notifyReceiver,
-          String? attachedAmount,
-          String? payload}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTokenWalletDartWrapperPrepareTransfer(
-              that: this,
-              destination: destination,
-              amount: amount,
-              notifyReceiver: notifyReceiver,
-              attachedAmount: attachedAmount,
-              payload: payload);
+  Future<String> prepareTransfer({
+    required String destination,
+    required String amount,
+    required bool notifyReceiver,
+    String? attachedAmount,
+    String? payload,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedTokenWalletDartWrapperPrepareTransfer(
+        that: this,
+        destination: destination,
+        amount: amount,
+        notifyReceiver: notifyReceiver,
+        attachedAmount: attachedAmount,
+        payload: payload,
+      );
 
   /// Refresh wallet and update its data.
   /// Returns true or throw error.
-  Future<bool> refresh() =>
-      NekotonBridge.instance.api.crateApiMergedTokenWalletDartWrapperRefresh(
-        that: this,
-      );
+  Future<bool> refresh() => NekotonBridge.instance.api
+      .crateApiMergedTokenWalletDartWrapperRefresh(that: this);
 
   /// Create TokenWallet by subscribing to its instance.
   /// owner - address of account that is owner of wallet
   /// root_token_contract - address of contract in blockchain
-  static Future<TokenWalletDartWrapper> subscribe(
-          {required String owner,
-          required String rootTokenContract,
-          required ArcTransportBoxTrait transport,
-          required bool preloadTransactions,
-          required FutureOr<void> Function(String) onBalanceChanged,
-          required FutureOr<void> Function(String) onTransactionsFound}) =>
+  static Future<TokenWalletDartWrapper> subscribe({
+    required String owner,
+    required String rootTokenContract,
+    required ArcTransportBoxTrait transport,
+    required bool preloadTransactions,
+    required FutureOr<void> Function(String) onBalanceChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+  }) =>
       NekotonBridge.instance.api.crateApiMergedTokenWalletDartWrapperSubscribe(
-          owner: owner,
-          rootTokenContract: rootTokenContract,
-          transport: transport,
-          preloadTransactions: preloadTransactions,
-          onBalanceChanged: onBalanceChanged,
-          onTransactionsFound: onTransactionsFound);
+        owner: owner,
+        rootTokenContract: rootTokenContract,
+        transport: transport,
+        preloadTransactions: preloadTransactions,
+        onBalanceChanged: onBalanceChanged,
+        onTransactionsFound: onTransactionsFound,
+      );
 
   /// Get symbol of contract of wallet.
   /// Return json-encoded Symbol or throw error
-  Future<String> symbol() =>
-      NekotonBridge.instance.api.crateApiMergedTokenWalletDartWrapperSymbol(
-        that: this,
-      );
+  Future<String> symbol() => NekotonBridge.instance.api
+      .crateApiMergedTokenWalletDartWrapperSymbol(that: this);
 
   /// Get json-encoded TokenWalletVersion or throw error.
-  Future<String> version() =>
-      NekotonBridge.instance.api.crateApiMergedTokenWalletDartWrapperVersion(
-        that: this,
-      );
+  Future<String> version() => NekotonBridge.instance.api
+      .crateApiMergedTokenWalletDartWrapperVersion(that: this);
 
   @override
   int get hashCode => innerWallet.hashCode;
@@ -1996,109 +2157,107 @@ class TokenWalletDartWrapper {
 class TonWalletDartWrapper {
   final ArcTonWalletBoxTrait innerWallet;
 
-  const TonWalletDartWrapper({
-    required this.innerWallet,
-  });
+  const TonWalletDartWrapper({required this.innerWallet});
 
   /// Get address of wallet.
-  Future<String> address() =>
-      NekotonBridge.instance.api.crateApiMergedTonWalletDartWrapperAddress(
-        that: this,
-      );
+  Future<String> address() => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperAddress(that: this);
 
   /// Get json-encoded ContractState or throw error.
   Future<String> contractState() => NekotonBridge.instance.api
-          .crateApiMergedTonWalletDartWrapperContractState(
-        that: this,
-      );
+      .crateApiMergedTonWalletDartWrapperContractState(that: this);
 
   /// Get optional list of custodians.
   /// Returns list of public keys.
-  Future<List<String>?> custodians() =>
-      NekotonBridge.instance.api.crateApiMergedTonWalletDartWrapperCustodians(
-        that: this,
-      );
+  Future<List<String>?> custodians() => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperCustodians(that: this);
 
   /// Get json-encoded TonWalletDetails or throw error.
-  Future<String> details() =>
-      NekotonBridge.instance.api.crateApiMergedTonWalletDartWrapperDetails(
-        that: this,
-      );
+  Future<String> details() => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperDetails(that: this);
 
   /// Calculate fees for transaction.
   /// signed_message - json-encoded SignedMessage.
   /// execution_options - json-encoded ExecutionOptions.
   /// Returns fees as string representation of u128 or throw error.
-  Future<String> estimateFees(
-          {required String signedMessage, String? executionOptions}) =>
+  Future<String> estimateFees({
+    required String signedMessage,
+    String? executionOptions,
+  }) =>
       NekotonBridge.instance.api.crateApiMergedTonWalletDartWrapperEstimateFees(
-          that: this,
-          signedMessage: signedMessage,
-          executionOptions: executionOptions);
+        that: this,
+        signedMessage: signedMessage,
+        executionOptions: executionOptions,
+      );
 
   /// Find list of wallets of public_key and return them.
   /// wallet_types - json-encoded list of WalletType.
   /// public_key - key of account where wallets must be found.
   /// Return json-encoded list of ExistingWalletInfo or throw error.
-  static Future<String> findExistingWallets(
-          {required ArcTransportBoxTrait transport,
-          required String publicKey,
-          required int workchainId,
-          required String walletTypes}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTonWalletDartWrapperFindExistingWallets(
-              transport: transport,
-              publicKey: publicKey,
-              workchainId: workchainId,
-              walletTypes: walletTypes);
+  static Future<String> findExistingWallets({
+    required ArcTransportBoxTrait transport,
+    required String publicKey,
+    required int workchainId,
+    required String walletTypes,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperFindExistingWallets(
+        transport: transport,
+        publicKey: publicKey,
+        workchainId: workchainId,
+        walletTypes: walletTypes,
+      );
 
   /// Get list of custodians of account by address.
   /// Return list of public keys or throw error.
-  static Future<List<String>> getCustodians(
-          {required ArcTransportBoxTrait transport, required String address}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTonWalletDartWrapperGetCustodians(
-              transport: transport, address: address);
+  static Future<List<String>> getCustodians({
+    required ArcTransportBoxTrait transport,
+    required String address,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperGetCustodians(
+        transport: transport,
+        address: address,
+      );
 
   /// Get information of account by its address.
   /// Return json-encoded ExistingWalletInfo or throw error.
-  static Future<String> getExistingWalletInfo(
-          {required ArcTransportBoxTrait transport, required String address}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTonWalletDartWrapperGetExistingWalletInfo(
-              transport: transport, address: address);
+  static Future<String> getExistingWalletInfo({
+    required ArcTransportBoxTrait transport,
+    required String address,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperGetExistingWalletInfo(
+        transport: transport,
+        address: address,
+      );
 
   /// Handle block of blockchain.
   /// block - base64-encoded Block.
   /// Return true or throw error.
   Future<bool> handleBlock({required String block}) => NekotonBridge
-      .instance.api
+      .instance
+      .api
       .crateApiMergedTonWalletDartWrapperHandleBlock(that: this, block: block);
 
   Future<String> makeStateInit() => NekotonBridge.instance.api
-          .crateApiMergedTonWalletDartWrapperMakeStateInit(
-        that: this,
-      );
+      .crateApiMergedTonWalletDartWrapperMakeStateInit(that: this);
 
   /// Get list of json-encoded PendingTransaction or throw error.
   Future<String> pendingTransactions() => NekotonBridge.instance.api
-          .crateApiMergedTonWalletDartWrapperPendingTransactions(
-        that: this,
-      );
+      .crateApiMergedTonWalletDartWrapperPendingTransactions(that: this);
 
   /// Get PollingMethod of wallet or throw error.
   Future<PollingMethod> pollingMethod() => NekotonBridge.instance.api
-          .crateApiMergedTonWalletDartWrapperPollingMethod(
-        that: this,
-      );
+      .crateApiMergedTonWalletDartWrapperPollingMethod(that: this);
 
   /// Preload transactions of wallet.
   /// from_lt - offset for loading data, string representation of u64
   /// Returns true or throw error.
-  Future<bool> preloadTransactions({required String fromLt}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTonWalletDartWrapperPreloadTransactions(
-              that: this, fromLt: fromLt);
+  Future<bool> preloadTransactions({required String fromLt}) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedTonWalletDartWrapperPreloadTransactions(
+        that: this,
+        fromLt: fromLt,
+      );
 
   /// Prepare transaction for confirmation.
   /// contract_state - json-encoded RawContractState
@@ -2106,18 +2265,19 @@ class TonWalletDartWrapper {
   /// transaction_id - id of transaction.
   /// expiration - json-encoded Expiration
   /// Returns UnsignedMessage or throw error.
-  Future<UnsignedMessageImpl> prepareConfirmTransaction(
-          {required String contractState,
-          required String publicKey,
-          required String transactionId,
-          required String expiration}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTonWalletDartWrapperPrepareConfirmTransaction(
-              that: this,
-              contractState: contractState,
-              publicKey: publicKey,
-              transactionId: transactionId,
-              expiration: expiration);
+  Future<UnsignedMessageImpl> prepareConfirmTransaction({
+    required String contractState,
+    required String publicKey,
+    required String transactionId,
+    required String expiration,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperPrepareConfirmTransaction(
+        that: this,
+        contractState: contractState,
+        publicKey: publicKey,
+        transactionId: transactionId,
+        expiration: expiration,
+      );
 
   /// Prepare TonWallet for deploy action.
   /// expiration - json-encoded Expiration.
@@ -2125,25 +2285,28 @@ class TonWalletDartWrapper {
   Future<UnsignedMessageImpl> prepareDeploy({required String expiration}) =>
       NekotonBridge.instance.api
           .crateApiMergedTonWalletDartWrapperPrepareDeploy(
-              that: this, expiration: expiration);
+            that: this,
+            expiration: expiration,
+          );
 
   /// Prepare TonWallet for deploy actions if wallet is multisig.
   /// expiration - json-encoded Expiration.
   /// custodians - list of public keys of custodians.
   /// req_confirms - count of required confirmations from 1 to custodians count
   /// Returns UnsignedMessage or throw error.
-  Future<UnsignedMessageImpl> prepareDeployWithMultipleOwners(
-          {required String expiration,
-          required List<String> custodians,
-          required int reqConfirms,
-          int? expirationTime}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTonWalletDartWrapperPrepareDeployWithMultipleOwners(
-              that: this,
-              expiration: expiration,
-              custodians: custodians,
-              reqConfirms: reqConfirms,
-              expirationTime: expirationTime);
+  Future<UnsignedMessageImpl> prepareDeployWithMultipleOwners({
+    required String expiration,
+    required List<String> custodians,
+    required int reqConfirms,
+    int? expirationTime,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperPrepareDeployWithMultipleOwners(
+        that: this,
+        expiration: expiration,
+        custodians: custodians,
+        reqConfirms: reqConfirms,
+        expirationTime: expirationTime,
+      );
 
   /// Prepare transferring tokens from this wallet to other.
   /// contract_state - json-encoded RawContractState
@@ -2151,136 +2314,127 @@ class TonWalletDartWrapper {
   /// expiration - json-encoded Expiration
   /// params - json-encoded list of TonWalletTransferParams
   /// Returns UnsignedMessage or throw error.
-  Future<UnsignedMessageImpl> prepareTransfer(
-          {required String contractState,
-          required String publicKey,
-          required String expiration,
-          required String params}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTonWalletDartWrapperPrepareTransfer(
-              that: this,
-              contractState: contractState,
-              publicKey: publicKey,
-              expiration: expiration,
-              params: params);
+  Future<UnsignedMessageImpl> prepareTransfer({
+    required String contractState,
+    required String publicKey,
+    required String expiration,
+    required String params,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperPrepareTransfer(
+        that: this,
+        contractState: contractState,
+        publicKey: publicKey,
+        expiration: expiration,
+        params: params,
+      );
 
   /// Get public key of wallet.
-  Future<String> publicKey() =>
-      NekotonBridge.instance.api.crateApiMergedTonWalletDartWrapperPublicKey(
-        that: this,
-      );
+  Future<String> publicKey() => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperPublicKey(that: this);
 
   /// Refresh wallet and update its data.
   /// Returns true or throw error.
-  Future<bool> refresh() =>
-      NekotonBridge.instance.api.crateApiMergedTonWalletDartWrapperRefresh(
-        that: this,
-      );
+  Future<bool> refresh() => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperRefresh(that: this);
 
   /// Send message to blockchain and receive transaction of send.
   /// signed_message - json-encoded SignedMessage.
   /// Returns json-encoded PendingTransaction or throw error.
   Future<String> send({required String signedMessage}) =>
       NekotonBridge.instance.api.crateApiMergedTonWalletDartWrapperSend(
-          that: this, signedMessage: signedMessage);
+        that: this,
+        signedMessage: signedMessage,
+      );
 
   /// Create TonWallet by subscribing to its instance by public_key.
   /// wallet_type - is json-encoded WalletType.
   /// public_key - is string representation of key
-  static Future<TonWalletDartWrapper> subscribe(
-          {required int workchainId,
-          required String publicKey,
-          required String walletType,
-          required ArcTransportBoxTrait transport,
-          required FutureOr<void> Function(String) onMessageSent,
-          required FutureOr<void> Function(String) onMessageExpired,
-          required FutureOr<void> Function(String) onStateChanged,
-          required FutureOr<void> Function(String) onTransactionsFound,
-          required FutureOr<void> Function(String) onDetailsChanged,
-          required FutureOr<void> Function(String) onCustodiansChanged,
-          required FutureOr<void> Function(String)
-              onUnconfirmedTransactionsChanged}) =>
-      NekotonBridge.instance.api.crateApiMergedTonWalletDartWrapperSubscribe(
-          workchainId: workchainId,
-          publicKey: publicKey,
-          walletType: walletType,
-          transport: transport,
-          onMessageSent: onMessageSent,
-          onMessageExpired: onMessageExpired,
-          onStateChanged: onStateChanged,
-          onTransactionsFound: onTransactionsFound,
-          onDetailsChanged: onDetailsChanged,
-          onCustodiansChanged: onCustodiansChanged,
-          onUnconfirmedTransactionsChanged: onUnconfirmedTransactionsChanged);
+  static Future<TonWalletDartWrapper> subscribe({
+    required int workchainId,
+    required String publicKey,
+    required String walletType,
+    required ArcTransportBoxTrait transport,
+    required FutureOr<void> Function(String) onMessageSent,
+    required FutureOr<void> Function(String) onMessageExpired,
+    required FutureOr<void> Function(String) onStateChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+    required FutureOr<void> Function(String) onDetailsChanged,
+    required FutureOr<void> Function(String) onCustodiansChanged,
+    required FutureOr<void> Function(String) onUnconfirmedTransactionsChanged,
+  }) => NekotonBridge.instance.api.crateApiMergedTonWalletDartWrapperSubscribe(
+    workchainId: workchainId,
+    publicKey: publicKey,
+    walletType: walletType,
+    transport: transport,
+    onMessageSent: onMessageSent,
+    onMessageExpired: onMessageExpired,
+    onStateChanged: onStateChanged,
+    onTransactionsFound: onTransactionsFound,
+    onDetailsChanged: onDetailsChanged,
+    onCustodiansChanged: onCustodiansChanged,
+    onUnconfirmedTransactionsChanged: onUnconfirmedTransactionsChanged,
+  );
 
   /// Create TonWallet by subscribing to its instance by address of wallet.
-  static Future<TonWalletDartWrapper> subscribeByAddress(
-          {required String address,
-          required ArcTransportBoxTrait transport,
-          required FutureOr<void> Function(String) onMessageSent,
-          required FutureOr<void> Function(String) onMessageExpired,
-          required FutureOr<void> Function(String) onStateChanged,
-          required FutureOr<void> Function(String) onTransactionsFound,
-          required FutureOr<void> Function(String) onDetailsChanged,
-          required FutureOr<void> Function(String) onCustodiansChanged,
-          required FutureOr<void> Function(String)
-              onUnconfirmedTransactionsChanged}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTonWalletDartWrapperSubscribeByAddress(
-              address: address,
-              transport: transport,
-              onMessageSent: onMessageSent,
-              onMessageExpired: onMessageExpired,
-              onStateChanged: onStateChanged,
-              onTransactionsFound: onTransactionsFound,
-              onDetailsChanged: onDetailsChanged,
-              onCustodiansChanged: onCustodiansChanged,
-              onUnconfirmedTransactionsChanged:
-                  onUnconfirmedTransactionsChanged);
+  static Future<TonWalletDartWrapper> subscribeByAddress({
+    required String address,
+    required ArcTransportBoxTrait transport,
+    required FutureOr<void> Function(String) onMessageSent,
+    required FutureOr<void> Function(String) onMessageExpired,
+    required FutureOr<void> Function(String) onStateChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+    required FutureOr<void> Function(String) onDetailsChanged,
+    required FutureOr<void> Function(String) onCustodiansChanged,
+    required FutureOr<void> Function(String) onUnconfirmedTransactionsChanged,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperSubscribeByAddress(
+        address: address,
+        transport: transport,
+        onMessageSent: onMessageSent,
+        onMessageExpired: onMessageExpired,
+        onStateChanged: onStateChanged,
+        onTransactionsFound: onTransactionsFound,
+        onDetailsChanged: onDetailsChanged,
+        onCustodiansChanged: onCustodiansChanged,
+        onUnconfirmedTransactionsChanged: onUnconfirmedTransactionsChanged,
+      );
 
   /// Create TonWallet by subscribing to its instance by existed instance.
   /// existing_wallet - json-encoded ExistingWalletInfo.
-  static Future<TonWalletDartWrapper> subscribeByExisting(
-          {required String existingWallet,
-          required ArcTransportBoxTrait transport,
-          required FutureOr<void> Function(String) onMessageSent,
-          required FutureOr<void> Function(String) onMessageExpired,
-          required FutureOr<void> Function(String) onStateChanged,
-          required FutureOr<void> Function(String) onTransactionsFound,
-          required FutureOr<void> Function(String) onDetailsChanged,
-          required FutureOr<void> Function(String) onCustodiansChanged,
-          required FutureOr<void> Function(String)
-              onUnconfirmedTransactionsChanged}) =>
-      NekotonBridge.instance.api
-          .crateApiMergedTonWalletDartWrapperSubscribeByExisting(
-              existingWallet: existingWallet,
-              transport: transport,
-              onMessageSent: onMessageSent,
-              onMessageExpired: onMessageExpired,
-              onStateChanged: onStateChanged,
-              onTransactionsFound: onTransactionsFound,
-              onDetailsChanged: onDetailsChanged,
-              onCustodiansChanged: onCustodiansChanged,
-              onUnconfirmedTransactionsChanged:
-                  onUnconfirmedTransactionsChanged);
+  static Future<TonWalletDartWrapper> subscribeByExisting({
+    required String existingWallet,
+    required ArcTransportBoxTrait transport,
+    required FutureOr<void> Function(String) onMessageSent,
+    required FutureOr<void> Function(String) onMessageExpired,
+    required FutureOr<void> Function(String) onStateChanged,
+    required FutureOr<void> Function(String) onTransactionsFound,
+    required FutureOr<void> Function(String) onDetailsChanged,
+    required FutureOr<void> Function(String) onCustodiansChanged,
+    required FutureOr<void> Function(String) onUnconfirmedTransactionsChanged,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperSubscribeByExisting(
+        existingWallet: existingWallet,
+        transport: transport,
+        onMessageSent: onMessageSent,
+        onMessageExpired: onMessageExpired,
+        onStateChanged: onStateChanged,
+        onTransactionsFound: onTransactionsFound,
+        onDetailsChanged: onDetailsChanged,
+        onCustodiansChanged: onCustodiansChanged,
+        onUnconfirmedTransactionsChanged: onUnconfirmedTransactionsChanged,
+      );
 
   /// Get json-encoded list of MultisigPendingTransaction or throw error.
   Future<String> unconfirmedTransactions() => NekotonBridge.instance.api
-          .crateApiMergedTonWalletDartWrapperUnconfirmedTransactions(
-        that: this,
-      );
+      .crateApiMergedTonWalletDartWrapperUnconfirmedTransactions(that: this);
 
   /// Get json-encoded WalletType or throw error.
-  Future<String> walletType() =>
-      NekotonBridge.instance.api.crateApiMergedTonWalletDartWrapperWalletType(
-        that: this,
-      );
+  Future<String> walletType() => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperWalletType(that: this);
 
   /// Get workchain of wallet.
-  Future<int> workchain() =>
-      NekotonBridge.instance.api.crateApiMergedTonWalletDartWrapperWorkchain(
-        that: this,
-      );
+  Future<int> workchain() => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperWorkchain(that: this);
 
   @override
   int get hashCode => innerWallet.hashCode;
@@ -2297,27 +2451,19 @@ class TonWalletDartWrapper {
 class UnsignedMessageImpl {
   final ArcUnsignedMessageBoxTrait innerMessage;
 
-  const UnsignedMessageImpl({
-    required this.innerMessage,
-  });
+  const UnsignedMessageImpl({required this.innerMessage});
 
   /// Return current expiration timestamp of UnsignedMessage
   /// Returns secondsSinceEpoch
-  Future<int> expireAt() =>
-      NekotonBridge.instance.api.crateApiMergedUnsignedMessageImplExpireAt(
-        that: this,
-      );
+  Future<int> expireAt() => NekotonBridge.instance.api
+      .crateApiMergedUnsignedMessageImplExpireAt(that: this);
 
   /// Returns base64 encoded hash string of UnsignedMessage
-  Future<String> hash() =>
-      NekotonBridge.instance.api.crateApiMergedUnsignedMessageImplHash(
-        that: this,
-      );
+  Future<String> hash() => NekotonBridge.instance.api
+      .crateApiMergedUnsignedMessageImplHash(that: this);
 
   Future<UnsignedMessageImpl> refreshTimeout() => NekotonBridge.instance.api
-          .crateApiMergedUnsignedMessageImplRefreshTimeout(
-        that: this,
-      );
+      .crateApiMergedUnsignedMessageImplRefreshTimeout(that: this);
 
   /// Sign message with signature and return json-encoded SignedMessage.
   /// signature receives from KeyStore.sign where data is UnsignedMessage.hash
@@ -2325,10 +2471,8 @@ class UnsignedMessageImpl {
       .crateApiMergedUnsignedMessageImplSign(that: this, signature: signature);
 
   /// Sign message with fake signature and return json-encoded SignedMessage or throws error
-  Future<String> signFake() =>
-      NekotonBridge.instance.api.crateApiMergedUnsignedMessageImplSignFake(
-        that: this,
-      );
+  Future<String> signFake() => NekotonBridge.instance.api
+      .crateApiMergedUnsignedMessageImplSignFake(that: this);
 
   @override
   int get hashCode => innerMessage.hashCode;

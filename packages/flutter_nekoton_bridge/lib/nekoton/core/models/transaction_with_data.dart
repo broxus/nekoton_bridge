@@ -18,8 +18,7 @@ abstract class TransactionWithData<T>
   factory TransactionWithData.fromJson(
     Map<String, dynamic> json,
     T Function(Object? json) fromJsonT,
-  ) =>
-      _$TransactionWithDataFromJson<T>(json, fromJsonT);
+  ) => _$TransactionWithDataFromJson<T>(json, fromJsonT);
 
   @override
   int compareTo(TransactionWithData<T> other) =>

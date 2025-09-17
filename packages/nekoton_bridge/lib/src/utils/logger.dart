@@ -42,11 +42,4 @@ class LogEntry {
           stack == other.stack;
 }
 
-enum LogLevel {
-  trace,
-  debug,
-  info,
-  warn,
-  error,
-  ;
-}
+enum LogLevel { trace, debug, info, warn, error }

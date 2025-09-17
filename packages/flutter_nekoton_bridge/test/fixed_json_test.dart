@@ -13,14 +13,8 @@ void main() {
   test('amountJsonConverter', () {
     // 1 ever
     const encoded = '1000000000';
-    expect(
-      amountJsonConverter.fromJson(encoded),
-      BigInt.from(1000000000),
-    );
+    expect(amountJsonConverter.fromJson(encoded), BigInt.from(1000000000));
 
-    expect(
-      amountJsonConverter.toJson(BigInt.from(1000000000)),
-      encoded,
-    );
+    expect(amountJsonConverter.toJson(BigInt.from(1000000000)), encoded);
   });
 }

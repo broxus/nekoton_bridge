@@ -15,10 +15,7 @@ class SignatureParts {
   /// symbols after 32-th
   final String high;
 
-  const SignatureParts({
-    required this.low,
-    required this.high,
-  });
+  const SignatureParts({required this.low, required this.high});
 
   @override
   int get hashCode => low.hashCode ^ high.hashCode;

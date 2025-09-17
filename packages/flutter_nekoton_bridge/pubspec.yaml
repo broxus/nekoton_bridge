@@ -3,18 +3,18 @@ description: Flutter Nekoton bridge.
 version: 4.0.0-dev.0
 homepage: https://github.com/broxus/nekoton_bridge.git
 repository: https://github.com/broxus/nekoton_bridge.git
+resolution: workspace
 
 environment:
-  sdk: '>=3.5.0 <4.0.0'
-  flutter: '>=3.24.0'
+  sdk: '>=3.9.0 <4.0.0'
+  flutter: '>=3.35.0'
 
 dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.1.8
   rxdart: ^0.28.0
-  money2_fixer: ^3.0.0
-  money2: ^5.4.0
+  money2: ^6.0.0
   nekoton_bridge: ^4.0.0-dev.0
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
@@ -26,7 +26,7 @@ dev_dependencies:
   ffigen: ^19.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
   integration_test:
     sdk: flutter
   mocktail: ^1.0.4

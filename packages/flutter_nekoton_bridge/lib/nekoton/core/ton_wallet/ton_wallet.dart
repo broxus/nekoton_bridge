@@ -26,11 +26,13 @@ class TonWallet implements RefreshingInterface {
       BehaviorSubject<(PendingTransaction, Transaction?)>();
   final _onMessageExpiredController = BehaviorSubject<PendingTransaction>();
   final _onStateChangedController = BehaviorSubject<ContractState>();
-  final _onTransactionsFoundController = BehaviorSubject<
-      (
-        List<TransactionWithData<TransactionAdditionalInfo?>>,
-        TransactionsBatchInfo
-      )>();
+  final _onTransactionsFoundController =
+      BehaviorSubject<
+        (
+          List<TransactionWithData<TransactionAdditionalInfo?>>,
+          TransactionsBatchInfo,
+        )
+      >();
 
   /// Description information about wallet that could be changed and updated
   /// during [_updateData]. It means, that fields could be changed after any
@@ -60,81 +62,78 @@ class TonWallet implements RefreshingInterface {
     required int workchainId,
     required PublicKey publicKey,
     required WalletType walletType,
-  }) =>
-      transport.use(() async {
-        final instance = TonWallet._(transport);
+  }) => transport.use(() async {
+    final instance = TonWallet._(transport);
 
-        instance.wallet = await TonWalletDartWrapper.subscribe(
-          publicKey: publicKey.publicKey,
-          walletType: jsonEncode(walletType),
-          workchainId: workchainId,
-          transport: transport.transportBox,
-          onCustodiansChanged: instance.onCustodiansChanged,
-          onUnconfirmedTransactionsChanged:
-              instance.onUnconfirmedTransactionsChanged,
-          onDetailsChanged: instance.onDetailsChanged,
-          onMessageExpired: instance.onMessageExpired,
-          onMessageSent: instance.onMessageSent,
-          onStateChanged: instance.onStateChanged,
-          onTransactionsFound: instance.onTransactionsFound,
-        );
+    instance.wallet = await TonWalletDartWrapper.subscribe(
+      publicKey: publicKey.publicKey,
+      walletType: jsonEncode(walletType),
+      workchainId: workchainId,
+      transport: transport.transportBox,
+      onCustodiansChanged: instance.onCustodiansChanged,
+      onUnconfirmedTransactionsChanged:
+          instance.onUnconfirmedTransactionsChanged,
+      onDetailsChanged: instance.onDetailsChanged,
+      onMessageExpired: instance.onMessageExpired,
+      onMessageSent: instance.onMessageSent,
+      onStateChanged: instance.onStateChanged,
+      onTransactionsFound: instance.onTransactionsFound,
+    );
 
-        await instance._initInstance();
+    await instance._initInstance();
 
-        return instance;
-      });
+    return instance;
+  });
 
   /// Create TonWallet by subscribing to its instance by address of wallet.
   static Future<TonWallet> subscribeByAddress({
     required Transport transport,
     required Address address,
-  }) =>
-      transport.use(() async {
-        final instance = TonWallet._(transport);
+  }) => transport.use(() async {
+    final instance = TonWallet._(transport);
 
-        instance.wallet = await TonWalletDartWrapper.subscribeByAddress(
-          address: address.address,
-          transport: transport.transportBox,
-          onCustodiansChanged: instance.onCustodiansChanged,
-          onUnconfirmedTransactionsChanged:
-              instance.onUnconfirmedTransactionsChanged,
-          onDetailsChanged: instance.onDetailsChanged,
-          onMessageExpired: instance.onMessageExpired,
-          onMessageSent: instance.onMessageSent,
-          onStateChanged: instance.onStateChanged,
-          onTransactionsFound: instance.onTransactionsFound,
-        );
+    instance.wallet = await TonWalletDartWrapper.subscribeByAddress(
+      address: address.address,
+      transport: transport.transportBox,
+      onCustodiansChanged: instance.onCustodiansChanged,
+      onUnconfirmedTransactionsChanged:
+          instance.onUnconfirmedTransactionsChanged,
+      onDetailsChanged: instance.onDetailsChanged,
+      onMessageExpired: instance.onMessageExpired,
+      onMessageSent: instance.onMessageSent,
+      onStateChanged: instance.onStateChanged,
+      onTransactionsFound: instance.onTransactionsFound,
+    );
 
-        await instance._initInstance();
+    await instance._initInstance();
 
-        return instance;
-      });
+    return instance;
+  });
 
   /// Create TonWallet by subscribing to its instance by existed instance.
   static Future<TonWallet> subscribeByExistingWallet({
     required Transport transport,
     required ExistingWalletInfo existingWallet,
-  }) =>
-      transport.use(() async {
-        final instance = TonWallet._(transport);
+  }) => transport.use(() async {
+    final instance = TonWallet._(transport);
 
-        instance.wallet = await TonWalletDartWrapper.subscribeByExisting(
-          existingWallet: jsonEncode(existingWallet),
-          transport: transport.transportBox,
-          onCustodiansChanged: instance.onCustodiansChanged,
-          onUnconfirmedTransactionsChanged:
-              instance.onUnconfirmedTransactionsChanged,
-          onDetailsChanged: instance.onDetailsChanged,
-          onMessageExpired: instance.onMessageExpired,
-          onMessageSent: instance.onMessageSent,
-          onStateChanged: instance.onStateChanged,
-          onTransactionsFound: instance.onTransactionsFound,
-        );
+    instance.wallet = await TonWalletDartWrapper.subscribeByExisting(
+      existingWallet: jsonEncode(existingWallet),
+      transport: transport.transportBox,
+      onCustodiansChanged: instance.onCustodiansChanged,
+      onUnconfirmedTransactionsChanged:
+          instance.onUnconfirmedTransactionsChanged,
+      onDetailsChanged: instance.onDetailsChanged,
+      onMessageExpired: instance.onMessageExpired,
+      onMessageSent: instance.onMessageSent,
+      onStateChanged: instance.onStateChanged,
+      onTransactionsFound: instance.onTransactionsFound,
+    );
 
-        await instance._initInstance();
+    await instance._initInstance();
 
-        return instance;
-      });
+    return instance;
+  });
 
   /// If any error occurs during first initialization of wallet, it will dispose
   /// wallet and rethrow error;
@@ -192,10 +191,12 @@ class TonWallet implements RefreshingInterface {
   ///
   /// To update data of this stream, wallet must be refreshed via [refresh].
   Stream<
-      (
-        List<TransactionWithData<TransactionAdditionalInfo?>>,
-        TransactionsBatchInfo
-      )> get onTransactionsFoundStream => _onTransactionsFoundController.stream;
+    (
+      List<TransactionWithData<TransactionAdditionalInfo?>>,
+      TransactionsBatchInfo,
+    )
+  >
+  get onTransactionsFoundStream => _onTransactionsFoundController.stream;
 
   /// Get workchain of wallet.
   Future<int> _getWorkchain() => wallet.workchain();
@@ -262,10 +263,9 @@ class TonWallet implements RefreshingInterface {
   /// Returns UnsignedMessage or throw error.
   Future<UnsignedMessage> prepareDeploy({
     required Expiration expiration,
-  }) async =>
-      UnsignedMessage.create(
-        message: await wallet.prepareDeploy(expiration: jsonEncode(expiration)),
-      );
+  }) async => UnsignedMessage.create(
+    message: await wallet.prepareDeploy(expiration: jsonEncode(expiration)),
+  );
 
   /// Prepare TonWallet for deploy actions if wallet is multisig.
   /// [custodians] - list of public keys of custodians.
@@ -276,15 +276,14 @@ class TonWallet implements RefreshingInterface {
     required List<PublicKey> custodians,
     required int reqConfirms,
     int? expirationTime,
-  }) async =>
-      UnsignedMessage.create(
-        message: await wallet.prepareDeployWithMultipleOwners(
-          expiration: jsonEncode(expiration),
-          custodians: custodians.map((key) => key.publicKey).toList(),
-          reqConfirms: reqConfirms,
-          expirationTime: expirationTime,
-        ),
-      );
+  }) async => UnsignedMessage.create(
+    message: await wallet.prepareDeployWithMultipleOwners(
+      expiration: jsonEncode(expiration),
+      custodians: custodians.map((key) => key.publicKey).toList(),
+      reqConfirms: reqConfirms,
+      expirationTime: expirationTime,
+    ),
+  );
 
   /// Prepare transferring tokens from this wallet to other.
   /// [contractState] - wallet contract state
@@ -317,15 +316,14 @@ class TonWallet implements RefreshingInterface {
     required PublicKey publicKey,
     required String transactionId,
     required Expiration expiration,
-  }) async =>
-      UnsignedMessage.create(
-        message: await wallet.prepareConfirmTransaction(
-          contractState: jsonEncode(contractState),
-          publicKey: publicKey.publicKey,
-          expiration: jsonEncode(expiration),
-          transactionId: transactionId,
-        ),
-      );
+  }) async => UnsignedMessage.create(
+    message: await wallet.prepareConfirmTransaction(
+      contractState: jsonEncode(contractState),
+      publicKey: publicKey.publicKey,
+      expiration: jsonEncode(expiration),
+      transactionId: transactionId,
+    ),
+  );
 
   /// Calculate fees for transaction.
   /// Returns representation of u128 or throw error.
@@ -335,8 +333,9 @@ class TonWallet implements RefreshingInterface {
   }) async {
     final fee = await wallet.estimateFees(
       signedMessage: jsonEncode(signedMessage),
-      executionOptions:
-          executionOptions != null ? jsonEncode(executionOptions) : null,
+      executionOptions: executionOptions != null
+          ? jsonEncode(executionOptions)
+          : null,
     );
     return BigInt.parse(fee);
   }
@@ -466,11 +465,13 @@ class TonWallet implements RefreshingInterface {
     final json = jsonDecode(payload) as List<dynamic>;
 
     final pendingTransactionJson = json.first as Map<String, dynamic>;
-    final pendingTransaction =
-        PendingTransaction.fromJson(pendingTransactionJson);
+    final pendingTransaction = PendingTransaction.fromJson(
+      pendingTransactionJson,
+    );
     final transactionJson = json.last as Map<String, dynamic>?;
-    final transaction =
-        transactionJson != null ? Transaction.fromJson(transactionJson) : null;
+    final transaction = transactionJson != null
+        ? Transaction.fromJson(transactionJson)
+        : null;
     _onMessageSentController.add((pendingTransaction, transaction));
   }
 
@@ -538,9 +539,7 @@ class TonWallet implements RefreshingInterface {
 
     final json = jsonDecode(payload) as List<dynamic>;
     final custodians = json
-        .map(
-          (key) => PublicKey(publicKey: key as String),
-        )
+        .map((key) => PublicKey(publicKey: key as String))
         .toList();
 
     _custodians = custodians;
@@ -555,9 +554,7 @@ class TonWallet implements RefreshingInterface {
 
     final unconfirmedTransactions = json
         .cast<Map<String, dynamic>>()
-        .map(
-          (e) => MultisigPendingTransaction.fromJson(e),
-        )
+        .map((e) => MultisigPendingTransaction.fromJson(e))
         .toList();
 
     _unconfirmedTransactions = unconfirmedTransactions;

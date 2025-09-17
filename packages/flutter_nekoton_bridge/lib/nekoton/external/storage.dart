@@ -2,15 +2,11 @@ import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
 typedef StorageGet = Future<String?> Function(String key);
 
-typedef StorageSet = Future<void> Function({
-  required String key,
-  required String value,
-});
+typedef StorageSet =
+    Future<void> Function({required String key, required String value});
 
-typedef StorageSetUnchecked = void Function({
-  required String key,
-  required String value,
-});
+typedef StorageSetUnchecked =
+    void Function({required String key, required String value});
 
 typedef StorageRemove = Future<void> Function(String key);
 

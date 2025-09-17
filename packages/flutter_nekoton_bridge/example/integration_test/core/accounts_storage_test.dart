@@ -12,17 +12,11 @@ class MockedStorageMethods {
     return data[key];
   }
 
-  Future<void> set({
-    required String key,
-    required String value,
-  }) async {
+  Future<void> set({required String key, required String value}) async {
     data[key] = value;
   }
 
-  void setUnchecked({
-    required String key,
-    required String value,
-  }) {
+  void setUnchecked({required String key, required String value}) {
     data[key] = value;
   }
 

@@ -22,11 +22,13 @@ class JettonWallet implements RefreshingInterface {
 
   /// Controllers that contains data that emits from rust.
   final _onBalanceChangedController = BehaviorSubject<BigInt>();
-  final _onTransactionsFoundController = BehaviorSubject<
-      (
-        List<TransactionWithData<TokenWalletTransaction?>>,
-        TransactionsBatchInfo
-      )>();
+  final _onTransactionsFoundController =
+      BehaviorSubject<
+        (
+          List<TransactionWithData<TokenWalletTransaction?>>,
+          TransactionsBatchInfo,
+        )
+      >();
 
   /// Description information about wallet that could be changed and updated
   /// during [_updateData]. It means, that fields could be changed after any
@@ -62,24 +64,23 @@ class JettonWallet implements RefreshingInterface {
     required Address owner,
     required Address rootTokenContract,
     bool preloadTransactions = false,
-  }) =>
-      transport.use(() async {
-        final instance = JettonWallet._(transport, rootTokenContract);
+  }) => transport.use(() async {
+    final instance = JettonWallet._(transport, rootTokenContract);
 
-        instance.wallet = await JettonWalletDartWrapper.subscribe(
-          transport: transport.transportBox,
-          rootTokenContract: rootTokenContract.address,
-          owner: owner.address,
-          preloadTransactions: preloadTransactions,
-          onBalanceChanged: instance.onBalanceChanged,
-          onTransactionsFound: instance.onTransactionsFound,
-        );
+    instance.wallet = await JettonWalletDartWrapper.subscribe(
+      transport: transport.transportBox,
+      rootTokenContract: rootTokenContract.address,
+      owner: owner.address,
+      preloadTransactions: preloadTransactions,
+      onBalanceChanged: instance.onBalanceChanged,
+      onTransactionsFound: instance.onTransactionsFound,
+    );
 
-        await instance._initInstance();
-        instance._isTransactionsPreloaded = preloadTransactions;
+    await instance._initInstance();
+    instance._isTransactionsPreloaded = preloadTransactions;
 
-        return instance;
-      });
+    return instance;
+  });
 
   /// If any error occurs during first initialization of wallet, it will dispose
   /// wallet and rethrow error;
@@ -111,10 +112,9 @@ class JettonWallet implements RefreshingInterface {
   ///
   /// To update data of this stream, wallet must be refreshed via [refresh].
   Stream<
-      (
-        List<TransactionWithData<TokenWalletTransaction?>>,
-        TransactionsBatchInfo
-      )> get onTransactionsFoundStream => _onTransactionsFoundController.stream;
+    (List<TransactionWithData<TokenWalletTransaction?>>, TransactionsBatchInfo)
+  >
+  get onTransactionsFoundStream => _onTransactionsFoundController.stream;
 
   /// Get address of owner of wallet.
   Future<Address> _getOwner() async => Address(address: await wallet.owner());
@@ -276,7 +276,7 @@ class JettonWallet implements RefreshingInterface {
   /// 1: JettonRootData of root contract
   /// or throw error.
   static Future<(Address, JettonRootData)>
-      getJettonRootDetailsFromJettonWallet({
+  getJettonRootDetailsFromJettonWallet({
     required Transport transport,
     required Address address,
   }) async {

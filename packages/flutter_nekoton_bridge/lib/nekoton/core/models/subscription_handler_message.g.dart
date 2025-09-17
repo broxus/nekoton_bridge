@@ -7,15 +7,12 @@ part of 'subscription_handler_message.dart';
 // **************************************************************************
 
 _SubscriptionHandlerMessage _$SubscriptionHandlerMessageFromJson(
-        Map<String, dynamic> json) =>
-    _SubscriptionHandlerMessage(
-      event: json['event'] as String,
-      payload: json['payload'] as String,
-    );
+  Map<String, dynamic> json,
+) => _SubscriptionHandlerMessage(
+  event: json['event'] as String,
+  payload: json['payload'] as String,
+);
 
 Map<String, dynamic> _$SubscriptionHandlerMessageToJson(
-        _SubscriptionHandlerMessage instance) =>
-    <String, dynamic>{
-      'event': instance.event,
-      'payload': instance.payload,
-    };
+  _SubscriptionHandlerMessage instance,
+) => <String, dynamic>{'event': instance.event, 'payload': instance.payload};

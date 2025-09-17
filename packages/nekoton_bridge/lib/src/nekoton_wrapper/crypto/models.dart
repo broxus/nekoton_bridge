@@ -18,7 +18,5 @@ sealed class KeySigner with _$KeySigner {
 
   /// Do not use this type. This is fucking hack because generator don't want generate
   /// converter for Vec<KeySigner> if it is simple enum
-  const factory KeySigner.stub(
-    bool field0,
-  ) = KeySigner_Stub;
+  const factory KeySigner.stub(bool field0) = KeySigner_Stub;
 }

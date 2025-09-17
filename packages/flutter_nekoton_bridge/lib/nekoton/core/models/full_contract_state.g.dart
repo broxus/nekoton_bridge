@@ -9,12 +9,14 @@ part of 'full_contract_state.dart';
 _FullContractState _$FullContractStateFromJson(Map<String, dynamic> json) =>
     _FullContractState(
       balance: amountJsonConverter.fromJson(json['balance'] as String),
-      genTimings:
-          GenTimings.fromJson(json['genTimings'] as Map<String, dynamic>),
+      genTimings: GenTimings.fromJson(
+        json['genTimings'] as Map<String, dynamic>,
+      ),
       lastTransactionId: json['lastTransactionId'] == null
           ? null
           : LastTransactionId.fromJson(
-              json['lastTransactionId'] as Map<String, dynamic>),
+              json['lastTransactionId'] as Map<String, dynamic>,
+            ),
       isDeployed: json['isDeployed'] as bool,
       codeHash: json['codeHash'] as String?,
       boc: json['boc'] as String,

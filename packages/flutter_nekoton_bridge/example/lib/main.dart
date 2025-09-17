@@ -36,9 +36,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Native Packages'),
-        ),
+        appBar: AppBar(title: const Text('Native Packages')),
         body: const Text('Hello World'),
       ),
     );

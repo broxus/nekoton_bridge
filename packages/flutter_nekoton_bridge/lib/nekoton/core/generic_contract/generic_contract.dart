@@ -114,7 +114,7 @@ class GenericContract implements RefreshingInterface {
   ///
   /// To update data of this stream, contract must be refreshed via [refresh].
   Stream<(List<Transaction>, TransactionsBatchInfo)>
-      get onTransactionsFoundStream => _onTransactionsFoundController.stream;
+  get onTransactionsFoundStream => _onTransactionsFoundController.stream;
 
   /// Get address of contract.
   Future<Address> _getAddress() async =>
@@ -156,9 +156,7 @@ class GenericContract implements RefreshingInterface {
 
   /// Calculate fees for transaction.
   /// Returns fees as string representation of u128 or throw error.
-  Future<String> estimateFees({
-    required SignedMessage signedMessage,
-  }) =>
+  Future<String> estimateFees({required SignedMessage signedMessage}) =>
       contract.estimateFees(signedMessage: jsonEncode(signedMessage));
 
   /// Send message to blockchain and receive transaction of send.
@@ -166,8 +164,9 @@ class GenericContract implements RefreshingInterface {
   Future<PendingTransaction> send({
     required SignedMessage signedMessage,
   }) async {
-    final encoded =
-        await contract.send(signedMessage: jsonEncode(signedMessage));
+    final encoded = await contract.send(
+      signedMessage: jsonEncode(signedMessage),
+    );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
     await _updateData();
     return PendingTransaction.fromJson(decoded);
@@ -226,11 +225,13 @@ class GenericContract implements RefreshingInterface {
     final json = jsonDecode(payload) as List<dynamic>;
 
     final pendingTransactionJson = json.first as Map<String, dynamic>;
-    final pendingTransaction =
-        PendingTransaction.fromJson(pendingTransactionJson);
+    final pendingTransaction = PendingTransaction.fromJson(
+      pendingTransactionJson,
+    );
     final transactionJson = json.last as Map<String, dynamic>?;
-    final transaction =
-        transactionJson != null ? Transaction.fromJson(transactionJson) : null;
+    final transaction = transactionJson != null
+        ? Transaction.fromJson(transactionJson)
+        : null;
     _onMessageSentController.add((pendingTransaction, transaction));
   }
 

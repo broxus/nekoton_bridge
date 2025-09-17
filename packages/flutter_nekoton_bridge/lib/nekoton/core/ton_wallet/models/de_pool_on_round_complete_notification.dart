@@ -19,6 +19,6 @@ sealed class DePoolOnRoundCompleteNotification
   }) = _DePoolOnRoundCompleteNotification;
 
   factory DePoolOnRoundCompleteNotification.fromJson(
-          Map<String, dynamic> json) =>
-      _$DePoolOnRoundCompleteNotificationFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$DePoolOnRoundCompleteNotificationFromJson(json);
 }

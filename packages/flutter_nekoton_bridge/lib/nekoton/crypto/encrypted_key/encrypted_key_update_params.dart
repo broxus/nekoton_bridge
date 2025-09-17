@@ -11,8 +11,8 @@ sealed class EncryptedKeyUpdateParams
     with _$EncryptedKeyUpdateParams
     implements UpdateKeyInput {
   const factory EncryptedKeyUpdateParams.rename(
-          final EncryptedKeyUpdateParamsRename data) =
-      _EncryptedKeyUpdateParamsRename;
+    final EncryptedKeyUpdateParamsRename data,
+  ) = _EncryptedKeyUpdateParamsRename;
 
   const factory EncryptedKeyUpdateParams.changePassword(
     final EncryptedKeyUpdateParamsChangePassword data,

@@ -8,9 +8,8 @@ part 'derived_key_export_output.g.dart';
 abstract class DerivedKeyExportOutput
     with _$DerivedKeyExportOutput
     implements ExportKeyOutput {
-  const factory DerivedKeyExportOutput({
-    required final String phrase,
-  }) = _DerivedKeyExportOutput;
+  const factory DerivedKeyExportOutput({required final String phrase}) =
+      _DerivedKeyExportOutput;
 
   factory DerivedKeyExportOutput.fromJson(Map<String, dynamic> json) =>
       _$DerivedKeyExportOutputFromJson(json);

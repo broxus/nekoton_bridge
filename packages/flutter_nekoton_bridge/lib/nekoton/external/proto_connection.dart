@@ -24,12 +24,7 @@ class ProtoConnection {
 
   final type = TransportType.proto;
 
-  ProtoConnection._(
-    this._client,
-    this.settings,
-    this._name,
-    this._group,
-  );
+  ProtoConnection._(this._client, this.settings, this._name, this._group);
 
   static ProtoConnection create({
     required ProtoConnectionHttpClient client,
@@ -39,9 +34,7 @@ class ProtoConnection {
   }) {
     final instance = ProtoConnection._(client, settings, name, group);
 
-    instance.connection = ProtoConnectionDartWrapper(
-      onPost: instance.post,
-    );
+    instance.connection = ProtoConnectionDartWrapper(onPost: instance.post);
 
     return instance;
   }
@@ -55,9 +48,7 @@ class ProtoConnection {
     try {
       return await _client.post(
         endpoint: settings.endpoint,
-        headers: {
-          'Content-Type': 'application/x-protobuf',
-        },
+        headers: {'Content-Type': 'application/x-protobuf'},
         dataBytes: requestData,
       );
     } catch (error) {

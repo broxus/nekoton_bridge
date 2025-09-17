@@ -10,8 +10,9 @@ _EncryptedData _$EncryptedDataFromJson(Map<String, dynamic> json) =>
     _EncryptedData(
       algorithm: $enumDecode(_$EncryptionAlgorithmEnumMap, json['algorithm']),
       sourcePublicKey: PublicKey.fromJson(json['sourcePublicKey'] as String),
-      recipientPublicKey:
-          PublicKey.fromJson(json['recipientPublicKey'] as String),
+      recipientPublicKey: PublicKey.fromJson(
+        json['recipientPublicKey'] as String,
+      ),
       data: json['data'] as String,
       nonce: json['nonce'] as String,
     );

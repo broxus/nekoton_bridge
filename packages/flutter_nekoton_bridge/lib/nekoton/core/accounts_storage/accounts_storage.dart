@@ -41,8 +41,9 @@ class AccountsStorage {
 
   /// Add new account to storage and return its address or throw error
   Future<Address> addAccount(AccountToAdd account) async {
-    final encoded =
-        await accountsStorage.addAccount(account: jsonEncode(account));
+    final encoded = await accountsStorage.addAccount(
+      account: jsonEncode(account),
+    );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
     await _updateData();
     return AssetsList.fromJson(decoded).address;
@@ -50,8 +51,9 @@ class AccountsStorage {
 
   /// Add list of new accounts to storage and return its addresses.
   Future<List<Address>> addAccounts(List<AccountToAdd> account) async {
-    final encoded =
-        await accountsStorage.addAccounts(accounts: jsonEncode(account));
+    final encoded = await accountsStorage.addAccounts(
+      accounts: jsonEncode(account),
+    );
     final decoded = jsonDecode(encoded) as List<dynamic>;
     await _updateData();
     return decoded
@@ -165,7 +167,8 @@ class AccountsStorage {
   /// Return list of addresses that were removed or throw error.
   Future<List<Address>> removeAccounts(List<Address> addresses) async {
     final encoded = await accountsStorage.removeAccounts(
-        accountAddresses: addresses.map((address) => address.address).toList());
+      accountAddresses: addresses.map((address) => address.address).toList(),
+    );
     final decoded = jsonDecode(encoded) as List<dynamic>;
     await _updateData();
     return decoded

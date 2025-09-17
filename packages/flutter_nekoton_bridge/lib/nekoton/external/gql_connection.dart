@@ -29,12 +29,7 @@ class GqlConnection {
 
   String? _cachedEndpoint;
 
-  GqlConnection._(
-    this._client,
-    this.settings,
-    this._name,
-    this._group,
-  );
+  GqlConnection._(this._client, this.settings, this._name, this._group);
 
   static GqlConnection create({
     required GqlConnectionHttpClient client,
@@ -69,9 +64,7 @@ class GqlConnection {
 
       return await _client.post(
         endpoint: endpoint,
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: {'Content-Type': 'application/json'},
         data: requestData,
       );
     } catch (error) {
@@ -101,19 +94,24 @@ class GqlConnection {
         var checkedEndpoints = 0;
 
         for (final e in settings.endpoints) {
-          _checkLatency(e).whenComplete(() {
-            checkedEndpoints++;
-          }).then((v) {
-            if (!completer.isCompleted) completer.complete(e);
-          }).onError((err, st) {
-            if (checkedEndpoints == endpointsCount && !completer.isCompleted) {
-              completer.completeError(err!, st);
-            }
-          });
+          _checkLatency(e)
+              .whenComplete(() {
+                checkedEndpoints++;
+              })
+              .then((v) {
+                if (!completer.isCompleted) completer.complete(e);
+              })
+              .onError((err, st) {
+                if (checkedEndpoints == endpointsCount &&
+                    !completer.isCompleted) {
+                  completer.completeError(err!, st);
+                }
+              });
         }
 
-        return await completer.future
-            .timeout(Duration(milliseconds: maxLatency));
+        return await completer.future.timeout(
+          Duration(milliseconds: maxLatency),
+        );
       } catch (err, st) {
         debugPrint(err.toString());
         debugPrint(st.toString());

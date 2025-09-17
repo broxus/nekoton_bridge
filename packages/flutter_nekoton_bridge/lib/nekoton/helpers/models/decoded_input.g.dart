@@ -13,7 +13,4 @@ _DecodedInput _$DecodedInputFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$DecodedInputToJson(_DecodedInput instance) =>
-    <String, dynamic>{
-      'method': instance.method,
-      'input': instance.input,
-    };
+    <String, dynamic>{'method': instance.method, 'input': instance.input};

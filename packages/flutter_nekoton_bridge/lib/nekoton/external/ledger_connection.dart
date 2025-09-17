@@ -24,9 +24,7 @@ class LedgerConnection {
 
   final LedgerConnectionHandler _handler;
 
-  LedgerConnection._(
-    this._handler,
-  );
+  LedgerConnection._(this._handler);
 
   static LedgerConnection create(LedgerConnectionHandler handler) {
     final instance = LedgerConnection._(handler);

@@ -38,8 +38,9 @@ void main() {
 
   /// System account address
   const accountAddress = Address(
-      address:
-          '-1:0000000000000000000000000000000000000000000000000000000000000000');
+    address:
+        '-1:0000000000000000000000000000000000000000000000000000000000000000',
+  );
   const accountTransaction =
       'd0a278d82e699a63adeaede7e602ff6da8168c333ceb4f2344f42cb739c28940';
 
@@ -73,8 +74,9 @@ void main() {
         name: name,
         group: networkGroup,
       );
-      final transport =
-          await ProtoTransport.create(protoConnection: connection);
+      final transport = await ProtoTransport.create(
+        protoConnection: connection,
+      );
 
       expect(transport.transport, isNotNull);
     });
@@ -88,8 +90,9 @@ void main() {
         name: name,
         group: networkGroup,
       );
-      final transport =
-          await ProtoTransport.create(protoConnection: connection);
+      final transport = await ProtoTransport.create(
+        protoConnection: connection,
+      );
 
       final signature = await transport.getSignatureId();
 
@@ -107,8 +110,9 @@ void main() {
         name: 'Venom',
         group: 'venom',
       );
-      final transport =
-          await ProtoTransport.create(protoConnection: connection);
+      final transport = await ProtoTransport.create(
+        protoConnection: connection,
+      );
 
       final signature = await transport.getSignatureId();
 
@@ -124,8 +128,9 @@ void main() {
         name: name,
         group: networkGroup,
       );
-      final transport =
-          await ProtoTransport.create(protoConnection: connection);
+      final transport = await ProtoTransport.create(
+        protoConnection: connection,
+      );
 
       final transactions = await transport.getTransactions(
         address: accountAddress,
@@ -144,8 +149,9 @@ void main() {
         name: name,
         group: networkGroup,
       );
-      final transport =
-          await ProtoTransport.create(protoConnection: connection);
+      final transport = await ProtoTransport.create(
+        protoConnection: connection,
+      );
 
       final transaction = await transport.getTransaction(accountTransaction);
 
@@ -165,8 +171,9 @@ void main() {
         name: name,
         group: networkGroup,
       );
-      final transport =
-          await ProtoTransport.create(protoConnection: connection);
+      final transport = await ProtoTransport.create(
+        protoConnection: connection,
+      );
 
       const hash =
           '248ddcef0742827eaa2c25eeb1daa3c94c61dc286c6066f4e7508dcbeb4fa038';
@@ -192,26 +199,27 @@ void main() {
         name: name,
         group: networkGroup,
       );
-      final transport =
-          await ProtoTransport.create(protoConnection: connection);
+      final transport = await ProtoTransport.create(
+        protoConnection: connection,
+      );
 
+      expect(await transport.getTransaction(accountTransaction), isNotNull);
       expect(
-        await transport.getTransaction(accountTransaction),
+        await transport.getTransaction(
+          'f90074116294f0a4295d7ab368af8a1cc75654aad557d3ffd6edb7e8b2020c39',
+        ),
         isNotNull,
       );
       expect(
         await transport.getTransaction(
-            'f90074116294f0a4295d7ab368af8a1cc75654aad557d3ffd6edb7e8b2020c39'),
+          '74773423c867ce433d39612f8c14c49e835500263ced3e045ca560c4383ea6fc',
+        ),
         isNotNull,
       );
       expect(
         await transport.getTransaction(
-            '74773423c867ce433d39612f8c14c49e835500263ced3e045ca560c4383ea6fc'),
-        isNotNull,
-      );
-      expect(
-        await transport.getTransaction(
-            '5c229b34601836743083acf9fd87f164039b75ac7b513b756a06da0e7051fffd'),
+          '5c229b34601836743083acf9fd87f164039b75ac7b513b756a06da0e7051fffd',
+        ),
         isNotNull,
       );
     });
@@ -225,24 +233,20 @@ void main() {
         name: name,
         group: networkGroup,
       );
-      final transport =
-          await ProtoTransport.create(protoConnection: connection);
+      final transport = await ProtoTransport.create(
+        protoConnection: connection,
+      );
 
       final state = await transport.getContractState(accountAddress);
 
       expect(state, isNotNull);
-      expect(
-        switch (state) {
-          RawContractStateExists(:final data) => data,
-          RawContractStateNotExists() => null,
-        },
-        isNotNull,
-      );
+      expect(switch (state) {
+        RawContractStateExists(:final data) => data,
+        RawContractStateNotExists() => null,
+      }, isNotNull);
     });
 
-    testWidgets('getFullContractState ', (
-      WidgetTester tester,
-    ) async {
+    testWidgets('getFullContractState ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final connection = ProtoConnection.create(
@@ -251,8 +255,9 @@ void main() {
         name: name,
         group: networkGroup,
       );
-      final transport =
-          await ProtoTransport.create(protoConnection: connection);
+      final transport = await ProtoTransport.create(
+        protoConnection: connection,
+      );
 
       final state = await transport.getFullContractState(accountAddress);
 
@@ -261,9 +266,7 @@ void main() {
       expect(state.isDeployed, true);
     });
 
-    testWidgets('getContractFields', (
-      WidgetTester tester,
-    ) async {
+    testWidgets('getContractFields', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
       final connection = ProtoConnection.create(
@@ -272,8 +275,9 @@ void main() {
         name: name,
         group: networkGroup,
       );
-      final transport =
-          await ProtoTransport.create(protoConnection: connection);
+      final transport = await ProtoTransport.create(
+        protoConnection: connection,
+      );
 
       final (fields, state) = await transport.getContractFields(
         address: const Address(
@@ -297,8 +301,9 @@ void main() {
         name: name,
         group: networkGroup,
       );
-      final transport =
-          await ProtoTransport.create(protoConnection: connection);
+      final transport = await ProtoTransport.create(
+        protoConnection: connection,
+      );
       final id = await transport.getNetworkId();
       expect(id, 42);
     });
@@ -314,8 +319,9 @@ void main() {
         name: 'Venom',
         group: 'venom',
       );
-      final transport =
-          await ProtoTransport.create(protoConnection: connection);
+      final transport = await ProtoTransport.create(
+        protoConnection: connection,
+      );
       final id = await transport.getNetworkId();
       expect(id, 1);
     });
@@ -329,8 +335,9 @@ void main() {
         name: name,
         group: networkGroup,
       );
-      final transport =
-          await ProtoTransport.create(protoConnection: connection);
+      final transport = await ProtoTransport.create(
+        protoConnection: connection,
+      );
       final config = await transport.getBlockchainConfig();
 
       expect(config.config, isNotEmpty);
@@ -347,8 +354,9 @@ void main() {
         name: name,
         group: networkGroup,
       );
-      final transport =
-          await ProtoTransport.create(protoConnection: connection);
+      final transport = await ProtoTransport.create(
+        protoConnection: connection,
+      );
       const address = Address(
         address:
             '0:f9f575258120bff21afd8c798a5c9e9a2ef0b251e11d9c85fbf43bec968a57c6',
@@ -360,14 +368,16 @@ void main() {
       final message = await wallet.prepareTransfer(
         contractState: await transport.getContractState(address),
         publicKey: const PublicKey(
-            publicKey:
-                '6c2f9514c1c0f2ec54cffe1ac2ba0e85268e76442c14205581ebc808fe7ee52c'),
+          publicKey:
+              '6c2f9514c1c0f2ec54cffe1ac2ba0e85268e76442c14205581ebc808fe7ee52c',
+        ),
         expiration: const Expiration.timeout(60),
         params: [
           TonWalletTransferParams(
             destination: const Address(
-                address:
-                    '-1:06eec9c3a6f122c29697d27ae987e4b911d4dadc937e23c7aa58bbf1e484b20f'),
+              address:
+                  '-1:06eec9c3a6f122c29697d27ae987e4b911d4dadc937e23c7aa58bbf1e484b20f',
+            ),
             amount: BigInt.parse('1000000000'),
             bounce: false,
           ),
@@ -393,8 +403,9 @@ void main() {
         name: name,
         group: networkGroup,
       );
-      final transport =
-          await ProtoTransport.create(protoConnection: connection);
+      final transport = await ProtoTransport.create(
+        protoConnection: connection,
+      );
       final feeFactors = await transport.getFeeFactors(isMasterchain: true);
 
       expect(feeFactors, isNotNull);

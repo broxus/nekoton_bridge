@@ -15,12 +15,12 @@ sealed class TokenWalletTransaction with _$TokenWalletTransaction {
   ) = TokenWalletTransactionInternalTransfer;
 
   const factory TokenWalletTransaction.incomingTransfer(
-          final TokenIncomingTransfer data) =
-      TokenWalletTransactionIncomingTransfer;
+    final TokenIncomingTransfer data,
+  ) = TokenWalletTransactionIncomingTransfer;
 
   const factory TokenWalletTransaction.outgoingTransfer(
-          final TokenOutgoingTransfer data) =
-      TokenWalletTransactionOutgoingTransfer;
+    final TokenOutgoingTransfer data,
+  ) = TokenWalletTransactionOutgoingTransfer;
 
   const factory TokenWalletTransaction.swapBack(final TokenSwapBack data) =
       TokenWalletTransactionSwapBack;

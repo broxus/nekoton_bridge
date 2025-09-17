@@ -14,14 +14,17 @@ void main() {
   const endpoint = 'https://jrpc-ton.broxus.com';
 
   const address = Address(
-      address:
-          '0:2cf545d69ef7331c637cbcbaa358c7d58277a1b5713788736d62435dfa050ced');
+    address:
+        '0:2cf545d69ef7331c637cbcbaa358c7d58277a1b5713788736d62435dfa050ced',
+  );
   const hamsterTokenRoot = Address(
-      address:
-          '0:09f2e59dec406ab26a5259a45d7ff23ef11f3e5c7c21de0b0d2a1cbe52b76b3d');
+    address:
+        '0:09f2e59dec406ab26a5259a45d7ff23ef11f3e5c7c21de0b0d2a1cbe52b76b3d',
+  );
   const tokenWallet = Address(
-      address:
-          '0:2932b05d620dd0520a66b1371e33b04ff4911886afef9b4b0a31f70560067469');
+    address:
+        '0:2932b05d620dd0520a66b1371e33b04ff4911886afef9b4b0a31f70560067469',
+  );
 
   const jrpcSettings = ProtoNetworkSettings(endpoint: endpoint);
   late ProtoTransport transport;
@@ -130,13 +133,15 @@ void main() {
       expect(
         details.$2.adminAddress,
         const Address(
-            address:
-                '0:bbf13a702490ae3b853fde3849b8e7dc1b5f548807a9158753046496a4aed324'),
+          address:
+              '0:bbf13a702490ae3b853fde3849b8e7dc1b5f548807a9158753046496a4aed324',
+        ),
       );
     });
 
-    testWidgets('getJettonRootDetailsFromJettonWallet',
-        (WidgetTester tester) async {
+    testWidgets('getJettonRootDetailsFromJettonWallet', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpAndSettleWithTimeout();
 
       final details = await JettonWallet.getJettonRootDetailsFromJettonWallet(
@@ -148,8 +153,9 @@ void main() {
       expect(
         details.$2.adminAddress,
         const Address(
-            address:
-                '0:bbf13a702490ae3b853fde3849b8e7dc1b5f548807a9158753046496a4aed324'),
+          address:
+              '0:bbf13a702490ae3b853fde3849b8e7dc1b5f548807a9158753046496a4aed324',
+        ),
       );
     });
 
@@ -164,8 +170,9 @@ void main() {
       expect(
         details.adminAddress,
         const Address(
-            address:
-                '0:bbf13a702490ae3b853fde3849b8e7dc1b5f548807a9158753046496a4aed324'),
+          address:
+              '0:bbf13a702490ae3b853fde3849b8e7dc1b5f548807a9158753046496a4aed324',
+        ),
       );
     });
 
@@ -197,28 +204,27 @@ void main() {
       wallet.dispose();
     });
 
-    testWidgets(
-      'subscribing new instance after disposing old one',
-      (WidgetTester tester) async {
-        await tester.pumpAndSettleWithTimeout();
+    testWidgets('subscribing new instance after disposing old one', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpAndSettleWithTimeout();
 
-        for (var i = 0; i < 10; i++) {
-          final wallet = await JettonWallet.subscribe(
-            transport: transport,
-            owner: address,
-            rootTokenContract: hamsterTokenRoot,
-          );
+      for (var i = 0; i < 10; i++) {
+        final wallet = await JettonWallet.subscribe(
+          transport: transport,
+          owner: address,
+          rootTokenContract: hamsterTokenRoot,
+        );
 
-          expect(wallet, isNotNull);
-          expect(wallet.owner, address);
-          expect(wallet.tokenAddress, tokenWallet);
-          expect(wallet.rootTokenContract, hamsterTokenRoot);
-          expect(wallet.contractState.balance, isNot(BigInt.zero));
+        expect(wallet, isNotNull);
+        expect(wallet.owner, address);
+        expect(wallet.tokenAddress, tokenWallet);
+        expect(wallet.rootTokenContract, hamsterTokenRoot);
+        expect(wallet.contractState.balance, isNot(BigInt.zero));
 
-          wallet.dispose();
-        }
-      },
-    );
+        wallet.dispose();
+      }
+    });
 
     testWidgets('preloadTransactions: true', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
@@ -231,9 +237,7 @@ void main() {
       );
       var events = 0;
 
-      wallet.onTransactionsFoundStream.listen(
-        (data) => events++,
-      );
+      wallet.onTransactionsFoundStream.listen((data) => events++);
 
       expect(wallet, isNotNull);
       expect(wallet.isTransactionsPreloaded, true);
@@ -254,9 +258,7 @@ void main() {
       );
       var events = 0;
 
-      wallet.onTransactionsFoundStream.listen(
-        (data) => events++,
-      );
+      wallet.onTransactionsFoundStream.listen((data) => events++);
 
       expect(wallet, isNotNull);
       expect(wallet.isTransactionsPreloaded, false);

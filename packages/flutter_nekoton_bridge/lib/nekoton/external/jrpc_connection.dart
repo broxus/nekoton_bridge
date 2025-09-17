@@ -23,12 +23,7 @@ class JrpcConnection {
 
   final type = TransportType.gql;
 
-  JrpcConnection._(
-    this._client,
-    this.settings,
-    this._name,
-    this._group,
-  );
+  JrpcConnection._(this._client, this.settings, this._name, this._group);
 
   static JrpcConnection create({
     required JrpcConnectionHttpClient client,
@@ -38,9 +33,7 @@ class JrpcConnection {
   }) {
     final instance = JrpcConnection._(client, settings, name, group);
 
-    instance.connection = JrpcConnectionDartWrapper(
-      onPost: instance.post,
-    );
+    instance.connection = JrpcConnectionDartWrapper(onPost: instance.post);
 
     return instance;
   }
@@ -54,9 +47,7 @@ class JrpcConnection {
     try {
       return await _client.post(
         endpoint: settings.endpoint,
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: {'Content-Type': 'application/json'},
         data: requestData,
       );
     } catch (error) {
