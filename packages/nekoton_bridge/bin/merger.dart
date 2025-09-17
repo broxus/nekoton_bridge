@@ -10,8 +10,9 @@ final importsReg = RegExp('.*use (?:.*?|\n)*?;');
 final cratesInSingleLineSpaceReg = RegExp(r', \w+::');
 
 /// RegExp to parse all sub modules and direct imports from brackets { .. }
-final subCratesParserReg =
-    RegExp(r'((\w+::)+({.+}|\w+(,|)))|(\w+( \w+)*[^\w+::\w+])');
+final subCratesParserReg = RegExp(
+  r'((\w+::)+({.+}|\w+(,|)))|(\w+( \w+)*[^\w+::\w+])',
+);
 
 /// This runs automatically in the beginning of build.rs script
 /// [Directory.current] must be /nekoton_bridge/rust
@@ -32,7 +33,9 @@ void main() async {
       final content = entry.readAsStringSync();
 
       /// Collect structure of imports
-      importsReg.allMatches(content).forEach(
+      importsReg
+          .allMatches(content)
+          .forEach(
             (importMatch) => parseSingleImport(
               content.substring(importMatch.start, importMatch.end),
               crates,
@@ -50,13 +53,11 @@ void main() async {
           .replaceAll('\n\n', '\n');
 
       final srcPath = RegExp('src.*').firstMatch(entry.path);
-      contentBuffer.write(
-        '''
+      contentBuffer.write('''
 ///----------------------------
 /// CONTENT OF ${entry.path.substring(srcPath!.start, srcPath.end)}
 ///----------------------------\n
-''',
-      );
+''');
       contentBuffer.write('$pureContent\n');
     }
   }
@@ -82,8 +83,12 @@ void main() async {
 /// `pub use crate::nekoton_wrapper::{MnemonicType, dict};
 void parseSingleImport(String importFull, Map<String, ModuleHierarchy> crates) {
   final importStr = importFull.replaceAll(RegExp('.*use '), '');
-  parseImports(importStr, crates,
-      isRoot: true, isRootPublic: importFull.startsWith('pub'));
+  parseImports(
+    importStr,
+    crates,
+    isRoot: true,
+    isRootPublic: importFull.startsWith('pub'),
+  );
 }
 
 /// Convert resulted [hierarchy] to single string with all nested sub-modules.
@@ -134,15 +139,18 @@ void parseImports(
   }
 
   // pure name line nekoton_wrapper or models_api
-  final moduleName =
-      croppedCrate.substring(0, croppedCrate.indexOf('::')).trim();
+  final moduleName = croppedCrate
+      .substring(0, croppedCrate.indexOf('::'))
+      .trim();
 
   // skip *api files because they will be merged
   if (moduleName.endsWith('api')) return;
 
   if (!hierarchy.containsKey(moduleName)) {
-    hierarchy[moduleName] =
-        ModuleHierarchy(moduleName: moduleName, isRoot: isRoot);
+    hierarchy[moduleName] = ModuleHierarchy(
+      moduleName: moduleName,
+      isRoot: isRoot,
+    );
   }
 
   /// Works only for root
@@ -174,9 +182,9 @@ void parseImports(
     // iterate over sub-blocks and direct imports, group 1 is blocks, group 3 is direct imports
     subCratesParserReg.allMatches(croppedCrate).forEach((match) {
       if (match.group(5) != null) {
-        hierarchy[moduleName]!
-            .directImports
-            .add(match.group(5)!.trim().replaceAll(',', ''));
+        hierarchy[moduleName]!.directImports.add(
+          match.group(5)!.trim().replaceAll(',', ''),
+        );
       } else if (match.group(1) != null) {
         final cratesGroup = match.group(1)!;
         // If there are some glued crates in one line, we should split it
@@ -185,8 +193,10 @@ void parseImports(
 
           /// Iterate over all 'crate spaces' and run parser for each of them
           cratesInSingleLineSpaceReg.allMatches(cratesGroup).forEach((crate) {
-            final crateStr =
-                cratesGroup.substring(startOfCrate, crate.start + 1);
+            final crateStr = cratesGroup.substring(
+              startOfCrate,
+              crate.start + 1,
+            );
             startOfCrate = crate.start + 2;
             parseImports(crateStr, hierarchy[moduleName]!.subModules);
           });
