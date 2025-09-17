@@ -1,3 +1,7 @@
+## 3.4.0
+
+ - **FEAT**: add WalletV5R1 specific methods. ([87092647](https://github.com/broxus/nekoton_bridge/commit/87092647cef2f54b3f90aa78c0103a2392bd8768))
+
 ## 3.3.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
