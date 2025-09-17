@@ -1,3 +1,9 @@
+## 4.0.0-dev.1
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **CHORE**: sdk >=3.9.0; flutter >=3.35.0.
+
 ## 4.0.0-dev.0
 
 > Note: This release has breaking changes.
