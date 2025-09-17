@@ -2012,6 +2012,12 @@ class TonWalletDartWrapper {
         that: this,
       );
 
+  static Future<String> appendSignatureToWalletV5R1Payload(
+          {required String payload, required String base64Signature}) =>
+      NekotonBridge.instance.api
+          .crateApiMergedTonWalletDartWrapperAppendSignatureToWalletV5R1Payload(
+              payload: payload, base64Signature: base64Signature);
+
   /// Get json-encoded ContractState or throw error.
   Future<String> contractState() => NekotonBridge.instance.api
           .crateApiMergedTonWalletDartWrapperContractState(
@@ -2073,6 +2079,14 @@ class TonWalletDartWrapper {
       NekotonBridge.instance.api
           .crateApiMergedTonWalletDartWrapperGetExistingWalletInfo(
               transport: transport, address: address);
+
+  Future<int> getWalletV5R1Seqno(
+          {required String rawCurrentState, required String publicKey}) =>
+      NekotonBridge.instance.api
+          .crateApiMergedTonWalletDartWrapperGetWalletV5R1Seqno(
+              that: this,
+              rawCurrentState: rawCurrentState,
+              publicKey: publicKey);
 
   /// Handle block of blockchain.
   /// block - base64-encoded Block.
@@ -2151,6 +2165,17 @@ class TonWalletDartWrapper {
               reqConfirms: reqConfirms,
               expirationTime: expirationTime);
 
+  Future<(String, String)> prepareNonexistWalletV5R1MessageBody(
+          {required String expiration,
+          required String params,
+          required bool isInternalFlow}) =>
+      NekotonBridge.instance.api
+          .crateApiMergedTonWalletDartWrapperPrepareNonexistWalletV5R1MessageBody(
+              that: this,
+              expiration: expiration,
+              params: params,
+              isInternalFlow: isInternalFlow);
+
   /// Prepare transferring tokens from this wallet to other.
   /// contract_state - json-encoded RawContractState
   /// public_key - key of account that had initiated transfer
@@ -2169,6 +2194,22 @@ class TonWalletDartWrapper {
               publicKey: publicKey,
               expiration: expiration,
               params: params);
+
+  /// Returns (hash, payload)
+  Future<(String, String)> prepareWalletV5R1MessageBody(
+          {required String contractState,
+          required String publicKey,
+          required String expiration,
+          required String params,
+          required bool isInternalFlow}) =>
+      NekotonBridge.instance.api
+          .crateApiMergedTonWalletDartWrapperPrepareWalletV5R1MessageBody(
+              that: this,
+              contractState: contractState,
+              publicKey: publicKey,
+              expiration: expiration,
+              params: params,
+              isInternalFlow: isInternalFlow);
 
   /// Get public key of wallet.
   Future<String> publicKey() =>
