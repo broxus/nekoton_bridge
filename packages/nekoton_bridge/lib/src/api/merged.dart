@@ -1942,7 +1942,8 @@ class TokenWalletDartWrapper {
           required String amount,
           required bool notifyReceiver,
           String? attachedAmount,
-          String? payload}) =>
+          String? payload,
+          String? remainingGasTo}) =>
       NekotonBridge.instance.api
           .crateApiMergedTokenWalletDartWrapperPrepareTransfer(
               that: this,
@@ -1950,7 +1951,8 @@ class TokenWalletDartWrapper {
               amount: amount,
               notifyReceiver: notifyReceiver,
               attachedAmount: attachedAmount,
-              payload: payload);
+              payload: payload,
+              remainingGasTo: remainingGasTo);
 
   /// Refresh wallet and update its data.
   /// Returns true or throw error.

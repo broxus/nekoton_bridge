@@ -3091,7 +3091,8 @@ class NekotonBridgeWire implements BaseWire {
           String amount,
           bool notify_receiver,
           String? attached_amount,
-          String? payload) =>
+          String? payload,
+          String? remaining_gas_to) =>
       wasmModule
           .wire__crate__api__merged__token_wallet_dart_wrapper_prepare_transfer(
               port_,
@@ -3100,7 +3101,8 @@ class NekotonBridgeWire implements BaseWire {
               amount,
               notify_receiver,
               attached_amount,
-              payload);
+              payload,
+              remaining_gas_to);
 
   void wire__crate__api__merged__token_wallet_dart_wrapper_refresh(
           NativePortType port_, JSAny that) =>
@@ -4346,7 +4348,8 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
           String amount,
           bool notify_receiver,
           String? attached_amount,
-          String? payload);
+          String? payload,
+          String? remaining_gas_to);
 
   external void wire__crate__api__merged__token_wallet_dart_wrapper_refresh(
       NativePortType port_, JSAny that);

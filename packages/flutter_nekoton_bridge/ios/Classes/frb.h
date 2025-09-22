@@ -1025,7 +1025,8 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__token_wallet_dart_wrapper_p
                                                                                                 struct wire_cst_list_prim_u_8_strict *amount,
                                                                                                 bool notify_receiver,
                                                                                                 struct wire_cst_list_prim_u_8_strict *attached_amount,
-                                                                                                struct wire_cst_list_prim_u_8_strict *payload);
+                                                                                                struct wire_cst_list_prim_u_8_strict *payload,
+                                                                                                struct wire_cst_list_prim_u_8_strict *remaining_gas_to);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__token_wallet_dart_wrapper_refresh(int64_t port_,
                                                                                        struct wire_cst_token_wallet_dart_wrapper *that);

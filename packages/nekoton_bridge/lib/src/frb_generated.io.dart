@@ -6923,6 +6923,7 @@ class NekotonBridgeWire implements BaseWire {
     bool notify_receiver,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> attached_amount,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> payload,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> remaining_gas_to,
   ) {
     return _wire__crate__api__merged__token_wallet_dart_wrapper_prepare_transfer(
       port_,
@@ -6932,6 +6933,7 @@ class NekotonBridgeWire implements BaseWire {
       notify_receiver,
       attached_amount,
       payload,
+      remaining_gas_to,
     );
   }
 
@@ -6945,6 +6947,7 @@ class NekotonBridgeWire implements BaseWire {
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                       ffi.Bool,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+                      ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                       ffi.Pointer<wire_cst_list_prim_u_8_strict>)>>(
           'frbgen_nekoton_bridge_wire__crate__api__merged__token_wallet_dart_wrapper_prepare_transfer');
   late final _wire__crate__api__merged__token_wallet_dart_wrapper_prepare_transfer =
@@ -6956,6 +6959,7 @@ class NekotonBridgeWire implements BaseWire {
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   bool,
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>)>();
 

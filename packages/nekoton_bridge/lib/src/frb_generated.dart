@@ -782,7 +782,8 @@ abstract class NekotonBridgeApi extends BaseApi {
       required String amount,
       required bool notifyReceiver,
       String? attachedAmount,
-      String? payload});
+      String? payload,
+      String? remainingGasTo});
 
   Future<bool> crateApiMergedTokenWalletDartWrapperRefresh(
       {required TokenWalletDartWrapper that});
@@ -6283,7 +6284,8 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       required String amount,
       required bool notifyReceiver,
       String? attachedAmount,
-      String? payload}) {
+      String? payload,
+      String? remainingGasTo}) {
     return handler.executeNormal(NormalTask(
       callFfi: (port_) {
         var arg0 = cst_encode_box_autoadd_token_wallet_dart_wrapper(that);
@@ -6292,9 +6294,10 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         var arg3 = cst_encode_bool(notifyReceiver);
         var arg4 = cst_encode_opt_String(attachedAmount);
         var arg5 = cst_encode_opt_String(payload);
+        var arg6 = cst_encode_opt_String(remainingGasTo);
         return wire
             .wire__crate__api__merged__token_wallet_dart_wrapper_prepare_transfer(
-                port_, arg0, arg1, arg2, arg3, arg4, arg5);
+                port_, arg0, arg1, arg2, arg3, arg4, arg5, arg6);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -6307,7 +6310,8 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         amount,
         notifyReceiver,
         attachedAmount,
-        payload
+        payload,
+        remainingGasTo
       ],
       apiImpl: this,
     ));
@@ -6323,7 +6327,8 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
               "amount",
               "notifyReceiver",
               "attachedAmount",
-              "payload"
+              "payload",
+              "remainingGasTo"
             ],
           );
 
