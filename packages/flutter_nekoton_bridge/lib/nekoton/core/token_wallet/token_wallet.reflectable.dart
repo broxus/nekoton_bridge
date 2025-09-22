@@ -675,6 +675,7 @@ final _data = <r.Reflectable, r.ReflectorData>{
           #notifyReceiver,
           #attachedAmount,
           #payload,
+          #remainingGasTo,
         ],
       ],
       const [1, 1, null],
