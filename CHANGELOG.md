@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_nekoton_bridge` - `v3.5.1`](#flutter_nekoton_bridge---v351)
+ - [`flutter_nekoton_bridge_example` - `v2.2.3`](#flutter_nekoton_bridge_example---v223)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v2.2.3`
+
+---
+
+#### `flutter_nekoton_bridge` - `v3.5.1`
+
+ - **FIX**: change `remainingGasTo` parameter type to `Address`. ([6c1f647b](https://github.com/broxus/nekoton_bridge/commit/6c1f647b2db14f1ef8542c4816b449238692e782))
+
+
+## 2025-09-22
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v3.5.0`](#flutter_nekoton_bridge---v350)
  - [`nekoton_bridge` - `v3.5.0`](#nekoton_bridge---v350)
  - [`flutter_nekoton_bridge_example` - `v2.2.2`](#flutter_nekoton_bridge_example---v222)
