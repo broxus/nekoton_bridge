@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-09-22
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v3.5.0`](#flutter_nekoton_bridge---v350)
+ - [`nekoton_bridge` - `v3.5.0`](#nekoton_bridge---v350)
+ - [`flutter_nekoton_bridge_example` - `v2.2.2`](#flutter_nekoton_bridge_example---v222)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v2.2.2`
+
+---
+
+#### `flutter_nekoton_bridge` - `v3.5.0`
+
+ - **FEAT**: add `remainingGasTo` parameter to `prepareTransfer` method in `TokenWallet`. ([744c46d6](https://github.com/broxus/nekoton_bridge/commit/744c46d6fef99bd41472d4498009575d91b59940))
+
+#### `nekoton_bridge` - `v3.5.0`
+
+ - **FEAT**: add `remainingGasTo` parameter to `prepareTransfer` method in `TokenWallet`. ([744c46d6](https://github.com/broxus/nekoton_bridge/commit/744c46d6fef99bd41472d4498009575d91b59940))
+
+
 ## 2025-09-17
 
 ### Changes
