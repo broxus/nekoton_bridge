@@ -1,3 +1,7 @@
+## 3.5.1
+
+ - **FIX**: change `remainingGasTo` parameter type to `Address`. ([6c1f647b](https://github.com/broxus/nekoton_bridge/commit/6c1f647b2db14f1ef8542c4816b449238692e782))
+
 ## 3.5.0
 
  - **FEAT**: add `remainingGasTo` parameter to `prepareTransfer` method in `TokenWallet`. ([744c46d6](https://github.com/broxus/nekoton_bridge/commit/744c46d6fef99bd41472d4498009575d91b59940))
