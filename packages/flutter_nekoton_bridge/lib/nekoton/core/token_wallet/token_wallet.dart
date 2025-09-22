@@ -201,7 +201,7 @@ class TokenWallet extends RustToDartMirrorInterface
     bool notifyReceiver = false,
     BigInt? attachedAmount,
     String? payload,
-    String? remainingGasTo,
+    Address? remainingGasTo,
   }) async {
     final encoded = await wallet.prepareTransfer(
       destination: destination.address,
@@ -209,7 +209,7 @@ class TokenWallet extends RustToDartMirrorInterface
       notifyReceiver: notifyReceiver,
       attachedAmount: attachedAmount?.toString(),
       payload: payload,
-      remainingGasTo: remainingGasTo,
+      remainingGasTo: remainingGasTo?.address,
     );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
     await _updateData();
