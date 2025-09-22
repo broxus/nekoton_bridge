@@ -1,3 +1,7 @@
+## 3.5.0
+
+ - **FEAT**: add `remainingGasTo` parameter to `prepareTransfer` method in `TokenWallet`. ([744c46d6](https://github.com/broxus/nekoton_bridge/commit/744c46d6fef99bd41472d4498009575d91b59940))
+
 ## 3.4.0
 
  - **FEAT**: add WalletV5R1 specific methods. ([87092647](https://github.com/broxus/nekoton_bridge/commit/87092647cef2f54b3f90aa78c0103a2392bd8768))

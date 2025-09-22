@@ -1,3 +1,7 @@
+## 3.5.0
+
+ - **FEAT**: add `remainingGasTo` parameter to `prepareTransfer` method in `TokenWallet`. ([744c46d6](https://github.com/broxus/nekoton_bridge/commit/744c46d6fef99bd41472d4498009575d91b59940))
+
 ## 3.4.0
 
  - **REFACTOR**: remove redundant json converters. ([1f58fb6d](https://github.com/broxus/nekoton_bridge/commit/1f58fb6d7144521b4806f459ba4ab03705570881))
