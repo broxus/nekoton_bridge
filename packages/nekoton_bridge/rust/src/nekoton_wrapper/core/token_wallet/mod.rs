@@ -207,9 +207,7 @@ impl TokenWalletBoxTrait for TokenWalletBox {
         remaining_gas_to: Option<String>,
     ) -> anyhow::Result<String> {
         let destination = parse_address(destination)?;
-        let remaining_gas_to = remaining_gas_to
-            .map(parse_address)
-            .transpose()?;
+        let remaining_gas_to = remaining_gas_to.map(parse_address).transpose()?;
 
         let destination = TransferRecipient::OwnerWallet(destination);
 
