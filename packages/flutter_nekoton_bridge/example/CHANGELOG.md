@@ -1,3 +1,7 @@
+## 2.3.0
+
+ - **FEAT**: add support for libraries in local execution and getter functions. ([79f1f4c2](https://github.com/broxus/nekoton_bridge/commit/79f1f4c2a26a5e70f21122c5d197c030be974870))
+
 ## 2.2.3
 
  - Update a dependency to the latest release.
