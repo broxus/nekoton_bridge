@@ -6,10 +6,13 @@ use crate::nekoton_wrapper::HandleError;
 use base64::{engine::general_purpose, Engine};
 use models::ExecutionOutput;
 use nekoton::transport::models::RawContractState;
-use nekoton_abi::{MethodName, StackItem};
+use nekoton::transport::Transport;
+use nekoton_abi::FunctionExt;
+use nekoton_abi::{tvm::ExecutionError, MethodName, StackItem};
+use nekoton_utils::ClockWithOffset;
 use std::{convert::TryFrom, str::FromStr};
 use ton_block::{AccountStuff, Deserializable, MaybeDeserialize, Serializable};
-use ton_types::{Cell, SliceData};
+use ton_types::{BuilderData, Cell, HashmapE, SliceData, UInt256};
 use ton_vm::stack::integer::IntegerData;
 
 pub mod abi_api;
@@ -542,4 +545,97 @@ pub fn make_vm_getter_output(
         output: Some(tokens),
         code: output.exit_code,
     })
+}
+
+pub fn make_execution_output(
+    output: nekoton_abi::ExecutionOutput,
+) -> anyhow::Result<ExecutionOutput> {
+    let tokens = output
+        .tokens
+        .map(|e| nekoton_abi::make_abi_tokens(&e).handle_error())
+        .transpose()?;
+
+    let execution_output = ExecutionOutput {
+        output: tokens,
+        code: output.result_code,
+    };
+
+    Ok(execution_output)
+}
+
+pub async fn run_local_with_libs_internal(
+    clock: &ClockWithOffset,
+    transport: &dyn Transport,
+    account_stuff: AccountStuff,
+    method: ton_abi::Function,
+    input: Vec<ton_abi::Token>,
+    libraries: Vec<HashmapE>,
+    retry_count: u8,
+    responsible: bool,
+    config: &nekoton_abi::BriefBlockchainConfig,
+) -> anyhow::Result<ExecutionOutput> {
+    let mut libraries = libraries;
+    let mut retries = 0;
+
+    loop {
+        let output = method.run_local_ext(
+            clock,
+            account_stuff.clone(),
+            &input,
+            responsible,
+            config,
+            &libraries,
+        );
+
+        let execution_error = match output {
+            Ok(output) => return make_execution_output(output),
+            Err(e) => match e.downcast::<ExecutionError>() {
+                Ok(exec_err) => exec_err,
+                Err(e) => return Err(e).handle_error(),
+            },
+        };
+
+        let hash = match execution_error {
+            ExecutionError::MissingLibrary { hash } => hash,
+            other_error => return Err(other_error).handle_error(),
+        };
+
+        if retries >= retry_count {
+            return Err(ExecutionError::MissingLibrary { hash }).handle_error();
+        }
+
+        let cell = fetch_library_cell(transport, hash).await?;
+        let lib = create_library(hash, cell).handle_error()?;
+        libraries.push(lib);
+        retries += 1;
+    }
+}
+
+async fn fetch_library_cell(
+    transport: &dyn Transport,
+    hash: UInt256,
+) -> anyhow::Result<Cell> {
+    match transport.get_library_cell(&hash).await {
+        Ok(Some(cell)) => Ok(cell),
+        Ok(None) => Err(ExecutionError::MissingLibrary { hash }).handle_error(),
+        Err(e) => Err(e).handle_error(),
+    }
+}
+
+fn create_library(hash: UInt256, cell: Cell) -> anyhow::Result<HashmapE> {
+    let mut lib = HashmapE::with_bit_len(256);
+    let mut item = BuilderData::new();
+    item.checked_append_reference(cell)?;
+    lib.set_builder(hash.into(), &item)?;
+    Ok(lib)
+}
+
+pub fn parse_library(hash: &String, boc: &String) -> anyhow::Result<HashmapE> {
+    let mut lib = HashmapE::with_bit_len(256);
+    let mut item = BuilderData::new();
+    let cell_bytes = general_purpose::STANDARD.decode(boc.as_bytes())?;
+    let cell = ton_types::deserialize_tree_of_cells(&mut cell_bytes.as_slice())?;
+    item.checked_append_reference(cell)?;
+    lib.set_builder(UInt256::from_str(hash)?.into(), &item)?;
+    Ok(lib)
 }

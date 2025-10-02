@@ -182,6 +182,16 @@ typedef struct wire_cst_mnemonic_type {
   union MnemonicTypeKind kind;
 } wire_cst_mnemonic_type;
 
+typedef struct wire_cst_record_string_string {
+  struct wire_cst_list_prim_u_8_strict *field0;
+  struct wire_cst_list_prim_u_8_strict *field1;
+} wire_cst_record_string_string;
+
+typedef struct wire_cst_list_record_string_string {
+  struct wire_cst_record_string_string *ptr;
+  int32_t len;
+} wire_cst_list_record_string_string;
+
 typedef struct wire_cst_proto_transport_impl {
   uintptr_t inner_transport;
 } wire_cst_proto_transport_impl;
@@ -257,11 +267,6 @@ typedef struct wire_cst_log_entry {
   struct wire_cst_list_prim_u_8_strict *msg;
   struct wire_cst_list_prim_u_8_strict *stack;
 } wire_cst_log_entry;
-
-typedef struct wire_cst_record_string_string {
-  struct wire_cst_list_prim_u_8_strict *field0;
-  struct wire_cst_list_prim_u_8_strict *field1;
-} wire_cst_record_string_string;
 
 typedef struct wire_cst_signature_parts {
   struct wire_cst_list_prim_u_8_strict *low;
@@ -823,6 +828,7 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_getter(int64_t port_
                                                                    struct wire_cst_list_prim_u_8_strict *contract_abi,
                                                                    struct wire_cst_list_prim_u_8_strict *method_id,
                                                                    struct wire_cst_list_prim_u_8_strict *input,
+                                                                   struct wire_cst_list_record_string_string *libraries,
                                                                    int32_t *signature_id);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local(int64_t port_,
@@ -831,7 +837,19 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local(int64_t port_,
                                                                   struct wire_cst_list_prim_u_8_strict *method_id,
                                                                   struct wire_cst_list_prim_u_8_strict *input,
                                                                   bool responsible,
+                                                                  struct wire_cst_list_record_string_string *libraries,
                                                                   int32_t *signature_id);
+
+void frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local_with_libs(int64_t port_,
+                                                                            uintptr_t transport,
+                                                                            struct wire_cst_list_prim_u_8_strict *account_stuff_boc,
+                                                                            struct wire_cst_list_prim_u_8_strict *contract_abi,
+                                                                            struct wire_cst_list_prim_u_8_strict *method_id,
+                                                                            struct wire_cst_list_prim_u_8_strict *input,
+                                                                            bool responsible,
+                                                                            struct wire_cst_list_record_string_string *libraries,
+                                                                            uint8_t retry_count,
+                                                                            int32_t *signature_id);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_set_code_salt(struct wire_cst_list_prim_u_8_strict *code,
                                                                                       struct wire_cst_list_prim_u_8_strict *salt);
@@ -1309,6 +1327,8 @@ struct wire_cst_list_prim_i_32_loose *frbgen_nekoton_bridge_cst_new_list_prim_i_
 struct wire_cst_list_prim_i_32_strict *frbgen_nekoton_bridge_cst_new_list_prim_i_32_strict(int32_t len);
 
 struct wire_cst_list_prim_u_8_strict *frbgen_nekoton_bridge_cst_new_list_prim_u_8_strict(int32_t len);
+
+struct wire_cst_list_record_string_string *frbgen_nekoton_bridge_cst_new_list_record_string_string(int32_t len);
 static int64_t dummy_method_to_enforce_bundling(void) {
     int64_t dummy_var = 0;
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_accounts_storage_impl);
@@ -1344,6 +1364,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_list_prim_i_32_loose);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_list_prim_i_32_strict);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_list_prim_u_8_strict);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_list_record_string_string);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ArcdynAccountsStorageBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ArcdynGenericContractBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ArcdynGqlConnectionBoxTrait);
@@ -1499,6 +1520,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_repack_address);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_getter);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local_with_libs);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_set_code_salt);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_split_tvc);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_contract_fields);

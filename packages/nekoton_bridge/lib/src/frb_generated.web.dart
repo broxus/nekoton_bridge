@@ -81,6 +81,9 @@ abstract class NekotonBridgeApiImplPlatform
   AnyhowException dco_decode_AnyhowException(dynamic raw);
 
   @protected
+  Map<String, String> dco_decode_Map_String_String_None(dynamic raw);
+
+  @protected
   ArcAccountsStorageBoxTrait
       dco_decode_RustOpaque_ArcdynAccountsStorageBoxTrait(dynamic raw);
 
@@ -339,6 +342,9 @@ abstract class NekotonBridgeApiImplPlatform
   Uint8List dco_decode_list_prim_u_8_strict(dynamic raw);
 
   @protected
+  List<(String, String)> dco_decode_list_record_string_string(dynamic raw);
+
+  @protected
   LogEntry dco_decode_log_entry(dynamic raw);
 
   @protected
@@ -429,6 +435,10 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   AnyhowException sse_decode_AnyhowException(SseDeserializer deserializer);
+
+  @protected
+  Map<String, String> sse_decode_Map_String_String_None(
+      SseDeserializer deserializer);
 
   @protected
   ArcAccountsStorageBoxTrait
@@ -720,6 +730,10 @@ abstract class NekotonBridgeApiImplPlatform
   Uint8List sse_decode_list_prim_u_8_strict(SseDeserializer deserializer);
 
   @protected
+  List<(String, String)> sse_decode_list_record_string_string(
+      SseDeserializer deserializer);
+
+  @protected
   LogEntry sse_decode_log_entry(SseDeserializer deserializer);
 
   @protected
@@ -820,6 +834,13 @@ abstract class NekotonBridgeApiImplPlatform
   String cst_encode_AnyhowException(AnyhowException raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     throw UnimplementedError();
+  }
+
+  @protected
+  JSAny cst_encode_Map_String_String_None(Map<String, String> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return cst_encode_list_record_string_string(
+        raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
@@ -1263,6 +1284,12 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
+  JSAny cst_encode_list_record_string_string(List<(String, String)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode_record_string_string).toList().jsify()!;
+  }
+
+  @protected
   JSAny cst_encode_log_entry(LogEntry raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return [
@@ -1529,6 +1556,10 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   void sse_encode_AnyhowException(
       AnyhowException self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_Map_String_String_None(
+      Map<String, String> self, SseSerializer serializer);
 
   @protected
   void sse_encode_RustOpaque_ArcdynAccountsStorageBoxTrait(
@@ -1816,6 +1847,10 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   void sse_encode_list_prim_u_8_strict(
       Uint8List self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list_record_string_string(
+      List<(String, String)> self, SseSerializer serializer);
 
   @protected
   void sse_encode_log_entry(LogEntry self, SseSerializer serializer);
@@ -2771,9 +2806,16 @@ class NekotonBridgeWire implements BaseWire {
           String contract_abi,
           String method_id,
           String input,
+          JSAny libraries,
           int? signature_id) =>
-      wasmModule.wire__crate__api__merged__nt_run_getter(port_,
-          account_stuff_boc, contract_abi, method_id, input, signature_id);
+      wasmModule.wire__crate__api__merged__nt_run_getter(
+          port_,
+          account_stuff_boc,
+          contract_abi,
+          method_id,
+          input,
+          libraries,
+          signature_id);
 
   void wire__crate__api__merged__nt_run_local(
           NativePortType port_,
@@ -2782,6 +2824,7 @@ class NekotonBridgeWire implements BaseWire {
           String method_id,
           String input,
           bool responsible,
+          JSAny libraries,
           int? signature_id) =>
       wasmModule.wire__crate__api__merged__nt_run_local(
           port_,
@@ -2790,6 +2833,30 @@ class NekotonBridgeWire implements BaseWire {
           method_id,
           input,
           responsible,
+          libraries,
+          signature_id);
+
+  void wire__crate__api__merged__nt_run_local_with_libs(
+          NativePortType port_,
+          int transport,
+          String account_stuff_boc,
+          String contract_abi,
+          String method_id,
+          String input,
+          bool responsible,
+          JSAny libraries,
+          int retry_count,
+          int? signature_id) =>
+      wasmModule.wire__crate__api__merged__nt_run_local_with_libs(
+          port_,
+          transport,
+          account_stuff_boc,
+          contract_abi,
+          method_id,
+          input,
+          responsible,
+          libraries,
+          retry_count,
           signature_id);
 
   JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
@@ -4128,6 +4195,7 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
       String contract_abi,
       String method_id,
       String input,
+      JSAny libraries,
       int? signature_id);
 
   external void wire__crate__api__merged__nt_run_local(
@@ -4137,6 +4205,19 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
       String method_id,
       String input,
       bool responsible,
+      JSAny libraries,
+      int? signature_id);
+
+  external void wire__crate__api__merged__nt_run_local_with_libs(
+      NativePortType port_,
+      int transport,
+      String account_stuff_boc,
+      String contract_abi,
+      String method_id,
+      String input,
+      bool responsible,
+      JSAny libraries,
+      int retry_count,
       int? signature_id);
 
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */

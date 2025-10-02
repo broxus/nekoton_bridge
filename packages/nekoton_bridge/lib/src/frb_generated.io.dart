@@ -79,6 +79,9 @@ abstract class NekotonBridgeApiImplPlatform
   AnyhowException dco_decode_AnyhowException(dynamic raw);
 
   @protected
+  Map<String, String> dco_decode_Map_String_String_None(dynamic raw);
+
+  @protected
   ArcAccountsStorageBoxTrait
       dco_decode_RustOpaque_ArcdynAccountsStorageBoxTrait(dynamic raw);
 
@@ -337,6 +340,9 @@ abstract class NekotonBridgeApiImplPlatform
   Uint8List dco_decode_list_prim_u_8_strict(dynamic raw);
 
   @protected
+  List<(String, String)> dco_decode_list_record_string_string(dynamic raw);
+
+  @protected
   LogEntry dco_decode_log_entry(dynamic raw);
 
   @protected
@@ -427,6 +433,10 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   AnyhowException sse_decode_AnyhowException(SseDeserializer deserializer);
+
+  @protected
+  Map<String, String> sse_decode_Map_String_String_None(
+      SseDeserializer deserializer);
 
   @protected
   ArcAccountsStorageBoxTrait
@@ -718,6 +728,10 @@ abstract class NekotonBridgeApiImplPlatform
   Uint8List sse_decode_list_prim_u_8_strict(SseDeserializer deserializer);
 
   @protected
+  List<(String, String)> sse_decode_list_record_string_string(
+      SseDeserializer deserializer);
+
+  @protected
   LogEntry sse_decode_log_entry(SseDeserializer deserializer);
 
   @protected
@@ -819,6 +833,14 @@ abstract class NekotonBridgeApiImplPlatform
       AnyhowException raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     throw UnimplementedError();
+  }
+
+  @protected
+  ffi.Pointer<wire_cst_list_record_string_string>
+      cst_encode_Map_String_String_None(Map<String, String> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return cst_encode_list_record_string_string(
+        raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
@@ -1156,6 +1178,17 @@ abstract class NekotonBridgeApiImplPlatform
     // Codec=Cst (C-struct based), see doc to use other codecs
     final ans = wire.cst_new_list_prim_u_8_strict(raw.length);
     ans.ref.ptr.asTypedList(raw.length).setAll(0, raw);
+    return ans;
+  }
+
+  @protected
+  ffi.Pointer<wire_cst_list_record_string_string>
+      cst_encode_list_record_string_string(List<(String, String)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    final ans = wire.cst_new_list_record_string_string(raw.length);
+    for (var i = 0; i < raw.length; ++i) {
+      cst_api_fill_to_wire_record_string_string(raw[i], ans.ref.ptr[i]);
+    }
     return ans;
   }
 
@@ -1812,6 +1845,10 @@ abstract class NekotonBridgeApiImplPlatform
       AnyhowException self, SseSerializer serializer);
 
   @protected
+  void sse_encode_Map_String_String_None(
+      Map<String, String> self, SseSerializer serializer);
+
+  @protected
   void sse_encode_RustOpaque_ArcdynAccountsStorageBoxTrait(
       ArcAccountsStorageBoxTrait self, SseSerializer serializer);
 
@@ -2097,6 +2134,10 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   void sse_encode_list_prim_u_8_strict(
       Uint8List self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list_record_string_string(
+      List<(String, String)> self, SseSerializer serializer);
 
   @protected
   void sse_encode_log_entry(LogEntry self, SseSerializer serializer);
@@ -5637,6 +5678,7 @@ class NekotonBridgeWire implements BaseWire {
     ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> method_id,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> input,
+    ffi.Pointer<wire_cst_list_record_string_string> libraries,
     ffi.Pointer<ffi.Int32> signature_id,
   ) {
     return _wire__crate__api__merged__nt_run_getter(
@@ -5645,6 +5687,7 @@ class NekotonBridgeWire implements BaseWire {
       contract_abi,
       method_id,
       input,
+      libraries,
       signature_id,
     );
   }
@@ -5657,6 +5700,7 @@ class NekotonBridgeWire implements BaseWire {
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+                  ffi.Pointer<wire_cst_list_record_string_string>,
                   ffi.Pointer<ffi.Int32>)>>(
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_getter');
   late final _wire__crate__api__merged__nt_run_getter =
@@ -5667,6 +5711,7 @@ class NekotonBridgeWire implements BaseWire {
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              ffi.Pointer<wire_cst_list_record_string_string>,
               ffi.Pointer<ffi.Int32>)>();
 
   void wire__crate__api__merged__nt_run_local(
@@ -5676,6 +5721,7 @@ class NekotonBridgeWire implements BaseWire {
     ffi.Pointer<wire_cst_list_prim_u_8_strict> method_id,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> input,
     bool responsible,
+    ffi.Pointer<wire_cst_list_record_string_string> libraries,
     ffi.Pointer<ffi.Int32> signature_id,
   ) {
     return _wire__crate__api__merged__nt_run_local(
@@ -5685,6 +5731,7 @@ class NekotonBridgeWire implements BaseWire {
       method_id,
       input,
       responsible,
+      libraries,
       signature_id,
     );
   }
@@ -5698,6 +5745,7 @@ class NekotonBridgeWire implements BaseWire {
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   ffi.Pointer<wire_cst_list_prim_u_8_strict>,
                   ffi.Bool,
+                  ffi.Pointer<wire_cst_list_record_string_string>,
                   ffi.Pointer<ffi.Int32>)>>(
       'frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local');
   late final _wire__crate__api__merged__nt_run_local =
@@ -5709,6 +5757,61 @@ class NekotonBridgeWire implements BaseWire {
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               bool,
+              ffi.Pointer<wire_cst_list_record_string_string>,
+              ffi.Pointer<ffi.Int32>)>();
+
+  void wire__crate__api__merged__nt_run_local_with_libs(
+    int port_,
+    int transport,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> account_stuff_boc,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> method_id,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> input,
+    bool responsible,
+    ffi.Pointer<wire_cst_list_record_string_string> libraries,
+    int retry_count,
+    ffi.Pointer<ffi.Int32> signature_id,
+  ) {
+    return _wire__crate__api__merged__nt_run_local_with_libs(
+      port_,
+      transport,
+      account_stuff_boc,
+      contract_abi,
+      method_id,
+      input,
+      responsible,
+      libraries,
+      retry_count,
+      signature_id,
+    );
+  }
+
+  late final _wire__crate__api__merged__nt_run_local_with_libsPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Int64,
+                  ffi.UintPtr,
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+                  ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+                  ffi.Bool,
+                  ffi.Pointer<wire_cst_list_record_string_string>,
+                  ffi.Uint8,
+                  ffi.Pointer<ffi.Int32>)>>(
+      'frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local_with_libs');
+  late final _wire__crate__api__merged__nt_run_local_with_libs =
+      _wire__crate__api__merged__nt_run_local_with_libsPtr.asFunction<
+          void Function(
+              int,
+              int,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              bool,
+              ffi.Pointer<wire_cst_list_record_string_string>,
+              int,
               ffi.Pointer<ffi.Int32>)>();
 
   WireSyncRust2DartDco wire__crate__api__merged__nt_set_code_salt(
@@ -8844,6 +8947,24 @@ class NekotonBridgeWire implements BaseWire {
   late final _cst_new_list_prim_u_8_strict = _cst_new_list_prim_u_8_strictPtr
       .asFunction<ffi.Pointer<wire_cst_list_prim_u_8_strict> Function(int)>();
 
+  ffi.Pointer<wire_cst_list_record_string_string>
+      cst_new_list_record_string_string(
+    int len,
+  ) {
+    return _cst_new_list_record_string_string(
+      len,
+    );
+  }
+
+  late final _cst_new_list_record_string_stringPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Pointer<wire_cst_list_record_string_string> Function(
+                  ffi.Int32)>>(
+      'frbgen_nekoton_bridge_cst_new_list_record_string_string');
+  late final _cst_new_list_record_string_string =
+      _cst_new_list_record_string_stringPtr.asFunction<
+          ffi.Pointer<wire_cst_list_record_string_string> Function(int)>();
+
   int dummy_method_to_enforce_bundling() {
     return _dummy_method_to_enforce_bundling();
   }
@@ -9084,6 +9205,19 @@ final class wire_cst_mnemonic_type extends ffi.Struct {
   external MnemonicTypeKind kind;
 }
 
+final class wire_cst_record_string_string extends ffi.Struct {
+  external ffi.Pointer<wire_cst_list_prim_u_8_strict> field0;
+
+  external ffi.Pointer<wire_cst_list_prim_u_8_strict> field1;
+}
+
+final class wire_cst_list_record_string_string extends ffi.Struct {
+  external ffi.Pointer<wire_cst_record_string_string> ptr;
+
+  @ffi.Int32()
+  external int len;
+}
+
 final class wire_cst_proto_transport_impl extends ffi.Struct {
   @ffi.UintPtr()
   external int inner_transport;
@@ -9186,12 +9320,6 @@ final class wire_cst_log_entry extends ffi.Struct {
   external ffi.Pointer<wire_cst_list_prim_u_8_strict> msg;
 
   external ffi.Pointer<wire_cst_list_prim_u_8_strict> stack;
-}
-
-final class wire_cst_record_string_string extends ffi.Struct {
-  external ffi.Pointer<wire_cst_list_prim_u_8_strict> field0;
-
-  external ffi.Pointer<wire_cst_list_prim_u_8_strict> field1;
 }
 
 final class wire_cst_signature_parts extends ffi.Struct {

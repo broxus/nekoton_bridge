@@ -72,6 +72,7 @@ Future<String> ntRunLocal(
         required String methodId,
         required String input,
         required bool responsible,
+        required Map<String, String> libraries,
         int? signatureId}) =>
     NekotonBridge.instance.api.crateApiMergedNtRunLocal(
         accountStuffBoc: accountStuffBoc,
@@ -79,6 +80,28 @@ Future<String> ntRunLocal(
         methodId: methodId,
         input: input,
         responsible: responsible,
+        libraries: libraries,
+        signatureId: signatureId);
+
+Future<String> ntRunLocalWithLibs(
+        {required ArcTransportBoxTrait transport,
+        required String accountStuffBoc,
+        required String contractAbi,
+        required String methodId,
+        required String input,
+        required bool responsible,
+        required Map<String, String> libraries,
+        required int retryCount,
+        int? signatureId}) =>
+    NekotonBridge.instance.api.crateApiMergedNtRunLocalWithLibs(
+        transport: transport,
+        accountStuffBoc: accountStuffBoc,
+        contractAbi: contractAbi,
+        methodId: methodId,
+        input: input,
+        responsible: responsible,
+        libraries: libraries,
+        retryCount: retryCount,
         signatureId: signatureId);
 
 /// Get address of tvc and contract_abi.
@@ -375,12 +398,14 @@ Future<String> ntRunGetter(
         required String contractAbi,
         required String methodId,
         required String input,
+        required Map<String, String> libraries,
         int? signatureId}) =>
     NekotonBridge.instance.api.crateApiMergedNtRunGetter(
         accountStuffBoc: accountStuffBoc,
         contractAbi: contractAbi,
         methodId: methodId,
         input: input,
+        libraries: libraries,
         signatureId: signatureId);
 
 String ntComputeTonWalletAddress(

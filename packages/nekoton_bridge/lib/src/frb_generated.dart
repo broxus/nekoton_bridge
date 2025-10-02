@@ -71,7 +71,7 @@ class NekotonBridge extends BaseEntrypoint<NekotonBridgeApi,
   String get codegenVersion => '2.10.0';
 
   @override
-  int get rustContentHash => 1946402899;
+  int get rustContentHash => 1332520111;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -600,6 +600,7 @@ abstract class NekotonBridgeApi extends BaseApi {
       required String contractAbi,
       required String methodId,
       required String input,
+      required Map<String, String> libraries,
       int? signatureId});
 
   Future<String> crateApiMergedNtRunLocal(
@@ -608,6 +609,18 @@ abstract class NekotonBridgeApi extends BaseApi {
       required String methodId,
       required String input,
       required bool responsible,
+      required Map<String, String> libraries,
+      int? signatureId});
+
+  Future<String> crateApiMergedNtRunLocalWithLibs(
+      {required ArcTransportBoxTrait transport,
+      required String accountStuffBoc,
+      required String contractAbi,
+      required String methodId,
+      required String input,
+      required bool responsible,
+      required Map<String, String> libraries,
+      required int retryCount,
       int? signatureId});
 
   List<String> crateApiMergedNtSetCodeSalt(
@@ -4785,6 +4798,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       required String contractAbi,
       required String methodId,
       required String input,
+      required Map<String, String> libraries,
       int? signatureId}) {
     return handler.executeNormal(NormalTask(
       callFfi: (port_) {
@@ -4792,16 +4806,24 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         var arg1 = cst_encode_String(contractAbi);
         var arg2 = cst_encode_String(methodId);
         var arg3 = cst_encode_String(input);
-        var arg4 = cst_encode_opt_box_autoadd_i_32(signatureId);
+        var arg4 = cst_encode_Map_String_String_None(libraries);
+        var arg5 = cst_encode_opt_box_autoadd_i_32(signatureId);
         return wire.wire__crate__api__merged__nt_run_getter(
-            port_, arg0, arg1, arg2, arg3, arg4);
+            port_, arg0, arg1, arg2, arg3, arg4, arg5);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
         decodeErrorData: dco_decode_AnyhowException,
       ),
       constMeta: kCrateApiMergedNtRunGetterConstMeta,
-      argValues: [accountStuffBoc, contractAbi, methodId, input, signatureId],
+      argValues: [
+        accountStuffBoc,
+        contractAbi,
+        methodId,
+        input,
+        libraries,
+        signatureId
+      ],
       apiImpl: this,
     ));
   }
@@ -4813,6 +4835,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           "contractAbi",
           "methodId",
           "input",
+          "libraries",
           "signatureId"
         ],
       );
@@ -4824,6 +4847,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       required String methodId,
       required String input,
       required bool responsible,
+      required Map<String, String> libraries,
       int? signatureId}) {
     return handler.executeNormal(NormalTask(
       callFfi: (port_) {
@@ -4832,9 +4856,10 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         var arg2 = cst_encode_String(methodId);
         var arg3 = cst_encode_String(input);
         var arg4 = cst_encode_bool(responsible);
-        var arg5 = cst_encode_opt_box_autoadd_i_32(signatureId);
+        var arg5 = cst_encode_Map_String_String_None(libraries);
+        var arg6 = cst_encode_opt_box_autoadd_i_32(signatureId);
         return wire.wire__crate__api__merged__nt_run_local(
-            port_, arg0, arg1, arg2, arg3, arg4, arg5);
+            port_, arg0, arg1, arg2, arg3, arg4, arg5, arg6);
       },
       codec: DcoCodec(
         decodeSuccessData: dco_decode_String,
@@ -4847,6 +4872,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         methodId,
         input,
         responsible,
+        libraries,
         signatureId
       ],
       apiImpl: this,
@@ -4861,6 +4887,68 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           "methodId",
           "input",
           "responsible",
+          "libraries",
+          "signatureId"
+        ],
+      );
+
+  @override
+  Future<String> crateApiMergedNtRunLocalWithLibs(
+      {required ArcTransportBoxTrait transport,
+      required String accountStuffBoc,
+      required String contractAbi,
+      required String methodId,
+      required String input,
+      required bool responsible,
+      required Map<String, String> libraries,
+      required int retryCount,
+      int? signatureId}) {
+    return handler.executeNormal(NormalTask(
+      callFfi: (port_) {
+        var arg0 = cst_encode_RustOpaque_ArcdynTransportBoxTrait(transport);
+        var arg1 = cst_encode_String(accountStuffBoc);
+        var arg2 = cst_encode_String(contractAbi);
+        var arg3 = cst_encode_String(methodId);
+        var arg4 = cst_encode_String(input);
+        var arg5 = cst_encode_bool(responsible);
+        var arg6 = cst_encode_Map_String_String_None(libraries);
+        var arg7 = cst_encode_u_8(retryCount);
+        var arg8 = cst_encode_opt_box_autoadd_i_32(signatureId);
+        return wire.wire__crate__api__merged__nt_run_local_with_libs(
+            port_, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
+      },
+      codec: DcoCodec(
+        decodeSuccessData: dco_decode_String,
+        decodeErrorData: dco_decode_AnyhowException,
+      ),
+      constMeta: kCrateApiMergedNtRunLocalWithLibsConstMeta,
+      argValues: [
+        transport,
+        accountStuffBoc,
+        contractAbi,
+        methodId,
+        input,
+        responsible,
+        libraries,
+        retryCount,
+        signatureId
+      ],
+      apiImpl: this,
+    ));
+  }
+
+  TaskConstMeta get kCrateApiMergedNtRunLocalWithLibsConstMeta =>
+      const TaskConstMeta(
+        debugName: "nt_run_local_with_libs",
+        argNames: [
+          "transport",
+          "accountStuffBoc",
+          "contractAbi",
+          "methodId",
+          "input",
+          "responsible",
+          "libraries",
+          "retryCount",
           "signatureId"
         ],
       );
@@ -7616,6 +7704,13 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  Map<String, String> dco_decode_Map_String_String_None(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return Map.fromEntries(dco_decode_list_record_string_string(raw)
+        .map((e) => MapEntry(e.$1, e.$2)));
+  }
+
+  @protected
   ArcAccountsStorageBoxTrait
       dco_decode_RustOpaque_ArcdynAccountsStorageBoxTrait(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
@@ -8283,6 +8378,12 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  List<(String, String)> dco_decode_list_record_string_string(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return (raw as List<dynamic>).map(dco_decode_record_string_string).toList();
+  }
+
+  @protected
   LogEntry dco_decode_log_entry(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     final arr = raw as List<dynamic>;
@@ -8552,6 +8653,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     // Codec=Sse (Serialization based), see doc to use other codecs
     var inner = sse_decode_String(deserializer);
     return AnyhowException(inner);
+  }
+
+  @protected
+  Map<String, String> sse_decode_Map_String_String_None(
+      SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var inner = sse_decode_list_record_string_string(deserializer);
+    return Map.fromEntries(inner.map((e) => MapEntry(e.$1, e.$2)));
   }
 
   @protected
@@ -9222,6 +9331,19 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  List<(String, String)> sse_decode_list_record_string_string(
+      SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    var len_ = sse_decode_i_32(deserializer);
+    var ans_ = <(String, String)>[];
+    for (var idx_ = 0; idx_ < len_; ++idx_) {
+      ans_.add(sse_decode_record_string_string(deserializer));
+    }
+    return ans_;
+  }
+
+  @protected
   LogEntry sse_decode_log_entry(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     var var_timeMillis = sse_decode_i_64(deserializer);
@@ -9685,6 +9807,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       AnyhowException self, SseSerializer serializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_String(self.message, serializer);
+  }
+
+  @protected
+  void sse_encode_Map_String_String_None(
+      Map<String, String> self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_list_record_string_string(
+        self.entries.map((e) => (e.key, e.value)).toList(), serializer);
   }
 
   @protected
@@ -10334,6 +10464,16 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_i_32(self.length, serializer);
     serializer.buffer.putUint8List(self);
+  }
+
+  @protected
+  void sse_encode_list_record_string_string(
+      List<(String, String)> self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self.length, serializer);
+    for (final item in self) {
+      sse_encode_record_string_string(item, serializer);
+    }
   }
 
   @protected
