@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-10-02
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v3.6.0`](#flutter_nekoton_bridge---v360)
+ - [`flutter_nekoton_bridge_example` - `v2.3.0`](#flutter_nekoton_bridge_example---v230)
+ - [`nekoton_bridge` - `v3.6.0`](#nekoton_bridge---v360)
+
+---
+
+#### `flutter_nekoton_bridge` - `v3.6.0`
+
+ - **FEAT**: add support for libraries in local execution and getter functions. ([79f1f4c2](https://github.com/broxus/nekoton_bridge/commit/79f1f4c2a26a5e70f21122c5d197c030be974870))
+
+#### `flutter_nekoton_bridge_example` - `v2.3.0`
+
+ - **FEAT**: add support for libraries in local execution and getter functions. ([79f1f4c2](https://github.com/broxus/nekoton_bridge/commit/79f1f4c2a26a5e70f21122c5d197c030be974870))
+
+#### `nekoton_bridge` - `v3.6.0`
+
+ - **FEAT**: add support for libraries in local execution and getter functions. ([79f1f4c2](https://github.com/broxus/nekoton_bridge/commit/79f1f4c2a26a5e70f21122c5d197c030be974870))
+
+
 ## 2025-09-22
 
 ### Changes

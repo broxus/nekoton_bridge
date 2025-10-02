@@ -1,3 +1,7 @@
+## 3.6.0
+
+ - **FEAT**: add support for libraries in local execution and getter functions. ([79f1f4c2](https://github.com/broxus/nekoton_bridge/commit/79f1f4c2a26a5e70f21122c5d197c030be974870))
+
 ## 3.5.1
 
  - **FIX**: change `remainingGasTo` parameter type to `Address`. ([6c1f647b](https://github.com/broxus/nekoton_bridge/commit/6c1f647b2db14f1ef8542c4816b449238692e782))

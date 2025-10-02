@@ -1,3 +1,7 @@
+## 3.6.0
+
+ - **FEAT**: add support for libraries in local execution and getter functions. ([79f1f4c2](https://github.com/broxus/nekoton_bridge/commit/79f1f4c2a26a5e70f21122c5d197c030be974870))
+
 ## 3.5.0
 
  - **FEAT**: add `remainingGasTo` parameter to `prepareTransfer` method in `TokenWallet`. ([744c46d6](https://github.com/broxus/nekoton_bridge/commit/744c46d6fef99bd41472d4498009575d91b59940))
