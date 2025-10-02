@@ -611,10 +611,7 @@ pub async fn run_local_with_libs_internal(
     }
 }
 
-async fn fetch_library_cell(
-    transport: &dyn Transport,
-    hash: UInt256,
-) -> anyhow::Result<Cell> {
+async fn fetch_library_cell(transport: &dyn Transport, hash: UInt256) -> anyhow::Result<Cell> {
     match transport.get_library_cell(&hash).await {
         Ok(Some(cell)) => Ok(cell),
         Ok(None) => Err(ExecutionError::MissingLibrary { hash }).handle_error(),
