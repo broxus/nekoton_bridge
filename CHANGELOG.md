@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-10-06
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v4.0.0-dev.2`](#flutter_nekoton_bridge---v400-dev2)
+ - [`flutter_nekoton_bridge_example` - `v3.0.0-dev.2`](#flutter_nekoton_bridge_example---v300-dev2)
+ - [`nekoton_bridge` - `v4.0.0-dev.2`](#nekoton_bridge---v400-dev2)
+
+---
+
+#### `flutter_nekoton_bridge` - `v4.0.0-dev.2`
+
+ - **REFACTOR**: remove redundant json converters.
+ - **FIX**: change `remainingGasTo` parameter type to `Address`.
+ - **FEAT**: add support for libraries in local execution and getter functions.
+ - **FEAT**: add `remainingGasTo` parameter to `prepareTransfer` method in `TokenWallet`.
+ - **FEAT**: add WalletV5R1 specific methods.
+
+#### `flutter_nekoton_bridge_example` - `v3.0.0-dev.2`
+
+ - **FEAT**: add support for libraries in local execution and getter functions.
+
+#### `nekoton_bridge` - `v4.0.0-dev.2`
+
+ - **FEAT**: add support for libraries in local execution and getter functions.
+ - **FEAT**: add `remainingGasTo` parameter to `prepareTransfer` method in `TokenWallet`.
+ - **FEAT**: add WalletV5R1 specific methods.
+
+
 ## 2025-10-02
 
 ### Changes
