@@ -1,3 +1,7 @@
+## 3.0.0-dev.2
+
+ - **FEAT**: add support for libraries in local execution and getter functions.
+
 ## 3.0.0-dev.1
 
 > Note: This release has breaking changes.

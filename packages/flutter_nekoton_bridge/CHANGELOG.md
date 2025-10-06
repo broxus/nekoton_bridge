@@ -1,3 +1,11 @@
+## 4.0.0-dev.2
+
+ - **REFACTOR**: remove redundant json converters.
+ - **FIX**: change `remainingGasTo` parameter type to `Address`.
+ - **FEAT**: add support for libraries in local execution and getter functions.
+ - **FEAT**: add `remainingGasTo` parameter to `prepareTransfer` method in `TokenWallet`.
+ - **FEAT**: add WalletV5R1 specific methods.
+
 ## 4.0.0-dev.1
 
 > Note: This release has breaking changes.
