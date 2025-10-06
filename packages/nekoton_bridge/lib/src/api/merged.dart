@@ -76,6 +76,7 @@ Future<String> ntRunLocal({
   required String methodId,
   required String input,
   required bool responsible,
+  required Map<String, String> libraries,
   int? signatureId,
 }) => NekotonBridge.instance.api.crateApiMergedNtRunLocal(
   accountStuffBoc: accountStuffBoc,
@@ -83,6 +84,29 @@ Future<String> ntRunLocal({
   methodId: methodId,
   input: input,
   responsible: responsible,
+  libraries: libraries,
+  signatureId: signatureId,
+);
+
+Future<String> ntRunLocalWithLibs({
+  required ArcTransportBoxTrait transport,
+  required String accountStuffBoc,
+  required String contractAbi,
+  required String methodId,
+  required String input,
+  required bool responsible,
+  required Map<String, String> libraries,
+  required int retryCount,
+  int? signatureId,
+}) => NekotonBridge.instance.api.crateApiMergedNtRunLocalWithLibs(
+  transport: transport,
+  accountStuffBoc: accountStuffBoc,
+  contractAbi: contractAbi,
+  methodId: methodId,
+  input: input,
+  responsible: responsible,
+  libraries: libraries,
+  retryCount: retryCount,
   signatureId: signatureId,
 );
 
@@ -436,12 +460,14 @@ Future<String> ntRunGetter({
   required String contractAbi,
   required String methodId,
   required String input,
+  required Map<String, String> libraries,
   int? signatureId,
 }) => NekotonBridge.instance.api.crateApiMergedNtRunGetter(
   accountStuffBoc: accountStuffBoc,
   contractAbi: contractAbi,
   methodId: methodId,
   input: input,
+  libraries: libraries,
   signatureId: signatureId,
 );
 
@@ -2099,6 +2125,7 @@ class TokenWalletDartWrapper {
     required bool notifyReceiver,
     String? attachedAmount,
     String? payload,
+    String? remainingGasTo,
   }) => NekotonBridge.instance.api
       .crateApiMergedTokenWalletDartWrapperPrepareTransfer(
         that: this,
@@ -2107,6 +2134,7 @@ class TokenWalletDartWrapper {
         notifyReceiver: notifyReceiver,
         attachedAmount: attachedAmount,
         payload: payload,
+        remainingGasTo: remainingGasTo,
       );
 
   /// Refresh wallet and update its data.
@@ -2162,6 +2190,15 @@ class TonWalletDartWrapper {
   /// Get address of wallet.
   Future<String> address() => NekotonBridge.instance.api
       .crateApiMergedTonWalletDartWrapperAddress(that: this);
+
+  static Future<String> appendSignatureToWalletV5R1Payload({
+    required String payload,
+    required String base64Signature,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperAppendSignatureToWalletV5R1Payload(
+        payload: payload,
+        base64Signature: base64Signature,
+      );
 
   /// Get json-encoded ContractState or throw error.
   Future<String> contractState() => NekotonBridge.instance.api
@@ -2227,6 +2264,16 @@ class TonWalletDartWrapper {
       .crateApiMergedTonWalletDartWrapperGetExistingWalletInfo(
         transport: transport,
         address: address,
+      );
+
+  Future<int> getWalletV5R1Seqno({
+    required String rawCurrentState,
+    required String publicKey,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperGetWalletV5R1Seqno(
+        that: this,
+        rawCurrentState: rawCurrentState,
+        publicKey: publicKey,
       );
 
   /// Handle block of blockchain.
@@ -2308,6 +2355,18 @@ class TonWalletDartWrapper {
         expirationTime: expirationTime,
       );
 
+  Future<(String, String)> prepareNonexistWalletV5R1MessageBody({
+    required String expiration,
+    required String params,
+    required bool isInternalFlow,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperPrepareNonexistWalletV5R1MessageBody(
+        that: this,
+        expiration: expiration,
+        params: params,
+        isInternalFlow: isInternalFlow,
+      );
+
   /// Prepare transferring tokens from this wallet to other.
   /// contract_state - json-encoded RawContractState
   /// public_key - key of account that had initiated transfer
@@ -2326,6 +2385,23 @@ class TonWalletDartWrapper {
         publicKey: publicKey,
         expiration: expiration,
         params: params,
+      );
+
+  /// Returns (hash, payload)
+  Future<(String, String)> prepareWalletV5R1MessageBody({
+    required String contractState,
+    required String publicKey,
+    required String expiration,
+    required String params,
+    required bool isInternalFlow,
+  }) => NekotonBridge.instance.api
+      .crateApiMergedTonWalletDartWrapperPrepareWalletV5R1MessageBody(
+        that: this,
+        contractState: contractState,
+        publicKey: publicKey,
+        expiration: expiration,
+        params: params,
+        isInternalFlow: isInternalFlow,
       );
 
   /// Get public key of wallet.

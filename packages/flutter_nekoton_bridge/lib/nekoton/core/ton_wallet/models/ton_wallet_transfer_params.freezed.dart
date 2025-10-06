@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TonWalletTransferParams {
 
- Address get destination;@amountJsonConverter BigInt get amount; bool get bounce; String? get body; String? get stateInit;
+ Address get destination; BigInt get amount; bool get bounce; String? get body; String? get stateInit;
 /// Create a copy of TonWalletTransferParams
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $TonWalletTransferParamsCopyWith<$Res>  {
   factory $TonWalletTransferParamsCopyWith(TonWalletTransferParams value, $Res Function(TonWalletTransferParams) _then) = _$TonWalletTransferParamsCopyWithImpl;
 @useResult
 $Res call({
- Address destination,@amountJsonConverter BigInt amount, bool bounce, String? body, String? stateInit
+ Address destination, BigInt amount, bool bounce, String? body, String? stateInit
 });
 
 
@@ -163,7 +163,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Address destination, @amountJsonConverter  BigInt amount,  bool bounce,  String? body,  String? stateInit)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Address destination,  BigInt amount,  bool bounce,  String? body,  String? stateInit)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TonWalletTransferParams() when $default != null:
 return $default(_that.destination,_that.amount,_that.bounce,_that.body,_that.stateInit);case _:
@@ -184,7 +184,7 @@ return $default(_that.destination,_that.amount,_that.bounce,_that.body,_that.sta
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Address destination, @amountJsonConverter  BigInt amount,  bool bounce,  String? body,  String? stateInit)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Address destination,  BigInt amount,  bool bounce,  String? body,  String? stateInit)  $default,) {final _that = this;
 switch (_that) {
 case _TonWalletTransferParams():
 return $default(_that.destination,_that.amount,_that.bounce,_that.body,_that.stateInit);}
@@ -201,7 +201,7 @@ return $default(_that.destination,_that.amount,_that.bounce,_that.body,_that.sta
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Address destination, @amountJsonConverter  BigInt amount,  bool bounce,  String? body,  String? stateInit)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Address destination,  BigInt amount,  bool bounce,  String? body,  String? stateInit)?  $default,) {final _that = this;
 switch (_that) {
 case _TonWalletTransferParams() when $default != null:
 return $default(_that.destination,_that.amount,_that.bounce,_that.body,_that.stateInit);case _:
@@ -216,11 +216,11 @@ return $default(_that.destination,_that.amount,_that.bounce,_that.body,_that.sta
 @JsonSerializable()
 
 class _TonWalletTransferParams implements TonWalletTransferParams {
-   _TonWalletTransferParams({required this.destination, @amountJsonConverter required this.amount, required this.bounce, this.body, this.stateInit});
+   _TonWalletTransferParams({required this.destination, required this.amount, required this.bounce, this.body, this.stateInit});
   factory _TonWalletTransferParams.fromJson(Map<String, dynamic> json) => _$TonWalletTransferParamsFromJson(json);
 
 @override final  Address destination;
-@override@amountJsonConverter final  BigInt amount;
+@override final  BigInt amount;
 @override final  bool bounce;
 @override final  String? body;
 @override final  String? stateInit;
@@ -258,7 +258,7 @@ abstract mixin class _$TonWalletTransferParamsCopyWith<$Res> implements $TonWall
   factory _$TonWalletTransferParamsCopyWith(_TonWalletTransferParams value, $Res Function(_TonWalletTransferParams) _then) = __$TonWalletTransferParamsCopyWithImpl;
 @override @useResult
 $Res call({
- Address destination,@amountJsonConverter BigInt amount, bool bounce, String? body, String? stateInit
+ Address destination, BigInt amount, bool bounce, String? body, String? stateInit
 });
 
 

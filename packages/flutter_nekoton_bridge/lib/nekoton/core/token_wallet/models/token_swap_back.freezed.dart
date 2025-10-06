@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TokenSwapBack {
 
-@amountJsonConverter BigInt get tokens; Address get callbackAddress; String get callbackPayload;
+ BigInt get tokens; Address get callbackAddress; String get callbackPayload;
 /// Create a copy of TokenSwapBack
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $TokenSwapBackCopyWith<$Res>  {
   factory $TokenSwapBackCopyWith(TokenSwapBack value, $Res Function(TokenSwapBack) _then) = _$TokenSwapBackCopyWithImpl;
 @useResult
 $Res call({
-@amountJsonConverter BigInt tokens, Address callbackAddress, String callbackPayload
+ BigInt tokens, Address callbackAddress, String callbackPayload
 });
 
 
@@ -161,7 +161,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@amountJsonConverter  BigInt tokens,  Address callbackAddress,  String callbackPayload)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( BigInt tokens,  Address callbackAddress,  String callbackPayload)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TokenSwapBack() when $default != null:
 return $default(_that.tokens,_that.callbackAddress,_that.callbackPayload);case _:
@@ -182,7 +182,7 @@ return $default(_that.tokens,_that.callbackAddress,_that.callbackPayload);case _
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@amountJsonConverter  BigInt tokens,  Address callbackAddress,  String callbackPayload)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( BigInt tokens,  Address callbackAddress,  String callbackPayload)  $default,) {final _that = this;
 switch (_that) {
 case _TokenSwapBack():
 return $default(_that.tokens,_that.callbackAddress,_that.callbackPayload);}
@@ -199,7 +199,7 @@ return $default(_that.tokens,_that.callbackAddress,_that.callbackPayload);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@amountJsonConverter  BigInt tokens,  Address callbackAddress,  String callbackPayload)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( BigInt tokens,  Address callbackAddress,  String callbackPayload)?  $default,) {final _that = this;
 switch (_that) {
 case _TokenSwapBack() when $default != null:
 return $default(_that.tokens,_that.callbackAddress,_that.callbackPayload);case _:
@@ -214,10 +214,10 @@ return $default(_that.tokens,_that.callbackAddress,_that.callbackPayload);case _
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _TokenSwapBack implements TokenSwapBack {
-  const _TokenSwapBack({@amountJsonConverter required this.tokens, required this.callbackAddress, required this.callbackPayload});
+  const _TokenSwapBack({required this.tokens, required this.callbackAddress, required this.callbackPayload});
   factory _TokenSwapBack.fromJson(Map<String, dynamic> json) => _$TokenSwapBackFromJson(json);
 
-@override@amountJsonConverter final  BigInt tokens;
+@override final  BigInt tokens;
 @override final  Address callbackAddress;
 @override final  String callbackPayload;
 
@@ -254,7 +254,7 @@ abstract mixin class _$TokenSwapBackCopyWith<$Res> implements $TokenSwapBackCopy
   factory _$TokenSwapBackCopyWith(_TokenSwapBack value, $Res Function(_TokenSwapBack) _then) = __$TokenSwapBackCopyWithImpl;
 @override @useResult
 $Res call({
-@amountJsonConverter BigInt tokens, Address callbackAddress, String callbackPayload
+ BigInt tokens, Address callbackAddress, String callbackPayload
 });
 
 

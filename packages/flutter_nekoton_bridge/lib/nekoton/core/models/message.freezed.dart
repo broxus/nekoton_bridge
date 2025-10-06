@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Message {
 
- String get hash; Address? get src; Address? get dst;@amountJsonConverter BigInt get value; bool get bounce; bool get bounced; String? get body; String? get bodyHash;
+ String get hash; Address? get src; Address? get dst; BigInt get value; bool get bounce; bool get bounced; String? get body; String? get bodyHash;
 /// Create a copy of Message
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $MessageCopyWith<$Res>  {
   factory $MessageCopyWith(Message value, $Res Function(Message) _then) = _$MessageCopyWithImpl;
 @useResult
 $Res call({
- String hash, Address? src, Address? dst,@amountJsonConverter BigInt value, bool bounce, bool bounced, String? body, String? bodyHash
+ String hash, Address? src, Address? dst, BigInt value, bool bounce, bool bounced, String? body, String? bodyHash
 });
 
 
@@ -181,7 +181,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String hash,  Address? src,  Address? dst, @amountJsonConverter  BigInt value,  bool bounce,  bool bounced,  String? body,  String? bodyHash)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String hash,  Address? src,  Address? dst,  BigInt value,  bool bounce,  bool bounced,  String? body,  String? bodyHash)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Message() when $default != null:
 return $default(_that.hash,_that.src,_that.dst,_that.value,_that.bounce,_that.bounced,_that.body,_that.bodyHash);case _:
@@ -202,7 +202,7 @@ return $default(_that.hash,_that.src,_that.dst,_that.value,_that.bounce,_that.bo
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String hash,  Address? src,  Address? dst, @amountJsonConverter  BigInt value,  bool bounce,  bool bounced,  String? body,  String? bodyHash)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String hash,  Address? src,  Address? dst,  BigInt value,  bool bounce,  bool bounced,  String? body,  String? bodyHash)  $default,) {final _that = this;
 switch (_that) {
 case _Message():
 return $default(_that.hash,_that.src,_that.dst,_that.value,_that.bounce,_that.bounced,_that.body,_that.bodyHash);}
@@ -219,7 +219,7 @@ return $default(_that.hash,_that.src,_that.dst,_that.value,_that.bounce,_that.bo
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String hash,  Address? src,  Address? dst, @amountJsonConverter  BigInt value,  bool bounce,  bool bounced,  String? body,  String? bodyHash)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String hash,  Address? src,  Address? dst,  BigInt value,  bool bounce,  bool bounced,  String? body,  String? bodyHash)?  $default,) {final _that = this;
 switch (_that) {
 case _Message() when $default != null:
 return $default(_that.hash,_that.src,_that.dst,_that.value,_that.bounce,_that.bounced,_that.body,_that.bodyHash);case _:
@@ -234,13 +234,13 @@ return $default(_that.hash,_that.src,_that.dst,_that.value,_that.bounce,_that.bo
 @JsonSerializable()
 
 class _Message implements Message {
-  const _Message({required this.hash, this.src, this.dst, @amountJsonConverter required this.value, required this.bounce, required this.bounced, this.body, this.bodyHash});
+  const _Message({required this.hash, this.src, this.dst, required this.value, required this.bounce, required this.bounced, this.body, this.bodyHash});
   factory _Message.fromJson(Map<String, dynamic> json) => _$MessageFromJson(json);
 
 @override final  String hash;
 @override final  Address? src;
 @override final  Address? dst;
-@override@amountJsonConverter final  BigInt value;
+@override final  BigInt value;
 @override final  bool bounce;
 @override final  bool bounced;
 @override final  String? body;
@@ -279,7 +279,7 @@ abstract mixin class _$MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
   factory _$MessageCopyWith(_Message value, $Res Function(_Message) _then) = __$MessageCopyWithImpl;
 @override @useResult
 $Res call({
- String hash, Address? src, Address? dst,@amountJsonConverter BigInt value, bool bounce, bool bounced, String? body, String? bodyHash
+ String hash, Address? src, Address? dst, BigInt value, bool bounce, bool bounced, String? body, String? bodyHash
 });
 
 

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$InternalMessage {
 
- Address? get source; Address get destination;@amountJsonConverter BigInt get amount; bool get bounce; String get body;
+ Address? get source; Address get destination; BigInt get amount; bool get bounce; String get body;
 /// Create a copy of InternalMessage
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $InternalMessageCopyWith<$Res>  {
   factory $InternalMessageCopyWith(InternalMessage value, $Res Function(InternalMessage) _then) = _$InternalMessageCopyWithImpl;
 @useResult
 $Res call({
- Address? source, Address destination,@amountJsonConverter BigInt amount, bool bounce, String body
+ Address? source, Address destination, BigInt amount, bool bounce, String body
 });
 
 
@@ -175,7 +175,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Address? source,  Address destination, @amountJsonConverter  BigInt amount,  bool bounce,  String body)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Address? source,  Address destination,  BigInt amount,  bool bounce,  String body)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _InternalMessage() when $default != null:
 return $default(_that.source,_that.destination,_that.amount,_that.bounce,_that.body);case _:
@@ -196,7 +196,7 @@ return $default(_that.source,_that.destination,_that.amount,_that.bounce,_that.b
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Address? source,  Address destination, @amountJsonConverter  BigInt amount,  bool bounce,  String body)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Address? source,  Address destination,  BigInt amount,  bool bounce,  String body)  $default,) {final _that = this;
 switch (_that) {
 case _InternalMessage():
 return $default(_that.source,_that.destination,_that.amount,_that.bounce,_that.body);}
@@ -213,7 +213,7 @@ return $default(_that.source,_that.destination,_that.amount,_that.bounce,_that.b
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Address? source,  Address destination, @amountJsonConverter  BigInt amount,  bool bounce,  String body)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Address? source,  Address destination,  BigInt amount,  bool bounce,  String body)?  $default,) {final _that = this;
 switch (_that) {
 case _InternalMessage() when $default != null:
 return $default(_that.source,_that.destination,_that.amount,_that.bounce,_that.body);case _:
@@ -228,12 +228,12 @@ return $default(_that.source,_that.destination,_that.amount,_that.bounce,_that.b
 @JsonSerializable()
 
 class _InternalMessage implements InternalMessage {
-   _InternalMessage({this.source, required this.destination, @amountJsonConverter required this.amount, required this.bounce, required this.body});
+   _InternalMessage({this.source, required this.destination, required this.amount, required this.bounce, required this.body});
   factory _InternalMessage.fromJson(Map<String, dynamic> json) => _$InternalMessageFromJson(json);
 
 @override final  Address? source;
 @override final  Address destination;
-@override@amountJsonConverter final  BigInt amount;
+@override final  BigInt amount;
 @override final  bool bounce;
 @override final  String body;
 
@@ -270,7 +270,7 @@ abstract mixin class _$InternalMessageCopyWith<$Res> implements $InternalMessage
   factory _$InternalMessageCopyWith(_InternalMessage value, $Res Function(_InternalMessage) _then) = __$InternalMessageCopyWithImpl;
 @override @useResult
 $Res call({
- Address? source, Address destination,@amountJsonConverter BigInt amount, bool bounce, String body
+ Address? source, Address destination, BigInt amount, bool bounce, String body
 });
 
 

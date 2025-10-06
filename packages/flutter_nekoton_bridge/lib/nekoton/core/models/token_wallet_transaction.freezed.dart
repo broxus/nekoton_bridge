@@ -62,7 +62,7 @@ TokenWalletTransaction _$TokenWalletTransactionFromJson(
 /// @nodoc
 mixin _$TokenWalletTransaction {
 
-@amountJsonConverter Object get data;
+ Object get data;
 
   /// Serializes this TokenWalletTransaction to a JSON map.
   Map<String, dynamic> toJson();
@@ -187,7 +187,7 @@ return swapBackBounced(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( JettonOutgoingTransfer data)?  transfer,TResult Function( JettonIncomingTransfer data)?  internalTransfer,TResult Function( TokenIncomingTransfer data)?  incomingTransfer,TResult Function( TokenOutgoingTransfer data)?  outgoingTransfer,TResult Function( TokenSwapBack data)?  swapBack,TResult Function(@amountJsonConverter  BigInt data)?  accept,TResult Function(@amountJsonConverter  BigInt data)?  transferBounced,TResult Function(@amountJsonConverter  BigInt data)?  swapBackBounced,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( JettonOutgoingTransfer data)?  transfer,TResult Function( JettonIncomingTransfer data)?  internalTransfer,TResult Function( TokenIncomingTransfer data)?  incomingTransfer,TResult Function( TokenOutgoingTransfer data)?  outgoingTransfer,TResult Function( TokenSwapBack data)?  swapBack,TResult Function( BigInt data)?  accept,TResult Function( BigInt data)?  transferBounced,TResult Function( BigInt data)?  swapBackBounced,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case TokenWalletTransactionTransfer() when transfer != null:
 return transfer(_that.data);case TokenWalletTransactionInternalTransfer() when internalTransfer != null:
@@ -215,7 +215,7 @@ return swapBackBounced(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( JettonOutgoingTransfer data)  transfer,required TResult Function( JettonIncomingTransfer data)  internalTransfer,required TResult Function( TokenIncomingTransfer data)  incomingTransfer,required TResult Function( TokenOutgoingTransfer data)  outgoingTransfer,required TResult Function( TokenSwapBack data)  swapBack,required TResult Function(@amountJsonConverter  BigInt data)  accept,required TResult Function(@amountJsonConverter  BigInt data)  transferBounced,required TResult Function(@amountJsonConverter  BigInt data)  swapBackBounced,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( JettonOutgoingTransfer data)  transfer,required TResult Function( JettonIncomingTransfer data)  internalTransfer,required TResult Function( TokenIncomingTransfer data)  incomingTransfer,required TResult Function( TokenOutgoingTransfer data)  outgoingTransfer,required TResult Function( TokenSwapBack data)  swapBack,required TResult Function( BigInt data)  accept,required TResult Function( BigInt data)  transferBounced,required TResult Function( BigInt data)  swapBackBounced,}) {final _that = this;
 switch (_that) {
 case TokenWalletTransactionTransfer():
 return transfer(_that.data);case TokenWalletTransactionInternalTransfer():
@@ -239,7 +239,7 @@ return swapBackBounced(_that.data);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( JettonOutgoingTransfer data)?  transfer,TResult? Function( JettonIncomingTransfer data)?  internalTransfer,TResult? Function( TokenIncomingTransfer data)?  incomingTransfer,TResult? Function( TokenOutgoingTransfer data)?  outgoingTransfer,TResult? Function( TokenSwapBack data)?  swapBack,TResult? Function(@amountJsonConverter  BigInt data)?  accept,TResult? Function(@amountJsonConverter  BigInt data)?  transferBounced,TResult? Function(@amountJsonConverter  BigInt data)?  swapBackBounced,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( JettonOutgoingTransfer data)?  transfer,TResult? Function( JettonIncomingTransfer data)?  internalTransfer,TResult? Function( TokenIncomingTransfer data)?  incomingTransfer,TResult? Function( TokenOutgoingTransfer data)?  outgoingTransfer,TResult? Function( TokenSwapBack data)?  swapBack,TResult? Function( BigInt data)?  accept,TResult? Function( BigInt data)?  transferBounced,TResult? Function( BigInt data)?  swapBackBounced,}) {final _that = this;
 switch (_that) {
 case TokenWalletTransactionTransfer() when transfer != null:
 return transfer(_that.data);case TokenWalletTransactionInternalTransfer() when internalTransfer != null:
@@ -671,10 +671,10 @@ $TokenSwapBackCopyWith<$Res> get data {
 @JsonSerializable()
 
 class TokenWalletTransactionAccept implements TokenWalletTransaction {
-  const TokenWalletTransactionAccept(@amountJsonConverter this.data, {final  String? $type}): $type = $type ?? 'accept';
+  const TokenWalletTransactionAccept(this.data, {final  String? $type}): $type = $type ?? 'accept';
   factory TokenWalletTransactionAccept.fromJson(Map<String, dynamic> json) => _$TokenWalletTransactionAcceptFromJson(json);
 
-@override@amountJsonConverter final  BigInt data;
+@override final  BigInt data;
 
 @JsonKey(name: 'type')
 final String $type;
@@ -713,7 +713,7 @@ abstract mixin class $TokenWalletTransactionAcceptCopyWith<$Res> implements $Tok
   factory $TokenWalletTransactionAcceptCopyWith(TokenWalletTransactionAccept value, $Res Function(TokenWalletTransactionAccept) _then) = _$TokenWalletTransactionAcceptCopyWithImpl;
 @useResult
 $Res call({
-@amountJsonConverter BigInt data
+ BigInt data
 });
 
 
@@ -744,10 +744,10 @@ as BigInt,
 @JsonSerializable()
 
 class TokenWalletTransactionTransferBounced implements TokenWalletTransaction {
-  const TokenWalletTransactionTransferBounced(@amountJsonConverter this.data, {final  String? $type}): $type = $type ?? 'transfer_bounced';
+  const TokenWalletTransactionTransferBounced(this.data, {final  String? $type}): $type = $type ?? 'transfer_bounced';
   factory TokenWalletTransactionTransferBounced.fromJson(Map<String, dynamic> json) => _$TokenWalletTransactionTransferBouncedFromJson(json);
 
-@override@amountJsonConverter final  BigInt data;
+@override final  BigInt data;
 
 @JsonKey(name: 'type')
 final String $type;
@@ -786,7 +786,7 @@ abstract mixin class $TokenWalletTransactionTransferBouncedCopyWith<$Res> implem
   factory $TokenWalletTransactionTransferBouncedCopyWith(TokenWalletTransactionTransferBounced value, $Res Function(TokenWalletTransactionTransferBounced) _then) = _$TokenWalletTransactionTransferBouncedCopyWithImpl;
 @useResult
 $Res call({
-@amountJsonConverter BigInt data
+ BigInt data
 });
 
 
@@ -817,10 +817,10 @@ as BigInt,
 @JsonSerializable()
 
 class TokenWalletTransactionSwapBackBounced implements TokenWalletTransaction {
-  const TokenWalletTransactionSwapBackBounced(@amountJsonConverter this.data, {final  String? $type}): $type = $type ?? 'swap_back_bounced';
+  const TokenWalletTransactionSwapBackBounced(this.data, {final  String? $type}): $type = $type ?? 'swap_back_bounced';
   factory TokenWalletTransactionSwapBackBounced.fromJson(Map<String, dynamic> json) => _$TokenWalletTransactionSwapBackBouncedFromJson(json);
 
-@override@amountJsonConverter final  BigInt data;
+@override final  BigInt data;
 
 @JsonKey(name: 'type')
 final String $type;
@@ -859,7 +859,7 @@ abstract mixin class $TokenWalletTransactionSwapBackBouncedCopyWith<$Res> implem
   factory $TokenWalletTransactionSwapBackBouncedCopyWith(TokenWalletTransactionSwapBackBounced value, $Res Function(TokenWalletTransactionSwapBackBounced) _then) = _$TokenWalletTransactionSwapBackBouncedCopyWithImpl;
 @useResult
 $Res call({
-@amountJsonConverter BigInt data
+ BigInt data
 });
 
 

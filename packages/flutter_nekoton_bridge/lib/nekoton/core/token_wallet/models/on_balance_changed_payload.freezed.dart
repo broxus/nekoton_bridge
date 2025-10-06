@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$OnBalanceChangedPayload {
 
-@amountJsonConverter BigInt get balance;
+ BigInt get balance;
 /// Create a copy of OnBalanceChangedPayload
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $OnBalanceChangedPayloadCopyWith<$Res>  {
   factory $OnBalanceChangedPayloadCopyWith(OnBalanceChangedPayload value, $Res Function(OnBalanceChangedPayload) _then) = _$OnBalanceChangedPayloadCopyWithImpl;
 @useResult
 $Res call({
-@amountJsonConverter BigInt balance
+ BigInt balance
 });
 
 
@@ -150,7 +150,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@amountJsonConverter  BigInt balance)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( BigInt balance)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _OnBalanceChangedPayload() when $default != null:
 return $default(_that.balance);case _:
@@ -171,7 +171,7 @@ return $default(_that.balance);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@amountJsonConverter  BigInt balance)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( BigInt balance)  $default,) {final _that = this;
 switch (_that) {
 case _OnBalanceChangedPayload():
 return $default(_that.balance);}
@@ -188,7 +188,7 @@ return $default(_that.balance);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@amountJsonConverter  BigInt balance)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( BigInt balance)?  $default,) {final _that = this;
 switch (_that) {
 case _OnBalanceChangedPayload() when $default != null:
 return $default(_that.balance);case _:
@@ -203,10 +203,10 @@ return $default(_that.balance);case _:
 @JsonSerializable()
 
 class _OnBalanceChangedPayload implements OnBalanceChangedPayload {
-  const _OnBalanceChangedPayload({@amountJsonConverter required this.balance});
+  const _OnBalanceChangedPayload({required this.balance});
   factory _OnBalanceChangedPayload.fromJson(Map<String, dynamic> json) => _$OnBalanceChangedPayloadFromJson(json);
 
-@override@amountJsonConverter final  BigInt balance;
+@override final  BigInt balance;
 
 /// Create a copy of OnBalanceChangedPayload
 /// with the given fields replaced by the non-null parameter values.
@@ -241,7 +241,7 @@ abstract mixin class _$OnBalanceChangedPayloadCopyWith<$Res> implements $OnBalan
   factory _$OnBalanceChangedPayloadCopyWith(_OnBalanceChangedPayload value, $Res Function(_OnBalanceChangedPayload) _then) = __$OnBalanceChangedPayloadCopyWithImpl;
 @override @useResult
 $Res call({
-@amountJsonConverter BigInt balance
+ BigInt balance
 });
 
 

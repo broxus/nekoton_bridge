@@ -10,7 +10,7 @@ sealed class TokenWalletDetails with _$TokenWalletDetails {
   const factory TokenWalletDetails({
     required final Address rootAddress,
     required final Address ownerAddress,
-    @amountJsonConverter required final BigInt balance,
+    required final BigInt balance,
   }) = _TokenWalletDetails;
 
   factory TokenWalletDetails.fromJson(Map<String, dynamic> json) =>

@@ -10,7 +10,7 @@ sealed class MultisigSubmitTransaction with _$MultisigSubmitTransaction {
   const factory MultisigSubmitTransaction({
     required final PublicKey custodian,
     required final Address dest,
-    @amountJsonConverter required final BigInt value,
+    required final BigInt value,
     required final bool bounce,
     required final bool allBalance,
     required final String payload,

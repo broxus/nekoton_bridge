@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MultisigSendTransaction {
 
- Address get dest;@amountJsonConverter BigInt get value; bool get bounce; int get flags; String get payload;
+ Address get dest; BigInt get value; bool get bounce; int get flags; String get payload;
 /// Create a copy of MultisigSendTransaction
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $MultisigSendTransactionCopyWith<$Res>  {
   factory $MultisigSendTransactionCopyWith(MultisigSendTransaction value, $Res Function(MultisigSendTransaction) _then) = _$MultisigSendTransactionCopyWithImpl;
 @useResult
 $Res call({
- Address dest,@amountJsonConverter BigInt value, bool bounce, int flags, String payload
+ Address dest, BigInt value, bool bounce, int flags, String payload
 });
 
 
@@ -163,7 +163,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Address dest, @amountJsonConverter  BigInt value,  bool bounce,  int flags,  String payload)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Address dest,  BigInt value,  bool bounce,  int flags,  String payload)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _MultisigSendTransaction() when $default != null:
 return $default(_that.dest,_that.value,_that.bounce,_that.flags,_that.payload);case _:
@@ -184,7 +184,7 @@ return $default(_that.dest,_that.value,_that.bounce,_that.flags,_that.payload);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Address dest, @amountJsonConverter  BigInt value,  bool bounce,  int flags,  String payload)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Address dest,  BigInt value,  bool bounce,  int flags,  String payload)  $default,) {final _that = this;
 switch (_that) {
 case _MultisigSendTransaction():
 return $default(_that.dest,_that.value,_that.bounce,_that.flags,_that.payload);}
@@ -201,7 +201,7 @@ return $default(_that.dest,_that.value,_that.bounce,_that.flags,_that.payload);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Address dest, @amountJsonConverter  BigInt value,  bool bounce,  int flags,  String payload)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Address dest,  BigInt value,  bool bounce,  int flags,  String payload)?  $default,) {final _that = this;
 switch (_that) {
 case _MultisigSendTransaction() when $default != null:
 return $default(_that.dest,_that.value,_that.bounce,_that.flags,_that.payload);case _:
@@ -216,11 +216,11 @@ return $default(_that.dest,_that.value,_that.bounce,_that.flags,_that.payload);c
 @JsonSerializable()
 
 class _MultisigSendTransaction implements MultisigSendTransaction {
-  const _MultisigSendTransaction({required this.dest, @amountJsonConverter required this.value, required this.bounce, required this.flags, required this.payload});
+  const _MultisigSendTransaction({required this.dest, required this.value, required this.bounce, required this.flags, required this.payload});
   factory _MultisigSendTransaction.fromJson(Map<String, dynamic> json) => _$MultisigSendTransactionFromJson(json);
 
 @override final  Address dest;
-@override@amountJsonConverter final  BigInt value;
+@override final  BigInt value;
 @override final  bool bounce;
 @override final  int flags;
 @override final  String payload;
@@ -258,7 +258,7 @@ abstract mixin class _$MultisigSendTransactionCopyWith<$Res> implements $Multisi
   factory _$MultisigSendTransactionCopyWith(_MultisigSendTransaction value, $Res Function(_MultisigSendTransaction) _then) = __$MultisigSendTransactionCopyWithImpl;
 @override @useResult
 $Res call({
- Address dest,@amountJsonConverter BigInt value, bool bounce, int flags, String payload
+ Address dest, BigInt value, bool bounce, int flags, String payload
 });
 
 

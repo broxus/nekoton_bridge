@@ -10,12 +10,12 @@ _TokenWalletDetails _$TokenWalletDetailsFromJson(Map<String, dynamic> json) =>
     _TokenWalletDetails(
       rootAddress: Address.fromJson(json['rootAddress'] as String),
       ownerAddress: Address.fromJson(json['ownerAddress'] as String),
-      balance: amountJsonConverter.fromJson(json['balance'] as String),
+      balance: BigInt.parse(json['balance'] as String),
     );
 
 Map<String, dynamic> _$TokenWalletDetailsToJson(_TokenWalletDetails instance) =>
     <String, dynamic>{
       'rootAddress': instance.rootAddress.toJson(),
       'ownerAddress': instance.ownerAddress.toJson(),
-      'balance': amountJsonConverter.toJson(instance.balance),
+      'balance': instance.balance.toString(),
     };

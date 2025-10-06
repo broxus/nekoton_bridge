@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TransactionExecutionOptions {
 
- bool get disableSignatureCheck;@amountJsonConverter BigInt? get overrideBalance;
+ bool get disableSignatureCheck; BigInt? get overrideBalance;
 /// Create a copy of TransactionExecutionOptions
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $TransactionExecutionOptionsCopyWith<$Res>  {
   factory $TransactionExecutionOptionsCopyWith(TransactionExecutionOptions value, $Res Function(TransactionExecutionOptions) _then) = _$TransactionExecutionOptionsCopyWithImpl;
 @useResult
 $Res call({
- bool disableSignatureCheck,@amountJsonConverter BigInt? overrideBalance
+ bool disableSignatureCheck, BigInt? overrideBalance
 });
 
 
@@ -151,7 +151,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool disableSignatureCheck, @amountJsonConverter  BigInt? overrideBalance)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool disableSignatureCheck,  BigInt? overrideBalance)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TransactionExecutionOptions() when $default != null:
 return $default(_that.disableSignatureCheck,_that.overrideBalance);case _:
@@ -172,7 +172,7 @@ return $default(_that.disableSignatureCheck,_that.overrideBalance);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool disableSignatureCheck, @amountJsonConverter  BigInt? overrideBalance)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool disableSignatureCheck,  BigInt? overrideBalance)  $default,) {final _that = this;
 switch (_that) {
 case _TransactionExecutionOptions():
 return $default(_that.disableSignatureCheck,_that.overrideBalance);}
@@ -189,7 +189,7 @@ return $default(_that.disableSignatureCheck,_that.overrideBalance);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool disableSignatureCheck, @amountJsonConverter  BigInt? overrideBalance)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool disableSignatureCheck,  BigInt? overrideBalance)?  $default,) {final _that = this;
 switch (_that) {
 case _TransactionExecutionOptions() when $default != null:
 return $default(_that.disableSignatureCheck,_that.overrideBalance);case _:
@@ -204,11 +204,11 @@ return $default(_that.disableSignatureCheck,_that.overrideBalance);case _:
 @JsonSerializable()
 
 class _TransactionExecutionOptions implements TransactionExecutionOptions {
-  const _TransactionExecutionOptions({required this.disableSignatureCheck, @amountJsonConverter this.overrideBalance});
+  const _TransactionExecutionOptions({required this.disableSignatureCheck, this.overrideBalance});
   factory _TransactionExecutionOptions.fromJson(Map<String, dynamic> json) => _$TransactionExecutionOptionsFromJson(json);
 
 @override final  bool disableSignatureCheck;
-@override@amountJsonConverter final  BigInt? overrideBalance;
+@override final  BigInt? overrideBalance;
 
 /// Create a copy of TransactionExecutionOptions
 /// with the given fields replaced by the non-null parameter values.
@@ -243,7 +243,7 @@ abstract mixin class _$TransactionExecutionOptionsCopyWith<$Res> implements $Tra
   factory _$TransactionExecutionOptionsCopyWith(_TransactionExecutionOptions value, $Res Function(_TransactionExecutionOptions) _then) = __$TransactionExecutionOptionsCopyWithImpl;
 @override @useResult
 $Res call({
- bool disableSignatureCheck,@amountJsonConverter BigInt? overrideBalance
+ bool disableSignatureCheck, BigInt? overrideBalance
 });
 
 

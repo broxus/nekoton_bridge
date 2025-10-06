@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$JettonIncomingTransfer {
 
-@amountJsonConverter BigInt get tokens; Address get from;
+ BigInt get tokens; Address get from;
 /// Create a copy of JettonIncomingTransfer
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $JettonIncomingTransferCopyWith<$Res>  {
   factory $JettonIncomingTransferCopyWith(JettonIncomingTransfer value, $Res Function(JettonIncomingTransfer) _then) = _$JettonIncomingTransferCopyWithImpl;
 @useResult
 $Res call({
-@amountJsonConverter BigInt tokens, Address from
+ BigInt tokens, Address from
 });
 
 
@@ -160,7 +160,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@amountJsonConverter  BigInt tokens,  Address from)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( BigInt tokens,  Address from)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _JettonIncomingTransfer() when $default != null:
 return $default(_that.tokens,_that.from);case _:
@@ -181,7 +181,7 @@ return $default(_that.tokens,_that.from);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@amountJsonConverter  BigInt tokens,  Address from)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( BigInt tokens,  Address from)  $default,) {final _that = this;
 switch (_that) {
 case _JettonIncomingTransfer():
 return $default(_that.tokens,_that.from);}
@@ -198,7 +198,7 @@ return $default(_that.tokens,_that.from);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@amountJsonConverter  BigInt tokens,  Address from)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( BigInt tokens,  Address from)?  $default,) {final _that = this;
 switch (_that) {
 case _JettonIncomingTransfer() when $default != null:
 return $default(_that.tokens,_that.from);case _:
@@ -213,10 +213,10 @@ return $default(_that.tokens,_that.from);case _:
 @JsonSerializable()
 
 class _JettonIncomingTransfer implements JettonIncomingTransfer {
-  const _JettonIncomingTransfer({@amountJsonConverter required this.tokens, required this.from});
+  const _JettonIncomingTransfer({required this.tokens, required this.from});
   factory _JettonIncomingTransfer.fromJson(Map<String, dynamic> json) => _$JettonIncomingTransferFromJson(json);
 
-@override@amountJsonConverter final  BigInt tokens;
+@override final  BigInt tokens;
 @override final  Address from;
 
 /// Create a copy of JettonIncomingTransfer
@@ -252,7 +252,7 @@ abstract mixin class _$JettonIncomingTransferCopyWith<$Res> implements $JettonIn
   factory _$JettonIncomingTransferCopyWith(_JettonIncomingTransfer value, $Res Function(_JettonIncomingTransfer) _then) = __$JettonIncomingTransferCopyWithImpl;
 @override @useResult
 $Res call({
-@amountJsonConverter BigInt tokens, Address from
+ BigInt tokens, Address from
 });
 
 

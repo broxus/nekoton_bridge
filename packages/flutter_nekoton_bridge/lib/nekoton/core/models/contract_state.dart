@@ -8,7 +8,7 @@ part 'contract_state.g.dart';
 @freezed
 sealed class ContractState with _$ContractState {
   const factory ContractState({
-    @amountJsonConverter required final BigInt balance,
+    required final BigInt balance,
     required final GenTimings genTimings,
     final LastTransactionId? lastTransactionId,
     required final bool isDeployed,

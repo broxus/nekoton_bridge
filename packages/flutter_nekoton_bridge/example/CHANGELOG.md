@@ -9,6 +9,21 @@
 > Note: This release has breaking changes.
 
  - **BREAKING** **CHORE**: remove `reflectable`. ([30e7a3d3](https://github.com/broxus/nekoton_bridge/commit/30e7a3d3885096004327fa1ddb9ee67eb2c298ef))
+## 2.3.0
+
+ - **FEAT**: add support for libraries in local execution and getter functions. ([79f1f4c2](https://github.com/broxus/nekoton_bridge/commit/79f1f4c2a26a5e70f21122c5d197c030be974870))
+
+## 2.2.3
+
+ - Update a dependency to the latest release.
+
+## 2.2.2
+
+ - Update a dependency to the latest release.
+
+## 2.2.1
+
+ - Update a dependency to the latest release.
 
 ## 2.2.0
 

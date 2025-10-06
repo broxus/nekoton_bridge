@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Transaction {
 
- TransactionId get id; TransactionId? get prevTransactionId;@dateSecondsSinceEpochJsonConverter DateTime get createdAt; bool get aborted;@JsonKey(includeIfNull: false) int? get exitCode;@JsonKey(includeIfNull: false) int? get resultCode; AccountStatus get origStatus; AccountStatus get endStatus;@amountJsonConverter BigInt get totalFees; Message get inMessage; List<Message> get outMessages; String? get boc;
+ TransactionId get id; TransactionId? get prevTransactionId;@dateSecondsSinceEpochJsonConverter DateTime get createdAt; bool get aborted;@JsonKey(includeIfNull: false) int? get exitCode;@JsonKey(includeIfNull: false) int? get resultCode; AccountStatus get origStatus; AccountStatus get endStatus; BigInt get totalFees; Message get inMessage; List<Message> get outMessages; String? get boc;
 /// Create a copy of Transaction
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $TransactionCopyWith<$Res>  {
   factory $TransactionCopyWith(Transaction value, $Res Function(Transaction) _then) = _$TransactionCopyWithImpl;
 @useResult
 $Res call({
- TransactionId id, TransactionId? prevTransactionId,@dateSecondsSinceEpochJsonConverter DateTime createdAt, bool aborted,@JsonKey(includeIfNull: false) int? exitCode,@JsonKey(includeIfNull: false) int? resultCode, AccountStatus origStatus, AccountStatus endStatus,@amountJsonConverter BigInt totalFees, Message inMessage, List<Message> outMessages, String? boc
+ TransactionId id, TransactionId? prevTransactionId,@dateSecondsSinceEpochJsonConverter DateTime createdAt, bool aborted,@JsonKey(includeIfNull: false) int? exitCode,@JsonKey(includeIfNull: false) int? resultCode, AccountStatus origStatus, AccountStatus endStatus, BigInt totalFees, Message inMessage, List<Message> outMessages, String? boc
 });
 
 
@@ -191,7 +191,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( TransactionId id,  TransactionId? prevTransactionId, @dateSecondsSinceEpochJsonConverter  DateTime createdAt,  bool aborted, @JsonKey(includeIfNull: false)  int? exitCode, @JsonKey(includeIfNull: false)  int? resultCode,  AccountStatus origStatus,  AccountStatus endStatus, @amountJsonConverter  BigInt totalFees,  Message inMessage,  List<Message> outMessages,  String? boc)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( TransactionId id,  TransactionId? prevTransactionId, @dateSecondsSinceEpochJsonConverter  DateTime createdAt,  bool aborted, @JsonKey(includeIfNull: false)  int? exitCode, @JsonKey(includeIfNull: false)  int? resultCode,  AccountStatus origStatus,  AccountStatus endStatus,  BigInt totalFees,  Message inMessage,  List<Message> outMessages,  String? boc)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Transaction() when $default != null:
 return $default(_that.id,_that.prevTransactionId,_that.createdAt,_that.aborted,_that.exitCode,_that.resultCode,_that.origStatus,_that.endStatus,_that.totalFees,_that.inMessage,_that.outMessages,_that.boc);case _:
@@ -212,7 +212,7 @@ return $default(_that.id,_that.prevTransactionId,_that.createdAt,_that.aborted,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( TransactionId id,  TransactionId? prevTransactionId, @dateSecondsSinceEpochJsonConverter  DateTime createdAt,  bool aborted, @JsonKey(includeIfNull: false)  int? exitCode, @JsonKey(includeIfNull: false)  int? resultCode,  AccountStatus origStatus,  AccountStatus endStatus, @amountJsonConverter  BigInt totalFees,  Message inMessage,  List<Message> outMessages,  String? boc)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( TransactionId id,  TransactionId? prevTransactionId, @dateSecondsSinceEpochJsonConverter  DateTime createdAt,  bool aborted, @JsonKey(includeIfNull: false)  int? exitCode, @JsonKey(includeIfNull: false)  int? resultCode,  AccountStatus origStatus,  AccountStatus endStatus,  BigInt totalFees,  Message inMessage,  List<Message> outMessages,  String? boc)  $default,) {final _that = this;
 switch (_that) {
 case _Transaction():
 return $default(_that.id,_that.prevTransactionId,_that.createdAt,_that.aborted,_that.exitCode,_that.resultCode,_that.origStatus,_that.endStatus,_that.totalFees,_that.inMessage,_that.outMessages,_that.boc);}
@@ -229,7 +229,7 @@ return $default(_that.id,_that.prevTransactionId,_that.createdAt,_that.aborted,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( TransactionId id,  TransactionId? prevTransactionId, @dateSecondsSinceEpochJsonConverter  DateTime createdAt,  bool aborted, @JsonKey(includeIfNull: false)  int? exitCode, @JsonKey(includeIfNull: false)  int? resultCode,  AccountStatus origStatus,  AccountStatus endStatus, @amountJsonConverter  BigInt totalFees,  Message inMessage,  List<Message> outMessages,  String? boc)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( TransactionId id,  TransactionId? prevTransactionId, @dateSecondsSinceEpochJsonConverter  DateTime createdAt,  bool aborted, @JsonKey(includeIfNull: false)  int? exitCode, @JsonKey(includeIfNull: false)  int? resultCode,  AccountStatus origStatus,  AccountStatus endStatus,  BigInt totalFees,  Message inMessage,  List<Message> outMessages,  String? boc)?  $default,) {final _that = this;
 switch (_that) {
 case _Transaction() when $default != null:
 return $default(_that.id,_that.prevTransactionId,_that.createdAt,_that.aborted,_that.exitCode,_that.resultCode,_that.origStatus,_that.endStatus,_that.totalFees,_that.inMessage,_that.outMessages,_that.boc);case _:
@@ -244,7 +244,7 @@ return $default(_that.id,_that.prevTransactionId,_that.createdAt,_that.aborted,_
 @JsonSerializable()
 
 class _Transaction extends Transaction {
-  const _Transaction({required this.id, this.prevTransactionId, @dateSecondsSinceEpochJsonConverter required this.createdAt, required this.aborted, @JsonKey(includeIfNull: false) this.exitCode, @JsonKey(includeIfNull: false) this.resultCode, required this.origStatus, required this.endStatus, @amountJsonConverter required this.totalFees, required this.inMessage, required final  List<Message> outMessages, required this.boc}): _outMessages = outMessages,super._();
+  const _Transaction({required this.id, this.prevTransactionId, @dateSecondsSinceEpochJsonConverter required this.createdAt, required this.aborted, @JsonKey(includeIfNull: false) this.exitCode, @JsonKey(includeIfNull: false) this.resultCode, required this.origStatus, required this.endStatus, required this.totalFees, required this.inMessage, required final  List<Message> outMessages, required this.boc}): _outMessages = outMessages,super._();
   factory _Transaction.fromJson(Map<String, dynamic> json) => _$TransactionFromJson(json);
 
 @override final  TransactionId id;
@@ -255,7 +255,7 @@ class _Transaction extends Transaction {
 @override@JsonKey(includeIfNull: false) final  int? resultCode;
 @override final  AccountStatus origStatus;
 @override final  AccountStatus endStatus;
-@override@amountJsonConverter final  BigInt totalFees;
+@override final  BigInt totalFees;
 @override final  Message inMessage;
  final  List<Message> _outMessages;
 @override List<Message> get outMessages {
@@ -299,7 +299,7 @@ abstract mixin class _$TransactionCopyWith<$Res> implements $TransactionCopyWith
   factory _$TransactionCopyWith(_Transaction value, $Res Function(_Transaction) _then) = __$TransactionCopyWithImpl;
 @override @useResult
 $Res call({
- TransactionId id, TransactionId? prevTransactionId,@dateSecondsSinceEpochJsonConverter DateTime createdAt, bool aborted,@JsonKey(includeIfNull: false) int? exitCode,@JsonKey(includeIfNull: false) int? resultCode, AccountStatus origStatus, AccountStatus endStatus,@amountJsonConverter BigInt totalFees, Message inMessage, List<Message> outMessages, String? boc
+ TransactionId id, TransactionId? prevTransactionId,@dateSecondsSinceEpochJsonConverter DateTime createdAt, bool aborted,@JsonKey(includeIfNull: false) int? exitCode,@JsonKey(includeIfNull: false) int? resultCode, AccountStatus origStatus, AccountStatus endStatus, BigInt totalFees, Message inMessage, List<Message> outMessages, String? boc
 });
 
 

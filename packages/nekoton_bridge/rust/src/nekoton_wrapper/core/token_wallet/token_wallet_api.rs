@@ -107,6 +107,7 @@ impl TokenWalletDartWrapper {
         notify_receiver: bool,
         attached_amount: Option<String>,
         payload: Option<String>,
+        remaining_gas_to: Option<String>,
     ) -> anyhow::Result<String> {
         self.inner_wallet
             .prepare_transfer(
@@ -115,6 +116,7 @@ impl TokenWalletDartWrapper {
                 notify_receiver,
                 attached_amount,
                 payload,
+                remaining_gas_to,
             )
             .await
     }

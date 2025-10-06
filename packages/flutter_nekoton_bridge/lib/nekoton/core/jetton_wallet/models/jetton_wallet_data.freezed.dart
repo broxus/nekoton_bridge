@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$JettonWalletData {
 
- Address get rootAddress; Address get ownerAddress;@amountJsonConverter BigInt get balance;
+ Address get rootAddress; Address get ownerAddress; BigInt get balance;
 /// Create a copy of JettonWalletData
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $JettonWalletDataCopyWith<$Res>  {
   factory $JettonWalletDataCopyWith(JettonWalletData value, $Res Function(JettonWalletData) _then) = _$JettonWalletDataCopyWithImpl;
 @useResult
 $Res call({
- Address rootAddress, Address ownerAddress,@amountJsonConverter BigInt balance
+ Address rootAddress, Address ownerAddress, BigInt balance
 });
 
 
@@ -170,7 +170,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Address rootAddress,  Address ownerAddress, @amountJsonConverter  BigInt balance)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Address rootAddress,  Address ownerAddress,  BigInt balance)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _JettonWalletData() when $default != null:
 return $default(_that.rootAddress,_that.ownerAddress,_that.balance);case _:
@@ -191,7 +191,7 @@ return $default(_that.rootAddress,_that.ownerAddress,_that.balance);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Address rootAddress,  Address ownerAddress, @amountJsonConverter  BigInt balance)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Address rootAddress,  Address ownerAddress,  BigInt balance)  $default,) {final _that = this;
 switch (_that) {
 case _JettonWalletData():
 return $default(_that.rootAddress,_that.ownerAddress,_that.balance);}
@@ -208,7 +208,7 @@ return $default(_that.rootAddress,_that.ownerAddress,_that.balance);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Address rootAddress,  Address ownerAddress, @amountJsonConverter  BigInt balance)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Address rootAddress,  Address ownerAddress,  BigInt balance)?  $default,) {final _that = this;
 switch (_that) {
 case _JettonWalletData() when $default != null:
 return $default(_that.rootAddress,_that.ownerAddress,_that.balance);case _:
@@ -223,12 +223,12 @@ return $default(_that.rootAddress,_that.ownerAddress,_that.balance);case _:
 @JsonSerializable()
 
 class _JettonWalletData implements JettonWalletData {
-  const _JettonWalletData({required this.rootAddress, required this.ownerAddress, @amountJsonConverter required this.balance});
+  const _JettonWalletData({required this.rootAddress, required this.ownerAddress, required this.balance});
   factory _JettonWalletData.fromJson(Map<String, dynamic> json) => _$JettonWalletDataFromJson(json);
 
 @override final  Address rootAddress;
 @override final  Address ownerAddress;
-@override@amountJsonConverter final  BigInt balance;
+@override final  BigInt balance;
 
 /// Create a copy of JettonWalletData
 /// with the given fields replaced by the non-null parameter values.
@@ -263,7 +263,7 @@ abstract mixin class _$JettonWalletDataCopyWith<$Res> implements $JettonWalletDa
   factory _$JettonWalletDataCopyWith(_JettonWalletData value, $Res Function(_JettonWalletData) _then) = __$JettonWalletDataCopyWithImpl;
 @override @useResult
 $Res call({
- Address rootAddress, Address ownerAddress,@amountJsonConverter BigInt balance
+ Address rootAddress, Address ownerAddress, BigInt balance
 });
 
 

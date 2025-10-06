@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TokenWalletDetails {
 
- Address get rootAddress; Address get ownerAddress;@amountJsonConverter BigInt get balance;
+ Address get rootAddress; Address get ownerAddress; BigInt get balance;
 /// Create a copy of TokenWalletDetails
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $TokenWalletDetailsCopyWith<$Res>  {
   factory $TokenWalletDetailsCopyWith(TokenWalletDetails value, $Res Function(TokenWalletDetails) _then) = _$TokenWalletDetailsCopyWithImpl;
 @useResult
 $Res call({
- Address rootAddress, Address ownerAddress,@amountJsonConverter BigInt balance
+ Address rootAddress, Address ownerAddress, BigInt balance
 });
 
 
@@ -170,7 +170,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Address rootAddress,  Address ownerAddress, @amountJsonConverter  BigInt balance)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Address rootAddress,  Address ownerAddress,  BigInt balance)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TokenWalletDetails() when $default != null:
 return $default(_that.rootAddress,_that.ownerAddress,_that.balance);case _:
@@ -191,7 +191,7 @@ return $default(_that.rootAddress,_that.ownerAddress,_that.balance);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Address rootAddress,  Address ownerAddress, @amountJsonConverter  BigInt balance)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Address rootAddress,  Address ownerAddress,  BigInt balance)  $default,) {final _that = this;
 switch (_that) {
 case _TokenWalletDetails():
 return $default(_that.rootAddress,_that.ownerAddress,_that.balance);}
@@ -208,7 +208,7 @@ return $default(_that.rootAddress,_that.ownerAddress,_that.balance);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Address rootAddress,  Address ownerAddress, @amountJsonConverter  BigInt balance)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Address rootAddress,  Address ownerAddress,  BigInt balance)?  $default,) {final _that = this;
 switch (_that) {
 case _TokenWalletDetails() when $default != null:
 return $default(_that.rootAddress,_that.ownerAddress,_that.balance);case _:
@@ -223,12 +223,12 @@ return $default(_that.rootAddress,_that.ownerAddress,_that.balance);case _:
 @JsonSerializable()
 
 class _TokenWalletDetails implements TokenWalletDetails {
-  const _TokenWalletDetails({required this.rootAddress, required this.ownerAddress, @amountJsonConverter required this.balance});
+  const _TokenWalletDetails({required this.rootAddress, required this.ownerAddress, required this.balance});
   factory _TokenWalletDetails.fromJson(Map<String, dynamic> json) => _$TokenWalletDetailsFromJson(json);
 
 @override final  Address rootAddress;
 @override final  Address ownerAddress;
-@override@amountJsonConverter final  BigInt balance;
+@override final  BigInt balance;
 
 /// Create a copy of TokenWalletDetails
 /// with the given fields replaced by the non-null parameter values.
@@ -263,7 +263,7 @@ abstract mixin class _$TokenWalletDetailsCopyWith<$Res> implements $TokenWalletD
   factory _$TokenWalletDetailsCopyWith(_TokenWalletDetails value, $Res Function(_TokenWalletDetails) _then) = __$TokenWalletDetailsCopyWithImpl;
 @override @useResult
 $Res call({
- Address rootAddress, Address ownerAddress,@amountJsonConverter BigInt balance
+ Address rootAddress, Address ownerAddress, BigInt balance
 });
 
 

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TokenIncomingTransfer {
 
-@amountJsonConverter BigInt get tokens; Address get senderAddress;
+ BigInt get tokens; Address get senderAddress;
 /// Create a copy of TokenIncomingTransfer
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $TokenIncomingTransferCopyWith<$Res>  {
   factory $TokenIncomingTransferCopyWith(TokenIncomingTransfer value, $Res Function(TokenIncomingTransfer) _then) = _$TokenIncomingTransferCopyWithImpl;
 @useResult
 $Res call({
-@amountJsonConverter BigInt tokens, Address senderAddress
+ BigInt tokens, Address senderAddress
 });
 
 
@@ -160,7 +160,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@amountJsonConverter  BigInt tokens,  Address senderAddress)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( BigInt tokens,  Address senderAddress)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TokenIncomingTransfer() when $default != null:
 return $default(_that.tokens,_that.senderAddress);case _:
@@ -181,7 +181,7 @@ return $default(_that.tokens,_that.senderAddress);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@amountJsonConverter  BigInt tokens,  Address senderAddress)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( BigInt tokens,  Address senderAddress)  $default,) {final _that = this;
 switch (_that) {
 case _TokenIncomingTransfer():
 return $default(_that.tokens,_that.senderAddress);}
@@ -198,7 +198,7 @@ return $default(_that.tokens,_that.senderAddress);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@amountJsonConverter  BigInt tokens,  Address senderAddress)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( BigInt tokens,  Address senderAddress)?  $default,) {final _that = this;
 switch (_that) {
 case _TokenIncomingTransfer() when $default != null:
 return $default(_that.tokens,_that.senderAddress);case _:
@@ -213,10 +213,10 @@ return $default(_that.tokens,_that.senderAddress);case _:
 @JsonSerializable()
 
 class _TokenIncomingTransfer implements TokenIncomingTransfer {
-  const _TokenIncomingTransfer({@amountJsonConverter required this.tokens, required this.senderAddress});
+  const _TokenIncomingTransfer({required this.tokens, required this.senderAddress});
   factory _TokenIncomingTransfer.fromJson(Map<String, dynamic> json) => _$TokenIncomingTransferFromJson(json);
 
-@override@amountJsonConverter final  BigInt tokens;
+@override final  BigInt tokens;
 @override final  Address senderAddress;
 
 /// Create a copy of TokenIncomingTransfer
@@ -252,7 +252,7 @@ abstract mixin class _$TokenIncomingTransferCopyWith<$Res> implements $TokenInco
   factory _$TokenIncomingTransferCopyWith(_TokenIncomingTransfer value, $Res Function(_TokenIncomingTransfer) _then) = __$TokenIncomingTransferCopyWithImpl;
 @override @useResult
 $Res call({
-@amountJsonConverter BigInt tokens, Address senderAddress
+ BigInt tokens, Address senderAddress
 });
 
 

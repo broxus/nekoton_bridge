@@ -134,6 +134,15 @@ impl TonWalletDartWrapper {
         })
     }
 
+    pub fn append_signature_to_wallet_v5r1_payload(
+        payload: String,
+        base64_signature: String,
+    ) -> anyhow::Result<String> {
+        let result =
+            TonWalletBox::append_signature_to_wallet_v5r1_payload(payload, base64_signature)?;
+        Ok(result)
+    }
+
     /// Get workchain of wallet.
     pub async fn workchain(&self) -> i8 {
         self.inner_wallet.workchain().await
@@ -237,6 +246,37 @@ impl TonWalletDartWrapper {
             .map(|m| UnsignedMessageImpl { inner_message: m })
     }
 
+    /// Returns (hash, payload)
+    pub async fn prepare_wallet_v5r1_message_body(
+        &self,
+        contract_state: String,
+        public_key: String,
+        expiration: String,
+        params: String,
+        is_internal_flow: bool,
+    ) -> anyhow::Result<(String, String)> {
+        self.inner_wallet
+            .prepare_wallet_v5r1_message_body(
+                contract_state,
+                public_key,
+                expiration,
+                params,
+                is_internal_flow,
+            )
+            .await
+    }
+
+    pub async fn prepare_nonexist_wallet_v5r1_message_body(
+        &self,
+        expiration: String,
+        params: String,
+        is_internal_flow: bool,
+    ) -> anyhow::Result<(String, String)> {
+        self.inner_wallet
+            .prepare_nonexist_wallet_v5r1_message_body(expiration, params, is_internal_flow)
+            .await
+    }
+
     /// Prepare transaction for confirmation.
     /// contract_state - json-encoded RawContractState
     /// public_key - key of account that had initiated transfer
@@ -336,6 +376,16 @@ impl TonWalletDartWrapper {
 
     pub async fn make_state_init(&self) -> anyhow::Result<String> {
         self.inner_wallet.make_state_init().await
+    }
+
+    pub async fn get_wallet_v5r1_seqno(
+        &self,
+        raw_current_state: String,
+        public_key: String,
+    ) -> anyhow::Result<u32> {
+        self.inner_wallet
+            .get_wallet_v5r1_seqno(raw_current_state, public_key)
+            .await
     }
 }
 

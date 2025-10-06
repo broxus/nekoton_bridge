@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MultisigPendingTransaction {
 
- String get id; List<PublicKey> get confirmations; int get signsRequired; int get signsReceived; PublicKey get creator; int get index; Address get dest;@amountJsonConverter BigInt get value; int get sendFlags; String get payload; bool get bounce;
+ String get id; List<PublicKey> get confirmations; int get signsRequired; int get signsReceived; PublicKey get creator; int get index; Address get dest; BigInt get value; int get sendFlags; String get payload; bool get bounce;
 /// Create a copy of MultisigPendingTransaction
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $MultisigPendingTransactionCopyWith<$Res>  {
   factory $MultisigPendingTransactionCopyWith(MultisigPendingTransaction value, $Res Function(MultisigPendingTransaction) _then) = _$MultisigPendingTransactionCopyWithImpl;
 @useResult
 $Res call({
- String id, List<PublicKey> confirmations, int signsRequired, int signsReceived, PublicKey creator, int index, Address dest,@amountJsonConverter BigInt value, int sendFlags, String payload, bool bounce
+ String id, List<PublicKey> confirmations, int signsRequired, int signsReceived, PublicKey creator, int index, Address dest, BigInt value, int sendFlags, String payload, bool bounce
 });
 
 
@@ -178,7 +178,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  List<PublicKey> confirmations,  int signsRequired,  int signsReceived,  PublicKey creator,  int index,  Address dest, @amountJsonConverter  BigInt value,  int sendFlags,  String payload,  bool bounce)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  List<PublicKey> confirmations,  int signsRequired,  int signsReceived,  PublicKey creator,  int index,  Address dest,  BigInt value,  int sendFlags,  String payload,  bool bounce)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _MultisigPendingTransaction() when $default != null:
 return $default(_that.id,_that.confirmations,_that.signsRequired,_that.signsReceived,_that.creator,_that.index,_that.dest,_that.value,_that.sendFlags,_that.payload,_that.bounce);case _:
@@ -199,7 +199,7 @@ return $default(_that.id,_that.confirmations,_that.signsRequired,_that.signsRece
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  List<PublicKey> confirmations,  int signsRequired,  int signsReceived,  PublicKey creator,  int index,  Address dest, @amountJsonConverter  BigInt value,  int sendFlags,  String payload,  bool bounce)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  List<PublicKey> confirmations,  int signsRequired,  int signsReceived,  PublicKey creator,  int index,  Address dest,  BigInt value,  int sendFlags,  String payload,  bool bounce)  $default,) {final _that = this;
 switch (_that) {
 case _MultisigPendingTransaction():
 return $default(_that.id,_that.confirmations,_that.signsRequired,_that.signsReceived,_that.creator,_that.index,_that.dest,_that.value,_that.sendFlags,_that.payload,_that.bounce);}
@@ -216,7 +216,7 @@ return $default(_that.id,_that.confirmations,_that.signsRequired,_that.signsRece
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  List<PublicKey> confirmations,  int signsRequired,  int signsReceived,  PublicKey creator,  int index,  Address dest, @amountJsonConverter  BigInt value,  int sendFlags,  String payload,  bool bounce)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  List<PublicKey> confirmations,  int signsRequired,  int signsReceived,  PublicKey creator,  int index,  Address dest,  BigInt value,  int sendFlags,  String payload,  bool bounce)?  $default,) {final _that = this;
 switch (_that) {
 case _MultisigPendingTransaction() when $default != null:
 return $default(_that.id,_that.confirmations,_that.signsRequired,_that.signsReceived,_that.creator,_that.index,_that.dest,_that.value,_that.sendFlags,_that.payload,_that.bounce);case _:
@@ -231,7 +231,7 @@ return $default(_that.id,_that.confirmations,_that.signsRequired,_that.signsRece
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _MultisigPendingTransaction implements MultisigPendingTransaction {
-  const _MultisigPendingTransaction({required this.id, required final  List<PublicKey> confirmations, required this.signsRequired, required this.signsReceived, required this.creator, required this.index, required this.dest, @amountJsonConverter required this.value, required this.sendFlags, required this.payload, required this.bounce}): _confirmations = confirmations;
+  const _MultisigPendingTransaction({required this.id, required final  List<PublicKey> confirmations, required this.signsRequired, required this.signsReceived, required this.creator, required this.index, required this.dest, required this.value, required this.sendFlags, required this.payload, required this.bounce}): _confirmations = confirmations;
   factory _MultisigPendingTransaction.fromJson(Map<String, dynamic> json) => _$MultisigPendingTransactionFromJson(json);
 
 @override final  String id;
@@ -247,7 +247,7 @@ class _MultisigPendingTransaction implements MultisigPendingTransaction {
 @override final  PublicKey creator;
 @override final  int index;
 @override final  Address dest;
-@override@amountJsonConverter final  BigInt value;
+@override final  BigInt value;
 @override final  int sendFlags;
 @override final  String payload;
 @override final  bool bounce;
@@ -285,7 +285,7 @@ abstract mixin class _$MultisigPendingTransactionCopyWith<$Res> implements $Mult
   factory _$MultisigPendingTransactionCopyWith(_MultisigPendingTransaction value, $Res Function(_MultisigPendingTransaction) _then) = __$MultisigPendingTransactionCopyWithImpl;
 @override @useResult
 $Res call({
- String id, List<PublicKey> confirmations, int signsRequired, int signsReceived, PublicKey creator, int index, Address dest,@amountJsonConverter BigInt value, int sendFlags, String payload, bool bounce
+ String id, List<PublicKey> confirmations, int signsRequired, int signsReceived, PublicKey creator, int index, Address dest, BigInt value, int sendFlags, String payload, bool bounce
 });
 
 

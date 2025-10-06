@@ -3,6 +3,98 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-10-02
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v3.6.0`](#flutter_nekoton_bridge---v360)
+ - [`flutter_nekoton_bridge_example` - `v2.3.0`](#flutter_nekoton_bridge_example---v230)
+ - [`nekoton_bridge` - `v3.6.0`](#nekoton_bridge---v360)
+
+---
+
+#### `flutter_nekoton_bridge` - `v3.6.0`
+
+ - **FEAT**: add support for libraries in local execution and getter functions. ([79f1f4c2](https://github.com/broxus/nekoton_bridge/commit/79f1f4c2a26a5e70f21122c5d197c030be974870))
+
+#### `flutter_nekoton_bridge_example` - `v2.3.0`
+
+ - **FEAT**: add support for libraries in local execution and getter functions. ([79f1f4c2](https://github.com/broxus/nekoton_bridge/commit/79f1f4c2a26a5e70f21122c5d197c030be974870))
+
+#### `nekoton_bridge` - `v3.6.0`
+
+ - **FEAT**: add support for libraries in local execution and getter functions. ([79f1f4c2](https://github.com/broxus/nekoton_bridge/commit/79f1f4c2a26a5e70f21122c5d197c030be974870))
+
+
+## 2025-09-22
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v3.5.1`](#flutter_nekoton_bridge---v351)
+ - [`flutter_nekoton_bridge_example` - `v2.2.3`](#flutter_nekoton_bridge_example---v223)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v2.2.3`
+
+---
+
+#### `flutter_nekoton_bridge` - `v3.5.1`
+
+ - **FIX**: change `remainingGasTo` parameter type to `Address`. ([6c1f647b](https://github.com/broxus/nekoton_bridge/commit/6c1f647b2db14f1ef8542c4816b449238692e782))
+
+
+## 2025-09-22
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v3.5.0`](#flutter_nekoton_bridge---v350)
+ - [`nekoton_bridge` - `v3.5.0`](#nekoton_bridge---v350)
+ - [`flutter_nekoton_bridge_example` - `v2.2.2`](#flutter_nekoton_bridge_example---v222)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v2.2.2`
+
+---
+
+#### `flutter_nekoton_bridge` - `v3.5.0`
+
+ - **FEAT**: add `remainingGasTo` parameter to `prepareTransfer` method in `TokenWallet`. ([744c46d6](https://github.com/broxus/nekoton_bridge/commit/744c46d6fef99bd41472d4498009575d91b59940))
+
+#### `nekoton_bridge` - `v3.5.0`
+
+ - **FEAT**: add `remainingGasTo` parameter to `prepareTransfer` method in `TokenWallet`. ([744c46d6](https://github.com/broxus/nekoton_bridge/commit/744c46d6fef99bd41472d4498009575d91b59940))
+
+
 ## 2025-09-17
 
 ### Changes
@@ -63,6 +155,30 @@ Packages with other changes:
 #### `nekoton_bridge` - `v4.0.0-dev.0`
 
  - **BREAKING** **CHORE**: remove `reflectable`. ([30e7a3d3](https://github.com/broxus/nekoton_bridge/commit/30e7a3d3885096004327fa1ddb9ee67eb2c298ef))
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v3.4.0`](#flutter_nekoton_bridge---v340)
+ - [`nekoton_bridge` - `v3.4.0`](#nekoton_bridge---v340)
+ - [`flutter_nekoton_bridge_example` - `v2.2.1`](#flutter_nekoton_bridge_example---v221)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v2.2.1`
+
+---
+
+#### `flutter_nekoton_bridge` - `v3.4.0`
+
+ - **REFACTOR**: remove redundant json converters. ([1f58fb6d](https://github.com/broxus/nekoton_bridge/commit/1f58fb6d7144521b4806f459ba4ab03705570881))
+ - **FEAT**: add WalletV5R1 specific methods. ([87092647](https://github.com/broxus/nekoton_bridge/commit/87092647cef2f54b3f90aa78c0103a2392bd8768))
+
+#### `nekoton_bridge` - `v3.4.0`
+
+ - **FEAT**: add WalletV5R1 specific methods. ([87092647](https://github.com/broxus/nekoton_bridge/commit/87092647cef2f54b3f90aa78c0103a2392bd8768))
 
 
 ## 2025-08-15

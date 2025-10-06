@@ -1,17 +1,20 @@
 #![allow(unused_variables, dead_code)]
 
+use crate::api::merged::TransportBoxTrait;
 use crate::clock;
+use crate::frb_generated::RustOpaque;
 use crate::nekoton_wrapper::core::ton_wallet::models::WalletTypeHelper;
 use crate::nekoton_wrapper::crypto::crypto_api::UnsignedMessageImpl;
 use crate::nekoton_wrapper::crypto::models::UnsignedMessageBox;
 use crate::nekoton_wrapper::helpers::models::{
-    DecodedEvent, DecodedInput, DecodedOutput, DecodedTransaction, ExecutionOutput, StorageFeeInfo,
+    DecodedEvent, DecodedInput, DecodedOutput, DecodedTransaction, StorageFeeInfo,
 };
 use crate::nekoton_wrapper::helpers::{
-    create_plain_comment_playload, make_boc, make_boc_with_hash, make_full_contract_state,
-    make_stack_item, make_vm_getter_output, parse_account_stuff, parse_cell, parse_contract_abi,
-    parse_method_name, parse_optional_abi_version, parse_params_list, parse_slice,
-    serialize_into_boc, serialize_into_boc_with_hash, serialize_state_init_data_key,
+    create_plain_comment_playload, make_boc, make_boc_with_hash, make_execution_output,
+    make_full_contract_state, make_stack_item, make_vm_getter_output, parse_account_stuff,
+    parse_cell, parse_contract_abi, parse_library, parse_method_name, parse_optional_abi_version,
+    parse_params_list, parse_slice, run_local_with_libs_internal, serialize_into_boc,
+    serialize_into_boc_with_hash, serialize_state_init_data_key,
 };
 use crate::nekoton_wrapper::{parse_address, parse_public_key, HandleError};
 use base64::engine::general_purpose;
@@ -53,6 +56,7 @@ pub fn nt_run_local(
     method_id: String,
     input: String,
     responsible: bool,
+    libraries: HashMap<String, String>,
     signature_id: Option<i32>,
 ) -> anyhow::Result<String> {
     let account_stuff = parse_account_stuff(account_stuff_boc)?;
@@ -61,6 +65,11 @@ pub fn nt_run_local(
 
     let input = serde_json::from_str::<serde_json::Value>(&input).handle_error()?;
     let input = nekoton_abi::parse_abi_tokens(&method.inputs, input).handle_error()?;
+
+    let libraries = libraries
+        .into_iter()
+        .map(|(hash, boc)| parse_library(&hash, &boc))
+        .collect::<anyhow::Result<Vec<_>>>()?;
 
     let mut config = nekoton_abi::BriefBlockchainConfig::default();
     if let Some(signature_id) = signature_id {
@@ -75,18 +84,58 @@ pub fn nt_run_local(
             &input,
             responsible,
             &config,
+            &libraries,
         )
         .handle_error()?;
 
-    let tokens = output
-        .tokens
-        .map(|e| nekoton_abi::make_abi_tokens(&e).handle_error())
-        .transpose()?;
+    let execution_output = make_execution_output(output)?;
 
-    let execution_output = ExecutionOutput {
-        output: tokens,
-        code: output.result_code,
-    };
+    serde_json::to_string(&execution_output).handle_error()
+}
+
+pub async fn nt_run_local_with_libs(
+    transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
+    account_stuff_boc: String,
+    contract_abi: String,
+    method_id: String,
+    input: String,
+    responsible: bool,
+    libraries: HashMap<String, String>,
+    retry_count: u8,
+    signature_id: Option<i32>,
+) -> anyhow::Result<String> {
+    let account_stuff = parse_account_stuff(account_stuff_boc)?;
+    let contract_abi = parse_contract_abi(contract_abi)?;
+    let method = contract_abi.function(&method_id).handle_error()?;
+
+    let input = serde_json::from_str::<serde_json::Value>(&input).handle_error()?;
+    let input = nekoton_abi::parse_abi_tokens(&method.inputs, input).handle_error()?;
+
+    let libraries = libraries
+        .into_iter()
+        .map(|(hash, boc)| parse_library(&hash, &boc))
+        .collect::<anyhow::Result<Vec<_>>>()?;
+
+    let mut config = nekoton_abi::BriefBlockchainConfig::default();
+    if let Some(signature_id) = signature_id {
+        config.global_id = signature_id;
+        config.capabilities |= ton_block::GlobalCapabilities::CapSignatureWithId as u64;
+    }
+
+    let inner_transport = transport.get_transport();
+    let execution_output = run_local_with_libs_internal(
+        clock!().as_ref(),
+        inner_transport.as_ref(),
+        account_stuff,
+        method.clone(),
+        input,
+        libraries,
+        retry_count,
+        responsible,
+        &config,
+    )
+    .await
+    .handle_error()?;
 
     serde_json::to_string(&execution_output).handle_error()
 }
@@ -1031,6 +1080,7 @@ pub fn nt_run_getter(
     contract_abi: String,
     method_id: String,
     input: String,
+    libraries: HashMap<String, String>,
     signature_id: Option<i32>,
 ) -> anyhow::Result<String> {
     let account_stuff = parse_account_stuff(account_stuff_boc)?;
@@ -1039,6 +1089,11 @@ pub fn nt_run_getter(
 
     let input = serde_json::from_str::<serde_json::Value>(&input).handle_error()?;
     let input = nekoton_abi::parse_abi_tokens(&getter.inputs, input).handle_error()?;
+
+    let libraries = libraries
+        .into_iter()
+        .map(|(hash, boc)| parse_library(&hash, &boc))
+        .collect::<anyhow::Result<Vec<_>>>()?;
 
     let args = input
         .into_iter()
@@ -1054,6 +1109,7 @@ pub fn nt_run_getter(
     let output = nekoton_abi::ExecutionContext {
         clock: clock!().as_ref(),
         account_stuff: &account_stuff,
+        libraries: &libraries,
     }
     .run_getter_ext(method_id.as_str(), &args, &config, &Default::default())
     .handle_error()?;

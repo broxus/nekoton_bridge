@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MultisigSubmitTransaction {
 
- PublicKey get custodian; Address get dest;@amountJsonConverter BigInt get value; bool get bounce; bool get allBalance; String get payload; String get transId;
+ PublicKey get custodian; Address get dest; BigInt get value; bool get bounce; bool get allBalance; String get payload; String get transId;
 /// Create a copy of MultisigSubmitTransaction
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $MultisigSubmitTransactionCopyWith<$Res>  {
   factory $MultisigSubmitTransactionCopyWith(MultisigSubmitTransaction value, $Res Function(MultisigSubmitTransaction) _then) = _$MultisigSubmitTransactionCopyWithImpl;
 @useResult
 $Res call({
- PublicKey custodian, Address dest,@amountJsonConverter BigInt value, bool bounce, bool allBalance, String payload, String transId
+ PublicKey custodian, Address dest, BigInt value, bool bounce, bool allBalance, String payload, String transId
 });
 
 
@@ -174,7 +174,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( PublicKey custodian,  Address dest, @amountJsonConverter  BigInt value,  bool bounce,  bool allBalance,  String payload,  String transId)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( PublicKey custodian,  Address dest,  BigInt value,  bool bounce,  bool allBalance,  String payload,  String transId)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _MultisigSubmitTransaction() when $default != null:
 return $default(_that.custodian,_that.dest,_that.value,_that.bounce,_that.allBalance,_that.payload,_that.transId);case _:
@@ -195,7 +195,7 @@ return $default(_that.custodian,_that.dest,_that.value,_that.bounce,_that.allBal
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( PublicKey custodian,  Address dest, @amountJsonConverter  BigInt value,  bool bounce,  bool allBalance,  String payload,  String transId)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( PublicKey custodian,  Address dest,  BigInt value,  bool bounce,  bool allBalance,  String payload,  String transId)  $default,) {final _that = this;
 switch (_that) {
 case _MultisigSubmitTransaction():
 return $default(_that.custodian,_that.dest,_that.value,_that.bounce,_that.allBalance,_that.payload,_that.transId);}
@@ -212,7 +212,7 @@ return $default(_that.custodian,_that.dest,_that.value,_that.bounce,_that.allBal
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( PublicKey custodian,  Address dest, @amountJsonConverter  BigInt value,  bool bounce,  bool allBalance,  String payload,  String transId)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( PublicKey custodian,  Address dest,  BigInt value,  bool bounce,  bool allBalance,  String payload,  String transId)?  $default,) {final _that = this;
 switch (_that) {
 case _MultisigSubmitTransaction() when $default != null:
 return $default(_that.custodian,_that.dest,_that.value,_that.bounce,_that.allBalance,_that.payload,_that.transId);case _:
@@ -227,12 +227,12 @@ return $default(_that.custodian,_that.dest,_that.value,_that.bounce,_that.allBal
 @JsonSerializable()
 
 class _MultisigSubmitTransaction implements MultisigSubmitTransaction {
-  const _MultisigSubmitTransaction({required this.custodian, required this.dest, @amountJsonConverter required this.value, required this.bounce, required this.allBalance, required this.payload, required this.transId});
+  const _MultisigSubmitTransaction({required this.custodian, required this.dest, required this.value, required this.bounce, required this.allBalance, required this.payload, required this.transId});
   factory _MultisigSubmitTransaction.fromJson(Map<String, dynamic> json) => _$MultisigSubmitTransactionFromJson(json);
 
 @override final  PublicKey custodian;
 @override final  Address dest;
-@override@amountJsonConverter final  BigInt value;
+@override final  BigInt value;
 @override final  bool bounce;
 @override final  bool allBalance;
 @override final  String payload;
@@ -271,7 +271,7 @@ abstract mixin class _$MultisigSubmitTransactionCopyWith<$Res> implements $Multi
   factory _$MultisigSubmitTransactionCopyWith(_MultisigSubmitTransaction value, $Res Function(_MultisigSubmitTransaction) _then) = __$MultisigSubmitTransactionCopyWithImpl;
 @override @useResult
 $Res call({
- PublicKey custodian, Address dest,@amountJsonConverter BigInt value, bool bounce, bool allBalance, String payload, String transId
+ PublicKey custodian, Address dest, BigInt value, bool bounce, bool allBalance, String payload, String transId
 });
 
 

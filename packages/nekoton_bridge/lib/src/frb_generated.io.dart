@@ -404,6 +404,9 @@ abstract class NekotonBridgeApiImplPlatform
   Object dco_decode_DartOpaque(dynamic raw);
 
   @protected
+  Map<String, String> dco_decode_Map_String_String_None(dynamic raw);
+
+  @protected
   ArcAccountsStorageBoxTrait
   dco_decode_RustOpaque_ArcdynAccountsStorageBoxTrait(dynamic raw);
 
@@ -730,6 +733,9 @@ abstract class NekotonBridgeApiImplPlatform
   Uint8List dco_decode_list_prim_u_8_strict(dynamic raw);
 
   @protected
+  List<(String, String)> dco_decode_list_record_string_string(dynamic raw);
+
+  @protected
   LogEntry dco_decode_log_entry(dynamic raw);
 
   @protected
@@ -767,6 +773,9 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   ProtoTransportImpl dco_decode_proto_transport_impl(dynamic raw);
+
+  @protected
+  (String, String) dco_decode_record_string_string(dynamic raw);
 
   @protected
   SignatureParts dco_decode_signature_parts(dynamic raw);
@@ -1022,6 +1031,11 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   Object sse_decode_DartOpaque(SseDeserializer deserializer);
+
+  @protected
+  Map<String, String> sse_decode_Map_String_String_None(
+    SseDeserializer deserializer,
+  );
 
   @protected
   ArcAccountsStorageBoxTrait
@@ -1400,6 +1414,11 @@ abstract class NekotonBridgeApiImplPlatform
   Uint8List sse_decode_list_prim_u_8_strict(SseDeserializer deserializer);
 
   @protected
+  List<(String, String)> sse_decode_list_record_string_string(
+    SseDeserializer deserializer,
+  );
+
+  @protected
   LogEntry sse_decode_log_entry(SseDeserializer deserializer);
 
   @protected
@@ -1439,6 +1458,11 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   ProtoTransportImpl sse_decode_proto_transport_impl(
+    SseDeserializer deserializer,
+  );
+
+  @protected
+  (String, String) sse_decode_record_string_string(
     SseDeserializer deserializer,
   );
 
@@ -1495,6 +1519,15 @@ abstract class NekotonBridgeApiImplPlatform
   ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     throw UnimplementedError();
+  }
+
+  @protected
+  ffi.Pointer<wire_cst_list_record_string_string>
+  cst_encode_Map_String_String_None(Map<String, String> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return cst_encode_list_record_string_string(
+      raw.entries.map((e) => (e.key, e.value)).toList(),
+    );
   }
 
   @protected
@@ -1784,6 +1817,17 @@ abstract class NekotonBridgeApiImplPlatform
     // Codec=Cst (C-struct based), see doc to use other codecs
     final ans = wire.cst_new_list_prim_u_8_strict(raw.length);
     ans.ref.ptr.asTypedList(raw.length).setAll(0, raw);
+    return ans;
+  }
+
+  @protected
+  ffi.Pointer<wire_cst_list_record_string_string>
+  cst_encode_list_record_string_string(List<(String, String)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    final ans = wire.cst_new_list_record_string_string(raw.length);
+    for (var i = 0; i < raw.length; ++i) {
+      cst_api_fill_to_wire_record_string_string(raw[i], ans.ref.ptr[i]);
+    }
     return ans;
   }
 
@@ -2189,6 +2233,15 @@ abstract class NekotonBridgeApiImplPlatform
     wireObj.inner_transport = cst_encode_RustOpaque_ArcdynTransportBoxTrait(
       apiObj.innerTransport,
     );
+  }
+
+  @protected
+  void cst_api_fill_to_wire_record_string_string(
+    (String, String) apiObj,
+    wire_cst_record_string_string wireObj,
+  ) {
+    wireObj.field0 = cst_encode_String(apiObj.$1);
+    wireObj.field1 = cst_encode_String(apiObj.$2);
   }
 
   @protected
@@ -3027,6 +3080,12 @@ abstract class NekotonBridgeApiImplPlatform
   void sse_encode_DartOpaque(Object self, SseSerializer serializer);
 
   @protected
+  void sse_encode_Map_String_String_None(
+    Map<String, String> self,
+    SseSerializer serializer,
+  );
+
+  @protected
   void sse_encode_RustOpaque_ArcdynAccountsStorageBoxTrait(
     ArcAccountsStorageBoxTrait self,
     SseSerializer serializer,
@@ -3470,6 +3529,12 @@ abstract class NekotonBridgeApiImplPlatform
   );
 
   @protected
+  void sse_encode_list_record_string_string(
+    List<(String, String)> self,
+    SseSerializer serializer,
+  );
+
+  @protected
   void sse_encode_log_entry(LogEntry self, SseSerializer serializer);
 
   @protected
@@ -3511,6 +3576,12 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   void sse_encode_proto_transport_impl(
     ProtoTransportImpl self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_record_string_string(
+    (String, String) self,
     SseSerializer serializer,
   );
 
@@ -8755,6 +8826,7 @@ class NekotonBridgeWire implements BaseWire {
     ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> method_id,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> input,
+    ffi.Pointer<wire_cst_list_record_string_string> libraries,
     ffi.Pointer<ffi.Int32> signature_id,
   ) {
     return _wire__crate__api__merged__nt_run_getter(
@@ -8763,6 +8835,7 @@ class NekotonBridgeWire implements BaseWire {
       contract_abi,
       method_id,
       input,
+      libraries,
       signature_id,
     );
   }
@@ -8776,6 +8849,7 @@ class NekotonBridgeWire implements BaseWire {
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<wire_cst_list_record_string_string>,
             ffi.Pointer<ffi.Int32>,
           )
         >
@@ -8789,6 +8863,7 @@ class NekotonBridgeWire implements BaseWire {
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              ffi.Pointer<wire_cst_list_record_string_string>,
               ffi.Pointer<ffi.Int32>,
             )
           >();
@@ -8800,6 +8875,7 @@ class NekotonBridgeWire implements BaseWire {
     ffi.Pointer<wire_cst_list_prim_u_8_strict> method_id,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> input,
     bool responsible,
+    ffi.Pointer<wire_cst_list_record_string_string> libraries,
     ffi.Pointer<ffi.Int32> signature_id,
   ) {
     return _wire__crate__api__merged__nt_run_local(
@@ -8809,6 +8885,7 @@ class NekotonBridgeWire implements BaseWire {
       method_id,
       input,
       responsible,
+      libraries,
       signature_id,
     );
   }
@@ -8823,6 +8900,7 @@ class NekotonBridgeWire implements BaseWire {
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Bool,
+            ffi.Pointer<wire_cst_list_record_string_string>,
             ffi.Pointer<ffi.Int32>,
           )
         >
@@ -8837,6 +8915,69 @@ class NekotonBridgeWire implements BaseWire {
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               bool,
+              ffi.Pointer<wire_cst_list_record_string_string>,
+              ffi.Pointer<ffi.Int32>,
+            )
+          >();
+
+  void wire__crate__api__merged__nt_run_local_with_libs(
+    int port_,
+    int transport,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> account_stuff_boc,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_abi,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> method_id,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> input,
+    bool responsible,
+    ffi.Pointer<wire_cst_list_record_string_string> libraries,
+    int retry_count,
+    ffi.Pointer<ffi.Int32> signature_id,
+  ) {
+    return _wire__crate__api__merged__nt_run_local_with_libs(
+      port_,
+      transport,
+      account_stuff_boc,
+      contract_abi,
+      method_id,
+      input,
+      responsible,
+      libraries,
+      retry_count,
+      signature_id,
+    );
+  }
+
+  late final _wire__crate__api__merged__nt_run_local_with_libsPtr =
+      _lookup<
+        ffi.NativeFunction<
+          ffi.Void Function(
+            ffi.Int64,
+            ffi.UintPtr,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Bool,
+            ffi.Pointer<wire_cst_list_record_string_string>,
+            ffi.Uint8,
+            ffi.Pointer<ffi.Int32>,
+          )
+        >
+      >(
+        'frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local_with_libs',
+      );
+  late final _wire__crate__api__merged__nt_run_local_with_libs =
+      _wire__crate__api__merged__nt_run_local_with_libsPtr
+          .asFunction<
+            void Function(
+              int,
+              int,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              bool,
+              ffi.Pointer<wire_cst_list_record_string_string>,
+              int,
               ffi.Pointer<ffi.Int32>,
             )
           >();
@@ -9885,6 +10026,7 @@ class NekotonBridgeWire implements BaseWire {
     bool notify_receiver,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> attached_amount,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> payload,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> remaining_gas_to,
   ) {
     return _wire__crate__api__merged__token_wallet_dart_wrapper_prepare_transfer(
       port_,
@@ -9894,6 +10036,7 @@ class NekotonBridgeWire implements BaseWire {
       notify_receiver,
       attached_amount,
       payload,
+      remaining_gas_to,
     );
   }
 
@@ -9906,6 +10049,7 @@ class NekotonBridgeWire implements BaseWire {
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Bool,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
           )
@@ -9922,6 +10066,7 @@ class NekotonBridgeWire implements BaseWire {
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               bool,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             )
@@ -10083,6 +10228,41 @@ class NekotonBridgeWire implements BaseWire {
       _wire__crate__api__merged__ton_wallet_dart_wrapper_addressPtr
           .asFunction<
             void Function(int, ffi.Pointer<wire_cst_ton_wallet_dart_wrapper>)
+          >();
+
+  void
+  wire__crate__api__merged__ton_wallet_dart_wrapper_append_signature_to_wallet_v5r1_payload(
+    int port_,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> payload,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> base64_signature,
+  ) {
+    return _wire__crate__api__merged__ton_wallet_dart_wrapper_append_signature_to_wallet_v5r1_payload(
+      port_,
+      payload,
+      base64_signature,
+    );
+  }
+
+  late final _wire__crate__api__merged__ton_wallet_dart_wrapper_append_signature_to_wallet_v5r1_payloadPtr =
+      _lookup<
+        ffi.NativeFunction<
+          ffi.Void Function(
+            ffi.Int64,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+          )
+        >
+      >(
+        'frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_append_signature_to_wallet_v5r1_payload',
+      );
+  late final _wire__crate__api__merged__ton_wallet_dart_wrapper_append_signature_to_wallet_v5r1_payload =
+      _wire__crate__api__merged__ton_wallet_dart_wrapper_append_signature_to_wallet_v5r1_payloadPtr
+          .asFunction<
+            void Function(
+              int,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            )
           >();
 
   void wire__crate__api__merged__ton_wallet_dart_wrapper_contract_state(
@@ -10305,6 +10485,44 @@ class NekotonBridgeWire implements BaseWire {
       _wire__crate__api__merged__ton_wallet_dart_wrapper_get_existing_wallet_infoPtr
           .asFunction<
             void Function(int, int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)
+          >();
+
+  void wire__crate__api__merged__ton_wallet_dart_wrapper_get_wallet_v5r1_seqno(
+    int port_,
+    ffi.Pointer<wire_cst_ton_wallet_dart_wrapper> that,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> raw_current_state,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> public_key,
+  ) {
+    return _wire__crate__api__merged__ton_wallet_dart_wrapper_get_wallet_v5r1_seqno(
+      port_,
+      that,
+      raw_current_state,
+      public_key,
+    );
+  }
+
+  late final _wire__crate__api__merged__ton_wallet_dart_wrapper_get_wallet_v5r1_seqnoPtr =
+      _lookup<
+        ffi.NativeFunction<
+          ffi.Void Function(
+            ffi.Int64,
+            ffi.Pointer<wire_cst_ton_wallet_dart_wrapper>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+          )
+        >
+      >(
+        'frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_get_wallet_v5r1_seqno',
+      );
+  late final _wire__crate__api__merged__ton_wallet_dart_wrapper_get_wallet_v5r1_seqno =
+      _wire__crate__api__merged__ton_wallet_dart_wrapper_get_wallet_v5r1_seqnoPtr
+          .asFunction<
+            void Function(
+              int,
+              ffi.Pointer<wire_cst_ton_wallet_dart_wrapper>,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            )
           >();
 
   void wire__crate__api__merged__ton_wallet_dart_wrapper_handle_block(
@@ -10584,6 +10802,49 @@ class NekotonBridgeWire implements BaseWire {
             )
           >();
 
+  void
+  wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_nonexist_wallet_v5r1_message_body(
+    int port_,
+    ffi.Pointer<wire_cst_ton_wallet_dart_wrapper> that,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> expiration,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> params,
+    bool is_internal_flow,
+  ) {
+    return _wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_nonexist_wallet_v5r1_message_body(
+      port_,
+      that,
+      expiration,
+      params,
+      is_internal_flow,
+    );
+  }
+
+  late final _wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_nonexist_wallet_v5r1_message_bodyPtr =
+      _lookup<
+        ffi.NativeFunction<
+          ffi.Void Function(
+            ffi.Int64,
+            ffi.Pointer<wire_cst_ton_wallet_dart_wrapper>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Bool,
+          )
+        >
+      >(
+        'frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_nonexist_wallet_v5r1_message_body',
+      );
+  late final _wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_nonexist_wallet_v5r1_message_body =
+      _wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_nonexist_wallet_v5r1_message_bodyPtr
+          .asFunction<
+            void Function(
+              int,
+              ffi.Pointer<wire_cst_ton_wallet_dart_wrapper>,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              bool,
+            )
+          >();
+
   void wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_transfer(
     int port_,
     ffi.Pointer<wire_cst_ton_wallet_dart_wrapper> that,
@@ -10627,6 +10888,57 @@ class NekotonBridgeWire implements BaseWire {
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            )
+          >();
+
+  void
+  wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_wallet_v5r1_message_body(
+    int port_,
+    ffi.Pointer<wire_cst_ton_wallet_dart_wrapper> that,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> contract_state,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> public_key,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> expiration,
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> params,
+    bool is_internal_flow,
+  ) {
+    return _wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_wallet_v5r1_message_body(
+      port_,
+      that,
+      contract_state,
+      public_key,
+      expiration,
+      params,
+      is_internal_flow,
+    );
+  }
+
+  late final _wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_wallet_v5r1_message_bodyPtr =
+      _lookup<
+        ffi.NativeFunction<
+          ffi.Void Function(
+            ffi.Int64,
+            ffi.Pointer<wire_cst_ton_wallet_dart_wrapper>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            ffi.Bool,
+          )
+        >
+      >(
+        'frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_wallet_v5r1_message_body',
+      );
+  late final _wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_wallet_v5r1_message_body =
+      _wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_wallet_v5r1_message_bodyPtr
+          .asFunction<
+            void Function(
+              int,
+              ffi.Pointer<wire_cst_ton_wallet_dart_wrapper>,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+              bool,
             )
           >();
 
@@ -12532,6 +12844,23 @@ class NekotonBridgeWire implements BaseWire {
   late final _cst_new_list_prim_u_8_strict = _cst_new_list_prim_u_8_strictPtr
       .asFunction<ffi.Pointer<wire_cst_list_prim_u_8_strict> Function(int)>();
 
+  ffi.Pointer<wire_cst_list_record_string_string>
+  cst_new_list_record_string_string(int len) {
+    return _cst_new_list_record_string_string(len);
+  }
+
+  late final _cst_new_list_record_string_stringPtr =
+      _lookup<
+        ffi.NativeFunction<
+          ffi.Pointer<wire_cst_list_record_string_string> Function(ffi.Int32)
+        >
+      >('frbgen_nekoton_bridge_cst_new_list_record_string_string');
+  late final _cst_new_list_record_string_string =
+      _cst_new_list_record_string_stringPtr
+          .asFunction<
+            ffi.Pointer<wire_cst_list_record_string_string> Function(int)
+          >();
+
   int dummy_method_to_enforce_bundling() {
     return _dummy_method_to_enforce_bundling();
   }
@@ -12676,6 +13005,19 @@ final class wire_cst_mnemonic_type extends ffi.Struct {
   external int tag;
 
   external MnemonicTypeKind kind;
+}
+
+final class wire_cst_record_string_string extends ffi.Struct {
+  external ffi.Pointer<wire_cst_list_prim_u_8_strict> field0;
+
+  external ffi.Pointer<wire_cst_list_prim_u_8_strict> field1;
+}
+
+final class wire_cst_list_record_string_string extends ffi.Struct {
+  external ffi.Pointer<wire_cst_record_string_string> ptr;
+
+  @ffi.Int32()
+  external int len;
 }
 
 final class wire_cst_proto_transport_impl extends ffi.Struct {

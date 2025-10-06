@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$DePoolOnRoundCompleteNotification {
 
- String get roundId;@amountJsonConverter BigInt get reward;@amountJsonConverter BigInt get ordinaryStake;@amountJsonConverter BigInt get vestingStake;@amountJsonConverter BigInt get lockStake; bool get reinvest; int get reason;
+ String get roundId; BigInt get reward; BigInt get ordinaryStake; BigInt get vestingStake; BigInt get lockStake; bool get reinvest; int get reason;
 /// Create a copy of DePoolOnRoundCompleteNotification
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $DePoolOnRoundCompleteNotificationCopyWith<$Res>  {
   factory $DePoolOnRoundCompleteNotificationCopyWith(DePoolOnRoundCompleteNotification value, $Res Function(DePoolOnRoundCompleteNotification) _then) = _$DePoolOnRoundCompleteNotificationCopyWithImpl;
 @useResult
 $Res call({
- String roundId,@amountJsonConverter BigInt reward,@amountJsonConverter BigInt ordinaryStake,@amountJsonConverter BigInt vestingStake,@amountJsonConverter BigInt lockStake, bool reinvest, int reason
+ String roundId, BigInt reward, BigInt ordinaryStake, BigInt vestingStake, BigInt lockStake, bool reinvest, int reason
 });
 
 
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String roundId, @amountJsonConverter  BigInt reward, @amountJsonConverter  BigInt ordinaryStake, @amountJsonConverter  BigInt vestingStake, @amountJsonConverter  BigInt lockStake,  bool reinvest,  int reason)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String roundId,  BigInt reward,  BigInt ordinaryStake,  BigInt vestingStake,  BigInt lockStake,  bool reinvest,  int reason)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DePoolOnRoundCompleteNotification() when $default != null:
 return $default(_that.roundId,_that.reward,_that.ordinaryStake,_that.vestingStake,_that.lockStake,_that.reinvest,_that.reason);case _:
@@ -177,7 +177,7 @@ return $default(_that.roundId,_that.reward,_that.ordinaryStake,_that.vestingStak
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String roundId, @amountJsonConverter  BigInt reward, @amountJsonConverter  BigInt ordinaryStake, @amountJsonConverter  BigInt vestingStake, @amountJsonConverter  BigInt lockStake,  bool reinvest,  int reason)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String roundId,  BigInt reward,  BigInt ordinaryStake,  BigInt vestingStake,  BigInt lockStake,  bool reinvest,  int reason)  $default,) {final _that = this;
 switch (_that) {
 case _DePoolOnRoundCompleteNotification():
 return $default(_that.roundId,_that.reward,_that.ordinaryStake,_that.vestingStake,_that.lockStake,_that.reinvest,_that.reason);}
@@ -194,7 +194,7 @@ return $default(_that.roundId,_that.reward,_that.ordinaryStake,_that.vestingStak
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String roundId, @amountJsonConverter  BigInt reward, @amountJsonConverter  BigInt ordinaryStake, @amountJsonConverter  BigInt vestingStake, @amountJsonConverter  BigInt lockStake,  bool reinvest,  int reason)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String roundId,  BigInt reward,  BigInt ordinaryStake,  BigInt vestingStake,  BigInt lockStake,  bool reinvest,  int reason)?  $default,) {final _that = this;
 switch (_that) {
 case _DePoolOnRoundCompleteNotification() when $default != null:
 return $default(_that.roundId,_that.reward,_that.ordinaryStake,_that.vestingStake,_that.lockStake,_that.reinvest,_that.reason);case _:
@@ -209,14 +209,14 @@ return $default(_that.roundId,_that.reward,_that.ordinaryStake,_that.vestingStak
 @JsonSerializable()
 
 class _DePoolOnRoundCompleteNotification implements DePoolOnRoundCompleteNotification {
-  const _DePoolOnRoundCompleteNotification({required this.roundId, @amountJsonConverter required this.reward, @amountJsonConverter required this.ordinaryStake, @amountJsonConverter required this.vestingStake, @amountJsonConverter required this.lockStake, required this.reinvest, required this.reason});
+  const _DePoolOnRoundCompleteNotification({required this.roundId, required this.reward, required this.ordinaryStake, required this.vestingStake, required this.lockStake, required this.reinvest, required this.reason});
   factory _DePoolOnRoundCompleteNotification.fromJson(Map<String, dynamic> json) => _$DePoolOnRoundCompleteNotificationFromJson(json);
 
 @override final  String roundId;
-@override@amountJsonConverter final  BigInt reward;
-@override@amountJsonConverter final  BigInt ordinaryStake;
-@override@amountJsonConverter final  BigInt vestingStake;
-@override@amountJsonConverter final  BigInt lockStake;
+@override final  BigInt reward;
+@override final  BigInt ordinaryStake;
+@override final  BigInt vestingStake;
+@override final  BigInt lockStake;
 @override final  bool reinvest;
 @override final  int reason;
 
@@ -253,7 +253,7 @@ abstract mixin class _$DePoolOnRoundCompleteNotificationCopyWith<$Res> implement
   factory _$DePoolOnRoundCompleteNotificationCopyWith(_DePoolOnRoundCompleteNotification value, $Res Function(_DePoolOnRoundCompleteNotification) _then) = __$DePoolOnRoundCompleteNotificationCopyWithImpl;
 @override @useResult
 $Res call({
- String roundId,@amountJsonConverter BigInt reward,@amountJsonConverter BigInt ordinaryStake,@amountJsonConverter BigInt vestingStake,@amountJsonConverter BigInt lockStake, bool reinvest, int reason
+ String roundId, BigInt reward, BigInt ordinaryStake, BigInt vestingStake, BigInt lockStake, bool reinvest, int reason
 });
 
 

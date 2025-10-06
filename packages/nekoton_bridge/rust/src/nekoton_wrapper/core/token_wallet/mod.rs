@@ -67,6 +67,7 @@ pub trait TokenWalletBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         notify_receiver: bool,
         attached_amount: Option<String>,
         payload: Option<String>,
+        remaining_gas_to: Option<String>,
     ) -> anyhow::Result<String>;
 
     /// Refresh wallet and update its data.
@@ -203,8 +204,10 @@ impl TokenWalletBoxTrait for TokenWalletBox {
         notify_receiver: bool,
         attached_amount: Option<String>,
         payload: Option<String>,
+        remaining_gas_to: Option<String>,
     ) -> anyhow::Result<String> {
         let destination = parse_address(destination)?;
+        let remaining_gas_to = remaining_gas_to.map(parse_address).transpose()?;
 
         let destination = TransferRecipient::OwnerWallet(destination);
 
@@ -232,6 +235,7 @@ impl TokenWalletBoxTrait for TokenWalletBox {
                 notify_receiver,
                 payload,
                 attached_amount,
+                remaining_gas_to,
             )
             .await
             .handle_error()?;

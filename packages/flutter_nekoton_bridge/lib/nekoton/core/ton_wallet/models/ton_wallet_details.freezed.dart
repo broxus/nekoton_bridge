@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TonWalletDetails {
 
- bool get requiresSeparateDeploy;@amountJsonConverter BigInt get minAmount; bool get supportsPayload; bool get supportsMultipleOwners;// expirationTime in seconds
+ bool get requiresSeparateDeploy; BigInt get minAmount; bool get supportsPayload; bool get supportsMultipleOwners;// expirationTime in seconds
  int get expirationTime; int? get requiredConfirmations;
 /// Create a copy of TonWalletDetails
 /// with the given fields replaced by the non-null parameter values.
@@ -49,7 +49,7 @@ abstract mixin class $TonWalletDetailsCopyWith<$Res>  {
   factory $TonWalletDetailsCopyWith(TonWalletDetails value, $Res Function(TonWalletDetails) _then) = _$TonWalletDetailsCopyWithImpl;
 @useResult
 $Res call({
- bool requiresSeparateDeploy,@amountJsonConverter BigInt minAmount, bool supportsPayload, bool supportsMultipleOwners, int expirationTime, int? requiredConfirmations
+ bool requiresSeparateDeploy, BigInt minAmount, bool supportsPayload, bool supportsMultipleOwners, int expirationTime, int? requiredConfirmations
 });
 
 
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool requiresSeparateDeploy, @amountJsonConverter  BigInt minAmount,  bool supportsPayload,  bool supportsMultipleOwners,  int expirationTime,  int? requiredConfirmations)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool requiresSeparateDeploy,  BigInt minAmount,  bool supportsPayload,  bool supportsMultipleOwners,  int expirationTime,  int? requiredConfirmations)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TonWalletDetails() when $default != null:
 return $default(_that.requiresSeparateDeploy,_that.minAmount,_that.supportsPayload,_that.supportsMultipleOwners,_that.expirationTime,_that.requiredConfirmations);case _:
@@ -177,7 +177,7 @@ return $default(_that.requiresSeparateDeploy,_that.minAmount,_that.supportsPaylo
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool requiresSeparateDeploy, @amountJsonConverter  BigInt minAmount,  bool supportsPayload,  bool supportsMultipleOwners,  int expirationTime,  int? requiredConfirmations)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool requiresSeparateDeploy,  BigInt minAmount,  bool supportsPayload,  bool supportsMultipleOwners,  int expirationTime,  int? requiredConfirmations)  $default,) {final _that = this;
 switch (_that) {
 case _TonWalletDetails():
 return $default(_that.requiresSeparateDeploy,_that.minAmount,_that.supportsPayload,_that.supportsMultipleOwners,_that.expirationTime,_that.requiredConfirmations);}
@@ -194,7 +194,7 @@ return $default(_that.requiresSeparateDeploy,_that.minAmount,_that.supportsPaylo
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool requiresSeparateDeploy, @amountJsonConverter  BigInt minAmount,  bool supportsPayload,  bool supportsMultipleOwners,  int expirationTime,  int? requiredConfirmations)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool requiresSeparateDeploy,  BigInt minAmount,  bool supportsPayload,  bool supportsMultipleOwners,  int expirationTime,  int? requiredConfirmations)?  $default,) {final _that = this;
 switch (_that) {
 case _TonWalletDetails() when $default != null:
 return $default(_that.requiresSeparateDeploy,_that.minAmount,_that.supportsPayload,_that.supportsMultipleOwners,_that.expirationTime,_that.requiredConfirmations);case _:
@@ -209,11 +209,11 @@ return $default(_that.requiresSeparateDeploy,_that.minAmount,_that.supportsPaylo
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _TonWalletDetails implements TonWalletDetails {
-  const _TonWalletDetails({required this.requiresSeparateDeploy, @amountJsonConverter required this.minAmount, required this.supportsPayload, required this.supportsMultipleOwners, required this.expirationTime, required this.requiredConfirmations});
+  const _TonWalletDetails({required this.requiresSeparateDeploy, required this.minAmount, required this.supportsPayload, required this.supportsMultipleOwners, required this.expirationTime, required this.requiredConfirmations});
   factory _TonWalletDetails.fromJson(Map<String, dynamic> json) => _$TonWalletDetailsFromJson(json);
 
 @override final  bool requiresSeparateDeploy;
-@override@amountJsonConverter final  BigInt minAmount;
+@override final  BigInt minAmount;
 @override final  bool supportsPayload;
 @override final  bool supportsMultipleOwners;
 // expirationTime in seconds
@@ -253,7 +253,7 @@ abstract mixin class _$TonWalletDetailsCopyWith<$Res> implements $TonWalletDetai
   factory _$TonWalletDetailsCopyWith(_TonWalletDetails value, $Res Function(_TonWalletDetails) _then) = __$TonWalletDetailsCopyWithImpl;
 @override @useResult
 $Res call({
- bool requiresSeparateDeploy,@amountJsonConverter BigInt minAmount, bool supportsPayload, bool supportsMultipleOwners, int expirationTime, int? requiredConfirmations
+ bool requiresSeparateDeploy, BigInt minAmount, bool supportsPayload, bool supportsMultipleOwners, int expirationTime, int? requiredConfirmations
 });
 
 

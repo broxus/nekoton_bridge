@@ -406,6 +406,9 @@ abstract class NekotonBridgeApiImplPlatform
   Object dco_decode_DartOpaque(dynamic raw);
 
   @protected
+  Map<String, String> dco_decode_Map_String_String_None(dynamic raw);
+
+  @protected
   ArcAccountsStorageBoxTrait
   dco_decode_RustOpaque_ArcdynAccountsStorageBoxTrait(dynamic raw);
 
@@ -732,6 +735,9 @@ abstract class NekotonBridgeApiImplPlatform
   Uint8List dco_decode_list_prim_u_8_strict(dynamic raw);
 
   @protected
+  List<(String, String)> dco_decode_list_record_string_string(dynamic raw);
+
+  @protected
   LogEntry dco_decode_log_entry(dynamic raw);
 
   @protected
@@ -769,6 +775,9 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   ProtoTransportImpl dco_decode_proto_transport_impl(dynamic raw);
+
+  @protected
+  (String, String) dco_decode_record_string_string(dynamic raw);
 
   @protected
   SignatureParts dco_decode_signature_parts(dynamic raw);
@@ -1024,6 +1033,11 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   Object sse_decode_DartOpaque(SseDeserializer deserializer);
+
+  @protected
+  Map<String, String> sse_decode_Map_String_String_None(
+    SseDeserializer deserializer,
+  );
 
   @protected
   ArcAccountsStorageBoxTrait
@@ -1402,6 +1416,11 @@ abstract class NekotonBridgeApiImplPlatform
   Uint8List sse_decode_list_prim_u_8_strict(SseDeserializer deserializer);
 
   @protected
+  List<(String, String)> sse_decode_list_record_string_string(
+    SseDeserializer deserializer,
+  );
+
+  @protected
   LogEntry sse_decode_log_entry(SseDeserializer deserializer);
 
   @protected
@@ -1441,6 +1460,11 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   ProtoTransportImpl sse_decode_proto_transport_impl(
+    SseDeserializer deserializer,
+  );
+
+  @protected
+  (String, String) sse_decode_record_string_string(
     SseDeserializer deserializer,
   );
 
@@ -1495,6 +1519,14 @@ abstract class NekotonBridgeApiImplPlatform
   String cst_encode_AnyhowException(AnyhowException raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     throw UnimplementedError();
+  }
+
+  @protected
+  JSAny cst_encode_Map_String_String_None(Map<String, String> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return cst_encode_list_record_string_string(
+      raw.entries.map((e) => (e.key, e.value)).toList(),
+    );
   }
 
   @protected
@@ -1831,6 +1863,12 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
+  JSAny cst_encode_list_record_string_string(List<(String, String)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode_record_string_string).toList().jsify()!;
+  }
+
+  @protected
   JSAny cst_encode_log_entry(LogEntry raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return [
@@ -1914,6 +1952,12 @@ abstract class NekotonBridgeApiImplPlatform
     return [
       cst_encode_RustOpaque_ArcdynTransportBoxTrait(raw.innerTransport),
     ].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_record_string_string((String, String) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_String(raw.$1), cst_encode_String(raw.$2)].jsify()!;
   }
 
   @protected
@@ -2747,6 +2791,12 @@ abstract class NekotonBridgeApiImplPlatform
   void sse_encode_DartOpaque(Object self, SseSerializer serializer);
 
   @protected
+  void sse_encode_Map_String_String_None(
+    Map<String, String> self,
+    SseSerializer serializer,
+  );
+
+  @protected
   void sse_encode_RustOpaque_ArcdynAccountsStorageBoxTrait(
     ArcAccountsStorageBoxTrait self,
     SseSerializer serializer,
@@ -3190,6 +3240,12 @@ abstract class NekotonBridgeApiImplPlatform
   );
 
   @protected
+  void sse_encode_list_record_string_string(
+    List<(String, String)> self,
+    SseSerializer serializer,
+  );
+
+  @protected
   void sse_encode_log_entry(LogEntry self, SseSerializer serializer);
 
   @protected
@@ -3231,6 +3287,12 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   void sse_encode_proto_transport_impl(
     ProtoTransportImpl self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_record_string_string(
+    (String, String) self,
     SseSerializer serializer,
   );
 
@@ -5108,6 +5170,7 @@ class NekotonBridgeWire implements BaseWire {
     String contract_abi,
     String method_id,
     String input,
+    JSAny libraries,
     int? signature_id,
   ) => wasmModule.wire__crate__api__merged__nt_run_getter(
     port_,
@@ -5115,6 +5178,7 @@ class NekotonBridgeWire implements BaseWire {
     contract_abi,
     method_id,
     input,
+    libraries,
     signature_id,
   );
 
@@ -5125,6 +5189,7 @@ class NekotonBridgeWire implements BaseWire {
     String method_id,
     String input,
     bool responsible,
+    JSAny libraries,
     int? signature_id,
   ) => wasmModule.wire__crate__api__merged__nt_run_local(
     port_,
@@ -5133,6 +5198,31 @@ class NekotonBridgeWire implements BaseWire {
     method_id,
     input,
     responsible,
+    libraries,
+    signature_id,
+  );
+
+  void wire__crate__api__merged__nt_run_local_with_libs(
+    NativePortType port_,
+    int transport,
+    String account_stuff_boc,
+    String contract_abi,
+    String method_id,
+    String input,
+    bool responsible,
+    JSAny libraries,
+    int retry_count,
+    int? signature_id,
+  ) => wasmModule.wire__crate__api__merged__nt_run_local_with_libs(
+    port_,
+    transport,
+    account_stuff_boc,
+    contract_abi,
+    method_id,
+    input,
+    responsible,
+    libraries,
+    retry_count,
     signature_id,
   );
 
@@ -5484,6 +5574,7 @@ class NekotonBridgeWire implements BaseWire {
     bool notify_receiver,
     String? attached_amount,
     String? payload,
+    String? remaining_gas_to,
   ) => wasmModule
       .wire__crate__api__merged__token_wallet_dart_wrapper_prepare_transfer(
         port_,
@@ -5493,6 +5584,7 @@ class NekotonBridgeWire implements BaseWire {
         notify_receiver,
         attached_amount,
         payload,
+        remaining_gas_to,
       );
 
   void wire__crate__api__merged__token_wallet_dart_wrapper_refresh(
@@ -5544,6 +5636,18 @@ class NekotonBridgeWire implements BaseWire {
     port_,
     that,
   );
+
+  void
+  wire__crate__api__merged__ton_wallet_dart_wrapper_append_signature_to_wallet_v5r1_payload(
+    NativePortType port_,
+    String payload,
+    String base64_signature,
+  ) => wasmModule
+      .wire__crate__api__merged__ton_wallet_dart_wrapper_append_signature_to_wallet_v5r1_payload(
+        port_,
+        payload,
+        base64_signature,
+      );
 
   void wire__crate__api__merged__ton_wallet_dart_wrapper_contract_state(
     NativePortType port_,
@@ -5619,6 +5723,19 @@ class NekotonBridgeWire implements BaseWire {
         port_,
         transport,
         address,
+      );
+
+  void wire__crate__api__merged__ton_wallet_dart_wrapper_get_wallet_v5r1_seqno(
+    NativePortType port_,
+    JSAny that,
+    String raw_current_state,
+    String public_key,
+  ) => wasmModule
+      .wire__crate__api__merged__ton_wallet_dart_wrapper_get_wallet_v5r1_seqno(
+        port_,
+        that,
+        raw_current_state,
+        public_key,
       );
 
   void wire__crate__api__merged__ton_wallet_dart_wrapper_handle_block(
@@ -5717,6 +5834,22 @@ class NekotonBridgeWire implements BaseWire {
         expiration_time,
       );
 
+  void
+  wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_nonexist_wallet_v5r1_message_body(
+    NativePortType port_,
+    JSAny that,
+    String expiration,
+    String params,
+    bool is_internal_flow,
+  ) => wasmModule
+      .wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_nonexist_wallet_v5r1_message_body(
+        port_,
+        that,
+        expiration,
+        params,
+        is_internal_flow,
+      );
+
   void wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_transfer(
     NativePortType port_,
     JSAny that,
@@ -5732,6 +5865,26 @@ class NekotonBridgeWire implements BaseWire {
         public_key,
         expiration,
         params,
+      );
+
+  void
+  wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_wallet_v5r1_message_body(
+    NativePortType port_,
+    JSAny that,
+    String contract_state,
+    String public_key,
+    String expiration,
+    String params,
+    bool is_internal_flow,
+  ) => wasmModule
+      .wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_wallet_v5r1_message_body(
+        port_,
+        that,
+        contract_state,
+        public_key,
+        expiration,
+        params,
+        is_internal_flow,
       );
 
   void wire__crate__api__merged__ton_wallet_dart_wrapper_public_key(
@@ -7449,6 +7602,7 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
     String contract_abi,
     String method_id,
     String input,
+    JSAny libraries,
     int? signature_id,
   );
 
@@ -7459,6 +7613,20 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
     String method_id,
     String input,
     bool responsible,
+    JSAny libraries,
+    int? signature_id,
+  );
+
+  external void wire__crate__api__merged__nt_run_local_with_libs(
+    NativePortType port_,
+    int transport,
+    String account_stuff_boc,
+    String contract_abi,
+    String method_id,
+    String input,
+    bool responsible,
+    JSAny libraries,
+    int retry_count,
     int? signature_id,
   );
 
@@ -7679,6 +7847,7 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
     bool notify_receiver,
     String? attached_amount,
     String? payload,
+    String? remaining_gas_to,
   );
 
   external void wire__crate__api__merged__token_wallet_dart_wrapper_refresh(
@@ -7709,6 +7878,13 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
   external void wire__crate__api__merged__ton_wallet_dart_wrapper_address(
     NativePortType port_,
     JSAny that,
+  );
+
+  external void
+  wire__crate__api__merged__ton_wallet_dart_wrapper_append_signature_to_wallet_v5r1_payload(
+    NativePortType port_,
+    String payload,
+    String base64_signature,
   );
 
   external void
@@ -7755,6 +7931,14 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
     NativePortType port_,
     int transport,
     String address,
+  );
+
+  external void
+  wire__crate__api__merged__ton_wallet_dart_wrapper_get_wallet_v5r1_seqno(
+    NativePortType port_,
+    JSAny that,
+    String raw_current_state,
+    String public_key,
   );
 
   external void wire__crate__api__merged__ton_wallet_dart_wrapper_handle_block(
@@ -7816,6 +8000,15 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
   );
 
   external void
+  wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_nonexist_wallet_v5r1_message_body(
+    NativePortType port_,
+    JSAny that,
+    String expiration,
+    String params,
+    bool is_internal_flow,
+  );
+
+  external void
   wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_transfer(
     NativePortType port_,
     JSAny that,
@@ -7823,6 +8016,17 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
     String public_key,
     String expiration,
     String params,
+  );
+
+  external void
+  wire__crate__api__merged__ton_wallet_dart_wrapper_prepare_wallet_v5r1_message_body(
+    NativePortType port_,
+    JSAny that,
+    String contract_state,
+    String public_key,
+    String expiration,
+    String params,
+    bool is_internal_flow,
   );
 
   external void wire__crate__api__merged__ton_wallet_dart_wrapper_public_key(

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FullContractState {
 
-@amountJsonConverter BigInt get balance; GenTimings get genTimings; LastTransactionId? get lastTransactionId; bool get isDeployed; String? get codeHash; String get boc;
+ BigInt get balance; GenTimings get genTimings; LastTransactionId? get lastTransactionId; bool get isDeployed; String? get codeHash; String get boc;
 /// Create a copy of FullContractState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $FullContractStateCopyWith<$Res>  {
   factory $FullContractStateCopyWith(FullContractState value, $Res Function(FullContractState) _then) = _$FullContractStateCopyWithImpl;
 @useResult
 $Res call({
-@amountJsonConverter BigInt balance, GenTimings genTimings, LastTransactionId? lastTransactionId, bool isDeployed, String? codeHash, String boc
+ BigInt balance, GenTimings genTimings, LastTransactionId? lastTransactionId, bool isDeployed, String? codeHash, String boc
 });
 
 
@@ -176,7 +176,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@amountJsonConverter  BigInt balance,  GenTimings genTimings,  LastTransactionId? lastTransactionId,  bool isDeployed,  String? codeHash,  String boc)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( BigInt balance,  GenTimings genTimings,  LastTransactionId? lastTransactionId,  bool isDeployed,  String? codeHash,  String boc)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FullContractState() when $default != null:
 return $default(_that.balance,_that.genTimings,_that.lastTransactionId,_that.isDeployed,_that.codeHash,_that.boc);case _:
@@ -197,7 +197,7 @@ return $default(_that.balance,_that.genTimings,_that.lastTransactionId,_that.isD
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@amountJsonConverter  BigInt balance,  GenTimings genTimings,  LastTransactionId? lastTransactionId,  bool isDeployed,  String? codeHash,  String boc)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( BigInt balance,  GenTimings genTimings,  LastTransactionId? lastTransactionId,  bool isDeployed,  String? codeHash,  String boc)  $default,) {final _that = this;
 switch (_that) {
 case _FullContractState():
 return $default(_that.balance,_that.genTimings,_that.lastTransactionId,_that.isDeployed,_that.codeHash,_that.boc);}
@@ -214,7 +214,7 @@ return $default(_that.balance,_that.genTimings,_that.lastTransactionId,_that.isD
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@amountJsonConverter  BigInt balance,  GenTimings genTimings,  LastTransactionId? lastTransactionId,  bool isDeployed,  String? codeHash,  String boc)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( BigInt balance,  GenTimings genTimings,  LastTransactionId? lastTransactionId,  bool isDeployed,  String? codeHash,  String boc)?  $default,) {final _that = this;
 switch (_that) {
 case _FullContractState() when $default != null:
 return $default(_that.balance,_that.genTimings,_that.lastTransactionId,_that.isDeployed,_that.codeHash,_that.boc);case _:
@@ -229,10 +229,10 @@ return $default(_that.balance,_that.genTimings,_that.lastTransactionId,_that.isD
 @JsonSerializable()
 
 class _FullContractState implements FullContractState {
-  const _FullContractState({@amountJsonConverter required this.balance, required this.genTimings, this.lastTransactionId, required this.isDeployed, this.codeHash, required this.boc});
+  const _FullContractState({required this.balance, required this.genTimings, this.lastTransactionId, required this.isDeployed, this.codeHash, required this.boc});
   factory _FullContractState.fromJson(Map<String, dynamic> json) => _$FullContractStateFromJson(json);
 
-@override@amountJsonConverter final  BigInt balance;
+@override final  BigInt balance;
 @override final  GenTimings genTimings;
 @override final  LastTransactionId? lastTransactionId;
 @override final  bool isDeployed;
@@ -272,7 +272,7 @@ abstract mixin class _$FullContractStateCopyWith<$Res> implements $FullContractS
   factory _$FullContractStateCopyWith(_FullContractState value, $Res Function(_FullContractState) _then) = __$FullContractStateCopyWithImpl;
 @override @useResult
 $Res call({
-@amountJsonConverter BigInt balance, GenTimings genTimings, LastTransactionId? lastTransactionId, bool isDeployed, String? codeHash, String boc
+ BigInt balance, GenTimings genTimings, LastTransactionId? lastTransactionId, bool isDeployed, String? codeHash, String boc
 });
 
 

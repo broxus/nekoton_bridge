@@ -189,6 +189,7 @@ class TokenWallet implements RefreshingInterface {
   /// [notifyReceiver] - if receiver should be notifier by blockchain
   /// [payload] - payload of transfer aka comment
   /// [attachedAmount] - representation of rust u64, default 400000000.
+  /// [remainingGasTo] - address of account that should receive remaining gas
   ///   How many native tokens should be attached to transfer.
   /// Returns InternalMessage or throw error.
   Future<InternalMessage> prepareTransfer({
@@ -197,6 +198,7 @@ class TokenWallet implements RefreshingInterface {
     bool notifyReceiver = false,
     BigInt? attachedAmount,
     String? payload,
+    Address? remainingGasTo,
   }) async {
     final encoded = await wallet.prepareTransfer(
       destination: destination.address,
@@ -204,6 +206,7 @@ class TokenWallet implements RefreshingInterface {
       notifyReceiver: notifyReceiver,
       attachedAmount: attachedAmount?.toString(),
       payload: payload,
+      remainingGasTo: remainingGasTo?.address,
     );
     final decoded = jsonDecode(encoded) as Map<String, dynamic>;
     await _updateData();

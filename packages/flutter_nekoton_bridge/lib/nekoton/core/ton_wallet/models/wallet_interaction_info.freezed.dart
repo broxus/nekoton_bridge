@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$WalletInteractionInfo {
 
-@JsonKey(includeIfNull: false)@amountJsonConverter Address? get recipient;@JsonKey(includeIfNull: false) KnownPayload? get knownPayload; WalletInteractionMethod get method;
+@JsonKey(includeIfNull: false) Address? get recipient;@JsonKey(includeIfNull: false) KnownPayload? get knownPayload; WalletInteractionMethod get method;
 /// Create a copy of WalletInteractionInfo
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $WalletInteractionInfoCopyWith<$Res>  {
   factory $WalletInteractionInfoCopyWith(WalletInteractionInfo value, $Res Function(WalletInteractionInfo) _then) = _$WalletInteractionInfoCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(includeIfNull: false)@amountJsonConverter Address? recipient,@JsonKey(includeIfNull: false) KnownPayload? knownPayload, WalletInteractionMethod method
+@JsonKey(includeIfNull: false) Address? recipient,@JsonKey(includeIfNull: false) KnownPayload? knownPayload, WalletInteractionMethod method
 });
 
 
@@ -185,7 +185,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)@amountJsonConverter  Address? recipient, @JsonKey(includeIfNull: false)  KnownPayload? knownPayload,  WalletInteractionMethod method)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  Address? recipient, @JsonKey(includeIfNull: false)  KnownPayload? knownPayload,  WalletInteractionMethod method)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _WalletInteractionInfo() when $default != null:
 return $default(_that.recipient,_that.knownPayload,_that.method);case _:
@@ -206,7 +206,7 @@ return $default(_that.recipient,_that.knownPayload,_that.method);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)@amountJsonConverter  Address? recipient, @JsonKey(includeIfNull: false)  KnownPayload? knownPayload,  WalletInteractionMethod method)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  Address? recipient, @JsonKey(includeIfNull: false)  KnownPayload? knownPayload,  WalletInteractionMethod method)  $default,) {final _that = this;
 switch (_that) {
 case _WalletInteractionInfo():
 return $default(_that.recipient,_that.knownPayload,_that.method);}
@@ -223,7 +223,7 @@ return $default(_that.recipient,_that.knownPayload,_that.method);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(includeIfNull: false)@amountJsonConverter  Address? recipient, @JsonKey(includeIfNull: false)  KnownPayload? knownPayload,  WalletInteractionMethod method)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(includeIfNull: false)  Address? recipient, @JsonKey(includeIfNull: false)  KnownPayload? knownPayload,  WalletInteractionMethod method)?  $default,) {final _that = this;
 switch (_that) {
 case _WalletInteractionInfo() when $default != null:
 return $default(_that.recipient,_that.knownPayload,_that.method);case _:
@@ -238,10 +238,10 @@ return $default(_that.recipient,_that.knownPayload,_that.method);case _:
 @JsonSerializable()
 
 class _WalletInteractionInfo implements WalletInteractionInfo {
-  const _WalletInteractionInfo({@JsonKey(includeIfNull: false)@amountJsonConverter this.recipient, @JsonKey(includeIfNull: false) this.knownPayload, required this.method});
+  const _WalletInteractionInfo({@JsonKey(includeIfNull: false) this.recipient, @JsonKey(includeIfNull: false) this.knownPayload, required this.method});
   factory _WalletInteractionInfo.fromJson(Map<String, dynamic> json) => _$WalletInteractionInfoFromJson(json);
 
-@override@JsonKey(includeIfNull: false)@amountJsonConverter final  Address? recipient;
+@override@JsonKey(includeIfNull: false) final  Address? recipient;
 @override@JsonKey(includeIfNull: false) final  KnownPayload? knownPayload;
 @override final  WalletInteractionMethod method;
 
@@ -278,7 +278,7 @@ abstract mixin class _$WalletInteractionInfoCopyWith<$Res> implements $WalletInt
   factory _$WalletInteractionInfoCopyWith(_WalletInteractionInfo value, $Res Function(_WalletInteractionInfo) _then) = __$WalletInteractionInfoCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(includeIfNull: false)@amountJsonConverter Address? recipient,@JsonKey(includeIfNull: false) KnownPayload? knownPayload, WalletInteractionMethod method
+@JsonKey(includeIfNull: false) Address? recipient,@JsonKey(includeIfNull: false) KnownPayload? knownPayload, WalletInteractionMethod method
 });
 
 

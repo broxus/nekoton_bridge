@@ -21,7 +21,7 @@ _Transaction _$TransactionFromJson(Map<String, dynamic> json) => _Transaction(
   resultCode: (json['resultCode'] as num?)?.toInt(),
   origStatus: $enumDecode(_$AccountStatusEnumMap, json['origStatus']),
   endStatus: $enumDecode(_$AccountStatusEnumMap, json['endStatus']),
-  totalFees: amountJsonConverter.fromJson(json['totalFees'] as String),
+  totalFees: BigInt.parse(json['totalFees'] as String),
   inMessage: Message.fromJson(json['inMessage'] as Map<String, dynamic>),
   outMessages: (json['outMessages'] as List<dynamic>)
       .map((e) => Message.fromJson(e as Map<String, dynamic>))
@@ -40,7 +40,7 @@ Map<String, dynamic> _$TransactionToJson(
   'resultCode': ?instance.resultCode,
   'origStatus': _$AccountStatusEnumMap[instance.origStatus]!,
   'endStatus': _$AccountStatusEnumMap[instance.endStatus]!,
-  'totalFees': amountJsonConverter.toJson(instance.totalFees),
+  'totalFees': instance.totalFees.toString(),
   'inMessage': instance.inMessage.toJson(),
   'outMessages': instance.outMessages.map((e) => e.toJson()).toList(),
   'boc': instance.boc,
