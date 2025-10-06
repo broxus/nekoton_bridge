@@ -8,10 +8,7 @@ part 'on_transactions_found_payload.g.dart';
 
 @freezed
 sealed class OnTransactionsFoundPayload with _$OnTransactionsFoundPayload {
-  @JsonSerializable(
-    fieldRename: FieldRename.snake,
-    explicitToJson: true,
-  )
+  @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
   const factory OnTransactionsFoundPayload({
     required final List<Transaction> transactions,
     required final TransactionsBatchInfo batchInfo,

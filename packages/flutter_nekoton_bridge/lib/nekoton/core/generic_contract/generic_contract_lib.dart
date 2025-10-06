@@ -1,1 +1,1 @@
-export 'generic_contract.dart' hide main;
+export 'generic_contract.dart';

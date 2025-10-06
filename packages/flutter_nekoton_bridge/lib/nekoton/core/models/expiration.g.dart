@@ -7,14 +7,10 @@ part of 'expiration.dart';
 // **************************************************************************
 
 ExpirationNever _$ExpirationNeverFromJson(Map<String, dynamic> json) =>
-    ExpirationNever(
-      $type: json['type'] as String?,
-    );
+    ExpirationNever($type: json['type'] as String?);
 
 Map<String, dynamic> _$ExpirationNeverToJson(ExpirationNever instance) =>
-    <String, dynamic>{
-      'type': instance.$type,
-    };
+    <String, dynamic>{'type': instance.$type};
 
 ExpirationTimeout _$ExpirationTimeoutFromJson(Map<String, dynamic> json) =>
     ExpirationTimeout(
@@ -23,10 +19,7 @@ ExpirationTimeout _$ExpirationTimeoutFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$ExpirationTimeoutToJson(ExpirationTimeout instance) =>
-    <String, dynamic>{
-      'data': instance.data,
-      'type': instance.$type,
-    };
+    <String, dynamic>{'data': instance.data, 'type': instance.$type};
 
 ExpirationTimestamp _$ExpirationTimestampFromJson(Map<String, dynamic> json) =>
     ExpirationTimestamp(
@@ -35,8 +28,5 @@ ExpirationTimestamp _$ExpirationTimestampFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$ExpirationTimestampToJson(
-        ExpirationTimestamp instance) =>
-    <String, dynamic>{
-      'data': instance.data,
-      'type': instance.$type,
-    };
+  ExpirationTimestamp instance,
+) => <String, dynamic>{'data': instance.data, 'type': instance.$type};

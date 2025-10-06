@@ -3,14 +3,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'public_key.freezed.dart';
 
 @Freezed(fromJson: false, toJson: false)
-
 /// Public key of the account
 sealed class PublicKey with _$PublicKey {
   const PublicKey._();
 
-  const factory PublicKey({
-    required final String publicKey,
-  }) = _FromString;
+  const factory PublicKey({required final String publicKey}) = _FromString;
 
   factory PublicKey.fromJson(String json) => PublicKey(publicKey: json);
 

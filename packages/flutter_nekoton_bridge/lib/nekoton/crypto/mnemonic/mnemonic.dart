@@ -22,11 +22,6 @@ Keypair deriveFromPhrase({
   required MnemonicType mnemonicType,
 }) {
   return Keypair.fromJson(
-    jsonDecode(
-      ntDeriveFromPhrase(
-        phrase: phrase,
-        mnemonicType: mnemonicType,
-      ),
-    ),
+    jsonDecode(ntDeriveFromPhrase(phrase: phrase, mnemonicType: mnemonicType)),
   );
 }

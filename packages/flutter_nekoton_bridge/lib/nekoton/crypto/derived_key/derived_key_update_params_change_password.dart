@@ -16,6 +16,6 @@ abstract class DerivedKeyUpdateParamsChangePassword
   }) = _DerivedKeyUpdateParamsChangePassword;
 
   factory DerivedKeyUpdateParamsChangePassword.fromJson(
-          Map<String, dynamic> json) =>
-      _$DerivedKeyUpdateParamsChangePasswordFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$DerivedKeyUpdateParamsChangePasswordFromJson(json);
 }

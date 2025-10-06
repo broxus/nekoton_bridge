@@ -55,10 +55,7 @@ class DartCallStubRegistred {
   /// Call itself
   final DartCallStub stub;
 
-  const DartCallStubRegistred({
-    this.id,
-    required this.stub,
-  });
+  const DartCallStubRegistred({this.id, required this.stub});
 
   @override
   int get hashCode => id.hashCode ^ stub.hashCode;
@@ -78,10 +75,7 @@ class DynamicNamedValue {
   final String name;
   final DynamicValue? value;
 
-  const DynamicNamedValue({
-    required this.name,
-    this.value,
-  });
+  const DynamicNamedValue({required this.name, this.value});
 
   @override
   int get hashCode => name.hashCode ^ value.hashCode;
@@ -99,47 +93,19 @@ class DynamicNamedValue {
 sealed class DynamicValue with _$DynamicValue {
   const DynamicValue._();
 
-  const factory DynamicValue.u16(
-    int field0,
-  ) = DynamicValue_U16;
-  const factory DynamicValue.u32(
-    int field0,
-  ) = DynamicValue_U32;
-  const factory DynamicValue.i32(
-    int field0,
-  ) = DynamicValue_I32;
-  const factory DynamicValue.u64(
-    BigInt field0,
-  ) = DynamicValue_U64;
-  const factory DynamicValue.i64(
-    PlatformInt64 field0,
-  ) = DynamicValue_I64;
-  const factory DynamicValue.f32(
-    double field0,
-  ) = DynamicValue_F32;
-  const factory DynamicValue.f64(
-    double field0,
-  ) = DynamicValue_F64;
-  const factory DynamicValue.string(
-    String field0,
-  ) = DynamicValue_String;
-  const factory DynamicValue.vecU8(
-    Uint8List field0,
-  ) = DynamicValue_VecU8;
-  const factory DynamicValue.megaStruct(
-    String field0,
-  ) = DynamicValue_MegaStruct;
-  const factory DynamicValue.error(
-    ErrorCode field0,
-  ) = DynamicValue_Error;
+  const factory DynamicValue.u16(int field0) = DynamicValue_U16;
+  const factory DynamicValue.u32(int field0) = DynamicValue_U32;
+  const factory DynamicValue.i32(int field0) = DynamicValue_I32;
+  const factory DynamicValue.u64(BigInt field0) = DynamicValue_U64;
+  const factory DynamicValue.i64(PlatformInt64 field0) = DynamicValue_I64;
+  const factory DynamicValue.f32(double field0) = DynamicValue_F32;
+  const factory DynamicValue.f64(double field0) = DynamicValue_F64;
+  const factory DynamicValue.string(String field0) = DynamicValue_String;
+  const factory DynamicValue.vecU8(Uint8List field0) = DynamicValue_VecU8;
+  const factory DynamicValue.megaStruct(String field0) =
+      DynamicValue_MegaStruct;
+  const factory DynamicValue.error(ErrorCode field0) = DynamicValue_Error;
   const factory DynamicValue.none() = DynamicValue_None;
 }
 
-enum ErrorCode {
-  ok,
-  network,
-  generic,
-  invokeException,
-  cancelled,
-  ;
-}
+enum ErrorCode { ok, network, generic, invokeException, cancelled }

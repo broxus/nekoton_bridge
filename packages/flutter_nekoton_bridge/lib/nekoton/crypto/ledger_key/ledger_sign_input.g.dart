@@ -13,7 +13,8 @@ _LedgerSignInput _$LedgerSignInputFromJson(Map<String, dynamic> json) =>
       context: json['context'] == null
           ? null
           : LedgerSignatureContext.fromJson(
-              json['context'] as Map<String, dynamic>),
+              json['context'] as Map<String, dynamic>,
+            ),
     );
 
 Map<String, dynamic> _$LedgerSignInputToJson(_LedgerSignInput instance) =>

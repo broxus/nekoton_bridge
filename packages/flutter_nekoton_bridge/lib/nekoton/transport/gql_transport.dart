@@ -27,18 +27,19 @@ class GqlTransport extends Transport {
 
     instance.networkId = await instance.getNetworkId();
 
-    instance.connectionParamsHash =
-        getHash('gql:${gqlConnection.settings.endpoints.join(',')}');
+    instance.connectionParamsHash = getHash(
+      'gql:${gqlConnection.settings.endpoints.join(',')}',
+    );
 
     return instance;
   }
 
   @override
   Future<void> dispose() => mutex.protectWrite(() async {
-        transport.innerTransport.dispose();
-        gqlConnection.dispose();
-        _disposed = true;
-      });
+    transport.innerTransport.dispose();
+    gqlConnection.dispose();
+    _disposed = true;
+  });
 
   @override
   Future<AccountsList> getAccountsByCodeHash({
@@ -73,8 +74,9 @@ class GqlTransport extends Transport {
     if (_disposed) throw TransportCallAfterDisposeError();
 
     return mutex.protectRead(() async {
-      final res =
-          await transport.getFullContractState(address: address.address);
+      final res = await transport.getFullContractState(
+        address: address.address,
+      );
       return res == null ? null : FullContractState.fromJson(jsonDecode(res));
     });
   }
@@ -180,11 +182,13 @@ class GqlTransport extends Transport {
   }) {
     if (_disposed) throw TransportCallAfterDisposeError();
 
-    return mutex.protectRead(() => transport.waitForNextBlock(
-          currentBlockId: currentBlockId,
-          address: address.address,
-          timeout: BigInt.from(timeout.inMilliseconds),
-        ));
+    return mutex.protectRead(
+      () => transport.waitForNextBlock(
+        currentBlockId: currentBlockId,
+        address: address.address,
+        timeout: BigInt.from(timeout.inMilliseconds),
+      ),
+    );
   }
 
   @override
@@ -207,14 +211,17 @@ class GqlTransport extends Transport {
 
     return mutex.protectRead(() async {
       final encoded = await transport.simulateTransactionTree(
-          signedMessage: jsonEncode(signedMessage),
-          ignoredComputePhaseCodes: ignoredComputePhaseCodes,
-          ignoredActionPhaseCodes: ignoredActionPhaseCodes);
+        signedMessage: jsonEncode(signedMessage),
+        ignoredComputePhaseCodes: ignoredComputePhaseCodes,
+        ignoredActionPhaseCodes: ignoredActionPhaseCodes,
+      );
       final decoded = jsonDecode(encoded) as List<dynamic>;
 
       return decoded
-          .map((e) =>
-              TxTreeSimulationErrorItem.fromJson(e as Map<String, dynamic>))
+          .map(
+            (e) =>
+                TxTreeSimulationErrorItem.fromJson(e as Map<String, dynamic>),
+          )
           .toList();
     });
   }

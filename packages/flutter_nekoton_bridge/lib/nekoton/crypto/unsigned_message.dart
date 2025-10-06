@@ -20,8 +20,9 @@ class UnsignedMessage {
     final instance = UnsignedMessage._(message);
 
     instance.hash = await message.hash();
-    instance.expireAt =
-        dateSecondsSinceEpochJsonConverter.fromJson(await message.expireAt());
+    instance.expireAt = dateSecondsSinceEpochJsonConverter.fromJson(
+      await message.expireAt(),
+    );
 
     return instance;
   }

@@ -8,13 +8,14 @@ part of 'gql_network_settings.dart';
 
 _GqlNetworkSettings _$GqlNetworkSettingsFromJson(Map<String, dynamic> json) =>
     _GqlNetworkSettings(
-      endpoints:
-          (json['endpoints'] as List<dynamic>).map((e) => e as String).toList(),
-      latencyDetectionInterval:
-          (json['latencyDetectionInterval'] as num).toInt(),
+      endpoints: (json['endpoints'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+      latencyDetectionInterval: (json['latencyDetectionInterval'] as num)
+          .toInt(),
       maxLatency: (json['maxLatency'] as num).toInt(),
-      endpointSelectionRetryCount:
-          (json['endpointSelectionRetryCount'] as num).toInt(),
+      endpointSelectionRetryCount: (json['endpointSelectionRetryCount'] as num)
+          .toInt(),
       local: json['local'] as bool,
     );
 

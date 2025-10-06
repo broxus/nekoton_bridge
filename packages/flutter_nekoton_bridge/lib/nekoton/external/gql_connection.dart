@@ -3,9 +3,6 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
-import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
-import 'package:reflectable/mirrors.dart';
-import 'gql_connection.reflectable.dart';
 
 abstract interface class GqlConnectionHttpClient {
   Future<String> post({
@@ -19,8 +16,7 @@ abstract interface class GqlConnectionHttpClient {
   void dispose();
 }
 
-@reflector
-class GqlConnection extends RustToDartMirrorInterface {
+class GqlConnection {
   late GqlConnectionDartWrapper connection;
 
   final GqlConnectionHttpClient _client;
@@ -33,12 +29,7 @@ class GqlConnection extends RustToDartMirrorInterface {
 
   String? _cachedEndpoint;
 
-  GqlConnection._(
-    this._client,
-    this.settings,
-    this._name,
-    this._group,
-  );
+  GqlConnection._(this._client, this.settings, this._name, this._group);
 
   static GqlConnection create({
     required GqlConnectionHttpClient client,
@@ -49,8 +40,8 @@ class GqlConnection extends RustToDartMirrorInterface {
     final instance = GqlConnection._(client, settings, name, group);
 
     instance.connection = GqlConnectionDartWrapper(
-      instanceHash: instance.instanceHash,
       isLocal: settings.local,
+      onPost: instance.post,
     );
 
     return instance;
@@ -73,9 +64,7 @@ class GqlConnection extends RustToDartMirrorInterface {
 
       return await _client.post(
         endpoint: endpoint,
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: {'Content-Type': 'application/json'},
         data: requestData,
       );
     } catch (error) {
@@ -105,19 +94,24 @@ class GqlConnection extends RustToDartMirrorInterface {
         var checkedEndpoints = 0;
 
         for (final e in settings.endpoints) {
-          _checkLatency(e).whenComplete(() {
-            checkedEndpoints++;
-          }).then((v) {
-            if (!completer.isCompleted) completer.complete(e);
-          }).onError((err, st) {
-            if (checkedEndpoints == endpointsCount && !completer.isCompleted) {
-              completer.completeError(err!, st);
-            }
-          });
+          _checkLatency(e)
+              .whenComplete(() {
+                checkedEndpoints++;
+              })
+              .then((v) {
+                if (!completer.isCompleted) completer.complete(e);
+              })
+              .onError((err, st) {
+                if (checkedEndpoints == endpointsCount &&
+                    !completer.isCompleted) {
+                  completer.completeError(err!, st);
+                }
+              });
         }
 
-        return await completer.future
-            .timeout(Duration(milliseconds: maxLatency));
+        return await completer.future.timeout(
+          Duration(milliseconds: maxLatency),
+        );
       } catch (err, st) {
         debugPrint(err.toString());
         debugPrint(st.toString());
@@ -141,18 +135,8 @@ class GqlConnection extends RustToDartMirrorInterface {
     return latency;
   }
 
-  @override
   void dispose() {
     connection.innerConnection.dispose();
     _client.dispose();
-    super.dispose();
-  }
-
-  @override
-  InstanceMirror initializeMirror() {
-    initializeReflectable(); // auto-generated reflectable file
-    return reflector.reflect(this);
   }
 }
-
-void main() {}

@@ -14,14 +14,17 @@ void main() {
   const endpoint = 'https://jrpc-ton.broxus.com';
 
   const address = Address(
-      address:
-          '0:6ca35273892588b4c5f4ae898dc1983eec9662dffebeacdbe82103a1d1dcac60');
-  const usdtTokenRoot = Address(
-      address:
-          '0:b113a994b5024a16719f69139328eb759596c38a25f59028b146fecdc3621dfe');
+    address:
+        '0:2cf545d69ef7331c637cbcbaa358c7d58277a1b5713788736d62435dfa050ced',
+  );
+  const hamsterTokenRoot = Address(
+    address:
+        '0:09f2e59dec406ab26a5259a45d7ff23ef11f3e5c7c21de0b0d2a1cbe52b76b3d',
+  );
   const tokenWallet = Address(
-      address:
-          '0:2de4b60d57c1b6de29557922139212ee44c2eac5c5fd0cef51c73611e27b1a00');
+    address:
+        '0:2932b05d620dd0520a66b1371e33b04ff4911886afef9b4b0a31f70560067469',
+  );
 
   const jrpcSettings = ProtoNetworkSettings(endpoint: endpoint);
   late ProtoTransport transport;
@@ -37,8 +40,6 @@ void main() {
     );
 
     runApp(Container());
-
-    await initRustToDartCaller();
 
     final connection = ProtoConnection.create(
       client: TestProtoClient(),
@@ -64,13 +65,13 @@ void main() {
       final wallet = await JettonWallet.subscribe(
         transport: transport,
         owner: address,
-        rootTokenContract: usdtTokenRoot,
+        rootTokenContract: hamsterTokenRoot,
       );
 
       expect(wallet, isNotNull);
       expect(wallet.owner, address);
       expect(wallet.tokenAddress, tokenWallet);
-      expect(wallet.rootTokenContract, usdtTokenRoot);
+      expect(wallet.rootTokenContract, hamsterTokenRoot);
       expect(wallet.contractState.balance, isNot(BigInt.zero));
 
       wallet.dispose();
@@ -86,7 +87,7 @@ void main() {
       final wallet = await JettonWallet.subscribe(
         transport: transport,
         owner: address,
-        rootTokenContract: usdtTokenRoot,
+        rootTokenContract: hamsterTokenRoot,
       );
 
       final amount = await wallet.estimateMinAttachedAmount(
@@ -103,11 +104,11 @@ void main() {
       final wallet = await JettonWallet.subscribe(
         transport: transport,
         owner: address,
-        rootTokenContract: usdtTokenRoot,
+        rootTokenContract: hamsterTokenRoot,
       );
 
       final message = await wallet.prepareTransfer(
-        destination: usdtTokenRoot,
+        destination: hamsterTokenRoot,
         amount: BigInt.parse('10000'),
         callbackValue: BigInt.one,
         remainingGasTo: address,
@@ -128,17 +129,19 @@ void main() {
 
       expect(details.$1.balance, isNot(BigInt.zero));
       expect(details.$1.ownerAddress, address);
-      expect(details.$1.rootAddress, usdtTokenRoot);
+      expect(details.$1.rootAddress, hamsterTokenRoot);
       expect(
         details.$2.adminAddress,
         const Address(
-            address:
-                '0:6440fe3c69410383963945173c4b11479bf0b9b4d7090e58777bda581c2f9998'),
+          address:
+              '0:bbf13a702490ae3b853fde3849b8e7dc1b5f548807a9158753046496a4aed324',
+        ),
       );
     });
 
-    testWidgets('getJettonRootDetailsFromJettonWallet',
-        (WidgetTester tester) async {
+    testWidgets('getJettonRootDetailsFromJettonWallet', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpAndSettleWithTimeout();
 
       final details = await JettonWallet.getJettonRootDetailsFromJettonWallet(
@@ -146,12 +149,13 @@ void main() {
         address: tokenWallet,
       );
 
-      expect(details.$1, usdtTokenRoot);
+      expect(details.$1, hamsterTokenRoot);
       expect(
         details.$2.adminAddress,
         const Address(
-            address:
-                '0:6440fe3c69410383963945173c4b11479bf0b9b4d7090e58777bda581c2f9998'),
+          address:
+              '0:bbf13a702490ae3b853fde3849b8e7dc1b5f548807a9158753046496a4aed324',
+        ),
       );
     });
 
@@ -160,14 +164,15 @@ void main() {
 
       final details = await JettonWallet.getJettonRootDetails(
         transport: transport,
-        tokenRoot: usdtTokenRoot,
+        tokenRoot: hamsterTokenRoot,
       );
 
       expect(
         details.adminAddress,
         const Address(
-            address:
-                '0:6440fe3c69410383963945173c4b11479bf0b9b4d7090e58777bda581c2f9998'),
+          address:
+              '0:bbf13a702490ae3b853fde3849b8e7dc1b5f548807a9158753046496a4aed324',
+        ),
       );
     });
 
@@ -177,13 +182,13 @@ void main() {
       final wallet = await JettonWallet.subscribe(
         transport: transport,
         owner: address,
-        rootTokenContract: usdtTokenRoot,
+        rootTokenContract: hamsterTokenRoot,
       );
 
       expect(wallet, isNotNull);
       expect(wallet.owner, address);
       expect(wallet.tokenAddress, tokenWallet);
-      expect(wallet.rootTokenContract, usdtTokenRoot);
+      expect(wallet.rootTokenContract, hamsterTokenRoot);
       expect(wallet.contractState.balance, isNot(BigInt.zero));
 
       final fut = expectLater(wallet.fieldUpdatesStream, emits(null));
@@ -193,34 +198,33 @@ void main() {
       expect(wallet, isNotNull);
       expect(wallet.owner, address);
       expect(wallet.tokenAddress, tokenWallet);
-      expect(wallet.rootTokenContract, usdtTokenRoot);
+      expect(wallet.rootTokenContract, hamsterTokenRoot);
       expect(wallet.contractState.balance, isNot(BigInt.zero));
 
       wallet.dispose();
     });
 
-    testWidgets(
-      'subscribing new instance after disposing old one',
-      (WidgetTester tester) async {
-        await tester.pumpAndSettleWithTimeout();
+    testWidgets('subscribing new instance after disposing old one', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpAndSettleWithTimeout();
 
-        for (var i = 0; i < 10; i++) {
-          final wallet = await JettonWallet.subscribe(
-            transport: transport,
-            owner: address,
-            rootTokenContract: usdtTokenRoot,
-          );
+      for (var i = 0; i < 10; i++) {
+        final wallet = await JettonWallet.subscribe(
+          transport: transport,
+          owner: address,
+          rootTokenContract: hamsterTokenRoot,
+        );
 
-          expect(wallet, isNotNull);
-          expect(wallet.owner, address);
-          expect(wallet.tokenAddress, tokenWallet);
-          expect(wallet.rootTokenContract, usdtTokenRoot);
-          expect(wallet.contractState.balance, isNot(BigInt.zero));
+        expect(wallet, isNotNull);
+        expect(wallet.owner, address);
+        expect(wallet.tokenAddress, tokenWallet);
+        expect(wallet.rootTokenContract, hamsterTokenRoot);
+        expect(wallet.contractState.balance, isNot(BigInt.zero));
 
-          wallet.dispose();
-        }
-      },
-    );
+        wallet.dispose();
+      }
+    });
 
     testWidgets('preloadTransactions: true', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
@@ -228,14 +232,12 @@ void main() {
       final wallet = await JettonWallet.subscribe(
         transport: transport,
         owner: address,
-        rootTokenContract: usdtTokenRoot,
+        rootTokenContract: hamsterTokenRoot,
         preloadTransactions: true,
       );
       var events = 0;
 
-      wallet.onTransactionsFoundStream.listen(
-        (data) => events++,
-      );
+      wallet.onTransactionsFoundStream.listen((data) => events++);
 
       expect(wallet, isNotNull);
       expect(wallet.isTransactionsPreloaded, true);
@@ -251,14 +253,12 @@ void main() {
       final wallet = await JettonWallet.subscribe(
         transport: transport,
         owner: address,
-        rootTokenContract: usdtTokenRoot,
+        rootTokenContract: hamsterTokenRoot,
         preloadTransactions: false,
       );
       var events = 0;
 
-      wallet.onTransactionsFoundStream.listen(
-        (data) => events++,
-      );
+      wallet.onTransactionsFoundStream.listen((data) => events++);
 
       expect(wallet, isNotNull);
       expect(wallet.isTransactionsPreloaded, false);

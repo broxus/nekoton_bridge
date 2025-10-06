@@ -13,7 +13,4 @@ _ExecutionOutput _$ExecutionOutputFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$ExecutionOutputToJson(_ExecutionOutput instance) =>
-    <String, dynamic>{
-      if (instance.output case final value?) 'output': value,
-      'code': instance.code,
-    };
+    <String, dynamic>{'output': ?instance.output, 'code': instance.code};

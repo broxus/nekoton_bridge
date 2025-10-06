@@ -13,7 +13,4 @@ _DecodedEvent _$DecodedEventFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$DecodedEventToJson(_DecodedEvent instance) =>
-    <String, dynamic>{
-      'event': instance.event,
-      'data': instance.data,
-    };
+    <String, dynamic>{'event': instance.event, 'data': instance.data};

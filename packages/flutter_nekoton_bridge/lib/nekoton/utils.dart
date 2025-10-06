@@ -20,11 +20,11 @@ class _DateTimeJsonConverter extends JsonConverter<DateTime, int> {
 /// Get name of KeySigner, same as in rust side
 extension KeySignerName on lib.KeySigner {
   String get name => switch (this) {
-        lib.KeySigner_Encrypted() => 'EncryptedKeySigner',
-        lib.KeySigner_Derived() => 'DerivedKeySigner',
-        lib.KeySigner_Ledger() => 'LedgerKeySigner',
-        _ => '',
-      };
+    lib.KeySigner_Encrypted() => 'EncryptedKeySigner',
+    lib.KeySigner_Derived() => 'DerivedKeySigner',
+    lib.KeySigner_Ledger() => 'LedgerKeySigner',
+    _ => '',
+  };
 }
 
 /// Get hash of String

@@ -13,7 +13,4 @@ _RawTransaction _$RawTransactionFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$RawTransactionToJson(_RawTransaction instance) =>
-    <String, dynamic>{
-      'hash': instance.hash,
-      'data': instance.data.toJson(),
-    };
+    <String, dynamic>{'hash': instance.hash, 'data': instance.data.toJson()};

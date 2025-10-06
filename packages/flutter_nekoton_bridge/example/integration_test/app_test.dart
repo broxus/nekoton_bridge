@@ -15,7 +15,7 @@ void main() {
       app.main();
       await tester.pumpAndSettleWithTimeout();
 
-      expect(find.textContaining('logger-related'), findsOneWidget);
+      expect(find.textContaining('Hello World'), findsOneWidget);
     });
   });
 }

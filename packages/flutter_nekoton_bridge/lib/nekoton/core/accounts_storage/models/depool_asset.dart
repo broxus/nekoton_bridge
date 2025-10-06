@@ -6,9 +6,7 @@ part 'depool_asset.g.dart';
 
 @freezed
 sealed class DePoolAsset with _$DePoolAsset {
-  const factory DePoolAsset({
-    required final Address address,
-  }) = _DePoolAsset;
+  const factory DePoolAsset({required final Address address}) = _DePoolAsset;
 
   factory DePoolAsset.fromJson(Map<String, dynamic> json) =>
       _$DePoolAssetFromJson(json);

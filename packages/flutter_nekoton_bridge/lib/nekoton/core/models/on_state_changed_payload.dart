@@ -7,13 +7,9 @@ part 'on_state_changed_payload.g.dart';
 
 @freezed
 sealed class OnStateChangedPayload with _$OnStateChangedPayload {
-  @JsonSerializable(
-    fieldRename: FieldRename.snake,
-    explicitToJson: true,
-  )
-  const factory OnStateChangedPayload({
-    required final ContractState newState,
-  }) = _OnStateChangedPayload;
+  @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
+  const factory OnStateChangedPayload({required final ContractState newState}) =
+      _OnStateChangedPayload;
 
   factory OnStateChangedPayload.fromJson(Map<String, dynamic> json) =>
       _$OnStateChangedPayloadFromJson(json);

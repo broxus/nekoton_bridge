@@ -10,8 +10,9 @@ _PendingTransaction _$PendingTransactionFromJson(Map<String, dynamic> json) =>
     _PendingTransaction(
       messageHash: json['messageHash'] as String,
       src: json['src'] == null ? null : Address.fromJson(json['src'] as String),
-      expireAt: dateSecondsSinceEpochJsonConverter
-          .fromJson((json['expireAt'] as num).toInt()),
+      expireAt: dateSecondsSinceEpochJsonConverter.fromJson(
+        (json['expireAt'] as num).toInt(),
+      ),
     );
 
 Map<String, dynamic> _$PendingTransactionToJson(_PendingTransaction instance) =>

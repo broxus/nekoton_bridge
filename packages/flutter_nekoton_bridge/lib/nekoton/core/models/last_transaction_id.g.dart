@@ -17,5 +17,5 @@ Map<String, dynamic> _$LastTransactionIdToJson(_LastTransactionId instance) =>
     <String, dynamic>{
       'isExact': instance.isExact,
       'lt': instance.lt,
-      if (instance.hash case final value?) 'hash': value,
+      'hash': ?instance.hash,
     };

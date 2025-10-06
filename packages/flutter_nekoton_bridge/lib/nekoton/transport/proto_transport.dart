@@ -27,18 +27,19 @@ class ProtoTransport extends Transport {
 
     instance.networkId = await instance.getNetworkId();
 
-    instance.connectionParamsHash =
-        getHash('proto:${protoConnection.settings.endpoint}');
+    instance.connectionParamsHash = getHash(
+      'proto:${protoConnection.settings.endpoint}',
+    );
 
     return instance;
   }
 
   @override
   Future<void> dispose() => mutex.protectWrite(() async {
-        transport.innerTransport.dispose();
-        protoConnection.dispose();
-        _disposed = true;
-      });
+    transport.innerTransport.dispose();
+    protoConnection.dispose();
+    _disposed = true;
+  });
 
   @override
   Future<AccountsList> getAccountsByCodeHash({
@@ -176,14 +177,17 @@ class ProtoTransport extends Transport {
 
     return mutex.protectRead(() async {
       final encoded = await transport.simulateTransactionTree(
-          signedMessage: jsonEncode(signedMessage),
-          ignoredComputePhaseCodes: ignoredComputePhaseCodes,
-          ignoredActionPhaseCodes: ignoredActionPhaseCodes);
+        signedMessage: jsonEncode(signedMessage),
+        ignoredComputePhaseCodes: ignoredComputePhaseCodes,
+        ignoredActionPhaseCodes: ignoredActionPhaseCodes,
+      );
       final decoded = jsonDecode(encoded) as List<dynamic>;
 
       return decoded
-          .map((e) =>
-              TxTreeSimulationErrorItem.fromJson(e as Map<String, dynamic>))
+          .map(
+            (e) =>
+                TxTreeSimulationErrorItem.fromJson(e as Map<String, dynamic>),
+          )
           .toList();
     });
   }

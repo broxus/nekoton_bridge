@@ -6,26 +6,15 @@ void main() {
     const address = Address(address: '-42:CbxctPqURTNR');
 
     test('To JSON', () {
-      const c = DePoolAsset(
-        address: address,
-      );
+      const c = DePoolAsset(address: address);
 
-      expect(c.toJson(), {
-        'address': address.address,
-      });
+      expect(c.toJson(), {'address': address.address});
     });
 
     test('From JSON', () {
-      const c = DePoolAsset(
-        address: address,
-      );
+      const c = DePoolAsset(address: address);
 
-      expect(
-        DePoolAsset.fromJson({
-          'address': address.address,
-        }),
-        c,
-      );
+      expect(DePoolAsset.fromJson({'address': address.address}), c);
     });
   });
 }

@@ -14,8 +14,9 @@ void main() {
   const endpoint = 'https://jrpc.everwallet.net/proto';
 
   const address = Address(
-      address:
-          '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2');
+    address:
+        '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2',
+  );
 
   const jrpcSettings = ProtoNetworkSettings(endpoint: endpoint);
   late ProtoTransport transport;
@@ -31,8 +32,6 @@ void main() {
     );
 
     runApp(Container());
-
-    await initRustToDartCaller();
 
     final connection = ProtoConnection.create(
       client: TestProtoClient(),
@@ -91,26 +90,25 @@ void main() {
       expect(contract.contractState.isDeployed, isTrue);
     });
 
-    testWidgets(
-      'subscribing new instance after disposing old one',
-      (WidgetTester tester) async {
-        await tester.pumpAndSettleWithTimeout();
+    testWidgets('subscribing new instance after disposing old one', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpAndSettleWithTimeout();
 
-        for (var i = 0; i < 10; i++) {
-          final contract = await GenericContract.subscribe(
-            transport: transport,
-            address: address,
-            preloadTransactions: true,
-          );
+      for (var i = 0; i < 10; i++) {
+        final contract = await GenericContract.subscribe(
+          transport: transport,
+          address: address,
+          preloadTransactions: true,
+        );
 
-          expect(contract, isNotNull);
-          expect(contract.address, address);
-          expect(contract.contractState.balance, isNot(BigInt.parse('0')));
-          expect(contract.contractState.isDeployed, isTrue);
+        expect(contract, isNotNull);
+        expect(contract.address, address);
+        expect(contract.contractState.balance, isNot(BigInt.parse('0')));
+        expect(contract.contractState.isDeployed, isTrue);
 
-          contract.dispose();
-        }
-      },
-    );
+        contract.dispose();
+      }
+    });
   });
 }

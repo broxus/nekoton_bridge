@@ -1,27 +1,18 @@
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
-import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
-import 'package:reflectable/mirrors.dart';
-
-import 'storage.reflectable.dart';
 
 typedef StorageGet = Future<String?> Function(String key);
 
-typedef StorageSet = Future<void> Function({
-  required String key,
-  required String value,
-});
+typedef StorageSet =
+    Future<void> Function({required String key, required String value});
 
-typedef StorageSetUnchecked = void Function({
-  required String key,
-  required String value,
-});
+typedef StorageSetUnchecked =
+    void Function({required String key, required String value});
 
 typedef StorageRemove = Future<void> Function(String key);
 
 typedef StorageRemoveUnchecked = void Function(String key);
 
-@reflector
-class Storage extends RustToDartMirrorInterface {
+class Storage {
   late StorageDartWrapper storage;
 
   final StorageGet _get;
@@ -48,7 +39,11 @@ class Storage extends RustToDartMirrorInterface {
     final instance = Storage._(get, set, setUnchecked, remove, removeUnchecked);
 
     instance.storage = StorageDartWrapper(
-      instanceHash: instance.instanceHash,
+      onGet: instance.get,
+      onSet: instance.set,
+      onSetUnchecked: instance.setUnchecked,
+      onRemove: instance.remove,
+      onRemoveUnchecked: instance.removeUnchecked,
     );
 
     return instance;
@@ -64,7 +59,7 @@ class Storage extends RustToDartMirrorInterface {
   }
 
   /// Method to make set. It's called from rust
-  Future<void> set({required String key, required String value}) async {
+  Future<void> set(String key, String value) async {
     try {
       return _set(key: key, value: value);
     } catch (_) {
@@ -73,14 +68,14 @@ class Storage extends RustToDartMirrorInterface {
   }
 
   /// Method to make setUnchecked. It's called from rust
-  void setUnchecked({required String key, required String value}) {
+  void setUnchecked(String key, String value) {
     try {
       _setUnchecked(key: key, value: value);
     } catch (_) {}
   }
 
   /// Method to make remove. It's called from rust
-  Future<void> remove({required String key}) async {
+  Future<void> remove(String key) async {
     try {
       return _remove(key);
     } catch (_) {
@@ -89,23 +84,13 @@ class Storage extends RustToDartMirrorInterface {
   }
 
   /// Method to make removeUnchecked. It's called from rust
-  void removeUnchecked({required String key}) {
+  void removeUnchecked(String key) {
     try {
       _removeUnchecked(key);
     } catch (_) {}
   }
 
-  @override
   void dispose() {
     storage.innerStorage.dispose();
-    super.dispose();
-  }
-
-  @override
-  InstanceMirror initializeMirror() {
-    initializeReflectable(); // auto-generated reflectable file
-    return reflector.reflect(this);
   }
 }
-
-void main() {}

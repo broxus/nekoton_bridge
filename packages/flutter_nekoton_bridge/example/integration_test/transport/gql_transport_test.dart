@@ -51,8 +51,9 @@ void main() {
 
   /// System account address
   const accountAddress = Address(
-      address:
-          '-1:0000000000000000000000000000000000000000000000000000000000000000');
+    address:
+        '-1:0000000000000000000000000000000000000000000000000000000000000000',
+  );
   const accountTransaction =
       'd0a278d82e699a63adeaede7e602ff6da8168c333ceb4f2344f42cb739c28940';
 
@@ -86,8 +87,6 @@ void main() {
     testWidgets('Create GqlTransport', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
@@ -101,8 +100,6 @@ void main() {
 
     testWidgets('getSignatureId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),
@@ -119,8 +116,6 @@ void main() {
 
     testWidgets('getTransactions ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),
@@ -141,8 +136,6 @@ void main() {
     testWidgets('getTransaction ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
@@ -162,8 +155,6 @@ void main() {
 
     testWidgets('getDstTransaction', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),
@@ -190,8 +181,6 @@ void main() {
     testWidgets('multiple calls ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = GqlConnection.create(
         client: HttpClient(),
         settings: gqlSettings,
@@ -200,31 +189,29 @@ void main() {
       );
       final transport = await GqlTransport.create(gqlConnection: connection);
 
+      expect(await transport.getTransaction(accountTransaction), isNotNull);
       expect(
-        await transport.getTransaction(accountTransaction),
+        await transport.getTransaction(
+          'f90074116294f0a4295d7ab368af8a1cc75654aad557d3ffd6edb7e8b2020c39',
+        ),
         isNotNull,
       );
       expect(
         await transport.getTransaction(
-            'f90074116294f0a4295d7ab368af8a1cc75654aad557d3ffd6edb7e8b2020c39'),
+          '74773423c867ce433d39612f8c14c49e835500263ced3e045ca560c4383ea6fc',
+        ),
         isNotNull,
       );
       expect(
         await transport.getTransaction(
-            '74773423c867ce433d39612f8c14c49e835500263ced3e045ca560c4383ea6fc'),
-        isNotNull,
-      );
-      expect(
-        await transport.getTransaction(
-            '5c229b34601836743083acf9fd87f164039b75ac7b513b756a06da0e7051fffd'),
+          '5c229b34601836743083acf9fd87f164039b75ac7b513b756a06da0e7051fffd',
+        ),
         isNotNull,
       );
     });
 
     testWidgets('getContractState ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),
@@ -237,21 +224,14 @@ void main() {
       final state = await transport.getContractState(accountAddress);
 
       expect(state, isNotNull);
-      expect(
-        switch (state) {
-          RawContractStateExists(:final data) => data,
-          RawContractStateNotExists() => null,
-        },
-        isNotNull,
-      );
+      expect(switch (state) {
+        RawContractStateExists(:final data) => data,
+        RawContractStateNotExists() => null,
+      }, isNotNull);
     });
 
-    testWidgets('getFullContractState ', (
-      WidgetTester tester,
-    ) async {
+    testWidgets('getFullContractState ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),
@@ -268,12 +248,8 @@ void main() {
       expect(state.isDeployed, true);
     });
 
-    testWidgets('getContractFields', (
-      WidgetTester tester,
-    ) async {
+    testWidgets('getContractFields', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),
@@ -298,7 +274,6 @@ void main() {
 
     testWidgets('getNetworkId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),
@@ -313,7 +288,6 @@ void main() {
 
     testWidgets('getBlockchainConfig ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),
@@ -331,7 +305,6 @@ void main() {
 
     testWidgets('simulateTransactionTree ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),
@@ -351,14 +324,16 @@ void main() {
       final message = await wallet.prepareTransfer(
         contractState: await transport.getContractState(address),
         publicKey: const PublicKey(
-            publicKey:
-                '6c2f9514c1c0f2ec54cffe1ac2ba0e85268e76442c14205581ebc808fe7ee52c'),
+          publicKey:
+              '6c2f9514c1c0f2ec54cffe1ac2ba0e85268e76442c14205581ebc808fe7ee52c',
+        ),
         expiration: const Expiration.timeout(60),
         params: [
           TonWalletTransferParams(
             destination: const Address(
-                address:
-                    '-1:06eec9c3a6f122c29697d27ae987e4b911d4dadc937e23c7aa58bbf1e484b20f'),
+              address:
+                  '-1:06eec9c3a6f122c29697d27ae987e4b911d4dadc937e23c7aa58bbf1e484b20f',
+            ),
             amount: BigInt.parse('1000000000'),
             bounce: false,
           ),
@@ -377,8 +352,6 @@ void main() {
 
     testWidgets('getFeeFactors', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = GqlConnection.create(
         client: HttpClient(),

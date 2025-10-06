@@ -14,17 +14,11 @@ class MockedStorageMethods {
     return data[key];
   }
 
-  Future<void> set({
-    required String key,
-    required String value,
-  }) async {
+  Future<void> set({required String key, required String value}) async {
     data[key] = value;
   }
 
-  void setUnchecked({
-    required String key,
-    required String value,
-  }) {
+  void setUnchecked({required String key, required String value}) {
     data[key] = value;
   }
 
@@ -50,11 +44,13 @@ void main() {
   const password = 'password';
 
   const labsKey = PublicKey(
-      publicKey:
-          '43c77e697042c96481336afd84a858079d97b3223dcb1228ec70112d89ecbf93');
+    publicKey:
+        '43c77e697042c96481336afd84a858079d97b3223dcb1228ec70112d89ecbf93',
+  );
   const legacyKey = PublicKey(
-      publicKey:
-          '69fb667f274805ca5341afa06c4ba1227c37cd52f3a253f39426d211428fd78b');
+    publicKey:
+        '69fb667f274805ca5341afa06c4ba1227c37cd52f3a253f39426d211428fd78b',
+  );
 
   const inputLabsData = DerivedKeyCreateInputImport(
     keyName: 'KeyNameLabs',
@@ -110,8 +106,6 @@ void main() {
     );
 
     runApp(Container());
-
-    await initRustToDartCaller();
   });
 
   setUpAll(() async {
@@ -248,17 +242,14 @@ void main() {
       final addedKey1 = await keystore.addKey(addKeyInputLabs);
       final addedKey2 = await keystore.addKey(addKeyInputLegacy);
 
-      final entries =
-          (await keystore.getEntries()).map((e) => e.publicKey).toList();
+      final entries = (await keystore.getEntries())
+          .map((e) => e.publicKey)
+          .toList();
 
       /// sort needs to avoid random order of keys
       expect(
-        jsonEncode(
-          entries..sort((a, b) => a.compareTo(b)),
-        ),
-        jsonEncode(
-          [addedKey1, addedKey2]..sort((a, b) => a.compareTo(b)),
-        ),
+        jsonEncode(entries..sort((a, b) => a.compareTo(b))),
+        jsonEncode([addedKey1, addedKey2]..sort((a, b) => a.compareTo(b))),
       );
       expect(storageMethods.data.isNotEmpty, isTrue);
     });
@@ -357,10 +348,14 @@ void main() {
       );
 
       final key = await keystore.addKey(addKeyInputLabs);
-      final exported = (await keystore.exportSeed(DerivedKeyExportSeedParams(
-        password: inputLabsData.password,
-        masterKey: key,
-      ))) as DerivedKeyExportOutput;
+      final exported =
+          (await keystore.exportSeed(
+                DerivedKeyExportSeedParams(
+                  password: inputLabsData.password,
+                  masterKey: key,
+                ),
+              ))
+              as DerivedKeyExportOutput;
 
       expect(exported.phrase, inputLabsData.phrase);
     });
@@ -382,12 +377,14 @@ void main() {
       );
 
       final key = await keystore.addKey(addKeyInputLabs);
-      final keys = await keystore.getPublicKeys(DerivedKeyGetPublicKeys(
-        masterKey: key,
-        password: inputLabsData.password,
-        offset: 0,
-        limit: 5,
-      ));
+      final keys = await keystore.getPublicKeys(
+        DerivedKeyGetPublicKeys(
+          masterKey: key,
+          password: inputLabsData.password,
+          offset: 0,
+          limit: 5,
+        ),
+      );
 
       expect(keys.length, 5);
       expect(keys[0], key);
@@ -410,13 +407,15 @@ void main() {
       );
 
       final key = await keystore.addKey(addKeyInputLabs);
-      await keystore.updateKey(DerivedKeyUpdateParams.renameKey(
-        DerivedKeyUpdateParamsRenameKey(
-          name: 'Renamed',
-          publicKey: key,
-          masterKey: key,
+      await keystore.updateKey(
+        DerivedKeyUpdateParams.renameKey(
+          DerivedKeyUpdateParamsRenameKey(
+            name: 'Renamed',
+            publicKey: key,
+            masterKey: key,
+          ),
         ),
-      ));
+      );
       final entry = (await keystore.getEntries()).first;
 
       expect(entry.name, 'Renamed');

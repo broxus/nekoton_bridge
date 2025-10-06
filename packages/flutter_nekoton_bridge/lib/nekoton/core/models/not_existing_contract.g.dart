@@ -12,7 +12,5 @@ _NotExistingContract _$NotExistingContractFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$NotExistingContractToJson(
-        _NotExistingContract instance) =>
-    <String, dynamic>{
-      'timings': instance.timings.toJson(),
-    };
+  _NotExistingContract instance,
+) => <String, dynamic>{'timings': instance.timings.toJson()};

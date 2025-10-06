@@ -26,12 +26,12 @@ sealed class TransactionAdditionalInfo with _$TransactionAdditionalInfo {
   ) = TransactionAdditionalInfoTokenWalletDeployed;
 
   const factory TransactionAdditionalInfo.walletInteraction(
-          final WalletInteractionInfo data) =
-      TransactionAdditionalInfoWalletInteraction;
+    final WalletInteractionInfo data,
+  ) = TransactionAdditionalInfoWalletInteraction;
 
   const factory TransactionAdditionalInfo.jettonNotify(
-          final JettonIncomingTransfer data) =
-      TransactionAdditionalInfoJettonNotify;
+    final JettonIncomingTransfer data,
+  ) = TransactionAdditionalInfoJettonNotify;
 
   factory TransactionAdditionalInfo.fromJson(Map<String, dynamic> json) =>
       _$TransactionAdditionalInfoFromJson(json);

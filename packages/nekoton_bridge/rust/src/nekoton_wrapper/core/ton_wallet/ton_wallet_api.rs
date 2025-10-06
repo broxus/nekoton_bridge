@@ -6,8 +6,8 @@ use crate::nekoton_wrapper::core::ton_wallet::{
 };
 use crate::nekoton_wrapper::crypto::crypto_api::UnsignedMessageImpl;
 use crate::nekoton_wrapper::transport::TransportBoxTrait;
-use crate::utils::caller;
 use flutter_rust_bridge::frb;
+pub use flutter_rust_bridge::DartFnFuture;
 pub use nekoton::core::models::{
     ContractState, PendingTransaction, PollingMethod, Transaction, TransactionAdditionalInfo,
     TransactionWithData, TransactionsBatchInfo,
@@ -35,18 +35,32 @@ impl TonWalletDartWrapper {
     /// wallet_type - is json-encoded WalletType.
     /// public_key - is string representation of key
     pub async fn subscribe(
-        instance_hash: String,
         workchain_id: i8,
         public_key: String,
         wallet_type: String,
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
+        on_message_sent: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_message_expired: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_state_changed: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_transactions_found: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_details_changed: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_custodians_changed: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_unconfirmed_transactions_changed: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
     ) -> anyhow::Result<TonWalletDartWrapper> {
         let wallet = TonWalletBox::subscribe(
             transport.get_transport(),
             workchain_id,
             public_key,
             wallet_type,
-            Arc::new(TonWalletSubscriptionHandlerImpl { instance_hash }),
+            Arc::new(TonWalletSubscriptionHandlerImpl {
+                on_message_sent: Arc::new(on_message_sent),
+                on_message_expired: Arc::new(on_message_expired),
+                on_state_changed: Arc::new(on_state_changed),
+                on_transactions_found: Arc::new(on_transactions_found),
+                on_details_changed: Arc::new(on_details_changed),
+                on_custodians_changed: Arc::new(on_custodians_changed),
+                on_unconfirmed_transactions_changed: Arc::new(on_unconfirmed_transactions_changed),
+            }),
         )
         .await?;
 
@@ -57,14 +71,28 @@ impl TonWalletDartWrapper {
 
     /// Create TonWallet by subscribing to its instance by address of wallet.
     pub async fn subscribe_by_address(
-        instance_hash: String,
         address: String,
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
+        on_message_sent: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_message_expired: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_state_changed: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_transactions_found: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_details_changed: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_custodians_changed: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_unconfirmed_transactions_changed: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
     ) -> anyhow::Result<TonWalletDartWrapper> {
         let wallet = TonWalletBox::subscribe_by_address(
             transport.get_transport(),
             address,
-            Arc::new(TonWalletSubscriptionHandlerImpl { instance_hash }),
+            Arc::new(TonWalletSubscriptionHandlerImpl {
+                on_message_sent: Arc::new(on_message_sent),
+                on_message_expired: Arc::new(on_message_expired),
+                on_state_changed: Arc::new(on_state_changed),
+                on_transactions_found: Arc::new(on_transactions_found),
+                on_details_changed: Arc::new(on_details_changed),
+                on_custodians_changed: Arc::new(on_custodians_changed),
+                on_unconfirmed_transactions_changed: Arc::new(on_unconfirmed_transactions_changed),
+            }),
         )
         .await?;
 
@@ -76,14 +104,28 @@ impl TonWalletDartWrapper {
     /// Create TonWallet by subscribing to its instance by existed instance.
     /// existing_wallet - json-encoded ExistingWalletInfo.
     pub async fn subscribe_by_existing(
-        instance_hash: String,
         existing_wallet: String,
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
+        on_message_sent: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_message_expired: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_state_changed: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_transactions_found: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_details_changed: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_custodians_changed: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_unconfirmed_transactions_changed: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
     ) -> anyhow::Result<TonWalletDartWrapper> {
         let wallet = TonWalletBox::subscribe_by_existing(
             transport.get_transport(),
             existing_wallet,
-            Arc::new(TonWalletSubscriptionHandlerImpl { instance_hash }),
+            Arc::new(TonWalletSubscriptionHandlerImpl {
+                on_message_sent: Arc::new(on_message_sent),
+                on_message_expired: Arc::new(on_message_expired),
+                on_state_changed: Arc::new(on_state_changed),
+                on_transactions_found: Arc::new(on_transactions_found),
+                on_details_changed: Arc::new(on_details_changed),
+                on_custodians_changed: Arc::new(on_custodians_changed),
+                on_unconfirmed_transactions_changed: Arc::new(on_unconfirmed_transactions_changed),
+            }),
         )
         .await?;
 
@@ -347,81 +389,64 @@ impl TonWalletDartWrapper {
     }
 }
 
-/// Handler for TonWallet that calls dart methods and sends data
+/// Handler for TonWallet that calls dart methods via provided closures
 pub struct TonWalletSubscriptionHandlerImpl {
-    pub instance_hash: String,
+    pub on_message_sent: Arc<dyn Fn(String) -> DartFnFuture<()> + Send + Sync>,
+    pub on_message_expired: Arc<dyn Fn(String) -> DartFnFuture<()> + Send + Sync>,
+    pub on_state_changed: Arc<dyn Fn(String) -> DartFnFuture<()> + Send + Sync>,
+    pub on_transactions_found: Arc<dyn Fn(String) -> DartFnFuture<()> + Send + Sync>,
+    pub on_details_changed: Arc<dyn Fn(String) -> DartFnFuture<()> + Send + Sync>,
+    pub on_custodians_changed: Arc<dyn Fn(String) -> DartFnFuture<()> + Send + Sync>,
+    pub on_unconfirmed_transactions_changed: Arc<dyn Fn(String) -> DartFnFuture<()> + Send + Sync>,
 }
 
 impl TonWalletSubscriptionHandler for TonWalletSubscriptionHandlerImpl {
-    /// Send json-encoded list with 2 positions:
-    /// 0: PendingTransaction
-    /// 1: Option<Transaction>
     fn on_message_sent(
         &self,
         pending_transaction: PendingTransaction,
         transaction: Option<Transaction>,
     ) {
         let payload = serde_json::to_string(&(pending_transaction, transaction)).unwrap();
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("onMessageSent"),
-            args: vec![caller::DynamicValue::String(payload)],
-            named_args: vec![],
-        };
-        caller::call(stub, false);
+        let fut = (self.on_message_sent)(payload);
+        flutter_rust_bridge::spawn(async move {
+            fut.await;
+        });
     }
 
-    /// Send json-encoded PendingTransaction
     fn on_message_expired(&self, pending_transaction: PendingTransaction) {
         let payload = serde_json::to_string(&pending_transaction).unwrap();
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("onMessageExpired"),
-            args: vec![caller::DynamicValue::String(payload)],
-            named_args: vec![],
-        };
-        caller::call(stub, false);
+        let fut = (self.on_message_expired)(payload);
+        flutter_rust_bridge::spawn(async move {
+            fut.await;
+        });
     }
 
-    /// Send json-encoded ContractState
     fn on_state_changed(&self, new_state: ContractState) {
         let payload = serde_json::to_string(&new_state).unwrap();
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("onStateChanged"),
-            args: vec![caller::DynamicValue::String(payload)],
-            named_args: vec![],
-        };
-        caller::call(stub, false);
+        let fut = (self.on_state_changed)(payload);
+        flutter_rust_bridge::spawn(async move {
+            fut.await;
+        });
     }
 
-    /// Send json-encoded list with 2 positions:
-    /// 0: list of TransactionWithData<TransactionAdditionalInfo>
-    /// 1: TransactionsBatchInfo
     fn on_transactions_found(
         &self,
         transactions: Vec<TransactionWithData<TransactionAdditionalInfo>>,
         batch_info: TransactionsBatchInfo,
     ) {
         let payload = serde_json::to_string(&(transactions, batch_info)).unwrap();
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("onTransactionsFound"),
-            args: vec![caller::DynamicValue::String(payload)],
-            named_args: vec![],
-        };
-        caller::call(stub, false);
+        let fut = (self.on_transactions_found)(payload);
+        flutter_rust_bridge::spawn(async move {
+            fut.await;
+        });
     }
 
     fn on_details_changed(&self, details: TonWalletDetails) {
         let payload = serde_json::to_string(&details).unwrap();
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("onDetailsChanged"),
-            args: vec![caller::DynamicValue::String(payload)],
-            named_args: vec![],
-        };
-        caller::call(stub, false);
+        let fut = (self.on_details_changed)(payload);
+        flutter_rust_bridge::spawn(async move {
+            fut.await;
+        });
     }
 
     fn on_custodians_changed(&self, custodians: &[ton_types::UInt256]) {
@@ -430,13 +455,10 @@ impl TonWalletSubscriptionHandler for TonWalletSubscriptionHandlerImpl {
             .map(|item| item.to_hex_string())
             .collect::<Vec<String>>();
         let payload = serde_json::to_string(&payload).unwrap();
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("onCustodiansChanged"),
-            args: vec![caller::DynamicValue::String(payload)],
-            named_args: vec![],
-        };
-        caller::call(stub, false);
+        let fut = (self.on_custodians_changed)(payload);
+        flutter_rust_bridge::spawn(async move {
+            fut.await;
+        });
     }
 
     fn on_unconfirmed_transactions_changed(
@@ -444,12 +466,9 @@ impl TonWalletSubscriptionHandler for TonWalletSubscriptionHandlerImpl {
         unconfirmed_transactions: &[MultisigPendingTransaction],
     ) {
         let payload = serde_json::to_string(unconfirmed_transactions).unwrap();
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("onUnconfirmedTransactionsChanged"),
-            args: vec![caller::DynamicValue::String(payload)],
-            named_args: vec![],
-        };
-        caller::call(stub, false);
+        let fut = (self.on_unconfirmed_transactions_changed)(payload);
+        flutter_rust_bridge::spawn(async move {
+            fut.await;
+        });
     }
 }

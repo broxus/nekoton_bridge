@@ -7,18 +7,18 @@ part of 'tx_tree_simulation_error.dart';
 // **************************************************************************
 
 _TxTreeSimulationError _$TxTreeSimulationErrorFromJson(
-        Map<String, dynamic> json) =>
-    _TxTreeSimulationError(
-      type: $enumDecode(_$TxTreeSimulationErrorTypeEnumMap, json['type']),
-      code: json['code'] as num?,
-    );
+  Map<String, dynamic> json,
+) => _TxTreeSimulationError(
+  type: $enumDecode(_$TxTreeSimulationErrorTypeEnumMap, json['type']),
+  code: json['code'] as num?,
+);
 
 Map<String, dynamic> _$TxTreeSimulationErrorToJson(
-        _TxTreeSimulationError instance) =>
-    <String, dynamic>{
-      'type': _$TxTreeSimulationErrorTypeEnumMap[instance.type]!,
-      'code': instance.code,
-    };
+  _TxTreeSimulationError instance,
+) => <String, dynamic>{
+  'type': _$TxTreeSimulationErrorTypeEnumMap[instance.type]!,
+  'code': instance.code,
+};
 
 const _$TxTreeSimulationErrorTypeEnumMap = {
   TxTreeSimulationErrorType.computePhase: 'compute_phase',

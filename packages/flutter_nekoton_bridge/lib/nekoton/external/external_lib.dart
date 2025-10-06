@@ -1,8 +1,8 @@
-export 'gql_connection.dart' hide main;
-export 'proto_connection.dart' hide main;
-export 'jrpc_connection.dart' hide main;
-export 'ledger_connection.dart' hide main;
-export 'storage.dart' hide main;
+export 'gql_connection.dart';
+export 'proto_connection.dart';
+export 'jrpc_connection.dart';
+export 'ledger_connection.dart';
+export 'storage.dart';
 
 export 'models/gql_network_settings.dart';
 export 'models/proto_network_settings.dart';

@@ -13,15 +13,9 @@ void main() {
     ];
 
     const dePoolAssetList = [
-      DePoolAsset(
-        address: Address(address: '9:pyTeANohiWvOLqsO'),
-      ),
-      DePoolAsset(
-        address: Address(address: '89:aQIekoZFCvYSeeaG'),
-      ),
-      DePoolAsset(
-        address: Address(address: '-45:JiSztqWPxAAuUMlh'),
-      ),
+      DePoolAsset(address: Address(address: '9:pyTeANohiWvOLqsO')),
+      DePoolAsset(address: Address(address: '89:aQIekoZFCvYSeeaG')),
+      DePoolAsset(address: Address(address: '-45:JiSztqWPxAAuUMlh')),
     ];
 
     test('To JSON', () {
@@ -33,13 +27,13 @@ void main() {
       expect(c.toJson(), {
         'token_wallets': [
           {'root_token_contract': '-5:LzHYUqLraWbOrZtw'},
-          {'root_token_contract': '345:AzFuPzrUAqPCvNjV'}
+          {'root_token_contract': '345:AzFuPzrUAqPCvNjV'},
         ],
         'depools': [
           {'address': '9:pyTeANohiWvOLqsO'},
           {'address': '89:aQIekoZFCvYSeeaG'},
-          {'address': '-45:JiSztqWPxAAuUMlh'}
-        ]
+          {'address': '-45:JiSztqWPxAAuUMlh'},
+        ],
       });
     });
 
@@ -53,13 +47,13 @@ void main() {
         AdditionalAssets.fromJson({
           'token_wallets': [
             {'root_token_contract': '-5:LzHYUqLraWbOrZtw'},
-            {'root_token_contract': '345:AzFuPzrUAqPCvNjV'}
+            {'root_token_contract': '345:AzFuPzrUAqPCvNjV'},
           ],
           'depools': [
             {'address': '9:pyTeANohiWvOLqsO'},
             {'address': '89:aQIekoZFCvYSeeaG'},
-            {'address': '-45:JiSztqWPxAAuUMlh'}
-          ]
+            {'address': '-45:JiSztqWPxAAuUMlh'},
+          ],
         }),
         c,
       );

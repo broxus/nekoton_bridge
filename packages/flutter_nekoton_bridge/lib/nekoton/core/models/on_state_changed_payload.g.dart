@@ -7,14 +7,11 @@ part of 'on_state_changed_payload.dart';
 // **************************************************************************
 
 _OnStateChangedPayload _$OnStateChangedPayloadFromJson(
-        Map<String, dynamic> json) =>
-    _OnStateChangedPayload(
-      newState:
-          ContractState.fromJson(json['new_state'] as Map<String, dynamic>),
-    );
+  Map<String, dynamic> json,
+) => _OnStateChangedPayload(
+  newState: ContractState.fromJson(json['new_state'] as Map<String, dynamic>),
+);
 
 Map<String, dynamic> _$OnStateChangedPayloadToJson(
-        _OnStateChangedPayload instance) =>
-    <String, dynamic>{
-      'new_state': instance.newState.toJson(),
-    };
+  _OnStateChangedPayload instance,
+) => <String, dynamic>{'new_state': instance.newState.toJson()};

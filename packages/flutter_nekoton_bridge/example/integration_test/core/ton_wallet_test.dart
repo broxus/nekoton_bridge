@@ -13,17 +13,11 @@ class MockedStorageMethods {
     return data[key];
   }
 
-  Future<void> set({
-    required String key,
-    required String value,
-  }) async {
+  Future<void> set({required String key, required String value}) async {
     data[key] = value;
   }
 
-  void setUnchecked({
-    required String key,
-    required String value,
-  }) {
+  void setUnchecked({required String key, required String value}) {
     data[key] = value;
   }
 
@@ -44,14 +38,17 @@ void main() {
   const endpoint = 'https://jrpc.everwallet.net/proto';
 
   const stEverContractVault = Address(
-      address:
-          '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68');
+    address:
+        '0:675a6d63f27e3f24d41d286043a9286b2e3eb6b84fa4c3308cc2833ef6f54d68',
+  );
   const publicKey = PublicKey(
-      publicKey:
-          'ad158ac64c5deff5abd4d5e86a81d954716445c45e31f17a9dfe780f9cef7602');
+    publicKey:
+        'ad158ac64c5deff5abd4d5e86a81d954716445c45e31f17a9dfe780f9cef7602',
+  );
   const address = Address(
-      address:
-          '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2');
+    address:
+        '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2',
+  );
   const workchainId = 0;
   const walletType = WalletType.walletV3();
   const expiration = Expiration.timeout(60);
@@ -70,8 +67,6 @@ void main() {
     );
 
     runApp(Container());
-
-    await initRustToDartCaller();
 
     final connection = ProtoConnection.create(
       client: TestProtoClient(),
@@ -298,8 +293,9 @@ void main() {
       final custodians2 = await TonWallet.getWalletCustodians(
         transport: transport,
         address: const Address(
-            address:
-                '0:91b689ad990660249eb00140577e6a98d70043ccaa7f63acfc0436336bdbd80f'),
+          address:
+              '0:91b689ad990660249eb00140577e6a98d70043ccaa7f63acfc0436336bdbd80f',
+        ),
       );
 
       /// For not multisig wallet custodians contains public key of wallet
@@ -334,29 +330,28 @@ void main() {
       expect(wallet.workchain, 0);
     });
 
-    testWidgets(
-      'subscribing new instance after disposing old one',
-      (WidgetTester tester) async {
-        await tester.pumpAndSettleWithTimeout();
+    testWidgets('subscribing new instance after disposing old one', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpAndSettleWithTimeout();
 
-        for (var i = 0; i < 10; i++) {
-          final wallet = await TonWallet.subscribe(
-            transport: transport,
-            workchainId: workchainId,
-            publicKey: publicKey,
-            walletType: walletType,
-          );
+      for (var i = 0; i < 10; i++) {
+        final wallet = await TonWallet.subscribe(
+          transport: transport,
+          workchainId: workchainId,
+          publicKey: publicKey,
+          walletType: walletType,
+        );
 
-          expect(wallet, isNotNull);
-          expect(wallet.address, address);
-          expect(wallet.publicKey, publicKey);
-          expect(wallet.walletType, walletType);
-          expect(wallet.workchain, 0);
+        expect(wallet, isNotNull);
+        expect(wallet.address, address);
+        expect(wallet.publicKey, publicKey);
+        expect(wallet.walletType, walletType);
+        expect(wallet.workchain, 0);
 
-          wallet.dispose();
-        }
-      },
-    );
+        wallet.dispose();
+      }
+    });
 
     testWidgets('estimateFees', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();

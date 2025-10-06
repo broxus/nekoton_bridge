@@ -13,15 +13,9 @@ void main() {
     ];
 
     const dePoolAssetList0 = [
-      DePoolAsset(
-        address: Address(address: '9:pyTeANohiWvOLqsO'),
-      ),
-      DePoolAsset(
-        address: Address(address: '89:aQIekoZFCvYSeeaG'),
-      ),
-      DePoolAsset(
-        address: Address(address: '-45:JiSztqWPxAAuUMlh'),
-      ),
+      DePoolAsset(address: Address(address: '9:pyTeANohiWvOLqsO')),
+      DePoolAsset(address: Address(address: '89:aQIekoZFCvYSeeaG')),
+      DePoolAsset(address: Address(address: '-45:JiSztqWPxAAuUMlh')),
     ];
 
     const tokenWalletAssetList1 = [
@@ -34,15 +28,9 @@ void main() {
     ];
 
     const dePoolAssetList1 = [
-      DePoolAsset(
-        address: Address(address: '3:QJPealSOQrFpSaiZ'),
-      ),
-      DePoolAsset(
-        address: Address(address: '93:YRDoefjFTXNDGjWm'),
-      ),
-      DePoolAsset(
-        address: Address(address: '0:wkpUlpwfJCsBklVC'),
-      ),
+      DePoolAsset(address: Address(address: '3:QJPealSOQrFpSaiZ')),
+      DePoolAsset(address: Address(address: '93:YRDoefjFTXNDGjWm')),
+      DePoolAsset(address: Address(address: '0:wkpUlpwfJCsBklVC')),
     ];
 
     const additionalAssetMap = {
@@ -74,29 +62,29 @@ void main() {
         'tonWallet': {
           'address': '-433:gXCqcUblpodjtWig',
           'publicKey': 'IQDMeSJFNvOXBmBq',
-          'contract': {'type': 'everWallet'}
+          'contract': {'type': 'everWallet'},
         },
         'additionalAssets': {
           'RlWnkY': {
             'token_wallets': [
               {'root_token_contract': '-5:LzHYUqLraWbOrZtw'},
-              {'root_token_contract': '345:AzFuPzrUAqPCvNjV'}
+              {'root_token_contract': '345:AzFuPzrUAqPCvNjV'},
             ],
             'depools': [
               {'address': '9:pyTeANohiWvOLqsO'},
               {'address': '89:aQIekoZFCvYSeeaG'},
-              {'address': '-45:JiSztqWPxAAuUMlh'}
-            ]
+              {'address': '-45:JiSztqWPxAAuUMlh'},
+            ],
           },
           'BKgEid': {
             'token_wallets': [
               {'root_token_contract': '4:TNpfMkeFbdPkrxLp'},
-              {'root_token_contract': '35:EkqWbxWeqcpSVnhW'}
+              {'root_token_contract': '35:EkqWbxWeqcpSVnhW'},
             ],
             'depools': [
               {'address': '3:QJPealSOQrFpSaiZ'},
               {'address': '93:YRDoefjFTXNDGjWm'},
-              {'address': '0:wkpUlpwfJCsBklVC'}
+              {'address': '0:wkpUlpwfJCsBklVC'},
             ],
           },
         },
@@ -111,40 +99,38 @@ void main() {
       );
 
       expect(
-        AssetsList.fromJson(
-          {
-            'name': 'ZtnFdxRqdHLuYTmH',
-            'tonWallet': {
-              'address': '-433:gXCqcUblpodjtWig',
-              'publicKey': 'IQDMeSJFNvOXBmBq',
-              'contract': {'type': 'everWallet'}
+        AssetsList.fromJson({
+          'name': 'ZtnFdxRqdHLuYTmH',
+          'tonWallet': {
+            'address': '-433:gXCqcUblpodjtWig',
+            'publicKey': 'IQDMeSJFNvOXBmBq',
+            'contract': {'type': 'everWallet'},
+          },
+          'additionalAssets': {
+            'RlWnkY': {
+              'token_wallets': [
+                {'root_token_contract': '-5:LzHYUqLraWbOrZtw'},
+                {'root_token_contract': '345:AzFuPzrUAqPCvNjV'},
+              ],
+              'depools': [
+                {'address': '9:pyTeANohiWvOLqsO'},
+                {'address': '89:aQIekoZFCvYSeeaG'},
+                {'address': '-45:JiSztqWPxAAuUMlh'},
+              ],
             },
-            'additionalAssets': {
-              'RlWnkY': {
-                'token_wallets': [
-                  {'root_token_contract': '-5:LzHYUqLraWbOrZtw'},
-                  {'root_token_contract': '345:AzFuPzrUAqPCvNjV'}
-                ],
-                'depools': [
-                  {'address': '9:pyTeANohiWvOLqsO'},
-                  {'address': '89:aQIekoZFCvYSeeaG'},
-                  {'address': '-45:JiSztqWPxAAuUMlh'}
-                ]
-              },
-              'BKgEid': {
-                'token_wallets': [
-                  {'root_token_contract': '4:TNpfMkeFbdPkrxLp'},
-                  {'root_token_contract': '35:EkqWbxWeqcpSVnhW'}
-                ],
-                'depools': [
-                  {'address': '3:QJPealSOQrFpSaiZ'},
-                  {'address': '93:YRDoefjFTXNDGjWm'},
-                  {'address': '0:wkpUlpwfJCsBklVC'}
-                ],
-              },
+            'BKgEid': {
+              'token_wallets': [
+                {'root_token_contract': '4:TNpfMkeFbdPkrxLp'},
+                {'root_token_contract': '35:EkqWbxWeqcpSVnhW'},
+              ],
+              'depools': [
+                {'address': '3:QJPealSOQrFpSaiZ'},
+                {'address': '93:YRDoefjFTXNDGjWm'},
+                {'address': '0:wkpUlpwfJCsBklVC'},
+              ],
             },
           },
-        ),
+        }),
         c,
       );
     });

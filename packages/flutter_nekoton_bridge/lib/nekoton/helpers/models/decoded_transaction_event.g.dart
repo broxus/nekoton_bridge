@@ -7,15 +7,12 @@ part of 'decoded_transaction_event.dart';
 // **************************************************************************
 
 _DecodedTransactionEvent _$DecodedTransactionEventFromJson(
-        Map<String, dynamic> json) =>
-    _DecodedTransactionEvent(
-      event: json['event'] as String,
-      data: json['data'] as Map<String, dynamic>,
-    );
+  Map<String, dynamic> json,
+) => _DecodedTransactionEvent(
+  event: json['event'] as String,
+  data: json['data'] as Map<String, dynamic>,
+);
 
 Map<String, dynamic> _$DecodedTransactionEventToJson(
-        _DecodedTransactionEvent instance) =>
-    <String, dynamic>{
-      'event': instance.event,
-      'data': instance.data,
-    };
+  _DecodedTransactionEvent instance,
+) => <String, dynamic>{'event': instance.event, 'data': instance.data};
