@@ -13,7 +13,4 @@ _DecodedOutput _$DecodedOutputFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$DecodedOutputToJson(_DecodedOutput instance) =>
-    <String, dynamic>{
-      'method': instance.method,
-      'output': instance.output,
-    };
+    <String, dynamic>{'method': instance.method, 'output': instance.output};

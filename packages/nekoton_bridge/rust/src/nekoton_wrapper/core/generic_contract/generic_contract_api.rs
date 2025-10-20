@@ -4,7 +4,7 @@ use crate::frb_generated::RustOpaque;
 use crate::nekoton_wrapper::core::generic_contract::{GenericContractBox, GenericContractBoxTrait};
 use crate::nekoton_wrapper::transport::TransportBoxTrait;
 use crate::nekoton_wrapper::HandleError;
-use crate::utils::caller;
+pub use flutter_rust_bridge::DartFnFuture;
 use nekoton::core::generic_contract::GenericContractSubscriptionHandler;
 use nekoton::core::models::{
     ContractState, PendingTransaction, PollingMethod, Transaction, TransactionsBatchInfo,
@@ -19,16 +19,24 @@ impl GenericContractDartWrapper {
     /// address - address of contract
     /// preload_transactions - if transactions must be loaded during creation
     pub async fn subscribe(
-        instance_hash: String,
         address: String,
         preload_transactions: bool,
         transport: RustOpaque<Arc<dyn TransportBoxTrait>>,
+        on_message_sent: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_message_expired: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_state_changed: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
+        on_transactions_found: impl Fn(String) -> DartFnFuture<()> + Send + Sync + 'static,
     ) -> anyhow::Result<GenericContractDartWrapper> {
         let contract = GenericContractBox::subscribe(
             transport.get_transport(),
             address,
             preload_transactions,
-            Arc::new(GenericContractSubscriptionHandlerImpl { instance_hash }),
+            Arc::new(GenericContractSubscriptionHandlerImpl {
+                on_message_sent: Arc::new(on_message_sent),
+                on_message_expired: Arc::new(on_message_expired),
+                on_state_changed: Arc::new(on_state_changed),
+                on_transactions_found: Arc::new(on_transactions_found),
+            }),
         )
         .await
         .handle_error()?;
@@ -107,9 +115,12 @@ impl GenericContractDartWrapper {
     }
 }
 
-/// Handler for GenericContract that calls dart methods and sends data
+/// Handler for GenericContract that calls dart methods and sends data via provided closures
 pub struct GenericContractSubscriptionHandlerImpl {
-    pub instance_hash: String,
+    pub on_message_sent: Arc<dyn Fn(String) -> DartFnFuture<()> + Send + Sync>,
+    pub on_message_expired: Arc<dyn Fn(String) -> DartFnFuture<()> + Send + Sync>,
+    pub on_state_changed: Arc<dyn Fn(String) -> DartFnFuture<()> + Send + Sync>,
+    pub on_transactions_found: Arc<dyn Fn(String) -> DartFnFuture<()> + Send + Sync>,
 }
 
 impl GenericContractSubscriptionHandler for GenericContractSubscriptionHandlerImpl {
@@ -122,37 +133,28 @@ impl GenericContractSubscriptionHandler for GenericContractSubscriptionHandlerIm
         transaction: Option<Transaction>,
     ) {
         let payload = serde_json::to_string(&(pending_transaction, transaction)).unwrap();
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("onMessageSent"),
-            args: vec![caller::DynamicValue::String(payload)],
-            named_args: vec![],
-        };
-        caller::call(stub, false);
+        let fut = (self.on_message_sent)(payload);
+        flutter_rust_bridge::spawn(async move {
+            fut.await;
+        });
     }
 
     /// Send json-encoded PendingTransaction
     fn on_message_expired(&self, pending_transaction: PendingTransaction) {
         let payload = serde_json::to_string(&pending_transaction).unwrap();
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("onMessageExpired"),
-            args: vec![caller::DynamicValue::String(payload)],
-            named_args: vec![],
-        };
-        caller::call(stub, false);
+        let fut = (self.on_message_expired)(payload);
+        flutter_rust_bridge::spawn(async move {
+            fut.await;
+        });
     }
 
     /// Send json-encoded ContractState
     fn on_state_changed(&self, new_state: ContractState) {
         let payload = serde_json::to_string(&new_state).unwrap();
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("onStateChanged"),
-            args: vec![caller::DynamicValue::String(payload)],
-            named_args: vec![],
-        };
-        caller::call(stub, false);
+        let fut = (self.on_state_changed)(payload);
+        flutter_rust_bridge::spawn(async move {
+            fut.await;
+        });
     }
 
     /// Send json-encoded list with 2 positions:
@@ -164,12 +166,9 @@ impl GenericContractSubscriptionHandler for GenericContractSubscriptionHandlerIm
         batch_info: TransactionsBatchInfo,
     ) {
         let payload = serde_json::to_string(&(transactions, batch_info)).unwrap();
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("onTransactionsFound"),
-            args: vec![caller::DynamicValue::String(payload)],
-            named_args: vec![],
-        };
-        caller::call(stub, false);
+        let fut = (self.on_transactions_found)(payload);
+        flutter_rust_bridge::spawn(async move {
+            fut.await;
+        });
     }
 }

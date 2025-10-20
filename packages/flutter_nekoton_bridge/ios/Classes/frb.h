@@ -32,74 +32,6 @@ typedef struct wire_cst_storage_dart_wrapper {
   uintptr_t inner_storage;
 } wire_cst_storage_dart_wrapper;
 
-typedef struct wire_cst_DynamicValue_U16 {
-  uint16_t field0;
-} wire_cst_DynamicValue_U16;
-
-typedef struct wire_cst_DynamicValue_U32 {
-  uint32_t field0;
-} wire_cst_DynamicValue_U32;
-
-typedef struct wire_cst_DynamicValue_I32 {
-  int32_t field0;
-} wire_cst_DynamicValue_I32;
-
-typedef struct wire_cst_DynamicValue_U64 {
-  uint64_t field0;
-} wire_cst_DynamicValue_U64;
-
-typedef struct wire_cst_DynamicValue_I64 {
-  int64_t field0;
-} wire_cst_DynamicValue_I64;
-
-typedef struct wire_cst_DynamicValue_F32 {
-  float field0;
-} wire_cst_DynamicValue_F32;
-
-typedef struct wire_cst_DynamicValue_F64 {
-  double field0;
-} wire_cst_DynamicValue_F64;
-
-typedef struct wire_cst_DynamicValue_String {
-  struct wire_cst_list_prim_u_8_strict *field0;
-} wire_cst_DynamicValue_String;
-
-typedef struct wire_cst_DynamicValue_VecU8 {
-  struct wire_cst_list_prim_u_8_strict *field0;
-} wire_cst_DynamicValue_VecU8;
-
-typedef struct wire_cst_DynamicValue_MegaStruct {
-  struct wire_cst_list_prim_u_8_strict *field0;
-} wire_cst_DynamicValue_MegaStruct;
-
-typedef struct wire_cst_DynamicValue_Error {
-  int32_t field0;
-} wire_cst_DynamicValue_Error;
-
-typedef union DynamicValueKind {
-  struct wire_cst_DynamicValue_U16 U16;
-  struct wire_cst_DynamicValue_U32 U32;
-  struct wire_cst_DynamicValue_I32 I32;
-  struct wire_cst_DynamicValue_U64 U64;
-  struct wire_cst_DynamicValue_I64 I64;
-  struct wire_cst_DynamicValue_F32 F32;
-  struct wire_cst_DynamicValue_F64 F64;
-  struct wire_cst_DynamicValue_String String;
-  struct wire_cst_DynamicValue_VecU8 VecU8;
-  struct wire_cst_DynamicValue_MegaStruct MegaStruct;
-  struct wire_cst_DynamicValue_Error Error;
-} DynamicValueKind;
-
-typedef struct wire_cst_dynamic_value {
-  int32_t tag;
-  union DynamicValueKind kind;
-} wire_cst_dynamic_value;
-
-typedef struct wire_cst_caller_test_class {
-  struct wire_cst_list_prim_u_8_strict *instance_hash;
-  int32_t value;
-} wire_cst_caller_test_class;
-
 typedef struct wire_cst_generic_contract_dart_wrapper {
   uintptr_t inner_contract;
 } wire_cst_generic_contract_dart_wrapper;
@@ -159,10 +91,6 @@ typedef struct wire_cst_unsigned_message_impl {
   uintptr_t inner_message;
 } wire_cst_unsigned_message_impl;
 
-typedef struct wire_cst_my_class {
-  int32_t val;
-} wire_cst_my_class;
-
 typedef struct wire_cst_bip_39_mnemonic_data {
   uint16_t account_id;
   int32_t path;
@@ -200,28 +128,6 @@ typedef struct wire_cst_proto_connection_dart_wrapper {
   uintptr_t inner_connection;
 } wire_cst_proto_connection_dart_wrapper;
 
-typedef struct wire_cst_list_dynamic_value {
-  struct wire_cst_dynamic_value *ptr;
-  int32_t len;
-} wire_cst_list_dynamic_value;
-
-typedef struct wire_cst_dynamic_named_value {
-  struct wire_cst_list_prim_u_8_strict *name;
-  struct wire_cst_dynamic_value *value;
-} wire_cst_dynamic_named_value;
-
-typedef struct wire_cst_list_dynamic_named_value {
-  struct wire_cst_dynamic_named_value *ptr;
-  int32_t len;
-} wire_cst_list_dynamic_named_value;
-
-typedef struct wire_cst_dart_call_stub {
-  struct wire_cst_list_prim_u_8_strict *instance_hash;
-  struct wire_cst_list_prim_u_8_strict *fn_name;
-  struct wire_cst_list_dynamic_value *args;
-  struct wire_cst_list_dynamic_named_value *named_args;
-} wire_cst_dart_call_stub;
-
 typedef struct wire_cst_token_wallet_dart_wrapper {
   uintptr_t inner_wallet;
 } wire_cst_token_wallet_dart_wrapper;
@@ -240,11 +146,6 @@ typedef struct wire_cst_list_prim_i_32_strict {
   int32_t len;
 } wire_cst_list_prim_i_32_strict;
 
-typedef struct wire_cst_dart_call_stub_registred {
-  struct wire_cst_list_prim_u_8_strict *id;
-  struct wire_cst_dart_call_stub stub;
-} wire_cst_dart_call_stub_registred;
-
 typedef struct wire_cst_generated_key_g {
   struct wire_cst_list_String *words;
   struct wire_cst_mnemonic_type account_type;
@@ -255,10 +156,6 @@ typedef struct wire_cst_latest_block {
   uint64_t end_lt;
   uint32_t gen_utime;
 } wire_cst_latest_block;
-
-typedef struct wire_cst_ledger_connection_impl {
-  struct wire_cst_list_prim_u_8_strict *instance_hash;
-} wire_cst_ledger_connection_impl;
 
 typedef struct wire_cst_log_entry {
   int64_t time_millis;
@@ -286,9 +183,147 @@ typedef struct wire_cst_signed_data_raw {
   struct wire_cst_signature_parts signature_parts;
 } wire_cst_signed_data_raw;
 
-typedef struct wire_cst_storage_impl {
-  struct wire_cst_list_prim_u_8_strict *instance_hash;
-} wire_cst_storage_impl;
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_expired(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_sent(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_state_changed(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_expired(uintptr_t that,
+                                                                                                                                                 uintptr_t on_message_expired);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_sent(uintptr_t that,
+                                                                                                                                              uintptr_t on_message_sent);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_state_changed(uintptr_t that,
+                                                                                                                                               uintptr_t on_state_changed);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(uintptr_t that,
+                                                                                                                                                    uintptr_t on_transactions_found);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_is_local(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_on_post(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_is_local(uintptr_t that,
+                                                                                                                  bool is_local);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_on_post(uintptr_t that,
+                                                                                                                 uintptr_t on_post);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed(uintptr_t that,
+                                                                                                                                              uintptr_t on_balance_changed);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(uintptr_t that,
+                                                                                                                                                 uintptr_t on_transactions_found);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_get_on_post(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_set_on_post(uintptr_t that,
+                                                                                                                  uintptr_t on_post);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_get_public_key(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign_transaction(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_get_public_key(uintptr_t that,
+                                                                                                                              uintptr_t on_get_public_key);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign(uintptr_t that,
+                                                                                                                    uintptr_t on_sign);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign_transaction(uintptr_t that,
+                                                                                                                                uintptr_t on_sign_transaction);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_get_on_post(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_set_on_post(uintptr_t that,
+                                                                                                                   uintptr_t on_post);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_get_on_get(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove_unchecked(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set_unchecked(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_set_on_get(uintptr_t that,
+                                                                                                          uintptr_t on_get);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove(uintptr_t that,
+                                                                                                             uintptr_t on_remove);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove_unchecked(uintptr_t that,
+                                                                                                                       uintptr_t on_remove_unchecked);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set(uintptr_t that,
+                                                                                                          uintptr_t on_set);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set_unchecked(uintptr_t that,
+                                                                                                                    uintptr_t on_set_unchecked);
+
+void frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_new(int64_t port_,
+                                                                     uintptr_t on_get,
+                                                                     uintptr_t on_set,
+                                                                     uintptr_t on_set_unchecked,
+                                                                     uintptr_t on_remove,
+                                                                     uintptr_t on_remove_unchecked);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed(uintptr_t that,
+                                                                                                                                             uintptr_t on_balance_changed);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(uintptr_t that,
+                                                                                                                                                uintptr_t on_transactions_found);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_custodians_changed(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_details_changed(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_expired(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_sent(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_state_changed(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_unconfirmed_transactions_changed(uintptr_t that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_custodians_changed(uintptr_t that,
+                                                                                                                                              uintptr_t on_custodians_changed);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_details_changed(uintptr_t that,
+                                                                                                                                           uintptr_t on_details_changed);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_expired(uintptr_t that,
+                                                                                                                                           uintptr_t on_message_expired);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_sent(uintptr_t that,
+                                                                                                                                        uintptr_t on_message_sent);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_state_changed(uintptr_t that,
+                                                                                                                                         uintptr_t on_state_changed);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found(uintptr_t that,
+                                                                                                                                              uintptr_t on_transactions_found);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_unconfirmed_transactions_changed(uintptr_t that,
+                                                                                                                                                            uintptr_t on_unconfirmed_transactions_changed);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__accounts_storage_impl_add_account(int64_t port_,
                                                                                        struct wire_cst_accounts_storage_impl *that,
@@ -350,16 +385,6 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__accounts_storage_impl_renam
 void frbgen_nekoton_bridge_wire__crate__api__merged__accounts_storage_impl_verify_data(int64_t port_,
                                                                                        struct wire_cst_list_prim_u_8_strict *data);
 
-WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__call_send_result(struct wire_cst_list_prim_u_8_strict *id,
-                                                                                      struct wire_cst_dynamic_value *value);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__caller_test_class_call_some_func(int64_t port_,
-                                                                                      struct wire_cst_caller_test_class *that);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__caller_test_class_new(int64_t port_,
-                                                                           struct wire_cst_list_prim_u_8_strict *instance_hash,
-                                                                           int32_t value);
-
 void frbgen_nekoton_bridge_wire__crate__api__merged__create_log_stream(int64_t port_,
                                                                        struct wire_cst_list_prim_u_8_strict *s);
 
@@ -400,13 +425,16 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__generic_contract_dart_wrapp
                                                                                         struct wire_cst_list_prim_u_8_strict *signed_message);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__generic_contract_dart_wrapper_subscribe(int64_t port_,
-                                                                                             struct wire_cst_list_prim_u_8_strict *instance_hash,
                                                                                              struct wire_cst_list_prim_u_8_strict *address,
                                                                                              bool preload_transactions,
-                                                                                             uintptr_t transport);
+                                                                                             uintptr_t transport,
+                                                                                             const void *on_message_sent,
+                                                                                             const void *on_message_expired,
+                                                                                             const void *on_state_changed,
+                                                                                             const void *on_transactions_found);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__gql_connection_dart_wrapper_new(bool is_local,
-                                                                                                     struct wire_cst_list_prim_u_8_strict *instance_hash);
+                                                                                                     const void *on_post);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_accounts_by_code_hash(int64_t port_,
                                                                                                   struct wire_cst_gql_transport_impl *that,
@@ -472,9 +500,6 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_wait_for
                                                                                             struct wire_cst_list_prim_u_8_strict *address,
                                                                                             uint64_t timeout);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__init_caller(int64_t port_,
-                                                                 struct wire_cst_list_prim_u_8_strict *stream_sink);
-
 void frbgen_nekoton_bridge_wire__crate__api__merged__init_logger(int64_t port_,
                                                                  int32_t level,
                                                                  bool mobile_logger);
@@ -529,13 +554,14 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_
                                                                                         struct wire_cst_jetton_wallet_dart_wrapper *that);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_subscribe(int64_t port_,
-                                                                                          struct wire_cst_list_prim_u_8_strict *instance_hash,
                                                                                           struct wire_cst_list_prim_u_8_strict *owner,
                                                                                           struct wire_cst_list_prim_u_8_strict *root_token_contract,
                                                                                           uintptr_t transport,
-                                                                                          bool preload_transactions);
+                                                                                          bool preload_transactions,
+                                                                                          const void *on_balance_changed,
+                                                                                          const void *on_transactions_found);
 
-WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_connection_dart_wrapper_new(struct wire_cst_list_prim_u_8_strict *instance_hash);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_connection_dart_wrapper_new(const void *on_post);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_accounts_by_code_hash(int64_t port_,
                                                                                                    struct wire_cst_jrpc_transport_impl *that,
@@ -679,14 +705,9 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__keystore_dart_wrapper_verif
                                                                                        struct wire_cst_ledger_connection_dart_wrapper *ledger_connection,
                                                                                        struct wire_cst_list_prim_u_8_strict *data);
 
-WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__ledger_connection_dart_wrapper_new(struct wire_cst_list_prim_u_8_strict *instance_hash);
-
-WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__ledger_connection_impl_new(struct wire_cst_list_prim_u_8_strict *instance_hash);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__my_class_my_format(int64_t port_,
-                                                                        struct wire_cst_my_class *that);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__my_class_new(int64_t port_, int32_t a);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__ledger_connection_dart_wrapper_new(const void *on_get_public_key,
+                                                                                                        const void *on_sign,
+                                                                                                        const void *on_sign_transaction);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_check_public_key(struct wire_cst_list_prim_u_8_strict *public_key);
 
@@ -881,7 +902,7 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__nt_verify_signature(int64_t
                                                                          struct wire_cst_list_prim_u_8_strict *signature,
                                                                          int32_t *signature_id);
 
-WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__proto_connection_dart_wrapper_new(struct wire_cst_list_prim_u_8_strict *instance_hash);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__proto_connection_dart_wrapper_new(const void *on_post);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_accounts_by_code_hash(int64_t port_,
                                                                                                     struct wire_cst_proto_transport_impl *that,
@@ -936,67 +957,11 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_simula
 void frbgen_nekoton_bridge_wire__crate__api__merged__set_clock_offset(int64_t port_,
                                                                       int64_t offset_ms);
 
-void frbgen_nekoton_bridge_wire__crate__api__merged__simple_adder(int64_t port_,
-                                                                  int32_t a,
-                                                                  int32_t b);
-
-WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__simple_adder_sync(int32_t a,
-                                                                                       int32_t b);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__simple_call_dart(int64_t port_);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__simple_call_func0(int64_t port_,
-                                                                       bool need_result);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__simple_call_func1(int64_t port_,
-                                                                       bool need_result);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__simple_call_func2(int64_t port_);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__simple_call_func3(int64_t port_);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__simple_log(int64_t port_,
-                                                                struct wire_cst_list_prim_u_8_strict *string);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__simple_panic(int64_t port_);
-
-WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__storage_dart_wrapper_new(struct wire_cst_list_prim_u_8_strict *instance_hash);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__storage_impl_new(int64_t port_,
-                                                                      struct wire_cst_list_prim_u_8_strict *instance_hash);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__stub_call_dart(int64_t port_,
-                                                                    struct wire_cst_dart_call_stub *stub);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__stub_dcs(int64_t port_);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__stub_dv(int64_t port_);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__test_caller_call_test0_async(int64_t port_,
-                                                                                  struct wire_cst_list_prim_u_8_strict *string,
-                                                                                  bool need_result);
-
-WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__test_caller_call_test0_sync(struct wire_cst_list_prim_u_8_strict *string,
-                                                                                                 bool need_result);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__test_caller_call_test1_async(int64_t port_,
-                                                                                  struct wire_cst_list_prim_u_8_strict *string,
-                                                                                  bool need_result);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__test_logger_debug(int64_t port_,
-                                                                       struct wire_cst_list_prim_u_8_strict *string);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__test_logger_error(int64_t port_,
-                                                                       struct wire_cst_list_prim_u_8_strict *string);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__test_logger_info(int64_t port_,
-                                                                      struct wire_cst_list_prim_u_8_strict *string);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__test_logger_panic(int64_t port_,
-                                                                       struct wire_cst_list_prim_u_8_strict *string);
-
-void frbgen_nekoton_bridge_wire__crate__api__merged__test_logger_warn(int64_t port_,
-                                                                      struct wire_cst_list_prim_u_8_strict *string);
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__storage_dart_wrapper_new(const void *on_get,
+                                                                                              const void *on_set,
+                                                                                              const void *on_set_unchecked,
+                                                                                              const void *on_remove,
+                                                                                              const void *on_remove_unchecked);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__token_wallet_dart_wrapper_address(int64_t port_,
                                                                                        struct wire_cst_token_wallet_dart_wrapper *that);
@@ -1050,11 +1015,12 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__token_wallet_dart_wrapper_r
                                                                                        struct wire_cst_token_wallet_dart_wrapper *that);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__token_wallet_dart_wrapper_subscribe(int64_t port_,
-                                                                                         struct wire_cst_list_prim_u_8_strict *instance_hash,
                                                                                          struct wire_cst_list_prim_u_8_strict *owner,
                                                                                          struct wire_cst_list_prim_u_8_strict *root_token_contract,
                                                                                          uintptr_t transport,
-                                                                                         bool preload_transactions);
+                                                                                         bool preload_transactions,
+                                                                                         const void *on_balance_changed,
+                                                                                         const void *on_transactions_found);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__token_wallet_dart_wrapper_symbol(int64_t port_,
                                                                                       struct wire_cst_token_wallet_dart_wrapper *that);
@@ -1169,21 +1135,39 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_sen
                                                                                   struct wire_cst_list_prim_u_8_strict *signed_message);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe(int64_t port_,
-                                                                                       struct wire_cst_list_prim_u_8_strict *instance_hash,
                                                                                        int8_t workchain_id,
                                                                                        struct wire_cst_list_prim_u_8_strict *public_key,
                                                                                        struct wire_cst_list_prim_u_8_strict *wallet_type,
-                                                                                       uintptr_t transport);
+                                                                                       uintptr_t transport,
+                                                                                       const void *on_message_sent,
+                                                                                       const void *on_message_expired,
+                                                                                       const void *on_state_changed,
+                                                                                       const void *on_transactions_found,
+                                                                                       const void *on_details_changed,
+                                                                                       const void *on_custodians_changed,
+                                                                                       const void *on_unconfirmed_transactions_changed);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_address(int64_t port_,
-                                                                                                  struct wire_cst_list_prim_u_8_strict *instance_hash,
                                                                                                   struct wire_cst_list_prim_u_8_strict *address,
-                                                                                                  uintptr_t transport);
+                                                                                                  uintptr_t transport,
+                                                                                                  const void *on_message_sent,
+                                                                                                  const void *on_message_expired,
+                                                                                                  const void *on_state_changed,
+                                                                                                  const void *on_transactions_found,
+                                                                                                  const void *on_details_changed,
+                                                                                                  const void *on_custodians_changed,
+                                                                                                  const void *on_unconfirmed_transactions_changed);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_subscribe_by_existing(int64_t port_,
-                                                                                                   struct wire_cst_list_prim_u_8_strict *instance_hash,
                                                                                                    struct wire_cst_list_prim_u_8_strict *existing_wallet,
-                                                                                                   uintptr_t transport);
+                                                                                                   uintptr_t transport,
+                                                                                                   const void *on_message_sent,
+                                                                                                   const void *on_message_expired,
+                                                                                                   const void *on_state_changed,
+                                                                                                   const void *on_transactions_found,
+                                                                                                   const void *on_details_changed,
+                                                                                                   const void *on_custodians_changed,
+                                                                                                   const void *on_unconfirmed_transactions_changed);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__ton_wallet_dart_wrapper_unconfirmed_transactions(int64_t port_,
                                                                                                       struct wire_cst_ton_wallet_dart_wrapper *that);
@@ -1262,17 +1246,79 @@ void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynUnsi
 
 void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait(const void *ptr);
 
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl(const void *ptr);
+
 struct wire_cst_accounts_storage_impl *frbgen_nekoton_bridge_cst_new_box_autoadd_accounts_storage_impl(void);
 
 struct wire_cst_bip_39_mnemonic_data *frbgen_nekoton_bridge_cst_new_box_autoadd_bip_39_mnemonic_data(void);
 
 bool *frbgen_nekoton_bridge_cst_new_box_autoadd_bool(bool value);
-
-struct wire_cst_caller_test_class *frbgen_nekoton_bridge_cst_new_box_autoadd_caller_test_class(void);
-
-struct wire_cst_dart_call_stub *frbgen_nekoton_bridge_cst_new_box_autoadd_dart_call_stub(void);
-
-struct wire_cst_dynamic_value *frbgen_nekoton_bridge_cst_new_box_autoadd_dynamic_value(void);
 
 struct wire_cst_generic_contract_dart_wrapper *frbgen_nekoton_bridge_cst_new_box_autoadd_generic_contract_dart_wrapper(void);
 
@@ -1296,8 +1342,6 @@ struct wire_cst_ledger_connection_dart_wrapper *frbgen_nekoton_bridge_cst_new_bo
 
 struct wire_cst_mnemonic_type *frbgen_nekoton_bridge_cst_new_box_autoadd_mnemonic_type(void);
 
-struct wire_cst_my_class *frbgen_nekoton_bridge_cst_new_box_autoadd_my_class(void);
-
 struct wire_cst_proto_connection_dart_wrapper *frbgen_nekoton_bridge_cst_new_box_autoadd_proto_connection_dart_wrapper(void);
 
 struct wire_cst_proto_transport_impl *frbgen_nekoton_bridge_cst_new_box_autoadd_proto_transport_impl(void);
@@ -1313,10 +1357,6 @@ uint32_t *frbgen_nekoton_bridge_cst_new_box_autoadd_u_32(uint32_t value);
 struct wire_cst_unsigned_message_impl *frbgen_nekoton_bridge_cst_new_box_autoadd_unsigned_message_impl(void);
 
 struct wire_cst_list_String *frbgen_nekoton_bridge_cst_new_list_String(int32_t len);
-
-struct wire_cst_list_dynamic_named_value *frbgen_nekoton_bridge_cst_new_list_dynamic_named_value(int32_t len);
-
-struct wire_cst_list_dynamic_value *frbgen_nekoton_bridge_cst_new_list_dynamic_value(int32_t len);
 
 struct wire_cst_list_key_signer *frbgen_nekoton_bridge_cst_new_list_key_signer(int32_t len);
 
@@ -1334,9 +1374,6 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_accounts_storage_impl);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_bip_39_mnemonic_data);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_bool);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_caller_test_class);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_dart_call_stub);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_dynamic_value);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_generic_contract_dart_wrapper);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_gql_connection_dart_wrapper);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_gql_transport_impl);
@@ -1348,7 +1385,6 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_keystore_dart_wrapper);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_ledger_connection_dart_wrapper);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_mnemonic_type);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_my_class);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_proto_connection_dart_wrapper);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_proto_transport_impl);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_storage_dart_wrapper);
@@ -1357,8 +1393,6 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_u_32);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_unsigned_message_impl);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_list_String);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_list_dynamic_named_value);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_list_dynamic_value);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_list_key_signer);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_list_opt_String);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_list_prim_i_32_loose);
@@ -1378,6 +1412,23 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ArcdynTonWalletBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ArcdynTransportBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynAccountsStorageBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynGenericContractBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynGqlConnectionBoxTrait);
@@ -1391,6 +1442,78 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynTonWalletBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynTransportBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJrpcConnectionImpl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerLedgerConnectionImpl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtoConnectionImpl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerStorageImpl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTokenWalletSubscriptionHandlerImpl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTonWalletSubscriptionHandlerImpl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_expired);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_message_sent);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_state_changed);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_expired);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_message_sent);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_state_changed);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__GenericContractSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_is_local);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__GqlConnectionImpl_auto_accessor_get_on_post);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_is_local);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__GqlConnectionImpl_auto_accessor_set_on_post);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__JettonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_get_on_post);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__JrpcConnectionImpl_auto_accessor_set_on_post);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_get_public_key);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_get_on_sign_transaction);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_get_public_key);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__LedgerConnectionImpl_auto_accessor_set_on_sign_transaction);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_get_on_post);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__ProtoConnectionImpl_auto_accessor_set_on_post);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_get_on_get);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_get_on_remove_unchecked);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_get_on_set_unchecked);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_set_on_get);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_set_on_remove_unchecked);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_auto_accessor_set_on_set_unchecked);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__StorageImpl_new);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_balance_changed);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_balance_changed);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TokenWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_custodians_changed);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_details_changed);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_expired);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_message_sent);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_state_changed);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_transactions_found);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_get_on_unconfirmed_transactions_changed);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_custodians_changed);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_details_changed);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_expired);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_message_sent);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_state_changed);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_transactions_found);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__TonWalletSubscriptionHandlerImpl_auto_accessor_set_on_unconfirmed_transactions_changed);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__accounts_storage_impl_add_account);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__accounts_storage_impl_add_accounts);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__accounts_storage_impl_add_token_wallet);
@@ -1405,9 +1528,6 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__accounts_storage_impl_remove_token_wallets);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__accounts_storage_impl_rename_account);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__accounts_storage_impl_verify_data);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__call_send_result);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__caller_test_class_call_some_func);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__caller_test_class_new);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__create_log_stream);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__generic_contract_dart_wrapper_address);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__generic_contract_dart_wrapper_contract_state);
@@ -1436,7 +1556,6 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_new);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_simulate_transaction_tree);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_wait_for_next_block);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__init_caller);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__init_logger);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_address);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jetton_wallet_dart_wrapper_balance);
@@ -1483,9 +1602,6 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__keystore_dart_wrapper_update_key);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__keystore_dart_wrapper_verify_data);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__ledger_connection_dart_wrapper_new);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__ledger_connection_impl_new);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__my_class_my_format);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__my_class_new);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_check_public_key);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_code_to_tvc);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_compute_storage_fee);
@@ -1543,28 +1659,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_new);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_simulate_transaction_tree);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__set_clock_offset);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__simple_adder);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__simple_adder_sync);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__simple_call_dart);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__simple_call_func0);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__simple_call_func1);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__simple_call_func2);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__simple_call_func3);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__simple_log);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__simple_panic);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__storage_dart_wrapper_new);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__storage_impl_new);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__stub_call_dart);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__stub_dcs);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__stub_dv);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__test_caller_call_test0_async);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__test_caller_call_test0_sync);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__test_caller_call_test1_async);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__test_logger_debug);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__test_logger_error);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__test_logger_info);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__test_logger_panic);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__test_logger_warn);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__token_wallet_dart_wrapper_address);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__token_wallet_dart_wrapper_balance);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__token_wallet_dart_wrapper_contract_state);

@@ -11,7 +11,8 @@ _ExistingContract _$ExistingContractFromJson(Map<String, dynamic> json) =>
       account: json['account'] as String,
       timings: GenTimings.fromJson(json['timings'] as Map<String, dynamic>),
       lastTransactionId: LastTransactionId.fromJson(
-          json['lastTransactionId'] as Map<String, dynamic>),
+        json['lastTransactionId'] as Map<String, dynamic>,
+      ),
     );
 
 Map<String, dynamic> _$ExistingContractToJson(_ExistingContract instance) =>

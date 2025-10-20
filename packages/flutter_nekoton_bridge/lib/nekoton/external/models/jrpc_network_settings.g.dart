@@ -7,12 +7,8 @@ part of 'jrpc_network_settings.dart';
 // **************************************************************************
 
 _JrpcNetworkSettings _$JrpcNetworkSettingsFromJson(Map<String, dynamic> json) =>
-    _JrpcNetworkSettings(
-      endpoint: json['endpoint'] as String,
-    );
+    _JrpcNetworkSettings(endpoint: json['endpoint'] as String);
 
 Map<String, dynamic> _$JrpcNetworkSettingsToJson(
-        _JrpcNetworkSettings instance) =>
-    <String, dynamic>{
-      'endpoint': instance.endpoint,
-    };
+  _JrpcNetworkSettings instance,
+) => <String, dynamic>{'endpoint': instance.endpoint};

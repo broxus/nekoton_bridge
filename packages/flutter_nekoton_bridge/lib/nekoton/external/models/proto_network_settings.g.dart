@@ -7,13 +7,9 @@ part of 'proto_network_settings.dart';
 // **************************************************************************
 
 _ProtoNetworkSettings _$ProtoNetworkSettingsFromJson(
-        Map<String, dynamic> json) =>
-    _ProtoNetworkSettings(
-      endpoint: json['endpoint'] as String,
-    );
+  Map<String, dynamic> json,
+) => _ProtoNetworkSettings(endpoint: json['endpoint'] as String);
 
 Map<String, dynamic> _$ProtoNetworkSettingsToJson(
-        _ProtoNetworkSettings instance) =>
-    <String, dynamic>{
-      'endpoint': instance.endpoint,
-    };
+  _ProtoNetworkSettings instance,
+) => <String, dynamic>{'endpoint': instance.endpoint};

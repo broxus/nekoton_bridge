@@ -7,16 +7,17 @@ part of 'encrypted_key_export_output.dart';
 // **************************************************************************
 
 _EncryptedKeyExportSeedOutput _$EncryptedKeyExportSeedOutputFromJson(
-        Map<String, dynamic> json) =>
-    _EncryptedKeyExportSeedOutput(
-      phrase: json['phrase'] as String,
-      mnemonicType: mnemonicJsonConverter
-          .fromJson(json['mnemonicType'] as Map<String, dynamic>),
-    );
+  Map<String, dynamic> json,
+) => _EncryptedKeyExportSeedOutput(
+  phrase: json['phrase'] as String,
+  mnemonicType: mnemonicJsonConverter.fromJson(
+    json['mnemonicType'] as Map<String, dynamic>,
+  ),
+);
 
 Map<String, dynamic> _$EncryptedKeyExportSeedOutputToJson(
-        _EncryptedKeyExportSeedOutput instance) =>
-    <String, dynamic>{
-      'phrase': instance.phrase,
-      'mnemonicType': mnemonicJsonConverter.toJson(instance.mnemonicType),
-    };
+  _EncryptedKeyExportSeedOutput instance,
+) => <String, dynamic>{
+  'phrase': instance.phrase,
+  'mnemonicType': mnemonicJsonConverter.toJson(instance.mnemonicType),
+};

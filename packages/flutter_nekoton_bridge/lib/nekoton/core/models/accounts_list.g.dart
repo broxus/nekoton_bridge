@@ -8,13 +8,14 @@ part of 'accounts_list.dart';
 
 _AccountsList _$AccountsListFromJson(Map<String, dynamic> json) =>
     _AccountsList(
-      accounts:
-          (json['accounts'] as List<dynamic>).map((e) => e as String).toList(),
+      accounts: (json['accounts'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
       continuation: json['continuation'] as String?,
     );
 
 Map<String, dynamic> _$AccountsListToJson(_AccountsList instance) =>
     <String, dynamic>{
       'accounts': instance.accounts,
-      if (instance.continuation case final value?) 'continuation': value,
+      'continuation': ?instance.continuation,
     };

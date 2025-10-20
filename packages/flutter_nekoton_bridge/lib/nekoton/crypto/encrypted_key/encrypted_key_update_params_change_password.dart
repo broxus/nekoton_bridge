@@ -16,6 +16,6 @@ abstract class EncryptedKeyUpdateParamsChangePassword
   }) = _EncryptedKeyUpdateParamsChangePassword;
 
   factory EncryptedKeyUpdateParamsChangePassword.fromJson(
-          Map<String, dynamic> json) =>
-      _$EncryptedKeyUpdateParamsChangePasswordFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$EncryptedKeyUpdateParamsChangePasswordFromJson(json);
 }

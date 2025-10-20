@@ -2,9 +2,9 @@
 
 use crate::frb_generated::RustOpaque;
 use crate::nekoton_wrapper::external::connections::{GqlConnectionBox, GqlConnectionBoxTrait};
-use crate::utils::caller;
 use async_trait::async_trait;
 use flutter_rust_bridge::frb;
+pub use flutter_rust_bridge::DartFnFuture;
 use nekoton::external::{GqlConnection, GqlRequest};
 use std::sync::Arc;
 
@@ -15,12 +15,15 @@ pub struct GqlConnectionDartWrapper {
 
 impl GqlConnectionDartWrapper {
     #[frb(sync)]
-    pub fn new(is_local: bool, instance_hash: String) -> GqlConnectionDartWrapper {
+    pub fn new(
+        is_local: bool,
+        on_post: impl Fn(String) -> DartFnFuture<String> + Send + Sync + 'static,
+    ) -> GqlConnectionDartWrapper {
         Self {
             inner_connection: RustOpaque::new(GqlConnectionBox::create(Arc::new(
                 GqlConnectionImpl {
                     is_local,
-                    instance_hash,
+                    on_post: Arc::new(on_post),
                 },
             ))),
         }
@@ -33,9 +36,9 @@ impl GqlConnectionDartWrapper {
 }
 
 /// Implementation of nekoton's GqlConnection
-struct GqlConnectionImpl {
+pub struct GqlConnectionImpl {
     pub is_local: bool,
-    pub instance_hash: String,
+    pub on_post: Arc<dyn Fn(String) -> DartFnFuture<String> + Send + Sync>,
 }
 
 #[async_trait]
@@ -45,12 +48,7 @@ impl GqlConnection for GqlConnectionImpl {
     }
 
     async fn post(&self, req: GqlRequest) -> anyhow::Result<String> {
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("post"),
-            args: vec![caller::DynamicValue::String(req.data)],
-            named_args: vec![],
-        };
-        caller::call(stub, true).as_string()
+        let fut = (self.on_post)(req.data);
+        Ok(fut.await)
     }
 }

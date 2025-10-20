@@ -56,7 +56,6 @@ void main() {
   group('ABI test', () {
     testWidgets('decodeTransaction', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final decoded = await decodeTransaction(
         transaction: Transaction.fromJson(jsonDecode(json)),
@@ -69,7 +68,6 @@ void main() {
 
     testWidgets('repackAddress', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final repackedRaw = repackAddress(raw);
       final repackedWithBounce = repackAddress(withBounce);
@@ -80,7 +78,6 @@ void main() {
 
     testWidgets('packAddress', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final packed = packAddress(raw);
 
@@ -89,7 +86,6 @@ void main() {
 
     testWidgets('encodeComment', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final encoded = encodeComment('test comment');
 
@@ -100,58 +96,47 @@ void main() {
 
   testWidgets('parseKnownPayload', (WidgetTester tester) async {
     await tester.pumpAndSettleWithTimeout();
-    await initRustToDartCaller();
 
-    final knownTokenTransactionPayload =
-        parseKnownPayload(tokenTransferPayload);
-    final knownJettonTransactionPayload =
-        parseKnownPayload(jettonTransferPayload);
+    final knownTokenTransactionPayload = parseKnownPayload(
+      tokenTransferPayload,
+    );
+    final knownJettonTransactionPayload = parseKnownPayload(
+      jettonTransferPayload,
+    );
     final unknownPayload = parseKnownPayload(r'!@#$%^&*()_+invalid_base64');
 
     expect(unknownPayload, isNull);
 
     expect(knownTokenTransactionPayload, isNotNull);
-    expect(
-      switch (knownTokenTransactionPayload!) {
-        KnownPayloadTokenOutgoingTransfer(data: final data) => data,
-        _ => null,
-      },
-      isNotNull,
-    );
-    expect(
-      switch (knownTokenTransactionPayload) {
-        KnownPayloadTokenOutgoingTransfer(data: final data) => data.tokens,
-        _ => null,
-      },
-      BigInt.parse('1000000000'),
-    );
+    expect(switch (knownTokenTransactionPayload!) {
+      KnownPayloadTokenOutgoingTransfer(data: final data) => data,
+      _ => null,
+    }, isNotNull);
+    expect(switch (knownTokenTransactionPayload) {
+      KnownPayloadTokenOutgoingTransfer(data: final data) => data.tokens,
+      _ => null,
+    }, BigInt.parse('1000000000'));
 
     expect(knownJettonTransactionPayload, isNotNull);
-    expect(
-      switch (knownJettonTransactionPayload!) {
-        KnownPayloadJettonOutgoingTransfer(data: final data) => data,
-        _ => null,
-      },
-      isNotNull,
-    );
-    expect(
-      switch (knownJettonTransactionPayload) {
-        KnownPayloadJettonOutgoingTransfer(data: final data) => data.tokens,
-        _ => null,
-      },
-      BigInt.parse('10000'),
-    );
+    expect(switch (knownJettonTransactionPayload!) {
+      KnownPayloadJettonOutgoingTransfer(data: final data) => data,
+      _ => null,
+    }, isNotNull);
+    expect(switch (knownJettonTransactionPayload) {
+      KnownPayloadJettonOutgoingTransfer(data: final data) => data.tokens,
+      _ => null,
+    }, BigInt.parse('10000'));
   });
 
   testWidgets('computeTonWalletAddress', (WidgetTester tester) async {
     await tester.pumpAndSettleWithTimeout();
-    await initRustToDartCaller();
 
     final tonWalletAddress = computeTonWalletAddress(
       walletType: const WalletType.everWallet(),
       publicKey: const PublicKey(
-          publicKey:
-              '6c2f9514c1c0f2ec54cffe1ac2ba0e85268e76442c14205581ebc808fe7ee52c'),
+        publicKey:
+            '6c2f9514c1c0f2ec54cffe1ac2ba0e85268e76442c14205581ebc808fe7ee52c',
+      ),
       workchain: 0,
     );
 
@@ -163,7 +148,6 @@ void main() {
 
   testWidgets('getContractTypeNumber', (WidgetTester tester) async {
     await tester.pumpAndSettleWithTimeout();
-    await initRustToDartCaller();
 
     final ew = getContractTypeNumber(const WalletType.everWallet());
     final v3 = getContractTypeNumber(const WalletType.walletV3());
@@ -178,7 +162,6 @@ void main() {
 
   testWidgets('runLocalWithLibs', (WidgetTester tester) async {
     await tester.pumpAndSettleWithTimeout();
-    await initRustToDartCaller();
 
     const testLibraryAbi =
         '{"ABI version":2,"version":"2.7","header":["time","expire"],"functions":[{"name":"testAddGetter","inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"outputs":[{"name":"value0","type":"uint256"}]}],"getters":[],"events":[],"fields":[]}';
@@ -235,18 +218,9 @@ void main() {
     });
 
     test('operator ==', () {
-      expect(
-        const Address(address: raw1),
-        const Address(address: raw1),
-      );
-      expect(
-        const Address(address: raw1),
-        isNot(const Address(address: raw2)),
-      );
-      expect(
-        const Address(address: raw1),
-        const Address(address: bounceable1),
-      );
+      expect(const Address(address: raw1), const Address(address: raw1));
+      expect(const Address(address: raw1), isNot(const Address(address: raw2)));
+      expect(const Address(address: raw1), const Address(address: bounceable1));
     });
 
     test('isValid', () {

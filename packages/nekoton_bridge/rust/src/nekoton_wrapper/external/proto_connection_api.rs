@@ -2,9 +2,9 @@
 
 use crate::frb_generated::RustOpaque;
 use crate::nekoton_wrapper::external::connections::{ProtoConnectionBox, ProtoConnectionBoxTrait};
-use crate::utils::caller;
 use async_trait::async_trait;
 use flutter_rust_bridge::frb;
+pub use flutter_rust_bridge::DartFnFuture;
 use nekoton::external::{ProtoConnection, ProtoRequest};
 use std::sync::Arc;
 
@@ -15,10 +15,14 @@ pub struct ProtoConnectionDartWrapper {
 
 impl ProtoConnectionDartWrapper {
     #[frb(sync)]
-    pub fn new(instance_hash: String) -> ProtoConnectionDartWrapper {
+    pub fn new(
+        on_post: impl Fn(Vec<u8>) -> DartFnFuture<Vec<u8>> + Send + Sync + 'static,
+    ) -> ProtoConnectionDartWrapper {
         Self {
             inner_connection: RustOpaque::new(ProtoConnectionBox::create(Arc::new(
-                ProtoConnectionImpl { instance_hash },
+                ProtoConnectionImpl {
+                    on_post: Arc::new(on_post),
+                },
             ))),
         }
     }
@@ -31,18 +35,13 @@ impl ProtoConnectionDartWrapper {
 
 /// Implementation of nekoton's ProtoConnection
 pub struct ProtoConnectionImpl {
-    pub instance_hash: String,
+    pub on_post: Arc<dyn Fn(Vec<u8>) -> DartFnFuture<Vec<u8>> + Send + Sync>,
 }
 
 #[async_trait]
 impl ProtoConnection for ProtoConnectionImpl {
     async fn post(&self, req: ProtoRequest) -> anyhow::Result<Vec<u8>> {
-        let stub = caller::DartCallStub {
-            instance_hash: self.instance_hash.clone(),
-            fn_name: String::from("post"),
-            args: vec![caller::DynamicValue::VecU8(req.data)],
-            named_args: vec![],
-        };
-        caller::call(stub, true).as_vec_u8()
+        let fut = (self.on_post)(req.data);
+        Ok(fut.await)
     }
 }

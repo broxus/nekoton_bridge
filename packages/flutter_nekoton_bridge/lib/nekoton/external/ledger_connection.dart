@@ -2,9 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
-import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
-import 'package:reflectable/mirrors.dart';
-import 'ledger_connection.reflectable.dart';
 
 abstract interface class LedgerConnectionHandler {
   Future<Uint8List> getPublicKey(int accountId);
@@ -22,21 +19,20 @@ abstract interface class LedgerConnectionHandler {
   });
 }
 
-@reflector
-class LedgerConnection extends RustToDartMirrorInterface {
+class LedgerConnection {
   late LedgerConnectionDartWrapper connection;
 
   final LedgerConnectionHandler _handler;
 
-  LedgerConnection._(
-    this._handler,
-  );
+  LedgerConnection._(this._handler);
 
   static LedgerConnection create(LedgerConnectionHandler handler) {
     final instance = LedgerConnection._(handler);
 
     instance.connection = LedgerConnectionDartWrapper(
-      instanceHash: instance.instanceHash,
+      onGetPublicKey: instance.getPublicKey,
+      onSign: instance.sign,
+      onSignTransaction: instance.signTransaction,
     );
 
     return instance;
@@ -95,17 +91,7 @@ class LedgerConnection extends RustToDartMirrorInterface {
     }
   }
 
-  @override
   void dispose() {
     connection.innerConnection.dispose();
-    super.dispose();
-  }
-
-  @override
-  InstanceMirror initializeMirror() {
-    initializeReflectable(); // auto-generated reflectable file
-    return reflector.reflect(this);
   }
 }
-
-void main() {}

@@ -1,39 +1,37 @@
 name: flutter_nekoton_bridge
 description: Flutter Nekoton bridge.
-version: 3.6.0
+version: 4.0.0-dev.2
 homepage: https://github.com/broxus/nekoton_bridge.git
 repository: https://github.com/broxus/nekoton_bridge.git
+resolution: workspace
 
 environment:
-  sdk: '>=3.5.0 <4.0.0'
-  flutter: '>=3.24.0'
+  sdk: '>=3.9.0 <4.0.0'
+  flutter: '>=3.35.0'
 
 dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.1.8
   rxdart: ^0.28.0
-  reflectable: ^4.0.10
-  money2_fixer: ^3.0.0
-  money2: ^5.4.0
-  nekoton_bridge: ^3.6.0
-  freezed_annotation: '>=3.0.0 <3.1.0'
+  money2: ^6.0.0
+  nekoton_bridge: ^4.0.0-dev.2
+  freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
-  #  for generating mirror hash
-  uuid: ^4.5.1
   crypto: ^3.0.6
   mutex: ^3.1.0
+
 dev_dependencies:
   ffi: ^2.1.3
   ffigen: ^19.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
   integration_test:
     sdk: flutter
   mocktail: ^1.0.4
   build_runner: ^2.4.13
-  freezed: '>=3.0.0 <3.1.0'
+  freezed: ^3.1.0
   json_serializable: ^6.9.0
 
 # For information on the generic Dart part of this file, see the

@@ -27,18 +27,19 @@ class JrpcTransport extends Transport {
 
     instance.networkId = await instance.getNetworkId();
 
-    instance.connectionParamsHash =
-        getHash('jrpc:${jrpcConnection.settings.endpoint}');
+    instance.connectionParamsHash = getHash(
+      'jrpc:${jrpcConnection.settings.endpoint}',
+    );
 
     return instance;
   }
 
   @override
   Future<void> dispose() => mutex.protectWrite(() async {
-        transport.innerTransport.dispose();
-        jrpcConnection.dispose();
-        _disposed = true;
-      });
+    transport.innerTransport.dispose();
+    jrpcConnection.dispose();
+    _disposed = true;
+  });
 
   @override
   Future<AccountsList> getAccountsByCodeHash({
@@ -73,8 +74,9 @@ class JrpcTransport extends Transport {
     if (_disposed) throw TransportCallAfterDisposeError();
 
     return mutex.protectRead(() async {
-      final res =
-          await transport.getFullContractState(address: address.address);
+      final res = await transport.getFullContractState(
+        address: address.address,
+      );
       return res == null ? null : FullContractState.fromJson(jsonDecode(res));
     });
   }
@@ -176,14 +178,17 @@ class JrpcTransport extends Transport {
 
     return mutex.protectRead(() async {
       final encoded = await transport.simulateTransactionTree(
-          signedMessage: jsonEncode(signedMessage),
-          ignoredComputePhaseCodes: ignoredComputePhaseCodes,
-          ignoredActionPhaseCodes: ignoredActionPhaseCodes);
+        signedMessage: jsonEncode(signedMessage),
+        ignoredComputePhaseCodes: ignoredComputePhaseCodes,
+        ignoredActionPhaseCodes: ignoredActionPhaseCodes,
+      );
       final decoded = jsonDecode(encoded) as List<dynamic>;
 
       return decoded
-          .map((e) =>
-              TxTreeSimulationErrorItem.fromJson(e as Map<String, dynamic>))
+          .map(
+            (e) =>
+                TxTreeSimulationErrorItem.fromJson(e as Map<String, dynamic>),
+          )
           .toList();
     });
   }

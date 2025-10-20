@@ -39,7 +39,6 @@ build/
 *_generated.rs
 #*.freezed.dart
 #*.g.dart
-#*.reflectable.dart
 
 # js-related
 **/node_modules/

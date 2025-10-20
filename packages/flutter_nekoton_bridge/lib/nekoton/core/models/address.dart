@@ -7,9 +7,7 @@ part 'address.freezed.dart';
 sealed class Address with _$Address {
   const Address._();
 
-  const factory Address({
-    required final String address,
-  }) = _FromString;
+  const factory Address({required final String address}) = _FromString;
 
   factory Address.fromJson(String json) => Address(address: json);
 
@@ -25,11 +23,7 @@ sealed class Address with _$Address {
 
   String toBounceable() => !isRaw
       ? address
-      : ntPackAddress(
-          address: address,
-          bounceable: true,
-          isUrlSafe: true,
-        );
+      : ntPackAddress(address: address, bounceable: true, isUrlSafe: true);
 
   /// Returns address in ellipse form
   String toEllipseString() => address.length > 6

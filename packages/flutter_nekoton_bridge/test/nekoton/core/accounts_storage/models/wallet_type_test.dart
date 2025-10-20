@@ -12,18 +12,11 @@ void main() {
         const WalletType.multisig(MultisigType.safeMultisigWallet24h).toJson(),
         {'data': 'SafeMultisigWallet24h', 'type': 'multisig'},
       );
-      expect(
-        const WalletType.walletV3().toJson(),
-        {'type': 'walletV3'},
-      );
-      expect(
-        const WalletType.highloadWalletV2().toJson(),
-        {'type': 'highloadWalletV2'},
-      );
-      expect(
-        const WalletType.everWallet().toJson(),
-        {'type': 'everWallet'},
-      );
+      expect(const WalletType.walletV3().toJson(), {'type': 'walletV3'});
+      expect(const WalletType.highloadWalletV2().toJson(), {
+        'type': 'highloadWalletV2',
+      });
+      expect(const WalletType.everWallet().toJson(), {'type': 'everWallet'});
     });
 
     test('From JSON', () {
@@ -32,8 +25,10 @@ void main() {
         const WalletType.multisig(MultisigType.safeMultisigWallet),
       );
       expect(
-        WalletType.fromJson(
-            {'data': 'SafeMultisigWallet24h', 'type': 'multisig'}),
+        WalletType.fromJson({
+          'data': 'SafeMultisigWallet24h',
+          'type': 'multisig',
+        }),
         const WalletType.multisig(MultisigType.safeMultisigWallet24h),
       );
       expect(

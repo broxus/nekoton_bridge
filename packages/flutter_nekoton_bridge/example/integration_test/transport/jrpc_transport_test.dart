@@ -38,8 +38,9 @@ void main() {
 
   /// System account address
   const accountAddress = Address(
-      address:
-          '-1:0000000000000000000000000000000000000000000000000000000000000000');
+    address:
+        '-1:0000000000000000000000000000000000000000000000000000000000000000',
+  );
   const accountTransaction =
       'd0a278d82e699a63adeaede7e602ff6da8168c333ceb4f2344f42cb739c28940';
 
@@ -67,8 +68,6 @@ void main() {
     testWidgets('Create JrpcTransport', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
@@ -82,8 +81,6 @@ void main() {
 
     testWidgets('getSignatureId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -101,7 +98,6 @@ void main() {
     testWidgets('getSignatureId venom ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
       const venomEndpoint = 'https://jrpc.venom.foundation';
 
       final connection = JrpcConnection.create(
@@ -119,8 +115,6 @@ void main() {
 
     testWidgets('getTransactions ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -141,8 +135,6 @@ void main() {
     testWidgets('getTransaction ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
@@ -162,8 +154,6 @@ void main() {
 
     testWidgets('getDstTransaction', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -191,8 +181,6 @@ void main() {
     testWidgets('multiple calls ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      await initRustToDartCaller();
-
       final connection = JrpcConnection.create(
         client: HttpClient(),
         settings: jrpcSettings,
@@ -201,31 +189,29 @@ void main() {
       );
       final transport = await JrpcTransport.create(jrpcConnection: connection);
 
+      expect(await transport.getTransaction(accountTransaction), isNotNull);
       expect(
-        await transport.getTransaction(accountTransaction),
+        await transport.getTransaction(
+          'f90074116294f0a4295d7ab368af8a1cc75654aad557d3ffd6edb7e8b2020c39',
+        ),
         isNotNull,
       );
       expect(
         await transport.getTransaction(
-            'f90074116294f0a4295d7ab368af8a1cc75654aad557d3ffd6edb7e8b2020c39'),
+          '74773423c867ce433d39612f8c14c49e835500263ced3e045ca560c4383ea6fc',
+        ),
         isNotNull,
       );
       expect(
         await transport.getTransaction(
-            '74773423c867ce433d39612f8c14c49e835500263ced3e045ca560c4383ea6fc'),
-        isNotNull,
-      );
-      expect(
-        await transport.getTransaction(
-            '5c229b34601836743083acf9fd87f164039b75ac7b513b756a06da0e7051fffd'),
+          '5c229b34601836743083acf9fd87f164039b75ac7b513b756a06da0e7051fffd',
+        ),
         isNotNull,
       );
     });
 
     testWidgets('getContractState ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -238,21 +224,14 @@ void main() {
       final state = await transport.getContractState(accountAddress);
 
       expect(state, isNotNull);
-      expect(
-        switch (state) {
-          RawContractStateExists(:final data) => data,
-          RawContractStateNotExists() => null,
-        },
-        isNotNull,
-      );
+      expect(switch (state) {
+        RawContractStateExists(:final data) => data,
+        RawContractStateNotExists() => null,
+      }, isNotNull);
     });
 
-    testWidgets('getFullContractState ', (
-      WidgetTester tester,
-    ) async {
+    testWidgets('getFullContractState ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -269,12 +248,8 @@ void main() {
       expect(state.isDeployed, true);
     });
 
-    testWidgets('getContractFields', (
-      WidgetTester tester,
-    ) async {
+    testWidgets('getContractFields', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -299,7 +274,6 @@ void main() {
 
     testWidgets('getNetworkId ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -314,7 +288,7 @@ void main() {
 
     testWidgets('getNetworkId venom ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
+
       const venomEndpoint = 'https://jrpc.venom.foundation';
 
       final connection = JrpcConnection.create(
@@ -330,7 +304,6 @@ void main() {
 
     testWidgets('getBlockchainConfig ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -348,7 +321,6 @@ void main() {
 
     testWidgets('simulateTransactionTree ', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -368,14 +340,16 @@ void main() {
       final message = await wallet.prepareTransfer(
         contractState: await transport.getContractState(address),
         publicKey: const PublicKey(
-            publicKey:
-                '6c2f9514c1c0f2ec54cffe1ac2ba0e85268e76442c14205581ebc808fe7ee52c'),
+          publicKey:
+              '6c2f9514c1c0f2ec54cffe1ac2ba0e85268e76442c14205581ebc808fe7ee52c',
+        ),
         expiration: const Expiration.timeout(60),
         params: [
           TonWalletTransferParams(
             destination: const Address(
-                address:
-                    '-1:06eec9c3a6f122c29697d27ae987e4b911d4dadc937e23c7aa58bbf1e484b20f'),
+              address:
+                  '-1:06eec9c3a6f122c29697d27ae987e4b911d4dadc937e23c7aa58bbf1e484b20f',
+            ),
             amount: BigInt.parse('1000000000'),
             bounce: false,
           ),
@@ -394,8 +368,6 @@ void main() {
 
     testWidgets('getFeeFactors', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
-
-      await initRustToDartCaller();
 
       final connection = JrpcConnection.create(
         client: HttpClient(),
@@ -434,17 +406,19 @@ void main() {
       await transport.dispose();
     });
 
-    testWidgets('simulateTransactionTree (WalletV4R2)',
-        (WidgetTester tester) async {
+    testWidgets('simulateTransactionTree (WalletV4R2)', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       const from = Address(
-          address:
-              '0:453163ef9b6f68e7c815a77a8d013bd791bb696e6fa4a0de0eb6df19cc0e373b');
+        address:
+            '0:453163ef9b6f68e7c815a77a8d013bd791bb696e6fa4a0de0eb6df19cc0e373b',
+      );
       const pk = PublicKey(
-          publicKey:
-              '1b2267c29f37b05470bfa593ed1f03c1b5f682bc6282f4896494b5f4c8fe66c8');
+        publicKey:
+            '1b2267c29f37b05470bfa593ed1f03c1b5f682bc6282f4896494b5f4c8fe66c8',
+      );
       const to = Address(
         address:
             '0:f9f575258120bff21afd8c798a5c9e9a2ef0b251e11d9c85fbf43bec968a57c6',
@@ -476,17 +450,19 @@ void main() {
       expect(errors, isEmpty);
     });
 
-    testWidgets('simulateTransactionTree (jetton: usdt)',
-        (WidgetTester tester) async {
+    testWidgets('simulateTransactionTree (jetton: usdt)', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       const owner = Address(
-          address:
-              '0:6ca35273892588b4c5f4ae898dc1983eec9662dffebeacdbe82103a1d1dcac60');
+        address:
+            '0:6ca35273892588b4c5f4ae898dc1983eec9662dffebeacdbe82103a1d1dcac60',
+      );
       const usdtTokenRoot = Address(
-          address:
-              '0:b113a994b5024a16719f69139328eb759596c38a25f59028b146fecdc3621dfe');
+        address:
+            '0:b113a994b5024a16719f69139328eb759596c38a25f59028b146fecdc3621dfe',
+      );
 
       final wallet = await TonWallet.subscribeByAddress(
         transport: transport,
@@ -507,8 +483,9 @@ void main() {
       final message = await wallet.prepareTransfer(
         contractState: await transport.getContractState(owner),
         publicKey: const PublicKey(
-            publicKey:
-                '9107a65271437e1a982bb98404bd9a82c434f31ee30c621b6596702bb59bf0a0'),
+          publicKey:
+              '9107a65271437e1a982bb98404bd9a82c434f31ee30c621b6596702bb59bf0a0',
+        ),
         expiration: const Expiration.timeout(60),
         params: [
           TonWalletTransferParams(
@@ -533,17 +510,19 @@ void main() {
       jettonWallet.dispose();
     });
 
-    testWidgets('simulateTransactionTree (jetton: mintless points)',
-        (WidgetTester tester) async {
+    testWidgets('simulateTransactionTree (jetton: mintless points)', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpAndSettleWithTimeout();
-      await initRustToDartCaller();
 
       const owner = Address(
-          address:
-              '0:6ca35273892588b4c5f4ae898dc1983eec9662dffebeacdbe82103a1d1dcac60');
+        address:
+            '0:6ca35273892588b4c5f4ae898dc1983eec9662dffebeacdbe82103a1d1dcac60',
+      );
       const pointsTokenRoot = Address(
-          address:
-              '0:fa67d0c7739331fbc3c8f08e018c65f47763616a969100ad760a0b2dc1e36832');
+        address:
+            '0:fa67d0c7739331fbc3c8f08e018c65f47763616a969100ad760a0b2dc1e36832',
+      );
 
       final wallet = await TonWallet.subscribeByAddress(
         transport: transport,
@@ -564,8 +543,9 @@ void main() {
       final message = await wallet.prepareTransfer(
         contractState: await transport.getContractState(owner),
         publicKey: const PublicKey(
-            publicKey:
-                '9107a65271437e1a982bb98404bd9a82c434f31ee30c621b6596702bb59bf0a0'),
+          publicKey:
+              '9107a65271437e1a982bb98404bd9a82c434f31ee30c621b6596702bb59bf0a0',
+        ),
         expiration: const Expiration.timeout(60),
         params: [
           TonWalletTransferParams(

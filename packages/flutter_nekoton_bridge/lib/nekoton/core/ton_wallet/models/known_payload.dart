@@ -11,10 +11,12 @@ sealed class KnownPayload with _$KnownPayload {
   const factory KnownPayload.comment(final String data) = KnownPayloadComment;
 
   const factory KnownPayload.tokenOutgoingTransfer(
-      final TokenOutgoingTransfer data) = KnownPayloadTokenOutgoingTransfer;
+    final TokenOutgoingTransfer data,
+  ) = KnownPayloadTokenOutgoingTransfer;
 
   const factory KnownPayload.jettonOutgoingTransfer(
-      final JettonOutgoingTransfer data) = KnownPayloadJettonOutgoingTransfer;
+    final JettonOutgoingTransfer data,
+  ) = KnownPayloadJettonOutgoingTransfer;
 
   const factory KnownPayload.tokenSwapBack(final TokenSwapBack data) =
       KnownPayloadTokenSwapBack;

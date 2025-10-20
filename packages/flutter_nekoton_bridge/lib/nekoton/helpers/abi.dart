@@ -270,12 +270,14 @@ TokensObject unpackFromCell({
   required bool allowPartial,
   String? abiVersion,
 }) {
-  return jsonDecode(ntUnpackFromCell(
-    params: jsonEncode(params),
-    boc: boc,
-    allowPartial: allowPartial,
-    version: abiVersion,
-  ));
+  return jsonDecode(
+    ntUnpackFromCell(
+      params: jsonEncode(params),
+      boc: boc,
+      allowPartial: allowPartial,
+      version: abiVersion,
+    ),
+  );
 }
 
 /// Pack address std smd or throw error
@@ -284,21 +286,14 @@ String packStdSmcAddr({
   required Address address,
   required bool base64Url,
   required bool bounceable,
-}) =>
-    ntPackStdSmcAddr(
-      addr: address.address,
-      base64Url: base64Url,
-      bounceable: bounceable,
-    );
+}) => ntPackStdSmcAddr(
+  addr: address.address,
+  base64Url: base64Url,
+  bounceable: bounceable,
+);
 
-String unpackStdSmcAddr({
-  required String packed,
-  required bool base64Url,
-}) =>
-    ntUnpackStdSmcAddr(
-      packed: packed,
-      base64Url: base64Url,
-    );
+String unpackStdSmcAddr({required String packed, required bool base64Url}) =>
+    ntUnpackStdSmcAddr(packed: packed, base64Url: base64Url);
 
 /// Return true if address is valid, false otherwise
 bool validateAddress(Address address) {
@@ -339,10 +334,7 @@ PublicKey extractPublicKey(String boc) {
 
 /// Merge code and data to tvc base64 string and return (tvc, hash)
 /// or throw error
-(String, String) mergeTvc({
-  required String code,
-  required String data,
-}) {
+(String, String) mergeTvc({required String code, required String data}) {
   final res = ntMergeTvc(code: code, data: data);
 
   return (res[0], res[1]);
@@ -356,10 +348,7 @@ PublicKey extractPublicKey(String boc) {
 }
 
 /// Set salt to code and return (tvc, hash) or throw error
-(String, String) setCodeSalt({
-  required String code,
-  required String salt,
-}) {
+(String, String) setCodeSalt({required String code, required String salt}) {
   final data = ntSetCodeSalt(code: code, salt: salt);
 
   return (data[0], data[1]);
@@ -421,10 +410,7 @@ Future<(PublicKey?, Map<String, dynamic>)> unpackInitData({
   required String contractAbi,
   required String data,
 }) async {
-  final result = await ntUnpackInitData(
-    contractAbi: contractAbi,
-    data: data,
-  );
+  final result = await ntUnpackInitData(contractAbi: contractAbi, data: data);
 
   return (
     result[0] == null ? null : PublicKey(publicKey: result[0]!),
@@ -540,6 +526,5 @@ Address computeTonWalletAddress({
   return Address(address: address);
 }
 
-int getContractTypeNumber(WalletType walletType) => ntGetContractTypeNumber(
-      walletType: jsonEncode(walletType),
-    );
+int getContractTypeNumber(WalletType walletType) =>
+    ntGetContractTypeNumber(walletType: jsonEncode(walletType));

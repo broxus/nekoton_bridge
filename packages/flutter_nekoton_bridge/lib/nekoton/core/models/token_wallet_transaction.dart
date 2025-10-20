@@ -15,27 +15,24 @@ sealed class TokenWalletTransaction with _$TokenWalletTransaction {
   ) = TokenWalletTransactionInternalTransfer;
 
   const factory TokenWalletTransaction.incomingTransfer(
-          final TokenIncomingTransfer data) =
-      TokenWalletTransactionIncomingTransfer;
+    final TokenIncomingTransfer data,
+  ) = TokenWalletTransactionIncomingTransfer;
 
   const factory TokenWalletTransaction.outgoingTransfer(
-          final TokenOutgoingTransfer data) =
-      TokenWalletTransactionOutgoingTransfer;
+    final TokenOutgoingTransfer data,
+  ) = TokenWalletTransactionOutgoingTransfer;
 
   const factory TokenWalletTransaction.swapBack(final TokenSwapBack data) =
       TokenWalletTransactionSwapBack;
 
-  const factory TokenWalletTransaction.accept(
-    final BigInt data,
-  ) = TokenWalletTransactionAccept;
+  const factory TokenWalletTransaction.accept(final BigInt data) =
+      TokenWalletTransactionAccept;
 
-  const factory TokenWalletTransaction.transferBounced(
-    final BigInt data,
-  ) = TokenWalletTransactionTransferBounced;
+  const factory TokenWalletTransaction.transferBounced(final BigInt data) =
+      TokenWalletTransactionTransferBounced;
 
-  const factory TokenWalletTransaction.swapBackBounced(
-    final BigInt data,
-  ) = TokenWalletTransactionSwapBackBounced;
+  const factory TokenWalletTransaction.swapBackBounced(final BigInt data) =
+      TokenWalletTransactionSwapBackBounced;
 
   factory TokenWalletTransaction.fromJson(Map<String, dynamic> json) =>
       _$TokenWalletTransactionFromJson(json);

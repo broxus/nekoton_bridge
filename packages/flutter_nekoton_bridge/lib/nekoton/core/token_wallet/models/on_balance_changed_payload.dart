@@ -5,9 +5,8 @@ part 'on_balance_changed_payload.g.dart';
 
 @freezed
 sealed class OnBalanceChangedPayload with _$OnBalanceChangedPayload {
-  const factory OnBalanceChangedPayload({
-    required final BigInt balance,
-  }) = _OnBalanceChangedPayload;
+  const factory OnBalanceChangedPayload({required final BigInt balance}) =
+      _OnBalanceChangedPayload;
 
   factory OnBalanceChangedPayload.fromJson(Map<String, dynamic> json) =>
       _$OnBalanceChangedPayloadFromJson(json);

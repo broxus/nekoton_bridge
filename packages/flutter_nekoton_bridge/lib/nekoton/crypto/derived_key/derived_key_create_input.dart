@@ -14,11 +14,13 @@ sealed class DerivedKeyCreateInput
     implements CreateKeyInput {
   /// Create new labs key
   const factory DerivedKeyCreateInput.import(
-      final DerivedKeyCreateInputImport data) = _DerivedKeyCreateInputImport;
+    final DerivedKeyCreateInputImport data,
+  ) = _DerivedKeyCreateInputImport;
 
   /// Derive key from masterKey
   const factory DerivedKeyCreateInput.derive(
-      final DerivedKeyCreateInputDerive data) = _DerivedKeyCreateInputDerive;
+    final DerivedKeyCreateInputDerive data,
+  ) = _DerivedKeyCreateInputDerive;
 
   factory DerivedKeyCreateInput.fromJson(Map<String, dynamic> json) =>
       _$DerivedKeyCreateInputFromJson(json);

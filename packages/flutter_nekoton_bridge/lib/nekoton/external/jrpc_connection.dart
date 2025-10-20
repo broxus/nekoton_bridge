@@ -1,8 +1,5 @@
 import 'dart:async';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
-import 'package:flutter_nekoton_bridge/rust_to_dart/reflector.dart';
-import 'package:reflectable/mirrors.dart';
-import 'jrpc_connection.reflectable.dart';
 
 /// Interface for http client to make post requests.
 abstract interface class JrpcConnectionHttpClient {
@@ -15,8 +12,7 @@ abstract interface class JrpcConnectionHttpClient {
   void dispose();
 }
 
-@reflector
-class JrpcConnection extends RustToDartMirrorInterface {
+class JrpcConnection {
   late JrpcConnectionDartWrapper connection;
 
   final JrpcConnectionHttpClient _client;
@@ -27,12 +23,7 @@ class JrpcConnection extends RustToDartMirrorInterface {
 
   final type = TransportType.gql;
 
-  JrpcConnection._(
-    this._client,
-    this.settings,
-    this._name,
-    this._group,
-  );
+  JrpcConnection._(this._client, this.settings, this._name, this._group);
 
   static JrpcConnection create({
     required JrpcConnectionHttpClient client,
@@ -42,9 +33,7 @@ class JrpcConnection extends RustToDartMirrorInterface {
   }) {
     final instance = JrpcConnection._(client, settings, name, group);
 
-    instance.connection = JrpcConnectionDartWrapper(
-      instanceHash: instance.instanceHash,
-    );
+    instance.connection = JrpcConnectionDartWrapper(onPost: instance.post);
 
     return instance;
   }
@@ -58,9 +47,7 @@ class JrpcConnection extends RustToDartMirrorInterface {
     try {
       return await _client.post(
         endpoint: settings.endpoint,
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: {'Content-Type': 'application/json'},
         data: requestData,
       );
     } catch (error) {
@@ -68,18 +55,8 @@ class JrpcConnection extends RustToDartMirrorInterface {
     }
   }
 
-  @override
   void dispose() {
     connection.innerConnection.dispose();
     _client.dispose();
-    super.dispose();
-  }
-
-  @override
-  InstanceMirror initializeMirror() {
-    initializeReflectable(); // auto-generated reflectable file
-    return reflector.reflect(this);
   }
 }
-
-void main() {}
