@@ -2,15 +2,7 @@ version: 2
 enable-beta-ecosystems: true
 updates:
   - package-ecosystem: pub
-    directory: "/packages/nekoton_bridge"
-    schedule:
-      interval: daily
-  - package-ecosystem: pub
-    directory: "/packages/flutter_nekoton_bridge"
-    schedule:
-      interval: daily
-  - package-ecosystem: pub
-    directory: "/packages/flutter_nekoton_bridge/example"
+    directory: "/"
     schedule:
       interval: daily
   - package-ecosystem: cargo
