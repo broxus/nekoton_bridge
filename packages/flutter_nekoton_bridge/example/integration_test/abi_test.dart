@@ -194,6 +194,58 @@ void main() {
     expect(result.output!['value0'], '3');
   });
 
+  testWidgets('checkPublicKey', (WidgetTester tester) async {
+    await tester.pumpAndSettleWithTimeout();
+
+    const validPK = PublicKey(
+      publicKey:
+          '931db2b6fb238225ea12026338d2de84a17a7beaaffde9cc197216e2fbd86867',
+    );
+    const invalidPK = PublicKey(publicKey: '');
+
+    expect(checkPublicKey(validPK), isTrue);
+    expect(checkPublicKey(invalidPK), isFalse);
+  });
+
+  testWidgets('getBocHash', (WidgetTester tester) async {
+    await tester.pumpAndSettleWithTimeout();
+
+    final hash = getBocHash('te6ccgEBAgEAEQABAAEAGEhlbGxvIFdvcmxkIQ==');
+
+    expect(
+      hash,
+      'e05a79df2c2718d13b40f333012e5c231b172c854194f3c79ed875024a61239e',
+    );
+  });
+
+  testWidgets('packIntoCell', (WidgetTester tester) async {
+    await tester.pumpAndSettleWithTimeout();
+
+    final (tvc, hash) = packIntoCell(
+      params: [const AbiParam(type: 'uint256', name: 'value0')],
+      tokens: {'value0': 0},
+    );
+
+    expect(tvc, 'te6ccgEBAQEAIgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
+    expect(
+      hash,
+      '93ee6580964ac73a4808451a26eb38c90fba97dc8201ed9d28bc5f35d3b1fd82',
+    );
+  });
+
+  testWidgets('unpackFromCell', (WidgetTester tester) async {
+    await tester.pumpAndSettleWithTimeout();
+
+    final tokens = unpackFromCell(
+      params: [const AbiParam(type: 'uint256', name: 'value0')],
+      boc: 'te6ccgEBAQEAIgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+      allowPartial: false,
+    );
+
+    expect(tokens.isNotEmpty, isTrue);
+    expect(tokens['value0'], '0');
+  });
+
   // Moved to integration tests due to the need to call native methods (packAddress, repackAddress)
   group('Address', () {
     const raw1 =
