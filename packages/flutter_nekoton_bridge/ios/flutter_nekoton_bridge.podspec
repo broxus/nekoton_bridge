@@ -1,53 +1,12 @@
 release_tag_name = 'nekoton_bridge-v4.0.1' # generated; do not edit
-# # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# # Run `pod lib lint flutter_nekoton_bridge.podspec` to validate before publishing.
-# #
-# Pod::Spec.new do |s|
-#   s.name             = 'flutter_nekoton_bridge'
-#   s.version          = '0.0.1'
-#   s.summary          = 'A new Flutter FFI plugin project.'
-#   s.description      = <<-DESC
-# A new Flutter FFI plugin project.
-#                        DESC
-#   s.homepage         = 'http://example.com'
-#   s.license          = { :file => '../LICENSE' }
-#   s.author           = { 'Your Company' => 'email@example.com' }
-
-#   # This will ensure the source files in Classes/ are included in the native
-#   # builds of apps using this FFI plugin. Podspec does not support relative
-#   # paths, so Classes contains a forwarder C file that relatively imports
-#   # `../src/*` so that the C sources can be shared among all target platforms.
-#   s.source           = { :path => '.' }
-#   s.source_files = 'Classes/**/*'
-#   s.dependency 'Flutter'
-#   s.platform = :ios, '9.0'
-
-#   # Flutter.framework does not contain a i386 slice.
-#   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
-#   s.swift_version = '5.0'
-# end
 
 # We cannot distribute the XCFramework alongside the library directly,
 # so we have to fetch the correct version here.
 framework_name = 'NekotonBridge.xcframework'
-local_build_zip_name = "../../../../platform-build/#{framework_name}.zip"
+local_build_zip_name = File.expand_path("../../../../platform-build/#{framework_name}.zip", __dir__)
 remote_zip_name = "#{framework_name}.zip"
 url = "https://github.com/broxus/nekoton_bridge/releases/download/#{release_tag_name}/#{remote_zip_name}"
 local_zip_name = "#{release_tag_name}.zip"
-`
-cd Frameworks
-rm -rf #{framework_name}
-
-cp -f #{local_build_zip_name} #{local_zip_name}
-
-if [ ! -f #{local_zip_name} ]
-then
-  curl -L #{url} -o #{local_zip_name}
-fi
-
-unzip #{local_zip_name}
-cd -
-`
 
 Pod::Spec.new do |spec|
   spec.name          = 'flutter_nekoton_bridge'
@@ -63,4 +22,38 @@ Pod::Spec.new do |spec|
   spec.vendored_frameworks = "Frameworks/#{framework_name}"
 
   spec.ios.deployment_target = '11.0'
+
+  # Prepare the vendored XCFramework deterministically inside the sandbox.
+  spec.prepare_command = <<-CMD
+    set -euo pipefail
+
+    FRAMEWORKS_DIR="Frameworks"
+    FRAMEWORK_NAME="#{framework_name}"
+    ZIP_NAME="#{local_zip_name}"
+    DEFAULT_LOCAL_ZIP="#{local_build_zip_name}"
+    DEFAULT_URL="#{url}"
+
+    # Allow overrides via environment vars
+    LOCAL_ZIP="${NEKOTON_BRIDGE_ZIP:-$DEFAULT_LOCAL_ZIP}"
+    REMOTE_URL="${NEKOTON_BRIDGE_URL:-$DEFAULT_URL}"
+
+    mkdir -p "$FRAMEWORKS_DIR"
+    cd "$FRAMEWORKS_DIR"
+
+    # Prefer local build artifact if present
+    if [ -f "$LOCAL_ZIP" ]; then
+      cp -f "$LOCAL_ZIP" "$ZIP_NAME"
+    fi
+
+    if [ ! -f "$ZIP_NAME" ]; then
+      echo "Downloading NekotonBridge from $REMOTE_URL"
+      curl -fL --retry 3 --connect-timeout 15 "$REMOTE_URL" -o "$ZIP_NAME"
+    fi
+
+    rm -rf "$FRAMEWORK_NAME"
+    unzip -o -q "$ZIP_NAME"
+
+    # Optionally clean zip to reduce sandbox size
+    # rm -f "$ZIP_NAME"
+  CMD
 end
