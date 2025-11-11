@@ -253,6 +253,7 @@ void main() {
     const raw2 =
         '0:2ecbebcec6b163a9eb3e4c8f74d9ac52fd131173071787441d12f210885907f5';
     const bounceable1 = 'EQCVnoRAcypBvfVhKhUZM4vfJwlpqV0CQVAZrLvutrEkmrZO';
+    const nonbounceable1 = 'UQCVnoRAcypBvfVhKhUZM4vfJwlpqV0CQVAZrLvutrEkmgHN';
 
     test('hashCode', () {
       expect(
@@ -285,6 +286,18 @@ void main() {
       expect(const Address(address: raw1).isRaw, isTrue);
       expect(Address(address: raw1.toUpperCase()).isRaw, isTrue);
       expect(const Address(address: bounceable1).isRaw, isFalse);
+    });
+
+    test('isBounceable', () {
+      expect(const Address(address: raw1).isBounceable, isFalse);
+      expect(const Address(address: bounceable1).isBounceable, isTrue);
+      expect(const Address(address: nonbounceable1).isBounceable, isFalse);
+    });
+
+    test('isNonBounceable', () {
+      expect(const Address(address: raw1).isNonBounceable, isFalse);
+      expect(const Address(address: bounceable1).isNonBounceable, isFalse);
+      expect(const Address(address: nonbounceable1).isNonBounceable, isTrue);
     });
 
     test('toRaw', () {
