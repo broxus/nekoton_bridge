@@ -1,3 +1,7 @@
+## 4.1.0-dev.2
+
+ - **FEAT**: add bounceable and non-bounceable address checks.
+
 ## 4.1.0-dev.1
 
  - **FIX**: update library name checks for architecture presence in CMakeLists.

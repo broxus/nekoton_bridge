@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_nekoton_bridge` - `v4.1.0-dev.2`](#flutter_nekoton_bridge---v410-dev2)
+ - [`flutter_nekoton_bridge_example` - `v3.0.2-dev.2`](#flutter_nekoton_bridge_example---v302-dev2)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v3.0.2-dev.2`
+
+---
+
+#### `flutter_nekoton_bridge` - `v4.1.0-dev.2`
+
+ - **FEAT**: add bounceable and non-bounceable address checks.
+
+
+## 2025-11-11
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v4.1.0-dev.1`](#flutter_nekoton_bridge---v410-dev1)
  - [`flutter_nekoton_bridge_example` - `v3.0.2-dev.1`](#flutter_nekoton_bridge_example---v302-dev1)
 
