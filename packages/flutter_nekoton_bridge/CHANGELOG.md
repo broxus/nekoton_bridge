@@ -1,3 +1,7 @@
+## 4.1.0-dev.1
+
+ - **FIX**: update library name checks for architecture presence in CMakeLists.
+
 ## 4.1.0-dev.0
 
  - **FEAT**: improve package install workflow.
