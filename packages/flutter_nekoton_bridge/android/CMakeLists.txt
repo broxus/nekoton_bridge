@@ -72,9 +72,9 @@ if(NOT EXISTS "${StampFile}")
   endif()
 
   # Basic architecture presence checks (adjust if set differs)
-  foreach(arch IN ITEMS armeabi-v7a arm64-v8a x86_64)
-    if(NOT EXISTS "${LibRoot}/${arch}/libNekotonBridge.so")
-      message(FATAL_ERROR "Missing expected library for ${arch}: ${LibRoot}/${arch}/libNekotonBridge.so")
+  foreach(arch IN ITEMS armeabi-v7a arm64-v8a x86_64 x86)
+    if(NOT EXISTS "${LibRoot}/${arch}/libflutter_nekoton_bridge.so")
+      message(FATAL_ERROR "Missing expected library for ${arch}: ${LibRoot}/${arch}/libflutter_nekoton_bridge.so")
     endif()
   endforeach()
 
