@@ -17,6 +17,10 @@ sealed class Address with _$Address {
 
   bool get isValid => ntValidateAddress(address: address);
 
+  bool get isBounceable => address.startsWith('EQ');
+
+  bool get isNonBounceable => address.startsWith('UQ');
+
   String toJson() => toRaw();
 
   String toRaw() => isRaw ? address : ntRepackAddress(address: address);
