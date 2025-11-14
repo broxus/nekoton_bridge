@@ -5282,6 +5282,10 @@ class NekotonBridgeWire implements BaseWire {
   wire__crate__api__merged__nt_validate_address(String address) =>
       wasmModule.wire__crate__api__merged__nt_validate_address(address);
 
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+  wire__crate__api__merged__nt_validate_cell(String data) =>
+      wasmModule.wire__crate__api__merged__nt_validate_cell(data);
+
   void wire__crate__api__merged__nt_verify_signature(
     NativePortType port_,
     String public_key,
@@ -7665,6 +7669,9 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
 
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
   wire__crate__api__merged__nt_validate_address(String address);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+  wire__crate__api__merged__nt_validate_cell(String data);
 
   external void wire__crate__api__merged__nt_verify_signature(
     NativePortType port_,

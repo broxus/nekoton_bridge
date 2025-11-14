@@ -528,3 +528,5 @@ Address computeTonWalletAddress({
 
 int getContractTypeNumber(WalletType walletType) =>
     ntGetContractTypeNumber(walletType: jsonEncode(walletType));
+
+bool validateCell(String data) => ntValidateCell(data: data);

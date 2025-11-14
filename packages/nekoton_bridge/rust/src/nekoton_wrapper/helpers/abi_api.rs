@@ -1136,6 +1136,14 @@ pub fn nt_compute_ton_wallet_address(
 }
 
 #[frb(sync)]
+pub fn nt_validate_cell(data: String) -> anyhow::Result<bool> {
+    match parse_cell(data) {
+        Ok(_) => Ok(true),
+        Err(_) => Ok(false),
+    }
+}
+
+#[frb(sync)]
 pub fn nt_get_contract_type_number(wallet_type: String) -> anyhow::Result<u16> {
     let wallet_type = serde_json::from_str::<WalletTypeHelper>(&wallet_type)
         .map(|WalletTypeHelper(wallet_type)| wallet_type)

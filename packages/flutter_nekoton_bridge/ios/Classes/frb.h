@@ -896,6 +896,8 @@ WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_s
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_validate_address(struct wire_cst_list_prim_u_8_strict *address);
 
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_validate_cell(struct wire_cst_list_prim_u_8_strict *data);
+
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_verify_signature(int64_t port_,
                                                                          struct wire_cst_list_prim_u_8_strict *public_key,
                                                                          struct wire_cst_list_prim_u_8_strict *data,
@@ -1644,6 +1646,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_init_data);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_std_smc_addr);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_validate_address);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_validate_cell);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_verify_signature);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_connection_dart_wrapper_new);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_accounts_by_code_hash);

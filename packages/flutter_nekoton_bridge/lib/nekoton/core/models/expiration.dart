@@ -11,7 +11,7 @@ sealed class Expiration with _$Expiration {
   /// In seconds
   const factory Expiration.timeout(int data) = ExpirationTimeout;
 
-  /// In milliseconds
+  /// In seconds
   const factory Expiration.timestamp(int data) = ExpirationTimestamp;
 
   factory Expiration.fromJson(Map<String, dynamic> json) =>

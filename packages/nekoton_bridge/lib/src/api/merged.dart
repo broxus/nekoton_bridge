@@ -481,6 +481,9 @@ String ntComputeTonWalletAddress({
   workchain: workchain,
 );
 
+bool ntValidateCell({required String data}) =>
+    NekotonBridge.instance.api.crateApiMergedNtValidateCell(data: data);
+
 int ntGetContractTypeNumber({required String walletType}) => NekotonBridge
     .instance
     .api

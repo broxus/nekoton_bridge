@@ -9187,6 +9187,28 @@ class NekotonBridgeWire implements BaseWire {
             )
           >();
 
+  WireSyncRust2DartDco wire__crate__api__merged__nt_validate_cell(
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> data,
+  ) {
+    return _wire__crate__api__merged__nt_validate_cell(data);
+  }
+
+  late final _wire__crate__api__merged__nt_validate_cellPtr =
+      _lookup<
+        ffi.NativeFunction<
+          WireSyncRust2DartDco Function(
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+          )
+        >
+      >('frbgen_nekoton_bridge_wire__crate__api__merged__nt_validate_cell');
+  late final _wire__crate__api__merged__nt_validate_cell =
+      _wire__crate__api__merged__nt_validate_cellPtr
+          .asFunction<
+            WireSyncRust2DartDco Function(
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            )
+          >();
+
   void wire__crate__api__merged__nt_verify_signature(
     int port_,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> public_key,

@@ -74,7 +74,7 @@ class NekotonBridge
   String get codegenVersion => '2.11.1';
 
   @override
-  int get rustContentHash => 1704458980;
+  int get rustContentHash => -77259076;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -1080,6 +1080,8 @@ abstract class NekotonBridgeApi extends BaseApi {
   });
 
   bool crateApiMergedNtValidateAddress({required String address});
+
+  bool crateApiMergedNtValidateCell({required String data});
 
   Future<bool> crateApiMergedNtVerifySignature({
     required String publicKey,
@@ -8710,6 +8712,28 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         debugName: "nt_validate_address",
         argNames: ["address"],
       );
+
+  @override
+  bool crateApiMergedNtValidateCell({required String data}) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(data);
+          return wire.wire__crate__api__merged__nt_validate_cell(arg0);
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_bool,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedNtValidateCellConstMeta,
+        argValues: [data],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiMergedNtValidateCellConstMeta =>
+      const TaskConstMeta(debugName: "nt_validate_cell", argNames: ["data"]);
 
   @override
   Future<bool> crateApiMergedNtVerifySignature({

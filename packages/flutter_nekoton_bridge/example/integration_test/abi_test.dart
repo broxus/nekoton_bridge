@@ -54,6 +54,13 @@ void main() {
   });
 
   group('ABI test', () {
+    testWidgets('validateCell', (WidgetTester tester) async {
+      await tester.pumpAndSettleWithTimeout();
+
+      expect(validateCell('te6ccsEBAQEADAAMABQAAAAASGVsbG8hCaTc/g=='), isTrue);
+      expect(validateCell('te7ccsEBAQEADAAMABQAAAAASGVsbG8hCaTc/g=='), isFalse);
+    });
+
     testWidgets('decodeTransaction', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
