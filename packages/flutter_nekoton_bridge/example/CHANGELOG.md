@@ -1,3 +1,7 @@
+## 3.0.2-dev.3
+
+ - **FEAT**: add validateCell function and corresponding tests.
+
 ## 3.0.2-dev.2
 
  - Update a dependency to the latest release.
