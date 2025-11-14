@@ -1,3 +1,7 @@
+## 4.1.0-dev.3
+
+ - **FEAT**: add validateCell function and corresponding tests.
+
 ## 4.1.0-dev.2
 
  - **FEAT**: add bounceable and non-bounceable address checks.

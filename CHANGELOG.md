@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-11-14
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v4.1.0-dev.3`](#flutter_nekoton_bridge---v410-dev3)
+ - [`flutter_nekoton_bridge_example` - `v3.0.2-dev.3`](#flutter_nekoton_bridge_example---v302-dev3)
+ - [`nekoton_bridge` - `v4.1.0-dev.0`](#nekoton_bridge---v410-dev0)
+
+---
+
+#### `flutter_nekoton_bridge` - `v4.1.0-dev.3`
+
+ - **FEAT**: add validateCell function and corresponding tests.
+
+#### `flutter_nekoton_bridge_example` - `v3.0.2-dev.3`
+
+ - **FEAT**: add validateCell function and corresponding tests.
+
+#### `nekoton_bridge` - `v4.1.0-dev.0`
+
+ - **FEAT**: add validateCell function and corresponding tests.
+
+
 ## 2025-11-11
 
 ### Changes

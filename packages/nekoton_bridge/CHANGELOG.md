@@ -1,3 +1,7 @@
+## 4.1.0-dev.0
+
+ - **FEAT**: add validateCell function and corresponding tests.
+
 ## 4.0.1
 
  - **FIX**: force package version bump.
