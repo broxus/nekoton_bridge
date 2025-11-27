@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-11-27
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v4.2.0`](#flutter_nekoton_bridge---v420)
+ - [`flutter_nekoton_bridge_example` - `v3.1.0`](#flutter_nekoton_bridge_example---v310)
+ - [`nekoton_bridge` - `v4.2.0`](#nekoton_bridge---v420)
+
+---
+
+#### `flutter_nekoton_bridge` - `v4.2.0`
+
+ - **FEAT**(EWM-600): enhance public key validation and update API response handling.
+
+#### `flutter_nekoton_bridge_example` - `v3.1.0`
+
+ - **FEAT**(EWM-600): enhance public key validation and update API response handling.
+
+#### `nekoton_bridge` - `v4.2.0`
+
+ - **FEAT**(EWM-600): enhance public key validation and update API response handling.
+
+
 ## 2025-11-20
 
 ### Changes

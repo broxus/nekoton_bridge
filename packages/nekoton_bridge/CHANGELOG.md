@@ -1,3 +1,7 @@
+## 4.2.0
+
+ - **FEAT**(EWM-600): enhance public key validation and update API response handling.
+
 ## 4.1.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
