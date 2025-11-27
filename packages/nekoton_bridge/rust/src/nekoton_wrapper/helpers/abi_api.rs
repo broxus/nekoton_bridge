@@ -1136,11 +1136,8 @@ pub fn nt_compute_ton_wallet_address(
 }
 
 #[frb(sync)]
-pub fn nt_validate_cell(data: String) -> anyhow::Result<bool> {
-    match parse_cell(data) {
-        Ok(_) => Ok(true),
-        Err(_) => Ok(false),
-    }
+pub fn nt_validate_cell(data: String) -> bool {
+    parse_cell(data).is_ok()
 }
 
 #[frb(sync)]

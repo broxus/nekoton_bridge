@@ -208,10 +208,15 @@ void main() {
       publicKey:
           '931db2b6fb238225ea12026338d2de84a17a7beaaffde9cc197216e2fbd86867',
     );
-    const invalidPK = PublicKey(publicKey: '');
+    const invalidPK = PublicKey(
+      publicKey:
+          '931db2b6fb238225ea12026338d2de84a17a7beaaffde9cc197216e2fbd8686',
+    );
 
     expect(checkPublicKey(validPK), isTrue);
+    expect(validPK.isValid, isTrue);
     expect(checkPublicKey(invalidPK), isFalse);
+    expect(invalidPK.isValid, isFalse);
   });
 
   testWidgets('getBocHash', (WidgetTester tester) async {

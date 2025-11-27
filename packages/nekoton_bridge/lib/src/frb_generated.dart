@@ -8723,7 +8723,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         },
         codec: DcoCodec(
           decodeSuccessData: dco_decode_bool,
-          decodeErrorData: dco_decode_AnyhowException,
+          decodeErrorData: null,
         ),
         constMeta: kCrateApiMergedNtValidateCellConstMeta,
         argValues: [data],
