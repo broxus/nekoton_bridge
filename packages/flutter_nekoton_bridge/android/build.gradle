@@ -11,7 +11,7 @@ buildscript {
 
     dependencies {
         // The Android Gradle Plugin knows how to build native code with the NDK.
-        classpath 'com.android.tools.build:gradle:8.9.1'
+        classpath 'com.android.tools.build:gradle:8.11.1'
     }
 }
 
@@ -26,10 +26,11 @@ apply plugin: 'com.android.library'
 
 android {
     namespace = "com.broxus.flutter_nekoton_bridge.flutter_nekoton_bridge"
-    compileSdkVersion 33
+    compileSdkVersion flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion flutter.minSdkVersion
     }
 
     // Trigger the binary download/update over in CMakeLists.txt
