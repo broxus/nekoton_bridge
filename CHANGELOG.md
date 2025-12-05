@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-12-05
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - [`flutter_nekoton_bridge` - `v5.0.0`](#flutter_nekoton_bridge---v500)
+ - [`flutter_nekoton_bridge_example` - `v4.0.0`](#flutter_nekoton_bridge_example---v400)
+ - [`nekoton_bridge` - `v5.0.0`](#nekoton_bridge---v500)
+
+Packages with other changes:
+
+ - There are no other changes in this release.
+
+---
+
+#### `flutter_nekoton_bridge` - `v5.0.0`
+
+ - **BREAKING** **CHORE**: update flutter >=3.38.0.
+
+#### `flutter_nekoton_bridge_example` - `v4.0.0`
+
+ - **BREAKING** **CHORE**: update flutter >=3.38.0.
+
+#### `nekoton_bridge` - `v5.0.0`
+
+ - **BREAKING** **CHORE**: update flutter >=3.38.0.
+
+
 ## 2025-11-27
 
 ### Changes
