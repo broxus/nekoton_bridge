@@ -1,3 +1,9 @@
+## 4.0.0
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **CHORE**: update flutter >=3.38.0.
+
 ## 3.1.0
 
  - **FEAT**(EWM-600): enhance public key validation and update API response handling.
