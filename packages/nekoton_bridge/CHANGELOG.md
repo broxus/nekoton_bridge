@@ -1,3 +1,7 @@
+## 5.1.0
+
+ - **FEAT**: update `nekoton`; add JettonBurnNotification model and integrate with TokenWalletTransaction.
+
 ## 5.0.0
 
 > Note: This release has breaking changes.
