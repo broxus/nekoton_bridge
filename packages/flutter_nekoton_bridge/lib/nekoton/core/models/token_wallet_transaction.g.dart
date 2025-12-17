@@ -28,6 +28,17 @@ Map<String, dynamic> _$TokenWalletTransactionInternalTransferToJson(
   TokenWalletTransactionInternalTransfer instance,
 ) => <String, dynamic>{'data': instance.data.toJson(), 'type': instance.$type};
 
+TokenWalletTransactionBurnNotification
+_$TokenWalletTransactionBurnNotificationFromJson(Map<String, dynamic> json) =>
+    TokenWalletTransactionBurnNotification(
+      JettonBurnNotification.fromJson(json['data'] as Map<String, dynamic>),
+      $type: json['type'] as String?,
+    );
+
+Map<String, dynamic> _$TokenWalletTransactionBurnNotificationToJson(
+  TokenWalletTransactionBurnNotification instance,
+) => <String, dynamic>{'data': instance.data.toJson(), 'type': instance.$type};
+
 TokenWalletTransactionIncomingTransfer
 _$TokenWalletTransactionIncomingTransferFromJson(Map<String, dynamic> json) =>
     TokenWalletTransactionIncomingTransfer(

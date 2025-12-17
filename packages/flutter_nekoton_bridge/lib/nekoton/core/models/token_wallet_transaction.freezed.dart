@@ -23,6 +23,10 @@ TokenWalletTransaction _$TokenWalletTransactionFromJson(
           return TokenWalletTransactionInternalTransfer.fromJson(
             json
           );
+                case 'burn_notification':
+          return TokenWalletTransactionBurnNotification.fromJson(
+            json
+          );
                 case 'incoming_transfer':
           return TokenWalletTransactionIncomingTransfer.fromJson(
             json
@@ -105,12 +109,13 @@ extension TokenWalletTransactionPatterns on TokenWalletTransaction {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( TokenWalletTransactionTransfer value)?  transfer,TResult Function( TokenWalletTransactionInternalTransfer value)?  internalTransfer,TResult Function( TokenWalletTransactionIncomingTransfer value)?  incomingTransfer,TResult Function( TokenWalletTransactionOutgoingTransfer value)?  outgoingTransfer,TResult Function( TokenWalletTransactionSwapBack value)?  swapBack,TResult Function( TokenWalletTransactionAccept value)?  accept,TResult Function( TokenWalletTransactionTransferBounced value)?  transferBounced,TResult Function( TokenWalletTransactionSwapBackBounced value)?  swapBackBounced,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( TokenWalletTransactionTransfer value)?  transfer,TResult Function( TokenWalletTransactionInternalTransfer value)?  internalTransfer,TResult Function( TokenWalletTransactionBurnNotification value)?  burnNotification,TResult Function( TokenWalletTransactionIncomingTransfer value)?  incomingTransfer,TResult Function( TokenWalletTransactionOutgoingTransfer value)?  outgoingTransfer,TResult Function( TokenWalletTransactionSwapBack value)?  swapBack,TResult Function( TokenWalletTransactionAccept value)?  accept,TResult Function( TokenWalletTransactionTransferBounced value)?  transferBounced,TResult Function( TokenWalletTransactionSwapBackBounced value)?  swapBackBounced,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case TokenWalletTransactionTransfer() when transfer != null:
 return transfer(_that);case TokenWalletTransactionInternalTransfer() when internalTransfer != null:
-return internalTransfer(_that);case TokenWalletTransactionIncomingTransfer() when incomingTransfer != null:
+return internalTransfer(_that);case TokenWalletTransactionBurnNotification() when burnNotification != null:
+return burnNotification(_that);case TokenWalletTransactionIncomingTransfer() when incomingTransfer != null:
 return incomingTransfer(_that);case TokenWalletTransactionOutgoingTransfer() when outgoingTransfer != null:
 return outgoingTransfer(_that);case TokenWalletTransactionSwapBack() when swapBack != null:
 return swapBack(_that);case TokenWalletTransactionAccept() when accept != null:
@@ -134,12 +139,13 @@ return swapBackBounced(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( TokenWalletTransactionTransfer value)  transfer,required TResult Function( TokenWalletTransactionInternalTransfer value)  internalTransfer,required TResult Function( TokenWalletTransactionIncomingTransfer value)  incomingTransfer,required TResult Function( TokenWalletTransactionOutgoingTransfer value)  outgoingTransfer,required TResult Function( TokenWalletTransactionSwapBack value)  swapBack,required TResult Function( TokenWalletTransactionAccept value)  accept,required TResult Function( TokenWalletTransactionTransferBounced value)  transferBounced,required TResult Function( TokenWalletTransactionSwapBackBounced value)  swapBackBounced,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( TokenWalletTransactionTransfer value)  transfer,required TResult Function( TokenWalletTransactionInternalTransfer value)  internalTransfer,required TResult Function( TokenWalletTransactionBurnNotification value)  burnNotification,required TResult Function( TokenWalletTransactionIncomingTransfer value)  incomingTransfer,required TResult Function( TokenWalletTransactionOutgoingTransfer value)  outgoingTransfer,required TResult Function( TokenWalletTransactionSwapBack value)  swapBack,required TResult Function( TokenWalletTransactionAccept value)  accept,required TResult Function( TokenWalletTransactionTransferBounced value)  transferBounced,required TResult Function( TokenWalletTransactionSwapBackBounced value)  swapBackBounced,}){
 final _that = this;
 switch (_that) {
 case TokenWalletTransactionTransfer():
 return transfer(_that);case TokenWalletTransactionInternalTransfer():
-return internalTransfer(_that);case TokenWalletTransactionIncomingTransfer():
+return internalTransfer(_that);case TokenWalletTransactionBurnNotification():
+return burnNotification(_that);case TokenWalletTransactionIncomingTransfer():
 return incomingTransfer(_that);case TokenWalletTransactionOutgoingTransfer():
 return outgoingTransfer(_that);case TokenWalletTransactionSwapBack():
 return swapBack(_that);case TokenWalletTransactionAccept():
@@ -159,12 +165,13 @@ return swapBackBounced(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( TokenWalletTransactionTransfer value)?  transfer,TResult? Function( TokenWalletTransactionInternalTransfer value)?  internalTransfer,TResult? Function( TokenWalletTransactionIncomingTransfer value)?  incomingTransfer,TResult? Function( TokenWalletTransactionOutgoingTransfer value)?  outgoingTransfer,TResult? Function( TokenWalletTransactionSwapBack value)?  swapBack,TResult? Function( TokenWalletTransactionAccept value)?  accept,TResult? Function( TokenWalletTransactionTransferBounced value)?  transferBounced,TResult? Function( TokenWalletTransactionSwapBackBounced value)?  swapBackBounced,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( TokenWalletTransactionTransfer value)?  transfer,TResult? Function( TokenWalletTransactionInternalTransfer value)?  internalTransfer,TResult? Function( TokenWalletTransactionBurnNotification value)?  burnNotification,TResult? Function( TokenWalletTransactionIncomingTransfer value)?  incomingTransfer,TResult? Function( TokenWalletTransactionOutgoingTransfer value)?  outgoingTransfer,TResult? Function( TokenWalletTransactionSwapBack value)?  swapBack,TResult? Function( TokenWalletTransactionAccept value)?  accept,TResult? Function( TokenWalletTransactionTransferBounced value)?  transferBounced,TResult? Function( TokenWalletTransactionSwapBackBounced value)?  swapBackBounced,}){
 final _that = this;
 switch (_that) {
 case TokenWalletTransactionTransfer() when transfer != null:
 return transfer(_that);case TokenWalletTransactionInternalTransfer() when internalTransfer != null:
-return internalTransfer(_that);case TokenWalletTransactionIncomingTransfer() when incomingTransfer != null:
+return internalTransfer(_that);case TokenWalletTransactionBurnNotification() when burnNotification != null:
+return burnNotification(_that);case TokenWalletTransactionIncomingTransfer() when incomingTransfer != null:
 return incomingTransfer(_that);case TokenWalletTransactionOutgoingTransfer() when outgoingTransfer != null:
 return outgoingTransfer(_that);case TokenWalletTransactionSwapBack() when swapBack != null:
 return swapBack(_that);case TokenWalletTransactionAccept() when accept != null:
@@ -187,11 +194,12 @@ return swapBackBounced(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( JettonOutgoingTransfer data)?  transfer,TResult Function( JettonIncomingTransfer data)?  internalTransfer,TResult Function( TokenIncomingTransfer data)?  incomingTransfer,TResult Function( TokenOutgoingTransfer data)?  outgoingTransfer,TResult Function( TokenSwapBack data)?  swapBack,TResult Function( BigInt data)?  accept,TResult Function( BigInt data)?  transferBounced,TResult Function( BigInt data)?  swapBackBounced,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( JettonOutgoingTransfer data)?  transfer,TResult Function( JettonIncomingTransfer data)?  internalTransfer,TResult Function( JettonBurnNotification data)?  burnNotification,TResult Function( TokenIncomingTransfer data)?  incomingTransfer,TResult Function( TokenOutgoingTransfer data)?  outgoingTransfer,TResult Function( TokenSwapBack data)?  swapBack,TResult Function( BigInt data)?  accept,TResult Function( BigInt data)?  transferBounced,TResult Function( BigInt data)?  swapBackBounced,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case TokenWalletTransactionTransfer() when transfer != null:
 return transfer(_that.data);case TokenWalletTransactionInternalTransfer() when internalTransfer != null:
-return internalTransfer(_that.data);case TokenWalletTransactionIncomingTransfer() when incomingTransfer != null:
+return internalTransfer(_that.data);case TokenWalletTransactionBurnNotification() when burnNotification != null:
+return burnNotification(_that.data);case TokenWalletTransactionIncomingTransfer() when incomingTransfer != null:
 return incomingTransfer(_that.data);case TokenWalletTransactionOutgoingTransfer() when outgoingTransfer != null:
 return outgoingTransfer(_that.data);case TokenWalletTransactionSwapBack() when swapBack != null:
 return swapBack(_that.data);case TokenWalletTransactionAccept() when accept != null:
@@ -215,11 +223,12 @@ return swapBackBounced(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( JettonOutgoingTransfer data)  transfer,required TResult Function( JettonIncomingTransfer data)  internalTransfer,required TResult Function( TokenIncomingTransfer data)  incomingTransfer,required TResult Function( TokenOutgoingTransfer data)  outgoingTransfer,required TResult Function( TokenSwapBack data)  swapBack,required TResult Function( BigInt data)  accept,required TResult Function( BigInt data)  transferBounced,required TResult Function( BigInt data)  swapBackBounced,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( JettonOutgoingTransfer data)  transfer,required TResult Function( JettonIncomingTransfer data)  internalTransfer,required TResult Function( JettonBurnNotification data)  burnNotification,required TResult Function( TokenIncomingTransfer data)  incomingTransfer,required TResult Function( TokenOutgoingTransfer data)  outgoingTransfer,required TResult Function( TokenSwapBack data)  swapBack,required TResult Function( BigInt data)  accept,required TResult Function( BigInt data)  transferBounced,required TResult Function( BigInt data)  swapBackBounced,}) {final _that = this;
 switch (_that) {
 case TokenWalletTransactionTransfer():
 return transfer(_that.data);case TokenWalletTransactionInternalTransfer():
-return internalTransfer(_that.data);case TokenWalletTransactionIncomingTransfer():
+return internalTransfer(_that.data);case TokenWalletTransactionBurnNotification():
+return burnNotification(_that.data);case TokenWalletTransactionIncomingTransfer():
 return incomingTransfer(_that.data);case TokenWalletTransactionOutgoingTransfer():
 return outgoingTransfer(_that.data);case TokenWalletTransactionSwapBack():
 return swapBack(_that.data);case TokenWalletTransactionAccept():
@@ -239,11 +248,12 @@ return swapBackBounced(_that.data);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( JettonOutgoingTransfer data)?  transfer,TResult? Function( JettonIncomingTransfer data)?  internalTransfer,TResult? Function( TokenIncomingTransfer data)?  incomingTransfer,TResult? Function( TokenOutgoingTransfer data)?  outgoingTransfer,TResult? Function( TokenSwapBack data)?  swapBack,TResult? Function( BigInt data)?  accept,TResult? Function( BigInt data)?  transferBounced,TResult? Function( BigInt data)?  swapBackBounced,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( JettonOutgoingTransfer data)?  transfer,TResult? Function( JettonIncomingTransfer data)?  internalTransfer,TResult? Function( JettonBurnNotification data)?  burnNotification,TResult? Function( TokenIncomingTransfer data)?  incomingTransfer,TResult? Function( TokenOutgoingTransfer data)?  outgoingTransfer,TResult? Function( TokenSwapBack data)?  swapBack,TResult? Function( BigInt data)?  accept,TResult? Function( BigInt data)?  transferBounced,TResult? Function( BigInt data)?  swapBackBounced,}) {final _that = this;
 switch (_that) {
 case TokenWalletTransactionTransfer() when transfer != null:
 return transfer(_that.data);case TokenWalletTransactionInternalTransfer() when internalTransfer != null:
-return internalTransfer(_that.data);case TokenWalletTransactionIncomingTransfer() when incomingTransfer != null:
+return internalTransfer(_that.data);case TokenWalletTransactionBurnNotification() when burnNotification != null:
+return burnNotification(_that.data);case TokenWalletTransactionIncomingTransfer() when incomingTransfer != null:
 return incomingTransfer(_that.data);case TokenWalletTransactionOutgoingTransfer() when outgoingTransfer != null:
 return outgoingTransfer(_that.data);case TokenWalletTransactionSwapBack() when swapBack != null:
 return swapBack(_that.data);case TokenWalletTransactionAccept() when accept != null:
@@ -416,6 +426,88 @@ as JettonIncomingTransfer,
 $JettonIncomingTransferCopyWith<$Res> get data {
   
   return $JettonIncomingTransferCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class TokenWalletTransactionBurnNotification implements TokenWalletTransaction {
+  const TokenWalletTransactionBurnNotification(this.data, {final  String? $type}): $type = $type ?? 'burn_notification';
+  factory TokenWalletTransactionBurnNotification.fromJson(Map<String, dynamic> json) => _$TokenWalletTransactionBurnNotificationFromJson(json);
+
+@override final  JettonBurnNotification data;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of TokenWalletTransaction
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$TokenWalletTransactionBurnNotificationCopyWith<TokenWalletTransactionBurnNotification> get copyWith => _$TokenWalletTransactionBurnNotificationCopyWithImpl<TokenWalletTransactionBurnNotification>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$TokenWalletTransactionBurnNotificationToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TokenWalletTransactionBurnNotification&&(identical(other.data, data) || other.data == data));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'TokenWalletTransaction.burnNotification(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $TokenWalletTransactionBurnNotificationCopyWith<$Res> implements $TokenWalletTransactionCopyWith<$Res> {
+  factory $TokenWalletTransactionBurnNotificationCopyWith(TokenWalletTransactionBurnNotification value, $Res Function(TokenWalletTransactionBurnNotification) _then) = _$TokenWalletTransactionBurnNotificationCopyWithImpl;
+@useResult
+$Res call({
+ JettonBurnNotification data
+});
+
+
+$JettonBurnNotificationCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$TokenWalletTransactionBurnNotificationCopyWithImpl<$Res>
+    implements $TokenWalletTransactionBurnNotificationCopyWith<$Res> {
+  _$TokenWalletTransactionBurnNotificationCopyWithImpl(this._self, this._then);
+
+  final TokenWalletTransactionBurnNotification _self;
+  final $Res Function(TokenWalletTransactionBurnNotification) _then;
+
+/// Create a copy of TokenWalletTransaction
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(TokenWalletTransactionBurnNotification(
+null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as JettonBurnNotification,
+  ));
+}
+
+/// Create a copy of TokenWalletTransaction
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$JettonBurnNotificationCopyWith<$Res> get data {
+  
+  return $JettonBurnNotificationCopyWith<$Res>(_self.data, (value) {
     return _then(_self.copyWith(data: value));
   });
 }

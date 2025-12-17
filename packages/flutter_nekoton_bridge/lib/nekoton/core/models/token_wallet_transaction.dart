@@ -14,6 +14,10 @@ sealed class TokenWalletTransaction with _$TokenWalletTransaction {
     final JettonIncomingTransfer data,
   ) = TokenWalletTransactionInternalTransfer;
 
+  const factory TokenWalletTransaction.burnNotification(
+    final JettonBurnNotification data,
+  ) = TokenWalletTransactionBurnNotification;
+
   const factory TokenWalletTransaction.incomingTransfer(
     final TokenIncomingTransfer data,
   ) = TokenWalletTransactionIncomingTransfer;
