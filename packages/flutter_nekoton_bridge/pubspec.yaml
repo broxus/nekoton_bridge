@@ -1,6 +1,6 @@
 name: flutter_nekoton_bridge
 description: Flutter Nekoton bridge.
-version: 5.0.0
+version: 5.1.0
 homepage: https://github.com/broxus/nekoton_bridge.git
 repository: https://github.com/broxus/nekoton_bridge.git
 resolution: workspace
@@ -15,7 +15,7 @@ dependencies:
   plugin_platform_interface: ^2.1.8
   rxdart: ^0.28.0
   money2: ^6.0.0
-  nekoton_bridge: ^5.0.0
+  nekoton_bridge: ^5.1.0
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
   crypto: ^3.0.6
