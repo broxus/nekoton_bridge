@@ -1,3 +1,7 @@
+## 5.2.0
+
+ - **FEAT**: add `BlockchainConfigParams` wrapper and related API functions.
+
 ## 5.1.0
 
  - **FEAT**: update `nekoton`; add JettonBurnNotification model and integrate with TokenWalletTransaction.
