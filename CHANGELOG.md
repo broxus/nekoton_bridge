@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-12-29
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v5.2.0`](#flutter_nekoton_bridge---v520)
+ - [`flutter_nekoton_bridge_example` - `v4.1.0`](#flutter_nekoton_bridge_example---v410)
+ - [`nekoton_bridge` - `v5.2.0`](#nekoton_bridge---v520)
+
+---
+
+#### `flutter_nekoton_bridge` - `v5.2.0`
+
+ - **FEAT**: add `BlockchainConfigParams` wrapper and related API functions.
+
+#### `flutter_nekoton_bridge_example` - `v4.1.0`
+
+ - **FEAT**: add `BlockchainConfigParams` wrapper and related API functions.
+
+#### `nekoton_bridge` - `v5.2.0`
+
+ - **FEAT**: add `BlockchainConfigParams` wrapper and related API functions.
+
+
 ## 2025-12-17
 
 ### Changes

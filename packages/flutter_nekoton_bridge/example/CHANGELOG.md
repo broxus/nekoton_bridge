@@ -1,3 +1,7 @@
+## 4.1.0
+
+ - **FEAT**: add `BlockchainConfigParams` wrapper and related API functions.
+
 ## 4.0.1
 
  - Update a dependency to the latest release.
