@@ -74,7 +74,7 @@ class NekotonBridge
   String get codegenVersion => '2.11.1';
 
   @override
-  int get rustContentHash => -77259076;
+  int get rustContentHash => 741897443;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -445,6 +445,14 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   Future<bool> crateApiMergedAccountsStorageImplVerifyData({
     required String data,
+  });
+
+  List<String> crateApiMergedBlockchainConfigParamsFundamentalSmcAddr({
+    required BlockchainConfigParams that,
+  });
+
+  BlockchainConfigParams crateApiMergedBlockchainConfigParamsNew({
+    required String paramsRoot,
   });
 
   Stream<LogEntry> crateApiMergedCreateLogStream();
@@ -1573,6 +1581,14 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   CrossPlatformFinalizerArg
   get rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTraitPtr;
+
+  RustArcIncrementStrongCountFnType
+  get rust_arc_increment_strong_count_ConfigParams;
+
+  RustArcDecrementStrongCountFnType
+  get rust_arc_decrement_strong_count_ConfigParams;
+
+  CrossPlatformFinalizerArg get rust_arc_decrement_strong_count_ConfigParamsPtr;
 
   RustArcIncrementStrongCountFnType
   get rust_arc_increment_strong_count_ArcFnStringDartFnFutureOptionString;
@@ -4439,6 +4455,67 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       const TaskConstMeta(
         debugName: "accounts_storage_impl_verify_data",
         argNames: ["data"],
+      );
+
+  @override
+  List<String> crateApiMergedBlockchainConfigParamsFundamentalSmcAddr({
+    required BlockchainConfigParams that,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_box_autoadd_blockchain_config_params(that);
+          return wire
+              .wire__crate__api__merged__blockchain_config_params_fundamental_smc_addr(
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_list_String,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedBlockchainConfigParamsFundamentalSmcAddrConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta
+  get kCrateApiMergedBlockchainConfigParamsFundamentalSmcAddrConstMeta =>
+      const TaskConstMeta(
+        debugName: "blockchain_config_params_fundamental_smc_addr",
+        argNames: ["that"],
+      );
+
+  @override
+  BlockchainConfigParams crateApiMergedBlockchainConfigParamsNew({
+    required String paramsRoot,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          var arg0 = cst_encode_String(paramsRoot);
+          return wire.wire__crate__api__merged__blockchain_config_params_new(
+            arg0,
+          );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_blockchain_config_params,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedBlockchainConfigParamsNewConstMeta,
+        argValues: [paramsRoot],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiMergedBlockchainConfigParamsNewConstMeta =>
+      const TaskConstMeta(
+        debugName: "blockchain_config_params_new",
+        argNames: ["paramsRoot"],
       );
 
   @override
@@ -11759,6 +11836,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       .rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait;
 
   RustArcIncrementStrongCountFnType
+  get rust_arc_increment_strong_count_ConfigParams =>
+      wire.rust_arc_increment_strong_count_RustOpaque_ConfigParams;
+
+  RustArcDecrementStrongCountFnType
+  get rust_arc_decrement_strong_count_ConfigParams =>
+      wire.rust_arc_decrement_strong_count_RustOpaque_ConfigParams;
+
+  RustArcIncrementStrongCountFnType
   get rust_arc_increment_strong_count_ArcFnStringDartFnFutureOptionString => wire
       .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync;
 
@@ -12457,6 +12542,12 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  ConfigParams dco_decode_RustOpaque_ConfigParams(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return ConfigParamsImpl.frbInternalDcoDecode(raw as List<dynamic>);
+  }
+
+  @protected
   ArcFnStringDartFnFutureOptionString
   dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
     dynamic raw,
@@ -12682,6 +12773,17 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  BlockchainConfigParams dco_decode_blockchain_config_params(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 1)
+      throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
+    return BlockchainConfigParams.raw(
+      inner: dco_decode_RustOpaque_ConfigParams(arr[0]),
+    );
+  }
+
+  @protected
   bool dco_decode_bool(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return raw as bool;
@@ -12699,6 +12801,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   Bip39MnemonicData dco_decode_box_autoadd_bip_39_mnemonic_data(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dco_decode_bip_39_mnemonic_data(raw);
+  }
+
+  @protected
+  BlockchainConfigParams dco_decode_box_autoadd_blockchain_config_params(
+    dynamic raw,
+  ) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return dco_decode_blockchain_config_params(raw);
   }
 
   @protected
@@ -13870,6 +13980,17 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  ConfigParams sse_decode_RustOpaque_ConfigParams(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return ConfigParamsImpl.frbInternalSseDecode(
+      sse_decode_usize(deserializer),
+      sse_decode_i_32(deserializer),
+    );
+  }
+
+  @protected
   ArcFnStringDartFnFutureOptionString
   sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
     SseDeserializer deserializer,
@@ -14129,6 +14250,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  BlockchainConfigParams sse_decode_blockchain_config_params(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var var_inner = sse_decode_RustOpaque_ConfigParams(deserializer);
+    return BlockchainConfigParams.raw(inner: var_inner);
+  }
+
+  @protected
   bool sse_decode_bool(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return deserializer.buffer.getUint8() != 0;
@@ -14148,6 +14278,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_bip_39_mnemonic_data(deserializer));
+  }
+
+  @protected
+  BlockchainConfigParams sse_decode_box_autoadd_blockchain_config_params(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return (sse_decode_blockchain_config_params(deserializer));
   }
 
   @protected
@@ -15378,6 +15516,13 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  int cst_encode_RustOpaque_ConfigParams(ConfigParams raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    // ignore: invalid_use_of_internal_member
+    return (raw as ConfigParamsImpl).frbInternalCstEncode();
+  }
+
+  @protected
   int
   cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
     ArcFnStringDartFnFutureOptionString raw,
@@ -16411,6 +16556,18 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  void sse_encode_RustOpaque_ConfigParams(
+    ConfigParams self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_usize(
+      (self as ConfigParamsImpl).frbInternalSseEncode(move: null),
+      serializer,
+    );
+  }
+
+  @protected
   void
   sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
     ArcFnStringDartFnFutureOptionString self,
@@ -16708,6 +16865,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  void sse_encode_blockchain_config_params(
+    BlockchainConfigParams self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_RustOpaque_ConfigParams(self.inner, serializer);
+  }
+
+  @protected
   void sse_encode_bool(bool self, SseSerializer serializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     serializer.buffer.putUint8(self ? 1 : 0);
@@ -16729,6 +16895,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_bip_39_mnemonic_data(self, serializer);
+  }
+
+  @protected
+  void sse_encode_box_autoadd_blockchain_config_params(
+    BlockchainConfigParams self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_blockchain_config_params(self, serializer);
   }
 
   @protected
@@ -17974,6 +18149,28 @@ class ArcUnsignedMessageBoxTraitImpl extends RustOpaque
         .instance
         .api
         .rust_arc_decrement_strong_count_ArcUnsignedMessageBoxTraitPtr,
+  );
+}
+
+@sealed
+class ConfigParamsImpl extends RustOpaque implements ConfigParams {
+  // Not to be used by end users
+  ConfigParamsImpl.frbInternalDcoDecode(List<dynamic> wire)
+    : super.frbInternalDcoDecode(wire, _kStaticData);
+
+  // Not to be used by end users
+  ConfigParamsImpl.frbInternalSseDecode(BigInt ptr, int externalSizeOnNative)
+    : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
+
+  static final _kStaticData = RustArcStaticData(
+    rustArcIncrementStrongCount:
+        NekotonBridge.instance.api.rust_arc_increment_strong_count_ConfigParams,
+    rustArcDecrementStrongCount:
+        NekotonBridge.instance.api.rust_arc_decrement_strong_count_ConfigParams,
+    rustArcDecrementStrongCountPtr: NekotonBridge
+        .instance
+        .api
+        .rust_arc_decrement_strong_count_ConfigParamsPtr,
   );
 }
 

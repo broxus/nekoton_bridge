@@ -78,6 +78,10 @@ abstract class NekotonBridgeApiImplPlatform
       .rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait;
 
   CrossPlatformFinalizerArg
+  get rust_arc_decrement_strong_count_ConfigParamsPtr =>
+      wire.rust_arc_decrement_strong_count_RustOpaque_ConfigParams;
+
+  CrossPlatformFinalizerArg
   get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureOptionStringPtr =>
       wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync;
 
@@ -467,6 +471,9 @@ abstract class NekotonBridgeApiImplPlatform
   dco_decode_RustOpaque_ArcdynUnsignedMessageBoxTrait(dynamic raw);
 
   @protected
+  ConfigParams dco_decode_RustOpaque_ConfigParams(dynamic raw);
+
+  @protected
   ArcFnStringDartFnFutureOptionString
   dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
     dynamic raw,
@@ -587,6 +594,9 @@ abstract class NekotonBridgeApiImplPlatform
   Bip39Path dco_decode_bip_39_path(dynamic raw);
 
   @protected
+  BlockchainConfigParams dco_decode_blockchain_config_params(dynamic raw);
+
+  @protected
   bool dco_decode_bool(dynamic raw);
 
   @protected
@@ -594,6 +604,11 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   Bip39MnemonicData dco_decode_box_autoadd_bip_39_mnemonic_data(dynamic raw);
+
+  @protected
+  BlockchainConfigParams dco_decode_box_autoadd_blockchain_config_params(
+    dynamic raw,
+  );
 
   @protected
   bool dco_decode_box_autoadd_bool(dynamic raw);
@@ -1110,6 +1125,9 @@ abstract class NekotonBridgeApiImplPlatform
   );
 
   @protected
+  ConfigParams sse_decode_RustOpaque_ConfigParams(SseDeserializer deserializer);
+
+  @protected
   ArcFnStringDartFnFutureOptionString
   sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
     SseDeserializer deserializer,
@@ -1236,6 +1254,11 @@ abstract class NekotonBridgeApiImplPlatform
   Bip39Path sse_decode_bip_39_path(SseDeserializer deserializer);
 
   @protected
+  BlockchainConfigParams sse_decode_blockchain_config_params(
+    SseDeserializer deserializer,
+  );
+
+  @protected
   bool sse_decode_bool(SseDeserializer deserializer);
 
   @protected
@@ -1245,6 +1268,11 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   Bip39MnemonicData sse_decode_box_autoadd_bip_39_mnemonic_data(
+    SseDeserializer deserializer,
+  );
+
+  @protected
+  BlockchainConfigParams sse_decode_box_autoadd_blockchain_config_params(
     SseDeserializer deserializer,
   );
 
@@ -1567,6 +1595,12 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
+  JSAny cst_encode_blockchain_config_params(BlockchainConfigParams raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_RustOpaque_ConfigParams(raw.inner)].jsify()!;
+  }
+
+  @protected
   JSAny cst_encode_box_autoadd_accounts_storage_impl(AccountsStorageImpl raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_accounts_storage_impl(raw);
@@ -1576,6 +1610,14 @@ abstract class NekotonBridgeApiImplPlatform
   JSAny cst_encode_box_autoadd_bip_39_mnemonic_data(Bip39MnemonicData raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_bip_39_mnemonic_data(raw);
+  }
+
+  @protected
+  JSAny cst_encode_box_autoadd_blockchain_config_params(
+    BlockchainConfigParams raw,
+  ) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return cst_encode_blockchain_config_params(raw);
   }
 
   @protected
@@ -2350,6 +2392,9 @@ abstract class NekotonBridgeApiImplPlatform
   );
 
   @protected
+  int cst_encode_RustOpaque_ConfigParams(ConfigParams raw);
+
+  @protected
   int
   cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
     ArcFnStringDartFnFutureOptionString raw,
@@ -2875,6 +2920,12 @@ abstract class NekotonBridgeApiImplPlatform
   );
 
   @protected
+  void sse_encode_RustOpaque_ConfigParams(
+    ConfigParams self,
+    SseSerializer serializer,
+  );
+
+  @protected
   void
   sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
     ArcFnStringDartFnFutureOptionString self,
@@ -3021,6 +3072,12 @@ abstract class NekotonBridgeApiImplPlatform
   void sse_encode_bip_39_path(Bip39Path self, SseSerializer serializer);
 
   @protected
+  void sse_encode_blockchain_config_params(
+    BlockchainConfigParams self,
+    SseSerializer serializer,
+  );
+
+  @protected
   void sse_encode_bool(bool self, SseSerializer serializer);
 
   @protected
@@ -3032,6 +3089,12 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   void sse_encode_box_autoadd_bip_39_mnemonic_data(
     Bip39MnemonicData self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_box_autoadd_blockchain_config_params(
+    BlockchainConfigParams self,
     SseSerializer serializer,
   );
 
@@ -4007,6 +4070,20 @@ class NekotonBridgeWire implements BaseWire {
     port_,
     data,
   );
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+  wire__crate__api__merged__blockchain_config_params_fundamental_smc_addr(
+    JSAny that,
+  ) => wasmModule
+      .wire__crate__api__merged__blockchain_config_params_fundamental_smc_addr(
+        that,
+      );
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+  wire__crate__api__merged__blockchain_config_params_new(String params_root) =>
+      wasmModule.wire__crate__api__merged__blockchain_config_params_new(
+        params_root,
+      );
 
   void wire__crate__api__merged__create_log_stream(
     NativePortType port_,
@@ -6236,6 +6313,12 @@ class NekotonBridgeWire implements BaseWire {
         ptr,
       );
 
+  void rust_arc_increment_strong_count_RustOpaque_ConfigParams(int ptr) =>
+      wasmModule.rust_arc_increment_strong_count_RustOpaque_ConfigParams(ptr);
+
+  void rust_arc_decrement_strong_count_RustOpaque_ConfigParams(int ptr) =>
+      wasmModule.rust_arc_decrement_strong_count_RustOpaque_ConfigParams(ptr);
+
   void
   rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
     int ptr,
@@ -6906,6 +6989,14 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
     NativePortType port_,
     String data,
   );
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+  wire__crate__api__merged__blockchain_config_params_fundamental_smc_addr(
+    JSAny that,
+  );
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+  wire__crate__api__merged__blockchain_config_params_new(String params_root);
 
   external void wire__crate__api__merged__create_log_stream(
     NativePortType port_,
@@ -8244,6 +8335,14 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
 
   external void
   rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait(
+    int ptr,
+  );
+
+  external void rust_arc_increment_strong_count_RustOpaque_ConfigParams(
+    int ptr,
+  );
+
+  external void rust_arc_decrement_strong_count_RustOpaque_ConfigParams(
     int ptr,
   );
 

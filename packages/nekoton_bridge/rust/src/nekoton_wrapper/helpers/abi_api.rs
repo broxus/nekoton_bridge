@@ -617,7 +617,7 @@ pub fn nt_repack_address(address: String) -> String {
 pub fn nt_pack_address(address: String, is_url_safe: bool, bounceable: bool) -> String {
     let address = match MsgAddressInt::from_str(address.as_str()) {
         Ok(address) => address,
-        Err(e) => nekoton_utils::unpack_std_smc_addr(address.as_str(), is_url_safe).unwrap(),
+        Err(_) => nekoton_utils::unpack_std_smc_addr(address.as_str(), is_url_safe).unwrap(),
     };
 
     nekoton_utils::pack_std_smc_addr(is_url_safe, &address, bounceable).unwrap()

@@ -16,6 +16,7 @@ use ton_types::{BuilderData, Cell, HashmapE, SliceData, UInt256};
 use ton_vm::stack::integer::IntegerData;
 
 pub mod abi_api;
+pub mod blockchain_config_params_api;
 pub mod models;
 
 #[derive(thiserror::Error, Debug)]

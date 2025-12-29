@@ -12,7 +12,7 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 import 'package:freezed_annotation/freezed_annotation.dart' hide protected;
 part 'merged.freezed.dart';
 
-// These functions are ignored because they are not marked as `pub`: `get_connection`, `get_connection`, `get_connection`, `get_connection`, `get_storage`, `map_keystore_builder`
+// These functions are ignored because they are not marked as `pub`: `get_connection`, `get_connection`, `get_connection`, `get_connection`, `get_storage`, `map_keystore_builder`, `parse_fundamental_smc_address`
 // These types are ignored because they are neither used by any `pub` functions nor (for structs and enums) marked `#[frb(unignore)]`: `ProviderMessage`, `ProviderTransaction`
 // These function are ignored because they are on traits that is not defined in current crate (put an empty `#[frb]` on it to unignore): `get_public_key`, `get`, `is_local`, `on_balance_changed`, `on_balance_changed`, `on_custodians_changed`, `on_details_changed`, `on_message_expired`, `on_message_expired`, `on_message_sent`, `on_message_sent`, `on_state_changed`, `on_state_changed`, `on_transactions_found`, `on_transactions_found`, `on_transactions_found`, `on_transactions_found`, `on_unconfirmed_transactions_changed`, `post`, `post`, `post`, `remove_unchecked`, `remove`, `set_unchecked`, `set`, `sign_transaction`, `sign`
 
@@ -548,6 +548,9 @@ abstract class ArcTransportBoxTrait implements RustOpaqueInterface {}
 // Rust type: RustOpaqueNom<Arc < dyn UnsignedMessageBoxTrait >>
 abstract class ArcUnsignedMessageBoxTrait implements RustOpaqueInterface {}
 
+// Rust type: RustOpaqueNom<ConfigParams>
+abstract class ConfigParams implements RustOpaqueInterface {}
+
 // Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<GenericContractSubscriptionHandlerImpl>>
 abstract class GenericContractSubscriptionHandlerImpl
     implements RustOpaqueInterface {
@@ -905,6 +908,35 @@ class Bip39MnemonicData {
 }
 
 enum Bip39Path { ever, ton }
+
+///----------------------------
+/// CONTENT OF src/nekoton_wrapper/helpers/blockchain_config_params_api.rs
+///----------------------------
+/// Thin wrapper around `ConfigParams` for Dart access via flutter_rust_bridge.
+class BlockchainConfigParams {
+  final ConfigParams inner;
+
+  const BlockchainConfigParams.raw({required this.inner});
+
+  List<String> fundamentalSmcAddr() => NekotonBridge.instance.api
+      .crateApiMergedBlockchainConfigParamsFundamentalSmcAddr(that: this);
+
+  /// Construct wrapper from base64-encoded config params root cell.
+  factory BlockchainConfigParams({required String paramsRoot}) => NekotonBridge
+      .instance
+      .api
+      .crateApiMergedBlockchainConfigParamsNew(paramsRoot: paramsRoot);
+
+  @override
+  int get hashCode => inner.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is BlockchainConfigParams &&
+          runtimeType == other.runtimeType &&
+          inner == other.inner;
+}
 
 /// Wrapper struct above GeneratedKey with suitable type for generation
 class GeneratedKeyG {

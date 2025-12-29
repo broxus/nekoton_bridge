@@ -76,6 +76,10 @@ abstract class NekotonBridgeApiImplPlatform
       ._rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTraitPtr;
 
   CrossPlatformFinalizerArg
+  get rust_arc_decrement_strong_count_ConfigParamsPtr =>
+      wire._rust_arc_decrement_strong_count_RustOpaque_ConfigParamsPtr;
+
+  CrossPlatformFinalizerArg
   get rust_arc_decrement_strong_count_ArcFnStringDartFnFutureOptionStringPtr =>
       wire._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSyncPtr;
 
@@ -465,6 +469,9 @@ abstract class NekotonBridgeApiImplPlatform
   dco_decode_RustOpaque_ArcdynUnsignedMessageBoxTrait(dynamic raw);
 
   @protected
+  ConfigParams dco_decode_RustOpaque_ConfigParams(dynamic raw);
+
+  @protected
   ArcFnStringDartFnFutureOptionString
   dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
     dynamic raw,
@@ -585,6 +592,9 @@ abstract class NekotonBridgeApiImplPlatform
   Bip39Path dco_decode_bip_39_path(dynamic raw);
 
   @protected
+  BlockchainConfigParams dco_decode_blockchain_config_params(dynamic raw);
+
+  @protected
   bool dco_decode_bool(dynamic raw);
 
   @protected
@@ -592,6 +602,11 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   Bip39MnemonicData dco_decode_box_autoadd_bip_39_mnemonic_data(dynamic raw);
+
+  @protected
+  BlockchainConfigParams dco_decode_box_autoadd_blockchain_config_params(
+    dynamic raw,
+  );
 
   @protected
   bool dco_decode_box_autoadd_bool(dynamic raw);
@@ -1108,6 +1123,9 @@ abstract class NekotonBridgeApiImplPlatform
   );
 
   @protected
+  ConfigParams sse_decode_RustOpaque_ConfigParams(SseDeserializer deserializer);
+
+  @protected
   ArcFnStringDartFnFutureOptionString
   sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
     SseDeserializer deserializer,
@@ -1234,6 +1252,11 @@ abstract class NekotonBridgeApiImplPlatform
   Bip39Path sse_decode_bip_39_path(SseDeserializer deserializer);
 
   @protected
+  BlockchainConfigParams sse_decode_blockchain_config_params(
+    SseDeserializer deserializer,
+  );
+
+  @protected
   bool sse_decode_bool(SseDeserializer deserializer);
 
   @protected
@@ -1243,6 +1266,11 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   Bip39MnemonicData sse_decode_box_autoadd_bip_39_mnemonic_data(
+    SseDeserializer deserializer,
+  );
+
+  @protected
+  BlockchainConfigParams sse_decode_box_autoadd_blockchain_config_params(
     SseDeserializer deserializer,
   );
 
@@ -1565,6 +1593,15 @@ abstract class NekotonBridgeApiImplPlatform
     // Codec=Cst (C-struct based), see doc to use other codecs
     final ptr = wire.cst_new_box_autoadd_bip_39_mnemonic_data();
     cst_api_fill_to_wire_bip_39_mnemonic_data(raw, ptr.ref);
+    return ptr;
+  }
+
+  @protected
+  ffi.Pointer<wire_cst_blockchain_config_params>
+  cst_encode_box_autoadd_blockchain_config_params(BlockchainConfigParams raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    final ptr = wire.cst_new_box_autoadd_blockchain_config_params();
+    cst_api_fill_to_wire_blockchain_config_params(raw, ptr.ref);
     return ptr;
   }
 
@@ -1909,6 +1946,14 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
+  void cst_api_fill_to_wire_blockchain_config_params(
+    BlockchainConfigParams apiObj,
+    wire_cst_blockchain_config_params wireObj,
+  ) {
+    wireObj.inner = cst_encode_RustOpaque_ConfigParams(apiObj.inner);
+  }
+
+  @protected
   void cst_api_fill_to_wire_box_autoadd_accounts_storage_impl(
     AccountsStorageImpl apiObj,
     ffi.Pointer<wire_cst_accounts_storage_impl> wireObj,
@@ -1922,6 +1967,14 @@ abstract class NekotonBridgeApiImplPlatform
     ffi.Pointer<wire_cst_bip_39_mnemonic_data> wireObj,
   ) {
     cst_api_fill_to_wire_bip_39_mnemonic_data(apiObj, wireObj.ref);
+  }
+
+  @protected
+  void cst_api_fill_to_wire_box_autoadd_blockchain_config_params(
+    BlockchainConfigParams apiObj,
+    ffi.Pointer<wire_cst_blockchain_config_params> wireObj,
+  ) {
+    cst_api_fill_to_wire_blockchain_config_params(apiObj, wireObj.ref);
   }
 
   @protected
@@ -2639,6 +2692,9 @@ abstract class NekotonBridgeApiImplPlatform
   );
 
   @protected
+  int cst_encode_RustOpaque_ConfigParams(ConfigParams raw);
+
+  @protected
   int
   cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
     ArcFnStringDartFnFutureOptionString raw,
@@ -3164,6 +3220,12 @@ abstract class NekotonBridgeApiImplPlatform
   );
 
   @protected
+  void sse_encode_RustOpaque_ConfigParams(
+    ConfigParams self,
+    SseSerializer serializer,
+  );
+
+  @protected
   void
   sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
     ArcFnStringDartFnFutureOptionString self,
@@ -3310,6 +3372,12 @@ abstract class NekotonBridgeApiImplPlatform
   void sse_encode_bip_39_path(Bip39Path self, SseSerializer serializer);
 
   @protected
+  void sse_encode_blockchain_config_params(
+    BlockchainConfigParams self,
+    SseSerializer serializer,
+  );
+
+  @protected
   void sse_encode_bool(bool self, SseSerializer serializer);
 
   @protected
@@ -3321,6 +3389,12 @@ abstract class NekotonBridgeApiImplPlatform
   @protected
   void sse_encode_box_autoadd_bip_39_mnemonic_data(
     Bip39MnemonicData self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_box_autoadd_blockchain_config_params(
+    BlockchainConfigParams self,
     SseSerializer serializer,
   );
 
@@ -5250,6 +5324,57 @@ class NekotonBridgeWire implements BaseWire {
       _wire__crate__api__merged__accounts_storage_impl_verify_dataPtr
           .asFunction<
             void Function(int, ffi.Pointer<wire_cst_list_prim_u_8_strict>)
+          >();
+
+  WireSyncRust2DartDco
+  wire__crate__api__merged__blockchain_config_params_fundamental_smc_addr(
+    ffi.Pointer<wire_cst_blockchain_config_params> that,
+  ) {
+    return _wire__crate__api__merged__blockchain_config_params_fundamental_smc_addr(
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__blockchain_config_params_fundamental_smc_addrPtr =
+      _lookup<
+        ffi.NativeFunction<
+          WireSyncRust2DartDco Function(
+            ffi.Pointer<wire_cst_blockchain_config_params>,
+          )
+        >
+      >(
+        'frbgen_nekoton_bridge_wire__crate__api__merged__blockchain_config_params_fundamental_smc_addr',
+      );
+  late final _wire__crate__api__merged__blockchain_config_params_fundamental_smc_addr =
+      _wire__crate__api__merged__blockchain_config_params_fundamental_smc_addrPtr
+          .asFunction<
+            WireSyncRust2DartDco Function(
+              ffi.Pointer<wire_cst_blockchain_config_params>,
+            )
+          >();
+
+  WireSyncRust2DartDco wire__crate__api__merged__blockchain_config_params_new(
+    ffi.Pointer<wire_cst_list_prim_u_8_strict> params_root,
+  ) {
+    return _wire__crate__api__merged__blockchain_config_params_new(params_root);
+  }
+
+  late final _wire__crate__api__merged__blockchain_config_params_newPtr =
+      _lookup<
+        ffi.NativeFunction<
+          WireSyncRust2DartDco Function(
+            ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+          )
+        >
+      >(
+        'frbgen_nekoton_bridge_wire__crate__api__merged__blockchain_config_params_new',
+      );
+  late final _wire__crate__api__merged__blockchain_config_params_new =
+      _wire__crate__api__merged__blockchain_config_params_newPtr
+          .asFunction<
+            WireSyncRust2DartDco Function(
+              ffi.Pointer<wire_cst_list_prim_u_8_strict>,
+            )
           >();
 
   void wire__crate__api__merged__create_log_stream(
@@ -11885,6 +12010,34 @@ class NekotonBridgeWire implements BaseWire {
       _rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTraitPtr
           .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
 
+  void rust_arc_increment_strong_count_RustOpaque_ConfigParams(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_increment_strong_count_RustOpaque_ConfigParams(ptr);
+  }
+
+  late final _rust_arc_increment_strong_count_RustOpaque_ConfigParamsPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+        'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ConfigParams',
+      );
+  late final _rust_arc_increment_strong_count_RustOpaque_ConfigParams =
+      _rust_arc_increment_strong_count_RustOpaque_ConfigParamsPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  void rust_arc_decrement_strong_count_RustOpaque_ConfigParams(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _rust_arc_decrement_strong_count_RustOpaque_ConfigParams(ptr);
+  }
+
+  late final _rust_arc_decrement_strong_count_RustOpaque_ConfigParamsPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+        'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ConfigParams',
+      );
+  late final _rust_arc_decrement_strong_count_RustOpaque_ConfigParams =
+      _rust_arc_decrement_strong_count_RustOpaque_ConfigParamsPtr
+          .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
   void
   rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(
     ffi.Pointer<ffi.Void> ptr,
@@ -12493,6 +12646,23 @@ class NekotonBridgeWire implements BaseWire {
       _cst_new_box_autoadd_bip_39_mnemonic_dataPtr
           .asFunction<ffi.Pointer<wire_cst_bip_39_mnemonic_data> Function()>();
 
+  ffi.Pointer<wire_cst_blockchain_config_params>
+  cst_new_box_autoadd_blockchain_config_params() {
+    return _cst_new_box_autoadd_blockchain_config_params();
+  }
+
+  late final _cst_new_box_autoadd_blockchain_config_paramsPtr =
+      _lookup<
+        ffi.NativeFunction<
+          ffi.Pointer<wire_cst_blockchain_config_params> Function()
+        >
+      >('frbgen_nekoton_bridge_cst_new_box_autoadd_blockchain_config_params');
+  late final _cst_new_box_autoadd_blockchain_config_params =
+      _cst_new_box_autoadd_blockchain_config_paramsPtr
+          .asFunction<
+            ffi.Pointer<wire_cst_blockchain_config_params> Function()
+          >();
+
   ffi.Pointer<ffi.Bool> cst_new_box_autoadd_bool(bool value) {
     return _cst_new_box_autoadd_bool(value);
   }
@@ -12926,6 +13096,11 @@ final class wire_cst_list_String extends ffi.Struct {
 final class wire_cst_storage_dart_wrapper extends ffi.Struct {
   @ffi.UintPtr()
   external int inner_storage;
+}
+
+final class wire_cst_blockchain_config_params extends ffi.Struct {
+  @ffi.UintPtr()
+  external int inner;
 }
 
 final class wire_cst_generic_contract_dart_wrapper extends ffi.Struct {

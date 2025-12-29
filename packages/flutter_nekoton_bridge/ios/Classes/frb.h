@@ -32,6 +32,10 @@ typedef struct wire_cst_storage_dart_wrapper {
   uintptr_t inner_storage;
 } wire_cst_storage_dart_wrapper;
 
+typedef struct wire_cst_blockchain_config_params {
+  uintptr_t inner;
+} wire_cst_blockchain_config_params;
+
 typedef struct wire_cst_generic_contract_dart_wrapper {
   uintptr_t inner_contract;
 } wire_cst_generic_contract_dart_wrapper;
@@ -384,6 +388,10 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__accounts_storage_impl_renam
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__accounts_storage_impl_verify_data(int64_t port_,
                                                                                        struct wire_cst_list_prim_u_8_strict *data);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__blockchain_config_params_fundamental_smc_addr(struct wire_cst_blockchain_config_params *that);
+
+WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__blockchain_config_params_new(struct wire_cst_list_prim_u_8_strict *params_root);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__create_log_stream(int64_t port_,
                                                                        struct wire_cst_list_prim_u_8_strict *s);
@@ -1248,6 +1256,10 @@ void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynUnsi
 
 void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait(const void *ptr);
 
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ConfigParams(const void *ptr);
+
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ConfigParams(const void *ptr);
+
 void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(const void *ptr);
 
 void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync(const void *ptr);
@@ -1320,6 +1332,8 @@ struct wire_cst_accounts_storage_impl *frbgen_nekoton_bridge_cst_new_box_autoadd
 
 struct wire_cst_bip_39_mnemonic_data *frbgen_nekoton_bridge_cst_new_box_autoadd_bip_39_mnemonic_data(void);
 
+struct wire_cst_blockchain_config_params *frbgen_nekoton_bridge_cst_new_box_autoadd_blockchain_config_params(void);
+
 bool *frbgen_nekoton_bridge_cst_new_box_autoadd_bool(bool value);
 
 struct wire_cst_generic_contract_dart_wrapper *frbgen_nekoton_bridge_cst_new_box_autoadd_generic_contract_dart_wrapper(void);
@@ -1375,6 +1389,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     int64_t dummy_var = 0;
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_accounts_storage_impl);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_bip_39_mnemonic_data);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_blockchain_config_params);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_bool);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_generic_contract_dart_wrapper);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_gql_connection_dart_wrapper);
@@ -1414,6 +1429,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ArcdynTonWalletBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ArcdynTransportBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_ConfigParams);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync);
@@ -1444,6 +1460,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynTonWalletBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynTransportBoxTrait);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ArcdynUnsignedMessageBoxTrait);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_ConfigParams);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureOptionStringSendSync);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureSendSync);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringDartFnFutureStringSendSync);
@@ -1530,6 +1547,8 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__accounts_storage_impl_remove_token_wallets);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__accounts_storage_impl_rename_account);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__accounts_storage_impl_verify_data);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__blockchain_config_params_fundamental_smc_addr);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__blockchain_config_params_new);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__create_log_stream);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__generic_contract_dart_wrapper_address);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__generic_contract_dart_wrapper_contract_state);
