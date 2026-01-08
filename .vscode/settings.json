@@ -1,6 +1,0 @@
-{
-  "dart.lineLength": 80,
-  "terminal.integrated.scrollback": 10000,
-  "dart.runPubGetOnPubspecChanges": "never",
-  "cmake.sourceDirectory": "${workspaceFolder}/packages/flutter_nekoton_bridge/windows"
-}
