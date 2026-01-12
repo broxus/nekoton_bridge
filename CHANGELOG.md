@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-01-12
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v5.2.1`](#flutter_nekoton_bridge---v521)
+ - [`flutter_nekoton_bridge_example` - `v4.1.1`](#flutter_nekoton_bridge_example---v411)
+
+---
+
+#### `flutter_nekoton_bridge` - `v5.2.1`
+
+ - **FIX**: update `Address.toJson` method to handle invalid address.
+
+#### `flutter_nekoton_bridge_example` - `v4.1.1`
+
+ - **FIX**: update `Address.toJson` method to handle invalid address.
+
+
 ## 2025-12-29
 
 ### Changes
