@@ -337,6 +337,13 @@ void main() {
         isTrue,
       );
     });
+
+    test('toJson works if address is invalid', () {
+      var address = const Address(address: '12345');
+
+      expect(address.isValid, false);
+      expect(address.toJson(), '12345');
+    });
   });
 
   group('BlockchainConfigParams', () {

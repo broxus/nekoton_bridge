@@ -15,13 +15,14 @@ sealed class Address with _$Address {
 
   bool get isZeroState => _zerostate.contains(toRaw());
 
-  bool get isValid => ntValidateAddress(address: address);
+  bool get isValid =>
+      address.isNotEmpty ? ntValidateAddress(address: address) : false;
 
   bool get isBounceable => address.startsWith('EQ');
 
   bool get isNonBounceable => address.startsWith('UQ');
 
-  String toJson() => toRaw();
+  String toJson() => isValid ? toRaw() : address;
 
   String toRaw() => isRaw ? address : ntRepackAddress(address: address);
 
