@@ -1,5 +1,8 @@
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+
+class MockBridge extends Mock implements NekotonBridgeApi {}
 
 void main() {
   group('AccountToAdd, explicitAddress is null', () {
@@ -50,11 +53,16 @@ void main() {
   });
 
   group('AccountToAdd, explicitAddress not null', () {
+    final bridge = MockBridge();
     const name = 'gbgdnCVwnClVCEEa';
     const publicKey = PublicKey(publicKey: 'hbUbRVIygyfvpbDc');
     const contract = WalletType.everWallet();
     const workchain = 42;
     const explicitAddress = Address(address: '99:vikUtGgouyyFTays');
+
+    setUpAll(() {
+      NekotonBridge.initMock(api: bridge);
+    });
 
     test('To JSON', () {
       const c = AccountToAdd(
@@ -64,6 +72,12 @@ void main() {
         workchain: workchain,
         explicitAddress: explicitAddress,
       );
+
+      when(
+        () => bridge.crateApiMergedNtValidateAddress(
+          address: any(named: 'address'),
+        ),
+      ).thenReturn(false);
 
       expect(c.toJson(), {
         'name': name,
