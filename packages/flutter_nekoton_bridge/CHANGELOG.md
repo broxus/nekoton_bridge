@@ -1,3 +1,7 @@
+## 5.2.1
+
+ - **FIX**: update `Address.toJson` method to handle invalid address.
+
 ## 5.2.0
 
  - **FEAT**: add `BlockchainConfigParams` wrapper and related API functions.
