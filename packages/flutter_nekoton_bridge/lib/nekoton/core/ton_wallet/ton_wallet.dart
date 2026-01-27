@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -13,6 +14,18 @@ import 'package:rxdart/rxdart.dart';
 /// [onStateChangedStream] changes internal state, so it will lead updating data.
 class TonWallet implements RefreshingInterface {
   TonWallet._(this.transport);
+
+  @visibleForTesting
+  TonWallet.test({
+    required this.transport,
+    required this.wallet,
+    required this.walletType,
+    bool isInitialized = false,
+    bool isDisposed = false,
+  }) {
+    _isInitialized = isInitialized;
+    _isDisposed = isDisposed;
+  }
 
   late TonWalletDartWrapper wallet;
   final Transport transport;

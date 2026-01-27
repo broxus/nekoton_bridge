@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -11,6 +12,20 @@ import 'package:rxdart/rxdart.dart';
 /// events emitted through [onTransactionsFoundStream].
 class JettonWallet implements RefreshingInterface {
   JettonWallet._(this.transport, this.rootTokenContract);
+
+  @visibleForTesting
+  JettonWallet.test({
+    required this.transport,
+    required this.rootTokenContract,
+    required this.wallet,
+    bool isInitialized = false,
+    bool isDisposed = false,
+    bool isTransactionsPreloaded = false,
+  }) {
+    _isInitialized = isInitialized;
+    _isDisposed = isDisposed;
+    _isTransactionsPreloaded = isTransactionsPreloaded;
+  }
 
   late JettonWalletDartWrapper wallet;
   final Transport transport;

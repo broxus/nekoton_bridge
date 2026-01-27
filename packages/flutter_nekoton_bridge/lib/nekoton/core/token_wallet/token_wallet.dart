@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:money2/money2.dart';
 import 'package:rxdart/rxdart.dart';
@@ -63,6 +64,20 @@ class TokenWallet implements RefreshingInterface {
   bool get isTransactionsPreloaded => _isTransactionsPreloaded;
 
   TokenWallet._(this.transport, this.rootTokenContract);
+
+  @visibleForTesting
+  TokenWallet.test({
+    required this.transport,
+    required this.rootTokenContract,
+    required this.wallet,
+    bool isInitialized = false,
+    bool isDisposed = false,
+    bool isTransactionsPreloaded = false,
+  }) {
+    _isInitialized = isInitialized;
+    _isDisposed = isDisposed;
+    _isTransactionsPreloaded = isTransactionsPreloaded;
+  }
 
   /// Create TokenWallet by subscribing to its instance.
   /// [owner] - address of account that is owner of wallet

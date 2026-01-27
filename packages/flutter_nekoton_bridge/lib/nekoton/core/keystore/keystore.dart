@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -14,6 +15,15 @@ class KeyStore {
   final _keysSubject = BehaviorSubject<List<KeyStoreEntry>>();
 
   KeyStore._(this.storage);
+
+  @visibleForTesting
+  KeyStore.test({
+    required this.storage,
+    required this.keystore,
+    List<KeyStoreEntry> initialKeys = const [],
+  }) {
+    _keysSubject.add(initialKeys);
+  }
 
   static Future<KeyStore> create({
     required Storage storage,

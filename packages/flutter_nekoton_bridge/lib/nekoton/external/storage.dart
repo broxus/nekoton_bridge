@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
 typedef StorageGet = Future<String?> Function(String key);
@@ -28,6 +29,20 @@ class Storage {
     this._remove,
     this._removeUnchecked,
   );
+
+  @visibleForTesting
+  Storage.test({
+    required StorageGet get,
+    required StorageSet set,
+    required StorageSetUnchecked setUnchecked,
+    required StorageRemove remove,
+    required StorageRemoveUnchecked removeUnchecked,
+    required this.storage,
+  }) : _get = get,
+       _set = set,
+       _setUnchecked = setUnchecked,
+       _remove = remove,
+       _removeUnchecked = removeUnchecked;
 
   static Storage create({
     required StorageGet get,

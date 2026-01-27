@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -11,6 +12,15 @@ class AccountsStorage {
   final _accountsSubject = BehaviorSubject<List<AssetsList>>();
 
   AccountsStorage._(this.storage);
+
+  @visibleForTesting
+  AccountsStorage.test({
+    required this.storage,
+    required this.accountsStorage,
+    List<AssetsList> initialAccounts = const [],
+  }) {
+    _accountsSubject.add(initialAccounts);
+  }
 
   static Future<AccountsStorage> create({required Storage storage}) async {
     final instance = AccountsStorage._(storage);

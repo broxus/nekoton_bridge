@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -41,6 +42,17 @@ class GenericContract implements RefreshingInterface {
   late final Address address;
 
   GenericContract._(this.transport);
+
+  @visibleForTesting
+  GenericContract.test({
+    required this.transport,
+    required this.contract,
+    bool isInitialized = false,
+    bool isDisposed = false,
+  }) {
+    _isInitialized = isInitialized;
+    _isDisposed = isDisposed;
+  }
 
   bool get isDisposed => _isDisposed;
 
