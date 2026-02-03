@@ -31,6 +31,11 @@ class TokenWallet implements RefreshingInterface {
         )
       >();
 
+  /// Observers for stream listeners changes.
+  StreamListenersObserver? _streamListenersObserver;
+  final StreamListenersTracker _streamListenersTracker =
+      StreamListenersTracker();
+
   /// Description information about wallet that could be changed and updated
   /// during [_updateData]. It means, that fields could be changed after any
   /// event that can change internal state of wallet.
@@ -127,19 +132,24 @@ class TokenWallet implements RefreshingInterface {
   ContractState get contractState => _contractState;
 
   /// Stream that allows subscribe to any changes of wallet data.
-  Stream<void> get fieldUpdatesStream => _fieldsUpdateController.stream;
+  Stream<void> get fieldUpdatesStream =>
+      _observeStream(_fieldsUpdateController.stream, 'fieldUpdatesStream');
 
   /// Stream that emits data when balance of wallet changes
   ///
   /// To update data of this stream, wallet must be refreshed via [refresh].
-  Stream<BigInt> get onBalanceChangedStream =>
-      _onBalanceChangedController.stream;
+  Stream<BigInt> get onBalanceChangedStream => _observeStream(
+    _onBalanceChangedController.stream,
+    'onBalanceChangedStream',
+  );
 
   /// Stream that emits data when balance in Money of wallet changes
   ///
   /// To update data of this stream, wallet must be refreshed via [refresh].
-  Stream<Money> get onMoneyBalanceChangedStream =>
-      _onMoneyBalanceChangedController.stream;
+  Stream<Money> get onMoneyBalanceChangedStream => _observeStream(
+    _onMoneyBalanceChangedController.stream,
+    'onMoneyBalanceChangedStream',
+  );
 
   /// Stream that emits data when transactions of wallet founds
   ///
@@ -147,7 +157,26 @@ class TokenWallet implements RefreshingInterface {
   Stream<
     (List<TransactionWithData<TokenWalletTransaction?>>, TransactionsBatchInfo)
   >
-  get onTransactionsFoundStream => _onTransactionsFoundController.stream;
+  get onTransactionsFoundStream => _observeStream(
+    _onTransactionsFoundController.stream,
+    'onTransactionsFoundStream',
+  );
+
+  /// Attach observer to listen for stream subscriptions changes.
+  void attachStreamListenersObserver(StreamListenersObserver observer) {
+    _streamListenersObserver = observer;
+  }
+
+  Stream<T> _observeStream<T>(Stream<T> stream, String streamName) =>
+      _streamListenersTracker.observe(
+        stream,
+        streamName,
+        _notifyTotalListenersChanged,
+      );
+
+  void _notifyTotalListenersChanged(int totalListenersCount) {
+    _streamListenersObserver?.onStreamListenersChanged(totalListenersCount);
+  }
 
   /// Get address of owner of wallet.
   Future<Address> _getOwner() async => Address(address: await wallet.owner());
@@ -420,5 +449,7 @@ class TokenWallet implements RefreshingInterface {
     _onMoneyBalanceChangedController.close();
     _onTransactionsFoundController.close();
     _fieldsUpdateController.close();
+    _streamListenersTracker.reset();
+    _streamListenersObserver = null;
   }
 }

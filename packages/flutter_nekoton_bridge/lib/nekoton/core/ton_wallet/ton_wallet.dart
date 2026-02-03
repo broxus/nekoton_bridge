@@ -47,6 +47,11 @@ class TonWallet implements RefreshingInterface {
         )
       >();
 
+  /// Observers for stream listeners changes.
+  StreamListenersObserver? _streamListenersObserver;
+  final StreamListenersTracker _streamListenersTracker =
+      StreamListenersTracker();
+
   /// Description information about wallet that could be changed and updated
   /// during [_updateData]. It means, that fields could be changed after any
   /// event that can change internal state of wallet.
@@ -188,25 +193,28 @@ class TonWallet implements RefreshingInterface {
       _unconfirmedTransactions;
 
   /// Stream that allows subscribe to any changes of wallet data.
-  Stream<void> get fieldUpdatesStream => _fieldsUpdateController.stream;
+  Stream<void> get fieldUpdatesStream =>
+      _observeStream(_fieldsUpdateController.stream, 'fieldUpdatesStream');
 
   /// Stream that emits data when blockchain founds new transaction
   ///
   /// To update data of this stream, wallet must be refreshed via [refresh].
   Stream<(PendingTransaction, Transaction?)> get onMessageSentStream =>
-      _onMessageSentController.stream;
+      _observeStream(_onMessageSentController.stream, 'onMessageSentStream');
 
   /// Stream that emits data when expired message come to wallet
   ///
   /// To update data of this stream, wallet must be refreshed via [refresh].
-  Stream<PendingTransaction> get onMessageExpiredStream =>
-      _onMessageExpiredController.stream;
+  Stream<PendingTransaction> get onMessageExpiredStream => _observeStream(
+    _onMessageExpiredController.stream,
+    'onMessageExpiredStream',
+  );
 
   /// Stream that emits data when state of wallet changes
   ///
   /// To update data of this stream, wallet must be refreshed via [refresh].
   Stream<ContractState> get onStateChangedStream =>
-      _onStateChangedController.stream;
+      _observeStream(_onStateChangedController.stream, 'onStateChangedStream');
 
   /// Stream that emits data when transactions of wallet founds
   ///
@@ -217,7 +225,26 @@ class TonWallet implements RefreshingInterface {
       TransactionsBatchInfo,
     )
   >
-  get onTransactionsFoundStream => _onTransactionsFoundController.stream;
+  get onTransactionsFoundStream => _observeStream(
+    _onTransactionsFoundController.stream,
+    'onTransactionsFoundStream',
+  );
+
+  /// Attach observer to listen for stream subscriptions changes.
+  void attachStreamListenersObserver(StreamListenersObserver observer) {
+    _streamListenersObserver = observer;
+  }
+
+  Stream<T> _observeStream<T>(Stream<T> stream, String streamName) =>
+      _streamListenersTracker.observe(
+        stream,
+        streamName,
+        _notifyTotalListenersChanged,
+      );
+
+  void _notifyTotalListenersChanged(int totalListenersCount) {
+    _streamListenersObserver?.onStreamListenersChanged(totalListenersCount);
+  }
 
   /// Get workchain of wallet.
   Future<int> _getWorkchain() => wallet.workchain();
@@ -668,5 +695,7 @@ class TonWallet implements RefreshingInterface {
     _onStateChangedController.close();
     _onTransactionsFoundController.close();
     _fieldsUpdateController.close();
+    _streamListenersTracker.reset();
+    _streamListenersObserver = null;
   }
 }
