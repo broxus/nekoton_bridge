@@ -1,3 +1,7 @@
+## 5.3.0
+
+ - **FEAT**(EWM-638): add StreamListenersObserver and StreamListenersTracker for managing stream listener counts.
+
 ## 5.2.1
 
  - **FIX**: update `Address.toJson` method to handle invalid address.
