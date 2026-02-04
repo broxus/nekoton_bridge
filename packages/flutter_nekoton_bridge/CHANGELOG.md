@@ -1,3 +1,7 @@
+## 5.4.0
+
+ - **FEAT**(EWM-638): implement StreamListenersObservable for stream listener tracking in core classes.
+
 ## 5.3.0
 
  - **FEAT**(EWM-638): add StreamListenersObserver and StreamListenersTracker for managing stream listener counts.
