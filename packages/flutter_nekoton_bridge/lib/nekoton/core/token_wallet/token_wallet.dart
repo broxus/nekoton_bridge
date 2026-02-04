@@ -11,7 +11,7 @@ import 'package:rxdart/rxdart.dart';
 /// If you need watch wallet changes, you can subscribe to [fieldUpdatesStream]
 /// and be ready if any suitable data changes, but this won't notify about external
 /// events emitted through [onTransactionsFoundStream].
-class TokenWallet implements RefreshingInterface {
+class TokenWallet implements RefreshingInterface, StreamListenersObservable {
   late TokenWalletDartWrapper wallet;
   final Transport transport;
 
@@ -43,6 +43,9 @@ class TokenWallet implements RefreshingInterface {
   late BigInt balance;
 
   bool get isDisposed => _isDisposed;
+
+  @override
+  int get totalListenersCount => _streamListenersTracker.totalListenersCount;
 
   Money get moneyBalance => Money.fromBigIntWithCurrency(balance, currency);
 
@@ -163,6 +166,7 @@ class TokenWallet implements RefreshingInterface {
   );
 
   /// Attach observer to listen for stream subscriptions changes.
+  @override
   void attachStreamListenersObserver(StreamListenersObserver observer) {
     _streamListenersObserver = observer;
   }

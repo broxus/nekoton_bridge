@@ -12,7 +12,7 @@ import 'package:rxdart/rxdart.dart';
 /// events emitted through [onMessageSentStream], [onMessageExpiredStream],
 /// or [onTransactionsFoundStream].
 /// [onStateChangedStream] changes internal state, so it will lead updating data.
-class TonWallet implements RefreshingInterface {
+class TonWallet implements RefreshingInterface, StreamListenersObservable {
   TonWallet._(this.transport);
 
   @visibleForTesting
@@ -72,6 +72,9 @@ class TonWallet implements RefreshingInterface {
   late final int workchain;
 
   bool get isDisposed => _isDisposed;
+
+  @override
+  int get totalListenersCount => _streamListenersTracker.totalListenersCount;
 
   /// Create TonWallet by subscribing to its instance by public_key.
   /// publicKey - is string representation of key
@@ -231,6 +234,7 @@ class TonWallet implements RefreshingInterface {
   );
 
   /// Attach observer to listen for stream subscriptions changes.
+  @override
   void attachStreamListenersObserver(StreamListenersObserver observer) {
     _streamListenersObserver = observer;
   }

@@ -10,7 +10,7 @@ import 'package:rxdart/rxdart.dart';
 /// If you need watch wallet changes, you can subscribe to [fieldUpdatesStream]
 /// and be ready if any suitable data changes, but this won't notify about external
 /// events emitted through [onTransactionsFoundStream].
-class JettonWallet implements RefreshingInterface {
+class JettonWallet implements RefreshingInterface, StreamListenersObservable {
   JettonWallet._(this.transport, this.rootTokenContract);
 
   @visibleForTesting
@@ -75,6 +75,9 @@ class JettonWallet implements RefreshingInterface {
   bool get isTransactionsPreloaded => _isTransactionsPreloaded;
 
   bool get isDisposed => _isDisposed;
+
+  @override
+  int get totalListenersCount => _streamListenersTracker.totalListenersCount;
 
   /// Create JettonWallet by subscribing to its instance.
   /// [owner] - address of account that is owner of wallet
@@ -142,6 +145,7 @@ class JettonWallet implements RefreshingInterface {
     'onTransactionsFoundStream',
   );
 
+  @override
   void attachStreamListenersObserver(StreamListenersObserver observer) {
     _streamListenersObserver = observer;
   }

@@ -12,7 +12,8 @@ import 'package:rxdart/rxdart.dart';
 /// events emitted through [onMessageSentStream], [onMessageExpiredStream],
 /// or [onTransactionsFoundStream].
 /// [onStateChangedStream] changes internal state, so it will lead updating data.
-class GenericContract implements RefreshingInterface {
+class GenericContract
+    implements RefreshingInterface, StreamListenersObservable {
   late GenericContractDartWrapper contract;
   final Transport transport;
 
@@ -27,6 +28,11 @@ class GenericContract implements RefreshingInterface {
   final _onStateChangedController = BehaviorSubject<ContractState>();
   final _onTransactionsFoundController =
       BehaviorSubject<(List<Transaction>, TransactionsBatchInfo)>();
+
+  /// Observers for stream listeners changes.
+  StreamListenersObserver? _streamListenersObserver;
+  final StreamListenersTracker _streamListenersTracker =
+      StreamListenersTracker();
 
   /// Description information about contract that could be changed and updated
   /// during [_updateData]. It means, that fields could be changed after any
@@ -55,6 +61,9 @@ class GenericContract implements RefreshingInterface {
   }
 
   bool get isDisposed => _isDisposed;
+
+  @override
+  int get totalListenersCount => _streamListenersTracker.totalListenersCount;
 
   /// Create GenericContract by subscribing to its instance.
   /// [address] - address of contract
@@ -102,31 +111,54 @@ class GenericContract implements RefreshingInterface {
   PollingMethod get pollingMethod => _pollingMethod;
 
   /// Stream that allows subscribe to any changes of contract data.
-  Stream<void> get fieldUpdatesStream => _fieldsUpdateController.stream;
+  Stream<void> get fieldUpdatesStream =>
+      _observeStream(_fieldsUpdateController.stream, 'fieldUpdatesStream');
 
   /// Stream that emits data when blockchain founds new transaction
   ///
   /// To update data of this stream, contract must be refreshed via [refresh].
   Stream<(PendingTransaction, Transaction?)> get onMessageSentStream =>
-      _onMessageSentController.stream;
+      _observeStream(_onMessageSentController.stream, 'onMessageSentStream');
 
   /// Stream that emits data when expired message come to contract
   ///
   /// To update data of this stream, contract must be refreshed via [refresh].
-  Stream<PendingTransaction> get onMessageExpiredStream =>
-      _onMessageExpiredController.stream;
+  Stream<PendingTransaction> get onMessageExpiredStream => _observeStream(
+    _onMessageExpiredController.stream,
+    'onMessageExpiredStream',
+  );
 
   /// Stream that emits data when state of contract changes
   ///
   /// To update data of this stream, contract must be refreshed via [refresh].
   Stream<ContractState> get onStateChangedStream =>
-      _onStateChangedController.stream;
+      _observeStream(_onStateChangedController.stream, 'onStateChangedStream');
 
   /// Stream that emits data when transactions of contract founds
   ///
   /// To update data of this stream, contract must be refreshed via [refresh].
   Stream<(List<Transaction>, TransactionsBatchInfo)>
-  get onTransactionsFoundStream => _onTransactionsFoundController.stream;
+  get onTransactionsFoundStream => _observeStream(
+    _onTransactionsFoundController.stream,
+    'onTransactionsFoundStream',
+  );
+
+  /// Attach observer to listen for stream subscriptions changes.
+  @override
+  void attachStreamListenersObserver(StreamListenersObserver observer) {
+    _streamListenersObserver = observer;
+  }
+
+  Stream<T> _observeStream<T>(Stream<T> stream, String streamName) =>
+      _streamListenersTracker.observe(
+        stream,
+        streamName,
+        _notifyTotalListenersChanged,
+      );
+
+  void _notifyTotalListenersChanged(int totalListenersCount) {
+    _streamListenersObserver?.onStreamListenersChanged(totalListenersCount);
+  }
 
   /// Get address of contract.
   Future<Address> _getAddress() async =>
@@ -306,5 +338,7 @@ class GenericContract implements RefreshingInterface {
     _onStateChangedController.close();
     _onMessageSentController.close();
     _onMessageExpiredController.close();
+    _streamListenersTracker.reset();
+    _streamListenersObserver = null;
   }
 }
