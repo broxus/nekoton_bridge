@@ -2,6 +2,7 @@
 
 use flutter_rust_bridge::frb;
 pub use nekoton::crypto::{Bip39Entropy, Bip39MnemonicData, Bip39Path, MnemonicType};
+pub use nekoton_utils::{SignatureContext, SignatureType};
 
 /// -------------------------
 /// Types to generate in dart
@@ -32,6 +33,21 @@ pub enum _Bip39Path {
 pub enum _Bip39Entropy {
     Bits128,
     Bits256,
+}
+
+/// Mirror enum of SignatureType
+#[frb(mirror(SignatureType))]
+pub enum _SignatureType {
+    Empty,
+    SignatureId,
+    SignatureDomain,
+}
+
+/// Mirror struct of SignatureContext
+#[frb(mirror(SignatureContext))]
+pub struct _SignatureContext {
+    pub global_id: Option<i32>,
+    pub signature_type: SignatureType,
 }
 
 /// Wrapper struct above GeneratedKey with suitable type for generation

@@ -20,7 +20,6 @@ fn main() -> anyhow::Result<()> {
         .unwrap();
     _ = codegen.wait();
 
-
     codegen::generate(
         Config::from_config_file("../flutter_rust_bridge.yaml")?.unwrap(),
         Default::default(),

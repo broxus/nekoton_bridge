@@ -6,6 +6,7 @@ use crate::nekoton_wrapper::core::keystore::{verify_data, KeyStoreApiBox, KeySto
 use crate::nekoton_wrapper::crypto::models::KeySigner;
 use crate::nekoton_wrapper::external::ledger_connection_api::LedgerConnectionDartWrapper;
 use crate::nekoton_wrapper::external::storage_api::StorageDartWrapper;
+use crate::nekoton_wrapper::models_api::SignatureContext;
 use crate::nekoton_wrapper::HandleError;
 use nekoton::core::keystore::{KeyStore, KeyStoreBuilder};
 use nekoton::crypto::{DerivedKeySigner, EncryptedKeySigner, LedgerKeySigner};
@@ -119,10 +120,10 @@ impl KeystoreDartWrapper {
         signer: KeySigner,
         message: UnsignedMessageImpl,
         input: String,
-        signature_id: Option<i32>,
+        signature_ctx: SignatureContext,
     ) -> anyhow::Result<String> {
         self.inner_keystore
-            .sign(signer, message, input, signature_id)
+            .sign(signer, message, input, signature_ctx)
             .await
     }
 
@@ -134,10 +135,10 @@ impl KeystoreDartWrapper {
         signer: KeySigner,
         data: String,
         input: String,
-        signature_id: Option<i32>,
+        signature_ctx: SignatureContext,
     ) -> anyhow::Result<SignedData> {
         self.inner_keystore
-            .sign_data(signer, data, input, signature_id)
+            .sign_data(signer, data, input, signature_ctx)
             .await
     }
 
@@ -149,10 +150,10 @@ impl KeystoreDartWrapper {
         signer: KeySigner,
         data: String,
         input: String,
-        signature_id: Option<i32>,
+        signature_ctx: SignatureContext,
     ) -> anyhow::Result<SignedDataRaw> {
         self.inner_keystore
-            .sign_data_raw(signer, data, input, signature_id)
+            .sign_data_raw(signer, data, input, signature_ctx)
             .await
     }
 

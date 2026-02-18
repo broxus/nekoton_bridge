@@ -24,12 +24,12 @@ Future<bool> ntVerifySignature({
   required String publicKey,
   required String data,
   required String signature,
-  int? signatureId,
+  required SignatureContext signatureCtx,
 }) => NekotonBridge.instance.api.crateApiMergedNtVerifySignature(
   publicKey: publicKey,
   data: data,
   signature: signature,
-  signatureId: signatureId,
+  signatureCtx: signatureCtx,
 );
 
 ///----------------------------
@@ -605,16 +605,16 @@ abstract class JrpcConnectionImpl implements RustOpaqueInterface {
 abstract class LedgerConnectionImpl implements RustOpaqueInterface {
   ArcFnU16DartFnFutureVecU8 get onGetPublicKey;
 
-  ArcFnU16OptionI32VecU8DartFnFutureVecU8 get onSign;
+  ArcFnU16SignatureContextVecU8DartFnFutureVecU8 get onSign;
 
-  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 get onSignTransaction;
+  ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8 get onSignTransaction;
 
   set onGetPublicKey(ArcFnU16DartFnFutureVecU8 onGetPublicKey);
 
-  set onSign(ArcFnU16OptionI32VecU8DartFnFutureVecU8 onSign);
+  set onSign(ArcFnU16SignatureContextVecU8DartFnFutureVecU8 onSign);
 
   set onSignTransaction(
-    ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 onSignTransaction,
+    ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8 onSignTransaction,
   );
 }
 
@@ -1178,6 +1178,10 @@ class GqlTransportImpl {
   Future<int> getNetworkId() => NekotonBridge.instance.api
       .crateApiMergedGqlTransportImplGetNetworkId(that: this);
 
+  /// Get transport signature context and return it or throw error
+  Future<SignatureContext> getSignatureContext() => NekotonBridge.instance.api
+      .crateApiMergedGqlTransportImplGetSignatureContext(that: this);
+
   /// Get transport signature id and return it or throw error
   Future<int?> getSignatureId() => NekotonBridge.instance.api
       .crateApiMergedGqlTransportImplGetSignatureId(that: this);
@@ -1499,6 +1503,10 @@ class JrpcTransportImpl {
   Future<int> getNetworkId() => NekotonBridge.instance.api
       .crateApiMergedJrpcTransportImplGetNetworkId(that: this);
 
+  /// Get transport signature context and return it or throw error
+  Future<SignatureContext> getSignatureContext() => NekotonBridge.instance.api
+      .crateApiMergedJrpcTransportImplGetSignatureContext(that: this);
+
   /// Get transport signature id and return it or throw error
   Future<int?> getSignatureId() => NekotonBridge.instance.api
       .crateApiMergedJrpcTransportImplGetSignatureId(that: this);
@@ -1704,13 +1712,13 @@ class KeystoreDartWrapper {
     required KeySigner signer,
     required UnsignedMessageImpl message,
     required String input,
-    int? signatureId,
+    required SignatureContext signatureCtx,
   }) => NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperSign(
     that: this,
     signer: signer,
     message: message,
     input: input,
-    signatureId: signatureId,
+    signatureCtx: signatureCtx,
   );
 
   /// Same method as sign.
@@ -1720,13 +1728,13 @@ class KeystoreDartWrapper {
     required KeySigner signer,
     required String data,
     required String input,
-    int? signatureId,
+    required SignatureContext signatureCtx,
   }) => NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperSignData(
     that: this,
     signer: signer,
     data: data,
     input: input,
-    signatureId: signatureId,
+    signatureCtx: signatureCtx,
   );
 
   /// Same method as sign.
@@ -1736,13 +1744,13 @@ class KeystoreDartWrapper {
     required KeySigner signer,
     required String data,
     required String input,
-    int? signatureId,
+    required SignatureContext signatureCtx,
   }) => NekotonBridge.instance.api.crateApiMergedKeystoreDartWrapperSignDataRaw(
     that: this,
     signer: signer,
     data: data,
     input: input,
-    signatureId: signatureId,
+    signatureCtx: signatureCtx,
   );
 
   /// Update key data.
@@ -1819,8 +1827,15 @@ class LedgerConnectionDartWrapper {
 
   factory LedgerConnectionDartWrapper({
     required FutureOr<Uint8List> Function(int) onGetPublicKey,
-    required FutureOr<Uint8List> Function(int, int?, Uint8List) onSign,
-    required FutureOr<Uint8List> Function(int, int, int?, Uint8List, String)
+    required FutureOr<Uint8List> Function(int, SignatureContext, Uint8List)
+    onSign,
+    required FutureOr<Uint8List> Function(
+      int,
+      int,
+      SignatureContext,
+      Uint8List,
+      String,
+    )
     onSignTransaction,
   }) => NekotonBridge.instance.api.crateApiMergedLedgerConnectionDartWrapperNew(
     onGetPublicKey: onGetPublicKey,
@@ -1956,6 +1971,10 @@ class ProtoTransportImpl {
   Future<int> getNetworkId() => NekotonBridge.instance.api
       .crateApiMergedProtoTransportImplGetNetworkId(that: this);
 
+  /// Get transport signature context and return it or throw error
+  Future<SignatureContext> getSignatureContext() => NekotonBridge.instance.api
+      .crateApiMergedProtoTransportImplGetSignatureContext(that: this);
+
   /// Get transport signature id and return it or throw error
   Future<int?> getSignatureId() => NekotonBridge.instance.api
       .crateApiMergedProtoTransportImplGetSignatureId(that: this);
@@ -2009,6 +2028,28 @@ class ProtoTransportImpl {
           runtimeType == other.runtimeType &&
           innerTransport == other.innerTransport;
 }
+
+/// Mirror struct of SignatureContext
+class SignatureContext {
+  final int? globalId;
+  final SignatureType signatureType;
+
+  const SignatureContext({this.globalId, required this.signatureType});
+
+  @override
+  int get hashCode => globalId.hashCode ^ signatureType.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SignatureContext &&
+          runtimeType == other.runtimeType &&
+          globalId == other.globalId &&
+          signatureType == other.signatureType;
+}
+
+/// Mirror enum of SignatureType
+enum SignatureType { empty, signatureId, signatureDomain }
 
 ///----------------------------
 /// CONTENT OF src/nekoton_wrapper/external/storage_api.rs

@@ -2,6 +2,7 @@
 
 use crate::frb_generated::RustOpaque;
 use crate::nekoton_wrapper::external::gql_connection_api::GqlConnectionDartWrapper;
+use crate::nekoton_wrapper::models_api::SignatureContext;
 use crate::nekoton_wrapper::transport::{GqlTransportBox, TransportBoxTrait};
 use flutter_rust_bridge::frb;
 pub use nekoton::transport::gql::LatestBlock;
@@ -83,6 +84,11 @@ impl GqlTransportImpl {
     /// Get transport signature id and return it or throw error
     pub async fn get_signature_id(&self) -> anyhow::Result<Option<i32>> {
         self.inner_transport.get_signature_id().await
+    }
+
+    /// Get transport signature context and return it or throw error
+    pub async fn get_signature_context(&self) -> anyhow::Result<SignatureContext> {
+        self.inner_transport.get_signature_context().await
     }
 
     /// Get config of transport.

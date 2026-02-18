@@ -8,14 +8,14 @@ abstract interface class LedgerConnectionHandler {
   Future<Uint8List> sign({
     required int accountId,
     required List<int> message,
-    int? signatureId,
+    required SignatureContext signatureContext,
   });
   Future<Uint8List> signTransaction({
     required int accountId,
     required int wallet,
     required List<int> message,
     required LedgerSignatureContext context,
-    int? signatureId,
+    required SignatureContext signatureContext,
   });
 }
 
@@ -52,14 +52,14 @@ class LedgerConnection {
   /// Method to sign data. It's called from rust
   Future<Uint8List> sign(
     int accountId,
-    int? signatureId,
+    SignatureContext signatureContext,
     List<int> message,
   ) async {
     try {
       return await _handler.sign(
         accountId: accountId,
         message: message,
-        signatureId: signatureId,
+        signatureContext: signatureContext,
       );
     } on LedgerOperationCancelledException {
       throw ErrorCode.cancelled;
@@ -72,7 +72,7 @@ class LedgerConnection {
   Future<Uint8List> signTransaction(
     int accountId,
     int wallet,
-    int? signatureId,
+    SignatureContext signatureContext,
     List<int> message,
     String context,
   ) async {
@@ -82,7 +82,7 @@ class LedgerConnection {
         wallet: wallet,
         message: message,
         context: LedgerSignatureContext.fromJson(jsonDecode(context)),
-        signatureId: signatureId,
+        signatureContext: signatureContext,
       );
     } on LedgerOperationCancelledException {
       throw ErrorCode.cancelled;

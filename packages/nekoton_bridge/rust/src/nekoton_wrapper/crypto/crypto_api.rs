@@ -3,9 +3,11 @@
 use crate::frb_generated::RustOpaque;
 pub use crate::nekoton_wrapper::crypto::models::UnsignedMessageBoxTrait;
 use crate::nekoton_wrapper::helpers::{parse_hex_or_base64_bytes, parse_signature};
+use crate::nekoton_wrapper::models_api::SignatureContext;
 use crate::nekoton_wrapper::{parse_public_key, HandleError};
 use ed25519_dalek::Verifier;
 pub use nekoton::crypto::UnsignedMessage;
+use nekoton_utils::ToSign;
 use std::sync::Arc;
 
 /// Check signature by publicKey and data
@@ -13,16 +15,21 @@ pub fn nt_verify_signature(
     public_key: String,
     data: String,
     signature: String,
-    signature_id: Option<i32>,
+    signature_ctx: SignatureContext,
 ) -> anyhow::Result<bool> {
     let public_key = parse_public_key(public_key)?;
 
     let data = parse_hex_or_base64_bytes(data).handle_error()?;
     let signature = parse_signature(signature)?;
 
-    let data = nekoton::crypto::extend_with_signature_id(&data, signature_id);
+    let to_sign = ToSign {
+        ctx: signature_ctx,
+        data,
+    };
 
-    Ok(public_key.verify(data.as_ref(), &signature).is_ok())
+    Ok(public_key
+        .verify(&to_sign.write_to_bytes(), &signature)
+        .is_ok())
 }
 
 /// This struct creates only in rust side and describes UnsignedMessage

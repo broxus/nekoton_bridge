@@ -74,7 +74,7 @@ class NekotonBridge
   String get codegenVersion => '2.11.1';
 
   @override
-  int get rustContentHash => 741897443;
+  int get rustContentHash => -1434038244;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -185,12 +185,12 @@ abstract class NekotonBridgeApi extends BaseApi {
     required LedgerConnectionImpl that,
   });
 
-  ArcFnU16OptionI32VecU8DartFnFutureVecU8
+  ArcFnU16SignatureContextVecU8DartFnFutureVecU8
   crateApiMergedLedgerConnectionImplAutoAccessorGetOnSign({
     required LedgerConnectionImpl that,
   });
 
-  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
+  ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8
   crateApiMergedLedgerConnectionImplAutoAccessorGetOnSignTransaction({
     required LedgerConnectionImpl that,
   });
@@ -202,12 +202,13 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   void crateApiMergedLedgerConnectionImplAutoAccessorSetOnSign({
     required LedgerConnectionImpl that,
-    required ArcFnU16OptionI32VecU8DartFnFutureVecU8 onSign,
+    required ArcFnU16SignatureContextVecU8DartFnFutureVecU8 onSign,
   });
 
   void crateApiMergedLedgerConnectionImplAutoAccessorSetOnSignTransaction({
     required LedgerConnectionImpl that,
-    required ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 onSignTransaction,
+    required ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8
+    onSignTransaction,
   });
 
   ArcFnVecU8DartFnFutureVecU8
@@ -566,6 +567,10 @@ abstract class NekotonBridgeApi extends BaseApi {
     required GqlTransportImpl that,
   });
 
+  Future<SignatureContext> crateApiMergedGqlTransportImplGetSignatureContext({
+    required GqlTransportImpl that,
+  });
+
   Future<int?> crateApiMergedGqlTransportImplGetSignatureId({
     required GqlTransportImpl that,
   });
@@ -718,6 +723,10 @@ abstract class NekotonBridgeApi extends BaseApi {
     required JrpcTransportImpl that,
   });
 
+  Future<SignatureContext> crateApiMergedJrpcTransportImplGetSignatureContext({
+    required JrpcTransportImpl that,
+  });
+
   Future<int?> crateApiMergedJrpcTransportImplGetSignatureId({
     required JrpcTransportImpl that,
   });
@@ -824,7 +833,7 @@ abstract class NekotonBridgeApi extends BaseApi {
     required KeySigner signer,
     required UnsignedMessageImpl message,
     required String input,
-    int? signatureId,
+    required SignatureContext signatureCtx,
   });
 
   Future<SignedData> crateApiMergedKeystoreDartWrapperSignData({
@@ -832,7 +841,7 @@ abstract class NekotonBridgeApi extends BaseApi {
     required KeySigner signer,
     required String data,
     required String input,
-    int? signatureId,
+    required SignatureContext signatureCtx,
   });
 
   Future<SignedDataRaw> crateApiMergedKeystoreDartWrapperSignDataRaw({
@@ -840,7 +849,7 @@ abstract class NekotonBridgeApi extends BaseApi {
     required KeySigner signer,
     required String data,
     required String input,
-    int? signatureId,
+    required SignatureContext signatureCtx,
   });
 
   Future<String> crateApiMergedKeystoreDartWrapperUpdateKey({
@@ -857,8 +866,15 @@ abstract class NekotonBridgeApi extends BaseApi {
 
   LedgerConnectionDartWrapper crateApiMergedLedgerConnectionDartWrapperNew({
     required FutureOr<Uint8List> Function(int) onGetPublicKey,
-    required FutureOr<Uint8List> Function(int, int?, Uint8List) onSign,
-    required FutureOr<Uint8List> Function(int, int, int?, Uint8List, String)
+    required FutureOr<Uint8List> Function(int, SignatureContext, Uint8List)
+    onSign,
+    required FutureOr<Uint8List> Function(
+      int,
+      int,
+      SignatureContext,
+      Uint8List,
+      String,
+    )
     onSignTransaction,
   });
 
@@ -1095,7 +1111,7 @@ abstract class NekotonBridgeApi extends BaseApi {
     required String publicKey,
     required String data,
     required String signature,
-    int? signatureId,
+    required SignatureContext signatureCtx,
   });
 
   ProtoConnectionDartWrapper crateApiMergedProtoConnectionDartWrapperNew({
@@ -1135,6 +1151,10 @@ abstract class NekotonBridgeApi extends BaseApi {
   });
 
   Future<int> crateApiMergedProtoTransportImplGetNetworkId({
+    required ProtoTransportImpl that,
+  });
+
+  Future<SignatureContext> crateApiMergedProtoTransportImplGetSignatureContext({
     required ProtoTransportImpl that,
   });
 
@@ -1645,22 +1665,22 @@ abstract class NekotonBridgeApi extends BaseApi {
   get rust_arc_decrement_strong_count_ArcFnU16DartFnFutureVecU8Ptr;
 
   RustArcIncrementStrongCountFnType
-  get rust_arc_increment_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8;
+  get rust_arc_increment_strong_count_ArcFnU16SignatureContextVecU8DartFnFutureVecU8;
 
   RustArcDecrementStrongCountFnType
-  get rust_arc_decrement_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8;
+  get rust_arc_decrement_strong_count_ArcFnU16SignatureContextVecU8DartFnFutureVecU8;
 
   CrossPlatformFinalizerArg
-  get rust_arc_decrement_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8Ptr;
+  get rust_arc_decrement_strong_count_ArcFnU16SignatureContextVecU8DartFnFutureVecU8Ptr;
 
   RustArcIncrementStrongCountFnType
-  get rust_arc_increment_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8;
+  get rust_arc_increment_strong_count_ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8;
 
   RustArcDecrementStrongCountFnType
-  get rust_arc_decrement_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8;
+  get rust_arc_decrement_strong_count_ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8;
 
   CrossPlatformFinalizerArg
-  get rust_arc_decrement_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Ptr;
+  get rust_arc_decrement_strong_count_ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8Ptr;
 
   RustArcIncrementStrongCountFnType
   get rust_arc_increment_strong_count_GenericContractSubscriptionHandlerImpl;
@@ -2505,7 +2525,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  ArcFnU16OptionI32VecU8DartFnFutureVecU8
+  ArcFnU16SignatureContextVecU8DartFnFutureVecU8
   crateApiMergedLedgerConnectionImplAutoAccessorGetOnSign({
     required LedgerConnectionImpl that,
   }) {
@@ -2523,7 +2543,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         },
         codec: DcoCodec(
           decodeSuccessData:
-              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync,
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync,
           decodeErrorData: null,
         ),
         constMeta:
@@ -2542,7 +2562,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
-  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
+  ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8
   crateApiMergedLedgerConnectionImplAutoAccessorGetOnSignTransaction({
     required LedgerConnectionImpl that,
   }) {
@@ -2560,7 +2580,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
         },
         codec: DcoCodec(
           decodeSuccessData:
-              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync,
+              dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync,
           decodeErrorData: null,
         ),
         constMeta:
@@ -2622,7 +2642,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   @override
   void crateApiMergedLedgerConnectionImplAutoAccessorSetOnSign({
     required LedgerConnectionImpl that,
-    required ArcFnU16OptionI32VecU8DartFnFutureVecU8 onSign,
+    required ArcFnU16SignatureContextVecU8DartFnFutureVecU8 onSign,
   }) {
     return handler.executeSync(
       SyncTask(
@@ -2632,7 +2652,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
                 that,
               );
           var arg1 =
-              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
                 onSign,
               );
           return wire
@@ -2663,7 +2683,8 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   @override
   void crateApiMergedLedgerConnectionImplAutoAccessorSetOnSignTransaction({
     required LedgerConnectionImpl that,
-    required ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 onSignTransaction,
+    required ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8
+    onSignTransaction,
   }) {
     return handler.executeSync(
       SyncTask(
@@ -2673,7 +2694,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
                 that,
               );
           var arg1 =
-              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+              cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
                 onSignTransaction,
               );
           return wire
@@ -5317,6 +5338,38 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
+  Future<SignatureContext> crateApiMergedGqlTransportImplGetSignatureContext({
+    required GqlTransportImpl that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_gql_transport_impl(that);
+          return wire
+              .wire__crate__api__merged__gql_transport_impl_get_signature_context(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_signature_context,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedGqlTransportImplGetSignatureContextConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta
+  get kCrateApiMergedGqlTransportImplGetSignatureContextConstMeta =>
+      const TaskConstMeta(
+        debugName: "gql_transport_impl_get_signature_context",
+        argNames: ["that"],
+      );
+
+  @override
   Future<int?> crateApiMergedGqlTransportImplGetSignatureId({
     required GqlTransportImpl that,
   }) {
@@ -6362,6 +6415,38 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       );
 
   @override
+  Future<SignatureContext> crateApiMergedJrpcTransportImplGetSignatureContext({
+    required JrpcTransportImpl that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_jrpc_transport_impl(that);
+          return wire
+              .wire__crate__api__merged__jrpc_transport_impl_get_signature_context(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_signature_context,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta: kCrateApiMergedJrpcTransportImplGetSignatureContextConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta
+  get kCrateApiMergedJrpcTransportImplGetSignatureContextConstMeta =>
+      const TaskConstMeta(
+        debugName: "jrpc_transport_impl_get_signature_context",
+        argNames: ["that"],
+      );
+
+  @override
   Future<int?> crateApiMergedJrpcTransportImplGetSignatureId({
     required JrpcTransportImpl that,
   }) {
@@ -7027,7 +7112,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     required KeySigner signer,
     required UnsignedMessageImpl message,
     required String input,
-    int? signatureId,
+    required SignatureContext signatureCtx,
   }) {
     return handler.executeNormal(
       NormalTask(
@@ -7036,7 +7121,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           var arg1 = cst_encode_box_autoadd_key_signer(signer);
           var arg2 = cst_encode_box_autoadd_unsigned_message_impl(message);
           var arg3 = cst_encode_String(input);
-          var arg4 = cst_encode_opt_box_autoadd_i_32(signatureId);
+          var arg4 = cst_encode_box_autoadd_signature_context(signatureCtx);
           return wire.wire__crate__api__merged__keystore_dart_wrapper_sign(
             port_,
             arg0,
@@ -7051,7 +7136,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           decodeErrorData: dco_decode_AnyhowException,
         ),
         constMeta: kCrateApiMergedKeystoreDartWrapperSignConstMeta,
-        argValues: [that, signer, message, input, signatureId],
+        argValues: [that, signer, message, input, signatureCtx],
         apiImpl: this,
       ),
     );
@@ -7060,7 +7145,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperSignConstMeta =>
       const TaskConstMeta(
         debugName: "keystore_dart_wrapper_sign",
-        argNames: ["that", "signer", "message", "input", "signatureId"],
+        argNames: ["that", "signer", "message", "input", "signatureCtx"],
       );
 
   @override
@@ -7069,7 +7154,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     required KeySigner signer,
     required String data,
     required String input,
-    int? signatureId,
+    required SignatureContext signatureCtx,
   }) {
     return handler.executeNormal(
       NormalTask(
@@ -7078,7 +7163,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           var arg1 = cst_encode_box_autoadd_key_signer(signer);
           var arg2 = cst_encode_String(data);
           var arg3 = cst_encode_String(input);
-          var arg4 = cst_encode_opt_box_autoadd_i_32(signatureId);
+          var arg4 = cst_encode_box_autoadd_signature_context(signatureCtx);
           return wire.wire__crate__api__merged__keystore_dart_wrapper_sign_data(
             port_,
             arg0,
@@ -7093,7 +7178,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           decodeErrorData: dco_decode_AnyhowException,
         ),
         constMeta: kCrateApiMergedKeystoreDartWrapperSignDataConstMeta,
-        argValues: [that, signer, data, input, signatureId],
+        argValues: [that, signer, data, input, signatureCtx],
         apiImpl: this,
       ),
     );
@@ -7102,7 +7187,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperSignDataConstMeta =>
       const TaskConstMeta(
         debugName: "keystore_dart_wrapper_sign_data",
-        argNames: ["that", "signer", "data", "input", "signatureId"],
+        argNames: ["that", "signer", "data", "input", "signatureCtx"],
       );
 
   @override
@@ -7111,7 +7196,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     required KeySigner signer,
     required String data,
     required String input,
-    int? signatureId,
+    required SignatureContext signatureCtx,
   }) {
     return handler.executeNormal(
       NormalTask(
@@ -7120,7 +7205,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           var arg1 = cst_encode_box_autoadd_key_signer(signer);
           var arg2 = cst_encode_String(data);
           var arg3 = cst_encode_String(input);
-          var arg4 = cst_encode_opt_box_autoadd_i_32(signatureId);
+          var arg4 = cst_encode_box_autoadd_signature_context(signatureCtx);
           return wire
               .wire__crate__api__merged__keystore_dart_wrapper_sign_data_raw(
                 port_,
@@ -7136,7 +7221,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           decodeErrorData: dco_decode_AnyhowException,
         ),
         constMeta: kCrateApiMergedKeystoreDartWrapperSignDataRawConstMeta,
-        argValues: [that, signer, data, input, signatureId],
+        argValues: [that, signer, data, input, signatureCtx],
         apiImpl: this,
       ),
     );
@@ -7145,7 +7230,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   TaskConstMeta get kCrateApiMergedKeystoreDartWrapperSignDataRawConstMeta =>
       const TaskConstMeta(
         debugName: "keystore_dart_wrapper_sign_data_raw",
-        argNames: ["that", "signer", "data", "input", "signatureId"],
+        argNames: ["that", "signer", "data", "input", "signatureCtx"],
       );
 
   @override
@@ -7227,8 +7312,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   @override
   LedgerConnectionDartWrapper crateApiMergedLedgerConnectionDartWrapperNew({
     required FutureOr<Uint8List> Function(int) onGetPublicKey,
-    required FutureOr<Uint8List> Function(int, int?, Uint8List) onSign,
-    required FutureOr<Uint8List> Function(int, int, int?, Uint8List, String)
+    required FutureOr<Uint8List> Function(int, SignatureContext, Uint8List)
+    onSign,
+    required FutureOr<Uint8List> Function(
+      int,
+      int,
+      SignatureContext,
+      Uint8List,
+      String,
+    )
     onSignTransaction,
   }) {
     return handler.executeSync(
@@ -7239,11 +7331,11 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
                 onGetPublicKey,
               );
           var arg1 =
-              cst_encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+              cst_encode_DartFn_Inputs_u_16_signature_context_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
                 onSign,
               );
           var arg2 =
-              cst_encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+              cst_encode_DartFn_Inputs_u_16_u_16_signature_context_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
                 onSignTransaction,
               );
           return wire
@@ -8817,7 +8909,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     required String publicKey,
     required String data,
     required String signature,
-    int? signatureId,
+    required SignatureContext signatureCtx,
   }) {
     return handler.executeNormal(
       NormalTask(
@@ -8825,7 +8917,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           var arg0 = cst_encode_String(publicKey);
           var arg1 = cst_encode_String(data);
           var arg2 = cst_encode_String(signature);
-          var arg3 = cst_encode_opt_box_autoadd_i_32(signatureId);
+          var arg3 = cst_encode_box_autoadd_signature_context(signatureCtx);
           return wire.wire__crate__api__merged__nt_verify_signature(
             port_,
             arg0,
@@ -8839,7 +8931,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           decodeErrorData: dco_decode_AnyhowException,
         ),
         constMeta: kCrateApiMergedNtVerifySignatureConstMeta,
-        argValues: [publicKey, data, signature, signatureId],
+        argValues: [publicKey, data, signature, signatureCtx],
         apiImpl: this,
       ),
     );
@@ -8848,7 +8940,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   TaskConstMeta get kCrateApiMergedNtVerifySignatureConstMeta =>
       const TaskConstMeta(
         debugName: "nt_verify_signature",
-        argNames: ["publicKey", "data", "signature", "signatureId"],
+        argNames: ["publicKey", "data", "signature", "signatureCtx"],
       );
 
   @override
@@ -9130,6 +9222,39 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   TaskConstMeta get kCrateApiMergedProtoTransportImplGetNetworkIdConstMeta =>
       const TaskConstMeta(
         debugName: "proto_transport_impl_get_network_id",
+        argNames: ["that"],
+      );
+
+  @override
+  Future<SignatureContext> crateApiMergedProtoTransportImplGetSignatureContext({
+    required ProtoTransportImpl that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          var arg0 = cst_encode_box_autoadd_proto_transport_impl(that);
+          return wire
+              .wire__crate__api__merged__proto_transport_impl_get_signature_context(
+                port_,
+                arg0,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_signature_context,
+          decodeErrorData: dco_decode_AnyhowException,
+        ),
+        constMeta:
+            kCrateApiMergedProtoTransportImplGetSignatureContextConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta
+  get kCrateApiMergedProtoTransportImplGetSignatureContextConstMeta =>
+      const TaskConstMeta(
+        debugName: "proto_transport_impl_get_signature_context",
         argNames: ["that"],
       );
 
@@ -11656,12 +11781,12 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   Future<void> Function(int, dynamic, dynamic, dynamic)
-  encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-    FutureOr<Uint8List> Function(int, int?, Uint8List) raw,
+  encode_DartFn_Inputs_u_16_signature_context_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int, SignatureContext, Uint8List) raw,
   ) {
     return (callId, rawArg0, rawArg1, rawArg2) async {
       final arg0 = dco_decode_u_16(rawArg0);
-      final arg1 = dco_decode_opt_box_autoadd_i_32(rawArg1);
+      final arg1 = dco_decode_signature_context(rawArg1);
       final arg2 = dco_decode_list_prim_u_8_strict(rawArg2);
 
       Box<Uint8List>? rawOutput;
@@ -11693,13 +11818,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   Future<void> Function(int, dynamic, dynamic, dynamic, dynamic, dynamic)
-  encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
-    FutureOr<Uint8List> Function(int, int, int?, Uint8List, String) raw,
+  encode_DartFn_Inputs_u_16_u_16_signature_context_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int, int, SignatureContext, Uint8List, String)
+    raw,
   ) {
     return (callId, rawArg0, rawArg1, rawArg2, rawArg3, rawArg4) async {
       final arg0 = dco_decode_u_16(rawArg0);
       final arg1 = dco_decode_u_16(rawArg1);
-      final arg2 = dco_decode_opt_box_autoadd_i_32(rawArg2);
+      final arg2 = dco_decode_signature_context(rawArg2);
       final arg3 = dco_decode_list_prim_u_8_strict(rawArg3);
       final arg4 = dco_decode_String(rawArg4);
 
@@ -11892,20 +12018,20 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync;
 
   RustArcIncrementStrongCountFnType
-  get rust_arc_increment_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8 =>
-      wire.rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync;
+  get rust_arc_increment_strong_count_ArcFnU16SignatureContextVecU8DartFnFutureVecU8 =>
+      wire.rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync;
 
   RustArcDecrementStrongCountFnType
-  get rust_arc_decrement_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8 =>
-      wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync;
+  get rust_arc_decrement_strong_count_ArcFnU16SignatureContextVecU8DartFnFutureVecU8 =>
+      wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync;
 
   RustArcIncrementStrongCountFnType
-  get rust_arc_increment_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 =>
-      wire.rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync;
+  get rust_arc_increment_strong_count_ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8 =>
+      wire.rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync;
 
   RustArcDecrementStrongCountFnType
-  get rust_arc_decrement_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 =>
-      wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync;
+  get rust_arc_decrement_strong_count_ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8 =>
+      wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync;
 
   RustArcIncrementStrongCountFnType
   get rust_arc_increment_strong_count_GenericContractSubscriptionHandlerImpl =>
@@ -12052,23 +12178,23 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
-  ArcFnU16OptionI32VecU8DartFnFutureVecU8
-  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+  ArcFnU16SignatureContextVecU8DartFnFutureVecU8
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
     dynamic raw,
   ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
-    return ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl.frbInternalDcoDecode(
+    return ArcFnU16SignatureContextVecU8DartFnFutureVecU8Impl.frbInternalDcoDecode(
       raw as List<dynamic>,
     );
   }
 
   @protected
-  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
-  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+  ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
     dynamic raw,
   ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
-    return ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl.frbInternalDcoDecode(
+    return ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8Impl.frbInternalDcoDecode(
       raw as List<dynamic>,
     );
   }
@@ -12391,8 +12517,8 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
-  FutureOr<Uint8List> Function(int, int?, Uint8List)
-  dco_decode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+  FutureOr<Uint8List> Function(int, SignatureContext, Uint8List)
+  dco_decode_DartFn_Inputs_u_16_signature_context_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
     dynamic raw,
   ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
@@ -12400,8 +12526,8 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
-  FutureOr<Uint8List> Function(int, int, int?, Uint8List, String)
-  dco_decode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+  FutureOr<Uint8List> Function(int, int, SignatureContext, Uint8List, String)
+  dco_decode_DartFn_Inputs_u_16_u_16_signature_context_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
     dynamic raw,
   ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
@@ -12614,23 +12740,23 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
-  ArcFnU16OptionI32VecU8DartFnFutureVecU8
-  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+  ArcFnU16SignatureContextVecU8DartFnFutureVecU8
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
     dynamic raw,
   ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
-    return ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl.frbInternalDcoDecode(
+    return ArcFnU16SignatureContextVecU8DartFnFutureVecU8Impl.frbInternalDcoDecode(
       raw as List<dynamic>,
     );
   }
 
   @protected
-  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
-  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+  ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
     dynamic raw,
   ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
-    return ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl.frbInternalDcoDecode(
+    return ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8Impl.frbInternalDcoDecode(
       raw as List<dynamic>,
     );
   }
@@ -12904,6 +13030,12 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   ProtoTransportImpl dco_decode_box_autoadd_proto_transport_impl(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dco_decode_proto_transport_impl(raw);
+  }
+
+  @protected
+  SignatureContext dco_decode_box_autoadd_signature_context(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return dco_decode_signature_context(raw);
   }
 
   @protected
@@ -13270,6 +13402,18 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  SignatureContext dco_decode_signature_context(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 2)
+      throw Exception('unexpected arr length: expect 2 but see ${arr.length}');
+    return SignatureContext(
+      globalId: dco_decode_opt_box_autoadd_i_32(arr[0]),
+      signatureType: dco_decode_signature_type(arr[1]),
+    );
+  }
+
+  @protected
   SignatureParts dco_decode_signature_parts(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     final arr = raw as List<dynamic>;
@@ -13279,6 +13423,12 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       low: dco_decode_String(arr[0]),
       high: dco_decode_String(arr[1]),
     );
+  }
+
+  @protected
+  SignatureType dco_decode_signature_type(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return SignatureType.values[raw as int];
   }
 
   @protected
@@ -13468,24 +13618,24 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
-  ArcFnU16OptionI32VecU8DartFnFutureVecU8
-  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+  ArcFnU16SignatureContextVecU8DartFnFutureVecU8
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
     SseDeserializer deserializer,
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    return ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl.frbInternalSseDecode(
+    return ArcFnU16SignatureContextVecU8DartFnFutureVecU8Impl.frbInternalSseDecode(
       sse_decode_usize(deserializer),
       sse_decode_i_32(deserializer),
     );
   }
 
   @protected
-  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
-  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+  ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
     SseDeserializer deserializer,
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    return ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl.frbInternalSseDecode(
+    return ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8Impl.frbInternalSseDecode(
       sse_decode_usize(deserializer),
       sse_decode_i_32(deserializer),
     );
@@ -14063,24 +14213,24 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
-  ArcFnU16OptionI32VecU8DartFnFutureVecU8
-  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+  ArcFnU16SignatureContextVecU8DartFnFutureVecU8
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
     SseDeserializer deserializer,
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    return ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl.frbInternalSseDecode(
+    return ArcFnU16SignatureContextVecU8DartFnFutureVecU8Impl.frbInternalSseDecode(
       sse_decode_usize(deserializer),
       sse_decode_i_32(deserializer),
     );
   }
 
   @protected
-  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
-  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+  ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
     SseDeserializer deserializer,
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    return ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl.frbInternalSseDecode(
+    return ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8Impl.frbInternalSseDecode(
       sse_decode_usize(deserializer),
       sse_decode_i_32(deserializer),
     );
@@ -14395,6 +14545,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_proto_transport_impl(deserializer));
+  }
+
+  @protected
+  SignatureContext sse_decode_box_autoadd_signature_context(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return (sse_decode_signature_context(deserializer));
   }
 
   @protected
@@ -14805,11 +14963,29 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  SignatureContext sse_decode_signature_context(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var var_globalId = sse_decode_opt_box_autoadd_i_32(deserializer);
+    var var_signatureType = sse_decode_signature_type(deserializer);
+    return SignatureContext(
+      globalId: var_globalId,
+      signatureType: var_signatureType,
+    );
+  }
+
+  @protected
   SignatureParts sse_decode_signature_parts(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     var var_low = sse_decode_String(deserializer);
     var var_high = sse_decode_String(deserializer);
     return SignatureParts(low: var_low, high: var_high);
+  }
+
+  @protected
+  SignatureType sse_decode_signature_type(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var inner = sse_decode_i_32(deserializer);
+    return SignatureType.values[inner];
   }
 
   @protected
@@ -14992,23 +15168,23 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   int
-  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
-    ArcFnU16OptionI32VecU8DartFnFutureVecU8 raw,
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
+    ArcFnU16SignatureContextVecU8DartFnFutureVecU8 raw,
   ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     // ignore: invalid_use_of_internal_member
-    return (raw as ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl)
+    return (raw as ArcFnU16SignatureContextVecU8DartFnFutureVecU8Impl)
         .frbInternalCstEncode(move: true);
   }
 
   @protected
   int
-  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
-    ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 raw,
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
+    ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8 raw,
   ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     // ignore: invalid_use_of_internal_member
-    return (raw as ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl)
+    return (raw as ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8Impl)
         .frbInternalCstEncode(move: true);
   }
 
@@ -15370,12 +15546,12 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   PlatformPointer
-  cst_encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-    FutureOr<Uint8List> Function(int, int?, Uint8List) raw,
+  cst_encode_DartFn_Inputs_u_16_signature_context_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int, SignatureContext, Uint8List) raw,
   ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_DartOpaque(
-      encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+      encode_DartFn_Inputs_u_16_signature_context_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
         raw,
       ),
     );
@@ -15383,12 +15559,13 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   PlatformPointer
-  cst_encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
-    FutureOr<Uint8List> Function(int, int, int?, Uint8List, String) raw,
+  cst_encode_DartFn_Inputs_u_16_u_16_signature_context_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int, int, SignatureContext, Uint8List, String)
+    raw,
   ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_DartOpaque(
-      encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+      encode_DartFn_Inputs_u_16_u_16_signature_context_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
         raw,
       ),
     );
@@ -15585,23 +15762,23 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   int
-  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
-    ArcFnU16OptionI32VecU8DartFnFutureVecU8 raw,
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
+    ArcFnU16SignatureContextVecU8DartFnFutureVecU8 raw,
   ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     // ignore: invalid_use_of_internal_member
-    return (raw as ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl)
+    return (raw as ArcFnU16SignatureContextVecU8DartFnFutureVecU8Impl)
         .frbInternalCstEncode();
   }
 
   @protected
   int
-  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
-    ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 raw,
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
+    ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8 raw,
   ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     // ignore: invalid_use_of_internal_member
-    return (raw as ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl)
+    return (raw as ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8Impl)
         .frbInternalCstEncode();
   }
 
@@ -15741,6 +15918,12 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  int cst_encode_signature_type(SignatureType raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return cst_encode_i_32(raw.index);
+  }
+
+  @protected
   int cst_encode_u_16(int raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return raw;
@@ -15861,13 +16044,13 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void
-  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
-    ArcFnU16OptionI32VecU8DartFnFutureVecU8 self,
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
+    ArcFnU16SignatureContextVecU8DartFnFutureVecU8 self,
     SseSerializer serializer,
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-      (self as ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl)
+      (self as ArcFnU16SignatureContextVecU8DartFnFutureVecU8Impl)
           .frbInternalSseEncode(move: true),
       serializer,
     );
@@ -15875,13 +16058,13 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void
-  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
-    ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 self,
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
+    ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8 self,
     SseSerializer serializer,
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-      (self as ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl)
+      (self as ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8Impl)
           .frbInternalSseEncode(move: true),
       serializer,
     );
@@ -16342,13 +16525,13 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void
-  sse_encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-    FutureOr<Uint8List> Function(int, int?, Uint8List) self,
+  sse_encode_DartFn_Inputs_u_16_signature_context_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int, SignatureContext, Uint8List) self,
     SseSerializer serializer,
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_DartOpaque(
-      encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+      encode_DartFn_Inputs_u_16_signature_context_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
         self,
       ),
       serializer,
@@ -16357,13 +16540,14 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void
-  sse_encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
-    FutureOr<Uint8List> Function(int, int, int?, Uint8List, String) self,
+  sse_encode_DartFn_Inputs_u_16_u_16_signature_context_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int, int, SignatureContext, Uint8List, String)
+    self,
     SseSerializer serializer,
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_DartOpaque(
-      encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+      encode_DartFn_Inputs_u_16_u_16_signature_context_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
         self,
       ),
       serializer,
@@ -16655,13 +16839,13 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void
-  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
-    ArcFnU16OptionI32VecU8DartFnFutureVecU8 self,
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
+    ArcFnU16SignatureContextVecU8DartFnFutureVecU8 self,
     SseSerializer serializer,
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-      (self as ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl)
+      (self as ArcFnU16SignatureContextVecU8DartFnFutureVecU8Impl)
           .frbInternalSseEncode(move: null),
       serializer,
     );
@@ -16669,13 +16853,13 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   @protected
   void
-  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
-    ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 self,
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
+    ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8 self,
     SseSerializer serializer,
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
-      (self as ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl)
+      (self as ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8Impl)
           .frbInternalSseEncode(move: null),
       serializer,
     );
@@ -17024,6 +17208,15 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_proto_transport_impl(self, serializer);
+  }
+
+  @protected
+  void sse_encode_box_autoadd_signature_context(
+    SignatureContext self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_signature_context(self, serializer);
   }
 
   @protected
@@ -17434,6 +17627,16 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
   }
 
   @protected
+  void sse_encode_signature_context(
+    SignatureContext self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_opt_box_autoadd_i_32(self.globalId, serializer);
+    sse_encode_signature_type(self.signatureType, serializer);
+  }
+
+  @protected
   void sse_encode_signature_parts(
     SignatureParts self,
     SseSerializer serializer,
@@ -17441,6 +17644,12 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_String(self.low, serializer);
     sse_encode_String(self.high, serializer);
+  }
+
+  @protected
+  void sse_encode_signature_type(SignatureType self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self.index, serializer);
   }
 
   @protected
@@ -17717,15 +17926,15 @@ class ArcFnU16DartFnFutureVecU8Impl extends RustOpaque
 }
 
 @sealed
-class ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl extends RustOpaque
-    implements ArcFnU16OptionI32VecU8DartFnFutureVecU8 {
+class ArcFnU16SignatureContextVecU8DartFnFutureVecU8Impl extends RustOpaque
+    implements ArcFnU16SignatureContextVecU8DartFnFutureVecU8 {
   // Not to be used by end users
-  ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl.frbInternalDcoDecode(
+  ArcFnU16SignatureContextVecU8DartFnFutureVecU8Impl.frbInternalDcoDecode(
     List<dynamic> wire,
   ) : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
-  ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl.frbInternalSseDecode(
+  ArcFnU16SignatureContextVecU8DartFnFutureVecU8Impl.frbInternalSseDecode(
     BigInt ptr,
     int externalSizeOnNative,
   ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
@@ -17734,28 +17943,29 @@ class ArcFnU16OptionI32VecU8DartFnFutureVecU8Impl extends RustOpaque
     rustArcIncrementStrongCount: NekotonBridge
         .instance
         .api
-        .rust_arc_increment_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8,
+        .rust_arc_increment_strong_count_ArcFnU16SignatureContextVecU8DartFnFutureVecU8,
     rustArcDecrementStrongCount: NekotonBridge
         .instance
         .api
-        .rust_arc_decrement_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8,
+        .rust_arc_decrement_strong_count_ArcFnU16SignatureContextVecU8DartFnFutureVecU8,
     rustArcDecrementStrongCountPtr: NekotonBridge
         .instance
         .api
-        .rust_arc_decrement_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8Ptr,
+        .rust_arc_decrement_strong_count_ArcFnU16SignatureContextVecU8DartFnFutureVecU8Ptr,
   );
 }
 
 @sealed
-class ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl extends RustOpaque
-    implements ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 {
+class ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8Impl
+    extends RustOpaque
+    implements ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8 {
   // Not to be used by end users
-  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl.frbInternalDcoDecode(
+  ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8Impl.frbInternalDcoDecode(
     List<dynamic> wire,
   ) : super.frbInternalDcoDecode(wire, _kStaticData);
 
   // Not to be used by end users
-  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl.frbInternalSseDecode(
+  ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8Impl.frbInternalSseDecode(
     BigInt ptr,
     int externalSizeOnNative,
   ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
@@ -17764,15 +17974,15 @@ class ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Impl extends RustOpaque
     rustArcIncrementStrongCount: NekotonBridge
         .instance
         .api
-        .rust_arc_increment_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8,
+        .rust_arc_increment_strong_count_ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8,
     rustArcDecrementStrongCount: NekotonBridge
         .instance
         .api
-        .rust_arc_decrement_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8,
+        .rust_arc_decrement_strong_count_ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8,
     rustArcDecrementStrongCountPtr: NekotonBridge
         .instance
         .api
-        .rust_arc_decrement_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Ptr,
+        .rust_arc_decrement_strong_count_ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8Ptr,
   );
 }
 
@@ -18428,16 +18638,16 @@ class LedgerConnectionImplImpl extends RustOpaque
         that: this,
       );
 
-  ArcFnU16OptionI32VecU8DartFnFutureVecU8 get onSign => NekotonBridge
+  ArcFnU16SignatureContextVecU8DartFnFutureVecU8 get onSign => NekotonBridge
       .instance
       .api
       .crateApiMergedLedgerConnectionImplAutoAccessorGetOnSign(that: this);
 
-  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 get onSignTransaction =>
-      NekotonBridge.instance.api
-          .crateApiMergedLedgerConnectionImplAutoAccessorGetOnSignTransaction(
-            that: this,
-          );
+  ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8
+  get onSignTransaction => NekotonBridge.instance.api
+      .crateApiMergedLedgerConnectionImplAutoAccessorGetOnSignTransaction(
+        that: this,
+      );
 
   set onGetPublicKey(ArcFnU16DartFnFutureVecU8 onGetPublicKey) => NekotonBridge
       .instance
@@ -18447,16 +18657,15 @@ class LedgerConnectionImplImpl extends RustOpaque
         onGetPublicKey: onGetPublicKey,
       );
 
-  set onSign(ArcFnU16OptionI32VecU8DartFnFutureVecU8 onSign) => NekotonBridge
-      .instance
-      .api
-      .crateApiMergedLedgerConnectionImplAutoAccessorSetOnSign(
-        that: this,
-        onSign: onSign,
-      );
+  set onSign(ArcFnU16SignatureContextVecU8DartFnFutureVecU8 onSign) =>
+      NekotonBridge.instance.api
+          .crateApiMergedLedgerConnectionImplAutoAccessorSetOnSign(
+            that: this,
+            onSign: onSign,
+          );
 
   set onSignTransaction(
-    ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 onSignTransaction,
+    ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8 onSignTransaction,
   ) => NekotonBridge.instance.api
       .crateApiMergedLedgerConnectionImplAutoAccessorSetOnSignTransaction(
         that: this,
