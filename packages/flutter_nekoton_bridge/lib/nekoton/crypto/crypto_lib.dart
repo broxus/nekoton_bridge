@@ -1,4 +1,5 @@
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
+import 'package:flutter/foundation.dart';
 
 export 'unsigned_message.dart';
 export 'constants.dart';
@@ -16,6 +17,12 @@ Future<bool> verifySignature({
   required String signature,
   required SignatureContext signatureContext,
 }) {
+  // TODO(knightforce): remove temp logs
+  debugPrint(
+    '!!! SignatureContext Test verifySignature: '
+    'globalId=${signatureContext.globalId}, '
+    'signatureType=${signatureContext.signatureType}',
+  );
   return ntVerifySignature(
     publicKey: publicKey.publicKey,
     data: data,

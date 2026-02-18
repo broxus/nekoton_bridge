@@ -10,7 +10,6 @@ use crate::nekoton_wrapper::{
     helpers::{make_boc, make_full_contract_state},
     parse_address, parse_hash, HandleError,
 };
-use crate::nekoton_wrapper::models_api::SignatureContext;
 use async_trait::async_trait;
 use base64::engine::general_purpose;
 use base64::Engine;

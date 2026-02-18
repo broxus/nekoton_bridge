@@ -5,7 +5,6 @@ use crate::nekoton_wrapper::core::keystore::models::{SignedData, SignedDataRaw};
 use crate::nekoton_wrapper::core::keystore::{verify_data, KeyStoreApiBox, KeyStoreApiBoxTrait};
 use crate::nekoton_wrapper::crypto::models::KeySigner;
 use crate::nekoton_wrapper::external::ledger_connection_api::LedgerConnectionDartWrapper;
-use crate::nekoton_wrapper::models_api::SignatureContext;
 use crate::nekoton_wrapper::external::storage_api::StorageDartWrapper;
 use crate::nekoton_wrapper::models_api::SignatureContext;
 use crate::nekoton_wrapper::HandleError;

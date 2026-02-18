@@ -163,6 +163,12 @@ class KeyStore {
     required SignInput input,
     required SignatureContext signatureContext,
   }) async {
+    // TODO(knightforce): remove temp logs
+    debugPrint(
+      '!!! SignatureContext Test KeyStore.sign: '
+      'globalId=${signatureContext.globalId}, '
+      'signatureType=${signatureContext.signatureType}',
+    );
     return await keystore.sign(
       signer: input.toSigner(),
       input: jsonEncode(input),
@@ -179,6 +185,12 @@ class KeyStore {
     required SignInput input,
     required SignatureContext signatureContext,
   }) async {
+    // TODO(knightforce): remove temp logs
+    debugPrint(
+      '!!! SignatureContext Test KeyStore.signData: '
+      'globalId=${signatureContext.globalId}, '
+      'signatureType=${signatureContext.signatureType}',
+    );
     return await keystore.signData(
       signer: input.toSigner(),
       input: jsonEncode(input),
@@ -195,6 +207,12 @@ class KeyStore {
     required SignInput input,
     required SignatureContext signatureContext,
   }) async {
+    // TODO(knightforce): remove temp logs
+    debugPrint(
+      '!!! SignatureContext Test KeyStore.signDataRaw: '
+      'globalId=${signatureContext.globalId}, '
+      'signatureType=${signatureContext.signatureType}',
+    );
     return await keystore.signDataRaw(
       signer: input.toSigner(),
       input: jsonEncode(input),
