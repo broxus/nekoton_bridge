@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:nekoton_bridge/nekoton_bridge.dart' as lib;
 
@@ -93,15 +92,7 @@ class JrpcTransport extends Transport {
   Future<SignatureContext> getSignatureContext() {
     if (_disposed) throw TransportCallAfterDisposeError();
 
-    return mutex.protectRead(() async {
-      final context = await transport.getSignatureContext();
-      // TODO(knightforce): remove temp logs
-      debugPrint(
-        '!!! SignatureContext Test JrpcTransport.getSignatureContext: '
-        'globalId=${context.globalId}, signatureType=${context.signatureType}',
-      );
-      return context;
-    });
+    return mutex.protectRead(() => transport.getSignatureContext());
   }
 
   @override
