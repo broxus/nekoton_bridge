@@ -15,7 +15,9 @@ dependencies:
   plugin_platform_interface: ^2.1.8
   rxdart: ^0.28.0
   money2: ^6.0.0
-  nekoton_bridge: ^5.3.0-dev.0
+#  nekoton_bridge: ^5.3.0-dev.0
+  nekoton_bridge:
+    path: ../nekoton_bridge
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
   crypto: ^3.0.6

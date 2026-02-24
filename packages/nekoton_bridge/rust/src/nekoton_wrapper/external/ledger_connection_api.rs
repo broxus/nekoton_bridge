@@ -77,7 +77,7 @@ impl external::LedgerConnection for LedgerConnectionImpl {
         signature_ctx: SignatureContext,
         message: &[u8],
     ) -> anyhow::Result<[u8; SIGNATURE_LENGTH]> {
-        let data = (self.on_sign)(account, signature_ctx, message.to_vec()).await;
+        let data: Vec<u8> = (self.on_sign)(account, signature_ctx, message.to_vec()).await;
         if data.len() != SIGNATURE_LENGTH {
             anyhow::bail!(
                 "Invalid signature length: expected {}, got {}",
@@ -97,7 +97,7 @@ impl external::LedgerConnection for LedgerConnectionImpl {
         context: &external::LedgerSignatureContext,
     ) -> anyhow::Result<[u8; SIGNATURE_LENGTH]> {
         let ctx_json = serde_json::to_string(context)?;
-        let data =
+        let data: Vec<u8> =
             (self.on_sign_transaction)(account, wallet, signature_ctx, message.to_vec(), ctx_json)
                 .await;
         if data.len() != SIGNATURE_LENGTH {
