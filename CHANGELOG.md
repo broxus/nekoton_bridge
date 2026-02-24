@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-02-24
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v5.5.0-dev.0`](#flutter_nekoton_bridge---v550-dev0)
+ - [`flutter_nekoton_bridge_example` - `v4.2.0-dev.0`](#flutter_nekoton_bridge_example---v420-dev0)
+ - [`nekoton_bridge` - `v5.3.0-dev.0`](#nekoton_bridge---v530-dev0)
+
+---
+
+#### `flutter_nekoton_bridge` - `v5.5.0-dev.0`
+
+ - **FEAT**(EWM-656): add signature domains support.
+
+#### `flutter_nekoton_bridge_example` - `v4.2.0-dev.0`
+
+ - **FEAT**(EWM-656): add signature domains support.
+
+#### `nekoton_bridge` - `v5.3.0-dev.0`
+
+ - **FEAT**(EWM-656): add signature domains support.
+
+
 ## 2026-02-04
 
 ### Changes
