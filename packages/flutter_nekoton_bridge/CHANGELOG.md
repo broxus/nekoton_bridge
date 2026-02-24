@@ -1,3 +1,7 @@
+## 5.5.0-dev.0
+
+ - **FEAT**(EWM-656): add signature domains support.
+
 ## 5.4.0
 
  - **FEAT**(EWM-638): implement StreamListenersObservable for stream listener tracking in core classes.

@@ -1,3 +1,7 @@
+## 4.2.0-dev.0
+
+ - **FEAT**(EWM-656): add signature domains support.
+
 ## 4.1.3
 
  - Update a dependency to the latest release.
