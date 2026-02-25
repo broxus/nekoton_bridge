@@ -869,7 +869,7 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_getter(int64_t port_
                                                                    struct wire_cst_list_prim_u_8_strict *method_id,
                                                                    struct wire_cst_list_prim_u_8_strict *input,
                                                                    struct wire_cst_list_record_string_string *libraries,
-                                                                   int32_t *signature_id);
+                                                                   struct wire_cst_signature_context *signature_ctx);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local(int64_t port_,
                                                                   struct wire_cst_list_prim_u_8_strict *account_stuff_boc,
@@ -878,7 +878,7 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local(int64_t port_,
                                                                   struct wire_cst_list_prim_u_8_strict *input,
                                                                   bool responsible,
                                                                   struct wire_cst_list_record_string_string *libraries,
-                                                                  int32_t *signature_id);
+                                                                  struct wire_cst_signature_context *signature_ctx);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local_with_libs(int64_t port_,
                                                                             uintptr_t transport,
@@ -889,7 +889,7 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local_with_libs(int6
                                                                             bool responsible,
                                                                             struct wire_cst_list_record_string_string *libraries,
                                                                             uint8_t retry_count,
-                                                                            int32_t *signature_id);
+                                                                            struct wire_cst_signature_context *signature_ctx);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_set_code_salt(struct wire_cst_list_prim_u_8_strict *code,
                                                                                       struct wire_cst_list_prim_u_8_strict *salt);

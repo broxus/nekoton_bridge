@@ -1048,7 +1048,7 @@ abstract class NekotonBridgeApi extends BaseApi {
     required String methodId,
     required String input,
     required Map<String, String> libraries,
-    int? signatureId,
+    required SignatureContext signatureCtx,
   });
 
   Future<String> crateApiMergedNtRunLocal({
@@ -1058,7 +1058,7 @@ abstract class NekotonBridgeApi extends BaseApi {
     required String input,
     required bool responsible,
     required Map<String, String> libraries,
-    int? signatureId,
+    required SignatureContext signatureCtx,
   });
 
   Future<String> crateApiMergedNtRunLocalWithLibs({
@@ -1070,7 +1070,7 @@ abstract class NekotonBridgeApi extends BaseApi {
     required bool responsible,
     required Map<String, String> libraries,
     required int retryCount,
-    int? signatureId,
+    required SignatureContext signatureCtx,
   });
 
   List<String> crateApiMergedNtSetCodeSalt({
@@ -8479,7 +8479,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     required String methodId,
     required String input,
     required Map<String, String> libraries,
-    int? signatureId,
+    required SignatureContext signatureCtx,
   }) {
     return handler.executeNormal(
       NormalTask(
@@ -8489,7 +8489,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           var arg2 = cst_encode_String(methodId);
           var arg3 = cst_encode_String(input);
           var arg4 = cst_encode_Map_String_String_None(libraries);
-          var arg5 = cst_encode_opt_box_autoadd_i_32(signatureId);
+          var arg5 = cst_encode_box_autoadd_signature_context(signatureCtx);
           return wire.wire__crate__api__merged__nt_run_getter(
             port_,
             arg0,
@@ -8511,7 +8511,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           methodId,
           input,
           libraries,
-          signatureId,
+          signatureCtx,
         ],
         apiImpl: this,
       ),
@@ -8526,7 +8526,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       "methodId",
       "input",
       "libraries",
-      "signatureId",
+      "signatureCtx",
     ],
   );
 
@@ -8538,7 +8538,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     required String input,
     required bool responsible,
     required Map<String, String> libraries,
-    int? signatureId,
+    required SignatureContext signatureCtx,
   }) {
     return handler.executeNormal(
       NormalTask(
@@ -8549,7 +8549,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           var arg3 = cst_encode_String(input);
           var arg4 = cst_encode_bool(responsible);
           var arg5 = cst_encode_Map_String_String_None(libraries);
-          var arg6 = cst_encode_opt_box_autoadd_i_32(signatureId);
+          var arg6 = cst_encode_box_autoadd_signature_context(signatureCtx);
           return wire.wire__crate__api__merged__nt_run_local(
             port_,
             arg0,
@@ -8573,7 +8573,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           input,
           responsible,
           libraries,
-          signatureId,
+          signatureCtx,
         ],
         apiImpl: this,
       ),
@@ -8589,7 +8589,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
       "input",
       "responsible",
       "libraries",
-      "signatureId",
+      "signatureCtx",
     ],
   );
 
@@ -8603,7 +8603,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
     required bool responsible,
     required Map<String, String> libraries,
     required int retryCount,
-    int? signatureId,
+    required SignatureContext signatureCtx,
   }) {
     return handler.executeNormal(
       NormalTask(
@@ -8616,7 +8616,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           var arg5 = cst_encode_bool(responsible);
           var arg6 = cst_encode_Map_String_String_None(libraries);
           var arg7 = cst_encode_u_8(retryCount);
-          var arg8 = cst_encode_opt_box_autoadd_i_32(signatureId);
+          var arg8 = cst_encode_box_autoadd_signature_context(signatureCtx);
           return wire.wire__crate__api__merged__nt_run_local_with_libs(
             port_,
             arg0,
@@ -8644,7 +8644,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           responsible,
           libraries,
           retryCount,
-          signatureId,
+          signatureCtx,
         ],
         apiImpl: this,
       ),
@@ -8663,7 +8663,7 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
           "responsible",
           "libraries",
           "retryCount",
-          "signatureId",
+          "signatureCtx",
         ],
       );
 

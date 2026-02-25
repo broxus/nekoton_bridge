@@ -17,7 +17,7 @@ Future<ExecutionOutput> runLocal({
   required String methodId,
   required Map<String, dynamic> input,
   required bool responsible,
-  int? signatureId,
+  required SignatureContext signatureContext,
   Map<String, String>? libraries,
 }) async {
   final res = await ntRunLocal(
@@ -26,7 +26,7 @@ Future<ExecutionOutput> runLocal({
     methodId: methodId,
     input: jsonEncode(input),
     responsible: responsible,
-    signatureId: signatureId,
+    signatureCtx: signatureContext,
     libraries: libraries ?? {},
   );
   return ExecutionOutput.fromJson(jsonDecode(res));
@@ -39,7 +39,7 @@ Future<ExecutionOutput> runLocalWithLibs({
   required String methodId,
   required Map<String, dynamic> input,
   required bool responsible,
-  int? signatureId,
+  required SignatureContext signatureContext,
   Map<String, String>? libraries,
   int retryCount = 5,
 }) async {
@@ -50,7 +50,7 @@ Future<ExecutionOutput> runLocalWithLibs({
     methodId: methodId,
     input: jsonEncode(input),
     responsible: responsible,
-    signatureId: signatureId,
+    signatureCtx: signatureContext,
     libraries: libraries ?? {},
     retryCount: retryCount,
   );
@@ -66,7 +66,7 @@ Future<ExecutionOutput> runGetter({
   required String contractAbi,
   required String methodId,
   required Map<String, dynamic> input,
-  int? signatureId,
+  required SignatureContext signatureContext,
   Map<String, String>? libraries,
 }) async {
   final res = await ntRunGetter(
@@ -74,7 +74,7 @@ Future<ExecutionOutput> runGetter({
     contractAbi: contractAbi,
     methodId: methodId,
     input: jsonEncode(input),
-    signatureId: signatureId,
+    signatureCtx: signatureContext,
     libraries: libraries ?? {},
   );
   return ExecutionOutput.fromJson(jsonDecode(res));

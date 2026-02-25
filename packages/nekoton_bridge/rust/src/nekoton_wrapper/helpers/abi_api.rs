@@ -26,7 +26,7 @@ use nekoton::core::ton_wallet;
 use nekoton::core::utils::make_labs_unsigned_message;
 use nekoton::crypto::SignedMessage;
 use nekoton_abi::{guess_method_by_input, insert_state_init_data, make_abi_tokens, FunctionExt};
-use nekoton_utils::Clock;
+use nekoton_utils::{Clock, SignatureContext, SignatureType};
 use serde::{Deserialize, Serialize};
 use std::borrow::Cow;
 use std::collections::HashMap;
@@ -57,7 +57,7 @@ pub fn nt_run_local(
     input: String,
     responsible: bool,
     libraries: HashMap<String, String>,
-    signature_id: Option<i32>,
+    signature_ctx: SignatureContext,
 ) -> anyhow::Result<String> {
     let account_stuff = parse_account_stuff(account_stuff_boc)?;
     let contract_abi = parse_contract_abi(contract_abi)?;
@@ -72,10 +72,7 @@ pub fn nt_run_local(
         .collect::<anyhow::Result<Vec<_>>>()?;
 
     let mut config = nekoton_abi::BriefBlockchainConfig::default();
-    if let Some(signature_id) = signature_id {
-        config.global_id = signature_id;
-        config.capabilities |= ton_block::GlobalCapabilities::CapSignatureWithId as u64;
-    }
+    apply_signature_context(&mut config, signature_ctx);
 
     let output = method
         .run_local_ext(
@@ -102,7 +99,7 @@ pub async fn nt_run_local_with_libs(
     responsible: bool,
     libraries: HashMap<String, String>,
     retry_count: u8,
-    signature_id: Option<i32>,
+    signature_ctx: SignatureContext,
 ) -> anyhow::Result<String> {
     let account_stuff = parse_account_stuff(account_stuff_boc)?;
     let contract_abi = parse_contract_abi(contract_abi)?;
@@ -117,10 +114,7 @@ pub async fn nt_run_local_with_libs(
         .collect::<anyhow::Result<Vec<_>>>()?;
 
     let mut config = nekoton_abi::BriefBlockchainConfig::default();
-    if let Some(signature_id) = signature_id {
-        config.global_id = signature_id;
-        config.capabilities |= ton_block::GlobalCapabilities::CapSignatureWithId as u64;
-    }
+    apply_signature_context(&mut config, signature_ctx);
 
     let inner_transport = transport.get_transport();
     let execution_output = run_local_with_libs_internal(
@@ -746,6 +740,8 @@ pub fn nt_execute_local(
         account = new_account.serialize().handle_error()?;
     };
 
+    // `execute_local` config is driven by blockchain global_id.
+    // Signature capabilities are applied in `run_local` / `run_getter`.
     let global_id = global_id.unwrap_or(42);
 
     let config = ton_block::ConfigParams::construct_from_base64(&config).handle_error()?;
@@ -1081,7 +1077,7 @@ pub fn nt_run_getter(
     method_id: String,
     input: String,
     libraries: HashMap<String, String>,
-    signature_id: Option<i32>,
+    signature_ctx: SignatureContext,
 ) -> anyhow::Result<String> {
     let account_stuff = parse_account_stuff(account_stuff_boc)?;
     let contract_abi = parse_contract_abi(contract_abi)?;
@@ -1101,10 +1097,7 @@ pub fn nt_run_getter(
         .collect::<anyhow::Result<Vec<_>>>()?;
 
     let mut config = nekoton_abi::BriefBlockchainConfig::default();
-    if let Some(signature_id) = signature_id {
-        config.global_id = signature_id;
-        config.capabilities |= ton_block::GlobalCapabilities::CapSignatureWithId as u64;
-    }
+    apply_signature_context(&mut config, signature_ctx);
 
     let output = nekoton_abi::ExecutionContext {
         clock: clock!().as_ref(),
@@ -1147,6 +1140,24 @@ pub fn nt_get_contract_type_number(wallet_type: String) -> anyhow::Result<u16> {
         .handle_error()?;
     let value: u16 = wallet_type.try_into().handle_error()?;
     Ok(value)
+}
+
+fn apply_signature_context(
+    config: &mut nekoton_abi::BriefBlockchainConfig,
+    signature_ctx: SignatureContext,
+) {
+    match (signature_ctx.signature_type, signature_ctx.global_id) {
+        (SignatureType::SignatureId, Some(global_id)) => {
+            config.global_id = global_id;
+            config.capabilities |= ton_block::GlobalCapabilities::CapSignatureWithId as u64;
+        }
+        (SignatureType::SignatureDomain, Some(global_id)) => {
+            config.global_id = global_id;
+            config.capabilities |= ton_block::GlobalCapabilities::CapSignatureWithId as u64;
+            config.capabilities |= ton_block::GlobalCapabilities::CapSignatureDomain as u64;
+        }
+        _ => {}
+    }
 }
 
 #[derive(Serialize, Deserialize)]

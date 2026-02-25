@@ -12,7 +12,7 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 import 'package:freezed_annotation/freezed_annotation.dart' hide protected;
 part 'merged.freezed.dart';
 
-// These functions are ignored because they are not marked as `pub`: `get_connection`, `get_connection`, `get_connection`, `get_connection`, `get_storage`, `map_keystore_builder`, `parse_fundamental_smc_address`
+// These functions are ignored because they are not marked as `pub`: `apply_signature_context`, `get_connection`, `get_connection`, `get_connection`, `get_connection`, `get_storage`, `map_keystore_builder`, `parse_fundamental_smc_address`
 // These types are ignored because they are neither used by any `pub` functions nor (for structs and enums) marked `#[frb(unignore)]`: `ProviderMessage`, `ProviderTransaction`
 // These function are ignored because they are on traits that is not defined in current crate (put an empty `#[frb]` on it to unignore): `get_public_key`, `get`, `is_local`, `on_balance_changed`, `on_balance_changed`, `on_custodians_changed`, `on_details_changed`, `on_message_expired`, `on_message_expired`, `on_message_sent`, `on_message_sent`, `on_state_changed`, `on_state_changed`, `on_transactions_found`, `on_transactions_found`, `on_transactions_found`, `on_transactions_found`, `on_unconfirmed_transactions_changed`, `post`, `post`, `post`, `remove_unchecked`, `remove`, `set_unchecked`, `set`, `sign_transaction`, `sign`
 
@@ -77,7 +77,7 @@ Future<String> ntRunLocal({
   required String input,
   required bool responsible,
   required Map<String, String> libraries,
-  int? signatureId,
+  required SignatureContext signatureCtx,
 }) => NekotonBridge.instance.api.crateApiMergedNtRunLocal(
   accountStuffBoc: accountStuffBoc,
   contractAbi: contractAbi,
@@ -85,7 +85,7 @@ Future<String> ntRunLocal({
   input: input,
   responsible: responsible,
   libraries: libraries,
-  signatureId: signatureId,
+  signatureCtx: signatureCtx,
 );
 
 Future<String> ntRunLocalWithLibs({
@@ -97,7 +97,7 @@ Future<String> ntRunLocalWithLibs({
   required bool responsible,
   required Map<String, String> libraries,
   required int retryCount,
-  int? signatureId,
+  required SignatureContext signatureCtx,
 }) => NekotonBridge.instance.api.crateApiMergedNtRunLocalWithLibs(
   transport: transport,
   accountStuffBoc: accountStuffBoc,
@@ -107,7 +107,7 @@ Future<String> ntRunLocalWithLibs({
   responsible: responsible,
   libraries: libraries,
   retryCount: retryCount,
-  signatureId: signatureId,
+  signatureCtx: signatureCtx,
 );
 
 /// Get address of tvc and contract_abi.
@@ -461,14 +461,14 @@ Future<String> ntRunGetter({
   required String methodId,
   required String input,
   required Map<String, String> libraries,
-  int? signatureId,
+  required SignatureContext signatureCtx,
 }) => NekotonBridge.instance.api.crateApiMergedNtRunGetter(
   accountStuffBoc: accountStuffBoc,
   contractAbi: contractAbi,
   methodId: methodId,
   input: input,
   libraries: libraries,
-  signatureId: signatureId,
+  signatureCtx: signatureCtx,
 );
 
 String ntComputeTonWalletAddress({

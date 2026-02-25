@@ -195,6 +195,9 @@ void main() {
       input: {'a': 1, 'b': 2},
       responsible: false,
       accountStuffBoc: state!.boc,
+      signatureContext: const SignatureContext(
+        signatureType: SignatureType.empty,
+      ),
     );
 
     expect(result.code, 0);
