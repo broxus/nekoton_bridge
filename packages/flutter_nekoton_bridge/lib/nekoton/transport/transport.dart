@@ -74,6 +74,9 @@ abstract class Transport {
   /// Get transport signature id and return it or throw error
   Future<int?> getSignatureId();
 
+  /// Get transport signature context and return it or throw error
+  Future<SignatureContext> getSignatureContext();
+
   /// Get id of network or throw error
   Future<int> getNetworkId();
 

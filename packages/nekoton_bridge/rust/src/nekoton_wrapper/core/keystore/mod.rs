@@ -23,6 +23,7 @@ use nekoton::crypto::{
     LedgerUpdateKeyInput, Signature,
 };
 use nekoton::external::Storage;
+use nekoton_utils::SignatureContext;
 use sha2::Digest;
 use std::panic::{RefUnwindSafe, UnwindSafe};
 use std::str::FromStr;
@@ -104,7 +105,7 @@ pub trait KeyStoreApiBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         signer: KeySigner,
         message: UnsignedMessageImpl,
         input: String,
-        signature_id: Option<i32>,
+        signature_ctx: SignatureContext,
     ) -> anyhow::Result<String>;
 
     /// Same method as sign but data is base64-encoded string that is used as hash via Sha256 algo.
@@ -114,7 +115,7 @@ pub trait KeyStoreApiBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         signer: KeySigner,
         data: String,
         input: String,
-        signature_id: Option<i32>,
+        signature_ctx: SignatureContext,
     ) -> anyhow::Result<SignedData>;
 
     /// Same method as sign.
@@ -125,7 +126,7 @@ pub trait KeyStoreApiBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
         signer: KeySigner,
         data: String,
         input: String,
-        signature_id: Option<i32>,
+        signature_ctx: SignatureContext,
     ) -> anyhow::Result<SignedDataRaw>;
 
     /// Remove public key from KeyStore and return json-encoded KeyStoreEntry if it was removed.
@@ -523,7 +524,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
         signer: KeySigner,
         message: UnsignedMessageImpl,
         input: String,
-        signature_id: Option<i32>,
+        signature_ctx: SignatureContext,
     ) -> anyhow::Result<String> {
         let message = message.inner_message.clone();
         let data = match &signer {
@@ -537,19 +538,34 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
                     .handle_error()?;
                 let mut data = signed_message.message.body().unwrap();
 
-                // Skip first bit for wallets with ABI
-                match ledger_sign_input.wallet {
-                    nekoton::core::ton_wallet::WalletType::WalletV3 => {}
+                let payload = match ledger_sign_input.wallet {
+                    nekoton::core::ton_wallet::WalletType::WalletV5R1 => {
+                        // V5R1 payload stores signature at the end and has no ABI bit prefix.
+                        let signature_bits = ed25519_dalek::SIGNATURE_LENGTH * 8;
+                        let payload_bits = data.remaining_bits();
+                        if payload_bits < signature_bits {
+                            anyhow::bail!(
+                                "Invalid ledger payload for WalletV5R1: payload bits ({payload_bits}) < signature bits ({signature_bits})"
+                            );
+                        }
+
+                        data.shrink_data(payload_bits - signature_bits..)
+                            .into_cell()
+                    }
+                    nekoton::core::ton_wallet::WalletType::WalletV3 => {
+                        // WalletV3 payload stores signature at the beginning and has no ABI bit.
+                        data.move_by(ed25519_dalek::SIGNATURE_LENGTH * 8)
+                            .handle_error()?;
+                        data.into_cell()
+                    }
                     _ => {
+                        // ABI-based payloads have a leading ABI bit then signature at the beginning.
                         data.get_next_bit().handle_error()?;
+                        data.move_by(ed25519_dalek::SIGNATURE_LENGTH * 8)
+                            .handle_error()?;
+                        data.into_cell()
                     }
                 };
-
-                // Skip null signature
-                data.move_by(ed25519_dalek::SIGNATURE_LENGTH * 8)
-                    .handle_error()?;
-
-                let payload = data.into_cell();
 
                 ton_types::serialize_toc(&payload).handle_error()?.to_vec()
             }
@@ -564,7 +580,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
             signer,
             &data,
             input,
-            signature_id,
+            signature_ctx,
         )
         .await?;
 
@@ -578,7 +594,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
         signer: KeySigner,
         data: String,
         input: String,
-        signature_id: Option<i32>,
+        signature_ctx: SignatureContext,
     ) -> anyhow::Result<SignedData> {
         let data = general_purpose::STANDARD.decode(data).handle_error()?;
         let hash: [u8; 32] = sha2::Sha256::digest(&data).into();
@@ -588,7 +604,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
             signer,
             &hash,
             input,
-            signature_id,
+            signature_ctx,
         )
         .await?;
 
@@ -611,7 +627,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
         signer: KeySigner,
         data: String,
         input: String,
-        signature_id: Option<i32>,
+        signature_ctx: SignatureContext,
     ) -> anyhow::Result<SignedDataRaw> {
         let data = general_purpose::STANDARD.decode(data).handle_error()?;
 
@@ -620,7 +636,7 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
             signer,
             &data,
             input,
-            signature_id,
+            signature_ctx,
         )
         .await?;
 
@@ -702,16 +718,14 @@ async fn sign(
     signer: KeySigner,
     data: &[u8],
     input: String,
-    signature_id: Option<i32>,
+    signature_ctx: SignatureContext,
 ) -> anyhow::Result<Signature> {
-    let signature_id = signature_id;
-
     match signer {
         KeySigner::Encrypted => {
             let input = serde_json::from_str::<EncryptedKeyPassword>(&input).handle_error()?;
 
             keystore
-                .sign::<EncryptedKeySigner>(data, signature_id, input)
+                .sign::<EncryptedKeySigner>(data, signature_ctx, input)
                 .await
                 .handle_error()
         }
@@ -719,7 +733,7 @@ async fn sign(
             let input = serde_json::from_str::<DerivedKeyPassword>(&input).handle_error()?;
 
             keystore
-                .sign::<DerivedKeySigner>(data, signature_id, input)
+                .sign::<DerivedKeySigner>(data, signature_ctx, input)
                 .await
                 .handle_error()
         }
@@ -729,7 +743,7 @@ async fn sign(
                 .handle_error()?;
 
             keystore
-                .sign::<LedgerKeySigner>(data, signature_id, input)
+                .sign::<LedgerKeySigner>(data, signature_ctx, input)
                 .await
                 .handle_error()
         }

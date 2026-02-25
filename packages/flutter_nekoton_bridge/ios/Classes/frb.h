@@ -95,6 +95,11 @@ typedef struct wire_cst_unsigned_message_impl {
   uintptr_t inner_message;
 } wire_cst_unsigned_message_impl;
 
+typedef struct wire_cst_signature_context {
+  int32_t *global_id;
+  int32_t signature_type;
+} wire_cst_signature_context;
+
 typedef struct wire_cst_bip_39_mnemonic_data {
   uint16_t account_id;
   int32_t path;
@@ -481,6 +486,9 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_late
 void frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_network_id(int64_t port_,
                                                                                        struct wire_cst_gql_transport_impl *that);
 
+void frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_signature_context(int64_t port_,
+                                                                                              struct wire_cst_gql_transport_impl *that);
+
 void frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_signature_id(int64_t port_,
                                                                                          struct wire_cst_gql_transport_impl *that);
 
@@ -600,6 +608,9 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_ful
 void frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_network_id(int64_t port_,
                                                                                         struct wire_cst_jrpc_transport_impl *that);
 
+void frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_signature_context(int64_t port_,
+                                                                                               struct wire_cst_jrpc_transport_impl *that);
+
 void frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_signature_id(int64_t port_,
                                                                                           struct wire_cst_jrpc_transport_impl *that);
 
@@ -687,21 +698,21 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__keystore_dart_wrapper_sign(
                                                                                 struct wire_cst_key_signer *signer,
                                                                                 struct wire_cst_unsigned_message_impl *message,
                                                                                 struct wire_cst_list_prim_u_8_strict *input,
-                                                                                int32_t *signature_id);
+                                                                                struct wire_cst_signature_context *signature_ctx);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__keystore_dart_wrapper_sign_data(int64_t port_,
                                                                                      struct wire_cst_keystore_dart_wrapper *that,
                                                                                      struct wire_cst_key_signer *signer,
                                                                                      struct wire_cst_list_prim_u_8_strict *data,
                                                                                      struct wire_cst_list_prim_u_8_strict *input,
-                                                                                     int32_t *signature_id);
+                                                                                     struct wire_cst_signature_context *signature_ctx);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__keystore_dart_wrapper_sign_data_raw(int64_t port_,
                                                                                          struct wire_cst_keystore_dart_wrapper *that,
                                                                                          struct wire_cst_key_signer *signer,
                                                                                          struct wire_cst_list_prim_u_8_strict *data,
                                                                                          struct wire_cst_list_prim_u_8_strict *input,
-                                                                                         int32_t *signature_id);
+                                                                                         struct wire_cst_signature_context *signature_ctx);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__keystore_dart_wrapper_update_key(int64_t port_,
                                                                                       struct wire_cst_keystore_dart_wrapper *that,
@@ -910,7 +921,7 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__nt_verify_signature(int64_t
                                                                          struct wire_cst_list_prim_u_8_strict *public_key,
                                                                          struct wire_cst_list_prim_u_8_strict *data,
                                                                          struct wire_cst_list_prim_u_8_strict *signature,
-                                                                         int32_t *signature_id);
+                                                                         struct wire_cst_signature_context *signature_ctx);
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__proto_connection_dart_wrapper_new(const void *on_post);
 
@@ -942,6 +953,9 @@ void frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_fu
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_network_id(int64_t port_,
                                                                                          struct wire_cst_proto_transport_impl *that);
+
+void frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_signature_context(int64_t port_,
+                                                                                                struct wire_cst_proto_transport_impl *that);
 
 void frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_signature_id(int64_t port_,
                                                                                            struct wire_cst_proto_transport_impl *that);
@@ -1284,13 +1298,13 @@ void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_ru
 
 void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync(const void *ptr);
 
-void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(const void *ptr);
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(const void *ptr);
 
-void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(const void *ptr);
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(const void *ptr);
 
-void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(const void *ptr);
+void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(const void *ptr);
 
-void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(const void *ptr);
+void frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(const void *ptr);
 
 void frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl(const void *ptr);
 
@@ -1362,6 +1376,8 @@ struct wire_cst_proto_connection_dart_wrapper *frbgen_nekoton_bridge_cst_new_box
 
 struct wire_cst_proto_transport_impl *frbgen_nekoton_bridge_cst_new_box_autoadd_proto_transport_impl(void);
 
+struct wire_cst_signature_context *frbgen_nekoton_bridge_cst_new_box_autoadd_signature_context(void);
+
 struct wire_cst_storage_dart_wrapper *frbgen_nekoton_bridge_cst_new_box_autoadd_storage_dart_wrapper(void);
 
 struct wire_cst_token_wallet_dart_wrapper *frbgen_nekoton_bridge_cst_new_box_autoadd_token_wallet_dart_wrapper(void);
@@ -1404,6 +1420,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_mnemonic_type);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_proto_connection_dart_wrapper);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_proto_transport_impl);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_signature_context);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_storage_dart_wrapper);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_token_wallet_dart_wrapper);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_cst_new_box_autoadd_ton_wallet_dart_wrapper);
@@ -1436,8 +1453,8 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl);
@@ -1467,8 +1484,8 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnStringStringDartFnFutureSendSync);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnVecu8DartFnFutureVecu8SendSync);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSync);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGenericContractSubscriptionHandlerImpl);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerGqlConnectionImpl);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerJettonWalletSubscriptionHandlerImpl);
@@ -1571,6 +1588,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_full_contract_state);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_latest_block);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_network_id);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_signature_context);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_signature_id);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_transaction);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_transactions);
@@ -1599,6 +1617,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_fee_factors);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_full_contract_state);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_network_id);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_signature_context);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_signature_id);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_transaction);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_transactions);
@@ -1675,6 +1694,7 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_fee_factors);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_full_contract_state);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_network_id);
+    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_signature_context);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_signature_id);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_transaction);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_transactions);

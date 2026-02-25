@@ -1,3 +1,7 @@
+## 5.3.0-dev.0
+
+ - **FEAT**(EWM-656): add signature domains support.
+
 ## 5.2.0
 
  - **FEAT**: add `BlockchainConfigParams` wrapper and related API functions.

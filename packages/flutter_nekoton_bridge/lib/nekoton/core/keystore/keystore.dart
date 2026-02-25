@@ -156,18 +156,18 @@ class KeyStore {
   }
 
   /// Sign data and return base64-encoded signature or throw error.
-  /// [signatureId] - id of transport
+  /// [signatureContext] - network signature context.
   /// [message] - base64-encoded data that should be signed.
   Future<String> sign({
     required UnsignedMessageImpl message,
     required SignInput input,
-    required int? signatureId,
+    required SignatureContext signatureContext,
   }) async {
     return await keystore.sign(
       signer: input.toSigner(),
       input: jsonEncode(input),
       message: message,
-      signatureId: signatureId,
+      signatureCtx: signatureContext,
     );
   }
 
@@ -177,13 +177,13 @@ class KeyStore {
   Future<SignedData> signData({
     required String data,
     required SignInput input,
-    required int? signatureId,
+    required SignatureContext signatureContext,
   }) async {
     return await keystore.signData(
       signer: input.toSigner(),
       input: jsonEncode(input),
       data: data,
-      signatureId: signatureId,
+      signatureCtx: signatureContext,
     );
   }
 
@@ -193,13 +193,13 @@ class KeyStore {
   Future<SignedDataRaw> signDataRaw({
     required String data,
     required SignInput input,
-    required int? signatureId,
+    required SignatureContext signatureContext,
   }) async {
     return await keystore.signDataRaw(
       signer: input.toSigner(),
       input: jsonEncode(input),
       data: data,
-      signatureId: signatureId,
+      signatureCtx: signatureContext,
     );
   }
 

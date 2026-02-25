@@ -25,10 +25,10 @@ abstract class ArcFnVecU8DartFnFutureVecU8 implements RustOpaqueInterface {}
 // Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<Arc < dyn Fn (u16) -> DartFnFuture < Vec < u8 > > + Send + Sync >>>
 abstract class ArcFnU16DartFnFutureVecU8 implements RustOpaqueInterface {}
 
-// Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<Arc < dyn Fn (u16 , Option < i32 > , Vec < u8 >) -> DartFnFuture < Vec < u8 > > + Send + Sync >>>
-abstract class ArcFnU16OptionI32VecU8DartFnFutureVecU8
+// Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<Arc < dyn Fn (u16 , SignatureContext , Vec < u8 >) -> DartFnFuture < Vec < u8 > > + Send + Sync >>>
+abstract class ArcFnU16SignatureContextVecU8DartFnFutureVecU8
     implements RustOpaqueInterface {}
 
-// Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<Arc < dyn Fn (u16 , u16 , Option < i32 > , Vec < u8 > , String) -> DartFnFuture < Vec < u8 > > + Send + Sync >>>
-abstract class ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
+// Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<Arc < dyn Fn (u16 , u16 , SignatureContext , Vec < u8 > , String) -> DartFnFuture < Vec < u8 > > + Send + Sync , >>>
+abstract class ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8
     implements RustOpaqueInterface {}

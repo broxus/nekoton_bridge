@@ -104,12 +104,12 @@ abstract class NekotonBridgeApiImplPlatform
       ._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16DartFnFutureVecu8SendSyncPtr;
 
   CrossPlatformFinalizerArg
-  get rust_arc_decrement_strong_count_ArcFnU16OptionI32VecU8DartFnFutureVecU8Ptr =>
-      wire._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSyncPtr;
+  get rust_arc_decrement_strong_count_ArcFnU16SignatureContextVecU8DartFnFutureVecU8Ptr =>
+      wire._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSyncPtr;
 
   CrossPlatformFinalizerArg
-  get rust_arc_decrement_strong_count_ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8Ptr =>
-      wire._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSyncPtr;
+  get rust_arc_decrement_strong_count_ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8Ptr =>
+      wire._rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSyncPtr;
 
   CrossPlatformFinalizerArg
   get rust_arc_decrement_strong_count_GenericContractSubscriptionHandlerImplPtr =>
@@ -187,14 +187,14 @@ abstract class NekotonBridgeApiImplPlatform
   );
 
   @protected
-  ArcFnU16OptionI32VecU8DartFnFutureVecU8
-  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+  ArcFnU16SignatureContextVecU8DartFnFutureVecU8
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
     dynamic raw,
   );
 
   @protected
-  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
-  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+  ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8
+  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
     dynamic raw,
   );
 
@@ -393,14 +393,14 @@ abstract class NekotonBridgeApiImplPlatform
   );
 
   @protected
-  FutureOr<Uint8List> Function(int, int?, Uint8List)
-  dco_decode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+  FutureOr<Uint8List> Function(int, SignatureContext, Uint8List)
+  dco_decode_DartFn_Inputs_u_16_signature_context_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
     dynamic raw,
   );
 
   @protected
-  FutureOr<Uint8List> Function(int, int, int?, Uint8List, String)
-  dco_decode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+  FutureOr<Uint8List> Function(int, int, SignatureContext, Uint8List, String)
+  dco_decode_DartFn_Inputs_u_16_u_16_signature_context_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
     dynamic raw,
   );
 
@@ -508,14 +508,14 @@ abstract class NekotonBridgeApiImplPlatform
   );
 
   @protected
-  ArcFnU16OptionI32VecU8DartFnFutureVecU8
-  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+  ArcFnU16SignatureContextVecU8DartFnFutureVecU8
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
     dynamic raw,
   );
 
   @protected
-  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
-  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+  ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8
+  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
     dynamic raw,
   );
 
@@ -660,6 +660,9 @@ abstract class NekotonBridgeApiImplPlatform
   ProtoTransportImpl dco_decode_box_autoadd_proto_transport_impl(dynamic raw);
 
   @protected
+  SignatureContext dco_decode_box_autoadd_signature_context(dynamic raw);
+
+  @protected
   StorageDartWrapper dco_decode_box_autoadd_storage_dart_wrapper(dynamic raw);
 
   @protected
@@ -793,7 +796,13 @@ abstract class NekotonBridgeApiImplPlatform
   (String, String) dco_decode_record_string_string(dynamic raw);
 
   @protected
+  SignatureContext dco_decode_signature_context(dynamic raw);
+
+  @protected
   SignatureParts dco_decode_signature_parts(dynamic raw);
+
+  @protected
+  SignatureType dco_decode_signature_type(dynamic raw);
 
   @protected
   SignedData dco_decode_signed_data(dynamic raw);
@@ -871,14 +880,14 @@ abstract class NekotonBridgeApiImplPlatform
   );
 
   @protected
-  ArcFnU16OptionI32VecU8DartFnFutureVecU8
-  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+  ArcFnU16SignatureContextVecU8DartFnFutureVecU8
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
     SseDeserializer deserializer,
   );
 
   @protected
-  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
-  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+  ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8
+  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
     SseDeserializer deserializer,
   );
 
@@ -1162,14 +1171,14 @@ abstract class NekotonBridgeApiImplPlatform
   );
 
   @protected
-  ArcFnU16OptionI32VecU8DartFnFutureVecU8
-  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+  ArcFnU16SignatureContextVecU8DartFnFutureVecU8
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
     SseDeserializer deserializer,
   );
 
   @protected
-  ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8
-  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+  ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8
+  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
     SseDeserializer deserializer,
   );
 
@@ -1342,6 +1351,11 @@ abstract class NekotonBridgeApiImplPlatform
   );
 
   @protected
+  SignatureContext sse_decode_box_autoadd_signature_context(
+    SseDeserializer deserializer,
+  );
+
+  @protected
   StorageDartWrapper sse_decode_box_autoadd_storage_dart_wrapper(
     SseDeserializer deserializer,
   );
@@ -1495,7 +1509,13 @@ abstract class NekotonBridgeApiImplPlatform
   );
 
   @protected
+  SignatureContext sse_decode_signature_context(SseDeserializer deserializer);
+
+  @protected
   SignatureParts sse_decode_signature_parts(SseDeserializer deserializer);
+
+  @protected
+  SignatureType sse_decode_signature_type(SseDeserializer deserializer);
 
   @protected
   SignedData sse_decode_signed_data(SseDeserializer deserializer);
@@ -1736,6 +1756,15 @@ abstract class NekotonBridgeApiImplPlatform
     // Codec=Cst (C-struct based), see doc to use other codecs
     final ptr = wire.cst_new_box_autoadd_proto_transport_impl();
     cst_api_fill_to_wire_proto_transport_impl(raw, ptr.ref);
+    return ptr;
+  }
+
+  @protected
+  ffi.Pointer<wire_cst_signature_context>
+  cst_encode_box_autoadd_signature_context(SignatureContext raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    final ptr = wire.cst_new_box_autoadd_signature_context();
+    cst_api_fill_to_wire_signature_context(raw, ptr.ref);
     return ptr;
   }
 
@@ -2074,6 +2103,14 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
+  void cst_api_fill_to_wire_box_autoadd_signature_context(
+    SignatureContext apiObj,
+    ffi.Pointer<wire_cst_signature_context> wireObj,
+  ) {
+    cst_api_fill_to_wire_signature_context(apiObj, wireObj.ref);
+  }
+
+  @protected
   void cst_api_fill_to_wire_box_autoadd_storage_dart_wrapper(
     StorageDartWrapper apiObj,
     ffi.Pointer<wire_cst_storage_dart_wrapper> wireObj,
@@ -2298,6 +2335,15 @@ abstract class NekotonBridgeApiImplPlatform
   }
 
   @protected
+  void cst_api_fill_to_wire_signature_context(
+    SignatureContext apiObj,
+    wire_cst_signature_context wireObj,
+  ) {
+    wireObj.global_id = cst_encode_opt_box_autoadd_i_32(apiObj.globalId);
+    wireObj.signature_type = cst_encode_signature_type(apiObj.signatureType);
+  }
+
+  @protected
   void cst_api_fill_to_wire_signature_parts(
     SignatureParts apiObj,
     wire_cst_signature_parts wireObj,
@@ -2411,14 +2457,14 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   int
-  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
-    ArcFnU16OptionI32VecU8DartFnFutureVecU8 raw,
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
+    ArcFnU16SignatureContextVecU8DartFnFutureVecU8 raw,
   );
 
   @protected
   int
-  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
-    ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 raw,
+  cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
+    ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8 raw,
   );
 
   @protected
@@ -2619,14 +2665,15 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   PlatformPointer
-  cst_encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-    FutureOr<Uint8List> Function(int, int?, Uint8List) raw,
+  cst_encode_DartFn_Inputs_u_16_signature_context_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int, SignatureContext, Uint8List) raw,
   );
 
   @protected
   PlatformPointer
-  cst_encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
-    FutureOr<Uint8List> Function(int, int, int?, Uint8List, String) raw,
+  cst_encode_DartFn_Inputs_u_16_u_16_signature_context_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int, int, SignatureContext, Uint8List, String)
+    raw,
   );
 
   @protected
@@ -2732,14 +2779,14 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   int
-  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
-    ArcFnU16OptionI32VecU8DartFnFutureVecU8 raw,
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
+    ArcFnU16SignatureContextVecU8DartFnFutureVecU8 raw,
   );
 
   @protected
   int
-  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
-    ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 raw,
+  cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
+    ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8 raw,
   );
 
   @protected
@@ -2818,6 +2865,9 @@ abstract class NekotonBridgeApiImplPlatform
   int cst_encode_polling_method(PollingMethod raw);
 
   @protected
+  int cst_encode_signature_type(SignatureType raw);
+
+  @protected
   int cst_encode_u_16(int raw);
 
   @protected
@@ -2879,15 +2929,15 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   void
-  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
-    ArcFnU16OptionI32VecU8DartFnFutureVecU8 self,
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
+    ArcFnU16SignatureContextVecU8DartFnFutureVecU8 self,
     SseSerializer serializer,
   );
 
   @protected
   void
-  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
-    ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 self,
+  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
+    ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8 self,
     SseSerializer serializer,
   );
 
@@ -3120,15 +3170,16 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   void
-  sse_encode_DartFn_Inputs_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
-    FutureOr<Uint8List> Function(int, int?, Uint8List) self,
+  sse_encode_DartFn_Inputs_u_16_signature_context_list_prim_u_8_strict_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int, SignatureContext, Uint8List) self,
     SseSerializer serializer,
   );
 
   @protected
   void
-  sse_encode_DartFn_Inputs_u_16_u_16_opt_box_autoadd_i_32_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
-    FutureOr<Uint8List> Function(int, int, int?, Uint8List, String) self,
+  sse_encode_DartFn_Inputs_u_16_u_16_signature_context_list_prim_u_8_strict_String_Output_list_prim_u_8_strict_AnyhowException(
+    FutureOr<Uint8List> Function(int, int, SignatureContext, Uint8List, String)
+    self,
     SseSerializer serializer,
   );
 
@@ -3269,15 +3320,15 @@ abstract class NekotonBridgeApiImplPlatform
 
   @protected
   void
-  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
-    ArcFnU16OptionI32VecU8DartFnFutureVecU8 self,
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
+    ArcFnU16SignatureContextVecU8DartFnFutureVecU8 self,
     SseSerializer serializer,
   );
 
   @protected
   void
-  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
-    ArcFnU16U16OptionI32VecU8StringDartFnFutureVecU8 self,
+  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
+    ArcFnU16U16SignatureContextVecU8StringDartFnFutureVecU8 self,
     SseSerializer serializer,
   );
 
@@ -3477,6 +3528,12 @@ abstract class NekotonBridgeApiImplPlatform
   );
 
   @protected
+  void sse_encode_box_autoadd_signature_context(
+    SignatureContext self,
+    SseSerializer serializer,
+  );
+
+  @protected
   void sse_encode_box_autoadd_storage_dart_wrapper(
     StorageDartWrapper self,
     SseSerializer serializer,
@@ -3660,10 +3717,19 @@ abstract class NekotonBridgeApiImplPlatform
   );
 
   @protected
+  void sse_encode_signature_context(
+    SignatureContext self,
+    SseSerializer serializer,
+  );
+
+  @protected
   void sse_encode_signature_parts(
     SignatureParts self,
     SseSerializer serializer,
   );
+
+  @protected
+  void sse_encode_signature_type(SignatureType self, SseSerializer serializer);
 
   @protected
   void sse_encode_signed_data(SignedData self, SseSerializer serializer);
@@ -6101,6 +6167,30 @@ class NekotonBridgeWire implements BaseWire {
             void Function(int, ffi.Pointer<wire_cst_gql_transport_impl>)
           >();
 
+  void wire__crate__api__merged__gql_transport_impl_get_signature_context(
+    int port_,
+    ffi.Pointer<wire_cst_gql_transport_impl> that,
+  ) {
+    return _wire__crate__api__merged__gql_transport_impl_get_signature_context(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__gql_transport_impl_get_signature_contextPtr =
+      _lookup<
+        ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_cst_gql_transport_impl>)
+        >
+      >(
+        'frbgen_nekoton_bridge_wire__crate__api__merged__gql_transport_impl_get_signature_context',
+      );
+  late final _wire__crate__api__merged__gql_transport_impl_get_signature_context =
+      _wire__crate__api__merged__gql_transport_impl_get_signature_contextPtr
+          .asFunction<
+            void Function(int, ffi.Pointer<wire_cst_gql_transport_impl>)
+          >();
+
   void wire__crate__api__merged__gql_transport_impl_get_signature_id(
     int port_,
     ffi.Pointer<wire_cst_gql_transport_impl> that,
@@ -7013,6 +7103,33 @@ class NekotonBridgeWire implements BaseWire {
             void Function(int, ffi.Pointer<wire_cst_jrpc_transport_impl>)
           >();
 
+  void wire__crate__api__merged__jrpc_transport_impl_get_signature_context(
+    int port_,
+    ffi.Pointer<wire_cst_jrpc_transport_impl> that,
+  ) {
+    return _wire__crate__api__merged__jrpc_transport_impl_get_signature_context(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__jrpc_transport_impl_get_signature_contextPtr =
+      _lookup<
+        ffi.NativeFunction<
+          ffi.Void Function(
+            ffi.Int64,
+            ffi.Pointer<wire_cst_jrpc_transport_impl>,
+          )
+        >
+      >(
+        'frbgen_nekoton_bridge_wire__crate__api__merged__jrpc_transport_impl_get_signature_context',
+      );
+  late final _wire__crate__api__merged__jrpc_transport_impl_get_signature_context =
+      _wire__crate__api__merged__jrpc_transport_impl_get_signature_contextPtr
+          .asFunction<
+            void Function(int, ffi.Pointer<wire_cst_jrpc_transport_impl>)
+          >();
+
   void wire__crate__api__merged__jrpc_transport_impl_get_signature_id(
     int port_,
     ffi.Pointer<wire_cst_jrpc_transport_impl> that,
@@ -7657,7 +7774,7 @@ class NekotonBridgeWire implements BaseWire {
     ffi.Pointer<wire_cst_key_signer> signer,
     ffi.Pointer<wire_cst_unsigned_message_impl> message,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> input,
-    ffi.Pointer<ffi.Int32> signature_id,
+    ffi.Pointer<wire_cst_signature_context> signature_ctx,
   ) {
     return _wire__crate__api__merged__keystore_dart_wrapper_sign(
       port_,
@@ -7665,7 +7782,7 @@ class NekotonBridgeWire implements BaseWire {
       signer,
       message,
       input,
-      signature_id,
+      signature_ctx,
     );
   }
 
@@ -7678,7 +7795,7 @@ class NekotonBridgeWire implements BaseWire {
             ffi.Pointer<wire_cst_key_signer>,
             ffi.Pointer<wire_cst_unsigned_message_impl>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-            ffi.Pointer<ffi.Int32>,
+            ffi.Pointer<wire_cst_signature_context>,
           )
         >
       >(
@@ -7693,7 +7810,7 @@ class NekotonBridgeWire implements BaseWire {
               ffi.Pointer<wire_cst_key_signer>,
               ffi.Pointer<wire_cst_unsigned_message_impl>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-              ffi.Pointer<ffi.Int32>,
+              ffi.Pointer<wire_cst_signature_context>,
             )
           >();
 
@@ -7703,7 +7820,7 @@ class NekotonBridgeWire implements BaseWire {
     ffi.Pointer<wire_cst_key_signer> signer,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> data,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> input,
-    ffi.Pointer<ffi.Int32> signature_id,
+    ffi.Pointer<wire_cst_signature_context> signature_ctx,
   ) {
     return _wire__crate__api__merged__keystore_dart_wrapper_sign_data(
       port_,
@@ -7711,7 +7828,7 @@ class NekotonBridgeWire implements BaseWire {
       signer,
       data,
       input,
-      signature_id,
+      signature_ctx,
     );
   }
 
@@ -7724,7 +7841,7 @@ class NekotonBridgeWire implements BaseWire {
             ffi.Pointer<wire_cst_key_signer>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-            ffi.Pointer<ffi.Int32>,
+            ffi.Pointer<wire_cst_signature_context>,
           )
         >
       >(
@@ -7739,7 +7856,7 @@ class NekotonBridgeWire implements BaseWire {
               ffi.Pointer<wire_cst_key_signer>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-              ffi.Pointer<ffi.Int32>,
+              ffi.Pointer<wire_cst_signature_context>,
             )
           >();
 
@@ -7749,7 +7866,7 @@ class NekotonBridgeWire implements BaseWire {
     ffi.Pointer<wire_cst_key_signer> signer,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> data,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> input,
-    ffi.Pointer<ffi.Int32> signature_id,
+    ffi.Pointer<wire_cst_signature_context> signature_ctx,
   ) {
     return _wire__crate__api__merged__keystore_dart_wrapper_sign_data_raw(
       port_,
@@ -7757,7 +7874,7 @@ class NekotonBridgeWire implements BaseWire {
       signer,
       data,
       input,
-      signature_id,
+      signature_ctx,
     );
   }
 
@@ -7770,7 +7887,7 @@ class NekotonBridgeWire implements BaseWire {
             ffi.Pointer<wire_cst_key_signer>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-            ffi.Pointer<ffi.Int32>,
+            ffi.Pointer<wire_cst_signature_context>,
           )
         >
       >(
@@ -7785,7 +7902,7 @@ class NekotonBridgeWire implements BaseWire {
               ffi.Pointer<wire_cst_key_signer>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-              ffi.Pointer<ffi.Int32>,
+              ffi.Pointer<wire_cst_signature_context>,
             )
           >();
 
@@ -9339,14 +9456,14 @@ class NekotonBridgeWire implements BaseWire {
     ffi.Pointer<wire_cst_list_prim_u_8_strict> public_key,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> data,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> signature,
-    ffi.Pointer<ffi.Int32> signature_id,
+    ffi.Pointer<wire_cst_signature_context> signature_ctx,
   ) {
     return _wire__crate__api__merged__nt_verify_signature(
       port_,
       public_key,
       data,
       signature,
-      signature_id,
+      signature_ctx,
     );
   }
 
@@ -9358,7 +9475,7 @@ class NekotonBridgeWire implements BaseWire {
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-            ffi.Pointer<ffi.Int32>,
+            ffi.Pointer<wire_cst_signature_context>,
           )
         >
       >('frbgen_nekoton_bridge_wire__crate__api__merged__nt_verify_signature');
@@ -9370,7 +9487,7 @@ class NekotonBridgeWire implements BaseWire {
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
-              ffi.Pointer<ffi.Int32>,
+              ffi.Pointer<wire_cst_signature_context>,
             )
           >();
 
@@ -9620,6 +9737,33 @@ class NekotonBridgeWire implements BaseWire {
       );
   late final _wire__crate__api__merged__proto_transport_impl_get_network_id =
       _wire__crate__api__merged__proto_transport_impl_get_network_idPtr
+          .asFunction<
+            void Function(int, ffi.Pointer<wire_cst_proto_transport_impl>)
+          >();
+
+  void wire__crate__api__merged__proto_transport_impl_get_signature_context(
+    int port_,
+    ffi.Pointer<wire_cst_proto_transport_impl> that,
+  ) {
+    return _wire__crate__api__merged__proto_transport_impl_get_signature_context(
+      port_,
+      that,
+    );
+  }
+
+  late final _wire__crate__api__merged__proto_transport_impl_get_signature_contextPtr =
+      _lookup<
+        ffi.NativeFunction<
+          ffi.Void Function(
+            ffi.Int64,
+            ffi.Pointer<wire_cst_proto_transport_impl>,
+          )
+        >
+      >(
+        'frbgen_nekoton_bridge_wire__crate__api__merged__proto_transport_impl_get_signature_context',
+      );
+  late final _wire__crate__api__merged__proto_transport_impl_get_signature_context =
+      _wire__crate__api__merged__proto_transport_impl_get_signature_contextPtr
           .asFunction<
             void Function(int, ffi.Pointer<wire_cst_proto_transport_impl>)
           >();
@@ -12243,71 +12387,71 @@ class NekotonBridgeWire implements BaseWire {
           .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
 
   void
-  rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+  rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
     ffi.Pointer<ffi.Void> ptr,
   ) {
-    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
       ptr,
     );
   }
 
-  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSyncPtr =
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSyncPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
-        'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync',
+        'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync',
       );
-  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync =
-      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSyncPtr
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSyncPtr
           .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
 
   void
-  rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+  rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
     ffi.Pointer<ffi.Void> ptr,
   ) {
-    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync(
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync(
       ptr,
     );
   }
 
-  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSyncPtr =
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSyncPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
-        'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync',
+        'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync',
       );
-  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSync =
-      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16Optioni32Vecu8DartFnFutureVecu8SendSyncPtr
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSync =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16SignatureContextVecu8DartFnFutureVecu8SendSyncPtr
           .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
 
   void
-  rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+  rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
     ffi.Pointer<ffi.Void> ptr,
   ) {
-    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+    return _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
       ptr,
     );
   }
 
-  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSyncPtr =
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSyncPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
-        'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync',
+        'frbgen_nekoton_bridge_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync',
       );
-  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync =
-      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSyncPtr
+  late final _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync =
+      _rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSyncPtr
           .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
 
   void
-  rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+  rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
     ffi.Pointer<ffi.Void> ptr,
   ) {
-    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync(
+    return _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync(
       ptr,
     );
   }
 
-  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSyncPtr =
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSyncPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
-        'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync',
+        'frbgen_nekoton_bridge_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync',
       );
-  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSync =
-      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16Optioni32Vecu8StringDartFnFutureVecu8SendSyncPtr
+  late final _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSync =
+      _rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerArcdynFnu16u16SignatureContextVecu8StringDartFnFutureVecu8SendSyncPtr
           .asFunction<void Function(ffi.Pointer<ffi.Void>)>();
 
   void
@@ -12877,6 +13021,19 @@ class NekotonBridgeWire implements BaseWire {
       _cst_new_box_autoadd_proto_transport_implPtr
           .asFunction<ffi.Pointer<wire_cst_proto_transport_impl> Function()>();
 
+  ffi.Pointer<wire_cst_signature_context>
+  cst_new_box_autoadd_signature_context() {
+    return _cst_new_box_autoadd_signature_context();
+  }
+
+  late final _cst_new_box_autoadd_signature_contextPtr =
+      _lookup<
+        ffi.NativeFunction<ffi.Pointer<wire_cst_signature_context> Function()>
+      >('frbgen_nekoton_bridge_cst_new_box_autoadd_signature_context');
+  late final _cst_new_box_autoadd_signature_context =
+      _cst_new_box_autoadd_signature_contextPtr
+          .asFunction<ffi.Pointer<wire_cst_signature_context> Function()>();
+
   ffi.Pointer<wire_cst_storage_dart_wrapper>
   cst_new_box_autoadd_storage_dart_wrapper() {
     return _cst_new_box_autoadd_storage_dart_wrapper();
@@ -13176,6 +13333,13 @@ final class wire_cst_ledger_connection_dart_wrapper extends ffi.Struct {
 final class wire_cst_unsigned_message_impl extends ffi.Struct {
   @ffi.UintPtr()
   external int inner_message;
+}
+
+final class wire_cst_signature_context extends ffi.Struct {
+  external ffi.Pointer<ffi.Int32> global_id;
+
+  @ffi.Int32()
+  external int signature_type;
 }
 
 final class wire_cst_bip_39_mnemonic_data extends ffi.Struct {

@@ -2,6 +2,7 @@
 
 use crate::clock;
 use crate::frb_generated::RustOpaque;
+use crate::nekoton_wrapper::models_api::SignatureContext;
 use crate::nekoton_wrapper::transport::models::{
     AccountsList, RawContractStateHelper, TransactionsList,
 };
@@ -84,6 +85,9 @@ pub trait TransportBoxTrait: Send + Sync + UnwindSafe + RefUnwindSafe {
 
     /// Get transport signature id and return it or throw error
     async fn get_signature_id(&self) -> anyhow::Result<Option<i32>>;
+
+    /// Get transport signature context and return it or throw error
+    async fn get_signature_context(&self) -> anyhow::Result<SignatureContext>;
 
     /// Get config of transport.
     /// Returns json-encoded BlockchainConfig or throw error
@@ -364,6 +368,17 @@ impl TransportBoxTrait for name {
             .handle_error()?
             .signature_id();
         Ok(id)
+    }
+
+    /// Get transport signature context and return it or throw error
+    async fn get_signature_context(&self) -> anyhow::Result<SignatureContext> {
+        let ctx = self
+            .inner_transport
+            .get_capabilities(&SimpleClock)
+            .await
+            .handle_error()?
+            .signature_context();
+        Ok(ctx)
     }
 
     /// Get config of transport.
@@ -666,6 +681,17 @@ impl TransportBoxTrait for GqlTransportBox {
             .handle_error()?
             .signature_id();
         Ok(id)
+    }
+
+    /// Get transport signature context and return it or throw error
+    async fn get_signature_context(&self) -> anyhow::Result<SignatureContext> {
+        let ctx = self
+            .inner_transport
+            .get_capabilities(&SimpleClock)
+            .await
+            .handle_error()?
+            .signature_context();
+        Ok(ctx)
     }
 
     /// Get config of transport.

@@ -88,6 +88,11 @@ class TestTransport extends Transport {
   }
 
   @override
+  Future<SignatureContext> getSignatureContext() {
+    throw UnimplementedError();
+  }
+
+  @override
   Future<int> getNetworkId() {
     throw UnimplementedError();
   }

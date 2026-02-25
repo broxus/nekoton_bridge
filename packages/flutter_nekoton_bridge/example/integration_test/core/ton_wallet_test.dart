@@ -243,7 +243,10 @@ void main() {
             ),
           ),
         ),
-        signatureId: 0,
+        signatureContext: const SignatureContext(
+          globalId: 0,
+          signatureType: SignatureType.signatureId,
+        ),
       );
 
       final signedMessage = await message.sign(signature: signature);

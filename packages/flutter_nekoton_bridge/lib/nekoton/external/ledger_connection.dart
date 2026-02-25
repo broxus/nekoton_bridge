@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
+import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
 abstract interface class LedgerConnectionHandler {
@@ -8,14 +9,14 @@ abstract interface class LedgerConnectionHandler {
   Future<Uint8List> sign({
     required int accountId,
     required List<int> message,
-    int? signatureId,
+    required SignatureContext signatureContext,
   });
   Future<Uint8List> signTransaction({
     required int accountId,
     required int wallet,
     required List<int> message,
     required LedgerSignatureContext context,
-    int? signatureId,
+    required SignatureContext signatureContext,
   });
 }
 
@@ -25,6 +26,9 @@ class LedgerConnection {
   final LedgerConnectionHandler _handler;
 
   LedgerConnection._(this._handler);
+
+  @visibleForTesting
+  LedgerConnection.test(this._handler);
 
   static LedgerConnection create(LedgerConnectionHandler handler) {
     final instance = LedgerConnection._(handler);
@@ -52,14 +56,14 @@ class LedgerConnection {
   /// Method to sign data. It's called from rust
   Future<Uint8List> sign(
     int accountId,
-    int? signatureId,
+    SignatureContext signatureContext,
     List<int> message,
   ) async {
     try {
       return await _handler.sign(
         accountId: accountId,
         message: message,
-        signatureId: signatureId,
+        signatureContext: signatureContext,
       );
     } on LedgerOperationCancelledException {
       throw ErrorCode.cancelled;
@@ -72,7 +76,7 @@ class LedgerConnection {
   Future<Uint8List> signTransaction(
     int accountId,
     int wallet,
-    int? signatureId,
+    SignatureContext signatureContext,
     List<int> message,
     String context,
   ) async {
@@ -82,7 +86,7 @@ class LedgerConnection {
         wallet: wallet,
         message: message,
         context: LedgerSignatureContext.fromJson(jsonDecode(context)),
-        signatureId: signatureId,
+        signatureContext: signatureContext,
       );
     } on LedgerOperationCancelledException {
       throw ErrorCode.cancelled;

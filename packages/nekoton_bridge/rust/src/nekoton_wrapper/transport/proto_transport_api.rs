@@ -4,6 +4,7 @@ use flutter_rust_bridge::frb;
 
 use crate::frb_generated::RustOpaque;
 use crate::nekoton_wrapper::external::proto_connection_api::ProtoConnectionDartWrapper;
+use crate::nekoton_wrapper::models_api::SignatureContext;
 use crate::nekoton_wrapper::transport::{ProtoTransportBox, TransportBoxTrait};
 use std::sync::Arc;
 
@@ -76,6 +77,11 @@ impl ProtoTransportImpl {
     /// Get transport signature id and return it or throw error
     pub async fn get_signature_id(&self) -> anyhow::Result<Option<i32>> {
         self.inner_transport.get_signature_id().await
+    }
+
+    /// Get transport signature context and return it or throw error
+    pub async fn get_signature_context(&self) -> anyhow::Result<SignatureContext> {
+        self.inner_transport.get_signature_context().await
     }
 
     /// Get config of transport.

@@ -114,6 +114,13 @@ class GqlTransport extends Transport {
   }
 
   @override
+  Future<SignatureContext> getSignatureContext() {
+    if (_disposed) throw TransportCallAfterDisposeError();
+
+    return mutex.protectRead(() => transport.getSignatureContext());
+  }
+
+  @override
   Future<int> getNetworkId() {
     if (_disposed) throw TransportCallAfterDisposeError();
 

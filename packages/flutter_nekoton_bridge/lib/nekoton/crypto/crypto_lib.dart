@@ -14,12 +14,12 @@ Future<bool> verifySignature({
   required PublicKey publicKey,
   required String data,
   required String signature,
-  required int? signatureId,
+  required SignatureContext signatureContext,
 }) {
   return ntVerifySignature(
     publicKey: publicKey.publicKey,
     data: data,
     signature: signature,
-    signatureId: signatureId,
+    signatureCtx: signatureContext,
   );
 }
