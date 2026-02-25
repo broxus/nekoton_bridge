@@ -5321,7 +5321,7 @@ class NekotonBridgeWire implements BaseWire {
     String method_id,
     String input,
     JSAny libraries,
-    int? signature_id,
+    JSAny signature_ctx,
   ) => wasmModule.wire__crate__api__merged__nt_run_getter(
     port_,
     account_stuff_boc,
@@ -5329,7 +5329,7 @@ class NekotonBridgeWire implements BaseWire {
     method_id,
     input,
     libraries,
-    signature_id,
+    signature_ctx,
   );
 
   void wire__crate__api__merged__nt_run_local(
@@ -5340,7 +5340,7 @@ class NekotonBridgeWire implements BaseWire {
     String input,
     bool responsible,
     JSAny libraries,
-    int? signature_id,
+    JSAny signature_ctx,
   ) => wasmModule.wire__crate__api__merged__nt_run_local(
     port_,
     account_stuff_boc,
@@ -5349,7 +5349,7 @@ class NekotonBridgeWire implements BaseWire {
     input,
     responsible,
     libraries,
-    signature_id,
+    signature_ctx,
   );
 
   void wire__crate__api__merged__nt_run_local_with_libs(
@@ -5362,7 +5362,7 @@ class NekotonBridgeWire implements BaseWire {
     bool responsible,
     JSAny libraries,
     int retry_count,
-    int? signature_id,
+    JSAny signature_ctx,
   ) => wasmModule.wire__crate__api__merged__nt_run_local_with_libs(
     port_,
     transport,
@@ -5373,7 +5373,7 @@ class NekotonBridgeWire implements BaseWire {
     responsible,
     libraries,
     retry_count,
-    signature_id,
+    signature_ctx,
   );
 
   JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
@@ -7792,7 +7792,7 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
     String method_id,
     String input,
     JSAny libraries,
-    int? signature_id,
+    JSAny signature_ctx,
   );
 
   external void wire__crate__api__merged__nt_run_local(
@@ -7803,7 +7803,7 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
     String input,
     bool responsible,
     JSAny libraries,
-    int? signature_id,
+    JSAny signature_ctx,
   );
 
   external void wire__crate__api__merged__nt_run_local_with_libs(
@@ -7816,7 +7816,7 @@ extension type NekotonBridgeWasmModule._(JSObject _) implements JSObject {
     bool responsible,
     JSAny libraries,
     int retry_count,
-    int? signature_id,
+    JSAny signature_ctx,
   );
 
   external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */

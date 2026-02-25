@@ -9069,7 +9069,7 @@ class NekotonBridgeWire implements BaseWire {
     ffi.Pointer<wire_cst_list_prim_u_8_strict> method_id,
     ffi.Pointer<wire_cst_list_prim_u_8_strict> input,
     ffi.Pointer<wire_cst_list_record_string_string> libraries,
-    ffi.Pointer<ffi.Int32> signature_id,
+    ffi.Pointer<wire_cst_signature_context> signature_ctx,
   ) {
     return _wire__crate__api__merged__nt_run_getter(
       port_,
@@ -9078,7 +9078,7 @@ class NekotonBridgeWire implements BaseWire {
       method_id,
       input,
       libraries,
-      signature_id,
+      signature_ctx,
     );
   }
 
@@ -9092,7 +9092,7 @@ class NekotonBridgeWire implements BaseWire {
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Pointer<wire_cst_list_record_string_string>,
-            ffi.Pointer<ffi.Int32>,
+            ffi.Pointer<wire_cst_signature_context>,
           )
         >
       >('frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_getter');
@@ -9106,7 +9106,7 @@ class NekotonBridgeWire implements BaseWire {
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               ffi.Pointer<wire_cst_list_record_string_string>,
-              ffi.Pointer<ffi.Int32>,
+              ffi.Pointer<wire_cst_signature_context>,
             )
           >();
 
@@ -9118,7 +9118,7 @@ class NekotonBridgeWire implements BaseWire {
     ffi.Pointer<wire_cst_list_prim_u_8_strict> input,
     bool responsible,
     ffi.Pointer<wire_cst_list_record_string_string> libraries,
-    ffi.Pointer<ffi.Int32> signature_id,
+    ffi.Pointer<wire_cst_signature_context> signature_ctx,
   ) {
     return _wire__crate__api__merged__nt_run_local(
       port_,
@@ -9128,7 +9128,7 @@ class NekotonBridgeWire implements BaseWire {
       input,
       responsible,
       libraries,
-      signature_id,
+      signature_ctx,
     );
   }
 
@@ -9143,7 +9143,7 @@ class NekotonBridgeWire implements BaseWire {
             ffi.Pointer<wire_cst_list_prim_u_8_strict>,
             ffi.Bool,
             ffi.Pointer<wire_cst_list_record_string_string>,
-            ffi.Pointer<ffi.Int32>,
+            ffi.Pointer<wire_cst_signature_context>,
           )
         >
       >('frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local');
@@ -9158,7 +9158,7 @@ class NekotonBridgeWire implements BaseWire {
               ffi.Pointer<wire_cst_list_prim_u_8_strict>,
               bool,
               ffi.Pointer<wire_cst_list_record_string_string>,
-              ffi.Pointer<ffi.Int32>,
+              ffi.Pointer<wire_cst_signature_context>,
             )
           >();
 
@@ -9172,7 +9172,7 @@ class NekotonBridgeWire implements BaseWire {
     bool responsible,
     ffi.Pointer<wire_cst_list_record_string_string> libraries,
     int retry_count,
-    ffi.Pointer<ffi.Int32> signature_id,
+    ffi.Pointer<wire_cst_signature_context> signature_ctx,
   ) {
     return _wire__crate__api__merged__nt_run_local_with_libs(
       port_,
@@ -9184,7 +9184,7 @@ class NekotonBridgeWire implements BaseWire {
       responsible,
       libraries,
       retry_count,
-      signature_id,
+      signature_ctx,
     );
   }
 
@@ -9201,7 +9201,7 @@ class NekotonBridgeWire implements BaseWire {
             ffi.Bool,
             ffi.Pointer<wire_cst_list_record_string_string>,
             ffi.Uint8,
-            ffi.Pointer<ffi.Int32>,
+            ffi.Pointer<wire_cst_signature_context>,
           )
         >
       >(
@@ -9220,7 +9220,7 @@ class NekotonBridgeWire implements BaseWire {
               bool,
               ffi.Pointer<wire_cst_list_record_string_string>,
               int,
-              ffi.Pointer<ffi.Int32>,
+              ffi.Pointer<wire_cst_signature_context>,
             )
           >();
 
