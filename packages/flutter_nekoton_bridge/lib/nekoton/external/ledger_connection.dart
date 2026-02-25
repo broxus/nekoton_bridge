@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
+import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 
 abstract interface class LedgerConnectionHandler {
@@ -25,6 +26,9 @@ class LedgerConnection {
   final LedgerConnectionHandler _handler;
 
   LedgerConnection._(this._handler);
+  LedgerConnection.test(this._handler);
+
+  @visibleForTesting
   LedgerConnection.test(this._handler);
 
   static LedgerConnection create(LedgerConnectionHandler handler) {

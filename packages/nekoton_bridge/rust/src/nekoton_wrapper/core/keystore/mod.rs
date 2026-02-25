@@ -549,7 +549,8 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
                             );
                         }
 
-                        data.shrink_data(payload_bits - signature_bits..).into_cell()
+                        data.shrink_data(payload_bits - signature_bits..)
+                            .into_cell()
                     }
                     nekoton::core::ton_wallet::WalletType::WalletV3 => {
                         // WalletV3 payload stores signature at the beginning and has no ABI bit.

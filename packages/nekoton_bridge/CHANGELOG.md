@@ -1,3 +1,7 @@
+## 5.3.0
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
 ## 5.3.0-dev.0
 
  - **FEAT**(EWM-656): add signature domains support.
