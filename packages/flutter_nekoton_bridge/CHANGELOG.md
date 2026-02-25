@@ -1,3 +1,7 @@
+## 5.5.1
+
+ - **FIX**: add signature domains support to `run_local`.
+
 ## 5.5.0
 
  - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.

@@ -15,6 +15,37 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_nekoton_bridge` - `v5.5.1`](#flutter_nekoton_bridge---v551)
+ - [`flutter_nekoton_bridge_example` - `v4.2.1`](#flutter_nekoton_bridge_example---v421)
+ - [`nekoton_bridge` - `v5.3.1`](#nekoton_bridge---v531)
+
+---
+
+#### `flutter_nekoton_bridge` - `v5.5.1`
+
+ - **FIX**: add signature domains support to `run_local`.
+
+#### `flutter_nekoton_bridge_example` - `v4.2.1`
+
+ - **FIX**: add signature domains support to `run_local`.
+
+#### `nekoton_bridge` - `v5.3.1`
+
+ - **FIX**: add signature domains support to `run_local`.
+
+
+## 2026-02-25
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v5.5.0`](#flutter_nekoton_bridge---v550)
  - [`flutter_nekoton_bridge_example` - `v4.2.0`](#flutter_nekoton_bridge_example---v420)
  - [`nekoton_bridge` - `v5.3.0`](#nekoton_bridge---v530)
