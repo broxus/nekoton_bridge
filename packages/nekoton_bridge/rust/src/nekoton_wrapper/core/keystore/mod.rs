@@ -538,19 +538,34 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
                     .handle_error()?;
                 let mut data = signed_message.message.body().unwrap();
 
-                // Skip first bit for wallets with ABI
-                match ledger_sign_input.wallet {
-                    nekoton::core::ton_wallet::WalletType::WalletV3 => {}
+                let payload = match ledger_sign_input.wallet {
+                    nekoton::core::ton_wallet::WalletType::WalletV5R1 => {
+                        // V5R1 payload stores signature at the end and has no ABI bit prefix.
+                        let signature_bits = ed25519_dalek::SIGNATURE_LENGTH * 8;
+                        let payload_bits = data.remaining_bits();
+                        if payload_bits < signature_bits {
+                            anyhow::bail!(
+                                "Invalid ledger payload for WalletV5R1: payload bits ({payload_bits}) < signature bits ({signature_bits})"
+                            );
+                        }
+
+                        data.shrink_data(payload_bits - signature_bits..)
+                            .into_cell()
+                    }
+                    nekoton::core::ton_wallet::WalletType::WalletV3 => {
+                        // WalletV3 payload stores signature at the beginning and has no ABI bit.
+                        data.move_by(ed25519_dalek::SIGNATURE_LENGTH * 8)
+                            .handle_error()?;
+                        data.into_cell()
+                    }
                     _ => {
+                        // ABI-based payloads have a leading ABI bit then signature at the beginning.
                         data.get_next_bit().handle_error()?;
+                        data.move_by(ed25519_dalek::SIGNATURE_LENGTH * 8)
+                            .handle_error()?;
+                        data.into_cell()
                     }
                 };
-
-                // Skip null signature
-                data.move_by(ed25519_dalek::SIGNATURE_LENGTH * 8)
-                    .handle_error()?;
-
-                let payload = data.into_cell();
 
                 ton_types::serialize_toc(&payload).handle_error()?.to_vec()
             }
