@@ -10,6 +10,8 @@ workspace:
 
 dev_dependencies:
   melos: ^7.1.0
+  husky: ^0.1.7
+  commitlint_cli: ^0.8.1
 
 melos:
   scripts:
