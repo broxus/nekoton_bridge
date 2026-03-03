@@ -540,26 +540,24 @@ impl KeyStoreApiBoxTrait for KeyStoreApiBox {
 
                 let payload = match ledger_sign_input.wallet {
                     nekoton::core::ton_wallet::WalletType::WalletV5R1 => {
-                        // V5R1 payload stores signature at the end and has no ABI bit prefix.
-                        let signature_bits = ed25519_dalek::SIGNATURE_LENGTH * 8;
-                        let payload_bits = data.remaining_bits();
-                        if payload_bits < signature_bits {
-                            anyhow::bail!(
-                                "Invalid ledger payload for WalletV5R1: payload bits ({payload_bits}) < signature bits ({signature_bits})"
-                            );
-                        }
-
-                        data.shrink_data(payload_bits - signature_bits..)
-                            .into_cell()
+                        // V5R1: signature is appended at the END, no ABI bit
+                        data.shrink_data(
+                            data.remaining_bits() - ed25519_dalek::SIGNATURE_LENGTH * 8..,
+                        )
+                        .into_cell()
                     }
-                    nekoton::core::ton_wallet::WalletType::WalletV3 => {
-                        // WalletV3 payload stores signature at the beginning and has no ABI bit.
+                    nekoton::core::ton_wallet::WalletType::WalletV3
+                    | nekoton::core::ton_wallet::WalletType::WalletV3R1
+                    | nekoton::core::ton_wallet::WalletType::WalletV3R2
+                    | nekoton::core::ton_wallet::WalletType::WalletV4R1
+                    | nekoton::core::ton_wallet::WalletType::WalletV4R2 => {
+                        // WalletV3 / V3R1 / V3R2 / V4R1 / V4R2: signature at the BEGINNING, no ABI bit
                         data.move_by(ed25519_dalek::SIGNATURE_LENGTH * 8)
                             .handle_error()?;
                         data.into_cell()
                     }
                     _ => {
-                        // ABI-based payloads have a leading ABI bit then signature at the beginning.
+                        // Other wallets: ABI bit + signature at the beginning
                         data.get_next_bit().handle_error()?;
                         data.move_by(ed25519_dalek::SIGNATURE_LENGTH * 8)
                             .handle_error()?;
