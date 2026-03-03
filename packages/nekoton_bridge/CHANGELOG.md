@@ -1,3 +1,7 @@
+## 5.4.0
+
+ - **FEAT**: add v3/v4 wallets ledger sign support.
+
 ## 5.3.1
 
  - **FIX**: add signature domains support to `run_local`.
