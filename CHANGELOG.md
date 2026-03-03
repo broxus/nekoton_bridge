@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-03-03
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`nekoton_bridge` - `v5.4.0`](#nekoton_bridge---v540)
+ - [`flutter_nekoton_bridge` - `v5.5.2`](#flutter_nekoton_bridge---v552)
+ - [`flutter_nekoton_bridge_example` - `v4.2.2`](#flutter_nekoton_bridge_example---v422)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge` - `v5.5.2`
+ - `flutter_nekoton_bridge_example` - `v4.2.2`
+
+---
+
+#### `nekoton_bridge` - `v5.4.0`
+
+ - **FEAT**: add v3/v4 wallets ledger sign support.
+
+
 ## 2026-02-25
 
 ### Changes

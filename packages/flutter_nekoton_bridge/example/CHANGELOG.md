@@ -1,3 +1,7 @@
+## 4.2.2
+
+ - Update a dependency to the latest release.
+
 ## 4.2.1
 
  - **FIX**: add signature domains support to `run_local`.
