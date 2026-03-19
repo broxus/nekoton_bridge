@@ -3,6 +3,49 @@ import 'dart:async';
 import 'package:flutter_nekoton_bridge/flutter_nekoton_bridge.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+class _TestObserver extends StreamListenersObserver {
+  final changes = <int>[];
+
+  @override
+  void onStreamListenersChanged(int totalListenersCount) {
+    changes.add(totalListenersCount);
+  }
+}
+
+class _TestObservable extends StreamListenersObservable
+    implements RefreshingInterface {
+  _TestObservable() : _stream = StreamController<int>.broadcast() {
+    _observedStream = _tracker.observe(
+      _stream.stream,
+      'test',
+      (count) => _observer?.onStreamListenersChanged(count),
+    );
+  }
+
+  final StreamListenersTracker _tracker = StreamListenersTracker();
+  final StreamController<int> _stream;
+  late final Stream<int> _observedStream;
+  StreamListenersObserver? _observer;
+
+  Stream<int> get stream => _observedStream;
+
+  @override
+  int get totalListenersCount => _tracker.totalListenersCount;
+
+  @override
+  void attachStreamListenersObserver(StreamListenersObserver observer) {
+    _observer = observer;
+  }
+
+  @override
+  Future<void> refresh() async {}
+
+  @override
+  String get refreshDescription => 'test-observable';
+
+  Future<void> close() => _stream.close();
+}
+
 void main() {
   group('StreamListenersTracker', () {
     test('initial total listeners count is zero', () {
@@ -128,6 +171,58 @@ void main() {
       expect(totals, [1]);
       await subscription.cancel();
       await controller.close();
+    });
+
+    test('reset followed by cancel does not underflow totals', () async {
+      // Arrange
+      final tracker = StreamListenersTracker();
+      final controller = StreamController<int>();
+      final totals = <int>[];
+      final stream = tracker.observe(controller.stream, 'streamA', totals.add);
+      final subscription = stream.listen((_) {});
+
+      // Act
+      tracker.reset();
+      await subscription.cancel();
+
+      // Assert
+      expect(tracker.totalListenersCount, 0);
+      expect(totals, [1]);
+      await controller.close();
+    });
+
+    test('done after cancel does not double decrement', () async {
+      // Arrange
+      final tracker = StreamListenersTracker();
+      final controller = StreamController<int>();
+      final totals = <int>[];
+      final stream = tracker.observe(controller.stream, 'streamA', totals.add);
+      final subscription = stream.listen((_) {});
+
+      // Act
+      await subscription.cancel();
+      await controller.close();
+
+      // Assert
+      expect(tracker.totalListenersCount, 0);
+      expect(totals, [1, 0]);
+    });
+
+    test('observable notifies observer about listener count changes', () async {
+      // Arrange
+      final observer = _TestObserver();
+      final observable = _TestObservable();
+      observable.attachStreamListenersObserver(observer);
+
+      // Act
+      final subscription = observable.stream.listen((_) {});
+      await subscription.cancel();
+
+      // Assert
+      expect(observable.totalListenersCount, 0);
+      expect(observer.changes, [1, 0]);
+      expect(observable.refreshDescription, 'test-observable');
+      await observable.close();
     });
   });
 }
