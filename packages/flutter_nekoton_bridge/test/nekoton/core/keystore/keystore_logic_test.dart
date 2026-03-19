@@ -15,6 +15,64 @@ class FakeExportKeyInput implements ExportKeyInput {
 
 void main() {
   group('KeyStore', () {
+    test('addKey returns public key and refreshes cache', () async {
+      // Arrange
+      final storage = createInMemoryStorage();
+      final keystore = MockKeystoreDartWrapper();
+      final keyStore = KeyStore.test(
+        storage: storage,
+        keystore: keystore,
+        initialKeys: const [],
+      );
+      const password = Password.explicit(
+        PasswordExplicit(
+          password: 'pass',
+          cacheBehavior: PasswordCacheBehavior.nop(),
+        ),
+      );
+      final input = EncryptedKeyCreateInput(
+        name: 'legacy',
+        phrase: 'another phrase another phrase another phrase',
+        mnemonicType: const MnemonicType.legacy(),
+        password: password,
+      );
+      final entry = {
+        'signer_name': 'EncryptedKeySigner',
+        'name': 'legacy',
+        'public_key':
+            'dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
+        'master_key':
+            'dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
+        'account_id': 0,
+      };
+
+      when(
+        () =>
+            keystore.addKey(signer: input.toSigner(), input: jsonEncode(input)),
+      ).thenAnswer((_) async => jsonEncode(entry));
+      when(
+        () => keystore.getEntries(),
+      ).thenAnswer((_) async => jsonEncode([entry]));
+
+      // Act
+      final publicKey = await keyStore.addKey(input);
+
+      // Assert
+      expect(
+        publicKey,
+        const PublicKey(
+          publicKey:
+              'dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
+        ),
+      );
+      expect(keyStore.keys.single.publicKey, publicKey);
+      verify(
+        () =>
+            keystore.addKey(signer: input.toSigner(), input: jsonEncode(input)),
+      ).called(1);
+      verify(() => keystore.getEntries()).called(1);
+    });
+
     test('getEntries parses returned JSON', () async {
       // Arrange
       final storage = createInMemoryStorage();

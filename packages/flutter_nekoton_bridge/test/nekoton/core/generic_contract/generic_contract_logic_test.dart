@@ -11,6 +11,34 @@ class MockGenericContractDartWrapper extends Mock
 
 void main() {
   group('GenericContract', () {
+    test('getContractState parses returned JSON', () async {
+      // Arrange
+      final transport = TestTransport();
+      final contract = MockGenericContractDartWrapper();
+      final genericContract = GenericContract.test(
+        transport: transport,
+        contract: contract,
+      );
+      final contractState = ContractState(
+        balance: BigInt.zero,
+        genTimings: const GenTimings(genLt: '1', genUtime: 2),
+        lastTransactionId: const LastTransactionId(isExact: true, lt: '3'),
+        isDeployed: true,
+        codeHash: 'hash',
+      );
+
+      when(
+        () => contract.contractState(),
+      ).thenAnswer((_) async => jsonEncode(contractState.toJson()));
+
+      // Act
+      final result = await genericContract.getContractState();
+
+      // Assert
+      expect(result, contractState);
+      verify(() => contract.contractState()).called(1);
+    });
+
     test('refresh returns early when disposed', () async {
       // Arrange
       final transport = TestTransport();

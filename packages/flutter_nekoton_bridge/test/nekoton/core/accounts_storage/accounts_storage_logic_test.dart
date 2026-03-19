@@ -10,6 +10,66 @@ class MockAccountsStorageImpl extends Mock implements AccountsStorageImpl {}
 
 void main() {
   group('AccountsStorage', () {
+    test('addAccount returns parsed address and refreshes cached accounts', () async {
+      // Arrange
+      final storage = createInMemoryStorage();
+      final accountsStorageImpl = MockAccountsStorageImpl();
+      final accountsStorage = AccountsStorage.test(
+        storage: storage,
+        accountsStorage: accountsStorageImpl,
+        initialAccounts: const [],
+      );
+      const addedAccount = AssetsList(
+        name: 'Main account',
+        tonWallet: TonWalletAsset(
+          address: Address(address: '0:abc'),
+          publicKey: PublicKey(
+            publicKey:
+                'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+          ),
+          contract: WalletType.everWallet(),
+        ),
+        additionalAssets: {},
+      );
+      const accountToAdd = AccountToAdd(
+        name: 'Main account',
+        publicKey: PublicKey(
+          publicKey:
+              'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        ),
+        contract: WalletType.everWallet(),
+        workchain: 0,
+      );
+      const addedAccountJson = {
+        'name': 'Main account',
+        'tonWallet': {
+          'address': '0:abc',
+          'publicKey':
+              'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+          'contract': {'type': 'everWallet'},
+        },
+        'additionalAssets': <String, dynamic>{},
+      };
+
+      when(
+        () => accountsStorageImpl.addAccount(account: jsonEncode(accountToAdd)),
+      ).thenAnswer((_) async => jsonEncode(addedAccountJson));
+      when(
+        () => accountsStorageImpl.getEntries(),
+      ).thenAnswer((_) async => jsonEncode([addedAccountJson]));
+
+      // Act
+      final addedAddress = await accountsStorage.addAccount(accountToAdd);
+
+      // Assert
+      expect(addedAddress, addedAccount.address);
+      expect(accountsStorage.accounts, [addedAccount]);
+      verify(
+        () => accountsStorageImpl.addAccount(account: jsonEncode(accountToAdd)),
+      ).called(1);
+      verify(() => accountsStorageImpl.getEntries()).called(1);
+    });
+
     test('removeAccount returns false when native returns null', () async {
       // Arrange
       final storage = createInMemoryStorage();
