@@ -5,20 +5,11 @@ import 'package:integration_test/integration_test.dart';
 
 import '../test_helpers.dart';
 import '../timeout_utils.dart';
+import 'test_helpers.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  const name = 'Mainnet (GQL)';
-  const networkGroup = 'mainnet';
-  const endpoint = 'https://jrpc.everwallet.net/proto';
-
-  const address = Address(
-    address:
-        '0:d92c91860621eb5397957ee3f426860e2c21d7d4410626885f35db88a46a87c2',
-  );
-
-  const jrpcSettings = ProtoNetworkSettings(endpoint: endpoint);
   late ProtoTransport transport;
 
   setUp(() async {
@@ -35,9 +26,9 @@ void main() {
 
     final connection = ProtoConnection.create(
       client: TestProtoClient(),
-      settings: jrpcSettings,
-      name: name,
-      group: networkGroup,
+      settings: testJrpcSettings,
+      name: 'Test connection',
+      group: 'Test group',
     );
     transport = await ProtoTransport.create(protoConnection: connection);
   });
@@ -56,12 +47,12 @@ void main() {
 
       final contract = await GenericContract.subscribe(
         transport: transport,
-        address: address,
+        address: testWalletAddr,
         preloadTransactions: true,
       );
 
       expect(contract, isNotNull);
-      expect(contract.address, address);
+      expect(contract.address, testWalletAddr);
       expect(contract.contractState.balance, isNot(BigInt.parse('0')));
       expect(contract.contractState.isDeployed, isTrue);
     });
@@ -71,12 +62,12 @@ void main() {
 
       final contract = await GenericContract.subscribe(
         transport: transport,
-        address: address,
+        address: testWalletAddr,
         preloadTransactions: true,
       );
 
       expect(contract, isNotNull);
-      expect(contract.address, address);
+      expect(contract.address, testWalletAddr);
       expect(contract.contractState.balance, isNot(BigInt.parse('0')));
       expect(contract.contractState.isDeployed, isTrue);
 
@@ -85,7 +76,7 @@ void main() {
       await fut;
 
       expect(contract, isNotNull);
-      expect(contract.address, address);
+      expect(contract.address, testWalletAddr);
       expect(contract.contractState.balance, isNot(BigInt.parse('0')));
       expect(contract.contractState.isDeployed, isTrue);
     });
@@ -98,12 +89,12 @@ void main() {
       for (var i = 0; i < 10; i++) {
         final contract = await GenericContract.subscribe(
           transport: transport,
-          address: address,
+          address: testWalletAddr,
           preloadTransactions: true,
         );
 
         expect(contract, isNotNull);
-        expect(contract.address, address);
+        expect(contract.address, testWalletAddr);
         expect(contract.contractState.balance, isNot(BigInt.parse('0')));
         expect(contract.contractState.isDeployed, isTrue);
 
