@@ -64,12 +64,7 @@ void main() {
     testWidgets('estimateMinAttachedAmount', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final wallet = await TokenWallet.subscribe(
-        transport: transport,
-        owner: testWalletAddr,
-        rootTokenContract: testTokenRootAddr,
-      );
-
+      final wallet = await getTokenWallet(transport);
       final amount = await wallet.estimateMinAttachedAmount(
         destination: testWalletMsAddr,
         amount: BigInt.parse('10000'),
@@ -82,12 +77,7 @@ void main() {
     testWidgets('prepareTransfer', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final wallet = await TokenWallet.subscribe(
-        transport: transport,
-        owner: testWalletAddr,
-        rootTokenContract: testTokenRootAddr,
-      );
-
+      final wallet = await getTokenWallet(transport);
       final message1 = await wallet.prepareTransfer(
         destination: testTokenRootAddr,
         amount: BigInt.parse('1000000000'),
@@ -156,11 +146,7 @@ void main() {
     testWidgets('refresh', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final wallet = await TokenWallet.subscribe(
-        transport: transport,
-        owner: testWalletAddr,
-        rootTokenContract: testTokenRootAddr,
-      );
+      final wallet = await getTokenWallet(transport);
 
       expect(wallet, isNotNull);
       expect(wallet.owner, testWalletAddr);
@@ -195,11 +181,7 @@ void main() {
       await tester.pumpAndSettleWithTimeout();
 
       for (var i = 0; i < 10; i++) {
-        final wallet = await TokenWallet.subscribe(
-          transport: transport,
-          owner: testWalletAddr,
-          rootTokenContract: testTokenRootAddr,
-        );
+        final wallet = await getTokenWallet(transport);
 
         expect(wallet, isNotNull);
         expect(wallet.owner, testWalletAddr);
@@ -233,12 +215,8 @@ void main() {
     testWidgets('preloadTransactions: true', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final wallet = await TokenWallet.subscribe(
-        transport: transport,
-        owner: testWalletAddr,
-        rootTokenContract: testTokenRootAddr,
-        preloadTransactions: true,
-      );
+      final wallet = await getTokenWallet(transport, preloadTransactions: true);
+
       var events = 0;
 
       wallet.onTransactionsFoundStream.listen((data) => events++);
@@ -254,10 +232,8 @@ void main() {
     testWidgets('preloadTransactions: false', (WidgetTester tester) async {
       await tester.pumpAndSettleWithTimeout();
 
-      final wallet = await TokenWallet.subscribe(
-        transport: transport,
-        owner: testWalletAddr,
-        rootTokenContract: testTokenRootAddr,
+      final wallet = await getTokenWallet(
+        transport,
         preloadTransactions: false,
       );
       var events = 0;
