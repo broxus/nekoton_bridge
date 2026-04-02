@@ -16,7 +16,7 @@ dev_dependencies:
 melos:
   scripts:
     analyze:
-      exec: flutter analyze .
+      exec: flutter analyze --no-pub .
       description: Analyze a specific package in this project.
 
     check-format:
@@ -65,15 +65,15 @@ melos:
         dirExists: test
 
     test:flutter:
-      run: melos exec -c 1 --fail-fast -- "flutter test test"
+      run: melos exec -c 1 --fail-fast -- "flutter test --no-pub test"
       description: Run Flutter tests for a specific package in this project.
       packageFilters:
         flutter: true
         dirExists: test
 
     test:integration:
-      run: melos exec -c 1 --fail-fast -- "flutter test integration_test"
-      description: Run Flutter teintegration teststs for a specific package in this project.
+      run: melos exec -c 1 --fail-fast -- "flutter test --no-pub integration_test"
+      description: Run Flutter integration tests for a specific package in this project.
       packageFilters:
         flutter: true
         dirExists: integration_test
