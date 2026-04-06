@@ -369,5 +369,5 @@ void main() {
       expect(feeFactors.storageFeeFactor, greaterThan(0));
       expect(feeFactors.gasFeeFactor, greaterThan(0));
     });
-  });
+  }, skip: true); // skipped due to GQL deprecation
 }
