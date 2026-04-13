@@ -1,3 +1,7 @@
+## 5.5.0
+
+ - **FEAT**: Update `flutter_rust_bridge` and related files to version 2.12.0.
+
 ## 5.4.0
 
  - **FEAT**: add v3/v4 wallets ledger sign support.
