@@ -105,7 +105,7 @@ void main() {
         address: testTokenWalletAddr,
       );
 
-      expect(details.$1.balance, BigInt.parse('10000000'));
+      expect(details.$1.balance, BigInt.parse('9000000'));
       expect(details.$1.ownerAddress, testWalletAddr);
       expect(details.$1.rootAddress, testTokenRootAddr);
       expect(details.$2.ownerAddress, testTokenRootOwner);

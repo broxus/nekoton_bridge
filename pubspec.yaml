@@ -1,7 +1,7 @@
 name: nekoton_bridge_workspace
 
 environment:
-  sdk: '>=3.10.0 <4.0.0'
+  sdk: '>=3.11.0 <4.0.0'
 
 workspace:
   - packages/nekoton_bridge
@@ -9,7 +9,7 @@ workspace:
   - packages/flutter_nekoton_bridge/example
 
 dev_dependencies:
-  melos: ^7.1.0
+  melos: ^7.5.1
   husky: ^0.1.7
   commitlint_cli: ^0.8.1
 
