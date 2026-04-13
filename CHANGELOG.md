@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-04-13
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`nekoton_bridge` - `v5.5.0`](#nekoton_bridge---v550)
+ - [`flutter_nekoton_bridge` - `v5.5.3`](#flutter_nekoton_bridge---v553)
+ - [`flutter_nekoton_bridge_example` - `v4.2.3`](#flutter_nekoton_bridge_example---v423)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge` - `v5.5.3`
+ - `flutter_nekoton_bridge_example` - `v4.2.3`
+
+---
+
+#### `nekoton_bridge` - `v5.5.0`
+
+ - **FEAT**: Update `flutter_rust_bridge` and related files to version 2.12.0.
+
+
 ## 2026-03-03
 
 ### Changes
