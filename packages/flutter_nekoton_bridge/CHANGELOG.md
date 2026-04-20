@@ -1,3 +1,7 @@
+## 5.5.4-dev.0
+
+ - **FIX**: add multisig update models.
+
 ## 5.5.3
 
  - Update a dependency to the latest release.
