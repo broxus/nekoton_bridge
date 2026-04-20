@@ -10,12 +10,12 @@ _MultisigConfirmUpdateTransaction _$MultisigConfirmUpdateTransactionFromJson(
   Map<String, dynamic> json,
 ) => _MultisigConfirmUpdateTransaction(
   custodian: PublicKey.fromJson(json['custodian'] as String),
-  updateId: json['updateId'] as String,
+  updateId: json['update_id'] as String,
 );
 
 Map<String, dynamic> _$MultisigConfirmUpdateTransactionToJson(
   _MultisigConfirmUpdateTransaction instance,
 ) => <String, dynamic>{
   'custodian': instance.custodian.toJson(),
-  'updateId': instance.updateId,
+  'update_id': instance.updateId,
 };

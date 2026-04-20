@@ -10,20 +10,20 @@ _MultisigSubmitUpdateTransaction _$MultisigSubmitUpdateTransactionFromJson(
   Map<String, dynamic> json,
 ) => _MultisigSubmitUpdateTransaction(
   custodian: PublicKey.fromJson(json['custodian'] as String),
-  newCodeHash: json['newCodeHash'] as String?,
-  newOwners: json['newOwners'] as bool,
-  newReqConfirms: json['newReqConfirms'] as bool,
-  newLifetime: json['newLifetime'] as bool,
-  updateId: json['updateId'] as String,
+  newCodeHash: json['new_code_hash'] as String?,
+  newOwners: json['new_owners'] as bool,
+  newReqConfirms: json['new_req_confirms'] as bool,
+  newLifetime: json['new_lifetime'] as bool,
+  updateId: json['update_id'] as String,
 );
 
 Map<String, dynamic> _$MultisigSubmitUpdateTransactionToJson(
   _MultisigSubmitUpdateTransaction instance,
 ) => <String, dynamic>{
   'custodian': instance.custodian.toJson(),
-  'newCodeHash': instance.newCodeHash,
-  'newOwners': instance.newOwners,
-  'newReqConfirms': instance.newReqConfirms,
-  'newLifetime': instance.newLifetime,
-  'updateId': instance.updateId,
+  'new_code_hash': instance.newCodeHash,
+  'new_owners': instance.newOwners,
+  'new_req_confirms': instance.newReqConfirms,
+  'new_lifetime': instance.newLifetime,
+  'update_id': instance.updateId,
 };

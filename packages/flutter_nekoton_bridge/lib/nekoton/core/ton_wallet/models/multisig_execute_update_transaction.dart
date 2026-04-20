@@ -9,7 +9,7 @@ sealed class MultisigExecuteUpdateTransaction
     with _$MultisigExecuteUpdateTransaction {
   factory MultisigExecuteUpdateTransaction({
     required final PublicKey custodian,
-    required final String updateId,
+    @JsonKey(name: 'update_id') required final String updateId,
   }) = _MultisigExecuteUpdateTransaction;
 
   factory MultisigExecuteUpdateTransaction.fromJson(

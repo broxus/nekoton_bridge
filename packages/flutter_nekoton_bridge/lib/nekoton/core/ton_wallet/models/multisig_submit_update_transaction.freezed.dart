@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MultisigSubmitUpdateTransaction {
 
- PublicKey get custodian; String? get newCodeHash; bool get newOwners; bool get newReqConfirms; bool get newLifetime; String get updateId;
+ PublicKey get custodian;@JsonKey(name: 'new_code_hash') String? get newCodeHash;@JsonKey(name: 'new_owners') bool get newOwners;@JsonKey(name: 'new_req_confirms') bool get newReqConfirms;@JsonKey(name: 'new_lifetime') bool get newLifetime;@JsonKey(name: 'update_id') String get updateId;
 /// Create a copy of MultisigSubmitUpdateTransaction
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $MultisigSubmitUpdateTransactionCopyWith<$Res>  {
   factory $MultisigSubmitUpdateTransactionCopyWith(MultisigSubmitUpdateTransaction value, $Res Function(MultisigSubmitUpdateTransaction) _then) = _$MultisigSubmitUpdateTransactionCopyWithImpl;
 @useResult
 $Res call({
- PublicKey custodian, String? newCodeHash, bool newOwners, bool newReqConfirms, bool newLifetime, String updateId
+ PublicKey custodian,@JsonKey(name: 'new_code_hash') String? newCodeHash,@JsonKey(name: 'new_owners') bool newOwners,@JsonKey(name: 'new_req_confirms') bool newReqConfirms,@JsonKey(name: 'new_lifetime') bool newLifetime,@JsonKey(name: 'update_id') String updateId
 });
 
 
@@ -164,7 +164,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( PublicKey custodian,  String? newCodeHash,  bool newOwners,  bool newReqConfirms,  bool newLifetime,  String updateId)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( PublicKey custodian, @JsonKey(name: 'new_code_hash')  String? newCodeHash, @JsonKey(name: 'new_owners')  bool newOwners, @JsonKey(name: 'new_req_confirms')  bool newReqConfirms, @JsonKey(name: 'new_lifetime')  bool newLifetime, @JsonKey(name: 'update_id')  String updateId)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _MultisigSubmitUpdateTransaction() when $default != null:
 return $default(_that.custodian,_that.newCodeHash,_that.newOwners,_that.newReqConfirms,_that.newLifetime,_that.updateId);case _:
@@ -185,7 +185,7 @@ return $default(_that.custodian,_that.newCodeHash,_that.newOwners,_that.newReqCo
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( PublicKey custodian,  String? newCodeHash,  bool newOwners,  bool newReqConfirms,  bool newLifetime,  String updateId)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( PublicKey custodian, @JsonKey(name: 'new_code_hash')  String? newCodeHash, @JsonKey(name: 'new_owners')  bool newOwners, @JsonKey(name: 'new_req_confirms')  bool newReqConfirms, @JsonKey(name: 'new_lifetime')  bool newLifetime, @JsonKey(name: 'update_id')  String updateId)  $default,) {final _that = this;
 switch (_that) {
 case _MultisigSubmitUpdateTransaction():
 return $default(_that.custodian,_that.newCodeHash,_that.newOwners,_that.newReqConfirms,_that.newLifetime,_that.updateId);}
@@ -202,7 +202,7 @@ return $default(_that.custodian,_that.newCodeHash,_that.newOwners,_that.newReqCo
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( PublicKey custodian,  String? newCodeHash,  bool newOwners,  bool newReqConfirms,  bool newLifetime,  String updateId)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( PublicKey custodian, @JsonKey(name: 'new_code_hash')  String? newCodeHash, @JsonKey(name: 'new_owners')  bool newOwners, @JsonKey(name: 'new_req_confirms')  bool newReqConfirms, @JsonKey(name: 'new_lifetime')  bool newLifetime, @JsonKey(name: 'update_id')  String updateId)?  $default,) {final _that = this;
 switch (_that) {
 case _MultisigSubmitUpdateTransaction() when $default != null:
 return $default(_that.custodian,_that.newCodeHash,_that.newOwners,_that.newReqConfirms,_that.newLifetime,_that.updateId);case _:
@@ -217,15 +217,15 @@ return $default(_that.custodian,_that.newCodeHash,_that.newOwners,_that.newReqCo
 @JsonSerializable()
 
 class _MultisigSubmitUpdateTransaction implements MultisigSubmitUpdateTransaction {
-   _MultisigSubmitUpdateTransaction({required this.custodian, required this.newCodeHash, required this.newOwners, required this.newReqConfirms, required this.newLifetime, required this.updateId});
+   _MultisigSubmitUpdateTransaction({required this.custodian, @JsonKey(name: 'new_code_hash') required this.newCodeHash, @JsonKey(name: 'new_owners') required this.newOwners, @JsonKey(name: 'new_req_confirms') required this.newReqConfirms, @JsonKey(name: 'new_lifetime') required this.newLifetime, @JsonKey(name: 'update_id') required this.updateId});
   factory _MultisigSubmitUpdateTransaction.fromJson(Map<String, dynamic> json) => _$MultisigSubmitUpdateTransactionFromJson(json);
 
 @override final  PublicKey custodian;
-@override final  String? newCodeHash;
-@override final  bool newOwners;
-@override final  bool newReqConfirms;
-@override final  bool newLifetime;
-@override final  String updateId;
+@override@JsonKey(name: 'new_code_hash') final  String? newCodeHash;
+@override@JsonKey(name: 'new_owners') final  bool newOwners;
+@override@JsonKey(name: 'new_req_confirms') final  bool newReqConfirms;
+@override@JsonKey(name: 'new_lifetime') final  bool newLifetime;
+@override@JsonKey(name: 'update_id') final  String updateId;
 
 /// Create a copy of MultisigSubmitUpdateTransaction
 /// with the given fields replaced by the non-null parameter values.
@@ -260,7 +260,7 @@ abstract mixin class _$MultisigSubmitUpdateTransactionCopyWith<$Res> implements 
   factory _$MultisigSubmitUpdateTransactionCopyWith(_MultisigSubmitUpdateTransaction value, $Res Function(_MultisigSubmitUpdateTransaction) _then) = __$MultisigSubmitUpdateTransactionCopyWithImpl;
 @override @useResult
 $Res call({
- PublicKey custodian, String? newCodeHash, bool newOwners, bool newReqConfirms, bool newLifetime, String updateId
+ PublicKey custodian,@JsonKey(name: 'new_code_hash') String? newCodeHash,@JsonKey(name: 'new_owners') bool newOwners,@JsonKey(name: 'new_req_confirms') bool newReqConfirms,@JsonKey(name: 'new_lifetime') bool newLifetime,@JsonKey(name: 'update_id') String updateId
 });
 
 

@@ -9,11 +9,11 @@ sealed class MultisigSubmitUpdateTransaction
     with _$MultisigSubmitUpdateTransaction {
   factory MultisigSubmitUpdateTransaction({
     required final PublicKey custodian,
-    required final String? newCodeHash,
-    required final bool newOwners,
-    required final bool newReqConfirms,
-    required final bool newLifetime,
-    required final String updateId,
+    @JsonKey(name: 'new_code_hash') required final String? newCodeHash,
+    @JsonKey(name: 'new_owners') required final bool newOwners,
+    @JsonKey(name: 'new_req_confirms') required final bool newReqConfirms,
+    @JsonKey(name: 'new_lifetime') required final bool newLifetime,
+    @JsonKey(name: 'update_id') required final String updateId,
   }) = _MultisigSubmitUpdateTransaction;
 
   factory MultisigSubmitUpdateTransaction.fromJson(Map<String, dynamic> json) =>

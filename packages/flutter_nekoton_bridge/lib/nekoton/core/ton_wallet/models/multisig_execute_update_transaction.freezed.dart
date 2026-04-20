@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MultisigExecuteUpdateTransaction {
 
- PublicKey get custodian; String get updateId;
+ PublicKey get custodian;@JsonKey(name: 'update_id') String get updateId;
 /// Create a copy of MultisigExecuteUpdateTransaction
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $MultisigExecuteUpdateTransactionCopyWith<$Res>  {
   factory $MultisigExecuteUpdateTransactionCopyWith(MultisigExecuteUpdateTransaction value, $Res Function(MultisigExecuteUpdateTransaction) _then) = _$MultisigExecuteUpdateTransactionCopyWithImpl;
 @useResult
 $Res call({
- PublicKey custodian, String updateId
+ PublicKey custodian,@JsonKey(name: 'update_id') String updateId
 });
 
 
@@ -160,7 +160,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( PublicKey custodian,  String updateId)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( PublicKey custodian, @JsonKey(name: 'update_id')  String updateId)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _MultisigExecuteUpdateTransaction() when $default != null:
 return $default(_that.custodian,_that.updateId);case _:
@@ -181,7 +181,7 @@ return $default(_that.custodian,_that.updateId);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( PublicKey custodian,  String updateId)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( PublicKey custodian, @JsonKey(name: 'update_id')  String updateId)  $default,) {final _that = this;
 switch (_that) {
 case _MultisigExecuteUpdateTransaction():
 return $default(_that.custodian,_that.updateId);}
@@ -198,7 +198,7 @@ return $default(_that.custodian,_that.updateId);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( PublicKey custodian,  String updateId)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( PublicKey custodian, @JsonKey(name: 'update_id')  String updateId)?  $default,) {final _that = this;
 switch (_that) {
 case _MultisigExecuteUpdateTransaction() when $default != null:
 return $default(_that.custodian,_that.updateId);case _:
@@ -213,11 +213,11 @@ return $default(_that.custodian,_that.updateId);case _:
 @JsonSerializable()
 
 class _MultisigExecuteUpdateTransaction implements MultisigExecuteUpdateTransaction {
-   _MultisigExecuteUpdateTransaction({required this.custodian, required this.updateId});
+   _MultisigExecuteUpdateTransaction({required this.custodian, @JsonKey(name: 'update_id') required this.updateId});
   factory _MultisigExecuteUpdateTransaction.fromJson(Map<String, dynamic> json) => _$MultisigExecuteUpdateTransactionFromJson(json);
 
 @override final  PublicKey custodian;
-@override final  String updateId;
+@override@JsonKey(name: 'update_id') final  String updateId;
 
 /// Create a copy of MultisigExecuteUpdateTransaction
 /// with the given fields replaced by the non-null parameter values.
@@ -252,7 +252,7 @@ abstract mixin class _$MultisigExecuteUpdateTransactionCopyWith<$Res> implements
   factory _$MultisigExecuteUpdateTransactionCopyWith(_MultisigExecuteUpdateTransaction value, $Res Function(_MultisigExecuteUpdateTransaction) _then) = __$MultisigExecuteUpdateTransactionCopyWithImpl;
 @override @useResult
 $Res call({
- PublicKey custodian, String updateId
+ PublicKey custodian,@JsonKey(name: 'update_id') String updateId
 });
 
 

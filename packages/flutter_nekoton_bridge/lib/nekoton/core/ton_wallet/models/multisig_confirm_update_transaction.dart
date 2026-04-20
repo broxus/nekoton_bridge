@@ -9,7 +9,7 @@ sealed class MultisigConfirmUpdateTransaction
     with _$MultisigConfirmUpdateTransaction {
   factory MultisigConfirmUpdateTransaction({
     required final PublicKey custodian,
-    required final String updateId,
+    @JsonKey(name: 'update_id') required final String updateId,
   }) = _MultisigConfirmUpdateTransaction;
 
   factory MultisigConfirmUpdateTransaction.fromJson(

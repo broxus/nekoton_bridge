@@ -10,12 +10,12 @@ _MultisigExecuteUpdateTransaction _$MultisigExecuteUpdateTransactionFromJson(
   Map<String, dynamic> json,
 ) => _MultisigExecuteUpdateTransaction(
   custodian: PublicKey.fromJson(json['custodian'] as String),
-  updateId: json['updateId'] as String,
+  updateId: json['update_id'] as String,
 );
 
 Map<String, dynamic> _$MultisigExecuteUpdateTransactionToJson(
   _MultisigExecuteUpdateTransaction instance,
 ) => <String, dynamic>{
   'custodian': instance.custodian.toJson(),
-  'updateId': instance.updateId,
+  'update_id': instance.updateId,
 };
