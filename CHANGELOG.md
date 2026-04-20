@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_nekoton_bridge` - `v5.5.4-dev.1`](#flutter_nekoton_bridge---v554-dev1)
+ - [`flutter_nekoton_bridge_example` - `v4.2.4-dev.1`](#flutter_nekoton_bridge_example---v424-dev1)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v4.2.4-dev.1`
+
+---
+
+#### `flutter_nekoton_bridge` - `v5.5.4-dev.1`
+
+ - **FIX**: update JSON key names for multisig transaction models.
+
+
+## 2026-04-20
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v5.5.4-dev.0`](#flutter_nekoton_bridge---v554-dev0)
  - [`flutter_nekoton_bridge_example` - `v4.2.4-dev.0`](#flutter_nekoton_bridge_example---v424-dev0)
 

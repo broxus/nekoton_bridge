@@ -1,3 +1,7 @@
+## 5.5.4-dev.1
+
+ - **FIX**: update JSON key names for multisig transaction models.
+
 ## 5.5.4-dev.0
 
  - **FIX**: add multisig update models.
