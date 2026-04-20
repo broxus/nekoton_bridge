@@ -27,6 +27,18 @@ MultisigTransaction _$MultisigTransactionFromJson(
           return MultisigTransactionConfirm.fromJson(
             json
           );
+                case 'submitUpdate':
+          return MultisigTransactionSubmitUpdate.fromJson(
+            json
+          );
+                case 'confirmUpdate':
+          return MultisigTransactionConfirmUpdate.fromJson(
+            json
+          );
+                case 'executeUpdate':
+          return MultisigTransactionExecuteUpdate.fromJson(
+            json
+          );
         
           default:
             throw CheckedFromJsonException(
@@ -85,13 +97,16 @@ extension MultisigTransactionPatterns on MultisigTransaction {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( MultisigTransactionSend value)?  send,TResult Function( MultisigTransactionSubmit value)?  submit,TResult Function( MultisigTransactionConfirm value)?  confirm,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( MultisigTransactionSend value)?  send,TResult Function( MultisigTransactionSubmit value)?  submit,TResult Function( MultisigTransactionConfirm value)?  confirm,TResult Function( MultisigTransactionSubmitUpdate value)?  submitUpdate,TResult Function( MultisigTransactionConfirmUpdate value)?  confirmUpdate,TResult Function( MultisigTransactionExecuteUpdate value)?  executeUpdate,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case MultisigTransactionSend() when send != null:
 return send(_that);case MultisigTransactionSubmit() when submit != null:
 return submit(_that);case MultisigTransactionConfirm() when confirm != null:
-return confirm(_that);case _:
+return confirm(_that);case MultisigTransactionSubmitUpdate() when submitUpdate != null:
+return submitUpdate(_that);case MultisigTransactionConfirmUpdate() when confirmUpdate != null:
+return confirmUpdate(_that);case MultisigTransactionExecuteUpdate() when executeUpdate != null:
+return executeUpdate(_that);case _:
   return orElse();
 
 }
@@ -109,13 +124,16 @@ return confirm(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( MultisigTransactionSend value)  send,required TResult Function( MultisigTransactionSubmit value)  submit,required TResult Function( MultisigTransactionConfirm value)  confirm,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( MultisigTransactionSend value)  send,required TResult Function( MultisigTransactionSubmit value)  submit,required TResult Function( MultisigTransactionConfirm value)  confirm,required TResult Function( MultisigTransactionSubmitUpdate value)  submitUpdate,required TResult Function( MultisigTransactionConfirmUpdate value)  confirmUpdate,required TResult Function( MultisigTransactionExecuteUpdate value)  executeUpdate,}){
 final _that = this;
 switch (_that) {
 case MultisigTransactionSend():
 return send(_that);case MultisigTransactionSubmit():
 return submit(_that);case MultisigTransactionConfirm():
-return confirm(_that);}
+return confirm(_that);case MultisigTransactionSubmitUpdate():
+return submitUpdate(_that);case MultisigTransactionConfirmUpdate():
+return confirmUpdate(_that);case MultisigTransactionExecuteUpdate():
+return executeUpdate(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -129,13 +147,16 @@ return confirm(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( MultisigTransactionSend value)?  send,TResult? Function( MultisigTransactionSubmit value)?  submit,TResult? Function( MultisigTransactionConfirm value)?  confirm,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( MultisigTransactionSend value)?  send,TResult? Function( MultisigTransactionSubmit value)?  submit,TResult? Function( MultisigTransactionConfirm value)?  confirm,TResult? Function( MultisigTransactionSubmitUpdate value)?  submitUpdate,TResult? Function( MultisigTransactionConfirmUpdate value)?  confirmUpdate,TResult? Function( MultisigTransactionExecuteUpdate value)?  executeUpdate,}){
 final _that = this;
 switch (_that) {
 case MultisigTransactionSend() when send != null:
 return send(_that);case MultisigTransactionSubmit() when submit != null:
 return submit(_that);case MultisigTransactionConfirm() when confirm != null:
-return confirm(_that);case _:
+return confirm(_that);case MultisigTransactionSubmitUpdate() when submitUpdate != null:
+return submitUpdate(_that);case MultisigTransactionConfirmUpdate() when confirmUpdate != null:
+return confirmUpdate(_that);case MultisigTransactionExecuteUpdate() when executeUpdate != null:
+return executeUpdate(_that);case _:
   return null;
 
 }
@@ -152,12 +173,15 @@ return confirm(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( MultisigSendTransaction data)?  send,TResult Function( MultisigSubmitTransaction data)?  submit,TResult Function( MultisigConfirmTransaction data)?  confirm,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( MultisigSendTransaction data)?  send,TResult Function( MultisigSubmitTransaction data)?  submit,TResult Function( MultisigConfirmTransaction data)?  confirm,TResult Function( MultisigSubmitUpdateTransaction data)?  submitUpdate,TResult Function( MultisigConfirmUpdateTransaction data)?  confirmUpdate,TResult Function( MultisigExecuteUpdateTransaction data)?  executeUpdate,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case MultisigTransactionSend() when send != null:
 return send(_that.data);case MultisigTransactionSubmit() when submit != null:
 return submit(_that.data);case MultisigTransactionConfirm() when confirm != null:
-return confirm(_that.data);case _:
+return confirm(_that.data);case MultisigTransactionSubmitUpdate() when submitUpdate != null:
+return submitUpdate(_that.data);case MultisigTransactionConfirmUpdate() when confirmUpdate != null:
+return confirmUpdate(_that.data);case MultisigTransactionExecuteUpdate() when executeUpdate != null:
+return executeUpdate(_that.data);case _:
   return orElse();
 
 }
@@ -175,12 +199,15 @@ return confirm(_that.data);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( MultisigSendTransaction data)  send,required TResult Function( MultisigSubmitTransaction data)  submit,required TResult Function( MultisigConfirmTransaction data)  confirm,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( MultisigSendTransaction data)  send,required TResult Function( MultisigSubmitTransaction data)  submit,required TResult Function( MultisigConfirmTransaction data)  confirm,required TResult Function( MultisigSubmitUpdateTransaction data)  submitUpdate,required TResult Function( MultisigConfirmUpdateTransaction data)  confirmUpdate,required TResult Function( MultisigExecuteUpdateTransaction data)  executeUpdate,}) {final _that = this;
 switch (_that) {
 case MultisigTransactionSend():
 return send(_that.data);case MultisigTransactionSubmit():
 return submit(_that.data);case MultisigTransactionConfirm():
-return confirm(_that.data);}
+return confirm(_that.data);case MultisigTransactionSubmitUpdate():
+return submitUpdate(_that.data);case MultisigTransactionConfirmUpdate():
+return confirmUpdate(_that.data);case MultisigTransactionExecuteUpdate():
+return executeUpdate(_that.data);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -194,12 +221,15 @@ return confirm(_that.data);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( MultisigSendTransaction data)?  send,TResult? Function( MultisigSubmitTransaction data)?  submit,TResult? Function( MultisigConfirmTransaction data)?  confirm,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( MultisigSendTransaction data)?  send,TResult? Function( MultisigSubmitTransaction data)?  submit,TResult? Function( MultisigConfirmTransaction data)?  confirm,TResult? Function( MultisigSubmitUpdateTransaction data)?  submitUpdate,TResult? Function( MultisigConfirmUpdateTransaction data)?  confirmUpdate,TResult? Function( MultisigExecuteUpdateTransaction data)?  executeUpdate,}) {final _that = this;
 switch (_that) {
 case MultisigTransactionSend() when send != null:
 return send(_that.data);case MultisigTransactionSubmit() when submit != null:
 return submit(_that.data);case MultisigTransactionConfirm() when confirm != null:
-return confirm(_that.data);case _:
+return confirm(_that.data);case MultisigTransactionSubmitUpdate() when submitUpdate != null:
+return submitUpdate(_that.data);case MultisigTransactionConfirmUpdate() when confirmUpdate != null:
+return confirmUpdate(_that.data);case MultisigTransactionExecuteUpdate() when executeUpdate != null:
+return executeUpdate(_that.data);case _:
   return null;
 
 }
@@ -448,6 +478,252 @@ as MultisigConfirmTransaction,
 $MultisigConfirmTransactionCopyWith<$Res> get data {
   
   return $MultisigConfirmTransactionCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class MultisigTransactionSubmitUpdate implements MultisigTransaction {
+  const MultisigTransactionSubmitUpdate(this.data, {final  String? $type}): $type = $type ?? 'submitUpdate';
+  factory MultisigTransactionSubmitUpdate.fromJson(Map<String, dynamic> json) => _$MultisigTransactionSubmitUpdateFromJson(json);
+
+@override final  MultisigSubmitUpdateTransaction data;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of MultisigTransaction
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$MultisigTransactionSubmitUpdateCopyWith<MultisigTransactionSubmitUpdate> get copyWith => _$MultisigTransactionSubmitUpdateCopyWithImpl<MultisigTransactionSubmitUpdate>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$MultisigTransactionSubmitUpdateToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MultisigTransactionSubmitUpdate&&(identical(other.data, data) || other.data == data));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'MultisigTransaction.submitUpdate(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $MultisigTransactionSubmitUpdateCopyWith<$Res> implements $MultisigTransactionCopyWith<$Res> {
+  factory $MultisigTransactionSubmitUpdateCopyWith(MultisigTransactionSubmitUpdate value, $Res Function(MultisigTransactionSubmitUpdate) _then) = _$MultisigTransactionSubmitUpdateCopyWithImpl;
+@useResult
+$Res call({
+ MultisigSubmitUpdateTransaction data
+});
+
+
+$MultisigSubmitUpdateTransactionCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$MultisigTransactionSubmitUpdateCopyWithImpl<$Res>
+    implements $MultisigTransactionSubmitUpdateCopyWith<$Res> {
+  _$MultisigTransactionSubmitUpdateCopyWithImpl(this._self, this._then);
+
+  final MultisigTransactionSubmitUpdate _self;
+  final $Res Function(MultisigTransactionSubmitUpdate) _then;
+
+/// Create a copy of MultisigTransaction
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(MultisigTransactionSubmitUpdate(
+null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as MultisigSubmitUpdateTransaction,
+  ));
+}
+
+/// Create a copy of MultisigTransaction
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$MultisigSubmitUpdateTransactionCopyWith<$Res> get data {
+  
+  return $MultisigSubmitUpdateTransactionCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class MultisigTransactionConfirmUpdate implements MultisigTransaction {
+  const MultisigTransactionConfirmUpdate(this.data, {final  String? $type}): $type = $type ?? 'confirmUpdate';
+  factory MultisigTransactionConfirmUpdate.fromJson(Map<String, dynamic> json) => _$MultisigTransactionConfirmUpdateFromJson(json);
+
+@override final  MultisigConfirmUpdateTransaction data;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of MultisigTransaction
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$MultisigTransactionConfirmUpdateCopyWith<MultisigTransactionConfirmUpdate> get copyWith => _$MultisigTransactionConfirmUpdateCopyWithImpl<MultisigTransactionConfirmUpdate>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$MultisigTransactionConfirmUpdateToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MultisigTransactionConfirmUpdate&&(identical(other.data, data) || other.data == data));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'MultisigTransaction.confirmUpdate(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $MultisigTransactionConfirmUpdateCopyWith<$Res> implements $MultisigTransactionCopyWith<$Res> {
+  factory $MultisigTransactionConfirmUpdateCopyWith(MultisigTransactionConfirmUpdate value, $Res Function(MultisigTransactionConfirmUpdate) _then) = _$MultisigTransactionConfirmUpdateCopyWithImpl;
+@useResult
+$Res call({
+ MultisigConfirmUpdateTransaction data
+});
+
+
+$MultisigConfirmUpdateTransactionCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$MultisigTransactionConfirmUpdateCopyWithImpl<$Res>
+    implements $MultisigTransactionConfirmUpdateCopyWith<$Res> {
+  _$MultisigTransactionConfirmUpdateCopyWithImpl(this._self, this._then);
+
+  final MultisigTransactionConfirmUpdate _self;
+  final $Res Function(MultisigTransactionConfirmUpdate) _then;
+
+/// Create a copy of MultisigTransaction
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(MultisigTransactionConfirmUpdate(
+null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as MultisigConfirmUpdateTransaction,
+  ));
+}
+
+/// Create a copy of MultisigTransaction
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$MultisigConfirmUpdateTransactionCopyWith<$Res> get data {
+  
+  return $MultisigConfirmUpdateTransactionCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class MultisigTransactionExecuteUpdate implements MultisigTransaction {
+  const MultisigTransactionExecuteUpdate(this.data, {final  String? $type}): $type = $type ?? 'executeUpdate';
+  factory MultisigTransactionExecuteUpdate.fromJson(Map<String, dynamic> json) => _$MultisigTransactionExecuteUpdateFromJson(json);
+
+@override final  MultisigExecuteUpdateTransaction data;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of MultisigTransaction
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$MultisigTransactionExecuteUpdateCopyWith<MultisigTransactionExecuteUpdate> get copyWith => _$MultisigTransactionExecuteUpdateCopyWithImpl<MultisigTransactionExecuteUpdate>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$MultisigTransactionExecuteUpdateToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MultisigTransactionExecuteUpdate&&(identical(other.data, data) || other.data == data));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'MultisigTransaction.executeUpdate(data: $data)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $MultisigTransactionExecuteUpdateCopyWith<$Res> implements $MultisigTransactionCopyWith<$Res> {
+  factory $MultisigTransactionExecuteUpdateCopyWith(MultisigTransactionExecuteUpdate value, $Res Function(MultisigTransactionExecuteUpdate) _then) = _$MultisigTransactionExecuteUpdateCopyWithImpl;
+@useResult
+$Res call({
+ MultisigExecuteUpdateTransaction data
+});
+
+
+$MultisigExecuteUpdateTransactionCopyWith<$Res> get data;
+
+}
+/// @nodoc
+class _$MultisigTransactionExecuteUpdateCopyWithImpl<$Res>
+    implements $MultisigTransactionExecuteUpdateCopyWith<$Res> {
+  _$MultisigTransactionExecuteUpdateCopyWithImpl(this._self, this._then);
+
+  final MultisigTransactionExecuteUpdate _self;
+  final $Res Function(MultisigTransactionExecuteUpdate) _then;
+
+/// Create a copy of MultisigTransaction
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(MultisigTransactionExecuteUpdate(
+null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as MultisigExecuteUpdateTransaction,
+  ));
+}
+
+/// Create a copy of MultisigTransaction
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$MultisigExecuteUpdateTransactionCopyWith<$Res> get data {
+  
+  return $MultisigExecuteUpdateTransactionCopyWith<$Res>(_self.data, (value) {
     return _then(_self.copyWith(data: value));
   });
 }

@@ -38,3 +38,42 @@ MultisigTransactionConfirm _$MultisigTransactionConfirmFromJson(
 Map<String, dynamic> _$MultisigTransactionConfirmToJson(
   MultisigTransactionConfirm instance,
 ) => <String, dynamic>{'data': instance.data.toJson(), 'type': instance.$type};
+
+MultisigTransactionSubmitUpdate _$MultisigTransactionSubmitUpdateFromJson(
+  Map<String, dynamic> json,
+) => MultisigTransactionSubmitUpdate(
+  MultisigSubmitUpdateTransaction.fromJson(
+    json['data'] as Map<String, dynamic>,
+  ),
+  $type: json['type'] as String?,
+);
+
+Map<String, dynamic> _$MultisigTransactionSubmitUpdateToJson(
+  MultisigTransactionSubmitUpdate instance,
+) => <String, dynamic>{'data': instance.data.toJson(), 'type': instance.$type};
+
+MultisigTransactionConfirmUpdate _$MultisigTransactionConfirmUpdateFromJson(
+  Map<String, dynamic> json,
+) => MultisigTransactionConfirmUpdate(
+  MultisigConfirmUpdateTransaction.fromJson(
+    json['data'] as Map<String, dynamic>,
+  ),
+  $type: json['type'] as String?,
+);
+
+Map<String, dynamic> _$MultisigTransactionConfirmUpdateToJson(
+  MultisigTransactionConfirmUpdate instance,
+) => <String, dynamic>{'data': instance.data.toJson(), 'type': instance.$type};
+
+MultisigTransactionExecuteUpdate _$MultisigTransactionExecuteUpdateFromJson(
+  Map<String, dynamic> json,
+) => MultisigTransactionExecuteUpdate(
+  MultisigExecuteUpdateTransaction.fromJson(
+    json['data'] as Map<String, dynamic>,
+  ),
+  $type: json['type'] as String?,
+);
+
+Map<String, dynamic> _$MultisigTransactionExecuteUpdateToJson(
+  MultisigTransactionExecuteUpdate instance,
+) => <String, dynamic>{'data': instance.data.toJson(), 'type': instance.$type};
