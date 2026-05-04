@@ -1,3 +1,7 @@
+## 5.6.0
+
+ - Bump minor version
+
 ## 5.5.0
 
  - **FEAT**: Update `flutter_rust_bridge` and related files to version 2.12.0.

@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-05-04
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`nekoton_bridge` - `v5.6.0`](#nekoton_bridge---v560)
+ - [`flutter_nekoton_bridge` - `v5.6.0`](#flutter_nekoton_bridge---v560)
+
+---
+
+#### `nekoton_bridge` - `v5.6.0`
+
+ - Bump minor version
+
+#### `flutter_nekoton_bridge` - `v5.6.0`
+
+ - Bump minor version
+
+
 ## 2026-04-20
 
 ### Changes

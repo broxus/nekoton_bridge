@@ -1,3 +1,7 @@
+## 5.6.0
+
+ - Bump minor version
+
 ## 5.5.4-dev.1
 
  - **FIX**: update JSON key names for multisig transaction models.
