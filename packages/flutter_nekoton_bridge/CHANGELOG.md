@@ -1,3 +1,7 @@
+## 5.5.4
+
+ - Graduate package to a stable release. See pre-releases prior to this version for changelog entries.
+
 ## 5.5.4-dev.1
 
  - **FIX**: update JSON key names for multisig transaction models.
