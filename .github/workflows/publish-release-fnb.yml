@@ -33,6 +33,14 @@ jobs:
           cache: true
           cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
       - uses: bluefireteam/melos-action@v3
+      # flutter_nekoton_bridge is published from its own tag, whose tree cannot
+      # contain the release checksum yet (the XCFramework is built/uploaded by
+      # publish-release-nb.yml in parallel). Inject the checksum into the
+      # working tree before publishing so the SwiftPM remote binary target in the
+      # published package matches the released archive. The script waits/retries
+      # until the archive is available.
+      - name: Embed SwiftPM XCFramework checksum
+        run: bash scripts/spm-checksum.sh
       - name: Dry-run publish to pub.dev
         run: melos publish -y --dry-run --scope="flutter_nekoton_bridge"
       - name: Publish to pub.dev

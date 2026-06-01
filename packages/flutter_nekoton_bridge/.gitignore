@@ -30,5 +30,11 @@ migrate_working_dir/
 build/
 
 # Generated code
-#ios/Classes/frb.h
+#ios/flutter_nekoton_bridge/Sources/flutter_nekoton_bridge_ffi/include/frb.h
 macos/Classes/frb.h
+
+# Swift Package Manager
+.build/
+.swiftpm/
+ios/flutter_nekoton_bridge/NekotonBridge.xcframework/
+ios/flutter_nekoton_bridge/*.zip

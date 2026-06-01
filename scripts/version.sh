@@ -8,6 +8,11 @@ sed -i.bak "1 s/.*/$APPLE_HEADER/" packages/flutter_nekoton_bridge/ios/flutter_n
 sed -i.bak "1 s/.*/$APPLE_HEADER/" packages/flutter_nekoton_bridge/macos/flutter_nekoton_bridge.podspec
 rm packages/flutter_nekoton_bridge/macos/*.bak packages/flutter_nekoton_bridge/ios/*.bak
 
+# iOS Swift Package Manager
+SPM_HEADER="let releaseTagName = \"$CURR_VERSION\" \/\/ generated; do not edit"
+sed -i.bak "s/^let releaseTagName = .*/$SPM_HEADER/" packages/flutter_nekoton_bridge/ios/flutter_nekoton_bridge/Package.swift
+rm packages/flutter_nekoton_bridge/ios/flutter_nekoton_bridge/*.bak
+
 # CMake platforms (Linux, Windows, and Android)
 CMAKE_HEADER="set(LibraryVersion \"$CURR_VERSION\") # generated; do not edit"
 for CMAKE_PLATFORM in android linux windows

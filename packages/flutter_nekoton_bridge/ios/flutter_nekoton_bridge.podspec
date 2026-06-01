@@ -17,8 +17,8 @@ Pod::Spec.new do |spec|
   spec.summary       = 'iOS Flutter bindings for nekoton'
 
   spec.source              = { :path => '.' }
-  spec.source_files        = 'Classes/**/*'
-  spec.public_header_files = 'Classes/**/*.h'
+  spec.source_files        = 'flutter_nekoton_bridge/Sources/**/*.{swift,c,h}'
+  spec.public_header_files = 'flutter_nekoton_bridge/Sources/**/*.h'
   spec.vendored_frameworks = "Frameworks/#{framework_name}"
 
   spec.ios.deployment_target = '11.0'
