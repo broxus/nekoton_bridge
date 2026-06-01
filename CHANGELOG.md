@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-06-01
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`flutter_nekoton_bridge` - `v5.7.0-dev.0`](#flutter_nekoton_bridge---v570-dev0)
+ - [`nekoton_bridge` - `v5.7.0-dev.0`](#nekoton_bridge---v570-dev0)
+ - [`flutter_nekoton_bridge_example` - `v4.2.4-dev.2`](#flutter_nekoton_bridge_example---v424-dev2)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v4.2.4-dev.2`
+
+---
+
+#### `flutter_nekoton_bridge` - `v5.7.0-dev.0`
+
+ - **REFACTOR**: simplify constructor parameters in Storage.test.
+ - **FEAT**(EWM-685): add swift pm support.
+
+#### `nekoton_bridge` - `v5.7.0-dev.0`
+
+ - **FEAT**(EWM-685): add swift pm support.
+
+
 ## 2026-05-04
 
 ### Changes
