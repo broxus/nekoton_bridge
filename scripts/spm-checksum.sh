@@ -62,4 +62,6 @@ echo "$FRAMEWORK_ZIP checksum: $CHECKSUM"
 sed -i.bak "s/^let releaseChecksum = .*/let releaseChecksum = \"$CHECKSUM\"/" "$PACKAGE_SWIFT"
 rm -f "$PACKAGE_SWIFT.bak"
 
-[ -n "$TMP_DIR" ] && rm -rf "$TMP_DIR"
+if [ -n "$TMP_DIR" ]; then
+    rm -rf "$TMP_DIR"
+fi
