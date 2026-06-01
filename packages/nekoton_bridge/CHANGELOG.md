@@ -1,3 +1,7 @@
+## 5.7.0-dev.0
+
+ - **FEAT**(EWM-685): add swift pm support.
+
 ## 5.6.0
 
  - Bump minor version
