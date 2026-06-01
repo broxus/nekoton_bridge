@@ -7,7 +7,9 @@ on:
       - main
 
 env:
-  CARGO_INCREMENTAL: "1"
+  # Incremental compilation has no cross-run benefit in CI (Swatinem/rust-cache
+  # strips incremental dirs from the cache) and slows clean builds; keep it off.
+  CARGO_INCREMENTAL: "0"
 
 jobs:
   semantic_pull_request:
