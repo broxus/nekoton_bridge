@@ -21,7 +21,7 @@ Pod::Spec.new do |spec|
   spec.public_header_files = 'flutter_nekoton_bridge/Sources/**/*.h'
   spec.vendored_frameworks = "Frameworks/#{framework_name}"
 
-  spec.ios.deployment_target = '11.0'
+  spec.ios.deployment_target = '12.0'
 
   # Prepare the vendored XCFramework deterministically inside the sandbox.
   spec.prepare_command = <<-CMD
