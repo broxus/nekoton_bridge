@@ -8,7 +8,7 @@ import Foundation
 // `releaseTagName` is updated by `scripts/version.sh`.
 // `releaseChecksum` is updated by `scripts/build-ios.sh` after the XCFramework
 // archive is produced (it must match the archive uploaded to the GitHub release).
-let releaseTagName = "nekoton_bridge-v5.7.0-dev.0" // generated; do not edit
+let releaseTagName = "nekoton_bridge-v5.7.0-dev.1" // generated; do not edit
 let releaseChecksum = "d9f0356194d2de8066c5356f7c80b9cb28a7cf849e416d2262c103f1d74ef50d"
 
 // Name of the prebuilt XCFramework that ships the Rust static library.

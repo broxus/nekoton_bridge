@@ -1,3 +1,7 @@
+## 5.7.0-dev.1
+
+ - **FEAT**(EWM-685): add temporary nt_tmp method for package version bump.
+
 ## 5.7.0-dev.0
 
  - **FEAT**(EWM-685): add swift pm support.
