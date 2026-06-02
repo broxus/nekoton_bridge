@@ -15,6 +15,39 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`flutter_nekoton_bridge` - `v5.7.0-dev.2`](#flutter_nekoton_bridge---v570-dev2)
+ - [`nekoton_bridge` - `v5.7.0-dev.2`](#nekoton_bridge---v570-dev2)
+ - [`flutter_nekoton_bridge_example` - `v4.2.4-dev.4`](#flutter_nekoton_bridge_example---v424-dev4)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `flutter_nekoton_bridge_example` - `v4.2.4-dev.4`
+
+---
+
+#### `flutter_nekoton_bridge` - `v5.7.0-dev.2`
+
+ - **FEAT**: remove temporary nt_tmp method and related references for package version bump.
+
+#### `nekoton_bridge` - `v5.7.0-dev.2`
+
+ - **FEAT**: remove temporary nt_tmp method and related references for package version bump.
+
+
+## 2026-06-02
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`flutter_nekoton_bridge` - `v5.7.0-dev.1`](#flutter_nekoton_bridge---v570-dev1)
  - [`nekoton_bridge` - `v5.7.0-dev.1`](#nekoton_bridge---v570-dev1)
  - [`flutter_nekoton_bridge_example` - `v4.2.4-dev.3`](#flutter_nekoton_bridge_example---v424-dev3)

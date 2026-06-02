@@ -1,4 +1,4 @@
-release_tag_name = 'nekoton_bridge-v5.7.0-dev.1' # generated; do not edit
+release_tag_name = 'nekoton_bridge-v5.7.0-dev.2' # generated; do not edit
 
 # We cannot distribute the XCFramework alongside the library directly,
 # so we have to fetch the correct version here.
