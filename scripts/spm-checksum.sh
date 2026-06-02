@@ -27,10 +27,10 @@ VERSION="nekoton_bridge-v$(awk '/^version: /{print $2}' packages/nekoton_bridge/
 URL="${NEKOTON_BRIDGE_URL:-https://github.com/broxus/nekoton_bridge/releases/download/$VERSION/$FRAMEWORK_ZIP}"
 
 # How long to wait for the release asset to appear (download mode only).
-# Defaults cover a slow `nekoton_bridge` CI build (~20-30 min, sometimes more):
-# 12 attempts * 300s = up to 60 minutes.
-MAX_ATTEMPTS="${SPM_CHECKSUM_MAX_ATTEMPTS:-12}"
-RETRY_DELAY="${SPM_CHECKSUM_RETRY_DELAY:-300}"
+# Defaults cover a slow `nekoton_bridge` CI build (~15-20 min, sometimes more):
+# 10 attempts * 180s = up to 30 minutes.
+MAX_ATTEMPTS="${SPM_CHECKSUM_MAX_ATTEMPTS:-10}"
+RETRY_DELAY="${SPM_CHECKSUM_RETRY_DELAY:-180}"
 
 LOCAL_ZIP="${1:-}"
 TMP_DIR=""
