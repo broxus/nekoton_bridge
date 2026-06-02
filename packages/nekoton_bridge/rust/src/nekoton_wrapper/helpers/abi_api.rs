@@ -1174,3 +1174,9 @@ struct ProviderMessage {
     dst: Option<String>,
     body: Option<String>,
 }
+
+#[frb(sync)]
+pub fn nt_tmp(data: String) -> bool {
+    // tmp method to force package version bump, will be removed later
+    parse_cell(data).is_ok()
+}

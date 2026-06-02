@@ -489,6 +489,9 @@ int ntGetContractTypeNumber({required String walletType}) => NekotonBridge
     .api
     .crateApiMergedNtGetContractTypeNumber(walletType: walletType);
 
+bool ntTmp({required String data}) =>
+    NekotonBridge.instance.api.crateApiMergedNtTmp(data: data);
+
 ///----------------------------
 /// CONTENT OF src/utils/api.rs
 ///----------------------------
