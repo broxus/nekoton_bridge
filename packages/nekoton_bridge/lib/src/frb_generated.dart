@@ -74,7 +74,7 @@ class NekotonBridge
   String get codegenVersion => '2.12.0';
 
   @override
-  int get rustContentHash => -1850948826;
+  int get rustContentHash => -1434038244;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -1080,8 +1080,6 @@ abstract class NekotonBridgeApi extends BaseApi {
   });
 
   List<String?> crateApiMergedNtSplitTvc({required String tvc});
-
-  bool crateApiMergedNtTmp({required String data});
 
   Future<String?> crateApiMergedNtUnpackContractFields({
     required String contractAbi,
@@ -8720,28 +8718,6 @@ class NekotonBridgeApiImpl extends NekotonBridgeApiImplPlatform
 
   TaskConstMeta get kCrateApiMergedNtSplitTvcConstMeta =>
       const TaskConstMeta(debugName: "nt_split_tvc", argNames: ["tvc"]);
-
-  @override
-  bool crateApiMergedNtTmp({required String data}) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          var arg0 = cst_encode_String(data);
-          return wire.wire__crate__api__merged__nt_tmp(arg0);
-        },
-        codec: DcoCodec(
-          decodeSuccessData: dco_decode_bool,
-          decodeErrorData: null,
-        ),
-        constMeta: kCrateApiMergedNtTmpConstMeta,
-        argValues: [data],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta get kCrateApiMergedNtTmpConstMeta =>
-      const TaskConstMeta(debugName: "nt_tmp", argNames: ["data"]);
 
   @override
   Future<String?> crateApiMergedNtUnpackContractFields({

@@ -896,8 +896,6 @@ WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_set_code
 
 WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_split_tvc(struct wire_cst_list_prim_u_8_strict *tvc);
 
-WireSyncRust2DartDco frbgen_nekoton_bridge_wire__crate__api__merged__nt_tmp(struct wire_cst_list_prim_u_8_strict *data);
-
 void frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_contract_fields(int64_t port_,
                                                                                struct wire_cst_list_prim_u_8_strict *contract_abi,
                                                                                struct wire_cst_list_prim_u_8_strict *boc,
@@ -1681,7 +1679,6 @@ static int64_t dummy_method_to_enforce_bundling(void) {
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_run_local_with_libs);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_set_code_salt);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_split_tvc);
-    dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_tmp);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_contract_fields);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_from_cell);
     dummy_var ^= ((int64_t) (void*) frbgen_nekoton_bridge_wire__crate__api__merged__nt_unpack_init_data);
