@@ -11,8 +11,11 @@ cd $BUILD_DIR
 JNI_DIR=jniLibs
 mkdir -p $JNI_DIR
 
-# Set up cargo-ndk
-cargo install cargo-ndk
+# Set up cargo-ndk (skip the from-source install if it's already available,
+# e.g. provided as a prebuilt binary by CI).
+if ! command -v cargo-ndk >/dev/null 2>&1; then
+    cargo install cargo-ndk
+fi
 rustup target add \
         aarch64-linux-android \
         armv7-linux-androideabi \
