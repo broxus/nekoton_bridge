@@ -1,3 +1,16 @@
+## 5.7.0-dev.2
+
+ - **FEAT**: remove temporary nt_tmp method and related references for package version bump.
+
+## 5.7.0-dev.1
+
+ - **FEAT**(EWM-685): add temporary nt_tmp method for package version bump.
+
+## 5.7.0-dev.0
+
+ - **REFACTOR**: simplify constructor parameters in Storage.test.
+ - **FEAT**(EWM-685): add swift pm support.
+
 ## 5.6.0
 
  - Bump minor version

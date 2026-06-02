@@ -7,7 +7,9 @@ on:
       - main
 
 env:
-  CARGO_INCREMENTAL: "1"
+  # Incremental compilation has no cross-run benefit in CI (Swatinem/rust-cache
+  # strips incremental dirs from the cache) and slows clean builds; keep it off.
+  CARGO_INCREMENTAL: "0"
 
 jobs:
   semantic_pull_request:
@@ -22,7 +24,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.41.6'
+          flutter-version: '3.44.x'
           channel: 'stable'
           cache: true
           cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
@@ -73,7 +75,7 @@ jobs:
   #     - uses: actions/checkout@v3
   #     - uses: subosito/flutter-action@v2
   #       with:
-  #         flutter-version: '3.41.6'
+  #         flutter-version: '3.44.x'
   #         channel: 'stable'
   #         cache: true
   #         cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
@@ -127,7 +129,7 @@ jobs:
   #     - uses: actions/checkout@v4
   #     - uses: subosito/flutter-action@v2
   #       with:
-  #         flutter-version: '3.41.6'
+  #         flutter-version: '3.44.x'
   #         channel: 'stable'
   #         cache: true
   #         cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}

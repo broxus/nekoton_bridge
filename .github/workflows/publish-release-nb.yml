@@ -6,42 +6,133 @@ on:
       - 'nekoton_bridge-v*'
 
 env:
-  CARGO_INCREMENTAL: "1"
+  # Incremental compilation has no cross-run benefit in CI (Swatinem/rust-cache
+  # strips incremental dirs from the cache) and slows clean builds; keep it off.
+  CARGO_INCREMENTAL: "0"
 
 permissions:
   contents: write
 
 jobs:
-  publish_github_release:
-    # macOS because we can cross-compile to all other platforms from it
+  build_ios:
+    name: Build iOS XCFramework
+    # macOS is required: the XCFramework is assembled with xcodebuild.
     runs-on: macos-latest
 
     steps:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.41.6'
+          flutter-version: '3.44.x'
           channel: 'stable'
           cache: true
           cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
       - uses: bluefireteam/melos-action@v3
-      - uses: goto-bus-stop/setup-zig@v2
       - uses: KyleMayes/install-llvm-action@v2
         with:
           version: "15"
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
+        with:
+          key: ios
+
+      - name: Build iOS XCFramework
+        run: melos run build:ios
+
+      - name: Upload iOS artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-xcframework
+          path: platform-build/NekotonBridge.xcframework.zip
+          if-no-files-found: error
+          retention-days: 1
+
+  build_android:
+    name: Build Android libraries
+    # Android cross-compiles fine on Linux, which is faster and cheaper than macOS.
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.44.x'
+          channel: 'stable'
+          cache: true
+          cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
+      - uses: bluefireteam/melos-action@v3
+      - uses: KyleMayes/install-llvm-action@v2
+        with:
+          version: "15"
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: android
       - uses: nttld/setup-ndk@v1
         with:
           ndk-version: r25b
+      # Install a prebuilt cargo-ndk instead of `cargo install` (which recompiles
+      # it from source on every run, costing ~1-2 min).
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-ndk
 
-      - name: Build all library binaries
-        run: melos run build
+      - name: Build Android libraries
+        run: melos run build:android
+
+      - name: Upload Android artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-libs
+          path: platform-build/android.tar.gz
+          if-no-files-found: error
+          retention-days: 1
+
+  publish_github_release:
+    needs: [build_ios, build_android]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+          fetch-depth: 0
+
+      # Collect the platform artifacts produced by the parallel build jobs.
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: platform-build
+          merge-multiple: true
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         with:
           files: platform-build/*
+
+      # The SwiftPM remote binary target needs the checksum of the just-released
+      # XCFramework archive. The checksum can only be known after the archive is
+      # built, so we commit it back to `main` here for git/branch-based SwiftPM
+      # consumers. (pub.dev consumers get it injected at FNB publish time, since
+      # that package is published from its own tag — see publish-release-fnb.yml.)
+      # Best-effort: if `main` is protected and the push is rejected, the release
+      # itself is not failed.
+      - name: Update SwiftPM checksum on main
+        continue-on-error: true
+        run: |
+          git config user.name "Odrin"
+          git config user.email "odrin666@gmail.com"
+          git fetch origin main
+          git checkout -f main
+          bash scripts/spm-checksum.sh "$PWD/platform-build/NekotonBridge.xcframework.zip"
+          PACKAGE_SWIFT=packages/flutter_nekoton_bridge/ios/flutter_nekoton_bridge/Package.swift
+          if git diff --quiet -- "$PACKAGE_SWIFT"; then
+            echo "SwiftPM checksum already up to date."
+          else
+            git add "$PACKAGE_SWIFT"
+            git commit -m "chore: update SwiftPM XCFramework checksum for ${GITHUB_REF_NAME}"
+            git push origin main
+          fi
 
   publish_pub_release:
     needs: publish_github_release
@@ -54,7 +145,7 @@ jobs:
       - uses: dart-lang/setup-dart@v1
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.41.6'
+          flutter-version: '3.44.x'
           channel: 'stable'
           cache: true
           cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}

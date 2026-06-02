@@ -5,7 +5,7 @@ find . -type f -name "*_generated.*" -delete
 find . -type f -name "*.freezed.dart" -delete
 find . -type f -name "*.g.dart" -delete
 rm -rdf packages/nekoton_bridge/rust/src/api/merged.rs
-rm -rdf packages/flutter_nekoton_bridge/ios/Classes/frb.h
+rm -rdf packages/flutter_nekoton_bridge/ios/flutter_nekoton_bridge/Sources/flutter_nekoton_bridge_ffi/include/frb.h
 
 # Remove build files (output)
 rm -rdf platform-build/{,.[!.],..?}*
@@ -19,6 +19,12 @@ rm -rdf packages/flutter_nekoton_bridge/android/src/main/jniLibs/*
 # Remove build files (working directory, ios)
 rm -rdf packages/flutter_nekoton_bridge/ios/Frameworks/NekotonBridge.xcframework
 rm -rdf packages/flutter_nekoton_bridge/ios/Frameworks/nekoton_bridge*.zip
+
+# Remove build files (working directory, ios SwiftPM)
+rm -rdf packages/flutter_nekoton_bridge/ios/flutter_nekoton_bridge/NekotonBridge.xcframework
+rm -rdf packages/flutter_nekoton_bridge/ios/flutter_nekoton_bridge/*.zip
+rm -rdf packages/flutter_nekoton_bridge/ios/flutter_nekoton_bridge/.build
+rm -rdf packages/flutter_nekoton_bridge/ios/flutter_nekoton_bridge/.swiftpm
 
 # Flutter clean for package
 cd packages/flutter_nekoton_bridge

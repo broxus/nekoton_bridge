@@ -32,17 +32,13 @@ class Storage {
 
   @visibleForTesting
   Storage.test({
-    required StorageGet get,
-    required StorageSet set,
-    required StorageSetUnchecked setUnchecked,
-    required StorageRemove remove,
-    required StorageRemoveUnchecked removeUnchecked,
+    required this._get,
+    required this._set,
+    required this._setUnchecked,
+    required this._remove,
+    required this._removeUnchecked,
     required this.storage,
-  }) : _get = get,
-       _set = set,
-       _setUnchecked = setUnchecked,
-       _remove = remove,
-       _removeUnchecked = removeUnchecked;
+  });
 
   static Storage create({
     required StorageGet get,

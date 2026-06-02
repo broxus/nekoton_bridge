@@ -1,4 +1,4 @@
-release_tag_name = 'nekoton_bridge-v5.6.0' # generated; do not edit
+release_tag_name = 'nekoton_bridge-v5.7.0-dev.2' # generated; do not edit
 
 # We cannot distribute the XCFramework alongside the library directly,
 # so we have to fetch the correct version here.
@@ -17,11 +17,11 @@ Pod::Spec.new do |spec|
   spec.summary       = 'iOS Flutter bindings for nekoton'
 
   spec.source              = { :path => '.' }
-  spec.source_files        = 'Classes/**/*'
-  spec.public_header_files = 'Classes/**/*.h'
+  spec.source_files        = 'flutter_nekoton_bridge/Sources/**/*.{swift,c,h}'
+  spec.public_header_files = 'flutter_nekoton_bridge/Sources/**/*.h'
   spec.vendored_frameworks = "Frameworks/#{framework_name}"
 
-  spec.ios.deployment_target = '11.0'
+  spec.ios.deployment_target = '12.0'
 
   # Prepare the vendored XCFramework deterministically inside the sandbox.
   spec.prepare_command = <<-CMD
