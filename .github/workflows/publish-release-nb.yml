@@ -28,7 +28,6 @@ jobs:
           cache: true
           cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
       - uses: bluefireteam/melos-action@v3
-      - uses: goto-bus-stop/setup-zig@v2
       - uses: KyleMayes/install-llvm-action@v2
         with:
           version: "15"
@@ -62,7 +61,6 @@ jobs:
           cache: true
           cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
       - uses: bluefireteam/melos-action@v3
-      - uses: goto-bus-stop/setup-zig@v2
       - uses: KyleMayes/install-llvm-action@v2
         with:
           version: "15"
