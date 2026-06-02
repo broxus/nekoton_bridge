@@ -61,7 +61,12 @@ jobs:
           git config user.name "Odrin"
           git config user.email "odrin666@gmail.com"
           git fetch origin main
-          git checkout main
+          # build-ios.sh already injected the checksum into Package.swift in the
+          # tag's working tree, leaving it dirty. Force-switch to main (discarding
+          # that transient edit) so the checkout doesn't abort; we regenerate the
+          # checksum on main below. platform-build/ is gitignored, so the zip
+          # survives the switch.
+          git checkout -f main
           bash scripts/spm-checksum.sh "$PWD/platform-build/NekotonBridge.xcframework.zip"
           PACKAGE_SWIFT=packages/flutter_nekoton_bridge/ios/flutter_nekoton_bridge/Package.swift
           if git diff --quiet -- "$PACKAGE_SWIFT"; then
