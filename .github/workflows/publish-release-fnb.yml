@@ -25,7 +25,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: dart-lang/setup-dart@v1
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.44.x'
@@ -39,6 +38,12 @@ jobs:
       # working tree before publishing so the SwiftPM remote binary target in the
       # published package matches the released archive. The script waits/retries
       # until the archive is available.
+      #
+      # This step can wait for many minutes. It MUST run before `setup-dart`,
+      # because `setup-dart` mints the short-lived OIDC token used to authenticate
+      # with pub.dev. If a long wait happened after token creation, the token
+      # would expire before `pub publish` runs ("Invalid JWT token: invalid
+      # timestamps").
       - name: Embed SwiftPM XCFramework checksum
         run: bash scripts/spm-checksum.sh
       # pub publish refuses to publish from a dirty git tree. The checksum is
@@ -50,6 +55,9 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add packages/flutter_nekoton_bridge/ios/flutter_nekoton_bridge/Package.swift
           git commit -m "ci: embed SwiftPM checksum for release" || echo "No changes to commit"
+      # Mint the OIDC token last, right before publishing, so it doesn't expire
+      # while the checksum step waits for the release archive.
+      - uses: dart-lang/setup-dart@v1
       - name: Dry-run publish to pub.dev
         run: melos publish -y --dry-run --scope="flutter_nekoton_bridge"
       - name: Publish to pub.dev
